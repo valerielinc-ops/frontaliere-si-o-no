@@ -3149,6 +3149,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.title': 'La Cina rafforza la tutela dei lavoratori nelle nuove occupazioni',
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.excerpt': 'Nuove linee guida per proteggere i lavoratori delle piattaforme digitali, con focus su compensi e algoritmi.',
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.imageAlt': 'Lavoratori in Ticino che utilizzano piattaforme digitali per nuove occupazioni',
+    'blog.article.usi-ticino-tagli-bilancio-2026.title': 'USI: «Dovremo tagliare nel vivo, le misure collaterali non bastano più»',
+    'blog.article.usi-ticino-tagli-bilancio-2026.excerpt': 'Monica Duca Widmer, presidente del Consiglio dell’Università della Svizzera Italiana, annuncia tagli strutturali per affrontare i ridotti finanziamenti.',
+    'blog.article.usi-ticino-tagli-bilancio-2026.imageAlt': 'Università della Svizzera Italiana sul lago di Lugano',
 };
 
 export default blogMetaIt;

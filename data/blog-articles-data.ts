@@ -8358,4 +8358,11 @@ export const ARTICLES = [
  image: '/images/blog/cina-tutela-lavoratori-nuove-occupazioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'usi-ticino-tagli-bilancio-2026',
+ category: 'novita',
+ date: '2026-04-27T22:55:56.511Z',
+ image: '/images/blog/usi-ticino-tagli-bilancio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

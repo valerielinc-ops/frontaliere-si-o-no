@@ -3148,6 +3148,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.title': 'China strengthens protection for new job workers',
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.excerpt': 'New guidelines to protect digital platform workers, focusing on compensation and algorithms.',
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.imageAlt': 'Workers in Ticino using digital platforms for new occupations',
+    'blog.article.usi-ticino-tagli-bilancio-2026.title': 'USI: \'We must cut to the bone, side measures are no longer enough\'',
+    'blog.article.usi-ticino-tagli-bilancio-2026.excerpt': 'Monica Duca Widmer, president of the University of Italian Switzerland, announces structural cuts to address reduced funding.',
+    'blog.article.usi-ticino-tagli-bilancio-2026.imageAlt': 'University of Swiss Italian on Lake Lugano',
 };
 
 export default blogMetaEn;

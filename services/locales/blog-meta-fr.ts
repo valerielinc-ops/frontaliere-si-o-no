@@ -3149,6 +3149,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.title': 'La Chine renforce la protection des travailleurs dans les nouvelles occupations',
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.excerpt': 'Nouvelles directives pour protéger les travailleurs des plateformes numériques, avec un accent sur les salaires et les algorithmes.',
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.imageAlt': 'Travailleurs au Tessin utilisant des plateformes numériques pour de nouvelles occupations',
+    'blog.article.usi-ticino-tagli-bilancio-2026.title': 'USI : «Il faut couper dans le vif, les mesures collatérales ne suffisent plus»',
+    'blog.article.usi-ticino-tagli-bilancio-2026.excerpt': 'Monica Duca Widmer, présidente du Conseil de l’Université de la Suisse italienne, annonce des coupes structurelles pour faire face aux financements réduits.',
+    'blog.article.usi-ticino-tagli-bilancio-2026.imageAlt': 'Université de la Suisse Italienne sur le lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -3148,6 +3148,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.title': 'China stärkt den Schutz von Plattformarbeitern',
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.excerpt': 'Neue Richtlinien zum Schutz von digitalen Plattformarbeitern mit Fokus auf Vergütung und Algorithmen.',
     'blog.article.cina-tutela-lavoratori-nuove-occupazioni.imageAlt': 'Arbeiter in der Schweiz, die digitale Plattformen für neue Beschäftigungen nutzen',
+    'blog.article.usi-ticino-tagli-bilancio-2026.title': 'USI: «Wir müssen tief schneiden, Nebenmaßnahmen reichen nicht mehr»',
+    'blog.article.usi-ticino-tagli-bilancio-2026.excerpt': 'Monica Duca Widmer, Präsidentin des Universitätsrats der Universität der italienischen Schweiz, kündigt strukturelle Kürzungen an, um die reduzierten Finanzierungen zu bewältigen.',
+    'blog.article.usi-ticino-tagli-bilancio-2026.imageAlt': 'Universität der Schweizer Italienisch am Luganersee',
 };
 
 export default blogMetaDe;
