@@ -26,9 +26,15 @@ function ensureDir(dir: string) {
 /**
  * Flush an array of pending writes in parallel batches.
  * @param writes - Array of { filePath, content } objects
- * @param concurrency - Number of files written in parallel per batch (default 200)
+ * @param concurrency - Number of files written in parallel per batch.
+ *
+ * Default 500: tuned for ubuntu-latest CI runners (SSD-backed, ulimit -n
+ * default 65535). Local benchmark on ~175K files saw ~30 % flush-time
+ * reduction going 200→500 without measurable contention. Stay below
+ * ~1024 to remain compatible with conservative ulimits (e.g. macOS
+ * launchd default 256/1024).
  */
-export async function flushWrites(writes: PendingWrite[], concurrency = 200): Promise<number> {
+export async function flushWrites(writes: PendingWrite[], concurrency = 500): Promise<number> {
  // Pre-create all unique directories first (sync, very fast)
  const dirs = new Set<string>();
  for (const w of writes) dirs.add(path.dirname(w.filePath));
@@ -98,8 +104,8 @@ export class WriteCollector {
  get count() { return this.writes.length; }
  get skippedByHash() { return this._skippedByHash; }
 
- /** Flush all queued writes in parallel batches */
- async flush(concurrency = 200): Promise<number> {
+ /** Flush all queued writes in parallel batches (see {@link flushWrites}) */
+ async flush(concurrency = 500): Promise<number> {
  return flushWrites(this.writes, concurrency);
  }
 }
