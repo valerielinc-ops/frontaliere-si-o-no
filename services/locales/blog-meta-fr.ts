@@ -3104,6 +3104,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-moto-storiche-2026.title': 'Rassemblement de motos anciennes à Varese : un plongeon dans les années 80 et 90',
     'blog.article.varese-moto-storiche-2026.excerpt': 'Dimanche 26 avril 2026, un rassemblement de motos anciennes entre Varese et le lac Majeur. Environ 100 motocyclettes iconiques en exposition.',
     'blog.article.varese-moto-storiche-2026.imageAlt': 'Rassemblement de motos anciennes sur le Lac Majeur',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.title': 'Nouveau contrat Tessin: jours courts et protection',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.excerpt': 'Accord jusqu\'en 2031 avec de nouvelles règles sur les horaires et les conditions de travail. Focus sur la sécurité et le renouvellement générationnel',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.imageAlt': 'Chantier de construction à Lugano avec des ouvriers et des machines modernes',
 };
 
 export default blogMetaFr;

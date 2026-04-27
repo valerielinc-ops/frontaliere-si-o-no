@@ -8253,4 +8253,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-moto-storiche-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovo-contratto-edilizia-ticino-2026',
+ category: 'novita',
+ date: '2026-04-27T21:12:16.028Z',
+ image: '/images/blog/nuovo-contratto-edilizia-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

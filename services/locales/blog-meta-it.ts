@@ -3104,6 +3104,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-moto-storiche-2026.title': 'Raduno di moto storiche a Varese: un tuffo negli anni \'80 e \'90',
     'blog.article.varese-moto-storiche-2026.excerpt': 'Domenica 26 aprile 2026, un raduno di moto storiche tra Varese e il Lago Maggiore. Circa 100 motociclette iconiche in mostra.',
     'blog.article.varese-moto-storiche-2026.imageAlt': 'Raduno di moto storiche al Lago Maggiore',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.title': 'Nuovo contratto edilizia Ticino: giornate più corte e tutela dalle intemperie',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.excerpt': 'Accordo fino al 2031 con nuove regole su orari e condizioni di lavoro. Focus su sicurezza e ricambio generazionale',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.imageAlt': 'Cantiere edile a Lugano con operai e macchinari moderni',
 };
 
 export default blogMetaIt;

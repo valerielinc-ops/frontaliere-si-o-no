@@ -16975,6 +16975,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-contratto-edilizia-ticino-2026': {
+    title: 'Nuovo contratto edilizia Ticino: giornate più corte e tutela dalle intemperie',
+    description: 'Accordo fino al 2031 con nuove regole su orari e condizioni di lavoro. Focus su sicurezza e ricambio generazionale nel settore edile ticinese. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, contratto, edilizia, giornate',
+    ogTitle: 'Nuovo contratto edilizia Ticino: giornate più corte e tutela dalle intemperie',
+    ogDescription: 'Accordo fino al 2031 con nuove regole su orari e condizioni di lavoro. Focus su sicurezza e ricambio generazionale nel settore edile ticinese',
+    canonicalPath: '/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo contratto edilizia Ticino: giornate più corte e tutela dalle intemperie",
+      "description": "Accordo fino al 2031 con nuove regole su orari e condizioni di lavoro. Focus su sicurezza e ricambio generazionale nel settore edile ticinese. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-contratto-edilizia-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile a Lugano con operai e macchinari moderni"
+      },
+      "datePublished": "2026-04-27T21:12:16+00:00",
+      "dateModified": "2026-04-27T21:12:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

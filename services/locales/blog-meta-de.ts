@@ -3103,6 +3103,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-moto-storiche-2026.title': 'Moto-Klassiker-Treffen in Varese: Zeitreise in die 80er und 90er',
     'blog.article.varese-moto-storiche-2026.excerpt': 'Am Sonntag, den 26. April 2026, findet ein Treffen von Oldtimern zwischen Varese und dem Lago Maggiore statt. Rund 100 ikonische Motorräder werden ausgestellt.',
     'blog.article.varese-moto-storiche-2026.imageAlt': 'Oldtimer-Motorrad-Treffen am Lago Maggiore',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.title': 'Neuer Baubeschluss im Tessin: kürzere Arbeitstage und Schutz vor Witterung',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.excerpt': 'Abkommen bis 2031 mit neuen Regeln zu Arbeitszeiten und -bedingungen. Fokus auf Sicherheit und Generationenwechsel',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.imageAlt': 'Bauplatz in Lugano mit Arbeitern und modernen Maschinen',
 };
 
 export default blogMetaDe;

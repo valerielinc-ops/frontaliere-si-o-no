@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1084,
+ "numberOfItems": 1085,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5808,7 +5808,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1081, "name": "58enne fugge in trottinetti a 127 km/h e viene ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-trottinetti-velocita-polizia` },
           { "@type": "ListItem", "position": 1082, "name": "ATS Insubria sperimenta RSA diffusa e bed block...", "url": `${BASE_URL}/articoli-frontaliere/ats-insubria-soluzioni-ospedali-2026` },
           { "@type": "ListItem", "position": 1083, "name": "Avis Lombardia lancia l'allarme: il dono del sa...", "url": `${BASE_URL}/articoli-frontaliere/avis-lombardia-dono-sangue-privati-2026` },
-          { "@type": "ListItem", "position": 1084, "name": "Raduno di moto storiche a Varese: un tuffo negl...", "url": `${BASE_URL}/articoli-frontaliere/varese-moto-storiche-2026` }
+          { "@type": "ListItem", "position": 1084, "name": "Raduno di moto storiche a Varese: un tuffo negl...", "url": `${BASE_URL}/articoli-frontaliere/varese-moto-storiche-2026` },
+          { "@type": "ListItem", "position": 1085, "name": "Nuovo contratto edilizia Ticino: giornate più c...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026` }
  ]
  },
  {

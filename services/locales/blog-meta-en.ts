@@ -3103,6 +3103,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-moto-storiche-2026.title': 'Vintage motorbike rally in Varese: a leap back to the \'80s and \'90s',
     'blog.article.varese-moto-storiche-2026.excerpt': 'On Sunday, April 26, 2026, a vintage motorbike rally between Varese and Lake Maggiore. Around 100 iconic motorcycles on display.',
     'blog.article.varese-moto-storiche-2026.imageAlt': 'Vintage motorcycle rally on Lake Maggiore',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.title': 'New Ticino construction contract: shorter days and weather protection',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.excerpt': 'Agreement until 2031 with new rules on working hours and conditions. Focus on safety and generational change',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026.imageAlt': 'Construction site in Lugano with workers and modern machinery',
 };
 
 export default blogMetaEn;
