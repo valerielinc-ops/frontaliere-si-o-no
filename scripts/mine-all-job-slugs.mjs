@@ -422,8 +422,23 @@ function main() {
   // Update tracking: add missing slugs, fill missing locales
   let added = 0;
   let patched = 0;
+  let reservedHubsSkipped = 0;
+
+  // Sector + city hub slugs are owned by jobSectorPagesPlugin / cityJobsHubPlugin.
+  // Registering them in the job tracker would let jobsSeoPagesPlugin emit a
+  // soft-landing that overwrites the legitimate hub HTML.
+  const RESERVED_HUB_SLUGS = new Set([
+    'infermieri', 'nurses', 'pflegepersonal', 'infirmiers',
+    'case-anziani', 'elderly-care', 'altenpflege', 'maisons-retraite',
+    'educatori', 'educators', 'erzieher', 'educateurs',
+    'lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso',
+  ]);
 
   for (const [slug, data] of allSlugs) {
+    if (RESERVED_HUB_SLUGS.has(slug)) {
+      reservedHubsSkipped++;
+      continue;
+    }
     // Ensure slug has all 4 locale paths
     const localePaths = { ...data.locales };
     for (const l of ['it', 'en', 'de', 'fr']) {
@@ -447,6 +462,9 @@ function main() {
   }
 
   console.log(`\n  Tracking: ${added} new, ${patched} patched (${initialCount} → ${Object.keys(tracking).length})`);
+  if (reservedHubsSkipped > 0) {
+    console.log(`  🛡️  Skipped ${reservedHubsSkipped} reserved hub slug(s) (would clobber sector/city hub HTML)`);
+  }
 
   // Update compat paths: add ALL tracking paths as safety net
   const compatFile = dataPath('seo-404-compat-paths.json');

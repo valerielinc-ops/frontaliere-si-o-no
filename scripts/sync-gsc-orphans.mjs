@@ -34,6 +34,24 @@ const SITE_URL = 'https://frontaliereticino.ch';
 let resolvedSiteUrl = SITE_URL;
 const DRY_RUN = process.argv.includes('--dry-run');
 
+/**
+ * Reserved hub slugs that MUST NOT be written into all-known-job-slugs.json.
+ * These paths are owned by jobSectorPagesPlugin / cityJobsHubPlugin and the
+ * SPA router treats them as sector/city hubs, not job details. If they leak
+ * into the tracking file the soft-landing generator clobbers the hub HTML.
+ *
+ * Mirror of SECTOR_HUB_SLUG (build-plugins/jobSectorLanding.ts) +
+ * CITY_HUB_SLUG (build-plugins/cityJobsHub.ts), kept in sync manually.
+ */
+const RESERVED_HUB_SLUGS = new Set([
+  // Sector hubs (3 sectors × 4 locales)
+  'infermieri', 'nurses', 'pflegepersonal', 'infirmiers',
+  'case-anziani', 'elderly-care', 'altenpflege', 'maisons-retraite',
+  'educatori', 'educators', 'erzieher', 'educateurs',
+  // City hubs (5 cities — same slug across all locales)
+  'lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso',
+]);
+
 // Window configuration — GSC retains Search Analytics for ~16 months (~480 days).
 // Default to 480; allow override via --days=N for shorter ad-hoc runs.
 const DEFAULT_WINDOW_DAYS = 480;
@@ -1253,9 +1271,17 @@ async function main() {
       }
     }
 
+    let reservedHubsSkipped = 0;
     for (const o of orphans) {
       // Skip enrichment-only entries — they're already in tracking
       if (o.source === 'enrichment-only') continue;
+      // Skip sector/city hub slugs — owned by jobSectorPagesPlugin /
+      // cityJobsHubPlugin. Registering them here would let jobsSeoPagesPlugin
+      // emit a job soft-landing that overwrites the legitimate hub HTML.
+      if (RESERVED_HUB_SLUGS.has(o.slug)) {
+        reservedHubsSkipped++;
+        continue;
+      }
       // Check if this slug already exists as a locale path in another entry
       let existingKey = null;
       for (const locale of ['it', 'en', 'de', 'fr']) {
@@ -1296,6 +1322,9 @@ async function main() {
     if (trackingAdded > 0 || trackingPatched > 0) {
       fs.writeFileSync(trackingFile, JSON.stringify(tracking, null, 2) + '\n');
       console.log(`  ✅ Tracking: ${trackingAdded} new slugs registered, ${trackingPatched} existing entries patched (total: ${Object.keys(tracking).length})`);
+    }
+    if (reservedHubsSkipped > 0) {
+      console.log(`  🛡️  Skipped ${reservedHubsSkipped} reserved hub slug(s) (sector/city hubs — would clobber hub HTML)`);
     }
   }
 

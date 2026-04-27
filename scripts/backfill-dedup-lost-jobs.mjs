@@ -721,6 +721,16 @@ function applyToDisk(filtered) {
  * locale gets a path under its section prefix, mirroring how jobsSeoPagesPlugin
  * auto-populates tracking entries from active jobs.
  */
+// Sector + city hub slugs are owned by jobSectorPagesPlugin / cityJobsHubPlugin.
+// Registering them in the job tracker would let jobsSeoPagesPlugin emit a
+// soft-landing that overwrites the legitimate hub HTML.
+const RESERVED_HUB_SLUGS = new Set([
+  'infermieri', 'nurses', 'pflegepersonal', 'infirmiers',
+  'case-anziani', 'elderly-care', 'altenpflege', 'maisons-retraite',
+  'educatori', 'educators', 'erzieher', 'educateurs',
+  'lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso',
+]);
+
 function applyToTracking(filtered) {
   let tracking = {};
   if (fs.existsSync(TRACKING_PATH)) {
@@ -730,10 +740,15 @@ function applyToTracking(filtered) {
     } catch { /* start fresh */ }
   }
   let added = 0;
+  let reservedHubsSkipped = 0;
   for (const proposals of filtered.values()) {
     for (const entry of proposals) {
       const slug = entry.slug;
       if (!slug || tracking[slug]) continue;
+      if (RESERVED_HUB_SLUGS.has(slug)) {
+        reservedHubsSkipped++;
+        continue;
+      }
       tracking[slug] = {};
       for (const locale of LOCALE_LIST) {
         const section = SECTION_BY_LOCALE[locale];
@@ -746,6 +761,9 @@ function applyToTracking(filtered) {
   }
   if (added > 0) {
     fs.writeFileSync(TRACKING_PATH, `${JSON.stringify(tracking, null, 2)}\n`, 'utf8');
+  }
+  if (reservedHubsSkipped > 0) {
+    console.log(`  🛡️  Skipped ${reservedHubsSkipped} reserved hub slug(s) (would clobber sector/city hub HTML)`);
   }
   return { added, total: Object.keys(tracking).length };
 }

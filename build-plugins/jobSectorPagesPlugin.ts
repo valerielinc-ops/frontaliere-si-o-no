@@ -361,7 +361,8 @@ ${alternates}
           ${jobsHtml}
         </section>
         ${faqHtml}
-      </main>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+      </main>
+    <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
 </html>`;
 

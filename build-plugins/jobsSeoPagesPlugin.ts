@@ -5323,7 +5323,6 @@ ${alternates}
  if (searchCombosRemoved > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Cleaned ${searchCombosRemoved} search combo slugs from tracking`);
  }
- fs.writeFileSync(trackingPath, JSON.stringify(tracking, null, 2) + '\n', 'utf-8');
 
  // Reserved hub slugs — sector + city hub URLs (e.g. /cerca-lavoro-ticino/infermieri/,
  // /cerca-lavoro-ticino/lugano/) MUST NOT be registered as orphan/compat job slugs.
@@ -5342,6 +5341,23 @@ ${alternates}
  RESERVED_HUB_SLUGS.add(CITY_HUB_SLUG[loc][city]);
  }
  }
+
+ // Strip pre-existing reserved-hub keys from tracking BEFORE the file write.
+ // Earlier GSC imports leaked "infermieri" into all-known-job-slugs.json and
+ // the resulting soft-landing clobbered jobSectorPagesPlugin's hub output.
+ // Skip current job slugs to avoid breaking real jobs that happen to share
+ // a slug with a hub key.
+ let reservedHubsRemoved = 0;
+ for (const key of Object.keys(tracking)) {
+ if (RESERVED_HUB_SLUGS.has(key) && !currentSlugs.has(key)) {
+ delete tracking[key];
+ reservedHubsRemoved++;
+ }
+ }
+ if (reservedHubsRemoved > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Removed ${reservedHubsRemoved} reserved hub slug(s) from tracking (would have clobbered sector/city hubs)`);
+ }
+ fs.writeFileSync(trackingPath, JSON.stringify(tracking, null, 2) + '\n', 'utf-8');
 
  // 1b. Merge orphan indexed slugs (GSC-indexed URLs with no matching job)
  // into the tracking so they get soft-landing pages too.
