@@ -772,10 +772,10 @@
     },
     {
       "id": "badrutts-palace-76dc46ecebf9",
-      "slug": "commis-patissier-m-w-d-badrutts-palace-ch",
+      "slug": "projektmanager-m-w-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "de": "commis-patissier-m-w-d-badrutts-palace-ch",
-        "it": "commis-patissier-m-w-d-badrutts-palace-ch",
+        "it": "projektmanager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "en": "commis-patissier-m-w-d-badrutts-palace-ch",
         "fr": "commis-patissier-m-w-d-badrutt-s-palace-hotel-st-moritz"
       },
@@ -831,7 +831,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T10:21:45.774Z"
+      "firstSeenAt": "2026-04-27T10:21:45.774Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-patissier-m-w-d-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commis-patissier-m-w-d-badrutts-palace-ch"
+      ]
     },
     {
       "id": "badrutts-palace-829f257cfe35",

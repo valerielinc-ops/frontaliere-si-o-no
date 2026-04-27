@@ -24,12 +24,12 @@
         "en": "LAA Manager (h/f) 100% - temporary 8 months",
         "de": "LAA Manager (h/f) 100% - temporär 8 Monate"
       },
-      "slug": "gestionnaire-laa-m-w-d-100-temporaire-8-mois-groupe-mutuel-lausanne",
+      "slug": "laa-manager-h-f-100-temporaneo-8-mesi-groupe-mutuel-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel",
-        "en": "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel",
-        "it": "gestionnaire-laa-m-w-d-100-temporaire-8-mois-groupe-mutuel-lausanne",
-        "de": "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel"
+        "en": "laa-manager-h-f-100-temporary-8-months-groupe-mutuel-lausanne",
+        "it": "laa-manager-h-f-100-temporaneo-8-mesi-groupe-mutuel-lausanne",
+        "de": "laa-manager-h-f-100-temporar-8-monate-groupe-mutuel-lausanne"
       },
       "category": "administration",
       "datePosted": "2026-04-27",
@@ -47,11 +47,19 @@
       "id": "groupe-mutuel-ce935fac8c0b",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel",
+          "gestionnaire-laa-m-w-d-100-temporaire-8-mois-groupe-mutuel-lausanne"
+        ],
+        "en": [
+          "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel"
+        ],
+        "de": [
           "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel"
+        "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel",
+        "gestionnaire-laa-m-w-d-100-temporaire-8-mois-groupe-mutuel-lausanne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

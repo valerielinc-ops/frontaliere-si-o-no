@@ -197,12 +197,12 @@
     },
     {
       "id": "coopers-8919918ec04f",
-      "slug": "lead-expeditor-m-f-d-coopers-wallis",
+      "slug": "responsabile-expeditore-lun-fi-d-coopers-group-ag-wallis",
       "slugByLocale": {
         "en": "lead-expeditor-m-f-d-coopers-wallis",
-        "it": "lead-expeditor-m-f-d-coopers-wallis",
-        "de": "lead-expeditor-m-f-d-coopers-wallis",
-        "fr": "lead-expeditor-m-f-d-coopers-wallis"
+        "it": "responsabile-expeditore-lun-fi-d-coopers-group-ag-wallis",
+        "de": "leiter-m-f-d-coopers-group-ag-wallis",
+        "fr": "expediteur-de-plomb-m-f-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -277,7 +277,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-27T10:42:06.251Z"
+      "firstSeenAt": "2026-04-27T10:42:06.251Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-expeditor-m-f-d-coopers-wallis"
+        ],
+        "de": [
+          "lead-expeditor-m-f-d-coopers-wallis"
+        ],
+        "fr": [
+          "lead-expeditor-m-f-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "lead-expeditor-m-f-d-coopers-wallis"
+      ]
     }
   ]
 }
