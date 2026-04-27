@@ -599,7 +599,7 @@ const SALARY_HUB_PAGE_STYLE = `<style>
 .salary-hub-page{max-width:1200px;margin:0 auto;padding:24px 16px;color:#334155;line-height:1.7}
 .salary-hub-page .hub-grid{display:grid;grid-template-columns:1fr;gap:24px}
 .salary-hub-page .rail{display:none}
-@media(min-width:1024px){.salary-hub-page .hub-grid{grid-template-columns:160px 1fr 160px}.salary-hub-page .rail{position:sticky;top:80px;align-self:start;display:block}}
+@media(min-width:1024px){.salary-hub-page .hub-grid{grid-template-columns:160px minmax(0,1fr) 160px}.salary-hub-page .rail{position:sticky;top:80px;align-self:start;display:block}.salary-hub-page .content{grid-column:2}}
 .salary-hub-page .content{min-width:0}
 .salary-hub-page .breadcrumb{font-size:13px;color:#64748b;margin-bottom:16px}
 .salary-hub-page .breadcrumb a{color:#533afd;text-decoration:none}

@@ -624,7 +624,7 @@ const SALARY_HUB_ARTICLE_STYLE = `<style>
 .salary-hub-page{max-width:1200px;margin:0 auto;padding:24px 16px;color:#334155;line-height:1.7}
 .salary-hub-page .hub-grid{display:grid;grid-template-columns:1fr;gap:24px}
 .salary-hub-page .rail{display:none}
-@media(min-width:1024px){.salary-hub-page .hub-grid{grid-template-columns:160px 1fr 160px}.salary-hub-page .rail{position:sticky;top:80px;align-self:start;display:block}}
+@media(min-width:1024px){.salary-hub-page .hub-grid{grid-template-columns:160px minmax(0,1fr) 160px}.salary-hub-page .rail{position:sticky;top:80px;align-self:start;display:block}.salary-hub-page .content{grid-column:2}}
 .salary-hub-page .content{min-width:0}
 .salary-hub-page h1{font-size:28px;font-weight:800;color:#1e293b;margin:0 0 16px;line-height:1.3}
 .salary-hub-page h2{font-size:20px;font-weight:700;color:#1e293b;margin:32px 0 12px}
