@@ -17033,6 +17033,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-biciclette-mendrisiotto-2026': {
+    title: 'Due arresti per furti di biciclette nel Mendrisiotto',
+    description: 'Due cittadini rumeni arrestati con tre biciclette smontate e attrezzi da scasso. Polizia ricorda consigli per prevenire furti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, arresti, furti, biciclette, mendrisiotto',
+    ogTitle: 'Due arresti per furti di biciclette nel Mendrisiotto',
+    ogDescription: 'Due cittadini rumeni arrestati con tre biciclette smontate e attrezzi da scasso. Polizia ricorda consigli per prevenire furti.',
+    canonicalPath: '/articoli-frontaliere/furti-biciclette-mendrisiotto-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Due arresti per furti di biciclette nel Mendrisiotto",
+      "description": "Due cittadini rumeni arrestati con tre biciclette smontate e attrezzi da scasso. Polizia ricorda consigli per prevenire furti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furti-biciclette-mendrisiotto-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada affollata a Mendrisio con negozio di biciclette e polizia in sottofondo"
+      },
+      "datePublished": "2026-04-27T21:25:53+00:00",
+      "dateModified": "2026-04-27T21:25:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-biciclette-mendrisiotto-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

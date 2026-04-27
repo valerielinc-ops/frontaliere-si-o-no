@@ -8267,4 +8267,11 @@ export const ARTICLES = [
  image: '/images/blog/viabilita-varese-racordo-chiuso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'furti-biciclette-mendrisiotto-2026',
+ category: 'novita',
+ date: '2026-04-27T21:25:53.515Z',
+ image: '/images/blog/furti-biciclette-mendrisiotto-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

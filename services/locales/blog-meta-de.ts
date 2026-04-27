@@ -3109,6 +3109,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.viabilita-varese-racordo-chiuso-2026.title': 'Teilweise Sperrung der Anschlussstelle Varese-A8 am Montagabend',
     'blog.article.viabilita-varese-racordo-chiuso-2026.excerpt': 'Von 22:00 bis 24:00 Uhr am Montag, den 27. April 2026, ist der Einfahrtast zur A8 Mailand-Varese in Richtung Varese gesperrt.',
     'blog.article.viabilita-varese-racordo-chiuso-2026.imageAlt': 'Luftaufnahme von Varese und dem Varese-See, Italien, mit der Autobahn A8 sichtbar, bei Sonnenuntergang.',
+    'blog.article.furti-biciclette-mendrisiotto-2026.title': 'Zwei Festnahmen wegen Fahrraddiebstählen im Mendrisiotto',
+    'blog.article.furti-biciclette-mendrisiotto-2026.excerpt': 'Zwei rumänische Staatsbürger wurden mit drei zerlegten Fahrrädern und Einbruchswerkzeug festgenommen. Die Polizei erinnert an Tipps zur Diebstahlprävention.',
+    'blog.article.furti-biciclette-mendrisiotto-2026.imageAlt': 'Belebte Straße in Mendrisio mit einem Fahrradgeschäft und Polizeiaktivität im Hintergrund',
 };
 
 export default blogMetaDe;

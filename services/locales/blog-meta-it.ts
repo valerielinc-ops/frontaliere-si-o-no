@@ -3110,6 +3110,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.viabilita-varese-racordo-chiuso-2026.title': 'Chiusura parziale raccordo Varese-A8 lunedì sera',
     'blog.article.viabilita-varese-racordo-chiuso-2026.excerpt': 'Dalle 22:00 alle 24:00 di lunedì 27 aprile 2026 chiuso il ramo di immissione sulla A8 Milano-Varese, verso Varese.',
     'blog.article.viabilita-varese-racordo-chiuso-2026.imageAlt': 'Vista aerea di Varese e del Lago di Varese, con l\'autostrada A8 visibile, al tramonto.',
+    'blog.article.furti-biciclette-mendrisiotto-2026.title': 'Due arresti per furti di biciclette nel Mendrisiotto',
+    'blog.article.furti-biciclette-mendrisiotto-2026.excerpt': 'Due cittadini rumeni arrestati con tre biciclette smontate e attrezzi da scasso. Polizia ricorda consigli per prevenire furti.',
+    'blog.article.furti-biciclette-mendrisiotto-2026.imageAlt': 'Strada affollata a Mendrisio con negozio di biciclette e polizia in sottofondo',
 };
 
 export default blogMetaIt;
