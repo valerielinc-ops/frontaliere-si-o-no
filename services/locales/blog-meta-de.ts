@@ -3136,6 +3136,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ospedale-varese-acqua-calda-oncologia.title': 'Kein warmes Wasser in der Onkologie des Krankenhauses von Varese',
     'blog.article.ospedale-varese-acqua-calda-oncologia.excerpt': 'Störungen im Onkologie- und Pneumologie-Bereich gemeldet. Die Sette Laghi: Lösung in Kürze.',
     'blog.article.ospedale-varese-acqua-calda-oncologia.imageAlt': 'Krankenhaus Varese mit Seeblick',
+    'blog.article.cinque-nordafricani-festnati-auto-aarau.title': 'Fünf Nordafrikaner wegen Autodiebstahl verhaftet',
+    'blog.article.cinque-nordafricani-festnati-auto-aarau.excerpt': 'Verhaftungsnacht in Aarau: Fünf nordafrikanische Männer wegen Autodiebstahls festgenommen',
+    'blog.article.cinque-nordafricani-festnati-auto-aarau.imageAlt': 'Polizei in Aarau in der Nacht neben geparkten Autos',
 };
 
 export default blogMetaDe;

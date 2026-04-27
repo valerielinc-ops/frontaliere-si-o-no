@@ -2306,6 +2306,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-ambulatorio-ecocardiografia-busto-arsizio': { name: 'Novità sanità', path: '/articoli-frontaliere/nuovo-ambulatorio-ecocardiografia-busto-arsizio', parent: 'blog' },
     'blog-velafrica-bici-usate-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/velafrica-bici-usate-lugano-2026', parent: 'blog' },
     'blog-ospedale-varese-acqua-calda-oncologia': { name: 'Ospedale Varese', path: '/articoli-frontaliere/ospedale-varese-acqua-calda-oncologia', parent: 'blog' },
+    'blog-cinque-nordafricani-festnati-auto-aarau': { name: 'Notizie', path: '/articoli-frontaliere/cinque-nordafricani-festnati-auto-aarau', parent: 'blog' },
  };
 
  const info = sectionNames[section];

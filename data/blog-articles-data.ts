@@ -8330,4 +8330,11 @@ export const ARTICLES = [
  image: '/images/blog/ospedale-varese-acqua-calda-oncologia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cinque-nordafricani-festnati-auto-aarau',
+ category: 'novita',
+ date: '2026-04-27T22:26:10.409Z',
+ image: '/images/blog/cinque-nordafricani-festnati-auto-aarau.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -17294,6 +17294,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cinque-nordafricani-festnati-auto-aarau': {
+    title: 'Cinque nordafricani arrestati per furti d\'auto | Frontaliere Ticino',
+    description: 'Notte di arresti ad Aarau: cinque uomini nordafricani fermati per sospetti furti d\'auto. Scopri cosa è successo e come proteggere i tuoi veicoli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cinque, nordafricani, arrestati, furti',
+    ogTitle: 'Cinque nordafricani arrestati per furti d\'auto',
+    ogDescription: 'Notte di arresti ad Aarau: cinque uomini nordafricani fermati per sospetti furti d\'auto. Scopri cosa è successo e come proteggere i tuoi veicoli.',
+    canonicalPath: '/articoli-frontaliere/cinque-nordafricani-festnati-auto-aarau',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cinque nordafricani arrestati per furti d'auto",
+      "description": "Notte di arresti ad Aarau: cinque uomini nordafricani fermati per sospetti furti d'auto. Scopri cosa è successo e come proteggere i tuoi veicoli.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cinque-nordafricani-festnati-auto-aarau.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia a Aarau di notte vicino a auto parcheggiate"
+      },
+      "datePublished": "2026-04-27T22:26:10+00:00",
+      "dateModified": "2026-04-27T22:26:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cinque-nordafricani-festnati-auto-aarau`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

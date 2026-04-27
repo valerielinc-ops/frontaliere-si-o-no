@@ -3137,6 +3137,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ospedale-varese-acqua-calda-oncologia.title': 'Ospedale di Varese senza acqua calda in oncologia',
     'blog.article.ospedale-varese-acqua-calda-oncologia.excerpt': 'Disservizi segnalati nel reparto di oncologia e pneumologia. La Sette Laghi: soluzione in tempi brevi.',
     'blog.article.ospedale-varese-acqua-calda-oncologia.imageAlt': 'Ospedale di Varese con vista lago',
+    'blog.article.cinque-nordafricani-festnati-auto-aarau.title': 'Cinque nordafricani arrestati per furti d\'auto',
+    'blog.article.cinque-nordafricani-festnati-auto-aarau.excerpt': 'Notte di arresti ad Aarau: cinque uomini nordafricani fermati per sospetti furti d\'auto',
+    'blog.article.cinque-nordafricani-festnati-auto-aarau.imageAlt': 'Polizia a Aarau di notte vicino a auto parcheggiate',
 };
 
 export default blogMetaIt;
