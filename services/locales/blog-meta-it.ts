@@ -2886,6 +2886,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.zurigo-economia-svizzera-crescita-media-2026.title': 'Zurigo guida l\'economia svizzera, ma cresce meno della media',
     'blog.article.zurigo-economia-svizzera-crescita-media-2026.excerpt': 'Zurigo contribuisce al 21% del PIL svizzero, ma cresce solo dell\'1,3% contro il 1,7% nazionale. Scopri perché e cosa significa per i frontalieri.',
     'blog.article.zurigo-economia-svizzera-crescita-media-2026.imageAlt': 'Vista aerea di Lugano e del Lago di Lugano in una giornata di sole con cieli blu limpidi',
+    'blog.article.swisscom-minacce-cyber-2026.title': 'Swisscom avverte: minacce informatiche in aumento nel 2026',
+    'blog.article.swisscom-minacce-cyber-2026.excerpt': 'L\'operatore svizzero Swisscom segnala un forte aumento delle minacce informatiche, con rischi legati all\'IA e alle tensioni geopolitiche',
+    'blog.article.swisscom-minacce-cyber-2026.imageAlt': 'Paesaggio digitale di minacce informatiche in Ticino, con schermi che mostrano attacchi informatici e IA',
 };
 
 export default blogMetaIt;

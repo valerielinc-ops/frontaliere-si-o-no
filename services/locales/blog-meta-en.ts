@@ -2886,6 +2886,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.zurigo-economia-svizzera-crescita-media-2026.title': 'Zurich leads the Swiss economy, but grows less than the average',
     'blog.article.zurigo-economia-svizzera-crescita-media-2026.excerpt': 'Zurich contributes 21% of Switzerland\'s GDP, but only grows by 1.3% compared to the national average of 1.7%. Find out why and what this means for cross-border workers.',
     'blog.article.zurigo-economia-svizzera-crescita-media-2026.imageAlt': 'Aerial view of Lugano and Lake Lugano on a sunny day with clear blue skies',
+    'blog.article.swisscom-minacce-cyber-2026.title': 'Swisscom warns: cyber threats on the rise in 2026',
+    'blog.article.swisscom-minacce-cyber-2026.excerpt': 'The Swiss operator Swisscom reports a significant increase in cyber threats, with risks related to AI and geopolitical tensions',
+    'blog.article.swisscom-minacce-cyber-2026.imageAlt': 'Digital landscape of cyber threats in Ticino, with screens showing data breaches and AI threats',
 };
 
 export default blogMetaEn;

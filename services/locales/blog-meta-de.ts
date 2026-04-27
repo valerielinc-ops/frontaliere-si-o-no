@@ -2886,6 +2886,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.zurigo-economia-svizzera-crescita-media-2026.title': 'Zürich führt die Schweizer Wirtschaft an, wächst aber unter dem Durchschnitt',
     'blog.article.zurigo-economia-svizzera-crescita-media-2026.excerpt': 'Zürich trägt 21% zum Schweizer BIP bei, wächst aber nur um 1,3% im Vergleich zu 1,7% auf nationaler Ebene. Erfahren Sie, warum und was das für Grenzgänger bedeutet.',
     'blog.article.zurigo-economia-svizzera-crescita-media-2026.imageAlt': 'Luftaufnahme von Lugano und dem Luganersee an einem sonnigen Tag mit klarem blauen Himmel',
+    'blog.article.swisscom-minacce-cyber-2026.title': 'Swisscom warnt: Zunehmende Cyberbedrohungen bis 2026',
+    'blog.article.swisscom-minacce-cyber-2026.excerpt': 'Der Schweizer Anbieter Swisscom meldet einen starken Anstieg der Cyberbedrohungen, mit Risiken im Zusammenhang mit KI und geopolitischen Spannungen',
+    'blog.article.swisscom-minacce-cyber-2026.imageAlt': 'Digitale Landschaft von Cyberbedrohungen in Tessin, mit Bildschirmen, die Datenverletzungen und KI-Bedrohungen zeigen',
 };
 
 export default blogMetaDe;

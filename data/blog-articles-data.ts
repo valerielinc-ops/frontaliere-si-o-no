@@ -7721,4 +7721,11 @@ export const ARTICLES = [
  image: '/images/blog/zurigo-economia-svizzera-crescita-media-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'swisscom-minacce-cyber-2026',
+ category: 'novita',
+ date: '2026-04-27T11:19:14.158Z',
+ image: '/images/blog/swisscom-minacce-cyber-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

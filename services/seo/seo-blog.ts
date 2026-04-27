@@ -14771,6 +14771,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swisscom-minacce-cyber-2026': {
+    title: 'Swisscom avverte: minacce informatiche | Frontaliere Ticino',
+    description: 'Swisscom segnala un forte aumento delle minacce informatiche, con rischi legati all\'IA e alle tensioni geopolitiche. Scopri come proteggere la tua azienda.',
+    keywords: 'frontalieri, ticino, svizzera, italia, swisscom, avverte, minacce, informatiche',
+    ogTitle: 'Swisscom avverte: minacce informatiche in aumento nel 2026 |',
+    ogDescription: 'Swisscom segnala un forte aumento delle minacce informatiche, con rischi legati all\'IA e alle tensioni geopolitiche. Scopri come proteggere la tua azienda.',
+    canonicalPath: '/articoli-frontaliere/swisscom-minacce-cyber-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swisscom avverte: minacce informatiche in aumento nel 2026",
+      "description": "Swisscom segnala un forte aumento delle minacce informatiche, con rischi legati all'IA e alle tensioni geopolitiche. Scopri come proteggere la tua azienda.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/swisscom-minacce-cyber-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio digitale di minacce informatiche in Ticino, con schermi che mostrano attacchi informatici e IA"
+      },
+      "datePublished": "2026-04-27T11:19:14+00:00",
+      "dateModified": "2026-04-27T11:19:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swisscom-minacce-cyber-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
