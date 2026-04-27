@@ -26,7 +26,7 @@ import {
 const YEAR = 2026;
 
 describe('jobSectorLanding — paths', () => {
-  it('exposes exactly 7 sector keys', () => {
+  it('exposes exactly 9 sector keys', () => {
     expect(SECTOR_HUB_KEYS).toEqual([
       'infermieri',
       'case-anziani',
@@ -35,6 +35,8 @@ describe('jobSectorLanding — paths', () => {
       'autisti',
       'sviluppatori',
       'ristorazione',
+      'oss',
+      'logistica',
     ]);
   });
 
@@ -66,11 +68,11 @@ describe('jobSectorLanding — paths', () => {
     expect(buildSectorHubPath('fr', 'ristorazione')).toBe('/fr/trouver-emploi-tessin/restauration/');
   });
 
-  it('produces exactly 28 paths (7 sectors × 4 locales)', () => {
+  it('produces exactly 36 paths (9 sectors × 4 locales)', () => {
     const paths = allSectorHubPaths();
-    expect(paths).toHaveLength(28);
+    expect(paths).toHaveLength(36);
     const unique = new Set(paths.map((p) => p.path));
-    expect(unique.size).toBe(28);
+    expect(unique.size).toBe(36);
     for (const p of paths) expect(p.path.endsWith('/')).toBe(true);
   });
 
@@ -221,6 +223,24 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Serveur cuisinier brasserie' }, 'ristorazione')).toBe(true);
     expect(jobMatchesSector({ title: 'Software developer' }, 'ristorazione')).toBe(false);
   });
+
+  it('matches OSS (operatori socio-sanitari) keywords across locales', () => {
+    expect(jobMatchesSector({ title: 'Operatore socio-sanitario AFC' }, 'oss')).toBe(true);
+    expect(jobMatchesSector({ title: 'Healthcare assistant Ticino' }, 'oss')).toBe(true);
+    expect(jobMatchesSector({ title: 'Pflegeassistent EOC' }, 'oss')).toBe(true);
+    expect(jobMatchesSector({ title: 'Aide-soignant a domicile' }, 'oss')).toBe(true);
+    expect(jobMatchesSector({ title: 'Software engineer' }, 'oss')).toBe(false);
+  });
+
+  it('matches logistics keywords across locales', () => {
+    expect(jobMatchesSector({ title: 'Logistico AFC magazzino centrale' }, 'logistica')).toBe(true);
+    expect(jobMatchesSector({ title: 'Magazziniere notturno' }, 'logistica')).toBe(true);
+    expect(jobMatchesSector({ title: 'Warehouse operator forklift' }, 'logistica')).toBe(true);
+    expect(jobMatchesSector({ title: 'Lagerist Schicht' }, 'logistica')).toBe(true);
+    expect(jobMatchesSector({ title: 'Spediteur Hauptzollamt' }, 'logistica')).toBe(true);
+    expect(jobMatchesSector({ title: 'Logisticien CFC' }, 'logistica')).toBe(true);
+    expect(jobMatchesSector({ title: 'Cuoco partita pesce' }, 'logistica')).toBe(false);
+  });
 });
 
 describe('jobSectorLanding — counts and filtering', () => {
@@ -331,6 +351,14 @@ describe('router — sector hub URLs', () => {
     { locale: 'fr', sector: 'autisti', path: '/fr/trouver-emploi-tessin/chauffeurs/' },
     { locale: 'fr', sector: 'sviluppatori', path: '/fr/trouver-emploi-tessin/developpeurs/' },
     { locale: 'fr', sector: 'ristorazione', path: '/fr/trouver-emploi-tessin/restauration/' },
+    { locale: 'it', sector: 'oss', path: '/cerca-lavoro-ticino/operatori-socio-sanitari/' },
+    { locale: 'it', sector: 'logistica', path: '/cerca-lavoro-ticino/logistica/' },
+    { locale: 'en', sector: 'oss', path: '/en/find-jobs-ticino/healthcare-assistants/' },
+    { locale: 'en', sector: 'logistica', path: '/en/find-jobs-ticino/logistics/' },
+    { locale: 'de', sector: 'oss', path: '/de/jobs-im-tessin/pflegeassistenten/' },
+    { locale: 'de', sector: 'logistica', path: '/de/jobs-im-tessin/logistik/' },
+    { locale: 'fr', sector: 'oss', path: '/fr/trouver-emploi-tessin/aides-soignants/' },
+    { locale: 'fr', sector: 'logistica', path: '/fr/trouver-emploi-tessin/logistique/' },
   ] as const;
 
   for (const c of cases) {

@@ -28,7 +28,9 @@ export type SectorHubKey =
   | 'ingegneri'
   | 'autisti'
   | 'sviluppatori'
-  | 'ristorazione';
+  | 'ristorazione'
+  | 'oss'
+  | 'logistica';
 
 export const SECTOR_HUB_KEYS: readonly SectorHubKey[] = [
   'infermieri',
@@ -38,6 +40,8 @@ export const SECTOR_HUB_KEYS: readonly SectorHubKey[] = [
   'autisti',
   'sviluppatori',
   'ristorazione',
+  'oss',
+  'logistica',
 ] as const;
 
 /** Per-locale URL slug for each sector. Query-matching, short. */
@@ -50,6 +54,8 @@ export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string
     autisti: 'autisti',
     sviluppatori: 'sviluppatori',
     ristorazione: 'ristorazione',
+    oss: 'operatori-socio-sanitari',
+    logistica: 'logistica',
   },
   en: {
     infermieri: 'nurses',
@@ -59,6 +65,8 @@ export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string
     autisti: 'drivers',
     sviluppatori: 'developers',
     ristorazione: 'restaurants',
+    oss: 'healthcare-assistants',
+    logistica: 'logistics',
   },
   de: {
     infermieri: 'pflegepersonal',
@@ -68,6 +76,8 @@ export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string
     autisti: 'fahrer',
     sviluppatori: 'entwickler',
     ristorazione: 'gastronomie',
+    oss: 'pflegeassistenten',
+    logistica: 'logistik',
   },
   fr: {
     infermieri: 'infirmiers',
@@ -77,6 +87,8 @@ export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string
     autisti: 'chauffeurs',
     sviluppatori: 'developpeurs',
     ristorazione: 'restauration',
+    oss: 'aides-soignants',
+    logistica: 'logistique',
   },
 };
 
@@ -105,6 +117,8 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     autisti: 'Autisti',
     sviluppatori: 'Sviluppatori Software',
     ristorazione: 'Ristorazione',
+    oss: 'Operatori Socio-Sanitari',
+    logistica: 'Logistica',
   },
   en: {
     infermieri: 'Nurses',
@@ -114,6 +128,8 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     autisti: 'Drivers',
     sviluppatori: 'Software Developers',
     ristorazione: 'Restaurants',
+    oss: 'Healthcare Assistants',
+    logistica: 'Logistics',
   },
   de: {
     infermieri: 'Pflegepersonal',
@@ -123,6 +139,8 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     autisti: 'Fahrer',
     sviluppatori: 'Softwareentwickler',
     ristorazione: 'Gastronomie',
+    oss: 'Pflegeassistenten',
+    logistica: 'Logistik',
   },
   fr: {
     infermieri: 'Infirmiers',
@@ -132,6 +150,8 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     autisti: 'Chauffeurs',
     sviluppatori: 'Développeurs Logiciel',
     ristorazione: 'Restauration',
+    oss: 'Aides-Soignants',
+    logistica: 'Logistique',
   },
 };
 
@@ -216,6 +236,10 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /sviluppator|sviluppatore|programmator|programmatore|developer|software[ -]engineer|full[ -]?stack|front[ -]?end|back[ -]?end|devops|softwareentwickl|d[eé]veloppeur|programmeur/i,
   ristorazione:
     /ristora|ristoratore|ristorant|cuoc[ho]|cameri[eè]r|chef|sous[ -]chef|gastronom|hospitality|food[ -]service|restaurant|kellner|koch|k[oö]chin|service[ -]de[ -]table|cuisinier|serveur|waiter|waitress|bistro|pizzeri/i,
+  oss:
+    /operatore[ -]socio[ -]sanitar|operatori[ -]socio[ -]sanitar|\boss\b|\bosa\b|operatore[ -]socio[ -]assistenz|healthcare[ -]assistant|nursing[ -]assistant|nurse[ -]aide|pflegeassistent|pflegehelfer|fachperson[ -]gesundheit|aide[ -]soignant|aide[ -]a[ -]domicile|auxiliaire[ -]de[ -]vie/i,
+  logistica:
+    /logistic[ao]|logistico|logisticien|logistique|magazzin|magazziner|warehouse|warehouseman|lagerist|lagerlogistik|logistiker|carrellis|fork[ -]?lift|carrelli[ -]elevator|spediz|spedizionier|shipping[ -]clerk|customs[ -]broker|forwarder|spediteur|cargo[ -]handler/i,
 };
 
 function wordCount(s: string | undefined | null): number {
@@ -278,6 +302,8 @@ export function countSectorJobsByLocale(
     autisti: 0,
     sviluppatori: 0,
     ristorazione: 0,
+    oss: 0,
+    logistica: 0,
   });
   const counts: Record<JobBoardLocale, Record<SectorHubKey, number>> = {
     it: empty(),
@@ -354,6 +380,8 @@ export function buildSectorHubSeo(
         autisti: 'Autisti',
         sviluppatori: 'Sviluppatori Software',
         ristorazione: 'Ristorazione',
+        oss: 'Operatori Socio-Sanitari',
+        logistica: 'Logistica',
       };
       const noun = nounMap[sector];
       // SEO title: keyword-first, ≤60 char (Semrush W2). No emoji prefix, no
@@ -401,6 +429,8 @@ export function buildSectorHubSeo(
         autisti: 'Drivers',
         sviluppatori: 'Software Developers',
         ristorazione: 'Restaurants',
+        oss: 'Healthcare Assistants',
+        logistica: 'Logistics',
       };
       const noun = nounMap[sector];
       const titleBase = formatSeoTitle({
@@ -444,6 +474,8 @@ export function buildSectorHubSeo(
         autisti: 'Fahrer',
         sviluppatori: 'Softwareentwickler',
         ristorazione: 'Gastronomie',
+        oss: 'Pflegeassistenten',
+        logistica: 'Logistik',
       };
       const noun = nounMap[sector];
       const titleBase = formatSeoTitle({
@@ -487,6 +519,8 @@ export function buildSectorHubSeo(
         autisti: 'Chauffeurs',
         sviluppatori: 'Développeurs Logiciel',
         ristorazione: 'Restauration',
+        oss: 'Aides-Soignants',
+        logistica: 'Logistique',
       };
       const noun = nounMap[sector];
       const titleBase = formatSeoTitle({

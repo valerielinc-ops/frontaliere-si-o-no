@@ -732,6 +732,8 @@ const RESERVED_HUB_SLUGS = new Set([
   'autisti', 'drivers', 'fahrer', 'chauffeurs',
   'sviluppatori', 'developers', 'entwickler', 'developpeurs',
   'ristorazione', 'restaurants', 'gastronomie', 'restauration',
+  'operatori-socio-sanitari', 'healthcare-assistants', 'pflegeassistenten', 'aides-soignants',
+  'logistica', 'logistics', 'logistik', 'logistique',
   'lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso',
 ]);
 
