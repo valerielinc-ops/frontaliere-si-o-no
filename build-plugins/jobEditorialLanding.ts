@@ -175,6 +175,7 @@ export type JobLocationTypeLandingModel = {
  slug: string;
  location: string;
  typeKey: JobLandingTypeKey;
+ typeLabel: string;
  title: string;
  heading: string;
  description: string;
@@ -1609,6 +1610,7 @@ export function buildJobLocationTypeLandingModel(options: {
  slug: buildLocationTypeSlug(locale, location, typeKey),
  location,
  typeKey,
+ typeLabel: label,
  title: copy.title(label, location),
  heading: copy.heading(label, location),
  description: copy.description(label, location, matches.length),
