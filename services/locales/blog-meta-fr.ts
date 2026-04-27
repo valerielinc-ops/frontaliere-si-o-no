@@ -2775,6 +2775,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.reddito-como-2024-frontalieri.title': 'La province de Côme est plus riche : le revenu augmente mais la commune n\'est pas dans le top 10',
     'blog.article.reddito-como-2024-frontalieri.excerpt': 'Le revenu par habitant de la province de Côme a augmenté, mais la commune ne figure pas dans le top 10. Découvrez les détails et les implications pour les travailleurs frontaliers.',
     'blog.article.reddito-como-2024-frontalieri.imageAlt': 'Lac de Côme avec vue sur la frontière italo-suisse',
+    'blog.article.st-moritz-case-accessibili-2026.title': 'St. Moritz construit des logements à prix modulés selon le revenu',
+    'blog.article.st-moritz-case-accessibili-2026.excerpt': 'La commune de St. Moritz lance la construction de 19 appartements à prix abordables basés sur le revenu, avec d\'autres projets pour 150 à 200 unités d\'habitation en cours de réalisation.',
+    'blog.article.st-moritz-case-accessibili-2026.imageAlt': 'St. Moritz avec de nouveaux logements abordables en construction, les Alpes suisses en arrière-plan',
 };
 
 export default blogMetaFr;

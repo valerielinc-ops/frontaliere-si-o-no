@@ -2775,6 +2775,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.reddito-como-2024-frontalieri.title': 'Provincia di Como più ricca: cresce il reddito ma il comune non è nella top 10',
     'blog.article.reddito-como-2024-frontalieri.excerpt': 'Il reddito pro capite della provincia di Como è aumentato, ma il comune non è nella top 10. Scopri i dettagli e le implicazioni per i frontalieri.',
     'blog.article.reddito-como-2024-frontalieri.imageAlt': 'Lago di Como con vista sul confine italo-svizzero',
+    'blog.article.st-moritz-case-accessibili-2026.title': 'St. Moritz costruisce case con prezzi basati sul reddito',
+    'blog.article.st-moritz-case-accessibili-2026.excerpt': 'Il comune di St. Moritz avvia la costruzione di 19 appartamenti a prezzi accessibili basati sul reddito, con altri progetti per 150-200 unità abitative in fase di realizzazione.',
+    'blog.article.st-moritz-case-accessibili-2026.imageAlt': 'St. Moritz con nuovi alloggi accessibili in costruzione, con le Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaIt;

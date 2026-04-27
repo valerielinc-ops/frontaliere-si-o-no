@@ -13698,6 +13698,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-st-moritz-case-accessibili-2026': {
+    title: 'St. Moritz costruisce case con prezzi | Frontaliere Ticino',
+    description: 'Il Comune di St. Moritz avvia la costruzione di 19 appartamenti a prezzi accessibili basati sul reddito, con altri progetti per 150-200 unità abitative in fase',
+    keywords: 'frontalieri, ticino, svizzera, italia, moritz, costruisce, case, prezzi',
+    ogTitle: 'St. Moritz costruisce case con prezzi basati sul reddito |',
+    ogDescription: 'Il Comune di St. Moritz avvia la costruzione di 19 appartamenti a prezzi accessibili basati sul reddito, con altri progetti per 150-200 unità abitative in fase',
+    canonicalPath: '/articoli-frontaliere/st-moritz-case-accessibili-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "St. Moritz costruisce case con prezzi basati sul reddito",
+      "description": "Il Comune di St. Moritz avvia la costruzione di 19 appartamenti a prezzi accessibili basati sul reddito, con altri progetti per 150-200 unità abitative in fase",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/st-moritz-case-accessibili-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "St. Moritz con nuovi alloggi accessibili in costruzione, con le Alpi svizzere sullo sfondo"
+      },
+      "datePublished": "2026-04-27T02:31:02+00:00",
+      "dateModified": "2026-04-27T02:31:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/st-moritz-case-accessibili-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

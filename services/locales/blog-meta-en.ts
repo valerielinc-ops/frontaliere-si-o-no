@@ -2775,6 +2775,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.reddito-como-2024-frontalieri.title': 'Como Province is wealthier: income rises but the town isn\'t in the top 10',
     'blog.article.reddito-como-2024-frontalieri.excerpt': 'The per capita income of Como Province has increased, but the town isn\'t in the top 10. Discover the details and implications for cross-border workers.',
     'blog.article.reddito-como-2024-frontalieri.imageAlt': 'Lake Como with a view of the Italian-Swiss border',
+    'blog.article.st-moritz-case-accessibili-2026.title': 'St. Moritz builds homes with income-based pricing',
+    'blog.article.st-moritz-case-accessibili-2026.excerpt': 'The municipality of St. Moritz is starting the construction of 19 affordable apartments with income-based pricing, with other projects for 150-200 housing units in the works.',
+    'blog.article.st-moritz-case-accessibili-2026.imageAlt': 'St. Moritz with new affordable housing under construction, Swiss Alps in the background',
 };
 
 export default blogMetaEn;

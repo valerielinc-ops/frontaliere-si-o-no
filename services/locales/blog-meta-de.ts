@@ -2775,6 +2775,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.reddito-como-2024-frontalieri.title': 'Provinz Como ist reicher: Das Einkommen steigt, aber die Gemeinde ist nicht unter den Top 10',
     'blog.article.reddito-como-2024-frontalieri.excerpt': 'Das Pro-Kopf-Einkommen in der Provinz Como ist gestiegen, aber die Gemeinde ist nicht unter den Top 10. Erfahren Sie mehr über die Details und die Auswirkungen auf die Grenzgänger.',
     'blog.article.reddito-como-2024-frontalieri.imageAlt': 'Comer See mit Blick auf die italienisch-schweizerische Grenze',
+    'blog.article.st-moritz-case-accessibili-2026.title': 'St. Moritz baut Wohnungen mit einkommensabhängigen Preisen',
+    'blog.article.st-moritz-case-accessibili-2026.excerpt': 'Die Gemeinde St. Moritz startet den Bau von 19 Wohnungen zu erschwinglichen, einkommensabhängigen Preisen, mit weiteren Projekten für 150-200 Wohneinheiten in der Umsetzung.',
+    'blog.article.st-moritz-case-accessibili-2026.imageAlt': 'St. Moritz mit neuem erschwinglichem Wohnraum im Bau, Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -7462,4 +7462,11 @@ export const ARTICLES = [
  image: '/images/blog/reddito-como-2024-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'st-moritz-case-accessibili-2026',
+ category: 'novita',
+ date: '2026-04-27T02:31:02.943Z',
+ image: '/images/blog/st-moritz-case-accessibili-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

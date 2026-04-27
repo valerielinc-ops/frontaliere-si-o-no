@@ -2185,6 +2185,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-relazioni-italo-svizzere-2026': { name: 'Relazioni italo-svizzere', path: '/articoli-frontaliere/relazioni-italo-svizzere-2026', parent: 'blog' },
     'blog-integrazione-inclusione-ticino-2026': { name: 'Integrazione e inclusione', path: '/articoli-frontaliere/integrazione-inclusione-ticino-2026', parent: 'blog' },
     'blog-reddito-como-2024-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/reddito-como-2024-frontalieri', parent: 'blog' },
+    'blog-st-moritz-case-accessibili-2026': { name: 'Novità', path: '/articoli-frontaliere/st-moritz-case-accessibili-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
