@@ -13524,6 +13524,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-foreste-sommerse-lago-como-lugano': {
+    title: 'Foreste sommerse per salvare i laghi di | Frontaliere Ticino',
+    description: 'Scopri come il progetto Echo utilizza piante acquatiche per ripristinare gli ecosistemi lacustri e combattere il cambiamento climatico nei laghi di Como e',
+    keywords: 'frontalieri, ticino, svizzera, italia, foreste, sommerse, salvare, laghi',
+    ogTitle: 'Foreste sommerse per salvare i laghi di Como e Lugano',
+    ogDescription: 'Scopri come il progetto Echo utilizza piante acquatiche per ripristinare gli ecosistemi lacustri e combattere il cambiamento climatico nei laghi di Como e',
+    canonicalPath: '/articoli-frontaliere/foreste-sommerse-lago-como-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Foreste sommerse per salvare i laghi di Como e Lugano",
+      "description": "Scopri come il progetto Echo utilizza piante acquatiche per ripristinare gli ecosistemi lacustri e combattere il cambiamento climatico nei laghi di Como e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/foreste-sommerse-lago-como-lugano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foreste sommerse nei laghi di Como e Lugano"
+      },
+      "datePublished": "2026-04-27T01:07:52+00:00",
+      "dateModified": "2026-04-27T01:07:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/foreste-sommerse-lago-como-lugano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -7420,4 +7420,11 @@ export const ARTICLES = [
  image: '/images/blog/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'foreste-sommerse-lago-como-lugano',
+ category: 'novita',
+ date: '2026-04-27T01:07:52.733Z',
+ image: '/images/blog/foreste-sommerse-lago-como-lugano.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

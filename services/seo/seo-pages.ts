@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 965,
+ "numberOfItems": 966,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5689,7 +5689,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 962, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-notturna-a8-gallarate-29-aprile-2026` },
           { "@type": "ListItem", "position": 963, "name": "Sovranità alimentare e latte ticinese", "url": `${BASE_URL}/articoli-frontaliere/sovranita-latte-ticino` },
           { "@type": "ListItem", "position": 964, "name": "Chiasso: Una giornata alla scoperta degli enti ...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-scoperta-enti-primo-intervento` },
-          { "@type": "ListItem", "position": 965, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo` }
+          { "@type": "ListItem", "position": 965, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo` },
+          { "@type": "ListItem", "position": 966, "name": "Foreste sommerse per salvare i laghi di Como e ...", "url": `${BASE_URL}/articoli-frontaliere/foreste-sommerse-lago-como-lugano` }
  ]
  },
  {

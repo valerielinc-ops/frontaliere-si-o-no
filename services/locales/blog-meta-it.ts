@@ -2757,6 +2757,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.title': 'Tennis donne / “Open” di Chiasso, a Marija Glebovna Timofeeva il titolo',
     'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.excerpt': 'La russa Marija Glebovna Timofeeva ha vinto il titolo dell\'“Open” di Chiasso.',
     'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.imageAlt': 'max 125 chars',
+    'blog.article.foreste-sommerse-lago-como-lugano.title': 'Foreste sommerse per salvare i laghi di Como e Lugano',
+    'blog.article.foreste-sommerse-lago-como-lugano.excerpt': 'Un progetto transfrontaliero utilizza piante acquatiche per ripristinare gli ecosistemi lacustri e combattere il cambiamento climatico',
+    'blog.article.foreste-sommerse-lago-como-lugano.imageAlt': 'Foreste sommerse nei laghi di Como e Lugano',
 };
 
 export default blogMetaIt;

@@ -2757,6 +2757,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.title': 'Tennis Frauen / „Open“ von Chiasso, Marija Glebovna Timofeeva gewinnt den Titel',
     'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.excerpt': 'Die Russin Marija Glebovna Timofeeva hat den Titel der „Open“ von Chiasso gewonnen.',
     'blog.article.tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.imageAlt': 'max 125 chars',
+    'blog.article.foreste-sommerse-lago-como-lugano.title': 'Überschwemmte Wälder zur Rettung der Seen von Como und Lugano',
+    'blog.article.foreste-sommerse-lago-como-lugano.excerpt': 'Ein grenzüberschreitendes Projekt setzt auf Wasserpflanzen, um die Ökosysteme der Seen wiederherzustellen und den Klimawandel zu bekämpfen',
+    'blog.article.foreste-sommerse-lago-como-lugano.imageAlt': 'Untergetauchte Wälder im Comer See und Luganer See',
 };
 
 export default blogMetaDe;
