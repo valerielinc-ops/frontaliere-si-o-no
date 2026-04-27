@@ -2832,6 +2832,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carburanti-ticino-confronto-2024.title': 'Caro-carburanti: dove fare il pieno in Ticino',
     'blog.article.carburanti-ticino-confronto-2024.excerpt': 'Confronta i prezzi della benzina e del diesel in Ticino e risparmia con i nostri consigli pratici',
     'blog.article.carburanti-ticino-confronto-2024.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.title': 'Nuovo Contratto Collettivo Edilizia Ticino: cosa cambia dal 1° maggio 2026',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.excerpt': 'Approvato il nuovo CCL-Ti 2026-2031 per edilizia e genio civile in Ticino. Entrerà in vigore il 1° maggio 2026.',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.imageAlt': 'Cantiere edile a Lugano con operai e attrezzature moderne',
 };
 
 export default blogMetaIt;

@@ -2832,6 +2832,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carburanti-ticino-confronto-2024.title': 'Fuel price hike: where to fill up in Ticino',
     'blog.article.carburanti-ticino-confronto-2024.excerpt': 'Compare gasoline and diesel prices in Ticino and save with our practical tips',
     'blog.article.carburanti-ticino-confronto-2024.imageAlt': 'Aerial view of Lake Lugano with Ticino landscape',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.title': 'New Collective Construction Agreement for Ticino: What Changes from 1 May 2026',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.excerpt': 'The new 2026-2031 CCL-Ti for construction and civil engineering in Ticino has been approved. It will come into force on 1 May 2026.',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.imageAlt': 'Construction site in Lugano with workers and modern equipment',
 };
 
 export default blogMetaEn;

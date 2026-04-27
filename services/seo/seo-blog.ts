@@ -14249,6 +14249,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-contratto-edilizia-ticino-2026-2031': {
+    title: 'Nuovo Contratto Collettivo Edilizia | Frontaliere Ticino',
+    description: 'Scopri le novità del nuovo Contratto Collettivo di Lavoro per l’edilizia e il genio civile in Ticino, valido dal 1° maggio 2026 al 31 dicembre 2031.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, contratto, collettivo, edilizia',
+    ogTitle: 'Nuovo CCL-Ti 2026-2031: cosa cambia per i lavoratori',
+    ogDescription: 'Scopri le novità del nuovo Contratto Collettivo di Lavoro per l’edilizia e il genio civile in Ticino, valido dal 1° maggio 2026 al 31 dicembre 2031.',
+    canonicalPath: '/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026-2031',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo CCL-Ti 2026-2031: cosa cambia per i lavoratori del settore edile in Ticino",
+      "description": "Scopri le novità del nuovo Contratto Collettivo di Lavoro per l’edilizia e il genio civile in Ticino, valido dal 1° maggio 2026 al 31 dicembre 2031.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-contratto-edilizia-ticino-2026-2031.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile a Lugano con operai e attrezzature moderne"
+      },
+      "datePublished": "2026-04-27T09:16:27+00:00",
+      "dateModified": "2026-04-27T09:16:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026-2031`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

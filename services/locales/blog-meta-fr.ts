@@ -2832,6 +2832,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carburanti-ticino-confronto-2024.title': 'Coût des carburants : où faire le plein en Ticino',
     'blog.article.carburanti-ticino-confronto-2024.excerpt': 'Comparez les prix de l\'essence et du diesel en Ticino et économisez avec nos conseils pratiques',
     'blog.article.carburanti-ticino-confronto-2024.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.title': 'Nouvelle Convention Collective de Travail pour l\'Edilizia Ticino: ce qui change à partir du 1er mai 2026',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.excerpt': 'La nouvelle CCT-Ti 2026-2031 pour l\'edilizia et le génie civil au Tessin a été approuvée. Elle entrera en vigueur le 1er mai 2026.',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.imageAlt': 'Chantier de construction à Lugano avec des ouvriers et des équipements modernes',
 };
 
 export default blogMetaFr;

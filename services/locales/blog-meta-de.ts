@@ -2832,6 +2832,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carburanti-ticino-confronto-2024.title': 'Hohe Kraftstoffpreise: Wo tanken in der Schweiz?',
     'blog.article.carburanti-ticino-confronto-2024.excerpt': 'Vergleichen Sie die Preise für Benzin und Diesel in der Schweiz und sparen Sie mit unseren praktischen Tipps',
     'blog.article.carburanti-ticino-confronto-2024.imageAlt': 'Luftaufnahme des Luganersees mit der Landschaft des Tessin',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.title': 'Neuer Gesamtarbeitsvertrag Baugewerbe Tessin: Was sich ab dem 1. Mai 2026 ändert',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.excerpt': 'Der neue GAV-Ti 2026-2031 für das Baugewerbe und den Tiefbau im Tessin wurde genehmigt. Er tritt am 1. Mai 2026 in Kraft.',
+    'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.imageAlt': 'Baustelle in Lugano mit Arbeitern und modernen Geräten',
 };
 
 export default blogMetaDe;
