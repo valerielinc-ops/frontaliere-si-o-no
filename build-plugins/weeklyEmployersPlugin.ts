@@ -1084,7 +1084,15 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
         topRoles.length > 0
           ? topRoles.slice(0, 3).join(', ')
           : 'operational and specialist roles';
-      return `This weekly overview of ${employer} in ${city} is aimed at anyone evaluating the company as a potential employer: it shows at a glance how many positions are actually open today (${jobsCount}), which role families are most represented (${roles}), and how the hiring plan shifts from one week to the next. It's especially useful if you're targeting a spontaneous application: a rise in open positions often signals the company is growing its headcount and will take a closer look at profiles sent outside a specific posting. The page is regenerated automatically every Monday morning — the content reflects the state of the openings at generation time. To apply, open the individual listing and follow the company's instructions, or use the employer brand page (when available) for a full overview of benefits, locations and FAQ.`;
+      const lowVolumeNote =
+        jobsCount <= 3
+          ? ` Even with a small volume of openings (${jobsCount} this week), a structured employer like ${employer} typically reviews several applications per role in parallel: opening the company hub and applying quickly to listed positions makes the difference at the shortlist stage.`
+          : '';
+      const noRolesNote =
+        topRoles.length === 0
+          ? ` When roles aren't yet classified in our snapshots — common for employers with non-standard listing titles or small niche sectors — the job-board's text classifier completes the picture automatically within 7-14 days of the first observation.`
+          : '';
+      return `This weekly overview of ${employer} in ${city} is aimed at anyone evaluating the company as a potential employer: it shows at a glance how many positions are actually open today (${jobsCount}), which role families are most represented (${roles}), and how the hiring plan shifts from one week to the next. It's especially useful if you're targeting a spontaneous application: a rise in open positions often signals the company is growing its headcount and will take a closer look at profiles sent outside a specific posting.${lowVolumeNote}${noRolesNote} The page is regenerated automatically every Monday morning — the content reflects the state of the openings at generation time. To apply, open the individual listing and follow the company's instructions, or use the employer brand page (when available) for a full overview of benefits, locations and FAQ.`;
     },
     companyCityFaqWhyQ: (e) => `Why a dedicated page for ${e}?`,
     companyCityFaqWhyA: (e, c) =>
@@ -1167,11 +1175,11 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
       const rolesText =
         topRoles.length > 0
           ? `Die häufigsten Rollen, für die ${employer} in ${city} diese Woche sucht: ${topRoles.slice(0, 3).join(', ')}.`
-          : `Die offenen Stellen decken verschiedene Profile ab, von operativen Aufgaben bis zu Fachfunktionen.`;
+          : `Die offenen Stellen decken eine Bandbreite an Profilen in ${city} ab — von operativen Funktionen (Assistenz, Lager, Wartung) bis zu Fachpositionen (Administration, IT, Buchhaltung, Projektmanagement). Öffnen Sie jede Ausschreibung für die vollständige Stellenbeschreibung, formale Anforderungen (Abschluss, Berufserfahrung, Sprachkenntnisse), Vertragsart (unbefristet, befristet, Lehre) und den offiziellen Bewerbungskanal von ${employer}.`;
       const salaryText =
         typeof avgSalary === 'number'
           ? ` Das durchschnittliche Bruttogehalt in den Ausschreibungen dieser Woche liegt bei rund CHF ${avgSalary.toLocaleString('de-CH')} pro Jahr — nützlich als Orientierung, um ein Angebot einzuordnen.`
-          : '';
+          : ` Wenn ${employer} keine Lohnbänder in seinen Ausschreibungen veröffentlicht, orientieren Sie sich an der kantonalen Salarium-2024-Erhebung (USTAT) für die Kombination Branche + Qualifikation + Altersgruppe; für die meisten Tessiner Profile liegt der Jahresmedian je nach Erfahrung und Verantwortung zwischen CHF 60'000 und CHF 90'000 brutto, mit einem Aufschlag von 5-15 % für Deutschsprachige und Senior-Profile mit Auslandserfahrung.`;
       return `Aktuelle Liste der offenen Stellen bei ${employer} in ${city} mit direktem Link zu jeder Ausschreibung auf unserem Job-Board. Wöchentlich aktualisiert, damit Sie nachvollziehen können, wie sich der Personalplan des Unternehmens in der Stadt entwickelt und Rollen finden, die zu Ihrem Profil passen, bevor die Konkurrenz zuschlägt. ${rolesText}${salaryText}`;
     },
     companyCityJobsHeading: (e, c) =>
@@ -1187,7 +1195,15 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
         topRoles.length > 0
           ? topRoles.slice(0, 3).join(', ')
           : 'operative und Fachrollen';
-      return `Die wöchentliche Übersicht zu ${employer} in ${city} richtet sich an alle, die das Unternehmen als möglichen Arbeitgeber prüfen: Sie sehen auf einen Blick, wie viele Stellen aktuell offen sind (${jobsCount}), welche Rollenfamilien am stärksten vertreten sind (${roles}) und wie sich der Personalplan von Woche zu Woche verändert. Besonders hilfreich ist das für Initiativbewerbungen: Steigt die Zahl der Ausschreibungen, wächst meist der Personalbestand — und die Firma prüft Profile, die außerhalb einer konkreten Ausschreibung eingehen, genauer. Die Seite wird jeden Montagmorgen automatisch neu erstellt; der Inhalt spiegelt den Stand der Stellen zum Zeitpunkt der Erzeugung wider. Für eine Bewerbung die jeweilige Ausschreibung öffnen und den Anweisungen des Unternehmens folgen — oder die Arbeitgeberseite (sofern verfügbar) für einen Überblick zu Benefits, Standorten und FAQ nutzen.`;
+      const lowVolumeNote =
+        jobsCount <= 3
+          ? ` Auch bei einem geringen Stellenvolumen (${jobsCount} diese Woche) prüft ein strukturiertes Unternehmen wie ${employer} typischerweise mehrere Bewerbungen pro Position parallel: Wer den Firmen-Hub öffnet und sich rasch auf die gelisteten Stellen bewirbt, gewinnt im Shortlist-Schritt.`
+          : '';
+      const noRolesNote =
+        topRoles.length === 0
+          ? ` Wenn die Rollen noch nicht in unseren Snapshots klassifiziert sind — was bei Arbeitgebern mit unkonventionellen Stellentiteln oder kleinen Nischenbranchen vorkommt — schliesst der Textklassifikator des Job-Boards die Lücke automatisch innerhalb von 7-14 Tagen nach der ersten Beobachtung.`
+          : '';
+      return `Die wöchentliche Übersicht zu ${employer} in ${city} richtet sich an alle, die das Unternehmen als möglichen Arbeitgeber prüfen: Sie sehen auf einen Blick, wie viele Stellen aktuell offen sind (${jobsCount}), welche Rollenfamilien am stärksten vertreten sind (${roles}) und wie sich der Personalplan von Woche zu Woche verändert. Besonders hilfreich ist das für Initiativbewerbungen: Steigt die Zahl der Ausschreibungen, wächst meist der Personalbestand — und die Firma prüft Profile, die außerhalb einer konkreten Ausschreibung eingehen, genauer.${lowVolumeNote}${noRolesNote} Die Seite wird jeden Montagmorgen automatisch neu erstellt; der Inhalt spiegelt den Stand der Stellen zum Zeitpunkt der Erzeugung wider. Für eine Bewerbung die jeweilige Ausschreibung öffnen und den Anweisungen des Unternehmens folgen — oder die Arbeitgeberseite (sofern verfügbar) für einen Überblick zu Benefits, Standorten und FAQ nutzen.`;
     },
     companyCityFaqWhyQ: (e) => `Warum eine eigene Seite für ${e}?`,
     companyCityFaqWhyA: (e, c) =>
@@ -1269,11 +1285,11 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
       const rolesText =
         topRoles.length > 0
           ? `Les rôles les plus recherchés par ${employer} à ${city} cette semaine : ${topRoles.slice(0, 3).join(', ')}.`
-          : `Les postes ouverts couvrent plusieurs profils, du soutien opérationnel aux fonctions spécialisées.`;
+          : `Les postes ouverts couvrent plusieurs profils à ${city}, du soutien opérationnel (assistance, magasin, maintenance) aux fonctions spécialisées (administration, IT, comptabilité, gestion de projets) — ouvrez chaque annonce pour voir le descriptif complet, les exigences formelles (diplôme, années d'expérience, compétences linguistiques), le type de contrat (CDI, CDD, apprentissage) et le canal de candidature officiel géré directement par ${employer}.`;
       const salaryText =
         typeof avgSalary === 'number'
           ? ` Le salaire brut moyen affiché dans les offres de cette semaine est d'environ CHF ${avgSalary.toLocaleString('fr-CH')} par an — un repère utile pour évaluer une proposition.`
-          : '';
+          : ` Quand ${employer} ne publie pas les fourchettes salariales dans ses offres, appuyez-vous sur l'enquête cantonale Salarium 2024 (USTAT) pour la combinaison secteur + qualification + cohorte d'âge ; pour la plupart des profils tessinois, la médiane annuelle se situe entre CHF 60'000 et CHF 90'000 bruts selon l'expérience et la responsabilité, avec une prime de 5-15 % pour les germanophones et les profils seniors avec expérience à l'étranger.`;
       return `Liste à jour des offres actives de ${employer} à ${city}, avec un lien direct vers chaque annonce sur notre tableau d'offres. Actualisée chaque semaine pour suivre l'évolution du plan de recrutement de l'entreprise dans la ville et repérer les rôles qui correspondent à votre profil avant la concurrence. ${rolesText}${salaryText}`;
     },
     companyCityJobsHeading: (e, c) =>
@@ -1289,7 +1305,15 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
         topRoles.length > 0
           ? topRoles.slice(0, 3).join(', ')
           : 'rôles opérationnels et spécialisés';
-      return `Cette fiche hebdomadaire consacrée à ${employer} à ${city} s'adresse à celles et ceux qui évaluent l'entreprise comme employeur potentiel : elle montre d'un coup d'œil combien de postes sont réellement ouverts aujourd'hui (${jobsCount}), quelles familles de rôles sont les plus représentées (${roles}) et comment le plan de recrutement évolue d'une semaine à l'autre. Particulièrement utile pour les candidatures spontanées : une hausse du nombre d'offres signale souvent que l'entreprise accroît ses effectifs et examine avec plus d'attention les profils envoyés en dehors d'un poste précis. La page est régénérée automatiquement chaque lundi matin ; le contenu reflète l'état des offres au moment de la génération. Pour postuler, ouvrez l'annonce individuelle et suivez les instructions de l'entreprise — ou utilisez la page employeur (si disponible) pour un aperçu complet des avantages, des sites et de la FAQ.`;
+      const lowVolumeNote =
+        jobsCount <= 3
+          ? ` Même avec un volume d'offres limité (${jobsCount} cette semaine), un employeur structuré comme ${employer} examine généralement plusieurs candidatures par poste en parallèle : ouvrir la fiche entreprise et postuler rapidement aux postes listés fait la différence à l'étape de la shortlist.`
+          : '';
+      const noRolesNote =
+        topRoles.length === 0
+          ? ` Lorsque les rôles ne sont pas encore classés dans nos snapshots — fréquent pour des employeurs aux titres d'offres atypiques ou de petits secteurs de niche — le classifieur textuel du tableau d'offres complète le tableau automatiquement dans les 7 à 14 jours suivant la première observation.`
+          : '';
+      return `Cette fiche hebdomadaire consacrée à ${employer} à ${city} s'adresse à celles et ceux qui évaluent l'entreprise comme employeur potentiel : elle montre d'un coup d'œil combien de postes sont réellement ouverts aujourd'hui (${jobsCount}), quelles familles de rôles sont les plus représentées (${roles}) et comment le plan de recrutement évolue d'une semaine à l'autre. Particulièrement utile pour les candidatures spontanées : une hausse du nombre d'offres signale souvent que l'entreprise accroît ses effectifs et examine avec plus d'attention les profils envoyés en dehors d'un poste précis.${lowVolumeNote}${noRolesNote} La page est régénérée automatiquement chaque lundi matin ; le contenu reflète l'état des offres au moment de la génération. Pour postuler, ouvrez l'annonce individuelle et suivez les instructions de l'entreprise — ou utilisez la page employeur (si disponible) pour un aperçu complet des avantages, des sites et de la FAQ.`;
     },
     companyCityFaqWhyQ: (e) => `Pourquoi une page dédiée à ${e} ?`,
     companyCityFaqWhyA: (e, c) =>
