@@ -2865,6 +2865,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calcio-dnb-bellinzona-vittoria-stade-nyonnais.title': 'Football Dnb : Le Bellinzone bat le Stade Nyonnais, profitant des erreurs de l\'adversaire',
     'blog.article.calcio-dnb-bellinzona-vittoria-stade-nyonnais.excerpt': 'Le Bellinzone a battu le Stade Nyonnais lors des matchs avancés du championnat de football Dnb, profitant de la victoire obtenue grâce aux erreurs des adversaires.',
     'blog.article.calcio-dnb-bellinzona-vittoria-stade-nyonnais.imageAlt': 'Un match de football à Bellinzona, Tessin, avec des supporters célébrant un but. Le stade est rempli de spectateurs, et les joueurs sont sur le terrain.',
+    'blog.article.svizzera-indipendenza-energetica-importazioni-2026.title': 'Suisse sans indépendance énergétique : dès aujourd\'hui, elle dépend des importations',
+    'blog.article.svizzera-indipendenza-energetica-importazioni-2026.excerpt': 'Dès le 27 avril 2026, la Suisse n\'est plus autosuffisante sur le plan énergétique. Voici ce qui change pour les frontaliers et le canton du Tessin.',
+    'blog.article.svizzera-indipendenza-energetica-importazioni-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les Alpes tessin en arrière-plan',
 };
 
 export default blogMetaFr;

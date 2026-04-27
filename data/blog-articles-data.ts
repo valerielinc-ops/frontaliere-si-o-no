@@ -7672,4 +7672,11 @@ export const ARTICLES = [
  image: '/images/blog/calcio-dnb-bellinzona-vittoria-stade-nyonnais.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-indipendenza-energetica-importazioni-2026',
+ category: 'novita',
+ date: '2026-04-27T10:25:09.224Z',
+ image: '/images/blog/svizzera-indipendenza-energetica-importazioni-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

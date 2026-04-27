@@ -2865,6 +2865,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calcio-dnb-bellinzona-vittoria-stade-nyonnais.title': 'Calcio Dnb: Bellinzona batte Stade Nyonnais, approfittando della sconfitta avversaria',
     'blog.article.calcio-dnb-bellinzona-vittoria-stade-nyonnais.excerpt': 'Il Bellinzona ha sconfitto lo Stade Nyonnais negli anticipi del campionato di calcio Dnb, approfittando della vittoria ottenuta grazie agli errori degli avversari.',
     'blog.article.calcio-dnb-bellinzona-vittoria-stade-nyonnais.imageAlt': 'Una partita di calcio a Bellinzona, Ticino, con i tifosi che festeggiano un gol. Lo stadio è pieno di spettatori e i giocatori sono in campo.',
+    'blog.article.svizzera-indipendenza-energetica-importazioni-2026.title': 'Svizzera senza indipendenza energetica: da oggi dipende dalle importazioni',
+    'blog.article.svizzera-indipendenza-energetica-importazioni-2026.excerpt': 'Dal 27 aprile 2026 la Svizzera non è più autosufficiente energeticamente. Ecco cosa cambia per i frontalieri e il Canton Ticino.',
+    'blog.article.svizzera-indipendenza-energetica-importazioni-2026.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi Ticinesi sullo sfondo',
 };
 
 export default blogMetaIt;
