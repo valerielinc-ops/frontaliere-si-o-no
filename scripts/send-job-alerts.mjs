@@ -632,9 +632,24 @@ async function main() {
     return;
   }
 
-  // 2. Load active alerts from Firestore
-  const alertsSnap = await db.collection('job_alerts').where('active', '==', true).get();
-  let alerts = alertsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  // 2. Load active alerts from Firestore.
+  // Layout: job_alert_subscribers/{email}/alerts/{alertId} — collectionGroup query
+  // requires composite index (active ASC, frequency ASC) defined in firestore.indexes.json.
+  const alertsSnap = await db.collectionGroup('alerts').where('active', '==', true).get();
+  let alerts = alertsSnap.docs
+    .filter((doc) => {
+      // Defensive: collectionGroup returns ALL `alerts` subcollections in the project.
+      // Restrict to docs whose grandparent collection is job_alert_subscribers.
+      const grandparent = doc.ref.parent.parent?.parent?.id;
+      return grandparent === 'job_alert_subscribers';
+    })
+    .map((doc) => {
+      const data = doc.data();
+      const parentEmail = doc.ref.parent.parent?.id || data.email;
+      // `ref` is preserved so the post-send batch can update lastMatchedAt without
+      // having to rebuild the path.
+      return { id: doc.id, ref: doc.ref, ...data, email: data.email || parentEmail };
+    });
 
   // Filter to allowed emails during testing phase
   if (ALLOWED_EMAILS) {
@@ -718,6 +733,7 @@ async function main() {
       subject,
       html,
       alertId: alert.id,
+      ref: alert.ref,
       matchCount: matched.length,
       unsubscribeUrl,
     });
@@ -746,13 +762,15 @@ async function main() {
     }
   }
 
-  // 5. Update Firestore: lastMatchedAt + matchCount
+  // 5. Update Firestore: lastMatchedAt + matchCount on the alert subdoc
   if (!DRY_RUN) {
     const { FieldValue } = await import('firebase-admin/firestore');
     const batch = db.batch();
     for (const email of emailsToSend) {
-      const ref = db.collection('job_alerts').doc(email.alertId);
-      batch.update(ref, {
+      // email.ref points at job_alert_subscribers/{email}/alerts/{alertId}
+      // and was captured during the load step above.
+      if (!email.ref) continue;
+      batch.update(email.ref, {
         lastMatchedAt: FieldValue.serverTimestamp(),
         matchCount: FieldValue.increment(email.matchCount),
       });

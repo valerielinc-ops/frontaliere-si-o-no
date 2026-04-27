@@ -129,9 +129,9 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  };
  }
 
- // Find all active alerts for this email
- const alertsSnap = await db.collection('job_alerts')
- .where('email', '==', email.toLowerCase().trim())
+ // Find all active alerts for this email under the subscriber doc
+ const subscriberRef = db.collection('job_alert_subscribers').doc(email.toLowerCase().trim());
+ const alertsSnap = await subscriberRef.collection('alerts')
  .where('active', '==', true)
  .get();
 
@@ -190,8 +190,11 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  };
  }
 
- // Verify the alert exists and belongs to this email
- const alertRef = db.collection('job_alerts').doc(alertId);
+ // Verify the alert exists at job_alert_subscribers/{email}/alerts/{alertId}.
+ // Path-scoped lookup automatically enforces email ownership.
+ const normalizedEmail = email.toLowerCase().trim();
+ const alertRef = db.collection('job_alert_subscribers').doc(normalizedEmail)
+ .collection('alerts').doc(alertId);
  const alertDoc = await alertRef.get();
 
  if (!alertDoc.exists) {
@@ -206,16 +209,6 @@ export async function handleJobAlertUnsubscribe({ alertId, email, token, secret,
  }
 
  const alertData = alertDoc.data();
- if (alertData.email?.toLowerCase() !== email.toLowerCase().trim()) {
- return {
- status: 403,
- html: buildConfirmationHtml({
- title: 'Non autorizzato',
- message: 'Questo link non corrisponde alla tua email.',
- success: false,
- }),
- };
- }
 
  if (!alertData.active) {
  return {

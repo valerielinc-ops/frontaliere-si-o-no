@@ -77,10 +77,43 @@ service cloud.firestore {
       allow read: if true;
     }
 
-    // Job alerts — owned by authenticated user
+    // Job alert subscribers — root doc per email, mirrors newsletter_subscribers.
+    // Top-level doc is public-write (Cloud Functions + client init); engagement
+    // counters are written by ESP webhooks via the Admin SDK.
+    match /job_alert_subscribers/{email} {
+      allow read, write: if true;
+
+      // Search configurations — owned by authenticated user (denormalized userId).
+      // The path is keyed by the user's email, so request.auth.token.email
+      // gates writes to the user's own subscriber doc.
+      match /alerts/{alertId} {
+        allow read: if request.auth != null
+          && (request.auth.uid == resource.data.userId
+              || request.auth.token.email == email);
+        allow create: if request.auth != null
+          && request.auth.uid == request.resource.data.userId
+          && request.auth.token.email == email;
+        allow update, delete: if request.auth != null
+          && request.auth.uid == resource.data.userId
+          && request.auth.token.email == email;
+      }
+
+      // Per-alert delivery state — written by ESP webhooks (Admin SDK bypasses rules).
+      match /alert_deliveries/{alertId} {
+        allow read, write: if true;
+      }
+
+      // Raw ESP event log — written by webhooks (Admin SDK bypasses rules).
+      match /events/{eventId} {
+        allow read, write: if true;
+      }
+    }
+
+    // Legacy job_alerts collection — kept read-only during the migration window.
+    // Once `migrate-job-alerts-to-subscribers.mjs --delete-source` has run,
+    // this block can be removed.
     match /job_alerts/{alertId} {
-      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
-      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
     }
 
     // User profiles — own data only (admin SDK writes bypass rules)

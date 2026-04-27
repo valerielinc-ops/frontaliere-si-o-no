@@ -174,9 +174,15 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  };
 
  const handleDelete = async (alertId: string) => {
+ const target = alerts.find((a) => a.id === alertId);
+ const email = target?.email || authUser?.email;
+ if (!email) {
+ showToast('Errore durante l\'eliminazione.');
+ return;
+ }
  try {
  const { deleteAlert } = await import('@/services/jobAlertService');
- await deleteAlert(alertId);
+ await deleteAlert(email, alertId);
  // FRO-334: Track alert deletion
  import('@/services/analytics').then(({ Analytics }) => Analytics.trackJobAlertDeleted()).catch(() => {});
  setAlerts((prev) => prev.filter((a) => a.id !== alertId));
@@ -187,9 +193,15 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  };
 
  const handleUpdateFrequency = async (alertId: string, newFrequency: 'daily' | 'weekly') => {
+ const target = alerts.find((a) => a.id === alertId);
+ const email = target?.email || authUser?.email;
+ if (!email) {
+ showToast('Errore durante l\'aggiornamento.');
+ return;
+ }
  try {
  const { updateAlert } = await import('@/services/jobAlertService');
- await updateAlert(alertId, { frequency: newFrequency });
+ await updateAlert(email, alertId, { frequency: newFrequency });
  setAlerts((prev) =>
  prev.map((a) => (a.id === alertId ? { ...a, frequency: newFrequency } : a)),
  );
