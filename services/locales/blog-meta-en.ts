@@ -3160,6 +3160,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tallero-doro-80-anni-nuovo-design.title': 'Gold franc turns 80 with new design',
     'blog.article.tallero-doro-80-anni-nuovo-design.excerpt': 'The Gold franc celebrates 80 years and gets a design update. Its price rises to 8 francs for the first time since 1998.',
     'blog.article.tallero-doro-80-anni-nuovo-design.imageAlt': 'Golden chocolate coin Tallero d\'oro wrapped in shiny foil on a wooden table with a Swiss flag in the background',
+    'blog.article.conservatorio-bellinzona-valori-musicali.title': 'New headquarters for the Italian-Swiss Conservatory inaugurated',
+    'blog.article.conservatorio-bellinzona-valori-musicali.excerpt': 'Director Luca Medici emphasizes the importance of musical education to convey fundamental values',
+    'blog.article.conservatorio-bellinzona-valori-musicali.imageAlt': 'The new building of the Conservatory of Italian Switzerland in Bellinzona',
 };
 
 export default blogMetaEn;

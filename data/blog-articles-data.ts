@@ -8386,4 +8386,11 @@ export const ARTICLES = [
  image: '/images/blog/tallero-doro-80-anni-nuovo-design.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'conservatorio-bellinzona-valori-musicali',
+ category: 'novita',
+ date: '2026-04-27T23:18:43.323Z',
+ image: '/images/blog/conservatorio-bellinzona-valori-musicali.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3161,6 +3161,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tallero-doro-80-anni-nuovo-design.title': 'Tallero d\'oro: 80 ans et nouveau design',
     'blog.article.tallero-doro-80-anni-nuovo-design.excerpt': 'Le Tallero d\'or fête ses 80 ans et se renouvelle en design. Le prix augmente à 8 francs pour la première fois depuis 1998.',
     'blog.article.tallero-doro-80-anni-nuovo-design.imageAlt': 'Pièce de chocolat Tallero d\'oro enveloppée dans une feuille dorée sur une table en bois avec un drapeau suisse en arrière-plan',
+    'blog.article.conservatorio-bellinzona-valori-musicali.title': 'Inauguration du nouveau siège du Conservatoire de la Suisse italienne',
+    'blog.article.conservatorio-bellinzona-valori-musicali.excerpt': 'Le directeur Luca Medici souligne l\'importance de la formation musicale pour transmettre des valeurs fondamentales',
+    'blog.article.conservatorio-bellinzona-valori-musicali.imageAlt': 'Le nouveau bâtiment du Conservatoire de la Suisse italienne à Bellinzona',
 };
 
 export default blogMetaFr;

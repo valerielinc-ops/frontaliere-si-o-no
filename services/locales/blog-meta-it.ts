@@ -3161,6 +3161,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tallero-doro-80-anni-nuovo-design.title': 'Tallero d\'oro: 80 anni e nuovo design',
     'blog.article.tallero-doro-80-anni-nuovo-design.excerpt': 'Il Tallero d\'oro compie 80 anni e si rinnova nel design. Il prezzo aumenta a 8 franchi per la prima volta dal 1998.',
     'blog.article.tallero-doro-80-anni-nuovo-design.imageAlt': 'Moneta di cioccolato Tallero d\'oro avvolta in stagnola dorata su un tavolo di legno con bandiera svizzera sullo sfondo',
+    'blog.article.conservatorio-bellinzona-valori-musicali.title': 'Inaugurata la nuova sede del Conservatorio della Svizzera italiana',
+    'blog.article.conservatorio-bellinzona-valori-musicali.excerpt': 'Il direttore Luca Medici sottolinea l\'importanza della formazione musicale per trasmettere valori fondamentali',
+    'blog.article.conservatorio-bellinzona-valori-musicali.imageAlt': 'La nuova sede del Conservatorio della Svizzera italiana a Bellinzona',
 };
 
 export default blogMetaIt;

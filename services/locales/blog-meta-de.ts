@@ -3160,6 +3160,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tallero-doro-80-anni-nuovo-design.title': 'Golddukaten: 80 Jahre und neues Design',
     'blog.article.tallero-doro-80-anni-nuovo-design.excerpt': 'Der Golddukaten feiert seinen 80. Geburtstag und erhält ein neues Design. Der Preis steigt erstmals seit 1998 auf 8 Franken.',
     'blog.article.tallero-doro-80-anni-nuovo-design.imageAlt': 'Goldene Schokoladenmünze Tallero d\'oro in glänzender Folie auf einem Holztisch mit Schweizer Flagge im Hintergrund',
+    'blog.article.conservatorio-bellinzona-valori-musicali.title': 'Neuer Sitz des Konservatoriums der italienischen Schweiz eröffnet',
+    'blog.article.conservatorio-bellinzona-valori-musicali.excerpt': 'Der Direktor Luca Medici betont die Bedeutung der musikalischen Ausbildung, um grundlegende Werte zu vermitteln',
+    'blog.article.conservatorio-bellinzona-valori-musicali.imageAlt': 'Das neue Gebäude des Konservatoriums der italienischen Schweiz in Bellinzona',
 };
 
 export default blogMetaDe;

@@ -2314,6 +2314,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-campione-ditalia-elezioni-sindaco-2026': { name: 'Elezioni Campione d’Italia', path: '/articoli-frontaliere/campione-ditalia-elezioni-sindaco-2026', parent: 'blog' },
     'blog-gioventu-dibatte-500-studenti-gara': { name: 'Novità', path: '/articoli-frontaliere/gioventu-dibatte-500-studenti-gara', parent: 'blog' },
     'blog-tallero-doro-80-anni-nuovo-design': { name: 'Novità', path: '/articoli-frontaliere/tallero-doro-80-anni-nuovo-design', parent: 'blog' },
+    'blog-conservatorio-bellinzona-valori-musicali': { name: 'Novità', path: '/articoli-frontaliere/conservatorio-bellinzona-valori-musicali', parent: 'blog' },
  };
 
  const info = sectionNames[section];

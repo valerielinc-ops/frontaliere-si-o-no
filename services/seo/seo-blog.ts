@@ -17526,6 +17526,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-conservatorio-bellinzona-valori-musicali': {
+    title: 'Inaugurata la nuova sede del Conservatorio della Svizzera italiana',
+    description: 'Il direttore Luca Medici sottolinea l\'importanza della formazione musicale per trasmettere valori fondamentali nella nuova sede del Conservatorio a Bellinzona.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inaugurata, nuova, sede, conservatorio',
+    ogTitle: 'Inaugurata nuova sede Conservatorio Svizzera italiana Bellinzona',
+    ogDescription: 'Il direttore Luca Medici sottolinea l\'importanza della formazione musicale per trasmettere valori fondamentali nella nuova sede del Conservatorio a Bellinzona.',
+    canonicalPath: '/articoli-frontaliere/conservatorio-bellinzona-valori-musicali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inaugurata nuova sede Conservatorio Svizzera italiana Bellinzona",
+      "description": "Il direttore Luca Medici sottolinea l'importanza della formazione musicale per trasmettere valori fondamentali nella nuova sede del Conservatorio a Bellinzona.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/conservatorio-bellinzona-valori-musicali.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La nuova sede del Conservatorio della Svizzera italiana a Bellinzona"
+      },
+      "datePublished": "2026-04-27T23:18:43+00:00",
+      "dateModified": "2026-04-27T23:18:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/conservatorio-bellinzona-valori-musicali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
