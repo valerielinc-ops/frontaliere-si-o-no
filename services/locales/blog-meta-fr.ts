@@ -2805,6 +2805,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.elezioni-como-frontalieri-2026.title': 'Élections dans 10 communes de la Province de Côme : ce qui change pour les frontaliers',
     'blog.article.elezioni-como-frontalieri-2026.excerpt': 'Les élections auront lieu les 24 et 25 mai 2026 dans 10 communes de la Province de Côme. Voici les candidats et les implications pour les frontaliers',
     'blog.article.elezioni-como-frontalieri-2026.imageAlt': 'Affiche électorale à Lugano avec le lac de Lugano en arrière-plan',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.title': 'Théâtre de l\'Architecture : une saison d\'expositions en trois volets',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.excerpt': 'La saison d\'expositions du Théâtre de l\'Architecture de Mendrisio se compose de trois expositions distinctes, offrant un panorama varié d\'architecture et de design.',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.imageAlt': 'Teatro dell\'Architettura à Mendrisio pendant une exposition',
 };
 
 export default blogMetaFr;

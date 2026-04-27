@@ -7532,4 +7532,11 @@ export const ARTICLES = [
  image: '/images/blog/elezioni-como-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'teatro-architettura-mendrisio-stagione-2026',
+ category: 'novita',
+ date: '2026-04-27T05:20:53.462Z',
+ image: '/images/blog/teatro-architettura-mendrisio-stagione-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

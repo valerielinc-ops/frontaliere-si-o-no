@@ -2805,6 +2805,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.elezioni-como-frontalieri-2026.title': 'Wahlen in 10 Gemeinden der Provinz Como: Was ändert sich für Grenzgänger',
     'blog.article.elezioni-como-frontalieri-2026.excerpt': 'Am 24. und 25. Mai 2026 wird in 10 Gemeinden der Provinz Como gewählt. Hier sind die Kandidaten und die Auswirkungen auf Grenzgänger',
     'blog.article.elezioni-como-frontalieri-2026.imageAlt': 'Wahlplakate in Lugano mit dem Luganersee im Hintergrund',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.title': 'Teatro dell\'Architettura: Ausstellungssaison mit drei Schwerpunkten',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.excerpt': 'Die Ausstellungssaison des Teatro dell\'Architettura in Mendrisio gliedert sich in drei separate Ausstellungen und bietet einen abwechslungsreichen Überblick über Architektur und Design.',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.imageAlt': 'Teatro dell\'Architettura in Mendrisio während einer Ausstellung',
 };
 
 export default blogMetaDe;

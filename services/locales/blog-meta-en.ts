@@ -2805,6 +2805,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.elezioni-como-frontalieri-2026.title': 'Elections in 10 municipalities of Como Province: what changes for cross-border workers',
     'blog.article.elezioni-como-frontalieri-2026.excerpt': 'Voting takes place on May 24 and 25, 2026, in 10 municipalities of Como Province. Here are the candidates and the implications for cross-border workers',
     'blog.article.elezioni-como-frontalieri-2026.imageAlt': 'Election posters in Lugano with Lake Lugano in the background',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.title': 'Teatro dell\'Architettura: three-pronged exhibition season',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.excerpt': 'The exhibition season at the Teatro dell\'Architettura in Mendrisio features three distinct shows, offering a diverse overview of architecture and design.',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.imageAlt': 'Teatro dell\'Architettura in Mendrisio during an exhibition',
 };
 
 export default blogMetaEn;

@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 981,
+ "numberOfItems": 982,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5705,7 +5705,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 978, "name": "Guerra in Iran: pressione sull'industria alimen...", "url": `${BASE_URL}/articoli-frontaliere/guerra-iran-industria-alimentare-svizzera` },
           { "@type": "ListItem", "position": 979, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/bollini-rossi-traffico-san-gottardo-2026` },
           { "@type": "ListItem", "position": 980, "name": "Treno Lugano-Zurigo in panne: passeggeri a pied...", "url": `${BASE_URL}/articoli-frontaliere/treno-guasto-bellinzona-2026` },
-          { "@type": "ListItem", "position": 981, "name": "Elezioni in 10 comuni della Provincia di Como: ...", "url": `${BASE_URL}/articoli-frontaliere/elezioni-como-frontalieri-2026` }
+          { "@type": "ListItem", "position": 981, "name": "Elezioni in 10 comuni della Provincia di Como: ...", "url": `${BASE_URL}/articoli-frontaliere/elezioni-como-frontalieri-2026` },
+          { "@type": "ListItem", "position": 982, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/teatro-architettura-mendrisio-stagione-2026` }
  ]
  },
  {

@@ -2805,6 +2805,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.elezioni-como-frontalieri-2026.title': 'Elezioni in 10 comuni della Provincia di Como: cosa cambia per i frontalieri',
     'blog.article.elezioni-como-frontalieri-2026.excerpt': 'Si vota il 24 e 25 maggio 2026 in 10 comuni della Provincia di Como. Ecco i candidati e le implicazioni per i frontalieri',
     'blog.article.elezioni-como-frontalieri-2026.imageAlt': 'Manifesti elettorali a Lugano con il Lago di Lugano sullo sfondo',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.title': 'Teatro dell\'Architettura: stagione espositiva a tre punte',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.excerpt': 'La stagione espositiva del Teatro dell\'Architettura di Mendrisio si articola in tre mostre distinte, offrendo un panorama variegato di architettura e design.',
+    'blog.article.teatro-architettura-mendrisio-stagione-2026.imageAlt': 'Teatro dell\'Architettura a Mendrisio durante una mostra',
 };
 
 export default blogMetaIt;

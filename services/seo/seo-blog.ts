@@ -13988,6 +13988,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-teatro-architettura-mendrisio-stagione-2026': {
+    title: 'Teatro dell\'Architettura: stagione | Frontaliere Ticino',
+    description: 'Scopri la stagione espositiva 2026 del Teatro dell\'Architettura di Mendrisio con tre mostre distinte su architettura e design. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, teatro, dell, architettura, stagione',
+    ogTitle: 'Teatro dell\'Architettura: stagione espositiva 2026',
+    ogDescription: 'Scopri la stagione espositiva 2026 del Teatro dell\'Architettura di Mendrisio con tre mostre distinte su architettura e design.',
+    canonicalPath: '/articoli-frontaliere/teatro-architettura-mendrisio-stagione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Teatro dell'Architettura",
+      "description": "Scopri la stagione espositiva 2026 del Teatro dell'Architettura di Mendrisio con tre mostre distinte su architettura e design. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/teatro-architettura-mendrisio-stagione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Teatro dell'Architettura a Mendrisio durante una mostra"
+      },
+      "datePublished": "2026-04-27T05:20:53+00:00",
+      "dateModified": "2026-04-27T05:20:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/teatro-architettura-mendrisio-stagione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
