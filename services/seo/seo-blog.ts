@@ -16540,6 +16540,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzeri-contributo-clima-acquisti-online-2026': {
+    title: 'Sempre meno svizzeri pagano il | Frontaliere Ticino',
+    description: 'Dati Galaxus: nel 2026 solo il 9% degli ordini online in Svizzera include il contributo volontario per il clima, contro l\'11% del 2024 e il 12% del 2022.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sempre, meno, svizzeri, pagano',
+    ogTitle: 'Contributo clima online | Frontaliere Ticino',
+    ogDescription: 'Dati Galaxus: nel 2026 solo il 9% degli ordini online in Svizzera include il contributo volontario per il clima, contro l\'11% del 2024 e il 12% del 2022.',
+    canonicalPath: '/articoli-frontaliere/svizzeri-contributo-clima-acquisti-online-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dati Galaxus: nel 2026 solo il 9% degli ordini online in Svizzera include il contributo volontario",
+      "description": "Dati Galaxus: nel 2026 solo il 9% degli ordini online in Svizzera include il contributo volontario per il clima, contro l'11% del 2024 e il 12% del 2022.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzeri-contributo-clima-acquisti-online-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che fa acquisti online in una casa svizzera moderna con vista sulle Alpi"
+      },
+      "datePublished": "2026-04-27T18:36:46+00:00",
+      "dateModified": "2026-04-27T18:36:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-contributo-clima-acquisti-online-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

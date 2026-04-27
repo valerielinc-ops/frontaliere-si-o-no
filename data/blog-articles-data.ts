@@ -8148,4 +8148,11 @@ export const ARTICLES = [
  image: '/images/blog/banca-ditalia-varese-10-anni-dopo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzeri-contributo-clima-acquisti-online-2026',
+ category: 'novita',
+ date: '2026-04-27T18:36:46.901Z',
+ image: '/images/blog/svizzeri-contributo-clima-acquisti-online-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

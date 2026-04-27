@@ -3069,6 +3069,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.banca-ditalia-varese-10-anni-dopo.title': 'Banca d\'Italia in Varese: 10 Jahre später, der leere Riese',
     'blog.article.banca-ditalia-varese-10-anni-dopo.excerpt': 'Das historische Gebäude in der Via Sacco steht seit 2018 zum Verkauf, findet aber keine Käufer. Hier ist der Grund.',
     'blog.article.banca-ditalia-varese-10-anni-dopo.imageAlt': 'Verlassenes Gebäude der Banca d\'Italia in Varese',
+    'blog.article.svizzeri-contributo-clima-acquisti-online-2026.title': 'Immer weniger Schweizer zahlen den Klimabeitrag bei Online-Käufen',
+    'blog.article.svizzeri-contributo-clima-acquisti-online-2026.excerpt': 'Daten von Galaxus: Im Jahr 2026 enthalten nur noch 9% der Online-Bestellungen in der Schweiz den freiwilligen Klimabeitrag, gegenüber 11% im Jahr 2024 und 12% im Jahr 2022.',
+    'blog.article.svizzeri-contributo-clima-acquisti-online-2026.imageAlt': 'Person online einkaufen in einem modernen Schweizer Zuhause mit Blick auf die Alpen',
 };
 
 export default blogMetaDe;

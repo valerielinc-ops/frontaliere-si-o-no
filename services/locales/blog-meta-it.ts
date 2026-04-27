@@ -3069,6 +3069,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.banca-ditalia-varese-10-anni-dopo.title': 'Banca d\'Italia a Varese: 10 anni dopo, il gigante vuoto',
     'blog.article.banca-ditalia-varese-10-anni-dopo.excerpt': 'Lo storico edificio di via Sacco è in vendita dal 2018, ma non trova acquirenti. Ecco perché.',
     'blog.article.banca-ditalia-varese-10-anni-dopo.imageAlt': 'Edificio abbandonato della Banca d\'Italia a Varese',
+    'blog.article.svizzeri-contributo-clima-acquisti-online-2026.title': 'Sempre meno svizzeri pagano il contributo clima sugli acquisti online',
+    'blog.article.svizzeri-contributo-clima-acquisti-online-2026.excerpt': 'Dati Galaxus: nel 2026 solo il 9% degli ordini online in Svizzera include il contributo volontario per il clima, contro l\'11% del 2024 e il 12% del 2022.',
+    'blog.article.svizzeri-contributo-clima-acquisti-online-2026.imageAlt': 'Persona che fa acquisti online in una casa svizzera moderna con vista sulle Alpi',
 };
 
 export default blogMetaIt;
