@@ -30,7 +30,8 @@ export type SectorHubKey =
   | 'sviluppatori'
   | 'ristorazione'
   | 'oss'
-  | 'logistica';
+  | 'logistica'
+  | 'apprendistato';
 
 export const SECTOR_HUB_KEYS: readonly SectorHubKey[] = [
   'infermieri',
@@ -42,6 +43,7 @@ export const SECTOR_HUB_KEYS: readonly SectorHubKey[] = [
   'ristorazione',
   'oss',
   'logistica',
+  'apprendistato',
 ] as const;
 
 /** Per-locale URL slug for each sector. Query-matching, short. */
@@ -56,6 +58,7 @@ export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string
     ristorazione: 'ristorazione',
     oss: 'operatori-socio-sanitari',
     logistica: 'logistica',
+    apprendistato: 'apprendistato',
   },
   en: {
     infermieri: 'nurses',
@@ -67,6 +70,7 @@ export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string
     ristorazione: 'restaurants',
     oss: 'healthcare-assistants',
     logistica: 'logistics',
+    apprendistato: 'apprenticeships',
   },
   de: {
     infermieri: 'pflegepersonal',
@@ -78,6 +82,7 @@ export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string
     ristorazione: 'gastronomie',
     oss: 'pflegeassistenten',
     logistica: 'logistik',
+    apprendistato: 'lehrstellen',
   },
   fr: {
     infermieri: 'infirmiers',
@@ -89,6 +94,7 @@ export const SECTOR_HUB_SLUG: Record<JobBoardLocale, Record<SectorHubKey, string
     ristorazione: 'restauration',
     oss: 'aides-soignants',
     logistica: 'logistique',
+    apprendistato: 'apprentissages',
   },
 };
 
@@ -119,6 +125,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ristorazione: 'Ristorazione',
     oss: 'Operatori Socio-Sanitari',
     logistica: 'Logistica',
+    apprendistato: 'Apprendistato',
   },
   en: {
     infermieri: 'Nurses',
@@ -130,6 +137,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ristorazione: 'Restaurants',
     oss: 'Healthcare Assistants',
     logistica: 'Logistics',
+    apprendistato: 'Apprenticeships',
   },
   de: {
     infermieri: 'Pflegepersonal',
@@ -141,6 +149,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ristorazione: 'Gastronomie',
     oss: 'Pflegeassistenten',
     logistica: 'Logistik',
+    apprendistato: 'Lehrstellen',
   },
   fr: {
     infermieri: 'Infirmiers',
@@ -152,6 +161,7 @@ export const SECTOR_HUB_DISPLAY: Record<JobBoardLocale, Record<SectorHubKey, str
     ristorazione: 'Restauration',
     oss: 'Aides-Soignants',
     logistica: 'Logistique',
+    apprendistato: 'Apprentissages',
   },
 };
 
@@ -240,6 +250,8 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /operatore[ -]socio[ -]sanitar|operatori[ -]socio[ -]sanitar|\boss\b|\bosa\b|operatore[ -]socio[ -]assistenz|healthcare[ -]assistant|nursing[ -]assistant|nurse[ -]aide|pflegeassistent|pflegehelfer|fachperson[ -]gesundheit|aide[ -]soignant|aide[ -]a[ -]domicile|auxiliaire[ -]de[ -]vie/i,
   logistica:
     /logistic[ao]|logistico|logisticien|logistique|magazzin|magazziner|warehouse|warehouseman|lagerist|lagerlogistik|logistiker|carrellis|fork[ -]?lift|carrelli[ -]elevator|spediz|spedizionier|shipping[ -]clerk|customs[ -]broker|forwarder|spediteur|cargo[ -]handler/i,
+  apprendistato:
+    /apprendista|apprendistato|apprentice|apprenticeship|internship|intern\b|trainee|stagiaire|stagista|stage[ -]?curric|berufslehre|lehrstelle|lehrling|lehrbetrieb|lehrvertrag|formation[ -]duale|apprentissage|apprenti\b|alternance|tirocin/i,
 };
 
 function wordCount(s: string | undefined | null): number {
@@ -304,6 +316,7 @@ export function countSectorJobsByLocale(
     ristorazione: 0,
     oss: 0,
     logistica: 0,
+    apprendistato: 0,
   });
   const counts: Record<JobBoardLocale, Record<SectorHubKey, number>> = {
     it: empty(),
@@ -382,6 +395,7 @@ export function buildSectorHubSeo(
         ristorazione: 'Ristorazione',
         oss: 'Operatori Socio-Sanitari',
         logistica: 'Logistica',
+        apprendistato: 'Apprendistato',
       };
       const noun = nounMap[sector];
       // SEO title: keyword-first, ≤60 char (Semrush W2). No emoji prefix, no
@@ -431,6 +445,7 @@ export function buildSectorHubSeo(
         ristorazione: 'Restaurants',
         oss: 'Healthcare Assistants',
         logistica: 'Logistics',
+        apprendistato: 'Apprenticeships',
       };
       const noun = nounMap[sector];
       const titleBase = formatSeoTitle({
@@ -476,6 +491,7 @@ export function buildSectorHubSeo(
         ristorazione: 'Gastronomie',
         oss: 'Pflegeassistenten',
         logistica: 'Logistik',
+        apprendistato: 'Lehrstellen',
       };
       const noun = nounMap[sector];
       const titleBase = formatSeoTitle({
@@ -521,6 +537,7 @@ export function buildSectorHubSeo(
         ristorazione: 'Restauration',
         oss: 'Aides-Soignants',
         logistica: 'Logistique',
+        apprendistato: 'Apprentissages',
       };
       const noun = nounMap[sector];
       const titleBase = formatSeoTitle({

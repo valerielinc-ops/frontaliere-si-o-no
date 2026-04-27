@@ -437,6 +437,7 @@ function main() {
     'ristorazione', 'restaurants', 'gastronomie', 'restauration',
     'operatori-socio-sanitari', 'healthcare-assistants', 'pflegeassistenten', 'aides-soignants',
     'logistica', 'logistics', 'logistik', 'logistique',
+    'apprendistato', 'apprenticeships', 'lehrstellen', 'apprentissages',
     'lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso',
   ]);
 

@@ -341,6 +341,22 @@ jobs:
         if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome != 'success'
         run: exit 1
 
+      - name: Wait for GitHub Pages CDN propagation (90s)
+        # `actions/deploy-pages` returns success the moment the artifact is
+        # registered, but the CDN edge can serve stale HTML for 1-2 minutes.
+        # Probing immediately yields false positives (old slugs still cached)
+        # and false negatives (new slugs not yet live). 90s covers the typical
+        # propagation window without slowing deploys excessively.
+        if: success()
+        run: sleep 90
+
+      - name: Post-deploy availability probe (4XX/5XX)
+        # Same script as production-canary.yml — runs after every deploy so a
+        # bad slug change or removed plugin output blocks the workflow run
+        # (visible in the deploy status, not 15 min later in the canary).
+        if: success()
+        run: npm run probe:5xx
+
       - name: Wait for live article metadata
         if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_url != '' && github.event.inputs.og_title != ''
         id: wait_live_meta

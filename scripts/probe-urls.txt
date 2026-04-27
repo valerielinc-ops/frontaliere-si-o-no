@@ -48,12 +48,14 @@ https://frontaliereticino.ch/premi-cassa-malati/ticino/adulto-26-30/
 # F4 job-market snapshot — /mercato-lavoro-ticino/{period}/
 https://frontaliereticino.ch/mercato-lavoro-ticino/
 
-# F5 weekly employers — /aziende-che-assumono/{city}/
-https://frontaliereticino.ch/aziende-che-assumono/lugano/
+# F5 weekly employers — /aziende-che-assumono/{city}/{company}/settimana-corrente/
+# (the /{city}/ index is an intermediate dir without index.html — probe a leaf)
+https://frontaliereticino.ch/aziende-che-assumono/lugano/amministrazione-cantonale-ticino/settimana-corrente/
 
-# F6 daily fuel prices — /prezzi-benzina/{city}/ and /prezzi-diesel/{city}/
-https://frontaliereticino.ch/prezzi-benzina/lugano/
-https://frontaliereticino.ch/prezzi-diesel/lugano/
+# F6 daily fuel prices — /prezzi-benzina/{city}/oggi/ and /prezzi-diesel/{city}/oggi/
+# (city dir contains /oggi/ + /stazioni/ subdirs, no own index.html)
+https://frontaliereticino.ch/prezzi-benzina/lugano/oggi/
+https://frontaliereticino.ch/prezzi-diesel/lugano/oggi/
 
 # F8 border live map (canonical landing — slug lives under /guida-frontaliere/)
 https://frontaliereticino.ch/guida-frontaliere/mappa-live-valichi/

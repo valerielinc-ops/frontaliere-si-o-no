@@ -44,7 +44,7 @@ const DRY_RUN = process.argv.includes('--dry-run');
  * CITY_HUB_SLUG (build-plugins/cityJobsHub.ts), kept in sync manually.
  */
 const RESERVED_HUB_SLUGS = new Set([
-  // Sector hubs (9 sectors × 4 locales = 36 slugs)
+  // Sector hubs (10 sectors × 4 locales = 40 slugs)
   'infermieri', 'nurses', 'pflegepersonal', 'infirmiers',
   'case-anziani', 'elderly-care', 'altenpflege', 'maisons-retraite',
   'educatori', 'educators', 'erzieher', 'educateurs',
@@ -54,6 +54,7 @@ const RESERVED_HUB_SLUGS = new Set([
   'ristorazione', 'restaurants', 'gastronomie', 'restauration',
   'operatori-socio-sanitari', 'healthcare-assistants', 'pflegeassistenten', 'aides-soignants',
   'logistica', 'logistics', 'logistik', 'logistique',
+  'apprendistato', 'apprenticeships', 'lehrstellen', 'apprentissages',
   // City hubs (5 cities — same slug across all locales)
   'lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso',
 ]);

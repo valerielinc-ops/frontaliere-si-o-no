@@ -26,7 +26,7 @@ import {
 const YEAR = 2026;
 
 describe('jobSectorLanding — paths', () => {
-  it('exposes exactly 9 sector keys', () => {
+  it('exposes exactly 10 sector keys', () => {
     expect(SECTOR_HUB_KEYS).toEqual([
       'infermieri',
       'case-anziani',
@@ -37,6 +37,7 @@ describe('jobSectorLanding — paths', () => {
       'ristorazione',
       'oss',
       'logistica',
+      'apprendistato',
     ]);
   });
 
@@ -68,11 +69,11 @@ describe('jobSectorLanding — paths', () => {
     expect(buildSectorHubPath('fr', 'ristorazione')).toBe('/fr/trouver-emploi-tessin/restauration/');
   });
 
-  it('produces exactly 36 paths (9 sectors × 4 locales)', () => {
+  it('produces exactly 40 paths (10 sectors × 4 locales)', () => {
     const paths = allSectorHubPaths();
-    expect(paths).toHaveLength(36);
+    expect(paths).toHaveLength(40);
     const unique = new Set(paths.map((p) => p.path));
-    expect(unique.size).toBe(36);
+    expect(unique.size).toBe(40);
     for (const p of paths) expect(p.path.endsWith('/')).toBe(true);
   });
 
@@ -241,6 +242,17 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Logisticien CFC' }, 'logistica')).toBe(true);
     expect(jobMatchesSector({ title: 'Cuoco partita pesce' }, 'logistica')).toBe(false);
   });
+
+  it('matches apprenticeship/internship keywords across locales', () => {
+    expect(jobMatchesSector({ title: 'Apprendista cuoco AFC' }, 'apprendistato')).toBe(true);
+    expect(jobMatchesSector({ title: 'Tirocinio formativo bancario' }, 'apprendistato')).toBe(true);
+    expect(jobMatchesSector({ title: 'Software Engineering Intern' }, 'apprendistato')).toBe(true);
+    expect(jobMatchesSector({ title: 'Lehrstelle Informatiker EFZ' }, 'apprendistato')).toBe(true);
+    expect(jobMatchesSector({ title: 'Lehrling Kaufmann' }, 'apprendistato')).toBe(true);
+    expect(jobMatchesSector({ title: 'Apprenti boucher CFC' }, 'apprendistato')).toBe(true);
+    expect(jobMatchesSector({ title: 'Apprentissage de commerce' }, 'apprendistato')).toBe(true);
+    expect(jobMatchesSector({ title: 'Senior backend developer' }, 'apprendistato')).toBe(false);
+  });
 });
 
 describe('jobSectorLanding — counts and filtering', () => {
@@ -359,6 +371,10 @@ describe('router — sector hub URLs', () => {
     { locale: 'de', sector: 'logistica', path: '/de/jobs-im-tessin/logistik/' },
     { locale: 'fr', sector: 'oss', path: '/fr/trouver-emploi-tessin/aides-soignants/' },
     { locale: 'fr', sector: 'logistica', path: '/fr/trouver-emploi-tessin/logistique/' },
+    { locale: 'it', sector: 'apprendistato', path: '/cerca-lavoro-ticino/apprendistato/' },
+    { locale: 'en', sector: 'apprendistato', path: '/en/find-jobs-ticino/apprenticeships/' },
+    { locale: 'de', sector: 'apprendistato', path: '/de/jobs-im-tessin/lehrstellen/' },
+    { locale: 'fr', sector: 'apprendistato', path: '/fr/trouver-emploi-tessin/apprentissages/' },
   ] as const;
 
   for (const c of cases) {
