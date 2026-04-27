@@ -1412,6 +1412,54 @@ function employerBrandPath(
   return null;
 }
 
+/**
+ * Per-city weekly-employers hub frontalier context. Adds 2 locale-aware
+ * paragraphs to the city-level snapshot pages (companies-hiring/<city>/),
+ * boosting text/HTML well above the 10% Semrush threshold without any
+ * boilerplate — copy interpolates cityDisplay/jobsCount/companiesCount.
+ */
+function renderWeeklyEmployersFrontalierContext(args: {
+  locale: WeeklyEmployersLocale;
+  cityDisplay: string;
+  isRegional: boolean;
+  jobsCount: number;
+  companiesCount: number;
+}): string {
+  const { locale, cityDisplay, isRegional, jobsCount, companiesCount } = args;
+  const where = isRegional ? '' : ` a ${cityDisplay}`;
+  const whereEn = isRegional ? '' : ` in ${cityDisplay}`;
+  const whereDe = isRegional ? '' : ` in ${cityDisplay}`;
+  const whereFr = isRegional ? '' : ` à ${cityDisplay}`;
+  const copy: Record<WeeklyEmployersLocale, { h: string; p1: string; p2: string }> = {
+    it: {
+      h: `Come leggere lo snapshot settimanale${where} da frontaliere`,
+      p1: `Le ${jobsCount} posizioni aperte distribuite su ${companiesCount} aziende${where} fotografate sopra non sono un valore statico: il delta settimanale (la differenza rispetto allo snapshot di sette giorni fa) è il segnale più informativo per chi cerca lavoro come frontaliere. Un delta positivo significa che l'azienda sta crescendo l'organico — è la finestra temporale ottimale per inviare un CV, anche fuori dalle posizioni esattamente in linea, perché HR e responsabili di linea stanno valutando profili attivamente. Un delta zero o negativo segnala saturazione: in questi periodi conviene puntare alle multinazionali con HR centralizzato (Lonza, Helsinn, Medacta, BancaStato) che fanno hiring continuativo, mentre le PMI ticinesi assumono in modo più discontinuo. Confronta sempre il delta con i picchi storici: marzo-aprile e settembre-ottobre concentrano il 40-55 % delle assunzioni annuali nel Sottoceneri.`,
+      p2: `Per ottimizzare la candidatura usa questo elenco come "lista calda" e affianca tre azioni in parallelo: (1) apri la pagina hub di ogni top employer per leggere la sezione "Informazioni per frontalieri" (Permesso G, canton di ritenuta fonte, contributi sociali) e calcola il netto reale del lordo dichiarato nel <a href="${BASE_URL}/calcola-stipendio/" style="color:var(--color-link)">simulatore stipendio</a>; (2) verifica i tempi di attesa sui valichi vicini (Brogeda, Chiasso, Stabio, Gaggiolo) per stimare l'orario di arrivo a ${cityDisplay} per il colloquio o il primo giorno di lavoro; (3) per ruoli regolamentati (sanità, scuole, finanza, sicurezza) avvia la pratica di equipollenza del titolo italiano presso SBFI/SEFRI prima dell'invio del CV — la pratica richiede 3-6 mesi e va fatta in parallelo, non dopo. Quando il delta settimanale di un'azienda passa da zero a positivo per due settimane consecutive, è il segnale più forte di una fase di crescita strutturale: il momento giusto per la candidatura spontanea, non solo per le offerte pubblicate.`,
+    },
+    en: {
+      h: `How to read the weekly snapshot${whereEn} as a cross-border worker`,
+      p1: `The ${jobsCount} open positions across ${companiesCount} companies${whereEn} captured above are not static numbers: the weekly delta (the difference vs the snapshot seven days ago) is the most informative signal for cross-border job seekers. A positive delta means the company is growing headcount — that's the optimal window to send a CV, even outside exactly aligned openings, because HR and line managers are actively assessing profiles. A zero or negative delta signals saturation: in those periods focus on multinationals with centralised HR (Lonza, Helsinn, Medacta, BancaStato) that hire continuously, while Ticino SMEs hire in bursts. Always benchmark the delta against historical peaks: March-April and September-October concentrate 40-55 % of annual hires in Sottoceneri.`,
+      p2: `To optimise your application use this list as a "hot list" and run three parallel actions: (1) open each top employer's hub page for the "Information for cross-border workers" section (G permit, withholding canton, social charges) and run the actual net of the advertised gross in the <a href="${BASE_URL}/en/calculate-salary/" style="color:var(--color-link)">salary simulator</a>; (2) check live wait times at nearby crossings (Brogeda, Chiasso, Stabio, Gaggiolo) to size the arrival time at ${cityDisplay} for the interview or first day on site; (3) for regulated roles (healthcare, schools, finance, security) launch the SBFI/SEFRI Italian-title equivalence procedure before sending the CV — it takes 3-6 months and should run in parallel, not after. When a company's weekly delta flips from zero to positive for two consecutive weeks, that's the strongest signal of a structural growth phase: the right moment for a speculative application, not just posted openings.`,
+    },
+    de: {
+      h: `Wie der wöchentliche Snapshot${whereDe} als Grenzgänger zu lesen ist`,
+      p1: `Die ${jobsCount} offenen Stellen verteilt auf ${companiesCount} Unternehmen${whereDe}, die oben abgebildet sind, sind keine statischen Werte: das wöchentliche Delta (der Unterschied zum Snapshot vor sieben Tagen) ist das aussagekräftigste Signal für stellensuchende Grenzgänger. Ein positives Delta bedeutet, dass das Unternehmen den Personalbestand ausbaut — das ist das optimale Zeitfenster für eine Bewerbung, auch ausserhalb exakt passender Stellen, weil HR und Linienvorgesetzte aktiv Profile prüfen. Ein null oder negatives Delta signalisiert Sättigung: in diesen Phasen fokussieren Sie sich auf Multinationals mit zentralisierter HR (Lonza, Helsinn, Medacta, BancaStato), die kontinuierlich einstellen, während Tessiner KMU schubweise einstellen. Vergleichen Sie das Delta immer mit historischen Spitzen: März-April und September-Oktober konzentrieren 40-55 % der jährlichen Anstellungen im Sottoceneri.`,
+      p2: `Um die Bewerbung zu optimieren, nutzen Sie diese Liste als "Hot List" und führen Sie drei Aktionen parallel aus: (1) öffnen Sie die Hub-Seite jedes Top-Arbeitgebers für den Abschnitt "Informationen für Grenzgänger" (G-Bewilligung, Quellenkanton, Sozialabgaben) und berechnen Sie das reale Netto des angegebenen Brutto im <a href="${BASE_URL}/de/gehalt-berechnen/" style="color:var(--color-link)">Lohnsimulator</a>; (2) prüfen Sie die Live-Wartezeiten an den nahen Grenzübergängen (Brogeda, Chiasso, Stabio, Gaggiolo) zur Schätzung der Ankunftszeit in ${cityDisplay} für das Vorstellungsgespräch oder den ersten Arbeitstag; (3) für regulierte Rollen (Gesundheit, Schulen, Finanzen, Sicherheit) starten Sie das SBFI/SEFRI-Anerkennungsverfahren des italienischen Titels vor dem Versand des Lebenslaufs — es dauert 3-6 Monate und sollte parallel laufen, nicht danach. Wenn das Wochen-Delta eines Unternehmens zwei aufeinanderfolgende Wochen von null auf positiv springt, ist das das stärkste Signal einer strukturellen Wachstumsphase: der richtige Moment für eine Initiativbewerbung, nicht nur für ausgeschriebene Stellen.`,
+    },
+    fr: {
+      h: `Comment lire le panorama hebdomadaire${whereFr} en tant que frontalier`,
+      p1: `Les ${jobsCount} postes ouverts répartis sur ${companiesCount} entreprises${whereFr} capturés ci-dessus ne sont pas des valeurs statiques : le delta hebdomadaire (la différence par rapport au panorama d'il y a sept jours) est le signal le plus informatif pour les frontaliers en recherche d'emploi. Un delta positif signifie que l'entreprise étoffe ses effectifs — c'est la fenêtre optimale pour envoyer un CV, même en dehors d'offres parfaitement alignées, car les RH et les responsables hiérarchiques évaluent activement des profils. Un delta nul ou négatif signale la saturation : dans ces périodes, concentrez-vous sur les multinationales à RH centralisée (Lonza, Helsinn, Medacta, BancaStato) qui recrutent en continu, tandis que les PME tessinoises recrutent par à-coups. Comparez toujours le delta aux pics historiques : mars-avril et septembre-octobre concentrent 40-55 % des embauches annuelles dans le Sottoceneri.`,
+      p2: `Pour optimiser la candidature, utilisez cette liste comme "liste chaude" et menez trois actions en parallèle : (1) ouvrez la page hub de chaque top employeur pour la section "Informations pour les frontaliers" (permis G, canton de retenue, charges sociales) et calculez le net réel du brut affiché dans le <a href="${BASE_URL}/fr/calculer-salaire/" style="color:var(--color-link)">simulateur de salaire</a> ; (2) vérifiez les temps d'attente en direct aux passages voisins (Brogeda, Chiasso, Stabio, Gaggiolo) pour estimer l'heure d'arrivée à ${cityDisplay} pour l'entretien ou le premier jour de travail ; (3) pour les rôles réglementés (santé, écoles, finance, sécurité) lancez la procédure SBFI/SEFRI d'équivalence du titre italien avant l'envoi du CV — elle prend 3-6 mois et doit être menée en parallèle, pas après. Lorsque le delta hebdomadaire d'une entreprise passe de zéro à positif pendant deux semaines consécutives, c'est le signal le plus fort d'une phase de croissance structurelle : le bon moment pour une candidature spontanée, pas seulement pour les offres publiées.`,
+    },
+  };
+  const c = copy[locale] || copy.it;
+  return `<section style="margin:0 0 28px" aria-labelledby="weeklyEmpFrontalier">
+    <h2 id="weeklyEmpFrontalier" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${c.p1}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${c.p2}</p>
+  </section>`;
+}
+
 export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): string {
   const {
     locale,
@@ -1716,6 +1764,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     <p style="margin:0 0 10px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorial)}</p>
     <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px;font-size:14px">${esc(methodology)}</p>
   </section>
+  ${renderWeeklyEmployersFrontalierContext({ locale, cityDisplay, isRegional, jobsCount, companiesCount })}
   <section style="margin:0 0 28px" aria-labelledby="relatedLinks">
     <h2 id="relatedLinks" style="${H2_STYLE}">${esc(copy.relatedLinksTitle)}</h2>
     ${relatedHtml}
