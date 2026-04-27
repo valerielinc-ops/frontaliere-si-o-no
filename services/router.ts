@@ -1932,8 +1932,14 @@ export function parsePath(pathname: string): ParseResult {
  return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: landing }, locale };
  }
  // Salary Hub pattern: stipendio-netto-XXXXX-chf-* / net-salary-XXXXX-chf-* / etc.
+ // Build-time static HTML rendered OUTSIDE `#root` (see salaryHubPlugin.ts
+ // → seoPageShell → seoContentOutsideRoot). staticOverlay: true tells
+ // App.tsx + pushRoute to leave the URL alone and skip the React main
+ // render so the per-scenario static content stays visible (otherwise the
+ // SPA would replace it with the generic Calcolatore tab and collapse the
+ // layout into a narrow column). Mirrors the fuel-daily pattern above.
  if (isSalaryHubSlug(second)) {
- return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', salaryHubSlug: second }, locale };
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', salaryHubSlug: second, staticOverlay: true }, locale };
  }
  }
  return { route: { activeTab: 'calculator', calcolatoreSubTab: sub as CalcolatoreSubTab }, locale };
