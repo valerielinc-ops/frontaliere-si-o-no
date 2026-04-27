@@ -297,4 +297,23 @@ describe('router — sector hub URLs', () => {
     expect(r.route.jobBoardCity).toBeUndefined();
     expect(r.route.jobSlug).toBe('some-random-job');
   });
+
+  it('marks sector hub routes as staticOverlay so the SPA preserves the static SEO HTML', () => {
+    // Regression: without staticOverlay the lite-shell relied on a runtime
+    // DOM probe of `main.seo-static-content`. If the static file was ever
+    // missing (build hiccup, deploy mid-rebuild), the SPA would silently
+    // fall through to a generic JobBoard listing — losing sector filtering.
+    const r = parsePath('/cerca-lavoro-ticino/infermieri/');
+    expect(r.route.jobBoardSector).toBe('infermieri');
+    expect(r.route.staticOverlay).toBe(true);
+  });
+
+  it('city hub routes do NOT set staticOverlay (different chrome path)', () => {
+    // City hubs have their own editorial slug + redirect flow, no need
+    // for the staticOverlay flag — keep this test as a guard against
+    // accidental cross-contamination.
+    const r = parsePath('/cerca-lavoro-ticino/lugano/');
+    expect(r.route.jobBoardCity).toBe('lugano');
+    expect(r.route.staticOverlay).toBeFalsy();
+  });
 });

@@ -2017,12 +2017,19 @@ export function parsePath(pathname: string): ParseResult {
  // identifier for canonical URL generation in buildPath().
  if (rawSecond) {
  // Sector hub (infermieri / case-anziani / educatori) — clean canonical URLs.
+ // staticOverlay tells App.tsx to skip the React main render so the
+ // build-time SEO HTML stays visible (lite-shell mode). Without this
+ // flag the page survives only because the runtime DOM probe detects
+ // `main.seo-static-content`; if that file is ever missing or stripped,
+ // the SPA would fall through to a generic JobBoard listing without
+ // sector filtering — silently breaking the per-sector landing page.
  const sectorHit = SECTOR_HUB_KEYS.find((s) => SECTOR_HUB_SLUG[locale][s] === rawSecond);
  if (sectorHit) {
  return {
  route: {
  activeTab: 'job-board',
  jobBoardSector: sectorHit as SectorHubKey,
+ staticOverlay: true,
  },
  locale,
  };
