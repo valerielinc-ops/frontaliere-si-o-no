@@ -7658,4 +7658,11 @@ export const ARTICLES = [
  image: '/images/blog/zecche-ticino-2026-18000-punture.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavoratori-pensionati-ticino-2026',
+ category: 'novita',
+ date: '2026-04-27T10:13:22.447Z',
+ image: '/images/blog/lavoratori-pensionati-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

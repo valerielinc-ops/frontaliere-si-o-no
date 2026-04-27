@@ -2859,6 +2859,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.zecche-ticino-2026-18000-punture.title': 'Zecken im Tessin: 18.000 Stiche im 2025, hier ist, was Sie wissen müssen',
     'blog.article.zecche-ticino-2026-18000-punture.excerpt': 'Im Jahr 2025 wurden in der Schweiz 18.000 Zeckenstiche registriert. Die Ärztin Luisa Carnino vom EOC erklärt Symptome und Vorbeugung',
     'blog.article.zecche-ticino-2026-18000-punture.imageAlt': 'Nahaufnahme einer Zecke auf einem Blatt in einem Wald im Tessin',
+    'blog.article.lavoratori-pensionati-ticino-2026.title': 'Arbeitnehmer über 65: Verdoppelt in 20 Jahren',
+    'blog.article.lavoratori-pensionati-ticino-2026.excerpt': 'Im Jahr 2025 arbeiten 220\'000 Personen auch nach dem 65. Lebensjahr weiter, mehr als doppelt so viele wie 2005. Hier erfahren Sie, was sich für Grenzgänger ändert.',
+    'blog.article.lavoratori-pensionati-ticino-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Ceresio-See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

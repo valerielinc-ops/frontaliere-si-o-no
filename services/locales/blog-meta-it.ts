@@ -2859,6 +2859,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.zecche-ticino-2026-18000-punture.title': 'Zecche in Ticino: 18.000 punture nel 2025, ecco cosa sapere',
     'blog.article.zecche-ticino-2026-18000-punture.excerpt': 'Nel 2025 in Svizzera sono state registrate 18.000 punture di zecche. La dottoressa Luisa Carnino dell\'EOC spiega sintomi e prevenzione',
     'blog.article.zecche-ticino-2026-18000-punture.imageAlt': 'Primo piano di una zecca su una foglia in una foresta ticinese',
+    'blog.article.lavoratori-pensionati-ticino-2026.title': 'Lavoratori over 65: raddoppiati in 20 anni',
+    'blog.article.lavoratori-pensionati-ticino-2026.excerpt': 'Nel 2025, 220\'000 persone continuano a lavorare dopo i 65 anni, più del doppio rispetto al 2005. Ecco cosa cambia per i frontalieri.',
+    'blog.article.lavoratori-pensionati-ticino-2026.imageAlt': 'Vista aerea di Lugano con il Lago Ceresio e le montagne circostanti',
 };
 
 export default blogMetaIt;

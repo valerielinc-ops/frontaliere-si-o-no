@@ -2859,6 +2859,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.zecche-ticino-2026-18000-punture.title': 'Tiques en Suisse: 18.000 piqûres en 2025, voici ce qu\'il faut savoir',
     'blog.article.zecche-ticino-2026-18000-punture.excerpt': 'En 2025, 18.000 piqûres de tiques ont été enregistrées en Suisse. La doctoresse Luisa Carnino de l\'EOC explique les symptômes et la prévention',
     'blog.article.zecche-ticino-2026-18000-punture.imageAlt': 'Gros plan d\'une tique sur une feuille dans une forêt tessinoise',
+    'blog.article.lavoratori-pensionati-ticino-2026.title': 'Travailleurs de plus de 65 ans : doublés en 20 ans',
+    'blog.article.lavoratori-pensionati-ticino-2026.excerpt': 'En 2025, 220\'000 personnes continuent à travailler après 65 ans, plus du double par rapport à 2005. Voici ce qui change pour les frontaliers.',
+    'blog.article.lavoratori-pensionati-ticino-2026.imageAlt': 'Vue aérienne de Lugano avec le lac Ceresio et les montagnes environnantes',
 };
 
 export default blogMetaFr;

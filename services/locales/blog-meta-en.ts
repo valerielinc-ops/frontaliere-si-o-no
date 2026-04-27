@@ -2859,6 +2859,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.zecche-ticino-2026-18000-punture.title': 'Ticks in Ticino: 18,000 bites in 2025, here\'s what to know',
     'blog.article.zecche-ticino-2026-18000-punture.excerpt': 'In 2025, Switzerland recorded 18,000 tick bites. Dr. Luisa Carnino from EOC explains symptoms and prevention',
     'blog.article.zecche-ticino-2026-18000-punture.imageAlt': 'Close-up of a tick on a leaf in a Ticino forest',
+    'blog.article.lavoratori-pensionati-ticino-2026.title': 'Workers over 65: doubled in 20 years',
+    'blog.article.lavoratori-pensionati-ticino-2026.excerpt': 'In 2025, 220\'000 people continue to work after the age of 65, more than double compared to 2005. Here\'s what changes for cross-border workers.',
+    'blog.article.lavoratori-pensionati-ticino-2026.imageAlt': 'Aerial view of Lugano with Lake Ceresio and surrounding mountains',
 };
 
 export default blogMetaEn;
