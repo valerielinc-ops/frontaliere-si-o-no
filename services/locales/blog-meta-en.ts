@@ -3048,6 +3048,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.multa-svapo-stazioni-ticino-2026.title': 'Up to 500 francs fine for vaping in train stations',
     'blog.article.multa-svapo-stazioni-ticino-2026.excerpt': 'The Swiss Association for Tobacco Prevention calls for fines for those who violate the ban on smoking and vaping on the tracks of Swiss train stations',
     'blog.article.multa-svapo-stazioni-ticino-2026.imageAlt': 'Train station in Ticino with a smoking area and e-cigarette users',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.title': 'Unemployment for cross-border workers: Switzerland won\'t pay, costs up to one billion',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.excerpt': 'Switzerland rejects the EU\'s proposal to pay unemployment benefits to cross-border workers, with costs up to one billion francs per year.',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.imageAlt': 'Lake Lugano with a Swiss-Italian border marker in the foreground',
 };
 
 export default blogMetaEn;

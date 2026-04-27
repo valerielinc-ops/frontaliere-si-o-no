@@ -3048,6 +3048,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.multa-svapo-stazioni-ticino-2026.title': 'Amende jusqu\'à 500 francs pour ceux qui vapotent en gare',
     'blog.article.multa-svapo-stazioni-ticino-2026.excerpt': 'L\'Association suisse pour la prévention du tabagisme demande des amendes pour ceux qui violent l\'interdiction de fumer et de vapoter sur les quais des gares suisses',
     'blog.article.multa-svapo-stazioni-ticino-2026.imageAlt': 'Gare ferroviaire en Tessin avec une zone pour fumeurs et utilisateurs de cigarettes électroniques',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.title': 'Chômage des frontaliers: la Suisse ne paiera pas, une dépense pouvant aller jusqu\'à un milliard',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.excerpt': 'La Suisse rejette la proposition de l\'UE de payer les indemnités de chômage aux frontaliers, avec des coûts pouvant atteindre un milliard de francs par an.',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.imageAlt': 'Lac de Lugano avec un marqueur de frontière suisse-italienne au premier plan',
 };
 
 export default blogMetaFr;

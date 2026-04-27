@@ -8099,4 +8099,11 @@ export const ARTICLES = [
  image: '/images/blog/multa-svapo-stazioni-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-disoccupazione-frontalieri-quadri-2026',
+ category: 'novita',
+ date: '2026-04-27T17:58:27.299Z',
+ image: '/images/blog/svizzera-disoccupazione-frontalieri-quadri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

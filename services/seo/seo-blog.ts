@@ -16337,6 +16337,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-disoccupazione-frontalieri-quadri-2026': {
+    title: 'Disoccupazione frontalieri: la Svizzera | Frontaliere Ticino',
+    description: 'La Svizzera respinge la proposta UE di pagare le indennità di disoccupazione ai frontalieri, con costi fino a un miliardo di franchi all\'anno. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, pagherà, spesa, fino',
+    ogTitle: 'Disoccupazione frontalieri: la Svizzera non pagherà |',
+    ogDescription: 'La Svizzera respinge la proposta UE di pagare le indennità di disoccupazione ai frontalieri, con costi fino a un miliardo di franchi all\'anno.',
+    canonicalPath: '/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Disoccupazione frontalieri: la",
+      "description": "La Svizzera respinge la proposta UE di pagare le indennità di disoccupazione ai frontalieri, con costi fino a un miliardo di franchi all'anno. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-disoccupazione-frontalieri-quadri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un segnale di confine svizzero-italiano in primo piano"
+      },
+      "datePublished": "2026-04-27T17:58:27+00:00",
+      "dateModified": "2026-04-27T17:58:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

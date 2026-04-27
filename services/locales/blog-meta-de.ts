@@ -3048,6 +3048,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.multa-svapo-stazioni-ticino-2026.title': 'Bis zu 500 Franken Strafe fürs Dampfen am Bahnhof',
     'blog.article.multa-svapo-stazioni-ticino-2026.excerpt': 'Der Schweizerische Verein für Tabakprävention fordert Strafen für diejenigen, die das Rauch- und Dampfverbot auf den Gleisen der Schweizer Bahnhöfe missachten.',
     'blog.article.multa-svapo-stazioni-ticino-2026.imageAlt': 'Bahnhof in Tessin mit Raucherbereich und E-Zigarettennutzern',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.title': 'Arbeitslosigkeit bei Grenzgängern: Die Schweiz zahlt nicht, Kosten bis zu einer Milliarde',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.excerpt': 'Die Schweiz lehnt den Vorschlag der EU ab, Arbeitslosenentschädigungen für Grenzgänger zu zahlen, mit Kosten von bis zu einer Milliarde Franken pro Jahr.',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.imageAlt': 'Luganersee mit einem schweizerisch-italienischen Grenzzeichen im Vordergrund',
 };
 
 export default blogMetaDe;

@@ -3048,6 +3048,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.multa-svapo-stazioni-ticino-2026.title': 'Multa fino a 500 franchi per chi svapa in stazione',
     'blog.article.multa-svapo-stazioni-ticino-2026.excerpt': 'L\'Associazione svizzera per la prevenzione del tabagismo chiede multe per chi viola il divieto di fumo e svapo nei binari delle stazioni svizzere',
     'blog.article.multa-svapo-stazioni-ticino-2026.imageAlt': 'Stazione ferroviaria in Ticino con area per fumatori e utenti di sigarette elettroniche',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.title': 'Disoccupazione frontalieri: la Svizzera non pagherà, spesa fino a un miliardo',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.excerpt': 'La Svizzera respinge la proposta UE di pagare le indennità di disoccupazione ai frontalieri, con costi fino a un miliardo di franchi all\'anno.',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.imageAlt': 'Lago di Lugano con un segnale di confine svizzero-italiano in primo piano',
 };
 
 export default blogMetaIt;
