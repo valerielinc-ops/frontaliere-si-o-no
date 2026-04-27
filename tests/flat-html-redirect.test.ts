@@ -71,7 +71,19 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     expect(bridge).toContain('<title>Foo Bar — Frontaliere Ticino</title>');
     expect(bridge).toContain('<link rel="canonical" href="https://frontaliereticino.ch/foo/">');
     expect(bridge).toContain('<meta name="robots" content="noindex,follow">');
-    expect(bridge).toContain('location.replace("https://frontaliereticino.ch/foo/")');
+    expect(bridge).toContain('location.replace("https://frontaliereticino.ch/foo/" + window.location.search + window.location.hash)');
+  });
+
+  it('preserves window.location.search and hash so newsletter/job-alert autologin params survive the redirect', async () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><title>Foo</title></head><body>canonical</body></html>',
+    );
+
+    await runPluginCloseBundle(fixture.tmpRoot);
+
+    const bridge = fs.readFileSync(fixture.flatFile, 'utf-8');
+    expect(bridge).toMatch(/location\.replace\([^)]*window\.location\.search[^)]*window\.location\.hash[^)]*\)/);
+    expect(bridge).not.toMatch(/location\.replace\("https:\/\/frontaliereticino\.ch\/foo\/"\)/);
   });
 
   it('drops the meta http-equiv="refresh" redirect', async () => {

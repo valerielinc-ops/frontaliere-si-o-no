@@ -42,7 +42,7 @@ const NOINDEX_BRIDGE = (slashUrl: string, title: string): string =>
 <title>${title}</title>
 <link rel="canonical" href="${slashUrl}">
 <meta name="robots" content="noindex,follow">
-<script>location.replace(${JSON.stringify(slashUrl)})</script>
+<script>location.replace(${JSON.stringify(slashUrl)} + window.location.search + window.location.hash)</script>
 </head>
 <body><a href="${slashUrl}">Continua su ${slashUrl}</a></body>
 </html>`;
