@@ -3036,6 +3036,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-finanza-comasco-226-persone.title': 'Finanzkontrollen: 226 Personen in Comersee-Gebiet identifiziert',
     'blog.article.controlli-finanza-comasco-226-persone.excerpt': 'Einsätze der Guardia di Finanza in der Provinz Como: 226 Personen kontrolliert, 3 Schwarzarbeiter entdeckt und Rauschmittel beschlagnahmt',
     'blog.article.controlli-finanza-comasco-226-persone.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Orten',
+    'blog.article.auto-cinesi-svizzera-2026.title': 'Chinesische Autos in der Schweiz: Marktanteil von 3,7 % im Jahr 2026',
+    'blog.article.auto-cinesi-svizzera-2026.excerpt': 'BYD, MG und Leapmotor dominieren den Verkauf chinesischer Autos in der Schweiz mit einem Marktanteil von 3,7 % im ersten Quartal 2026.',
+    'blog.article.auto-cinesi-svizzera-2026.imageAlt': 'Belebte Straße in Lugano mit parkenden chinesischen Elektroautos am Gehweg, Menschen, die gehen, und eine klare Sicht auf den See im Hintergrund.',
 };
 
 export default blogMetaDe;

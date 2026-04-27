@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1058,
+ "numberOfItems": 1059,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5782,7 +5782,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1055, "name": "Sportello e incontri gratuiti a Cunardo e March...", "url": `${BASE_URL}/articoli-frontaliere/sportello-me-te-cunardo-marchirolo-2026` },
           { "@type": "ListItem", "position": 1056, "name": "Accordo record per l'edilizia ticinese: contrat...", "url": `${BASE_URL}/articoli-frontaliere/accordo-edilizia-ticino-2026-2031` },
           { "@type": "ListItem", "position": 1057, "name": "Equans Rivera taglia 19 posti di lavoro, rifiut...", "url": `${BASE_URL}/articoli-frontaliere/equans-rivera-19-licenziamenti` },
-          { "@type": "ListItem", "position": 1058, "name": "Controlli Finanza Comasco: 226 persone identifi...", "url": `${BASE_URL}/articoli-frontaliere/controlli-finanza-comasco-226-persone` }
+          { "@type": "ListItem", "position": 1058, "name": "Controlli Finanza Comasco: 226 persone identifi...", "url": `${BASE_URL}/articoli-frontaliere/controlli-finanza-comasco-226-persone` },
+          { "@type": "ListItem", "position": 1059, "name": "{\"@context\": \"https://schema.org\", \"@type\": \"Ne...", "url": `${BASE_URL}/articoli-frontaliere/auto-cinesi-svizzera-2026` }
  ]
  },
  {

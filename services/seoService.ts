@@ -2272,6 +2272,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-accordo-edilizia-ticino-2026-2031': { name: 'Novità', path: '/articoli-frontaliere/accordo-edilizia-ticino-2026-2031', parent: 'blog' },
     'blog-equans-rivera-19-licenziamenti': { name: 'Novità', path: '/articoli-frontaliere/equans-rivera-19-licenziamenti', parent: 'blog' },
     'blog-controlli-finanza-comasco-226-persone': { name: 'Controlli Finanza', path: '/articoli-frontaliere/controlli-finanza-comasco-226-persone', parent: 'blog' },
+    'blog-auto-cinesi-svizzera-2026': { name: 'Auto cinesi', path: '/articoli-frontaliere/auto-cinesi-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

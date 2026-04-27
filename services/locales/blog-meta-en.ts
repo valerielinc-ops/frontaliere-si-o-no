@@ -3036,6 +3036,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-finanza-comasco-226-persone.title': 'Financial Guards\' Checks: 226 People Identified in Como',
     'blog.article.controlli-finanza-comasco-226-persone.excerpt': 'Operations by the Financial Guards in the province of Como: 226 people checked, 3 illegal workers discovered, and narcotic substances seized',
     'blog.article.controlli-finanza-comasco-226-persone.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns',
+    'blog.article.auto-cinesi-svizzera-2026.title': 'Chinese cars in Switzerland: market share at 3.7% in 2026',
+    'blog.article.auto-cinesi-svizzera-2026.excerpt': 'BYD, MG and Leapmotor lead Chinese car sales in Switzerland, with a market share of 3.7% in the first quarter of 2026.',
+    'blog.article.auto-cinesi-svizzera-2026.imageAlt': 'Busy street in Lugano with Chinese electric cars parked along the sidewalk, people walking, and a clear view of the lake in the background.',
 };
 
 export default blogMetaEn;

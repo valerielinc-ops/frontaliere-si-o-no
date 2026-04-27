@@ -8071,4 +8071,11 @@ export const ARTICLES = [
  image: '/images/blog/controlli-finanza-comasco-226-persone.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'auto-cinesi-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-27T17:20:56.384Z',
+ image: '/images/blog/auto-cinesi-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

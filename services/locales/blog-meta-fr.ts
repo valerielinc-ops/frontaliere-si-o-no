@@ -3036,6 +3036,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-finanza-comasco-226-persone.title': 'Contrôles de la Finance: 226 personnes identifiées dans le Comasco',
     'blog.article.controlli-finanza-comasco-226-persone.excerpt': 'Opérations de la Garde financière dans la province de Côme: 226 personnes contrôlées, 3 travailleurs au noir découverts et des substances stupéfiantes saisies',
     'blog.article.controlli-finanza-comasco-226-persone.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les villes environnantes',
+    'blog.article.auto-cinesi-svizzera-2026.title': 'Voitures chinoises en Suisse : part de marché à 3,7 % en 2026',
+    'blog.article.auto-cinesi-svizzera-2026.excerpt': 'BYD, MG et Leapmotor dominent les ventes de voitures chinoises en Suisse, avec une part de marché de 3,7 % au premier trimestre 2026.',
+    'blog.article.auto-cinesi-svizzera-2026.imageAlt': 'Rue animée à Lugano avec des voitures électriques chinoises garées le long du trottoir, des personnes qui marchent et une vue claire du lac en arrière-plan.',
 };
 
 export default blogMetaFr;

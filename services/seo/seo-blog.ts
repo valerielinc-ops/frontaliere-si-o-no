@@ -16221,6 +16221,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-auto-cinesi-svizzera-2026': {
+    title: 'Auto cinesi in Svizzera: quota di | Frontaliere Ticino',
+    description: 'BYD, MG e Leapmotor dominano le vendite di auto cinesi in Svizzera, con una quota di mercato del 3,7% nel primo trimestre 2026. Scopri di più. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, cinesi, quota, mercato',
+    ogTitle: 'Auto cinesi in Svizzera: quota di mercato al 3,7% nel 2026',
+    ogDescription: 'BYD, MG e Leapmotor dominano le vendite di auto cinesi in Svizzera, con una quota di mercato del 3,7% nel primo trimestre 2026. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/auto-cinesi-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\": \"https://schema.org\", \"@type\": \"NewsArticle\", \"headline\": \"Auto cinesi in Svizzera",
+      "description": "BYD, MG e Leapmotor dominano le vendite di auto cinesi in Svizzera, con una quota di mercato del 3,7% nel primo trimestre 2026. Scopri di più. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/auto-cinesi-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada affollata a Lugano con auto cinesi elettriche parcheggiate lungo il marciapiede, persone che camminano e una vista chiara del lago sullo sfondo."
+      },
+      "datePublished": "2026-04-27T17:20:56+00:00",
+      "dateModified": "2026-04-27T17:20:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/auto-cinesi-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
