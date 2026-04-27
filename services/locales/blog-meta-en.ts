@@ -3030,6 +3030,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-2026-2031.title': 'Record agreement for Ticino construction: contract until 2031',
     'blog.article.accordo-edilizia-ticino-2026-2031.excerpt': 'The new collective cantonal contract for Ticino construction has been signed, valid until 2031. Bagnovini: \'A base for planning\'.',
     'blog.article.accordo-edilizia-ticino-2026-2031.imageAlt': 'Aerial view of Lake Lugano with construction sites along the shore',
+    'blog.article.equans-rivera-19-licenziamenti.title': 'Equans Rivera cuts 19 jobs, rejects social plan',
+    'blog.article.equans-rivera-19-licenziamenti.excerpt': 'The multinational Equans in Rivera is laying off 19 employees without a social agreement. Lorenzo Jelmini, Ocst: \'It\'s a shame there was no consideration for the territory\'',
+    'blog.article.equans-rivera-19-licenziamenti.imageAlt': 'Aerial view of Lake Lugano with Rivera and surrounding mountains',
 };
 
 export default blogMetaEn;

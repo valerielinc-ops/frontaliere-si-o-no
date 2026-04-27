@@ -3030,6 +3030,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-2026-2031.title': 'Accordo record per l\'edilizia ticinese: contratto fino al 2031',
     'blog.article.accordo-edilizia-ticino-2026-2031.excerpt': 'Firmato il nuovo contratto collettivo cantonale per l\'edilizia ticinese, valido fino al 2031. Bagnovini: \'Base su cui pianificare\'.',
     'blog.article.accordo-edilizia-ticino-2026-2031.imageAlt': 'Vista aerea del lago di Lugano con cantieri edili lungo la riva',
+    'blog.article.equans-rivera-19-licenziamenti.title': 'Equans Rivera taglia 19 posti di lavoro, rifiuta piano sociale',
+    'blog.article.equans-rivera-19-licenziamenti.excerpt': 'La multinazionale Equans di Rivera licenzia 19 dipendenti, senza accordo sociale. Lorenzo Jelmini, Ocst: \'Dispiace che non ci sia stato riguardo per il territorio\'',
+    'blog.article.equans-rivera-19-licenziamenti.imageAlt': 'Vista aerea del Lago di Lugano con Rivera e le montagne circostanti',
 };
 
 export default blogMetaIt;

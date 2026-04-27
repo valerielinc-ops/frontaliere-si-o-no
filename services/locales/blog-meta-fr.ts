@@ -3030,6 +3030,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-2026-2031.title': 'Accord record pour l\'édition tessinoise : contrat jusqu\'en 2031',
     'blog.article.accordo-edilizia-ticino-2026-2031.excerpt': 'Le nouveau contrat collectif cantonal pour l\'édition tessinoise a été signé, valable jusqu\'en 2031. Bagnovini : \'Une base sur laquelle planifier\'.',
     'blog.article.accordo-edilizia-ticino-2026-2031.imageAlt': 'Vue aérienne du lac de Lugano avec des chantiers de construction le long de la rive',
+    'blog.article.equans-rivera-19-licenziamenti.title': 'Equans Rivera supprime 19 emplois, refuse le plan social',
+    'blog.article.equans-rivera-19-licenziamenti.excerpt': 'La multinationale Equans de Rivera licencie 19 employés, sans accord social. Lorenzo Jelmini, Ocst : \'C\'est dommage qu\'il n\'y ait pas eu de considération pour le territoire\'',
+    'blog.article.equans-rivera-19-licenziamenti.imageAlt': 'Vue aérienne du lac de Lugano avec Rivera et les montagnes environnantes',
 };
 
 export default blogMetaFr;

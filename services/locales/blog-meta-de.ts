@@ -3030,6 +3030,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-2026-2031.title': 'Rekordabkommen für den Tessiner Bau: Vertrag bis 2031',
     'blog.article.accordo-edilizia-ticino-2026-2031.excerpt': 'Der neue kantonale Gesamtarbeitsvertrag für den Tessiner Bau wurde unterzeichnet und gilt bis 2031. Bagnovini: \'Eine Basis für die Planung\'.',
     'blog.article.accordo-edilizia-ticino-2026-2031.imageAlt': 'Luftaufnahme des Luganer Sees mit Baustellen entlang des Ufers',
+    'blog.article.equans-rivera-19-licenziamenti.title': 'Equans Rivera streicht 19 Arbeitsplätze, lehnt Sozialplan ab',
+    'blog.article.equans-rivera-19-licenziamenti.excerpt': 'Der Multinational Equans in Rivera entlässt 19 Mitarbeiter ohne Sozialplan. Lorenzo Jelmini, Ocst: \'Es ist bedauerlich, dass keine Rücksicht auf das Gebiet genommen wurde\'',
+    'blog.article.equans-rivera-19-licenziamenti.imageAlt': 'Luftaufnahme des Luganersees mit Rivera und umliegenden Bergen',
 };
 
 export default blogMetaDe;

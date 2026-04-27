@@ -2270,6 +2270,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-borse-studio-bracco-lombardia-2026': { name: 'Borse di studio', path: '/articoli-frontaliere/borse-studio-bracco-lombardia-2026', parent: 'blog' },
     'blog-sportello-me-te-cunardo-marchirolo-2026': { name: 'Sportello ME-TE', path: '/articoli-frontaliere/sportello-me-te-cunardo-marchirolo-2026', parent: 'blog' },
     'blog-accordo-edilizia-ticino-2026-2031': { name: 'Novità', path: '/articoli-frontaliere/accordo-edilizia-ticino-2026-2031', parent: 'blog' },
+    'blog-equans-rivera-19-licenziamenti': { name: 'Novità', path: '/articoli-frontaliere/equans-rivera-19-licenziamenti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

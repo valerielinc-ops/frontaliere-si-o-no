@@ -8057,4 +8057,11 @@ export const ARTICLES = [
  image: '/images/blog/accordo-edilizia-ticino-2026-2031.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'equans-rivera-19-licenziamenti',
+ category: 'novita',
+ date: '2026-04-27T17:05:35.275Z',
+ image: '/images/blog/equans-rivera-19-licenziamenti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

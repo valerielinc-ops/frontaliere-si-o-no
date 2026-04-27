@@ -16163,6 +16163,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-equans-rivera-19-licenziamenti': {
+    title: 'Equans Rivera taglia 19 posti di | Frontaliere Ticino',
+    description: 'La multinazionale Equans di Rivera licenzia 19 dipendenti senza accordo sociale. Jelmini: \'Dispiace per la mancanza di riguardo\'. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, equans, rivera, taglia, posti',
+    ogTitle: 'Equans Rivera taglia 19 posti di lavoro, rifiuta piano',
+    ogDescription: 'La multinazionale Equans di Rivera licenzia 19 dipendenti senza accordo sociale. Jelmini: \'Dispiace per la mancanza di riguardo\'',
+    canonicalPath: '/articoli-frontaliere/equans-rivera-19-licenziamenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Equans Rivera taglia 19 posti di lavoro, rifiuta piano sociale",
+      "description": "La multinazionale Equans di Rivera licenzia 19 dipendenti senza accordo sociale. Jelmini: 'Dispiace per la mancanza di riguardo'. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/equans-rivera-19-licenziamenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con Rivera e le montagne circostanti"
+      },
+      "datePublished": "2026-04-27T17:05:35+00:00",
+      "dateModified": "2026-04-27T17:05:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/equans-rivera-19-licenziamenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
