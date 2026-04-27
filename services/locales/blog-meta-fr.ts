@@ -2868,6 +2868,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.title': 'Suisse sans indépendance énergétique : dès aujourd\'hui, elle dépend des importations',
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.excerpt': 'Dès le 27 avril 2026, la Suisse n\'est plus autosuffisante sur le plan énergétique. Voici ce qui change pour les frontaliers et le canton du Tessin.',
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les Alpes tessin en arrière-plan',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.title': 'Nouvelles mesures contre la violence domestique en Suisse',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.excerpt': 'Le Département fédéral de justice et police propose de nouvelles mesures pour lutter contre la violence domestique, avec un accent sur la prévention précoce.',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

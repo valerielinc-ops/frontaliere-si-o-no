@@ -2868,6 +2868,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.title': 'Switzerland without energy independence: from today it depends on imports',
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.excerpt': 'From April 27, 2026, Switzerland is no longer energy self-sufficient. Here\'s what changes for cross-border workers and the Canton of Ticino.',
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.imageAlt': 'Aerial view of Lake Lugano with the Ticino Alps in the background',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.title': 'New measures against domestic violence in Switzerland',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.excerpt': 'The Federal Department of Justice and Police proposes new measures to combat domestic violence, with a focus on early prevention.',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
 };
 
 export default blogMetaEn;

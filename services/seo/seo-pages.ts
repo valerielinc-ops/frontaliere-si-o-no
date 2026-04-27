@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1002,
+ "numberOfItems": 1003,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5726,7 +5726,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 999, "name": "{\"@context\": \"https://schema.org\", \"@type\": \"Ne...", "url": `${BASE_URL}/articoli-frontaliere/zecche-ticino-2026-18000-punture` },
           { "@type": "ListItem", "position": 1000, "name": "Lavoratori over 65: raddoppiati in 20 anni", "url": `${BASE_URL}/articoli-frontaliere/lavoratori-pensionati-ticino-2026` },
           { "@type": "ListItem", "position": 1001, "name": "Calcio Dnb: Bellinzona batte Stade Nyonnais", "url": `${BASE_URL}/articoli-frontaliere/calcio-dnb-bellinzona-vittoria-stade-nyonnais` },
-          { "@type": "ListItem", "position": 1002, "name": "Svizzera senza indipendenza energetica | Fronta...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-indipendenza-energetica-importazioni-2026` }
+          { "@type": "ListItem", "position": 1002, "name": "Svizzera senza indipendenza energetica | Fronta...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-indipendenza-energetica-importazioni-2026` },
+          { "@type": "ListItem", "position": 1003, "name": "Nuove misure contro violenza domestica in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/nuove-misure-violenza-domestica-svizzera` }
  ]
  },
  {

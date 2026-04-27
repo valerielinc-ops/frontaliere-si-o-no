@@ -14597,6 +14597,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuove-misure-violenza-domestica-svizzera': {
+    title: 'Nuove misure contro la violenza | Frontaliere Ticino',
+    description: 'Scopri le nuove misure introdotte dal Dipartimento federale di giustizia e polizia per contrastare la violenza domestica in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, misure, contro, violenza',
+    ogTitle: 'Nuove misure contro violenza domestica in Svizzera |',
+    ogDescription: 'Scopri le nuove misure introdotte dal Dipartimento federale di giustizia e polizia per contrastare la violenza domestica in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/nuove-misure-violenza-domestica-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove misure contro violenza domestica in Svizzera",
+      "description": "Scopri le nuove misure introdotte dal Dipartimento federale di giustizia e polizia per contrastare la violenza domestica in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuove-misure-violenza-domestica-svizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-27T10:33:12+00:00",
+      "dateModified": "2026-04-27T10:33:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuove-misure-violenza-domestica-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

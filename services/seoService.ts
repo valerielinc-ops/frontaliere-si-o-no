@@ -2216,6 +2216,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoratori-pensionati-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/lavoratori-pensionati-ticino-2026', parent: 'blog' },
     'blog-calcio-dnb-bellinzona-vittoria-stade-nyonnais': { name: 'Calcio Dnb', path: '/articoli-frontaliere/calcio-dnb-bellinzona-vittoria-stade-nyonnais', parent: 'blog' },
     'blog-svizzera-indipendenza-energetica-importazioni-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-indipendenza-energetica-importazioni-2026', parent: 'blog' },
+    'blog-nuove-misure-violenza-domestica-svizzera': { name: 'Novità', path: '/articoli-frontaliere/nuove-misure-violenza-domestica-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

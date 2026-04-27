@@ -2868,6 +2868,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.title': 'Schweiz ohne Energieunabhängigkeit: Ab heute abhängig von Importen',
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.excerpt': 'Ab dem 27. April 2026 ist die Schweiz nicht mehr energetisch selbstversorgend. Dies sind die Auswirkungen für Grenzgänger und den Kanton Tessin.',
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit den Alpen im Hintergrund',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.title': 'Neue Maßnahmen gegen häusliche Gewalt in der Schweiz',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.excerpt': 'Das Eidgenössische Justiz- und Polizeidepartement schlägt neue Maßnahmen zur Bekämpfung häuslicher Gewalt vor, mit einem Fokus auf frühzeitige Prävention.',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.imageAlt': 'Luftaufnahme des Luganersees mit modernen Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

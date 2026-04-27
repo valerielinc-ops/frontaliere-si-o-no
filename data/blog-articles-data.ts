@@ -7679,4 +7679,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-indipendenza-energetica-importazioni-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuove-misure-violenza-domestica-svizzera',
+ category: 'novita',
+ date: '2026-04-27T10:33:12.452Z',
+ image: '/images/blog/nuove-misure-violenza-domestica-svizzera.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

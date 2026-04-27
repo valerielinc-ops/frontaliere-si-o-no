@@ -2868,6 +2868,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.title': 'Svizzera senza indipendenza energetica: da oggi dipende dalle importazioni',
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.excerpt': 'Dal 27 aprile 2026 la Svizzera non è più autosufficiente energeticamente. Ecco cosa cambia per i frontalieri e il Canton Ticino.',
     'blog.article.svizzera-indipendenza-energetica-importazioni-2026.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi Ticinesi sullo sfondo',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.title': 'Nuove misure contro la violenza domestica in Svizzera',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.excerpt': 'Il Dipartimento federale di giustizia e polizia propone nuove misure per contrastare la violenza domestica, con un focus sulla prevenzione precoce.',
+    'blog.article.nuove-misure-violenza-domestica-svizzera.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo',
 };
 
 export default blogMetaIt;
