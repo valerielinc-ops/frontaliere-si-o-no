@@ -2982,6 +2982,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furto-biciclette-giubiasco-2026.title': 'Vol de vélos à Giubiasco : arrêtés pour non-paiement de l\'essence',
     'blog.article.furto-biciclette-giubiasco-2026.excerpt': 'Trois vélos électriques volés à Giubiasco, deux arrêtés pour non-paiement du carburant. Découvrez les détails de l\'opération.',
     'blog.article.furto-biciclette-giubiasco-2026.imageAlt': 'Scène de vol de vélos près de la gare de Giubiasco, Tessin',
+    'blog.article.osservatori-traffico-lago-como-2026.title': 'Observateurs du trafic actifs aussi le samedi sur la Route Regina',
+    'blog.article.osservatori-traffico-lago-como-2026.excerpt': 'À partir du 2 mai 2026, les observateurs du trafic seront opérationnels aussi le samedi pour réduire les bouchons sur la Route Regina entre Colonno et Ossuccio.',
+    'blog.article.osservatori-traffico-lago-como-2026.imageAlt': 'Vue aérienne du lac de Côme avec le trafic sur la route nationale Regina, Tremezzina',
 };
 
 export default blogMetaFr;

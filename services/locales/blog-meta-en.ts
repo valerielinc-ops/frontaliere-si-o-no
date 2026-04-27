@@ -2982,6 +2982,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furto-biciclette-giubiasco-2026.title': 'Bicycle Theft in Giubiasco: Arrested for Unpaid Fuel',
     'blog.article.furto-biciclette-giubiasco-2026.excerpt': 'Three electric bicycles stolen in Giubiasco, two arrested for not paying for fuel. Discover the details of the operation.',
     'blog.article.furto-biciclette-giubiasco-2026.imageAlt': 'Bicycle theft scene near Giubiasco train station, Ticino',
+    'blog.article.osservatori-traffico-lago-como-2026.title': 'Traffic monitors active on Saturdays too on the Statale Regina',
+    'blog.article.osservatori-traffico-lago-como-2026.excerpt': 'From 2 May 2026, traffic monitors will also be operational on Saturdays to reduce queues on the Statale Regina between Colonno and Ossuccio.',
+    'blog.article.osservatori-traffico-lago-como-2026.imageAlt': 'Aerial view of Lake Como with traffic on the Statale Regina, Tremezzina',
 };
 
 export default blogMetaEn;

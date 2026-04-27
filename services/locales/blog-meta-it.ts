@@ -2982,6 +2982,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furto-biciclette-giubiasco-2026.title': 'Furto di biciclette a Giubiasco: arrestati per mancato pagamento della benzina',
     'blog.article.furto-biciclette-giubiasco-2026.excerpt': 'Tre biciclette elettriche rubate a Giubiasco, due arrestati per mancato pagamento del carburante. Scopri i dettagli dell\'operazione.',
     'blog.article.furto-biciclette-giubiasco-2026.imageAlt': 'Scena di furto di biciclette presso la stazione di Giubiasco, Ticino',
+    'blog.article.osservatori-traffico-lago-como-2026.title': 'Osservatori del traffico attivi anche il sabato sulla Statale Regina',
+    'blog.article.osservatori-traffico-lago-como-2026.excerpt': 'Dal 2 maggio 2026, gli osservatori del traffico saranno operativi anche il sabato per ridurre le code sulla Statale Regina tra Colonno e Ossuccio.',
+    'blog.article.osservatori-traffico-lago-como-2026.imageAlt': 'Vista aerea del Lago di Como con traffico sulla Statale Regina, Tremezzina',
 };
 
 export default blogMetaIt;

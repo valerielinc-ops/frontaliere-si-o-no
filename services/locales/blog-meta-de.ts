@@ -2982,6 +2982,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furto-biciclette-giubiasco-2026.title': 'Fahrraddiebstahl in Giubiasco: Festnahmen wegen nicht bezahlten Benzins',
     'blog.article.furto-biciclette-giubiasco-2026.excerpt': 'Drei Elektrofahrräder in Giubiasco gestohlen, zwei Festnahmen wegen nicht bezahlten Kraftstoffs. Erfahren Sie mehr über die Operation.',
     'blog.article.furto-biciclette-giubiasco-2026.imageAlt': 'Fahrraddiebstahlszene in der Nähe des Bahnhofs Giubiasco, Tessin',
+    'blog.article.osservatori-traffico-lago-como-2026.title': 'Verkehrsbeobachter auch am Samstag auf der Staatsstraße Regina aktiv',
+    'blog.article.osservatori-traffico-lago-como-2026.excerpt': 'Ab dem 2. Mai 2026 werden die Verkehrsbeobachter auch am Samstag im Einsatz sein, um die Staus auf der Staatsstraße Regina zwischen Colonno und Ossuccio zu reduzieren.',
+    'blog.article.osservatori-traffico-lago-como-2026.imageAlt': 'Luftaufnahme des Comer Sees mit Verkehr auf der Staatsstraße Regina, Tremezzina',
 };
 
 export default blogMetaDe;
