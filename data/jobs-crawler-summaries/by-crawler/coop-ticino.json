@@ -1,51 +1,19 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-27T10:48:15.544Z",
+  "generatedAt": "2026-04-27T21:43:40.999Z",
   "total": 170,
-  "newCount": 4,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 165,
-  "durationMs": 487634,
-  "avgDurationMs": 487634,
+  "unchangedCount": 168,
+  "durationMs": 500903,
+  "avgDurationMs": 500903,
   "durationHistory": [
-    487634
+    500903
   ],
-  "newJobs": [
-    {
-      "id": "company-cjrnr",
-      "slug": "responsabile-service-center-ticino-m-w-d-coop-castione-ticino",
-      "company": "Coop Genossenschaft",
-      "title": "Responsabile Service Center Ticino (f/m/d)",
-      "location": "Castione",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/responsabile-service-center-ticino-f-m-d/ddbd5bf6-c101-4cc4-9c2e-835890f85d0a",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-27T10:45:10.189Z",
-      "firstSeenAt": "2026-04-27T10:45:10.189Z",
-      "needsRetranslation": true,
-      "addressLocality": "Castione",
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 15,
-        "completeness": 14
-      }
-    },
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-q30pn",
       "slug": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-ilanz-glion-graubunden",
@@ -69,15 +37,90 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-27T10:45:10.189Z",
       "firstSeenAt": "2026-04-27T10:45:10.189Z",
-      "needsRetranslation": true,
       "addressLocality": "Ilanz/Glion",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-h7g6s6",
+      "slug": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-ilanz-glion-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Frischprodukte Früchte & Gemüse",
+      "location": "Ilanz/Glion",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-27",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-fruechte-gemuese/1d4406c1-b69d-435e-adff-a1c73d5a011d",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Ilanz/Glion",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-cjrnr",
+      "slug": "responsabile-service-center-ticino-m-w-d-coop-castione-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "Responsabile Service Center Ticino (f/m/d)",
+      "location": "Castione",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/responsabile-service-center-ticino-f-m-d/ddbd5bf6-c101-4cc4-9c2e-835890f85d0a",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-27T10:45:10.189Z",
+      "firstSeenAt": "2026-04-27T10:45:10.189Z",
+      "addressLocality": "Castione",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -103,15 +146,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-27T10:45:10.189Z",
       "firstSeenAt": "2026-04-27T10:45:10.189Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -137,19 +182,19 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-27T10:45:10.189Z",
       "firstSeenAt": "2026-04-27T10:45:10.189Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-c0vdfl",
       "slug": "mitarbeiter-in-nachtverlad-coop-chur-graubunden",
@@ -184,10 +229,7 @@
         "translation": 25,
         "completeness": 19
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-hy7w7d",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -1114,148 +1156,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-z320lg",
-      "slug": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Rayonleiter:in Nonfood",
-      "location": "Klosters-Serneus",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-nonfood/9bba6b6b-991b-4959-81b6-c5e4f11514f7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-13T10:21:33.226Z",
-      "addressLocality": "Klosters-Serneus",
-      "sourceLang": "de",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "firstSeenAt": "2026-04-13T21:31:42.381Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-86y4zp",
-      "slug": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/8a422763-3e5f-476b-96b5-1b9ad6f10754",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-09T21:20:49.553Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-04-09T21:20:49.553Z",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-hs6koo",
-      "slug": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Ilanz/Glion",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/85cd95da-d882-4480-a076-15c7b046c014",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-09T21:20:49.553Z",
-      "addressLocality": "Ilanz/Glion",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-04-09T21:20:49.553Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-7haru0",
-      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
-      "location": "Tenero-Contra",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/487fa484-fe53-4cf8-87d3-556586d07a03",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-07T09:22:44.527Z",
-      "addressLocality": "Tenero-Contra",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "firstSeenAt": "2026-04-07T09:22:44.527Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
