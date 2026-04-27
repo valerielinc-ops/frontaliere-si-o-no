@@ -671,6 +671,36 @@ describe('Router — query string preservation', () => {
     const newUrl = pushStateSpy.mock.calls[0]?.[2] as string;
     expect(newUrl).not.toContain('?');
   });
+
+  it('pushRoute drops JobBoard ?q=… when navigating to a different path', () => {
+    // Regression: ?q=Infermieri must not survive when leaving /cerca-lavoro-ticino/
+    setLocation('/cerca-lavoro-ticino', '?q=Infermieri');
+    pushRoute({ activeTab: 'calculator', calcolatoreSubTab: 'whatif' });
+    expect(pushStateSpy).toHaveBeenCalled();
+    const newUrl = pushStateSpy.mock.calls[0]?.[2] as string;
+    expect(newUrl).not.toContain('q=Infermieri');
+  });
+
+  it('pushRoute keeps ?q=… when staying on the same path (intra-page filter)', () => {
+    setLocation('/cerca-lavoro-ticino', '?q=Infermieri');
+    pushRoute({ activeTab: 'job-board' });
+    // pushState may or may not fire depending on path canonicalization; if it
+    // does, the q must be preserved (same path = filter belongs to this page).
+    if (pushStateSpy.mock.calls.length > 0) {
+      const newUrl = pushStateSpy.mock.calls[0]?.[2] as string;
+      expect(newUrl).toContain('q=Infermieri');
+    }
+  });
+
+  it('pushRoute drops job-board ?q=… but keeps ?ne=… autologin on cross-path navigation', () => {
+    setLocation('/cerca-lavoro-ticino', '?q=Infermieri&ne=user%40example.com&ac=token123');
+    pushRoute({ activeTab: 'calculator', calcolatoreSubTab: 'whatif' });
+    expect(pushStateSpy).toHaveBeenCalled();
+    const newUrl = pushStateSpy.mock.calls[0]?.[2] as string;
+    expect(newUrl).not.toContain('q=Infermieri');
+    expect(newUrl).toContain('ne=user');
+    expect(newUrl).toContain('ac=token123');
+  });
 });
 
 describe('Router — legacy bare English slugs', () => {

@@ -13,7 +13,7 @@ const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertE
 const JobAlertPostAuthPrompt = lazyRetry(() => import('@/components/community/JobAlertPostAuthPrompt'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
-import { normalizeSearchText } from '@/services/textUtils';
+import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
 import {
  type BehaviorData,
  getBehaviorData,
@@ -3074,7 +3074,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const job = sortedJobs[i];
  const description = job.descriptionByLocale?.[locale] ?? job.description;
  const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
- map.set(job, normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description}`));
+ // Stemmed + space-padded haystack so query matching tolerates Italian
+ // plural/feminine variants (pulizie ↔ pulizia, infermieri ↔ infermiera)
+ // while still requiring word-boundary alignment (cas ≠ cassa).
+ map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description}`));
  }
  if (i < sortedJobs.length) {
  requestAnimationFrame(processChunk);
@@ -3093,10 +3096,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Fast query match using pre-built index — avoids re-normalising haystacks.
  const indexedQueryMatch = useCallback(
  (job: JobListing, query: string): boolean => {
- const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean);
+ const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length === 0) return true;
  const haystack = searchIndex.get(job) ?? '';
- return queryTokens.every((token) => haystack.includes(token));
+ // Each stemmed query token must match a whole haystack word
+ // (haystack is wrapped in spaces, words are stemmed → ' infermier uffic ').
+ // Trailing space prevents false positives: 'cas' must not match 'cassa'.
+ return queryTokens.every((token) => haystack.includes(` ${token} `));
  },
  [searchIndex],
  );

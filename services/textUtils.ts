@@ -19,6 +19,40 @@ export function normalizeSearchText(value: string): string {
 }
 
 /**
+ * Light Italian/multilingual stemmer: strips up to two trailing vowels so
+ * plural/feminine variants collapse to a common stem. Tokens shorter than
+ * 4 chars are left untouched (avoid over-stemming "ai", "the", "or").
+ *
+ * Examples:
+ *   pulizie / pulizia → pulizi      case / casa → cas      cassa → cass
+ *   infermieri / infermiere / infermiera → infermier
+ *   sviluppatori / sviluppatore → sviluppator
+ *   ingegneri / ingegnere → ingegner
+ */
+export function stemSearchToken(token: string): string {
+ if (token.length <= 3) return token;
+ const stem = token.replace(/[aeiou]{1,2}$/, '');
+ return stem.length >= 3 ? stem : token;
+}
+
+/**
+ * Build a word-boundary-anchored, stemmed haystack ready for prefix
+ * matching: every word in the input is normalized + stemmed and the
+ * result is wrapped in spaces so callers can test `haystack.includes(' ' + stemmed)`
+ * to require an alignment with the start of a haystack word.
+ */
+export function buildStemmedHaystack(text: string): string {
+ const normalized = normalizeSearchText(text);
+ if (!normalized) return '';
+ const stemmed = normalized
+ .split(' ')
+ .filter(Boolean)
+ .map(stemSearchToken)
+ .join(' ');
+ return stemmed ? ` ${stemmed} ` : '';
+}
+
+/**
  * Stop words for keyword extraction.
  * Duplicated from newsletter-content.mjs:163 (Node-only .mjs, not importable by browser TS).
  */

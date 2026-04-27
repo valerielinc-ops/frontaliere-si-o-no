@@ -101,6 +101,7 @@ import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
 import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
+import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from '@/build-plugins/jobSectorLanding';
 import { pushRoute, buildPath, getSeoSection, AppRoute } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
 import { NavigationContext } from '@/services/NavigationContext';
@@ -2522,10 +2523,19 @@ const App: React.FC = () => {
              const sector = sectorMap[sk];
              if (!sector) return null;
              const label = sector[hubLoc] || sector.it;
+             // Prefer the canonical static sector hub (`/cerca-lavoro-ticino/infermieri/`)
+             // when one exists for this key; fall back to a `?q=` keyword search for
+             // sectors without a curated hub. Routing footer traffic through the
+             // canonical hub avoids diluting internal SEO equity to non-indexable
+             // query URLs and gives users the richer landing page.
+             const hasHub = (SECTOR_HUB_KEYS as readonly string[]).includes(sk);
+             const href = hasHub
+               ? buildSectorHubPath(hubLoc, sk as SectorHubKey)
+               : `${sectionRoot}/?q=${encodeURIComponent(label)}`;
              return (
                <li key={sk}>
                  <a
-                   href={`${sectionRoot}/?q=${encodeURIComponent(label)}`}
+                   href={href}
                    className="text-xs text-subtle hover:text-accent no-underline"
                  >
                    {label}

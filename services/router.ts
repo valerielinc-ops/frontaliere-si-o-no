@@ -2551,6 +2551,36 @@ function isDefaultHome(route: AppRoute): boolean {
  return route.activeTab === 'calculator' && (!route.calcolatoreSubTab || route.calcolatoreSubTab === 'calculator');
 }
 
+/**
+ * Query params that must survive cross-route navigation (newsletter autologin,
+ * campaign tracking, OAuth callbacks, analytics). Anything not on this list
+ * (e.g. JobBoard's `q` / `page`) gets dropped when the user navigates away
+ * from the page that produced it, so it doesn't leak into unrelated routes.
+ */
+const PRESERVED_QUERY_PARAMS = new Set<string>([
+ 'ne', 'newsletter_email', 'email', 'ac', 'at', 'authToken', 'action', 'target',
+ 'campaign_id', 'message_id', 'variant', 'section_id', 'link_label', 'subscriber_locale',
+ 'code', 'state', 'error',
+ 'debug', 'status',
+]);
+
+function preservedSearch(currentSearch: string): string {
+ if (!currentSearch) return '';
+ try {
+ const params = new URLSearchParams(currentSearch);
+ const kept = new URLSearchParams();
+ params.forEach((value, key) => {
+ if (PRESERVED_QUERY_PARAMS.has(key) || key.startsWith('utm_')) {
+ kept.append(key, value);
+ }
+ });
+ const qs = kept.toString();
+ return qs ? `?${qs}` : '';
+ } catch {
+ return '';
+ }
+}
+
 export function pushRoute(route: AppRoute): void {
  // Static SEO overlay routes (per-station fuel, per-canton health, per-city
  // employers, per-cluster orphan landings, etc.) are matched against URLs
@@ -2562,7 +2592,11 @@ export function pushRoute(route: AppRoute): void {
  const [newPath, newHash] = newUrl.split('#');
  const currentPath = window.location.pathname;
  const currentHash = window.location.hash.slice(1); // strip leading #
- const search = window.location.search; // preserve query params (e.g. newsletter autologin ne/ac)
+ // Same path → keep the full query string (intra-page filters like
+ // JobBoard's ?q=/?page= must survive). Cross-path → only carry forward
+ // allowlisted params (autologin, campaign tracking, OAuth, utm_*).
+ const samePath = currentPath.replace(/\/$/, '') === newPath.replace(/\/$/, '');
+ const search = samePath ? window.location.search : preservedSearch(window.location.search);
  // Root paths (/, /en/, /de/, /fr/) are canonical for the homepage — don't redirect to calculator slug
  if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
@@ -2577,7 +2611,8 @@ export function replaceRoute(route: AppRoute): void {
  const [newPath, newHash] = newUrl.split('#');
  const currentPath = window.location.pathname;
  const currentHash = window.location.hash.slice(1);
- const search = window.location.search;
+ const samePath = currentPath.replace(/\/$/, '') === newPath.replace(/\/$/, '');
+ const search = samePath ? window.location.search : preservedSearch(window.location.search);
  if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
  const hashPart = newHash ? `#${newHash}` : '';
