@@ -7602,4 +7602,11 @@ export const ARTICLES = [
  image: '/images/blog/nuovo-contratto-edilizia-ticino-2026-2031.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-varese-2026-lavoro-dignitoso',
+ category: 'novita',
+ date: '2026-04-27T09:22:57.014Z',
+ image: '/images/blog/primo-maggio-varese-2026-lavoro-dignitoso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

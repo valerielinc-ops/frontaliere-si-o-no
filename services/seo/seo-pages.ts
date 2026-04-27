@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 991,
+ "numberOfItems": 992,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5715,7 +5715,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 988, "name": "Nuove banconote in euro: restyling e temi in gara", "url": `${BASE_URL}/articoli-frontaliere/nuove-banconote-euro-restyling-2026` },
           { "@type": "ListItem", "position": 989, "name": "Amazon Made in Italy Days 2026: 5.500 eccellenz...", "url": `${BASE_URL}/articoli-frontaliere/amazon-made-in-italy-days-2026-ticino` },
           { "@type": "ListItem", "position": 990, "name": "Caro-carburanti: dove fare il pieno in Ticino", "url": `${BASE_URL}/articoli-frontaliere/carburanti-ticino-confronto-2024` },
-          { "@type": "ListItem", "position": 991, "name": "Nuovo CCL-Ti 2026-2031: cosa cambia per i lavor...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026-2031` }
+          { "@type": "ListItem", "position": 991, "name": "Nuovo CCL-Ti 2026-2031: cosa cambia per i lavor...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026-2031` },
+          { "@type": "ListItem", "position": 992, "name": "Primo Maggio Varese 2026: sindacati in corteo p...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-varese-2026-lavoro-dignitoso` }
  ]
  },
  {

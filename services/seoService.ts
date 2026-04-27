@@ -2205,6 +2205,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-amazon-made-in-italy-days-2026-ticino': { name: 'Amazon Made in Italy Days', path: '/articoli-frontaliere/amazon-made-in-italy-days-2026-ticino', parent: 'blog' },
     'blog-carburanti-ticino-confronto-2024': { name: 'Caro-carburanti', path: '/articoli-frontaliere/carburanti-ticino-confronto-2024', parent: 'blog' },
     'blog-nuovo-contratto-edilizia-ticino-2026-2031': { name: 'Nuovo CCL-Ti', path: '/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026-2031', parent: 'blog' },
+    'blog-primo-maggio-varese-2026-lavoro-dignitoso': { name: 'Primo Maggio Varese', path: '/articoli-frontaliere/primo-maggio-varese-2026-lavoro-dignitoso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

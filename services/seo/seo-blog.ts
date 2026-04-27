@@ -14278,6 +14278,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-varese-2026-lavoro-dignitoso': {
+    title: 'Primo Maggio a Varese: sindacati in | Frontaliere Ticino',
+    description: 'Scopri di più sulla manifestazione del Primo Maggio 2026 a Varese, organizzata dai sindacati CGIL, CISL e UIL per un lavoro dignitoso. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, varese, sindacati',
+    ogTitle: 'Primo Maggio Varese 2026: sindacati in corteo per un lavoro',
+    ogDescription: 'Scopri di più sulla manifestazione del Primo Maggio 2026 a Varese, organizzata dai sindacati CGIL, CISL e UIL per un lavoro dignitoso.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-varese-2026-lavoro-dignitoso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio Varese 2026: sindacati in corteo per un lavoro dignitoso",
+      "description": "Scopri di più sulla manifestazione del Primo Maggio 2026 a Varese, organizzata dai sindacati CGIL, CISL e UIL per un lavoro dignitoso. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-varese-2026-lavoro-dignitoso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione del Primo Maggio a Varese, 2026: sindacati in corteo per un lavoro dignitoso"
+      },
+      "datePublished": "2026-04-27T09:22:57+00:00",
+      "dateModified": "2026-04-27T09:22:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-varese-2026-lavoro-dignitoso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

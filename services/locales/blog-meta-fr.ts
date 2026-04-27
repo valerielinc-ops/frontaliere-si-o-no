@@ -2835,6 +2835,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.title': 'Nouvelle Convention Collective de Travail pour l\'Edilizia Ticino: ce qui change à partir du 1er mai 2026',
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.excerpt': 'La nouvelle CCT-Ti 2026-2031 pour l\'edilizia et le génie civil au Tessin a été approuvée. Elle entrera en vigueur le 1er mai 2026.',
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.imageAlt': 'Chantier de construction à Lugano avec des ouvriers et des équipements modernes',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.title': 'Premier Mai à Varèse : les syndicats en cortège pour un travail digne',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.excerpt': 'Le Premier Mai 2026 à Varèse verra CGIL, CISL et UIL dans la rue pour un travail digne, avec un cortège qui partira à 9h30 de la gare FS.',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.imageAlt': 'Premier Mai 2026 à Varese: Syndicats en marche pour un travail digne',
 };
 
 export default blogMetaFr;

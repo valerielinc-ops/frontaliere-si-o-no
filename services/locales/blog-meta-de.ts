@@ -2835,6 +2835,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.title': 'Neuer Gesamtarbeitsvertrag Baugewerbe Tessin: Was sich ab dem 1. Mai 2026 ändert',
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.excerpt': 'Der neue GAV-Ti 2026-2031 für das Baugewerbe und den Tiefbau im Tessin wurde genehmigt. Er tritt am 1. Mai 2026 in Kraft.',
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.imageAlt': 'Baustelle in Lugano mit Arbeitern und modernen Geräten',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.title': '1. Mai in Varese: Gewerkschaften demonstrieren für würdige Arbeit',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.excerpt': 'Der 1. Mai 2026 in Varese wird die CGIL, CISL und UIL in der Stadt für würdige Arbeit sehen, mit einem Umzug, der um 9:30 Uhr vom Bahnhof FS startet.',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.imageAlt': 'Erster Mai 2026 in Varese: Gewerkschaften demonstrieren für würdige Arbeit',
 };
 
 export default blogMetaDe;

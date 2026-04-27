@@ -2835,6 +2835,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.title': 'Nuovo Contratto Collettivo Edilizia Ticino: cosa cambia dal 1° maggio 2026',
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.excerpt': 'Approvato il nuovo CCL-Ti 2026-2031 per edilizia e genio civile in Ticino. Entrerà in vigore il 1° maggio 2026.',
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.imageAlt': 'Cantiere edile a Lugano con operai e attrezzature moderne',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.title': 'Primo Maggio a Varese: sindacati in corteo per un lavoro dignitoso',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.excerpt': 'Il Primo Maggio 2026 a Varese vedrà CGIL, CISL e UIL in piazza per un lavoro dignitoso, con un corteo che partirà alle 9:30 dalla stazione FS.',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.imageAlt': 'Manifestazione del Primo Maggio a Varese, 2026: sindacati in corteo per un lavoro dignitoso',
 };
 
 export default blogMetaIt;

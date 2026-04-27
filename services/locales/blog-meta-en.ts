@@ -2835,6 +2835,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.title': 'New Collective Construction Agreement for Ticino: What Changes from 1 May 2026',
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.excerpt': 'The new 2026-2031 CCL-Ti for construction and civil engineering in Ticino has been approved. It will come into force on 1 May 2026.',
     'blog.article.nuovo-contratto-edilizia-ticino-2026-2031.imageAlt': 'Construction site in Lugano with workers and modern equipment',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.title': 'May Day in Varese: unions march for decent work',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.excerpt': 'On May 1st, 2026, Varese will see CGIL, CISL, and UIL take to the streets for decent work, with a march starting at 9:30 AM from the FS train station.',
+    'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.imageAlt': 'May Day 2026 in Varese: Trade unions march for dignified work',
 };
 
 export default blogMetaEn;
