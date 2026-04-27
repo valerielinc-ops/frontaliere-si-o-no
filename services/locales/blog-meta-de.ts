@@ -3051,6 +3051,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.title': 'Arbeitslosigkeit bei Grenzgängern: Die Schweiz zahlt nicht, Kosten bis zu einer Milliarde',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.excerpt': 'Die Schweiz lehnt den Vorschlag der EU ab, Arbeitslosenentschädigungen für Grenzgänger zu zahlen, mit Kosten von bis zu einer Milliarde Franken pro Jahr.',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.imageAlt': 'Luganersee mit einem schweizerisch-italienischen Grenzzeichen im Vordergrund',
+    'blog.article.allerta-gialla-temporali-varese-2026.title': 'Gelbe Warnung vor Gewittern in der gesamten Provinz Varese',
+    'blog.article.allerta-gialla-temporali-varese-2026.excerpt': 'Die Schutzbehörde der Region Lombardei hat eine gelbe Wetterwarnung vor Gewittern für die gesamte Provinz Varese herausgegeben, mit Risiken von Schäden und hydraulischen Problemen.',
+    'blog.article.allerta-gialla-temporali-varese-2026.imageAlt': 'Stürmischer Himmel über dem Luganersee mit bevorstehendem Regen',
 };
 
 export default blogMetaDe;

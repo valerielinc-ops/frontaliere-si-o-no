@@ -3051,6 +3051,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.title': 'Chômage des frontaliers: la Suisse ne paiera pas, une dépense pouvant aller jusqu\'à un milliard',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.excerpt': 'La Suisse rejette la proposition de l\'UE de payer les indemnités de chômage aux frontaliers, avec des coûts pouvant atteindre un milliard de francs par an.',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.imageAlt': 'Lac de Lugano avec un marqueur de frontière suisse-italienne au premier plan',
+    'blog.article.allerta-gialla-temporali-varese-2026.title': 'Alerte jaune pour des orages sur toute la province de Varèse',
+    'blog.article.allerta-gialla-temporali-varese-2026.excerpt': 'La Protection civile de la Région Lombardie a émis une alerte météo jaune pour des orages sur toute la province de Varèse, avec des risques de dommages et de criticités hydrauliques.',
+    'blog.article.allerta-gialla-temporali-varese-2026.imageAlt': 'Ciel orageux au-dessus du lac de Lugano avec pluie imminente',
 };
 
 export default blogMetaFr;

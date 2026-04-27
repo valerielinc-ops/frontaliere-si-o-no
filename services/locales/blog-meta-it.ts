@@ -3051,6 +3051,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.title': 'Disoccupazione frontalieri: la Svizzera non pagherà, spesa fino a un miliardo',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.excerpt': 'La Svizzera respinge la proposta UE di pagare le indennità di disoccupazione ai frontalieri, con costi fino a un miliardo di franchi all\'anno.',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.imageAlt': 'Lago di Lugano con un segnale di confine svizzero-italiano in primo piano',
+    'blog.article.allerta-gialla-temporali-varese-2026.title': 'Allerta gialla per temporali su tutta la provincia di Varese',
+    'blog.article.allerta-gialla-temporali-varese-2026.excerpt': 'La Protezione Civile della Regione Lombardia ha emesso un\'allerta meteo gialla per temporali su tutta la provincia di Varese, con rischi di danni e criticità idrauliche.',
+    'blog.article.allerta-gialla-temporali-varese-2026.imageAlt': 'Cielo tempestoso sopra il Lago di Lugano con pioggia imminente',
 };
 
 export default blogMetaIt;

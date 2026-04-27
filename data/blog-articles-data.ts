@@ -8106,4 +8106,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-disoccupazione-frontalieri-quadri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'allerta-gialla-temporali-varese-2026',
+ category: 'novita',
+ date: '2026-04-27T18:04:25.081Z',
+ image: '/images/blog/allerta-gialla-temporali-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

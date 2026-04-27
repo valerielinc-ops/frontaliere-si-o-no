@@ -16366,6 +16366,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-allerta-gialla-temporali-varese-2026': {
+    title: 'Allerta gialla per temporali su tutta | Frontaliere Ticino',
+    description: 'La Protezione Civile della Regione Lombardia ha emesso un\'allerta meteo gialla per temporali su tutta la provincia di Varese. Scopri cosa fare e come',
+    keywords: 'frontalieri, ticino, svizzera, italia, allerta, gialla, temporali, tutta',
+    ogTitle: 'Allerta gialla per temporali su Varese | Frontaliere Ticino',
+    ogDescription: 'La Protezione Civile della Regione Lombardia ha emesso un\'allerta meteo gialla per temporali su tutta la provincia di Varese. Scopri cosa fare e come',
+    canonicalPath: '/articoli-frontaliere/allerta-gialla-temporali-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Allerta gialla per temporali su tutta la provincia di Varese",
+      "description": "La Protezione Civile della Regione Lombardia ha emesso un'allerta meteo gialla per temporali su tutta la provincia di Varese. Scopri cosa fare e come",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/allerta-gialla-temporali-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cielo tempestoso sopra il Lago di Lugano con pioggia imminente"
+      },
+      "datePublished": "2026-04-27T18:04:25+00:00",
+      "dateModified": "2026-04-27T18:04:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/allerta-gialla-temporali-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3051,6 +3051,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.title': 'Unemployment for cross-border workers: Switzerland won\'t pay, costs up to one billion',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.excerpt': 'Switzerland rejects the EU\'s proposal to pay unemployment benefits to cross-border workers, with costs up to one billion francs per year.',
     'blog.article.svizzera-disoccupazione-frontalieri-quadri-2026.imageAlt': 'Lake Lugano with a Swiss-Italian border marker in the foreground',
+    'blog.article.allerta-gialla-temporali-varese-2026.title': 'Yellow alert for thunderstorms across the province of Varese',
+    'blog.article.allerta-gialla-temporali-varese-2026.excerpt': 'The Civil Protection of the Lombardy Region has issued a yellow weather alert for thunderstorms across the entire province of Varese, with risks of damage and hydraulic criticalities.',
+    'blog.article.allerta-gialla-temporali-varese-2026.imageAlt': 'Stormy sky over Lake Lugano with impending rain',
 };
 
 export default blogMetaEn;
