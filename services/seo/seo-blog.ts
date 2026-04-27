@@ -14655,6 +14655,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuove-leggi-violenza-domestica-2027': {
+    title: 'Nuove leggi e strategia nazionale | Frontaliere Ticino',
+    description: 'Confederazione e Cantoni annunciano progressi ma servono strumenti più efficaci. Nuove leggi in arrivo per il 2027. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, leggi, strategia, nazionale',
+    ogTitle: 'Nuove leggi e strategia nazionale contro la violenza',
+    ogDescription: 'Confederazione e Cantoni annunciano progressi ma servono strumenti più efficaci. Nuove leggi in arrivo per il 2027.',
+    canonicalPath: '/articoli-frontaliere/nuove-leggi-violenza-domestica-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove leggi e strategia nazionale contro la violenza domestica",
+      "description": "Confederazione e Cantoni annunciano progressi ma servono strumenti più efficaci. Nuove leggi in arrivo per il 2027. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuove-leggi-violenza-domestica-2027.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza stampa a Berna su nuove leggi contro la violenza domestica"
+      },
+      "datePublished": "2026-04-27T10:47:26+00:00",
+      "dateModified": "2026-04-27T10:47:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuove-leggi-violenza-domestica-2027`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

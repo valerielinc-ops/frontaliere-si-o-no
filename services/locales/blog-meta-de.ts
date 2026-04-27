@@ -2874,6 +2874,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ruag-ia-svizzera-difesa-2026.title': 'RUAG und Giotto.AI entwickeln KI für Schweizer Militärdaten',
     'blog.article.ruag-ia-svizzera-difesa-2026.excerpt': 'RUAG arbeitet mit Giotto.AI zusammen, um eine nationale KI für sensible Daten zu entwickeln und stellt LLARA in Thun vor.',
     'blog.article.ruag-ia-svizzera-difesa-2026.imageAlt': 'Fortschrittliches KI-Labor in Ticino, Schweiz',
+    'blog.article.nuove-leggi-violenza-domestica-2027.title': 'Neue Gesetze und nationale Strategie gegen häusliche Gewalt',
+    'blog.article.nuove-leggi-violenza-domestica-2027.excerpt': 'Bund und Kantone kündigen Fortschritte an, doch es sind wirksamere Instrumente nötig. Neue Gesetze sind für 2027 geplant.',
+    'blog.article.nuove-leggi-violenza-domestica-2027.imageAlt': 'Pressekonferenz in Bern über neue Gesetze gegen häusliche Gewalt',
 };
 
 export default blogMetaDe;

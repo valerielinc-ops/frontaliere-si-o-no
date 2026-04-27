@@ -2874,6 +2874,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ruag-ia-svizzera-difesa-2026.title': 'RUAG e Giotto.AI creano IA svizzera per dati militari',
     'blog.article.ruag-ia-svizzera-difesa-2026.excerpt': 'La RUAG collabora con Giotto.AI per sviluppare un\'IA nazionale per dati sensibili, presentando LLARA a Thun.',
     'blog.article.ruag-ia-svizzera-difesa-2026.imageAlt': 'Laboratorio di intelligenza artificiale avanzata in Ticino',
+    'blog.article.nuove-leggi-violenza-domestica-2027.title': 'Nuove leggi e strategia nazionale contro la violenza domestica',
+    'blog.article.nuove-leggi-violenza-domestica-2027.excerpt': 'Confederazione e Cantoni annunciano progressi ma servono strumenti più efficaci. Nuove leggi in arrivo per il 2027.',
+    'blog.article.nuove-leggi-violenza-domestica-2027.imageAlt': 'Conferenza stampa a Berna su nuove leggi contro la violenza domestica',
 };
 
 export default blogMetaIt;

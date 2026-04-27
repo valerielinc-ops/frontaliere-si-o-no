@@ -7693,4 +7693,11 @@ export const ARTICLES = [
  image: '/images/blog/ruag-ia-svizzera-difesa-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuove-leggi-violenza-domestica-2027',
+ category: 'novita',
+ date: '2026-04-27T10:47:26.049Z',
+ image: '/images/blog/nuove-leggi-violenza-domestica-2027.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

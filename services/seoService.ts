@@ -2218,6 +2218,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-indipendenza-energetica-importazioni-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-indipendenza-energetica-importazioni-2026', parent: 'blog' },
     'blog-nuove-misure-violenza-domestica-svizzera': { name: 'Novità', path: '/articoli-frontaliere/nuove-misure-violenza-domestica-svizzera', parent: 'blog' },
     'blog-ruag-ia-svizzera-difesa-2026': { name: 'Novità', path: '/articoli-frontaliere/ruag-ia-svizzera-difesa-2026', parent: 'blog' },
+    'blog-nuove-leggi-violenza-domestica-2027': { name: 'Novità', path: '/articoli-frontaliere/nuove-leggi-violenza-domestica-2027', parent: 'blog' },
  };
 
  const info = sectionNames[section];

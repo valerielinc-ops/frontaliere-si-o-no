@@ -2874,6 +2874,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ruag-ia-svizzera-difesa-2026.title': 'RUAG and Giotto.AI create Swiss AI for military data',
     'blog.article.ruag-ia-svizzera-difesa-2026.excerpt': 'RUAG is collaborating with Giotto.AI to develop a national AI for sensitive data, presenting LLARA in Thun.',
     'blog.article.ruag-ia-svizzera-difesa-2026.imageAlt': 'Advanced AI lab in Ticino, Switzerland',
+    'blog.article.nuove-leggi-violenza-domestica-2027.title': 'New laws and national strategy against domestic violence',
+    'blog.article.nuove-leggi-violenza-domestica-2027.excerpt': 'Confederation and Cantons announce progress but more effective tools are needed. New laws coming in 2027.',
+    'blog.article.nuove-leggi-violenza-domestica-2027.imageAlt': 'Press conference in Berna on new laws against domestic violence',
 };
 
 export default blogMetaEn;
