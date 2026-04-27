@@ -13959,6 +13959,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-elezioni-como-frontalieri-2026': {
+    title: 'Elezioni in 10 comuni della Provincia | Frontaliere Ticino',
+    description: 'Si vota il 24 e 25 maggio 2026 in 10 comuni della Provincia di Como. Ecco i candidati e le implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, elezioni, comuni, provincia, como',
+    ogTitle: 'Elezioni Como 2026: 10 comuni al voto | Frontaliere Ticino',
+    ogDescription: 'Si vota il 24 e 25 maggio 2026 in 10 comuni della Provincia di Como. Ecco i candidati e le implicazioni per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/elezioni-como-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elezioni in 10 comuni della Provincia di Como: cosa cambia per i frontalieri",
+      "description": "Si vota il 24 e 25 maggio 2026 in 10 comuni della Provincia di Como. Ecco i candidati e le implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/elezioni-como-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifesti elettorali a Lugano con il Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-27T04:58:00+00:00",
+      "dateModified": "2026-04-27T04:58:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/elezioni-como-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

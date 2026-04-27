@@ -2194,6 +2194,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-guerra-iran-industria-alimentare-svizzera': { name: 'Novità', path: '/articoli-frontaliere/guerra-iran-industria-alimentare-svizzera', parent: 'blog' },
     'blog-bollini-rossi-traffico-san-gottardo-2026': { name: 'Traffico San Gottardo', path: '/articoli-frontaliere/bollini-rossi-traffico-san-gottardo-2026', parent: 'blog' },
     'blog-treno-guasto-bellinzona-2026': { name: 'Novità', path: '/articoli-frontaliere/treno-guasto-bellinzona-2026', parent: 'blog' },
+    'blog-elezioni-como-frontalieri-2026': { name: 'Elezioni Como', path: '/articoli-frontaliere/elezioni-como-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2802,6 +2802,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.treno-guasto-bellinzona-2026.title': 'Zug Lugano-Zürich ausgefallen: Fahrgäste laufen von Bellinzona aus',
     'blog.article.treno-guasto-bellinzona-2026.excerpt': 'Technischer Defekt legt den Zug um 19:00 Uhr lahm, kein Ersatzverkehr. Fahrgäste warten am Bahnhof Bellinzona',
     'blog.article.treno-guasto-bellinzona-2026.imageAlt': 'Zug hält in Bellinzona, Fahrgäste steigen aus, Abend',
+    'blog.article.elezioni-como-frontalieri-2026.title': 'Wahlen in 10 Gemeinden der Provinz Como: Was ändert sich für Grenzgänger',
+    'blog.article.elezioni-como-frontalieri-2026.excerpt': 'Am 24. und 25. Mai 2026 wird in 10 Gemeinden der Provinz Como gewählt. Hier sind die Kandidaten und die Auswirkungen auf Grenzgänger',
+    'blog.article.elezioni-como-frontalieri-2026.imageAlt': 'Wahlplakate in Lugano mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

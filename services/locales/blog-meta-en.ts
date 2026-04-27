@@ -2802,6 +2802,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.treno-guasto-bellinzona-2026.title': 'Lugano-Zurich Train Breakdown: Passengers Walk from Bellinzona',
     'blog.article.treno-guasto-bellinzona-2026.excerpt': 'Technical fault cancels the 19:00 train, no replacement. Passengers waiting at Bellinzona station',
     'blog.article.treno-guasto-bellinzona-2026.imageAlt': 'Train stopped at Bellinzona station, passengers disembarking, evening',
+    'blog.article.elezioni-como-frontalieri-2026.title': 'Elections in 10 municipalities of Como Province: what changes for cross-border workers',
+    'blog.article.elezioni-como-frontalieri-2026.excerpt': 'Voting takes place on May 24 and 25, 2026, in 10 municipalities of Como Province. Here are the candidates and the implications for cross-border workers',
+    'blog.article.elezioni-como-frontalieri-2026.imageAlt': 'Election posters in Lugano with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

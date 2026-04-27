@@ -2802,6 +2802,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.treno-guasto-bellinzona-2026.title': 'Treno Lugano-Zurigo in panne: passeggeri a piedi da Bellinzona',
     'blog.article.treno-guasto-bellinzona-2026.excerpt': 'Guasto tecnico sopprime il treno delle 19:00, nessun sostitutivo. Passeggeri in attesa alla stazione di Bellinzona',
     'blog.article.treno-guasto-bellinzona-2026.imageAlt': 'Treno fermo a Bellinzona, passeggeri scendono, sera',
+    'blog.article.elezioni-como-frontalieri-2026.title': 'Elezioni in 10 comuni della Provincia di Como: cosa cambia per i frontalieri',
+    'blog.article.elezioni-como-frontalieri-2026.excerpt': 'Si vota il 24 e 25 maggio 2026 in 10 comuni della Provincia di Como. Ecco i candidati e le implicazioni per i frontalieri',
+    'blog.article.elezioni-como-frontalieri-2026.imageAlt': 'Manifesti elettorali a Lugano con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

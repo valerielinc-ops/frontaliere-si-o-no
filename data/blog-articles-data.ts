@@ -7525,4 +7525,11 @@ export const ARTICLES = [
  image: '/images/blog/treno-guasto-bellinzona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'elezioni-como-frontalieri-2026',
+ category: 'novita',
+ date: '2026-04-27T04:58:00.562Z',
+ image: '/images/blog/elezioni-como-frontalieri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

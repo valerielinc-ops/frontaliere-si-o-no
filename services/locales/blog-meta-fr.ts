@@ -2802,6 +2802,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.treno-guasto-bellinzona-2026.title': 'Train Lugano-Zurich en panne : passagers à pied depuis Bellinzone',
     'blog.article.treno-guasto-bellinzona-2026.excerpt': 'Une panne technique supprime le train de 19h00, aucun remplacement. Les passagers attendent à la gare de Bellinzone',
     'blog.article.treno-guasto-bellinzona-2026.imageAlt': 'Train arrêté à Bellinzone, passagers descendent, soir',
+    'blog.article.elezioni-como-frontalieri-2026.title': 'Élections dans 10 communes de la Province de Côme : ce qui change pour les frontaliers',
+    'blog.article.elezioni-como-frontalieri-2026.excerpt': 'Les élections auront lieu les 24 et 25 mai 2026 dans 10 communes de la Province de Côme. Voici les candidats et les implications pour les frontaliers',
+    'blog.article.elezioni-como-frontalieri-2026.imageAlt': 'Affiche électorale à Lugano avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
