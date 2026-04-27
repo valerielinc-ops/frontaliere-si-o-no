@@ -13756,6 +13756,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contratto-lago-lands-lake-2026': {
+    title: 'Contratto di Lago: Lands Lake chiama a | Frontaliere Ticino',
+    description: 'L\'associazione Lands Lake organizza incontri pubblici con i candidati sindaco di Baveno, Stresa, Luino e Laveno Mombello per discutere il futuro del Lago',
+    keywords: 'frontalieri, ticino, svizzera, italia, contratto, lago, lands, lake',
+    ogTitle: 'Contratto di Lago: Lands Lake chiama a confronto i candidati',
+    ogDescription: 'L\'associazione Lands Lake organizza incontri pubblici con i candidati sindaco di Baveno, Stresa, Luino e Laveno Mombello per discutere il futuro del Lago',
+    canonicalPath: '/articoli-frontaliere/contratto-lago-lands-lake-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contratto di Lago: Lands Lake chiama a confronto i candidati sindaco",
+      "description": "L'associazione Lands Lake organizza incontri pubblici con i candidati sindaco di Baveno, Stresa, Luino e Laveno Mombello per discutere il futuro del Lago",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/contratto-lago-lands-lake-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago Maggiore con Baveno, Stresa, Luino e Laveno Mombello sullo sfondo"
+      },
+      "datePublished": "2026-04-27T03:02:55+00:00",
+      "dateModified": "2026-04-27T03:02:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contratto-lago-lands-lake-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

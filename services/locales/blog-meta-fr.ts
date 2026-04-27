@@ -2781,6 +2781,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ex-gas-macello-residenze-secondarie.title': 'Ex Gas ex Macello : résidences secondaires, quota inefficace',
     'blog.article.ex-gas-macello-residenze-secondarie.excerpt': 'Locarno ne met pas à jour le plan pour le secteur après la décision de l\'ARE. La quote de résidences secondaires s\'avère inefficace.',
     'blog.article.ex-gas-macello-residenze-secondarie.imageAlt': 'Vue aérienne de Locarno, Suisse, avec le lac Majeur et les montagnes environnantes.',
+    'blog.article.contratto-lago-lands-lake-2026.title': 'Contratto di Lago : Lands Lake invite les candidats maires à une rencontre',
+    'blog.article.contratto-lago-lands-lake-2026.excerpt': 'L\'association Lands Lake organise des rencontres publiques avec les candidats maires de Baveno, Stresa, Luino et Laveno Mombello pour discuter de l\'avenir du Lac Majeur en tant que système unitaire.',
+    'blog.article.contratto-lago-lands-lake-2026.imageAlt': 'Vue du lac Majeur avec Baveno, Stresa, Luino et Laveno Mombello en arrière-plan',
 };
 
 export default blogMetaFr;
