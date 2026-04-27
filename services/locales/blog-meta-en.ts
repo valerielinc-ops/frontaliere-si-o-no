@@ -3009,6 +3009,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.roadmap-violenza-domestica-bilancio-positivo.title': 'Domestic violence roadmap: Jans reports a positive balance',
     'blog.article.roadmap-violenza-domestica-bilancio-positivo.excerpt': 'The roadmap against domestic and sexual violence has proven effective, but further measures are needed to combat femicides.',
     'blog.article.roadmap-violenza-domestica-bilancio-positivo.imageAlt': 'Lake Lugano with city view',
+    'blog.article.benessere-integrita-allievi-bellinzona-2026.title': 'Well-being and integrity of students: new projects in Bellinzona',
+    'blog.article.benessere-integrita-allievi-bellinzona-2026.excerpt': 'The Bellinzona School Institute is launching three educational programs with the ASPI Foundation for the well-being of students',
+    'blog.article.benessere-integrita-allievi-bellinzona-2026.imageAlt': 'Aerial view of Castelgrande Castle in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

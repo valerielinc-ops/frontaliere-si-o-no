@@ -3009,6 +3009,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.roadmap-violenza-domestica-bilancio-positivo.title': 'Roadmap gegen häusliche Gewalt: Jans zieht eine positive Bilanz',
     'blog.article.roadmap-violenza-domestica-bilancio-positivo.excerpt': 'Die Roadmap gegen häusliche und sexuelle Gewalt hat sich als wirksam erwiesen, aber es sind weitere Maßnahmen erforderlich, um Femizide zu bekämpfen.',
     'blog.article.roadmap-violenza-domestica-bilancio-positivo.imageAlt': 'Luganersee mit Stadtblick',
+    'blog.article.benessere-integrita-allievi-bellinzona-2026.title': 'Wohlbefinden und Integrität der Schüler: neue Projekte in Bellinzona',
+    'blog.article.benessere-integrita-allievi-bellinzona-2026.excerpt': 'Die Schule Bellinzona startet drei Bildungsprogramme mit der Stiftung ASPI für das Wohlbefinden der Schüler',
+    'blog.article.benessere-integrita-allievi-bellinzona-2026.imageAlt': 'Luftaufnahme von Schloss Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

@@ -3009,6 +3009,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.roadmap-violenza-domestica-bilancio-positivo.title': 'Feuille de route contre la violence domestique : Jans fait un bilan positif',
     'blog.article.roadmap-violenza-domestica-bilancio-positivo.excerpt': 'La feuille de route contre la violence domestique et sexuelle a démontré son efficacité, mais des mesures supplémentaires sont nécessaires pour lutter contre les féminicides.',
     'blog.article.roadmap-violenza-domestica-bilancio-positivo.imageAlt': 'Lac de Lugano avec vue sur la ville',
+    'blog.article.benessere-integrita-allievi-bellinzona-2026.title': 'Bien-être et intégrité des élèves : nouveaux projets à Bellinzone',
+    'blog.article.benessere-integrita-allievi-bellinzona-2026.excerpt': 'L\'Institut scolaire de Bellinzone lance trois programmes éducatifs avec la Fondation ASPI pour le bien-être des élèves',
+    'blog.article.benessere-integrita-allievi-bellinzona-2026.imageAlt': 'Vue aérienne du Château de Castelgrande à Bellinzona, Tessin',
 };
 
 export default blogMetaFr;

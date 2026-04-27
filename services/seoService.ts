@@ -2263,6 +2263,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovi-esperti-gestione-energia-varese': { name: 'Novità', path: '/articoli-frontaliere/nuovi-esperti-gestione-energia-varese', parent: 'blog' },
     'blog-negoziati-falliti-stretto-hormuz-2026': { name: 'Novità', path: '/articoli-frontaliere/negoziati-falliti-stretto-hormuz-2026', parent: 'blog' },
     'blog-roadmap-violenza-domestica-bilancio-positivo': { name: 'Novità', path: '/articoli-frontaliere/roadmap-violenza-domestica-bilancio-positivo', parent: 'blog' },
+    'blog-benessere-integrita-allievi-bellinzona-2026': { name: 'Novità', path: '/articoli-frontaliere/benessere-integrita-allievi-bellinzona-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

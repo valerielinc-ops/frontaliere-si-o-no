@@ -15960,6 +15960,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benessere-integrita-allievi-bellinzona-2026': {
+    title: 'Beneessere e integrità degli allievi | Frontaliere Ticino',
+    description: 'Scopri i nuovi programmi educativi per il benessere e l’integrità degli allievi a Bellinzona, in collaborazione con la Fondazione ASPI. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, beneessere, integrità, allievi, nuovi',
+    ogTitle: 'Nuovi programmi educativi a Bellinzona | Frontaliere Ticino',
+    ogDescription: 'Scopri i nuovi programmi educativi per il benessere e l’integrità degli allievi a Bellinzona, in collaborazione con la Fondazione ASPI.',
+    canonicalPath: '/articoli-frontaliere/benessere-integrita-allievi-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi programmi educativi a Bellinzona per il benessere e l’integrità degli allievi",
+      "description": "Scopri i nuovi programmi educativi per il benessere e l’integrità degli allievi a Bellinzona, in collaborazione con la Fondazione ASPI. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/benessere-integrita-allievi-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Castello di Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-27T16:14:03+00:00",
+      "dateModified": "2026-04-27T16:14:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benessere-integrita-allievi-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

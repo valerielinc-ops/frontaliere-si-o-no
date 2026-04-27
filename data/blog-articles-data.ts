@@ -8008,4 +8008,11 @@ export const ARTICLES = [
  image: '/images/blog/roadmap-violenza-domestica-bilancio-positivo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'benessere-integrita-allievi-bellinzona-2026',
+ category: 'novita',
+ date: '2026-04-27T16:14:03.960Z',
+ image: '/images/blog/benessere-integrita-allievi-bellinzona-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
