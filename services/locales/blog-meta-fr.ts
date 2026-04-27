@@ -3140,6 +3140,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cinque-nordafricani-festnati-auto-aarau.title': 'Cinq Nord-Africains arrêtés pour vols de voitures',
     'blog.article.cinque-nordafricani-festnati-auto-aarau.excerpt': 'Nuit d\'arrestations à Aarau : cinq hommes nord-africains interpellés pour soupçons de vols de voitures',
     'blog.article.cinque-nordafricani-festnati-auto-aarau.imageAlt': 'Police à Aarau la nuit près des voitures garées',
+    'blog.article.doppio-sequestro-discariche-abusive-varese.title': 'Déchets illégaux : double saisie à Varese et alentours',
+    'blog.article.doppio-sequestro-discariche-abusive-varese.excerpt': 'Trois personnes en examen et deux sites saisis pour élimination illégale de déchets spéciaux dans la province de Varese',
+    'blog.article.doppio-sequestro-discariche-abusive-varese.imageAlt': 'Vue aérienne du lac de Lugano avec les villes environnantes sous un ciel bleu clair',
 };
 
 export default blogMetaFr;

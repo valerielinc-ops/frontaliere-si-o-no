@@ -3139,6 +3139,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cinque-nordafricani-festnati-auto-aarau.title': 'Fünf Nordafrikaner wegen Autodiebstahl verhaftet',
     'blog.article.cinque-nordafricani-festnati-auto-aarau.excerpt': 'Verhaftungsnacht in Aarau: Fünf nordafrikanische Männer wegen Autodiebstahls festgenommen',
     'blog.article.cinque-nordafricani-festnati-auto-aarau.imageAlt': 'Polizei in Aarau in der Nacht neben geparkten Autos',
+    'blog.article.doppio-sequestro-discariche-abusive-varese.title': 'Illegale Mülldeponien: Zwei Beschlagnahmungen bei Varese',
+    'blog.article.doppio-sequestro-discariche-abusive-varese.excerpt': 'Drei Verdächtige und zwei Standorte beschlagnahmt wegen illegaler Entsorgung von Sondermüll in der Provinz Varese',
+    'blog.article.doppio-sequestro-discariche-abusive-varese.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Städten unter einem klaren blauen Himmel',
 };
 
 export default blogMetaDe;

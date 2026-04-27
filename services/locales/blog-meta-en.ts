@@ -3139,6 +3139,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cinque-nordafricani-festnati-auto-aarau.title': 'Five North Africans arrested for car thefts',
     'blog.article.cinque-nordafricani-festnati-auto-aarau.excerpt': 'Night of arrests in Aarau: five North African men stopped for suspected car thefts',
     'blog.article.cinque-nordafricani-festnati-auto-aarau.imageAlt': 'Police in Aarau at night near parked cars',
+    'blog.article.doppio-sequestro-discariche-abusive-varese.title': 'Illegal dumpsites: two seizures near Varese',
+    'blog.article.doppio-sequestro-discariche-abusive-varese.excerpt': 'Three suspects and two sites seized for illegal disposal of special waste in Varese province',
+    'blog.article.doppio-sequestro-discariche-abusive-varese.imageAlt': 'Aerial view of Lake Lugano with surrounding towns under a clear blue sky',
 };
 
 export default blogMetaEn;

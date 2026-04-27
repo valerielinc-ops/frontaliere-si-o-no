@@ -8337,4 +8337,11 @@ export const ARTICLES = [
  image: '/images/blog/cinque-nordafricani-festnati-auto-aarau.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'doppio-sequestro-discariche-abusive-varese',
+ category: 'novita',
+ date: '2026-04-27T22:32:29.818Z',
+ image: '/images/blog/doppio-sequestro-discariche-abusive-varese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

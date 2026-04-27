@@ -17323,6 +17323,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-doppio-sequestro-discariche-abusive-varese': {
+    title: 'Discariche abusive: doppio sequestro tra Varese e cintura',
+    description: 'Tre indagati e due siti sequestrati per smaltimento illecito di rifiuti speciali in provincia di Varese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, discariche, abusive, doppio, sequestro',
+    ogTitle: 'Discariche abusive: doppio sequestro tra Varese e cintura',
+    ogDescription: 'Tre indagati e due siti sequestrati per smaltimento illecito di rifiuti speciali in provincia di Varese',
+    canonicalPath: '/articoli-frontaliere/doppio-sequestro-discariche-abusive-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Discariche abusive: doppio sequestro tra Varese e cintura",
+      "description": "Tre indagati e due siti sequestrati per smaltimento illecito di rifiuti speciali in provincia di Varese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/doppio-sequestro-discariche-abusive-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con i paesi circostanti sotto un cielo azzurro limpido"
+      },
+      "datePublished": "2026-04-27T22:32:29+00:00",
+      "dateModified": "2026-04-27T22:32:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/doppio-sequestro-discariche-abusive-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

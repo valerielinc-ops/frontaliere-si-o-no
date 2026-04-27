@@ -2307,6 +2307,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-velafrica-bici-usate-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/velafrica-bici-usate-lugano-2026', parent: 'blog' },
     'blog-ospedale-varese-acqua-calda-oncologia': { name: 'Ospedale Varese', path: '/articoli-frontaliere/ospedale-varese-acqua-calda-oncologia', parent: 'blog' },
     'blog-cinque-nordafricani-festnati-auto-aarau': { name: 'Notizie', path: '/articoli-frontaliere/cinque-nordafricani-festnati-auto-aarau', parent: 'blog' },
+    'blog-doppio-sequestro-discariche-abusive-varese': { name: 'Novità', path: '/articoli-frontaliere/doppio-sequestro-discariche-abusive-varese', parent: 'blog' },
  };
 
  const info = sectionNames[section];
