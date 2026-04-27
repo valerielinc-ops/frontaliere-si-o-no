@@ -2242,6 +2242,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoratori-pensionati-ticino-2026-2046': { name: 'Novità', path: '/articoli-frontaliere/lavoratori-pensionati-ticino-2026-2046', parent: 'blog' },
     'blog-universita-varese-intelligenza-artificiale-2026': { name: 'Novità', path: '/articoli-frontaliere/universita-varese-intelligenza-artificiale-2026', parent: 'blog' },
     'blog-visite-gratuite-prevenzione-tumore-seno-gallarate-lilt': { name: 'Novità', path: '/articoli-frontaliere/visite-gratuite-prevenzione-tumore-seno-gallarate-lilt', parent: 'blog' },
+    'blog-frontalieri-mozione-sirica-ticino-2024': { name: 'Mozione Sirica', path: '/articoli-frontaliere/frontalieri-mozione-sirica-ticino-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

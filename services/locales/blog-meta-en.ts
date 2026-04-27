@@ -2946,6 +2946,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.title': 'Free breast cancer prevention visits in Gallarate with LILT',
     'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.excerpt': 'Two days of free senological visits with ultrasound in Gallarate at Piazza Libertà during the month of May.',
     'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.imageAlt': 'Free breast cancer prevention visits in Gallarate with Lilt',
+    'blog.article.frontalieri-mozione-sirica-ticino-2024.title': 'Cross-border workers: motion against workplace discrimination in Ticino',
+    'blog.article.frontalieri-mozione-sirica-ticino-2024.excerpt': 'Fabrizio Sirica presents motion to combat wage dumping and promote employment of residents',
+    'blog.article.frontalieri-mozione-sirica-ticino-2024.imageAlt': 'A journalist taking notes in front of a Ticino government building in Mendrisio',
 };
 
 export default blogMetaEn;

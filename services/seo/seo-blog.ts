@@ -15351,6 +15351,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-mozione-sirica-ticino-2024': {
+    title: 'Frontalieri: mozione contro | Frontaliere Ticino',
+    description: 'Fabrizio Sirica presenta mozione per contrastare il dumping salariale e favorire l\'occupazione dei residenti nel Canton Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, mozione, contro, discriminazione, lavorativa',
+    ogTitle: 'Frontalieri: mozione contro discriminazione lavorativa in',
+    ogDescription: 'Fabrizio Sirica presenta mozione per contrastare il dumping salariale e favorire l\'occupazione dei residenti nel Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-mozione-sirica-ticino-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Frontalieri: mozione contro",
+      "description": "Fabrizio Sirica presenta mozione per contrastare il dumping salariale e favorire l'occupazione dei residenti nel Canton Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-mozione-sirica-ticino-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giornalista scrive appunti davanti a un edificio governativo del Ticino a Mendrisio"
+      },
+      "datePublished": "2026-04-27T13:35:13+00:00",
+      "dateModified": "2026-04-27T13:35:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-mozione-sirica-ticino-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

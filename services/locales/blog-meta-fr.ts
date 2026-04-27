@@ -2946,6 +2946,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.title': 'Visites gratuites pour la prévention du cancer du sein à Gallarate avec la Lilt',
     'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.excerpt': 'Deux journées de consultations sénologiques gratuites avec échographie à Gallarate, sur la piazza Libertà, au mois de mai.',
     'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.imageAlt': 'Visites gratuites de prévention du cancer du sein à Gallarate avec Lilt',
+    'blog.article.frontalieri-mozione-sirica-ticino-2024.title': 'Frontaliers: motion contre la discrimination professionnelle au Tessin',
+    'blog.article.frontalieri-mozione-sirica-ticino-2024.excerpt': 'Fabrizio Sirica présente une motion pour lutter contre le dumping salarial et favoriser l\'emploi des résidents',
+    'blog.article.frontalieri-mozione-sirica-ticino-2024.imageAlt': 'Un journaliste prend des notes devant un bâtiment gouvernemental du Tessin à Mendrisio',
 };
 
 export default blogMetaFr;

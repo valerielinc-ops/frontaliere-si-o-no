@@ -2946,6 +2946,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.title': 'Visite gratuite per la prevenzione del tumore al seno a Gallarate con la Lilt',
     'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.excerpt': 'Due giornate di visite senologiche gratuite con ecografia a Gallarate in piazza Libertà nel mese di maggio.',
     'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.imageAlt': 'Visite gratuite per la prevenzione del tumore al seno a Gallarate con la Lilt',
+    'blog.article.frontalieri-mozione-sirica-ticino-2024.title': 'Frontalieri: mozione contro discriminazione lavorativa in Ticino',
+    'blog.article.frontalieri-mozione-sirica-ticino-2024.excerpt': 'Fabrizio Sirica presenta mozione per contrastare il dumping salariale e favorire l\'occupazione dei residenti',
+    'blog.article.frontalieri-mozione-sirica-ticino-2024.imageAlt': 'Un giornalista scrive appunti davanti a un edificio governativo del Ticino a Mendrisio',
 };
 
 export default blogMetaIt;

@@ -7861,4 +7861,11 @@ export const ARTICLES = [
  image: '/images/blog/visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-mozione-sirica-ticino-2024',
+ category: 'novita',
+ date: '2026-04-27T13:35:13.002Z',
+ image: '/images/blog/frontalieri-mozione-sirica-ticino-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
