@@ -237,6 +237,8 @@
     "audit:text-html-ratio:rebaseline": "node scripts/audit-text-html-ratio.mjs --write-baseline=data/text-html-ratio-baseline.json",
     "audit:h1-title-duplicates": "node scripts/audit-h1-title-duplicates.mjs --baseline=data/h1-title-duplicates-baseline.json",
     "audit:h1-title-duplicates:rebaseline": "node scripts/audit-h1-title-duplicates.mjs --write-baseline=data/h1-title-duplicates-baseline.json",
+    "audit:title-length": "node scripts/audit-title-length.mjs --threshold=90 --baseline=data/title-length-baseline.json",
+    "audit:title-length:rebaseline": "node scripts/audit-title-length.mjs --threshold=90 --write-baseline=data/title-length-baseline.json",
     "probe:5xx": "node scripts/probe-5xx.mjs",
     "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:blog-meta-placeholders && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build:ci && cp dist/index.html dist/404.html && npm run test:post-build && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && npm run validate:sitemap && npm run validate:hreflang && npm run validate:internal-links && npm run validate:thin-pages && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
   },

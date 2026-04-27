@@ -268,6 +268,28 @@ jobs:
       - name: Gate — duplicate H1/title tags (Semrush)
         run: npm run audit:h1-title-duplicates
 
+      # Title-length tracker (ratchet, threshold 90 char).
+      #
+      # WHY: after the universal "never truncate <title>" fix
+      # (commit a7eab849d) some pages legitimately overflow Google's
+      # ~60-char SERP-display budget — the trade-off we accept to keep
+      # <title> unique across canonical URLs (audit:title-uniqueness).
+      # This gate doesn't block long titles per se; it RATCHETS the
+      # offender count so a future template change that inflates titles
+      # further is caught immediately. Threshold 90 = headline up to
+      # ~68 char + " | Frontaliere Ticino" suffix.
+      #
+      # IF THIS STEP FAILS: stderr names the regressed feature bucket.
+      # Inspect the source plugin and shorten the headline construction
+      # (typically the verbose source-feed jobTitle at the head of the
+      # title — see truncateTitleCore in jobsSeoPagesPlugin.ts for the
+      # 55-char head-budget pattern used on expired soft-landing pages).
+      # Once landed, regenerate with
+      #   npm run audit:title-length:rebaseline
+      # and commit the updated baseline.
+      - name: Gate — <title> length tracker (ratchet)
+        run: npm run audit:title-length
+
       - name: Validate SPA render — canonical, schema, robots (blocking)
         timeout-minutes: 5
         run: node scripts/validate-spa-render.mjs

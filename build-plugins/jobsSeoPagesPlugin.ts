@@ -6384,8 +6384,18 @@ ${hreflangLinks}
  // The disambiguator is shared with the active-job builder via
  // buildTitleDisambiguator so format and length budget match.
  const expiredDisambiguator = buildTitleDisambiguator(slug);
+ // Cap the verbose jobTitle head before concatenation. Source feeds
+ // (Cantonal job board, university openings) emit 200-300-char titles
+ // that include the full role description, eligibility window and
+ // department — when piped through `${jobTitle} — ${company} ${uniqueSuffix}…`
+ // the resulting <title> reaches 300+ chars (Semrush "title too long",
+ // useless SERP snippet). Truncate the head to a soft 55-char budget at
+ // a word boundary; uniqueness is still guaranteed by the trailing
+ // expiredDisambiguator hash + uniqueSuffix (city / slug-tail).
+ const JOB_TITLE_HEAD_BUDGET = 55;
+ const truncatedJobTitle = truncateTitleCore(jobTitle, JOB_TITLE_HEAD_BUDGET);
  const pageTitle = hasRealTitle
- ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}${uniqueSuffix}${expiredDisambiguator} | Frontaliere Ticino`
+ ? `${esc(truncatedJobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}${uniqueSuffix}${expiredDisambiguator} | Frontaliere Ticino`
  : `${esc(copy.title)}${uniqueSuffix}${expiredDisambiguator} | Frontaliere Ticino`;
 
  const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
