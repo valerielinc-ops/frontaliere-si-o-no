@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-04-13T02:44:29.605Z",
-    "label": "before",
-    "total": 2973,
-    "needsRetranslation": 33,
-    "incomplete": 12,
-    "complete": 2961,
-    "missingByLocale": {
-      "it": 3,
-      "en": 10,
-      "de": 7,
-      "fr": 12
-    },
-    "topPending": [
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-13T03:21:35.814Z",
-    "label": "after",
-    "total": 2973,
-    "needsRetranslation": 19,
-    "incomplete": 1,
-    "complete": 2972,
-    "missingByLocale": {
-      "it": 1,
-      "en": 0,
-      "de": 0,
-      "fr": 1
-    },
-    "topPending": [
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-13T03:56:02.628Z",
     "label": "before",
     "total": 2973,
@@ -7439,6 +7383,78 @@
     "label": "after",
     "total": 2675,
     "needsRetranslation": 26,
+    "incomplete": 26,
+    "complete": 2649,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 24,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-27T06:13:07.924Z",
+    "label": "before",
+    "total": 2675,
+    "needsRetranslation": 26,
+    "incomplete": 26,
+    "complete": 2649,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 24,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-27T06:30:23.802Z",
+    "label": "after",
+    "total": 2675,
+    "needsRetranslation": 45,
     "incomplete": 26,
     "complete": 2649,
     "missingByLocale": {
