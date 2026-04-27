@@ -3075,6 +3075,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.passeggiata-lago-inverno-ascona-2026.title': 'Winter lakeside walk at Ascona lido, test',
     'blog.article.passeggiata-lago-inverno-ascona-2026.excerpt': 'The trial season of the winter lakeside walk at Ascona lido was a success. The president of the Patriziato, Rachele Allidi, announces that the initiative will be repeated.',
     'blog.article.passeggiata-lago-inverno-ascona-2026.imageAlt': 'Winter walk along Ascona\'s lakeside',
+    'blog.article.notifiche-frontalieri-ticino-2026.title': 'Ticino cross-border permits: -16% in 2025, but checks',
+    'blog.article.notifiche-frontalieri-ticino-2026.excerpt': 'Irregular notifications for cross-border workers in Ticino decrease, but authorities warn: we can\'t let our guard down. Here are the 2025 data.',
+    'blog.article.notifiche-frontalieri-ticino-2026.imageAlt': 'Lake Lugano with a modern building in the background',
 };
 
 export default blogMetaEn;

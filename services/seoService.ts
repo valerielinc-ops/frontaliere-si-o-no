@@ -2285,6 +2285,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-banca-ditalia-varese-10-anni-dopo': { name: 'Banca d\'Italia Varese', path: '/articoli-frontaliere/banca-ditalia-varese-10-anni-dopo', parent: 'blog' },
     'blog-svizzeri-contributo-clima-acquisti-online-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzeri-contributo-clima-acquisti-online-2026', parent: 'blog' },
     'blog-passeggiata-lago-inverno-ascona-2026': { name: 'Novità', path: '/articoli-frontaliere/passeggiata-lago-inverno-ascona-2026', parent: 'blog' },
+    'blog-notifiche-frontalieri-ticino-2026': { name: 'Notifiche frontalieri', path: '/articoli-frontaliere/notifiche-frontalieri-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

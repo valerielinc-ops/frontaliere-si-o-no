@@ -3075,6 +3075,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.passeggiata-lago-inverno-ascona-2026.title': 'Promenade hivernale au lido d\'Ascona, test',
     'blog.article.passeggiata-lago-inverno-ascona-2026.excerpt': 'La saison d\'essai de la promenade hivernale au lido d\'Ascona a été un succès. La présidente du Patriziato, Rachele Allidi, annonce que l\'initiative sera reconduite.',
     'blog.article.passeggiata-lago-inverno-ascona-2026.imageAlt': 'Promenade hivernale au bord du lac d\'Ascona',
+    'blog.article.notifiche-frontalieri-ticino-2026.title': 'Notifications frontalier Ticino: -16% en 2025, mais',
+    'blog.article.notifiche-frontalieri-ticino-2026.excerpt': 'Diminuent les notifications irrégulières pour les travailleurs frontaliers au Ticino, mais les autorités avertissent: on ne peut pas baisser la garde. Voici les données 2025.',
+    'blog.article.notifiche-frontalieri-ticino-2026.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan',
 };
 
 export default blogMetaFr;

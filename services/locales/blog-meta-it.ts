@@ -3075,6 +3075,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.passeggiata-lago-inverno-ascona-2026.title': 'Passeggiata a lago in inverno al lido di Ascona, test',
     'blog.article.passeggiata-lago-inverno-ascona-2026.excerpt': 'La stagione di prova della passeggiata invernale al lido di Ascona ha avuto successo. La presidente del Patriziato, Rachele Allidi, annuncia che l\'iniziativa sarà riproposta.',
     'blog.article.passeggiata-lago-inverno-ascona-2026.imageAlt': 'Passeggiata invernale sul lungolago di Ascona',
+    'blog.article.notifiche-frontalieri-ticino-2026.title': 'Notifiche frontalieri Ticino: -16% nel 2025, ma controlli',
+    'blog.article.notifiche-frontalieri-ticino-2026.excerpt': 'Diminuiscono le notifiche irregolari per i frontalieri in Ticino, ma le autorità avvertono: non si può abbassare la guardia. Ecco i dati 2025.',
+    'blog.article.notifiche-frontalieri-ticino-2026.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
 };
 
 export default blogMetaIt;

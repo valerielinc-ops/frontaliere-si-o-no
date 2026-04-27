@@ -16598,6 +16598,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-notifiche-frontalieri-ticino-2026': {
+    title: 'Notifiche frontalieri Ticino: -16% nel | Frontaliere Ticino',
+    description: 'Diminuiscono le notifiche irregolari per i frontalieri in Ticino, ma le autorità avvertono: non si può abbassare la guardia. Ecco i dati 2025. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, notifiche, 2025, controlli, diminuiscono',
+    ogTitle: 'Notifiche frontalieri Ticino: -16% nel 2025',
+    ogDescription: 'Diminuiscono le notifiche irregolari per i frontalieri in Ticino, ma le autorità avvertono: non si può abbassare la guardia. Ecco i dati 2025.',
+    canonicalPath: '/articoli-frontaliere/notifiche-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Notifiche frontalieri Ticino: -16% nel 2025",
+      "description": "Diminuiscono le notifiche irregolari per i frontalieri in Ticino, ma le autorità avvertono: non si può abbassare la guardia. Ecco i dati 2025. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/notifiche-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un edificio moderno sullo sfondo"
+      },
+      "datePublished": "2026-04-27T18:48:16+00:00",
+      "dateModified": "2026-04-27T18:48:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/notifiche-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

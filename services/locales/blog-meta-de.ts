@@ -3075,6 +3075,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.passeggiata-lago-inverno-ascona-2026.title': 'Winterspaziergang am Seeufer in Ascona',
     'blog.article.passeggiata-lago-inverno-ascona-2026.excerpt': 'Die Testphase des Winterspaziergangs am Seeufer in Ascona war erfolgreich. Die Präsidentin des Patriziats, Rachele Allidi, kündigt an, dass die Initiative wiederholt wird.',
     'blog.article.passeggiata-lago-inverno-ascona-2026.imageAlt': 'Winterspaziergang am Ascona Seeufer',
+    'blog.article.notifiche-frontalieri-ticino-2026.title': 'Grenzgänger Meldungen im Tessin: -16% im 2025, aber',
+    'blog.article.notifiche-frontalieri-ticino-2026.excerpt': 'Die unregelmäßigen Meldungen für Grenzgänger im Tessin nehmen ab, doch die Behörden warnen: Man darf die Wachsamkeit nicht senken. Hier sind die Daten für 2025.',
+    'blog.article.notifiche-frontalieri-ticino-2026.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
 };
 
 export default blogMetaDe;
