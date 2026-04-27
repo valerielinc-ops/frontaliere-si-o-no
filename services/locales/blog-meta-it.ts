@@ -3146,6 +3146,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sfida-comuni-coop-2026-attivita-fisica.title': 'Sfida tra comuni Coop 2026: chi sarà il più attivo?',
     'blog.article.sfida-comuni-coop-2026-attivita-fisica.excerpt': 'Dal 1° al 31 maggio 2026, oltre 200 comuni svizzeri, tra cui diversi in Ticino, si sfidano per promuovere l\'attività fisica. Scopri come partecipare e accumulare minuti di movimento.',
     'blog.article.sfida-comuni-coop-2026-attivita-fisica.imageAlt': 'Gruppo di persone che partecipano ad un\'attività sportiva in un parco a Lugano',
+    'blog.article.cina-tutela-lavoratori-nuove-occupazioni.title': 'La Cina rafforza la tutela dei lavoratori nelle nuove occupazioni',
+    'blog.article.cina-tutela-lavoratori-nuove-occupazioni.excerpt': 'Nuove linee guida per proteggere i lavoratori delle piattaforme digitali, con focus su compensi e algoritmi.',
+    'blog.article.cina-tutela-lavoratori-nuove-occupazioni.imageAlt': 'Lavoratori in Ticino che utilizzano piattaforme digitali per nuove occupazioni',
 };
 
 export default blogMetaIt;

@@ -3145,6 +3145,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sfida-comuni-coop-2026-attivita-fisica.title': 'Gemeinden-Coop-Challenge 2026: Wer ist am aktivsten?',
     'blog.article.sfida-comuni-coop-2026-attivita-fisica.excerpt': 'Vom 1. bis 31. Mai 2026 messen sich über 200 Schweizer Gemeinden, darunter mehrere im Tessin, im Wettbewerb um die Förderung von körperlicher Aktivität. Entdecken Sie, wie Sie teilnehmen und Bewegungsminuten sammeln können.',
     'blog.article.sfida-comuni-coop-2026-attivita-fisica.imageAlt': 'Gruppe von Menschen, die an einer Sportaktivität in einem Park in Lugano teilnehmen',
+    'blog.article.cina-tutela-lavoratori-nuove-occupazioni.title': 'China stärkt den Schutz von Plattformarbeitern',
+    'blog.article.cina-tutela-lavoratori-nuove-occupazioni.excerpt': 'Neue Richtlinien zum Schutz von digitalen Plattformarbeitern mit Fokus auf Vergütung und Algorithmen.',
+    'blog.article.cina-tutela-lavoratori-nuove-occupazioni.imageAlt': 'Arbeiter in der Schweiz, die digitale Plattformen für neue Beschäftigungen nutzen',
 };
 
 export default blogMetaDe;

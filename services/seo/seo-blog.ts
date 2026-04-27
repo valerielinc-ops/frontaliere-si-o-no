@@ -17381,6 +17381,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cina-tutela-lavoratori-nuove-occupazioni': {
+    title: 'La Cina rafforza la tutela dei lavoratori nelle nuove occupazioni',
+    description: 'Nuove linee guida per proteggere i lavoratori delle piattaforme digitali, con focus su compensi e algoritmi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cina, rafforza, tutela, lavoratori',
+    ogTitle: 'La Cina rafforza la tutela dei lavoratori nelle nuove occupazioni',
+    ogDescription: 'Nuove linee guida per proteggere i lavoratori delle piattaforme digitali, con focus su compensi e algoritmi.',
+    canonicalPath: '/articoli-frontaliere/cina-tutela-lavoratori-nuove-occupazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Cina rafforza la tutela dei lavoratori nelle nuove occupazioni",
+      "description": "Nuove linee guida per proteggere i lavoratori delle piattaforme digitali, con focus su compensi e algoritmi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cina-tutela-lavoratori-nuove-occupazioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori in Ticino che utilizzano piattaforme digitali per nuove occupazioni"
+      },
+      "datePublished": "2026-04-27T22:50:54+00:00",
+      "dateModified": "2026-04-27T22:50:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cina-tutela-lavoratori-nuove-occupazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2309,6 +2309,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cinque-nordafricani-festnati-auto-aarau': { name: 'Notizie', path: '/articoli-frontaliere/cinque-nordafricani-festnati-auto-aarau', parent: 'blog' },
     'blog-doppio-sequestro-discariche-abusive-varese': { name: 'Novità', path: '/articoli-frontaliere/doppio-sequestro-discariche-abusive-varese', parent: 'blog' },
     'blog-sfida-comuni-coop-2026-attivita-fisica': { name: 'Novità', path: '/articoli-frontaliere/sfida-comuni-coop-2026-attivita-fisica', parent: 'blog' },
+    'blog-cina-tutela-lavoratori-nuove-occupazioni': { name: 'Novità', path: '/articoli-frontaliere/cina-tutela-lavoratori-nuove-occupazioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

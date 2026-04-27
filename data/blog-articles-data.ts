@@ -8351,4 +8351,11 @@ export const ARTICLES = [
  image: '/images/blog/sfida-comuni-coop-2026-attivita-fisica.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cina-tutela-lavoratori-nuove-occupazioni',
+ category: 'novita',
+ date: '2026-04-27T22:50:54.328Z',
+ image: '/images/blog/cina-tutela-lavoratori-nuove-occupazioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
