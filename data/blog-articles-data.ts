@@ -8393,4 +8393,11 @@ export const ARTICLES = [
  image: '/images/blog/conservatorio-bellinzona-valori-musicali.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'national-geographic-scuola-einaudi-varese',
+ category: 'novita',
+ date: '2026-04-27T23:25:10.771Z',
+ image: '/images/blog/national-geographic-scuola-einaudi-varese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

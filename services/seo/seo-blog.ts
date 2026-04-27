@@ -17555,6 +17555,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-national-geographic-scuola-einaudi-varese': {
+    title: 'National Geographic a scuola: Sergio Pitamitz incontra gli studenti dell\'Einaudi',
+    description: 'Il celebre fotografo ha parlato di conservazione ambientale e fotografia naturalistica con gli studenti di Varese. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, national, geographic, scuola, sergio',
+    ogTitle: 'National Geographic a scuola: Sergio Pitamitz incontra gli studenti dell\'Einaudi',
+    ogDescription: 'Il celebre fotografo ha parlato di conservazione ambientale e fotografia naturalistica con gli studenti di Varese.',
+    canonicalPath: '/articoli-frontaliere/national-geographic-scuola-einaudi-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "National Geographic a scuola: Sergio Pitamitz incontra gli studenti dell'Einaudi",
+      "description": "Il celebre fotografo ha parlato di conservazione ambientale e fotografia naturalistica con gli studenti di Varese. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/national-geographic-scuola-einaudi-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Classe dell'Istituto Einaudi di Varese con il fotografo Sergio Pitamitz"
+      },
+      "datePublished": "2026-04-27T23:25:10+00:00",
+      "dateModified": "2026-04-27T23:25:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/national-geographic-scuola-einaudi-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3163,6 +3163,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.conservatorio-bellinzona-valori-musicali.title': 'Neuer Sitz des Konservatoriums der italienischen Schweiz eröffnet',
     'blog.article.conservatorio-bellinzona-valori-musicali.excerpt': 'Der Direktor Luca Medici betont die Bedeutung der musikalischen Ausbildung, um grundlegende Werte zu vermitteln',
     'blog.article.conservatorio-bellinzona-valori-musicali.imageAlt': 'Das neue Gebäude des Konservatoriums der italienischen Schweiz in Bellinzona',
+    'blog.article.national-geographic-scuola-einaudi-varese.title': 'National Geographic in der Schule: Sergio Pitamitz trifft Schüler',
+    'blog.article.national-geographic-scuola-einaudi-varese.excerpt': 'Der berühmte Fotograf sprach mit den Schülern aus Varese über Umweltschutz und Naturfotografie.',
+    'blog.article.national-geographic-scuola-einaudi-varese.imageAlt': 'Klassenzimmer des Einaudi-Instituts in Varese mit Fotograf Sergio Pitamitz',
 };
 
 export default blogMetaDe;

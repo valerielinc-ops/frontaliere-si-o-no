@@ -2315,6 +2315,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gioventu-dibatte-500-studenti-gara': { name: 'Novità', path: '/articoli-frontaliere/gioventu-dibatte-500-studenti-gara', parent: 'blog' },
     'blog-tallero-doro-80-anni-nuovo-design': { name: 'Novità', path: '/articoli-frontaliere/tallero-doro-80-anni-nuovo-design', parent: 'blog' },
     'blog-conservatorio-bellinzona-valori-musicali': { name: 'Novità', path: '/articoli-frontaliere/conservatorio-bellinzona-valori-musicali', parent: 'blog' },
+    'blog-national-geographic-scuola-einaudi-varese': { name: 'National Geographic a scuola', path: '/articoli-frontaliere/national-geographic-scuola-einaudi-varese', parent: 'blog' },
  };
 
  const info = sectionNames[section];
