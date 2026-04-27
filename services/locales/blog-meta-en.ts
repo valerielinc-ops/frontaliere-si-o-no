@@ -2871,6 +2871,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-misure-violenza-domestica-svizzera.title': 'New measures against domestic violence in Switzerland',
     'blog.article.nuove-misure-violenza-domestica-svizzera.excerpt': 'The Federal Department of Justice and Police proposes new measures to combat domestic violence, with a focus on early prevention.',
     'blog.article.nuove-misure-violenza-domestica-svizzera.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
+    'blog.article.ruag-ia-svizzera-difesa-2026.title': 'RUAG and Giotto.AI create Swiss AI for military data',
+    'blog.article.ruag-ia-svizzera-difesa-2026.excerpt': 'RUAG is collaborating with Giotto.AI to develop a national AI for sensitive data, presenting LLARA in Thun.',
+    'blog.article.ruag-ia-svizzera-difesa-2026.imageAlt': 'Advanced AI lab in Ticino, Switzerland',
 };
 
 export default blogMetaEn;

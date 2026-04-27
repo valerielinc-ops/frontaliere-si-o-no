@@ -14626,6 +14626,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ruag-ia-svizzera-difesa-2026': {
+    title: 'RUAG e Giotto.AI creano IA svizzera per | Frontaliere Ticino',
+    description: 'La RUAG collabora con Giotto.AI per sviluppare un\'IA nazionale per dati sensibili, presentando LLARA a Thun. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ruag, giotto, creano, dati',
+    ogTitle: 'RUAG e Giotto.AI creano IA svizzera per dati militari',
+    ogDescription: 'La RUAG collabora con Giotto.AI per sviluppare un\'IA nazionale per dati sensibili, presentando LLARA a Thun.',
+    canonicalPath: '/articoli-frontaliere/ruag-ia-svizzera-difesa-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "RUAG e Giotto.AI creano IA svizzera per dati militari",
+      "description": "La RUAG collabora con Giotto.AI per sviluppare un'IA nazionale per dati sensibili, presentando LLARA a Thun. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ruag-ia-svizzera-difesa-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di intelligenza artificiale avanzata in Ticino"
+      },
+      "datePublished": "2026-04-27T10:40:48+00:00",
+      "dateModified": "2026-04-27T10:40:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ruag-ia-svizzera-difesa-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

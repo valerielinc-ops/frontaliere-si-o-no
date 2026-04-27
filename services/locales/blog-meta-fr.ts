@@ -2871,6 +2871,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuove-misure-violenza-domestica-svizzera.title': 'Nouvelles mesures contre la violence domestique en Suisse',
     'blog.article.nuove-misure-violenza-domestica-svizzera.excerpt': 'Le Département fédéral de justice et police propose de nouvelles mesures pour lutter contre la violence domestique, avec un accent sur la prévention précoce.',
     'blog.article.nuove-misure-violenza-domestica-svizzera.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
+    'blog.article.ruag-ia-svizzera-difesa-2026.title': 'RUAG et Giotto.AI créent une IA suisse pour les données militaires',
+    'blog.article.ruag-ia-svizzera-difesa-2026.excerpt': 'La RUAG collabore avec Giotto.AI pour développer une IA nationale pour les données sensibles, présentant LLARA à Thun.',
+    'blog.article.ruag-ia-svizzera-difesa-2026.imageAlt': 'Laboratoire d\'IA avancé à Ticino, Suisse',
 };
 
 export default blogMetaFr;

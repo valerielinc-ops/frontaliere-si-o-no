@@ -7686,4 +7686,11 @@ export const ARTICLES = [
  image: '/images/blog/nuove-misure-violenza-domestica-svizzera.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ruag-ia-svizzera-difesa-2026',
+ category: 'novita',
+ date: '2026-04-27T10:40:48.462Z',
+ image: '/images/blog/ruag-ia-svizzera-difesa-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2871,6 +2871,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuove-misure-violenza-domestica-svizzera.title': 'Neue Maßnahmen gegen häusliche Gewalt in der Schweiz',
     'blog.article.nuove-misure-violenza-domestica-svizzera.excerpt': 'Das Eidgenössische Justiz- und Polizeidepartement schlägt neue Maßnahmen zur Bekämpfung häuslicher Gewalt vor, mit einem Fokus auf frühzeitige Prävention.',
     'blog.article.nuove-misure-violenza-domestica-svizzera.imageAlt': 'Luftaufnahme des Luganersees mit modernen Gebäuden und Bergen im Hintergrund',
+    'blog.article.ruag-ia-svizzera-difesa-2026.title': 'RUAG und Giotto.AI entwickeln KI für Schweizer Militärdaten',
+    'blog.article.ruag-ia-svizzera-difesa-2026.excerpt': 'RUAG arbeitet mit Giotto.AI zusammen, um eine nationale KI für sensible Daten zu entwickeln und stellt LLARA in Thun vor.',
+    'blog.article.ruag-ia-svizzera-difesa-2026.imageAlt': 'Fortschrittliches KI-Labor in Ticino, Schweiz',
 };
 
 export default blogMetaDe;
