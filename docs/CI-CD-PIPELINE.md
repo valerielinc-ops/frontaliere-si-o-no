@@ -156,7 +156,7 @@ Some AI providers return extreme `Retry-After` values (e.g. Cerebras: `Retry-Aft
 
 **Why.** `generate-article.yml` runs every 30 min via cron, but GitHub Actions silently skips ~66% of cron slots (measured 34% utilization over 5 days; avg gap 88 min vs 30 expected). At ~22 min real generation time per article, the theoretical max is 65/day; we were getting ~16/day.
 
-**How.** At the end of every run, the workflow self-dispatches the next via `workflow_dispatch` API using the `GITHUB_PAT` secret (same pattern as `scripts/lib/trigger-deploy.sh`). The shared concurrency group `article-generation` prevents overlap. The `7,37 * * * *` cron stays as a fallback safety net.
+**How.** At the end of every run, the workflow self-dispatches the next via `workflow_dispatch` API using the `GITHUB_PAT` env var (loaded into `$GITHUB_ENV` by `scripts/load-rc-env.mjs` from Firebase Remote Config — **NOT** an Actions secret). The `Self-trigger next run` step inherits this env; do **not** add `GITHUB_PAT: ${{ secrets.GITHUB_PAT }}` to its env block — `secrets.GITHUB_PAT` resolves to empty and shadows the RC value. Same pattern as `scripts/lib/trigger-deploy.sh`. The shared concurrency group `article-generation` prevents overlap. The `7,37 * * * *` cron stays as a fallback safety net.
 
 **Outcome matrix** (computed by step `decide_trigger`, dispatched by step `Self-trigger next run`):
 
@@ -170,7 +170,7 @@ Some AI providers return extreme `Retry-After` values (e.g. Cerebras: `Retry-Aft
 
 **Kill instructions.** Two options:
 
-1. **Soft kill (per-run skip)**: clear the `GITHUB_PAT` repo secret. The script logs "skip, no token" and exits 0 — the cron schedule keeps the workflow alive.
+1. **Soft kill (per-run skip)**: clear the `GITHUB_PAT` parameter in Firebase Remote Config (the value source — there is no `GITHUB_PAT` Actions secret). The script logs "skip, no token" and exits 0 — the cron schedule keeps the workflow alive.
 2. **Hard kill (chain off)**: comment out the `Self-trigger next run` step in `.github/workflows/generate-article.yml` and push. Cron continues at 30-min intervals.
 
 Source: `scripts/lib/trigger-self.sh`, tests at `tests/lib/trigger-self.test.ts`.
