@@ -2244,6 +2244,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-visite-gratuite-prevenzione-tumore-seno-gallarate-lilt': { name: 'Novità', path: '/articoli-frontaliere/visite-gratuite-prevenzione-tumore-seno-gallarate-lilt', parent: 'blog' },
     'blog-frontalieri-mozione-sirica-ticino-2024': { name: 'Mozione Sirica', path: '/articoli-frontaliere/frontalieri-mozione-sirica-ticino-2024', parent: 'blog' },
     'blog-corsi-gratuiti-varese-sociale-2026': { name: 'Corsi gratuiti', path: '/articoli-frontaliere/corsi-gratuiti-varese-sociale-2026', parent: 'blog' },
+    'blog-solaro-rifiuti-differenziata-tariffazione-puntuale': { name: 'Incontri Solaro', path: '/articoli-frontaliere/solaro-rifiuti-differenziata-tariffazione-puntuale', parent: 'blog' },
  };
 
  const info = sectionNames[section];

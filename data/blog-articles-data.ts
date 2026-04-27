@@ -7875,4 +7875,11 @@ export const ARTICLES = [
  image: '/images/blog/corsi-gratuiti-varese-sociale-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'solaro-rifiuti-differenziata-tariffazione-puntuale',
+ category: 'pratico',
+ date: '2026-04-27T13:54:18.243Z',
+ image: '/images/blog/solaro-rifiuti-differenziata-tariffazione-puntuale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

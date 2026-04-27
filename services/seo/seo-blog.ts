@@ -15409,6 +15409,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-solaro-rifiuti-differenziata-tariffazione-puntuale': {
+    title: 'Solaro: due incontri pubblici su | Frontaliere Ticino',
+    description: 'Il Comune di Solaro organizza due serate informative su raccolta differenziata e tariffazione puntuale per chiarire dubbi ai cittadini. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, solaro, incontri, pubblici, rifiuti',
+    ogTitle: 'Solaro: incontri su rifiuti e tariffazione puntuale |',
+    ogDescription: 'Il Comune di Solaro organizza due serate informative su raccolta differenziata e tariffazione puntuale per chiarire dubbi ai cittadini.',
+    canonicalPath: '/articoli-frontaliere/solaro-rifiuti-differenziata-tariffazione-puntuale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Solaro: incontri su rifiuti e tariffazione puntuale | Frontaliere Ticino",
+      "description": "Il Comune di Solaro organizza due serate informative su raccolta differenziata e tariffazione puntuale per chiarire dubbi ai cittadini. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/solaro-rifiuti-differenziata-tariffazione-puntuale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e paesi circostanti, cielo azzurro limpido"
+      },
+      "datePublished": "2026-04-27T13:54:18+00:00",
+      "dateModified": "2026-04-27T13:54:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/solaro-rifiuti-differenziata-tariffazione-puntuale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

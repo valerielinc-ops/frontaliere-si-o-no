@@ -2952,6 +2952,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.corsi-gratuiti-varese-sociale-2026.title': 'Ami aiutare gli altri? Corsi gratuiti a Varese per il sociale',
     'blog.article.corsi-gratuiti-varese-sociale-2026.excerpt': 'Your Self Company offre corsi gratuiti per ASA, OSS e ASACOM finanziati da Regione Lombardia. Posti limitati, iscrizioni aperte.',
     'blog.article.corsi-gratuiti-varese-sociale-2026.imageAlt': 'Lago di Lugano con vista sulle montagne circostanti',
+    'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.title': 'Solaro: due incontri pubblici su rifiuti e tariffazione puntuale',
+    'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.excerpt': 'Il Comune di Solaro organizza due serate informative su raccolta differenziata e tariffazione puntuale per chiarire dubbi ai cittadini.',
+    'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.imageAlt': 'Vista aerea del Lago di Lugano con montagne e paesi circostanti, cielo azzurro limpido',
 };
 
 export default blogMetaIt;

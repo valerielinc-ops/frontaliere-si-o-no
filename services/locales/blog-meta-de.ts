@@ -2952,6 +2952,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.corsi-gratuiti-varese-sociale-2026.title': 'Möchtest du anderen helfen? Kostenlose Kurse in Varese im sozialen Bereich',
     'blog.article.corsi-gratuiti-varese-sociale-2026.excerpt': 'Your Self Company bietet kostenlose Kurse für ASA, OSS und ASACOM an, die von der Region Lombardei finanziert werden. Begrenzte Plätze, Anmeldungen sind offen.',
     'blog.article.corsi-gratuiti-varese-sociale-2026.imageAlt': 'Luganersee mit Blick auf die umliegenden Berge',
+    'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.title': 'Solaro: zwei öffentliche Treffen zu Abfall und leistungsabhängiger Gebühr',
+    'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.excerpt': 'Die Gemeinde Solaro organisiert zwei Informationsabende zur Mülltrennung und leistungsabhängigen Gebühr, um die Zweifel der Bürger zu klären.',
+    'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Städten, klarer blauer Himmel',
 };
 
 export default blogMetaDe;

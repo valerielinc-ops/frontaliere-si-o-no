@@ -2952,6 +2952,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.corsi-gratuiti-varese-sociale-2026.title': 'Do you like helping others? Free social courses in Varese',
     'blog.article.corsi-gratuiti-varese-sociale-2026.excerpt': 'Your Self Company offers free courses for ASA, OSS, and ASACOM, funded by Regione Lombardia. Limited spots, registrations open.',
     'blog.article.corsi-gratuiti-varese-sociale-2026.imageAlt': 'Lake Lugano with a view of the surrounding mountains',
+    'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.title': 'Solaro: two public meetings on waste and pay-as-you-throw',
+    'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.excerpt': 'The municipality of Solaro is organizing two informative evenings on waste sorting and pay-as-you-throw to clarify doubts for citizens.',
+    'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns, clear blue sky',
 };
 
 export default blogMetaEn;
