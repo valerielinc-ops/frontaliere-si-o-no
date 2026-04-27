@@ -1,18 +1,50 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-27T11:48:37.400Z",
+  "generatedAt": "2026-04-27T22:43:52.467Z",
   "total": 18,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 17,
-  "durationMs": 25280,
-  "avgDurationMs": 25280,
+  "removedCount": 1,
+  "unchangedCount": 16,
+  "durationMs": 32686,
+  "avgDurationMs": 32686,
   "durationHistory": [
-    25280
+    32686
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-postdoc-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-postdoc-2026.pdf",
+      "title": "Due ricercatori post-dottorato",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "due-ricercatori-post-dottorato-usi-mendrisio",
+      "department": "Academy of Architecture – Institute of Urban and Landscape Studies (ISUP)",
+      "category": "researcher",
+      "datePosted": "2026-04-27",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "id": "usi-universita-della-svizzera-italiana-4b2fc8ac7c62",
+      "sourceLang": "en",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
@@ -55,7 +87,48 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/imca/imca-assistant-professor-marketing-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/imca/imca-assistant-professor-marketing-2026.pdf",
+      "title": "Professore assistente in Marketing (percorso di ruolo)",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "professore-assistente-in-marketing-percorso-di-ruolo-usi-universita-della-svizzera-italiana-lugano",
+      "department": "Faculty of Communication, Culture and Society – Institute of Marketing and Communication Management",
+      "category": "professor",
+      "datePosted": "2026-03-29",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "id": "usi-universita-della-svizzera-italiana-9caac50d561c",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
@@ -93,46 +166,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/imca/imca-assistant-professor-marketing-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/imca/imca-assistant-professor-marketing-2026.pdf",
-      "title": "Professore assistente in Marketing (percorso di ruolo)",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "professore-assistente-in-marketing-percorso-di-ruolo-usi-universita-della-svizzera-italiana-lugano",
-      "department": "Faculty of Communication, Culture and Society – Institute of Marketing and Communication Management",
-      "category": "professor",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-9caac50d561c",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
