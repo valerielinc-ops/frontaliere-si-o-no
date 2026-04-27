@@ -2751,6 +2751,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sovranita-latte-ticino.title': 'Sovranità alimentare e latte ticinese: il rischio di smantellamento della filiera',
     'blog.article.sovranita-latte-ticino.excerpt': 'Il Partito Comunista segnala il rischio di smantellamento della filiera del latte in Ticino, con minimi storici di prezzo e importazioni da altri cantoni. Interrogazione al Consiglio di Stato.',
     'blog.article.sovranita-latte-ticino.imageAlt': 'Vista panoramica del lago di Lugano con le montagne sullo sfondo',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.title': 'Chiasso: Una giornata alla scoperta degli enti di primo intervento',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.excerpt': 'Domanda: Chi sono gli enti di primo intervento a Chiasso? Risposta: Polizia cantonale, Polizia comunale di Chiasso, Ufficio federale della dogana e della sicurezza dei confini, ecc.',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.imageAlt': 'Max 125 chars',
 };
 
 export default blogMetaIt;

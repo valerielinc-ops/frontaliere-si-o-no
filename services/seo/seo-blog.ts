@@ -13466,6 +13466,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-scoperta-enti-primo-intervento': {
+    title: 'Chiasso: Una giornata alla scoperta | Frontaliere Ticino',
+    description: 'Scopri chi sono gli enti di primo intervento a Chiasso e partecipa alla Missione Emergenza. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, giornata, alla, scoperta',
+    ogTitle: 'Chiasso: Una giornata alla scoperta degli enti di primo',
+    ogDescription: 'Scopri chi sono gli enti di primo intervento a Chiasso e partecipa alla Missione Emergenza.',
+    canonicalPath: '/articoli-frontaliere/chiasso-scoperta-enti-primo-intervento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso: Una giornata alla scoperta degli enti di primo intervento",
+      "description": "Scopri chi sono gli enti di primo intervento a Chiasso e partecipa alla Missione Emergenza. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiasso-scoperta-enti-primo-intervento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Max 125 chars"
+      },
+      "datePublished": "2026-04-27T00:35:22+00:00",
+      "dateModified": "2026-04-27T00:35:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-scoperta-enti-primo-intervento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

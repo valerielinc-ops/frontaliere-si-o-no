@@ -7406,4 +7406,11 @@ export const ARTICLES = [
  image: '/images/blog/sovranita-latte-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiasso-scoperta-enti-primo-intervento',
+ category: 'novita',
+ date: '2026-04-27T00:35:22.934Z',
+ image: '/images/blog/chiasso-scoperta-enti-primo-intervento.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

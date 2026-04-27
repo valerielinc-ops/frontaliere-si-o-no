@@ -2751,6 +2751,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sovranita-latte-ticino.title': 'Souveraineté alimentaire et lait ticinois : le risque de démantèlement de la filière',
     'blog.article.sovranita-latte-ticino.excerpt': 'Le Parti communiste signale le risque de démantèlement de la filière du lait au Tessin, avec des prix historiquement bas et des importations provenant d\'autres cantons. Interrogation au Conseil d\'Etat.',
     'blog.article.sovranita-latte-ticino.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes en arrière-plan',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.title': 'Chiasso: Une journée à la découverte des entités de premier secours',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.excerpt': 'Domande: Qui sont les entités de premier secours à Chiasso? Réponse: Police cantonale, Police municipale de Chiasso, Ufficio fédéral de douane et de sécurité des frontières, etc.',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.imageAlt': 'Max 125 chars',
 };
 
 export default blogMetaFr;

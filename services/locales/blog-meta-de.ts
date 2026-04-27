@@ -2751,6 +2751,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sovranita-latte-ticino.title': 'Lebensmittel-Souveränität und Tessiner Milch: Die Gefahr des Abbaus der Lieferkette',
     'blog.article.sovranita-latte-ticino.excerpt': 'Die Kommunistische Partei weist auf die Gefahr des Abbaus der Milchlieferkette im Tessin hin, mit historischen Tiefstpreisen und Importen aus anderen Kantonen. Interpellation an den Staatsrat.',
     'blog.article.sovranita-latte-ticino.imageAlt': 'Panoramablick auf den Lago di Lugano mit Bergen im Hintergrund',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.title': 'Chiasso: Eine Tagessicht der ersten Eingriffsstellen',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.excerpt': 'Frage: Wer sind die ersten Eingriffsstellen in Chiasso? Antwort: Kantonspolizei, Stadtpolizei von Chiasso, Bundesamt für Zoll und Grenzschutz, etc.',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.imageAlt': 'Max 125 chars',
 };
 
 export default blogMetaDe;

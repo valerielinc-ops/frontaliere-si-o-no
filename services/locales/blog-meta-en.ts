@@ -2751,6 +2751,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sovranita-latte-ticino.title': 'Food sovereignty and Ticino milk: the risk of dismantling the supply chain',
     'blog.article.sovranita-latte-ticino.excerpt': 'The Communist Party highlights the risk of dismantling the milk supply chain in Ticino, with historic low prices and imports from other cantons. Parliamentary question to the Council of State.',
     'blog.article.sovranita-latte-ticino.imageAlt': 'Panoramic view of Lake Lugano with mountains in the background',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.title': 'Chiasso: A Day Discovering the First Response Entities',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.excerpt': 'Question: Who are the first response entities in Chiasso? Answer: Canton police, Chiasso municipal police, Federal customs and border security office, etc.',
+    'blog.article.chiasso-scoperta-enti-primo-intervento.imageAlt': 'Max 125 chars',
 };
 
 export default blogMetaEn;
