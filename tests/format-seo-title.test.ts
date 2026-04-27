@@ -117,10 +117,14 @@ describe('clampSiteSuffix', () => {
     );
   });
 
-  it('omits the suffix when the combined string would exceed the budget', () => {
+  it('truncates the base and keeps the suffix when the combined string would exceed the budget', () => {
+    // Semrush "Duplicate H1 and title tags" rule — when the H1 equals the
+    // headline portion verbatim we must NEVER drop the suffix, otherwise
+    // <title> collapses to a copy of <h1>. Truncate the base instead.
     const long = 'Lavoro Case Anziani Ticino 2026 — 990 offerte attive oggi';
     const out = clampSiteSuffix(long, 'Frontaliere Ticino');
-    expect(out).toBe(long);
+    expect(out).not.toBe(long);
+    expect(out.endsWith(' | Frontaliere Ticino')).toBe(true);
     expect(out.length).toBeLessThanOrEqual(60);
   });
 
@@ -132,6 +136,7 @@ describe('clampSiteSuffix', () => {
     expect(clampSiteSuffix('Short', 'Frontaliere Ticino', 100)).toBe(
       'Short | Frontaliere Ticino',
     );
+    // Suffix dominates a tiny budget: no truncation room ⇒ return base.
     expect(clampSiteSuffix('Short', 'Frontaliere Ticino', 10)).toBe('Short');
   });
 });

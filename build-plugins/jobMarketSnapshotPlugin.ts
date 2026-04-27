@@ -1322,9 +1322,11 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     })),
   });
 
-  // Phase 3A — title vs H1 differentiation (Semrush W3) + ≤60 char (W2).
-  // Build a compact keyword-first title; only append the brand suffix when
-  // it still fits the SERP budget.
+  // Phase 3A — title vs H1 differentiation (Semrush W2 ≤60 char + W3
+  // "Duplicate H1 and title tags"). The H1 is the editorial headline (e.g.
+  // "Ticino job market — March 2026"); the SEO title MUST stay distinct
+  // even after the brand suffix is stripped, so each variant adds an extra
+  // keyword (trends/Statistik/tendances/statistiche) the H1 doesn't carry.
   const titleBase =
     kind === 'weekly' && weekLabel
       ? (locale === 'it' ? `Mercato lavoro Ticino — W${weekLabel.week} ${weekLabel.year}`
@@ -1332,10 +1334,10 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
         : locale === 'de' ? `Tessiner Arbeitsmarkt — W${weekLabel.week} ${weekLabel.year}`
         : `Marché travail Tessin — S${weekLabel.week} ${weekLabel.year}`)
       : kind === 'monthly' && monthLabel
-      ? (locale === 'it' ? `Mercato lavoro Ticino — ${monthLabel.monthName} ${monthLabel.year}`
-        : locale === 'en' ? `Ticino job market — ${monthLabel.monthName} ${monthLabel.year}`
-        : locale === 'de' ? `Tessiner Arbeitsmarkt — ${monthLabel.monthName} ${monthLabel.year}`
-        : `Marché travail Tessin — ${monthLabel.monthName} ${monthLabel.year}`)
+      ? (locale === 'it' ? `Mercato lavoro Ticino — statistiche ${monthLabel.monthName} ${monthLabel.year}`
+        : locale === 'en' ? `Ticino job market trends — ${monthLabel.monthName} ${monthLabel.year}`
+        : locale === 'de' ? `Tessiner Arbeitsmarkt Statistik — ${monthLabel.monthName} ${monthLabel.year}`
+        : `Marché travail Tessin tendances — ${monthLabel.monthName} ${monthLabel.year}`)
       : JOB_MARKET_HUB_NAME[locale];
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = truncateAtWordBoundary(intro, 180);
@@ -1572,7 +1574,11 @@ function renderHubPage(inp: HubPageInputs): string {
     })),
   });
 
-  const title = clampSiteSuffix(h1, 'Frontaliere Ticino');
+  // Hub root: H1 is the editorial heading ("Ticino job market — weekly
+  // report"); add a year stamp + brand suffix so SEO <title> stays
+  // distinct even after the test's stripBrand normalisation (Semrush W3).
+  const titleBase = `${h1} ${new Date().getFullYear()}`;
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = truncateAtWordBoundary(copy.hubIntro, 180);
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
