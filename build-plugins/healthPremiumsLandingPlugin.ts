@@ -1214,11 +1214,16 @@ function renderLeafPage(inp: LeafInputs): string {
   // 19-25 anni" / "young adults age 19-25" / …) still appears in the H1,
   // intro and tables for human readers.
   const ageShort = age === '56-plus' ? '56+' : age;
+  // Compact title format: drop the "anni"/"age"/"Jahre"/"ans" filler word so
+  // the canton label stays whole even after the | Frontaliere Ticino suffix
+  // chops at word boundary. Without this fix two cantons that share a prefix
+  // ("Appenzello Interno" / "Appenzello Esterno", "Basilea Citta" /
+  // "Basilea Campagna") collapsed to the same title after the 60-char clamp.
   const titleBase =
-    locale === 'it' ? `Premi LAMal ${ageShort} anni ${cantonLabel} ${year}`
-    : locale === 'en' ? `LAMal premiums age ${ageShort} ${cantonLabel} ${year}`
-    : locale === 'de' ? `KVG-Prämien ${ageShort} Jahre ${cantonLabel} ${year}`
-    : `Primes LAMal ${ageShort} ans ${cantonLabel} ${year}`;
+    locale === 'it' ? `Premi LAMal ${ageShort} ${cantonLabel} ${year}`
+    : locale === 'en' ? `LAMal premiums ${ageShort} ${cantonLabel} ${year}`
+    : locale === 'de' ? `KVG-Prämien ${ageShort} ${cantonLabel} ${year}`
+    : `Primes LAMal ${ageShort} ${cantonLabel} ${year}`;
   const h1 =
     locale === 'it' ? `Confronto premi LAMal in ${cantonLabel} per la fascia ${ageLabel}`
     : locale === 'en' ? `LAMal premium comparison in ${cantonLabel} for ${ageLabel}`
