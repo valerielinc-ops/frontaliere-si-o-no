@@ -14365,6 +14365,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-frontalieri-airolo-2026': {
+    title: 'Controlli rafforzati a Airolo: doppia | Frontaliere Ticino',
+    description: 'Nuovi controlli radar in arrivo per chi entra in Svizzera da Airolo. Doppia verifica per i frontalieri, tempi di attesa più lunghi. Scopri di più.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, rafforzati, airolo, doppia',
+    ogTitle: 'Controlli rafforzati a Airolo: doppia verifica per i',
+    ogDescription: 'Nuovi controlli radar in arrivo per chi entra in Svizzera da Airolo. Doppia verifica per i frontalieri, tempi di attesa più lunghi. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/controlli-frontalieri-airolo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli rafforzati a Airolo: doppia verifica per i frontalieri",
+      "description": "Nuovi controlli radar in arrivo per chi entra in Svizzera da Airolo. Doppia verifica per i frontalieri, tempi di attesa più lunghi. Scopri di più.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-frontalieri-airolo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e confine svizzero-italiano"
+      },
+      "datePublished": "2026-04-27T09:47:57+00:00",
+      "dateModified": "2026-04-27T09:47:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-frontalieri-airolo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

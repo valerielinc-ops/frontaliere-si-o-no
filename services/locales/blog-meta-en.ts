@@ -2844,6 +2844,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coop-svizzera-insetti-commestibili-2026.title': 'Coop Switzerland withdraws edible insects: flop of the future superfood',
     'blog.article.coop-svizzera-insetti-commestibili-2026.excerpt': 'After Migros, Coop also removes larva hamburgers and cricket-based snacks from its shelves. The Swiss market for edible insects collapses.',
     'blog.article.coop-svizzera-insetti-commestibili-2026.imageAlt': 'A Swiss supermarket shelf with insect-based products, including cricket bars and dried locusts.',
+    'blog.article.controlli-frontalieri-airolo-2026.title': 'Enhanced checks in Airolo: double verification for cross-border workers',
+    'blog.article.controlli-frontalieri-airolo-2026.excerpt': 'New radar checks are coming for those entering Switzerland from Airolo. Double verification for cross-border workers, longer waiting times.',
+    'blog.article.controlli-frontalieri-airolo-2026.imageAlt': 'Aerial view of Lake Lugano with Swiss-Italian border and mountains',
 };
 
 export default blogMetaEn;

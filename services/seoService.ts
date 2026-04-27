@@ -2208,6 +2208,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-primo-maggio-varese-2026-lavoro-dignitoso': { name: 'Primo Maggio Varese', path: '/articoli-frontaliere/primo-maggio-varese-2026-lavoro-dignitoso', parent: 'blog' },
     'blog-fallimenti-fotovoltaico-clienti-ticino': { name: 'Novità', path: '/articoli-frontaliere/fallimenti-fotovoltaico-clienti-ticino', parent: 'blog' },
     'blog-coop-svizzera-insetti-commestibili-2026': { name: 'Novità', path: '/articoli-frontaliere/coop-svizzera-insetti-commestibili-2026', parent: 'blog' },
+    'blog-controlli-frontalieri-airolo-2026': { name: 'Novità', path: '/articoli-frontaliere/controlli-frontalieri-airolo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

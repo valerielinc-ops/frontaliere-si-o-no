@@ -2844,6 +2844,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coop-svizzera-insetti-commestibili-2026.title': 'Coop Svizzera ritira gli insetti commestibili: flop del superfood del futuro',
     'blog.article.coop-svizzera-insetti-commestibili-2026.excerpt': 'Dopo Migros, anche Coop toglie dagli scaffali hamburger di larve e snack a base di grilli. Il mercato svizzero degli insetti commestibili crolla.',
     'blog.article.coop-svizzera-insetti-commestibili-2026.imageAlt': 'Uno scaffale di un supermercato svizzero con prodotti a base di insetti, tra cui barrette di grilli e cavallette essiccate.',
+    'blog.article.controlli-frontalieri-airolo-2026.title': 'Controlli rafforzati a Airolo: doppia verifica per i frontalieri',
+    'blog.article.controlli-frontalieri-airolo-2026.excerpt': 'Nuovi controlli radar in arrivo per chi entra in Svizzera da Airolo. Doppia verifica per i frontalieri, tempi di attesa più lunghi.',
+    'blog.article.controlli-frontalieri-airolo-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e confine svizzero-italiano',
 };
 
 export default blogMetaIt;

@@ -2844,6 +2844,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coop-svizzera-insetti-commestibili-2026.title': 'Coop Schweiz zieht essbare Insekten zurück: Flop des Superfoods der Zukunft',
     'blog.article.coop-svizzera-insetti-commestibili-2026.excerpt': 'Nach Migros zieht auch Coop Insektenburger und Grillensnacks aus den Regalen. Der Markt für essbare Insekten in der Schweiz bricht ein.',
     'blog.article.coop-svizzera-insetti-commestibili-2026.imageAlt': 'Ein Schweizer Supermarktregal mit Insektenprodukten, darunter Cricket-Riegel und getrocknete Heuschrecken.',
+    'blog.article.controlli-frontalieri-airolo-2026.title': 'Erhöhte Kontrollen in Airolo: Doppelte Überprüfung für Grenzgänger',
+    'blog.article.controlli-frontalieri-airolo-2026.excerpt': 'Neue Radarkontrollen für alle, die über Airolo in die Schweiz einreisen. Doppelte Überprüfung für Grenzgänger, längere Wartezeiten.',
+    'blog.article.controlli-frontalieri-airolo-2026.imageAlt': 'Luftaufnahme des Luganersee mit Schweizer-Italienischer Grenze und Bergen',
 };
 
 export default blogMetaDe;
