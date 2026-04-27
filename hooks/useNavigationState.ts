@@ -285,7 +285,10 @@ export function useNavigationState(): NavigationState {
  // Skip static file links (sitemap.xml, robots.txt, etc.)
  if (/\.(xml|txt|json|pdf|png|jpg|jpeg|gif|svg|ico|webp|woff2?|css|js)(\?|$)/i.test(href)) return;
 
- const [pathname, hash] = href.split('#');
+ const [beforeHash, hash] = href.split('#');
+ // Strip query string so parsePath() never sees `?q=...` as a path segment
+ // (would be misread as a job slug, e.g. /cerca-lavoro-ticino/?q=Infermieri).
+ const pathname = beforeHash.split('?')[0];
  const search = a.search || '';
 
  // Resolve the target route from the URL.

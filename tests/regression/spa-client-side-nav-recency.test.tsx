@@ -172,4 +172,26 @@ describe('2b — client-side nav: recency landing guard in click interceptor', (
     expect(route.staticOverlay).toBe(true);
     expect((route as unknown as Record<string, unknown>).jobSlug).toBeUndefined();
   });
+
+  it('strips ?q=… query string before parsePath so footer keyword links are not treated as job slugs', async () => {
+    // Regression: clicking footer link "/cerca-lavoro-ticino/?q=Infermieri" from
+    // the homepage caused the SPA click interceptor to pass the full href
+    // (including "?q=Infermieri") to parsePath, which split on "/" and produced
+    // jobSlug = "?q=infermieri". JobBoard then rendered JobOrphanView with
+    // title "?Q=Infermieri". Fix: strip the query string before parsePath.
+    const router = await import('@/services/router');
+    const pushRouteSpy = router.pushRoute as unknown as ReturnType<typeof vi.fn>;
+    pushRouteSpy.mockClear();
+
+    window.history.replaceState({}, '', '/');
+    renderHook(() => useNavigationState());
+
+    const { defaultPrevented } = clickAnchor('/cerca-lavoro-ticino/?q=Infermieri');
+
+    expect(defaultPrevented).toBe(true);
+    expect(pushRouteSpy).toHaveBeenCalled();
+    const pushedRoute = pushRouteSpy.mock.calls.at(-1)?.[0] as Record<string, unknown>;
+    expect(pushedRoute?.activeTab).toBe('job-board');
+    expect(pushedRoute?.jobSlug).toBeUndefined();
+  });
 });
