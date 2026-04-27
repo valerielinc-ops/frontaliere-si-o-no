@@ -2895,6 +2895,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.title': 'Reparto securizzato a Pasture: solo con il consenso di Cantone e Comuni',
     'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.excerpt': 'La Commissione delle Istituzioni politiche della Camera bassa ha trovato una via mediana per il progetto pilota a Pasture, coinvolgendo gli enti locali.',
     'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.imageAlt': 'Vista panoramica della regione Mendrisiotto in Ticino, Svizzera',
+    'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.title': 'Edilizia, firmato il nuovo CCL ticinese',
+    'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.excerpt': 'Il nuovo contratto collettivo di lavoro per l\'edilizia e il genio civile in Ticino è stato firmato, valido fino al 2031.',
+    'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.imageAlt': 'Cantiere edile in Ticino con operai e macchinari moderni',
 };
 
 export default blogMetaIt;

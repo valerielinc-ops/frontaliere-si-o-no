@@ -14858,6 +14858,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-ccnl-edilizia-ticino-2026-2031': {
+    title: 'Edilizia, firmato il nuovo CCL ticinese | Frontaliere Ticino',
+    description: 'Il nuovo contratto collettivo di lavoro per l\'edilizia e il genio civile in Ticino è stato firmato, valido dal 1° maggio 2026 al 2031. Scopri le novità e le',
+    keywords: 'frontalieri, ticino, svizzera, italia, edilizia, firmato, nuovo, ticinese',
+    ogTitle: 'Nuovo CCL edilizia Ticino 2026-2031 | Frontaliere Ticino',
+    ogDescription: 'Il nuovo contratto collettivo di lavoro per l\'edilizia e il genio civile in Ticino è stato firmato, valido dal 1° maggio 2026 al 2031. Scopri le novità e le',
+    canonicalPath: '/articoli-frontaliere/nuovo-ccnl-edilizia-ticino-2026-2031',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo CCL edilizia Ticino 2026-2031 | Frontaliere Ticino",
+      "description": "Il nuovo contratto collettivo di lavoro per l'edilizia e il genio civile in Ticino è stato firmato, valido dal 1° maggio 2026 al 2031. Scopri le novità e le",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-ccnl-edilizia-ticino-2026-2031.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere edile in Ticino con operai e macchinari moderni"
+      },
+      "datePublished": "2026-04-27T11:38:54+00:00",
+      "dateModified": "2026-04-27T11:38:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-ccnl-edilizia-ticino-2026-2031`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

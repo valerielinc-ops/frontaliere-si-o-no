@@ -2895,6 +2895,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.title': 'Sichere Abteilung in Pasture: Nur mit Zustimmung des Kantons und der Gemeinden',
     'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.excerpt': 'Die Kommission für politische Institutionen der unteren Kammer hat einen Mittelweg für das Pilotprojekt in Pasture gefunden, bei dem die lokalen Behörden einbezogen werden.',
     'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.imageAlt': 'Panoramablick auf die Region Mendrisiotto im Tessin, Schweiz',
+    'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.title': 'Bauwirtschaft, neuer Gesamtarbeitsvertrag für den Kanton Tessin unterzeichnet',
+    'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.excerpt': 'Der neue Gesamtarbeitsvertrag für die Bau- und Zivilingenieurwesen im Tessin wurde unterzeichnet und ist bis 2031 gültig.',
+    'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.imageAlt': 'Bauplatz in Ticino mit Arbeitern und modernen Maschinen',
 };
 
 export default blogMetaDe;

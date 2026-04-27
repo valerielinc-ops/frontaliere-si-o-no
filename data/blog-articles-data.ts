@@ -7742,4 +7742,11 @@ export const ARTICLES = [
  image: '/images/blog/reparto-securizzato-pasture-consenso-cantone-comuni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovo-ccnl-edilizia-ticino-2026-2031',
+ category: 'novita',
+ date: '2026-04-27T11:38:54.203Z',
+ image: '/images/blog/nuovo-ccnl-edilizia-ticino-2026-2031.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

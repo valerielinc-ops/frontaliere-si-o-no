@@ -2895,6 +2895,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.title': 'Secured department in Pasture: only with the consent of Canton and Municipalities',
     'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.excerpt': 'The Political Institutions Commission of the lower house has found a middle way for the pilot project in Pasture, involving local authorities.',
     'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.imageAlt': 'Panoramic view of the Mendrisiotto region in Ticino, Switzerland',
+    'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.title': 'Construction: New Ticino collective labor agreement signed',
+    'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.excerpt': 'The new collective labor agreement for the construction and civil engineering sectors in Ticino has been signed, valid until 2031.',
+    'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.imageAlt': 'Construction site in Ticino with workers and modern machinery',
 };
 
 export default blogMetaEn;
