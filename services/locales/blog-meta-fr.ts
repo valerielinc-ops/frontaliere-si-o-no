@@ -2907,6 +2907,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.oftalmologi-svizzeri-messico-vista.title': 'Ophtalmologistes tessinois au Mexique: opérations gratuites pour rendre la vue',
     'blog.article.oftalmologi-svizzeri-messico-vista.excerpt': 'Une équipe de médecins suisses, en grande partie tessinois, opère gratuitement des patients dans le Quintana Roo, au Mexique, pour soigner la cataracte.',
     'blog.article.oftalmologi-svizzeri-messico-vista.imageAlt': 'Une équipe d\'ophtalmologistes suisses opérant dans un hôpital mexicain pour rendre la vue aux patients.',
+    'blog.article.rumore-traffico-svizzera-frontalieri.title': 'Bruit du trafic en Suisse: 2.000 morts par an, ce qui change pour les frontaliers',
+    'blog.article.rumore-traffico-svizzera-frontalieri.excerpt': 'Le bruit du trafic routier cause jusqu\'à 2.000 décès prématurés par an en Suisse, avec 850.000 personnes exposées à des bruits nocifs',
+    'blog.article.rumore-traffico-svizzera-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan, journée claire',
 };
 
 export default blogMetaFr;

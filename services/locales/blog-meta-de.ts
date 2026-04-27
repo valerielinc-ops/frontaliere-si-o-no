@@ -2907,6 +2907,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.oftalmologi-svizzeri-messico-vista.title': 'Ticinesische Augenärzte in Mexiko: Kostenlose Operationen zur Wiederherstellung des Sehvermögens',
     'blog.article.oftalmologi-svizzeri-messico-vista.excerpt': 'Ein Team von Schweizer Ärzten, größtenteils aus dem Tessin, operiert kostenlos Patienten im Quintana Roo, Mexiko, um Katarakte zu behandeln.',
     'blog.article.oftalmologi-svizzeri-messico-vista.imageAlt': 'Ein Team von Schweizer Augenärzten, das in einem mexikanischen Krankenhaus Patienten das Augenlicht wiederherstellt.',
+    'blog.article.rumore-traffico-svizzera-frontalieri.title': 'Verkehrslärm in der Schweiz: 2.000 Tote pro Jahr, was sich für Grenzgänger ändert',
+    'blog.article.rumore-traffico-svizzera-frontalieri.excerpt': 'Verkehrslärm verursacht bis zu 2.000 vorzeitige Todesfälle pro Jahr in der Schweiz, wobei 850.000 Menschen schädlichem Lärm ausgesetzt sind',
+    'blog.article.rumore-traffico-svizzera-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund, klarer Tag',
 };
 
 export default blogMetaDe;

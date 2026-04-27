@@ -2907,6 +2907,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.oftalmologi-svizzeri-messico-vista.title': 'Ticino ophthalmologists in Mexico: free surgeries to restore sight',
     'blog.article.oftalmologi-svizzeri-messico-vista.excerpt': 'A team of Swiss doctors, mostly from Ticino, are performing free cataract surgeries for patients in Quintana Roo, Mexico.',
     'blog.article.oftalmologi-svizzeri-messico-vista.imageAlt': 'A team of Swiss ophthalmologists operating in a Mexican hospital to restore sight to patients.',
+    'blog.article.rumore-traffico-svizzera-frontalieri.title': 'Swiss traffic noise: 2,000 deaths per year, what changes for cross-border workers',
+    'blog.article.rumore-traffico-svizzera-frontalieri.excerpt': 'Road traffic noise causes up to 2,000 premature deaths per year in Switzerland, with 850,000 people exposed to harmful noise',
+    'blog.article.rumore-traffico-svizzera-frontalieri.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background, clear day',
 };
 
 export default blogMetaEn;

@@ -2229,6 +2229,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-morcote-eventi-2026-scalinata-caccia-tesoro': { name: 'Eventi Ticino', path: '/articoli-frontaliere/morcote-eventi-2026-scalinata-caccia-tesoro', parent: 'blog' },
     'blog-svizzera-credito-energetico-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-credito-energetico-2026', parent: 'blog' },
     'blog-oftalmologi-svizzeri-messico-vista': { name: 'Novità', path: '/articoli-frontaliere/oftalmologi-svizzeri-messico-vista', parent: 'blog' },
+    'blog-rumore-traffico-svizzera-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/rumore-traffico-svizzera-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

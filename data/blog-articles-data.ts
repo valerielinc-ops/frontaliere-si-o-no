@@ -7770,4 +7770,11 @@ export const ARTICLES = [
  image: '/images/blog/oftalmologi-svizzeri-messico-vista.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rumore-traffico-svizzera-frontalieri',
+ category: 'novita',
+ date: '2026-04-27T12:04:47.470Z',
+ image: '/images/blog/rumore-traffico-svizzera-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

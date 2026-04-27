@@ -2907,6 +2907,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.oftalmologi-svizzeri-messico-vista.title': 'Oftalmologi ticinesi in Messico: operazioni gratuite per restituire la vista',
     'blog.article.oftalmologi-svizzeri-messico-vista.excerpt': 'Un\'équipe di medici svizzeri, in gran parte ticinesi, opera gratuitamente pazienti nel Quintana Roo, Messico, per curare la cataratta.',
     'blog.article.oftalmologi-svizzeri-messico-vista.imageAlt': 'Un\'équipe di oftalmologi svizzeri opera in un ospedale messicano per restituire la vista ai pazienti.',
+    'blog.article.rumore-traffico-svizzera-frontalieri.title': 'Rumore traffico Svizzera: 2.000 morti l\'anno, cosa cambia per i frontalieri',
+    'blog.article.rumore-traffico-svizzera-frontalieri.excerpt': 'Il rumore del traffico stradale causa fino a 2.000 decessi prematuri l\'anno in Svizzera, con 850.000 persone esposte a rumori nocivi',
+    'blog.article.rumore-traffico-svizzera-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con montagne del Ticino sullo sfondo, giornata limpida',
 };
 
 export default blogMetaIt;
