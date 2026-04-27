@@ -2787,6 +2787,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-velocita-ticino-aprile-maggio.title': 'Radar in Ticino: speed checks from April 27 to May 3',
     'blog.article.controlli-velocita-ticino-aprile-maggio.excerpt': 'The cantonal police and local police announce speed checks in Ticino for the week from April 27 to May 3.',
     'blog.article.controlli-velocita-ticino-aprile-maggio.imageAlt': 'Aerial view of Lake Lugano with Ticino landscape',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.title': 'Public finances in Ticino: accountants raise alarm',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.excerpt': 'The Order of Chartered Accountants of the Canton of Ticino expresses concern over public finances and the risk of delocalizations.',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

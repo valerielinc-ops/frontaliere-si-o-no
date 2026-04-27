@@ -2787,6 +2787,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-velocita-ticino-aprile-maggio.title': 'Radarkontrollen in der Schweiz: Kontrollen vom 27. April bis 3. Mai',
     'blog.article.controlli-velocita-ticino-aprile-maggio.excerpt': 'Die Kantonspolizei und die Gemeindepolizeien kündigen die Geschwindigkeitskontrollen in der Schweiz für die Woche vom 27. April bis 3. Mai an.',
     'blog.article.controlli-velocita-ticino-aprile-maggio.imageAlt': 'Luftaufnahme des Luganer Sees mit der Landschaft des Tessin',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.title': 'Öffentliche Finanzen im Tessin: Warnung der Treuhänder',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.excerpt': 'Der Treuhänderverband des Kantons Tessin äussert Bedenken bezüglich der öffentlichen Finanzen und dem Risiko von Abwanderungen.',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

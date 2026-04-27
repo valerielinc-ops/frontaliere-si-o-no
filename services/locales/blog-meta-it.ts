@@ -2787,6 +2787,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-velocita-ticino-aprile-maggio.title': 'Radar in Ticino: controlli dal 27 aprile al 3 maggio',
     'blog.article.controlli-velocita-ticino-aprile-maggio.excerpt': 'La Polizia cantonale e le polizie comunali annunciano i controlli della velocità in Ticino per la settimana dal 27 aprile al 3 maggio.',
     'blog.article.controlli-velocita-ticino-aprile-maggio.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.title': 'Finanze pubbliche Ticino: allarme commercialisti',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.excerpt': 'L\'Ordine dei commercialisti del Canton Ticino esprime preoccupazione per le finanze pubbliche e il rischio di delocalizzazioni.',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

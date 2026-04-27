@@ -7490,4 +7490,11 @@ export const ARTICLES = [
  image: '/images/blog/controlli-velocita-ticino-aprile-maggio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'finanze-pubbliche-ticino-2026-preoccupazioni',
+ category: 'fiscale',
+ date: '2026-04-27T03:34:55.435Z',
+ image: '/images/blog/finanze-pubbliche-ticino-2026-preoccupazioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

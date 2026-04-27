@@ -13814,6 +13814,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finanze-pubbliche-ticino-2026-preoccupazioni': {
+    title: 'Finanze pubbliche Ticino: allarme | Frontaliere Ticino',
+    description: 'L\'Ordine dei commercialisti del Canton Ticino esprime preoccupazione per le finanze pubbliche e il rischio di delocalizzazioni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanze, pubbliche, allarme, commercialisti',
+    ogTitle: 'Finanze pubbliche Ticino: allarme commercialisti',
+    ogDescription: 'L\'Ordine dei commercialisti del Canton Ticino esprime preoccupazione per le finanze pubbliche e il rischio di delocalizzazioni.',
+    canonicalPath: '/articoli-frontaliere/finanze-pubbliche-ticino-2026-preoccupazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finanze pubbliche Ticino: allarme commercialisti",
+      "description": "L'Ordine dei commercialisti del Canton Ticino esprime preoccupazione per le finanze pubbliche e il rischio di delocalizzazioni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/finanze-pubbliche-ticino-2026-preoccupazioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-27T03:34:55+00:00",
+      "dateModified": "2026-04-27T03:34:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/finanze-pubbliche-ticino-2026-preoccupazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

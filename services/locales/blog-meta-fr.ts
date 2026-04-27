@@ -2787,6 +2787,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-velocita-ticino-aprile-maggio.title': 'Radar au Tessin : contrôles du 27 avril au 3 mai',
     'blog.article.controlli-velocita-ticino-aprile-maggio.excerpt': 'La police cantonale et les polices communales annoncent les contrôles de vitesse au Tessin pour la semaine du 27 avril au 3 mai.',
     'blog.article.controlli-velocita-ticino-aprile-maggio.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.title': 'Finances publiques du Tessin : alerte des experts-comptables',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.excerpt': 'L\'Ordre des experts-comptables du canton du Tessin exprime des inquiétudes quant aux finances publiques et au risque de délocalisations.',
+    'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
