@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-04-27T11:20:17.711Z",
+  "assembledAt": "2026-04-27T22:15:13.041Z",
   "jobs": [
     {
       "id": "company-ktq15t",
@@ -45,7 +45,7 @@
       "firstSeenAt": "2026-04-27T11:20:16.883Z",
       "titleByLocale": {
         "de": "Quereinstieg Fachverkäufer*in Fleisch/Fisch",
-        "it": "Rivenditore* in Carne/Fish",
+        "it": "Cambio carriera Fachverkäufer*in Fleisch/Fisch",
         "en": "Retailer*in Meat/Fish",
         "fr": "Détaillant* en viande/poissons"
       },
@@ -68,7 +68,7 @@
       "slugByLocale": {
         "it": "rivenditore-in-carne-fish-genossenschaft-migros-ostschweiz-samedan",
         "en": "retailer-in-meat-fish-genossenschaft-migros-ostschweiz-samedan",
-        "de": "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t",
+        "de": "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona",
         "fr": "detaillant-en-viande-poissons-genossenschaft-migros-ostschweiz-samedan"
       },
       "sourceLang": "de",
@@ -81,6 +81,9 @@
           "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t"
         ],
         "fr": [
+          "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t"
+        ],
+        "de": [
           "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t"
         ]
       },
@@ -106,7 +109,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-ymqwfr",
@@ -148,7 +152,7 @@
       "firstSeenAt": "2026-04-27T11:20:16.883Z",
       "titleByLocale": {
         "de": "Lehrperson Groupfitness im Stundenlohn",
-        "it": "Insegnare la capacità di gruppo nel salario orario",
+        "it": "Lehrperson Groupfitness im Stundenlohn",
         "en": "Teaching Groupfitness in hourly wage",
         "fr": "Enseignement de l'adéquation du groupe au salaire horaire"
       },
@@ -172,7 +176,7 @@
       "slugByLocale": {
         "it": "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-chur",
         "en": "teaching-groupfitness-in-hourly-wage-genossenschaft-migros-ostschweiz-chur",
-        "de": "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-ymqwfr",
+        "de": "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
         "fr": "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur"
       },
       "sourceLang": "de",
@@ -185,6 +189,9 @@
           "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-ymqwfr"
         ],
         "fr": [
+          "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-ymqwfr"
+        ],
+        "de": [
           "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-ymqwfr"
         ]
       },
@@ -209,11 +216,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-kfqohq",
-      "slug": "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq",
+      "slug": "barbecue-genossenschaft-migros-ostschweiz-bellinzona",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Grilleur*in",
       "location": "Chur",
@@ -274,19 +282,24 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq",
-        "en": "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq",
-        "de": "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq",
-        "fr": "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq"
+        "it": "barbecue-genossenschaft-migros-ostschweiz-bellinzona",
+        "en": "barbecue-genossenschaft-migros-ostschweiz-chur-kfqohq",
+        "de": "rostloser-in-genossenschaft-migros-ostschweiz-chur-kfqohq",
+        "fr": "grilleur-in-genossenschaft-migros-ostschweiz-bellinzona"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "grilleur-in-genossenschaft-migros-ostschweiz-chur"
+          "grilleur-in-genossenschaft-migros-ostschweiz-chur",
+          "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq"
+        ],
+        "fr": [
+          "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq"
         ]
       },
       "previousSlugs": [
-        "grilleur-in-genossenschaft-migros-ostschweiz-chur"
+        "grilleur-in-genossenschaft-migros-ostschweiz-chur",
+        "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -305,7 +318,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-nlvbom",
@@ -416,7 +430,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-j8cfo6",
@@ -526,7 +541,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-773mr0",
@@ -633,7 +649,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-gqels1",
@@ -747,7 +764,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-x38a0r",
@@ -846,7 +864,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fkakbw",
@@ -961,7 +980,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fbibo4",
@@ -1081,7 +1101,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jlrzns",
@@ -1184,7 +1205,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-idyjw7",
@@ -1313,7 +1335,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-sj7qf5",
@@ -1429,7 +1452,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-yp5cdr",
@@ -1537,7 +1561,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cy61c",
@@ -1651,7 +1676,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-xmuu57",
@@ -1756,7 +1782,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-r4ocfw",
@@ -1870,7 +1897,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-u2uuy",
@@ -1982,7 +2010,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7s6gs1",
@@ -2100,7 +2129,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-p98up5",
@@ -2203,7 +2233,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-752d7f",
@@ -2354,7 +2385,8 @@
           "enseignant-e-en-allemand-f-h-x-club-ecole-migros-bellinzona-scuola-club-migros-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-09T21:46:43.833Z"
+      "firstSeenAt": "2026-04-09T21:46:43.833Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-nlbz63",
@@ -2460,7 +2492,8 @@
           "pilates-reformer-und-cadillac-lehrer-f-m-d-scuola-club-bellinzona-scuola-club-migros-belli"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-cewp3w",
@@ -2576,7 +2609,8 @@
           "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-2ai39p",
@@ -2711,7 +2745,8 @@
           "enseignant-cardio-h-f-d-scuola-club-lugano-scuola-club-migros-lugano"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     }
   ]
 }

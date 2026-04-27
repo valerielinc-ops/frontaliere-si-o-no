@@ -1,21 +1,22 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-04-27T11:20:17.713Z",
+  "generatedAt": "2026-04-27T22:15:13.043Z",
   "total": 24,
-  "newCount": 3,
-  "updatedCount": 18,
+  "newCount": 0,
+  "updatedCount": 21,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 58349,
-  "avgDurationMs": 58349,
+  "durationMs": 38944,
+  "avgDurationMs": 38944,
   "durationHistory": [
-    58349
+    38944
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-ktq15t",
-      "slug": "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan",
+      "slug": "cambio-carriera-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Quereinstieg Fachverkäufer*in Fleisch/Fisch",
       "location": "Samedan",
@@ -45,19 +46,27 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-04-27T11:20:16.883Z",
       "firstSeenAt": "2026-04-27T11:20:16.883Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 73,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 9,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-ymqwfr",
-      "slug": "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur",
+      "slug": "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-ymqwfr",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Lehrperson Groupfitness im Stundenlohn",
       "location": "Chur",
@@ -85,19 +94,27 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-04-27T11:20:16.883Z",
       "firstSeenAt": "2026-04-27T11:20:16.883Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 25
       }
     },
     {
       "id": "company-kfqohq",
-      "slug": "grilleur-in-genossenschaft-migros-ostschweiz-chur",
+      "slug": "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Grilleur*in",
       "location": "Chur",
@@ -121,18 +138,24 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-04-27T11:20:16.883Z",
       "firstSeenAt": "2026-04-27T11:20:16.883Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-nlvbom",
       "slug": "etudiant-m-w-d-societe-cooperative-migros-valais-verbier-nlvbom",
