@@ -2988,6 +2988,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.title': 'Più controlli e prevenzione tra Varese e Como: ATS Insubria fa il punto sulla sicurezza sul lavoro',
     'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.excerpt': 'ATS Insubria presenta i dati delle attività ispettive e dei progetti di prevenzione tra Varese e Como, con oltre 8.125 interventi nel 2025.',
     'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.imageAlt': 'Vista aerea delle province di Varese e Como con aree industriali e cantieri edili',
+    'blog.article.furto-biciclette-benzina-chiasso-2026.title': 'Furti di biciclette e benzina a Chiasso: arrestati i colpevoli',
+    'blog.article.furto-biciclette-benzina-chiasso-2026.excerpt': 'Due individui sono stati arrestati a Chiasso per furti di biciclette e benzina, con un bottino di scarsa entità.',
+    'blog.article.furto-biciclette-benzina-chiasso-2026.imageAlt': 'Vista della dogana di Chiasso, al confine tra Svizzera e Italia',
 };
 
 export default blogMetaIt;

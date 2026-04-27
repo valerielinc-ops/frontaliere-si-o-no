@@ -15757,6 +15757,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furto-biciclette-benzina-chiasso-2026': {
+    title: 'Furti di biciclette e benzina a | Frontaliere Ticino',
+    description: 'Due individui sono stati arrestati a Chiasso per furti di biciclette e benzina. Scopri di più su questo episodio e le misure preventive da adottare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, biciclette, benzina, chiasso',
+    ogTitle: 'Furti di biciclette e benzina a Chiasso | Frontaliere Ticino',
+    ogDescription: 'Due individui sono stati arrestati a Chiasso per furti di biciclette e benzina. Scopri di più su questo episodio e le misure preventive da adottare.',
+    canonicalPath: '/articoli-frontaliere/furto-biciclette-benzina-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furti di biciclette e benzina a Chiasso",
+      "description": "Due individui sono stati arrestati a Chiasso per furti di biciclette e benzina. Scopri di più su questo episodio e le misure preventive da adottare.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furto-biciclette-benzina-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista della dogana di Chiasso, al confine tra Svizzera e Italia"
+      },
+      "datePublished": "2026-04-27T15:31:15+00:00",
+      "dateModified": "2026-04-27T15:31:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furto-biciclette-benzina-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -7959,4 +7959,11 @@ export const ARTICLES = [
  image: '/images/blog/sicurezza-lavoro-ats-insubria-varese-como-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'furto-biciclette-benzina-chiasso-2026',
+ category: 'pratico',
+ date: '2026-04-27T15:31:15.825Z',
+ image: '/images/blog/furto-biciclette-benzina-chiasso-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2988,6 +2988,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.title': 'More inspections and prevention between Varese and Como: ATS Insubria reports on workplace safety',
     'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.excerpt': 'ATS Insubria presents data on inspection activities and prevention projects between Varese and Como, with over 8,125 interventions in 2025.',
     'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.imageAlt': 'Aerial view of Varese and Como provinces with industrial areas and construction sites',
+    'blog.article.furto-biciclette-benzina-chiasso-2026.title': 'Bicycle and fuel thefts in Chiasso: culprits arrested',
+    'blog.article.furto-biciclette-benzina-chiasso-2026.excerpt': 'Two individuals were arrested in Chiasso for bicycle and fuel thefts, with a small haul.',
+    'blog.article.furto-biciclette-benzina-chiasso-2026.imageAlt': 'View of the Chiasso customs office, at the border between Switzerland and Italy',
 };
 
 export default blogMetaEn;
