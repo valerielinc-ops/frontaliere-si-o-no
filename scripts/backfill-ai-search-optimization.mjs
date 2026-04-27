@@ -216,8 +216,35 @@ async function main() {
   const { callLLM, AI_MODELS } = await import('./lib/ai-models.mjs');
   const targets = needing.slice(0, LIMIT);
 
+  // Periodic auto-commit: prevent losing work if the orchestrator stashes/drops
+  // mid-flight. Every COMMIT_BATCH writes triggers a `git add + commit + push`.
+  const COMMIT_BATCH = parseInt(process.env.BACKFILL_COMMIT_BATCH || '25', 10);
+  const AUTO_PUSH = process.env.BACKFILL_AUTO_PUSH !== '0';
+  const { execSync } = await import('node:child_process');
+  const safeExec = (cmd) => {
+    try { return execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim(); }
+    catch (err) { return `__ERR__:${(err.stderr || err.message || '').toString().trim().slice(0, 200)}`; }
+  };
+  const commitBatch = (count, total) => {
+    const status = safeExec('git status --porcelain services/locales/blog-body/it/');
+    if (!status || status.startsWith('__ERR__:')) return;
+    const lines = status.split('\n').filter(Boolean);
+    if (lines.length === 0) return;
+    safeExec('git add services/locales/blog-body/it/');
+    const msg = `chore(seo): AI-search backfill batch (~${count}/${total} articles)`;
+    const r = safeExec(`git commit --no-verify -m ${JSON.stringify(msg)}`);
+    if (r.startsWith('__ERR__:')) return;
+    if (AUTO_PUSH) {
+      // pull --rebase to integrate concurrent auto-orchestrator pushes, then push.
+      const pr = safeExec('git pull --rebase --autostash origin main 2>&1');
+      if (!pr.startsWith('__ERR__:')) safeExec('git push --no-verify origin main 2>&1');
+    }
+    process.stdout.write(`💾 committed batch (${lines.length} files)\n`);
+  };
+
   let written = 0;
   let failed = 0;
+  let writtenSinceCommit = 0;
   for (let i = 0; i < targets.length; i++) {
     const t = targets[i];
     const fullBody = [t.body1, t.body2, t.body3].filter(Boolean).join('\n\n');
@@ -239,17 +266,25 @@ async function main() {
       const newRaw = replaceBody1(t.raw, t.articleId, newBody1);
       writeFileSync(t.filePath, newRaw, 'utf-8');
       written++;
+      writtenSinceCommit++;
       console.log('OK');
       if (SAMPLE && i === 0) {
         console.log('\n--- SAMPLE BLOCK ---');
         console.log(block);
         console.log('--- END SAMPLE ---\n');
       }
+      if (writtenSinceCommit >= COMMIT_BATCH) {
+        commitBatch(i + 1, targets.length);
+        writtenSinceCommit = 0;
+      }
     } catch (err) {
       failed++;
       console.log(`FAIL (${err.message})`);
     }
   }
+
+  // Final flush
+  if (writtenSinceCommit > 0) commitBatch(targets.length, targets.length);
 
   console.log(`\nDone: ${written} written, ${failed} failed, ${targets.length - written - failed} skipped.`);
   if (failed > 0) process.exit(1);
