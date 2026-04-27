@@ -100,6 +100,39 @@ function loadPopularity() {
 }
 
 /**
+ * Sum job_views across every slug variant the job is known by:
+ *   - canonical job.slug (usually = slugByLocale.it)
+ *   - all locale variants in slugByLocale (en/de/fr versions diverge for ~98% of jobs)
+ *   - all renames in previousSlugs and previousSlugsByLocale.{loc}
+ *
+ * Until trackJobView started writing under the canonical IT slug, the same job
+ * could fragment into up to 4 separate Firestore docs (one per locale).
+ * This helper reconciles the historical fragmentation at read time.
+ */
+export function getJobPopularityCount(job, popularity) {
+  if (!popularity || popularity.size === 0 || !job) return 0;
+  const seen = new Set();
+  const add = (slug) => {
+    if (slug && !seen.has(slug)) seen.add(slug);
+  };
+  add(job.slug);
+  if (job.slugByLocale) {
+    for (const loc of ['it', 'en', 'de', 'fr']) add(job.slugByLocale[loc]);
+  }
+  if (Array.isArray(job.previousSlugs)) {
+    for (const s of job.previousSlugs) add(s);
+  }
+  if (job.previousSlugsByLocale) {
+    for (const arr of Object.values(job.previousSlugsByLocale)) {
+      if (Array.isArray(arr)) for (const s of arr) add(s);
+    }
+  }
+  let total = 0;
+  for (const slug of seen) total += popularity.get(slug) || 0;
+  return total;
+}
+
+/**
  * Load real-time dashboard metrics for the newsletter.
  * Reads from existing data files (cached per process):
  *   - public/data/switzerland-unemployment-rate.json → unemployment rate
@@ -347,7 +380,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   // Sort: keyword relevance first, then popularity, then recency
   const scored = candidates.map((job) => {
     const relevance = hasInterestProfile ? keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) : 0;
-    const views = hasPopularity ? (popularity.get(job.slug) || popularity.get(job.slugByLocale?.it) || 0) : 0;
+    const views = hasPopularity ? getJobPopularityCount(job, popularity) : 0;
     return { job, relevance, views, date: toDateValue(job) };
   });
 
@@ -374,7 +407,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     const usedCompanies = new Set(companyDiverse.map(companyKey));
     const backfillScored = pool
       .filter((j) => !usedCompanies.has(companyKey(j)))
-      .map((job) => ({ job, views: hasPopularity ? (popularity.get(job.slug) || popularity.get(job.slugByLocale?.it) || 0) : 0, date: toDateValue(job) }))
+      .map((job) => ({ job, views: hasPopularity ? getJobPopularityCount(job, popularity) : 0, date: toDateValue(job) }))
       .sort((a, b) => b.views - a.views || b.date - a.date);
     const backfill = dedupeBy(backfillScored.map((s) => s.job), companyKey);
     finalJobs = [...companyDiverse, ...backfill];

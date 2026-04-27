@@ -4003,11 +4003,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  }, [locale, selectedJob, expiredJob, initialJobSlug, jobs, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
 
- // Track job page views in Firestore (for newsletter popularity ranking)
+ // Track job page views in Firestore (for newsletter popularity ranking).
+ // Pass the whole job so trackJobView can write under the canonical IT slug
+ // (slugByLocale.it) instead of the locale-flattened variant. Re-fires when
+ // slugByLocale.it becomes available after the per-job detail file loads,
+ // and the in-function debounce (keyed on job.id) prevents double counting.
  useEffect(() => {
  if (!selectedJob?.slug) return;
- trackJobView(selectedJob.slug);
- // Personalization: track behavior for scoring
+ trackJobView(selectedJob);
+ // Personalization: track behavior for scoring (uses locale slug, fine here)
  if (enablePersonalization && selectedJob) {
  trackJobViewBehavior({
  slug: selectedJob.slug,
@@ -4017,7 +4021,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  setBehaviorData(getBehaviorData());
  }
- }, [selectedJob?.slug, enablePersonalization]);
+ }, [selectedJob?.slug, selectedJob?.slugByLocale?.it, enablePersonalization]);
 
  useEffect(() => {
  if (!authResolved || !authGateOpen || hasAccess) return;
