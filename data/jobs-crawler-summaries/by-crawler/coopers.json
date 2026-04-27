@@ -1,18 +1,53 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-04-26T21:12:47.024Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-04-27T10:42:11.037Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5504,
-  "avgDurationMs": 5504,
+  "durationMs": 6737,
+  "avgDurationMs": 6737,
   "durationHistory": [
-    5504
+    6737
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "coopers-8919918ec04f",
+      "slug": "lead-expeditor-m-f-d-coopers-wallis",
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Lead Expeditor (m/f/d)",
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1BU1T2",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-27T10:42:06.251Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=1BU1T2",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "coopers-2623bcf0eafe",
@@ -26,7 +61,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-26T21:12:43.514Z",
+      "crawledAt": "2026-04-27T10:42:07.486Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -61,7 +96,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-26T21:12:44.822Z",
+      "crawledAt": "2026-04-27T10:42:08.794Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
