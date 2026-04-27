@@ -1223,7 +1223,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const yoyTileHtml = showYoyTile && bracketYoy
     ? `<div style="${STAT_TILE_DANGER}">
       <div style="${STAT_TILE_LABEL}">Δ vs ${yoy?.priorYear ?? ''}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px;color:${(bracketYoy.medianPct ?? 0) >= 0 ? 'var(--color-danger-border)' : 'var(--color-success-border)'}">${esc(formatPct(bracketYoy.medianPct, locale))}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;color:${(bracketYoy.medianPct ?? 0) >= 0 ? 'var(--color-danger)' : 'var(--color-success)'}">${esc(formatPct(bracketYoy.medianPct, locale))}</div>
       <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${bracketYoy.sourceInsurers} casse</div>
     </div>`
     : '';
@@ -1276,7 +1276,7 @@ function renderLeafPage(inp: LeafInputs): string {
         .map((r, i) => {
           const positive = r.delta > 0;
           const neutral = r.delta === 0;
-          const deltaColor = neutral ? 'var(--color-subtle)' : positive ? 'var(--color-danger-border)' : 'var(--color-success-border)';
+          const deltaColor = neutral ? 'var(--color-subtle)' : positive ? 'var(--color-danger)' : 'var(--color-success)';
           return `<tr>
           <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
           <td style="${TABLE_CELL_STYLE}">${esc(r.insurerName)}</td>
@@ -1420,7 +1420,7 @@ function renderLeafPage(inp: LeafInputs): string {
   <section style="margin:0 0 24px" aria-labelledby="top20">
     <h2 id="top20" style="${H2_STYLE}">${esc(copy.top20Title(cantonLabel, ageLabel))}</h2>
     ${tableHtml}
-    ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p style="margin:12px 0 0;color:var(--color-warning-border);font-size:13px;line-height:1.5;padding:12px;background:var(--color-warning-subtle);border-radius:8px">${esc(copy.derivationNote)}</p>` : ''}
+    ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p style="margin:12px 0 0;color:var(--color-warning);font-size:13px;line-height:1.5;padding:12px;background:var(--color-warning-subtle);border-radius:8px">${esc(copy.derivationNote)}</p>` : ''}
   </section>
   <section style="margin:0 0 24px" aria-labelledby="ranking">
     <h2 id="ranking" style="${H2_STYLE}">${esc(copy.rankingTitle)}</h2>
@@ -1567,7 +1567,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
       </tr></thead>
       <tbody>${rows
         .map((r) => {
-          const color = (r.pct ?? 0) > 0 ? 'var(--color-danger-border)' : (r.pct ?? 0) < 0 ? 'var(--color-success-border)' : 'var(--color-subtle)';
+          const color = (r.pct ?? 0) > 0 ? 'var(--color-danger)' : (r.pct ?? 0) < 0 ? 'var(--color-success)' : 'var(--color-subtle)';
           return `<tr>
           <td style="${TABLE_CELL_STYLE}">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
           <td style="${TABLE_CELL_STYLE};color:${color};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.pct, locale))}</td>

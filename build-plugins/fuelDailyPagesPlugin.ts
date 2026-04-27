@@ -1265,7 +1265,7 @@ function renderPage(inp: PageInputs): string {
           return `<li style="margin:0;padding:0">${card}</li>`;
         })
         .join('')}</ol>`
-    : `<p style="padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.trendEmpty)}</p>`;
+    : `<p style="padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning)">${esc(copy.trendEmpty)}</p>`;
 
   // Trend table: last 7 days from history
   const trendRows: Array<{ date: string; price: number | null }> = [];
@@ -1329,7 +1329,7 @@ function renderPage(inp: PageInputs): string {
 
   const periodAvgNoteHtml =
     periodAvg === null
-      ? `<p style="margin:12px 0 0;padding:10px 12px;border-radius:10px;background:var(--color-warning-subtle);color:var(--color-warning-border);font-size:13px">${esc(copy.periodAvgUnavailableNote)}</p>`
+      ? `<p style="margin:12px 0 0;padding:10px 12px;border-radius:10px;background:var(--color-warning-subtle);color:var(--color-warning);font-size:13px">${esc(copy.periodAvgUnavailableNote)}</p>`
       : '';
 
   // "Base dati in costruzione" fallback note — shown when either delta cannot
@@ -2481,7 +2481,7 @@ function renderItalianCityPage(opts: {
   const stationContexts = opts.stationContexts ?? [];
   const ctxBySlug = new Map(stationContexts.map((c) => [c.station.id ?? '', c]));
   const stationListHtml = sortedStations.length === 0
-    ? `<p style="padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.noData)}</p>`
+    ? `<p style="padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning)">${esc(copy.noData)}</p>`
     : stationContexts.length > 0
       ? `<ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">${sortedStations
           .map((s) => {
@@ -2602,7 +2602,7 @@ function renderItalianCityPage(opts: {
         ${historyCard}
       </section>`
     : ''}
-  <section style="margin:0 0 24px;padding:16px 18px;border-radius:14px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-warning-border)">
+  <section style="margin:0 0 24px;padding:16px 18px;border-radius:14px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-warning)">
     <p style="margin:0;line-height:1.6">${esc(copy.crossBorderTip)}</p>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="itCityContext">

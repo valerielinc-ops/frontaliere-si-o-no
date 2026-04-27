@@ -543,9 +543,9 @@ const ENTITY_CARD_BUBBLE_STYLE =
 const ENTITY_CARD_METRIC_VAR: Record<EntityCardMetricTone, string> = {
   default: 'var(--color-link)',
   accent: 'var(--color-accent)',
-  success: 'var(--color-success-border)',
-  warning: 'var(--color-warning-border)',
-  danger: 'var(--color-danger-border)',
+  success: 'var(--color-success)',
+  warning: 'var(--color-warning)',
+  danger: 'var(--color-danger)',
 };
 
 function renderEntityCardVisual(opts: EntityCardOpts): string {

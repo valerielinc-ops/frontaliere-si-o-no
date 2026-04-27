@@ -1140,7 +1140,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       : `${formatDate(stats.startDate, locale)} – ${formatDate(stats.endDate, locale)}`;
 
   const degradedNote = degraded
-    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border);border:1px solid var(--color-warning-border)">${esc(copy.degradedNote)}</p>`
+    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning);border:1px solid var(--color-warning-border)">${esc(copy.degradedNote)}</p>`
     : '';
 
   const statTiles = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 22px" aria-label="${esc(copy.seriesKicker)}">
@@ -1418,7 +1418,7 @@ function renderHubPage(inp: HubPageInputs): string {
   const h1 = copy.hubHeading;
 
   const degradedNote = degraded
-    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border);border:1px solid var(--color-warning-border)">${esc(copy.degradedNote)}</p>`
+    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning);border:1px solid var(--color-warning-border)">${esc(copy.degradedNote)}</p>`
     : '';
 
   const heroStatsHtml = heroStats

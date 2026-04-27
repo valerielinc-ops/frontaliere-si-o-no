@@ -1448,7 +1448,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
             return `<li style="margin:0;padding:0"${reviewAttr}>${card}</li>`;
           })
           .join('')}</ol>`
-      : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.topCompaniesEmpty)}</p>`;
+      : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning)">${esc(copy.topCompaniesEmpty)}</p>`;
 
   const newcomersHtml =
     stats.newcomers.length > 0
@@ -1585,7 +1585,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
 
   const archiveNote =
     variant === 'archive' && !indexable
-      ? `<p style="margin:0 0 16px;color:var(--color-warning-border);background:var(--color-warning-subtle);padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
+      ? `<p style="margin:0 0 16px;color:var(--color-warning);background:var(--color-warning-subtle);padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
@@ -1911,7 +1911,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
               : '';
             const salaryStr = formatSalary(job);
             const salaryHtml = salaryStr
-              ? `<span style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--color-success-border)">${ICON_EURO}${esc(salaryStr)}</span>`
+              ? `<span style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--color-success)">${ICON_EURO}${esc(salaryStr)}</span>`
               : '';
             return `<li style="margin:0;padding:0">
       <article style="${CARD_STYLE}">
@@ -1935,7 +1935,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     </li>`;
           })
           .join('')}</ol>`
-      : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning-border)">${esc(copy.topCompaniesEmpty)}</p>`;
+      : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning)">${esc(copy.topCompaniesEmpty)}</p>`;
 
   // Related links (own + cross-feature via shared helper).
   const parentHubHref = buildCurrentWeekPath(locale, city);
@@ -2059,7 +2059,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
 
   const archiveNote =
     variant === 'archive' && !indexable
-      ? `<p style="margin:0 0 16px;color:var(--color-warning-border);background:var(--color-warning-subtle);padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
+      ? `<p style="margin:0 0 16px;color:var(--color-warning);background:var(--color-warning-subtle);padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">

@@ -334,13 +334,13 @@ function slugifyName(name: string): string {
 // Color tokens — CSS custom properties so dark mode works automatically.
 const COLOR_OK_BG = 'var(--color-success-subtle)';
 const COLOR_OK_BORDER = 'var(--color-success-border)';
-const COLOR_OK_TEXT = 'var(--color-success-border)';
+const COLOR_OK_TEXT = 'var(--color-success)';
 const COLOR_WARN_BG = 'var(--color-warning-subtle)';
 const COLOR_WARN_BORDER = 'var(--color-warning-border)';
-const COLOR_WARN_TEXT = 'var(--color-warning-border)';
+const COLOR_WARN_TEXT = 'var(--color-warning)';
 const COLOR_BAD_BG = 'var(--color-danger-subtle)';
 const COLOR_BAD_BORDER = 'var(--color-danger-border)';
-const COLOR_BAD_TEXT = 'var(--color-danger-border)';
+const COLOR_BAD_TEXT = 'var(--color-danger)';
 
 function statusColor(waitMinutes: number | null): {
   bg: string;
@@ -1002,7 +1002,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // Current-status card
   const sourceText = sourceLabel(liveSource, copy);
   const staticBannerHtml = staticFallback
-    ? `<div style="margin:0 0 18px;padding:14px 18px;border-radius:12px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-warning-border);font-size:14px;line-height:1.5">${esc(copy.staticFallbackBanner)}</div>`
+    ? `<div style="margin:0 0 18px;padding:14px 18px;border-radius:12px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-warning);font-size:14px;line-height:1.5">${esc(copy.staticFallbackBanner)}</div>`
     : '';
 
   const currentCardHtml = `<section aria-labelledby="currentStatus" style="margin:0 0 24px">
