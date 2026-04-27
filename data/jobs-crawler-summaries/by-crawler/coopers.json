@@ -1,18 +1,54 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-04-27T10:42:11.037Z",
-  "total": 3,
+  "generatedAt": "2026-04-27T21:37:39.811Z",
+  "total": 4,
   "newCount": 1,
-  "updatedCount": 2,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6737,
-  "avgDurationMs": 6737,
+  "durationMs": 9050,
+  "avgDurationMs": 9050,
   "durationHistory": [
-    6737
+    9050
   ],
   "newJobs": [
+    {
+      "id": "coopers-96c3c9554410",
+      "slug": "msat-cleaning-validation-expert-m-w-d-coopers-wallis",
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "MSAT Cleaning Validation Expert (m/w/d)",
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=WZQ556",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-27T21:37:33.393Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=WZQ556",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "coopers-8919918ec04f",
       "slug": "lead-expeditor-m-f-d-coopers-wallis",
@@ -25,7 +61,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1BU1T2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-27T10:42:06.251Z",
+      "crawledAt": "2026-04-27T21:37:34.706Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -39,16 +75,15 @@
       "featured": false,
       "postedDate": "2026-04-22",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=1BU1T2",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-04-27T10:42:06.251Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "coopers-2623bcf0eafe",
       "slug": "cqv-engineer-m-f-d-coopers-wallis",
@@ -61,7 +96,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-27T10:42:07.486Z",
+      "crawledAt": "2026-04-27T21:37:35.986Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -96,7 +131,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T10:42:08.794Z",
+      "crawledAt": "2026-04-27T21:37:37.268Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
