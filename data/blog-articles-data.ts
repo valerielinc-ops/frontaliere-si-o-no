@@ -8372,4 +8372,11 @@ export const ARTICLES = [
  image: '/images/blog/campione-ditalia-elezioni-sindaco-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gioventu-dibatte-500-studenti-gara',
+ category: 'novita',
+ date: '2026-04-27T23:08:25.854Z',
+ image: '/images/blog/gioventu-dibatte-500-studenti-gara.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

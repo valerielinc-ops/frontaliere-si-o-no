@@ -3154,6 +3154,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.campione-ditalia-elezioni-sindaco-2026.title': 'Campione d\'Italia: Drei Kandidaten für Bürgermeister',
     'blog.article.campione-ditalia-elezioni-sindaco-2026.excerpt': 'Drei Kandidaten bewerben sich um das Amt des Bürgermeisters in Campione d\'Italia. Erfahren Sie, wer sie sind und was sie vorschlagen.',
     'blog.article.campione-ditalia-elezioni-sindaco-2026.imageAlt': 'Luftaufnahme von Campione d\'Italia und dem Luganersee, Schweiz. Klare Himmel, Herbstfarben.',
+    'blog.article.gioventu-dibatte-500-studenti-gara.title': 'Jugend debattiert: 500 Schüler in Bellinzona',
+    'blog.article.gioventu-dibatte-500-studenti-gara.excerpt': '500 Schüler treten im Finale von \'Jugend debattiert\' in Bellinzona an und verteidigen Thesen zu aktuellen Themen vor einer Jury.',
+    'blog.article.gioventu-dibatte-500-studenti-gara.imageAlt': 'Gruppe von Schülern debattiert in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

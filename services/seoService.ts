@@ -2312,6 +2312,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cina-tutela-lavoratori-nuove-occupazioni': { name: 'Novità', path: '/articoli-frontaliere/cina-tutela-lavoratori-nuove-occupazioni', parent: 'blog' },
     'blog-usi-ticino-tagli-bilancio-2026': { name: 'USI Tagli', path: '/articoli-frontaliere/usi-ticino-tagli-bilancio-2026', parent: 'blog' },
     'blog-campione-ditalia-elezioni-sindaco-2026': { name: 'Elezioni Campione d’Italia', path: '/articoli-frontaliere/campione-ditalia-elezioni-sindaco-2026', parent: 'blog' },
+    'blog-gioventu-dibatte-500-studenti-gara': { name: 'Novità', path: '/articoli-frontaliere/gioventu-dibatte-500-studenti-gara', parent: 'blog' },
  };
 
  const info = sectionNames[section];

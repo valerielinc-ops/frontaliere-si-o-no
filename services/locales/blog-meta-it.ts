@@ -3155,6 +3155,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.campione-ditalia-elezioni-sindaco-2026.title': 'Campione d’Italia, sfida a tre per la poltrona di sindaco',
     'blog.article.campione-ditalia-elezioni-sindaco-2026.excerpt': 'Tre candidati in lizza per la carica di sindaco a Campione d’Italia. Scopri chi sono e cosa propongono.',
     'blog.article.campione-ditalia-elezioni-sindaco-2026.imageAlt': 'Vista aerea di Campione d\'Italia e del Lago di Lugano, Svizzera. Cielo sereno, colori autunnali.',
+    'blog.article.gioventu-dibatte-500-studenti-gara.title': 'La gioventù dibatte: 500 studenti in gara a Bellinzona',
+    'blog.article.gioventu-dibatte-500-studenti-gara.excerpt': '500 studenti si sfidano nella finale de \'La gioventù dibatte\' a Bellinzona, difendendo tesi su temi di attualità davanti a una giuria.',
+    'blog.article.gioventu-dibatte-500-studenti-gara.imageAlt': 'Gruppo di studenti in dibattito a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

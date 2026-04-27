@@ -17468,6 +17468,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gioventu-dibatte-500-studenti-gara': {
+    title: 'La gioventù dibatte: 500 studenti in gara a Bellinzona',
+    description: '500 studenti si sfidano nella finale de \'La gioventù dibatte\' a Bellinzona, difendendo tesi su temi di attualità davanti a una giuria. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gioventù, dibatte, studenti, gara',
+    ogTitle: 'La gioventù dibatte: 500 studenti in gara a Bellinzona',
+    ogDescription: '500 studenti si sfidano nella finale de \'La gioventù dibatte\' a Bellinzona, difendendo tesi su temi di attualità davanti a una giuria.',
+    canonicalPath: '/articoli-frontaliere/gioventu-dibatte-500-studenti-gara',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La gioventù dibatte: 500 studenti in gara a Bellinzona",
+      "description": "500 studenti si sfidano nella finale de 'La gioventù dibatte' a Bellinzona, difendendo tesi su temi di attualità davanti a una giuria. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gioventu-dibatte-500-studenti-gara.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di studenti in dibattito a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-27T23:08:25+00:00",
+      "dateModified": "2026-04-27T23:08:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gioventu-dibatte-500-studenti-gara`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
