@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 983,
+ "numberOfItems": 984,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5707,7 +5707,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 980, "name": "Treno Lugano-Zurigo in panne: passeggeri a pied...", "url": `${BASE_URL}/articoli-frontaliere/treno-guasto-bellinzona-2026` },
           { "@type": "ListItem", "position": 981, "name": "Elezioni in 10 comuni della Provincia di Como: ...", "url": `${BASE_URL}/articoli-frontaliere/elezioni-como-frontalieri-2026` },
           { "@type": "ListItem", "position": 982, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/teatro-architettura-mendrisio-stagione-2026` },
-          { "@type": "ListItem", "position": 983, "name": "Arrestato truffatore a Maggia: frode con schock...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-arresto-maggia-truffa` }
+          { "@type": "ListItem", "position": 983, "name": "Arrestato truffatore a Maggia: frode con schock...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-arresto-maggia-truffa` },
+          { "@type": "ListItem", "position": 984, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/study-china-ticino-frontalieri` }
  ]
  },
  {

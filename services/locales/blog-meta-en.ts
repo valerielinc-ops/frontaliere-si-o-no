@@ -2811,6 +2811,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-arresto-maggia-truffa.title': 'Scammer arrested in Maggia: shock call fraud',
     'blog.article.frontalieri-arresto-maggia-truffa.excerpt': 'A scammer was arrested in Maggia after being caught red-handed during a phone fraud. Discover the details of the operation.',
     'blog.article.frontalieri-arresto-maggia-truffa.imageAlt': 'Maggia, Ticino, Switzerland, view of the Maggia river and the town center',
+    'blog.article.study-china-ticino-frontalieri.title': 'Study in China: Opportunities for Ticino Cross-Border Workers',
+    'blog.article.study-china-ticino-frontalieri.excerpt': 'Over 380,000 international students in China in 2024-2025, with a 15% increase. Discover the opportunities for Ticino cross-border workers.',
+    'blog.article.study-china-ticino-frontalieri.imageAlt': 'International students in a modern Chinese university',
 };
 
 export default blogMetaEn;

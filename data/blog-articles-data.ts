@@ -7546,4 +7546,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-arresto-maggia-truffa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'study-china-ticino-frontalieri',
+ category: 'novita',
+ date: '2026-04-27T05:54:39.987Z',
+ image: '/images/blog/study-china-ticino-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

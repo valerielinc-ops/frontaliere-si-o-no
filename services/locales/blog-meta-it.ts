@@ -2811,6 +2811,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-arresto-maggia-truffa.title': 'Arrestato truffatore a Maggia: frode con schockanruf',
     'blog.article.frontalieri-arresto-maggia-truffa.excerpt': 'Un truffatore è stato arrestato a Maggia dopo essere stato colto in flagrante durante una frode telefonica. Scopri i dettagli dell\'operazione.',
     'blog.article.frontalieri-arresto-maggia-truffa.imageAlt': 'Maggia, Ticino, Svizzera, vista del fiume Maggia e del centro del paese',
+    'blog.article.study-china-ticino-frontalieri.title': 'Study in China: opportunità per frontalieri Ticino',
+    'blog.article.study-china-ticino-frontalieri.excerpt': 'Oltre 380.000 studenti internazionali in Cina nel 2024-2025, con un aumento del 15%. Scopri le opportunità per i frontalieri del Ticino.',
+    'blog.article.study-china-ticino-frontalieri.imageAlt': 'Studenti internazionali in un\'università cinese moderna',
 };
 
 export default blogMetaIt;

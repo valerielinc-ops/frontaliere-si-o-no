@@ -14046,6 +14046,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-study-china-ticino-frontalieri': {
+    title: 'Study in China: opportunità per | Frontaliere Ticino',
+    description: 'Scopri le opportunità di studio in Cina per i frontalieri del Ticino. Oltre 380.000 studenti internazionali nel 2024-2025, con un aumento del 15%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, study, china, opportunità, oltre',
+    ogTitle: 'Study in China: opportunità per frontalieri Ticino',
+    ogDescription: 'Scopri le opportunità di studio in Cina per i frontalieri del Ticino. Oltre 380.000 studenti internazionali nel 2024-2025, con un aumento del 15%.',
+    canonicalPath: '/articoli-frontaliere/study-china-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Study in China: opportunità per",
+      "description": "Scopri le opportunità di studio in Cina per i frontalieri del Ticino. Oltre 380.000 studenti internazionali nel 2024-2025, con un aumento del 15%.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/study-china-ticino-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti internazionali in un'università cinese moderna"
+      },
+      "datePublished": "2026-04-27T05:54:40+00:00",
+      "dateModified": "2026-04-27T05:54:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/study-china-ticino-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

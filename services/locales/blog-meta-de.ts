@@ -2811,6 +2811,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-arresto-maggia-truffa.title': 'Betrüger in Maggia festgenommen: Betrug durch Schockanruf',
     'blog.article.frontalieri-arresto-maggia-truffa.excerpt': 'Ein Betrüger wurde in Maggia festgenommen, nachdem er bei einem Telefonbetrug auf frischer Tat ertappt worden war. Erfahren Sie mehr über die Details der Operation.',
     'blog.article.frontalieri-arresto-maggia-truffa.imageAlt': 'Maggia, Tessin, Schweiz, Blick auf den Fluss Maggia und das Stadtzentrum',
+    'blog.article.study-china-ticino-frontalieri.title': 'Studium in China: Chancen für Grenzgänger aus dem Tessin',
+    'blog.article.study-china-ticino-frontalieri.excerpt': 'Über 380.000 internationale Studierende in China im Jahr 2024-2025, mit einem Anstieg von 15 %. Entdecken Sie die Möglichkeiten für Grenzgänger aus dem Tessin.',
+    'blog.article.study-china-ticino-frontalieri.imageAlt': 'Internationale Studierende an einer modernen chinesischen Universität',
 };
 
 export default blogMetaDe;
