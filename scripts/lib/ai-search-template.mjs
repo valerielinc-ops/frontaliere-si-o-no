@@ -194,13 +194,18 @@ export function validateBackfillPayload(payload) {
   const obj = /** @type {Record<string, unknown>} */ (payload);
   const tldr = obj.tldr;
   const keyFacts = obj.keyFacts;
-  if (!Array.isArray(tldr) || tldr.length < 2 || tldr.length > 6) {
+  // Truncate runaway AI output rather than fail the whole article. Dense
+  // factual pieces routinely generate 13-27 keyFacts and verbose 7-bullet
+  // tldrs; capping here recovers ~30 articles per backfill run.
+  if (Array.isArray(obj.tldr) && obj.tldr.length > 6) obj.tldr.length = 6;
+  if (Array.isArray(obj.keyFacts) && obj.keyFacts.length > 12) obj.keyFacts.length = 12;
+  if (!Array.isArray(tldr) || tldr.length < 2) {
     throw new Error(`validateBackfillPayload: tldr must be an array of 2-6 strings, got ${Array.isArray(tldr) ? tldr.length : typeof tldr}`);
   }
   if (!tldr.every((b) => typeof b === 'string' && b.length > 0 && b.length <= 200)) {
     throw new Error('validateBackfillPayload: every tldr bullet must be a non-empty string ≤200 chars');
   }
-  if (!Array.isArray(keyFacts) || keyFacts.length < 3 || keyFacts.length > 12) {
+  if (!Array.isArray(keyFacts) || keyFacts.length < 3) {
     throw new Error(`validateBackfillPayload: keyFacts must be an array of 3-12 entries, got ${Array.isArray(keyFacts) ? keyFacts.length : typeof keyFacts}`);
   }
   for (const kf of keyFacts) {
