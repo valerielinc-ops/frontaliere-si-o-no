@@ -3021,6 +3021,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.verdi-ticino-cantonali-2026.title': 'Grüne Ticino: Strategie für die Kantonswahlen 2026',
     'blog.article.verdi-ticino-cantonali-2026.excerpt': 'Die Grünen des Tessin erkunden Allianzen für die Kantonswahlen 2026 und zielen auf eine breitere progressive Front ab.',
     'blog.article.verdi-ticino-cantonali-2026.imageAlt': 'Treffen der Grünen des Tessin in Locarno',
+    'blog.article.borse-studio-bracco-lombardia-2026.title': 'Bracco-Stipendien: 11 Chancen für Studierende aus sechs lombardischen Gemeinden',
+    'blog.article.borse-studio-bracco-lombardia-2026.excerpt': 'Die Bracco-Stiftung hat die Bewerbungsfrist für 11 Stipendien mit Beiträgen von bis zu 4000 Franken für verdienstvolle Studierende aus Bovisio Masciago, Ceriano Laghetto, Cesano Maderno, Cogliate, Limbiate und Solaro eröffnet.',
+    'blog.article.borse-studio-bracco-lombardia-2026.imageAlt': 'Studenten, die in einer modernen Bibliothek mit Blick auf den Luganersee studieren',
 };
 
 export default blogMetaDe;

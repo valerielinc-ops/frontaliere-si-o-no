@@ -2267,6 +2267,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cosa-significa-made-switzerland': { name: 'Novità', path: '/articoli-frontaliere/cosa-significa-made-switzerland', parent: 'blog' },
     'blog-equans-licenziamenti-monteceneri-19-dipendenti': { name: 'Equans licenziamenti', path: '/articoli-frontaliere/equans-licenziamenti-monteceneri-19-dipendenti', parent: 'blog' },
     'blog-verdi-ticino-cantonali-2026': { name: 'Novità', path: '/articoli-frontaliere/verdi-ticino-cantonali-2026', parent: 'blog' },
+    'blog-borse-studio-bracco-lombardia-2026': { name: 'Borse di studio', path: '/articoli-frontaliere/borse-studio-bracco-lombardia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

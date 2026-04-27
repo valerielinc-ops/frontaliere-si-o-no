@@ -3021,6 +3021,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.verdi-ticino-cantonali-2026.title': 'Verds Ticino: stratégie pour les élections cantonales 2026',
     'blog.article.verdi-ticino-cantonali-2026.excerpt': 'Les Verts du Ticino explorent des alliances pour les élections cantonales de 2026, visant un front progressiste plus large.',
     'blog.article.verdi-ticino-cantonali-2026.imageAlt': 'Réunion des Verts du Tessin à Locarno',
+    'blog.article.borse-studio-bracco-lombardia-2026.title': 'Bourses d\'études Bracco : 11 opportunités pour les étudiants de six communes lombardes',
+    'blog.article.borse-studio-bracco-lombardia-2026.excerpt': 'La Fondation Bracco a lancé un appel à candidatures pour 11 bourses d\'études, avec des contributions allant jusqu\'à 4 000 euros, pour les étudiants méritants de Bovisio Masciago, Ceriano Laghetto, Cesano Maderno, Cogliate, Limbiate et Solaro.',
+    'blog.article.borse-studio-bracco-lombardia-2026.imageAlt': 'Étudiants étudiant dans une bibliothèque moderne avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

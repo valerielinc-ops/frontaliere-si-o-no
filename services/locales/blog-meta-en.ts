@@ -3021,6 +3021,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.verdi-ticino-cantonali-2026.title': 'Green Ticino: strategy for the 2026 cantonal elections',
     'blog.article.verdi-ticino-cantonali-2026.excerpt': 'The Green Party of Ticino is exploring alliances for the 2026 cantonal elections, aiming for a broader progressive front.',
     'blog.article.verdi-ticino-cantonali-2026.imageAlt': 'Meeting of the Ticino Greens in Locarno',
+    'blog.article.borse-studio-bracco-lombardia-2026.title': 'Bracco Scholarships: 11 opportunities for students from six Lombard municipalities',
+    'blog.article.borse-studio-bracco-lombardia-2026.excerpt': 'The Bracco Foundation has opened the call for 11 scholarships, with contributions up to 4,000 euros, for deserving students from Bovisio Masciago, Ceriano Laghetto, Cesano Maderno, Cogliate, Limbiate, and Solaro.',
+    'blog.article.borse-studio-bracco-lombardia-2026.imageAlt': 'Students studying in a modern library with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

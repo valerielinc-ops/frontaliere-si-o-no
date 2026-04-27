@@ -16076,6 +16076,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-studio-bracco-lombardia-2026': {
+    title: 'Borse di studio Bracco: 11 opportunità | Frontaliere Ticino',
+    description: 'La Fondazione Bracco ha aperto il bando per 11 borse di studio, con contributi fino a 4mila euro, per studenti meritevoli di Bovisio Masciago, Ceriano Laghetto',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, bracco, opportunità',
+    ogTitle: 'Borse di studio Bracco: 11 opportunità per studenti di sei',
+    ogDescription: 'La Fondazione Bracco ha aperto il bando per 11 borse di studio, con contributi fino a 4mila euro, per studenti meritevoli di Bovisio Masciago, Ceriano Laghetto',
+    canonicalPath: '/articoli-frontaliere/borse-studio-bracco-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio Bracco: 11 opportunità per studenti di sei comuni lombardi",
+      "description": "La Fondazione Bracco ha aperto il bando per 11 borse di studio, con contributi fino a 4mila euro, per studenti meritevoli di Bovisio Masciago, Ceriano Laghetto",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/borse-studio-bracco-lombardia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti che studiano in una biblioteca moderna con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-27T16:40:46+00:00",
+      "dateModified": "2026-04-27T16:40:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borse-studio-bracco-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

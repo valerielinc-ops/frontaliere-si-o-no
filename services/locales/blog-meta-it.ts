@@ -3021,6 +3021,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.verdi-ticino-cantonali-2026.title': 'Verdi Ticino: strategia per le cantonali 2026',
     'blog.article.verdi-ticino-cantonali-2026.excerpt': 'I Verdi del Ticino esplorano alleanze per le elezioni cantonali del 2026, puntando a un fronte progressista più ampio.',
     'blog.article.verdi-ticino-cantonali-2026.imageAlt': 'Assemblea dei Verdi del Ticino a Locarno',
+    'blog.article.borse-studio-bracco-lombardia-2026.title': 'Borse di studio Bracco: 11 opportunità per studenti di sei comuni lombardi',
+    'blog.article.borse-studio-bracco-lombardia-2026.excerpt': 'La Fondazione Bracco ha aperto il bando per 11 borse di studio, con contributi fino a 4mila euro, per studenti meritevoli di Bovisio Masciago, Ceriano Laghetto, Cesano Maderno, Cogliate, Limbiate e Solaro.',
+    'blog.article.borse-studio-bracco-lombardia-2026.imageAlt': 'Studenti che studiano in una biblioteca moderna con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;
