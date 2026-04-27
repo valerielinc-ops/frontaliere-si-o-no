@@ -3101,6 +3101,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avis-lombardia-dono-sangue-privati-2026.title': 'Avis Lombardia lancia l\'allarme: il dono del sangue sotto attacco dei privati',
     'blog.article.avis-lombardia-dono-sangue-privati-2026.excerpt': 'I dati del 2025 mostrano un aumento dell\'8,24% nella raccolta di plasma, ma l\'Avis Lombardia avverte del rischio di speculazioni commerciali',
     'blog.article.avis-lombardia-dono-sangue-privati-2026.imageAlt': 'Un centro di donazione del sangue in Ticino con vista sul Lago di Lugano',
+    'blog.article.varese-moto-storiche-2026.title': 'Raduno di moto storiche a Varese: un tuffo negli anni \'80 e \'90',
+    'blog.article.varese-moto-storiche-2026.excerpt': 'Domenica 26 aprile 2026, un raduno di moto storiche tra Varese e il Lago Maggiore. Circa 100 motociclette iconiche in mostra.',
+    'blog.article.varese-moto-storiche-2026.imageAlt': 'Raduno di moto storiche al Lago Maggiore',
 };
 
 export default blogMetaIt;

@@ -3101,6 +3101,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.avis-lombardia-dono-sangue-privati-2026.title': 'Avis Lombardie lance l\'alerte : le don de sang menacé par les privés',
     'blog.article.avis-lombardia-dono-sangue-privati-2026.excerpt': 'Les données de 2025 montrent une augmentation de 8,24 % dans la collecte de plasma, mais l\'Avis Lombardie avertit du risque de spéculations commerciales',
     'blog.article.avis-lombardia-dono-sangue-privati-2026.imageAlt': 'Un centre de don de sang en Suisse avec vue sur le lac de Lugano',
+    'blog.article.varese-moto-storiche-2026.title': 'Rassemblement de motos anciennes à Varese : un plongeon dans les années 80 et 90',
+    'blog.article.varese-moto-storiche-2026.excerpt': 'Dimanche 26 avril 2026, un rassemblement de motos anciennes entre Varese et le lac Majeur. Environ 100 motocyclettes iconiques en exposition.',
+    'blog.article.varese-moto-storiche-2026.imageAlt': 'Rassemblement de motos anciennes sur le Lac Majeur',
 };
 
 export default blogMetaFr;

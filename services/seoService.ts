@@ -2294,6 +2294,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-trottinetti-velocita-polizia': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-trottinetti-velocita-polizia', parent: 'blog' },
     'blog-ats-insubria-soluzioni-ospedali-2026': { name: 'Novità sanitarie', path: '/articoli-frontaliere/ats-insubria-soluzioni-ospedali-2026', parent: 'blog' },
     'blog-avis-lombardia-dono-sangue-privati-2026': { name: 'Novità', path: '/articoli-frontaliere/avis-lombardia-dono-sangue-privati-2026', parent: 'blog' },
+    'blog-varese-moto-storiche-2026': { name: 'Raduno moto storiche', path: '/articoli-frontaliere/varese-moto-storiche-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3100,6 +3100,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avis-lombardia-dono-sangue-privati-2026.title': 'Avis Lombardei warnt: Blutspenden durch Privatfirmen bedroht',
     'blog.article.avis-lombardia-dono-sangue-privati-2026.excerpt': 'Die Daten von 2025 zeigen einen Anstieg von 8,24 % bei der Plasmasammlung, doch die Avis Lombardei warnt vor kommerziellen Spekulationen.',
     'blog.article.avis-lombardia-dono-sangue-privati-2026.imageAlt': 'Ein Blutspendezentrum in der Schweiz mit Blick auf den Luganersee',
+    'blog.article.varese-moto-storiche-2026.title': 'Moto-Klassiker-Treffen in Varese: Zeitreise in die 80er und 90er',
+    'blog.article.varese-moto-storiche-2026.excerpt': 'Am Sonntag, den 26. April 2026, findet ein Treffen von Oldtimern zwischen Varese und dem Lago Maggiore statt. Rund 100 ikonische Motorräder werden ausgestellt.',
+    'blog.article.varese-moto-storiche-2026.imageAlt': 'Oldtimer-Motorrad-Treffen am Lago Maggiore',
 };
 
 export default blogMetaDe;

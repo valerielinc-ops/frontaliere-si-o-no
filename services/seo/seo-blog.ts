@@ -16946,6 +16946,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-moto-storiche-2026': {
+    title: 'Raduno di moto storiche a Varese: un tuffo negli anni \'80 e \'90',
+    description: 'Domenica 26 aprile 2026, raduno di moto storiche tra Varese e il Lago Maggiore. Circa 100 motociclette iconiche in mostra. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, raduno, moto, storiche, varese',
+    ogTitle: 'Raduno moto storiche Varese 2026',
+    ogDescription: 'Domenica 26 aprile 2026, raduno di moto storiche tra Varese e il Lago Maggiore. Circa 100 motociclette iconiche in mostra.',
+    canonicalPath: '/articoli-frontaliere/varese-moto-storiche-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Raduno di moto storiche a Varese: un tuffo negli anni '80 e '90",
+      "description": "Domenica 26 aprile 2026, raduno di moto storiche tra Varese e il Lago Maggiore. Circa 100 motociclette iconiche in mostra. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-moto-storiche-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Raduno di moto storiche al Lago Maggiore"
+      },
+      "datePublished": "2026-04-27T21:06:35+00:00",
+      "dateModified": "2026-04-27T21:06:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-moto-storiche-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

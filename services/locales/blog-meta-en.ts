@@ -3100,6 +3100,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avis-lombardia-dono-sangue-privati-2026.title': 'Avis Lombardy warns: private sector threatens blood donations',
     'blog.article.avis-lombardia-dono-sangue-privati-2026.excerpt': '2025 data shows an 8.24% increase in plasma collection, but Avis Lombardy warns of commercial speculation risks',
     'blog.article.avis-lombardia-dono-sangue-privati-2026.imageAlt': 'A blood donation center in Ticino with a view of Lake Lugano',
+    'blog.article.varese-moto-storiche-2026.title': 'Vintage motorbike rally in Varese: a leap back to the \'80s and \'90s',
+    'blog.article.varese-moto-storiche-2026.excerpt': 'On Sunday, April 26, 2026, a vintage motorbike rally between Varese and Lake Maggiore. Around 100 iconic motorcycles on display.',
+    'blog.article.varese-moto-storiche-2026.imageAlt': 'Vintage motorcycle rally on Lake Maggiore',
 };
 
 export default blogMetaEn;
