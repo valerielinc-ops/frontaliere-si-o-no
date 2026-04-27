@@ -1,18 +1,137 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-04-26T21:50:25.044Z",
-  "total": 21,
-  "newCount": 0,
+  "generatedAt": "2026-04-27T11:20:17.713Z",
+  "total": 24,
+  "newCount": 3,
   "updatedCount": 18,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 41215,
-  "avgDurationMs": 41215,
+  "durationMs": 58349,
+  "avgDurationMs": 58349,
   "durationHistory": [
-    41215
+    58349
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-ktq15t",
+      "slug": "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Quereinstieg Fachverkäufer*in Fleisch/Fisch",
+      "location": "Samedan",
+      "canton": "GR",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/quereinstieg-fachverkauferin-fleischfisch/4cbba8f4-0ba1-470c-ad6c-97b2f6de05a6",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du stellst sicher, dass das Buffet 🥩🔪 und die Selbstbedienungsbereiche stets ansprechend, sauber und gut gefüllt sind, damit die Kunden jederzeit eine grosse Auswahl vorfinden.",
+        "Freundliche und kompetente Kundenbedienung und -beratung 😊🛍️ an der Bedienungstheke gehören für dich selbstverständlich dazu und du stehst den Kunden mit deinem Fachwissen beratend zur Seite.",
+        "Du sorgst dafür, dass die Produkte ansprechend präsentiert und effizient disponiert werden, um ein angenehmes Einkaufserlebnis zu schaffen 🛍️ und bist verantwortlich für die Gestaltung der Warenpräsentation.",
+        "Du übernimmst Verantwortung für die Bestellung und Kontrolle der Waren📦💳, sodass nicht zu viel oder zu wenig im Regal liegt.",
+        "Mit deinem Einsatz trägst du dazu bei, dass die Hygienevorschriften Food Safety immer eingehalten sind und dein Bereich ordentlich, sauber und einladend ✨ bleibt."
+      ],
+      "_migrosBenefits": [
+        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
+        "Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-04-27T11:20:16.883Z",
+      "firstSeenAt": "2026-04-27T11:20:16.883Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-ymqwfr",
+      "slug": "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Lehrperson Groupfitness im Stundenlohn",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/lehrperson-groupfitness-im-stundenlohn/97acbb8d-b383-4e1f-9269-508041791c97",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Ihre Freude am Unterrichten, Ihr Engagement und Ihr gewinnendes Auftreten begeistern die Teilnehmenden",
+        "Vorbereitung, Durchführung und Nachbereitung des Groupfitnessunterrichts",
+        "Praxisorientierte und gesundheitsfördernde Unterrichtsgestaltung unter Berücksichtigung der unterschiedlichen Voraussetzungen der Kursteilnehmenden",
+        "Sicherstellung der Kursqualität und Umsetzung der Klubschulstandards"
+      ],
+      "_migrosBenefits": [
+        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen",
+        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel"
+      ],
+      "_migrosWorkPercentage": "97%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-04-27T11:20:16.883Z",
+      "firstSeenAt": "2026-04-27T11:20:16.883Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-kfqohq",
+      "slug": "grilleur-in-genossenschaft-migros-ostschweiz-chur",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Grilleur*in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/grilleurin/7a029fe0-71d9-4fe9-b387-9a3d80205b39",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du bereitest die Würste 🌭 am Aussenstand frisch und mit viel Sorgfalt zu – natürlich unter Einhaltung der Hygienevorschriften.",
+        "Du begrüsst unsere Kunden mit einem Lächeln 😊, berätst sie kompetent und sorgst für ein tolles Einkaufserlebnis am Wurststand.",
+        "Du hältst den Grillstand sauber und ordentlich, damit alles hygienisch und einladend bleibt 🛠️ und kümmerst dich um den Aufbau vor Beginn und den Abbau am Ende – dank dir läuft alles reibungslos.",
+        "Du bedienst unsere Kunden an der Kasse 💳 zuverlässig und korrekt."
+      ],
+      "_migrosBenefits": [],
+      "_migrosWorkPercentage": "39%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-04-27T11:20:16.883Z",
+      "firstSeenAt": "2026-04-27T11:20:16.883Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-nlvbom",
@@ -193,56 +312,6 @@
         "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
       ],
       "_migrosWorkPercentage": "440%",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-04-26T10:03:16.994Z",
-      "firstSeenAt": "2026-04-26T10:03:16.994Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-x38a0r",
-      "slug": "chef-de-service-genossenschaft-migros-ostschweiz-chur-x38a0r",
-      "company": "Genossenschaft Migros Ostschweiz",
-      "title": "Chef de Service",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/chef-de-service/8b0cd986-bcf1-4951-a14a-6e99eb9deafe",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Du koordinierst Mitarbeitende und Abläufe an Events und Grossveranstaltungen im Servicebereich",
-        "Du unterstützt aktiv die verschiedenen Bereiche wie Küche und Logistik",
-        "Die Gäste vor Ort werden von dir professionell betreut und beraten",
-        "Du stellst eine qualitativ hochstehende Betreuung des Veranstalters und eine lückenlose Kommunikation sicher"
-      ],
-      "_migrosBenefits": [
-        "Teil der Migros-Gruppe: Teil der grössten privaten Arbeitgeberin der Schweiz werden",
-        "Menschen im Zentrum: Wir pflegen eine starke Identität und bieten sinnstiftende Tätigkeiten",
-        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
-        "Freizeit- und Kulturangebote: Diverse Vergünstigungen auf Ferienangebote und Events",
-        "Sport- und Fitnessangebote: Vergünstigung bei Abonnements der Freizeit- und Fitnessanlagen"
-      ],
-      "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
       "crawledAt": "2026-04-26T10:03:16.994Z",
@@ -630,6 +699,55 @@
       }
     },
     {
+      "id": "company-xmuu57",
+      "slug": "abendaushilfe-food-genossenschaft-migros-ostschweiz-samedan-xmuu57",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Abendaushilfe Food",
+      "location": "Samedan",
+      "canton": "GR",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abendaushilfe-food/82af1a14-3ae2-4316-9d37-15340648e2ba",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du stellst sicher, dass im Bereich Food 🍫 alle Regale stets gut gefüllt und die Waren optimal bewirtschaftet sind, damit die Kunden immer das finden, was sie suchen. 🛒",
+        "Freundliche und kompetente Kundenbedienung und -beratung 😊🛍️ gehören für dich selbstverständlich dazu und du stehst den Kunden mit deinem Fachwissen beratend zur Seite.",
+        "Du sorgst dafür, dass die Produkte ansprechend präsentiert und effizient disponiert werden, um ein angenehmes Einkaufserlebnis zu schaffen 🛍️ und bist verantwortlich für die Gestaltung der Warenpräsentation.",
+        "Du übernimmst Verantwortung für die Bestellung und Kontrolle der Waren📦💳, sodass nicht zu viel oder zu wenig im Regal liegt.",
+        "Mit deinem Einsatz trägst du dazu bei, dass dein Bereich ordentlich, sauber und einladend ✨ bleibt."
+      ],
+      "_migrosBenefits": [
+        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-04-26T10:03:16.994Z",
+      "firstSeenAt": "2026-04-26T10:03:16.994Z",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
       "id": "company-r4ocfw",
       "slug": "candidato-a-in-riqualificazione-in-bediente-fleisch-fisch-e-kasetheke-genossenschaft-migros-ostschweiz-chur-r4ocfw",
       "company": "Genossenschaft Migros Ostschweiz",
@@ -946,30 +1064,31 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
-      "id": "company-xmuu57",
-      "slug": "abendaushilfe-food-genossenschaft-migros-ostschweiz-samedan-xmuu57",
+      "id": "company-x38a0r",
+      "slug": "chef-de-service-genossenschaft-migros-ostschweiz-chur-x38a0r",
       "company": "Genossenschaft Migros Ostschweiz",
-      "title": "Abendaushilfe Food",
-      "location": "Samedan",
+      "title": "Chef de Service",
+      "location": "Chur",
       "canton": "GR",
       "category": "other",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abendaushilfe-food/82af1a14-3ae2-4316-9d37-15340648e2ba",
+      "postedDate": "2026-04-21",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/chef-de-service/8b0cd986-bcf1-4951-a14a-6e99eb9deafe",
       "source": "Company Careers Crawler",
       "_migrosResponsibilities": [
-        "Du stellst sicher, dass im Bereich Food 🍫 alle Regale stets gut gefüllt und die Waren optimal bewirtschaftet sind, damit die Kunden immer das finden, was sie suchen. 🛒",
-        "Freundliche und kompetente Kundenbedienung und -beratung 😊🛍️ gehören für dich selbstverständlich dazu und du stehst den Kunden mit deinem Fachwissen beratend zur Seite.",
-        "Du sorgst dafür, dass die Produkte ansprechend präsentiert und effizient disponiert werden, um ein angenehmes Einkaufserlebnis zu schaffen 🛍️ und bist verantwortlich für die Gestaltung der Warenpräsentation.",
-        "Du übernimmst Verantwortung für die Bestellung und Kontrolle der Waren📦💳, sodass nicht zu viel oder zu wenig im Regal liegt.",
-        "Mit deinem Einsatz trägst du dazu bei, dass dein Bereich ordentlich, sauber und einladend ✨ bleibt."
+        "Du koordinierst Mitarbeitende und Abläufe an Events und Grossveranstaltungen im Servicebereich",
+        "Du unterstützt aktiv die verschiedenen Bereiche wie Küche und Logistik",
+        "Die Gäste vor Ort werden von dir professionell betreut und beraten",
+        "Du stellst eine qualitativ hochstehende Betreuung des Veranstalters und eine lückenlose Kommunikation sicher"
       ],
       "_migrosBenefits": [
-        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
+        "Teil der Migros-Gruppe: Teil der grössten privaten Arbeitgeberin der Schweiz werden",
+        "Menschen im Zentrum: Wir pflegen eine starke Identität und bieten sinnstiftende Tätigkeiten",
         "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
-        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
+        "Freizeit- und Kulturangebote: Diverse Vergünstigungen auf Ferienangebote und Events",
+        "Sport- und Fitnessangebote: Vergünstigung bei Abonnements der Freizeit- und Fitnessanlagen"
       ],
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
