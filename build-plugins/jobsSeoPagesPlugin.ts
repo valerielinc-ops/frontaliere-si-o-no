@@ -2754,7 +2754,11 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
 
  const parts: string[] = [];
 
- // Company info section
+ // Company info section. When locationListStr / companySectors are empty
+ // (small employers with 1-2 listings or thinly-classified sources), append
+ // a fallback paragraph so the page still carries substantive context
+ // and clears the Semrush text-to-HTML ratio gate.
+ const noLocOrSectors = !locationListStr && companySectors.length === 0;
  if (locale === 'it') {
  parts.push(`<section style="margin-top:20px"><h2>Informazioni su ${esc(companyName)}</h2>`);
  parts.push(`<p>${esc(companyName)} offre attualmente <strong>${companyJobs.length} posizioni aperte</strong> in Canton ${esc(displayCanton)}.`);
@@ -2762,6 +2766,9 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  if (companySectors.length > 0) parts[parts.length - 1] += ` L'azienda opera nel settore ${esc(companySectors.slice(0, 3).join(', '))}.`;
  parts[parts.length - 1] += '</p>';
  if (companyContracts.length > 0) parts.push(`<p>Tipologie di contratto disponibili: ${esc(companyContracts.join(', '))}.</p>`);
+ if (noLocOrSectors) {
+ parts.push(`<p>Quando il nostro crawler non rileva ancora una sede di lavoro o un settore esplicito per ${esc(companyName)}, significa di solito che l'azienda è di dimensioni contenute o che pubblica le offerte tramite un ATS che non espone esplicitamente la classificazione: in questi casi apri il singolo annuncio per leggere mansionario, requisiti, sede di lavoro e tipologia contrattuale dichiarata. Per i frontalieri, i datori di lavoro nel Canton ${esc(displayCanton)} si suddividono tipicamente in tre categorie — multinazionali (sanitario, farmaceutico, finanziario) con processi HR strutturati e benefit estesi (LPP gold, formazione continua, mensa); PMI ticinesi (commercio, edilizia, servizi professionali) con flessibilità contrattuale e un percorso di carriera più rapido; e enti pubblici/parapubblici (cantone, scuole, sanità) con stabilità del posto e regole di residenza più stringenti. Se ${esc(companyName)} non ha ancora una scheda dettagliata sul nostro sito, leggi le sezioni qui sotto sui meccanismi del Permesso G e sull'imposta alla fonte cantonale: si applicano a qualunque rapporto di lavoro frontaliero in ${esc(displayCanton)}.</p>`);
+ }
  parts.push('</section>');
  } else if (locale === 'en') {
  parts.push(`<section style="margin-top:20px"><h2>About ${esc(companyName)}</h2>`);
@@ -2770,6 +2777,9 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  if (companySectors.length > 0) parts[parts.length - 1] += ` The company operates in the ${esc(companySectors.slice(0, 3).join(', '))} sector.`;
  parts[parts.length - 1] += '</p>';
  if (companyContracts.length > 0) parts.push(`<p>Available contract types: ${esc(companyContracts.join(', '))}.</p>`);
+ if (noLocOrSectors) {
+ parts.push(`<p>When our crawler hasn't yet picked up a work location or explicit sector for ${esc(companyName)}, it usually means the company is on the smaller side or posts through an ATS that doesn't expose explicit classification: in those cases open the individual listing to read the job description, requirements, work location and contract type. For cross-border workers, employers in the Canton of ${esc(displayCanton)} typically split into three buckets — multinationals (healthcare, pharma, finance) with structured HR processes and rich benefits (gold LPP, training budget, on-site canteen); Ticino SMEs (retail, construction, professional services) with contractual flexibility and faster career paths; and public/parapublic bodies (cantonal, schools, healthcare) with strong job security and tighter residence rules. If ${esc(companyName)} doesn't yet have a detailed profile on our site, the sections below on G permit mechanics and cantonal withholding tax still apply to any cross-border employment in ${esc(displayCanton)}.</p>`);
+ }
  parts.push('</section>');
  } else if (locale === 'de') {
  parts.push(`<section style="margin-top:20px"><h2>\u00dcber ${esc(companyName)}</h2>`);
@@ -2778,6 +2788,9 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  if (companySectors.length > 0) parts[parts.length - 1] += ` Das Unternehmen ist in den Bereichen ${esc(companySectors.slice(0, 3).join(', '))} t\u00e4tig.`;
  parts[parts.length - 1] += '</p>';
  if (companyContracts.length > 0) parts.push(`<p>Verf\u00fcgbare Vertragsarten: ${esc(companyContracts.join(', '))}.</p>`);
+ if (noLocOrSectors) {
+ parts.push(`<p>Wenn unser Crawler noch keinen Arbeitsort oder keine explizite Branche f\u00fcr ${esc(companyName)} erfasst hat, ist das Unternehmen meist kleiner oder ver\u00f6ffentlicht \u00fcber ein ATS, das die Klassifikation nicht offenlegt: In solchen F\u00e4llen \u00f6ffnen Sie die einzelne Ausschreibung f\u00fcr Stellenbeschreibung, Anforderungen, Arbeitsort und Vertragsart. F\u00fcr Grenzg\u00e4nger lassen sich die Arbeitgeber im Kanton ${esc(displayCanton)} typischerweise in drei Gruppen einteilen — Multinationals (Gesundheit, Pharma, Finanzen) mit strukturierten HR-Prozessen und umfangreichen Benefits (Gold-BVG, Weiterbildungsbudget, Personalrestaurant); Tessiner KMU (Detailhandel, Bau, Dienstleistungen) mit vertraglicher Flexibilit\u00e4t und schnelleren Karrierepfaden; und \u00f6ffentliche/parastaatliche Stellen (Kanton, Schulen, Gesundheit) mit hoher Anstellungssicherheit und strengeren Wohnsitzregeln. Falls ${esc(companyName)} noch kein detailliertes Profil auf unserer Seite hat, gelten die unten stehenden Abschnitte zu G-Bewilligung und kantonaler Quellensteuer dennoch f\u00fcr jedes Grenzg\u00e4ngerverh\u00e4ltnis im ${esc(displayCanton)}.</p>`);
+ }
  parts.push('</section>');
  } else {
  parts.push(`<section style="margin-top:20px"><h2>\u00c0 propos de ${esc(companyName)}</h2>`);
@@ -2786,6 +2799,9 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  if (companySectors.length > 0) parts[parts.length - 1] += ` L'entreprise op\u00e8re dans le secteur ${esc(companySectors.slice(0, 3).join(', '))}.`;
  parts[parts.length - 1] += '</p>';
  if (companyContracts.length > 0) parts.push(`<p>Types de contrat disponibles : ${esc(companyContracts.join(', '))}.</p>`);
+ if (noLocOrSectors) {
+ parts.push(`<p>Quand notre crawler n'a pas encore identifi\u00e9 de lieu de travail ou de secteur explicite pour ${esc(companyName)}, l'entreprise est en g\u00e9n\u00e9ral de petite taille ou publie via un ATS qui n'expose pas la classification : dans ce cas, ouvrez l'annonce individuelle pour le descriptif, les exigences, le lieu et le type de contrat. Pour les frontaliers, les employeurs du Canton du ${esc(displayCanton)} se r\u00e9partissent typiquement en trois cat\u00e9gories — multinationales (sant\u00e9, pharma, finance) aux processus RH structur\u00e9s et aux benefits \u00e9tendus (LPP de premier ordre, budget formation, cantine d'entreprise) ; PME tessinoises (commerce, construction, services professionnels) offrant flexibilit\u00e9 contractuelle et carri\u00e8re plus rapide ; et entit\u00e9s publiques/parapubliques (canton, \u00e9coles, sant\u00e9) avec une grande s\u00e9curit\u00e9 d'emploi et des r\u00e8gles de r\u00e9sidence plus strictes. Si ${esc(companyName)} n'a pas encore de fiche d\u00e9taill\u00e9e sur notre site, les sections ci-dessous sur le permis G et l'imp\u00f4t \u00e0 la source cantonal s'appliquent \u00e0 tout emploi frontalier dans le ${esc(displayCanton)}.</p>`);
+ }
  parts.push('</section>');
  }
 
