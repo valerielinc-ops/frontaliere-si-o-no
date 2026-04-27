@@ -2847,6 +2847,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-frontalieri-airolo-2026.title': 'Enhanced checks in Airolo: double verification for cross-border workers',
     'blog.article.controlli-frontalieri-airolo-2026.excerpt': 'New radar checks are coming for those entering Switzerland from Airolo. Double verification for cross-border workers, longer waiting times.',
     'blog.article.controlli-frontalieri-airolo-2026.imageAlt': 'Aerial view of Lake Lugano with Swiss-Italian border and mountains',
+    'blog.article.fallimenti-startup-svizzera-2026.title': 'Business Failures and Startups in Switzerland: The Unusual Boom of 2026',
+    'blog.article.fallimenti-startup-svizzera-2026.excerpt': 'In the first quarter of 2026, business failures in Switzerland doubled, but new companies reached record levels. Analysis and implications for cross-border workers.',
+    'blog.article.fallimenti-startup-svizzera-2026.imageAlt': 'Panoramic view of Lugano with skyscrapers and economic activity',
 };
 
 export default blogMetaEn;

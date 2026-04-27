@@ -14394,6 +14394,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fallimenti-startup-svizzera-2026': {
+    title: 'Fallimenti e startup in Svizzera: il | Frontaliere Ticino',
+    description: 'Analisi del boom di fallimenti e startup in Svizzera nel 2026 e le implicazioni per i frontalieri che lavorano in Ticino. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, fallimenti, startup, boom, insolito',
+    ogTitle: 'Fallimenti e startup in Svizzera 2026 | Frontaliere Ticino',
+    ogDescription: 'Analisi del boom di fallimenti e startup in Svizzera nel 2026 e le implicazioni per i frontalieri che lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/fallimenti-startup-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fallimenti e startup in Svizzera 2026: Analisi e implicazioni per i frontalieri",
+      "description": "Analisi del boom di fallimenti e startup in Svizzera nel 2026 e le implicazioni per i frontalieri che lavorano in Ticino. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fallimenti-startup-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con grattacieli e attività economica"
+      },
+      "datePublished": "2026-04-27T09:53:37+00:00",
+      "dateModified": "2026-04-27T09:53:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fallimenti-startup-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

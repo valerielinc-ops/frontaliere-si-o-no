@@ -2847,6 +2847,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-frontalieri-airolo-2026.title': 'Contrôles renforcés à Airolo : double vérification pour les frontaliers',
     'blog.article.controlli-frontalieri-airolo-2026.excerpt': 'Nouveaux contrôles radar en vue pour ceux qui entrent en Suisse par Airolo. Double vérification pour les frontaliers, temps d\'attente plus longs.',
     'blog.article.controlli-frontalieri-airolo-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne et les montagnes',
+    'blog.article.fallimenti-startup-svizzera-2026.title': 'Faillites et startups en Suisse : le boom inattendu de 2026',
+    'blog.article.fallimenti-startup-svizzera-2026.excerpt': 'Au premier trimestre 2026, les faillites d\'entreprises en Suisse ont doublé, mais les nouvelles entreprises atteignent des niveaux records. Analyse et implications pour les travailleurs frontaliers.',
+    'blog.article.fallimenti-startup-svizzera-2026.imageAlt': 'Vue panoramique de Lugano avec des gratte-ciel et une activité économique',
 };
 
 export default blogMetaFr;
