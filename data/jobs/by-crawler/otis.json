@@ -1,6 +1,6 @@
 {
   "crawlerKey": "otis",
-  "assembledAt": "2026-04-26T21:55:25.489Z",
+  "assembledAt": "2026-04-27T11:25:00.123Z",
   "jobs": [
     {
       "id": "otis-c01bdb073f38",
@@ -43,7 +43,7 @@
       "postedDate": "2026-04-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20157241",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:22.939Z",
+      "crawledAt": "2026-04-27T11:24:55.997Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371",
         "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-postfach-371",
@@ -121,7 +121,7 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Prodctn-Maint--Field-Svc_20157135",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:22.567Z",
+      "crawledAt": "2026-04-27T11:24:55.633Z",
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
         "servicetechniker-m-w-d-otis-kreuzstrasse-34",
@@ -200,7 +200,7 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Repairman-SVC_20156079",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:22.217Z",
+      "crawledAt": "2026-04-27T11:24:55.296Z",
       "previousSlugs": [
         "repairman-svc-otis-kreuzstrasse-34",
         "reparaturtechniker-m-w-d-otis-kreuzstrasse-34",
@@ -223,6 +223,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:13.313Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -278,7 +279,7 @@
       "postedDate": "2026-03-16",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Supervisor-MOD-BEX_20155074",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:21.874Z",
+      "crawledAt": "2026-04-27T11:24:54.875Z",
       "previousSlugs": [
         "supervisor-mod-bex-otis-sa-1032",
         "vorgesetzter-mod-bex-otis-sa-1032",
@@ -305,6 +306,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:13.025Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -360,7 +362,7 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Servicetechniker_20153524",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:21.532Z",
+      "crawledAt": "2026-04-27T11:24:54.537Z",
       "previousSlugs": [
         "servicetechniker-otis-sa-rue-des-sablons-15",
         "servicetechniker-otis-rue-des-sablons-15"
@@ -433,7 +435,7 @@
       "postedDate": "2026-03-04",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur-in--m-w-d-_20154150",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:21.194Z",
+      "crawledAt": "2026-04-27T11:24:54.183Z",
       "previousSlugs": [
         "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
       ],
@@ -452,6 +454,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:12.488Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -507,10 +510,9 @@
       "postedDate": "2026-03-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Gruppenleiter-Reparatur-SVC--m-w-d-_20154138",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:20.860Z",
+      "crawledAt": "2026-04-27T11:24:53.831Z",
       "previousSlugs": [
         "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123",
-        "responsabile-reparazioni-svc-m-w-d-otis-sa-belp",
         "responsabile-reparazioni-svc-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
@@ -528,6 +530,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:12.217Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -583,7 +586,7 @@
       "postedDate": "2026-04-15",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Aufzugsmonteur--m-w-d-_20152399",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:20.500Z",
+      "crawledAt": "2026-04-27T11:24:53.488Z",
       "previousSlugs": [
         "aufzugsmonteur-m-w-d-otis-dietlikon"
       ],
@@ -651,7 +654,7 @@
       "postedDate": "2026-04-20",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20151682",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:20.163Z",
+      "crawledAt": "2026-04-27T11:24:53.146Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2",
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
@@ -672,6 +675,7 @@
         ]
       },
       "firstSeenAt": "2026-04-20T22:05:42.909Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -726,7 +730,7 @@
       "postedDate": "2026-01-27",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker--m-w-d-_20151442",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:19.842Z",
+      "crawledAt": "2026-04-27T11:24:52.748Z",
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
         "servicetechniker-m-w-d-otis-nenzlingerweg-2"
@@ -749,6 +753,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:11.624Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -803,7 +808,7 @@
       "postedDate": "2026-04-15",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/Otisline-Agent-Call-Center--m-f-d-_20148459",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:19.424Z",
+      "crawledAt": "2026-04-27T11:24:52.388Z",
       "firstSeenAt": "2026-04-15T22:07:55.930Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -860,7 +865,7 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Via-Corti-5-6828-Balerna/Pool-di-Talenti-Tecnico-Otis-Ticino---Installazione--Manutenzione---Modernizzazione_20149777",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:19.084Z",
+      "crawledAt": "2026-04-27T11:24:52.053Z",
       "previousSlugs": [
         "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5",
         "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5",
@@ -883,6 +888,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:11.357Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -938,7 +944,7 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149772-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:18.686Z",
+      "crawledAt": "2026-04-27T11:24:51.748Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
       ],
@@ -957,6 +963,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:11.125Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1012,7 +1019,7 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149764-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:18.320Z",
+      "crawledAt": "2026-04-27T11:24:51.365Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
       ],
@@ -1031,6 +1038,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:10.880Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1086,7 +1094,7 @@
       "postedDate": "2026-02-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:17.981Z",
+      "crawledAt": "2026-04-27T11:24:51.013Z",
       "previousSlugs": [
         "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
         "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
@@ -1110,6 +1118,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:10.576Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1165,7 +1174,7 @@
       "postedDate": "2026-02-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-de-Mouille-Galand-1214-Vernier/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149748",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:17.583Z",
+      "crawledAt": "2026-04-27T11:24:50.649Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
       ],
@@ -1184,6 +1193,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:10.340Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1197,81 +1207,6 @@
         }
       },
       "postalCode": "1214"
-    },
-    {
-      "id": "otis-aa74ae9b5213",
-      "slug": "servicetechniker-m-w-d-otis-sa-reinach",
-      "slugByLocale": {
-        "en": "servicetechniker-m-w-d-otis-reinach",
-        "it": "tecnico-di-servizio-m-f-d-otis-sa-nenzlingerweg-2",
-        "de": "service-techniker-m-w-d-otis-sa-nenzlingerweg-2",
-        "fr": "servicetechniker-m-w-d-otis-sa-reinach"
-      },
-      "company": "Otis SA",
-      "companyKey": "otis",
-      "companyDomain": "otis.com",
-      "title": "Servicetechniker (m/w/d)",
-      "titleByLocale": {
-        "en": "Servicetechniker (m/w/d)",
-        "fr": "Servicetechniker (m/w/d)",
-        "de": "Servicetechniker (m/w/d)",
-        "it": "Tecnico di Servizio (m/f/d)"
-      },
-      "description": "Date Posted:\n2025-06-25Country: \nSwitzerlandLocation: \nNenzlingerweg 2, 4153 Reinach\nWerde Teil unseres Teams in Basel!\n \nWir suchen talentierte Servicetechniker:innen, um die Innovation und Exzellenz bei Otis Schweiz voranzutreiben.\n\nWas dich bei uns erwartet\n\nDu bist verantwortlich für den reibungslosen Betrieb unserer Anlagen. Dies beinhaltet folgende Aufgaben:\n\n• Du führst regelmässige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch\n\n• Du identifizierst selbstständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellst die nötigen Ersatzteile\n\n• Du führst mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigst die Störungen\n\n \nWas wir von dir erwarten\n\n• Du hast eine abgeschlossene technische Ausbildung wie Elektromonteur:in, Polymechaniker:in, Automobilfachmann:frau oder ähnlich. Wenn du dich mit Liften bereits auskennst ist das ein grosser Vorteil.\n\n• Du sprichst fliessend Deutsch\n\n• Du planst und koordinierst eigenständig deinen Tag und legst ein freundliches Auftreten an den Tag\n\n• Einen Führerschein der Kategorie B setzen wir voraus, ebenso wie einen Wohnort im Einsatzgebiet damit du die Pikettzeiten einhalten kannst\n\n \nWas wir dir bieten\n\n• Bei deinem Start bei uns wirst du von einem erfahrenen Kollegen begleitet, welcher dir wertvolles Fachwissen auf deinen Weg mitgibt. Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\n• Uns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\n• Gute Pensionskasse\n\n• 5 Wochen Ferien\n\n• Verpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n \nSteige ein – Steige auf!\n\nHaben wir dich überzeugt? Dann wir freuen uns auf deine Bewerbung.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
-      "descriptionByLocale": {
-        "en": "Date Posted: 2026-01-26Country: SwitzerlandLocation: Nenzlingerweg 2, 4153 Reinach Was dich bei uns erwartet Du bist verantwortlich für den reibungslosen Betrieb unserer Anlagen. Dies beinhaltet folgende Aufgaben: • Du führst regelmässige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch • Du identifizierst selbstständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellst die nötigen Ersatzteile • Du führst mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigst die Störungen Was wir von dir erwarten • Du hast eine abgeschlossene technische Ausbildung wie Elektromonteur:in, Polymechaniker:in, Automobilfachmann:frau oder ähnlich. Wenn du dich mit Liften bereits auskennst ist das ein grosser Vorteil. • Du sprichst fliessend Deutsch • Du planst und koordinierst eigenständig deinen Tag und legst ein freundliches Auftreten an den Tag • Einen Führerschein der Kategorie B setzen wir voraus, ebenso wie einen Wohnort im Einsatzgebiet damit du die Pikettzeiten einhalten kannst Was wir dir bieten • Bei deinem Start bei uns wirst du von einem erfahrenen Kollegen begleitet, welcher dir wertvolles Fachwissen auf deinen Weg mitgibt. • Du wirst mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst. • Uns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen. • Gute Pensionskasse • 5 Wochen Ferien • Verpflegungszuschuss Unsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier. Steige ein – Steige auf! Haben wir dich überzeugt? Dann wir freuen uns auf deine Bewerbung. If you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. Otis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio. You may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company. When you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge. We provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs. Today, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do. We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here. Become a part of the Otis team and help us #Buildwhatsnext! Otis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com. Privacy Policy and Terms: Click on this link to read the Policy and Terms",
-        "de": "Veröffentlicht am: 2026-01-26 Land: Schweiz Ort: Nenzlingerweg 2, 4153 Reinach Was Sie bei uns erwartet Sie sind für den reibungslosen Betrieb unserer Anlagen verantwortlich. Dies beinhaltet folgende Aufgaben: Sie führen regelmäßige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch Sie identifizieren eigenständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellen die nötigen Ersatzteile Sie führen mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigen die Störungen Was wir von Ihnen erwarten Sie haben eine abgeschlossene technische Ausbildung wie Elektromonteur, Polymechaniker, Automobil-Fachmann oder ähnlich. Wenn Sie sich bereits mit Aufzügen auskennen, ist das ein großer Vorteil. Sie sprechen fließend Deutsch Sie planen und koordinieren eigenständig Ihren Tag und legen ein freundliches Auftreten an den Tag Wir setzen einen Führerschein der Kategorie B sowie einen Wohnsitz im Einsatzgebiet voraus, damit Sie die Pikettzeiten einhalten können Was wir Ihnen bieten Bei Ihrem Start bei uns werden Sie von einem erfahrenen Kollegen begleitet, der Ihnen wertvolles Fachwissen auf Ihrem Weg mitgibt. Sie werden mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, das Sie auch privat nutzen dürfen. Uns liegt Ihre persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen. Gute Pensionskasse 5 Wochen Ferien Verpflegungszuschuss Unsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» finden Sie hier. Steigen Sie ein – Steigen Sie auf! Haben wir Sie überzeugt? Dann freuen wir uns auf Ihre Bewerbung. Wenn Sie in einer Stadt leben, besteht eine gute Chance, dass wir Ihnen einen Lift geben oder eine Rolle dabei spielen, Sie jeden Tag in Bewegung zu halten. Otis ist das weltweit führende Unternehmen für die Herstellung, Installation und Wartung von Aufzügen und Fahrtreppen. Wir bewegen 2,4 Milliarden Menschen jeden Tag und warten etwa 2,4 Millionen Kundenanlagen weltweit, das größte Service-Portfolio der Branche. Sie können unsere Produkte in einigen der berühmtesten Sehenswürdigkeiten der Welt erkennen, wie zum Beispiel dem Eiffelturm, dem Empire State Building, dem Burj Khalifa und den Petronas Twin Towers! Wir sind ein Team von 72.000 Menschen, darunter Ingenieure, Experten für digitale Technologie, Verkaufsspezialisten und Funktionsspezialisten sowie Fabrik- und Feldtechniker, die alle darauf ausgerichtet sind, die vielfältigen Bedürfnisse unserer Kunden und Passagiere in mehr als 200 Ländern und Territorien auf der ganzen Welt zu erfüllen. Wir sind stolz darauf, ein vielseitiges, globales Team mit einem bewährten Innovationserbe zu sein, das die Grundlage für ein schnell wachsendes, hochleistungsfähiges Unternehmen bildet. Wenn Sie zu Otis stoßen, werden Sie Teil eines innovativen globalen Branchenführers mit einem resilienten Geschäftsmodell. Wir bieten Ihnen Möglichkeiten, Schulungen und Ressourcen, die die Führung und Fähigkeiten in Vertrieb, Feld, Ingenieurwesen und Großprojekten aufbauen und unser Employee Scholar Program ist ein bemerkenswerter Punkt des Stolzes, durch den Otis Kollegen bei der Verfolgung von Studiengängen oder Zertifizierungsprogrammen unterstützt. Heute mehr denn je liegt unser Fokus auf den Menschen. Als globales, menschengetriebenes Unternehmen stellen wir Menschen - Passagiere, Kunden und Kollegen - in den Mittelpunkt all unserer Aktivitäten. Wir lassen uns von unseren Werten leiten, die wir unsere Three Absolutes nennen - Sicherheit, Ethik, Qualität in allem, was wir tun. Wenn Sie mehr über Umwelt, soziale und governance (ESG) bei Otis erfahren möchten, klicken Sie hier. Werden Sie Teil des Otis-Teams und helfen Sie uns dabei, #Buildwhatsnext! Otis ist ein Arbeitgeber, der die Chancengleichheit fördert. Alle qualifizierten Bewerber werden ohne Unterschied des Geschlechts, der Rasse, der ethnischen Herkunft, der Religion, der sexuellen Orientierung, der Behinderung oder des Alters berücksichtigt. Um eine Unterstützung bei der Beantragung eines Arbeitsplatzes aufgrund einer Behinderung oder eines speziellen Bedarfs zu beantragen, wenden Sie sich bitte an careers@otis.com. Datenschutzrichtlinie und Bedingungen: Klicken Sie hier, um die Richtlinie und die Bedingungen zu lesen.",
-        "it": "Data di pubblicazione: 2026-01-26 Paese: Svizzera Località: Nenzlingerweg 2, 4153 Reinach Cosa ti aspetta da noi Sei responsabile del funzionamento senza interruzioni delle nostre attrezzature. Ciò include le seguenti mansioni: Esegui regolari lavori di manutenzione e riparazione sulle componenti meccaniche, idrauliche, elettriche ed elettroniche degli ascensori e delle scale mobili Identifichi in modo autonomo i lavori di riparazione e miglioramento sulle attrezzature e ordini i pezzi di ricambio necessari Esegui ricerche dei guasti con l'ausilio di strumenti moderni e risolvi le interruzioni Cosa ci aspettiamo da te Hai un titolo di studio tecnico come ad esempio elettricista, polimeccanico, specialista dell'automobile o simile. Se hai già esperienza con gli ascensori è un grande vantaggio. Parli fluentemente tedesco Pianifichi e coordini in modo autonomo la tua giornata e mostri un atteggiamento cordiale nei confronti dei clienti Abbiamo come presupposto un patentino della categoria B, così come un luogo di residenza nell'area di servizio in modo da poter rispettare i turni di servizio Cosa ti offriamo Al tuo inizio con noi, sarai accompagnato da un collega esperto che ti trasmetterà preziose conoscenze tecniche. Sarai equipaggiato con un telefono cellulare e un veicolo aziendale che potrai utilizzare anche a scopo privato. Ci teniamo alla tua crescita personale. Ciò significa che sosteniamo la formazione continua e le possibilità di avanzamento interno sono aperte a tutti. Buon fondo pensione 5 settimane di ferie Contributo per i pasti La nostra cultura aziendale è il nostro bene più prezioso e viene profondamente radicata nell'azienda e apprezzata da tutti i dipendenti. Maggiori informazioni sui nostri «Otis Absolutes» le trovi qui. Entra – sali! Ti abbiamo convinto? Allora siamo felici di ricevere la tua candidatura. Se vivi in una città, è probabile che ti daremo un passaggio o giocheremo un ruolo nel tenerti in movimento ogni giorno. Otis è la principale società di produzione, installazione e assistenza di ascensori e scale mobili a livello mondiale. Spostiamo 2,4 miliardi di persone ogni giorno e manteniamo circa 2,4 milioni di unità dei clienti in tutto il mondo, il più ampio portafoglio di servizi del settore. Puoi riconoscere i nostri prodotti in alcune delle più famose attrazioni del mondo, come la Torre Eiffel, l'Empire State Building, la Burj Khalifa e le Torri Petronas! Siamo un team di 72.000 persone, tra cui ingegneri, esperti di tecnologia digitale, specialisti delle vendite e delle funzioni, nonché tecnici di fabbrica e campo, tutti impegnati a soddisfare le esigenze diversificate dei nostri clienti e dei passeggeri in più di 200 paesi e territori in tutto il mondo. Siamo orgogliosi di essere un team globale, diversificato e affidabile con un solido patrimonio di innovazione che continua ad essere la base di un'azienda in rapida evoluzione e ad alta performance. Quando entri a far parte di Otis, diventi parte di un leader globale del settore innovativo con un modello di business resilient",
-        "fr": "Date de publication : 2026-01-26 Pays : Suisse Emplacement : Nenzlingerweg 2, 4153 Reinach Ce qui vous attend chez nous Vous êtes responsable du fonctionnement sans interruption de nos installations. Cela comprend les tâches suivantes : Vous effectuez des travaux de maintenance et de réparation réguliers sur les composants mécaniques, hydrauliques, électriques et électroniques des ascenseurs et des escaliers roulants Vous identifiez de manière autonome les travaux de réparation et d'amélioration sur les installations et commandez les pièces de rechange nécessaires Vous effectuez des recherches de pannes à l'aide d'outils modernes et éliminer les perturbations Ce que nous attendons de vous Vous avez une formation technique terminée telle que monteur électricien, polymecanicien, spécialiste de l'automobile ou similaire. Si vous avez déjà une expérience avec les ascenseurs, c'est un grand avantage. Vous parlez couramment l'allemand Vous planifiez et coordonnez de manière autonome votre journée et montrez une attitude amicale envers les clients Nous présumons un permis de conduire de la catégorie B ainsi qu'un lieu de résidence dans la zone de service afin que vous puissiez respecter les horaires de service Ce que nous vous offrons Au début de votre collaboration avec nous, vous serez accompagné par un collègue expérimenté qui vous transmettra des connaissances techniques précieuses. Vous serez équipé d'un téléphone mobile et d'un véhicule de la société que vous pourrez également utiliser à des fins privées. Nous nous soucions de votre développement personnel. Cela signifie que nous soutenons la formation continue et que les possibilités de promotion interne sont ouvertes à tous. Bon fonds de pension 5 semaines de vacances Allocation pour les repas Notre culture d'entreprise est notre bien le plus précieux et est profondément ancrée dans l'entreprise et appréciée de tous les employés. Vous trouverez plus d'informations sur nos «Otis Absolutes» ici. Rejoignez-nous – montez! Nous vous avons convaincu ? Alors nous sommes heureux de recevoir votre candidature. Si vous vivez dans une ville, il y a de fortes chances que nous vous donnions un coup de pouce ou que nous jouions un rôle dans le fait de vous déplacer chaque jour. Otis est la principale société de fabrication, d'installation et d'entretien d'ascenseurs et d'escaliers roulants dans le monde. Nous déplaçons 2,4 milliards de personnes chaque jour et entretenons environ 2,4 millions d'unités de clients dans le monde entier, le plus large portefeuille de services du secteur. Vous pouvez reconnaître nos produits dans certaines des attractions les plus célèbres du monde, comme la tour Eiffel, l'Empire State Building, la Burj Khalifa et les tours jumelles Petronas ! Nous sommes une équipe de 72 000 personnes, composée d'ingénieurs, d'experts en technologie numérique, de spécialistes des ventes et des fonctions, ainsi que de techniciens d'usine et de terrain, tous engagés à répondre aux besoins diversifiés de nos clients et des passagers dans plus de 200 pays et territoires dans le monde. Nous sommes fiers d'être une équipe globale, diversifiée et fiable avec un patrimoine d'innovation solide qui continue d'être la base d'une entreprise en rapide croissance et à haute performance. Lorsque vous rejoignez Otis, vous rejoignez un leader mondial du secteur innovant avec un modèle économique résilient. Nous vous offrons des opportunités, des formations et des ressources qui développent les compétences de leadership et les compétences dans les ventes, le terrain, l'ingénierie et les projets importants et notre programme d'employé boursier est un point de fierté notable, grâce auquel Otis soutient les collègues dans la poursuite d'études ou de programmes de certification. Aujourd'hui, notre focus est plus que jamais sur les personnes. En tant qu'entreprise mondiale axée sur les personnes, nous mettons les personnes - passagers, clients et collègues - au centre de tout ce que nous faisons. Nous sommes guidés par nos valeurs que nous appelons nos Three Absolutes - la sécurité, l'éthique, la qualité dans tout ce que nous faisons. Si vous souhaitez en savoir plus sur la gouvernance d'entreprise, sociale et environnementale (ESG) chez Otis, cliquez ici. Rejoignez l'équipe Otis et aidez-nous à #Buildwhatsnext! Otis est un employeur qui favorise l'égalité des chances. Tous les candidats qualifiés seront considérés pour un emploi sans distinction de race, de religion, de sexe, d'orientation sexuelle, de handicap ou d'âge, conformément à la loi. Pour demander une aide à la demande d'emploi en raison d'un besoin spécial ou d'un handicap, veuillez nous contacter à careers@otis.com. Politique de confidentialité et conditions d'utilisation : Cliquez ici pour lire la politique et les conditions d'utilisation."
-      },
-      "sourceLang": "de",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "location": "Reinach",
-      "canton": "BL",
-      "addressLocality": "Reinach",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-07",
-      "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker--m-w-d-_20135985-1",
-      "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:17.259Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2-2",
-          "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
-        ],
-        "fr": [
-          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
-        ],
-        "de": [
-          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
-        ]
-      },
-      "previousSlugs": [
-        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2-2",
-        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
-        "servicetechniker-m-w-d-otis-nenzlingerweg-2"
-      ],
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-26T21:55:17.259Z"
     },
     {
       "id": "otis-e151ad3e9647",
@@ -1314,7 +1249,7 @@
       "postedDate": "2026-03-26",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122200",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:16.895Z",
+      "crawledAt": "2026-04-27T11:24:50.005Z",
       "previousSlugs": [
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26",
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-sandackerstrasse-26",
@@ -1391,7 +1326,7 @@
       "postedDate": "2026-03-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122199",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:16.561Z",
+      "crawledAt": "2026-04-27T11:24:49.558Z",
       "previousSlugs": [
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123",
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-123"
@@ -1409,6 +1344,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:09.581Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1464,7 +1400,7 @@
       "postedDate": "2026-04-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122198",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:16.175Z",
+      "crawledAt": "2026-04-27T11:24:49.223Z",
       "previousSlugs": [
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371",
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-371"
@@ -1540,7 +1476,7 @@
       "postedDate": "2026-02-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Triststrasse-8-7000-Chur/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122197",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:15.824Z",
+      "crawledAt": "2026-04-27T11:24:48.902Z",
       "previousSlugs": [
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8",
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8"
@@ -1561,6 +1497,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:09.056Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1616,7 +1553,7 @@
       "postedDate": "2026-03-18",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122196",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:15.486Z",
+      "crawledAt": "2026-04-27T11:24:48.603Z",
       "previousSlugs": [
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34"
@@ -1693,7 +1630,7 @@
       "postedDate": "2026-03-25",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122201",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:15.146Z",
+      "crawledAt": "2026-04-27T11:24:48.208Z",
       "previousSlugs": [
         "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
         "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2"
@@ -1727,80 +1664,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "otis-1384f837d648",
-      "slug": "responsabile-vendite-o-t-oa-otis-sa-cp-1136",
-      "slugByLocale": {
-        "it": "responsabile-vendite-o-t-oa-otis-sa-cp-1136",
-        "en": "o-t-sales-lead-oa-otis-fribourg",
-        "de": "o-t-vertriebsleiter-oa-otis-sa-cp-1136",
-        "fr": "responsable-commercial-o-t-oa-otis-sa-cp-1136"
-      },
-      "company": "Otis SA",
-      "companyKey": "otis",
-      "companyDomain": "otis.com",
-      "title": "O&T Sales Lead OA",
-      "titleByLocale": {
-        "it": "Responsabile Vendite O&T OA",
-        "en": "O&T Sales Lead OA",
-        "de": "O&T Vertriebsleiter OA",
-        "fr": "Responsable Commercial O&T OA"
-      },
-      "description": "Date Posted:\n2026-01-04Country: \nSwitzerlandLocation: \nRoute de Moncor 12, CP 1136, 1701 Fribourg\nRole description\n\nThe O&T Sales Lead OA plays a pivotal role in shaping and executing the Operating Unit’s strategy for the maintenance and repair business in Switzerland. The position ensures the local sales organization is well‑structured, aligned, and fully focused on delivering business priorities and OA performance targets. With a strong sales management background, the O&T Sales Lead OA drives disciplined pipeline management, accurate forecasting, and effective sales planning. Working closely with the OA Lead and the O&T Sales Lead OU, the role leads initiatives that strengthen sales performance, commercial effectiveness, and customer value.\nSuccess in this position requires strong organizational insight and the ability to operate effectively within a complex matrix environment. The role collaborates daily with OT Leads, Service Sales Representatives, and T Sales Representatives to achieve sales objectives, optimize processes, and continuously improve operational efficiency.\n\nRole Responsibilities\n\n• Implementation of annual sales strategy for maintenance and repair business\n\n• Functional leading of the Service Sales Representatives (Generalists, Account Manager, Recovery specialists, T-Sales Representative)\n\n• Ensure disciplined pricing execution and annual price adjustments.\n\n• Implement effective pipeline management, CRM adoption, and sales tools\n\n• Strengthen lead generation through digital marketing and targeted acquisition\n\n• Analyse market trends and derive actions to grow portfolio and service contracts\n\n• Enhance contract product offerings and drive maintenance portfolio expansion\n\n• Manage repair sales funnel, lead generation, and customer engagement\n\n• Plan and execute T‑campaigns to support sustainable repair (T) growth\n\n• Support rollout of international processes/tools to meet growth targets\n\nRole KPI’s\n\n• ABV / O‑Sales\n\n• O‑Margin\n\n• T‑Orders & T‑Margin\n\n• Conversions, Cancellations & Recaptures\n\n• Cancellation & Recapture Rates\n\n• Net Gain / Erosion Rate\n\n• Customer Satisfaction (CSAT, NPS)\n\n• OO‑Subscriptions & Forecast Accuracy (FCST vs. Actual)\n\nQualifications, Competencies & Skills\n\n• 5+ years’ experience in service and repair business\n\n• Strong understanding of maintenance, repair, and sales processes\n\n• Fluent in German, French and English\n\n• Ability to lead cross‑functional teams\n\n• Excellent communication and stakeholder management skills\n\n• Strong analytical, strategic, and problem‑solving capabilities\n\n• High customer focus and value‑driven mindset\n\n• Results‑oriented with strong delivery record\n\n• Collaborative team player in matrix environments\n\n• Solid commercial acumen; skilled in sales process optimization\n\n• Proficient with CRM and digital sales tools\n\n• Strong coaching and development skills\n\n• Competent in pipeline management, forecasting, and data‑driven decisions\n\nTravel requirement - Up to 40% within Switzerland\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
-      "descriptionByLocale": {
-        "it": "Descrizione Il Responsabile Vendite O&T OA svolge un ruolo fondamentale nel definire e attuare la strategia dell’Unità Operativa per il settore manutenzione e riparazioni in Svizzera. La posizione garantisce che l’organizzazione di vendita locale sia ben strutturata, allineata e completamente focalizzata nel raggiungimento delle priorità di business e degli obiettivi di performance OA. Con una solida esperienza nella gestione delle vendite, il Responsabile Vendite O&T OA promuove una gestione disciplinata del pipeline, previsioni accurate e una pianificazione efficace delle vendite. Collaborando strettamente con l’OA Lead e l’O&T Sales Lead OU, guida iniziative che rafforzano le performance di vendita, l’efficacia commerciale e il valore per il cliente. Il successo in questa posizione richiede una forte capacità di analisi organizzativa e l’abilità di operare efficacemente in un ambiente complesso a matrice. La figura collabora quotidianamente con OT Leads, Service Sales Representatives e T Sales Representatives per raggiungere gli obiettivi di vendita, ottimizzare i processi e migliorare continuamente l’efficienza operativa. ## Mansioni - Implementazione della strategia di vendita annuale per il settore manutenzione e riparazioni - Leadership funzionale dei Service Sales Representatives (Generalisti, Account Manager, Recovery specialists, T-Sales Representative) - Garantire un’esecuzione disciplinata dei prezzi e gli adeguamenti tariffari annuali. - Implementare una gestione efficace del pipeline, l’adozione del CRM e degli strumenti di vendita - Rafforzare la generazione di lead attraverso marketing digitale e acquisizioni mirate - Analizzare le tendenze di mercato e definire azioni per far crescere il portafoglio e i contratti di servizio - Migliorare le offerte di prodotti contrattuali e promuovere l’espansione del portafoglio manutenzione - Gestire il funnel di vendita delle riparazioni, la generazione di lead e l’engagement dei clienti - Pianificare ed eseguire campagne T per sostenere la crescita sostenibile delle riparazioni (T) - Supportare il rollout di processi/strumenti internazionali per raggiungere gli obiettivi di crescita ## Requisiti - Oltre 5 anni di esperienza nel settore dei servizi e delle riparazioni - Solida comprensione dei processi di manutenzione, riparazione e vendita - Fluente in tedesco, francese e inglese - Capacità di guidare team trasversali - Eccellenti capacità di comunicazione e gestione degli stakeholder - Forti capacità analitiche, strategiche e di problem solving - Alto focus sul cliente e mentalità orientata al valore - Orientamento ai risultati con un solido record di consegna - Collaborativo, team player in ambienti matrix - Solido acume commerciale; competente in ottimizzazione dei processi di vendita - Competente con CRM e strumenti digitali di vendita - Forti capacità di coaching e sviluppo - Competente in gestione del pipeline, forecasting e decisioni basate sui dati - Requisito di viaggio - Fino al 40% all’interno della Svizzera ## Cosa offriamo - Otis è la principale azienda mondiale di produzione, installazione e servizio di ascensori e scale mobili. - Muoviamo 2,4 miliardi di persone ogni giorno e manteniamo circa 2,4 milioni di unità clienti in tutto il mondo, con il più grande portafoglio di servizi del settore. - Potresti riconoscere i nostri prodotti in alcuni dei monumenti più famosi del mondo, tra cui la Torre Eiffel, l’Empire State Building, il Burj Khalifa e le Petronas Twin Towers! - Siamo 72.000 persone, tra ingegneri, esperti di tecnologia digitale, vendite, specialisti funzionali, tecnici di fabbrica e di campo, tutti impegnati a soddisfare le esigenze dei nostri clienti e passeggeri in più di 200 paesi e territori. - Siamo orgogliosi di essere un team diversificato e globale con una lunga storia di innovazione che continua a essere la base di un’azienda ad alte prestazioni. - Quando ti unisci a Otis, diventi parte di un leader globale innovativo con un modello di business resiliente. - Offriamo opportunità, formazione e risorse che sviluppano leadership e capacità in Vendite, Campo, Ingegneria e Grandi Progetti. - Il nostro Employee Scholar Program è motivo di orgoglio, attraverso il quale Otis sponsorizza colleghi per conseguire lauree o certificazioni. - La nostra attenzione, più che mai, è rivolta alle persone. - Come azienda globale, orientata alle persone, mettiamo passeggeri, clienti e colleghi al centro di tutto ciò che facciamo. - Siamo guidati dai nostri valori, chiamati le Tre Assolute – priorità a Sicurezza, Etica, Qualità in tutto ciò che facciamo. - Per saperne di più su ESG (Environmental, Social and Governance) presso Otis, clicca qui. - Unisciti al team Otis e aiutaci a #Buildwhatsnext! - Otis è un datore di lavoro che offre pari opportunità. - Tutti i candidati qualificati riceveranno considerazione per l’impiego senza distinzione di razza, colore, religione, sesso, orientamento sessuale, identità di genere, origine nazionale, disabilità o stato di veterano, età o qualsiasi altra categoria protetta secondo la legge applicabile. - Per richiedere un accomodamento nella compilazione della domanda di lavoro a causa di esigenze speciali o disabilità, contattaci all’indirizzo careers@otis.com.",
-        "en": "Date Posted: 2026-01-04Country: SwitzerlandLocation: Route de Moncor 12, CP 1136, 1701 Fribourg Role description The O&T Sales Lead OA plays a pivotal role in shaping and executing the Operating Unit’s strategy for the maintenance and repair business in Switzerland. The position ensures the local sales organization is well‑structured, aligned, and fully focused on delivering business priorities and OA performance targets. With a strong sales management background, the O&T Sales Lead OA drives disciplined pipeline management, accurate forecasting, and effective sales planning. Working closely with the OA Lead and the O&T Sales Lead OU, the role leads initiatives that strengthen sales performance, commercial effectiveness, and customer value. Success in this position requires strong organizational insight and the ability to operate effectively within a complex matrix environment. The role collaborates daily with OT Leads, Service Sales Representatives, and T Sales Representatives to achieve sales objectives, optimize processes, and continuously improve operational efficiency. Role Responsibilities • Implementation of annual sales strategy for maintenance and repair business • Functional leading of the Service Sales Representatives (Generalists, Account Manager, Recovery specialists, T-Sales Representative) • Ensure disciplined pricing execution and annual price adjustments. • Implement effective pipeline management, CRM adoption, and sales tools • Strengthen lead generation through digital marketing and targeted acquisition • Analyse market trends and derive actions to grow portfolio and service contracts • Enhance contract product offerings and drive maintenance portfolio expansion • Manage repair sales funnel, lead generation, and customer engagement • Plan and execute T‑campaigns to support sustainable repair (T) growth • Support rollout of international processes/tools to meet growth targets Role KPI’s • ABV / O‑Sales • O‑Margin • T‑Orders & T‑Margin • Conversions, Cancellations & Recaptures • Cancellation & Recapture Rates • Net Gain / Erosion Rate • Customer Satisfaction (CSAT, NPS) • OO‑Subscriptions & Forecast Accuracy (FCST vs. Actual) Qualifications, Competencies & Skills • 5+ years’ experience in service and repair business • Strong understanding of maintenance, repair, and sales processes • Fluent in German, French and English • Ability to lead cross‑functional teams • Excellent communication and stakeholder management skills • Strong analytical, strategic, and problem‑solving capabilities • High customer focus and value‑driven mindset • Results‑oriented with strong delivery record • Collaborative team player in matrix environments • Solid commercial acumen; skilled in sales process optimization • Proficient with CRM and digital sales tools • Strong coaching and development skills • Competent in pipeline management, forecasting, and data‑driven decisions Travel requirement - Up to 40% within Switzerland If you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. Otis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio. You may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company. When you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge. We provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs. Today, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do. We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here. Become a part of the Otis team and help us #Buildwhatsnext! Otis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com. Privacy Policy and Terms: Click on this link to read the Policy and Terms",
-        "de": "Beschreibung Der O&T Sales Lead OA spielt eine zentrale Rolle bei der Gestaltung und Umsetzung der Strategie der Operating Unit für Wartungs- und Reparaturgeschäft in der Schweiz. Die Position stellt sicher, dass die lokale Vertriebsorganisation gut strukturiert, ausgerichtet und vollständig auf die Erreichung der Geschäftsprioritäten und OA-Leistungsziele fokussiert ist. Mit umfangreicher Erfahrung im Vertriebsmanagement treibt der O&T Sales Lead OA diszipliniertes Pipeline-Management, präzise Prognosen und eine effektive Vertriebsplanung voran. In enger Zusammenarbeit mit dem OA Lead und dem O&T Sales Lead OU leitet die Rolle Initiativen, die die Verkaufsleistung, die kommerzielle Effektivität und den Kundennutzen stärken. Erfolg in dieser Position erfordert starke organisatorische Einsichten und die Fähigkeit, effektiv in einem komplexen Matrixumfeld zu agieren. Die Rolle arbeitet täglich mit OT Leads, Service Sales Representatives und T Sales Representatives zusammen, um Verkaufsziele zu erreichen, Prozesse zu optimieren und die operative Effizienz kontinuierlich zu verbessern. ## Aufgaben - Umsetzung der jährlichen Vertriebsstrategie für Wartungs- und Reparaturgeschäft - Funktionale Leitung der Service Sales Representatives (Generalisten, Account Manager, Recovery Specialists, T-Sales Representative) - Sicherstellung einer disziplinierten Preisumsetzung und jährlicher Preisanpassungen - Implementierung eines effektiven Pipeline-Managements, CRM-Einführung und Vertriebstools - Stärkung der Lead-Generierung durch digitales Marketing und gezielte Akquisition - Analyse von Markttrends und Ableitung von Maßnahmen zur Portfolio- und Vertragswachstums - Verbesserung des Vertragsproduktangebots und Ausbau des Wartungsportfolios - Management des Reparaturvertriebstrichters, Lead-Generierung und Kundenbindung - Planung und Durchführung von T-Kampagnen zur Unterstützung nachhaltigen Reparaturwachstums - Unterstützung bei der Einführung internationaler Prozesse/Tools zur Erreichung der Wachstumsziele ## Anforderungen - Mehr als 5 Jahre Erfahrung im Service- und Reparaturbereich - Fundiertes Verständnis der Wartungs-, Reparatur- und Verkaufsprozesse - Fließend in Deutsch, Französisch und Englisch - Fähigkeit, funktionsübergreifende Teams zu führen - Ausgezeichnete Kommunikations- und Stakeholder-Management-Fähigkeiten - Starke analytische, strategische und Problemlösungsfähigkeiten - Hohe Kundenorientierung und wertschöpfende Denkweise - Ergebnisorientiert mit nachweislicher Erfolgsbilanz - Kooperativ, Teamplayer in Matrixumgebungen - Ausgeprägtes kaufmännisches Gespür; kompetent in Verkaufsprozessoptimierung - Sicher im Umgang mit CRM und digitalen Vertriebstools - Starke Coaching- und Entwicklungskompetenzen - Kompetent im Pipeline-Management, Forecasting und datenbasierten Entscheidungen - Reisebereitschaft – bis zu 40% innerhalb der Schweiz ## Was wir bieten - Otis ist das weltweit führende Unternehmen für die Herstellung, Installation und Wartung von Aufzügen und Rolltreppen. - Wir bewegen täglich 2,4 Milliarden Menschen und betreuen rund 2,4 Millionen Kundenanlagen weltweit, mit dem größten Serviceportfolio der Branche. - Sie könnten unsere Produkte in einigen der bekanntesten Wahrzeichen der Welt sehen, darunter den Eiffelturm, das Empire State Building, den Burj Khalifa und die Petronas Towers! - Wir sind 72.000 Mitarbeitende, darunter Ingenieure, Digitaltechnologie-Experten, Vertriebsspezialisten, funktionale Spezialisten, Fabrik- und Außendiensttechniker, die alle bestrebt sind, die Bedürfnisse unserer Kunden und Passagiere in über 200 Ländern und Territorien zu erfüllen. - Wir sind stolz auf unser diverses und globales Team mit einer langen Geschichte der Innovation, die die Grundlage eines leistungsstarken Unternehmens bildet. - Wenn Sie zu Otis kommen, werden Sie Teil eines innovativen globalen Marktführers mit einem resilienten Geschäftsmodell. - Wir bieten Chancen, Schulungen und Ressourcen, die Führungskompetenzen in Vertrieb, Außendienst, Engineering und Großprojekten entwickeln. - Unser Employee Scholar Program macht uns stolz, durch das Otis Kollegen bei Abschluss von Abschlüssen oder Zertifizierungen unterstützt. - Unser Fokus liegt mehr denn je auf den Menschen. - Als globales, menschenorientiertes Unternehmen stellen wir Passagiere, Kunden und Kollegen in den Mittelpunkt unseres Handelns. - Wir werden von unseren Werten geleitet, den sogenannten Drei Absoluten – Priorität für Sicherheit, Ethik und Qualität in allem, was wir tun. - Mehr über ESG (Environmental, Social and Governance) bei Otis erfahren Sie hier. - Treten Sie dem Otis-Team bei und helfen Sie uns, #Buildwhatsnext! - Otis ist ein Arbeitgeber, der Chancengleichheit bietet. - Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Behinderung, Veteranenstatus, Alter oder andere gesetzlich geschützte Kategorien berücksichtigt. - Für spezielle Bedürfnisse oder Behinderungen bei der Bewerbung kontaktieren Sie uns bitte unter careers@otis.com.",
-        "fr": "Description Le Responsable Commercial O&T Lead OA joue un rôle clé dans la définition et l’exécution de la stratégie de l’Unité Opérationnelle pour le secteur de la maintenance et de la réparation en Suisse. Le poste garantit que l’organisation commerciale locale est bien structurée, alignée et entièrement concentrée sur la réalisation des priorités commerciales et des objectifs de performance OA. Avec une solide expérience en gestion commerciale, le Responsable Commercial O&T Lead OA favorise une gestion disciplinée du pipeline, des prévisions précises et une planification commerciale efficace. En étroite collaboration avec le OA Lead et le O&T Sales Lead OU, il mène des initiatives visant à renforcer la performance commerciale, l’efficacité commerciale et la valeur client. Le succès dans ce poste nécessite une forte compréhension organisationnelle et la capacité d’opérer efficacement dans un environnement matriciel complexe. La fonction collabore quotidiennement avec les OT Leads, les Service Sales Representatives et les T Sales Representatives pour atteindre les objectifs de vente, optimiser les processus et améliorer continuellement l’efficacité opérationnelle. ## Missions - Mise en œuvre de la stratégie commerciale annuelle pour le secteur maintenance et réparation - Leadership fonctionnel des Service Sales Representatives (Generalistes, Account Manager, Recovery specialists, T-Sales Representative) - Assurer une exécution disciplinée des prix et des ajustements tarifaires annuels - Mettre en place une gestion efficace du pipeline, l’adoption du CRM et des outils de vente - Renforcer la génération de leads via le marketing digital et l’acquisition ciblée - Analyser les tendances du marché et définir des actions pour développer le portefeuille et les contrats de service - Améliorer l’offre de produits contractuels et favoriser l’expansion du portefeuille maintenance - Gérer le funnel de vente des réparations, la génération de leads et l’engagement client - Planifier et exécuter des campagnes T pour soutenir la croissance durable des réparations (T) - Accompagner le déploiement de processus/outils internationaux pour atteindre les objectifs de croissance ## Exigences - Plus de 5 ans d’expérience dans le secteur des services et des réparations - Bonne compréhension des processus de maintenance, réparation et vente - Maîtrise du allemand, français et anglais - Capacité à diriger des équipes transversales - Excellentes compétences en communication et gestion des parties prenantes - Forte capacité analytique, stratégique et de résolution de problèmes - Orientation client et mentalité axée sur la valeur - Résultats avec un solide historique de réalisation - Esprit collaboratif, esprit d’équipe dans des environnements matriciels - Solide sens commercial ; compétence en optimisation des processus de vente - Maîtrise du CRM et des outils digitaux de vente - Fortes compétences en coaching et développement - Compétent en gestion du pipeline, prévision et prise de décisions basée sur les données - Déplacements professionnels – jusqu’à 40% en Suisse ## Ce que nous offrons - Otis est le leader mondial dans la fabrication, l’installation et la maintenance d’ascenseurs et d’escalators. - Nous transportons 2,4 milliards de personnes chaque jour et gérons environ 2,4 millions d’installations clients dans le monde, avec le plus grand portefeuille de services du secteur. - Vous pouvez reconnaître nos produits dans certains des monuments les plus célèbres du monde, tels que la Tour Eiffel, l’Empire State Building, le Burj Khalifa et les Tours Petronas! - Nous sommes 72 000 collaborateurs, comprenant des ingénieurs, des experts en technologie digitale, des commerciaux, des spécialistes fonctionnels, des techniciens d’usine et de terrain, tous engagés à satisfaire les besoins de nos clients et passagers dans plus de 200 pays et territoires. - Nous sommes fiers d’être une équipe diversifiée et mondiale, avec une longue histoire d’innovation qui continue de constituer la base d’une entreprise à haute performance. - En rejoignant Otis, vous faites partie d’un leader mondial innovant avec un modèle d’affaires résilient. - Nous offrons des opportunités, des formations et des ressources pour développer le leadership et les compétences en vente, terrain, ingénierie et grands projets. - Notre programme Employee Scholar est une source de fierté, par lequel Otis sponsorise des collègues pour obtenir des diplômes ou des certifications. - Notre attention, plus que jamais, est centrée sur les personnes. - En tant qu’entreprise mondiale orientée vers les personnes, nous plaçons passagers, clients et collègues au cœur de tout ce que nous faisons. - Nous sommes guidés par nos valeurs, appelées les Trois Absolus – priorité à la Sécurité, à l’Éthique et à la Qualité dans tout ce que nous entreprenons. - Pour en savoir plus sur l’ESG (Environnement, Social et Gouvernance) chez Otis, cliquez ici. - Rejoignez l’équipe Otis et aidez-nous à #Buildwhatsnext! - Otis est un employeur qui offre l’égalité des chances. - Tous les candidats qualifiés seront considérés pour l’emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale, handicap, statut de vétéran, âge ou toute autre catégorie protégée par la loi. - Pour demander un aménagement lors de la soumission de votre candidature en raison de besoins spécifiques ou de handicaps, contactez-nous à careers@otis.com."
-      },
-      "sourceLang": "en",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Fribourg",
-      "canton": "FR",
-      "addressLocality": "Fribourg",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/O-T-Sales-Lead-OA_20149659",
-      "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:14.784Z",
-      "previousSlugs": [
-        "o-t-sales-lead-oa-otis-cp-1136"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "o-t-sales-lead-oa-otis-cp-1136"
-        ],
-        "en": [
-          "o-t-sales-lead-oa-otis-cp-1136"
-        ],
-        "de": [
-          "o-t-sales-lead-oa-otis-cp-1136"
-        ],
-        "fr": [
-          "o-t-sales-lead-oa-otis-cp-1136"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T11:05:08.066Z",
-      "salaryMin": 98000,
-      "salaryMax": 132000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 98000,
-          "maxValue": 132000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1700"
     },
     {
       "id": "otis-dd28c0864d38",
@@ -1843,7 +1706,7 @@
       "postedDate": "2026-04-23",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/Quality-Specialist_20156889",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:14.457Z",
+      "crawledAt": "2026-04-27T11:24:47.848Z",
       "previousSlugs": [
         "quality-specialist-otis-fribourg"
       ],
@@ -1914,7 +1777,7 @@
       "postedDate": "2026-02-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:13.769Z",
+      "crawledAt": "2026-04-27T11:24:47.502Z",
       "previousSlugs": [
         "aufzugsmonteur-m-w-d-otis-sa-st-gallen",
         "aufzugsmonteur-m-w-d-otis-st-gallen"
@@ -1992,7 +1855,7 @@
       "postedDate": "2026-04-21",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/HR-Business-Partner-Switzerland--m-w-x-_20156901",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-26T21:55:13.361Z",
+      "crawledAt": "2026-04-27T11:24:47.149Z",
       "previousSlugs": [
         "hr-business-partner-switzerland-m-w-x-otis-fribourg"
       ],
