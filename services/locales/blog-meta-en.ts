@@ -3079,6 +3079,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scoperta-africa-materia-castronno-2026.title': 'Discovering Africa in Materia: exploring opportunities',
     'blog.article.scoperta-africa-materia-castronno-2026.excerpt': 'On Tuesday, April 28, 2026, in Castronno, a meeting with Martino Ghielmi and Alfie Nze to explore a new cultural relationship with Africa.',
     'blog.article.scoperta-africa-materia-castronno-2026.imageAlt': 'Cultural event in Castronno with a focus on Africa, lake view',
+    'blog.article.universita-ticino-numero-chiuso-2026.title': 'USI: limited spots and rising tuition fees',
+    'blog.article.universita-ticino-numero-chiuso-2026.excerpt': 'From 2026, Università della Svizzera italiana introduces limited spots and tuition fees increase, especially for foreign students',
+    'blog.article.universita-ticino-numero-chiuso-2026.imageAlt': 'Students walking near Lake Lugano with the city skyline in the background',
 };
 
 export default blogMetaEn;

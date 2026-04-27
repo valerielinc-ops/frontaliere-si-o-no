@@ -3079,6 +3079,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scoperta-africa-materia-castronno-2026.title': 'Entdeckung Afrikas in Materia: Dialog über Chancen',
     'blog.article.scoperta-africa-materia-castronno-2026.excerpt': 'Am Dienstag, den 28. April 2026, findet in Castronno ein Treffen mit Martino Ghielmi und Alfie Nze statt, um eine neue kulturelle Beziehung zu Afrika zu erkunden.',
     'blog.article.scoperta-africa-materia-castronno-2026.imageAlt': 'Kulturelles Event in Castronno mit Fokus auf Afrika, Seeblick',
+    'blog.article.universita-ticino-numero-chiuso-2026.title': 'Universität Ticino: Zulassungsbeschränkungen und höhere',
+    'blog.article.universita-ticino-numero-chiuso-2026.excerpt': 'Ab 2026 führt die Universität der italienischen Schweiz Zulassungsbeschränkungen ein und die Gebühren steigen, insbesondere für ausländische Studierende.',
+    'blog.article.universita-ticino-numero-chiuso-2026.imageAlt': 'Studierende, die in der Nähe des Luganer Sees mit dem Stadtpanorama im Hintergrund spazieren gehen',
 };
 
 export default blogMetaDe;

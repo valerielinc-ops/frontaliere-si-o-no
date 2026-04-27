@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1076,
+ "numberOfItems": 1077,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5800,7 +5800,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1073, "name": "Minacce informatiche in Svizzera: Swisscom lanc...", "url": `${BASE_URL}/articoli-frontaliere/minacce-informatiche-svizzera-2026` },
           { "@type": "ListItem", "position": 1074, "name": "Gamberetti avariati al torneo di Madrid: intoss...", "url": `${BASE_URL}/articoli-frontaliere/gamberetti-torneo-madrid-2026` },
           { "@type": "ListItem", "position": 1075, "name": "Caro carburanti, rischio stop trasporto pubblic...", "url": `${BASE_URL}/articoli-frontaliere/carburanti-tpl-ticino-2026` },
-          { "@type": "ListItem", "position": 1076, "name": "Alla scoperta dell’Africa a Materia: dialogo su...", "url": `${BASE_URL}/articoli-frontaliere/scoperta-africa-materia-castronno-2026` }
+          { "@type": "ListItem", "position": 1076, "name": "Alla scoperta dell’Africa a Materia: dialogo su...", "url": `${BASE_URL}/articoli-frontaliere/scoperta-africa-materia-castronno-2026` },
+          { "@type": "ListItem", "position": 1077, "name": "Università Ticino: numero chiuso e rette in aum...", "url": `${BASE_URL}/articoli-frontaliere/universita-ticino-numero-chiuso-2026` }
  ]
  },
  {

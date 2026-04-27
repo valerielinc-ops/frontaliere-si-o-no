@@ -2287,6 +2287,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gamberetti-torneo-madrid-2026': { name: 'Novità', path: '/articoli-frontaliere/gamberetti-torneo-madrid-2026', parent: 'blog' },
     'blog-carburanti-tpl-ticino-2026': { name: 'Trasporto pubblico', path: '/articoli-frontaliere/carburanti-tpl-ticino-2026', parent: 'blog' },
     'blog-scoperta-africa-materia-castronno-2026': { name: 'Eventi Culturali', path: '/articoli-frontaliere/scoperta-africa-materia-castronno-2026', parent: 'blog' },
+    'blog-universita-ticino-numero-chiuso-2026': { name: 'Novità', path: '/articoli-frontaliere/universita-ticino-numero-chiuso-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

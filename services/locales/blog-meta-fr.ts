@@ -3080,6 +3080,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scoperta-africa-materia-castronno-2026.title': 'Découvrir l\'Afrique à Materia : dialogue sur les',
     'blog.article.scoperta-africa-materia-castronno-2026.excerpt': 'Mardi 28 avril 2026 à Castronno, une rencontre avec Martino Ghielmi et Alfie Nze pour explorer un nouveau rapport culturel avec l\'Afrique.',
     'blog.article.scoperta-africa-materia-castronno-2026.imageAlt': 'Événement culturel à Castronno axé sur l\'Afrique, vue sur le lac',
+    'blog.article.universita-ticino-numero-chiuso-2026.title': 'Université du Tessin : nombre limité et frais d\'inscription',
+    'blog.article.universita-ticino-numero-chiuso-2026.excerpt': 'Dès 2026, l\'Université de la Suisse italienne introduit le nombre limité et les frais d\'inscription augmentent, surtout pour les étudiants étrangers',
+    'blog.article.universita-ticino-numero-chiuso-2026.imageAlt': 'Étudiants marchant près du lac de Lugano avec le paysage urbain en arrière-plan',
 };
 
 export default blogMetaFr;
