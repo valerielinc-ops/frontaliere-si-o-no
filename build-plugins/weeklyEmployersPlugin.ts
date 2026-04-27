@@ -957,11 +957,11 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
       const rolesText =
         topRoles.length > 0
           ? `I ruoli principali offerti da ${employer} a ${city} questa settimana sono: ${topRoles.slice(0, 3).join(', ')}.`
-          : `Le posizioni aperte coprono diversi profili professionali, dal supporto operativo alle funzioni specialistiche.`;
+          : `Le posizioni aperte coprono diversi profili professionali a ${city}, da ruoli operativi (assistenza, magazzino, manutenzione) a funzioni specialistiche (amministrazione, IT, contabilità, gestione progetti) — apri ciascun annuncio in elenco per vedere mansionario completo, requisiti formali (titolo di studio, anni di esperienza, lingue richieste), tipo di contratto (tempo indeterminato, determinato, apprendistato) e il canale di candidatura ufficiale gestito direttamente da ${employer}.`;
       const salaryText =
         typeof avgSalary === 'number'
           ? ` La retribuzione lorda media indicata nelle offerte di questa settimana è di circa CHF ${avgSalary.toLocaleString('it-CH')} all'anno — utile come riferimento per valutare la competitività delle proposte ricevute.`
-          : '';
+          : ` Quando ${employer} non pubblica le fasce salariali nelle proprie offerte, fai riferimento all'indagine cantonale Salarium 2024 (USTAT) per la fascia di settore + qualifica + età; per la maggioranza dei profili a Ticino la mediana annua si colloca tra CHF 60.000 e CHF 90.000 lordi a seconda di esperienza e responsabilità, con premi del 5-15 % per cittadini di lingua tedesca e profili senior con esperienza estera.`;
       return `Elenco aggiornato delle offerte attive di ${employer} a ${city}, con link diretto ad ogni annuncio pubblicato sul nostro job-board. Aggiornato ogni settimana per aiutarti a capire come stanno evolvendo le assunzioni dell'azienda nella città e a individuare ruoli coerenti con il tuo profilo prima della concorrenza. ${rolesText}${salaryText}`;
     },
     companyCityJobsHeading: (e, c) =>
@@ -977,7 +977,15 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
         topRoles.length > 0
           ? topRoles.slice(0, 3).join(', ')
           : 'ruoli operativi e specialistici';
-      return `La scheda settimanale dedicata a ${employer} a ${city} serve a chi sta valutando l'azienda come potenziale datore di lavoro: permette di vedere in un colpo d'occhio quante posizioni sono effettivamente aperte oggi (${jobsCount}), quali famiglie di ruoli sono più rappresentate (${roles}) e come cambia la dimensione del piano assunzioni da una settimana all'altra. È utile soprattutto per chi punta alla candidatura spontanea: un incremento del numero di offerte è spesso il segnale che l'azienda sta espandendo l'organico e valuta con più attenzione i profili inviati fuori da una posizione specifica. Questa pagina è rigenerata automaticamente ogni lunedì mattina: il contenuto riflette lo stato delle offerte al momento della generazione. Per candidarti, apri il singolo annuncio e segui le istruzioni dell'azienda — oppure usa la scheda employer brand (quando disponibile) per un quadro completo di benefit, sedi e FAQ.`;
+      const lowVolumeNote =
+        jobsCount <= 3
+          ? ` Anche con un volume contenuto di offerte (${jobsCount} questa settimana), un'azienda strutturata come ${employer} valuta normalmente più candidature in parallelo per ogni posizione: aprire la scheda azienda e candidarsi rapidamente alle posizioni in elenco fa la differenza in shortlist.`
+          : '';
+      const noRolesNote =
+        topRoles.length === 0
+          ? ` Quando i ruoli non sono ancora classificati nei nostri snapshot — capita per aziende con titoli di offerta poco standardizzati o piccoli settori di nicchia — la classificazione testuale del job-board completa il quadro automaticamente entro 7-14 giorni dalla prima rilevazione.`
+          : '';
+      return `La scheda settimanale dedicata a ${employer} a ${city} serve a chi sta valutando l'azienda come potenziale datore di lavoro: permette di vedere in un colpo d'occhio quante posizioni sono effettivamente aperte oggi (${jobsCount}), quali famiglie di ruoli sono più rappresentate (${roles}) e come cambia la dimensione del piano assunzioni da una settimana all'altra. È utile soprattutto per chi punta alla candidatura spontanea: un incremento del numero di offerte è spesso il segnale che l'azienda sta espandendo l'organico e valuta con più attenzione i profili inviati fuori da una posizione specifica.${lowVolumeNote}${noRolesNote} Questa pagina è rigenerata automaticamente ogni lunedì mattina: il contenuto riflette lo stato delle offerte al momento della generazione. Per candidarti, apri il singolo annuncio e segui le istruzioni dell'azienda — oppure usa la scheda employer brand (quando disponibile) per un quadro completo di benefit, sedi e FAQ.`;
     },
     companyCityFaqWhyQ: (e) => `Perché una pagina dedicata a ${e}?`,
     companyCityFaqWhyA: (e, c) =>
@@ -1058,11 +1066,11 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
       const rolesText =
         topRoles.length > 0
           ? `The most common roles ${employer} is hiring for in ${city} this week are: ${topRoles.slice(0, 3).join(', ')}.`
-          : `The open positions span multiple profiles, from operational support to specialist functions.`;
+          : `The open positions span a range of profiles in ${city}, from operational roles (assistance, warehouse, maintenance) to specialist functions (administration, IT, accounting, project management) — open each listing to see the full job description, formal requirements (degree, years of experience, language skills), contract type (permanent, fixed-term, apprenticeship) and the official application channel managed directly by ${employer}.`;
       const salaryText =
         typeof avgSalary === 'number'
           ? ` The average gross salary quoted in this week's listings is about CHF ${avgSalary.toLocaleString('en-US')} per year — useful as a benchmark to evaluate any offer you receive.`
-          : '';
+          : ` When ${employer} doesn't disclose salary bands in its listings, fall back on the cantonal Salarium 2024 survey (USTAT) for the matching sector + qualification + age cohort; for most Ticino profiles the annual median sits between CHF 60,000 and CHF 90,000 gross depending on experience and responsibility, with a 5-15 % premium for German-speakers and senior profiles with foreign experience.`;
       return `Up-to-date list of active ${employer} openings in ${city}, each linked to the individual listing on our job board. Refreshed weekly so you can see how the company's hiring plan evolves in the city and spot the roles that fit your profile before the competition. ${rolesText}${salaryText}`;
     },
     companyCityJobsHeading: (e, c) => `Open positions at ${e} in ${c} this week`,
