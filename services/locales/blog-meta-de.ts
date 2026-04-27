@@ -2916,6 +2916,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incontro-solidarieta-sicurezza-bioggio.title': 'Begegnung zwischen Solidarität und Sicherheit in Bioggio',
     'blog.article.incontro-solidarieta-sicurezza-bioggio.excerpt': 'Volontäre von City Angels Schweiz teilen direkte Erfahrungen am 16. Mai im Centro Faressere in Bioggio',
     'blog.article.incontro-solidarieta-sicurezza-bioggio.imageAlt': 'Freiwillige in Bioggio teilen Erfahrungen von Solidarität und Sicherheit',
+    'blog.article.infermieri-ticino-frontalieri-2026.title': 'Pflegekräfte Mangel: Boom an Ankünften aus Tunesien, Indien und Paraguay',
+    'blog.article.infermieri-ticino-frontalieri-2026.excerpt': 'Der Mangel an Pflegekräften in Italien veranlasst Unternehmen, im Ausland zu rekrutieren, mit über 1.000 ausgewählten Fachkräften in den letzten drei Jahren.',
+    'blog.article.infermieri-ticino-frontalieri-2026.imageAlt': 'Krankenpflegerin arbeitet in einem Krankenhaus im Kanton Tessin',
 };
 
 export default blogMetaDe;

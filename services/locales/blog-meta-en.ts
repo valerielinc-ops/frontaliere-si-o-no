@@ -2916,6 +2916,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incontro-solidarieta-sicurezza-bioggio.title': 'Meeting between solidarity and security in Bioggio',
     'blog.article.incontro-solidarieta-sicurezza-bioggio.excerpt': 'Volunteers from City Angels Switzerland share direct experiences on May 16th at the Faressere Center in Bioggio',
     'blog.article.incontro-solidarieta-sicurezza-bioggio.imageAlt': 'Volunteers in Bioggio share experiences of solidarity and security',
+    'blog.article.infermieri-ticino-frontalieri-2026.title': 'Nurses in short supply: surge in arrivals from Tunisia, India and Paraguay',
+    'blog.article.infermieri-ticino-frontalieri-2026.excerpt': 'The shortage of nurses in Italy is driving companies to recruit abroad, with over 1,000 professionals selected in the last three years.',
+    'blog.article.infermieri-ticino-frontalieri-2026.imageAlt': 'Nurse working in a hospital in the Canton of Ticino',
 };
 
 export default blogMetaEn;

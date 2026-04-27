@@ -15061,6 +15061,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infermieri-ticino-frontalieri-2026': {
+    title: 'Infermieri introvabili: boom di arrivi | Frontaliere Ticino',
+    description: 'Scopri come la carenza di infermieri in Italia spinge le aziende a reclutare all\'estero, con oltre 1.000 professionisti selezionati negli ultimi tre anni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, introvabili, boom, arrivi',
+    ogTitle: 'Infermieri introvabili: boom di arrivi da Tunisia, India e',
+    ogDescription: 'Scopri come la carenza di infermieri in Italia spinge le aziende a reclutare all\'estero, con oltre 1.000 professionisti selezionati negli ultimi tre anni.',
+    canonicalPath: '/articoli-frontaliere/infermieri-ticino-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri introvabili: boom di arrivi da Tunisia, India e Paraguay",
+      "description": "Scopri come la carenza di infermieri in Italia spinge le aziende a reclutare all'estero, con oltre 1.000 professionisti selezionati negli ultimi tre anni.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infermieri-ticino-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infermiera al lavoro in un ospedale del Canton Ticino"
+      },
+      "datePublished": "2026-04-27T12:23:18+00:00",
+      "dateModified": "2026-04-27T12:23:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-ticino-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

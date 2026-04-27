@@ -2916,6 +2916,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incontro-solidarieta-sicurezza-bioggio.title': 'Incontro tra solidarietà e sicurezza a Bioggio',
     'blog.article.incontro-solidarieta-sicurezza-bioggio.excerpt': 'Volontari di City Angels Svizzera condividono esperienze dirette il 16 maggio al Centro Faressere di Bioggio',
     'blog.article.incontro-solidarieta-sicurezza-bioggio.imageAlt': 'Volontari a Bioggio condividono esperienze di solidarietà e sicurezza',
+    'blog.article.infermieri-ticino-frontalieri-2026.title': 'Infermieri introvabili: boom di arrivi da Tunisia, India e Paraguay',
+    'blog.article.infermieri-ticino-frontalieri-2026.excerpt': 'La carenza di infermieri in Italia spinge le aziende a reclutare all\'estero, con oltre 1.000 professionisti selezionati negli ultimi tre anni.',
+    'blog.article.infermieri-ticino-frontalieri-2026.imageAlt': 'Infermiera al lavoro in un ospedale del Canton Ticino',
 };
 
 export default blogMetaIt;
