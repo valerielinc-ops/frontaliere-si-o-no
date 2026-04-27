@@ -2793,6 +2793,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.premi-non-oltre-10-percento.title': 'Premi non oltre il 10%, il dato che dimezza i costi',
     'blog.article.premi-non-oltre-10-percento.excerpt': 'Il governo ticinese integra nuovi dati e riduce i costi dell\'iniziativa a 130 milioni. De Pietro (SUPSI): \'Più impegno nel socio-sanitario\'',
     'blog.article.premi-non-oltre-10-percento.imageAlt': 'Lago di Lugano con vista sulla città',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.title': 'Guerra in Iran: pressione sull\'industria alimentare svizzera',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.excerpt': 'Dalle vendite di cioccolato agli aeroporti al commercio di fertilizzanti, la guerra in Medio Oriente colpisce il settore alimentare svizzero.',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.imageAlt': 'Lago di Lugano con porto industriale moderno sullo sfondo',
 };
 
 export default blogMetaIt;

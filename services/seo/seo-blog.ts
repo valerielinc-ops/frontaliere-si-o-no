@@ -13872,6 +13872,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guerra-iran-industria-alimentare-svizzera': {
+    title: 'Guerra in Iran: pressione s | Frontaliere Ticino',
+    description: 'La guerra in Iran sta mettendo sotto pressione l\'industria alimentare svizzera, con possibili ripercussioni sui consumatori e sui lavoratori del settore.',
+    keywords: 'frontalieri, ticino, svizzera, italia, guerra, iran, pressione, sull',
+    ogTitle: 'Guerra in Iran: pressione sull\'industria alimentare svizzera',
+    ogDescription: 'La guerra in Iran sta mettendo sotto pressione l\'industria alimentare svizzera, con possibili ripercussioni sui consumatori e sui lavoratori del settore.',
+    canonicalPath: '/articoli-frontaliere/guerra-iran-industria-alimentare-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guerra in Iran: pressione sull'industria alimentare svizzera",
+      "description": "La guerra in Iran sta mettendo sotto pressione l'industria alimentare svizzera, con possibili ripercussioni sui consumatori e sui lavoratori del settore.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guerra-iran-industria-alimentare-svizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con porto industriale moderno sullo sfondo"
+      },
+      "datePublished": "2026-04-27T04:06:00+00:00",
+      "dateModified": "2026-04-27T04:06:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guerra-iran-industria-alimentare-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

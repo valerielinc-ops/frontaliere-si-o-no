@@ -2793,6 +2793,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.premi-non-oltre-10-percento.title': 'Prämien nicht über 10%, die Daten, die die Kosten halbieren',
     'blog.article.premi-non-oltre-10-percento.excerpt': 'Die Regierung des Tessin integriert neue Daten und reduziert die Kosten der Initiative auf 130 Millionen Franken. De Pietro (SUPSI): \'Mehr Engagement im sozio-sanitären Bereich\'',
     'blog.article.premi-non-oltre-10-percento.imageAlt': 'Luganersee mit Blick auf die Stadt',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.title': 'Krieg im Iran: Druck auf die Schweizer Lebensmittelindustrie',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.excerpt': 'Von Schokoladenverkäufen über Flughäfen bis hin zum Handel mit Düngemitteln - der Krieg im Nahen Osten trifft die Schweizer Lebensmittelbranche.',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.imageAlt': 'Luganersee mit einem modernen Industriehafen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -2793,6 +2793,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.premi-non-oltre-10-percento.title': 'Des primes ne dépassant pas 10 %, la donnée qui divise les coûts par deux',
     'blog.article.premi-non-oltre-10-percento.excerpt': 'Le gouvernement tessinois intègre de nouvelles données et réduit les coûts de l\'initiative à 130 millions. De Pietro (SUPSI) : \'Plus d\'engagement dans le socio-sanitaire\'',
     'blog.article.premi-non-oltre-10-percento.imageAlt': 'Lac de Lugano avec vue sur la ville',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.title': 'Guerre en Iran : pression sur l\'industrie alimentaire suisse',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.excerpt': 'Des ventes de chocolat aux aéroports en passant par le commerce d\'engrais, la guerre au Moyen-Orient affecte le secteur alimentaire suisse.',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.imageAlt': 'Lac de Lugano avec un port industriel moderne en arrière-plan',
 };
 
 export default blogMetaFr;

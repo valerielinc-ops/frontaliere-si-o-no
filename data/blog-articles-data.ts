@@ -7504,4 +7504,11 @@ export const ARTICLES = [
  image: '/images/blog/premi-non-oltre-10-percento.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'guerra-iran-industria-alimentare-svizzera',
+ category: 'novita',
+ date: '2026-04-27T04:06:00.242Z',
+ image: '/images/blog/guerra-iran-industria-alimentare-svizzera.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

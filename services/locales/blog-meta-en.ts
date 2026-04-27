@@ -2793,6 +2793,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.premi-non-oltre-10-percento.title': 'No more than 10% premiums, the data that halves costs',
     'blog.article.premi-non-oltre-10-percento.excerpt': 'The Ticino government integrates new data and reduces the initiative\'s costs to 130 million francs. De Pietro (SUPSI): \'More commitment in the socio-health sector\'',
     'blog.article.premi-non-oltre-10-percento.imageAlt': 'Lake Lugano with a view of the city',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.title': 'War in Iran: Pressure on Swiss Food Industry',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.excerpt': 'From chocolate sales to airports and fertilizer trade, the Middle East war impacts the Swiss food sector.',
+    'blog.article.guerra-iran-industria-alimentare-svizzera.imageAlt': 'Lake Lugano with a modern industrial port in the background',
 };
 
 export default blogMetaEn;
