@@ -2245,6 +2245,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-mozione-sirica-ticino-2024': { name: 'Mozione Sirica', path: '/articoli-frontaliere/frontalieri-mozione-sirica-ticino-2024', parent: 'blog' },
     'blog-corsi-gratuiti-varese-sociale-2026': { name: 'Corsi gratuiti', path: '/articoli-frontaliere/corsi-gratuiti-varese-sociale-2026', parent: 'blog' },
     'blog-solaro-rifiuti-differenziata-tariffazione-puntuale': { name: 'Incontri Solaro', path: '/articoli-frontaliere/solaro-rifiuti-differenziata-tariffazione-puntuale', parent: 'blog' },
+    'blog-svizzera-disoccupazione-frontalieri-quadri': { name: 'Novità', path: '/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

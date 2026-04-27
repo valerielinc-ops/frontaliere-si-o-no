@@ -15438,6 +15438,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-disoccupazione-frontalieri-quadri': {
+    title: 'Disoccupazione frontalieri: Quadri, «La | Frontaliere Ticino',
+    description: 'Il consigliere nazionale ticinese Lorenzo Quadri (Lega) presenta una mozione per evitare che la Svizzera versi le indennità di disoccupazione ai frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, quadri, deve, pagare',
+    ogTitle: 'Disoccupazione frontalieri: Quadri, «La Svizzera non deve',
+    ogDescription: 'Il consigliere nazionale ticinese Lorenzo Quadri (Lega) presenta una mozione per evitare che la Svizzera versi le indennità di disoccupazione ai frontalieri.',
+    canonicalPath: '/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione frontalieri: Quadri, «La Svizzera non deve pagare»",
+      "description": "Il consigliere nazionale ticinese Lorenzo Quadri (Lega) presenta una mozione per evitare che la Svizzera versi le indennità di disoccupazione ai frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-disoccupazione-frontalieri-quadri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con la città sullo sfondo"
+      },
+      "datePublished": "2026-04-27T14:00:33+00:00",
+      "dateModified": "2026-04-27T14:00:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

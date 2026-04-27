@@ -7882,4 +7882,11 @@ export const ARTICLES = [
  image: '/images/blog/solaro-rifiuti-differenziata-tariffazione-puntuale.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-disoccupazione-frontalieri-quadri',
+ category: 'novita',
+ date: '2026-04-27T14:00:33.574Z',
+ image: '/images/blog/svizzera-disoccupazione-frontalieri-quadri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

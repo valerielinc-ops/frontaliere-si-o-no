@@ -2955,6 +2955,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.title': 'Solaro: zwei öffentliche Treffen zu Abfall und leistungsabhängiger Gebühr',
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.excerpt': 'Die Gemeinde Solaro organisiert zwei Informationsabende zur Mülltrennung und leistungsabhängigen Gebühr, um die Zweifel der Bürger zu klären.',
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Städten, klarer blauer Himmel',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.title': 'Arbeitslosigkeit von Grenzgängern: Quadri, «Die Schweiz soll nicht zahlen»',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.excerpt': 'Der Tessiner Nationalrat Lorenzo Quadri (Lega) reicht eine Motion ein, um zu verhindern, dass die Schweiz Arbeitslosenentschädigungen an Grenzgänger auszahlt.',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

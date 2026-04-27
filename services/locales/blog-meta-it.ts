@@ -2955,6 +2955,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.title': 'Solaro: due incontri pubblici su rifiuti e tariffazione puntuale',
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.excerpt': 'Il Comune di Solaro organizza due serate informative su raccolta differenziata e tariffazione puntuale per chiarire dubbi ai cittadini.',
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.imageAlt': 'Vista aerea del Lago di Lugano con montagne e paesi circostanti, cielo azzurro limpido',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.title': 'Disoccupazione frontalieri: Quadri, «La Svizzera non deve pagare»',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.excerpt': 'Il consigliere nazionale ticinese Lorenzo Quadri (Lega) presenta una mozione per evitare che la Svizzera versi le indennità di disoccupazione ai frontalieri.',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.imageAlt': 'Vista del Lago di Lugano con la città sullo sfondo',
 };
 
 export default blogMetaIt;

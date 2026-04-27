@@ -2955,6 +2955,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.title': 'Solaro: deux réunions publiques sur les déchets et la tarification incitative',
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.excerpt': 'La commune de Solaro organise deux soirées d\'information sur le tri des déchets et la tarification incitative pour éclaircir les doutes des citoyens.',
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les villes environnantes, ciel bleu clair',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.title': 'Chômage des frontaliers: Quadri, «La Suisse ne doit pas payer»',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.excerpt': 'Le conseiller national tessinois Lorenzo Quadri (Lega) présente une motion pour éviter que la Suisse verse les indemnités de chômage aux frontaliers.',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.imageAlt': 'Vue du lac de Lugano avec la ville en arrière-plan',
 };
 
 export default blogMetaFr;

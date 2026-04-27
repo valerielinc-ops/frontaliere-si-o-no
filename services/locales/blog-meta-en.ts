@@ -2955,6 +2955,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.title': 'Solaro: two public meetings on waste and pay-as-you-throw',
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.excerpt': 'The municipality of Solaro is organizing two informative evenings on waste sorting and pay-as-you-throw to clarify doubts for citizens.',
     'blog.article.solaro-rifiuti-differenziata-tariffazione-puntuale.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns, clear blue sky',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.title': 'Cross-border worker unemployment: Quadri, \'Switzerland should not pay\'',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.excerpt': 'Ticino\'s National Councillor Lorenzo Quadri (Lega) presents a motion to prevent Switzerland from paying unemployment benefits to cross-border workers.',
+    'blog.article.svizzera-disoccupazione-frontalieri-quadri.imageAlt': 'View of Lake Lugano with the city in the background',
 };
 
 export default blogMetaEn;
