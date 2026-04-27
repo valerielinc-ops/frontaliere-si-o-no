@@ -2994,6 +2994,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bando-formazione-professionale-plr-2026.title': 'Bando für die Leitung der Berufsbildung: Die FDP setzt sich erneut ein',
     'blog.article.bando-formazione-professionale-plr-2026.excerpt': 'Die FDP kritisiert die Anforderungen des Ausschreibungsverfahrens für die Leitung der Berufsbildung im Tessin und äußert Bedenken hinsichtlich der Verfahrensführung.',
     'blog.article.bando-formazione-professionale-plr-2026.imageAlt': 'Lugano Stadtbild mit dem Ceresio-See im Vordergrund',
+    'blog.article.lavoratori-pensionati-svizzera-2026.title': 'Arbeitnehmer im Ruhestand in der Schweiz: +220.000 im Jahr 2025',
+    'blog.article.lavoratori-pensionati-svizzera-2026.excerpt': 'Im Jahr 2025 arbeiten 220.000 Menschen weiter nach dem 65. Lebensjahr. Ein wachsendes Phänomen, bei dem 4,5 % der Beschäftigten über 64 Jahre alt sind.',
+    'blog.article.lavoratori-pensionati-svizzera-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund, klarer blauer Himmel',
 };
 
 export default blogMetaDe;

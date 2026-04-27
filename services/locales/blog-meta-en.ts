@@ -2994,6 +2994,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bando-formazione-professionale-plr-2026.title': 'PLR criticizes professional training management tender requirements',
     'blog.article.bando-formazione-professionale-plr-2026.excerpt': 'The PLR criticizes the requirements of the tender for the management of professional training in Ticino, raising concerns about the procedural handling.',
     'blog.article.bando-formazione-professionale-plr-2026.imageAlt': 'Lugano cityscape with Lake Ceresio in the foreground',
+    'blog.article.lavoratori-pensionati-svizzera-2026.title': 'Retired workers in Switzerland: +220,000 by 2025',
+    'blog.article.lavoratori-pensionati-svizzera-2026.excerpt': 'By 2025, 220,000 people will continue working past the age of 65. A growing phenomenon, with 4.5% of employees over 64.',
+    'blog.article.lavoratori-pensionati-svizzera-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky',
 };
 
 export default blogMetaEn;

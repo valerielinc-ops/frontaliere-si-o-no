@@ -2994,6 +2994,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bando-formazione-professionale-plr-2026.title': 'Bando direzione Formazione professionale, il Plr torna alla carica',
     'blog.article.bando-formazione-professionale-plr-2026.excerpt': 'Il PLR critica i requisiti del bando per la direzione della Formazione professionale in Ticino, sollevando perplessità sulla gestione procedurale.',
     'blog.article.bando-formazione-professionale-plr-2026.imageAlt': 'Panorama di Lugano con il lago Ceresio in primo piano',
+    'blog.article.lavoratori-pensionati-svizzera-2026.title': 'Lavoratori pensionati in Svizzera: +220mila nel 2025',
+    'blog.article.lavoratori-pensionati-svizzera-2026.excerpt': 'Nel 2025, 220mila persone continuano a lavorare dopo i 65 anni. Un fenomeno in crescita, con il 4,5% degli occupati over 64',
+    'blog.article.lavoratori-pensionati-svizzera-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido',
 };
 
 export default blogMetaIt;

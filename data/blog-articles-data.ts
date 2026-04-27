@@ -7973,4 +7973,11 @@ export const ARTICLES = [
  image: '/images/blog/bando-formazione-professionale-plr-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavoratori-pensionati-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-27T15:43:26.061Z',
+ image: '/images/blog/lavoratori-pensionati-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

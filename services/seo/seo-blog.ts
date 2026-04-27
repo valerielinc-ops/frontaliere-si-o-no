@@ -15815,6 +15815,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoratori-pensionati-svizzera-2026': {
+    title: 'Lavoratori pensionati in Svizzera | Frontaliere Ticino',
+    description: 'Nel 2025, 220mila persone continuano a lavorare dopo i 65 anni in Svizzera. Scopri le implicazioni per i frontalieri e come pianificare il futuro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoratori, pensionati, 220mila, 2025',
+    ogTitle: 'Lavoratori pensionati in Svizzera: +220mila nel 2025',
+    ogDescription: 'Nel 2025, 220mila persone continuano a lavorare dopo i 65 anni in Svizzera. Scopri le implicazioni per i frontalieri e come pianificare il futuro.',
+    canonicalPath: '/articoli-frontaliere/lavoratori-pensionati-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoratori pensionati in Svizzera: +220mila nel 2025",
+      "description": "Nel 2025, 220mila persone continuano a lavorare dopo i 65 anni in Svizzera. Scopri le implicazioni per i frontalieri e come pianificare il futuro.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoratori-pensionati-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido"
+      },
+      "datePublished": "2026-04-27T15:43:26+00:00",
+      "dateModified": "2026-04-27T15:43:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoratori-pensionati-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

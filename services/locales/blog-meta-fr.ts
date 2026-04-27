@@ -2994,6 +2994,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bando-formazione-professionale-plr-2026.title': 'Appel d\'offres pour la direction de la formation professionnelle, le PLR revient à la charge',
     'blog.article.bando-formazione-professionale-plr-2026.excerpt': 'Le PLR critique les exigences de l\'appel d\'offres pour la direction de la formation professionnelle en Ticino, soulevant des perplexités sur la gestion procédurale.',
     'blog.article.bando-formazione-professionale-plr-2026.imageAlt': 'Panorama de Lugano avec le lac de Ceresio au premier plan',
+    'blog.article.lavoratori-pensionati-svizzera-2026.title': 'Travailleurs retraités en Suisse: +220 mille en 2025',
+    'blog.article.lavoratori-pensionati-svizzera-2026.excerpt': 'En 2025, 220 mille personnes continuent à travailler après 65 ans. Un phénomène en croissance, avec 4,5% des occupants de plus de 64 ans',
+    'blog.article.lavoratori-pensionati-svizzera-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, ciel bleu clair',
 };
 
 export default blogMetaFr;
