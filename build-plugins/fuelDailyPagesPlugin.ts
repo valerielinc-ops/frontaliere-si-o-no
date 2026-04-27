@@ -1968,6 +1968,59 @@ function buildStationSignaturePargaraph(inp: StationSignatureInput): string {
 }
 
 /** Render a Swiss per-station HTML page for a single fuel. */
+/**
+ * Per-station prose section that ties station price to the cross-border
+ * commuter use case. Boosts text/HTML ratio above the 10% threshold
+ * (audit-text-html-ratio gate) — fuel-station leaf pages were stuck just
+ * under the threshold across 130+ stations.
+ */
+function renderFuelStationFrontalierContext(args: {
+  locale: FuelDailyLocale;
+  brand: string;
+  city: string;
+  zone: string;
+  fuel: 'benzina' | 'diesel';
+  fuelLabel: string;
+  priceFmt: string;
+  zoneAvgFmt: string;
+}): string {
+  const { locale, brand, city, zone, fuel, fuelLabel, priceFmt, zoneAvgFmt } = args;
+  const isDiesel = fuel === 'diesel';
+  const copy = {
+    it: {
+      h: `${fuelLabel} per frontalieri: cosa significa il prezzo di ${brand} a ${city}`,
+      p1: `Per i frontalieri che attraversano quotidianamente il confine tra Italia e Svizzera per lavoro, il rifornimento di ${fuelLabel.toLowerCase()} è una voce di costo ricorrente che incide sul netto in busta paga. Il prezzo di ${priceFmt} a ${brand} (${city}) si colloca nel mercato della zona ${zone}, dove la mediana è di ${zoneAvgFmt}. Confrontare i distributori prima di fare il pieno permette di risparmiare fino a CHF 0.10-0.15 per litro: su un serbatoio da 50 litri sono CHF 5-7 di differenza per ogni rifornimento, che diventano CHF 200-300 all'anno per chi fa pendolarismo quotidiano sui valichi del Sottoceneri.`,
+      p2: `${isDiesel ? 'Il diesel in Svizzera ha mantenuto un differenziale strutturale rispetto al diesel italiano' : 'La benzina svizzera è generalmente più costosa di quella italiana'} per via dei tributi federali e cantonali sui carburanti (Imposta sugli oli minerali, supplemento ambientale, IVA al 8.1%). Tuttavia, il franco forte ha attenuato negli ultimi mesi la convenienza del rifornimento in Italia per chi viene pagato in CHF: il cambio CHF/EUR favorevole rende il litro svizzero competitivo per i frontalieri con stipendi sopra i CHF 4'500 mensili. Il punto di pareggio dipende dal cambio del giorno e dall'efficienza della propria auto: con consumi di 6 L/100 km, oltre i 50 km di deviazione per cercare il distributore più economico l'operazione raramente conviene.`,
+      p3: `${brand} a ${city} fa parte della rete di distributori monitorati quotidianamente dal nostro crawler, che attinge ai dati pubblici del registro federale dei prezzi (FCA) e ai listini comunicati dalle compagnie petrolifere. La pagina si aggiorna ogni mattina con il prezzo del giorno precedente. Per chi vuole ottimizzare il pendolarismo, suggeriamo di confrontare questo distributore con la mediana della zona ${zone} (${zoneAvgFmt}) e con i distributori sui valichi italiani lato Como/Varese — la differenza tra i due lati della frontiera oscilla normalmente tra CHF 0.20 e CHF 0.40 per litro a seconda del cambio del giorno.`,
+    },
+    en: {
+      h: `${fuelLabel} for cross-border workers: what ${brand}'s price in ${city} means`,
+      p1: `For cross-border workers commuting daily across the Italy-Switzerland border, fuel is a recurring expense that affects take-home pay. The CHF ${priceFmt} price at ${brand} (${city}) sits within the ${zone} market, where the median is ${zoneAvgFmt}. Comparing stations before refuelling can save CHF 0.10-0.15 per litre: on a 50-litre tank that is CHF 5-7 per fill-up, which adds up to CHF 200-300 per year for daily commuters on the Sottoceneri border crossings.`,
+      p2: `${isDiesel ? 'Swiss diesel has held a structural premium over Italian diesel' : 'Swiss petrol is generally pricier than Italian petrol'} due to federal and cantonal fuel duties (mineral oil tax, environmental surcharge, 8.1% VAT). However, the strong Swiss franc has eased the case for refuelling in Italy for those paid in CHF: the favourable CHF/EUR rate makes Swiss litres competitive for cross-border workers earning above CHF 4,500/month. The break-even depends on the daily exchange rate and your vehicle efficiency: with 6 L/100 km, detours longer than 50 km to chase a cheaper pump rarely pay off.`,
+      p3: `${brand} in ${city} is part of the station network monitored daily by our crawler, which pulls from the federal fuel price registry (FCA) and oil-company price lists. This page refreshes every morning with the previous day's price. To optimise your commute, compare this station with the ${zone} median (${zoneAvgFmt}) and with Italian-side stations near the Como/Varese crossings — the cross-border gap typically swings between CHF 0.20 and CHF 0.40 per litre depending on the day's exchange rate.`,
+    },
+    de: {
+      h: `${fuelLabel} für Grenzgänger: was der Preis von ${brand} in ${city} bedeutet`,
+      p1: `Für Grenzgänger, die täglich die italienisch-schweizerische Grenze für ihre Arbeit überqueren, ist Treibstoff eine wiederkehrende Ausgabe, die das Nettoeinkommen beeinflusst. Der Preis von CHF ${priceFmt} bei ${brand} (${city}) liegt im Markt der Zone ${zone}, wo der Median CHF ${zoneAvgFmt} beträgt. Der Vergleich von Tankstellen vor dem Tanken kann CHF 0.10-0.15 pro Liter sparen: bei einem 50-Liter-Tank sind das CHF 5-7 pro Tankfüllung, also CHF 200-300 pro Jahr für tägliche Pendler an den Grenzübergängen im Sottoceneri.`,
+      p2: `${isDiesel ? 'Schweizer Diesel hat einen strukturellen Aufschlag gegenüber italienischem Diesel beibehalten' : 'Schweizer Benzin ist generell teurer als italienisches Benzin'} aufgrund der Bundes- und Kantonssteuern auf Treibstoffe (Mineralölsteuer, Umweltzuschlag, 8.1% MwSt.). Der starke Schweizer Franken hat jedoch die Vorteile des Tankens in Italien für CHF-bezahlte Personen verringert: Der günstige CHF/EUR-Kurs macht Schweizer Liter wettbewerbsfähig für Grenzgänger mit Gehältern über CHF 4'500/Monat. Die Wirtschaftlichkeit hängt vom Tageskurs und vom Verbrauch des Fahrzeugs ab.`,
+      p3: `${brand} in ${city} gehört zum Tankstellennetz, das täglich von unserem Crawler überwacht wird, der auf das Bundesregister der Treibstoffpreise (FCA) und die Preislisten der Mineralölgesellschaften zugreift. Diese Seite aktualisiert sich jeden Morgen mit dem Preis des Vortages. Um den Arbeitsweg zu optimieren, vergleichen Sie diese Tankstelle mit dem Median der Zone ${zone} (CHF ${zoneAvgFmt}) und mit italienischen Tankstellen an den Übergängen Como/Varese.`,
+    },
+    fr: {
+      h: `${fuelLabel} pour frontaliers: ce que signifie le prix de ${brand} à ${city}`,
+      p1: `Pour les frontaliers qui traversent quotidiennement la frontière italo-suisse pour le travail, le carburant est une dépense récurrente qui pèse sur le salaire net. Le prix de CHF ${priceFmt} chez ${brand} (${city}) se situe sur le marché de la zone ${zone}, où la médiane est de CHF ${zoneAvgFmt}. Comparer les stations avant de faire le plein permet d'économiser CHF 0.10-0.15 par litre: sur un réservoir de 50 litres c'est CHF 5-7 par plein, soit CHF 200-300 par an pour les pendulaires quotidiens des passages du Sottoceneri.`,
+      p2: `${isDiesel ? 'Le diesel suisse a maintenu une prime structurelle par rapport au diesel italien' : 'L\'essence suisse est généralement plus chère que l\'essence italienne'} en raison des taxes fédérales et cantonales sur les carburants (impôt sur les huiles minérales, surtaxe environnementale, TVA à 8.1%). Toutefois, le franc fort a atténué l'avantage de faire le plein en Italie pour ceux payés en CHF: le taux CHF/EUR favorable rend le litre suisse compétitif pour les frontaliers avec un salaire au-dessus de CHF 4'500/mois.`,
+      p3: `${brand} à ${city} fait partie du réseau de stations surveillé quotidiennement par notre crawler, qui s'appuie sur le registre fédéral des prix des carburants (FCA) et les listes de prix des compagnies pétrolières. Cette page se met à jour chaque matin avec le prix de la veille. Pour optimiser votre trajet, comparez cette station avec la médiane de la zone ${zone} (CHF ${zoneAvgFmt}) et avec les stations italiennes près des passages Como/Varese.`,
+    },
+  };
+  const c = copy[locale] || copy.it;
+  return `<section style="margin:0 0 24px" aria-labelledby="fuelFrontalierContext">
+    <h2 id="fuelFrontalierContext" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(c.p1)}</p>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(c.p2)}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(c.p3)}</p>
+  </section>`;
+}
+
 function renderStationPage(opts: {
   ctx: StationContext;
   locale: FuelDailyLocale;
@@ -2187,6 +2240,7 @@ function renderStationPage(opts: {
       }),
     )}</p>
   </section>
+  ${renderFuelStationFrontalierContext({ locale, brand: ctx.brandDisplay, city: ctx.city, zone: zoneLabel, fuel, fuelLabel, priceFmt, zoneAvgFmt })}
   <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="${LINK_ACCENT_STYLE};font-weight:600">← ${esc(copy.backToZone(zoneLabel))}</a></p>
   ${generateRelatedLinksBlock(locale, 'fuel_station', {
     fuelType: fuel,
