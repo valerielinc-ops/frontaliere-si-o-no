@@ -1,22 +1,21 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-04-26T20:43:47.703Z",
+  "generatedAt": "2026-04-27T10:12:53.976Z",
   "total": 4,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 7914,
-  "avgDurationMs": 7914,
+  "unchangedCount": 0,
+  "durationMs": 8616,
+  "avgDurationMs": 8616,
   "durationHistory": [
-    7914
+    8616
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "aldi-suisse-2b7849368ea3",
-      "slug": "impiegato-vendita-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
       "companyDomain": "aldi.ch",
@@ -34,26 +33,24 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-26T20:43:44.189Z",
-      "firstSeenAt": "2026-04-26T08:56:37.599Z",
+      "crawledAt": "2026-04-27T10:12:50.542Z",
       "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
-      "_qualityScore": 96,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 25,
+        "translation": 21,
         "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "aldi-suisse-c84740c470c4",
       "slug": "vice-direttore-di-filiale-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -74,11 +71,11 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "url": "https://www.jobs.aldi.ch/job/1287177101",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-26T20:43:45.451Z",
+      "crawledAt": "2026-04-27T10:12:51.884Z",
       "firstSeenAt": "2026-04-13T09:52:48.221Z",
       "needsRetranslation": true,
       "salaryMin": 82500,
@@ -111,11 +108,11 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "url": "https://www.jobs.aldi.ch/job/1266137901",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-26T20:43:44.193Z",
+      "crawledAt": "2026-04-27T10:12:50.545Z",
       "firstSeenAt": "2026-04-13T09:52:47.610Z",
       "needsRetranslation": true,
       "salaryMin": 59000,
@@ -148,11 +145,11 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-26T20:43:44.183Z",
+      "crawledAt": "2026-04-27T10:12:50.538Z",
       "firstSeenAt": "2026-04-13T09:52:47.605Z",
       "needsRetranslation": true,
       "salaryMin": 46500,
@@ -165,5 +162,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
