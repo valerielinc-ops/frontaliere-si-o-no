@@ -2202,6 +2202,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-polizia-stradale-varese-1600-patenti': { name: 'Novità', path: '/articoli-frontaliere/polizia-stradale-varese-1600-patenti', parent: 'blog' },
     'blog-agricoltori-varesini-sfide-burocrazia': { name: 'Novità', path: '/articoli-frontaliere/agricoltori-varesini-sfide-burocrazia', parent: 'blog' },
     'blog-nuove-banconote-euro-restyling-2026': { name: 'Novità', path: '/articoli-frontaliere/nuove-banconote-euro-restyling-2026', parent: 'blog' },
+    'blog-amazon-made-in-italy-days-2026-ticino': { name: 'Amazon Made in Italy Days', path: '/articoli-frontaliere/amazon-made-in-italy-days-2026-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

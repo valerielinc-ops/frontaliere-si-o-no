@@ -7581,4 +7581,11 @@ export const ARTICLES = [
  image: '/images/blog/nuove-banconote-euro-restyling-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'amazon-made-in-italy-days-2026-ticino',
+ category: 'novita',
+ date: '2026-04-27T09:08:27.710Z',
+ image: '/images/blog/amazon-made-in-italy-days-2026-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

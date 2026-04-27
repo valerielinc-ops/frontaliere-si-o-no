@@ -14191,6 +14191,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-amazon-made-in-italy-days-2026-ticino': {
+    title: 'Amazon Made in Italy Days 2026: 5.500 | Frontaliere Ticino',
+    description: 'Dal 13 al 19 maggio 2026, Amazon ospita 5.500 prodotti Made in Italy su 11 mercati internazionali. Collaborazione con Agenzia Ice. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, amazon, made, italy, days',
+    ogTitle: 'Amazon Made in Italy Days 2026: 5.500 eccellenze italiane in',
+    ogDescription: 'Dal 13 al 19 maggio 2026, Amazon ospita 5.500 prodotti Made in Italy su 11 mercati internazionali. Collaborazione con Agenzia Ice.',
+    canonicalPath: '/articoli-frontaliere/amazon-made-in-italy-days-2026-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Amazon Made in Italy Days 2026: 5.500 eccellenze italiane in vetrina globale",
+      "description": "Dal 13 al 19 maggio 2026, Amazon ospita 5.500 prodotti Made in Italy su 11 mercati internazionali. Collaborazione con Agenzia Ice. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/amazon-made-in-italy-days-2026-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Amazon Made in Italy Days evento a Lugano, Ticino"
+      },
+      "datePublished": "2026-04-27T09:08:27+00:00",
+      "dateModified": "2026-04-27T09:08:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/amazon-made-in-italy-days-2026-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

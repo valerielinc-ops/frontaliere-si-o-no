@@ -2826,6 +2826,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-banconote-euro-restyling-2026.title': 'New euro banknotes: two themes and historical faces in the running',
     'blog.article.nuove-banconote-euro-restyling-2026.excerpt': 'The European Central Bank is speeding up the redesign of euro banknotes with two proposals: European culture and nature. Final decision by the end of 2026.',
     'blog.article.nuove-banconote-euro-restyling-2026.imageAlt': 'New euro banknotes with Lake Lugano view',
+    'blog.article.amazon-made-in-italy-days-2026-ticino.title': 'Amazon Made in Italy Days 2026: 5,500 Italian excellences on global stage',
+    'blog.article.amazon-made-in-italy-days-2026-ticino.excerpt': 'From May 13 to 19, 2026, Amazon will showcase 5,500 Made in Italy products across 11 international markets. Collaboration with Ice Agency.',
+    'blog.article.amazon-made-in-italy-days-2026-ticino.imageAlt': 'Amazon Made in Italy Days event in Lugano, Ticino',
 };
 
 export default blogMetaEn;
