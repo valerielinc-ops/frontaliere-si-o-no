@@ -8113,4 +8113,11 @@ export const ARTICLES = [
  image: '/images/blog/allerta-gialla-temporali-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ostetriche-eoc-mendrisio-2026',
+ category: 'novita',
+ date: '2026-04-27T18:09:02.371Z',
+ image: '/images/blog/ostetriche-eoc-mendrisio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

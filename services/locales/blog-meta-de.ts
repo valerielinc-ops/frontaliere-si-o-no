@@ -3054,6 +3054,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.allerta-gialla-temporali-varese-2026.title': 'Gelbe Warnung vor Gewittern in der gesamten Provinz Varese',
     'blog.article.allerta-gialla-temporali-varese-2026.excerpt': 'Die Schutzbehörde der Region Lombardei hat eine gelbe Wetterwarnung vor Gewittern für die gesamte Provinz Varese herausgegeben, mit Risiken von Schäden und hydraulischen Problemen.',
     'blog.article.allerta-gialla-temporali-varese-2026.imageAlt': 'Stürmischer Himmel über dem Luganersee mit bevorstehendem Regen',
+    'blog.article.ostetriche-eoc-mendrisio-2026.title': 'Hebammen EOC: Konferenz über physiologische Geburt in Mendrisio',
+    'blog.article.ostetriche-eoc-mendrisio-2026.excerpt': 'Am 6. Mai 2026 organisiert das EOC eine öffentliche Konferenz über die Hebammenbetreuung im Spital Mendrisio. Schwerpunkt liegt auf physiologischer Geburt und kontinuierlicher Betreuung.',
+    'blog.article.ostetriche-eoc-mendrisio-2026.imageAlt': 'Konferenz über die Hebammenhilfe im Krankenhaus Mendrisio',
 };
 
 export default blogMetaDe;

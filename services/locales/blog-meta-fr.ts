@@ -3054,6 +3054,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.allerta-gialla-temporali-varese-2026.title': 'Alerte jaune pour des orages sur toute la province de Varèse',
     'blog.article.allerta-gialla-temporali-varese-2026.excerpt': 'La Protection civile de la Région Lombardie a émis une alerte météo jaune pour des orages sur toute la province de Varèse, avec des risques de dommages et de criticités hydrauliques.',
     'blog.article.allerta-gialla-temporali-varese-2026.imageAlt': 'Ciel orageux au-dessus du lac de Lugano avec pluie imminente',
+    'blog.article.ostetriche-eoc-mendrisio-2026.title': 'Sages-femmes EOC : conférence sur l\'accouchement physiologique à Mendrisio',
+    'blog.article.ostetriche-eoc-mendrisio-2026.excerpt': 'Le 6 mai 2026, l\'EOC organise une conférence publique sur les soins obstétricaux à l\'Hôpital de Mendrisio. Focus sur l\'accouchement physiologique et la continuité des soins.',
+    'blog.article.ostetriche-eoc-mendrisio-2026.imageAlt': 'Conférence sur l\'assistance obstétricale à l\'hôpital de Mendrisio',
 };
 
 export default blogMetaFr;

@@ -16395,6 +16395,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ostetriche-eoc-mendrisio-2026': {
+    title: 'Ostetriche EOC: conferenza su parto | Frontaliere Ticino',
+    description: 'Scopri la conferenza sull\'assistenza ostetrica organizzata dall\'EOC a Mendrisio il 6 maggio 2026. Focus su parto fisiologico e continuità assistenziale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ostetriche, conferenza, parto, fisiologico',
+    ogTitle: 'Conferenza ostetriche EOC Mendrisio 2026 | Frontaliere',
+    ogDescription: 'Scopri la conferenza sull\'assistenza ostetrica organizzata dall\'EOC a Mendrisio il 6 maggio 2026. Focus su parto fisiologico e continuità assistenziale.',
+    canonicalPath: '/articoli-frontaliere/ostetriche-eoc-mendrisio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conferenza ostetriche EOC Mendrisio 2026",
+      "description": "Scopri la conferenza sull'assistenza ostetrica organizzata dall'EOC a Mendrisio il 6 maggio 2026. Focus su parto fisiologico e continuità assistenziale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ostetriche-eoc-mendrisio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza sull'assistenza ostetrica all'Ospedale di Mendrisio"
+      },
+      "datePublished": "2026-04-27T18:09:02+00:00",
+      "dateModified": "2026-04-27T18:09:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ostetriche-eoc-mendrisio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

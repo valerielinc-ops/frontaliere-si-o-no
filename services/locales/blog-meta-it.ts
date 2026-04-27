@@ -3054,6 +3054,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.allerta-gialla-temporali-varese-2026.title': 'Allerta gialla per temporali su tutta la provincia di Varese',
     'blog.article.allerta-gialla-temporali-varese-2026.excerpt': 'La Protezione Civile della Regione Lombardia ha emesso un\'allerta meteo gialla per temporali su tutta la provincia di Varese, con rischi di danni e criticità idrauliche.',
     'blog.article.allerta-gialla-temporali-varese-2026.imageAlt': 'Cielo tempestoso sopra il Lago di Lugano con pioggia imminente',
+    'blog.article.ostetriche-eoc-mendrisio-2026.title': 'Ostetriche EOC: conferenza su parto fisiologico a Mendrisio',
+    'blog.article.ostetriche-eoc-mendrisio-2026.excerpt': 'Il 6 maggio 2026 l\'EOC organizza una conferenza pubblica sull\'assistenza ostetrica all\'Ospedale di Mendrisio. Focus su parto fisiologico e continuità assistenziale.',
+    'blog.article.ostetriche-eoc-mendrisio-2026.imageAlt': 'Conferenza sull\'assistenza ostetrica all\'Ospedale di Mendrisio',
 };
 
 export default blogMetaIt;

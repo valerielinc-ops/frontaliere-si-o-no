@@ -3054,6 +3054,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.allerta-gialla-temporali-varese-2026.title': 'Yellow alert for thunderstorms across the province of Varese',
     'blog.article.allerta-gialla-temporali-varese-2026.excerpt': 'The Civil Protection of the Lombardy Region has issued a yellow weather alert for thunderstorms across the entire province of Varese, with risks of damage and hydraulic criticalities.',
     'blog.article.allerta-gialla-temporali-varese-2026.imageAlt': 'Stormy sky over Lake Lugano with impending rain',
+    'blog.article.ostetriche-eoc-mendrisio-2026.title': 'EOC Midwives: Conference on Physiological Birth in Mendrisio',
+    'blog.article.ostetriche-eoc-mendrisio-2026.excerpt': 'On May 6, 2026, EOC is organizing a public conference on midwifery care at Mendrisio Hospital. Focus on physiological birth and continuity of care.',
+    'blog.article.ostetriche-eoc-mendrisio-2026.imageAlt': 'Conference on obstetric assistance at Mendrisio Hospital',
 };
 
 export default blogMetaEn;

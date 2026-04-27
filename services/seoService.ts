@@ -2278,6 +2278,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-multa-svapo-stazioni-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/multa-svapo-stazioni-ticino-2026', parent: 'blog' },
     'blog-svizzera-disoccupazione-frontalieri-quadri-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri-2026', parent: 'blog' },
     'blog-allerta-gialla-temporali-varese-2026': { name: 'Allerta meteo', path: '/articoli-frontaliere/allerta-gialla-temporali-varese-2026', parent: 'blog' },
+    'blog-ostetriche-eoc-mendrisio-2026': { name: 'Conferenza ostetriche', path: '/articoli-frontaliere/ostetriche-eoc-mendrisio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
