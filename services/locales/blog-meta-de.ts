@@ -2904,6 +2904,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-credito-energetico-2026.title': 'Schweiz im Energiekredit: Was sich für Grenzgänger ändert',
     'blog.article.svizzera-credito-energetico-2026.excerpt': 'Ab dem 27. April 2026 deckt die Schweiz 68% ihres Energiebedarfs durch Importe. Hier sind die Auswirkungen für Grenzgänger.',
     'blog.article.svizzera-credito-energetico-2026.imageAlt': 'Panoramablick auf den Luganersee mit Segelbooten und Bergen im Hintergrund',
+    'blog.article.oftalmologi-svizzeri-messico-vista.title': 'Ticinesische Augenärzte in Mexiko: Kostenlose Operationen zur Wiederherstellung des Sehvermögens',
+    'blog.article.oftalmologi-svizzeri-messico-vista.excerpt': 'Ein Team von Schweizer Ärzten, größtenteils aus dem Tessin, operiert kostenlos Patienten im Quintana Roo, Mexiko, um Katarakte zu behandeln.',
+    'blog.article.oftalmologi-svizzeri-messico-vista.imageAlt': 'Ein Team von Schweizer Augenärzten, das in einem mexikanischen Krankenhaus Patienten das Augenlicht wiederherstellt.',
 };
 
 export default blogMetaDe;

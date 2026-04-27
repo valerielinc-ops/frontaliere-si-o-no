@@ -2904,6 +2904,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-credito-energetico-2026.title': 'Switzerland\'s Energy Credit: What Changes for Cross-Border Workers',
     'blog.article.svizzera-credito-energetico-2026.excerpt': 'As of April 27, 2026, Switzerland will rely on imports for 68% of its energy needs. Here\'s what this means for cross-border workers.',
     'blog.article.svizzera-credito-energetico-2026.imageAlt': 'Panoramic view of Lake Lugano with sailboats and mountains in the background',
+    'blog.article.oftalmologi-svizzeri-messico-vista.title': 'Ticino ophthalmologists in Mexico: free surgeries to restore sight',
+    'blog.article.oftalmologi-svizzeri-messico-vista.excerpt': 'A team of Swiss doctors, mostly from Ticino, are performing free cataract surgeries for patients in Quintana Roo, Mexico.',
+    'blog.article.oftalmologi-svizzeri-messico-vista.imageAlt': 'A team of Swiss ophthalmologists operating in a Mexican hospital to restore sight to patients.',
 };
 
 export default blogMetaEn;

@@ -14945,6 +14945,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-oftalmologi-svizzeri-messico-vista': {
+    title: 'Oftalmologi ticinesi in Messico | Frontaliere Ticino',
+    description: 'Un\'équipe di medici svizzeri, in gran parte ticinesi, opera gratuitamente pazienti nel Quintana Roo, Messico, per curare la cataratta. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, oftalmologi, ticinesi, messico, operazioni',
+    ogTitle: 'Oftalmologi ticinesi in Messico: operazioni gratuite',
+    ogDescription: 'Un\'équipe di medici svizzeri, in gran parte ticinesi, opera gratuitamente pazienti nel Quintana Roo, Messico, per curare la cataratta.',
+    canonicalPath: '/articoli-frontaliere/oftalmologi-svizzeri-messico-vista',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Oftalmologi ticinesi in Messico: operazioni gratuite per restituire la vista",
+      "description": "Un'équipe di medici svizzeri, in gran parte ticinesi, opera gratuitamente pazienti nel Quintana Roo, Messico, per curare la cataratta. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/oftalmologi-svizzeri-messico-vista.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un'équipe di oftalmologi svizzeri opera in un ospedale messicano per restituire la vista ai pazienti."
+      },
+      "datePublished": "2026-04-27T11:59:41+00:00",
+      "dateModified": "2026-04-27T11:59:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/oftalmologi-svizzeri-messico-vista`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

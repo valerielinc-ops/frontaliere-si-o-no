@@ -2904,6 +2904,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-credito-energetico-2026.title': 'La Suisse à crédit énergétique : ce qui change pour les frontaliers',
     'blog.article.svizzera-credito-energetico-2026.excerpt': 'À partir du 27 avril 2026, la Suisse dépendra des importations pour 68 % de ses besoins énergétiques. Voici les implications pour les frontaliers.',
     'blog.article.svizzera-credito-energetico-2026.imageAlt': 'Vue panoramique du lac de Lugano avec des voiliers et des montagnes en arrière-plan',
+    'blog.article.oftalmologi-svizzeri-messico-vista.title': 'Ophtalmologistes tessinois au Mexique: opérations gratuites pour rendre la vue',
+    'blog.article.oftalmologi-svizzeri-messico-vista.excerpt': 'Une équipe de médecins suisses, en grande partie tessinois, opère gratuitement des patients dans le Quintana Roo, au Mexique, pour soigner la cataracte.',
+    'blog.article.oftalmologi-svizzeri-messico-vista.imageAlt': 'Une équipe d\'ophtalmologistes suisses opérant dans un hôpital mexicain pour rendre la vue aux patients.',
 };
 
 export default blogMetaFr;

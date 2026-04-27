@@ -7763,4 +7763,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-credito-energetico-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'oftalmologi-svizzeri-messico-vista',
+ category: 'novita',
+ date: '2026-04-27T11:59:41.712Z',
+ image: '/images/blog/oftalmologi-svizzeri-messico-vista.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
