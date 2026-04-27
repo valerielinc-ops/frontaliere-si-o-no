@@ -3033,6 +3033,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.equans-rivera-19-licenziamenti.title': 'Equans Rivera cuts 19 jobs, rejects social plan',
     'blog.article.equans-rivera-19-licenziamenti.excerpt': 'The multinational Equans in Rivera is laying off 19 employees without a social agreement. Lorenzo Jelmini, Ocst: \'It\'s a shame there was no consideration for the territory\'',
     'blog.article.equans-rivera-19-licenziamenti.imageAlt': 'Aerial view of Lake Lugano with Rivera and surrounding mountains',
+    'blog.article.controlli-finanza-comasco-226-persone.title': 'Financial Guards\' Checks: 226 People Identified in Como',
+    'blog.article.controlli-finanza-comasco-226-persone.excerpt': 'Operations by the Financial Guards in the province of Como: 226 people checked, 3 illegal workers discovered, and narcotic substances seized',
+    'blog.article.controlli-finanza-comasco-226-persone.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns',
 };
 
 export default blogMetaEn;

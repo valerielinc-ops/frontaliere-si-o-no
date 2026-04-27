@@ -8064,4 +8064,11 @@ export const ARTICLES = [
  image: '/images/blog/equans-rivera-19-licenziamenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'controlli-finanza-comasco-226-persone',
+ category: 'novita',
+ date: '2026-04-27T17:12:00.344Z',
+ image: '/images/blog/controlli-finanza-comasco-226-persone.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

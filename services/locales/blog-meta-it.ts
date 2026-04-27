@@ -3033,6 +3033,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.equans-rivera-19-licenziamenti.title': 'Equans Rivera taglia 19 posti di lavoro, rifiuta piano sociale',
     'blog.article.equans-rivera-19-licenziamenti.excerpt': 'La multinazionale Equans di Rivera licenzia 19 dipendenti, senza accordo sociale. Lorenzo Jelmini, Ocst: \'Dispiace che non ci sia stato riguardo per il territorio\'',
     'blog.article.equans-rivera-19-licenziamenti.imageAlt': 'Vista aerea del Lago di Lugano con Rivera e le montagne circostanti',
+    'blog.article.controlli-finanza-comasco-226-persone.title': 'Controlli della Finanza: 226 persone identificate in Comasco',
+    'blog.article.controlli-finanza-comasco-226-persone.excerpt': 'Operazioni della Guardia di Finanza in provincia di Como: 226 persone controllate, 3 lavoratori in nero scoperti e sostanze stupefacenti sequestrate',
+    'blog.article.controlli-finanza-comasco-226-persone.imageAlt': 'Vista aerea del Lago di Lugano con montagne e paesi circostanti',
 };
 
 export default blogMetaIt;

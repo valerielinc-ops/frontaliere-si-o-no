@@ -16192,6 +16192,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-finanza-comasco-226-persone': {
+    title: 'Controlli della Finanza: 226 persone | Frontaliere Ticino',
+    description: 'La Guardia di Finanza ha condotto controlli in provincia di Como, identificando 226 persone e scoprendo 3 lavoratori in nero e sostanze stupefacenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, finanza, persone, identificate',
+    ogTitle: 'Controlli Finanza Comasco: 226 persone identificate',
+    ogDescription: 'La Guardia di Finanza ha condotto controlli in provincia di Como, identificando 226 persone e scoprendo 3 lavoratori in nero e sostanze stupefacenti.',
+    canonicalPath: '/articoli-frontaliere/controlli-finanza-comasco-226-persone',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli Finanza Comasco: 226 persone identificate",
+      "description": "La Guardia di Finanza ha condotto controlli in provincia di Como, identificando 226 persone e scoprendo 3 lavoratori in nero e sostanze stupefacenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-finanza-comasco-226-persone.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e paesi circostanti"
+      },
+      "datePublished": "2026-04-27T17:12:00+00:00",
+      "dateModified": "2026-04-27T17:12:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-finanza-comasco-226-persone`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
