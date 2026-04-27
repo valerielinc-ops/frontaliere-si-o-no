@@ -2934,6 +2934,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.title': 'Maxi spiegamento delle Fiamme Gialle nel Comasco: 36 pattuglie e 77 militari',
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.excerpt': 'Controlli intensi nel Comasco: scoperti lavoratori in nero e sequestrati stupefacenti. Ecco i dettagli dell\'operazione.',
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.title': 'Riforma medici famiglia: Sumai, il nodo è organizzazione e carenza professionisti',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.excerpt': 'Antonio Magi, segretario generale del Sumai-Assoprof, contesta l\'idea di dipendenza dei medici di base, evidenziando problemi organizzativi e carenza di professionisti.',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.imageAlt': 'Medico e paziente in consultazione a Lugano',
 };
 
 export default blogMetaIt;

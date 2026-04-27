@@ -15235,6 +15235,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riforma-medici-famiglia-sumai-organizzazione': {
+    title: 'Riforma medici famiglia: Sumai, il nodo | Frontaliere Ticino',
+    description: 'Antonio Magi, segretario generale del Sumai-Assoprof, contesta l\'idea di dipendenza dei medici di base, evidenziando problemi organizzativi e carenza di',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, medici, famiglia, sumai',
+    ogTitle: 'Riforma medici famiglia: Sumai, il nodo è organizzazione |',
+    ogDescription: 'Antonio Magi, segretario generale del Sumai-Assoprof, contesta l\'idea di dipendenza dei medici di base, evidenziando problemi organizzativi e carenza di',
+    canonicalPath: '/articoli-frontaliere/riforma-medici-famiglia-sumai-organizzazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riforma medici famiglia: Sumai, il nodo è organizzazione e carenza professionisti",
+      "description": "Antonio Magi, segretario generale del Sumai-Assoprof, contesta l'idea di dipendenza dei medici di base, evidenziando problemi organizzativi e carenza di",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riforma-medici-famiglia-sumai-organizzazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Medico e paziente in consultazione a Lugano"
+      },
+      "datePublished": "2026-04-27T13:07:01+00:00",
+      "dateModified": "2026-04-27T13:07:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riforma-medici-famiglia-sumai-organizzazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

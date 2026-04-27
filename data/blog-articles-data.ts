@@ -7833,4 +7833,11 @@ export const ARTICLES = [
  image: '/images/blog/maxi-spiegamento-fiamme-gialle-comasco-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'riforma-medici-famiglia-sumai-organizzazione',
+ category: 'novita',
+ date: '2026-04-27T13:07:01.184Z',
+ image: '/images/blog/riforma-medici-famiglia-sumai-organizzazione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

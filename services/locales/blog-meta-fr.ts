@@ -2934,6 +2934,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.title': 'Important déploiement des Douanes dans le Comasco : 36 patrouilles et 77 militaires',
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.excerpt': 'Contrôles intensifs dans le Comasco : des travailleurs au noir et des stupéfiants saisis. Voici les détails de l\'opération.',
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.title': 'Réforme des médecins de famille : Sumai, le nœud est l\'organisation et le manque de professionnels',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.excerpt': 'Antonio Magi, secrétaire général du Sumai-Assoprof, conteste l\'idée de dépendance des médecins de base, soulignant les problèmes organisationnels et le manque de professionnels.',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.imageAlt': 'Médecin et patient en consultation à Lugano',
 };
 
 export default blogMetaFr;

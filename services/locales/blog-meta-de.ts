@@ -2934,6 +2934,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.title': 'Großer Einsatz der Finanzwache im Comersee-Gebiet: 36 Patrouillen und 77 Beamte',
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.excerpt': 'Intensive Kontrollen im Comersee-Gebiet: Schwarzarbeiter entdeckt und Drogen beschlagnahmt. Hier sind die Details der Operation.',
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.title': 'Reform der Hausärzte: Sumai, das Problem ist Organisation und Fachkräftemangel',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.excerpt': 'Antonio Magi, Generalsekretär von Sumai-Assoprof, widerspricht der Idee der Abhängigkeit der Hausärzte und hebt organisatorische Probleme und Fachkräftemangel hervor.',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.imageAlt': 'Arzt und Patient in Konsultation in Lugano',
 };
 
 export default blogMetaDe;

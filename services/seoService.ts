@@ -2238,6 +2238,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-massagno-salario-scandaloso': { name: 'Frontalieri e lavoro', path: '/articoli-frontaliere/frontalieri-massagno-salario-scandaloso', parent: 'blog' },
     'blog-cure-infermieristiche-190mila-firme-2026': { name: 'Cure infermieristiche', path: '/articoli-frontaliere/cure-infermieristiche-190mila-firme-2026', parent: 'blog' },
     'blog-maxi-spiegamento-fiamme-gialle-comasco-2026': { name: 'Novità', path: '/articoli-frontaliere/maxi-spiegamento-fiamme-gialle-comasco-2026', parent: 'blog' },
+    'blog-riforma-medici-famiglia-sumai-organizzazione': { name: 'Riforma medici', path: '/articoli-frontaliere/riforma-medici-famiglia-sumai-organizzazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

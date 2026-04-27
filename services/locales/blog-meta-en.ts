@@ -2934,6 +2934,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.title': 'Massive deployment of the Guardia di Finanza in Como: 36 patrols and 77 officers',
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.excerpt': 'Intense checks in Como: undocumented workers and seized drugs. Here are the details of the operation.',
     'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.title': 'Family doctor reform: Sumai, the issue is organization and lack of professionals',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.excerpt': 'Antonio Magi, general secretary of Sumai-Assoprof, contests the idea of dependency of family doctors, highlighting organizational problems and lack of professionals.',
+    'blog.article.riforma-medici-famiglia-sumai-organizzazione.imageAlt': 'Doctor and patient in consultation in Lugano',
 };
 
 export default blogMetaEn;
