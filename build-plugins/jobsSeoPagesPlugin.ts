@@ -6369,34 +6369,49 @@ ${hreflangLinks}
  // (or a short slug-tail disambiguator when location extraction failed) so
  // sibling orphan pages never collapse to one <title>.
  const hasRealTitle = !!(ejData?.title || gscInfo?.title || slugInfo?.title);
- const slugTail = slug.split('-').slice(-2).join(' ')
-  .replace(/\b\w/g, (c) => c.toUpperCase());
- const titleCityToken = jobLocation || slugInfo?.location || '';
- const uniqueSuffix = titleCityToken
-  ? ` (${esc(titleCityToken)})`
-  : slugTail
-   ? ` (${esc(slugTail)})`
-   : '';
  // Expired jobs from different source slugs (e.g. afc vs cfp variants of the
- // same role+city) produce identical titles after the city-only suffix —
- // Semrush flags this as a title-uniqueness violation. Append a stable
- // slug-hash so every expired soft-landing page gets a unique <title>.
- // The disambiguator is shared with the active-job builder via
+ // same role+city) produce identical titles — Semrush flags as a uniqueness
+ // violation. Append a stable slug-hash so every expired soft-landing page
+ // gets a unique <title>. Shared with the active-job builder via
  // buildTitleDisambiguator so format and length budget match.
  const expiredDisambiguator = buildTitleDisambiguator(slug);
- // Cap the verbose jobTitle head before concatenation. Source feeds
- // (Cantonal job board, university openings) emit 200-300-char titles
- // that include the full role description, eligibility window and
- // department — when piped through `${jobTitle} — ${company} ${uniqueSuffix}…`
- // the resulting <title> reaches 300+ chars (Semrush "title too long",
- // useless SERP snippet). Truncate the head to a soft 55-char budget at
- // a word boundary; uniqueness is still guaranteed by the trailing
- // expiredDisambiguator hash + uniqueSuffix (city / slug-tail).
- const JOB_TITLE_HEAD_BUDGET = 55;
- const truncatedJobTitle = truncateTitleCore(jobTitle, JOB_TITLE_HEAD_BUDGET);
- const pageTitle = hasRealTitle
- ? `${esc(truncatedJobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}${uniqueSuffix}${expiredDisambiguator} | Frontaliere Ticino`
- : `${esc(copy.title)}${uniqueSuffix}${expiredDisambiguator} | Frontaliere Ticino`;
+ // Total <title> budget: 80 char (Google SERP-display ceiling). Layout:
+ //   [headline] + [disambiguator " (#abcdef12)" = 12] + [" | Frontaliere Ticino" = 22]
+ // Headline budget = 80 - 12 - 22 = 46 char, used for
+ // `${headlineCap} — ${shortCompany}` (or just `${headlineCap}` if company
+ // doesn't fit). uniqueSuffix (city / slug-tail) is dropped: the slug-hash
+ // disambiguator already guarantees uniqueness across slugs, and the city
+ // is already encoded in the slug itself.
+ const TITLE_TOTAL_BUDGET = 80;
+ const TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
+ const fixedTailLen = expiredDisambiguator.length + TITLE_BRAND_SUFFIX.length;
+ const headlineBudget = Math.max(20, TITLE_TOTAL_BUDGET - fixedTailLen);
+ let headline: string;
+ if (hasRealTitle) {
+  const cleanTitle = jobTitle.trim();
+  const cleanCompany = jobCompany.trim();
+  if (cleanCompany) {
+   const sepLen = 3; // " — "
+   // Reserve ~25 char for company; ensure title gets at least 15.
+   const targetTitleLen = Math.max(15, headlineBudget - sepLen - 25);
+   const cappedTitle = truncateTitleCore(cleanTitle, targetTitleLen);
+   const remainingForCompany = headlineBudget - cappedTitle.length - sepLen;
+   if (remainingForCompany >= 6) {
+    const cappedCompany = remainingForCompany < cleanCompany.length
+     ? truncateTitleCore(cleanCompany, remainingForCompany)
+     : cleanCompany;
+    headline = `${cappedTitle} — ${cappedCompany}`;
+   } else {
+    // Company doesn't fit at all — drop it, give title the full budget.
+    headline = truncateTitleCore(cleanTitle, headlineBudget);
+   }
+  } else {
+   headline = truncateTitleCore(cleanTitle, headlineBudget);
+  }
+ } else {
+  headline = truncateTitleCore(copy.title, headlineBudget);
+ }
+ const pageTitle = `${esc(headline)}${expiredDisambiguator}${TITLE_BRAND_SUFFIX}`;
 
  const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
