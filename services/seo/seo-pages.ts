@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1010,
+ "numberOfItems": 1011,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5734,7 +5734,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1007, "name": "Violenza domestica: prevenzione a San Gallo", "url": `${BASE_URL}/articoli-frontaliere/prevenzione-violenza-domestica-san-gallo-2026` },
           { "@type": "ListItem", "position": 1008, "name": "Zurigo guida l'economia svizzera, ma cresce men...", "url": `${BASE_URL}/articoli-frontaliere/zurigo-economia-svizzera-crescita-media-2026` },
           { "@type": "ListItem", "position": 1009, "name": "Swisscom avverte: minacce informatiche in aumen...", "url": `${BASE_URL}/articoli-frontaliere/swisscom-minacce-cyber-2026` },
-          { "@type": "ListItem", "position": 1010, "name": "Svizzera, istruzioni per l'uso: le sfide del 2026", "url": `${BASE_URL}/articoli-frontaliere/svizzera-istruzioni-uso-2026` }
+          { "@type": "ListItem", "position": 1010, "name": "Svizzera, istruzioni per l'uso: le sfide del 2026", "url": `${BASE_URL}/articoli-frontaliere/svizzera-istruzioni-uso-2026` },
+          { "@type": "ListItem", "position": 1011, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/reparto-securizzato-pasture-consenso-cantone-comuni` }
  ]
  },
  {

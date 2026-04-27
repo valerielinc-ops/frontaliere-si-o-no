@@ -7735,4 +7735,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-istruzioni-uso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'reparto-securizzato-pasture-consenso-cantone-comuni',
+ category: 'novita',
+ date: '2026-04-27T11:30:31.245Z',
+ image: '/images/blog/reparto-securizzato-pasture-consenso-cantone-comuni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

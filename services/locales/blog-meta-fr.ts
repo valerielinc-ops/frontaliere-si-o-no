@@ -2892,6 +2892,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-istruzioni-uso-2026.title': 'Suisse, mode d\'emploi : les défis de 2026',
     'blog.article.svizzera-istruzioni-uso-2026.excerpt': 'De l\'immigration au logement, voici les sujets brûlants qui transforment le pays',
     'blog.article.svizzera-istruzioni-uso-2026.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
+    'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.title': 'Section sécurisée à Pasture: seulement avec le consentement du Canton et des Communes',
+    'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.excerpt': 'La Commission des institutions politiques du Conseil national a trouvé une voie médiane pour le projet pilote à Pasture, impliquant les entités locales.',
+    'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.imageAlt': 'Vue panoramique de la région de Mendrisiotto dans le Tessin, Suisse',
 };
 
 export default blogMetaFr;

@@ -14829,6 +14829,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-reparto-securizzato-pasture-consenso-cantone-comuni': {
+    title: 'Reparto securizzato a Pasture: solo con | Frontaliere Ticino',
+    description: 'La Commissione delle Istituzioni politiche della Camera bassa ha trovato una via mediana per il progetto pilota a Pasture, coinvolgendo gli enti locali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, reparto, securizzato, pasture, solo',
+    ogTitle: 'Reparto securizzato a Pasture: consenso Cantone e Comuni |',
+    ogDescription: 'La Commissione delle Istituzioni politiche della Camera bassa ha trovato una via mediana per il progetto pilota a Pasture, coinvolgendo gli enti locali.',
+    canonicalPath: '/articoli-frontaliere/reparto-securizzato-pasture-consenso-cantone-comuni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Reparto securizzato a Pasture",
+      "description": "La Commissione delle Istituzioni politiche della Camera bassa ha trovato una via mediana per il progetto pilota a Pasture, coinvolgendo gli enti locali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/reparto-securizzato-pasture-consenso-cantone-comuni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica della regione Mendrisiotto in Ticino, Svizzera"
+      },
+      "datePublished": "2026-04-27T11:30:31+00:00",
+      "dateModified": "2026-04-27T11:30:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/reparto-securizzato-pasture-consenso-cantone-comuni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

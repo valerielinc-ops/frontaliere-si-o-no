@@ -2892,6 +2892,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-istruzioni-uso-2026.title': 'Switzerland, user guide: the challenges of 2026',
     'blog.article.svizzera-istruzioni-uso-2026.excerpt': 'From immigration to housing, here are the hot topics that are changing the country',
     'blog.article.svizzera-istruzioni-uso-2026.imageAlt': 'Aerial view of Lake Lugano with the Ticino landscape',
+    'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.title': 'Secured department in Pasture: only with the consent of Canton and Municipalities',
+    'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.excerpt': 'The Political Institutions Commission of the lower house has found a middle way for the pilot project in Pasture, involving local authorities.',
+    'blog.article.reparto-securizzato-pasture-consenso-cantone-comuni.imageAlt': 'Panoramic view of the Mendrisiotto region in Ticino, Switzerland',
 };
 
 export default blogMetaEn;
