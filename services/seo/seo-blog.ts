@@ -16627,6 +16627,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-minacce-informatiche-svizzera-2026': {
+    title: 'Minacce informatiche in Svizzera | Frontaliere Ticino',
+    description: 'Swisscom rileva un aumento significativo delle minacce informatiche in Svizzera, con rischi crescenti per le imprese a causa dell\'IA e delle tensioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, minacce, informatiche, swisscom, lancia',
+    ogTitle: 'Minacce informatiche in Svizzera: Swisscom lancia l\'allarme',
+    ogDescription: 'Swisscom rileva un aumento significativo delle minacce informatiche in Svizzera, con rischi crescenti per le imprese a causa dell\'IA e delle tensioni',
+    canonicalPath: '/articoli-frontaliere/minacce-informatiche-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Minacce informatiche in Svizzera: Swisscom lancia l'allarme",
+      "description": "Swisscom rileva un aumento significativo delle minacce informatiche in Svizzera, con rischi crescenti per le imprese a causa dell'IA e delle tensioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/minacce-informatiche-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un professionista lavora al laptop in un ufficio moderno con vista sul Lago di Lugano, circondato da tecnologie avanzate e sistemi di sicurezza."
+      },
+      "datePublished": "2026-04-27T18:52:11+00:00",
+      "dateModified": "2026-04-27T18:52:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/minacce-informatiche-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

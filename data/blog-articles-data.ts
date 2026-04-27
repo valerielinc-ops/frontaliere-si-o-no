@@ -8169,4 +8169,11 @@ export const ARTICLES = [
  image: '/images/blog/notifiche-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'minacce-informatiche-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-27T18:52:11.830Z',
+ image: '/images/blog/minacce-informatiche-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

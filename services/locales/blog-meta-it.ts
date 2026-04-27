@@ -3078,6 +3078,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.notifiche-frontalieri-ticino-2026.title': 'Notifiche frontalieri Ticino: -16% nel 2025, ma controlli',
     'blog.article.notifiche-frontalieri-ticino-2026.excerpt': 'Diminuiscono le notifiche irregolari per i frontalieri in Ticino, ma le autorità avvertono: non si può abbassare la guardia. Ecco i dati 2025.',
     'blog.article.notifiche-frontalieri-ticino-2026.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
+    'blog.article.minacce-informatiche-svizzera-2026.title': 'Minacce informatiche in Svizzera: Swisscom lancia l\'allarme',
+    'blog.article.minacce-informatiche-svizzera-2026.excerpt': 'Swisscom rileva un aumento significativo delle minacce informatiche in Svizzera, con rischi crescenti per le imprese a causa dell\'IA e delle tensioni geopolitiche.',
+    'blog.article.minacce-informatiche-svizzera-2026.imageAlt': 'Un professionista lavora al laptop in un ufficio moderno con vista sul Lago di Lugano, circondato da tecnologie avanzate e sistemi di sicurezza.',
 };
 
 export default blogMetaIt;

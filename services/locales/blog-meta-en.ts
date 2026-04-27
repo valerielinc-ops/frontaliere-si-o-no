@@ -3078,6 +3078,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.notifiche-frontalieri-ticino-2026.title': 'Ticino cross-border permits: -16% in 2025, but checks',
     'blog.article.notifiche-frontalieri-ticino-2026.excerpt': 'Irregular notifications for cross-border workers in Ticino decrease, but authorities warn: we can\'t let our guard down. Here are the 2025 data.',
     'blog.article.notifiche-frontalieri-ticino-2026.imageAlt': 'Lake Lugano with a modern building in the background',
+    'blog.article.minacce-informatiche-svizzera-2026.title': 'Cyber threats in Switzerland: Swisscom raises alarm',
+    'blog.article.minacce-informatiche-svizzera-2026.excerpt': 'Swisscom reports a significant increase in cyber threats in Switzerland, with growing risks for businesses due to AI and geopolitical tensions.',
+    'blog.article.minacce-informatiche-svizzera-2026.imageAlt': 'A professional working on a laptop in a modern office with a view of Lake Lugano, surrounded by advanced technology and security systems.',
 };
 
 export default blogMetaEn;

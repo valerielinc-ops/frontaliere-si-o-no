@@ -3078,6 +3078,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.notifiche-frontalieri-ticino-2026.title': 'Grenzgänger Meldungen im Tessin: -16% im 2025, aber',
     'blog.article.notifiche-frontalieri-ticino-2026.excerpt': 'Die unregelmäßigen Meldungen für Grenzgänger im Tessin nehmen ab, doch die Behörden warnen: Man darf die Wachsamkeit nicht senken. Hier sind die Daten für 2025.',
     'blog.article.notifiche-frontalieri-ticino-2026.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
+    'blog.article.minacce-informatiche-svizzera-2026.title': 'Cyberbedrohungen in der Schweiz: Swisscom warnt',
+    'blog.article.minacce-informatiche-svizzera-2026.excerpt': 'Swisscom verzeichnet einen deutlichen Anstieg der Cyberbedrohungen in der Schweiz, mit wachsenden Risiken für Unternehmen aufgrund von KI und geopolitischen Spannungen.',
+    'blog.article.minacce-informatiche-svizzera-2026.imageAlt': 'Ein Fachmann arbeitet an einem Laptop in einem modernen Büro mit Blick auf den Luganersee, umgeben von fortschrittlicher Technologie und Sicherheitssystemen.',
 };
 
 export default blogMetaDe;
