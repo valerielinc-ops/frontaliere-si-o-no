@@ -3024,6 +3024,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.borse-studio-bracco-lombardia-2026.title': 'Bourses d\'études Bracco : 11 opportunités pour les étudiants de six communes lombardes',
     'blog.article.borse-studio-bracco-lombardia-2026.excerpt': 'La Fondation Bracco a lancé un appel à candidatures pour 11 bourses d\'études, avec des contributions allant jusqu\'à 4 000 euros, pour les étudiants méritants de Bovisio Masciago, Ceriano Laghetto, Cesano Maderno, Cogliate, Limbiate et Solaro.',
     'blog.article.borse-studio-bracco-lombardia-2026.imageAlt': 'Étudiants étudiant dans une bibliothèque moderne avec vue sur le lac de Lugano',
+    'blog.article.sportello-me-te-cunardo-marchirolo-2026.title': 'Guichet et rencontres gratuites à Cunardo et Marchirolo avec le projet ME-TE',
+    'blog.article.sportello-me-te-cunardo-marchirolo-2026.excerpt': 'Un cycle de trois rencontres gratuites pour les parents sur la manière d\'aborder les différentes phases évolutives des enfants, promu par le projet ME-TE en collaboration avec le Consultoire Familial des Vallées de Cadegliano Viconago, débutera en mai.',
+    'blog.article.sportello-me-te-cunardo-marchirolo-2026.imageAlt': 'Parents assistent à un événement éducatif à Cunardo ou Marchirolo',
 };
 
 export default blogMetaFr;

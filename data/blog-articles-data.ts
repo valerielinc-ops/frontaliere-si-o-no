@@ -8043,4 +8043,11 @@ export const ARTICLES = [
  image: '/images/blog/borse-studio-bracco-lombardia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sportello-me-te-cunardo-marchirolo-2026',
+ category: 'pratico',
+ date: '2026-04-27T16:49:10.905Z',
+ image: '/images/blog/sportello-me-te-cunardo-marchirolo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

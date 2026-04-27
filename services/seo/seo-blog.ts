@@ -16105,6 +16105,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sportello-me-te-cunardo-marchirolo-2026': {
+    title: 'Sportello e incontri gratuiti a Cunardo | Frontaliere Ticino',
+    description: 'Incontri gratuiti per genitori a Cunardo e Marchirolo con il progetto ME-TE. Scopri come partecipare e le date degli eventi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, sportello, incontri, gratuiti, cunardo',
+    ogTitle: 'Sportello ME-TE a Cunardo e Marchirolo | Frontaliere Ticino',
+    ogDescription: 'Incontri gratuiti per genitori a Cunardo e Marchirolo con il progetto ME-TE. Scopri come partecipare e le date degli eventi.',
+    canonicalPath: '/articoli-frontaliere/sportello-me-te-cunardo-marchirolo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sportello e incontri gratuiti a Cunardo e Marchirolo con il progetto ME-TE",
+      "description": "Incontri gratuiti per genitori a Cunardo e Marchirolo con il progetto ME-TE. Scopri come partecipare e le date degli eventi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sportello-me-te-cunardo-marchirolo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Genitori partecipano a un incontro educativo a Cunardo o Marchirolo"
+      },
+      "datePublished": "2026-04-27T16:49:10+00:00",
+      "dateModified": "2026-04-27T16:49:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sportello-me-te-cunardo-marchirolo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

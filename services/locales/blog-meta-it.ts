@@ -3024,6 +3024,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.borse-studio-bracco-lombardia-2026.title': 'Borse di studio Bracco: 11 opportunità per studenti di sei comuni lombardi',
     'blog.article.borse-studio-bracco-lombardia-2026.excerpt': 'La Fondazione Bracco ha aperto il bando per 11 borse di studio, con contributi fino a 4mila euro, per studenti meritevoli di Bovisio Masciago, Ceriano Laghetto, Cesano Maderno, Cogliate, Limbiate e Solaro.',
     'blog.article.borse-studio-bracco-lombardia-2026.imageAlt': 'Studenti che studiano in una biblioteca moderna con vista sul Lago di Lugano',
+    'blog.article.sportello-me-te-cunardo-marchirolo-2026.title': 'Sportello e incontri gratuiti a Cunardo e Marchirolo con il progetto ME-TE',
+    'blog.article.sportello-me-te-cunardo-marchirolo-2026.excerpt': 'In partenza a maggio un ciclo di tre incontri gratuiti per genitori su come affrontare le diverse fasi evolutive dei figli, promosso dal progetto ME-TE in collaborazione con il Consultorio Familiare delle Valli di Cadegliano Viconago.',
+    'blog.article.sportello-me-te-cunardo-marchirolo-2026.imageAlt': 'Genitori partecipano a un incontro educativo a Cunardo o Marchirolo',
 };
 
 export default blogMetaIt;

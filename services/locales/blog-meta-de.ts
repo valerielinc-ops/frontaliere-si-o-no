@@ -3024,6 +3024,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.borse-studio-bracco-lombardia-2026.title': 'Bracco-Stipendien: 11 Chancen für Studierende aus sechs lombardischen Gemeinden',
     'blog.article.borse-studio-bracco-lombardia-2026.excerpt': 'Die Bracco-Stiftung hat die Bewerbungsfrist für 11 Stipendien mit Beiträgen von bis zu 4000 Franken für verdienstvolle Studierende aus Bovisio Masciago, Ceriano Laghetto, Cesano Maderno, Cogliate, Limbiate und Solaro eröffnet.',
     'blog.article.borse-studio-bracco-lombardia-2026.imageAlt': 'Studenten, die in einer modernen Bibliothek mit Blick auf den Luganersee studieren',
+    'blog.article.sportello-me-te-cunardo-marchirolo-2026.title': 'Kostenlose Beratung und Treffen in Cunardo und Marchirolo mit dem Projekt ME-TE',
+    'blog.article.sportello-me-te-cunardo-marchirolo-2026.excerpt': 'Im Mai startet ein kostenloser Zyklus von drei Treffen für Eltern, wie man die verschiedenen Entwicklungsphasen der Kinder angeht, organisiert vom Projekt ME-TE in Zusammenarbeit mit dem Familienberatungszentrum der Täler von Cadegliano Viconago.',
+    'blog.article.sportello-me-te-cunardo-marchirolo-2026.imageAlt': 'Eltern nehmen an einer Bildungsveranstaltung in Cunardo oder Marchirolo teil',
 };
 
 export default blogMetaDe;
