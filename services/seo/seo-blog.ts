@@ -15322,6 +15322,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-visite-gratuite-prevenzione-tumore-seno-gallarate-lilt': {
+    title: 'Visite gratuite per la prevenzione del | Frontaliere Ticino',
+    description: 'Due giornate di visite senologiche gratuite con ecografia a Gallarate in piazza Libertà nel mese di maggio. Prenotazione obbligatoria al numero 380 8644677.',
+    keywords: 'frontalieri, ticino, svizzera, italia, visite, gratuite, prevenzione, tumore',
+    ogTitle: 'Visite Gratuite Prevenzione Tumore Seno Gallarate |',
+    ogDescription: 'Due giornate di visite senologiche gratuite con ecografia a Gallarate in piazza Libertà nel mese di maggio. Prenotazione obbligatoria al numero 380 8644677.',
+    canonicalPath: '/articoli-frontaliere/visite-gratuite-prevenzione-tumore-seno-gallarate-lilt',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Visite Gratuite per la Prevenzione del Tumore al Seno a Gallarate con la Lilt",
+      "description": "Due giornate di visite senologiche gratuite con ecografia a Gallarate in piazza Libertà nel mese di maggio. Prenotazione obbligatoria al numero 380 8644677.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Visite gratuite per la prevenzione del tumore al seno a Gallarate con la Lilt"
+      },
+      "datePublished": "2026-04-27T13:30:07+00:00",
+      "dateModified": "2026-04-27T13:30:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/visite-gratuite-prevenzione-tumore-seno-gallarate-lilt`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

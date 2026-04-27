@@ -2943,6 +2943,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.universita-varese-intelligenza-artificiale-2026.title': 'Artificial Intelligence at the University of Varese: a morning of studies and comparisons',
     'blog.article.universita-varese-intelligenza-artificiale-2026.excerpt': 'The University of Insubria is organizing an event on artificial intelligence on May 6, 2026, with expert interventions and new guidelines for the University.',
     'blog.article.universita-varese-intelligenza-artificiale-2026.imageAlt': 'Aerial view of Varese\'s historic center with the University of Insubria campus in the foreground',
+    'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.title': 'Free breast cancer prevention visits in Gallarate with LILT',
+    'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.excerpt': 'Two days of free senological visits with ultrasound in Gallarate at Piazza Libertà during the month of May.',
+    'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.imageAlt': 'Free breast cancer prevention visits in Gallarate with Lilt',
 };
 
 export default blogMetaEn;

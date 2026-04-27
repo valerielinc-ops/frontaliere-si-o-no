@@ -2943,6 +2943,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.universita-varese-intelligenza-artificiale-2026.title': 'Intelligenza artificiale all\'Università di Varese: una mattinata di studi e confronti',
     'blog.article.universita-varese-intelligenza-artificiale-2026.excerpt': 'L\'Università dell\'Insubria organizza un evento sull\'intelligenza artificiale il 6 maggio 2026, con interventi di esperti e nuove linee guida per l\'Ateneo.',
     'blog.article.universita-varese-intelligenza-artificiale-2026.imageAlt': 'Vista aerea del centro storico di Varese con il campus dell\'Università dell\'Insubria in primo piano',
+    'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.title': 'Visite gratuite per la prevenzione del tumore al seno a Gallarate con la Lilt',
+    'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.excerpt': 'Due giornate di visite senologiche gratuite con ecografia a Gallarate in piazza Libertà nel mese di maggio.',
+    'blog.article.visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.imageAlt': 'Visite gratuite per la prevenzione del tumore al seno a Gallarate con la Lilt',
 };
 
 export default blogMetaIt;

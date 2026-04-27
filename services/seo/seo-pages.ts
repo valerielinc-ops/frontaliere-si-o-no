@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1027,
+ "numberOfItems": 1028,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5751,7 +5751,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1024, "name": "Maxi spiegamento delle Fiamme Gialle nel Comasc...", "url": `${BASE_URL}/articoli-frontaliere/maxi-spiegamento-fiamme-gialle-comasco-2026` },
           { "@type": "ListItem", "position": 1025, "name": "Riforma medici famiglia: Sumai, il nodo è organ...", "url": `${BASE_URL}/articoli-frontaliere/riforma-medici-famiglia-sumai-organizzazione` },
           { "@type": "ListItem", "position": 1026, "name": "Lavoratori in età pensionabile in Ticino: +220%...", "url": `${BASE_URL}/articoli-frontaliere/lavoratori-pensionati-ticino-2026-2046` },
-          { "@type": "ListItem", "position": 1027, "name": "Intelligenza artificiale all'Università di Vare...", "url": `${BASE_URL}/articoli-frontaliere/universita-varese-intelligenza-artificiale-2026` }
+          { "@type": "ListItem", "position": 1027, "name": "Intelligenza artificiale all'Università di Vare...", "url": `${BASE_URL}/articoli-frontaliere/universita-varese-intelligenza-artificiale-2026` },
+          { "@type": "ListItem", "position": 1028, "name": "Visite Gratuite per la Prevenzione del Tumore a...", "url": `${BASE_URL}/articoli-frontaliere/visite-gratuite-prevenzione-tumore-seno-gallarate-lilt` }
  ]
  },
  {

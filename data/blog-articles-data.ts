@@ -7854,4 +7854,11 @@ export const ARTICLES = [
  image: '/images/blog/universita-varese-intelligenza-artificiale-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'visite-gratuite-prevenzione-tumore-seno-gallarate-lilt',
+ category: 'novita',
+ date: '2026-04-27T13:30:07.164Z',
+ image: '/images/blog/visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
