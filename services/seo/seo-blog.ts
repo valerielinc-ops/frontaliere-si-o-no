@@ -15206,6 +15206,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maxi-spiegamento-fiamme-gialle-comasco-2026': {
+    title: 'Maxi spiegamento delle Fiamme Gialle | Frontaliere Ticino',
+    description: 'Controlli intensi nel Comasco: scoperti lavoratori in nero e sequestrati stupefacenti. Ecco i dettagli dell\'operazione. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, maxi, spiegamento, fiamme, gialle',
+    ogTitle: 'Maxi spiegamento Fiamme Gialle Comasco | Frontaliere Ticino',
+    ogDescription: 'Controlli intensi nel Comasco: scoperti lavoratori in nero e sequestrati stupefacenti. Ecco i dettagli dell\'operazione.',
+    canonicalPath: '/articoli-frontaliere/maxi-spiegamento-fiamme-gialle-comasco-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maxi spiegamento delle Fiamme Gialle nel Comasco: 36 pattuglie e 77 militari, scoperti lavoratori in",
+      "description": "Controlli intensi nel Comasco: scoperti lavoratori in nero e sequestrati stupefacenti. Ecco i dettagli dell'operazione. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maxi-spiegamento-fiamme-gialle-comasco-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-27T12:59:03+00:00",
+      "dateModified": "2026-04-27T12:59:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maxi-spiegamento-fiamme-gialle-comasco-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

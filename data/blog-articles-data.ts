@@ -7826,4 +7826,11 @@ export const ARTICLES = [
  image: '/images/blog/cure-infermieristiche-190mila-firme-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'maxi-spiegamento-fiamme-gialle-comasco-2026',
+ category: 'novita',
+ date: '2026-04-27T12:59:03.761Z',
+ image: '/images/blog/maxi-spiegamento-fiamme-gialle-comasco-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

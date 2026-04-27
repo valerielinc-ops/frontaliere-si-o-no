@@ -2931,6 +2931,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cure-infermieristiche-190mila-firme-2026.title': 'Soins infirmiers : 190\'000 signatures pour l\'application intégrale de l\'initiative',
     'blog.article.cure-infermieristiche-190mila-firme-2026.excerpt': '190\'000 signatures remises à Berne pour l\'application immédiate de l\'initiative sur les soins infirmiers. Le Conseil national discute de la nouvelle loi.',
     'blog.article.cure-infermieristiche-190mila-firme-2026.imageAlt': 'Manifestation d\'infirmières devant le Palais fédéral à Berne',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.title': 'Important déploiement des Douanes dans le Comasco : 36 patrouilles et 77 militaires',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.excerpt': 'Contrôles intensifs dans le Comasco : des travailleurs au noir et des stupéfiants saisis. Voici les détails de l\'opération.',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -2931,6 +2931,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cure-infermieristiche-190mila-firme-2026.title': 'Cure infermieristiche: 190mila firme per l\'applicazione integrale dell\'iniziativa',
     'blog.article.cure-infermieristiche-190mila-firme-2026.excerpt': '190mila firme consegnate a Berna per l\'applicazione immediata dell\'iniziativa sulle cure infermieristiche. Il Consiglio nazionale discute la nuova legge.',
     'blog.article.cure-infermieristiche-190mila-firme-2026.imageAlt': 'Manifestazione di infermieri davanti al Palazzo federale a Berna',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.title': 'Maxi spiegamento delle Fiamme Gialle nel Comasco: 36 pattuglie e 77 militari',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.excerpt': 'Controlli intensi nel Comasco: scoperti lavoratori in nero e sequestrati stupefacenti. Ecco i dettagli dell\'operazione.',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

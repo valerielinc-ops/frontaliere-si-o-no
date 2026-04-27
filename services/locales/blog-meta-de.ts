@@ -2931,6 +2931,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cure-infermieristiche-190mila-firme-2026.title': 'Pflegeleistungen: 190.000 Unterschriften für die vollständige Umsetzung der Initiative',
     'blog.article.cure-infermieristiche-190mila-firme-2026.excerpt': '190.000 Unterschriften wurden in Bern eingereicht, um die sofortige Umsetzung der Initiative zu den Pflegeleistungen zu fordern. Der Nationalrat diskutiert das neue Gesetz.',
     'blog.article.cure-infermieristiche-190mila-firme-2026.imageAlt': 'Protest von Krankenschwestern vor dem Bundeshaus in Bern',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.title': 'Großer Einsatz der Finanzwache im Comersee-Gebiet: 36 Patrouillen und 77 Beamte',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.excerpt': 'Intensive Kontrollen im Comersee-Gebiet: Schwarzarbeiter entdeckt und Drogen beschlagnahmt. Hier sind die Details der Operation.',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

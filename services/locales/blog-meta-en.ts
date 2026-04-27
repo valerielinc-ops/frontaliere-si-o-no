@@ -2931,6 +2931,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cure-infermieristiche-190mila-firme-2026.title': 'Nursing care: 190,000 signatures for full implementation of the initiative',
     'blog.article.cure-infermieristiche-190mila-firme-2026.excerpt': '190,000 signatures handed in to Bern for the immediate application of the initiative on nursing care. The National Council discusses the new law.',
     'blog.article.cure-infermieristiche-190mila-firme-2026.imageAlt': 'Protest of nurses in front of the Federal Palace in Bern',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.title': 'Massive deployment of the Guardia di Finanza in Como: 36 patrols and 77 officers',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.excerpt': 'Intense checks in Como: undocumented workers and seized drugs. Here are the details of the operation.',
+    'blog.article.maxi-spiegamento-fiamme-gialle-comasco-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background',
 };
 
 export default blogMetaEn;
