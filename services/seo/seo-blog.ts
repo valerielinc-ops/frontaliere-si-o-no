@@ -14162,6 +14162,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuove-banconote-euro-restyling-2026': {
+    title: 'Nuove banconote in euro: due temi e | Frontaliere Ticino',
+    description: 'Scopri i due temi proposti per le nuove banconote in euro: cultura europea e natura. Decisione finale entro fine 2026. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, banconote, euro, temi',
+    ogTitle: 'Nuove banconote in euro: restyling e temi in gara',
+    ogDescription: 'Scopri i due temi proposti per le nuove banconote in euro: cultura europea e natura. Decisione finale entro fine 2026.',
+    canonicalPath: '/articoli-frontaliere/nuove-banconote-euro-restyling-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove banconote in euro: restyling e temi in gara",
+      "description": "Scopri i due temi proposti per le nuove banconote in euro: cultura europea e natura. Decisione finale entro fine 2026. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuove-banconote-euro-restyling-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuove banconote in euro con vista del Lago di Lugano"
+      },
+      "datePublished": "2026-04-27T06:46:35+00:00",
+      "dateModified": "2026-04-27T06:46:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuove-banconote-euro-restyling-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

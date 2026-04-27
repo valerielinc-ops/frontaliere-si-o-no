@@ -2823,6 +2823,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agricoltori-varesini-sfide-burocrazia.title': 'Wolf, Wildschweine und Bürokratie: Die Herausforderungen der Landwirte aus Varese',
     'blog.article.agricoltori-varesini-sfide-burocrazia.excerpt': 'Die 79. Generalversammlung von Confagricoltura Varese hebt die Schwierigkeiten des Agrarsektors hervor, zwischen Wildtieren, hohen Kosten und dem Green Deal.',
     'blog.article.agricoltori-varesini-sfide-burocrazia.imageAlt': 'Bauern arbeiten auf einem Feld in Tessin',
+    'blog.article.nuove-banconote-euro-restyling-2026.title': 'Neue Euro-Banknoten: Zwei Themen und historische Gesichter im Wettbewerb',
+    'blog.article.nuove-banconote-euro-restyling-2026.excerpt': 'Die Europäische Zentralbank beschleunigt das Redesign der Euro-Banknoten mit zwei Vorschlägen: europäische Kultur und Natur. Endgültige Entscheidung bis Ende 2026.',
+    'blog.article.nuove-banconote-euro-restyling-2026.imageAlt': 'Neue Euro-Banknoten mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

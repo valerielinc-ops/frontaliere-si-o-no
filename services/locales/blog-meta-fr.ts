@@ -2823,6 +2823,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.agricoltori-varesini-sfide-burocrazia.title': 'Loup, sangliers et bureaucratie : les défis des agriculteurs varésans',
     'blog.article.agricoltori-varesini-sfide-burocrazia.excerpt': 'La 79ème assemblée de Confagricoltura Varese met en évidence les critiques du secteur agricole, entre faune sauvage, coûts élevés et Green Deal.',
     'blog.article.agricoltori-varesini-sfide-burocrazia.imageAlt': 'Agriculteurs travaillant dans un champ au Tessin',
+    'blog.article.nuove-banconote-euro-restyling-2026.title': 'Nouveaux billets en euros : deux thèmes et visages historiques en compétition',
+    'blog.article.nuove-banconote-euro-restyling-2026.excerpt': 'La Banque Centrale Européenne accélère le restyling des billets en euros avec deux propositions : la culture européenne et la nature. Décision finale d\'ici fin 2026.',
+    'blog.article.nuove-banconote-euro-restyling-2026.imageAlt': 'Nouveaux billets en euros avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

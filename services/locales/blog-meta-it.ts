@@ -2823,6 +2823,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agricoltori-varesini-sfide-burocrazia.title': 'Lupo, cinghiali e burocrazia: le sfide degli agricoltori varesini',
     'blog.article.agricoltori-varesini-sfide-burocrazia.excerpt': 'La 79ª assemblea di Confagricoltura Varese evidenzia le criticità del settore agricolo, tra fauna selvatica, costi elevati e Green Deal.',
     'blog.article.agricoltori-varesini-sfide-burocrazia.imageAlt': 'Agricoltori al lavoro in un campo del Ticino',
+    'blog.article.nuove-banconote-euro-restyling-2026.title': 'Nuove banconote in euro: due temi e volti storici in gara',
+    'blog.article.nuove-banconote-euro-restyling-2026.excerpt': 'La Banca Centrale Europea accelera sul restyling delle banconote in euro con due proposte: cultura europea e natura. Decisione finale entro fine 2026.',
+    'blog.article.nuove-banconote-euro-restyling-2026.imageAlt': 'Nuove banconote in euro con vista del Lago di Lugano',
 };
 
 export default blogMetaIt;
