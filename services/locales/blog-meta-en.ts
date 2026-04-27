@@ -3115,6 +3115,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.per-giumai-acquisti-monte-piaroi-2026.title': 'Per Giümai buys last three Monte Piaroi buildings',
     'blog.article.per-giumai-acquisti-monte-piaroi-2026.excerpt': 'The Per Giümai association has completed the purchase of the last three buildings on Monte Piaroi, thanks to private contributions and collaboration with Civil Protection.',
     'blog.article.per-giumai-acquisti-monte-piaroi-2026.imageAlt': 'Aerial view of Monte Piaroi in Ticino, Switzerland, with the surrounding landscape and buildings',
+    'blog.article.rovine-magliaso-scuole-nuove-2026.title': 'Roman ruins found in Magliaso during school construction',
+    'blog.article.rovine-magliaso-scuole-nuove-2026.excerpt': 'Late Roman ruins emerged during work on new elementary schools. Archaeologists at work documenting the finds',
+    'blog.article.rovine-magliaso-scuole-nuove-2026.imageAlt': 'Archaeological excavation in Magliaso with Roman ruins',
 };
 
 export default blogMetaEn;

@@ -8281,4 +8281,11 @@ export const ARTICLES = [
  image: '/images/blog/per-giumai-acquisti-monte-piaroi-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rovine-magliaso-scuole-nuove-2026',
+ category: 'novita',
+ date: '2026-04-27T21:39:17.167Z',
+ image: '/images/blog/rovine-magliaso-scuole-nuove-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

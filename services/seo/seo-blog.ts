@@ -17091,6 +17091,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rovine-magliaso-scuole-nuove-2026': {
+    title: 'Scoperte rovine romane a Magliaso durante costruzione scuole',
+    description: 'Scoperte rovine dell\'epoca tardo romana durante la costruzione delle nuove scuole elementari a Magliaso. Archeologi al lavoro per documentazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scoperte, rovine, romane, magliaso',
+    ogTitle: 'Rovine romane Magliaso: nuove scuole e patrimonio storico',
+    ogDescription: 'Scoperte rovine dell\'epoca tardo romana durante la costruzione delle nuove scuole elementari a Magliaso. Archeologi al lavoro per documentazione.',
+    canonicalPath: '/articoli-frontaliere/rovine-magliaso-scuole-nuove-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scoperte rovine romane a Magliaso durante costruzione scuole",
+      "description": "Scoperte rovine dell'epoca tardo romana durante la costruzione delle nuove scuole elementari a Magliaso. Archeologi al lavoro per documentazione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rovine-magliaso-scuole-nuove-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scavo archeologico a Magliaso con rovine romane"
+      },
+      "datePublished": "2026-04-27T21:39:17+00:00",
+      "dateModified": "2026-04-27T21:39:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rovine-magliaso-scuole-nuove-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

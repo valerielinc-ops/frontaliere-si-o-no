@@ -2299,6 +2299,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-viabilita-varese-racordo-chiuso-2026': { name: 'Viabilità', path: '/articoli-frontaliere/viabilita-varese-racordo-chiuso-2026', parent: 'blog' },
     'blog-furti-biciclette-mendrisiotto-2026': { name: 'Novità', path: '/articoli-frontaliere/furti-biciclette-mendrisiotto-2026', parent: 'blog' },
     'blog-per-giumai-acquisti-monte-piaroi-2026': { name: 'Novità', path: '/articoli-frontaliere/per-giumai-acquisti-monte-piaroi-2026', parent: 'blog' },
+    'blog-rovine-magliaso-scuole-nuove-2026': { name: 'Novità', path: '/articoli-frontaliere/rovine-magliaso-scuole-nuove-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
