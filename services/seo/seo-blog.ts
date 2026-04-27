@@ -13727,6 +13727,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ex-gas-macello-residenze-secondarie': {
+    title: 'Ex Gas ex Macello: residenze | Frontaliere Ticino',
+    description: 'Locarno non aggiorna il piano per il comparto dopo la decisione dell\'Are. La quota di residenze secondarie risulta inefficace. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, macello, residenze, secondarie, quota',
+    ogTitle: 'Ex Gas ex Macello: residenze secondarie, quota inefficace |',
+    ogDescription: 'Locarno non aggiorna il piano per il comparto dopo la decisione dell\'Are. La quota di residenze secondarie risulta inefficace.',
+    canonicalPath: '/articoli-frontaliere/ex-gas-macello-residenze-secondarie',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Ex Gas ex Macello: residenze",
+      "description": "Locarno non aggiorna il piano per il comparto dopo la decisione dell'Are. La quota di residenze secondarie risulta inefficace. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ex-gas-macello-residenze-secondarie.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Locarno, Svizzera, con il Lago Maggiore e le montagne circostanti."
+      },
+      "datePublished": "2026-04-27T02:45:46+00:00",
+      "dateModified": "2026-04-27T02:45:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ex-gas-macello-residenze-secondarie`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

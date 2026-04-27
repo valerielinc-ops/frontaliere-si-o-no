@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 972,
+ "numberOfItems": 973,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5696,7 +5696,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 969, "name": "Relazioni italo-svizzere: novità e sviluppi", "url": `${BASE_URL}/articoli-frontaliere/relazioni-italo-svizzere-2026` },
           { "@type": "ListItem", "position": 970, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/integrazione-inclusione-ticino-2026` },
           { "@type": "ListItem", "position": 971, "name": "Provincia di Como più ricca: cresce il reddito ...", "url": `${BASE_URL}/articoli-frontaliere/reddito-como-2024-frontalieri` },
-          { "@type": "ListItem", "position": 972, "name": "St. Moritz costruisce case con prezzi basati su...", "url": `${BASE_URL}/articoli-frontaliere/st-moritz-case-accessibili-2026` }
+          { "@type": "ListItem", "position": 972, "name": "St. Moritz costruisce case con prezzi basati su...", "url": `${BASE_URL}/articoli-frontaliere/st-moritz-case-accessibili-2026` },
+          { "@type": "ListItem", "position": 973, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/ex-gas-macello-residenze-secondarie` }
  ]
  },
  {

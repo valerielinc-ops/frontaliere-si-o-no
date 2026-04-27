@@ -2778,6 +2778,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.st-moritz-case-accessibili-2026.title': 'St. Moritz costruisce case con prezzi basati sul reddito',
     'blog.article.st-moritz-case-accessibili-2026.excerpt': 'Il comune di St. Moritz avvia la costruzione di 19 appartamenti a prezzi accessibili basati sul reddito, con altri progetti per 150-200 unità abitative in fase di realizzazione.',
     'blog.article.st-moritz-case-accessibili-2026.imageAlt': 'St. Moritz con nuovi alloggi accessibili in costruzione, con le Alpi svizzere sullo sfondo',
+    'blog.article.ex-gas-macello-residenze-secondarie.title': 'Ex Gas ex Macello: residenze secondarie, quota inefficace',
+    'blog.article.ex-gas-macello-residenze-secondarie.excerpt': 'Locarno non aggiorna il piano per il comparto dopo la decisione dell\'Are. La quota di residenze secondarie risulta inefficace.',
+    'blog.article.ex-gas-macello-residenze-secondarie.imageAlt': 'Vista aerea di Locarno, Svizzera, con il Lago Maggiore e le montagne circostanti.',
 };
 
 export default blogMetaIt;

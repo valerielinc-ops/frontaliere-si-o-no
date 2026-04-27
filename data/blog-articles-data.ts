@@ -7469,4 +7469,11 @@ export const ARTICLES = [
  image: '/images/blog/st-moritz-case-accessibili-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ex-gas-macello-residenze-secondarie',
+ category: 'novita',
+ date: '2026-04-27T02:45:46.695Z',
+ image: '/images/blog/ex-gas-macello-residenze-secondarie.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

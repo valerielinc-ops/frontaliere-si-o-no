@@ -2778,6 +2778,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.st-moritz-case-accessibili-2026.title': 'St. Moritz baut Wohnungen mit einkommensabhängigen Preisen',
     'blog.article.st-moritz-case-accessibili-2026.excerpt': 'Die Gemeinde St. Moritz startet den Bau von 19 Wohnungen zu erschwinglichen, einkommensabhängigen Preisen, mit weiteren Projekten für 150-200 Wohneinheiten in der Umsetzung.',
     'blog.article.st-moritz-case-accessibili-2026.imageAlt': 'St. Moritz mit neuem erschwinglichem Wohnraum im Bau, Schweizer Alpen im Hintergrund',
+    'blog.article.ex-gas-macello-residenze-secondarie.title': 'Ex Gas ex Macello: Zweitwohnsitze, Quote unwirksam',
+    'blog.article.ex-gas-macello-residenze-secondarie.excerpt': 'Locarno aktualisiert den Plan für das Areal nicht nach der Entscheidung des Are. Die Quote der Zweitwohnsitze erweist sich als unwirksam.',
+    'blog.article.ex-gas-macello-residenze-secondarie.imageAlt': 'Luftaufnahme von Locarno, Schweiz, mit dem Lago Maggiore und den umliegenden Bergen.',
 };
 
 export default blogMetaDe;

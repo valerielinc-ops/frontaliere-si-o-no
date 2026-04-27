@@ -2186,6 +2186,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-integrazione-inclusione-ticino-2026': { name: 'Integrazione e inclusione', path: '/articoli-frontaliere/integrazione-inclusione-ticino-2026', parent: 'blog' },
     'blog-reddito-como-2024-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/reddito-como-2024-frontalieri', parent: 'blog' },
     'blog-st-moritz-case-accessibili-2026': { name: 'Novità', path: '/articoli-frontaliere/st-moritz-case-accessibili-2026', parent: 'blog' },
+    'blog-ex-gas-macello-residenze-secondarie': { name: 'Novità', path: '/articoli-frontaliere/ex-gas-macello-residenze-secondarie', parent: 'blog' },
  };
 
  const info = sectionNames[section];

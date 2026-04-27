@@ -2778,6 +2778,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.st-moritz-case-accessibili-2026.title': 'St. Moritz builds homes with income-based pricing',
     'blog.article.st-moritz-case-accessibili-2026.excerpt': 'The municipality of St. Moritz is starting the construction of 19 affordable apartments with income-based pricing, with other projects for 150-200 housing units in the works.',
     'blog.article.st-moritz-case-accessibili-2026.imageAlt': 'St. Moritz with new affordable housing under construction, Swiss Alps in the background',
+    'blog.article.ex-gas-macello-residenze-secondarie.title': 'Ex Gas ex Macello: secondary residences, ineffective quota',
+    'blog.article.ex-gas-macello-residenze-secondarie.excerpt': 'Locarno does not update the plan for the sector after the Are\'s decision. The quota of secondary residences proves ineffective.',
+    'blog.article.ex-gas-macello-residenze-secondarie.imageAlt': 'Aerial view of Locarno, Switzerland, with Lake Maggiore and the surrounding mountains.',
 };
 
 export default blogMetaEn;
