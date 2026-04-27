@@ -3094,6 +3094,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-trottinetti-velocita-polizia.title': '58-Jähriger flieht mit Tretroller auf 127 km/h und wird von der Polizei gestoppt',
     'blog.article.frontalieri-trottinetti-velocita-polizia.excerpt': 'Ein 58-Jähriger wurde von der Polizei gestoppt, nachdem er mit einem E-Tretroller in Lugano 127 km/h erreicht hatte',
     'blog.article.frontalieri-trottinetti-velocita-polizia.imageAlt': '58-jähriger flüchtet mit E-Trottinett in Lugano',
+    'blog.article.ats-insubria-soluzioni-ospedali-2026.title': 'ATS Insubria testet verteilte Pflegeheime und Bettenblocker',
+    'blog.article.ats-insubria-soluzioni-ospedali-2026.excerpt': 'Zwei Pilotprojekte zur Reduzierung der Krankenhausaufenthalte und Freihaltung von Betten in der Lombardei, mit regionalen Finanzierungen',
+    'blog.article.ats-insubria-soluzioni-ospedali-2026.imageAlt': 'Moderne Krankenhaus in Tessin mit medizinischem Personal, das ältere Patienten betreut, mit Fokus auf Gesundheitslösungen',
 };
 
 export default blogMetaDe;

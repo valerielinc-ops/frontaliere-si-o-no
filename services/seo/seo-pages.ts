@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1081,
+ "numberOfItems": 1082,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5805,7 +5805,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1078, "name": "Pedaggi autostrada Lombardia: addio viaggi grat...", "url": `${BASE_URL}/articoli-frontaliere/pedaggi-autostrada-lombardia-frontalieri` },
           { "@type": "ListItem", "position": 1079, "name": "Semaforo Melide: un'ora e venti per Paradiso-Me...", "url": `${BASE_URL}/articoli-frontaliere/semaforo-paradiso-melide-2026` },
           { "@type": "ListItem", "position": 1080, "name": "Zurigo guida l'economia svizzera ma cresce meno...", "url": `${BASE_URL}/articoli-frontaliere/zurigo-economia-svizzera-crescita` },
-          { "@type": "ListItem", "position": 1081, "name": "58enne fugge in trottinetti a 127 km/h e viene ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-trottinetti-velocita-polizia` }
+          { "@type": "ListItem", "position": 1081, "name": "58enne fugge in trottinetti a 127 km/h e viene ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-trottinetti-velocita-polizia` },
+          { "@type": "ListItem", "position": 1082, "name": "ATS Insubria sperimenta RSA diffusa e bed block...", "url": `${BASE_URL}/articoli-frontaliere/ats-insubria-soluzioni-ospedali-2026` }
  ]
  },
  {

@@ -16888,6 +16888,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ats-insubria-soluzioni-ospedali-2026': {
+    title: 'ATS Insubria sperimenta RSA diffusa e bed blocker per liberare gli ospedali',
+    description: 'Due progetti pilota per ridurre i tempi di degenza e liberare letti ospedalieri in Lombardia, con finanziamenti regionali. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, insubria, sperimenta, diffusa, blocker',
+    ogTitle: 'ATS Insubria sperimenta RSA diffusa e bed blocker per liberare gli ospedali',
+    ogDescription: 'Due progetti pilota per ridurre i tempi di degenza e liberare letti ospedalieri in Lombardia, con finanziamenti regionali',
+    canonicalPath: '/articoli-frontaliere/ats-insubria-soluzioni-ospedali-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ATS Insubria sperimenta RSA diffusa e bed blocker per liberare gli ospedali",
+      "description": "Due progetti pilota per ridurre i tempi di degenza e liberare letti ospedalieri in Lombardia, con finanziamenti regionali. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ats-insubria-soluzioni-ospedali-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale moderno in Ticino con personale medico che assiste pazienti anziani, con focus su soluzioni sanitarie"
+      },
+      "datePublished": "2026-04-27T20:55:00+00:00",
+      "dateModified": "2026-04-27T20:55:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ats-insubria-soluzioni-ospedali-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

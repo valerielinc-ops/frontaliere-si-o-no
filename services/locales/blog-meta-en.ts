@@ -3094,6 +3094,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-trottinetti-velocita-polizia.title': '58-year-old flees on electric scooter at 127 km/h, stopped by police',
     'blog.article.frontalieri-trottinetti-velocita-polizia.excerpt': 'A 58-year-old was stopped by the police after reaching 127 km/h on an electric scooter in Lugano',
     'blog.article.frontalieri-trottinetti-velocita-polizia.imageAlt': '58-year-old man fleeing on an e-scooter in Lugano',
+    'blog.article.ats-insubria-soluzioni-ospedali-2026.title': 'ATS Insubria tests distributed nursing homes to free up hospital beds',
+    'blog.article.ats-insubria-soluzioni-ospedali-2026.excerpt': 'Two pilot projects to reduce hospital stays and free up beds in Lombardy, with regional funding',
+    'blog.article.ats-insubria-soluzioni-ospedali-2026.imageAlt': 'Modern hospital in Ticino with medical staff assisting elderly patients, focusing on healthcare solutions',
 };
 
 export default blogMetaEn;

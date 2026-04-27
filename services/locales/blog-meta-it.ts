@@ -3095,6 +3095,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-trottinetti-velocita-polizia.title': '58enne fugge in trottinetti a 127 km/h e viene fermato dalla polizia',
     'blog.article.frontalieri-trottinetti-velocita-polizia.excerpt': 'Un 58enne è stato fermato dalla polizia dopo aver raggiunto i 127 km/h su un trottinetti elettrico a Lugano',
     'blog.article.frontalieri-trottinetti-velocita-polizia.imageAlt': 'Uomo di 58 anni fugge in trottinetti elettrico a Lugano',
+    'blog.article.ats-insubria-soluzioni-ospedali-2026.title': 'ATS Insubria sperimenta RSA diffusa e bed blocker per liberare gli ospedali',
+    'blog.article.ats-insubria-soluzioni-ospedali-2026.excerpt': 'Due progetti pilota per ridurre i tempi di degenza e liberare letti ospedalieri in Lombardia, con finanziamenti regionali',
+    'blog.article.ats-insubria-soluzioni-ospedali-2026.imageAlt': 'Ospedale moderno in Ticino con personale medico che assiste pazienti anziani, con focus su soluzioni sanitarie',
 };
 
 export default blogMetaIt;

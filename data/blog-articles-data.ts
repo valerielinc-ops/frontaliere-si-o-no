@@ -8232,4 +8232,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-trottinetti-velocita-polizia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ats-insubria-soluzioni-ospedali-2026',
+ category: 'novita',
+ date: '2026-04-27T20:55:00.743Z',
+ image: '/images/blog/ats-insubria-soluzioni-ospedali-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
