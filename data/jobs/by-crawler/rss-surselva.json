@@ -174,11 +174,11 @@
     },
     {
       "id": "rss-surselva-f1decb860110",
-      "slug": "med-praxisassistenz-administrationshilfe-per-la-radiologie-30-40-regionalspital-surselva-ilanz",
+      "slug": "assistenza-medica-supporto-amministrativo-per-la-radiologia-30-40-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-rss-surselva-ch",
-        "it": "med-praxisassistenz-administrationshilfe-per-la-radiologie-30-40-regionalspital-surselva-ilanz",
-        "en": "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-regionalspital-surselva-ilanz",
+        "it": "assistenza-medica-supporto-amministrativo-per-la-radiologia-30-40-regionalspital-surselva-ilanz",
+        "en": "medical-practice-assistance-administrative-support-for-radiology-30-40-regionalspital-surselva-ilanz",
         "fr": "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -228,11 +228,17 @@
       "pensumMax": 40,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-rss-surselva-ch"
+          "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-rss-surselva-ch",
+          "med-praxisassistenz-administrationshilfe-per-la-radiologie-30-40-regionalspital-surselva-ilanz"
+        ],
+        "en": [
+          "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-rss-surselva-ch"
+        "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-rss-surselva-ch",
+        "med-praxisassistenz-administrationshilfe-per-la-radiologie-30-40-regionalspital-surselva-ilanz",
+        "med-praxisassistenz-administrationshilfe-fur-die-radiologie-30-40-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -414,12 +420,12 @@
     },
     {
       "id": "rss-surselva-609a7aff3056",
-      "slug": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
+      "slug": "esperto-a-in-emergenza-medica-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
-        "it": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
+        "it": "esperto-a-in-emergenza-medica-100-regionalspital-surselva-ilanz",
         "en": "dipl-experten-expertin-hf-notfallpflege-100-regionalspital-surselva-ilanz",
-        "fr": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
+        "fr": "expert-e-en-soins-d-urgence-hf-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -478,7 +484,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T11:31:10.133Z"
+      "firstSeenAt": "2026-04-27T11:31:10.133Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
+        ],
+        "fr": [
+          "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
+      ]
     },
     {
       "id": "rss-surselva-9b4c791a3514",

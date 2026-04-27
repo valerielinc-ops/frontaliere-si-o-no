@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-fad4b3a0e88f",
-      "slug": "collaboratore-trice-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "impiegato-turno-di-chiusura-30-ore-lun-mer-gio-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "it": "collaboratore-trice-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "it": "impiegato-turno-di-chiusura-30-ore-lun-mer-gio-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "closing-shift-employee-30-hours-mon-wed-fri-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "employe-tour-de-fermeture-30-heures-lun-mer-ven-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -48,14 +48,23 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-schlussdienst-30-std-m-w-d-hilcona-pfaffstatt"
+          "mitarbeiter-schlussdienst-30-std-m-w-d-hilcona-pfaffstatt",
+          "collaboratore-trice-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ],
         "de": [
           "mitarbeiter-schlussdienst-30-std-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-schlussdienst-30-std-m-w-d-hilcona-pfaffstatt"
+        "mitarbeiter-schlussdienst-30-std-m-w-d-hilcona-pfaffstatt",
+        "collaboratore-trice-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -74,12 +83,12 @@
     },
     {
       "id": "hilcona-32d6efa86772",
-      "slug": "category-cluster-lead-raw-materials-m-w-d-hilcona-radolfzell",
+      "slug": "responsabile-cluster-materie-prima-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
         "de": "category-cluster-lead-raw-materials-m-w-d-hilcona-radolfzell",
-        "it": "category-cluster-lead-raw-materials-m-w-d-hilcona-radolfzell",
+        "it": "responsabile-cluster-materie-prima-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "category-cluster-lead-raw-materials-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "fr": "category-cluster-lead-raw-materials-m-w-d-hilcona-radolfzell"
+        "fr": "responsable-cluster-matieres-premieres-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -129,7 +138,18 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-27T11:02:50.821Z"
+      "firstSeenAt": "2026-04-27T11:02:50.821Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "category-cluster-lead-raw-materials-m-w-d-hilcona-radolfzell"
+        ],
+        "fr": [
+          "category-cluster-lead-raw-materials-m-w-d-hilcona-radolfzell"
+        ]
+      },
+      "previousSlugs": [
+        "category-cluster-lead-raw-materials-m-w-d-hilcona-radolfzell"
+      ]
     },
     {
       "id": "hilcona-fc233f60f0bb",

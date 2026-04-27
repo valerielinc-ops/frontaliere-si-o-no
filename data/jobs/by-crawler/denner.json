@@ -9,7 +9,7 @@
         "it": "student-in-come-ferienaushilfe-denner-zurich",
         "en": "student-in-als-ferienaushilfe-denner-zurich",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-vacances-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -71,6 +71,9 @@
         ],
         "en": [
           "student-in-als-ferienaushilfe-denner-horw"
+        ],
+        "fr": [
+          "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [
@@ -94,11 +97,11 @@
     },
     {
       "id": "denner-d9f206060d2d",
-      "slug": "etudiant-etudiante-denner",
+      "slug": "studente-denner-sion",
       "slugByLocale": {
-        "it": "etudiant-etudiante-denner",
-        "en": "etudiant-etudiante-denner-murten-mvukct",
-        "de": "etudiant-etudiante-denner-murten-mvukct",
+        "it": "studente-denner-sion",
+        "en": "student-denner-sion",
+        "de": "schuler-denner-sion",
         "fr": "etudiant-etudiante-denner-sion"
       },
       "company": "Denner",
@@ -156,14 +159,22 @@
       "crawledAt": "2026-04-27T10:45:37.635Z",
       "previousSlugsByLocale": {
         "it": [
-          "studente-studentessa-denner-murten"
+          "studente-studentessa-denner-murten",
+          "etudiant-etudiante-denner"
         ],
         "fr": [
+          "etudiant-etudiante-denner-murten-mvukct"
+        ],
+        "en": [
+          "etudiant-etudiante-denner-murten-mvukct"
+        ],
+        "de": [
           "etudiant-etudiante-denner-murten-mvukct"
         ]
       },
       "previousSlugs": [
         "studente-studentessa-denner-murten",
+        "etudiant-etudiante-denner",
         "etudiant-etudiante-denner-murten-mvukct"
       ],
       "salaryMin": 59000,
@@ -182,12 +193,12 @@
     },
     {
       "id": "denner-8b1b47bccf0e",
-      "slug": "student-in-im-stundenlohn-denner",
+      "slug": "studente-in-salario-orario-denner-bellach",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studente-in-salario-orario-denner-bellach",
         "en": "student-in-im-stundenlohn-denner-bellach",
         "de": "student-in-im-stundenlohn-denner",
-        "fr": "student-in-im-stundenlohn-denner"
+        "fr": "etudiant-en-salaire-horaire-denner-bellach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -245,10 +256,17 @@
       "previousSlugsByLocale": {
         "en": [
           "student-in-im-stundenlohn-denner-biel-bienne"
+        ],
+        "it": [
+          "student-in-im-stundenlohn-denner"
+        ],
+        "fr": [
+          "student-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
-        "student-in-im-stundenlohn-denner-biel-bienne"
+        "student-in-im-stundenlohn-denner-biel-bienne",
+        "student-in-im-stundenlohn-denner"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -362,12 +380,12 @@
     },
     {
       "id": "denner-d13999439b5c",
-      "slug": "verkaufer-in-im-stundenlohn-denner-brugg-be",
+      "slug": "venditore-in-salario-orario-denner-brugg-be",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-brugg-be",
-        "en": "verkaufer-in-im-stundenlohn-denner-brugg-be",
+        "it": "venditore-in-salario-orario-denner-brugg-be",
+        "en": "seller-in-in-hourly-wage-denner-brugg-be",
         "de": "verkaufer-in-im-stundenlohn-denner-brugg-be",
-        "fr": "verkaufer-in-im-stundenlohn-denner-brugg-be"
+        "fr": "vendeur-en-salaire-horaire-denner-brugg-be"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -426,20 +444,24 @@
       "crawledAt": "2026-04-27T10:45:35.970Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-brugg-be"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-brugg-be"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-brugg-be"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-brugg-be",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -661,12 +683,12 @@
     },
     {
       "id": "denner-d1df27d4f8ab",
-      "slug": "filialleiter-in-in-ausbildung-denner-chur",
+      "slug": "capofila-dell-istruzione-denner-chur",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-chur",
-        "en": "filialleiter-in-in-ausbildung-denner-chur",
+        "it": "capofila-dell-istruzione-denner-chur",
+        "en": "head-of-branch-in-education-denner-chur",
         "de": "filialleiter-in-in-ausbildung-denner-chur",
-        "fr": "filialleiter-in-in-ausbildung-denner-chur"
+        "fr": "chef-de-division-en-education-denner-chur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -725,20 +747,24 @@
       "crawledAt": "2026-04-27T10:45:28.628Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-chur"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-chur"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-chur"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-chur",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -952,12 +978,12 @@
     },
     {
       "id": "denner-d6673fb90a2b",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-flims-dorf",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-flims-dorf",
+        "en": "assistant-in-branch-management-denner-flims-dorf",
         "de": "assistent-in-filialleitung-denner-flims-dorf",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1026,7 +1052,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T10:45:27.851Z"
+      "firstSeenAt": "2026-04-27T10:45:27.851Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+      ]
     }
   ]
 }
