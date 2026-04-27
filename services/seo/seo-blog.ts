@@ -15380,6 +15380,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-corsi-gratuiti-varese-sociale-2026': {
+    title: 'Ami aiutare gli altri? Corsi gratuiti a | Frontaliere Ticino',
+    description: 'Your Self Company offre corsi gratuiti per ASA, OSS e ASACOM a Varese. Finanziati da Regione Lombardia, posti limitati. Iscrizioni aperte. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aiutare, altri, corsi, gratuiti',
+    ogTitle: 'Corsi gratuiti Varese sociale | Frontaliere Ticino',
+    ogDescription: 'Your Self Company offre corsi gratuiti per ASA, OSS e ASACOM a Varese. Finanziati da Regione Lombardia, posti limitati. Iscrizioni aperte.',
+    canonicalPath: '/articoli-frontaliere/corsi-gratuiti-varese-sociale-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Corsi gratuiti Varese sociale | Frontaliere Ticino",
+      "description": "Your Self Company offre corsi gratuiti per ASA, OSS e ASACOM a Varese. Finanziati da Regione Lombardia, posti limitati. Iscrizioni aperte. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/corsi-gratuiti-varese-sociale-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulle montagne circostanti"
+      },
+      "datePublished": "2026-04-27T13:44:20+00:00",
+      "dateModified": "2026-04-27T13:44:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/corsi-gratuiti-varese-sociale-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

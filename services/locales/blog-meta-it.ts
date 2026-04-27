@@ -2949,6 +2949,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-mozione-sirica-ticino-2024.title': 'Frontalieri: mozione contro discriminazione lavorativa in Ticino',
     'blog.article.frontalieri-mozione-sirica-ticino-2024.excerpt': 'Fabrizio Sirica presenta mozione per contrastare il dumping salariale e favorire l\'occupazione dei residenti',
     'blog.article.frontalieri-mozione-sirica-ticino-2024.imageAlt': 'Un giornalista scrive appunti davanti a un edificio governativo del Ticino a Mendrisio',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.title': 'Ami aiutare gli altri? Corsi gratuiti a Varese per il sociale',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.excerpt': 'Your Self Company offre corsi gratuiti per ASA, OSS e ASACOM finanziati da Regione Lombardia. Posti limitati, iscrizioni aperte.',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.imageAlt': 'Lago di Lugano con vista sulle montagne circostanti',
 };
 
 export default blogMetaIt;

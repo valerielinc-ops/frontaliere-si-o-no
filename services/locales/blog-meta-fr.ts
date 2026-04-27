@@ -2949,6 +2949,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-mozione-sirica-ticino-2024.title': 'Frontaliers: motion contre la discrimination professionnelle au Tessin',
     'blog.article.frontalieri-mozione-sirica-ticino-2024.excerpt': 'Fabrizio Sirica présente une motion pour lutter contre le dumping salarial et favoriser l\'emploi des résidents',
     'blog.article.frontalieri-mozione-sirica-ticino-2024.imageAlt': 'Un journaliste prend des notes devant un bâtiment gouvernemental du Tessin à Mendrisio',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.title': 'Aimez-vous aider les autres ? Cours gratuits à Varèse pour le social',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.excerpt': 'Your Self Company propose des cours gratuits pour ASA, OSS et ASACOM financés par la Région Lombardie. Nombre de places limité, inscriptions ouvertes.',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.imageAlt': 'Lac de Lugano avec vue sur les montagnes environnantes',
 };
 
 export default blogMetaFr;

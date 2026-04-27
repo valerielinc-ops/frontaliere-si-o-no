@@ -2949,6 +2949,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-mozione-sirica-ticino-2024.title': 'Grenzgänger: Motion gegen Arbeitsdiskriminierung im Tessin',
     'blog.article.frontalieri-mozione-sirica-ticino-2024.excerpt': 'Fabrizio Sirica reicht Motion ein, um Lohn-Dumping zu bekämpfen und die Beschäftigung von Einheimischen zu fördern',
     'blog.article.frontalieri-mozione-sirica-ticino-2024.imageAlt': 'Ein Journalist macht Notizen vor einem Regierungsgebäude in Mendrisio, Ticino',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.title': 'Möchtest du anderen helfen? Kostenlose Kurse in Varese im sozialen Bereich',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.excerpt': 'Your Self Company bietet kostenlose Kurse für ASA, OSS und ASACOM an, die von der Region Lombardei finanziert werden. Begrenzte Plätze, Anmeldungen sind offen.',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.imageAlt': 'Luganersee mit Blick auf die umliegenden Berge',
 };
 
 export default blogMetaDe;

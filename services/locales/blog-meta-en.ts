@@ -2949,6 +2949,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-mozione-sirica-ticino-2024.title': 'Cross-border workers: motion against workplace discrimination in Ticino',
     'blog.article.frontalieri-mozione-sirica-ticino-2024.excerpt': 'Fabrizio Sirica presents motion to combat wage dumping and promote employment of residents',
     'blog.article.frontalieri-mozione-sirica-ticino-2024.imageAlt': 'A journalist taking notes in front of a Ticino government building in Mendrisio',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.title': 'Do you like helping others? Free social courses in Varese',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.excerpt': 'Your Self Company offers free courses for ASA, OSS, and ASACOM, funded by Regione Lombardia. Limited spots, registrations open.',
+    'blog.article.corsi-gratuiti-varese-sociale-2026.imageAlt': 'Lake Lugano with a view of the surrounding mountains',
 };
 
 export default blogMetaEn;
