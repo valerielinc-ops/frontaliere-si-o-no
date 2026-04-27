@@ -2264,6 +2264,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-negoziati-falliti-stretto-hormuz-2026': { name: 'Novità', path: '/articoli-frontaliere/negoziati-falliti-stretto-hormuz-2026', parent: 'blog' },
     'blog-roadmap-violenza-domestica-bilancio-positivo': { name: 'Novità', path: '/articoli-frontaliere/roadmap-violenza-domestica-bilancio-positivo', parent: 'blog' },
     'blog-benessere-integrita-allievi-bellinzona-2026': { name: 'Novità', path: '/articoli-frontaliere/benessere-integrita-allievi-bellinzona-2026', parent: 'blog' },
+    'blog-cosa-significa-made-switzerland': { name: 'Novità', path: '/articoli-frontaliere/cosa-significa-made-switzerland', parent: 'blog' },
  };
 
  const info = sectionNames[section];

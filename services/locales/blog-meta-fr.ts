@@ -3012,6 +3012,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.benessere-integrita-allievi-bellinzona-2026.title': 'Bien-être et intégrité des élèves : nouveaux projets à Bellinzone',
     'blog.article.benessere-integrita-allievi-bellinzona-2026.excerpt': 'L\'Institut scolaire de Bellinzone lance trois programmes éducatifs avec la Fondation ASPI pour le bien-être des élèves',
     'blog.article.benessere-integrita-allievi-bellinzona-2026.imageAlt': 'Vue aérienne du Château de Castelgrande à Bellinzona, Tessin',
+    'blog.article.cosa-significa-made-switzerland.title': 'Fabriqué en Suisse : ce qui change pour les produits suisses',
+    'blog.article.cosa-significa-made-switzerland.excerpt': 'Découvrez les nouvelles règles pour l\'utilisation de la marque Swiss Made et son impact économique. L\'Institut fédéral de la propriété intellectuelle a modifié les normes.',
+    'blog.article.cosa-significa-made-switzerland.imageAlt': 'Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;

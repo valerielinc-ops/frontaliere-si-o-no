@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1050,
+ "numberOfItems": 1051,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5774,7 +5774,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1047, "name": "Nuovi Esperti in Gestione dell’Energia certific...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-esperti-gestione-energia-varese` },
           { "@type": "ListItem", "position": 1048, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/negoziati-falliti-stretto-hormuz-2026` },
           { "@type": "ListItem", "position": 1049, "name": "Roadmap violenza domestica: Jans traccia un bil...", "url": `${BASE_URL}/articoli-frontaliere/roadmap-violenza-domestica-bilancio-positivo` },
-          { "@type": "ListItem", "position": 1050, "name": "Nuovi programmi educativi a Bellinzona per il b...", "url": `${BASE_URL}/articoli-frontaliere/benessere-integrita-allievi-bellinzona-2026` }
+          { "@type": "ListItem", "position": 1050, "name": "Nuovi programmi educativi a Bellinzona per il b...", "url": `${BASE_URL}/articoli-frontaliere/benessere-integrita-allievi-bellinzona-2026` },
+          { "@type": "ListItem", "position": 1051, "name": "Made in Switzerland: cosa cambia per i prodotti...", "url": `${BASE_URL}/articoli-frontaliere/cosa-significa-made-switzerland` }
  ]
  },
  {

@@ -3012,6 +3012,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benessere-integrita-allievi-bellinzona-2026.title': 'Well-being and integrity of students: new projects in Bellinzona',
     'blog.article.benessere-integrita-allievi-bellinzona-2026.excerpt': 'The Bellinzona School Institute is launching three educational programs with the ASPI Foundation for the well-being of students',
     'blog.article.benessere-integrita-allievi-bellinzona-2026.imageAlt': 'Aerial view of Castelgrande Castle in Bellinzona, Ticino',
+    'blog.article.cosa-significa-made-switzerland.title': 'Made in Switzerland: what changes for Swiss products',
+    'blog.article.cosa-significa-made-switzerland.excerpt': 'Discover the new rules for the use of the Swiss Made brand and its economic impact. The Federal Institute of Intellectual Property has amended the regulations.',
+    'blog.article.cosa-significa-made-switzerland.imageAlt': 'Castelgrande in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;
