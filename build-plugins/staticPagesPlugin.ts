@@ -23,6 +23,30 @@ import {
 } from './jobBoardSeo';
 import { emitSeoHubs } from './seoHubsPlugin';
 
+// ── SPA shell <title> length cap ──────────────────────────────────────
+// The universal "never truncate" policy lets some SPA shell pages
+// (border-wait, dialect, fuel-related landings) emit titles that overflow
+// Google's SERP-display soft budget (~90 chars including the brand suffix).
+// capTitle90() preserves the brand suffix and truncates the headline portion
+// at a word boundary so the total stays ≤90 char. Single-page only — does
+// not collapse pages to identical titles because the unique part of these
+// shell-page titles is at the start (city/canton/dialect segment).
+function capTitle90(s: string): string {
+ const TARGET = 90;
+ if (!s || s.length <= TARGET) return s;
+ const SUFFIX_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
+ const hasBrand = SUFFIX_RE.test(s);
+ const suffixMatch = s.match(SUFFIX_RE);
+ const suffix = suffixMatch ? suffixMatch[0] : '';
+ const head = hasBrand ? s.slice(0, s.length - suffix.length) : s;
+ const headTarget = TARGET - suffix.length - 1; // -1 for ellipsis
+ if (headTarget < 12) return s;
+ const slice = head.slice(0, headTarget);
+ const lastSpace = slice.lastIndexOf(' ');
+ const cut = lastSpace > headTarget * 0.4 ? slice.slice(0, lastSpace) : slice;
+ return cut.replace(/[\s.,;:\-–—|]+$/u, '') + '…' + suffix;
+}
+
 // ── FAQ page dedicated pre-rendering ──────────────────────────────────
 // The dedicated FAQ page at /domande-frequenti-frontalieri/ has 30 Q&A pairs
 // organized in 6 categories (5 questions each). We read these from the locale
@@ -2616,7 +2640,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>${esc(seoData.title)}</title>
+ <title>${esc(capTitle90(seoData.title))}</title>
  <meta name="description" content="${esc(seoData.desc)}">
  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
  <link rel="canonical" href="${fullUrl}">
@@ -2702,7 +2726,7 @@ ${hubChromeSplit.bodyHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>${esc(seoData.title)}</title>
+ <title>${esc(capTitle90(seoData.title))}</title>
  <meta name="description" content="${esc(seoData.desc)}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}">
  <link rel="canonical" href="${fullUrl}">
@@ -2745,7 +2769,7 @@ ${hrefTags}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>${esc(seoData.title)}</title>
+ <title>${esc(capTitle90(seoData.title))}</title>
  <meta name="description" content="${esc(seoData.desc)}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}">
  <link rel="canonical" href="${fullUrl}">
