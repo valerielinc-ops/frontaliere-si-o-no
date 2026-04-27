@@ -85,48 +85,4 @@ describe('creatorProductsService', () => {
     }
   });
 
-  it('script PRODUCTS and service CREATOR_PRODUCTS have matching ASINs', async () => {
-    const fs = await import('node:fs');
-    const path = await import('node:path');
-    const root = path.resolve(import.meta.dirname, '..');
-
-    const extractAsins = (content: string): Set<string> => {
-      const asins = new Set<string>();
-      const re = /asin:\s*['"]([A-Z0-9]+)['"]/gi;
-      let m: RegExpExecArray | null;
-      while ((m = re.exec(content)) !== null) asins.add(m[1]);
-      return asins;
-    };
-
-    const scriptContent = fs.readFileSync(
-      path.join(root, 'scripts', 'fetch-amazon-products.mjs'),
-      'utf-8',
-    );
-    const serviceContent = fs.readFileSync(
-      path.join(root, 'services', 'creatorProductsService.ts'),
-      'utf-8',
-    );
-
-    const scriptAsins = extractAsins(scriptContent);
-    const serviceAsins = extractAsins(serviceContent);
-
-    const inServiceNotScript: string[] = [];
-    const inScriptNotService: string[] = [];
-
-    serviceAsins.forEach((a) => {
-      if (!scriptAsins.has(a)) inServiceNotScript.push(a);
-    });
-    scriptAsins.forEach((a) => {
-      if (!serviceAsins.has(a)) inScriptNotService.push(a);
-    });
-
-    expect(
-      inServiceNotScript,
-      `ASINs in service but missing from script: ${inServiceNotScript.join(', ')}`,
-    ).toHaveLength(0);
-    expect(
-      inScriptNotService,
-      `ASINs in script but missing from service: ${inScriptNotService.join(', ')}`,
-    ).toHaveLength(0);
-  });
 });

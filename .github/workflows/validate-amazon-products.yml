@@ -45,11 +45,8 @@ jobs:
 
           ### Azioni richieste
           1. Verificare manualmente i prodotti segnalati su amazon.it
-          2. Se il prodotto non esiste più, sostituire l'ASIN in:
-             - `services/creatorProductsService.ts` (CREATOR_PRODUCTS array)
-             - `scripts/fetch-amazon-products.mjs` (PRODUCTS array)
-          3. Rigenerare: `node scripts/fetch-amazon-products.mjs`
-          4. Eseguire test: `npx vitest run tests/creator-products.test.ts`
+          2. Se il prodotto non esiste più, sostituire l'ASIN in `services/creatorProductsService.ts` (CREATOR_PRODUCTS array)
+          3. Eseguire test: `npx vitest run tests/creator-products.test.ts`
 
           _Generato automaticamente da validate-amazon-products.yml_
           ISSUE_BODY
