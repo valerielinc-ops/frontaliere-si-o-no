@@ -862,6 +862,51 @@ function truncateAtWordBoundary(text, maxLen) {
   return cut.slice(0, Math.max(cut.lastIndexOf(' '), maxLen - 12)).trim().replace(/[,:;.\-–—\s]+$/, '');
 }
 
+// ── SEO length caps (Semrush + Google snippet compliance) ──
+// Title: ≤ 60 chars (excluding " | Frontaliere Ticino" brand suffix appended downstream)
+// Description: ≤ 160 chars (Google snippet truncation point)
+// Hard cap so the auto-generated blog never regresses the title-length-baseline ratchet.
+const BLOG_TITLE_MAX = 60;
+const BLOG_TITLE_RETRY_THRESHOLD = 80; // > 80 → retry the LLM call once with stricter prompt
+const BLOG_DESCRIPTION_MAX = 160;
+const BRAND_SUFFIX = ' | Frontaliere Ticino';
+
+/**
+ * Cap a blog title at BLOG_TITLE_MAX. Strips any brand suffix the LLM may have
+ * accidentally included, normalises whitespace, truncates at the last word
+ * boundary before the cap, then strips trailing punctuation.
+ *
+ * Returns { value, truncated, originalLength } so callers can decide whether
+ * to retry the LLM call (if originalLength > BLOG_TITLE_RETRY_THRESHOLD).
+ */
+function capBlogTitle(rawTitle, maxLen = BLOG_TITLE_MAX) {
+  const s = String(rawTitle || '')
+    .replace(/\s*\|\s*Frontaliere\s+Ticino\s*$/i, '') // strip any LLM-included brand suffix
+    .replace(/\s+/g, ' ')
+    .trim();
+  const originalLength = s.length;
+  if (originalLength <= maxLen) {
+    return { value: s, truncated: false, originalLength };
+  }
+  // Word-boundary truncation (avoid mid-word). Floor at maxLen - 12 to keep
+  // a usable headline even when the only space is far back.
+  const cut = s.slice(0, maxLen + 1);
+  const lastSpace = cut.lastIndexOf(' ');
+  const boundary = Math.max(lastSpace, maxLen - 12);
+  const trimmed = cut.slice(0, boundary).trim().replace(/[,:;.\-–—…\s]+$/, '');
+  return { value: trimmed, truncated: true, originalLength };
+}
+
+/**
+ * Cap a blog description at BLOG_DESCRIPTION_MAX, word-boundary aware.
+ */
+function capBlogDescription(rawDesc, maxLen = BLOG_DESCRIPTION_MAX) {
+  const s = String(rawDesc || '').replace(/\s+/g, ' ').trim();
+  const originalLength = s.length;
+  if (originalLength <= maxLen) return { value: s, truncated: false, originalLength };
+  return { value: truncateAtWordBoundary(s, maxLen), truncated: true, originalLength };
+}
+
 const REQUIRED_IT_BODY_FIELDS = ['title', 'excerpt', 'body1', 'body2', 'body3'];
 
 function normalizeItalianContentFromPayload(payload, locale = 'it') {
@@ -2103,7 +2148,7 @@ Genera JSON (no markdown, no code fences):
   "slugs": { "it": "slug-it", "en": "slug-en", "de": "slug-de", "fr": "slug-fr" },
   "content": {
     "it": {
-      "title": "Titolo giornalistico con keyword (max 60 chars)",
+      "title": "Titolo giornalistico con keyword (OBBLIGATORIO ≤ 60 caratteri totali, target 50-55. Il suffisso ' | Frontaliere Ticino' viene aggiunto automaticamente — NON includerlo nel title)",
       "excerpt": "Sottotitolo con dati concreti DALLA FONTE (max 160 chars)",
       "body1": "Inizia con '## In breve' (3-4 bullet TL;DR ≤80 char) + '## Fatti chiave' (5-8 coppie **Cosa/Quando/Dove/Chi/Importo**: valore). Poi il LEAD: FATTI dalla fonte (chi, cosa, dove, quando, perché). Solo cronaca verificabile. 300-400 parole (escluse TL;DR/Fatti chiave). Min 1 ### sotto-sezione.",
       "body2": "Analisi pratica: implicazioni, confronti, scenari. Contenuto DIVERSO da body1. 300-400 parole. Min 1 ### sotto-sezione.",
@@ -2116,11 +2161,11 @@ Genera JSON (no markdown, no code fences):
     }
   },
   "seo": {
-    "title": "SEO Title | Frontaliere Ticino (max 60 chars)",
-    "description": "Meta description 150-160 chars",
+    "title": "SEO Title senza brand suffix (OBBLIGATORIO ≤ 60 caratteri TOTALI; il suffisso ' | Frontaliere Ticino' viene aggiunto automaticamente — NON includerlo)",
+    "description": "Meta description 150-160 chars (HARD CAP: ≤ 160 caratteri)",
     "keywords": "6-8 keywords IT",
-    "ogTitle": "OG title (max 60 chars)",
-    "ogDescription": "OG desc (max 160 chars)",
+    "ogTitle": "OG title (OBBLIGATORIO ≤ 60 caratteri)",
+    "ogDescription": "OG desc (≤ 160 caratteri)",
     "headline": "Headline JSON-LD",
     "breadcrumbName": "Breadcrumb 2-3 parole"
   }
@@ -2194,6 +2239,41 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     throw new Error('Risposta IT non contiene content.it e non può essere normalizzata');
   }
   validateItalianPayload(itContent, 'it');
+
+  // ── Title length enforcement (Semrush ≤ 60 chars gate) ──
+  // If the LLM produced a title > BLOG_TITLE_RETRY_THRESHOLD chars, retry once
+  // with a stricter, title-only prompt. Anything still above BLOG_TITLE_MAX
+  // is hard-truncated at a word boundary.
+  {
+    const firstCap = capBlogTitle(itContent.title);
+    if (firstCap.originalLength > BLOG_TITLE_RETRY_THRESHOLD) {
+      console.warn(`  ⚠️ [title-cap] IT title ${firstCap.originalLength} chars > ${BLOG_TITLE_RETRY_THRESHOLD} — retry titolo con istruzioni più strette...`);
+      try {
+        const retryRaw = await callLLM(
+          [
+            { role: 'system', content: 'Sei un giornalista finanziario esperto. Rispondi SOLO con JSON valido senza markdown.' },
+            {
+              role: 'user',
+              content: `Riformula il seguente titolo in italiano per il sito Frontaliere Ticino.\n\nTITOLO ATTUALE (${firstCap.originalLength} caratteri, troppo lungo):\n${itContent.title}\n\nVINCOLI OBBLIGATORI:\n- MASSIMO 60 caratteri totali (target 50-55).\n- NON includere il suffisso " | Frontaliere Ticino" (verrà aggiunto automaticamente).\n- Mantieni la keyword principale e il significato.\n- Stile giornalistico, niente clickbait.\n\nRispondi con JSON: {"title": "..."}`,
+            },
+          ],
+          { model: forceModel || GH_MODEL_HEAVY, temperature: 0.3, maxTokens: 200, jsonMode: true, timeout: 30_000 },
+        );
+        const retryParsed = JSON.parse(String(retryRaw).replace(/^```(?:json)?\s*/, '').replace(/\s*```$/, '').trim());
+        if (retryParsed?.title && typeof retryParsed.title === 'string') {
+          itContent.title = retryParsed.title;
+          console.error(`  ✅ [title-cap] IT title ritornato a ${retryParsed.title.length} caratteri`);
+        }
+      } catch (retryErr) {
+        console.warn(`  ⚠️ [title-cap] Retry titolo IT fallito: ${retryErr.message} — applico hard cap`);
+      }
+    }
+    const finalCap = capBlogTitle(itContent.title);
+    if (finalCap.truncated) {
+      console.warn(`  ✂️ [title-cap] IT title truncato: ${finalCap.originalLength} → ${finalCap.value.length} chars`);
+    }
+    itContent.title = finalCap.value;
+  }
 
   // Preserve FAQ from AI response (not in REQUIRED_IT_BODY_FIELDS, extracted separately)
   const rawFaq = itData?.content?.it?.faq || itData?.content?.faq || itData?.faq;
@@ -2509,8 +2589,11 @@ ${terminologyByLang[targetLang] || ''}`;
 
     const [partMeta, partB1, partB2, partB3, partFaq] = await Promise.all([
       // Call 1: title + excerpt (small, ~300 tokens output)
+      // VINCOLO TITOLO: il title tradotto DEVE restare ≤ 60 caratteri (gate SEO Semrush).
+      // Se la lingua target tende a espandersi (DE/FR), riformula in modo più conciso
+      // mantenendo la keyword principale — non tradurre letteralmente parola per parola.
       callWithRetry(makePrompt(
-        `CONTENUTO ITALIANO DA TRADURRE:\n- title: ${sourceContent.title}\n- excerpt: ${sourceContent.excerpt}`,
+        `CONTENUTO ITALIANO DA TRADURRE:\n- title: ${sourceContent.title}\n- excerpt: ${sourceContent.excerpt}\n\nVINCOLI OBBLIGATORI per il title tradotto:\n- MASSIMO 60 caratteri totali (target 50-55).\n- NON includere "| Frontaliere Ticino" (aggiunto automaticamente).\n- Mantieni la keyword principale; abbrevia o riformula se necessario per restare entro 60 caratteri.`,
         '{"title": "...", "excerpt": "..."}',
       ), 1000, `${targetLang}:meta`),
       // Call 2-4: body fields with dynamic sizing + sub-chunking safety
@@ -2572,6 +2655,38 @@ ${terminologyByLang[targetLang] || ''}`;
         }
       }
     }
+  }
+
+  // ── Title length cap on translated locales (Semrush ≤ 60 chars gate) ──
+  // German/French translations expand ~30% vs Italian, so a 58-char IT title
+  // can become 80+ chars in DE. Retry once per offending locale with a
+  // length-only re-prompt, then hard-cap at 60 chars at a word boundary.
+  for (const locale of ['en', 'de', 'fr']) {
+    const localeContent = data.content[locale];
+    if (!localeContent || !localeContent.title) continue;
+    const initialCap = capBlogTitle(localeContent.title);
+    if (initialCap.originalLength > BLOG_TITLE_RETRY_THRESHOLD) {
+      const langName = locale === 'en' ? 'inglese' : locale === 'de' ? 'tedesco' : 'francese';
+      console.warn(`  ⚠️ [title-cap] ${locale.toUpperCase()} title ${initialCap.originalLength} chars > ${BLOG_TITLE_RETRY_THRESHOLD} — retry traduzione titolo con vincolo di lunghezza...`);
+      try {
+        const retryResult = await callWithRetry(
+          `Riformula il seguente titolo in ${langName} per il sito Frontaliere Ticino.\n\nTITOLO ATTUALE (${initialCap.originalLength} caratteri, troppo lungo):\n${localeContent.title}\n\nTITOLO ITALIANO ORIGINALE (riferimento):\n${itContent.title}\n\nVINCOLI OBBLIGATORI:\n- MASSIMO 60 caratteri totali (target 50-55).\n- NON includere "| Frontaliere Ticino" (aggiunto automaticamente).\n- Mantieni la keyword principale; abbrevia o riformula in modo conciso.\n\nRispondi SOLO con JSON: {"title": "..."}`,
+          1000,
+          `${locale}:title-length-retry`,
+        );
+        if (retryResult?.title && typeof retryResult.title === 'string') {
+          localeContent.title = retryResult.title;
+          console.error(`  ✅ [title-cap] ${locale.toUpperCase()} title ritradotto a ${retryResult.title.length} caratteri`);
+        }
+      } catch (retryErr) {
+        console.warn(`  ⚠️ [title-cap] Retry titolo ${locale} fallito: ${retryErr.message} — applico hard cap`);
+      }
+    }
+    const finalCap = capBlogTitle(localeContent.title);
+    if (finalCap.truncated) {
+      console.warn(`  ✂️ [title-cap] ${locale.toUpperCase()} title truncato: ${finalCap.originalLength} → ${finalCap.value.length} chars`);
+    }
+    localeContent.title = finalCap.value;
   }
 
   console.error(`  ✅ Articolo assemblato — ${Object.keys(data.content).length} lingue`);
