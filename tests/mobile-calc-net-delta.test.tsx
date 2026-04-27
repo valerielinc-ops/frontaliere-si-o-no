@@ -28,6 +28,7 @@ vi.mock('@/services/i18n', () => ({
       return map[key] || key;
     },
   }),
+  getCantonI18nParams: () => ({} as Record<string, string>),
 }));
 
 vi.mock('@/services/analytics', () => ({
