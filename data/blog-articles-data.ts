@@ -8309,4 +8309,11 @@ export const ARTICLES = [
  image: '/images/blog/cambio-guardia-pro-velo-ticino-sabbadini-vitali.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovo-ambulatorio-ecocardiografia-busto-arsizio',
+ category: 'novita',
+ date: '2026-04-27T22:05:20.075Z',
+ image: '/images/blog/nuovo-ambulatorio-ecocardiografia-busto-arsizio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

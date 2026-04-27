@@ -3128,6 +3128,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambio-guardia-pro-velo-ticino-sabbadini-vitali.title': 'Changement à la tête de Pro Velo Ticino: Sabbadini succède à Vitali',
     'blog.article.cambio-guardia-pro-velo-ticino-sabbadini-vitali.excerpt': 'Claudio Sabbadini a été élu nouveau président de Pro Velo Ticino, remplaçant Marco Vitali. Discussion sur les projets pour améliorer la mobilité cycliste dans les vallées tessinoises.',
     'blog.article.cambio-guardia-pro-velo-ticino-sabbadini-vitali.imageAlt': 'Cyclistes au Tessin lors d\'un événement Pro Velo',
+    'blog.article.nuovo-ambulatorio-ecocardiografia-busto-arsizio.title': 'Nouveau cabinet d\'écho à Busto Arsizio: ouverture le 7 mai',
+    'blog.article.nuovo-ambulatorio-ecocardiografia-busto-arsizio.excerpt': 'À partir du 7 mai, un nouveau service d\'écho sera disponible à la Maison de la Communauté de Busto Arsizio, sur rendez-vous avec une ordonnance médicale.',
+    'blog.article.nuovo-ambulatorio-ecocardiografia-busto-arsizio.imageAlt': 'Nouvel ambulatorio d\'échocardiographie à Busto Arsizio',
 };
 
 export default blogMetaFr;

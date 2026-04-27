@@ -17207,6 +17207,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-ambulatorio-ecocardiografia-busto-arsizio': {
+    title: 'Nuovo ambulatorio di ecocardiografia a Busto Arsizio: apertura il 7 maggio',
+    description: 'Dal 7 maggio 2026, un nuovo servizio di ecocardiografia sarà disponibile presso la Casa di Comunità di Busto Arsizio, su prenotazione con impegnativa medica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, ambulatorio, ecocardiografia, busto',
+    ogTitle: 'Nuovo ambulatorio di ecocardiografia a Busto Arsizio: apertura il 7 maggio',
+    ogDescription: 'Dal 7 maggio 2026, un nuovo servizio di ecocardiografia sarà disponibile presso la Casa di Comunità di Busto Arsizio, su prenotazione con impegnativa medica.',
+    canonicalPath: '/articoli-frontaliere/nuovo-ambulatorio-ecocardiografia-busto-arsizio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo ambulatorio di ecocardiografia a Busto Arsizio: apertura il 7 maggio",
+      "description": "Dal 7 maggio 2026, un nuovo servizio di ecocardiografia sarà disponibile presso la Casa di Comunità di Busto Arsizio, su prenotazione con impegnativa medica.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-ambulatorio-ecocardiografia-busto-arsizio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuovo ambulatorio di ecocardiografia a Busto Arsizio"
+      },
+      "datePublished": "2026-04-27T22:05:20+00:00",
+      "dateModified": "2026-04-27T22:05:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-ambulatorio-ecocardiografia-busto-arsizio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
