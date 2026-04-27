@@ -3151,6 +3151,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.usi-ticino-tagli-bilancio-2026.title': 'USI: \'We must cut to the bone, side measures are no longer enough\'',
     'blog.article.usi-ticino-tagli-bilancio-2026.excerpt': 'Monica Duca Widmer, president of the University of Italian Switzerland, announces structural cuts to address reduced funding.',
     'blog.article.usi-ticino-tagli-bilancio-2026.imageAlt': 'University of Swiss Italian on Lake Lugano',
+    'blog.article.campione-ditalia-elezioni-sindaco-2026.title': 'Campione d\'Italia: three-way race for mayor',
+    'blog.article.campione-ditalia-elezioni-sindaco-2026.excerpt': 'Three candidates are running for the position of mayor in Campione d\'Italia. Find out who they are and what they propose.',
+    'blog.article.campione-ditalia-elezioni-sindaco-2026.imageAlt': 'Aerial view of Campione d\'Italia and Lake Lugano, Switzerland. Clear sky, autumn colors.',
 };
 
 export default blogMetaEn;

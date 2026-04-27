@@ -3152,6 +3152,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.usi-ticino-tagli-bilancio-2026.title': 'USI : «Il faut couper dans le vif, les mesures collatérales ne suffisent plus»',
     'blog.article.usi-ticino-tagli-bilancio-2026.excerpt': 'Monica Duca Widmer, présidente du Conseil de l’Université de la Suisse italienne, annonce des coupes structurelles pour faire face aux financements réduits.',
     'blog.article.usi-ticino-tagli-bilancio-2026.imageAlt': 'Université de la Suisse Italienne sur le lac de Lugano',
+    'blog.article.campione-ditalia-elezioni-sindaco-2026.title': 'Campione d\'Italia, trois candidats pour le poste de maire',
+    'blog.article.campione-ditalia-elezioni-sindaco-2026.excerpt': 'Trois candidats en lice pour le poste de maire à Campione d\'Italie. Découvrez qui ils sont et ce qu\'ils proposent.',
+    'blog.article.campione-ditalia-elezioni-sindaco-2026.imageAlt': 'Vue aérienne de Campione d\'Italia et du lac de Lugano, Suisse. Ciel dégagé, couleurs automnales.',
 };
 
 export default blogMetaFr;

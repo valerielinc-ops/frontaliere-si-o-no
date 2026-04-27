@@ -17439,6 +17439,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-campione-ditalia-elezioni-sindaco-2026': {
+    title: 'Campione d’Italia, sfida a tre per la poltrona di sindaco',
+    description: 'Tre candidati in lizza per la carica di sindaco a Campione d’Italia. Scopri chi sono e cosa propongono. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, campione, sfida, poltrona, sindaco',
+    ogTitle: 'Campione d’Italia, sfida a tre per la poltrona di sindaco',
+    ogDescription: 'Tre candidati in lizza per la carica di sindaco a Campione d’Italia. Scopri chi sono e cosa propongono.',
+    canonicalPath: '/articoli-frontaliere/campione-ditalia-elezioni-sindaco-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Campione d’Italia, sfida a tre per la poltrona di sindaco",
+      "description": "Tre candidati in lizza per la carica di sindaco a Campione d’Italia. Scopri chi sono e cosa propongono. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/campione-ditalia-elezioni-sindaco-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Campione d'Italia e del Lago di Lugano, Svizzera. Cielo sereno, colori autunnali."
+      },
+      "datePublished": "2026-04-27T23:01:26+00:00",
+      "dateModified": "2026-04-27T23:01:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/campione-ditalia-elezioni-sindaco-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

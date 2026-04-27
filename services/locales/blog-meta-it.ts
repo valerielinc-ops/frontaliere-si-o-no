@@ -3152,6 +3152,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.usi-ticino-tagli-bilancio-2026.title': 'USI: «Dovremo tagliare nel vivo, le misure collaterali non bastano più»',
     'blog.article.usi-ticino-tagli-bilancio-2026.excerpt': 'Monica Duca Widmer, presidente del Consiglio dell’Università della Svizzera Italiana, annuncia tagli strutturali per affrontare i ridotti finanziamenti.',
     'blog.article.usi-ticino-tagli-bilancio-2026.imageAlt': 'Università della Svizzera Italiana sul lago di Lugano',
+    'blog.article.campione-ditalia-elezioni-sindaco-2026.title': 'Campione d’Italia, sfida a tre per la poltrona di sindaco',
+    'blog.article.campione-ditalia-elezioni-sindaco-2026.excerpt': 'Tre candidati in lizza per la carica di sindaco a Campione d’Italia. Scopri chi sono e cosa propongono.',
+    'blog.article.campione-ditalia-elezioni-sindaco-2026.imageAlt': 'Vista aerea di Campione d\'Italia e del Lago di Lugano, Svizzera. Cielo sereno, colori autunnali.',
 };
 
 export default blogMetaIt;

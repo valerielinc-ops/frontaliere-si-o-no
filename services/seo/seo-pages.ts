@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1100,
+ "numberOfItems": 1101,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5824,7 +5824,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1097, "name": "Discariche abusive: doppio sequestro tra Varese...", "url": `${BASE_URL}/articoli-frontaliere/doppio-sequestro-discariche-abusive-varese` },
           { "@type": "ListItem", "position": 1098, "name": "Sfida tra comuni Coop 2026: chi sarà il più att...", "url": `${BASE_URL}/articoli-frontaliere/sfida-comuni-coop-2026-attivita-fisica` },
           { "@type": "ListItem", "position": 1099, "name": "La Cina rafforza la tutela dei lavoratori nelle...", "url": `${BASE_URL}/articoli-frontaliere/cina-tutela-lavoratori-nuove-occupazioni` },
-          { "@type": "ListItem", "position": 1100, "name": "USI: tagli strutturali e revisione piano strate...", "url": `${BASE_URL}/articoli-frontaliere/usi-ticino-tagli-bilancio-2026` }
+          { "@type": "ListItem", "position": 1100, "name": "USI: tagli strutturali e revisione piano strate...", "url": `${BASE_URL}/articoli-frontaliere/usi-ticino-tagli-bilancio-2026` },
+          { "@type": "ListItem", "position": 1101, "name": "Campione d’Italia, sfida a tre per la poltrona ...", "url": `${BASE_URL}/articoli-frontaliere/campione-ditalia-elezioni-sindaco-2026` }
  ]
  },
  {

@@ -2311,6 +2311,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sfida-comuni-coop-2026-attivita-fisica': { name: 'Novità', path: '/articoli-frontaliere/sfida-comuni-coop-2026-attivita-fisica', parent: 'blog' },
     'blog-cina-tutela-lavoratori-nuove-occupazioni': { name: 'Novità', path: '/articoli-frontaliere/cina-tutela-lavoratori-nuove-occupazioni', parent: 'blog' },
     'blog-usi-ticino-tagli-bilancio-2026': { name: 'USI Tagli', path: '/articoli-frontaliere/usi-ticino-tagli-bilancio-2026', parent: 'blog' },
+    'blog-campione-ditalia-elezioni-sindaco-2026': { name: 'Elezioni Campione d’Italia', path: '/articoli-frontaliere/campione-ditalia-elezioni-sindaco-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
