@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T09:20:01.870Z",
+  "generatedAt": "2026-04-27T06:15:31.651Z",
   "sourceFile": "data/gsc-orphan-queries.json",
-  "totalClusters": 18,
+  "totalClusters": 20,
   "gates": {
     "minClusterImpressions": 5
   },
@@ -96,6 +96,36 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-ticino-negli-ultimi-3-giorni",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "canonicalSlug": "offerte-di-lavoro-ticino-negli-ultimi-3-giorni",
+      "roleTokens": [
+        "giorn",
+        "lavor",
+        "negl",
+        "offert",
+        "ultim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 23,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 17
+        },
+        {
+          "query": "offerte lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
       "clusterId": "it-cerco-lavoro-in-svizzera",
       "locale": "it",
       "canonicalQuery": "cerco lavoro in svizzera",
@@ -119,36 +149,6 @@
           "query": "cerco lavoro svizzera",
           "clicks": 0,
           "impressions": 9
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-di-lavoro-ticino-negli-ultimi-3-giorni",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro ticino negli ultimi 3 giorni",
-      "canonicalSlug": "offerte-di-lavoro-ticino-negli-ultimi-3-giorni",
-      "roleTokens": [
-        "giorn",
-        "lavor",
-        "negl",
-        "offert",
-        "ultim"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 22,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "offerte di lavoro ticino negli ultimi 3 giorni",
-          "clicks": 0,
-          "impressions": 16
-        },
-        {
-          "query": "offerte lavoro ticino negli ultimi 3 giorni",
-          "clicks": 0,
-          "impressions": 6
         }
       ]
     },
@@ -206,6 +206,38 @@
       ]
     },
     {
+      "clusterId": "it-posti-di-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "posti di lavoro ticino",
+      "canonicalSlug": "posti-di-lavoro-ticino",
+      "roleTokens": [
+        "lavor",
+        "post"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 14,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "posti di lavoro ticino",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "posti lavoro ticino",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "ticino posti di lavoro",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ]
+    },
+    {
       "clusterId": "it-offerte-di-lavoro-ticino",
       "locale": "it",
       "canonicalQuery": "offerte di lavoro ticino",
@@ -238,38 +270,6 @@
       ]
     },
     {
-      "clusterId": "it-posti-di-lavoro-ticino",
-      "locale": "it",
-      "canonicalQuery": "posti di lavoro ticino",
-      "canonicalSlug": "posti-di-lavoro-ticino",
-      "roleTokens": [
-        "lavor",
-        "post"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 13,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "posti di lavoro ticino",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "ticino posti di lavoro",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "posti lavoro ticino",
-          "clicks": 0,
-          "impressions": 3
-        }
-      ]
-    },
-    {
       "clusterId": "it-lavoro-ticino-da-ieri",
       "locale": "it",
       "canonicalQuery": "lavoro ticino da ieri",
@@ -288,6 +288,32 @@
           "query": "lavoro ticino da ieri",
           "clicks": 0,
           "impressions": 9
+        }
+      ]
+    },
+    {
+      "clusterId": "fr-groupe-mutuel-emploi",
+      "locale": "fr",
+      "canonicalQuery": "groupe mutuel emploi",
+      "canonicalSlug": "groupe-mutuel-emploi",
+      "roleTokens": [
+        "emplo",
+        "group",
+        "mutuel"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "groupe mutuel emploi",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "emploi groupe mutuel",
+          "clicks": 0,
+          "impressions": 2
         }
       ]
     },
@@ -335,6 +361,32 @@
           "query": "coop lavora con noi",
           "clicks": 0,
           "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "de-job-etudiant-denner",
+      "locale": "de",
+      "canonicalQuery": "job étudiant denner",
+      "canonicalSlug": "job-etudiant-denner",
+      "roleTokens": [
+        "denner",
+        "etudiant",
+        "job"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "job étudiant denner",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "denner job étudiant",
+          "clicks": 0,
+          "impressions": 1
         }
       ]
     },
