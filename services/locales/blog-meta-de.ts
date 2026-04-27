@@ -2760,6 +2760,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.foreste-sommerse-lago-como-lugano.title': 'Überschwemmte Wälder zur Rettung der Seen von Como und Lugano',
     'blog.article.foreste-sommerse-lago-como-lugano.excerpt': 'Ein grenzüberschreitendes Projekt setzt auf Wasserpflanzen, um die Ökosysteme der Seen wiederherzustellen und den Klimawandel zu bekämpfen',
     'blog.article.foreste-sommerse-lago-como-lugano.imageAlt': 'Untergetauchte Wälder im Comer See und Luganer See',
+    'blog.article.grigioni-viabilita-olimpica-2026.title': 'Olympia-Verkehr: Graubünden spart, aber Lombardei schweigt',
+    'blog.article.grigioni-viabilita-olimpica-2026.excerpt': 'Die Kosten für die Bewältigung des Olympia-Verkehrs sind niedriger als erwartet, aber die Lombardei hat ihren Beitrag noch nicht bestätigt.',
+    'blog.article.grigioni-viabilita-olimpica-2026.imageAlt': 'Panoramablick auf die Berge der Graubünden mit Olympischen Anlagen im Hintergrund',
 };
 
 export default blogMetaDe;

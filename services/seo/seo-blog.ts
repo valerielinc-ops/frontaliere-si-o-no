@@ -13553,6 +13553,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-viabilita-olimpica-2026': {
+    title: 'Viabilità olimpica: i Grigioni | Frontaliere Ticino',
+    description: 'I costi per la gestione del traffico olimpico sono inferiori alle previsioni, ma la Lombardia non ha ancora confermato il suo contributo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, viabilità, olimpica, grigioni, risparmiano',
+    ogTitle: 'Viabilità olimpica: Grigioni risparmiano, Lombardia tace',
+    ogDescription: 'I costi per la gestione del traffico olimpico sono inferiori alle previsioni, ma la Lombardia non ha ancora confermato il suo contributo.',
+    canonicalPath: '/articoli-frontaliere/grigioni-viabilita-olimpica-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Viabilità olimpica: Grigioni risparmiano, Lombardia tace",
+      "description": "I costi per la gestione del traffico olimpico sono inferiori alle previsioni, ma la Lombardia non ha ancora confermato il suo contributo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/grigioni-viabilita-olimpica-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama delle montagne dei Grigioni con impianti olimpici sullo sfondo"
+      },
+      "datePublished": "2026-04-27T01:21:18+00:00",
+      "dateModified": "2026-04-27T01:21:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grigioni-viabilita-olimpica-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

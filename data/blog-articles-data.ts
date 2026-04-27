@@ -7427,4 +7427,11 @@ export const ARTICLES = [
  image: '/images/blog/foreste-sommerse-lago-como-lugano.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'grigioni-viabilita-olimpica-2026',
+ category: 'novita',
+ date: '2026-04-27T01:21:18.403Z',
+ image: '/images/blog/grigioni-viabilita-olimpica-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

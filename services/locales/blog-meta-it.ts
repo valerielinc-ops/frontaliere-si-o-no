@@ -2760,6 +2760,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.foreste-sommerse-lago-como-lugano.title': 'Foreste sommerse per salvare i laghi di Como e Lugano',
     'blog.article.foreste-sommerse-lago-como-lugano.excerpt': 'Un progetto transfrontaliero utilizza piante acquatiche per ripristinare gli ecosistemi lacustri e combattere il cambiamento climatico',
     'blog.article.foreste-sommerse-lago-como-lugano.imageAlt': 'Foreste sommerse nei laghi di Como e Lugano',
+    'blog.article.grigioni-viabilita-olimpica-2026.title': 'Viabilità olimpica: i Grigioni risparmiano ma la Lombardia tace',
+    'blog.article.grigioni-viabilita-olimpica-2026.excerpt': 'I costi per la gestione del traffico olimpico sono inferiori alle previsioni, ma la Lombardia non ha ancora confermato il suo contributo.',
+    'blog.article.grigioni-viabilita-olimpica-2026.imageAlt': 'Panorama delle montagne dei Grigioni con impianti olimpici sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -2760,6 +2760,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.foreste-sommerse-lago-como-lugano.title': 'Submerged forests to save Lake Como and Lake Lugano',
     'blog.article.foreste-sommerse-lago-como-lugano.excerpt': 'A cross-border project uses aquatic plants to restore lake ecosystems and combat climate change',
     'blog.article.foreste-sommerse-lago-como-lugano.imageAlt': 'Submerged forests in Lake Como and Lugano',
+    'blog.article.grigioni-viabilita-olimpica-2026.title': 'Olympic traffic: Grisons save but Lombardy remains silent',
+    'blog.article.grigioni-viabilita-olimpica-2026.excerpt': 'The costs for managing Olympic traffic are lower than expected, but Lombardy has yet to confirm its contribution.',
+    'blog.article.grigioni-viabilita-olimpica-2026.imageAlt': 'Panoramic view of the Grisons mountains with Olympic venues in the background',
 };
 
 export default blogMetaEn;
