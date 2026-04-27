@@ -3142,6 +3142,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.doppio-sequestro-discariche-abusive-varese.title': 'Illegal dumpsites: two seizures near Varese',
     'blog.article.doppio-sequestro-discariche-abusive-varese.excerpt': 'Three suspects and two sites seized for illegal disposal of special waste in Varese province',
     'blog.article.doppio-sequestro-discariche-abusive-varese.imageAlt': 'Aerial view of Lake Lugano with surrounding towns under a clear blue sky',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.title': '2026 Coop Municipal Challenge: who will be the most active?',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.excerpt': 'From May 1st to 31st, 2026, over 200 Swiss municipalities, including several in Ticino, will compete to promote physical activity. Find out how to participate and accumulate movement minutes.',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.imageAlt': 'Group of people participating in a sports activity in a park in Lugano',
 };
 
 export default blogMetaEn;

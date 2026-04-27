@@ -2308,6 +2308,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ospedale-varese-acqua-calda-oncologia': { name: 'Ospedale Varese', path: '/articoli-frontaliere/ospedale-varese-acqua-calda-oncologia', parent: 'blog' },
     'blog-cinque-nordafricani-festnati-auto-aarau': { name: 'Notizie', path: '/articoli-frontaliere/cinque-nordafricani-festnati-auto-aarau', parent: 'blog' },
     'blog-doppio-sequestro-discariche-abusive-varese': { name: 'Novità', path: '/articoli-frontaliere/doppio-sequestro-discariche-abusive-varese', parent: 'blog' },
+    'blog-sfida-comuni-coop-2026-attivita-fisica': { name: 'Novità', path: '/articoli-frontaliere/sfida-comuni-coop-2026-attivita-fisica', parent: 'blog' },
  };
 
  const info = sectionNames[section];

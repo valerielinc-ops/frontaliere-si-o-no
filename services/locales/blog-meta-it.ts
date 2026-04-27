@@ -3143,6 +3143,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.doppio-sequestro-discariche-abusive-varese.title': 'Discariche abusive: doppio sequestro tra Varese e cintura',
     'blog.article.doppio-sequestro-discariche-abusive-varese.excerpt': 'Tre indagati e due siti sequestrati per smaltimento illecito di rifiuti speciali in provincia di Varese',
     'blog.article.doppio-sequestro-discariche-abusive-varese.imageAlt': 'Vista aerea del Lago di Lugano con i paesi circostanti sotto un cielo azzurro limpido',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.title': 'Sfida tra comuni Coop 2026: chi sarà il più attivo?',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.excerpt': 'Dal 1° al 31 maggio 2026, oltre 200 comuni svizzeri, tra cui diversi in Ticino, si sfidano per promuovere l\'attività fisica. Scopri come partecipare e accumulare minuti di movimento.',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.imageAlt': 'Gruppo di persone che partecipano ad un\'attività sportiva in un parco a Lugano',
 };
 
 export default blogMetaIt;

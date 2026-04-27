@@ -8344,4 +8344,11 @@ export const ARTICLES = [
  image: '/images/blog/doppio-sequestro-discariche-abusive-varese.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sfida-comuni-coop-2026-attivita-fisica',
+ category: 'novita',
+ date: '2026-04-27T22:45:57.567Z',
+ image: '/images/blog/sfida-comuni-coop-2026-attivita-fisica.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

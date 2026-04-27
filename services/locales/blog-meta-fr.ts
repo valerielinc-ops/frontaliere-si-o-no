@@ -3143,6 +3143,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.doppio-sequestro-discariche-abusive-varese.title': 'Déchets illégaux : double saisie à Varese et alentours',
     'blog.article.doppio-sequestro-discariche-abusive-varese.excerpt': 'Trois personnes en examen et deux sites saisis pour élimination illégale de déchets spéciaux dans la province de Varese',
     'blog.article.doppio-sequestro-discariche-abusive-varese.imageAlt': 'Vue aérienne du lac de Lugano avec les villes environnantes sous un ciel bleu clair',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.title': 'Défi des communes Coop 2026: qui sera le plus actif?',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.excerpt': 'Du 1er au 31 mai 2026, plus de 200 communes suisses, dont plusieurs en Ticino, se défient pour promouvoir l\'activité physique. Découvrez comment participer et accumuler des minutes de mouvement.',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.imageAlt': 'Groupe de personnes participant à une activité sportive dans un parc à Lugano',
 };
 
 export default blogMetaFr;

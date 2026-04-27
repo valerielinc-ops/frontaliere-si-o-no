@@ -3142,6 +3142,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.doppio-sequestro-discariche-abusive-varese.title': 'Illegale Mülldeponien: Zwei Beschlagnahmungen bei Varese',
     'blog.article.doppio-sequestro-discariche-abusive-varese.excerpt': 'Drei Verdächtige und zwei Standorte beschlagnahmt wegen illegaler Entsorgung von Sondermüll in der Provinz Varese',
     'blog.article.doppio-sequestro-discariche-abusive-varese.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Städten unter einem klaren blauen Himmel',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.title': 'Gemeinden-Coop-Challenge 2026: Wer ist am aktivsten?',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.excerpt': 'Vom 1. bis 31. Mai 2026 messen sich über 200 Schweizer Gemeinden, darunter mehrere im Tessin, im Wettbewerb um die Förderung von körperlicher Aktivität. Entdecken Sie, wie Sie teilnehmen und Bewegungsminuten sammeln können.',
+    'blog.article.sfida-comuni-coop-2026-attivita-fisica.imageAlt': 'Gruppe von Menschen, die an einer Sportaktivität in einem Park in Lugano teilnehmen',
 };
 
 export default blogMetaDe;

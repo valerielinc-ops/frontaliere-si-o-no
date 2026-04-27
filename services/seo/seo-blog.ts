@@ -17352,6 +17352,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sfida-comuni-coop-2026-attivita-fisica': {
+    title: 'Sfida tra comuni Coop 2026: chi sarà il più attivo?',
+    description: 'Dal 1° al 31 maggio 2026, oltre 200 comuni svizzeri, tra cui diversi in Ticino, si sfidano per promuovere l\'attività fisica. Scopri come partecipare e',
+    keywords: 'frontalieri, ticino, svizzera, italia, sfida, comuni, coop, sarà',
+    ogTitle: 'Sfida tra comuni Coop 2026: chi sarà il più attivo?',
+    ogDescription: 'Dal 1° al 31 maggio 2026, oltre 200 comuni svizzeri, tra cui diversi in Ticino, si sfidano per promuovere l\'attività fisica. Scopri come partecipare e',
+    canonicalPath: '/articoli-frontaliere/sfida-comuni-coop-2026-attivita-fisica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sfida tra comuni Coop 2026: chi sarà il più attivo?",
+      "description": "Dal 1° al 31 maggio 2026, oltre 200 comuni svizzeri, tra cui diversi in Ticino, si sfidano per promuovere l'attività fisica. Scopri come partecipare e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sfida-comuni-coop-2026-attivita-fisica.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone che partecipano ad un'attività sportiva in un parco a Lugano"
+      },
+      "datePublished": "2026-04-27T22:45:57+00:00",
+      "dateModified": "2026-04-27T22:45:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sfida-comuni-coop-2026-attivita-fisica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

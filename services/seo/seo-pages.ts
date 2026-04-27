@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1097,
+ "numberOfItems": 1098,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5821,7 +5821,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1094, "name": "Velafrica torna nel Luganese: seconda vita per ...", "url": `${BASE_URL}/articoli-frontaliere/velafrica-bici-usate-lugano-2026` },
           { "@type": "ListItem", "position": 1095, "name": "Ospedale Varese senza acqua calda in oncologia", "url": `${BASE_URL}/articoli-frontaliere/ospedale-varese-acqua-calda-oncologia` },
           { "@type": "ListItem", "position": 1096, "name": "Cinque nordafricani arrestati per furti d'auto", "url": `${BASE_URL}/articoli-frontaliere/cinque-nordafricani-festnati-auto-aarau` },
-          { "@type": "ListItem", "position": 1097, "name": "Discariche abusive: doppio sequestro tra Varese...", "url": `${BASE_URL}/articoli-frontaliere/doppio-sequestro-discariche-abusive-varese` }
+          { "@type": "ListItem", "position": 1097, "name": "Discariche abusive: doppio sequestro tra Varese...", "url": `${BASE_URL}/articoli-frontaliere/doppio-sequestro-discariche-abusive-varese` },
+          { "@type": "ListItem", "position": 1098, "name": "Sfida tra comuni Coop 2026: chi sarà il più att...", "url": `${BASE_URL}/articoli-frontaliere/sfida-comuni-coop-2026-attivita-fisica` }
  ]
  },
  {
