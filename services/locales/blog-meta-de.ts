@@ -2937,6 +2937,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.title': 'Reform der Hausärzte: Sumai, das Problem ist Organisation und Fachkräftemangel',
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.excerpt': 'Antonio Magi, Generalsekretär von Sumai-Assoprof, widerspricht der Idee der Abhängigkeit der Hausärzte und hebt organisatorische Probleme und Fachkräftemangel hervor.',
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.imageAlt': 'Arzt und Patient in Konsultation in Lugano',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.title': 'Arbeitnehmer im Rentenalter im Tessin: +220% in 20 Jahren',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.excerpt': 'Im Jahr 2025 arbeiteten 220.000 Menschen in der Schweiz über das Rentenalter hinaus. Was sich für die Grenzgänger des Kantons Tessin ändert.',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

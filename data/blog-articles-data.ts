@@ -7840,4 +7840,11 @@ export const ARTICLES = [
  image: '/images/blog/riforma-medici-famiglia-sumai-organizzazione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavoratori-pensionati-ticino-2026-2046',
+ category: 'novita',
+ date: '2026-04-27T13:13:51.518Z',
+ image: '/images/blog/lavoratori-pensionati-ticino-2026-2046.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

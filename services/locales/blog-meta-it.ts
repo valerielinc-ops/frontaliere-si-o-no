@@ -2937,6 +2937,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.title': 'Riforma medici famiglia: Sumai, il nodo è organizzazione e carenza professionisti',
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.excerpt': 'Antonio Magi, segretario generale del Sumai-Assoprof, contesta l\'idea di dipendenza dei medici di base, evidenziando problemi organizzativi e carenza di professionisti.',
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.imageAlt': 'Medico e paziente in consultazione a Lugano',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.title': 'Lavoratori in età pensionabile in Ticino: +220% in 20 anni',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.excerpt': 'Nel 2025, 220.000 persone in Svizzera lavoravano oltre l\'età pensionabile. Ecco cosa cambia per i frontalieri del Canton Ticino.',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;

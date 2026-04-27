@@ -2937,6 +2937,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.title': 'Réforme des médecins de famille : Sumai, le nœud est l\'organisation et le manque de professionnels',
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.excerpt': 'Antonio Magi, secrétaire général du Sumai-Assoprof, conteste l\'idée de dépendance des médecins de base, soulignant les problèmes organisationnels et le manque de professionnels.',
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.imageAlt': 'Médecin et patient en consultation à Lugano',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.title': 'Travailleurs en âge de la retraite au Tessin : +220% en 20 ans',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.excerpt': 'En 2025, 220.000 personnes en Suisse travaillaient au-delà de l\'âge de la retraite. Voici ce qui change pour les frontaliers du canton du Tessin.',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bâtiments',
 };
 
 export default blogMetaFr;

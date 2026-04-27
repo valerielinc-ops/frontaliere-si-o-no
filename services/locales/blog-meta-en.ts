@@ -2937,6 +2937,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.title': 'Family doctor reform: Sumai, the issue is organization and lack of professionals',
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.excerpt': 'Antonio Magi, general secretary of Sumai-Assoprof, contests the idea of dependency of family doctors, highlighting organizational problems and lack of professionals.',
     'blog.article.riforma-medici-famiglia-sumai-organizzazione.imageAlt': 'Doctor and patient in consultation in Lugano',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.title': 'Workers beyond retirement age in Ticino: +220% in 20 years',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.excerpt': 'In 2025, 220,000 people in Switzerland were working beyond retirement age. Here\'s what changes for cross-border workers in the Canton of Ticino.',
+    'blog.article.lavoratori-pensionati-ticino-2026-2046.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
 };
 
 export default blogMetaEn;

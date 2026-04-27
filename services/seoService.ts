@@ -2239,6 +2239,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cure-infermieristiche-190mila-firme-2026': { name: 'Cure infermieristiche', path: '/articoli-frontaliere/cure-infermieristiche-190mila-firme-2026', parent: 'blog' },
     'blog-maxi-spiegamento-fiamme-gialle-comasco-2026': { name: 'Novità', path: '/articoli-frontaliere/maxi-spiegamento-fiamme-gialle-comasco-2026', parent: 'blog' },
     'blog-riforma-medici-famiglia-sumai-organizzazione': { name: 'Riforma medici', path: '/articoli-frontaliere/riforma-medici-famiglia-sumai-organizzazione', parent: 'blog' },
+    'blog-lavoratori-pensionati-ticino-2026-2046': { name: 'Novità', path: '/articoli-frontaliere/lavoratori-pensionati-ticino-2026-2046', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -15264,6 +15264,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoratori-pensionati-ticino-2026-2046': {
+    title: 'Lavoratori in età pensionabile in | Frontaliere Ticino',
+    description: 'Nel 2025, 220.000 persone in Svizzera lavoravano oltre l\'età pensionabile. Ecco cosa cambia per i frontalieri del Canton Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoratori, pensionabile, anni, 2025',
+    ogTitle: 'Lavoratori in età pensionabile in Ticino: +220% in 20 anni',
+    ogDescription: 'Nel 2025, 220.000 persone in Svizzera lavoravano oltre l\'età pensionabile. Ecco cosa cambia per i frontalieri del Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/lavoratori-pensionati-ticino-2026-2046',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoratori in età pensionabile in Ticino: +220% in 20 anni",
+      "description": "Nel 2025, 220.000 persone in Svizzera lavoravano oltre l'età pensionabile. Ecco cosa cambia per i frontalieri del Canton Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoratori-pensionati-ticino-2026-2046.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici"
+      },
+      "datePublished": "2026-04-27T13:13:51+00:00",
+      "dateModified": "2026-04-27T13:13:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoratori-pensionati-ticino-2026-2046`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
