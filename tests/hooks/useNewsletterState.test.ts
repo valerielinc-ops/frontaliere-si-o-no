@@ -24,6 +24,7 @@ vi.mock('@/services/i18n', () => ({
     t: (key: string) => key,
     locale: 'it' as const,
   }),
+  getCantonI18nParams: () => ({} as Record<string, string>),
 }));
 
 vi.mock('@/services/errorReporter', () => ({

@@ -48,6 +48,7 @@ vi.mock('@/services/i18n', () => ({
       }
     },
   }),
+  getCantonI18nParams: () => ({} as Record<string, string>),
 }));
 
 vi.mock('@/services/NavigationContext', () => ({

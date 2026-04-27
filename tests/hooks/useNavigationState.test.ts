@@ -20,6 +20,7 @@ vi.mock('@/services/router', () => ({
 vi.mock('@/services/i18n', () => ({
   setLocale: vi.fn(),
   onLocaleChange: vi.fn(() => vi.fn()), // returns unsubscribe fn
+  getCantonI18nParams: () => ({} as Record<string, string>),
 }));
 
 vi.mock('@/services/prefetch', () => ({

@@ -24,6 +24,7 @@ vi.mock('@/services/i18n', () => ({
     de: { flag: '🇩🇪', nativeName: 'Deutsch' },
     fr: { flag: '🇫🇷', nativeName: 'Français' },
   },
+  getCantonI18nParams: () => ({} as Record<string, string>),
 }));
 
 vi.mock('@/services/router', () => ({

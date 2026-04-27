@@ -10,6 +10,7 @@ vi.mock('@/services/i18n', () => ({
   isTranslationsReady: () => true,
   itReady: Promise.resolve(),
   loadTabTranslations: vi.fn(() => Promise.resolve()),
+  getCantonI18nParams: () => ({} as Record<string, string>),
 }));
 
 vi.mock('@/services/consentService', () => ({
