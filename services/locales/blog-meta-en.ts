@@ -3169,6 +3169,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benessere-scolastico-bellinzona-2026.title': 'Bellinzona: new school wellbeing programs',
     'blog.article.benessere-scolastico-bellinzona-2026.excerpt': 'New educational programs for Bellinzona primary schools starting in 2026',
     'blog.article.benessere-scolastico-bellinzona-2026.imageAlt': 'Bellinzona historic center students school',
+    'blog.article.mendrisio-capitale-culturale-opportunita.title': 'Mendrisio Cultural Capital: Opportunities to Seize',
+    'blog.article.mendrisio-capitale-culturale-opportunita.excerpt': 'Mendrisio\'s management majority reassures on costs and rules out dependence on Lugano',
+    'blog.article.mendrisio-capitale-culturale-opportunita.imageAlt': 'Aerial view of Mendrisio, Ticino, Switzerland, with its historic center and modern buildings',
 };
 
 export default blogMetaEn;

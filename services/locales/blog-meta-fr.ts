@@ -3170,6 +3170,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.benessere-scolastico-bellinzona-2026.title': 'Bellinzone : nouveaux programmes pour le bien-être scolaire',
     'blog.article.benessere-scolastico-bellinzona-2026.excerpt': 'Nouveaux programmes éducatifs pour les écoles primaires de Bellinzone à partir de 2026',
     'blog.article.benessere-scolastico-bellinzona-2026.imageAlt': 'Bellinzona centre-ville élèves école',
+    'blog.article.mendrisio-capitale-culturale-opportunita.title': 'Mendrisio, capitale culturelle : des opportunités à saisir',
+    'blog.article.mendrisio-capitale-culturale-opportunita.excerpt': 'La majorité de la gestion de Mendrisio rassure sur les coûts et écarte le risque de dépendance envers Lugano',
+    'blog.article.mendrisio-capitale-culturale-opportunita.imageAlt': 'Vue aérienne de Mendrisio, Tessin, Suisse, avec son centre historique et les bâtiments modernes',
 };
 
 export default blogMetaFr;

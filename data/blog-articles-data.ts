@@ -8407,4 +8407,11 @@ export const ARTICLES = [
  image: '/images/blog/benessere-scolastico-bellinzona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mendrisio-capitale-culturale-opportunita',
+ category: 'novita',
+ date: '2026-04-27T23:42:37.215Z',
+ image: '/images/blog/mendrisio-capitale-culturale-opportunita.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

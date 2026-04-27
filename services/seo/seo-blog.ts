@@ -17613,6 +17613,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mendrisio-capitale-culturale-opportunita': {
+    title: 'Mendrisio Capitale Culturale: Opportunità da Cogliere',
+    description: 'La maggioranza della Gestione di Mendrisio rassicura sui costi e allontana il rischio di sudditanza verso Lugano. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisio, capitale, culturale, opportunità',
+    ogTitle: 'Mendrisio Capitale Culturale: Opportunità da Cogliere',
+    ogDescription: 'La maggioranza della Gestione di Mendrisio rassicura sui costi e allontana il rischio di sudditanza verso Lugano',
+    canonicalPath: '/articoli-frontaliere/mendrisio-capitale-culturale-opportunita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisio Capitale Culturale: Opportunità da Cogliere",
+      "description": "La maggioranza della Gestione di Mendrisio rassicura sui costi e allontana il rischio di sudditanza verso Lugano. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mendrisio-capitale-culturale-opportunita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Ticino, Svizzera, con il centro storico e gli edifici moderni"
+      },
+      "datePublished": "2026-04-27T23:42:37+00:00",
+      "dateModified": "2026-04-27T23:42:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mendrisio-capitale-culturale-opportunita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

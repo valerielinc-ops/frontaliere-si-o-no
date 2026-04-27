@@ -3169,6 +3169,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.benessere-scolastico-bellinzona-2026.title': 'Bellinzona: neue Programme für das Wohlbefinden in Schulen',
     'blog.article.benessere-scolastico-bellinzona-2026.excerpt': 'Ab 2026 gibt es neue Bildungsprogramme für die Primarschulen in Bellinzona',
     'blog.article.benessere-scolastico-bellinzona-2026.imageAlt': 'Bellinzona Altstadt Schüler Schule',
+    'blog.article.mendrisio-capitale-culturale-opportunita.title': 'Mendrisio: Kulturhauptstadt mit Chancen',
+    'blog.article.mendrisio-capitale-culturale-opportunita.excerpt': 'Die Mehrheit der Verwaltung von Mendrisio beruhigt bezüglich der Kosten und entfernt das Risiko der Abhängigkeit von Lugano',
+    'blog.article.mendrisio-capitale-culturale-opportunita.imageAlt': 'Luftaufnahme von Mendrisio, Tessin, Schweiz, mit der Altstadt und modernen Gebäuden',
 };
 
 export default blogMetaDe;
