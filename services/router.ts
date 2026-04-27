@@ -82,6 +82,76 @@ const SEMRUSH_LANDINGS: ReadonlyArray<{ key: string; path: string; tab: 'guida' 
 ];
 const SEMRUSH_LANDING_ROUTES = new Set(SEMRUSH_LANDINGS.map((l) => l.path));
 
+// ── Static-overlay SEO pages (annual/market reports, border-wait map, salary-hub
+//    evergreen articles). All emitted via `buildSeoPageHtml` with
+//    `seoContentOutsideRoot: true`, so the SPA must NOT replace them on hydrate.
+//    Listing the full URL set here lets parsePath flag them with
+//    `staticOverlay: true` (mirrors fuel-daily / health-premiums pattern).
+const ANNUAL_REPORT_PATHS = new Set([
+  '/report/frontalieri-2026/',
+  '/en/report/cross-border-workers-2026/',
+  '/de/report/grenzgaenger-2026/',
+  '/fr/report/frontaliers-2026/',
+]);
+
+const MARKET_REPORT_PATHS = new Set([
+  '/reports/mercato-lavoro-frontalieri-ticino-2026/',
+  '/en/reports/ticino-cross-border-job-market-2026/',
+  '/de/reports/tessiner-grenzgaenger-arbeitsmarkt-2026/',
+  '/fr/reports/marche-emploi-frontaliers-tessin-2026/',
+]);
+
+const BORDER_WAIT_MAP_PATHS = new Set([
+  '/guida-frontaliere/mappa-live-valichi/',
+  '/en/cross-border-guide/live-border-crossings-map/',
+  '/de/grenzgaenger-ratgeber/live-grenzuebergaenge-karte/',
+  '/fr/guide-frontalier/carte-live-passages-frontaliers/',
+]);
+
+// 8 evergreen salary-hub articles × 4 locales = 32 URLs.
+// Source of truth: build-plugins/salaryHubArticles.ts EVERGREEN_ARTICLES[].slugs.
+// If the build adds/renames an article, add/rename the path here too — there's
+// a regression test (tests/router.test.ts) that round-trips parsePath against
+// every static-overlay route.
+const SALARY_HUB_ARTICLE_PATHS = new Set([
+  // IT — /guida-frontaliere/{slug}/
+  '/guida-frontaliere/guida-completa-calcolo-stipendio-frontaliere-2026/',
+  '/guida-frontaliere/nuovo-vs-vecchio-frontaliere-differenze-fiscali/',
+  '/guida-frontaliere/imposta-alla-fonte-ticino-tabelle-a-b-c-h/',
+  '/guida-frontaliere/quanto-incidono-figli-stipendio-netto-frontaliere/',
+  '/guida-frontaliere/frontaliere-entro-o-oltre-20km-cosa-cambia/',
+  '/guida-frontaliere/da-50000-a-150000-chf-come-cambia-netto-frontaliere/',
+  '/guida-frontaliere/sposato-o-single-impatto-tasse-frontaliere/',
+  '/guida-frontaliere/costo-nascosto-cambio-chf-eur-stipendio-netto/',
+  // EN — /en/cross-border-guide/{slug}/
+  '/en/cross-border-guide/complete-guide-crossborder-salary-calculation-2026/',
+  '/en/cross-border-guide/new-vs-old-crossborder-worker-tax-differences/',
+  '/en/cross-border-guide/withholding-tax-ticino-tables-a-b-c-h/',
+  '/en/cross-border-guide/how-children-affect-crossborder-worker-net-salary/',
+  '/en/cross-border-guide/crossborder-within-or-over-20km-what-changes/',
+  '/en/cross-border-guide/from-50000-to-150000-chf-how-net-changes-crossborder/',
+  '/en/cross-border-guide/married-or-single-impact-on-crossborder-taxes/',
+  '/en/cross-border-guide/hidden-cost-chf-eur-exchange-net-salary/',
+  // DE — /de/grenzgaenger-ratgeber/{slug}/
+  '/de/grenzgaenger-ratgeber/kompletter-leitfaden-gehaltsberechnung-grenzgaenger-2026/',
+  '/de/grenzgaenger-ratgeber/neuer-vs-alter-grenzgaenger-steuerliche-unterschiede/',
+  '/de/grenzgaenger-ratgeber/quellensteuer-tessin-tabellen-a-b-c-h/',
+  '/de/grenzgaenger-ratgeber/wie-kinder-nettogehalt-grenzgaenger-beeinflussen/',
+  '/de/grenzgaenger-ratgeber/grenzgaenger-innerhalb-oder-ueber-20km-was-aendert-sich/',
+  '/de/grenzgaenger-ratgeber/von-50000-bis-150000-chf-wie-sich-netto-aendert-grenzgaenger/',
+  '/de/grenzgaenger-ratgeber/verheiratet-oder-ledig-auswirkung-steuern-grenzgaenger/',
+  '/de/grenzgaenger-ratgeber/versteckte-kosten-chf-eur-wechselkurs-nettogehalt/',
+  // FR — /fr/guide-frontalier/{slug}/
+  '/fr/guide-frontalier/guide-complet-calcul-salaire-frontalier-2026/',
+  '/fr/guide-frontalier/nouveau-vs-ancien-frontalier-differences-fiscales/',
+  '/fr/guide-frontalier/impot-source-tessin-baremes-a-b-c-h/',
+  '/fr/guide-frontalier/impact-enfants-salaire-net-frontalier/',
+  '/fr/guide-frontalier/frontalier-moins-ou-plus-20km-ce-qui-change/',
+  '/fr/guide-frontalier/de-50000-a-150000-chf-comment-le-net-change-frontalier/',
+  '/fr/guide-frontalier/marie-ou-celibataire-impact-impots-frontalier/',
+  '/fr/guide-frontalier/cout-cache-change-chf-eur-salaire-net/',
+]);
+
 // ── Route types ──────────────────────────────────────────────
 
 export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'tassazione-hub';
@@ -1753,6 +1823,47 @@ export function parsePath(pathname: string): ParseResult {
        };
      }
      return { route: { activeTab: 'guida', guidaSubTab: 'border', staticOverlay: true }, locale: targetLocale };
+   }
+ }
+
+ // Annual report static SEO page — /report/frontalieri-2026/ + locale variants.
+ // Emitted via buildSeoPageHtml (seoContentOutsideRoot:true); staticOverlay
+ // keeps the static content visible (otherwise SPA falls into notFoundPath
+ // and renders the 404 helper inside #root). Mirrors fuel-daily pattern.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (ANNUAL_REPORT_PATHS.has(normalized)) {
+     return { route: { activeTab: 'stats', staticOverlay: true }, locale };
+   }
+ }
+
+ // Market report static SEO page — /reports/{slug}-2026/ + locale variants.
+ // Same staticOverlay contract as the annual report above.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (MARKET_REPORT_PATHS.has(normalized)) {
+     return { route: { activeTab: 'stats', staticOverlay: true }, locale };
+   }
+ }
+
+ // Border-wait live map hub — /guida-frontaliere/mappa-live-valichi/ + locale
+ // variants. Without staticOverlay the URL falls into the generic guida tab
+ // (first-day fallback) and the SPA replaces the map. Routes to the border
+ // sub-tab so back-nav lands on a usable view.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (BORDER_WAIT_MAP_PATHS.has(normalized)) {
+     return { route: { activeTab: 'guida', guidaSubTab: 'border', staticOverlay: true }, locale };
+   }
+ }
+
+ // Salary-hub evergreen articles (8 × 4 locales) — /guida-frontaliere/{slug}/
+ // and locale variants. Without staticOverlay the unknown slug under the guida
+ // tab falls back to first-day, and the SPA replaces the article body.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (SALARY_HUB_ARTICLE_PATHS.has(normalized)) {
+     return { route: { activeTab: 'guida', guidaSubTab: 'first-day', staticOverlay: true }, locale };
    }
  }
 
