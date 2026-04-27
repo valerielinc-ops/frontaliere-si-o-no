@@ -3006,6 +3006,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.negoziati-falliti-stretto-hormuz-2026.title': 'Negotiations failed on the Strait of Hormuz: excessive US demands',
     'blog.article.negoziati-falliti-stretto-hormuz-2026.excerpt': 'Iranian Foreign Minister Abbas Araghchi stated that excessive US demands led to the failure of negotiations on the Strait of Hormuz.',
     'blog.article.negoziati-falliti-stretto-hormuz-2026.imageAlt': 'LAC Lugano, cultural and artistic center in Ticino',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.title': 'Domestic violence roadmap: Jans reports a positive balance',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.excerpt': 'The roadmap against domestic and sexual violence has proven effective, but further measures are needed to combat femicides.',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.imageAlt': 'Lake Lugano with city view',
 };
 
 export default blogMetaEn;

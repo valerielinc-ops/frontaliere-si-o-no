@@ -8001,4 +8001,11 @@ export const ARTICLES = [
  image: '/images/blog/negoziati-falliti-stretto-hormuz-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'roadmap-violenza-domestica-bilancio-positivo',
+ category: 'novita',
+ date: '2026-04-27T16:06:35.899Z',
+ image: '/images/blog/roadmap-violenza-domestica-bilancio-positivo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

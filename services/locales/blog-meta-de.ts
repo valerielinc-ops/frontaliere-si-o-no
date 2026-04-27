@@ -3006,6 +3006,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.negoziati-falliti-stretto-hormuz-2026.title': 'Verhandlungen über die Straße von Hormuz gescheitert: Die überzogenen Forderungen der USA',
     'blog.article.negoziati-falliti-stretto-hormuz-2026.excerpt': 'Der iranische Außenminister Abbas Araghchi erklärte, dass die überzogenen Forderungen der USA die Verhandlungen über die Straße von Hormuz zum Scheitern gebracht haben.',
     'blog.article.negoziati-falliti-stretto-hormuz-2026.imageAlt': 'LAC Lugano, Kultur- und Kunstzentrum in Ticino',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.title': 'Roadmap gegen häusliche Gewalt: Jans zieht eine positive Bilanz',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.excerpt': 'Die Roadmap gegen häusliche und sexuelle Gewalt hat sich als wirksam erwiesen, aber es sind weitere Maßnahmen erforderlich, um Femizide zu bekämpfen.',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.imageAlt': 'Luganersee mit Stadtblick',
 };
 
 export default blogMetaDe;

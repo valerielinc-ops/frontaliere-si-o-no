@@ -3006,6 +3006,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.negoziati-falliti-stretto-hormuz-2026.title': 'Négociations échouées sur le détroit d\'Hormuz : les demandes excessives des USA',
     'blog.article.negoziati-falliti-stretto-hormuz-2026.excerpt': 'Le ministre des Affaires étrangères iranien Abbas Araghchi a déclaré que les demandes excessives des USA ont fait échouer les négociations sur le détroit d\'Hormuz.',
     'blog.article.negoziati-falliti-stretto-hormuz-2026.imageAlt': 'LAC Lugano, centre culturel et artistique en Tessin',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.title': 'Feuille de route contre la violence domestique : Jans fait un bilan positif',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.excerpt': 'La feuille de route contre la violence domestique et sexuelle a démontré son efficacité, mais des mesures supplémentaires sont nécessaires pour lutter contre les féminicides.',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.imageAlt': 'Lac de Lugano avec vue sur la ville',
 };
 
 export default blogMetaFr;

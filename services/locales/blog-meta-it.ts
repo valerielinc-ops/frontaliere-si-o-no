@@ -3006,6 +3006,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.negoziati-falliti-stretto-hormuz-2026.title': 'Negoziati falliti sullo Stretto di Hormuz: le richieste eccessive degli USA',
     'blog.article.negoziati-falliti-stretto-hormuz-2026.excerpt': 'Il ministro degli Esteri iraniano Abbas Araghchi ha dichiarato che le richieste eccessive degli USA hanno fatto fallire i negoziati sullo Stretto di Hormuz.',
     'blog.article.negoziati-falliti-stretto-hormuz-2026.imageAlt': 'LAC Lugano, centro culturale e artistico in Ticino',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.title': 'Roadmap violenza domestica: Jans traccia un bilancio positivo',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.excerpt': 'La roadmap contro la violenza domestica e sessuale ha dimostrato efficacia, ma servono ulteriori misure per contrastare i femminicidi.',
+    'blog.article.roadmap-violenza-domestica-bilancio-positivo.imageAlt': 'Lago di Lugano con vista sulla città',
 };
 
 export default blogMetaIt;
