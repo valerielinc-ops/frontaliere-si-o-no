@@ -2985,6 +2985,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.osservatori-traffico-lago-como-2026.title': 'Observateurs du trafic actifs aussi le samedi sur la Route Regina',
     'blog.article.osservatori-traffico-lago-como-2026.excerpt': 'À partir du 2 mai 2026, les observateurs du trafic seront opérationnels aussi le samedi pour réduire les bouchons sur la Route Regina entre Colonno et Ossuccio.',
     'blog.article.osservatori-traffico-lago-como-2026.imageAlt': 'Vue aérienne du lac de Côme avec le trafic sur la route nationale Regina, Tremezzina',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.title': 'Plus de contrôles et de prévention entre Varèse et Côme : ATS Insubria fait le point sur la sécurité au travail',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.excerpt': 'ATS Insubria présente les données des activités d\'inspection et des projets de prévention entre Varèse et Côme, avec plus de 8.125 interventions en 2025.',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.imageAlt': 'Vue aérienne des provinces de Varese et de Como avec des zones industrielles et des chantiers de construction',
 };
 
 export default blogMetaFr;

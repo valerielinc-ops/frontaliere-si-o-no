@@ -2985,6 +2985,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.osservatori-traffico-lago-como-2026.title': 'Traffic monitors active on Saturdays too on the Statale Regina',
     'blog.article.osservatori-traffico-lago-como-2026.excerpt': 'From 2 May 2026, traffic monitors will also be operational on Saturdays to reduce queues on the Statale Regina between Colonno and Ossuccio.',
     'blog.article.osservatori-traffico-lago-como-2026.imageAlt': 'Aerial view of Lake Como with traffic on the Statale Regina, Tremezzina',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.title': 'More inspections and prevention between Varese and Como: ATS Insubria reports on workplace safety',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.excerpt': 'ATS Insubria presents data on inspection activities and prevention projects between Varese and Como, with over 8,125 interventions in 2025.',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.imageAlt': 'Aerial view of Varese and Como provinces with industrial areas and construction sites',
 };
 
 export default blogMetaEn;

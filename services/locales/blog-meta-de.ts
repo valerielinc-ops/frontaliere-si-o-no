@@ -2985,6 +2985,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.osservatori-traffico-lago-como-2026.title': 'Verkehrsbeobachter auch am Samstag auf der Staatsstraße Regina aktiv',
     'blog.article.osservatori-traffico-lago-como-2026.excerpt': 'Ab dem 2. Mai 2026 werden die Verkehrsbeobachter auch am Samstag im Einsatz sein, um die Staus auf der Staatsstraße Regina zwischen Colonno und Ossuccio zu reduzieren.',
     'blog.article.osservatori-traffico-lago-como-2026.imageAlt': 'Luftaufnahme des Comer Sees mit Verkehr auf der Staatsstraße Regina, Tremezzina',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.title': 'Mehr Kontrollen und Prävention zwischen Varese und Como: ATS Insubria zieht Bilanz zur Arbeitssicherheit',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.excerpt': 'ATS Insubria präsentiert die Daten der Inspektionsaktivitäten und Präventionsprojekte zwischen Varese und Como, mit über 8.125 Einsätzen im Jahr 2025.',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.imageAlt': 'Luftaufnahme der Provinzen Varese und Como mit Industriegebieten und Baustellen',
 };
 
 export default blogMetaDe;

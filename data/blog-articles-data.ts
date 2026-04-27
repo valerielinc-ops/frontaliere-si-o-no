@@ -7952,4 +7952,11 @@ export const ARTICLES = [
  image: '/images/blog/osservatori-traffico-lago-como-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sicurezza-lavoro-ats-insubria-varese-como-2026',
+ category: 'pratico',
+ date: '2026-04-27T15:25:50.667Z',
+ image: '/images/blog/sicurezza-lavoro-ats-insubria-varese-como-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

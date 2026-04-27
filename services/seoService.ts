@@ -2255,6 +2255,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sicurezza-lavoro-ats-insubria-2026': { name: 'Novità', path: '/articoli-frontaliere/sicurezza-lavoro-ats-insubria-2026', parent: 'blog' },
     'blog-furto-biciclette-giubiasco-2026': { name: 'Furto biciclette Giubiasco', path: '/articoli-frontaliere/furto-biciclette-giubiasco-2026', parent: 'blog' },
     'blog-osservatori-traffico-lago-como-2026': { name: 'Novità', path: '/articoli-frontaliere/osservatori-traffico-lago-como-2026', parent: 'blog' },
+    'blog-sicurezza-lavoro-ats-insubria-varese-como-2026': { name: 'Sicurezza lavoro', path: '/articoli-frontaliere/sicurezza-lavoro-ats-insubria-varese-como-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

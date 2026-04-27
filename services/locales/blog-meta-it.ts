@@ -2985,6 +2985,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.osservatori-traffico-lago-como-2026.title': 'Osservatori del traffico attivi anche il sabato sulla Statale Regina',
     'blog.article.osservatori-traffico-lago-como-2026.excerpt': 'Dal 2 maggio 2026, gli osservatori del traffico saranno operativi anche il sabato per ridurre le code sulla Statale Regina tra Colonno e Ossuccio.',
     'blog.article.osservatori-traffico-lago-como-2026.imageAlt': 'Vista aerea del Lago di Como con traffico sulla Statale Regina, Tremezzina',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.title': 'Più controlli e prevenzione tra Varese e Como: ATS Insubria fa il punto sulla sicurezza sul lavoro',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.excerpt': 'ATS Insubria presenta i dati delle attività ispettive e dei progetti di prevenzione tra Varese e Como, con oltre 8.125 interventi nel 2025.',
+    'blog.article.sicurezza-lavoro-ats-insubria-varese-como-2026.imageAlt': 'Vista aerea delle province di Varese e Como con aree industriali e cantieri edili',
 };
 
 export default blogMetaIt;

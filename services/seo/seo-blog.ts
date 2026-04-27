@@ -15728,6 +15728,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-lavoro-ats-insubria-varese-como-2026': {
+    title: 'Più controlli e prevenzione tra Varese | Frontaliere Ticino',
+    description: 'ATS Insubria presenta i dati delle attività ispettive e dei progetti di prevenzione tra Varese e Como, con oltre 8.125 interventi nel 2025. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, prevenzione, varese, como',
+    ogTitle: 'Sicurezza sul lavoro: ATS Insubria aumenta controlli |',
+    ogDescription: 'ATS Insubria presenta i dati delle attività ispettive e dei progetti di prevenzione tra Varese e Como, con oltre 8.125 interventi nel 2025.',
+    canonicalPath: '/articoli-frontaliere/sicurezza-lavoro-ats-insubria-varese-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza sul lavoro: ATS Insubria aumenta controlli",
+      "description": "ATS Insubria presenta i dati delle attività ispettive e dei progetti di prevenzione tra Varese e Como, con oltre 8.125 interventi nel 2025. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sicurezza-lavoro-ats-insubria-varese-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea delle province di Varese e Como con aree industriali e cantieri edili"
+      },
+      "datePublished": "2026-04-27T15:25:50+00:00",
+      "dateModified": "2026-04-27T15:25:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-ats-insubria-varese-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
