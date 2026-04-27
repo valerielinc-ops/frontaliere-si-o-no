@@ -2883,6 +2883,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prevenzione-violenza-domestica-san-gallo-2026.title': 'Haushaltsgewalt: In St. Gallen geht die Prävention über Dialog',
     'blog.article.prevenzione-violenza-domestica-san-gallo-2026.excerpt': 'In St. Gallen schaltet die Polizei potenzielle Täter von Haushaltsgewalt und bindet sie in präventive Gespräche ein, mit einer Erfolgsquote von 90%.',
     'blog.article.prevenzione-violenza-domestica-san-gallo-2026.imageAlt': 'Ein Polizeibeamter in Zivil spricht mit einer Person in einem Café in Mendrisio',
+    'blog.article.zurigo-economia-svizzera-crescita-media-2026.title': 'Zürich führt die Schweizer Wirtschaft an, wächst aber unter dem Durchschnitt',
+    'blog.article.zurigo-economia-svizzera-crescita-media-2026.excerpt': 'Zürich trägt 21% zum Schweizer BIP bei, wächst aber nur um 1,3% im Vergleich zu 1,7% auf nationaler Ebene. Erfahren Sie, warum und was das für Grenzgänger bedeutet.',
+    'blog.article.zurigo-economia-svizzera-crescita-media-2026.imageAlt': 'Luftaufnahme von Lugano und dem Luganersee an einem sonnigen Tag mit klarem blauen Himmel',
 };
 
 export default blogMetaDe;

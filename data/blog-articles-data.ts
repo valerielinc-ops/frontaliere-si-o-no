@@ -7714,4 +7714,11 @@ export const ARTICLES = [
  image: '/images/blog/prevenzione-violenza-domestica-san-gallo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'zurigo-economia-svizzera-crescita-media-2026',
+ category: 'novita',
+ date: '2026-04-27T11:08:34.045Z',
+ image: '/images/blog/zurigo-economia-svizzera-crescita-media-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

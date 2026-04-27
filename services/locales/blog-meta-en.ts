@@ -2883,6 +2883,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.prevenzione-violenza-domestica-san-gallo-2026.title': 'Domestic violence: prevention through dialogue in St. Gallen',
     'blog.article.prevenzione-violenza-domestica-san-gallo-2026.excerpt': 'In St. Gallen, the police intercept potential domestic violence offenders and engage them in preventive talks with a 90% success rate.',
     'blog.article.prevenzione-violenza-domestica-san-gallo-2026.imageAlt': 'A plainclothes police officer talks to a person in a café in Mendrisio',
+    'blog.article.zurigo-economia-svizzera-crescita-media-2026.title': 'Zurich leads the Swiss economy, but grows less than the average',
+    'blog.article.zurigo-economia-svizzera-crescita-media-2026.excerpt': 'Zurich contributes 21% of Switzerland\'s GDP, but only grows by 1.3% compared to the national average of 1.7%. Find out why and what this means for cross-border workers.',
+    'blog.article.zurigo-economia-svizzera-crescita-media-2026.imageAlt': 'Aerial view of Lugano and Lake Lugano on a sunny day with clear blue skies',
 };
 
 export default blogMetaEn;

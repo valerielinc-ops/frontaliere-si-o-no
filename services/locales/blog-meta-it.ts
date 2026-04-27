@@ -2883,6 +2883,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prevenzione-violenza-domestica-san-gallo-2026.title': 'Violenza domestica: a San Gallo la prevenzione passa dal dialogo',
     'blog.article.prevenzione-violenza-domestica-san-gallo-2026.excerpt': 'A San Gallo, la polizia intercetta potenziali autori di violenza domestica e li coinvolge in colloqui preventivi con un tasso di successo del 90%.',
     'blog.article.prevenzione-violenza-domestica-san-gallo-2026.imageAlt': 'Un agente di polizia in abiti civili parla con una persona in un caffè a Mendrisio',
+    'blog.article.zurigo-economia-svizzera-crescita-media-2026.title': 'Zurigo guida l\'economia svizzera, ma cresce meno della media',
+    'blog.article.zurigo-economia-svizzera-crescita-media-2026.excerpt': 'Zurigo contribuisce al 21% del PIL svizzero, ma cresce solo dell\'1,3% contro il 1,7% nazionale. Scopri perché e cosa significa per i frontalieri.',
+    'blog.article.zurigo-economia-svizzera-crescita-media-2026.imageAlt': 'Vista aerea di Lugano e del Lago di Lugano in una giornata di sole con cieli blu limpidi',
 };
 
 export default blogMetaIt;
