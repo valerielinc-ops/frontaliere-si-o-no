@@ -181,7 +181,12 @@ export function replaceBody1(raw, articleId, newBody1) {
   if (!rx.test(raw)) {
     throw new Error(`replaceBody1: body1 anchor not found for ${articleId}`);
   }
-  return raw.replace(rx, `$1${escaped}$3`);
+  // CRITICAL: String.prototype.replace expands $&, $1..$9, $$ in the
+  // replacement string. When the AI body contains literal '$' (e.g. "$70 per
+  // barrel" → $70 expands to capture group 7 → empty → "0", and "$120" →
+  // group 1 = key prefix → corrupts file with embedded body1 key). Use the
+  // function form so the replacement is treated as a literal string.
+  return raw.replace(rx, (_match, p1, _p2, p3) => `${p1}${escaped}${p3}`);
 }
 
 // ── Main ────────────────────────────────────────────────────────────────
@@ -302,8 +307,23 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
       const parsed = JSON.parse(raw.replace(/^```(?:json)?\s*/, '').replace(/\s*```$/, '').trim());
       const valid = validateBackfillPayload(parsed);
       const block = buildAiSearchMarkdown({ tldr: valid.tldr, keyFacts: valid.keyFacts, locale });
+      // Defense in depth: a previous bug expanded `$N` capture-group refs in
+      // String.prototype.replace's replacement string (now mitigated via the
+      // function form in replaceBody1). Reject any output that still embeds
+      // the literal body1 key marker — that pattern can ONLY come from a
+      // broken expansion or a hallucinated AI response.
+      const corruptionMarker = new RegExp(`'blog\\.article\\.${t.articleId.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}\\.body[0-9]*'\\s*:\\s*'`);
+      if (corruptionMarker.test(block)) {
+        throw new Error('AI block contains body-key marker — refusing to write (would corrupt TS file)');
+      }
       const newBody1 = `${block}${t.body1}`;
       const newRaw = replaceBody1(t.raw, t.articleId, newBody1);
+      // Final guard: scan the output for ANY mid-string body-key marker.
+      // If the regex fires, abort the write before the file is corrupted.
+      const postWriteCheck = /[a-zA-Z0-9.,\-)] *'blog\.article\.[a-z0-9-]+\.(body|faq)[0-9]*': '/;
+      if (postWriteCheck.test(newRaw)) {
+        throw new Error('post-write scan detected mid-string body-key marker — corrupted output, NOT writing');
+      }
       writeFileSync(t.filePath, newRaw, 'utf-8');
       written++;
       writtenSinceCommit++;
