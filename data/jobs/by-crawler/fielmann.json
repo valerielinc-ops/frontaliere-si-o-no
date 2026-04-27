@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fielmann",
-  "assembledAt": "2026-04-27T10:53:14.401Z",
+  "assembledAt": "2026-04-27T21:48:22.345Z",
   "jobs": [
     {
       "id": "fielmann-5773ac6aab7f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fielmann.com/de/stellenangebote/detail/48122-specialist-it-indoor-sales",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T10:52:40.556Z",
+      "crawledAt": "2026-04-27T21:47:51.107Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,6 +63,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T09:56:21.196Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
