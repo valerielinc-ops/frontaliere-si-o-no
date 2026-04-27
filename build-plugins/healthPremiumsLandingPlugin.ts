@@ -1343,8 +1343,10 @@ function renderLeafPage(inp: LeafInputs): string {
   // Shared helper guarantees 4 locales + x-default on canonical host.
   const alternatesHtml = renderHreflangTags(alternates);
 
-  // Comparator CTA with pre-filter query
-  const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}?canton=${stats.cantonBagCode}&age=${age}`;
+  // Comparator CTA with pre-filter hash (crawler-invisible: avoids `?canton=`
+  // URL variants leaking into the link graph — the SPA reads `location.hash`
+  // on mount, see components/comparators/HealthInsurance.tsx).
+  const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}&age=${age}`;
 
   // JSON-LD
   const breadcrumbLd = JSON.stringify({
@@ -1628,7 +1630,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     : locale === 'de' ? `KVG-Prämienvergleich ${year} im Kanton ${cantonLabel}`
     : `Comparatif des primes LAMal ${year} à ${cantonLabel}`;
   const intro = copy.introCanton(cantonLabel, medFmt, minFmt, maxFmt, year);
-  const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}?canton=${stats.cantonBagCode}`;
+  const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}`;
 
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',

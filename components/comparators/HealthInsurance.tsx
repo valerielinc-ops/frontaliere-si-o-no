@@ -119,8 +119,25 @@ interface ComputedResult {
 const HealthInsurance: React.FC = () => {
  const { t } = useTranslation();
  const [data, setData] = useState<HealthPremiumsData | null>(null);
- const [age, setAge] = useState<number>(35);
- const [canton, setCanton] = useState('TI');
+ // Pre-filter from URL hash (e.g. `#canton=AG&age=56-plus`), emitted by the
+ // F2 LAMal-premium SEO landings (build-plugins/healthPremiumsLandingPlugin.ts)
+ // as a crawler-invisible alternative to query strings.
+ const initialHashFilter = (() => {
+   if (typeof window === 'undefined') return { canton: 'TI', age: 35 };
+   const raw = window.location.hash.replace(/^#/, '');
+   if (!raw) return { canton: 'TI', age: 35 };
+   const params = new URLSearchParams(raw);
+   const cantonParam = (params.get('canton') || 'TI').toUpperCase();
+   const ageParam = params.get('age') || '';
+   const ageBracketMidpoint: Record<string, number> = {
+     '0-18': 10, '19-25': 22, '26-30': 28,
+     '31-45': 38, '46-55': 50, '56-plus': 60,
+   };
+   const ageNum = ageBracketMidpoint[ageParam] ?? 35;
+   return { canton: cantonParam, age: ageNum };
+ })();
+ const [age, setAge] = useState<number>(initialHashFilter.age);
+ const [canton, setCanton] = useState(initialHashFilter.canton);
  const [commune, setCommune] = useState('6823-Lugano');
  const [franchise, setFranchise] = useState(2500);
  const [model, setModel] = useState<InsuranceModel>('standard');
