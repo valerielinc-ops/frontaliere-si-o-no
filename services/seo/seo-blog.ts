@@ -13785,6 +13785,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-velocita-ticino-aprile-maggio': {
+    title: 'Radar in Ticino: controlli dal 27 | Frontaliere Ticino',
+    description: 'La Polizia cantonale e le polizie comunali annunciano i controlli della velocità in Ticino per la settimana dal 27 aprile al 3 maggio. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, radar, controlli, aprile, maggio',
+    ogTitle: 'Radar in Ticino: controlli dal 27 aprile al 3 maggio |',
+    ogDescription: 'La Polizia cantonale e le polizie comunali annunciano i controlli della velocità in Ticino per la settimana dal 27 aprile al 3 maggio.',
+    canonicalPath: '/articoli-frontaliere/controlli-velocita-ticino-aprile-maggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Radar in Ticino: controlli dal 27 aprile al 3 maggio",
+      "description": "La Polizia cantonale e le polizie comunali annunciano i controlli della velocità in Ticino per la settimana dal 27 aprile al 3 maggio. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-velocita-ticino-aprile-maggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il paesaggio del Ticino"
+      },
+      "datePublished": "2026-04-27T03:19:20+00:00",
+      "dateModified": "2026-04-27T03:19:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-velocita-ticino-aprile-maggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2784,6 +2784,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contratto-lago-lands-lake-2026.title': 'Lago Contract: Lands Lake invites mayoral candidates to a discussion',
     'blog.article.contratto-lago-lands-lake-2026.excerpt': 'The Lands Lake association is organizing public meetings with the mayoral candidates of Baveno, Stresa, Luino, and Laveno Mombello to discuss the future of Lake Maggiore as a unified system.',
     'blog.article.contratto-lago-lands-lake-2026.imageAlt': 'Lake Maggiore with Baveno, Stresa, Luino, and Laveno Mombello in the background',
+    'blog.article.controlli-velocita-ticino-aprile-maggio.title': 'Radar in Ticino: speed checks from April 27 to May 3',
+    'blog.article.controlli-velocita-ticino-aprile-maggio.excerpt': 'The cantonal police and local police announce speed checks in Ticino for the week from April 27 to May 3.',
+    'blog.article.controlli-velocita-ticino-aprile-maggio.imageAlt': 'Aerial view of Lake Lugano with Ticino landscape',
 };
 
 export default blogMetaEn;

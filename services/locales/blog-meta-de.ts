@@ -2784,6 +2784,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.contratto-lago-lands-lake-2026.title': 'Vertrag vom See: Lands Lake lädt die Bürgermeisterkandidaten zum Vergleich ein',
     'blog.article.contratto-lago-lands-lake-2026.excerpt': 'Der Verein Lands Lake organisiert öffentliche Treffen mit den Bürgermeisterkandidaten von Baveno, Stresa, Luino und Laveno Mombello, um über die Zukunft des Lago Maggiore als einheitliches System zu diskutieren.',
     'blog.article.contratto-lago-lands-lake-2026.imageAlt': 'Blick auf den Lago Maggiore mit Baveno, Stresa, Luino und Laveno Mombello im Hintergrund',
+    'blog.article.controlli-velocita-ticino-aprile-maggio.title': 'Radarkontrollen in der Schweiz: Kontrollen vom 27. April bis 3. Mai',
+    'blog.article.controlli-velocita-ticino-aprile-maggio.excerpt': 'Die Kantonspolizei und die Gemeindepolizeien kündigen die Geschwindigkeitskontrollen in der Schweiz für die Woche vom 27. April bis 3. Mai an.',
+    'blog.article.controlli-velocita-ticino-aprile-maggio.imageAlt': 'Luftaufnahme des Luganer Sees mit der Landschaft des Tessin',
 };
 
 export default blogMetaDe;

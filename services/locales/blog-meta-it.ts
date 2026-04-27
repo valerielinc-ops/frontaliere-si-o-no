@@ -2784,6 +2784,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contratto-lago-lands-lake-2026.title': 'Contratto di Lago: Lands Lake chiama a confronto i candidati sindaco',
     'blog.article.contratto-lago-lands-lake-2026.excerpt': 'L\'associazione Lands Lake organizza incontri pubblici con i candidati sindaco di Baveno, Stresa, Luino e Laveno Mombello per discutere il futuro del Lago Maggiore come sistema unitario.',
     'blog.article.contratto-lago-lands-lake-2026.imageAlt': 'Vista del Lago Maggiore con Baveno, Stresa, Luino e Laveno Mombello sullo sfondo',
+    'blog.article.controlli-velocita-ticino-aprile-maggio.title': 'Radar in Ticino: controlli dal 27 aprile al 3 maggio',
+    'blog.article.controlli-velocita-ticino-aprile-maggio.excerpt': 'La Polizia cantonale e le polizie comunali annunciano i controlli della velocità in Ticino per la settimana dal 27 aprile al 3 maggio.',
+    'blog.article.controlli-velocita-ticino-aprile-maggio.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
 };
 
 export default blogMetaIt;

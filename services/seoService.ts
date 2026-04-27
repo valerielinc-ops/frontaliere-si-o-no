@@ -2188,6 +2188,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-st-moritz-case-accessibili-2026': { name: 'Novità', path: '/articoli-frontaliere/st-moritz-case-accessibili-2026', parent: 'blog' },
     'blog-ex-gas-macello-residenze-secondarie': { name: 'Novità', path: '/articoli-frontaliere/ex-gas-macello-residenze-secondarie', parent: 'blog' },
     'blog-contratto-lago-lands-lake-2026': { name: 'Contratto di Lago', path: '/articoli-frontaliere/contratto-lago-lands-lake-2026', parent: 'blog' },
+    'blog-controlli-velocita-ticino-aprile-maggio': { name: 'Controlli velocità', path: '/articoli-frontaliere/controlli-velocita-ticino-aprile-maggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

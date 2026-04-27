@@ -7483,4 +7483,11 @@ export const ARTICLES = [
  image: '/images/blog/contratto-lago-lands-lake-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'controlli-velocita-ticino-aprile-maggio',
+ category: 'novita',
+ date: '2026-04-27T03:19:20.459Z',
+ image: '/images/blog/controlli-velocita-ticino-aprile-maggio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
