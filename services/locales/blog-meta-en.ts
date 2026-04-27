@@ -3015,6 +3015,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cosa-significa-made-switzerland.title': 'Made in Switzerland: what changes for Swiss products',
     'blog.article.cosa-significa-made-switzerland.excerpt': 'Discover the new rules for the use of the Swiss Made brand and its economic impact. The Federal Institute of Intellectual Property has amended the regulations.',
     'blog.article.cosa-significa-made-switzerland.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.title': 'Equans lays off 19 employees in Monteceneri: the details',
+    'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.excerpt': 'Equans has announced 19 layoffs at its Monteceneri site, affecting the optical fiber and facility management sectors.',
+    'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.imageAlt': 'Aerial view of Monteceneri, Ticino, with industrial buildings and mountains in the background',
 };
 
 export default blogMetaEn;

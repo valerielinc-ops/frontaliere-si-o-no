@@ -3015,6 +3015,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cosa-significa-made-switzerland.title': 'Fabriqué en Suisse : ce qui change pour les produits suisses',
     'blog.article.cosa-significa-made-switzerland.excerpt': 'Découvrez les nouvelles règles pour l\'utilisation de la marque Swiss Made et son impact économique. L\'Institut fédéral de la propriété intellectuelle a modifié les normes.',
     'blog.article.cosa-significa-made-switzerland.imageAlt': 'Castelgrande à Bellinzone, Tessin',
+    'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.title': 'Equans licencie 19 employés à Monteceneri : les détails',
+    'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.excerpt': 'La société Equans a annoncé 19 licenciements dans son siège de Monteceneri, touchant les secteurs des fibres optiques et de la gestion des installations.',
+    'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.imageAlt': 'Vue aérienne de Monteceneri, Tessin, avec des bâtiments industriels et des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

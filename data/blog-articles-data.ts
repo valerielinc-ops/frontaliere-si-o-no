@@ -8022,4 +8022,11 @@ export const ARTICLES = [
  image: '/images/blog/cosa-significa-made-switzerland.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'equans-licenziamenti-monteceneri-19-dipendenti',
+ category: 'novita',
+ date: '2026-04-27T16:24:19.232Z',
+ image: '/images/blog/equans-licenziamenti-monteceneri-19-dipendenti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

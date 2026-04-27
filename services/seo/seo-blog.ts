@@ -16018,6 +16018,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-equans-licenziamenti-monteceneri-19-dipendenti': {
+    title: 'Equans licenzia 19 dipendenti a | Frontaliere Ticino',
+    description: 'Equans ha annunciato 19 licenziamenti nella sua sede di Monteceneri, colpendo i settori delle fibre ottiche e della gestione impianti. Scopri le implicazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, equans, licenzia, dipendenti, monteceneri',
+    ogTitle: 'Equans licenzia 19 dipendenti a Monteceneri | Frontaliere',
+    ogDescription: 'Equans ha annunciato 19 licenziamenti nella sua sede di Monteceneri, colpendo i settori delle fibre ottiche e della gestione impianti. Scopri le implicazioni',
+    canonicalPath: '/articoli-frontaliere/equans-licenziamenti-monteceneri-19-dipendenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Equans licenzia 19 dipendenti a",
+      "description": "Equans ha annunciato 19 licenziamenti nella sua sede di Monteceneri, colpendo i settori delle fibre ottiche e della gestione impianti. Scopri le implicazioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/equans-licenziamenti-monteceneri-19-dipendenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Monteceneri, Ticino, con edifici industriali e montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-27T16:24:19+00:00",
+      "dateModified": "2026-04-27T16:24:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/equans-licenziamenti-monteceneri-19-dipendenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
