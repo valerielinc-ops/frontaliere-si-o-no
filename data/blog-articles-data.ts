@@ -7553,4 +7553,11 @@ export const ARTICLES = [
  image: '/images/blog/study-china-ticino-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'treno-senza-biglietto-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-04-27T06:08:43.714Z',
+ image: '/images/blog/treno-senza-biglietto-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

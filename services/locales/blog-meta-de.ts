@@ -2814,6 +2814,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.study-china-ticino-frontalieri.title': 'Studium in China: Chancen für Grenzgänger aus dem Tessin',
     'blog.article.study-china-ticino-frontalieri.excerpt': 'Über 380.000 internationale Studierende in China im Jahr 2024-2025, mit einem Anstieg von 15 %. Entdecken Sie die Möglichkeiten für Grenzgänger aus dem Tessin.',
     'blog.article.study-china-ticino-frontalieri.imageAlt': 'Internationale Studierende an einer modernen chinesischen Universität',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.title': 'Zug ohne Ticket: Die Schweiz experimentiert mit der Zukunft der Mobilität. Was sich für Grenzgänger ändert',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.excerpt': 'Die Schweiz führt das Bibo-System für reisen ohne Tickets ein. Nationale Testphase ab dem 27. April mit 3000 Nutzern, darunter auch Grenzgänger aus dem Tessin.',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.imageAlt': 'Bahnhof in Lugano mit Fahrgästen, die mit Smartphones in der Hand einsteigen',
 };
 
 export default blogMetaDe;

@@ -2814,6 +2814,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.study-china-ticino-frontalieri.title': 'Study in China: Opportunities for Ticino Cross-Border Workers',
     'blog.article.study-china-ticino-frontalieri.excerpt': 'Over 380,000 international students in China in 2024-2025, with a 15% increase. Discover the opportunities for Ticino cross-border workers.',
     'blog.article.study-china-ticino-frontalieri.imageAlt': 'International students in a modern Chinese university',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.title': 'Ticketless train: Switzerland experiments with the future of mobility. What changes for cross-border workers',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.excerpt': 'Switzerland introduces the Bibo system for ticketless travel. National test starting April 27 with 3000 users, including cross-border workers from Ticino.',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.imageAlt': 'Train station in Lugano with passengers boarding with smartphones in hand',
 };
 
 export default blogMetaEn;

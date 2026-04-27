@@ -2198,6 +2198,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-teatro-architettura-mendrisio-stagione-2026': { name: 'Cultura', path: '/articoli-frontaliere/teatro-architettura-mendrisio-stagione-2026', parent: 'blog' },
     'blog-frontalieri-arresto-maggia-truffa': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-arresto-maggia-truffa', parent: 'blog' },
     'blog-study-china-ticino-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/study-china-ticino-frontalieri', parent: 'blog' },
+    'blog-treno-senza-biglietto-frontalieri-ticino': { name: 'Novità', path: '/articoli-frontaliere/treno-senza-biglietto-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

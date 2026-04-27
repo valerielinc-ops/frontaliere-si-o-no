@@ -2814,6 +2814,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.study-china-ticino-frontalieri.title': 'Study in China: opportunità per frontalieri Ticino',
     'blog.article.study-china-ticino-frontalieri.excerpt': 'Oltre 380.000 studenti internazionali in Cina nel 2024-2025, con un aumento del 15%. Scopri le opportunità per i frontalieri del Ticino.',
     'blog.article.study-china-ticino-frontalieri.imageAlt': 'Studenti internazionali in un\'università cinese moderna',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.title': 'Treno senza biglietto: la Svizzera sperimenta il futuro della mobilità. Cosa cambia per i frontalieri',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.excerpt': 'La Svizzera introduce il sistema Bibo per viaggiare senza biglietti. Test nazionale dal 27 aprile con 3000 utenti, tra cui frontalieri ticinesi.',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.imageAlt': 'Stazione dei treni a Lugano con passeggeri che salgono con smartphone in mano',
 };
 
 export default blogMetaIt;

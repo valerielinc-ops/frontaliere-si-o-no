@@ -2814,6 +2814,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.study-china-ticino-frontalieri.title': 'Étudier en Chine : opportunités pour les frontaliers du Tessin',
     'blog.article.study-china-ticino-frontalieri.excerpt': 'Plus de 380.000 étudiants internationaux en Chine en 2024-2025, avec une augmentation de 15 %. Découvrez les opportunités pour les frontaliers du Tessin.',
     'blog.article.study-china-ticino-frontalieri.imageAlt': 'Étudiants internationaux dans une université chinoise moderne',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.title': 'Train sans billet : la Suisse expérimente l\'avenir de la mobilité. Qu\'est-ce qui change pour les frontaliers',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.excerpt': 'La Suisse introduit le système Bibo pour voyager sans billets. Test national à partir du 27 avril avec 3000 utilisateurs, dont des frontaliers tessinois.',
+    'blog.article.treno-senza-biglietto-frontalieri-ticino.imageAlt': 'Gare de Lugano avec des passagers montant avec des smartphones à la main',
 };
 
 export default blogMetaFr;

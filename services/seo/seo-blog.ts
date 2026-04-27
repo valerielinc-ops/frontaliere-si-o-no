@@ -14075,6 +14075,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-treno-senza-biglietto-frontalieri-ticino': {
+    title: 'Treno senza biglietto: la Svizzera | Frontaliere Ticino',
+    description: 'La Svizzera introduce il sistema Bibo per viaggiare senza biglietti. Test nazionale dal 27 aprile con 3000 utenti, tra cui frontalieri ticinesi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, treno, senza, biglietto, sperimenta',
+    ogTitle: 'Treno senza biglietto: la Svizzera sperimenta il futuro',
+    ogDescription: 'La Svizzera introduce il sistema Bibo per viaggiare senza biglietti. Test nazionale dal 27 aprile con 3000 utenti, tra cui frontalieri ticinesi.',
+    canonicalPath: '/articoli-frontaliere/treno-senza-biglietto-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Treno senza biglietto: la Svizzera sperimenta il futuro della mobilità. Cosa cambia per i",
+      "description": "La Svizzera introduce il sistema Bibo per viaggiare senza biglietti. Test nazionale dal 27 aprile con 3000 utenti, tra cui frontalieri ticinesi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/treno-senza-biglietto-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione dei treni a Lugano con passeggeri che salgono con smartphone in mano"
+      },
+      "datePublished": "2026-04-27T06:08:43+00:00",
+      "dateModified": "2026-04-27T06:08:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/treno-senza-biglietto-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
