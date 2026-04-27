@@ -2772,6 +2772,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.integrazione-inclusione-ticino-2026.title': 'Integration oder Inklusion? Die Debatte über die Zukunft im Tessin',
     'blog.article.integrazione-inclusione-ticino-2026.excerpt': 'Experten treffen sich in Bellinzona, um über die Zukunft der Integration und Inklusion im Tessin zu diskutieren, mit laufenden partizipativen und kulturellen Projekten.',
     'blog.article.integrazione-inclusione-ticino-2026.imageAlt': 'Ein Konferenzraum in Bellinzona mit Experten, die über Migration und Integration diskutieren',
+    'blog.article.reddito-como-2024-frontalieri.title': 'Provinz Como ist reicher: Das Einkommen steigt, aber die Gemeinde ist nicht unter den Top 10',
+    'blog.article.reddito-como-2024-frontalieri.excerpt': 'Das Pro-Kopf-Einkommen in der Provinz Como ist gestiegen, aber die Gemeinde ist nicht unter den Top 10. Erfahren Sie mehr über die Details und die Auswirkungen auf die Grenzgänger.',
+    'blog.article.reddito-como-2024-frontalieri.imageAlt': 'Comer See mit Blick auf die italienisch-schweizerische Grenze',
 };
 
 export default blogMetaDe;

@@ -2772,6 +2772,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.integrazione-inclusione-ticino-2026.title': 'Integrazione o inclusione? Il dibattito sul futuro in Ticino',
     'blog.article.integrazione-inclusione-ticino-2026.excerpt': 'Esperti si riuniscono a Bellinzona per discutere il futuro dell\'integrazione e dell\'inclusione in Ticino, con progetti partecipativi e culturali in corso.',
     'blog.article.integrazione-inclusione-ticino-2026.imageAlt': 'Una sala conferenze a Bellinzona con esperti che discutono di migrazione e integrazione',
+    'blog.article.reddito-como-2024-frontalieri.title': 'Provincia di Como più ricca: cresce il reddito ma il comune non è nella top 10',
+    'blog.article.reddito-como-2024-frontalieri.excerpt': 'Il reddito pro capite della provincia di Como è aumentato, ma il comune non è nella top 10. Scopri i dettagli e le implicazioni per i frontalieri.',
+    'blog.article.reddito-como-2024-frontalieri.imageAlt': 'Lago di Como con vista sul confine italo-svizzero',
 };
 
 export default blogMetaIt;

@@ -2184,6 +2184,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mobilita-sostenibile-citta-vivibili-2026': { name: 'Mobilità sostenibile', path: '/articoli-frontaliere/mobilita-sostenibile-citta-vivibili-2026', parent: 'blog' },
     'blog-relazioni-italo-svizzere-2026': { name: 'Relazioni italo-svizzere', path: '/articoli-frontaliere/relazioni-italo-svizzere-2026', parent: 'blog' },
     'blog-integrazione-inclusione-ticino-2026': { name: 'Integrazione e inclusione', path: '/articoli-frontaliere/integrazione-inclusione-ticino-2026', parent: 'blog' },
+    'blog-reddito-como-2024-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/reddito-como-2024-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

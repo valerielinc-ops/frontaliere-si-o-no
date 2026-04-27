@@ -2772,6 +2772,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.integrazione-inclusione-ticino-2026.title': 'Intégration ou inclusion ? Le débat sur l\'avenir en Tessin',
     'blog.article.integrazione-inclusione-ticino-2026.excerpt': 'Des experts se réunissent à Bellinzone pour discuter de l\'avenir de l\'intégration et de l\'inclusion en Tessin, avec des projets participatifs et culturels en cours.',
     'blog.article.integrazione-inclusione-ticino-2026.imageAlt': 'Une salle de conférence à Bellinzona avec des experts discutant de la migration et de l\'intégration',
+    'blog.article.reddito-como-2024-frontalieri.title': 'La province de Côme est plus riche : le revenu augmente mais la commune n\'est pas dans le top 10',
+    'blog.article.reddito-como-2024-frontalieri.excerpt': 'Le revenu par habitant de la province de Côme a augmenté, mais la commune ne figure pas dans le top 10. Découvrez les détails et les implications pour les travailleurs frontaliers.',
+    'blog.article.reddito-como-2024-frontalieri.imageAlt': 'Lac de Côme avec vue sur la frontière italo-suisse',
 };
 
 export default blogMetaFr;

@@ -2772,6 +2772,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.integrazione-inclusione-ticino-2026.title': 'Integration or inclusion? The debate on the future in Ticino',
     'blog.article.integrazione-inclusione-ticino-2026.excerpt': 'Experts gather in Bellinzona to discuss the future of integration and inclusion in Ticino, with participatory and cultural projects underway.',
     'blog.article.integrazione-inclusione-ticino-2026.imageAlt': 'A conference room in Bellinzona with experts discussing migration and integration',
+    'blog.article.reddito-como-2024-frontalieri.title': 'Como Province is wealthier: income rises but the town isn\'t in the top 10',
+    'blog.article.reddito-como-2024-frontalieri.excerpt': 'The per capita income of Como Province has increased, but the town isn\'t in the top 10. Discover the details and implications for cross-border workers.',
+    'blog.article.reddito-como-2024-frontalieri.imageAlt': 'Lake Como with a view of the Italian-Swiss border',
 };
 
 export default blogMetaEn;

@@ -7455,4 +7455,11 @@ export const ARTICLES = [
  image: '/images/blog/integrazione-inclusione-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'reddito-como-2024-frontalieri',
+ category: 'novita',
+ date: '2026-04-27T02:18:14.659Z',
+ image: '/images/blog/reddito-como-2024-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

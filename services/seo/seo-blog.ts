@@ -13669,6 +13669,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-reddito-como-2024-frontalieri': {
+    title: 'Provincia di Como più ricca: cresce il | Frontaliere Ticino',
+    description: 'Scopri come il reddito pro capite della provincia di Como è aumentato e le implicazioni per i frontalieri che lavorano in questa zona. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, provincia, como, ricca, cresce',
+    ogTitle: 'Provincia di Como più ricca: cresce il reddito | Frontaliere',
+    ogDescription: 'Scopri come il reddito pro capite della provincia di Como è aumentato e le implicazioni per i frontalieri che lavorano in questa zona.',
+    canonicalPath: '/articoli-frontaliere/reddito-como-2024-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Provincia di Como più ricca: cresce il reddito ma il comune non è nella top 10",
+      "description": "Scopri come il reddito pro capite della provincia di Como è aumentato e le implicazioni per i frontalieri che lavorano in questa zona. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/reddito-como-2024-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Como con vista sul confine italo-svizzero"
+      },
+      "datePublished": "2026-04-27T02:18:14+00:00",
+      "dateModified": "2026-04-27T02:18:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/reddito-como-2024-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
