@@ -3060,6 +3060,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.modello-zurigo-violenza-domestica.title': 'Violence domestique : le modèle Zurich convainc',
     'blog.article.modello-zurigo-violenza-domestica.excerpt': 'Le projet pilote de surveillance électronique en temps réel pour lutter contre la violence domestique a donné des résultats positifs. L\'objectif est de l\'étendre à l\'échelle nationale d\'ici 2027.',
     'blog.article.modello-zurigo-violenza-domestica.imageAlt': 'Point de passage frontalier de Brogeda à la frontière suisse-italienne',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.title': 'Berne approuve l\'inhumation avec des animaux domestiques : nouvelles règles 2026',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.excerpt': 'À partir de 2026, à Berne, il sera possible d\'être enterré avec son animal de compagnie dans des zones dédiées. Voici ce qui change et comment cela fonctionne',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.imageAlt': 'Cimetière de Berne avec une zone dédiée à l\'enterrement avec des animaux de compagnie',
 };
 
 export default blogMetaFr;

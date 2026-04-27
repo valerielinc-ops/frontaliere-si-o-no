@@ -3060,6 +3060,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.modello-zurigo-violenza-domestica.title': 'Domestic violence: Zurich model proves convincing',
     'blog.article.modello-zurigo-violenza-domestica.excerpt': 'The pilot project for real-time electronic monitoring to combat domestic violence has yielded positive results. The goal is to extend it nationwide by 2027.',
     'blog.article.modello-zurigo-violenza-domestica.imageAlt': 'Brogeda checkpoint at the Swiss-Italian border',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.title': 'Berna approves burial with pets: new rules for 2026',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.excerpt': 'From 2026, in Berna it will be possible to be buried with your pet in dedicated areas. Here\'s what changes and how it works',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.imageAlt': 'Berna cemetery with a dedicated area for pet burials',
 };
 
 export default blogMetaEn;

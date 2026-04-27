@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1066,
+ "numberOfItems": 1067,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5790,7 +5790,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1063, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri-2026` },
           { "@type": "ListItem", "position": 1064, "name": "Allerta gialla per temporali su tutta la provin...", "url": `${BASE_URL}/articoli-frontaliere/allerta-gialla-temporali-varese-2026` },
           { "@type": "ListItem", "position": 1065, "name": "Conferenza ostetriche EOC Mendrisio 2026", "url": `${BASE_URL}/articoli-frontaliere/ostetriche-eoc-mendrisio-2026` },
-          { "@type": "ListItem", "position": 1066, "name": "Violenza domestica: convince il modello Zurigo", "url": `${BASE_URL}/articoli-frontaliere/modello-zurigo-violenza-domestica` }
+          { "@type": "ListItem", "position": 1066, "name": "Violenza domestica: convince il modello Zurigo", "url": `${BASE_URL}/articoli-frontaliere/modello-zurigo-violenza-domestica` },
+          { "@type": "ListItem", "position": 1067, "name": "Berna approva sepoltura con animali domestici: ...", "url": `${BASE_URL}/articoli-frontaliere/sepolti-con-animali-domestici-berna-2026` }
  ]
  },
  {

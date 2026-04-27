@@ -3060,6 +3060,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.modello-zurigo-violenza-domestica.title': 'Violenza domestica: convince il modello Zurigo',
     'blog.article.modello-zurigo-violenza-domestica.excerpt': 'Il progetto pilota di sorveglianza elettronica in tempo reale per contrastare la violenza domestica ha dato risultati positivi. L\'obiettivo è estenderlo a livello nazionale entro il 2027.',
     'blog.article.modello-zurigo-violenza-domestica.imageAlt': 'Checkpoint di Brogeda al confine svizzero-italiano',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.title': 'Berna approva sepoltura con animali domestici: nuove regole 2026',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.excerpt': 'Dal 2026 a Berna sarà possibile essere sepolti con il proprio animale domestico in aree dedicate. Ecco cosa cambia e come funziona',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.imageAlt': 'Cimitero di Berna con area dedicata alla sepoltura con animali domestici',
 };
 
 export default blogMetaIt;

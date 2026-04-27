@@ -3060,6 +3060,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.modello-zurigo-violenza-domestica.title': 'Haushaltsgewalt: Das Zürcher Modell überzeugt',
     'blog.article.modello-zurigo-violenza-domestica.excerpt': 'Das Pilotprojekt zur elektronischen Echtzeitüberwachung zur Bekämpfung von Haushaltsgewalt hat positive Ergebnisse gezeigt. Das Ziel ist es, es bis 2027 auf nationaler Ebene auszuweiten.',
     'blog.article.modello-zurigo-violenza-domestica.imageAlt': 'Grenzübergang Brogeda an der Schweizer-Italienischen Grenze',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.title': 'Bern genehmigt Bestattung mit Haustieren: neue Regeln 2026',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.excerpt': 'Ab 2026 wird es in Bern möglich sein, mit dem eigenen Haustier in speziellen Bereichen bestattet zu werden. Hier erfahren Sie, was sich ändert und wie das funktioniert',
+    'blog.article.sepolti-con-animali-domestici-berna-2026.imageAlt': 'Friedhof in Bern mit einem Bereich für Haustierbestattungen',
 };
 
 export default blogMetaDe;

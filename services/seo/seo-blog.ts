@@ -16453,6 +16453,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sepolti-con-animali-domestici-berna-2026': {
+    title: 'Berna approva sepoltura con animali | Frontaliere Ticino',
+    description: 'Dal 2026 a Berna sarà possibile essere sepolti con il proprio animale domestico in aree dedicate. Ecco cosa cambia e come funziona. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, approva, sepoltura, animali',
+    ogTitle: 'Berna approva sepoltura con animali domestici | Frontaliere',
+    ogDescription: 'Dal 2026 a Berna sarà possibile essere sepolti con il proprio animale domestico in aree dedicate. Ecco cosa cambia e come funziona',
+    canonicalPath: '/articoli-frontaliere/sepolti-con-animali-domestici-berna-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna approva sepoltura con animali domestici: nuove regole 2026",
+      "description": "Dal 2026 a Berna sarà possibile essere sepolti con il proprio animale domestico in aree dedicate. Ecco cosa cambia e come funziona. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sepolti-con-animali-domestici-berna-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cimitero di Berna con area dedicata alla sepoltura con animali domestici"
+      },
+      "datePublished": "2026-04-27T18:19:17+00:00",
+      "dateModified": "2026-04-27T18:19:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sepolti-con-animali-domestici-berna-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

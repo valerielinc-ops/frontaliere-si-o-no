@@ -8127,4 +8127,11 @@ export const ARTICLES = [
  image: '/images/blog/modello-zurigo-violenza-domestica.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sepolti-con-animali-domestici-berna-2026',
+ category: 'novita',
+ date: '2026-04-27T18:19:17.630Z',
+ image: '/images/blog/sepolti-con-animali-domestici-berna-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
