@@ -7903,4 +7903,11 @@ export const ARTICLES = [
  image: '/images/blog/incidenti-mortali-lavoro-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'coldiretti-brennero-made-italy-2026',
+ category: 'novita',
+ date: '2026-04-27T14:29:16.726Z',
+ image: '/images/blog/coldiretti-brennero-made-italy-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

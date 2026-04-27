@@ -15525,6 +15525,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coldiretti-brennero-made-italy-2026': {
+    title: 'Coldiretti al Brennero: Stop al falso | Frontaliere Ticino',
+    description: 'Agricoltori varesini si uniscono alla protesta per modificare il codice doganale e contrastare il falso Made in Italy. Scopri di più su Frontaliere Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, coldiretti, brennero, stop, falso',
+    ogTitle: 'Coldiretti al Brennero: Stop al falso Made in Italy |',
+    ogDescription: 'Agricoltori varesini si uniscono alla protesta per modificare il codice doganale e contrastare il falso Made in Italy. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/coldiretti-brennero-made-italy-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Coldiretti al Brennero: Stop al",
+      "description": "Agricoltori varesini si uniscono alla protesta per modificare il codice doganale e contrastare il falso Made in Italy. Scopri di più su Frontaliere Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/coldiretti-brennero-made-italy-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione Coldiretti al Brennero per il Made in Italy"
+      },
+      "datePublished": "2026-04-27T14:29:16+00:00",
+      "dateModified": "2026-04-27T14:29:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coldiretti-brennero-made-italy-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2964,6 +2964,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidenti-mortali-lavoro-svizzera-2026.title': 'SUVA: fatal workplace accidents in Switzerland down 80% since the \'80s',
     'blog.article.incidenti-mortali-lavoro-svizzera-2026.excerpt': 'SUVA data: fatal workplace accidents reduced by 80% from 1986-1990 to 2020-2024, despite increase in employed workers. Innovation and training key.',
     'blog.article.incidenti-mortali-lavoro-svizzera-2026.imageAlt': 'Aerial view of Lugano with Lake Ceresio and blue sky',
+    'blog.article.coldiretti-brennero-made-italy-2026.title': 'Coldiretti at Brenner: Stop to Fake Made in Italy',
+    'blog.article.coldiretti-brennero-made-italy-2026.excerpt': 'Varese farmers join the protest to modify the customs code and combat fake Made in Italy',
+    'blog.article.coldiretti-brennero-made-italy-2026.imageAlt': 'Coldiretti protest at Brennero for Made in Italy',
 };
 
 export default blogMetaEn;
