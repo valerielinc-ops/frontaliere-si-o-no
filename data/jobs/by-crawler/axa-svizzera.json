@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-04-27T08:40:08.813Z",
+  "assembledAt": "2026-04-27T10:19:59.157Z",
   "jobs": [
     {
       "title": "Agente Principale",
@@ -20,7 +20,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -97,7 +97,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -174,7 +174,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60-100%",
@@ -222,7 +222,8 @@
       },
       "previousSlugs": [
         "consulente-assicurativo-per-il-luganese"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -242,7 +243,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -325,7 +326,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -383,7 +384,8 @@
           "senior-underwriter-responsabilita-civile"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:08:31.463Z"
+      "firstSeenAt": "2026-04-13T21:08:31.463Z",
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo",
@@ -403,7 +405,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -489,7 +491,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "50-100%",
@@ -589,7 +591,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60%",
@@ -649,7 +651,8 @@
           "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:08:31.463Z"
+      "firstSeenAt": "2026-04-13T21:08:31.463Z",
+      "needsRetranslation": true
     },
     {
       "title": "(Senior) Software Engineer Python, AI (all genders)",
@@ -669,7 +672,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
@@ -740,7 +743,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -822,7 +825,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -904,7 +907,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-26",
+      "postedDate": "2026-04-27",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -959,6 +962,78 @@
       "streetAddress": "Via della Posta 2",
       "postalCode": "6901",
       "firstSeenAt": "2026-04-16T21:02:04.692Z"
+    },
+    {
+      "title": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
+      "slug": "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizzera-arbeitsort-chur",
+      "url": "https://jobs.axa.ch/posizioni-aperte/leiter-in-innendienst-fuer-die-generalagentur-vorsorge-vermoegen-chur/134a4979-2aae-41af-b2ae-21a165d64952",
+      "applyUrl": "https://jobs.axa.ch/apply/ats/134a4979-2aae-41af-b2ae-21a165d64952",
+      "company": "AXA Svizzera",
+      "companyKey": "axa-svizzera",
+      "companyDomain": "axa.ch",
+      "location": ", Arbeitsort Chur",
+      "addressLocality": ", Arbeitsort Chur",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "risorse-umane",
+      "sector": "assicurazioni",
+      "source": "axa-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "workload": "80-100%",
+      "validThrough": "",
+      "description": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen.",
+      "titleByLocale": {
+        "de": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
+        "it": "Responsabile servizio interno per la agenzia generale previdenza & patrimonio Chur",
+        "en": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
+        "fr": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur"
+      },
+      "descriptionByLocale": {
+        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen.",
+        "it": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen.",
+        "en": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen.",
+        "fr": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen."
+      },
+      "slugByLocale": {
+        "de": "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-arbeitsort-chur",
+        "it": "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizzera-arbeitsort-chur",
+        "en": "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-93qxo1",
+        "fr": "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-93qxo1"
+      },
+      "id": "axa-svizzera-b6746cfeacf3",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-93qxo1"
+        ],
+        "de": [
+          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-93qxo1"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-93qxo1"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via della Posta 2",
+      "postalCode": "6901",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-27T10:19:59.157Z"
     }
   ]
 }
