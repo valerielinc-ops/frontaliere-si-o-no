@@ -8141,4 +8141,11 @@ export const ARTICLES = [
  image: '/images/blog/swiss-guasti-voli-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'banca-ditalia-varese-10-anni-dopo',
+ category: 'novita',
+ date: '2026-04-27T18:29:40.806Z',
+ image: '/images/blog/banca-ditalia-varese-10-anni-dopo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

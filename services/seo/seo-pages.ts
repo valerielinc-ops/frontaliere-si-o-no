@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1068,
+ "numberOfItems": 1069,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5792,7 +5792,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1065, "name": "Conferenza ostetriche EOC Mendrisio 2026", "url": `${BASE_URL}/articoli-frontaliere/ostetriche-eoc-mendrisio-2026` },
           { "@type": "ListItem", "position": 1066, "name": "Violenza domestica: convince il modello Zurigo", "url": `${BASE_URL}/articoli-frontaliere/modello-zurigo-violenza-domestica` },
           { "@type": "ListItem", "position": 1067, "name": "Berna approva sepoltura con animali domestici: ...", "url": `${BASE_URL}/articoli-frontaliere/sepolti-con-animali-domestici-berna-2026` },
-          { "@type": "ListItem", "position": 1068, "name": "Due guasti in 48 ore per Swiss: implicazioni pe...", "url": `${BASE_URL}/articoli-frontaliere/swiss-guasti-voli-frontalieri-ticino-2026` }
+          { "@type": "ListItem", "position": 1068, "name": "Due guasti in 48 ore per Swiss: implicazioni pe...", "url": `${BASE_URL}/articoli-frontaliere/swiss-guasti-voli-frontalieri-ticino-2026` },
+          { "@type": "ListItem", "position": 1069, "name": "Banca d'Italia Varese: 10 anni dopo | Frontalie...", "url": `${BASE_URL}/articoli-frontaliere/banca-ditalia-varese-10-anni-dopo` }
  ]
  },
  {

@@ -3066,6 +3066,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.title': 'Two Swiss airline incidents in 48 hours: what changes for cross-border workers',
     'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.excerpt': 'Two incidents in less than two days for Swiss airline. Here\'s what it means for those traveling between Ticino and Switzerland.',
     'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.imageAlt': 'Swiss airplane on the runway at Lugano Airport',
+    'blog.article.banca-ditalia-varese-10-anni-dopo.title': 'Bank of Italy in Varese: 10 years later, the empty giant',
+    'blog.article.banca-ditalia-varese-10-anni-dopo.excerpt': 'The historic building on via Sacco has been for sale since 2018, but it hasn\'t found any buyers. Here\'s why.',
+    'blog.article.banca-ditalia-varese-10-anni-dopo.imageAlt': 'Abandoned Banca d\'Italia building in Varese',
 };
 
 export default blogMetaEn;

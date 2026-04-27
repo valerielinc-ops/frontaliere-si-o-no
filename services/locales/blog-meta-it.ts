@@ -3066,6 +3066,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.title': 'Due guasti in 48 ore per Swiss: cosa cambia per i frontalieri',
     'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.excerpt': 'Due incidenti in meno di due giorni per la compagnia aerea Swiss. Ecco le implicazioni per chi viaggia tra Ticino e Svizzera.',
     'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.imageAlt': 'Aereo Swiss in pista all\'aeroporto di Lugano',
+    'blog.article.banca-ditalia-varese-10-anni-dopo.title': 'Banca d\'Italia a Varese: 10 anni dopo, il gigante vuoto',
+    'blog.article.banca-ditalia-varese-10-anni-dopo.excerpt': 'Lo storico edificio di via Sacco è in vendita dal 2018, ma non trova acquirenti. Ecco perché.',
+    'blog.article.banca-ditalia-varese-10-anni-dopo.imageAlt': 'Edificio abbandonato della Banca d\'Italia a Varese',
 };
 
 export default blogMetaIt;

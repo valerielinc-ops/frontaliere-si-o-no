@@ -16511,6 +16511,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banca-ditalia-varese-10-anni-dopo': {
+    title: 'Banca d\'Italia a Varese: 10 anni dopo | Frontaliere Ticino',
+    description: 'L\'ex sede della Banca d\'Italia a Varese è in vendita dal 2018 ma non trova acquirenti. Scopri perché e cosa fare per acquistarla. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, banca, varese, anni, dopo',
+    ogTitle: 'Banca d\'Italia Varese: 10 anni dopo | Frontaliere Ticino',
+    ogDescription: 'L\'ex sede della Banca d\'Italia a Varese è in vendita dal 2018 ma non trova acquirenti. Scopri perché e cosa fare per acquistarla.',
+    canonicalPath: '/articoli-frontaliere/banca-ditalia-varese-10-anni-dopo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banca d'Italia Varese: 10 anni dopo | Frontaliere Ticino",
+      "description": "L'ex sede della Banca d'Italia a Varese è in vendita dal 2018 ma non trova acquirenti. Scopri perché e cosa fare per acquistarla. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/banca-ditalia-varese-10-anni-dopo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio abbandonato della Banca d'Italia a Varese"
+      },
+      "datePublished": "2026-04-27T18:29:40+00:00",
+      "dateModified": "2026-04-27T18:29:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banca-ditalia-varese-10-anni-dopo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
