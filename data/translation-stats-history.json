@@ -1,73 +1,5 @@
 [
   {
-    "timestamp": "2026-04-12T13:39:44.855Z",
-    "label": "before",
-    "total": 2927,
-    "needsRetranslation": 35,
-    "incomplete": 20,
-    "complete": 2907,
-    "missingByLocale": {
-      "it": 8,
-      "en": 17,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 1
-      },
-      {
-        "company": "TSMG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-12T13:58:41.492Z",
-    "label": "after",
-    "total": 2927,
-    "needsRetranslation": 29,
-    "incomplete": 19,
-    "complete": 2908,
-    "missingByLocale": {
-      "it": 8,
-      "en": 17,
-      "de": 17,
-      "fr": 18
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 1
-      },
-      {
-        "company": "TSMG",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-12T22:22:53.186Z",
     "label": "before",
     "total": 2973,
@@ -7474,6 +7406,82 @@
       },
       {
         "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-27T02:51:11.634Z",
+    "label": "before",
+    "total": 2675,
+    "needsRetranslation": 71,
+    "incomplete": 27,
+    "complete": 2648,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 25,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-27T03:27:44.278Z",
+    "label": "after",
+    "total": 2675,
+    "needsRetranslation": 53,
+    "incomplete": 26,
+    "complete": 2649,
+    "missingByLocale": {
+      "it": 24,
+      "en": 5,
+      "de": 24,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
         "pending": 1
       },
       {
