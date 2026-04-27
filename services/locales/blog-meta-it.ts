@@ -3057,6 +3057,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ostetriche-eoc-mendrisio-2026.title': 'Ostetriche EOC: conferenza su parto fisiologico a Mendrisio',
     'blog.article.ostetriche-eoc-mendrisio-2026.excerpt': 'Il 6 maggio 2026 l\'EOC organizza una conferenza pubblica sull\'assistenza ostetrica all\'Ospedale di Mendrisio. Focus su parto fisiologico e continuità assistenziale.',
     'blog.article.ostetriche-eoc-mendrisio-2026.imageAlt': 'Conferenza sull\'assistenza ostetrica all\'Ospedale di Mendrisio',
+    'blog.article.modello-zurigo-violenza-domestica.title': 'Violenza domestica: convince il modello Zurigo',
+    'blog.article.modello-zurigo-violenza-domestica.excerpt': 'Il progetto pilota di sorveglianza elettronica in tempo reale per contrastare la violenza domestica ha dato risultati positivi. L\'obiettivo è estenderlo a livello nazionale entro il 2027.',
+    'blog.article.modello-zurigo-violenza-domestica.imageAlt': 'Checkpoint di Brogeda al confine svizzero-italiano',
 };
 
 export default blogMetaIt;

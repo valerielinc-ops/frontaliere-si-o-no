@@ -3057,6 +3057,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ostetriche-eoc-mendrisio-2026.title': 'EOC Midwives: Conference on Physiological Birth in Mendrisio',
     'blog.article.ostetriche-eoc-mendrisio-2026.excerpt': 'On May 6, 2026, EOC is organizing a public conference on midwifery care at Mendrisio Hospital. Focus on physiological birth and continuity of care.',
     'blog.article.ostetriche-eoc-mendrisio-2026.imageAlt': 'Conference on obstetric assistance at Mendrisio Hospital',
+    'blog.article.modello-zurigo-violenza-domestica.title': 'Domestic violence: Zurich model proves convincing',
+    'blog.article.modello-zurigo-violenza-domestica.excerpt': 'The pilot project for real-time electronic monitoring to combat domestic violence has yielded positive results. The goal is to extend it nationwide by 2027.',
+    'blog.article.modello-zurigo-violenza-domestica.imageAlt': 'Brogeda checkpoint at the Swiss-Italian border',
 };
 
 export default blogMetaEn;

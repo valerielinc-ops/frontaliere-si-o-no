@@ -8120,4 +8120,11 @@ export const ARTICLES = [
  image: '/images/blog/ostetriche-eoc-mendrisio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'modello-zurigo-violenza-domestica',
+ category: 'novita',
+ date: '2026-04-27T18:13:39.007Z',
+ image: '/images/blog/modello-zurigo-violenza-domestica.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

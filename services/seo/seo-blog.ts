@@ -16424,6 +16424,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-modello-zurigo-violenza-domestica': {
+    title: 'Violenza domestica: convince il modello | Frontaliere Ticino',
+    description: 'Il progetto pilota di sorveglianza elettronica in tempo reale per contrastare la violenza domestica ha dato risultati positivi. L\'obiettivo è estenderlo a',
+    keywords: 'frontalieri, ticino, svizzera, italia, violenza, domestica, convince, modello',
+    ogTitle: 'Violenza domestica: convince il modello Zurigo',
+    ogDescription: 'Il progetto pilota di sorveglianza elettronica in tempo reale per contrastare la violenza domestica ha dato risultati positivi. L\'obiettivo è estenderlo a',
+    canonicalPath: '/articoli-frontaliere/modello-zurigo-violenza-domestica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Violenza domestica: convince il modello Zurigo",
+      "description": "Il progetto pilota di sorveglianza elettronica in tempo reale per contrastare la violenza domestica ha dato risultati positivi. L'obiettivo è estenderlo a",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/modello-zurigo-violenza-domestica.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Checkpoint di Brogeda al confine svizzero-italiano"
+      },
+      "datePublished": "2026-04-27T18:13:39+00:00",
+      "dateModified": "2026-04-27T18:13:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/modello-zurigo-violenza-domestica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

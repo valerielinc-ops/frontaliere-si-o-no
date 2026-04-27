@@ -2279,6 +2279,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-disoccupazione-frontalieri-quadri-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-disoccupazione-frontalieri-quadri-2026', parent: 'blog' },
     'blog-allerta-gialla-temporali-varese-2026': { name: 'Allerta meteo', path: '/articoli-frontaliere/allerta-gialla-temporali-varese-2026', parent: 'blog' },
     'blog-ostetriche-eoc-mendrisio-2026': { name: 'Conferenza ostetriche', path: '/articoli-frontaliere/ostetriche-eoc-mendrisio-2026', parent: 'blog' },
+    'blog-modello-zurigo-violenza-domestica': { name: 'Novità', path: '/articoli-frontaliere/modello-zurigo-violenza-domestica', parent: 'blog' },
  };
 
  const info = sectionNames[section];
