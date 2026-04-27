@@ -169,6 +169,61 @@ Page catalog, cron pipelines, build config, and webcam hotlink policy: see [docs
 
 ---
 
+# SEO content gate — text-to-HTML ratio
+
+**Why it exists.** Semrush flags any page with `visibleText / totalHTML ≤ 10 %`
+as "low text-to-HTML ratio". The Apr 2026 audit caught 1,193 such pages
+(mostly fuel-daily, weekly-employers, health-premiums, job-board, and the SPA
+shell for non-IT locales). These pages rank worse — search engines see lots of
+markup wrapping very little content.
+
+**Where it runs.** Two places:
+- Local: `npm run audit:text-html-ratio` (after `npm run build`).
+- CI: `Gate — text-to-HTML ratio` step in `.github/workflows/deploy.yml`,
+  blocking deploy on regression.
+
+**The gate is a ratchet.** It compares the current dist/ offender count to
+`data/text-html-ratio-baseline.json` and FAILS only when any feature bucket
+goes UP. Improvements (count goes down) are always accepted.
+
+**If the gate fails, here is the playbook:**
+
+1. Reproduce locally: `npm run build && npm run audit:text-html-ratio`. The
+   stderr names which feature bucket regressed.
+2. Inspect the worst offenders for that bucket:
+   ```
+   node scripts/audit-text-html-ratio.mjs --feature=<name> --limit=20
+   ```
+3. Locate the build plugin that emits those pages (one per feature):
+
+   | Feature bucket | Plugin / source |
+   |---|---|
+   | `fuel-daily` | `build-plugins/fuelDailyPagesPlugin.ts` |
+   | `weekly-employers` / `weekly-employers-hub` | `build-plugins/weeklyEmployersPlugin.ts` |
+   | `health-premiums` | `build-plugins/healthPremiumsLandingPlugin.ts` |
+   | `job-board` | `build-plugins/jobsSeoPagesPlugin.ts` |
+   | `blog` | `scripts/create-article.mjs` (article generator) |
+   | `spa-locale` / `spa-other` | `build-plugins/htmlTemplate.ts` + SPA prerender shell |
+
+4. Add **coherent, page-relevant** content — never filler. Acceptable kinds:
+   methodology paragraph, FAQ block, scenario walk-through tied to the
+   frontaliere use case, contextual cross-references to related comparators.
+   **Never** add hidden text, repeated boilerplate, or invisible spans.
+   Google penalises template-wide duplication and cloaking.
+5. Rebuild and rerun the audit. Once the bucket count is lower, regenerate
+   the baseline so the gate locks in the new floor:
+   ```
+   npm run audit:text-html-ratio:rebaseline
+   ```
+   Commit the updated `data/text-html-ratio-baseline.json` together with the
+   template change in the same PR.
+
+**Hard rule.** The baseline numbers must only ever **decrease**. Raising any
+number means new pages have dropped below the 10 % threshold — fix that, do
+not ratchet up.
+
+---
+
 # Completion Checklist — Before Every PR
 
 - [ ] All tests pass: `npx vitest run`
@@ -179,6 +234,7 @@ Page catalog, cron pipelines, build config, and webcam hotlink policy: see [docs
 - [ ] New pages have SEO metadata + sitemap entry + static HTML generated
 - [ ] No `dark:` color prefixes — use semantic tokens from `index.css` (enforced by `no-dark-color-classes.test.ts`)
 - [ ] If user-facing feature, new release entry in `WhatsNewModal.tsx`
+- [ ] Text-to-HTML ratio gate passes: `npm run audit:text-html-ratio` (see *SEO content gate* above for the playbook on regression)
 
 ## Auto-push Rule
 

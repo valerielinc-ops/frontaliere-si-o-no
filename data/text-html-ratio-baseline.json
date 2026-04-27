@@ -1,0 +1,16 @@
+{
+  "generated": "2026-04-27T07:04:22.724Z",
+  "threshold": 10,
+  "scanned": 230331,
+  "total": 1506,
+  "byFeature": {
+    "spa-other": 145,
+    "job-board": 262,
+    "weekly-employers-hub": 47,
+    "spa-locale": 708,
+    "fuel-daily": 123,
+    "health-premiums": 215,
+    "weekly-employers": 6
+  },
+  "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE — this gate is a ratchet. Regenerate after lowering offenders by improving a template; never raise the numbers without explicit justification (it means new pages dropped below the 10 % text/HTML ratio Semrush flags as \"low text/HTML\")."
+}

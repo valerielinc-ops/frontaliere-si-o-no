@@ -221,6 +221,30 @@ jobs:
       - name: Gate — page weight + <img> dims
         run: npm run audit:page-weight
 
+      # Semrush "low text-to-HTML ratio" gate (ratchet).
+      #
+      # WHY: Semrush flags pages whose visible-text bytes are ≤ 10 % of total
+      # HTML bytes as "low text/HTML ratio". The Apr 2026 audit caught 1,193
+      # such pages on frontaliereticino.ch (mostly fuel-daily, weekly-employers,
+      # health-premiums, job-board templates). Pages that hit this threshold
+      # rank worse because search engines see lots of code wrapping very little
+      # content.
+      #
+      # HOW THE GATE WORKS: it compares the current dist/ offender count to the
+      # checked-in baseline at data/text-html-ratio-baseline.json. The deploy
+      # FAILS if any feature bucket goes UP. Improvements (count goes down) are
+      # always accepted — regenerate the baseline with
+      #   node scripts/audit-text-html-ratio.mjs --write-baseline=data/text-html-ratio-baseline.json
+      # and commit the updated JSON in the same PR that improves the template.
+      #
+      # IF THIS STEP FAILS: the script's stderr explains exactly which feature
+      # bucket regressed and points at the build plugin to inspect. Add COHERENT
+      # page-relevant content (intro prose, methodology, FAQ, contextual
+      # cross-references) — never filler/boilerplate, since Google penalises
+      # repeated text. See CLAUDE.md > "SEO content gate" for the full playbook.
+      - name: Gate — text-to-HTML ratio (Semrush "low text/HTML")
+        run: npm run audit:text-html-ratio
+
       - name: Validate SPA render — canonical, schema, robots (blocking)
         timeout-minutes: 5
         run: node scripts/validate-spa-render.mjs
