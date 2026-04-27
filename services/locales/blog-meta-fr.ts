@@ -3018,6 +3018,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.title': 'Equans licencie 19 employés à Monteceneri : les détails',
     'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.excerpt': 'La société Equans a annoncé 19 licenciements dans son siège de Monteceneri, touchant les secteurs des fibres optiques et de la gestion des installations.',
     'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.imageAlt': 'Vue aérienne de Monteceneri, Tessin, avec des bâtiments industriels et des montagnes en arrière-plan',
+    'blog.article.verdi-ticino-cantonali-2026.title': 'Verds Ticino: stratégie pour les élections cantonales 2026',
+    'blog.article.verdi-ticino-cantonali-2026.excerpt': 'Les Verts du Ticino explorent des alliances pour les élections cantonales de 2026, visant un front progressiste plus large.',
+    'blog.article.verdi-ticino-cantonali-2026.imageAlt': 'Réunion des Verts du Tessin à Locarno',
 };
 
 export default blogMetaFr;

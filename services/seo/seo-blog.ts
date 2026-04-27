@@ -16047,6 +16047,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-verdi-ticino-cantonali-2026': {
+    title: 'Verdi Ticino: strategia per le | Frontaliere Ticino',
+    description: 'I Verdi del Ticino esplorano alleanze per le elezioni cantonali del 2026, puntando a un fronte progressista più ampio con MPS e PS. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, verdi, strategia, cantonali, esplorano',
+    ogTitle: 'Verdi Ticino: strategia per le cantonali 2026 | Frontaliere',
+    ogDescription: 'I Verdi del Ticino esplorano alleanze per le elezioni cantonali del 2026, puntando a un fronte progressista più ampio con MPS e PS.',
+    canonicalPath: '/articoli-frontaliere/verdi-ticino-cantonali-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Verdi Ticino: strategia per le cantonali 2026",
+      "description": "I Verdi del Ticino esplorano alleanze per le elezioni cantonali del 2026, puntando a un fronte progressista più ampio con MPS e PS. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/verdi-ticino-cantonali-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Assemblea dei Verdi del Ticino a Locarno"
+      },
+      "datePublished": "2026-04-27T16:32:24+00:00",
+      "dateModified": "2026-04-27T16:32:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/verdi-ticino-cantonali-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1052,
+ "numberOfItems": 1053,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5776,7 +5776,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1049, "name": "Roadmap violenza domestica: Jans traccia un bil...", "url": `${BASE_URL}/articoli-frontaliere/roadmap-violenza-domestica-bilancio-positivo` },
           { "@type": "ListItem", "position": 1050, "name": "Nuovi programmi educativi a Bellinzona per il b...", "url": `${BASE_URL}/articoli-frontaliere/benessere-integrita-allievi-bellinzona-2026` },
           { "@type": "ListItem", "position": 1051, "name": "Made in Switzerland: cosa cambia per i prodotti...", "url": `${BASE_URL}/articoli-frontaliere/cosa-significa-made-switzerland` },
-          { "@type": "ListItem", "position": 1052, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/equans-licenziamenti-monteceneri-19-dipendenti` }
+          { "@type": "ListItem", "position": 1052, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/equans-licenziamenti-monteceneri-19-dipendenti` },
+          { "@type": "ListItem", "position": 1053, "name": "Verdi Ticino: strategia per le cantonali 2026", "url": `${BASE_URL}/articoli-frontaliere/verdi-ticino-cantonali-2026` }
  ]
  },
  {

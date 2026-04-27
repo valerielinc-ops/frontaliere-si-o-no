@@ -2266,6 +2266,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-benessere-integrita-allievi-bellinzona-2026': { name: 'Novità', path: '/articoli-frontaliere/benessere-integrita-allievi-bellinzona-2026', parent: 'blog' },
     'blog-cosa-significa-made-switzerland': { name: 'Novità', path: '/articoli-frontaliere/cosa-significa-made-switzerland', parent: 'blog' },
     'blog-equans-licenziamenti-monteceneri-19-dipendenti': { name: 'Equans licenziamenti', path: '/articoli-frontaliere/equans-licenziamenti-monteceneri-19-dipendenti', parent: 'blog' },
+    'blog-verdi-ticino-cantonali-2026': { name: 'Novità', path: '/articoli-frontaliere/verdi-ticino-cantonali-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

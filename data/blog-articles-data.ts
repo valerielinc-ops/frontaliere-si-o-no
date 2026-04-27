@@ -8029,4 +8029,11 @@ export const ARTICLES = [
  image: '/images/blog/equans-licenziamenti-monteceneri-19-dipendenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'verdi-ticino-cantonali-2026',
+ category: 'novita',
+ date: '2026-04-27T16:32:24.852Z',
+ image: '/images/blog/verdi-ticino-cantonali-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

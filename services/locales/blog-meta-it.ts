@@ -3018,6 +3018,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.title': 'Equans licenzia 19 dipendenti a Monteceneri: i dettagli',
     'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.excerpt': 'La società Equans ha annunciato 19 licenziamenti nella sua sede di Monteceneri, colpendo i settori delle fibre ottiche e della gestione impianti.',
     'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.imageAlt': 'Vista aerea di Monteceneri, Ticino, con edifici industriali e montagne sullo sfondo',
+    'blog.article.verdi-ticino-cantonali-2026.title': 'Verdi Ticino: strategia per le cantonali 2026',
+    'blog.article.verdi-ticino-cantonali-2026.excerpt': 'I Verdi del Ticino esplorano alleanze per le elezioni cantonali del 2026, puntando a un fronte progressista più ampio.',
+    'blog.article.verdi-ticino-cantonali-2026.imageAlt': 'Assemblea dei Verdi del Ticino a Locarno',
 };
 
 export default blogMetaIt;

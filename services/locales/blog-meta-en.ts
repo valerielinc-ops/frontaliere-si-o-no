@@ -3018,6 +3018,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.title': 'Equans lays off 19 employees in Monteceneri: the details',
     'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.excerpt': 'Equans has announced 19 layoffs at its Monteceneri site, affecting the optical fiber and facility management sectors.',
     'blog.article.equans-licenziamenti-monteceneri-19-dipendenti.imageAlt': 'Aerial view of Monteceneri, Ticino, with industrial buildings and mountains in the background',
+    'blog.article.verdi-ticino-cantonali-2026.title': 'Green Ticino: strategy for the 2026 cantonal elections',
+    'blog.article.verdi-ticino-cantonali-2026.excerpt': 'The Green Party of Ticino is exploring alliances for the 2026 cantonal elections, aiming for a broader progressive front.',
+    'blog.article.verdi-ticino-cantonali-2026.imageAlt': 'Meeting of the Ticino Greens in Locarno',
 };
 
 export default blogMetaEn;
