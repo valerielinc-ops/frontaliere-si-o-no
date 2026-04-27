@@ -3118,6 +3118,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rovine-magliaso-scuole-nuove-2026.title': 'Roman ruins found in Magliaso during school construction',
     'blog.article.rovine-magliaso-scuole-nuove-2026.excerpt': 'Late Roman ruins emerged during work on new elementary schools. Archaeologists at work documenting the finds',
     'blog.article.rovine-magliaso-scuole-nuove-2026.imageAlt': 'Archaeological excavation in Magliaso with Roman ruins',
+    'blog.article.bns-ubs-misure-non-estreme-2026.title': 'SNB: UBS rules not extreme',
+    'blog.article.bns-ubs-misure-non-estreme-2026.excerpt': 'SNB President Martin Schlegel defends new rules for UBS, downplaying the risk of the bank leaving.',
+    'blog.article.bns-ubs-misure-non-estreme-2026.imageAlt': 'Panoramic view of Lugano with the lake and Monte Brè',
 };
 
 export default blogMetaEn;

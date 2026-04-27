@@ -8288,4 +8288,11 @@ export const ARTICLES = [
  image: '/images/blog/rovine-magliaso-scuole-nuove-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bns-ubs-misure-non-estreme-2026',
+ category: 'novita',
+ date: '2026-04-27T21:46:02.035Z',
+ image: '/images/blog/bns-ubs-misure-non-estreme-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

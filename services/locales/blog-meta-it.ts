@@ -3119,6 +3119,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rovine-magliaso-scuole-nuove-2026.title': 'Scoperte rovine romane a Magliaso durante costruzione scuole',
     'blog.article.rovine-magliaso-scuole-nuove-2026.excerpt': 'Rovine dell\'epoca tardo romana emerse durante lavori per nuove scuole elementari. Archeologi al lavoro per documentazione',
     'blog.article.rovine-magliaso-scuole-nuove-2026.imageAlt': 'Scavo archeologico a Magliaso con rovine romane',
+    'blog.article.bns-ubs-misure-non-estreme-2026.title': 'BNS: Le misure per UBS non sono estreme',
+    'blog.article.bns-ubs-misure-non-estreme-2026.excerpt': 'Il presidente della Banca nazionale svizzera, Martin Schlegel, difende le nuove regole per UBS, minimizzando il rischio di una partenza dell\'istituto.',
+    'blog.article.bns-ubs-misure-non-estreme-2026.imageAlt': 'Vista panoramica di Lugano con il lago e il Monte Brè',
 };
 
 export default blogMetaIt;

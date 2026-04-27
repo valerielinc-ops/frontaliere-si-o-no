@@ -17120,6 +17120,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bns-ubs-misure-non-estreme-2026': {
+    title: 'BNS: Le misure per UBS non sono estreme | Frontaliere Ticino',
+    description: 'Il presidente della BNS, Martin Schlegel, difende le nuove regole per UBS, minimizzando il rischio di una partenza dell\'istituto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, misure, sono, estreme, presidente',
+    ogTitle: 'BNS: Le misure per UBS non sono estreme',
+    ogDescription: 'Il presidente della BNS, Martin Schlegel, difende le nuove regole per UBS, minimizzando il rischio di una partenza dell\'istituto.',
+    canonicalPath: '/articoli-frontaliere/bns-ubs-misure-non-estreme-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS: Le misure per UBS non sono estreme",
+      "description": "Il presidente della BNS, Martin Schlegel, difende le nuove regole per UBS, minimizzando il rischio di una partenza dell'istituto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bns-ubs-misure-non-estreme-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e il Monte Brè"
+      },
+      "datePublished": "2026-04-27T21:46:02+00:00",
+      "dateModified": "2026-04-27T21:46:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-ubs-misure-non-estreme-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
