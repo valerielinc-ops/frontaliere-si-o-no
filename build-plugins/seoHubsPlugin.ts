@@ -487,9 +487,14 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
 
     if (hubKey === 'jobs') {
       pageSize = JOBS_PAGE_SIZE;
+      // Use IT canonical slug list as master across all locales so totalPages
+      // is identical per locale — keeps hreflang alternates consistent. When a
+      // locale-specific translated path is missing, fall back to the IT canonical
+      // path (item is still browseable; user lands on the IT detail).
       const localeMap = jobPerLocale[locale];
+      const itMap = jobPerLocale.it;
       for (const slug of jobSlugs) {
-        const localePath = localeMap[slug];
+        const localePath = localeMap[slug] || itMap[slug];
         if (!localePath) continue;
         items.push({ href: localePath, label: humanizeSlug(slug) });
       }
@@ -517,14 +522,20 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       }
     } else {
       pageSize = ARTICLES_PAGE_SIZE;
-      const articles = readArticleSlugs(fs, np, rootDir, locale);
+      // Use IT slug list as master across all locales so totalPages is identical.
+      // For non-IT locales, prefer the locale-specific title when translated;
+      // fall back to the IT title when the translation is missing.
+      const itArticles = readArticleSlugs(fs, np, rootDir, 'it');
+      const localeArticles = locale === 'it' ? itArticles : readArticleSlugs(fs, np, rootDir, locale);
+      const localeBySlug = new Map(localeArticles.map((a) => [a.slug, a.title]));
       const blogSection = locale === 'it' ? 'articoli-frontaliere'
         : locale === 'en' ? 'cross-border-articles'
         : locale === 'de' ? 'grenzgaenger-artikel'
         : 'articles-frontalier';
       const prefix = locale === 'it' ? '' : `/${locale}`;
-      for (const a of articles) {
-        items.push({ href: `${prefix}/${blogSection}/${a.slug}/`, label: a.title });
+      for (const a of itArticles) {
+        const label = localeBySlug.get(a.slug) ?? a.title;
+        items.push({ href: `${prefix}/${blogSection}/${a.slug}/`, label });
       }
     }
 
