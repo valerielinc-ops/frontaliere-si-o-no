@@ -2252,6 +2252,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-tedeschi-turismo-2026': { name: 'Novità', path: '/articoli-frontaliere/ticino-tedeschi-turismo-2026', parent: 'blog' },
     'blog-universita-ticino-tagli-contributi-2026': { name: 'Tagli USI 2026', path: '/articoli-frontaliere/universita-ticino-tagli-contributi-2026', parent: 'blog' },
     'blog-chiasso-arresti-furto-biciclette-2026': { name: 'Novità', path: '/articoli-frontaliere/chiasso-arresti-furto-biciclette-2026', parent: 'blog' },
+    'blog-sicurezza-lavoro-ats-insubria-2026': { name: 'Novità', path: '/articoli-frontaliere/sicurezza-lavoro-ats-insubria-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

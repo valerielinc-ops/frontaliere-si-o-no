@@ -2976,6 +2976,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-arresti-furto-biciclette-2026.title': 'Chiasso : deux hommes arrêtés pour vol de vélos',
     'blog.article.chiasso-arresti-furto-biciclette-2026.excerpt': 'Deux citoyens roumains arrêtés à Chiasso après une fuite d\'une station-service sans payer le carburant. Des vélos volés et des outils de cambriolage ont été trouvés.',
     'blog.article.chiasso-arresti-furto-biciclette-2026.imageAlt': 'Gare de Chiasso avec présence policière',
+    'blog.article.sicurezza-lavoro-ats-insubria-2026.title': 'Sécurité au travail : l\'engagement d\'ATS Insubria entre surveillance et prévention',
+    'blog.article.sicurezza-lavoro-ats-insubria-2026.excerpt': 'ATS Insubria présente les données du Service de Prévention et de Sécurité dans les Environnements de Travail (PSAL) pour 2025.',
+    'blog.article.sicurezza-lavoro-ats-insubria-2026.imageAlt': 'Vue aérienne de Lugano avec le Monte Brè en arrière-plan',
 };
 
 export default blogMetaFr;

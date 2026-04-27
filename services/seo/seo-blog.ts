@@ -15641,6 +15641,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-lavoro-ats-insubria-2026': {
+    title: 'Sicurezza sul lavoro: l’impegno di ATS | Frontaliere Ticino',
+    description: 'ATS Insubria presenta i dati del Servizio di Prevenzione e Sicurezza negli Ambienti di Lavoro (PSAL) per il 2025. Scopri di più su vigilanza e prevenzione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, lavoro, impegno, insubria',
+    ogTitle: 'Sicurezza sul lavoro: l’impegno di ATS Insubria |',
+    ogDescription: 'ATS Insubria presenta i dati del Servizio di Prevenzione e Sicurezza negli Ambienti di Lavoro (PSAL) per il 2025. Scopri di più su vigilanza e prevenzione.',
+    canonicalPath: '/articoli-frontaliere/sicurezza-lavoro-ats-insubria-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sicurezza sul lavoro: l’impegno di ATS Insubria tra vigilanza e prevenzione",
+      "description": "ATS Insubria presenta i dati del Servizio di Prevenzione e Sicurezza negli Ambienti di Lavoro (PSAL) per il 2025. Scopri di più su vigilanza e prevenzione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sicurezza-lavoro-ats-insubria-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Monte Brè sullo sfondo"
+      },
+      "datePublished": "2026-04-27T15:01:02+00:00",
+      "dateModified": "2026-04-27T15:01:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-ats-insubria-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
