@@ -2745,6 +2745,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.title': 'Germignaga: Luinese Renewable Energy Community reaches 400 kW',
     'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.excerpt': 'The Luinese Renewable Energy Community reaches 400 kW of power and aims for 1000 kW by the end of 2026. 17 municipalities and 287 members involved.',
     'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.imageAlt': 'Aerial view of Lake Lugano with solar panels on rooftops, blue sky, and surrounding mountains',
+    'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.title': 'Nighttime closure of Gallarate exit on A8: what changes for cross-border workers',
+    'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.excerpt': 'The Gallarate exit on the A8 Milano-Varese will be closed during the night between Wednesday 29 and Thursday 30 April for maintenance work. Here are the alternatives',
+    'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.imageAlt': 'Nighttime closure of A8 Gallarate exit for maintenance work',
 };
 
 export default blogMetaEn;

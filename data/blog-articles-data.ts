@@ -7392,4 +7392,11 @@ export const ARTICLES = [
  image: '/images/blog/comunita-energetica-rinnovabile-luinese-400-kw.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiusura-notturna-a8-gallarate-29-aprile-2026',
+ category: 'pratico',
+ date: '2026-04-26T23:56:16.661Z',
+ image: '/images/blog/chiusura-notturna-a8-gallarate-29-aprile-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

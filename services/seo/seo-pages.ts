@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 961,
+ "numberOfItems": 962,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5685,7 +5685,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 958, "name": "Redditi 2024: Luvinate è il comune più ricco de...", "url": `${BASE_URL}/articoli-frontaliere/redditi-varesotti-2024-luvinate` },
           { "@type": "ListItem", "position": 959, "name": "Chiusure notturne autostrade: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-autostrade-ticino-2026` },
           { "@type": "ListItem", "position": 960, "name": "Accordo navigazione Lago di Costanza", "url": `${BASE_URL}/articoli-frontaliere/accordo-navigazione-costanza-2026` },
-          { "@type": "ListItem", "position": 961, "name": "Germignaga: Comunità Energetica Rinnovabile del...", "url": `${BASE_URL}/articoli-frontaliere/comunita-energetica-rinnovabile-luinese-400-kw` }
+          { "@type": "ListItem", "position": 961, "name": "Germignaga: Comunità Energetica Rinnovabile del...", "url": `${BASE_URL}/articoli-frontaliere/comunita-energetica-rinnovabile-luinese-400-kw` },
+          { "@type": "ListItem", "position": 962, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-notturna-a8-gallarate-29-aprile-2026` }
  ]
  },
  {

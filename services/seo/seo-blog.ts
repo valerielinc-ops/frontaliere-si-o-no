@@ -13408,6 +13408,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusura-notturna-a8-gallarate-29-aprile-2026': {
+    title: 'Chiusura notturna uscita A8 Gallarate | Frontaliere Ticino',
+    description: 'L\'uscita di Gallarate sulla A8 Milano-Varese sarà chiusa nella notte tra mercoledì 29 e giovedì 30 aprile per lavori di manutenzione. Ecco le alternative',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusura, notturna, uscita, gallarate',
+    ogTitle: 'Chiusura notturna uscita A8 Gallarate: cosa cambia per i',
+    ogDescription: 'L\'uscita di Gallarate sulla A8 Milano-Varese sarà chiusa nella notte tra mercoledì 29 e giovedì 30 aprile per lavori di manutenzione. Ecco le alternative',
+    canonicalPath: '/articoli-frontaliere/chiusura-notturna-a8-gallarate-29-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Chiusura notturna uscita A8",
+      "description": "L'uscita di Gallarate sulla A8 Milano-Varese sarà chiusa nella notte tra mercoledì 29 e giovedì 30 aprile per lavori di manutenzione. Ecco le alternative",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiusura-notturna-a8-gallarate-29-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiusura notturna uscita A8 Gallarate per lavori di manutenzione"
+      },
+      "datePublished": "2026-04-26T23:56:16+00:00",
+      "dateModified": "2026-04-26T23:56:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-notturna-a8-gallarate-29-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

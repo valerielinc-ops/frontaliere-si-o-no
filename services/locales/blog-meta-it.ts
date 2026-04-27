@@ -2745,6 +2745,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.title': 'Germignaga: Comunità Energetica Rinnovabile del Luinese tocca i 400 kW',
     'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.excerpt': 'La Comunità Energetica Rinnovabile del Luinese raggiunge 400 kW di potenza e punta a 1000 kW entro fine 2026. 17 Comuni e 287 soci coinvolti.',
     'blog.article.comunita-energetica-rinnovabile-luinese-400-kw.imageAlt': 'Vista aerea del Lago di Lugano con pannelli solari sui tetti, cielo azzurro e montagne circostanti',
+    'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.title': 'Chiusura notturna uscita A8 Gallarate: cosa cambia per i frontalieri',
+    'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.excerpt': 'L\'uscita di Gallarate sulla A8 Milano-Varese sarà chiusa nella notte tra mercoledì 29 e giovedì 30 aprile per lavori di manutenzione. Ecco le alternative',
+    'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.imageAlt': 'Chiusura notturna uscita A8 Gallarate per lavori di manutenzione',
 };
 
 export default blogMetaIt;
