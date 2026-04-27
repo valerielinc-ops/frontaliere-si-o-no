@@ -3089,6 +3089,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.semaforo-paradiso-melide-2026.title': 'Semaforo Melide: un\'ora e venti per Paradiso-Melide',
     'blog.article.semaforo-paradiso-melide-2026.excerpt': 'Un automobilista racconta di un\'odissea di un\'ora e venti per andare da Paradiso a Melide a causa di un semaforo malfunzionante.',
     'blog.article.semaforo-paradiso-melide-2026.imageAlt': 'Vista aerea del Lago di Lugano vicino a Melide con ingorgo stradale',
+    'blog.article.zurigo-economia-svizzera-crescita.title': 'Zurigo guida l\'economia svizzera ma cresce meno della media',
+    'blog.article.zurigo-economia-svizzera-crescita.excerpt': 'Zurigo genera il 21% del PIL svizzero ma cresce solo dell\'1,3% annuo, meno della media nazionale dell\'1,7%.',
+    'blog.article.zurigo-economia-svizzera-crescita.imageAlt': 'Vista aerea del distretto finanziario di Zurigo con il Lago di Zurigo sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -8218,4 +8218,11 @@ export const ARTICLES = [
  image: '/images/blog/semaforo-paradiso-melide-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'zurigo-economia-svizzera-crescita',
+ category: 'novita',
+ date: '2026-04-27T20:38:42.174Z',
+ image: '/images/blog/zurigo-economia-svizzera-crescita.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3088,6 +3088,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.semaforo-paradiso-melide-2026.title': 'Traffic light in Melide: 1h20m from Paradiso to Melide',
     'blog.article.semaforo-paradiso-melide-2026.excerpt': 'A driver recounts an odyssey of one hour and twenty minutes to go from Paradiso to Melide due to a malfunctioning traffic light.',
     'blog.article.semaforo-paradiso-melide-2026.imageAlt': 'Aerial view of Lake Lugano near Melide with traffic jam on the road',
+    'blog.article.zurigo-economia-svizzera-crescita.title': 'Zurich leads Swiss economy but grows below average',
+    'blog.article.zurigo-economia-svizzera-crescita.excerpt': 'Zurich generates 21% of Switzerland\'s GDP but grows only 1.3% annually, below the national average of 1.7%.',
+    'blog.article.zurigo-economia-svizzera-crescita.imageAlt': 'Aerial view of Zurich\'s financial district with Lake Zurich in the background',
 };
 
 export default blogMetaEn;

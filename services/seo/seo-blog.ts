@@ -16830,6 +16830,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zurigo-economia-svizzera-crescita': {
+    title: 'Zurigo guida l\'economia svizzera ma cresce meno della media',
+    description: 'Zurigo genera il 21% del PIL svizzero ma cresce solo dell\'1,3% annuo, meno della media nazionale dell\'1,7%. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, zurigo, economia, cresce, meno',
+    ogTitle: 'Zurigo guida l\'economia svizzera ma cresce meno della media',
+    ogDescription: 'Zurigo genera il 21% del PIL svizzero ma cresce solo dell\'1,3% annuo, meno della media nazionale dell\'1,7%. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/zurigo-economia-svizzera-crescita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zurigo guida l'economia svizzera ma cresce meno della media",
+      "description": "Zurigo genera il 21% del PIL svizzero ma cresce solo dell'1,3% annuo, meno della media nazionale dell'1,7%. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/zurigo-economia-svizzera-crescita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del distretto finanziario di Zurigo con il Lago di Zurigo sullo sfondo"
+      },
+      "datePublished": "2026-04-27T20:38:42+00:00",
+      "dateModified": "2026-04-27T20:38:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/zurigo-economia-svizzera-crescita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

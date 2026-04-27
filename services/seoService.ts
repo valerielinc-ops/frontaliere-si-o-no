@@ -2290,6 +2290,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-universita-ticino-numero-chiuso-2026': { name: 'Novità', path: '/articoli-frontaliere/universita-ticino-numero-chiuso-2026', parent: 'blog' },
     'blog-pedaggi-autostrada-lombardia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/pedaggi-autostrada-lombardia-frontalieri', parent: 'blog' },
     'blog-semaforo-paradiso-melide-2026': { name: 'Semaforo Melide', path: '/articoli-frontaliere/semaforo-paradiso-melide-2026', parent: 'blog' },
+    'blog-zurigo-economia-svizzera-crescita': { name: 'Economia Svizzera', path: '/articoli-frontaliere/zurigo-economia-svizzera-crescita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

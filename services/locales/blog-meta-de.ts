@@ -3088,6 +3088,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.semaforo-paradiso-melide-2026.title': 'Ampel Melide: 1 Stunde 20 Minuten von Paradiso nach Melide',
     'blog.article.semaforo-paradiso-melide-2026.excerpt': 'Ein Autofahrer berichtet von einer Odyssee von 1 Stunde und 20 Minuten von Paradiso nach Melide aufgrund einer defekten Ampel.',
     'blog.article.semaforo-paradiso-melide-2026.imageAlt': 'Luftaufnahme des Luganer Sees in der Nähe von Melide mit Stau auf der Straße',
+    'blog.article.zurigo-economia-svizzera-crescita.title': 'Zürich führt Schweizer Wirtschaft, wächst aber unterdurchschnittlich',
+    'blog.article.zurigo-economia-svizzera-crescita.excerpt': 'Zürich erzeugt 21% des Schweizer BIP, wächst aber nur um 1,3% pro Jahr, weniger als der nationale Durchschnitt von 1,7%.',
+    'blog.article.zurigo-economia-svizzera-crescita.imageAlt': 'Luftaufnahme des Finanzdistrikts von Zürich mit dem Zürichsee im Hintergrund',
 };
 
 export default blogMetaDe;

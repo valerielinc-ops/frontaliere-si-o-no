@@ -3089,6 +3089,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.semaforo-paradiso-melide-2026.title': 'Feu de Melide : 1h20 pour Paradiso-Melide',
     'blog.article.semaforo-paradiso-melide-2026.excerpt': 'Un automobiliste raconte une odyssée d\'une heure et vingt minutes pour aller de Paradiso à Melide à cause d\'un feu mal fonctionnant.',
     'blog.article.semaforo-paradiso-melide-2026.imageAlt': 'Vue aérienne du lac de Lugano près de Melide avec embouteillage sur la route',
+    'blog.article.zurigo-economia-svizzera-crescita.title': 'Zurich domine l\'économie suisse mais croît moins que la moyenne',
+    'blog.article.zurigo-economia-svizzera-crescita.excerpt': 'Zurich génère 21% du PIB suisse mais ne croît que de 1,3% par an, moins que la moyenne nationale de 1,7%.',
+    'blog.article.zurigo-economia-svizzera-crescita.imageAlt': 'Vue aérienne du quartier financier de Zurich avec le lac de Zurich en arrière-plan',
 };
 
 export default blogMetaFr;
