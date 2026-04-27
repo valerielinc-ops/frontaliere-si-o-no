@@ -2293,6 +2293,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-zurigo-economia-svizzera-crescita': { name: 'Economia Svizzera', path: '/articoli-frontaliere/zurigo-economia-svizzera-crescita', parent: 'blog' },
     'blog-frontalieri-trottinetti-velocita-polizia': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-trottinetti-velocita-polizia', parent: 'blog' },
     'blog-ats-insubria-soluzioni-ospedali-2026': { name: 'Novità sanitarie', path: '/articoli-frontaliere/ats-insubria-soluzioni-ospedali-2026', parent: 'blog' },
+    'blog-avis-lombardia-dono-sangue-privati-2026': { name: 'Novità', path: '/articoli-frontaliere/avis-lombardia-dono-sangue-privati-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

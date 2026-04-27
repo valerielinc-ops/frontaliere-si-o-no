@@ -3097,6 +3097,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ats-insubria-soluzioni-ospedali-2026.title': 'ATS Insubria testet verteilte Pflegeheime und Bettenblocker',
     'blog.article.ats-insubria-soluzioni-ospedali-2026.excerpt': 'Zwei Pilotprojekte zur Reduzierung der Krankenhausaufenthalte und Freihaltung von Betten in der Lombardei, mit regionalen Finanzierungen',
     'blog.article.ats-insubria-soluzioni-ospedali-2026.imageAlt': 'Moderne Krankenhaus in Tessin mit medizinischem Personal, das ältere Patienten betreut, mit Fokus auf Gesundheitslösungen',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.title': 'Avis Lombardei warnt: Blutspenden durch Privatfirmen bedroht',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.excerpt': 'Die Daten von 2025 zeigen einen Anstieg von 8,24 % bei der Plasmasammlung, doch die Avis Lombardei warnt vor kommerziellen Spekulationen.',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.imageAlt': 'Ein Blutspendezentrum in der Schweiz mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

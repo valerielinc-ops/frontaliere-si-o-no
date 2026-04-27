@@ -3098,6 +3098,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ats-insubria-soluzioni-ospedali-2026.title': 'ATS Insubria sperimenta RSA diffusa e bed blocker per liberare gli ospedali',
     'blog.article.ats-insubria-soluzioni-ospedali-2026.excerpt': 'Due progetti pilota per ridurre i tempi di degenza e liberare letti ospedalieri in Lombardia, con finanziamenti regionali',
     'blog.article.ats-insubria-soluzioni-ospedali-2026.imageAlt': 'Ospedale moderno in Ticino con personale medico che assiste pazienti anziani, con focus su soluzioni sanitarie',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.title': 'Avis Lombardia lancia l\'allarme: il dono del sangue sotto attacco dei privati',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.excerpt': 'I dati del 2025 mostrano un aumento dell\'8,24% nella raccolta di plasma, ma l\'Avis Lombardia avverte del rischio di speculazioni commerciali',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.imageAlt': 'Un centro di donazione del sangue in Ticino con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

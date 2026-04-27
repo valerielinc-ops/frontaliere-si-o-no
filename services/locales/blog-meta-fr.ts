@@ -3098,6 +3098,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ats-insubria-soluzioni-ospedali-2026.title': 'ATS Insubria teste RSA et lits bloqués pour libérer les hôpitaux',
     'blog.article.ats-insubria-soluzioni-ospedali-2026.excerpt': 'Deux projets pilotes pour réduire les temps de séjour et libérer les lits d\'hôpitaux en Lombardie, avec des financements régionaux',
     'blog.article.ats-insubria-soluzioni-ospedali-2026.imageAlt': 'Hôpital moderne dans le Tessin avec du personnel médical assistant des patients âgés, axé sur les solutions de santé',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.title': 'Avis Lombardie lance l\'alerte : le don de sang menacé par les privés',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.excerpt': 'Les données de 2025 montrent une augmentation de 8,24 % dans la collecte de plasma, mais l\'Avis Lombardie avertit du risque de spéculations commerciales',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.imageAlt': 'Un centre de don de sang en Suisse avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

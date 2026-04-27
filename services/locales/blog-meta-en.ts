@@ -3097,6 +3097,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ats-insubria-soluzioni-ospedali-2026.title': 'ATS Insubria tests distributed nursing homes to free up hospital beds',
     'blog.article.ats-insubria-soluzioni-ospedali-2026.excerpt': 'Two pilot projects to reduce hospital stays and free up beds in Lombardy, with regional funding',
     'blog.article.ats-insubria-soluzioni-ospedali-2026.imageAlt': 'Modern hospital in Ticino with medical staff assisting elderly patients, focusing on healthcare solutions',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.title': 'Avis Lombardy warns: private sector threatens blood donations',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.excerpt': '2025 data shows an 8.24% increase in plasma collection, but Avis Lombardy warns of commercial speculation risks',
+    'blog.article.avis-lombardia-dono-sangue-privati-2026.imageAlt': 'A blood donation center in Ticino with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

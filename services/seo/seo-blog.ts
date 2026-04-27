@@ -16917,6 +16917,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avis-lombardia-dono-sangue-privati-2026': {
+    title: 'Avis Lombardia lancia l\'allarme: il dono del sangue sotto attacco dei privati',
+    description: 'I dati del 2025 mostrano un aumento dell\'8,24% nella raccolta di plasma, ma l\'Avis Lombardia avverte del rischio di speculazioni commerciali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, avis, lombardia, lancia, allarme',
+    ogTitle: 'Avis Lombardia lancia l\'allarme: il dono del sangue sotto attacco dei privati',
+    ogDescription: 'I dati del 2025 mostrano un aumento dell\'8,24% nella raccolta di plasma, ma l\'Avis Lombardia avverte del rischio di speculazioni commerciali',
+    canonicalPath: '/articoli-frontaliere/avis-lombardia-dono-sangue-privati-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avis Lombardia lancia l'allarme: il dono del sangue sotto attacco dei privati",
+      "description": "I dati del 2025 mostrano un aumento dell'8,24% nella raccolta di plasma, ma l'Avis Lombardia avverte del rischio di speculazioni commerciali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/avis-lombardia-dono-sangue-privati-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un centro di donazione del sangue in Ticino con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-27T21:00:48+00:00",
+      "dateModified": "2026-04-27T21:00:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avis-lombardia-dono-sangue-privati-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
