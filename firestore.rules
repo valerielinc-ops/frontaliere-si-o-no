@@ -109,13 +109,6 @@ service cloud.firestore {
       }
     }
 
-    // Legacy job_alerts collection — kept read-only during the migration window.
-    // Once `migrate-job-alerts-to-subscribers.mjs --delete-source` has run,
-    // this block can be removed.
-    match /job_alerts/{alertId} {
-      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
-    }
-
     // User profiles — own data only (admin SDK writes bypass rules)
     match /users/{uid} {
       allow read: if request.auth != null && request.auth.uid == uid;
