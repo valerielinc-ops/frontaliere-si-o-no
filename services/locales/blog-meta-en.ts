@@ -2991,6 +2991,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furto-biciclette-benzina-chiasso-2026.title': 'Bicycle and fuel thefts in Chiasso: culprits arrested',
     'blog.article.furto-biciclette-benzina-chiasso-2026.excerpt': 'Two individuals were arrested in Chiasso for bicycle and fuel thefts, with a small haul.',
     'blog.article.furto-biciclette-benzina-chiasso-2026.imageAlt': 'View of the Chiasso customs office, at the border between Switzerland and Italy',
+    'blog.article.bando-formazione-professionale-plr-2026.title': 'PLR criticizes professional training management tender requirements',
+    'blog.article.bando-formazione-professionale-plr-2026.excerpt': 'The PLR criticizes the requirements of the tender for the management of professional training in Ticino, raising concerns about the procedural handling.',
+    'blog.article.bando-formazione-professionale-plr-2026.imageAlt': 'Lugano cityscape with Lake Ceresio in the foreground',
 };
 
 export default blogMetaEn;

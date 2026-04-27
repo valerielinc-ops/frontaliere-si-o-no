@@ -2991,6 +2991,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furto-biciclette-benzina-chiasso-2026.title': 'Furti di biciclette e benzina a Chiasso: arrestati i colpevoli',
     'blog.article.furto-biciclette-benzina-chiasso-2026.excerpt': 'Due individui sono stati arrestati a Chiasso per furti di biciclette e benzina, con un bottino di scarsa entità.',
     'blog.article.furto-biciclette-benzina-chiasso-2026.imageAlt': 'Vista della dogana di Chiasso, al confine tra Svizzera e Italia',
+    'blog.article.bando-formazione-professionale-plr-2026.title': 'Bando direzione Formazione professionale, il Plr torna alla carica',
+    'blog.article.bando-formazione-professionale-plr-2026.excerpt': 'Il PLR critica i requisiti del bando per la direzione della Formazione professionale in Ticino, sollevando perplessità sulla gestione procedurale.',
+    'blog.article.bando-formazione-professionale-plr-2026.imageAlt': 'Panorama di Lugano con il lago Ceresio in primo piano',
 };
 
 export default blogMetaIt;

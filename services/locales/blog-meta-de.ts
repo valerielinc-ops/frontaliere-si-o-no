@@ -2991,6 +2991,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furto-biciclette-benzina-chiasso-2026.title': 'Fahrraddiebstähle und Benzindiebstahl in Chiasso: Täter festgenommen',
     'blog.article.furto-biciclette-benzina-chiasso-2026.excerpt': 'Zwei Personen wurden in Chiasso wegen Fahrraddiebstählen und Benzindiebstahl festgenommen, wobei die Beute von geringer Bedeutung war.',
     'blog.article.furto-biciclette-benzina-chiasso-2026.imageAlt': 'Ansicht des Zollamtes Chiasso, an der Grenze zwischen der Schweiz und Italien',
+    'blog.article.bando-formazione-professionale-plr-2026.title': 'Bando für die Leitung der Berufsbildung: Die FDP setzt sich erneut ein',
+    'blog.article.bando-formazione-professionale-plr-2026.excerpt': 'Die FDP kritisiert die Anforderungen des Ausschreibungsverfahrens für die Leitung der Berufsbildung im Tessin und äußert Bedenken hinsichtlich der Verfahrensführung.',
+    'blog.article.bando-formazione-professionale-plr-2026.imageAlt': 'Lugano Stadtbild mit dem Ceresio-See im Vordergrund',
 };
 
 export default blogMetaDe;

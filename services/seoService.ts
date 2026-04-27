@@ -2257,6 +2257,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-osservatori-traffico-lago-como-2026': { name: 'Novità', path: '/articoli-frontaliere/osservatori-traffico-lago-como-2026', parent: 'blog' },
     'blog-sicurezza-lavoro-ats-insubria-varese-como-2026': { name: 'Sicurezza lavoro', path: '/articoli-frontaliere/sicurezza-lavoro-ats-insubria-varese-como-2026', parent: 'blog' },
     'blog-furto-biciclette-benzina-chiasso-2026': { name: 'Furti Chiasso', path: '/articoli-frontaliere/furto-biciclette-benzina-chiasso-2026', parent: 'blog' },
+    'blog-bando-formazione-professionale-plr-2026': { name: 'Bando Formazione', path: '/articoli-frontaliere/bando-formazione-professionale-plr-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

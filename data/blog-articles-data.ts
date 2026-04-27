@@ -7966,4 +7966,11 @@ export const ARTICLES = [
  image: '/images/blog/furto-biciclette-benzina-chiasso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bando-formazione-professionale-plr-2026',
+ category: 'novita',
+ date: '2026-04-27T15:37:24.973Z',
+ image: '/images/blog/bando-formazione-professionale-plr-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -15786,6 +15786,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bando-formazione-professionale-plr-2026': {
+    title: 'Bando direzione Formazione | Frontaliere Ticino',
+    description: 'Il PLR critica i requisiti del bando per la direzione della Formazione professionale in Ticino, sollevando perplessità sulla gestione procedurale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bando, direzione, formazione, professionale',
+    ogTitle: 'Bando Formazione Professionale | Critiche PLR | Frontaliere',
+    ogDescription: 'Il PLR critica i requisiti del bando per la direzione della Formazione professionale in Ticino, sollevando perplessità sulla gestione procedurale.',
+    canonicalPath: '/articoli-frontaliere/bando-formazione-professionale-plr-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Bando Formazione Professionale |",
+      "description": "Il PLR critica i requisiti del bando per la direzione della Formazione professionale in Ticino, sollevando perplessità sulla gestione procedurale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bando-formazione-professionale-plr-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il lago Ceresio in primo piano"
+      },
+      "datePublished": "2026-04-27T15:37:24+00:00",
+      "dateModified": "2026-04-27T15:37:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bando-formazione-professionale-plr-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
