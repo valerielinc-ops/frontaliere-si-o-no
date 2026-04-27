@@ -15032,6 +15032,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incontro-solidarieta-sicurezza-bioggio': {
+    title: 'Incontro tra solidarietà e sicurezza a | Frontaliere Ticino',
+    description: 'Volontari di City Angels Svizzera condividono esperienze dirette il 16 maggio al Centro Faressere di Bioggio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incontro, solidarietà, sicurezza, bioggio',
+    ogTitle: 'Incontro tra solidarietà e sicurezza a Bioggio',
+    ogDescription: 'Volontari di City Angels Svizzera condividono esperienze dirette il 16 maggio al Centro Faressere di Bioggio',
+    canonicalPath: '/articoli-frontaliere/incontro-solidarieta-sicurezza-bioggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incontro tra solidarietà e sicurezza a Bioggio",
+      "description": "Volontari di City Angels Svizzera condividono esperienze dirette il 16 maggio al Centro Faressere di Bioggio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incontro-solidarieta-sicurezza-bioggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Volontari a Bioggio condividono esperienze di solidarietà e sicurezza"
+      },
+      "datePublished": "2026-04-27T12:18:05+00:00",
+      "dateModified": "2026-04-27T12:18:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incontro-solidarieta-sicurezza-bioggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -7784,4 +7784,11 @@ export const ARTICLES = [
  image: '/images/blog/bandiera-svizzera-scarpe-on-controversia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incontro-solidarieta-sicurezza-bioggio',
+ category: 'novita',
+ date: '2026-04-27T12:18:05.024Z',
+ image: '/images/blog/incontro-solidarieta-sicurezza-bioggio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

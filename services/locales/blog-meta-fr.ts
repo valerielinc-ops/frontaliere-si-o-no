@@ -2913,6 +2913,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bandiera-svizzera-scarpe-on-controversia.title': 'Controverse sur l\'utilisation du drapeau suisse sur les chaussures On',
     'blog.article.bandiera-svizzera-scarpe-on-controversia.excerpt': 'L\'entreprise On a obtenu le permis G d\'utiliser le drapeau suisse sur ses chaussures, produites à l\'étranger, provoquant des polémiques dans le monde entrepreneurial helvétique.',
     'blog.article.bandiera-svizzera-scarpe-on-controversia.imageAlt': 'Paire de chaussures de course avec drapeau suisse dans un magasin de sport moderne',
+    'blog.article.incontro-solidarieta-sicurezza-bioggio.title': 'Rencontre entre solidarité et sécurité à Bioggio',
+    'blog.article.incontro-solidarieta-sicurezza-bioggio.excerpt': 'Les bénévoles de City Angels Suisse partagent leurs expériences directes le 16 mai au Centre Faressere de Bioggio',
+    'blog.article.incontro-solidarieta-sicurezza-bioggio.imageAlt': 'Bénévoles à Bioggio partagent des expériences de solidarité et de sécurité',
 };
 
 export default blogMetaFr;

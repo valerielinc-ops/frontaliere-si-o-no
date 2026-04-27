@@ -2913,6 +2913,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bandiera-svizzera-scarpe-on-controversia.title': 'Kontroverse über die Verwendung der Schweizerflagge auf On-Schuhen',
     'blog.article.bandiera-svizzera-scarpe-on-controversia.excerpt': 'Das Unternehmen On hat die Erlaubnis erhalten, die Schweizerflagge auf seinen im Ausland produzierten Schuhen zu verwenden, was in der Schweizer Wirtschaftswelt für Kontroversen sorgt.',
     'blog.article.bandiera-svizzera-scarpe-on-controversia.imageAlt': 'Paar Laufschuhe mit Schweizer Flagge in einem modernen Sportgeschäft',
+    'blog.article.incontro-solidarieta-sicurezza-bioggio.title': 'Begegnung zwischen Solidarität und Sicherheit in Bioggio',
+    'blog.article.incontro-solidarieta-sicurezza-bioggio.excerpt': 'Volontäre von City Angels Schweiz teilen direkte Erfahrungen am 16. Mai im Centro Faressere in Bioggio',
+    'blog.article.incontro-solidarieta-sicurezza-bioggio.imageAlt': 'Freiwillige in Bioggio teilen Erfahrungen von Solidarität und Sicherheit',
 };
 
 export default blogMetaDe;

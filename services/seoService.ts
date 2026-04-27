@@ -2231,6 +2231,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-oftalmologi-svizzeri-messico-vista': { name: 'Novità', path: '/articoli-frontaliere/oftalmologi-svizzeri-messico-vista', parent: 'blog' },
     'blog-rumore-traffico-svizzera-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/rumore-traffico-svizzera-frontalieri', parent: 'blog' },
     'blog-bandiera-svizzera-scarpe-on-controversia': { name: 'Controversia bandiera svizzera', path: '/articoli-frontaliere/bandiera-svizzera-scarpe-on-controversia', parent: 'blog' },
+    'blog-incontro-solidarieta-sicurezza-bioggio': { name: 'Incontro solidarietà sicurezza', path: '/articoli-frontaliere/incontro-solidarieta-sicurezza-bioggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

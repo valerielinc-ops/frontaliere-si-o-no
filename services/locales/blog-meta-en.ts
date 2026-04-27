@@ -2913,6 +2913,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bandiera-svizzera-scarpe-on-controversia.title': 'Controversy over the use of the Swiss flag on On shoes',
     'blog.article.bandiera-svizzera-scarpe-on-controversia.excerpt': 'On has obtained permission to use the Swiss flag on its shoes, which are produced abroad, sparking controversy in the Swiss business world.',
     'blog.article.bandiera-svizzera-scarpe-on-controversia.imageAlt': 'Pair of running shoes with Swiss flag in a modern sports store',
+    'blog.article.incontro-solidarieta-sicurezza-bioggio.title': 'Meeting between solidarity and security in Bioggio',
+    'blog.article.incontro-solidarieta-sicurezza-bioggio.excerpt': 'Volunteers from City Angels Switzerland share direct experiences on May 16th at the Faressere Center in Bioggio',
+    'blog.article.incontro-solidarieta-sicurezza-bioggio.imageAlt': 'Volunteers in Bioggio share experiences of solidarity and security',
 };
 
 export default blogMetaEn;
