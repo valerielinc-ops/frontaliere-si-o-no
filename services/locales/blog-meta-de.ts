@@ -2766,6 +2766,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilita-sostenibile-citta-vivibili-2026.title': 'Nachhaltige Mobilität und lebenswertere Städte: Beispiele aus Barcelona, Paris und Singapur',
     'blog.article.mobilita-sostenibile-citta-vivibili-2026.excerpt': 'Entdecken Sie, wie Barcelona, Paris und Singapur den urbanen Raum neu gestalten, um die Umweltverschmutzung zu reduzieren und die Lebensqualität zu verbessern',
     'blog.article.mobilita-sostenibile-citta-vivibili-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen städtischen Planungselementen wie Fahrradwegen und Grünflächen',
+    'blog.article.relazioni-italo-svizzere-2026.title': 'Italienisch-schweizerische Beziehungen: Neuigkeiten und Entwicklungen',
+    'blog.article.relazioni-italo-svizzere-2026.excerpt': 'Geologische Entdeckungen, Kontroversen über medizinische Behandlungen und Schweizer Design beim Mailänder Fuorisalone. Hier sind die neuesten Updates.',
+    'blog.article.relazioni-italo-svizzere-2026.imageAlt': 'Luganersee mit umliegenden Bergen',
 };
 
 export default blogMetaDe;

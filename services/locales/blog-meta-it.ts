@@ -2766,6 +2766,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mobilita-sostenibile-citta-vivibili-2026.title': 'Mobilità sostenibile e città più vivibili: esempi da Barcellona, Parigi e Singapore',
     'blog.article.mobilita-sostenibile-citta-vivibili-2026.excerpt': 'Scopri come Barcellona, Parigi e Singapore stanno ridisegnando lo spazio urbano per ridurre inquinamento e migliorare la qualità della vita',
     'blog.article.mobilita-sostenibile-citta-vivibili-2026.imageAlt': 'Vista aerea del Lago di Lugano con elementi di pianificazione urbana moderna come piste ciclabili e spazi verdi',
+    'blog.article.relazioni-italo-svizzere-2026.title': 'Relazioni italo-svizzere: novità e sviluppi',
+    'blog.article.relazioni-italo-svizzere-2026.excerpt': 'Scoperte geologiche, controversie su cure mediche e design svizzero al Fuorisalone milanese. Ecco gli ultimi aggiornamenti.',
+    'blog.article.relazioni-italo-svizzere-2026.imageAlt': 'Lago di Lugano con montagne circostanti',
 };
 
 export default blogMetaIt;
