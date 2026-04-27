@@ -32,7 +32,48 @@ See [SEMRUSH-SCAN-2026-04-22.md](./SEMRUSH-SCAN-2026-04-22.md) for the full audi
 
 ---
 
-## Completed (audit trail, 2026-04-22 → 2026-04-23)
+## Completed (audit trail, 2026-04-26 → 2026-04-27): Zero-issues sweep
+
+PR #34 — drives Semrush issues toward 0 across all severities. Full audit trail
+in [ZERO-ISSUES-2026-04-26.md](./ZERO-ISSUES-2026-04-26.md). Highlights:
+
+- **AdSense AI-bot UA skip** (Phase 1A, `9212b3b64`) — robots.txt stays open to
+  ChatGPT-User/ClaudeBot/PerplexityBot ecc.; AdSense skip moved client-side
+  to protect USA RPM without losing AI citations.
+- **Per-URL bridge titles + drop meta-refresh** (Phase 1B, `63fdbe9ff`) —
+  resolves Issue 6 (450 dup titles) + Issue 40 (426 meta refresh).
+- **Robots.txt softened to runtime noindex+canonical** (Phase 1D, `5b4b20329`)
+  — replaces `Disallow ?canton=*/?age=*/?q=*` so Semrush stops surfacing
+  these as "blocked"; canonical still consolidates signals.
+- **Universal hreflang post-process** (Phase 2-hreflang, `0707333b0`) — strips
+  alternates whose target file does not ship in `dist/`. Closes Issue 8 + 25.
+- **SEO hub pages × 4 locales × paginated** (Phase 2-UI, `9363cf95a`) — 1,188
+  static HTML pages closing the orphan/deep-page graph. Resolves Issue 207
+  (-4,563), 212 (-8,798), 213 (-572).
+- **`formatSeoTitle()` ≤60 + narrative `formatSeoH1()`** (Phase 3A, `8d4628253`)
+  — refactor across 6 SEO landing plugins. Resolves Issue 102 + 105.
+- **Sector prose 200-400 words + company enrichment + noindex 0-job stubs**
+  (Phase 3B, `dbb50de4b`) — resolves Issue 112 + 117.
+- **AI Search article template (TL;DR + FAQPage)** + retro-fill script
+  (Phase 3C + recovery, `ce6798166` + `9f23ea9e2` + `ed9088e08`) — 928 IT
+  articles auto-optimized via `scripts/backfill-ai-search-optimization.mjs`
+  with auto-commit batching. Resolves Issue 223.
+- **Job-board outbound `rel="nofollow"`** (Phase 4B, `8164d33a1`) — resolves
+  Issue 218 (671 ATS 403s).
+- **Slug truncation + multi-H1 hub fix + dist gate tests** (Phase 4C,
+  `f5baa6c13`) — resolves Issues 201, 104, 6 (residual).
+- **`SoftwareApplication` schema + sitemap-jobs alignment + html-lang sync**
+  (Phase 4A, `3d3f17594`).
+- **Locale-root SPA shells** (`a49c59a07`) — `dist/{en,de,fr}/index.html`
+  emitted so hreflang from homepage resolves on disk.
+- **Reserved-hub-slug filter** (`50210a072`) — pre-existing GSC-imported tracking
+  slugs (e.g. "infermieri") no longer overwrite legitimate sector hub HTML.
+
+---
+
+## Completed (audit trail, 2026-04-22 → 2026-04-23): Sprint 1 + extensions
+
+### P0 bug fixes (live production 2026-04-23)
 
 ### P0 bug fixes (live production 2026-04-23)
 
