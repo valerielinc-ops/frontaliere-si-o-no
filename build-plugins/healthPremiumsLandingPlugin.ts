@@ -570,6 +570,24 @@ interface HubCopy {
       cumulative: string,
     ) => string;
   };
+  /**
+   * Canton-hub contextual prose ("Cosa significa questo dato per te").
+   * Rendered between the lede header and the stats tiles to give the page
+   * substantive frontaliere-relevant content — fixing the Semrush
+   * text-to-HTML ratio gate while staying coherent with the page topic.
+   */
+  cantonContext: {
+    title: string;
+    body: (canton: string, median: string, year: number) => string;
+  };
+  /**
+   * Root-hub methodology prose. Explains how cross-canton comparison works,
+   * BAG premium regions, and what cross-border workers should look at first.
+   */
+  rootMethodology: {
+    title: string;
+    body: (year: number) => string;
+  };
 }
 
 const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
@@ -895,6 +913,16 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       cantonSummary: (c, oy, cy, cum) =>
         `Sul biennio ${oy} → ${cy} la mediana adulti (26+) in ${c} è cresciuta complessivamente di ${cum}. Il dato cumulato è il riferimento corretto per stimare l'impatto sul budget familiare a 24 mesi, perché smorza la volatilità della singola revisione tariffaria annuale.`,
     },
+    cantonContext: {
+      title: 'Cosa significa questo dato per te',
+      body: (c, m, y) =>
+        `La mediana di ${m} CHF/mese nel ${c} riflette il prezzo del modello standard (libera scelta del medico) per un adulto residente nel cantone con franchigia minima di 300 CHF. Il valore reale che pagherai dipende da quattro variabili: la regione premio dentro al cantone (in molti cantoni le zone urbane hanno premi più alti delle zone periferiche di 15-30 CHF/mese), il modello assicurativo scelto (medico di famiglia o telmed riducono il premio del 10-18 %, HMO fino al 22 %), la franchigia annua (alzandola da 300 a 2.500 CHF il premio cala fra il 7 % e il 14 %), e la cassa malati selezionata: la differenza fra la più cara e la più economica nel ${c} per la stessa fascia di età supera quasi sempre i 100 CHF al mese, motivo per cui il confronto annuale conviene sempre. I frontalieri che lavorano in ${c} possono optare per il sistema italiano (SSN) entro 3 mesi dall'inizio del rapporto di lavoro tramite il modulo formale di esercizio del diritto d'opzione: la scelta è di solito fiscalmente vantaggiosa per chi ha meno di 35 anni e in buona salute, mentre la LAMal svizzera resta competitiva per chi ha figli o patologie croniche grazie alla rete sanitaria locale e alla rapidità di accesso. La pagina sotto elenca tutte le casse attive nel ${c} per il ${y} con il prezzo aggiornato; usa il comparatore per filtrare per franchigia e modello e ottenere il preventivo personalizzato.`,
+    },
+    rootMethodology: {
+      title: 'Come confrontare i premi tra cantoni',
+      body: (y) =>
+        `I premi LAMal sono fissati a livello cantonale, non federale: il Consiglio federale approva ogni autunno le tariffe presentate dalle casse, che variano per cantone e per regione premio interna al cantone. Per il ${y} la differenza fra il cantone più caro (Ginevra) e quelli più economici della Svizzera centrale supera spesso i 100 CHF/mese per un adulto. Quando confronti due cantoni controlla sempre tre cose: il numero di regioni premio (Ticino e Sciaffusa hanno una sola regione, Grigioni e Vallese ne hanno tre con prezzi che differiscono fino a 25 CHF/mese), il mix di modelli disponibili (Hausarzt o telmed sono più diffusi nei cantoni germanofoni e tagliano il premio del 10-22 %), e la qualità della rete ospedaliera del cantone, perché un ricovero fuori cantone richiede l'autorizzazione preventiva della cassa o del cantone di domicilio. Per chi è frontaliere conta anche la presenza di centri sanitari vicini al confine: chi sceglie la LAMal si appoggia agli ospedali svizzeri del cantone di lavoro, mentre chi opta per il SSN italiano resta coperto dal proprio servizio regionale di residenza, con accesso ai medici svizzeri solo a tariffa privata. Le pagine cantonali in basso forniscono mediana, minimo, massimo e ranking completo delle casse per ogni fascia d'età, aggiornati annualmente con i dati ufficiali UFSP/BAG.`,
+    },
   },
   en: {
     breadcrumbHome: 'Home',
@@ -958,6 +986,16 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       sectionTitle: (oy, cy) => `Three-year trend ${oy} → ${cy}`,
       cantonSummary: (c, oy, cy, cum) =>
         `Across the ${oy} → ${cy} window the adult (26+) median in ${c} compounded by ${cum}. The two-year cumulative is the right reference to size the budget impact, because it smooths the noise of a single annual tariff revision.`,
+    },
+    cantonContext: {
+      title: 'What this number means for you',
+      body: (c, m, y) =>
+        `The ${m} CHF/month median in ${c} reflects the price of the standard model (free choice of doctor) for an adult resident with the minimum CHF 300 deductible. The actual amount you pay depends on four levers: the premium region inside the canton (urban zones are typically 15-30 CHF/month dearer than peripheral ones in cantons with multiple regions), the insurance model you pick (family-doctor or telmed plans cut the premium by 10-18 %, an HMO by up to 22 %), the annual deductible (raising it from 300 to 2,500 CHF lowers the premium by 7-14 %), and the fund itself: between the cheapest and the most expensive fund in ${c} for the same age bracket the gap nearly always exceeds 100 CHF/month, which is why a yearly comparison pays off. Cross-border workers employed in ${c} can opt out into the Italian SSN system within three months of taking up the job by filing the formal "right of option" — usually a fiscal win for under-35s in good health, while the Swiss LAMal stays competitive for families and people with chronic conditions thanks to the local provider network and faster access. The table below lists every active fund in ${c} for ${y} with the live price; use the comparator to filter by deductible and model and obtain a personalised quote.`,
+    },
+    rootMethodology: {
+      title: 'How to compare premiums between cantons',
+      body: (y) =>
+        `LAMal premiums are set at the cantonal level, not federally: each autumn the Federal Council ratifies the tariffs proposed by the funds, which vary by canton and by premium region inside the canton. For ${y} the gap between the most expensive canton (Geneva) and the cheapest in central Switzerland often tops 100 CHF/month for an adult. When you compare two cantons, check three things: the number of premium regions (Ticino and Schaffhausen run a single region, Graubünden and Valais have three with up to 25 CHF/month spread), the mix of available models (Hausarzt and telmed plans are widespread in German-speaking cantons and trim the premium by 10-22 %), and the quality of the cantonal hospital network, since out-of-canton inpatient care needs prior authorisation from the fund or the canton of residence. For cross-border workers the proximity of clinics to the border also matters: those who pick LAMal rely on the Swiss hospitals of the canton of work, while those who opt into the Italian SSN remain covered by their region of residence and can only use Swiss doctors at private rates. The cantonal pages below give the median, minimum, maximum and full ranking of funds for every age bracket, refreshed yearly with official FOPH/BAG data.`,
     },
   },
   de: {
@@ -1023,6 +1061,16 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       cantonSummary: (c, oy, cy, cum) =>
         `Im Zeitraum ${oy} → ${cy} hat sich der Erwachsenen-Median (26+) in ${c} kumuliert um ${cum} verändert. Der Zweijahres-Saldo ist der richtige Massstab für die Budgetplanung, weil er die Schwankung einer einzelnen jährlichen Tarifrevision glättet.`,
     },
+    cantonContext: {
+      title: 'Was diese Zahl für Sie bedeutet',
+      body: (c, m, y) =>
+        `Der Median von ${m} CHF/Monat in ${c} entspricht dem Standardmodell (freie Arztwahl) für eine erwachsene versicherte Person mit der Mindestfranchise von 300 CHF. Was Sie effektiv bezahlen, hängt von vier Hebeln ab: der Prämienregion innerhalb des Kantons (städtische Zonen sind typischerweise 15-30 CHF/Monat teurer als periphere Zonen in Kantonen mit mehreren Regionen), dem gewählten Versicherungsmodell (Hausarzt oder Telmed senken die Prämie um 10-18 %, HMO bis 22 %), der Jahresfranchise (von 300 auf 2.500 CHF angehoben spart 7-14 % der Prämie), und der Krankenkasse selbst: zwischen der günstigsten und der teuersten Kasse im ${c} liegt für dieselbe Altersgruppe fast immer mehr als 100 CHF/Monat, weshalb sich der jährliche Vergleich lohnt. Grenzgänger, die in ${c} arbeiten, können innerhalb von drei Monaten nach Stellenantritt mit dem formalen Optionsrecht-Formular ins italienische SSN-System wechseln — fiskalisch meist vorteilhaft für Unter-35-Jährige bei guter Gesundheit, während die Schweizer KVG dank des lokalen Versorgungsnetzes und schnellem Zugang für Familien und Personen mit chronischen Erkrankungen weiterhin interessant bleibt. Die untenstehende Tabelle listet alle aktiven Kassen im ${c} für ${y} mit dem aktuellen Preis; nutzen Sie den Vergleicher, um nach Franchise und Modell zu filtern und ein personalisiertes Angebot zu erhalten.`,
+    },
+    rootMethodology: {
+      title: 'Wie man Prämien zwischen Kantonen vergleicht',
+      body: (y) =>
+        `KVG-Prämien werden auf kantonaler Ebene festgelegt, nicht eidgenössisch: Der Bundesrat genehmigt jeden Herbst die von den Kassen vorgeschlagenen Tarife, die je nach Kanton und Prämienregion innerhalb des Kantons variieren. Für ${y} überschreitet die Differenz zwischen dem teuersten Kanton (Genf) und den günstigsten in der Zentralschweiz oft 100 CHF/Monat für einen Erwachsenen. Beim Vergleich zweier Kantone prüfen Sie drei Dinge: die Anzahl Prämienregionen (Tessin und Schaffhausen haben eine einzige Region, Graubünden und Wallis drei mit Spreizungen bis 25 CHF/Monat), den Mix verfügbarer Modelle (Hausarzt und Telmed sind in der Deutschschweiz weit verbreitet und senken die Prämie um 10-22 %) und die Qualität des kantonalen Spitalnetzes, da ausserkantonale stationäre Behandlungen die Vorbewilligung der Kasse oder des Wohnkantons erfordern. Für Grenzgänger zählt zusätzlich die Nähe von Kliniken zur Grenze: Wer KVG wählt, ist auf die Spitäler des Arbeitskantons angewiesen, wer ins italienische SSN optiert, bleibt durch seine Wohnregion abgesichert und kann Schweizer Ärzte nur zum Privattarif konsultieren. Die kantonalen Seiten unten zeigen Median, Minimum, Maximum und das vollständige Kassenranking pro Altersgruppe, jährlich aktualisiert mit offiziellen BAG/UFSP-Daten.`,
+    },
   },
   fr: {
     breadcrumbHome: 'Accueil',
@@ -1086,6 +1134,16 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       sectionTitle: (oy, cy) => `Tendance triennale ${oy} → ${cy}`,
       cantonSummary: (c, oy, cy, cum) =>
         `Sur la fenêtre ${oy} → ${cy}, la prime médiane adulte (26+) à ${c} a évolué cumulativement de ${cum}. Le cumul biennal est la bonne référence pour anticiper l'impact sur le budget familial : il lisse la volatilité d'une révision tarifaire annuelle isolée.`,
+    },
+    cantonContext: {
+      title: 'Ce que ce chiffre signifie pour vous',
+      body: (c, m, y) =>
+        `La médiane de ${m} CHF/mois à ${c} reflète le prix du modèle standard (libre choix du médecin) pour une personne adulte assurée avec la franchise minimale de 300 CHF. Le montant que vous paierez réellement dépend de quatre leviers : la région de prime à l'intérieur du canton (les zones urbaines sont typiquement 15-30 CHF/mois plus chères que les zones périphériques dans les cantons à plusieurs régions), le modèle d'assurance choisi (médecin de famille ou telmed réduisent la prime de 10-18 %, HMO jusqu'à 22 %), la franchise annuelle (la porter de 300 à 2.500 CHF fait baisser la prime de 7 à 14 %) et la caisse maladie elle-même : entre la moins chère et la plus chère à ${c} pour la même tranche d'âge l'écart dépasse presque toujours 100 CHF/mois, raison pour laquelle la comparaison annuelle vaut la peine. Les frontaliers qui travaillent à ${c} peuvent opter pour le système italien (SSN) dans les trois mois suivant la prise de fonction au moyen du formulaire formel de droit d'option : un choix généralement avantageux fiscalement pour les moins de 35 ans en bonne santé, alors que la LAMal suisse reste compétitive pour les familles et les personnes atteintes de pathologies chroniques grâce au réseau de soins local et à la rapidité d'accès. Le tableau ci-dessous liste toutes les caisses actives à ${c} pour ${y} avec le tarif à jour ; utilisez le comparateur pour filtrer par franchise et par modèle et obtenir un devis personnalisé.`,
+    },
+    rootMethodology: {
+      title: 'Comment comparer les primes entre cantons',
+      body: (y) =>
+        `Les primes LAMal sont fixées au niveau cantonal, pas fédéral : chaque automne le Conseil fédéral approuve les tarifs proposés par les caisses, qui varient selon le canton et selon la région de prime à l'intérieur du canton. Pour ${y} l'écart entre le canton le plus cher (Genève) et les moins chers de Suisse centrale dépasse souvent 100 CHF/mois pour un adulte. Lorsque vous comparez deux cantons, vérifiez trois éléments : le nombre de régions de prime (Tessin et Schaffhouse n'en ont qu'une, Grisons et Valais en ont trois avec un écart pouvant atteindre 25 CHF/mois), l'éventail des modèles disponibles (Hausarzt et telmed sont fréquents en Suisse alémanique et abaissent la prime de 10 à 22 %) et la qualité du réseau hospitalier cantonal, parce qu'un séjour stationnaire hors canton requiert l'accord préalable de la caisse ou du canton de domicile. Pour les frontaliers, la proximité de cliniques près de la frontière compte aussi : ceux qui choisissent la LAMal dépendent des hôpitaux suisses du canton de travail, ceux qui optent pour le SSN italien restent couverts par leur région de résidence et n'accèdent aux médecins suisses qu'au tarif privé. Les pages cantonales ci-dessous fournissent la médiane, le minimum, le maximum et le classement complet des caisses pour chaque tranche d'âge, mises à jour annuellement avec les données officielles OFSP/BAG.`,
     },
   },
 };
@@ -1681,6 +1739,10 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
   ${statsHtml}
+  <section style="margin:0 0 24px" aria-labelledby="cantonContext">
+    <h2 id="cantonContext" style="${H2_STYLE}">${esc(copy.cantonContext.title)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.cantonContext.body(cantonLabel, medFmt, year))}</p>
+  </section>
   <section style="margin:0 0 24px" aria-labelledby="ageGrid">
     <h2 id="ageGrid" style="${H2_STYLE}">${esc(copy.ageGridTitle(cantonLabel))}</h2>
     ${ageGridHtml}
@@ -1851,6 +1913,10 @@ function renderRootHubPage(inp: RootHubInputs): string {
   <section style="margin:0 0 24px" aria-labelledby="background">
     <h2 id="background" style="${H2_STYLE}">${esc(copy.rootBackgroundTitle)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.rootBackground)}</p>
+  </section>
+  <section style="margin:0 0 24px" aria-labelledby="rootMethodology">
+    <h2 id="rootMethodology" style="${H2_STYLE}">${esc(copy.rootMethodology.title)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.rootMethodology.body(year))}</p>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="rootComparatorCta">
     <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
