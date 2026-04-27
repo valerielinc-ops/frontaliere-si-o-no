@@ -1,17 +1,19 @@
 {
-  "generated": "2026-04-27T07:42:30.206Z",
+  "generated": "2026-04-27T08:11:29.940Z",
   "threshold": 10,
-  "scanned": 124009,
-  "total": 1979,
+  "scanned": 124445,
+  "total": 1557,
   "byFeature": {
-    "spa-other": 142,
+    "spa-other": 7,
     "job-board": 218,
-    "career-landings": 534,
-    "weekly-employers": 47,
-    "spa-locale": 696,
+    "career-landings": 100,
+    "weekly-employers": 89,
+    "fuel-daily": 375,
+    "spa-locale": 540,
     "weekly-employers-hub": 4,
-    "fuel-daily": 123,
-    "health-premiums": 215
+    "border-wait": 3,
+    "health-premiums": 215,
+    "job-market-snapshot": 6
   },
   "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE — this gate is a ratchet. Regenerate after lowering offenders by improving a template; never raise the numbers without explicit justification (it means new pages dropped below the 10 % text/HTML ratio Semrush flags as \"low text/HTML\")."
 }

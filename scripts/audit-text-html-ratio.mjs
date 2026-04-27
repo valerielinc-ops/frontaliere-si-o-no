@@ -153,19 +153,32 @@ function classifyFeature(relPath) {
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-[^/]+\/?$/.test(p)) {
     return 'career-landings';
   }
-  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-carburante-svizzera|prix-essence-suisse|fuel-prices-switzerland|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
+  // IT root slugs `prezzi-benzina` and `prezzi-diesel` (no -svizzera suffix)
+  // cover the Italy-side stations served at /prezzi-benzina/italia/<city>/...
+  // and the diesel-only zone hubs, both emitted by fuelDailyPagesPlugin.
+  // Locale slugs: gasoline-price-switzerland (en), prix-essence-suisse (fr),
+  // benzinpreise-schweiz (de) — keep the legacy fuel-prices-switzerland
+  // entry as a guard for older builds.
+  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-benzina|prezzi-diesel|prezzi-carburante-svizzera|gasoline-price-switzerland|prix-essence-suisse|fuel-prices-switzerland|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
   // Weekly-employers per-company×city pages live UNDER /aziende-che-assumono/<city>/<company>/...
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|entreprises-qui-recrutent)\/[^/]+\/[^/]+\//.test(p)) {
+  // Locale slugs: companies-hiring (en), unternehmen-einstellen (de),
+  // entreprises-recrutent (fr) — keep the previous slug spellings as
+  // historical fallbacks.
+  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\/[^/]+\/[^/]+\//.test(p)) {
     return 'weekly-employers';
   }
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) {
+  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\//.test(p)) {
     return 'weekly-employers-hub';
   }
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\//.test(p)) return 'job-board';
   if (/(?:^|\/)(?:premi-cassa-malati|health-premiums|krankenkassen-praemien|primes-assurance-maladie)\//.test(p)) return 'health-premiums';
-  if (/(?:^|\/)(?:mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
+  // IT slug carries the `-ticino` suffix (`mercato-lavoro-ticino`); match it
+  // alongside the legacy/translated short forms.
+  if (/(?:^|\/)(?:mercato-lavoro-ticino|mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
   if (/(?:^|\/)(?:articoli-frontaliere|blog|articles)\//.test(p)) return 'blog';
-  if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|temps-attente-frontiere)\//.test(p)) return 'border-wait';
+  // The IT slug for border wait pages is `traffico-dogane` (border traffic),
+  // distinct from the legacy/translated `tempi-attesa-frontiera` umbrella.
+  if (/(?:^|\/)(?:traffico-dogane|tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|temps-attente-frontiere)\//.test(p)) return 'border-wait';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }
