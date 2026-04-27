@@ -3039,6 +3039,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.auto-cinesi-svizzera-2026.title': 'Chinese cars in Switzerland: market share at 3.7% in 2026',
     'blog.article.auto-cinesi-svizzera-2026.excerpt': 'BYD, MG and Leapmotor lead Chinese car sales in Switzerland, with a market share of 3.7% in the first quarter of 2026.',
     'blog.article.auto-cinesi-svizzera-2026.imageAlt': 'Busy street in Lugano with Chinese electric cars parked along the sidewalk, people walking, and a clear view of the lake in the background.',
+    'blog.article.dengue-sistema-rapido-individuazione.title': 'Dengue: towards a rapid system to identify it in Ticino',
+    'blog.article.dengue-sistema-rapido-individuazione.excerpt': 'New measures for the early diagnosis of dengue in Canton Ticino. Here\'s what changes for cross-border workers.',
+    'blog.article.dengue-sistema-rapido-individuazione.imageAlt': 'Aerial view of Lake Lugano with Ticino landscape',
 };
 
 export default blogMetaEn;

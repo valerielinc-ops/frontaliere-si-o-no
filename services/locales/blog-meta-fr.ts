@@ -3039,6 +3039,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.auto-cinesi-svizzera-2026.title': 'Voitures chinoises en Suisse : part de marché à 3,7 % en 2026',
     'blog.article.auto-cinesi-svizzera-2026.excerpt': 'BYD, MG et Leapmotor dominent les ventes de voitures chinoises en Suisse, avec une part de marché de 3,7 % au premier trimestre 2026.',
     'blog.article.auto-cinesi-svizzera-2026.imageAlt': 'Rue animée à Lugano avec des voitures électriques chinoises garées le long du trottoir, des personnes qui marchent et une vue claire du lac en arrière-plan.',
+    'blog.article.dengue-sistema-rapido-individuazione.title': 'Dengue : vers un système rapide pour l\'identifier dans le canton du Ticino',
+    'blog.article.dengue-sistema-rapido-individuazione.excerpt': 'Nouvelles mesures pour le diagnostic précoce de la dengue dans le canton du Ticino. Voici ce qui change pour les frontaliers.',
+    'blog.article.dengue-sistema-rapido-individuazione.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
 };
 
 export default blogMetaFr;

@@ -16250,6 +16250,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dengue-sistema-rapido-individuazione': {
+    title: 'Dengue: verso un sistema rapido per | Frontaliere Ticino',
+    description: 'Nuove misure per la diagnosi precoce della dengue in Canton Ticino. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dengue, verso, sistema, rapido',
+    ogTitle: 'Dengue: sistema rapido per individuarla in Ticino |',
+    ogDescription: 'Nuove misure per la diagnosi precoce della dengue in Canton Ticino. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/dengue-sistema-rapido-individuazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dengue: verso un sistema rapido per individuarla in Ticino",
+      "description": "Nuove misure per la diagnosi precoce della dengue in Canton Ticino. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dengue-sistema-rapido-individuazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il paesaggio del Ticino"
+      },
+      "datePublished": "2026-04-27T17:30:48+00:00",
+      "dateModified": "2026-04-27T17:30:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dengue-sistema-rapido-individuazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

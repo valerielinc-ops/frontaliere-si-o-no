@@ -3039,6 +3039,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.auto-cinesi-svizzera-2026.title': 'Auto cinesi in Svizzera: quota di mercato al 3,7% nel 2026',
     'blog.article.auto-cinesi-svizzera-2026.excerpt': 'BYD, MG e Leapmotor dominano le vendite di auto cinesi in Svizzera, con una quota di mercato del 3,7% nel primo trimestre 2026.',
     'blog.article.auto-cinesi-svizzera-2026.imageAlt': 'Strada affollata a Lugano con auto cinesi elettriche parcheggiate lungo il marciapiede, persone che camminano e una vista chiara del lago sullo sfondo.',
+    'blog.article.dengue-sistema-rapido-individuazione.title': 'Dengue: verso un sistema rapido per individuarla in Ticino',
+    'blog.article.dengue-sistema-rapido-individuazione.excerpt': 'Nuove misure per la diagnosi precoce della dengue in Canton Ticino. Ecco cosa cambia per i frontalieri.',
+    'blog.article.dengue-sistema-rapido-individuazione.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
 };
 
 export default blogMetaIt;

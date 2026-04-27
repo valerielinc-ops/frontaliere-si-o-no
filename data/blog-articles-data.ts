@@ -8078,4 +8078,11 @@ export const ARTICLES = [
  image: '/images/blog/auto-cinesi-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dengue-sistema-rapido-individuazione',
+ category: 'novita',
+ date: '2026-04-27T17:30:48.730Z',
+ image: '/images/blog/dengue-sistema-rapido-individuazione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

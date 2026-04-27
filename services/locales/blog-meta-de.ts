@@ -3039,6 +3039,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.auto-cinesi-svizzera-2026.title': 'Chinesische Autos in der Schweiz: Marktanteil von 3,7 % im Jahr 2026',
     'blog.article.auto-cinesi-svizzera-2026.excerpt': 'BYD, MG und Leapmotor dominieren den Verkauf chinesischer Autos in der Schweiz mit einem Marktanteil von 3,7 % im ersten Quartal 2026.',
     'blog.article.auto-cinesi-svizzera-2026.imageAlt': 'Belebte Straße in Lugano mit parkenden chinesischen Elektroautos am Gehweg, Menschen, die gehen, und eine klare Sicht auf den See im Hintergrund.',
+    'blog.article.dengue-sistema-rapido-individuazione.title': 'Dengue: Hin zu einem schnellen System zur Identifizierung im Tessin',
+    'blog.article.dengue-sistema-rapido-individuazione.excerpt': 'Neue Maßnahmen für die frühzeitige Diagnose von Dengue im Kanton Tessin. Hier erfahren Sie, was sich für Grenzgänger ändert.',
+    'blog.article.dengue-sistema-rapido-individuazione.imageAlt': 'Luftaufnahme des Luganersees mit der Landschaft des Tessin',
 };
 
 export default blogMetaDe;
