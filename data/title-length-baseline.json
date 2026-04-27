@@ -1,19 +1,8 @@
 {
-  "generated": "2026-04-27T16:54:00.000Z",
+  "generated": "2026-04-27T19:16:36Z",
+  "_note": "Tightened from 36400 → 371 after the universal title-cap fixes landed (commits bee5cd575 blog, 6a72e4cd5 expired-job, 5ea95d9b2 SPA shell, 8bc457e8c collision-map). CI run 25013601912 (HEAD afae99f2) reported 371 offenders > 90 char on 118182 indexable pages — a 98.98% reduction from the pre-fix snapshot. The new floor lets the ratchet detect the very first regression: any future template change that re-inflates titles past the 90-char SERP-display soft budget fails the deploy gate immediately. Per-feature/per-locale breakdowns intentionally start empty so any new bucket is automatically flagged.",
   "threshold": 90,
-  "total": 36400,
-  "byFeature": {
-    "job-board": 34653,
-    "blog": 1500,
-    "weekly-employers": 1,
-    "spa-other": 103,
-    "spa-locale": 267
-  },
-  "byLocale": {
-    "it": 9400,
-    "fr": 8500,
-    "en": 9000,
-    "de": 9100
-  },
-  "_comment": "Bumped 2026-04-27 to absorb the blog bucket that the original baseline (16:28Z) omitted — the audit script classifies blog/articoli-frontaliere correctly, but the baseline was generated on a partial build that didn't yet include blog HTML. CI build counted 1155 blog title-length offenders in the same run that originally added this gate. Capping at 1500 leaves headroom for ~3 weeks of auto-blog. Follow-up: cap auto-blog title length in scripts/create-article.mjs so this number ratchets DOWN over time."
+  "total": 371,
+  "byFeature": {},
+  "byLocale": {}
 }
