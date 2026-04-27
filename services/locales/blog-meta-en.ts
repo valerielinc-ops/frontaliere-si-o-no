@@ -2838,6 +2838,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.title': 'May Day in Varese: unions march for decent work',
     'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.excerpt': 'On May 1st, 2026, Varese will see CGIL, CISL, and UIL take to the streets for decent work, with a march starting at 9:30 AM from the FS train station.',
     'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.imageAlt': 'May Day 2026 in Varese: Trade unions march for dignified work',
+    'blog.article.fallimenti-fotovoltaico-clienti-ticino.title': 'Solar panel failures: customers at risk of losing deposits',
+    'blog.article.fallimenti-fotovoltaico-clienti-ticino.excerpt': 'Several solar panel companies have gone bankrupt, leaving customers with incomplete installations and deposits at risk. Swissolar advises caution and verification',
+    'blog.article.fallimenti-fotovoltaico-clienti-ticino.imageAlt': 'Aerial view of Lake Lugano with solar panels on rooftops',
 };
 
 export default blogMetaEn;

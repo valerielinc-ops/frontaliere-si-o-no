@@ -2838,6 +2838,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.title': 'Premier Mai à Varèse : les syndicats en cortège pour un travail digne',
     'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.excerpt': 'Le Premier Mai 2026 à Varèse verra CGIL, CISL et UIL dans la rue pour un travail digne, avec un cortège qui partira à 9h30 de la gare FS.',
     'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.imageAlt': 'Premier Mai 2026 à Varese: Syndicats en marche pour un travail digne',
+    'blog.article.fallimenti-fotovoltaico-clienti-ticino.title': 'Défauts dans le photovoltaïque : les clients risquent de perdre les acomptes',
+    'blog.article.fallimenti-fotovoltaico-clienti-ticino.excerpt': 'Plusieurs entreprises photovoltaïques en faillite, des clients avec des installations incomplètes et des acomptes en danger. Swissolar conseille la prudence et des vérifications',
+    'blog.article.fallimenti-fotovoltaico-clienti-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec des panneaux solaires sur les toits',
 };
 
 export default blogMetaFr;

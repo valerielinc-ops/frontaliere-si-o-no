@@ -7609,4 +7609,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-varese-2026-lavoro-dignitoso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fallimenti-fotovoltaico-clienti-ticino',
+ category: 'novita',
+ date: '2026-04-27T09:30:03.315Z',
+ image: '/images/blog/fallimenti-fotovoltaico-clienti-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -14307,6 +14307,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fallimenti-fotovoltaico-clienti-ticino': {
+    title: 'Fallimenti nel fotovoltaico: clienti a | Frontaliere Ticino',
+    description: 'Diverse aziende fotovoltaiche fallite in Ticino, clienti con impianti incompleti e acconti a rischio. Swissolar consiglia verifiche e garanzie. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fallimenti, fotovoltaico, clienti, rischio',
+    ogTitle: 'Fallimenti fotovoltaico: clienti a rischio | Frontaliere',
+    ogDescription: 'Diverse aziende fotovoltaiche fallite in Ticino, clienti con impianti incompleti e acconti a rischio. Swissolar consiglia verifiche e garanzie.',
+    canonicalPath: '/articoli-frontaliere/fallimenti-fotovoltaico-clienti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fallimenti fotovoltaico: clienti a rischio",
+      "description": "Diverse aziende fotovoltaiche fallite in Ticino, clienti con impianti incompleti e acconti a rischio. Swissolar consiglia verifiche e garanzie. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fallimenti-fotovoltaico-clienti-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con pannelli solari sui tetti"
+      },
+      "datePublished": "2026-04-27T09:30:03+00:00",
+      "dateModified": "2026-04-27T09:30:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fallimenti-fotovoltaico-clienti-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

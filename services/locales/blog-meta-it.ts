@@ -2838,6 +2838,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.title': 'Primo Maggio a Varese: sindacati in corteo per un lavoro dignitoso',
     'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.excerpt': 'Il Primo Maggio 2026 a Varese vedrà CGIL, CISL e UIL in piazza per un lavoro dignitoso, con un corteo che partirà alle 9:30 dalla stazione FS.',
     'blog.article.primo-maggio-varese-2026-lavoro-dignitoso.imageAlt': 'Manifestazione del Primo Maggio a Varese, 2026: sindacati in corteo per un lavoro dignitoso',
+    'blog.article.fallimenti-fotovoltaico-clienti-ticino.title': 'Fallimenti nel fotovoltaico: clienti a rischio di perdere gli acconti',
+    'blog.article.fallimenti-fotovoltaico-clienti-ticino.excerpt': 'Diverse aziende fotovoltaiche fallite, clienti con impianti incompleti e acconti a rischio. Swissolar consiglia cautela e verifiche',
+    'blog.article.fallimenti-fotovoltaico-clienti-ticino.imageAlt': 'Vista aerea del Lago di Lugano con pannelli solari sui tetti',
 };
 
 export default blogMetaIt;
