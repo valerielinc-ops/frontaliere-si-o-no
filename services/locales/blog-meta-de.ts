@@ -2796,6 +2796,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guerra-iran-industria-alimentare-svizzera.title': 'Krieg im Iran: Druck auf die Schweizer Lebensmittelindustrie',
     'blog.article.guerra-iran-industria-alimentare-svizzera.excerpt': 'Von Schokoladenverkäufen über Flughäfen bis hin zum Handel mit Düngemitteln - der Krieg im Nahen Osten trifft die Schweizer Lebensmittelbranche.',
     'blog.article.guerra-iran-industria-alimentare-svizzera.imageAlt': 'Luganersee mit einem modernen Industriehafen im Hintergrund',
+    'blog.article.bollini-rossi-traffico-san-gottardo-2026.title': 'Rote Ampeln am Gotthard: Verkehrschaos im Mai',
+    'blog.article.bollini-rossi-traffico-san-gottardo-2026.excerpt': 'Mai 2026: Schwarze Tage für den Verkehr im Gotthard-Tunnel, mit Staus bis zu 20 km und Verspätungen von bis zu 2 Stunden',
+    'blog.article.bollini-rossi-traffico-san-gottardo-2026.imageAlt': 'Luftaufnahme des Verkehrs im San-Bernardino-Tunnel an einem sonnigen Tag',
 };
 
 export default blogMetaDe;

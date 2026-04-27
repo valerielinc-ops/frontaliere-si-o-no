@@ -2796,6 +2796,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guerra-iran-industria-alimentare-svizzera.title': 'Guerre en Iran : pression sur l\'industrie alimentaire suisse',
     'blog.article.guerra-iran-industria-alimentare-svizzera.excerpt': 'Des ventes de chocolat aux aéroports en passant par le commerce d\'engrais, la guerre au Moyen-Orient affecte le secteur alimentaire suisse.',
     'blog.article.guerra-iran-industria-alimentare-svizzera.imageAlt': 'Lac de Lugano avec un port industriel moderne en arrière-plan',
+    'blog.article.bollini-rossi-traffico-san-gottardo-2026.title': 'Bouchons rouges au San Gottardo : chaos sur les routes en mai',
+    'blog.article.bollini-rossi-traffico-san-gottardo-2026.excerpt': 'Mai 2026 : des jours noirs prévus pour le trafic dans le tunnel du San Gottardo, avec des files d\'attente jusqu\'à 20 km et des retards jusqu\'à 2 heures',
+    'blog.article.bollini-rossi-traffico-san-gottardo-2026.imageAlt': 'Vue aérienne de la circulation dans le tunnel du Saint-Gothard par une journée ensoleillée',
 };
 
 export default blogMetaFr;

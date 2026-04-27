@@ -2192,6 +2192,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-finanze-pubbliche-ticino-2026-preoccupazioni': { name: 'Finanze pubbliche', path: '/articoli-frontaliere/finanze-pubbliche-ticino-2026-preoccupazioni', parent: 'blog' },
     'blog-premi-non-oltre-10-percento': { name: 'Fiscale', path: '/articoli-frontaliere/premi-non-oltre-10-percento', parent: 'blog' },
     'blog-guerra-iran-industria-alimentare-svizzera': { name: 'Novità', path: '/articoli-frontaliere/guerra-iran-industria-alimentare-svizzera', parent: 'blog' },
+    'blog-bollini-rossi-traffico-san-gottardo-2026': { name: 'Traffico San Gottardo', path: '/articoli-frontaliere/bollini-rossi-traffico-san-gottardo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

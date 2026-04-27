@@ -7511,4 +7511,11 @@ export const ARTICLES = [
  image: '/images/blog/guerra-iran-industria-alimentare-svizzera.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bollini-rossi-traffico-san-gottardo-2026',
+ category: 'novita',
+ date: '2026-04-27T04:21:32.666Z',
+ image: '/images/blog/bollini-rossi-traffico-san-gottardo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

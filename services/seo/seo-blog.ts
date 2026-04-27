@@ -13901,6 +13901,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollini-rossi-traffico-san-gottardo-2026': {
+    title: 'Bollini rossi al San Gottardo: caos | Frontaliere Ticino',
+    description: 'Maggio 2026: previsti giorni neri per il traffico al tunnel del San Gottardo, con code fino a 20 km e ritardi fino a 2 ore. Scopri le previsioni del TCS e cosa',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollini, rossi, gottardo, caos',
+    ogTitle: 'Bollini rossi al San Gottardo: caos traffico in maggio |',
+    ogDescription: 'Maggio 2026: previsti giorni neri per il traffico al tunnel del San Gottardo, con code fino a 20 km e ritardi fino a 2 ore. Scopri le previsioni del TCS e cosa',
+    canonicalPath: '/articoli-frontaliere/bollini-rossi-traffico-san-gottardo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Bollini rossi al San Gottardo",
+      "description": "Maggio 2026: previsti giorni neri per il traffico al tunnel del San Gottardo, con code fino a 20 km e ritardi fino a 2 ore. Scopri le previsioni del TCS e cosa",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bollini-rossi-traffico-san-gottardo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del traffico al tunnel del San Gottardo in una giornata di sole"
+      },
+      "datePublished": "2026-04-27T04:21:32+00:00",
+      "dateModified": "2026-04-27T04:21:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollini-rossi-traffico-san-gottardo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
