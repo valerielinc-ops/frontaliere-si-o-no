@@ -14887,6 +14887,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-morcote-eventi-2026-scalinata-caccia-tesoro': {
+    title: 'Morcote apre la stagione eventi 2026 | Frontaliere Ticino',
+    description: 'Scopri gli eventi di Morcote 2026: la Morcote Scal il 2 maggio e la Caccia al Tesoro il 9 maggio. Iscrizioni aperte fino al 30 aprile. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, morcote, apre, stagione, eventi',
+    ogTitle: 'Morcote 2026: Scalinata di Corsa e Caccia al Tesoro |',
+    ogDescription: 'Scopri gli eventi di Morcote 2026: la Morcote Scal il 2 maggio e la Caccia al Tesoro il 9 maggio. Iscrizioni aperte fino al 30 aprile.',
+    canonicalPath: '/articoli-frontaliere/morcote-eventi-2026-scalinata-caccia-tesoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Morcote 2026: Scalinata di Corsa",
+      "description": "Scopri gli eventi di Morcote 2026: la Morcote Scal il 2 maggio e la Caccia al Tesoro il 9 maggio. Iscrizioni aperte fino al 30 aprile. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/morcote-eventi-2026-scalinata-caccia-tesoro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Morcote, Ticino, con il centro storico e la Chiesa di Santa Maria del Sasso."
+      },
+      "datePublished": "2026-04-27T11:45:42+00:00",
+      "dateModified": "2026-04-27T11:45:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/morcote-eventi-2026-scalinata-caccia-tesoro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

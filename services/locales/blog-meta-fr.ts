@@ -2898,6 +2898,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.title': 'Construction, le nouveau CCT tessinois signé',
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.excerpt': 'Le nouveau contrat collectif de travail pour la construction et le génie civil en Tessin a été signé, valable jusqu\'en 2031.',
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.imageAlt': 'Chantier de construction à Ticino avec des ouvriers et des machines modernes',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.title': 'Morcote ouvre la saison des événements 2026 : course d\'escalier et chasse au trésor',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.excerpt': 'Deux rendez-vous incontournables : la Morcote Scal le 2 mai et la Chasse au Trésor le 9 mai dans le plus beau village du canton du Tessin.',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.imageAlt': 'Vue aérienne de Morcote, Tessin, avec le centre historique et l\'église Santa Maria del Sasso.',
 };
 
 export default blogMetaFr;

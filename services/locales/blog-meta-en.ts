@@ -2898,6 +2898,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.title': 'Construction: New Ticino collective labor agreement signed',
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.excerpt': 'The new collective labor agreement for the construction and civil engineering sectors in Ticino has been signed, valid until 2031.',
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.imageAlt': 'Construction site in Ticino with workers and modern machinery',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.title': 'Morcote kicks off the 2026 events season: staircase race and treasure hunt',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.excerpt': 'Two unmissable events: the Morcote Scal on May 2nd and the Treasure Hunt on May 9th in the most beautiful village of Canton Ticino.',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.imageAlt': 'Aerial view of Morcote, Ticino, with the historic center and the Church of Santa Maria del Sasso.',
 };
 
 export default blogMetaEn;

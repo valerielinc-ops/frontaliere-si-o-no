@@ -2898,6 +2898,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.title': 'Bauwirtschaft, neuer Gesamtarbeitsvertrag für den Kanton Tessin unterzeichnet',
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.excerpt': 'Der neue Gesamtarbeitsvertrag für die Bau- und Zivilingenieurwesen im Tessin wurde unterzeichnet und ist bis 2031 gültig.',
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.imageAlt': 'Bauplatz in Ticino mit Arbeitern und modernen Maschinen',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.title': 'Morcote startet die Event-Saison 2026: Treppenlauf und Schatzsuche',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.excerpt': 'Zwei unvergessliche Termine: Die Morcote Scal am 2. Mai und die Schatzsuche am 9. Mai im schönsten Dorf des Kantons Tessin.',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.imageAlt': 'Luftaufnahme von Morcote, Tessin, mit dem historischen Zentrum und der Kirche Santa Maria del Sasso.',
 };
 
 export default blogMetaDe;

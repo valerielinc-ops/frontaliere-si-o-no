@@ -2226,6 +2226,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-istruzioni-uso-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-istruzioni-uso-2026', parent: 'blog' },
     'blog-reparto-securizzato-pasture-consenso-cantone-comuni': { name: 'Novità', path: '/articoli-frontaliere/reparto-securizzato-pasture-consenso-cantone-comuni', parent: 'blog' },
     'blog-nuovo-ccnl-edilizia-ticino-2026-2031': { name: 'Nuovo CCL', path: '/articoli-frontaliere/nuovo-ccnl-edilizia-ticino-2026-2031', parent: 'blog' },
+    'blog-morcote-eventi-2026-scalinata-caccia-tesoro': { name: 'Eventi Ticino', path: '/articoli-frontaliere/morcote-eventi-2026-scalinata-caccia-tesoro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

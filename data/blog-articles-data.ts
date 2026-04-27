@@ -7749,4 +7749,11 @@ export const ARTICLES = [
  image: '/images/blog/nuovo-ccnl-edilizia-ticino-2026-2031.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'morcote-eventi-2026-scalinata-caccia-tesoro',
+ category: 'novita',
+ date: '2026-04-27T11:45:42.595Z',
+ image: '/images/blog/morcote-eventi-2026-scalinata-caccia-tesoro.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

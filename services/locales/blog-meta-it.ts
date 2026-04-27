@@ -2898,6 +2898,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.title': 'Edilizia, firmato il nuovo CCL ticinese',
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.excerpt': 'Il nuovo contratto collettivo di lavoro per l\'edilizia e il genio civile in Ticino è stato firmato, valido fino al 2031.',
     'blog.article.nuovo-ccnl-edilizia-ticino-2026-2031.imageAlt': 'Cantiere edile in Ticino con operai e macchinari moderni',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.title': 'Morcote apre la stagione eventi 2026: scalinata di corsa e caccia al tesoro',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.excerpt': 'Due appuntamenti imperdibili: la Morcote Scal il 2 maggio e la Caccia al Tesoro il 9 maggio nel borgo più bello del Canton Ticino.',
+    'blog.article.morcote-eventi-2026-scalinata-caccia-tesoro.imageAlt': 'Vista aerea di Morcote, Ticino, con il centro storico e la Chiesa di Santa Maria del Sasso.',
 };
 
 export default blogMetaIt;
