@@ -3000,6 +3000,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.met-svizzera-insoddisfatta-sistema-2026.title': 'Half of Switzerland sees the system as unfair',
     'blog.article.met-svizzera-insoddisfatta-sistema-2026.excerpt': 'A survey reveals that over half of the Swiss population considers the social system unfair, with an increase in dissatisfaction compared to 2024.',
     'blog.article.met-svizzera-insoddisfatta-sistema-2026.imageAlt': 'Lake Lugano with a view of the surrounding mountains',
+    'blog.article.nuovi-esperti-gestione-energia-varese.title': 'New Energy Management Experts in Varese: Excellence and Competence',
+    'blog.article.nuovi-esperti-gestione-energia-varese.excerpt': 'The Order of Industrial Experts of Varese certifies new EGE, energy management experts, ready to lead the energy transition.',
+    'blog.article.nuovi-esperti-gestione-energia-varese.imageAlt': 'Professional energy management conference in Varese',
 };
 
 export default blogMetaEn;

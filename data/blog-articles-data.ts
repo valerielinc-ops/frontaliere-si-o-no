@@ -7987,4 +7987,11 @@ export const ARTICLES = [
  image: '/images/blog/met-svizzera-insoddisfatta-sistema-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovi-esperti-gestione-energia-varese',
+ category: 'novita',
+ date: '2026-04-27T15:54:40.240Z',
+ image: '/images/blog/nuovi-esperti-gestione-energia-varese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

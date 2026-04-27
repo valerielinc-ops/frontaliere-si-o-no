@@ -3000,6 +3000,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.met-svizzera-insoddisfatta-sistema-2026.title': 'Die Hälfte der Schweiz hält das System für ungerecht',
     'blog.article.met-svizzera-insoddisfatta-sistema-2026.excerpt': 'Eine Umfrage zeigt, dass mehr als die Hälfte der Schweizer Bevölkerung das soziale System für ungerecht hält, wobei die Unzufriedenheit im Vergleich zu 2024 gestiegen ist.',
     'blog.article.met-svizzera-insoddisfatta-sistema-2026.imageAlt': 'Luganersee mit Blick auf die umliegenden Berge',
+    'blog.article.nuovi-esperti-gestione-energia-varese.title': 'Neue Energieexperten in Varese: Exzellenz und Kompetenz',
+    'blog.article.nuovi-esperti-gestione-energia-varese.excerpt': 'Die Ordine dei Periti Industriali Laureati di Varese zertifiziert neue EGE, Experten in Energieverwaltung, bereit, den energetischen Wandel zu leiten.',
+    'blog.article.nuovi-esperti-gestione-energia-varese.imageAlt': 'Fachkonferenz zur Energiemanagement in Varese',
 };
 
 export default blogMetaDe;

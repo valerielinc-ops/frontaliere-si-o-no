@@ -2260,6 +2260,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bando-formazione-professionale-plr-2026': { name: 'Bando Formazione', path: '/articoli-frontaliere/bando-formazione-professionale-plr-2026', parent: 'blog' },
     'blog-lavoratori-pensionati-svizzera-2026': { name: 'Lavoratori pensionati', path: '/articoli-frontaliere/lavoratori-pensionati-svizzera-2026', parent: 'blog' },
     'blog-met-svizzera-insoddisfatta-sistema-2026': { name: 'Novità', path: '/articoli-frontaliere/met-svizzera-insoddisfatta-sistema-2026', parent: 'blog' },
+    'blog-nuovi-esperti-gestione-energia-varese': { name: 'Novità', path: '/articoli-frontaliere/nuovi-esperti-gestione-energia-varese', parent: 'blog' },
  };
 
  const info = sectionNames[section];

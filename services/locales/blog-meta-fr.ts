@@ -3000,6 +3000,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.met-svizzera-insoddisfatta-sistema-2026.title': 'La moitié de la Suisse perçoit le système comme injuste',
     'blog.article.met-svizzera-insoddisfatta-sistema-2026.excerpt': 'Un sondage révèle que plus de la moitié de la population suisse considère le système social comme injuste, avec une augmentation de l\'insatisfaction par rapport à 2024.',
     'blog.article.met-svizzera-insoddisfatta-sistema-2026.imageAlt': 'Lac de Lugano avec vue sur les montagnes environnantes',
+    'blog.article.nuovi-esperti-gestione-energia-varese.title': 'Nouveaux Experts en Gestion de l\'Énergie à Varèse : Excellence et Compétences',
+    'blog.article.nuovi-esperti-gestione-energia-varese.excerpt': 'L\'Ordre des Ingénieurs Industriels Diplômés de Varèse certifie de nouveaux EGE, experts en gestion énergétique, prêts à guider la transition énergétique.',
+    'blog.article.nuovi-esperti-gestione-energia-varese.imageAlt': 'Conférence professionnelle sur la gestion de l\'énergie à Varese',
 };
 
 export default blogMetaFr;

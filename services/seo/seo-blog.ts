@@ -15873,6 +15873,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovi-esperti-gestione-energia-varese': {
+    title: 'Nuovi Esperti in Gestione dell’Energia | Frontaliere Ticino',
+    description: 'Scopri i nuovi Esperti in Gestione dell’Energia certificati a Varese e le opportunità per i frontalieri nel settore energetico. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovi, esperti, gestione, dell',
+    ogTitle: 'Nuovi EGE a Varese | Frontaliere Ticino',
+    ogDescription: 'Scopri i nuovi Esperti in Gestione dell’Energia certificati a Varese e le opportunità per i frontalieri nel settore energetico.',
+    canonicalPath: '/articoli-frontaliere/nuovi-esperti-gestione-energia-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi Esperti in Gestione dell’Energia certificati a Varese: eccellenza e competenze per la",
+      "description": "Scopri i nuovi Esperti in Gestione dell’Energia certificati a Varese e le opportunità per i frontalieri nel settore energetico. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovi-esperti-gestione-energia-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza professionale su gestione energia a Varese"
+      },
+      "datePublished": "2026-04-27T15:54:40+00:00",
+      "dateModified": "2026-04-27T15:54:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovi-esperti-gestione-energia-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
