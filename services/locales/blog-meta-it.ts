@@ -3158,6 +3158,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gioventu-dibatte-500-studenti-gara.title': 'La gioventù dibatte: 500 studenti in gara a Bellinzona',
     'blog.article.gioventu-dibatte-500-studenti-gara.excerpt': '500 studenti si sfidano nella finale de \'La gioventù dibatte\' a Bellinzona, difendendo tesi su temi di attualità davanti a una giuria.',
     'blog.article.gioventu-dibatte-500-studenti-gara.imageAlt': 'Gruppo di studenti in dibattito a Bellinzona, Ticino',
+    'blog.article.tallero-doro-80-anni-nuovo-design.title': 'Tallero d\'oro: 80 anni e nuovo design',
+    'blog.article.tallero-doro-80-anni-nuovo-design.excerpt': 'Il Tallero d\'oro compie 80 anni e si rinnova nel design. Il prezzo aumenta a 8 franchi per la prima volta dal 1998.',
+    'blog.article.tallero-doro-80-anni-nuovo-design.imageAlt': 'Moneta di cioccolato Tallero d\'oro avvolta in stagnola dorata su un tavolo di legno con bandiera svizzera sullo sfondo',
 };
 
 export default blogMetaIt;

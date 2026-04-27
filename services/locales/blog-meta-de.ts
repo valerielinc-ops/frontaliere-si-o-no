@@ -3157,6 +3157,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gioventu-dibatte-500-studenti-gara.title': 'Jugend debattiert: 500 Schüler in Bellinzona',
     'blog.article.gioventu-dibatte-500-studenti-gara.excerpt': '500 Schüler treten im Finale von \'Jugend debattiert\' in Bellinzona an und verteidigen Thesen zu aktuellen Themen vor einer Jury.',
     'blog.article.gioventu-dibatte-500-studenti-gara.imageAlt': 'Gruppe von Schülern debattiert in Bellinzona, Tessin',
+    'blog.article.tallero-doro-80-anni-nuovo-design.title': 'Golddukaten: 80 Jahre und neues Design',
+    'blog.article.tallero-doro-80-anni-nuovo-design.excerpt': 'Der Golddukaten feiert seinen 80. Geburtstag und erhält ein neues Design. Der Preis steigt erstmals seit 1998 auf 8 Franken.',
+    'blog.article.tallero-doro-80-anni-nuovo-design.imageAlt': 'Goldene Schokoladenmünze Tallero d\'oro in glänzender Folie auf einem Holztisch mit Schweizer Flagge im Hintergrund',
 };
 
 export default blogMetaDe;

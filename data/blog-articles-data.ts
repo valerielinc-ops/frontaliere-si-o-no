@@ -8379,4 +8379,11 @@ export const ARTICLES = [
  image: '/images/blog/gioventu-dibatte-500-studenti-gara.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tallero-doro-80-anni-nuovo-design',
+ category: 'novita',
+ date: '2026-04-27T23:13:53.076Z',
+ image: '/images/blog/tallero-doro-80-anni-nuovo-design.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -17497,6 +17497,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tallero-doro-80-anni-nuovo-design': {
+    title: 'Tallero d\'oro: 80 anni e nuovo design | Frontaliere Ticino',
+    description: 'Il Tallero d\'oro compie 80 anni e si rinnova nel design. Il prezzo aumenta a 8 franchi per la prima volta dal 1998. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, tallero, anni, nuovo, design',
+    ogTitle: 'Tallero d\'oro: 80 anni e nuovo design',
+    ogDescription: 'Il Tallero d\'oro compie 80 anni e si rinnova nel design. Il prezzo aumenta a 8 franchi per la prima volta dal 1998.',
+    canonicalPath: '/articoli-frontaliere/tallero-doro-80-anni-nuovo-design',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tallero d'oro: 80 anni e nuovo design",
+      "description": "Il Tallero d'oro compie 80 anni e si rinnova nel design. Il prezzo aumenta a 8 franchi per la prima volta dal 1998. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tallero-doro-80-anni-nuovo-design.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Moneta di cioccolato Tallero d'oro avvolta in stagnola dorata su un tavolo di legno con bandiera svizzera sullo sfondo"
+      },
+      "datePublished": "2026-04-27T23:13:53+00:00",
+      "dateModified": "2026-04-27T23:13:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tallero-doro-80-anni-nuovo-design`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

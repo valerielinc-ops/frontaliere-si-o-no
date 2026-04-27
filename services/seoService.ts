@@ -2313,6 +2313,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-usi-ticino-tagli-bilancio-2026': { name: 'USI Tagli', path: '/articoli-frontaliere/usi-ticino-tagli-bilancio-2026', parent: 'blog' },
     'blog-campione-ditalia-elezioni-sindaco-2026': { name: 'Elezioni Campione d’Italia', path: '/articoli-frontaliere/campione-ditalia-elezioni-sindaco-2026', parent: 'blog' },
     'blog-gioventu-dibatte-500-studenti-gara': { name: 'Novità', path: '/articoli-frontaliere/gioventu-dibatte-500-studenti-gara', parent: 'blog' },
+    'blog-tallero-doro-80-anni-nuovo-design': { name: 'Novità', path: '/articoli-frontaliere/tallero-doro-80-anni-nuovo-design', parent: 'blog' },
  };
 
  const info = sectionNames[section];

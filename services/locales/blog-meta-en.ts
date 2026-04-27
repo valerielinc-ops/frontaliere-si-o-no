@@ -3157,6 +3157,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gioventu-dibatte-500-studenti-gara.title': 'Youth Debate: 500 students compete in Bellinzona',
     'blog.article.gioventu-dibatte-500-studenti-gara.excerpt': '500 students compete in the final of \'Youth Debate\' in Bellinzona, defending theses on current topics in front of a jury.',
     'blog.article.gioventu-dibatte-500-studenti-gara.imageAlt': 'Group of students debating in Bellinzona, Ticino',
+    'blog.article.tallero-doro-80-anni-nuovo-design.title': 'Gold franc turns 80 with new design',
+    'blog.article.tallero-doro-80-anni-nuovo-design.excerpt': 'The Gold franc celebrates 80 years and gets a design update. Its price rises to 8 francs for the first time since 1998.',
+    'blog.article.tallero-doro-80-anni-nuovo-design.imageAlt': 'Golden chocolate coin Tallero d\'oro wrapped in shiny foil on a wooden table with a Swiss flag in the background',
 };
 
 export default blogMetaEn;

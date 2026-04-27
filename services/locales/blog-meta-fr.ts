@@ -3158,6 +3158,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gioventu-dibatte-500-studenti-gara.title': 'La jeunesse débat: 500 étudiants en compétition à Bellinzone',
     'blog.article.gioventu-dibatte-500-studenti-gara.excerpt': '500 étudiants s\'affrontent en finale de \'La jeunesse débat\' à Bellinzone, défendant des thèses sur des sujets d\'actualité devant un jury.',
     'blog.article.gioventu-dibatte-500-studenti-gara.imageAlt': 'Groupe d\'élèves en débat à Bellinzone, Tessin',
+    'blog.article.tallero-doro-80-anni-nuovo-design.title': 'Tallero d\'oro: 80 ans et nouveau design',
+    'blog.article.tallero-doro-80-anni-nuovo-design.excerpt': 'Le Tallero d\'or fête ses 80 ans et se renouvelle en design. Le prix augmente à 8 francs pour la première fois depuis 1998.',
+    'blog.article.tallero-doro-80-anni-nuovo-design.imageAlt': 'Pièce de chocolat Tallero d\'oro enveloppée dans une feuille dorée sur une table en bois avec un drapeau suisse en arrière-plan',
 };
 
 export default blogMetaFr;
