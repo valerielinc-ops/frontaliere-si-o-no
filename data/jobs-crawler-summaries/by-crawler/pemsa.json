@@ -1,18 +1,49 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-04-26T21:57:42.343Z",
-  "total": 45,
-  "newCount": 0,
+  "generatedAt": "2026-04-27T11:27:21.631Z",
+  "total": 46,
+  "newCount": 1,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 34,
-  "durationMs": 114185,
-  "avgDurationMs": 114185,
+  "durationMs": 112868,
+  "avgDurationMs": 112868,
   "durationHistory": [
-    114185
+    112868
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Idraulico AFC",
+      "slug": "idraulico-afc-pemsa-lugano",
+      "url": "https://www.pemsa.ch/it/job/idraulico-afc-2672003/",
+      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-afc-2672003/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-27",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-05-12",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 14,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "INSTALLATORE 3 &amp;#8211; Idraulico",
