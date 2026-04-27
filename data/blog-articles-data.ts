@@ -7560,4 +7560,11 @@ export const ARTICLES = [
  image: '/images/blog/treno-senza-biglietto-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'polizia-stradale-varese-1600-patenti',
+ category: 'novita',
+ date: '2026-04-27T06:22:41.976Z',
+ image: '/images/blog/polizia-stradale-varese-1600-patenti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

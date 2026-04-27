@@ -2817,6 +2817,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.treno-senza-biglietto-frontalieri-ticino.title': 'Train sans billet : la Suisse expérimente l\'avenir de la mobilité. Qu\'est-ce qui change pour les frontaliers',
     'blog.article.treno-senza-biglietto-frontalieri-ticino.excerpt': 'La Suisse introduit le système Bibo pour voyager sans billets. Test national à partir du 27 avril avec 3000 utilisateurs, dont des frontaliers tessinois.',
     'blog.article.treno-senza-biglietto-frontalieri-ticino.imageAlt': 'Gare de Lugano avec des passagers montant avec des smartphones à la main',
+    'blog.article.polizia-stradale-varese-1600-patenti.title': 'Police Routière : plus de 1.600 permis retirés en un an',
+    'blog.article.polizia-stradale-varese-1600-patenti.excerpt': 'En 2025, la Police Routière de Varèse a retiré 1.600 permis, avec une baisse de 42 % pour excès de vitesse et de 25 % pour conduite en état d\'ébriété.',
+    'blog.article.polizia-stradale-varese-1600-patenti.imageAlt': 'Un contrôle de police sur une route fréquentée dans le Tessin, avec des agents vérifiant les véhicules et les documents.',
 };
 
 export default blogMetaFr;

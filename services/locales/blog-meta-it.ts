@@ -2817,6 +2817,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.treno-senza-biglietto-frontalieri-ticino.title': 'Treno senza biglietto: la Svizzera sperimenta il futuro della mobilità. Cosa cambia per i frontalieri',
     'blog.article.treno-senza-biglietto-frontalieri-ticino.excerpt': 'La Svizzera introduce il sistema Bibo per viaggiare senza biglietti. Test nazionale dal 27 aprile con 3000 utenti, tra cui frontalieri ticinesi.',
     'blog.article.treno-senza-biglietto-frontalieri-ticino.imageAlt': 'Stazione dei treni a Lugano con passeggeri che salgono con smartphone in mano',
+    'blog.article.polizia-stradale-varese-1600-patenti.title': 'Polizia Stradale: oltre 1.600 patenti ritirate in un anno',
+    'blog.article.polizia-stradale-varese-1600-patenti.excerpt': 'Nel 2025, la Polizia Stradale di Varese ha ritirato 1.600 patenti, con un calo del 42% per eccesso di velocità e del 25% per guida in stato di ebbrezza.',
+    'blog.article.polizia-stradale-varese-1600-patenti.imageAlt': 'Un posto di blocco della polizia su una strada trafficata in Ticino, con agenti che controllano veicoli e documenti.',
 };
 
 export default blogMetaIt;

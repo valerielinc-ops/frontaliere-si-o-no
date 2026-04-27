@@ -14104,6 +14104,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-polizia-stradale-varese-1600-patenti': {
+    title: 'Polizia Stradale: oltre 1.600 patenti | Frontaliere Ticino',
+    description: 'Nel 2025, la Polizia Stradale di Varese ha ritirato oltre 1.600 patenti, con un calo del 42% per eccesso di velocità e del 25% per guida in stato di ebbrezza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, stradale, oltre, patenti',
+    ogTitle: 'Polizia Stradale: 1.600 patenti ritirate | Frontaliere',
+    ogDescription: 'Nel 2025, la Polizia Stradale di Varese ha ritirato oltre 1.600 patenti, con un calo del 42% per eccesso di velocità e del 25% per guida in stato di ebbrezza.',
+    canonicalPath: '/articoli-frontaliere/polizia-stradale-varese-1600-patenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Polizia Stradale: 1.600 patenti",
+      "description": "Nel 2025, la Polizia Stradale di Varese ha ritirato oltre 1.600 patenti, con un calo del 42% per eccesso di velocità e del 25% per guida in stato di ebbrezza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/polizia-stradale-varese-1600-patenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un posto di blocco della polizia su una strada trafficata in Ticino, con agenti che controllano veicoli e documenti."
+      },
+      "datePublished": "2026-04-27T06:22:42+00:00",
+      "dateModified": "2026-04-27T06:22:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-stradale-varese-1600-patenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

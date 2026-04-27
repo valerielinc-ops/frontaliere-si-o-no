@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 985,
+ "numberOfItems": 986,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5709,7 +5709,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 982, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/teatro-architettura-mendrisio-stagione-2026` },
           { "@type": "ListItem", "position": 983, "name": "Arrestato truffatore a Maggia: frode con schock...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-arresto-maggia-truffa` },
           { "@type": "ListItem", "position": 984, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/study-china-ticino-frontalieri` },
-          { "@type": "ListItem", "position": 985, "name": "Treno senza biglietto: la Svizzera sperimenta i...", "url": `${BASE_URL}/articoli-frontaliere/treno-senza-biglietto-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 985, "name": "Treno senza biglietto: la Svizzera sperimenta i...", "url": `${BASE_URL}/articoli-frontaliere/treno-senza-biglietto-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 986, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/polizia-stradale-varese-1600-patenti` }
  ]
  },
  {

@@ -2199,6 +2199,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-arresto-maggia-truffa': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-arresto-maggia-truffa', parent: 'blog' },
     'blog-study-china-ticino-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/study-china-ticino-frontalieri', parent: 'blog' },
     'blog-treno-senza-biglietto-frontalieri-ticino': { name: 'Novità', path: '/articoli-frontaliere/treno-senza-biglietto-frontalieri-ticino', parent: 'blog' },
+    'blog-polizia-stradale-varese-1600-patenti': { name: 'Novità', path: '/articoli-frontaliere/polizia-stradale-varese-1600-patenti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

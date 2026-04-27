@@ -2817,6 +2817,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.treno-senza-biglietto-frontalieri-ticino.title': 'Zug ohne Ticket: Die Schweiz experimentiert mit der Zukunft der Mobilität. Was sich für Grenzgänger ändert',
     'blog.article.treno-senza-biglietto-frontalieri-ticino.excerpt': 'Die Schweiz führt das Bibo-System für reisen ohne Tickets ein. Nationale Testphase ab dem 27. April mit 3000 Nutzern, darunter auch Grenzgänger aus dem Tessin.',
     'blog.article.treno-senza-biglietto-frontalieri-ticino.imageAlt': 'Bahnhof in Lugano mit Fahrgästen, die mit Smartphones in der Hand einsteigen',
+    'blog.article.polizia-stradale-varese-1600-patenti.title': 'Strassenpolizei: über 1.600 Führerscheine in einem Jahr eingezogen',
+    'blog.article.polizia-stradale-varese-1600-patenti.excerpt': 'Im Jahr 2025 hat die Strassenpolizei von Varese 1.600 Führerscheine eingezogen, mit einem Rückgang von 42% bei überhöhter Geschwindigkeit und 25% bei Fahrten unter Alkoholeinfluss.',
+    'blog.article.polizia-stradale-varese-1600-patenti.imageAlt': 'Eine Polizeikontrolle auf einer belebten Straße in Tessin, mit Beamten, die Fahrzeuge und Dokumente überprüfen.',
 };
 
 export default blogMetaDe;

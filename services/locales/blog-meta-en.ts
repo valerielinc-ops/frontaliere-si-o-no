@@ -2817,6 +2817,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.treno-senza-biglietto-frontalieri-ticino.title': 'Ticketless train: Switzerland experiments with the future of mobility. What changes for cross-border workers',
     'blog.article.treno-senza-biglietto-frontalieri-ticino.excerpt': 'Switzerland introduces the Bibo system for ticketless travel. National test starting April 27 with 3000 users, including cross-border workers from Ticino.',
     'blog.article.treno-senza-biglietto-frontalieri-ticino.imageAlt': 'Train station in Lugano with passengers boarding with smartphones in hand',
+    'blog.article.polizia-stradale-varese-1600-patenti.title': 'Traffic Police: Over 1,600 Licenses Revoked in a Year',
+    'blog.article.polizia-stradale-varese-1600-patenti.excerpt': 'In 2025, the Traffic Police of Varese revoked 1,600 licenses, with a 42% decrease for speeding and a 25% decrease for drunk driving.',
+    'blog.article.polizia-stradale-varese-1600-patenti.imageAlt': 'A police checkpoint on a busy road in Ticino, with officers checking vehicles and documents.',
 };
 
 export default blogMetaEn;
