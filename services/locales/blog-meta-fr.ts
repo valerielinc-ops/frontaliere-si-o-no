@@ -2997,6 +2997,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoratori-pensionati-svizzera-2026.title': 'Travailleurs retraités en Suisse: +220 mille en 2025',
     'blog.article.lavoratori-pensionati-svizzera-2026.excerpt': 'En 2025, 220 mille personnes continuent à travailler après 65 ans. Un phénomène en croissance, avec 4,5% des occupants de plus de 64 ans',
     'blog.article.lavoratori-pensionati-svizzera-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, ciel bleu clair',
+    'blog.article.met-svizzera-insoddisfatta-sistema-2026.title': 'La moitié de la Suisse perçoit le système comme injuste',
+    'blog.article.met-svizzera-insoddisfatta-sistema-2026.excerpt': 'Un sondage révèle que plus de la moitié de la population suisse considère le système social comme injuste, avec une augmentation de l\'insatisfaction par rapport à 2024.',
+    'blog.article.met-svizzera-insoddisfatta-sistema-2026.imageAlt': 'Lac de Lugano avec vue sur les montagnes environnantes',
 };
 
 export default blogMetaFr;

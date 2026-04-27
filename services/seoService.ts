@@ -2259,6 +2259,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-furto-biciclette-benzina-chiasso-2026': { name: 'Furti Chiasso', path: '/articoli-frontaliere/furto-biciclette-benzina-chiasso-2026', parent: 'blog' },
     'blog-bando-formazione-professionale-plr-2026': { name: 'Bando Formazione', path: '/articoli-frontaliere/bando-formazione-professionale-plr-2026', parent: 'blog' },
     'blog-lavoratori-pensionati-svizzera-2026': { name: 'Lavoratori pensionati', path: '/articoli-frontaliere/lavoratori-pensionati-svizzera-2026', parent: 'blog' },
+    'blog-met-svizzera-insoddisfatta-sistema-2026': { name: 'Novità', path: '/articoli-frontaliere/met-svizzera-insoddisfatta-sistema-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1045,
+ "numberOfItems": 1046,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5769,7 +5769,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1042, "name": "Sicurezza sul lavoro: ATS Insubria aumenta cont...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-lavoro-ats-insubria-varese-como-2026` },
           { "@type": "ListItem", "position": 1043, "name": "Furti di biciclette e benzina a Chiasso", "url": `${BASE_URL}/articoli-frontaliere/furto-biciclette-benzina-chiasso-2026` },
           { "@type": "ListItem", "position": 1044, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/bando-formazione-professionale-plr-2026` },
-          { "@type": "ListItem", "position": 1045, "name": "Lavoratori pensionati in Svizzera: +220mila nel...", "url": `${BASE_URL}/articoli-frontaliere/lavoratori-pensionati-svizzera-2026` }
+          { "@type": "ListItem", "position": 1045, "name": "Lavoratori pensionati in Svizzera: +220mila nel...", "url": `${BASE_URL}/articoli-frontaliere/lavoratori-pensionati-svizzera-2026` },
+          { "@type": "ListItem", "position": 1046, "name": "Metà della Svizzera percepisce il sistema come ...", "url": `${BASE_URL}/articoli-frontaliere/met-svizzera-insoddisfatta-sistema-2026` }
  ]
  },
  {

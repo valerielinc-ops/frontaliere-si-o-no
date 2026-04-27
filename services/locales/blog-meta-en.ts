@@ -2997,6 +2997,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoratori-pensionati-svizzera-2026.title': 'Retired workers in Switzerland: +220,000 by 2025',
     'blog.article.lavoratori-pensionati-svizzera-2026.excerpt': 'By 2025, 220,000 people will continue working past the age of 65. A growing phenomenon, with 4.5% of employees over 64.',
     'blog.article.lavoratori-pensionati-svizzera-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky',
+    'blog.article.met-svizzera-insoddisfatta-sistema-2026.title': 'Half of Switzerland sees the system as unfair',
+    'blog.article.met-svizzera-insoddisfatta-sistema-2026.excerpt': 'A survey reveals that over half of the Swiss population considers the social system unfair, with an increase in dissatisfaction compared to 2024.',
+    'blog.article.met-svizzera-insoddisfatta-sistema-2026.imageAlt': 'Lake Lugano with a view of the surrounding mountains',
 };
 
 export default blogMetaEn;

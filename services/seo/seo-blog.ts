@@ -15844,6 +15844,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-met-svizzera-insoddisfatta-sistema-2026': {
+    title: 'Metà della Svizzera percepisce il | Frontaliere Ticino',
+    description: 'Un sondaggio rivela che oltre la metà della popolazione svizzera considera il sistema sociale ingiusto, con un aumento dell\'insoddisfazione rispetto al 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, metà, percepisce, sistema, ingiusto',
+    ogTitle: 'Metà della Svizzera percepisce il sistema come ingiusto',
+    ogDescription: 'Un sondaggio rivela che oltre la metà della popolazione svizzera considera il sistema sociale ingiusto, con un aumento dell\'insoddisfazione rispetto al 2024.',
+    canonicalPath: '/articoli-frontaliere/met-svizzera-insoddisfatta-sistema-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Metà della Svizzera percepisce il sistema come ingiusto",
+      "description": "Un sondaggio rivela che oltre la metà della popolazione svizzera considera il sistema sociale ingiusto, con un aumento dell'insoddisfazione rispetto al 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/met-svizzera-insoddisfatta-sistema-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulle montagne circostanti"
+      },
+      "datePublished": "2026-04-27T15:48:26+00:00",
+      "dateModified": "2026-04-27T15:48:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/met-svizzera-insoddisfatta-sistema-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
