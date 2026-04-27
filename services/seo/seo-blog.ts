@@ -13640,6 +13640,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-integrazione-inclusione-ticino-2026': {
+    title: 'Integrazione o inclusione? Il dibattito | Frontaliere Ticino',
+    description: 'Esperti si riuniscono a Bellinzona per discutere il futuro dell\'integrazione e dell\'inclusione in Ticino, con progetti partecipativi e culturali in corso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, integrazione, inclusione, dibattito, futuro',
+    ogTitle: 'Integrazione o inclusione? Il dibattito sul futuro in Ticino',
+    ogDescription: 'Esperti si riuniscono a Bellinzona per discutere il futuro dell\'integrazione e dell\'inclusione in Ticino, con progetti partecipativi e culturali in corso.',
+    canonicalPath: '/articoli-frontaliere/integrazione-inclusione-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Integrazione o inclusione? Il",
+      "description": "Esperti si riuniscono a Bellinzona per discutere il futuro dell'integrazione e dell'inclusione in Ticino, con progetti partecipativi e culturali in corso.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/integrazione-inclusione-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una sala conferenze a Bellinzona con esperti che discutono di migrazione e integrazione"
+      },
+      "datePublished": "2026-04-27T02:04:31+00:00",
+      "dateModified": "2026-04-27T02:04:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/integrazione-inclusione-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

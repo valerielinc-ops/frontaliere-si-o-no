@@ -2769,6 +2769,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.relazioni-italo-svizzere-2026.title': 'Relazioni italo-svizzere: novità e sviluppi',
     'blog.article.relazioni-italo-svizzere-2026.excerpt': 'Scoperte geologiche, controversie su cure mediche e design svizzero al Fuorisalone milanese. Ecco gli ultimi aggiornamenti.',
     'blog.article.relazioni-italo-svizzere-2026.imageAlt': 'Lago di Lugano con montagne circostanti',
+    'blog.article.integrazione-inclusione-ticino-2026.title': 'Integrazione o inclusione? Il dibattito sul futuro in Ticino',
+    'blog.article.integrazione-inclusione-ticino-2026.excerpt': 'Esperti si riuniscono a Bellinzona per discutere il futuro dell\'integrazione e dell\'inclusione in Ticino, con progetti partecipativi e culturali in corso.',
+    'blog.article.integrazione-inclusione-ticino-2026.imageAlt': 'Una sala conferenze a Bellinzona con esperti che discutono di migrazione e integrazione',
 };
 
 export default blogMetaIt;

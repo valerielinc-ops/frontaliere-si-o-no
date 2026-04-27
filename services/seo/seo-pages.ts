@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 969,
+ "numberOfItems": 970,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5693,7 +5693,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 966, "name": "Foreste sommerse per salvare i laghi di Como e ...", "url": `${BASE_URL}/articoli-frontaliere/foreste-sommerse-lago-como-lugano` },
           { "@type": "ListItem", "position": 967, "name": "Viabilità olimpica: Grigioni risparmiano, Lomba...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-viabilita-olimpica-2026` },
           { "@type": "ListItem", "position": 968, "name": "Mobilità sostenibile e città vivibili: esempi d...", "url": `${BASE_URL}/articoli-frontaliere/mobilita-sostenibile-citta-vivibili-2026` },
-          { "@type": "ListItem", "position": 969, "name": "Relazioni italo-svizzere: novità e sviluppi", "url": `${BASE_URL}/articoli-frontaliere/relazioni-italo-svizzere-2026` }
+          { "@type": "ListItem", "position": 969, "name": "Relazioni italo-svizzere: novità e sviluppi", "url": `${BASE_URL}/articoli-frontaliere/relazioni-italo-svizzere-2026` },
+          { "@type": "ListItem", "position": 970, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/integrazione-inclusione-ticino-2026` }
  ]
  },
  {

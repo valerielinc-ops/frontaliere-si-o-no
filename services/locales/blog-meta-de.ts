@@ -2769,6 +2769,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.relazioni-italo-svizzere-2026.title': 'Italienisch-schweizerische Beziehungen: Neuigkeiten und Entwicklungen',
     'blog.article.relazioni-italo-svizzere-2026.excerpt': 'Geologische Entdeckungen, Kontroversen über medizinische Behandlungen und Schweizer Design beim Mailänder Fuorisalone. Hier sind die neuesten Updates.',
     'blog.article.relazioni-italo-svizzere-2026.imageAlt': 'Luganersee mit umliegenden Bergen',
+    'blog.article.integrazione-inclusione-ticino-2026.title': 'Integration oder Inklusion? Die Debatte über die Zukunft im Tessin',
+    'blog.article.integrazione-inclusione-ticino-2026.excerpt': 'Experten treffen sich in Bellinzona, um über die Zukunft der Integration und Inklusion im Tessin zu diskutieren, mit laufenden partizipativen und kulturellen Projekten.',
+    'blog.article.integrazione-inclusione-ticino-2026.imageAlt': 'Ein Konferenzraum in Bellinzona mit Experten, die über Migration und Integration diskutieren',
 };
 
 export default blogMetaDe;
