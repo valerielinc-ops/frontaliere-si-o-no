@@ -140,10 +140,12 @@ jobs:
           path: |
             public/images/blog/thumbnails
             public/images/places/thumbnails
-          key: thumbnails-v1-${{ hashFiles('public/images/blog/*.*', 'public/images/places/*.*') }}
+          key: thumbnails-v2-${{ github.run_id }}
+          restore-keys: |
+            thumbnails-v2-
 
       - name: Generate responsive image thumbnails
-        if: steps.changes.outputs.has_changes == 'true' && steps.thumb-cache.outputs.cache-hit != 'true'
+        if: steps.changes.outputs.has_changes == 'true'
         run: node scripts/generate-image-thumbnails.mjs
 
       - name: Build for production

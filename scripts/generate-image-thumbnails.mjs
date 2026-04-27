@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { mkdir, readdir, stat } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
@@ -13,6 +14,8 @@ const JPG_QUALITY = 72;
 const WEBP_QUALITY = 68;
 const AVIF_QUALITY = 50;
 const VALID_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif']);
+const MANIFEST_NAME = '.thumbcache.json';
+const MANIFEST_VERSION = 2;
 
 async function walk(dir) {
   const out = [];
@@ -32,64 +35,99 @@ async function walk(dir) {
   return out;
 }
 
-async function generateForImage(inputPath) {
-  const dir = path.dirname(inputPath);
-  const ext = path.extname(inputPath);
-  const stem = path.basename(inputPath, ext);
-  const thumbDir = path.join(dir, 'thumbnails');
-  const outJpg = path.join(thumbDir, `${stem}-${WIDTH}w.jpg`);
-  const outWebp = path.join(thumbDir, `${stem}-${WIDTH}w.webp`);
-  const outAvif = path.join(thumbDir, `${stem}-${WIDTH}w.avif`);
+async function sha1File(filePath) {
+  const buf = await readFile(filePath);
+  return createHash('sha1').update(buf).digest('hex');
+}
 
-  await mkdir(thumbDir, { recursive: true });
+async function loadManifest(thumbDir) {
+  try {
+    const raw = await readFile(path.join(thumbDir, MANIFEST_NAME), 'utf8');
+    const parsed = JSON.parse(raw);
+    if (parsed?.version === MANIFEST_VERSION && parsed?.entries) {
+      return parsed.entries;
+    }
+  } catch {
+    // missing or unreadable — start fresh
+  }
+  return {};
+}
 
-  const srcStat = await stat(inputPath);
-  const targets = [outJpg, outWebp, outAvif];
-  let needsWork = false;
-  for (const target of targets) {
+async function saveManifest(thumbDir, entries) {
+  const payload = JSON.stringify({ version: MANIFEST_VERSION, entries }, null, 0);
+  await writeFile(path.join(thumbDir, MANIFEST_NAME), payload, 'utf8');
+}
+
+async function outputsExist(outputs) {
+  for (const target of outputs) {
     try {
-      const dstStat = await stat(target);
-      if (dstStat.mtimeMs < srcStat.mtimeMs) {
-        needsWork = true;
-        break;
-      }
+      await stat(target);
     } catch {
-      needsWork = true;
-      break;
+      return false;
     }
   }
+  return true;
+}
 
-  if (!needsWork) return { generated: 0, skipped: 1 };
+async function processSourceDir(sourceDir) {
+  const files = await walk(sourceDir).catch(() => []);
+  if (files.length === 0) return { scanned: 0, generated: 0, skipped: 0 };
 
-  const base = sharp(inputPath).rotate().resize({ width: WIDTH, withoutEnlargement: true });
+  const thumbDir = path.join(sourceDir, 'thumbnails');
+  await mkdir(thumbDir, { recursive: true });
+  const manifest = await loadManifest(thumbDir);
+  const nextManifest = {};
 
-  await Promise.all([
-    base.clone().jpeg({ quality: JPG_QUALITY, mozjpeg: true }).toFile(outJpg),
-    base.clone().webp({ quality: WEBP_QUALITY }).toFile(outWebp),
-    base.clone().avif({ quality: AVIF_QUALITY }).toFile(outAvif),
-  ]);
+  let generated = 0;
+  let skipped = 0;
 
-  return { generated: 1, skipped: 0 };
+  for (const inputPath of files) {
+    const ext = path.extname(inputPath);
+    const stem = path.basename(inputPath, ext);
+    const relKey = path.relative(sourceDir, inputPath);
+    const outJpg = path.join(thumbDir, `${stem}-${WIDTH}w.jpg`);
+    const outWebp = path.join(thumbDir, `${stem}-${WIDTH}w.webp`);
+    const outAvif = path.join(thumbDir, `${stem}-${WIDTH}w.avif`);
+    const outputs = [outJpg, outWebp, outAvif];
+
+    const sha = await sha1File(inputPath);
+    const cached = manifest[relKey];
+
+    if (cached === sha && (await outputsExist(outputs))) {
+      nextManifest[relKey] = sha;
+      skipped += 1;
+      continue;
+    }
+
+    const base = sharp(inputPath).rotate().resize({ width: WIDTH, withoutEnlargement: true });
+    await Promise.all([
+      base.clone().jpeg({ quality: JPG_QUALITY, mozjpeg: true }).toFile(outJpg),
+      base.clone().webp({ quality: WEBP_QUALITY }).toFile(outWebp),
+      base.clone().avif({ quality: AVIF_QUALITY }).toFile(outAvif),
+    ]);
+
+    nextManifest[relKey] = sha;
+    generated += 1;
+  }
+
+  await saveManifest(thumbDir, nextManifest);
+  return { scanned: files.length, generated, skipped };
 }
 
 async function main() {
+  let scanned = 0;
   let generated = 0;
   let skipped = 0;
-  let files = [];
 
   for (const dir of SOURCE_DIRS) {
-    const found = await walk(dir);
-    files.push(...found);
-  }
-
-  for (const file of files) {
-    const result = await generateForImage(file);
+    const result = await processSourceDir(dir);
+    scanned += result.scanned;
     generated += result.generated;
     skipped += result.skipped;
   }
 
   console.error(`🖼️  Thumbnail generation complete`);
-  console.error(`   Source images scanned: ${files.length}`);
+  console.error(`   Source images scanned: ${scanned}`);
   console.error(`   Generated/updated: ${generated}`);
   console.error(`   Up-to-date skipped: ${skipped}`);
 }
@@ -98,4 +136,3 @@ main().catch((err) => {
   console.error(`❌ Failed to generate thumbnails: ${err?.message || err}`);
   process.exit(1);
 });
-
