@@ -16656,6 +16656,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gamberetti-torneo-madrid-2026': {
+    title: 'Gamberetti avariati al torneo di | Frontaliere Ticino',
+    description: 'Intossicazioni alimentari colpiscono i giocatori al Masters 1000 di Madrid, con Jim Courier che accusa i gamberetti serviti alla mensa. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gamberetti, avariati, torneo, madrid',
+    ogTitle: 'Gamberetti avariati al torneo di Madrid: intossicazioni e',
+    ogDescription: 'Intossicazioni alimentari colpiscono i giocatori al Masters 1000 di Madrid, con Jim Courier che accusa i gamberetti serviti alla mensa',
+    canonicalPath: '/articoli-frontaliere/gamberetti-torneo-madrid-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gamberetti avariati al torneo di Madrid: intossicazioni e ritiri",
+      "description": "Intossicazioni alimentari colpiscono i giocatori al Masters 1000 di Madrid, con Jim Courier che accusa i gamberetti serviti alla mensa. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gamberetti-torneo-madrid-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campo da tennis a Madrid durante un torneo, con giocatori in azione e spettatori sullo sfondo"
+      },
+      "datePublished": "2026-04-27T18:57:27+00:00",
+      "dateModified": "2026-04-27T18:57:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gamberetti-torneo-madrid-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

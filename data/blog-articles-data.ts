@@ -8176,4 +8176,11 @@ export const ARTICLES = [
  image: '/images/blog/minacce-informatiche-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gamberetti-torneo-madrid-2026',
+ category: 'novita',
+ date: '2026-04-27T18:57:27.304Z',
+ image: '/images/blog/gamberetti-torneo-madrid-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

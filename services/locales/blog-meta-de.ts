@@ -3081,6 +3081,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.minacce-informatiche-svizzera-2026.title': 'Cyberbedrohungen in der Schweiz: Swisscom warnt',
     'blog.article.minacce-informatiche-svizzera-2026.excerpt': 'Swisscom verzeichnet einen deutlichen Anstieg der Cyberbedrohungen in der Schweiz, mit wachsenden Risiken für Unternehmen aufgrund von KI und geopolitischen Spannungen.',
     'blog.article.minacce-informatiche-svizzera-2026.imageAlt': 'Ein Fachmann arbeitet an einem Laptop in einem modernen Büro mit Blick auf den Luganersee, umgeben von fortschrittlicher Technologie und Sicherheitssystemen.',
+    'blog.article.gamberetti-torneo-madrid-2026.title': 'Verdorbene Garnelen beim Turnier in Madrid: Vergiftungen',
+    'blog.article.gamberetti-torneo-madrid-2026.excerpt': 'Lebensmittelvergiftungen treffen Spieler beim Masters 1000 in Madrid, wobei Jim Courier die Garnelen im Speisesaal kritisiert',
+    'blog.article.gamberetti-torneo-madrid-2026.imageAlt': 'Tennisplatz in Madrid während eines Turniers, mit Spielern in Aktion und Zuschauern im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -3081,6 +3081,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.minacce-informatiche-svizzera-2026.title': 'Minacce informatiche in Svizzera: Swisscom lancia l\'allarme',
     'blog.article.minacce-informatiche-svizzera-2026.excerpt': 'Swisscom rileva un aumento significativo delle minacce informatiche in Svizzera, con rischi crescenti per le imprese a causa dell\'IA e delle tensioni geopolitiche.',
     'blog.article.minacce-informatiche-svizzera-2026.imageAlt': 'Un professionista lavora al laptop in un ufficio moderno con vista sul Lago di Lugano, circondato da tecnologie avanzate e sistemi di sicurezza.',
+    'blog.article.gamberetti-torneo-madrid-2026.title': 'Gamberetti avariati al torneo di Madrid: intossicazioni e',
+    'blog.article.gamberetti-torneo-madrid-2026.excerpt': 'Intossicazioni alimentari colpiscono i giocatori al Masters 1000 di Madrid, con Jim Courier che punta il dito contro i gamberetti serviti alla mensa',
+    'blog.article.gamberetti-torneo-madrid-2026.imageAlt': 'Campo da tennis a Madrid durante un torneo, con giocatori in azione e spettatori sullo sfondo',
 };
 
 export default blogMetaIt;

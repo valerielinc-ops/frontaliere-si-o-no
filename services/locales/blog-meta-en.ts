@@ -3081,6 +3081,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.minacce-informatiche-svizzera-2026.title': 'Cyber threats in Switzerland: Swisscom raises alarm',
     'blog.article.minacce-informatiche-svizzera-2026.excerpt': 'Swisscom reports a significant increase in cyber threats in Switzerland, with growing risks for businesses due to AI and geopolitical tensions.',
     'blog.article.minacce-informatiche-svizzera-2026.imageAlt': 'A professional working on a laptop in a modern office with a view of Lake Lugano, surrounded by advanced technology and security systems.',
+    'blog.article.gamberetti-torneo-madrid-2026.title': 'Bad prawns at Madrid tournament: food poisoning',
+    'blog.article.gamberetti-torneo-madrid-2026.excerpt': 'Food poisoning hits players at the Madrid Masters 1000, with Jim Courier blaming the prawns served in the canteen',
+    'blog.article.gamberetti-torneo-madrid-2026.imageAlt': 'Tennis court in Madrid during a tournament, with players in action and spectators in the background',
 };
 
 export default blogMetaEn;
