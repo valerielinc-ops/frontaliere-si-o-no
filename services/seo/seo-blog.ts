@@ -17584,6 +17584,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benessere-scolastico-bellinzona-2026': {
+    title: 'Bellinzona: nuovi programmi per il benessere scolastico',
+    description: 'Scopri i nuovi programmi educativi introdotti a Bellinzona per il benessere degli studenti dal 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, nuovi, programmi, benessere',
+    ogTitle: 'Nuovi programmi educativi a Bellinzona per il benessere scolastico',
+    ogDescription: 'Scopri i nuovi programmi educativi introdotti a Bellinzona per il benessere degli studenti dal 2026',
+    canonicalPath: '/articoli-frontaliere/benessere-scolastico-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi programmi educativi a Bellinzona per il benessere scolastico",
+      "description": "Scopri i nuovi programmi educativi introdotti a Bellinzona per il benessere degli studenti dal 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/benessere-scolastico-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona centro storico studenti scuola"
+      },
+      "datePublished": "2026-04-27T23:36:33+00:00",
+      "dateModified": "2026-04-27T23:36:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benessere-scolastico-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

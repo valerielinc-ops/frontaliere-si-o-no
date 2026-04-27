@@ -3166,6 +3166,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.national-geographic-scuola-einaudi-varese.title': 'National Geographic in school: Sergio Pitamitz meets students',
     'blog.article.national-geographic-scuola-einaudi-varese.excerpt': 'The famous photographer talked about environmental conservation and nature photography with students in Varese.',
     'blog.article.national-geographic-scuola-einaudi-varese.imageAlt': 'Einaudi Institute classroom in Varese with photographer Sergio Pitamitz',
+    'blog.article.benessere-scolastico-bellinzona-2026.title': 'Bellinzona: new school wellbeing programs',
+    'blog.article.benessere-scolastico-bellinzona-2026.excerpt': 'New educational programs for Bellinzona primary schools starting in 2026',
+    'blog.article.benessere-scolastico-bellinzona-2026.imageAlt': 'Bellinzona historic center students school',
 };
 
 export default blogMetaEn;
