@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1047,
+ "numberOfItems": 1048,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5771,7 +5771,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1044, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/bando-formazione-professionale-plr-2026` },
           { "@type": "ListItem", "position": 1045, "name": "Lavoratori pensionati in Svizzera: +220mila nel...", "url": `${BASE_URL}/articoli-frontaliere/lavoratori-pensionati-svizzera-2026` },
           { "@type": "ListItem", "position": 1046, "name": "Metà della Svizzera percepisce il sistema come ...", "url": `${BASE_URL}/articoli-frontaliere/met-svizzera-insoddisfatta-sistema-2026` },
-          { "@type": "ListItem", "position": 1047, "name": "Nuovi Esperti in Gestione dell’Energia certific...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-esperti-gestione-energia-varese` }
+          { "@type": "ListItem", "position": 1047, "name": "Nuovi Esperti in Gestione dell’Energia certific...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-esperti-gestione-energia-varese` },
+          { "@type": "ListItem", "position": 1048, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/negoziati-falliti-stretto-hormuz-2026` }
  ]
  },
  {

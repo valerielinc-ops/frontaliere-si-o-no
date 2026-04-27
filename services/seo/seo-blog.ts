@@ -15902,6 +15902,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-negoziati-falliti-stretto-hormuz-2026': {
+    title: 'Negoziati falliti sullo Stretto di | Frontaliere Ticino',
+    description: 'Il ministro degli Esteri iraniano Abbas Araghchi ha dichiarato che le richieste eccessive degli USA hanno fatto fallire i negoziati sullo Stretto di Hormuz.',
+    keywords: 'frontalieri, ticino, svizzera, italia, negoziati, falliti, sullo, stretto',
+    ogTitle: 'Negoziati falliti sullo Stretto di Hormuz | Frontaliere',
+    ogDescription: 'Il ministro degli Esteri iraniano Abbas Araghchi ha dichiarato che le richieste eccessive degli USA hanno fatto fallire i negoziati sullo Stretto di Hormuz.',
+    canonicalPath: '/articoli-frontaliere/negoziati-falliti-stretto-hormuz-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Negoziati falliti sullo Stretto",
+      "description": "Il ministro degli Esteri iraniano Abbas Araghchi ha dichiarato che le richieste eccessive degli USA hanno fatto fallire i negoziati sullo Stretto di Hormuz.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/negoziati-falliti-stretto-hormuz-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "LAC Lugano, centro culturale e artistico in Ticino"
+      },
+      "datePublished": "2026-04-27T16:01:03+00:00",
+      "dateModified": "2026-04-27T16:01:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/negoziati-falliti-stretto-hormuz-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

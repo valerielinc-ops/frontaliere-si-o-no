@@ -3003,6 +3003,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovi-esperti-gestione-energia-varese.title': 'Nuovi Esperti in Gestione dell’Energia a Varese: Eccellenza e Competenze',
     'blog.article.nuovi-esperti-gestione-energia-varese.excerpt': 'L\'Ordine dei Periti Industriali Laureati di Varese certifica nuovi EGE, esperti in gestione energetica, pronti a guidare la transizione energetica.',
     'blog.article.nuovi-esperti-gestione-energia-varese.imageAlt': 'Conferenza professionale su gestione energia a Varese',
+    'blog.article.negoziati-falliti-stretto-hormuz-2026.title': 'Negoziati falliti sullo Stretto di Hormuz: le richieste eccessive degli USA',
+    'blog.article.negoziati-falliti-stretto-hormuz-2026.excerpt': 'Il ministro degli Esteri iraniano Abbas Araghchi ha dichiarato che le richieste eccessive degli USA hanno fatto fallire i negoziati sullo Stretto di Hormuz.',
+    'blog.article.negoziati-falliti-stretto-hormuz-2026.imageAlt': 'LAC Lugano, centro culturale e artistico in Ticino',
 };
 
 export default blogMetaIt;

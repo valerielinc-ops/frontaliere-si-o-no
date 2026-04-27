@@ -7994,4 +7994,11 @@ export const ARTICLES = [
  image: '/images/blog/nuovi-esperti-gestione-energia-varese.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'negoziati-falliti-stretto-hormuz-2026',
+ category: 'novita',
+ date: '2026-04-27T16:01:03.060Z',
+ image: '/images/blog/negoziati-falliti-stretto-hormuz-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
