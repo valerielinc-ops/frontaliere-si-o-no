@@ -261,6 +261,22 @@ export function ogPagesPlugin(rootDir: string): Plugin {
   it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
 
+ /**
+  * Cap blog headline at maxChars at a word boundary, append ellipsis when
+  * truncated. Defined here at the plugin-closure scope so the
+  * articleTitleCollisions map (computed below) can use the SAME post-cap
+  * string as the html() renderer — without that, two distinct full-form
+  * titles whose 55-char prefix coincides slip past collision detection
+  * (no disamb hash injected) and trip Semrush's title-uniqueness gate.
+  */
+ const capBlogHead = (s: string, maxChars: number): string => {
+  if (s.length <= maxChars) return s;
+  const slice = s.slice(0, maxChars);
+  const lastSpace = slice.lastIndexOf(' ');
+  const cut = lastSpace > maxChars * 0.4 ? slice.slice(0, lastSpace) : slice;
+  return cut.replace(/[\s.,;:\-–—|]+$/u, '') + '…';
+ };
+
  /* ── 2. Parse blog slug map + blog index slugs from router.ts ── */
  // BLOG_SLUGS: Record<BlogArticleId, { it, en, de, fr }> — flat lookup
  const blogSlugs: Record<string, Record<string, string>> = {};
@@ -355,7 +371,11 @@ export function ogPagesPlugin(rootDir: string): Plugin {
   for (const locale of ['it', 'en', 'de', 'fr'] as const) {
    const localeMeta = locale === 'it' ? null : blogMetaByLocale[locale][en.articleId];
    const titleRaw = localeMeta?.title || en.ogT;
-   const titlePure = titleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+   const titlePureRaw = titleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+   // Mirror the 55-char head cap applied inside html() — collisions must
+   // be detected on the POST-cap string so the disambiguator hash kicks
+   // in when two distinct full titles share the same capped prefix.
+   const titlePure = capBlogHead(titlePureRaw, 55);
    const baseT = `${titlePure}${ARTICLE_TITLE_SUFFIX}`;
    const m = articleTitleCollisions[locale];
    m.set(baseT, (m.get(baseT) || 0) + 1);
@@ -532,18 +552,6 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const countWords = (htmlBody: string | undefined): number => {
  if (!htmlBody) return 0;
  return htmlBody.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(/\s+/).length;
- };
-
- /**
- * Cap blog headline at maxChars at a word boundary, append ellipsis when truncated.
- * Preserves uniqueness because the per-slug disambiguator hash is appended after.
- */
- const capBlogHead = (s: string, maxChars: number): string => {
- if (s.length <= maxChars) return s;
- const slice = s.slice(0, maxChars);
- const lastSpace = slice.lastIndexOf(' ');
- const cut = lastSpace > maxChars * 0.4 ? slice.slice(0, lastSpace) : slice;
- return cut.replace(/[\s.,;:\-–—|]+$/u, '') + '…';
  };
 
  const html = (locale: string, urlPath: string) => {
