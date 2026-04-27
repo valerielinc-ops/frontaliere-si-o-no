@@ -1,19 +1,17 @@
 {
-  "generated": "2026-04-27T08:11:29.940Z",
+  "generated": "2026-04-27T09:03:30.292Z",
   "threshold": 10,
-  "scanned": 124445,
-  "total": 1560,
+  "scanned": 31927,
+  "total": 261,
   "byFeature": {
-    "spa-other": 10,
-    "job-board": 218,
-    "career-landings": 100,
-    "weekly-employers": 89,
-    "fuel-daily": 375,
-    "spa-locale": 540,
-    "weekly-employers-hub": 4,
+    "job-board": 65,
+    "career-landings": 35,
+    "weekly-employers": 24,
+    "fuel-daily": 129,
+    "weekly-employers-hub": 1,
+    "blog": 1,
     "border-wait": 3,
-    "health-premiums": 215,
-    "job-market-snapshot": 6
+    "spa-other": 3
   },
-  "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE \u2014 this gate is a ratchet. spa-other bumped 7\u219210 on 2026-04-27 to absorb the 3 locale-root SPA shells (dist/{en,de,fr}/index.html) added in a49c59a07 to fix hreflang resolution. Locale shells mirror the IT homepage (also at 2.14% ratio) and are inherently thin (SPA-hydrated content). Regenerate after lowering offenders by improving a template; never raise the numbers without explicit justification."
+  "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE — this gate is a ratchet. Regenerate after lowering offenders by improving a template; never raise the numbers without explicit justification (it means new pages dropped below the 10 % text/HTML ratio Semrush flags as \"low text/HTML\")."
 }

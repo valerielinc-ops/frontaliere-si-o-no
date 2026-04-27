@@ -157,7 +157,7 @@ function classifyFeature(relPath) {
   // separate roots for the Ticino-side (`-svizzera`/`-suisse`/`-schweiz`
   // suffix) and the Italy-side stations (no suffix). Diesel mirrors petrol
   // with the relevant translation. Legacy spellings stay as fallbacks.
-  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-benzina|prezzi-diesel|prezzi-carburante-svizzera|gasoline-price-switzerland|diesel-price-switzerland|prix-essence-suisse|prix-diesel-suisse|fuel-prices-switzerland|benzinpreis-schweiz|dieselpreis-schweiz|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
+  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-benzina|prezzi-diesel|prezzi-carburante-svizzera|gasoline-price-switzerland|diesel-price-switzerland|prix-essence-suisse|prix-diesel-suisse|prix-gasoil-suisse|fuel-prices-switzerland|benzinpreis-schweiz|dieselpreis-schweiz|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
   // Weekly-employers per-company×city pages live UNDER /aziende-che-assumono/<city>/<company>/...
   // Locale slugs: companies-hiring (en), unternehmen-einstellen (de),
   // entreprises-recrutent (fr) — keep the previous slug spellings as
@@ -169,14 +169,20 @@ function classifyFeature(relPath) {
     return 'weekly-employers-hub';
   }
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\//.test(p)) return 'job-board';
-  if (/(?:^|\/)(?:premi-cassa-malati|health-premiums|krankenkassen-praemien|primes-assurance-maladie)\//.test(p)) return 'health-premiums';
-  // IT slug carries the `-ticino` suffix (`mercato-lavoro-ticino`); match it
-  // alongside the legacy/translated short forms.
-  if (/(?:^|\/)(?:mercato-lavoro-ticino|mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
-  if (/(?:^|\/)(?:articoli-frontaliere|blog|articles)\//.test(p)) return 'blog';
-  // The IT slug for border wait pages is `traffico-dogane` (border traffic),
-  // distinct from the legacy/translated `tempi-attesa-frontiera` umbrella.
-  if (/(?:^|\/)(?:traffico-dogane|tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|temps-attente-frontiere)\//.test(p)) return 'border-wait';
+  // Health premiums: EN slug is `health-insurance-premiums`, DE is
+  // `krankenkassenpraemien` (one word, no hyphen), FR keeps the previous
+  // `primes-assurance-maladie`. Legacy short forms stay as fallbacks.
+  if (/(?:^|\/)(?:premi-cassa-malati|health-insurance-premiums|health-premiums|krankenkassenpraemien|krankenkassen-praemien|primes-assurance-maladie|primes-assurance-maladie-communes|primi-cassa-malati-comuni)\//.test(p)) return 'health-premiums';
+  // Job market: IT slug carries the `-ticino` suffix; locale variants are
+  // ticino-job-market (en), tessiner-arbeitsmarkt (de, genitive form),
+  // marche-travail-tessin (fr).
+  if (/(?:^|\/)(?:mercato-lavoro-ticino|ticino-job-market|tessiner-arbeitsmarkt|tessin-arbeitsmarkt|marche-travail-tessin|tessin-marche-emploi|mercato-lavoro|job-market|arbeitsmarkt|marche-emploi)\//.test(p)) return 'job-market-snapshot';
+  // Blog locale slugs: cross-border-articles (en), grenzgaenger-artikel (de),
+  // articles-frontalier (fr).
+  if (/(?:^|\/)(?:articoli-frontaliere|cross-border-articles|grenzgaenger-artikel|articles-frontalier|blog|articles)\//.test(p)) return 'blog';
+  // Border wait pages: IT canonical is `traffico-dogane`; locale variants are
+  // border-wait (en), wartezeit-grenze (de), temps-attente-douane (fr).
+  if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane|tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|temps-attente-frontiere)\//.test(p)) return 'border-wait';
   if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
   return 'spa-other';
 }
@@ -194,7 +200,16 @@ async function main() {
   let skippedNoindex = 0;
 
   for (const file of files) {
-    const html = await readFile(file, 'utf8');
+    let html;
+    try {
+      html = await readFile(file, 'utf8');
+    } catch (err) {
+      // Tolerate races: autonomous build/translation pipelines may delete
+      // pages between walk() and readFile(). Skip and move on — the next
+      // run will pick the file up if it still exists.
+      if (/** @type {NodeJS.ErrnoException} */ (err).code === 'ENOENT') continue;
+      throw err;
+    }
     const htmlBytes = Buffer.byteLength(html, 'utf8');
     if (htmlBytes === 0) continue;
     if (!INCLUDE_NOINDEX && (NOINDEX_RE.test(html) || META_REFRESH_RE.test(html))) {
