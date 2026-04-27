@@ -12,7 +12,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
-import { buildTitleWithBrand } from './shared/titleSuffix';
+import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -564,7 +564,16 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale) : '';
- const htmlPageTitle = buildTitleWithBrand(`${localizedTitle}${disamb}`);
+ // Reserve room for disambiguator AND brand inside the 70-char cap so the
+ // disambiguator survives the headline-budget truncate. Without this manual
+ // pre-truncate, multi-article collisions (auto-generated articles sharing
+ // a topical headline prefix) get the (#hash) lopped off downstream and
+ // re-trip audit:title-uniqueness.
+ const articleHeadlineBudget = TITLE_MAX_CHARS - disamb.length - TITLE_BRAND_SUFFIX.length;
+ const cappedArticleTitle = localizedTitle.length <= articleHeadlineBudget
+  ? localizedTitle
+  : truncateHeadline(localizedTitle, Math.max(1, articleHeadlineBudget));
+ const htmlPageTitle = buildTitleWithBrand(`${cappedArticleTitle}${disamb}`);
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).sort((a, b) => {

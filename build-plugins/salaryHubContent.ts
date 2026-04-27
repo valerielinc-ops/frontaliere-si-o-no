@@ -151,20 +151,21 @@ const IT: Labels = {
   tipsExplain: (_s, _r) =>
     `Per ottimizzare il cambio CHF-EUR sullo stipendio, servizi come <a href="/go/wise/" rel="sponsored">Wise</a> o <a href="/go/fineco/" rel="sponsored">Fineco</a> offrono tassi di cambio più vantaggiosi rispetto alle banche tradizionali, con commissioni trasparenti. Se ricevi lo stipendio in CHF, convertire tramite questi servizi può farti risparmiare centinaia di euro all'anno rispetto al cambio bancario standard.`,
   metaTitle: (s) => {
-    const parts = [`Stipendio netto ${fmtCHF(s.salary)} CHF frontaliere`];
-    // Frontier-type token differentiates OLD (pre-2024 protocol) vs NEW
-    // (post-17/07/2023 agreement). Without it, every scenario combination
-    // (salary × marital × children) produced an identical <title> across
-    // OLD/NEW variants and tripped the Semrush title-uniqueness gate.
+    // Compact format keeps the headline + brand suffix inside the
+    // universal 70-char SERP cap. Older format ("Stipendio netto …
+    // frontaliere vecchio sposato 3 figli oltre 20km | Simulazione 2026")
+    // overflowed and got truncated to a non-distinctive prefix, collapsing
+    // ~120 scenario titles to ~10 unique ones and tripping
+    // audit:title-uniqueness. Order: salary → frontier type → marital →
+    // children (compact "Nf") → distance zone (compact "≤20km/>20km").
+    // Brand suffix " | Frontaliere Ticino" is appended downstream by
+    // buildSeoPageHtml/buildTitleWithBrand.
+    const parts = [`Netto ${fmtCHF(s.salary)} CHF`];
     parts.push(s.frontierType === 'NEW' ? 'nuovo' : 'vecchio');
     if (s.maritalStatus === 'MARRIED') parts.push('sposato');
-    if (s.children > 0) parts.push(`${s.children} figli`);
-    // Distance zone is the second 2-way axis on the same page set; without
-    // it, a NEW frontaliere within 20 km collides with a NEW frontaliere
-    // beyond 20 km. The zone shorthand keeps the suffix short.
-    if (s.distanceZone === 'WITHIN_20KM') parts.push('entro 20km');
-    else if (s.distanceZone === 'OVER_20KM') parts.push('oltre 20km');
-    parts.push('| Simulazione 2026');
+    if (s.children > 0) parts.push(`${s.children}f`);
+    if (s.distanceZone === 'WITHIN_20KM') parts.push('≤20km');
+    else if (s.distanceZone === 'OVER_20KM') parts.push('>20km');
     return parts.join(' ');
   },
   metaDesc: (s, r) => {
@@ -255,15 +256,13 @@ const EN: Labels = {
   tipsExplain: (_s, _r) =>
     `To optimize your CHF-EUR conversion, services like <a href="/go/wise/" rel="sponsored">Wise</a> or <a href="/go/fineco/" rel="sponsored">Fineco</a> offer better exchange rates than traditional banks.`,
   metaTitle: (s) => {
-    // Mirror IT: include frontierType + distanceZone so OLD/NEW × ≤20km/>20km
-    // variants don't collapse to identical <title>s and trip Semrush.
-    const parts = [`Net salary ${fmtCHF(s.salary)} CHF cross-border worker`];
+    // Compact format — see the IT metaTitle for the rationale.
+    const parts = [`Net ${fmtCHF(s.salary)} CHF`];
     parts.push(s.frontierType === 'NEW' ? 'new' : 'old');
     if (s.maritalStatus === 'MARRIED') parts.push('married');
-    if (s.children > 0) parts.push(s.children === 1 ? '1 child' : `${s.children} children`);
-    if (s.distanceZone === 'WITHIN_20KM') parts.push('within 20km');
-    else if (s.distanceZone === 'OVER_20KM') parts.push('over 20km');
-    parts.push('| 2026 Simulation');
+    if (s.children > 0) parts.push(`${s.children}c`);
+    if (s.distanceZone === 'WITHIN_20KM') parts.push('≤20km');
+    else if (s.distanceZone === 'OVER_20KM') parts.push('>20km');
     return parts.join(' ');
   },
   metaDesc: (s, r) => `With CHF ${fmtCHF(s.salary)} gross, a ${s.frontierType === 'OLD' ? 'old' : 'new'} cross-border worker nets approximately EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/month. 2026 simulation with full tax breakdown.`,
@@ -328,13 +327,13 @@ const DE: Labels = {
   budgetTitle: 'Indikatives Monatsbudget',
   tipsTitle: 'Praktische Tipps',
   metaTitle: (s) => {
-    const parts = [`Nettogehalt ${fmtCHF(s.salary)} CHF Grenzgänger`];
+    // Compact format — see the IT metaTitle for the rationale.
+    const parts = [`Netto ${fmtCHF(s.salary)} CHF`];
     parts.push(s.frontierType === 'NEW' ? 'neuer' : 'alter');
-    if (s.maritalStatus === 'MARRIED') parts.push('verheiratet');
-    if (s.children > 0) parts.push(s.children === 1 ? '1 Kind' : `${s.children} Kinder`);
-    if (s.distanceZone === 'WITHIN_20KM') parts.push('innerhalb 20km');
-    else if (s.distanceZone === 'OVER_20KM') parts.push('über 20km');
-    parts.push('| Simulation 2026');
+    if (s.maritalStatus === 'MARRIED') parts.push('verh.');
+    if (s.children > 0) parts.push(`${s.children}K`);
+    if (s.distanceZone === 'WITHIN_20KM') parts.push('≤20km');
+    else if (s.distanceZone === 'OVER_20KM') parts.push('>20km');
     return parts.join(' ');
   },
   metaDesc: (s, r) => `Mit CHF ${fmtCHF(s.salary)} brutto erzielt ein ${s.frontierType === 'OLD' ? 'alter' : 'neuer'} Grenzgänger netto ca. EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/Monat. Simulation 2026.`,
@@ -393,13 +392,13 @@ const FR: Labels = {
   budgetTitle: 'Budget mensuel indicatif',
   tipsTitle: 'Conseils pratiques',
   metaTitle: (s) => {
-    const parts = [`Salaire net ${fmtCHF(s.salary)} CHF frontalier`];
+    // Compact format — see the IT metaTitle for the rationale.
+    const parts = [`Net ${fmtCHF(s.salary)} CHF`];
     parts.push(s.frontierType === 'NEW' ? 'nouveau' : 'ancien');
     if (s.maritalStatus === 'MARRIED') parts.push('marié');
-    if (s.children > 0) parts.push(s.children === 1 ? '1 enfant' : `${s.children} enfants`);
-    if (s.distanceZone === 'WITHIN_20KM') parts.push('moins 20km');
-    else if (s.distanceZone === 'OVER_20KM') parts.push('plus 20km');
-    parts.push('| Simulation 2026');
+    if (s.children > 0) parts.push(`${s.children}e`);
+    if (s.distanceZone === 'WITHIN_20KM') parts.push('≤20km');
+    else if (s.distanceZone === 'OVER_20KM') parts.push('>20km');
     return parts.join(' ');
   },
   metaDesc: (s, r) => `Avec CHF ${fmtCHF(s.salary)} brut, un ${s.frontierType === 'OLD' ? 'ancien' : 'nouveau'} frontalier perçoit environ EUR ${fmtEUR(r.itResident.netIncomeMonthly * r.exchangeRate)}/mois. Simulation 2026.`,

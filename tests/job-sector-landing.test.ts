@@ -102,13 +102,13 @@ describe('jobSectorLanding — paths', () => {
 });
 
 describe('jobSectorLanding — SEO copy', () => {
-  it('Italian title includes live count, noun, and year (Phase 3A: ≤60ch, no emoji)', () => {
+  it('Italian title includes live count, noun, and year (Phase 3A: ≤70ch, no emoji)', () => {
     const seo = buildSectorHubSeo('it', 'infermieri', 42, YEAR);
     expect(seo.title).toContain('Infermieri');
     expect(seo.title).toContain('42');
     expect(seo.title).toContain('Ticino');
     expect(seo.title).toContain(String(YEAR));
-    expect(seo.title.length).toBeLessThanOrEqual(60);
+    expect(seo.title.length).toBeLessThanOrEqual(70);
     expect(seo.title.startsWith('🔥')).toBe(false);
     expect(seo.h1).toBe('42 posti vacanti nel settore Infermieri in Ticino');
     expect(seo.h1).not.toBe(seo.title);
@@ -119,7 +119,7 @@ describe('jobSectorLanding — SEO copy', () => {
     const at = buildSectorHubSeo('it', 'infermieri', SECTOR_HUB_FIRE_THRESHOLD, YEAR);
     expect(below.title.startsWith('🔥')).toBe(false);
     expect(at.title.startsWith('🔥')).toBe(false);
-    expect(at.title.length).toBeLessThanOrEqual(60);
+    expect(at.title.length).toBeLessThanOrEqual(70);
   });
 
   it('uses zero-count narrative for H1 when count = 0 (Phase 3A)', () => {
@@ -134,19 +134,19 @@ describe('jobSectorLanding — SEO copy', () => {
     const en = buildSectorHubSeo('en', 'infermieri', 10, YEAR);
     expect(en.title).toContain('Nurses Jobs');
     expect(en.title).toContain('Ticino');
-    expect(en.title.length).toBeLessThanOrEqual(60);
+    expect(en.title.length).toBeLessThanOrEqual(70);
     expect(en.h1).not.toBe(en.title);
 
     const de = buildSectorHubSeo('de', 'case-anziani', 10, YEAR);
     expect(de.title).toContain('Altenpflege');
     expect(de.title).toContain('Tessin');
-    expect(de.title.length).toBeLessThanOrEqual(60);
+    expect(de.title.length).toBeLessThanOrEqual(70);
     expect(de.h1).not.toBe(de.title);
 
     const fr = buildSectorHubSeo('fr', 'educatori', 10, YEAR);
     expect(fr.title).toContain('Éducateurs');
     expect(fr.title).toContain('Tessin');
-    expect(fr.title.length).toBeLessThanOrEqual(60);
+    expect(fr.title.length).toBeLessThanOrEqual(70);
     expect(fr.h1).not.toBe(fr.title);
   });
 

@@ -400,11 +400,17 @@ export function buildSectorHubSeo(
       const noun = nounMap[sector];
       // SEO title: keyword-first, ≤60 char (Semrush W2). No emoji prefix, no
       // " | Frontaliere Ticino" overflow. Brand suffix only when it fits.
+      // Pass count as the structured `count` field (not as a free-form
+       // qualifier) so the formatSeoTitle fallback ladder preserves it
+       // when dropping optional fields. Without this, count gets stripped
+       // along with qualifier on overflow and distinct sector × count
+       // pairs collapse to identical titles, tripping the title-uniqueness
+       // gate (sector hub regression caught 2026-04-27).
       const titleBase = formatSeoTitle({
         keyword: `Lavoro ${noun}`,
         location: 'Ticino',
         year: yearStr,
-        qualifier: safeCount > 0 ? `${safeCount} offerte attive` : undefined,
+        count: safeCount > 0 ? safeCount : undefined,
       });
       const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
       const desc = safeCount > 0
@@ -452,7 +458,7 @@ export function buildSectorHubSeo(
         keyword: `${noun} Jobs`,
         location: 'Ticino',
         year: yearStr,
-        qualifier: safeCount > 0 ? `${safeCount} active` : undefined,
+        count: safeCount > 0 ? safeCount : undefined,
       });
       const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
       const desc = safeCount > 0
@@ -498,7 +504,7 @@ export function buildSectorHubSeo(
         keyword: `Jobs ${noun}`,
         location: 'Tessin',
         year: yearStr,
-        qualifier: safeCount > 0 ? `${safeCount} offen` : undefined,
+        count: safeCount > 0 ? safeCount : undefined,
       });
       const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
       const desc = safeCount > 0
@@ -544,7 +550,7 @@ export function buildSectorHubSeo(
         keyword: `Emploi ${noun}`,
         location: 'Tessin',
         year: yearStr,
-        qualifier: safeCount > 0 ? `${safeCount} offres` : undefined,
+        count: safeCount > 0 ? safeCount : undefined,
       });
       const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
       const desc = safeCount > 0

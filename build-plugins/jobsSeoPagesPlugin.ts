@@ -12,7 +12,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
-import { buildTitleWithBrand } from './shared/titleSuffix';
+import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
@@ -137,12 +137,23 @@ const JOB_TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
 const JOB_TITLE_MAX = 70;
 
 /**
- * @deprecated Headlines are no longer truncated. Returns input verbatim.
- * Brand suffix is added downstream via buildTitleWithBrand.
+ * Word-aware truncation of a job-title core that has no company/city tail
+ * to preserve. Used as the fallback path inside
+ * {@link truncateJobCorePreservingCity} when the city/company structure
+ * does not allow tail-preserving truncation.
+ *
+ * Cuts on the last whitespace inside `maxCore`, appends "…". Falls back
+ * to a hard cut when no usable boundary exists.
  */
-export function truncateTitleCore(core: string, _maxCore: number): string {
- void _maxCore;
- return core;
+export function truncateTitleCore(core: string, maxCore: number): string {
+ if (core.length <= maxCore) return core;
+ // Reserve 1 char for the trailing ellipsis.
+ const sliced = core.slice(0, maxCore - 1);
+ const lastSpace = sliced.lastIndexOf(' ');
+ if (lastSpace > Math.floor(maxCore / 2)) {
+  return sliced.slice(0, lastSpace).trimEnd() + '…';
+ }
+ return sliced.trimEnd() + '…';
 }
 
 /**
@@ -249,14 +260,19 @@ export function buildTitleDisambiguator(token: string): string {
 }
 
 /**
- * Compose final <title>: truncated city-aware core + fixed brand suffix.
+ * Compose final <title>: city-preserving truncated core + optional brand suffix.
  *
- * When `disambiguator` is provided and non-empty (e.g. `abc123` from the
- * trailing 6 chars of the per-locale slug or job id), it is appended INSIDE
- * the core budget so that two otherwise-identical jobs (same role, company,
- * city — distinguished only by a slug suffix or random hash) emit distinct
- * <title> tags. The disambiguator is subtracted from the city-preservation
- * budget so the trailing city token still survives truncation.
+ * Universal policy: the final <title> is hard-capped at JOB_TITLE_MAX (70)
+ * including the optional brand suffix. The core is truncated upstream
+ * (preserving the trailing city token) so that the disambiguator hash
+ * always lands inside the cap.
+ *
+ * When `disambiguator` is provided and non-empty (e.g. the per-locale slug
+ * or job id), it is hashed into a short ` (#abcd1234)` suffix appended
+ * INSIDE the cap so that two otherwise-identical jobs (same role + company
+ * + city, multi-slug variants) emit distinct <title> tags. Its length is
+ * subtracted from the city-preservation budget so neither the disambiguator
+ * nor the trailing city token is amputated.
  */
 export function composeJobPageTitle(
  jobTitle: string,
@@ -266,7 +282,14 @@ export function composeJobPageTitle(
  disambiguator?: string,
 ): string {
  const disamb = buildTitleDisambiguator(disambiguator || '');
- const core = buildJobTitleCore(jobTitle, company, city, locale);
+ // Reserve room for BOTH the disambiguator AND the brand suffix inside
+ // the 70-char cap. The brand is always appended downstream (see
+ // buildTitleWithBrand — always-brand prevents title===h1 duplication),
+ // so we must budget for it here, otherwise the city tail (which the
+ // city-preserving truncate guarantees) would be amputated by the
+ // downstream brand-fitting word-trim.
+ const maxCore = Math.max(1, JOB_TITLE_MAX - disamb.length - JOB_TITLE_BRAND_SUFFIX.length);
+ const core = truncateJobCorePreservingCity(jobTitle, company, city, locale, maxCore);
  return buildTitleWithBrand(`${core}${disamb}`, JOB_TITLE_BRAND_SUFFIX);
 }
 
@@ -1324,28 +1347,31 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  editorial: string;
  }> = {
  it: {
- title: (name: string) => `Offerte di lavoro ${name} in Svizzera - Posizioni aperte oggi | Frontaliere Ticino`,
+ // Title intentionally OMITS the brand suffix and the "Posizioni aperte oggi"
+ // tail; both are appended downstream via buildTitleWithBrand only when the
+ // result fits inside the universal 70-char SERP cap.
+ title: (name: string) => `Offerte di lavoro ${name} in Svizzera`,
  description: (name: string, count: number) => `${count}+ offerte di lavoro ${name} in ${targetCantonsDisplay.it} aggiornate ogni giorno. Annunci raccolti dai siti ufficiali delle aziende svizzere con link diretto alla candidatura.`,
  heading: (name: string) => `Lavoro ${name} in Svizzera`,
  openListing: 'Apri il job board completo',
  editorial: `Gli annunci di lavoro sono raccolti direttamente dai siti ufficiali delle aziende in ${targetCantonsDisplay.it} e aggiornati quotidianamente. Ogni offerta rimanda alla pagina di candidatura originale del datore di lavoro. Il job board copre tutti i settori: sanità, finanza, tecnologia, ingegneria, commercio e amministrazione.`,
  },
  en: {
- title: (name: string) => `${name} jobs in Switzerland - Open positions today | Frontaliere Ticino`,
+ title: (name: string) => `${name} jobs in Switzerland`,
  description: (name: string, count: number) => `${count}+ ${name} job openings in ${targetCantonsDisplay.en} updated daily. Listings sourced from official Swiss employer career pages with direct application links.`,
  heading: (name: string) => `${name} jobs in Switzerland`,
  openListing: 'Open the full job board',
  editorial: `Job listings are sourced directly from official company career pages in ${targetCantonsDisplay.en} and refreshed daily. Every listing links to the employer's original application page. The job board covers all sectors: healthcare, finance, technology, engineering, retail, and administration.`,
  },
  de: {
- title: (name: string) => `${name} Jobs in der Schweiz - Offene Stellen heute | Frontaliere Ticino`,
+ title: (name: string) => `${name} Jobs in der Schweiz`,
  description: (name: string, count: number) => `${count}+ aktuelle ${name} Stellenangebote in ${targetCantonsDisplay.de}, täglich aktualisiert. Direkt von offiziellen Karriereportalen Schweizer Unternehmen mit Bewerbungslink.`,
  heading: (name: string) => `${name} Jobs in der Schweiz`,
  openListing: 'Komplettes Job Board öffnen',
  editorial: `Stellenanzeigen werden direkt von den offiziellen Karriereseiten der Unternehmen in ${targetCantonsDisplay.de} bezogen und täglich aktualisiert. Jedes Inserat verlinkt zur originalen Bewerbungsseite des Arbeitgebers. Das Job Board deckt alle Branchen ab: Gesundheit, Finanzen, Technologie, Ingenieurwesen, Handel und Verwaltung.`,
  },
  fr: {
- title: (name: string) => `Offres d'emploi ${name} en Suisse - Postes ouverts | Frontaliere Ticino`,
+ title: (name: string) => `Offres d'emploi ${name} en Suisse`,
  description: (name: string, count: number) => `${count}+ offres d'emploi ${name} en ${targetCantonsDisplay.fr} mises à jour quotidiennement. Annonces provenant des portails officiels des entreprises suisses avec lien de candidature.`,
  heading: (name: string) => `Emploi ${name} en Suisse`,
  openListing: 'Ouvrir le job board complet',
@@ -4966,7 +4992,7 @@ ${alternates}
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${fullSlug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const copy = searchPageCopy[locale];
- const title = copy.title(name);
+ const title = buildTitleWithBrand(copy.title(name));
  const description = copy.description(name, matchingJobs.length);
  const _altPairs = localeList
  .map((altLocale) => {
@@ -6428,7 +6454,23 @@ ${hreflangLinks}
  } else {
   headline = copy.title;
  }
- const pageTitle = buildTitleWithBrand(`${esc(headline)}${expiredDisambiguator}`);
+ // Reserve room for the disambiguator AND brand suffix inside the 70-char
+ // cap. The disambiguator MUST land inside the cap — without this manual
+ // truncation, multi-slug expired jobs (same role+company, different
+ // origin slugs) collapse to identical titles after the downstream
+ // headline-only truncate strips the trailing (#hash). Tripped Semrush
+ // title-uniqueness on 2026-04-28. Critically, we work on the RAW headline
+ // (no HTML-escape) so `&` / `<` etc. are not artificially expanded into
+ // multi-char entities like `&amp;` that fool the length-based truncate
+ // and force a second-pass truncate downstream (the audit caught
+ // "AGIE Charmilles SA — R&D" titles emerging with double "……" + a
+ // dropped (#hash) suffix). We apply esc() ONCE at the <title>${...}</title>
+ // call site downstream.
+ const expiredHeadlineBudget = TITLE_MAX_CHARS - expiredDisambiguator.length - TITLE_BRAND_SUFFIX.length;
+ const cappedHeadline = headline.length <= expiredHeadlineBudget
+  ? headline
+  : truncateHeadline(headline, Math.max(1, expiredHeadlineBudget));
+ const pageTitle = esc(buildTitleWithBrand(`${cappedHeadline}${expiredDisambiguator}`));
 
  const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 

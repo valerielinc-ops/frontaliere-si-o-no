@@ -93,10 +93,31 @@ describe('buildJobTitleCore', () => {
  });
 });
 
-describe('truncateTitleCore (deprecated — no-op)', () => {
- it('returns input verbatim regardless of maxCore', () => {
+describe('truncateTitleCore', () => {
+ it('returns input verbatim when shorter than maxCore', () => {
  expect(truncateTitleCore('Short core', 40)).toBe('Short core');
- expect(truncateTitleCore('a'.repeat(50), 20)).toBe('a'.repeat(50));
+ });
+
+ it('truncates word-aware on whitespace boundary when possible', () => {
+ const out = truncateTitleCore('Senior Software Engineer Backend Developer', 30);
+ expect(out.length).toBeLessThanOrEqual(30);
+ expect(out.endsWith('…')).toBe(true);
+ // Cuts on a space boundary — the char immediately before "…" is the
+ // last char of a complete word from the input, never a partially-cut token.
+ const lastWord = out.replace(/…$/, '').split(/\s+/).pop() ?? '';
+ expect('Senior Software Engineer Backend Developer'.split(/\s+/)).toContain(lastWord);
+ });
+
+ it('falls back to hard cut for tokens with no usable space boundary', () => {
+ const out = truncateTitleCore('a'.repeat(50), 20);
+ expect(out.length).toBeLessThanOrEqual(20);
+ expect(out.endsWith('…')).toBe(true);
+ });
+
+ it('caps absurdly long input that contains body content (regression)', () => {
+ const malformed = 'Java Software Ingegnere — ALTEN Switzerland a : Ticino, Switzerland.Availability to work on-site is required. What we offer you.';
+ const out = truncateTitleCore(malformed, 70);
+ expect(out.length).toBeLessThanOrEqual(70);
  });
 });
 
@@ -110,12 +131,18 @@ describe('composeJobPageTitle', () => {
  expect(out.length).toBeLessThanOrEqual(MAX);
  });
 
- it('drops the brand suffix when headline alone is too long for the 70-char cap', () => {
+ it('keeps the brand suffix even when headline is long, by truncating the core', () => {
+ // Universal policy: the brand suffix is ALWAYS appended; the headline is
+ // truncated to make room for it. This guarantees <title> ≠ <h1>
+ // (h1 has no brand suffix), preventing audit:h1-title-duplicates regressions.
  const jobTitle = 'Very Long Senior Software Engineer Position with Specialty';
  const company = 'International Consulting Group AG';
  const out = composeJobPageTitle(jobTitle, company, 'Lugano', 'it');
- expect(out).not.toContain(SUFFIX);
- expect(out).toContain(jobTitle);
+ expect(out.endsWith(SUFFIX)).toBe(true);
+ expect(out.length).toBeLessThanOrEqual(MAX);
+ // City-preserving truncation keeps the trailing city token (the city is
+ // the disambiguator that prevents multi-sede titles from collapsing).
+ expect(out).toContain('Lugano');
  });
 
  it('includes the city in the headline', () => {
@@ -150,6 +177,37 @@ describe('composeJobPageTitle', () => {
  it('handles empty company gracefully', () => {
  const out = composeJobPageTitle('Dev', '', 'Lugano', 'it');
  expect(out).toContain('Lugano');
+ });
+
+ it('caps the final <title> at 70 chars even when input contains malformed body content', () => {
+ // Regression: PR #36 removed the truncate net; jobs whose `city` field
+ // contained the full job description body produced 400+ char titles.
+ const jobTitle = 'Java Software Ingegnere';
+ const company = 'ALTEN Switzerland';
+ const malformedCity = ': Ticino, Switzerland.Availability to work on-site is required. What we offer youAt ALTEN you benefit from a permanent contract.';
+ const out = composeJobPageTitle(jobTitle, company, malformedCity, 'it');
+ expect(out.length).toBeLessThanOrEqual(MAX);
+ });
+
+ it('keeps multi-slug jobs distinct via disambiguator inside the 70-char cap', () => {
+ // Same role + company + city, two different per-locale slugs (e.g. a
+ // long original slug + a short hashed sibling). Disambiguator must land
+ // inside the cap so the audit:title-uniqueness gate stays green.
+ const a = composeJobPageTitle('Stage', 'Lidl', 'Lugano', 'it', 'stage-vendite-lidl-lugano-2026-cassiere-magazziniere');
+ const b = composeJobPageTitle('Stage', 'Lidl', 'Lugano', 'it', 'stage-vendite-lidl-lugano-2026-cassiere-magazziniere-213zbv');
+ expect(a).not.toBe(b);
+ expect(a.length).toBeLessThanOrEqual(MAX);
+ expect(b.length).toBeLessThanOrEqual(MAX);
+ // The 8-hex disambiguator must be present in both.
+ expect(a).toMatch(/\(#[0-9a-f]{8}\)/);
+ expect(b).toMatch(/\(#[0-9a-f]{8}\)/);
+ });
+
+ it('keeps the disambiguator even when jobTitle + company + city overflow the cap', () => {
+ const longJob = 'Specialist Senior Software Engineer Backend Distributed Systems';
+ const out = composeJobPageTitle(longJob, 'International Consulting Group AG', 'Lugano', 'it', 'unique-slug-token-xyz');
+ expect(out.length).toBeLessThanOrEqual(MAX);
+ expect(out).toMatch(/\(#[0-9a-f]{8}\)/);
  });
 });
 

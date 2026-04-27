@@ -40,6 +40,22 @@ import fs from 'node:fs';
 import np from 'node:path';
 import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
+import { buildTitleWithBrand, TITLE_BRAND_SUFFIX } from './titleSuffix';
+
+/**
+ * Strip any pre-existing " | Frontaliere Ticino" suffix from a callsite-
+ * provided title so it can be re-applied uniformly via buildTitleWithBrand
+ * (which guarantees the 70-char SERP cap and word-aware headline truncation).
+ *
+ * Many feature plugins ship copy bundles with the brand baked into the
+ * title string. Without this strip+re-apply, those titles bypass the cap
+ * and trip audit:title-length on long headlines.
+ */
+const BRAND_SUFFIX_RX = /\s*\|\s*Frontaliere Ticino\s*$/i;
+function normalizeShellTitle(rawTitle: string): string {
+  const stripped = String(rawTitle || '').replace(BRAND_SUFFIX_RX, '').trim();
+  return buildTitleWithBrand(stripped, TITLE_BRAND_SUFFIX);
+}
 
 /** Cached entry-asset resolution, keyed by distDir absolute path. */
 interface EntryAssets {
@@ -208,7 +224,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
 
   const simpleOpts: SimplePageOpts = {
     locale,
-    title,
+    title: normalizeShellTitle(title),
     description,
     canonicalUrl,
     robots,

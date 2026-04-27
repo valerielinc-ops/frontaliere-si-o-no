@@ -853,7 +853,7 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
   it: {
     breadcrumbHome: 'Home',
     h1Root: (y) => `Premi Cassa Malati ${y} per cantone e fascia d'età`,
-    h1Canton: (c, y) => `Premi Cassa Malati ${c} ${y}`,
+    h1Canton: (c, y) => `${c} — Premi Cassa Malati ${y}`,
     introRoot: (y) =>
       `Il sistema LAMal svizzero impone a ogni residente un'assicurazione malattia di base. I premi ${y} variano in modo significativo fra cantoni, regioni premio e fasce d'età: questa è la pagina hub del nostro monitor dei premi, con dati ufficiali UFSP/BAG aggiornati ogni anno. Per ogni cantone target (Ticino, Grigioni, Uri, Vallese, Zurigo come benchmark) forniamo una vista dettagliata della mediana, del minimo e del massimo premio mensile, suddivisi in 6 fasce d'età. I frontalieri che lavorano in Svizzera possono scegliere tra LAMal svizzera e SSN italiano grazie al diritto d'opzione: la pagina del cantone che abiti (o del cantone della tua sede di lavoro) è il punto di partenza per confrontare le casse. Ogni landing si collega al comparatore pre-filtrato dove puoi ottenere un preventivo personalizzato.`,
     introCanton: (c, m, min, max, y) =>
@@ -927,7 +927,7 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
   en: {
     breadcrumbHome: 'Home',
     h1Root: (y) => `Swiss health insurance premiums ${y} by canton and age`,
-    h1Canton: (c, y) => `Health insurance premiums ${c} ${y}`,
+    h1Canton: (c, y) => `${c} — Health insurance premiums ${y}`,
     introRoot: (y) =>
       `The Swiss LAMal system requires every resident to hold basic health insurance. ${y} premiums vary substantially by canton, premium region and age bracket: this hub is the entry point to our premium tracker, with official FOPH/BAG data refreshed annually. For each target canton (Ticino, Graubünden, Uri, Valais, Zurich as benchmark) we expose median, minimum and maximum monthly premium across 6 age brackets. Cross-border workers employed in Switzerland can choose between the Swiss LAMal and their home-country system under the "right of option" — the canton of your employer (or your residence canton) is the right starting point. Every landing links to the pre-filtered comparator where you can obtain a personalised quote.`,
     introCanton: (c, m, min, max, y) =>
@@ -1001,7 +1001,7 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
   de: {
     breadcrumbHome: 'Startseite',
     h1Root: (y) => `Krankenkassenprämien ${y} nach Kanton und Altersgruppe`,
-    h1Canton: (c, y) => `Krankenkassenprämien ${c} ${y}`,
+    h1Canton: (c, y) => `${c} — Krankenkassenprämien ${y}`,
     introRoot: (y) =>
       `Das Schweizer KVG verpflichtet jeden Einwohner zu einer Grundversicherung. Die Prämien ${y} variieren deutlich nach Kanton, Prämienregion und Altersgruppe: Diese Hub-Seite ist der Einstieg zu unserem Prämienmonitor mit amtlichen BAG/UFSP-Daten, jährlich aktualisiert. Für jeden Zielkanton (Tessin, Graubünden, Uri, Wallis, Zürich als Benchmark) zeigen wir Median, Minimum und Maximum der Monatsprämie in 6 Altersgruppen. Grenzgänger in der Schweiz können dank Optionsrecht zwischen Schweizer KVG und dem System ihres Wohnlandes wählen — der Kanton des Arbeitgebers (oder Ihr Wohnkanton) ist der beste Einstiegspunkt. Jede Seite verlinkt den vorgefilterten Vergleich für ein persönliches Angebot.`,
     introCanton: (c, m, min, max, y) =>
@@ -1075,7 +1075,7 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
   fr: {
     breadcrumbHome: 'Accueil',
     h1Root: (y) => `Primes d'assurance maladie ${y} par canton et tranche d'âge`,
-    h1Canton: (c, y) => `Primes assurance maladie ${c} ${y}`,
+    h1Canton: (c, y) => `${c} — Primes assurance maladie ${y}`,
     introRoot: (y) =>
       `Le système LAMal suisse oblige tout résident à souscrire une assurance maladie de base. Les primes ${y} varient sensiblement selon le canton, la région de prime et la tranche d'âge : cette page hub est le point d'entrée de notre moniteur des primes, avec des données officielles OFSP/BAG mises à jour chaque année. Pour chaque canton cible (Tessin, Grisons, Uri, Valais, Zurich comme référence) nous affichons la médiane, le minimum et le maximum de prime mensuelle pour 6 tranches d'âge. Les frontaliers travaillant en Suisse peuvent choisir entre la LAMal suisse et le système de leur État de résidence grâce au droit d'option — le canton de l'employeur (ou votre canton de résidence) est le bon point de départ. Chaque page renvoie au comparateur pré-filtré pour obtenir un devis personnalisé.`,
     introCanton: (c, m, min, max, y) =>
@@ -1295,17 +1295,30 @@ function renderLeafPage(inp: LeafInputs): string {
   // brackets to the same title. The verbose `ageLabel` ("giovani adulti
   // 19-25 anni" / "young adults age 19-25" / …) still appears in the H1,
   // intro and tables for human readers.
-  const ageShort = age === '56-plus' ? '56+' : age;
+  // Compact age tag — strip the locale-specific "jeunes-adultes-" /
+  // "young-adults-" / "junge-erwachsene-" prefix so the title fits the
+  // 48-char headline budget (after reserving 22 chars for the brand).
+  // Without this, fr cantons like "Appenzell Rhodes-Intérieures" pushed
+  // the age qualifier past the truncate boundary and 4 per-age pages per
+  // canton collapsed to the same title.
+  const ageShort = age === '56-plus'
+    ? '56+'
+    : age.replace(/^(?:jeunes-adultes|young-adults|junge-erwachsene|jugendliche|giovani-adulti|adulte|adult|adulto|erwachsene)-/, '');
   // Compact title format: drop the "anni"/"age"/"Jahre"/"ans" filler word so
-  // the canton label stays whole even after the | Frontaliere Ticino suffix
-  // chops at word boundary. Without this fix two cantons that share a prefix
-  // ("Appenzello Interno" / "Appenzello Esterno", "Basilea Citta" /
-  // "Basilea Campagna") collapsed to the same title after the 60-char clamp.
+  // The age token MUST come FIRST — even before the canton — so the universal
+  // 70-char cap (build-plugins/shared/titleSuffix.ts, which truncates the
+  // last ~22 chars to make room for " | Frontaliere Ticino") can never
+  // collapse two age brackets to the same prefix. We tried "{canton} —
+  // primes LAMal {ageShort} {year}" first, but for long fr canton names
+  // ("Appenzell Rhodes-Intérieures") the truncate amputated `{ageShort}`
+  // and the 4 per-age pages per canton collapsed to the same title.
+  // Order: age → canton → noun → year — `age` is unique per bracket and
+  // canton is the secondary disambiguator. Both stay inside the cap.
   const titleBase =
-    locale === 'it' ? `Premi LAMal ${ageShort} ${cantonLabel} ${year}`
-    : locale === 'en' ? `LAMal premiums ${ageShort} ${cantonLabel} ${year}`
-    : locale === 'de' ? `KVG-Prämien ${ageShort} ${cantonLabel} ${year}`
-    : `Primes LAMal ${ageShort} ${cantonLabel} ${year}`;
+    locale === 'it' ? `${ageShort} — ${cantonLabel}: premi LAMal ${year}`
+    : locale === 'en' ? `${ageShort} — ${cantonLabel}: LAMal premiums ${year}`
+    : locale === 'de' ? `${ageShort} — ${cantonLabel}: KVG-Prämien ${year}`
+    : `${ageShort} — ${cantonLabel}: primes LAMal ${year}`;
   const h1 =
     locale === 'it' ? `Confronto premi LAMal in ${cantonLabel} per la fascia ${ageLabel}`
     : locale === 'en' ? `LAMal premium comparison in ${cantonLabel} for ${ageLabel}`

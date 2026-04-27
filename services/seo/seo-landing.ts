@@ -404,7 +404,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'landing-net-comparison-2025-2026-within20km': {
- title: 'Confronto netto 2025 vs 2026 | Frontalieri entro 20 km',
+ title: 'Confronto netto 2025-2026 frontalieri entro 20 km',
  description: 'Confronta il netto annuo 2025 vs 2026 per frontalieri entro 20 km dal confine: simulazione aggiornata con confronto regime vecchio/nuovo.',
  keywords: 'confronto netto 2025 2026 frontalieri, frontalieri entro 20 km, calcolo tasse frontalieri 2026',
  ogTitle: 'Confronto netto 2025 vs 2026 (entro 20 km)',
@@ -430,7 +430,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'landing-net-comparison-2025-2026-over20km': {
- title: 'Confronto netto 2025 vs 2026 | Frontalieri oltre 20 km',
+ title: 'Confronto netto 2025-2026 frontalieri oltre 20 km',
  description: 'Confronta il netto annuo 2025 vs 2026 per frontalieri oltre 20 km dal confine: simulazione aggiornata con confronto regime vecchio/nuovo.',
  keywords: 'confronto netto 2025 2026 frontalieri oltre 20 km, calcolo tasse frontalieri oltre 20 km',
  ogTitle: 'Confronto netto 2025 vs 2026 (oltre 20 km)',
