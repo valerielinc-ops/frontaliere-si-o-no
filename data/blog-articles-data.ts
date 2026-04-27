@@ -7497,4 +7497,11 @@ export const ARTICLES = [
  image: '/images/blog/finanze-pubbliche-ticino-2026-preoccupazioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'premi-non-oltre-10-percento',
+ category: 'fiscale',
+ date: '2026-04-27T03:51:52.851Z',
+ image: '/images/blog/premi-non-oltre-10-percento.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2790,6 +2790,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.title': 'Finanze pubbliche Ticino: allarme commercialisti',
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.excerpt': 'L\'Ordine dei commercialisti del Canton Ticino esprime preoccupazione per le finanze pubbliche e il rischio di delocalizzazioni.',
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
+    'blog.article.premi-non-oltre-10-percento.title': 'Premi non oltre il 10%, il dato che dimezza i costi',
+    'blog.article.premi-non-oltre-10-percento.excerpt': 'Il governo ticinese integra nuovi dati e riduce i costi dell\'iniziativa a 130 milioni. De Pietro (SUPSI): \'Più impegno nel socio-sanitario\'',
+    'blog.article.premi-non-oltre-10-percento.imageAlt': 'Lago di Lugano con vista sulla città',
 };
 
 export default blogMetaIt;

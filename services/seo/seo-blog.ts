@@ -13843,6 +13843,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-non-oltre-10-percento': {
+    title: 'Premi non oltre il 10%, il dato che | Frontaliere Ticino',
+    description: 'Il governo ticinese riduce i costi dell\'iniziativa a 130 milioni. De Pietro (SUPSI): \'Più impegno nel socio-sanitario\'. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, oltre, dato, dimezza',
+    ogTitle: 'Premi non oltre il 10%, il dato che dimezza i costi',
+    ogDescription: 'Il governo ticinese riduce i costi dell\'iniziativa a 130 milioni. De Pietro (SUPSI): \'Più impegno nel socio-sanitario\'',
+    canonicalPath: '/articoli-frontaliere/premi-non-oltre-10-percento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi non oltre il 10%, il dato che dimezza i costi",
+      "description": "Il governo ticinese riduce i costi dell'iniziativa a 130 milioni. De Pietro (SUPSI): 'Più impegno nel socio-sanitario'. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/premi-non-oltre-10-percento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulla città"
+      },
+      "datePublished": "2026-04-27T03:51:52+00:00",
+      "dateModified": "2026-04-27T03:51:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/premi-non-oltre-10-percento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

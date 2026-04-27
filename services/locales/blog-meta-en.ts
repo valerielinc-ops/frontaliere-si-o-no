@@ -2790,6 +2790,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.title': 'Public finances in Ticino: accountants raise alarm',
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.excerpt': 'The Order of Chartered Accountants of the Canton of Ticino expresses concern over public finances and the risk of delocalizations.',
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.premi-non-oltre-10-percento.title': 'No more than 10% premiums, the data that halves costs',
+    'blog.article.premi-non-oltre-10-percento.excerpt': 'The Ticino government integrates new data and reduces the initiative\'s costs to 130 million francs. De Pietro (SUPSI): \'More commitment in the socio-health sector\'',
+    'blog.article.premi-non-oltre-10-percento.imageAlt': 'Lake Lugano with a view of the city',
 };
 
 export default blogMetaEn;

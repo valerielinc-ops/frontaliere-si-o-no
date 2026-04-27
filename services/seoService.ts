@@ -2190,6 +2190,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-contratto-lago-lands-lake-2026': { name: 'Contratto di Lago', path: '/articoli-frontaliere/contratto-lago-lands-lake-2026', parent: 'blog' },
     'blog-controlli-velocita-ticino-aprile-maggio': { name: 'Controlli velocità', path: '/articoli-frontaliere/controlli-velocita-ticino-aprile-maggio', parent: 'blog' },
     'blog-finanze-pubbliche-ticino-2026-preoccupazioni': { name: 'Finanze pubbliche', path: '/articoli-frontaliere/finanze-pubbliche-ticino-2026-preoccupazioni', parent: 'blog' },
+    'blog-premi-non-oltre-10-percento': { name: 'Fiscale', path: '/articoli-frontaliere/premi-non-oltre-10-percento', parent: 'blog' },
  };
 
  const info = sectionNames[section];

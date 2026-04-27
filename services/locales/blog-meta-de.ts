@@ -2790,6 +2790,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.title': 'Öffentliche Finanzen im Tessin: Warnung der Treuhänder',
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.excerpt': 'Der Treuhänderverband des Kantons Tessin äussert Bedenken bezüglich der öffentlichen Finanzen und dem Risiko von Abwanderungen.',
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.imageAlt': 'Luganersee mit Bergen im Hintergrund',
+    'blog.article.premi-non-oltre-10-percento.title': 'Prämien nicht über 10%, die Daten, die die Kosten halbieren',
+    'blog.article.premi-non-oltre-10-percento.excerpt': 'Die Regierung des Tessin integriert neue Daten und reduziert die Kosten der Initiative auf 130 Millionen Franken. De Pietro (SUPSI): \'Mehr Engagement im sozio-sanitären Bereich\'',
+    'blog.article.premi-non-oltre-10-percento.imageAlt': 'Luganersee mit Blick auf die Stadt',
 };
 
 export default blogMetaDe;

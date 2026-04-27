@@ -2790,6 +2790,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.title': 'Finances publiques du Tessin : alerte des experts-comptables',
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.excerpt': 'L\'Ordre des experts-comptables du canton du Tessin exprime des inquiétudes quant aux finances publiques et au risque de délocalisations.',
     'blog.article.finanze-pubbliche-ticino-2026-preoccupazioni.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.premi-non-oltre-10-percento.title': 'Des primes ne dépassant pas 10 %, la donnée qui divise les coûts par deux',
+    'blog.article.premi-non-oltre-10-percento.excerpt': 'Le gouvernement tessinois intègre de nouvelles données et réduit les coûts de l\'initiative à 130 millions. De Pietro (SUPSI) : \'Plus d\'engagement dans le socio-sanitaire\'',
+    'blog.article.premi-non-oltre-10-percento.imageAlt': 'Lac de Lugano avec vue sur la ville',
 };
 
 export default blogMetaFr;

@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 976,
+ "numberOfItems": 977,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5700,7 +5700,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 973, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/ex-gas-macello-residenze-secondarie` },
           { "@type": "ListItem", "position": 974, "name": "Contratto di Lago: Lands Lake chiama a confront...", "url": `${BASE_URL}/articoli-frontaliere/contratto-lago-lands-lake-2026` },
           { "@type": "ListItem", "position": 975, "name": "Radar in Ticino: controlli dal 27 aprile al 3 m...", "url": `${BASE_URL}/articoli-frontaliere/controlli-velocita-ticino-aprile-maggio` },
-          { "@type": "ListItem", "position": 976, "name": "Finanze pubbliche Ticino: allarme commercialisti", "url": `${BASE_URL}/articoli-frontaliere/finanze-pubbliche-ticino-2026-preoccupazioni` }
+          { "@type": "ListItem", "position": 976, "name": "Finanze pubbliche Ticino: allarme commercialisti", "url": `${BASE_URL}/articoli-frontaliere/finanze-pubbliche-ticino-2026-preoccupazioni` },
+          { "@type": "ListItem", "position": 977, "name": "Premi non oltre il 10%, il dato che dimezza i c...", "url": `${BASE_URL}/articoli-frontaliere/premi-non-oltre-10-percento` }
  ]
  },
  {
