@@ -341,14 +341,14 @@ jobs:
         if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome != 'success'
         run: exit 1
 
-      - name: Wait for GitHub Pages CDN propagation (90s)
+      - name: Wait for GitHub Pages CDN propagation
         # `actions/deploy-pages` returns success the moment the artifact is
-        # registered, but the CDN edge can serve stale HTML for 1-2 minutes.
-        # Probing immediately yields false positives (old slugs still cached)
-        # and false negatives (new slugs not yet live). 90s covers the typical
-        # propagation window without slowing deploys excessively.
+        # registered, but the Fastly edge in front of GitHub Pages can serve
+        # the previous HTML for ~1-2 minutes. Polls the live /build-id.txt and
+        # returns as soon as it matches the local dist/build-id.txt — usually
+        # 15-60s, instead of a blind sleep.
         if: success()
-        run: sleep 90
+        run: node scripts/wait-for-pages-propagation.mjs
 
       - name: Post-deploy availability probe (4XX/5XX)
         # Same script as production-canary.yml — runs after every deploy so a
