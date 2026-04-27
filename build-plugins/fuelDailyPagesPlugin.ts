@@ -2529,6 +2529,52 @@ const IT_CITY_COPY: Record<FuelDailyLocale, ItalianCityCopy> = {
   },
 };
 
+/**
+ * Extra frontalier-context prose for Italian city/today fuel pages. The
+ * pages have a heavy multi-range SVG chart (~30 KB markup) plus a
+ * structured-data table that pushed the text/HTML ratio under 10 %
+ * despite the existing 3-paragraph context section. This adds 2 more
+ * paragraphs covering Italian fuel-tax mechanics and concrete commute
+ * math interpolating cityDisplay/nearestZoneLabel/minPriceFmt.
+ */
+function renderItalianCityFrontalierExtra(args: {
+  locale: FuelDailyLocale;
+  fuelLabel: string;
+  cityDisplay: string;
+  nearestZoneLabel: string;
+  minPriceFmt: string;
+}): string {
+  const { locale, fuelLabel, cityDisplay, nearestZoneLabel, minPriceFmt } = args;
+  const copy: Record<FuelDailyLocale, { h: string; p1: string; p2: string }> = {
+    it: {
+      h: `${fuelLabel} a ${cityDisplay}: matematica del pendolarismo per i frontalieri`,
+      p1: `La struttura del prezzo del ${fuelLabel.toLowerCase()} in Italia rende ${cityDisplay} un punto di riferimento utile per pianificare i rifornimenti del frontaliere. Il prezzo industriale (legato a Brent e cambio EUR/USD) rappresenta circa il 40 % del finale; le accise — fissate a circa 0,617 EUR/litro per la benzina e 0,617 EUR/litro per il gasolio dopo l'allineamento del 2024 — pesano per un altro 35 %; l'IVA al 22 % chiude il calcolo. Quando il prezzo industriale scende, l'effetto si propaga in 3-5 giorni alla pompa: le pagine come questa per ${cityDisplay} sono utili proprio per cogliere queste finestre temporali. Il minimo di oggi a ${cityDisplay} (${minPriceFmt} EUR/litro) va confrontato con la media del lato svizzero in zona ${nearestZoneLabel} per decidere se conviene rifornirsi prima del confine o sul rientro.`,
+      p2: `Calcolo concreto per chi pendola da ${cityDisplay} verso il Ticino. Su un anno tipico (220 giorni lavorativi × 60 km medi andata-ritorno = 13'200 km), un'auto con consumo di 6 L/100 km consuma circa 792 litri. A 0,15 EUR/litro di differenza tra Italia e Ticino significano CHF 119 all'anno (con CHF/EUR a 1,06); a 0,30 EUR/litro la differenza sale a CHF 238. Aggiungi a questa cifra l'usura del veicolo (~CHF 0,15/km su veicolo medio = CHF 1'980/anno), il bollo (CHF 200-400 a seconda della cilindrata), l'assicurazione RC (CHF 600-1'200), revisione e tagliandi (~CHF 600/anno) e il costo opportunità del tempo perso ai valichi (30 minuti × 220 giorni × tariffa oraria del proprio salario): la voce carburante pesa solitamente solo per il 15-25 % del costo totale del pendolarismo. Per il calcolo netto-lordo dello stipendio considerando questi costi reali apri il <a href="${BASE_URL}/calcola-stipendio/" style="color:var(--color-link)">simulatore stipendio frontaliere</a>.`,
+    },
+    en: {
+      h: `${fuelLabel} in ${cityDisplay}: cross-border worker commute math`,
+      p1: `The price structure of ${fuelLabel.toLowerCase()} in Italy makes ${cityDisplay} a useful reference point for cross-border worker refuelling planning. The industrial price (linked to Brent and the EUR/USD rate) represents about 40 % of the final price; excise duties — set at roughly 0.617 EUR/litre for petrol and 0.617 EUR/litre for diesel after the 2024 alignment — weigh another 35 %; 22 % VAT closes the calculation. When the industrial price drops, the effect propagates to the pump in 3-5 days: pages like this one for ${cityDisplay} help spot those windows. Today's minimum in ${cityDisplay} (${minPriceFmt} EUR/litre) should be compared with the Swiss-side average in the ${nearestZoneLabel} zone to decide whether to refuel before crossing the border or on the way home.`,
+      p2: `Concrete maths for someone commuting from ${cityDisplay} into Ticino. Across a typical year (220 working days × 60 km round-trip on average = 13,200 km), a car with 6 L/100 km consumption uses about 792 litres. A 0.15 EUR/litre gap between Italy and Ticino means CHF 119 per year (CHF/EUR at 1.06); a 0.30 EUR/litre gap doubles it to CHF 238. Add vehicle wear (~CHF 0.15/km on a mid-segment car = CHF 1,980/year), road tax (CHF 200-400 depending on engine size), liability insurance (CHF 600-1,200), inspection and servicing (~CHF 600/year) and the opportunity cost of time lost at the border (30 minutes × 220 days × your hourly rate): fuel typically accounts for only 15-25 % of total commute cost. For the gross-to-net calculation including these real costs use the <a href="${BASE_URL}/en/calculate-salary/" style="color:var(--color-link)">cross-border salary simulator</a>.`,
+    },
+    de: {
+      h: `${fuelLabel} in ${cityDisplay}: Pendel-Mathematik für Grenzgänger`,
+      p1: `Die Preisstruktur des ${fuelLabel.toLowerCase()} in Italien macht ${cityDisplay} zu einem nützlichen Referenzpunkt für die Tankplanung von Grenzgängern. Der Industriepreis (gekoppelt an Brent und EUR/USD-Kurs) macht etwa 40 % des Endpreises aus; die Verbrauchsteuern — nach der Angleichung 2024 auf rund 0,617 EUR/Liter für Benzin und 0,617 EUR/Liter für Diesel festgelegt — wiegen weitere 35 %; 22 % MwSt. schliessen die Rechnung ab. Wenn der Industriepreis sinkt, wirkt sich das in 3-5 Tagen an der Tankstelle aus: Seiten wie diese für ${cityDisplay} helfen genau dabei, diese Fenster zu erkennen. Der heutige Mindestpreis in ${cityDisplay} (${minPriceFmt} EUR/Liter) sollte mit dem Schweizer Durchschnitt in der Zone ${nearestZoneLabel} verglichen werden, um zu entscheiden, ob vor dem Grenzübergang oder auf der Rückfahrt zu tanken ist.`,
+      p2: `Konkrete Rechnung für Pendler von ${cityDisplay} ins Tessin. Über ein typisches Jahr (220 Arbeitstage × 60 km Hin- und Rückfahrt im Durchschnitt = 13'200 km) verbraucht ein Auto mit 6 L/100 km rund 792 Liter. Eine Differenz von 0,15 EUR/Liter zwischen Italien und Tessin bedeutet CHF 119 pro Jahr (CHF/EUR bei 1,06); eine Differenz von 0,30 EUR/Liter verdoppelt das auf CHF 238. Hinzu kommen Fahrzeugverschleiss (~CHF 0,15/km auf einem Mittelklassewagen = CHF 1'980/Jahr), Motorfahrzeugsteuer (CHF 200-400 je nach Hubraum), Haftpflichtversicherung (CHF 600-1'200), Abgaswartung und Service (~CHF 600/Jahr) und die Opportunitätskosten der Wartezeit an der Grenze (30 Minuten × 220 Tage × Stundensatz Ihres Lohns): Treibstoff macht typischerweise nur 15-25 % der gesamten Pendelkosten aus. Für die Brutto-Netto-Berechnung des Lohns inklusive dieser realen Kosten nutzen Sie den <a href="${BASE_URL}/de/gehalt-berechnen/" style="color:var(--color-link)">Grenzgänger-Lohnsimulator</a>.`,
+    },
+    fr: {
+      h: `${fuelLabel} à ${cityDisplay} : mathématique du trajet pour les frontaliers`,
+      p1: `La structure du prix du ${fuelLabel.toLowerCase()} en Italie fait de ${cityDisplay} un point de référence utile pour la planification des pleins du frontalier. Le prix industriel (lié au Brent et au taux EUR/USD) représente environ 40 % du prix final ; les accises — fixées à environ 0,617 EUR/litre pour l'essence et 0,617 EUR/litre pour le diesel après l'alignement 2024 — pèsent encore 35 % ; la TVA à 22 % ferme le calcul. Lorsque le prix industriel baisse, l'effet se propage à la pompe en 3-5 jours : des pages comme celle-ci pour ${cityDisplay} aident précisément à saisir ces fenêtres. Le minimum d'aujourd'hui à ${cityDisplay} (${minPriceFmt} EUR/litre) doit être comparé à la moyenne suisse de la zone ${nearestZoneLabel} pour décider s'il convient de faire le plein avant la frontière ou au retour.`,
+      p2: `Calcul concret pour quelqu'un qui pendule depuis ${cityDisplay} vers le Tessin. Sur une année typique (220 jours ouvrables × 60 km aller-retour en moyenne = 13'200 km), une voiture avec une consommation de 6 L/100 km consomme environ 792 litres. Un écart de 0,15 EUR/litre entre l'Italie et le Tessin représente CHF 119 par an (CHF/EUR à 1,06) ; un écart de 0,30 EUR/litre le double à CHF 238. Ajoutez l'usure du véhicule (~CHF 0,15/km sur une voiture milieu de gamme = CHF 1'980/an), la taxe de circulation (CHF 200-400 selon la cylindrée), l'assurance responsabilité civile (CHF 600-1'200), le contrôle technique et l'entretien (~CHF 600/an) et le coût d'opportunité du temps perdu à la frontière (30 minutes × 220 jours × votre taux horaire) : le carburant ne représente typiquement que 15-25 % du coût total du trajet. Pour le calcul brut-net du salaire incluant ces coûts réels, utilisez le <a href="${BASE_URL}/fr/calculer-salaire/" style="color:var(--color-link)">simulateur de salaire frontalier</a>.`,
+    },
+  };
+  const c = copy[locale] || copy.it;
+  return `<section style="margin:0 0 24px" aria-labelledby="itCityFrontalierExtra">
+    <h2 id="itCityFrontalierExtra" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${c.p1}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${c.p2}</p>
+  </section>`;
+}
+
 function renderItalianCityPage(opts: {
   entry: ItalianCityEntry;
   locale: FuelDailyLocale;
@@ -2742,6 +2788,7 @@ function renderItalianCityPage(opts: {
       ${copy.tipsItems.map((t) => `<li style="margin:0 0 8px">${esc(t)}</li>`).join('')}
     </ul>
   </section>
+  ${renderItalianCityFrontalierExtra({ locale, fuelLabel, cityDisplay: entry.display, nearestZoneLabel, minPriceFmt })}
   <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="${LINK_ACCENT_STYLE};font-weight:600">→ ${esc(copy.backLink)} (${esc(nearestZoneLabel)})</a></p>
   ${generateRelatedLinksBlock(locale, 'fuel_italian_city', {
     fuelType: fuel,
