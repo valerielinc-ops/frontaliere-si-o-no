@@ -6809,6 +6809,10 @@ ${hreflangLinks}
  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(baseSlug)};</script>`;
  const bridgeHtml = baseHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
  for (const foreignSlug of foreignSlugs) {
+ // Sector/city hubs win over cross-locale reconciliation — same
+ // rationale as the active-jobs block (jobSectorPagesPlugin owns
+ // these paths).
+ if (RESERVED_HUB_SLUGS.has(foreignSlug)) continue;
  const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Active job wins if a live page already occupies this path.
@@ -6869,6 +6873,13 @@ ${hreflangLinks}
 
  for (const oldSlug of prevSlugsForLocale) {
  if (oldSlug === currentSlug) continue;
+ // Skip bridge generation when the previousSlug is a reserved sector/city
+ // hub. A real job (e.g. infermieri-lis-lugano-istituti-sociali-lugano) has
+ // 'infermieri' in its previousSlugs as a GSC-imported generic alias —
+ // emitting a bridge at /cerca-lavoro-ticino/infermieri/ clobbers
+ // jobSectorPagesPlugin's curated sector hub at the same path and sends
+ // both users and Google to a job soft-landing instead of the canonical hub.
+ if (RESERVED_HUB_SLUGS.has(oldSlug)) continue;
  const oldPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${oldSlug}`.replace(/\/+/g, '/');
  const oldRelPath = oldPath.replace(/^\//, '');
  // Skip if an active job page already occupies this path (buffered writes
@@ -6946,6 +6957,10 @@ ${hreflangLinks}
  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(baseSlug)};</script>`;
  const bridgeHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
  for (const foreignSlug of foreignSlugs) {
+ // Skip cross-locale reconciliation when the foreign slug is a
+ // reserved sector/city hub (same rationale as the previousSlugs
+ // guard above — protects jobSectorPagesPlugin's curated hubs).
+ if (RESERVED_HUB_SLUGS.has(foreignSlug)) continue;
  const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Skip if an active job page already occupies this path (another
