@@ -2196,6 +2196,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-treno-guasto-bellinzona-2026': { name: 'Novità', path: '/articoli-frontaliere/treno-guasto-bellinzona-2026', parent: 'blog' },
     'blog-elezioni-como-frontalieri-2026': { name: 'Elezioni Como', path: '/articoli-frontaliere/elezioni-como-frontalieri-2026', parent: 'blog' },
     'blog-teatro-architettura-mendrisio-stagione-2026': { name: 'Cultura', path: '/articoli-frontaliere/teatro-architettura-mendrisio-stagione-2026', parent: 'blog' },
+    'blog-frontalieri-arresto-maggia-truffa': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-arresto-maggia-truffa', parent: 'blog' },
  };
 
  const info = sectionNames[section];

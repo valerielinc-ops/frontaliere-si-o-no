@@ -7539,4 +7539,11 @@ export const ARTICLES = [
  image: '/images/blog/teatro-architettura-mendrisio-stagione-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-arresto-maggia-truffa',
+ category: 'novita',
+ date: '2026-04-27T05:40:25.587Z',
+ image: '/images/blog/frontalieri-arresto-maggia-truffa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

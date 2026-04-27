@@ -14017,6 +14017,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-arresto-maggia-truffa': {
+    title: 'Arrestato truffatore a Maggia: frode | Frontaliere Ticino',
+    description: 'Un truffatore è stato arrestato a Maggia dopo essere stato colto in flagrante durante una frode telefonica. Scopri i dettagli dell\'operazione e come',
+    keywords: 'frontalieri, ticino, svizzera, italia, arrestato, truffatore, maggia, frode',
+    ogTitle: 'Arrestato truffatore a Maggia: frode con schockanruf',
+    ogDescription: 'Un truffatore è stato arrestato a Maggia dopo essere stato colto in flagrante durante una frode telefonica. Scopri i dettagli dell\'operazione e come',
+    canonicalPath: '/articoli-frontaliere/frontalieri-arresto-maggia-truffa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Arrestato truffatore a Maggia: frode con schockanruf",
+      "description": "Un truffatore è stato arrestato a Maggia dopo essere stato colto in flagrante durante una frode telefonica. Scopri i dettagli dell'operazione e come",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-arresto-maggia-truffa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Maggia, Ticino, Svizzera, vista del fiume Maggia e del centro del paese"
+      },
+      "datePublished": "2026-04-27T05:40:25+00:00",
+      "dateModified": "2026-04-27T05:40:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-arresto-maggia-truffa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

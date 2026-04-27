@@ -2808,6 +2808,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.teatro-architettura-mendrisio-stagione-2026.title': 'Teatro dell\'Architettura: stagione espositiva a tre punte',
     'blog.article.teatro-architettura-mendrisio-stagione-2026.excerpt': 'La stagione espositiva del Teatro dell\'Architettura di Mendrisio si articola in tre mostre distinte, offrendo un panorama variegato di architettura e design.',
     'blog.article.teatro-architettura-mendrisio-stagione-2026.imageAlt': 'Teatro dell\'Architettura a Mendrisio durante una mostra',
+    'blog.article.frontalieri-arresto-maggia-truffa.title': 'Arrestato truffatore a Maggia: frode con schockanruf',
+    'blog.article.frontalieri-arresto-maggia-truffa.excerpt': 'Un truffatore è stato arrestato a Maggia dopo essere stato colto in flagrante durante una frode telefonica. Scopri i dettagli dell\'operazione.',
+    'blog.article.frontalieri-arresto-maggia-truffa.imageAlt': 'Maggia, Ticino, Svizzera, vista del fiume Maggia e del centro del paese',
 };
 
 export default blogMetaIt;
