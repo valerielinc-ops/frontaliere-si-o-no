@@ -15583,6 +15583,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-universita-ticino-tagli-contributi-2026': {
+    title: 'Tagli ai contributi e numero chiuso | Frontaliere Ticino',
+    description: 'L\'USI taglia i posti per studenti esteri e raddoppia le rette. Dal 2027 tagli federali alle università. Cosa cambia per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tagli, contributi, numero, chiuso',
+    ogTitle: 'Tagli USI 2026: rette raddoppiate e numero chiuso |',
+    ogDescription: 'L\'USI taglia i posti per studenti esteri e raddoppia le rette. Dal 2027 tagli federali alle università. Cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/universita-ticino-tagli-contributi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Tagli USI 2026: rette raddoppiate",
+      "description": "L'USI taglia i posti per studenti esteri e raddoppia le rette. Dal 2027 tagli federali alle università. Cosa cambia per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/universita-ticino-tagli-contributi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Università della Svizzera italiana a Lugano, vista esterna con studenti"
+      },
+      "datePublished": "2026-04-27T14:48:18+00:00",
+      "dateModified": "2026-04-27T14:48:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/universita-ticino-tagli-contributi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

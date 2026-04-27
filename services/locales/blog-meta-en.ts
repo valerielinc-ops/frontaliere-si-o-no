@@ -2970,6 +2970,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-tedeschi-turismo-2026.title': 'Ticino increasingly loved by Germans: record number of tourists in 2025',
     'blog.article.ticino-tedeschi-turismo-2026.excerpt': 'Over 450,000 overnight stays in 2025, with an 8.2% increase compared to 2024. Discover how Ticino attracts German tourists.',
     'blog.article.ticino-tedeschi-turismo-2026.imageAlt': 'Lugano skyline with Lake Ceresio and surrounding mountains',
+    'blog.article.universita-ticino-tagli-contributi-2026.title': 'Cuts to contributions and limited spots: what changes at USI',
+    'blog.article.universita-ticino-tagli-contributi-2026.excerpt': 'The University of Italian Switzerland reduces spots for international students. Tuition doubled for those coming from abroad. Federal cuts starting in 2027.',
+    'blog.article.universita-ticino-tagli-contributi-2026.imageAlt': 'University of Italian Switzerland in Lugano, exterior view with students',
 };
 
 export default blogMetaEn;

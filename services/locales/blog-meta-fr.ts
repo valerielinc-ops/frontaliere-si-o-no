@@ -2970,6 +2970,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-tedeschi-turismo-2026.title': 'Le Tessin de plus en plus apprécié par les Allemands : record de touristes en 2025',
     'blog.article.ticino-tedeschi-turismo-2026.excerpt': 'Plus de 450.000 nuitées en 2025, avec une croissance de 8,2% par rapport à 2024. Découvrez comment le Tessin attire les touristes allemands.',
     'blog.article.ticino-tedeschi-turismo-2026.imageAlt': 'Panorama de Lugano avec le lac de Ceresio et les montagnes environnantes',
+    'blog.article.universita-ticino-tagli-contributi-2026.title': 'Réduction des contributions et nombre limité : ce qui change à l\'USI',
+    'blog.article.universita-ticino-tagli-contributi-2026.excerpt': 'L\'Université de la Suisse italienne réduit les places pour les étudiants étrangers. Les frais de scolarité doublent pour ceux qui viennent de l\'étranger. Des coupes fédérales à partir de 2027.',
+    'blog.article.universita-ticino-tagli-contributi-2026.imageAlt': 'Université de la Suisse italienne à Lugano, vue extérieure avec étudiants',
 };
 
 export default blogMetaFr;

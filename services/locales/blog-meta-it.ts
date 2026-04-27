@@ -2970,6 +2970,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-tedeschi-turismo-2026.title': 'Ticino sempre più amato dai tedeschi: record di turisti nel 2025',
     'blog.article.ticino-tedeschi-turismo-2026.excerpt': 'Oltre 450.000 pernottamenti nel 2025, con una crescita dell\'8,2% rispetto al 2024. Scopri come il Ticino attira i turisti tedeschi.',
     'blog.article.ticino-tedeschi-turismo-2026.imageAlt': 'Panorama di Lugano con il Lago Ceresio e le montagne circostanti',
+    'blog.article.universita-ticino-tagli-contributi-2026.title': 'Tagli ai contributi e numero chiuso: cosa cambia all\'USI',
+    'blog.article.universita-ticino-tagli-contributi-2026.excerpt': 'L\'Università della Svizzera italiana riduce i posti per studenti esteri. Retta raddoppiata per chi viene dall\'estero. Dal 2027 tagli federali.',
+    'blog.article.universita-ticino-tagli-contributi-2026.imageAlt': 'Università della Svizzera italiana a Lugano, vista esterna con studenti',
 };
 
 export default blogMetaIt;
