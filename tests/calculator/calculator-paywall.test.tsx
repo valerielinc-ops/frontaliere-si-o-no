@@ -252,7 +252,10 @@ describe('CalculatorPaywall — render + interaction', () => {
     // Note: example.com is in EmailInput's FAKE_DOMAINS blocklist — use a real
     // common domain so validateEmailStrict returns valid.
     fireEvent.change(input, { target: { value: 'user@gmail.com' } });
-    const form = container.querySelector('form');
+    // CalculatorPaywall renders via createPortal into document.body — the
+    // form is therefore NOT inside the test render `container`. Query the
+    // portal target directly to find it.
+    const form = document.body.querySelector('form');
     expect(form).not.toBeNull();
     fireEvent.submit(form!);
 
@@ -289,7 +292,10 @@ describe('CalculatorPaywall — render + interaction', () => {
     fireEvent.change(input, { target: { value: 'not-an-email' } });
     // Dispatch a submit directly on the form — bypasses browser-level
     // `type="email"` constraint validation that otherwise blocks the click path.
-    const form = container.querySelector('form');
+    // CalculatorPaywall renders via createPortal into document.body — the
+    // form is therefore NOT inside the test render `container`. Query the
+    // portal target directly to find it.
+    const form = document.body.querySelector('form');
     expect(form).not.toBeNull();
     fireEvent.submit(form!);
     await waitFor(() => {
