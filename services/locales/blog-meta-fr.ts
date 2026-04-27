@@ -3131,6 +3131,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-ambulatorio-ecocardiografia-busto-arsizio.title': 'Nouveau cabinet d\'écho à Busto Arsizio: ouverture le 7 mai',
     'blog.article.nuovo-ambulatorio-ecocardiografia-busto-arsizio.excerpt': 'À partir du 7 mai, un nouveau service d\'écho sera disponible à la Maison de la Communauté de Busto Arsizio, sur rendez-vous avec une ordonnance médicale.',
     'blog.article.nuovo-ambulatorio-ecocardiografia-busto-arsizio.imageAlt': 'Nouvel ambulatorio d\'échocardiographie à Busto Arsizio',
+    'blog.article.velafrica-bici-usate-lugano-2026.title': 'Velafrica revient à Lugano : un nouveau souffle pour les vélos usagés',
+    'blog.article.velafrica-bici-usate-lugano-2026.excerpt': 'Le projet Velafrica revient dans la région de Lugano pour donner une seconde vie aux vélos usagés. Une initiative qui implique la communauté et promeut la durabilité.',
+    'blog.article.velafrica-bici-usate-lugano-2026.imageAlt': 'Point de collecte de vélos usagés à Lugano, avec le lac de Lugano en arrière-plan et des personnes participant à l\'initiative',
 };
 
 export default blogMetaFr;

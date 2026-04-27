@@ -17236,6 +17236,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-velafrica-bici-usate-lugano-2026': {
+    title: 'Velafrica torna nel Luganese: seconda vita per le bici usate',
+    description: 'Il progetto Velafrica ritorna nel Luganese per dare una seconda vita alle biciclette usate. Un\'iniziativa che coinvolge la comunità e promuove la sostenibilità',
+    keywords: 'frontalieri, ticino, svizzera, italia, velafrica, torna, luganese, seconda',
+    ogTitle: 'Velafrica torna nel Luganese: seconda vita per le bici usate',
+    ogDescription: 'Il progetto Velafrica ritorna nel Luganese per dare una seconda vita alle biciclette usate. Un\'iniziativa che coinvolge la comunità e promuove la sostenibilità',
+    canonicalPath: '/articoli-frontaliere/velafrica-bici-usate-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Velafrica torna nel Luganese: seconda vita per le bici usate",
+      "description": "Il progetto Velafrica ritorna nel Luganese per dare una seconda vita alle biciclette usate. Un'iniziativa che coinvolge la comunità e promuove la sostenibilità",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/velafrica-bici-usate-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Punto di raccolta biciclette usate a Lugano, con sfondo del lago e persone che partecipano all'iniziativa"
+      },
+      "datePublished": "2026-04-27T22:10:56+00:00",
+      "dateModified": "2026-04-27T22:10:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/velafrica-bici-usate-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

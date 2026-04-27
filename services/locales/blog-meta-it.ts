@@ -3131,6 +3131,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-ambulatorio-ecocardiografia-busto-arsizio.title': 'Nuovo ambulatorio di ecocardiografia a Busto Arsizio: apertura il 7 maggio',
     'blog.article.nuovo-ambulatorio-ecocardiografia-busto-arsizio.excerpt': 'Dal 7 maggio, un nuovo servizio di ecocardiografia sarà disponibile presso la Casa di Comunità di Busto Arsizio, su prenotazione con impegnativa medica.',
     'blog.article.nuovo-ambulatorio-ecocardiografia-busto-arsizio.imageAlt': 'Nuovo ambulatorio di ecocardiografia a Busto Arsizio',
+    'blog.article.velafrica-bici-usate-lugano-2026.title': 'Velafrica torna nel Luganese: seconda vita per le bici usate',
+    'blog.article.velafrica-bici-usate-lugano-2026.excerpt': 'Il progetto Velafrica ritorna nel Luganese per dare una seconda vita alle biciclette usate. Un\'iniziativa che coinvolge la comunità e promuove la sostenibilità',
+    'blog.article.velafrica-bici-usate-lugano-2026.imageAlt': 'Punto di raccolta biciclette usate a Lugano, con sfondo del lago e persone che partecipano all\'iniziativa',
 };
 
 export default blogMetaIt;

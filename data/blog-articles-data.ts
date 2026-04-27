@@ -8316,4 +8316,11 @@ export const ARTICLES = [
  image: '/images/blog/nuovo-ambulatorio-ecocardiografia-busto-arsizio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'velafrica-bici-usate-lugano-2026',
+ category: 'novita',
+ date: '2026-04-27T22:10:56.450Z',
+ image: '/images/blog/velafrica-bici-usate-lugano-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
