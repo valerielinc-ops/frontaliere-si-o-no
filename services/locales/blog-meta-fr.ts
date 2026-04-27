@@ -3092,6 +3092,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.zurigo-economia-svizzera-crescita.title': 'Zurich domine l\'économie suisse mais croît moins que la moyenne',
     'blog.article.zurigo-economia-svizzera-crescita.excerpt': 'Zurich génère 21% du PIB suisse mais ne croît que de 1,3% par an, moins que la moyenne nationale de 1,7%.',
     'blog.article.zurigo-economia-svizzera-crescita.imageAlt': 'Vue aérienne du quartier financier de Zurich avec le lac de Zurich en arrière-plan',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.title': 'Un 58 ans arrêté après avoir roulé à 127 km/h en trottinette',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.excerpt': 'Un homme de 58 ans a été arrêté par la police après avoir atteint 127 km/h sur une trottinette électrique à Lugano',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.imageAlt': 'Un homme de 58 ans fuit à Lugano sur un trottinette électrique',
 };
 
 export default blogMetaFr;

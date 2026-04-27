@@ -3091,6 +3091,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.zurigo-economia-svizzera-crescita.title': 'Zurich leads Swiss economy but grows below average',
     'blog.article.zurigo-economia-svizzera-crescita.excerpt': 'Zurich generates 21% of Switzerland\'s GDP but grows only 1.3% annually, below the national average of 1.7%.',
     'blog.article.zurigo-economia-svizzera-crescita.imageAlt': 'Aerial view of Zurich\'s financial district with Lake Zurich in the background',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.title': '58-year-old flees on electric scooter at 127 km/h, stopped by police',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.excerpt': 'A 58-year-old was stopped by the police after reaching 127 km/h on an electric scooter in Lugano',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.imageAlt': '58-year-old man fleeing on an e-scooter in Lugano',
 };
 
 export default blogMetaEn;

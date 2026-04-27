@@ -16859,6 +16859,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-trottinetti-velocita-polizia': {
+    title: '58enne fugge in trottinetti a 127 km/h e viene fermato dalla polizia',
+    description: 'Un 58enne è stato fermato dalla polizia dopo aver raggiunto i 127 km/h su un trottinetti elettrico a Lugano. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, 58enne, fugge, trottinetti, viene',
+    ogTitle: '58enne fugge in trottinetti a 127 km/h e viene fermato dalla polizia',
+    ogDescription: 'Un 58enne è stato fermato dalla polizia dopo aver raggiunto i 127 km/h su un trottinetti elettrico a Lugano. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-trottinetti-velocita-polizia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "58enne fugge in trottinetti a 127 km/h e viene fermato dalla polizia",
+      "description": "Un 58enne è stato fermato dalla polizia dopo aver raggiunto i 127 km/h su un trottinetti elettrico a Lugano. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-trottinetti-velocita-polizia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uomo di 58 anni fugge in trottinetti elettrico a Lugano"
+      },
+      "datePublished": "2026-04-27T20:46:54+00:00",
+      "dateModified": "2026-04-27T20:46:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-trottinetti-velocita-polizia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

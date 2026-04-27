@@ -3092,6 +3092,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.zurigo-economia-svizzera-crescita.title': 'Zurigo guida l\'economia svizzera ma cresce meno della media',
     'blog.article.zurigo-economia-svizzera-crescita.excerpt': 'Zurigo genera il 21% del PIL svizzero ma cresce solo dell\'1,3% annuo, meno della media nazionale dell\'1,7%.',
     'blog.article.zurigo-economia-svizzera-crescita.imageAlt': 'Vista aerea del distretto finanziario di Zurigo con il Lago di Zurigo sullo sfondo',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.title': '58enne fugge in trottinetti a 127 km/h e viene fermato dalla polizia',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.excerpt': 'Un 58enne è stato fermato dalla polizia dopo aver raggiunto i 127 km/h su un trottinetti elettrico a Lugano',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.imageAlt': 'Uomo di 58 anni fugge in trottinetti elettrico a Lugano',
 };
 
 export default blogMetaIt;

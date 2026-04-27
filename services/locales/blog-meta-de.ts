@@ -3091,6 +3091,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.zurigo-economia-svizzera-crescita.title': 'Zürich führt Schweizer Wirtschaft, wächst aber unterdurchschnittlich',
     'blog.article.zurigo-economia-svizzera-crescita.excerpt': 'Zürich erzeugt 21% des Schweizer BIP, wächst aber nur um 1,3% pro Jahr, weniger als der nationale Durchschnitt von 1,7%.',
     'blog.article.zurigo-economia-svizzera-crescita.imageAlt': 'Luftaufnahme des Finanzdistrikts von Zürich mit dem Zürichsee im Hintergrund',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.title': '58-Jähriger flieht mit Tretroller auf 127 km/h und wird von der Polizei gestoppt',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.excerpt': 'Ein 58-Jähriger wurde von der Polizei gestoppt, nachdem er mit einem E-Tretroller in Lugano 127 km/h erreicht hatte',
+    'blog.article.frontalieri-trottinetti-velocita-polizia.imageAlt': '58-jähriger flüchtet mit E-Trottinett in Lugano',
 };
 
 export default blogMetaDe;

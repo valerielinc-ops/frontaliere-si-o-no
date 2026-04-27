@@ -8225,4 +8225,11 @@ export const ARTICLES = [
  image: '/images/blog/zurigo-economia-svizzera-crescita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-trottinetti-velocita-polizia',
+ category: 'novita',
+ date: '2026-04-27T20:46:54.413Z',
+ image: '/images/blog/frontalieri-trottinetti-velocita-polizia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

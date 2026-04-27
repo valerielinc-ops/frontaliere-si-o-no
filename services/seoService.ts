@@ -2291,6 +2291,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pedaggi-autostrada-lombardia-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/pedaggi-autostrada-lombardia-frontalieri', parent: 'blog' },
     'blog-semaforo-paradiso-melide-2026': { name: 'Semaforo Melide', path: '/articoli-frontaliere/semaforo-paradiso-melide-2026', parent: 'blog' },
     'blog-zurigo-economia-svizzera-crescita': { name: 'Economia Svizzera', path: '/articoli-frontaliere/zurigo-economia-svizzera-crescita', parent: 'blog' },
+    'blog-frontalieri-trottinetti-velocita-polizia': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-trottinetti-velocita-polizia', parent: 'blog' },
  };
 
  const info = sectionNames[section];
