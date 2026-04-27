@@ -2223,6 +2223,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-prevenzione-violenza-domestica-san-gallo-2026': { name: 'Prevenzione violenza', path: '/articoli-frontaliere/prevenzione-violenza-domestica-san-gallo-2026', parent: 'blog' },
     'blog-zurigo-economia-svizzera-crescita-media-2026': { name: 'Economia Svizzera', path: '/articoli-frontaliere/zurigo-economia-svizzera-crescita-media-2026', parent: 'blog' },
     'blog-swisscom-minacce-cyber-2026': { name: 'Novità', path: '/articoli-frontaliere/swisscom-minacce-cyber-2026', parent: 'blog' },
+    'blog-svizzera-istruzioni-uso-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-istruzioni-uso-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

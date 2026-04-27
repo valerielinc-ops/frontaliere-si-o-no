@@ -7728,4 +7728,11 @@ export const ARTICLES = [
  image: '/images/blog/swisscom-minacce-cyber-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-istruzioni-uso-2026',
+ category: 'novita',
+ date: '2026-04-27T11:23:55.415Z',
+ image: '/images/blog/svizzera-istruzioni-uso-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

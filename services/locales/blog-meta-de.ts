@@ -2889,6 +2889,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swisscom-minacce-cyber-2026.title': 'Swisscom warnt: Zunehmende Cyberbedrohungen bis 2026',
     'blog.article.swisscom-minacce-cyber-2026.excerpt': 'Der Schweizer Anbieter Swisscom meldet einen starken Anstieg der Cyberbedrohungen, mit Risiken im Zusammenhang mit KI und geopolitischen Spannungen',
     'blog.article.swisscom-minacce-cyber-2026.imageAlt': 'Digitale Landschaft von Cyberbedrohungen in Tessin, mit Bildschirmen, die Datenverletzungen und KI-Bedrohungen zeigen',
+    'blog.article.svizzera-istruzioni-uso-2026.title': 'Schweiz, Gebrauchsanweisung: Die Herausforderungen des Jahres 2026',
+    'blog.article.svizzera-istruzioni-uso-2026.excerpt': 'Von der Einwanderung bis zum Wohnen: Hier sind die brennenden Themen, die das Land verändern',
+    'blog.article.svizzera-istruzioni-uso-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit der Landschaft des Tessin',
 };
 
 export default blogMetaDe;

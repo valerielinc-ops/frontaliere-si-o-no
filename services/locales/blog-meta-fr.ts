@@ -2889,6 +2889,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.swisscom-minacce-cyber-2026.title': 'Swisscom alerte : les menaces informatiques en hausse en 2026',
     'blog.article.swisscom-minacce-cyber-2026.excerpt': 'L\'opérateur suisse Swisscom signale une forte augmentation des menaces informatiques, avec des risques liés à l\'IA et aux tensions géopolitiques',
     'blog.article.swisscom-minacce-cyber-2026.imageAlt': 'Paysage numérique des cybermenaces en Tessin, avec des écrans montrant des violations de données et des menaces liées à l\'IA',
+    'blog.article.svizzera-istruzioni-uso-2026.title': 'Suisse, mode d\'emploi : les défis de 2026',
+    'blog.article.svizzera-istruzioni-uso-2026.excerpt': 'De l\'immigration au logement, voici les sujets brûlants qui transforment le pays',
+    'blog.article.svizzera-istruzioni-uso-2026.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
 };
 
 export default blogMetaFr;

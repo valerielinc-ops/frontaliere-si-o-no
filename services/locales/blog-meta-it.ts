@@ -2889,6 +2889,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swisscom-minacce-cyber-2026.title': 'Swisscom avverte: minacce informatiche in aumento nel 2026',
     'blog.article.swisscom-minacce-cyber-2026.excerpt': 'L\'operatore svizzero Swisscom segnala un forte aumento delle minacce informatiche, con rischi legati all\'IA e alle tensioni geopolitiche',
     'blog.article.swisscom-minacce-cyber-2026.imageAlt': 'Paesaggio digitale di minacce informatiche in Ticino, con schermi che mostrano attacchi informatici e IA',
+    'blog.article.svizzera-istruzioni-uso-2026.title': 'Svizzera, istruzioni per l\'uso: le sfide del 2026',
+    'blog.article.svizzera-istruzioni-uso-2026.excerpt': 'Dall\'immigrazione alla casa, ecco i temi caldi che stanno cambiando il Paese',
+    'blog.article.svizzera-istruzioni-uso-2026.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
 };
 
 export default blogMetaIt;
