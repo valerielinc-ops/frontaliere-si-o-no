@@ -2748,6 +2748,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.title': 'Fermeture nocturne de la sortie A8 Gallarate : ce qui change pour les frontaliers',
     'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.excerpt': 'La sortie de Gallarate sur l\'A8 Milan-Varèse sera fermée dans la nuit entre mercredi 29 et jeudi 30 avril pour des travaux de maintenance. Voici les alternatives',
     'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.imageAlt': 'Fermeture nocturne de la sortie A8 Gallarate pour travaux de maintenance',
+    'blog.article.sovranita-latte-ticino.title': 'Souveraineté alimentaire et lait ticinois : le risque de démantèlement de la filière',
+    'blog.article.sovranita-latte-ticino.excerpt': 'Le Parti communiste signale le risque de démantèlement de la filière du lait au Tessin, avec des prix historiquement bas et des importations provenant d\'autres cantons. Interrogation au Conseil d\'Etat.',
+    'blog.article.sovranita-latte-ticino.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

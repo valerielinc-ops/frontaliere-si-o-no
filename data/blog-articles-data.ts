@@ -7399,4 +7399,11 @@ export const ARTICLES = [
  image: '/images/blog/chiusura-notturna-a8-gallarate-29-aprile-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sovranita-latte-ticino',
+ category: 'fiscale',
+ date: '2026-04-27T00:10:50.604Z',
+ image: '/images/blog/sovranita-latte-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2748,6 +2748,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.title': 'Chiusura notturna uscita A8 Gallarate: cosa cambia per i frontalieri',
     'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.excerpt': 'L\'uscita di Gallarate sulla A8 Milano-Varese sarà chiusa nella notte tra mercoledì 29 e giovedì 30 aprile per lavori di manutenzione. Ecco le alternative',
     'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.imageAlt': 'Chiusura notturna uscita A8 Gallarate per lavori di manutenzione',
+    'blog.article.sovranita-latte-ticino.title': 'Sovranità alimentare e latte ticinese: il rischio di smantellamento della filiera',
+    'blog.article.sovranita-latte-ticino.excerpt': 'Il Partito Comunista segnala il rischio di smantellamento della filiera del latte in Ticino, con minimi storici di prezzo e importazioni da altri cantoni. Interrogazione al Consiglio di Stato.',
+    'blog.article.sovranita-latte-ticino.imageAlt': 'Vista panoramica del lago di Lugano con le montagne sullo sfondo',
 };
 
 export default blogMetaIt;

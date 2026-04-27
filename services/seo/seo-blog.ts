@@ -13437,6 +13437,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sovranita-latte-ticino': {
+    title: 'Sovranità alimentare e latte ticinese | Frontaliere Ticino',
+    description: 'Interrogazione al Consiglio di Stato sul rischio di smantellamento della filiera lattiero-casearia in Ticino, con focus su prezzi, importazioni e sostenibilità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sovranità, alimentare, latte, ticinese',
+    ogTitle: 'Sovranità alimentare e latte in Ticino: crisi e soluzioni',
+    ogDescription: 'Il Partito Comunista segnala il rischio di smantellamento della filiera del latte in Ticino. Analisi, scenari e azioni concrete.',
+    canonicalPath: '/articoli-frontaliere/sovranita-latte-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sovranità alimentare e latte ticinese",
+      "description": "Interrogazione al Consiglio di Stato sul rischio di smantellamento della filiera lattiero-casearia in Ticino, con focus su prezzi, importazioni e sostenibilità.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sovranita-latte-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del lago di Lugano con le montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-27T00:10:50+00:00",
+      "dateModified": "2026-04-27T00:10:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sovranita-latte-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

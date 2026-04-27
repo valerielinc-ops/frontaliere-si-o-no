@@ -2748,6 +2748,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.title': 'Nighttime closure of Gallarate exit on A8: what changes for cross-border workers',
     'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.excerpt': 'The Gallarate exit on the A8 Milano-Varese will be closed during the night between Wednesday 29 and Thursday 30 April for maintenance work. Here are the alternatives',
     'blog.article.chiusura-notturna-a8-gallarate-29-aprile-2026.imageAlt': 'Nighttime closure of A8 Gallarate exit for maintenance work',
+    'blog.article.sovranita-latte-ticino.title': 'Food sovereignty and Ticino milk: the risk of dismantling the supply chain',
+    'blog.article.sovranita-latte-ticino.excerpt': 'The Communist Party highlights the risk of dismantling the milk supply chain in Ticino, with historic low prices and imports from other cantons. Parliamentary question to the Council of State.',
+    'blog.article.sovranita-latte-ticino.imageAlt': 'Panoramic view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;
