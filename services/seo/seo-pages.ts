@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1019,
+ "numberOfItems": 1020,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5743,7 +5743,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1016, "name": "Rumore traffico Svizzera: 2.000 morti l'anno | ...", "url": `${BASE_URL}/articoli-frontaliere/rumore-traffico-svizzera-frontalieri` },
           { "@type": "ListItem", "position": 1017, "name": "Controversia sull'uso della bandiera svizzera s...", "url": `${BASE_URL}/articoli-frontaliere/bandiera-svizzera-scarpe-on-controversia` },
           { "@type": "ListItem", "position": 1018, "name": "Incontro tra solidarietà e sicurezza a Bioggio", "url": `${BASE_URL}/articoli-frontaliere/incontro-solidarieta-sicurezza-bioggio` },
-          { "@type": "ListItem", "position": 1019, "name": "Infermieri introvabili: boom di arrivi da Tunis...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-ticino-frontalieri-2026` }
+          { "@type": "ListItem", "position": 1019, "name": "Infermieri introvabili: boom di arrivi da Tunis...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-ticino-frontalieri-2026` },
+          { "@type": "ListItem", "position": 1020, "name": "Deepfake pornografici: cosa dice la legge svizzera", "url": `${BASE_URL}/articoli-frontaliere/deepfake-legge-svizzera-2026` }
  ]
  },
  {

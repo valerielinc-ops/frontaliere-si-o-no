@@ -15090,6 +15090,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deepfake-legge-svizzera-2026': {
+    title: 'Deepfake pornografici: cosa dice la | Frontaliere Ticino',
+    description: 'Scopri cosa dice la legge svizzera sui deepfake pornografici e cosa fare se sei vittima di questi contenuti illegali. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, deepfake, pornografici, cosa, dice',
+    ogTitle: 'Deepfake pornografici: cosa dice la legge svizzera |',
+    ogDescription: 'Scopri cosa dice la legge svizzera sui deepfake pornografici e cosa fare se sei vittima di questi contenuti illegali.',
+    canonicalPath: '/articoli-frontaliere/deepfake-legge-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Deepfake pornografici: cosa dice la legge svizzera",
+      "description": "Scopri cosa dice la legge svizzera sui deepfake pornografici e cosa fare se sei vittima di questi contenuti illegali. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/deepfake-legge-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona preoccupata che usa un laptop con schermi che mostrano immagini manipolate, con vista sul lago di Lugano"
+      },
+      "datePublished": "2026-04-27T12:30:07+00:00",
+      "dateModified": "2026-04-27T12:30:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deepfake-legge-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

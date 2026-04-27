@@ -2919,6 +2919,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infermieri-ticino-frontalieri-2026.title': 'Pflegekräfte Mangel: Boom an Ankünften aus Tunesien, Indien und Paraguay',
     'blog.article.infermieri-ticino-frontalieri-2026.excerpt': 'Der Mangel an Pflegekräften in Italien veranlasst Unternehmen, im Ausland zu rekrutieren, mit über 1.000 ausgewählten Fachkräften in den letzten drei Jahren.',
     'blog.article.infermieri-ticino-frontalieri-2026.imageAlt': 'Krankenpflegerin arbeitet in einem Krankenhaus im Kanton Tessin',
+    'blog.article.deepfake-legge-svizzera-2026.title': 'Pornografische Deepfakes: Was sagt das Schweizer Recht?',
+    'blog.article.deepfake-legge-svizzera-2026.excerpt': 'In der Schweiz gibt es kein spezifisches Verbrechen für pornografische Deepfakes, aber das geltende Recht kann in besonderen Fällen angewendet werden',
+    'blog.article.deepfake-legge-svizzera-2026.imageAlt': 'Besorgte Person, die einen Laptop mit Bildschirmen verwendet, die manipulierte Bilder zeigen, mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

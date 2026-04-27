@@ -2919,6 +2919,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infermieri-ticino-frontalieri-2026.title': 'Infirmiers introuvables : explosion des arrivées de Tunisie, d\'Inde et du Paraguay',
     'blog.article.infermieri-ticino-frontalieri-2026.excerpt': 'La pénurie d\'infirmiers en Italie pousse les entreprises à recruter à l\'étranger, avec plus de 1.000 professionnels sélectionnés au cours des trois dernières années.',
     'blog.article.infermieri-ticino-frontalieri-2026.imageAlt': 'Infirmière travaillant dans un hôpital du canton du Tessin',
+    'blog.article.deepfake-legge-svizzera-2026.title': 'Deepfakes pornographiques : ce que dit la loi suisse',
+    'blog.article.deepfake-legge-svizzera-2026.excerpt': 'En Suisse, il n\'existe pas d\'infraction spécifique pour les deepfakes pornographiques, mais le droit en vigueur peut être appliqué dans des cas particuliers',
+    'blog.article.deepfake-legge-svizzera-2026.imageAlt': 'Personne inquiète utilisant un ordinateur portable avec des écrans montrant des images manipulées, avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -2919,6 +2919,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infermieri-ticino-frontalieri-2026.title': 'Nurses in short supply: surge in arrivals from Tunisia, India and Paraguay',
     'blog.article.infermieri-ticino-frontalieri-2026.excerpt': 'The shortage of nurses in Italy is driving companies to recruit abroad, with over 1,000 professionals selected in the last three years.',
     'blog.article.infermieri-ticino-frontalieri-2026.imageAlt': 'Nurse working in a hospital in the Canton of Ticino',
+    'blog.article.deepfake-legge-svizzera-2026.title': 'Pornographic deepfakes: what Swiss law says',
+    'blog.article.deepfake-legge-svizzera-2026.excerpt': 'Switzerland does not have a specific offense for pornographic deepfakes, but existing law can be applied in particular cases',
+    'blog.article.deepfake-legge-svizzera-2026.imageAlt': 'Concerned person using a laptop with screens showing manipulated images, with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

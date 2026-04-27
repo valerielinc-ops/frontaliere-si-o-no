@@ -7798,4 +7798,11 @@ export const ARTICLES = [
  image: '/images/blog/infermieri-ticino-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'deepfake-legge-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-27T12:30:07.098Z',
+ image: '/images/blog/deepfake-legge-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
