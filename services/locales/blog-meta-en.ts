@@ -2856,6 +2856,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.title': 'Varese: technical meeting to solve the parking problem at Sette Laghi Hospital',
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.excerpt': 'The Municipality of Varese and ASST Sette Laghi meet to address the critical parking issues for healthcare workers. Meeting scheduled for April 28, 2026.',
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.imageAlt': 'Aerial view of Varese hospital complex with parking issues',
+    'blog.article.zecche-ticino-2026-18000-punture.title': 'Ticks in Ticino: 18,000 bites in 2025, here\'s what to know',
+    'blog.article.zecche-ticino-2026-18000-punture.excerpt': 'In 2025, Switzerland recorded 18,000 tick bites. Dr. Luisa Carnino from EOC explains symptoms and prevention',
+    'blog.article.zecche-ticino-2026-18000-punture.imageAlt': 'Close-up of a tick on a leaf in a Ticino forest',
 };
 
 export default blogMetaEn;

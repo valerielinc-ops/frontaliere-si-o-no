@@ -2856,6 +2856,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.title': 'Varese: Technischer Tisch zur Lösung des Parkplatzproblems am Krankenhaus Sette Laghi',
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.excerpt': 'Die Gemeinde Varese und die ASST Sette Laghi treffen sich, um die Parkplatzprobleme für das medizinische Personal zu lösen. Das Treffen ist für den 28. April 2026 angesetzt.',
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.imageAlt': 'Luftaufnahme des Krankenhauskomplexes Varese mit Parkplatzproblemen',
+    'blog.article.zecche-ticino-2026-18000-punture.title': 'Zecken im Tessin: 18.000 Stiche im 2025, hier ist, was Sie wissen müssen',
+    'blog.article.zecche-ticino-2026-18000-punture.excerpt': 'Im Jahr 2025 wurden in der Schweiz 18.000 Zeckenstiche registriert. Die Ärztin Luisa Carnino vom EOC erklärt Symptome und Vorbeugung',
+    'blog.article.zecche-ticino-2026-18000-punture.imageAlt': 'Nahaufnahme einer Zecke auf einem Blatt in einem Wald im Tessin',
 };
 
 export default blogMetaDe;

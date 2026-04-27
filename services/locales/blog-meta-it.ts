@@ -2856,6 +2856,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.title': 'Varese: tavolo tecnico per risolvere il problema dei parcheggi all\'ospedale Sette Laghi',
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.excerpt': 'Comune di Varese e ASST Sette Laghi si incontrano per affrontare le criticità dei parcheggi per i lavoratori sanitari. Incontro fissato per il 28 aprile 2026.',
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.imageAlt': 'Vista aerea del complesso ospedaliero di Varese con problemi di parcheggio',
+    'blog.article.zecche-ticino-2026-18000-punture.title': 'Zecche in Ticino: 18.000 punture nel 2025, ecco cosa sapere',
+    'blog.article.zecche-ticino-2026-18000-punture.excerpt': 'Nel 2025 in Svizzera sono state registrate 18.000 punture di zecche. La dottoressa Luisa Carnino dell\'EOC spiega sintomi e prevenzione',
+    'blog.article.zecche-ticino-2026-18000-punture.imageAlt': 'Primo piano di una zecca su una foglia in una foresta ticinese',
 };
 
 export default blogMetaIt;

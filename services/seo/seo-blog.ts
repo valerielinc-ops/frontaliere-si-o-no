@@ -14481,6 +14481,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zecche-ticino-2026-18000-punture': {
+    title: 'Zecche in Ticino: 18.000 punture nel | Frontaliere Ticino',
+    description: 'Nel 2025 in Svizzera sono state registrate 18.000 punture di zecche. La dottoressa Luisa Carnino dell\'EOC spiega sintomi e prevenzione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, zecche, punture, 2025, ecco',
+    ogTitle: 'Zecche in Ticino: 18.000 punture nel 2025 | Frontaliere',
+    ogDescription: 'Nel 2025 in Svizzera sono state registrate 18.000 punture di zecche. La dottoressa Luisa Carnino dell\'EOC spiega sintomi e prevenzione',
+    canonicalPath: '/articoli-frontaliere/zecche-ticino-2026-18000-punture',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\": \"https://schema.org\", \"@type\": \"NewsArticle\", \"headline\": \"Zecche in Ticino: 18.000",
+      "description": "Nel 2025 in Svizzera sono state registrate 18.000 punture di zecche. La dottoressa Luisa Carnino dell'EOC spiega sintomi e prevenzione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/zecche-ticino-2026-18000-punture.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Primo piano di una zecca su una foglia in una foresta ticinese"
+      },
+      "datePublished": "2026-04-27T10:08:41+00:00",
+      "dateModified": "2026-04-27T10:08:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/zecche-ticino-2026-18000-punture`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

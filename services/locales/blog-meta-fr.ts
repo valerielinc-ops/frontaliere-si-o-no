@@ -2856,6 +2856,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.title': 'Varèse : table technique pour résoudre le problème des parkings à l\'hôpital des Sept Lacs',
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.excerpt': 'La commune de Varèse et l\'ASST des Sept Lacs se rencontrent pour aborder les critiques des parkings pour les travailleurs de la santé. La réunion est prévue pour le 28 avril 2026.',
     'blog.article.varese-parcheggi-ospedale-sette-laghi-2026.imageAlt': 'Vue aérienne du complexe hospitalier de Varese avec des problèmes de stationnement',
+    'blog.article.zecche-ticino-2026-18000-punture.title': 'Tiques en Suisse: 18.000 piqûres en 2025, voici ce qu\'il faut savoir',
+    'blog.article.zecche-ticino-2026-18000-punture.excerpt': 'En 2025, 18.000 piqûres de tiques ont été enregistrées en Suisse. La doctoresse Luisa Carnino de l\'EOC explique les symptômes et la prévention',
+    'blog.article.zecche-ticino-2026-18000-punture.imageAlt': 'Gros plan d\'une tique sur une feuille dans une forêt tessinoise',
 };
 
 export default blogMetaFr;

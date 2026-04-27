@@ -7651,4 +7651,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-parcheggi-ospedale-sette-laghi-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'zecche-ticino-2026-18000-punture',
+ category: 'novita',
+ date: '2026-04-27T10:08:41.703Z',
+ image: '/images/blog/zecche-ticino-2026-18000-punture.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

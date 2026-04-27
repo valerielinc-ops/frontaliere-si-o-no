@@ -2212,6 +2212,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fallimenti-startup-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/fallimenti-startup-svizzera-2026', parent: 'blog' },
     'blog-limite-velocita-30-ticino-inquinamento-acustico': { name: 'Novità', path: '/articoli-frontaliere/limite-velocita-30-ticino-inquinamento-acustico', parent: 'blog' },
     'blog-varese-parcheggi-ospedale-sette-laghi-2026': { name: 'Varese Parcheggi', path: '/articoli-frontaliere/varese-parcheggi-ospedale-sette-laghi-2026', parent: 'blog' },
+    'blog-zecche-ticino-2026-18000-punture': { name: 'Zecche Ticino', path: '/articoli-frontaliere/zecche-ticino-2026-18000-punture', parent: 'blog' },
  };
 
  const info = sectionNames[section];
