@@ -1,31 +1,64 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-26T21:19:01.485Z",
-  "total": 168,
-  "newCount": 1,
-  "updatedCount": 2,
+  "generatedAt": "2026-04-27T10:48:15.544Z",
+  "total": 170,
+  "newCount": 4,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 165,
-  "durationMs": 489342,
-  "avgDurationMs": 489342,
+  "durationMs": 487634,
+  "avgDurationMs": 487634,
   "durationHistory": [
-    489342
+    487634
   ],
   "newJobs": [
     {
-      "id": "company-c0vdfl",
-      "slug": "mitarbeiter-in-nachtverlad-coop-chur-graubunden",
+      "id": "company-cjrnr",
+      "slug": "responsabile-service-center-ticino-m-w-d-coop-castione-ticino",
       "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Nachtverlad",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
+      "title": "Responsabile Service Center Ticino (f/m/d)",
+      "location": "Castione",
+      "canton": "TI",
+      "category": "tech",
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-nachtverlad/bb9a0b8a-ea51-4ad3-8eb0-d847cb30b258",
+      "postedDate": "2026-04-27",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/responsabile-service-center-ticino-f-m-d/ddbd5bf6-c101-4cc4-9c2e-835890f85d0a",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-27T10:45:10.189Z",
+      "firstSeenAt": "2026-04-27T10:45:10.189Z",
+      "needsRetranslation": true,
+      "addressLocality": "Castione",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-q30pn",
+      "slug": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-ilanz-glion-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Frischprodukte Früchte & Gemüse",
+      "location": "Ilanz/Glion",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-fruechte-gemuese/759adf0b-41d5-47b8-ace5-62d384c7d031",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -34,21 +67,19 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-26T21:15:43.060Z",
-      "firstSeenAt": "2026-04-26T21:15:43.060Z",
+      "crawledAt": "2026-04-27T10:45:10.189Z",
+      "firstSeenAt": "2026-04-27T10:45:10.189Z",
       "needsRetranslation": true,
-      "addressLocality": "Chur",
+      "addressLocality": "Ilanz/Glion",
       "sourceLang": "de",
-      "_qualityScore": 78,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
-        "translation": 15,
+        "richness": 25,
+        "translation": 4,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-g6dub0",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -70,19 +101,17 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-25T09:18:00.612Z",
-      "firstSeenAt": "2026-04-25T09:18:00.612Z",
+      "crawledAt": "2026-04-27T10:45:10.189Z",
+      "firstSeenAt": "2026-04-27T10:45:10.189Z",
+      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -106,17 +135,52 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-25T09:18:00.612Z",
-      "firstSeenAt": "2026-04-25T09:18:00.612Z",
+      "crawledAt": "2026-04-27T10:45:10.189Z",
+      "firstSeenAt": "2026-04-27T10:45:10.189Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
+      "id": "company-c0vdfl",
+      "slug": "mitarbeiter-in-nachtverlad-coop-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Mitarbeiter:in Nachtverlad",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-26",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-nachtverlad/bb9a0b8a-ea51-4ad3-8eb0-d847cb30b258",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-26T21:15:43.060Z",
+      "firstSeenAt": "2026-04-26T21:15:43.060Z",
       "addressLocality": "Chur",
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
