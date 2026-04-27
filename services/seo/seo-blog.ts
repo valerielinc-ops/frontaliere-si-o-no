@@ -15148,6 +15148,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-massagno-salario-scandaloso': {
+    title: 'Un posto di lavoro solo per | Frontaliere Ticino',
+    description: 'Fabrizio Sirica denuncia un annuncio di lavoro a Massagno riservato esclusivamente ai frontalieri con uno stipendio di 2.900 franchi lordi al mese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, posto, lavoro, solo, basta',
+    ogTitle: 'Frontalieri e lavoro in Ticino: annuncio scandaloso |',
+    ogDescription: 'Fabrizio Sirica denuncia un annuncio di lavoro a Massagno riservato esclusivamente ai frontalieri con uno stipendio di 2.900 franchi lordi al mese.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-massagno-salario-scandaloso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e lavoro in Ticino: annuncio scandaloso | Frontaliere Ticino",
+      "description": "Fabrizio Sirica denuncia un annuncio di lavoro a Massagno riservato esclusivamente ai frontalieri con uno stipendio di 2.900 franchi lordi al mese.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-massagno-salario-scandaloso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Annuncio di lavoro controverso affisso a Massagno sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-27T12:42:32+00:00",
+      "dateModified": "2026-04-27T12:42:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-massagno-salario-scandaloso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -7812,4 +7812,11 @@ export const ARTICLES = [
  image: '/images/blog/ticinesi-missione-ucraina-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-massagno-salario-scandaloso',
+ category: 'novita',
+ date: '2026-04-27T12:42:32.656Z',
+ image: '/images/blog/frontalieri-massagno-salario-scandaloso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

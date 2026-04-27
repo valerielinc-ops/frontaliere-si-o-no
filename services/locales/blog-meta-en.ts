@@ -2925,6 +2925,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticinesi-missione-ucraina-2026.title': 'Ticinese volunteers on humanitarian mission in Ukraine: the seventh mission of HUNPA',
     'blog.article.ticinesi-missione-ucraina-2026.excerpt': 'Ticinese volunteers are preparing to bring medical assistance and comfort to the Ukrainian population affected by the war.',
     'blog.article.ticinesi-missione-ucraina-2026.imageAlt': 'Ticino volunteers preparing for a humanitarian mission to Ukraine, with Lake Lugano in the background.',
+    'blog.article.frontalieri-massagno-salario-scandaloso.title': 'A job position only for cross-border workers: \'Enough, it\'s scandalous\'',
+    'blog.article.frontalieri-massagno-salario-scandaloso.excerpt': 'Fabrizio Sirica denounces a job posting in Massagno exclusively reserved for cross-border workers with a gross salary of 2,900 francs per month.',
+    'blog.article.frontalieri-massagno-salario-scandaloso.imageAlt': 'Controversial job ad posted in Massagno on Lake Lugano',
 };
 
 export default blogMetaEn;

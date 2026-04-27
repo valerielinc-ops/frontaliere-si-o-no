@@ -2925,6 +2925,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticinesi-missione-ucraina-2026.title': 'Des Ticinois en mission humanitaire en Ukraine: la septième mission de HUNPA',
     'blog.article.ticinesi-missione-ucraina-2026.excerpt': 'Des volontaires ticinois se préparent pour apporter une aide médicale et du réconfort à la population ukrainienne touchée par la guerre.',
     'blog.article.ticinesi-missione-ucraina-2026.imageAlt': 'Volontaires tessinois se préparant pour une mission humanitaire en Ukraine, avec le lac de Lugano en arrière-plan.',
+    'blog.article.frontalieri-massagno-salario-scandaloso.title': 'Un poste de travail réservé uniquement aux frontaliers : « Assez, c\'est scandaleux »',
+    'blog.article.frontalieri-massagno-salario-scandaloso.excerpt': 'Fabrizio Sirica dénonce une offre d\'emploi à Massagno réservée exclusivement aux frontaliers avec un salaire de 2.900 francs bruts par mois.',
+    'blog.article.frontalieri-massagno-salario-scandaloso.imageAlt': 'Annonces d\'emploi controversées affichées à Massagno sur le lac de Lugano',
 };
 
 export default blogMetaFr;

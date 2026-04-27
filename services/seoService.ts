@@ -2235,6 +2235,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-infermieri-ticino-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/infermieri-ticino-frontalieri-2026', parent: 'blog' },
     'blog-deepfake-legge-svizzera-2026': { name: 'Deepfake pornografici', path: '/articoli-frontaliere/deepfake-legge-svizzera-2026', parent: 'blog' },
     'blog-ticinesi-missione-ucraina-2026': { name: 'Missioni umanitarie', path: '/articoli-frontaliere/ticinesi-missione-ucraina-2026', parent: 'blog' },
+    'blog-frontalieri-massagno-salario-scandaloso': { name: 'Frontalieri e lavoro', path: '/articoli-frontaliere/frontalieri-massagno-salario-scandaloso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -2925,6 +2925,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticinesi-missione-ucraina-2026.title': 'Ticinesi in missione umanitaria in Ucraina: la settima missione di HUNPA',
     'blog.article.ticinesi-missione-ucraina-2026.excerpt': 'Volontari ticinesi si preparano per portare assistenza medica e conforto alla popolazione ucraina colpita dalla guerra.',
     'blog.article.ticinesi-missione-ucraina-2026.imageAlt': 'Volontari ticinesi in preparazione per una missione umanitaria in Ucraina, con vista sul Lago di Lugano.',
+    'blog.article.frontalieri-massagno-salario-scandaloso.title': 'Un posto di lavoro solo per frontalieri: «Basta, è scandaloso»',
+    'blog.article.frontalieri-massagno-salario-scandaloso.excerpt': 'Fabrizio Sirica denuncia un annuncio di lavoro a Massagno riservato esclusivamente ai frontalieri con uno stipendio di 2.900 franchi lordi al mese.',
+    'blog.article.frontalieri-massagno-salario-scandaloso.imageAlt': 'Annuncio di lavoro controverso affisso a Massagno sul Lago di Lugano',
 };
 
 export default blogMetaIt;

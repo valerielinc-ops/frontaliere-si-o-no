@@ -2925,6 +2925,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticinesi-missione-ucraina-2026.title': 'Ticineser in humanitärer Mission in der Ukraine: die siebte Mission von HUNPA',
     'blog.article.ticinesi-missione-ucraina-2026.excerpt': 'Ticineser Freiwillige bereiten sich darauf vor, medizinische Hilfe und Trost für die von dem Krieg betroffene ukrainische Bevölkerung zu bringen.',
     'blog.article.ticinesi-missione-ucraina-2026.imageAlt': 'Tessiner Freiwillige bereiten sich auf eine humanitäre Mission in der Ukraine vor, mit dem Luganersee im Hintergrund.',
+    'blog.article.frontalieri-massagno-salario-scandaloso.title': 'Ein Arbeitsplatz nur für Grenzgänger: «Genug, das ist skandalös»',
+    'blog.article.frontalieri-massagno-salario-scandaloso.excerpt': 'Fabrizio Sirica denunziert eine Stellenausschreibung in Massagno, die ausschließlich Grenzgängern mit einem Bruttolohn von 2.900 Franken pro Monat vorbehalten ist.',
+    'blog.article.frontalieri-massagno-salario-scandaloso.imageAlt': 'Umstrittene Stellenausschreibung in Massagno am Luganersee',
 };
 
 export default blogMetaDe;
