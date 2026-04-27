@@ -16482,6 +16482,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-guasti-voli-frontalieri-ticino-2026': {
+    title: 'Due guasti in 48 ore per Swiss: cosa | Frontaliere Ticino',
+    description: 'Due incidenti tecnici in meno di 48 ore per la compagnia aerea Swiss. Ecco cosa cambia per i frontalieri che viaggiano tra Ticino e Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, guasti, swiss, cosa, cambia',
+    ogTitle: 'Due guasti in 48 ore per Swiss: implicazioni per i',
+    ogDescription: 'Due incidenti tecnici in meno di 48 ore per la compagnia aerea Swiss. Ecco cosa cambia per i frontalieri che viaggiano tra Ticino e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/swiss-guasti-voli-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Due guasti in 48 ore per Swiss: implicazioni per i frontalieri",
+      "description": "Due incidenti tecnici in meno di 48 ore per la compagnia aerea Swiss. Ecco cosa cambia per i frontalieri che viaggiano tra Ticino e Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/swiss-guasti-voli-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aereo Swiss in pista all'aeroporto di Lugano"
+      },
+      "datePublished": "2026-04-27T18:23:36+00:00",
+      "dateModified": "2026-04-27T18:23:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swiss-guasti-voli-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

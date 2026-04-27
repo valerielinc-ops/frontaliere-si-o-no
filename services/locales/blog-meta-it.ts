@@ -3063,6 +3063,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sepolti-con-animali-domestici-berna-2026.title': 'Berna approva sepoltura con animali domestici: nuove regole 2026',
     'blog.article.sepolti-con-animali-domestici-berna-2026.excerpt': 'Dal 2026 a Berna sarà possibile essere sepolti con il proprio animale domestico in aree dedicate. Ecco cosa cambia e come funziona',
     'blog.article.sepolti-con-animali-domestici-berna-2026.imageAlt': 'Cimitero di Berna con area dedicata alla sepoltura con animali domestici',
+    'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.title': 'Due guasti in 48 ore per Swiss: cosa cambia per i frontalieri',
+    'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.excerpt': 'Due incidenti in meno di due giorni per la compagnia aerea Swiss. Ecco le implicazioni per chi viaggia tra Ticino e Svizzera.',
+    'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.imageAlt': 'Aereo Swiss in pista all\'aeroporto di Lugano',
 };
 
 export default blogMetaIt;

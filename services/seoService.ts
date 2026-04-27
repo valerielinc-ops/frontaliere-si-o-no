@@ -2281,6 +2281,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ostetriche-eoc-mendrisio-2026': { name: 'Conferenza ostetriche', path: '/articoli-frontaliere/ostetriche-eoc-mendrisio-2026', parent: 'blog' },
     'blog-modello-zurigo-violenza-domestica': { name: 'Novità', path: '/articoli-frontaliere/modello-zurigo-violenza-domestica', parent: 'blog' },
     'blog-sepolti-con-animali-domestici-berna-2026': { name: 'Novità', path: '/articoli-frontaliere/sepolti-con-animali-domestici-berna-2026', parent: 'blog' },
+    'blog-swiss-guasti-voli-frontalieri-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/swiss-guasti-voli-frontalieri-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3063,6 +3063,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sepolti-con-animali-domestici-berna-2026.title': 'Bern genehmigt Bestattung mit Haustieren: neue Regeln 2026',
     'blog.article.sepolti-con-animali-domestici-berna-2026.excerpt': 'Ab 2026 wird es in Bern möglich sein, mit dem eigenen Haustier in speziellen Bereichen bestattet zu werden. Hier erfahren Sie, was sich ändert und wie das funktioniert',
     'blog.article.sepolti-con-animali-domestici-berna-2026.imageAlt': 'Friedhof in Bern mit einem Bereich für Haustierbestattungen',
+    'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.title': 'Zwei Pannen in 48 Stunden bei Swiss: Was sich für Grenzgänger ändert',
+    'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.excerpt': 'Zwei Vorfälle in weniger als zwei Tagen bei der Fluggesellschaft Swiss. Hier sind die Auswirkungen für Reisende zwischen dem Tessin und der Schweiz.',
+    'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.imageAlt': 'Swiss-Flugzeug auf der Startbahn am Flughafen Lugano',
 };
 
 export default blogMetaDe;

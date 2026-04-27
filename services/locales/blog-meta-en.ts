@@ -3063,6 +3063,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sepolti-con-animali-domestici-berna-2026.title': 'Berna approves burial with pets: new rules for 2026',
     'blog.article.sepolti-con-animali-domestici-berna-2026.excerpt': 'From 2026, in Berna it will be possible to be buried with your pet in dedicated areas. Here\'s what changes and how it works',
     'blog.article.sepolti-con-animali-domestici-berna-2026.imageAlt': 'Berna cemetery with a dedicated area for pet burials',
+    'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.title': 'Two Swiss airline incidents in 48 hours: what changes for cross-border workers',
+    'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.excerpt': 'Two incidents in less than two days for Swiss airline. Here\'s what it means for those traveling between Ticino and Switzerland.',
+    'blog.article.swiss-guasti-voli-frontalieri-ticino-2026.imageAlt': 'Swiss airplane on the runway at Lugano Airport',
 };
 
 export default blogMetaEn;

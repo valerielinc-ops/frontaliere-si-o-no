@@ -8134,4 +8134,11 @@ export const ARTICLES = [
  image: '/images/blog/sepolti-con-animali-domestici-berna-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'swiss-guasti-voli-frontalieri-ticino-2026',
+ category: 'novita',
+ date: '2026-04-27T18:23:36.487Z',
+ image: '/images/blog/swiss-guasti-voli-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
