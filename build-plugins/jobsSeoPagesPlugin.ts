@@ -12,6 +12,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
+import { buildTitleWithBrand } from './shared/titleSuffix';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
@@ -135,10 +136,13 @@ const JOB_TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
 // and the composer below always preserves the trailing city token.
 const JOB_TITLE_MAX = 70;
 
-/** Truncate the core at a max length, appending an ellipsis if cut. */
-export function truncateTitleCore(core: string, maxCore: number): string {
- if (core.length <= maxCore) return core;
- return core.slice(0, Math.max(1, maxCore - 1)).trimEnd() + '…';
+/**
+ * @deprecated Headlines are no longer truncated. Returns input verbatim.
+ * Brand suffix is added downstream via buildTitleWithBrand.
+ */
+export function truncateTitleCore(core: string, _maxCore: number): string {
+ void _maxCore;
+ return core;
 }
 
 /**
@@ -262,11 +266,8 @@ export function composeJobPageTitle(
  disambiguator?: string,
 ): string {
  const disamb = buildTitleDisambiguator(disambiguator || '');
- const maxCore = JOB_TITLE_MAX - JOB_TITLE_BRAND_SUFFIX.length - disamb.length;
- const safeMaxCore = Math.max(1, maxCore);
- return truncateJobCorePreservingCity(jobTitle, company, city, locale, safeMaxCore)
-  + disamb
-  + JOB_TITLE_BRAND_SUFFIX;
+ const core = buildJobTitleCore(jobTitle, company, city, locale);
+ return buildTitleWithBrand(`${core}${disamb}`, JOB_TITLE_BRAND_SUFFIX);
 }
 
 /** Compose H1: job title + company only (no city, no brand). */
@@ -6417,37 +6418,17 @@ ${hreflangLinks}
  // `${headlineCap} — ${shortCompany}` (or just `${headlineCap}` if company
  // doesn't fit). uniqueSuffix (city / slug-tail) is dropped: the slug-hash
  // disambiguator already guarantees uniqueness across slugs, and the city
- // is already encoded in the slug itself.
- const TITLE_TOTAL_BUDGET = 80;
- const TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
- const fixedTailLen = expiredDisambiguator.length + TITLE_BRAND_SUFFIX.length;
- const headlineBudget = Math.max(20, TITLE_TOTAL_BUDGET - fixedTailLen);
+ // Universal rule: headline VERBATIM, brand suffix appended only when total
+ // stays within TITLE_MAX_CHARS (70). See build-plugins/shared/titleSuffix.ts.
  let headline: string;
  if (hasRealTitle) {
   const cleanTitle = jobTitle.trim();
   const cleanCompany = jobCompany.trim();
-  if (cleanCompany) {
-   const sepLen = 3; // " — "
-   // Reserve ~25 char for company; ensure title gets at least 15.
-   const targetTitleLen = Math.max(15, headlineBudget - sepLen - 25);
-   const cappedTitle = truncateTitleCore(cleanTitle, targetTitleLen);
-   const remainingForCompany = headlineBudget - cappedTitle.length - sepLen;
-   if (remainingForCompany >= 6) {
-    const cappedCompany = remainingForCompany < cleanCompany.length
-     ? truncateTitleCore(cleanCompany, remainingForCompany)
-     : cleanCompany;
-    headline = `${cappedTitle} — ${cappedCompany}`;
-   } else {
-    // Company doesn't fit at all — drop it, give title the full budget.
-    headline = truncateTitleCore(cleanTitle, headlineBudget);
-   }
-  } else {
-   headline = truncateTitleCore(cleanTitle, headlineBudget);
-  }
+  headline = cleanCompany ? `${cleanTitle} — ${cleanCompany}` : cleanTitle;
  } else {
-  headline = truncateTitleCore(copy.title, headlineBudget);
+  headline = copy.title;
  }
- const pageTitle = `${esc(headline)}${expiredDisambiguator}${TITLE_BRAND_SUFFIX}`;
+ const pageTitle = buildTitleWithBrand(`${esc(headline)}${expiredDisambiguator}`);
 
  const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
