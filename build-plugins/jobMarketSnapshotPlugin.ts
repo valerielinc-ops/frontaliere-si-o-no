@@ -2299,6 +2299,53 @@ function alternatesForSector(
   return out;
 }
 
+/**
+ * Per-sector frontalier-context section — boosts text/HTML on the 25
+ * sector-snapshot pages (gymnastics, edilizia, infermieri, etc.) which
+ * had heavy stat tiles + trend chart but thin prose. Two locale-aware
+ * paragraphs covering: applicability of the sector to cross-border
+ * workers (permit + commute), and salary/CCL benchmarks for that sector.
+ */
+function renderSectorFrontalierContext(args: {
+  locale: JobMarketSnapshotLocale;
+  sectorLabel: string;
+  activeJobs: number;
+  medianSalary: number | null;
+}): string {
+  const { locale, sectorLabel, activeJobs, medianSalary } = args;
+  const medianTxt = medianSalary !== null
+    ? `${medianSalary.toLocaleString('en-US').replace(/,/g, "'")} CHF`
+    : null;
+  const copy = {
+    it: {
+      h: `${sectorLabel} per frontalieri: come orientarsi tra le ${activeJobs} offerte`,
+      p1: `Il settore ${sectorLabel} in Ticino è una delle aree storiche di assunzione di lavoratori frontalieri italiani: la prossimità con la Lombardia, le competenze tecniche trasferibili e la maggiore disponibilità di posti rispetto al mercato italiano locale rendono il Ticino un'opzione concreta per chi cerca un primo ingaggio o un salto di carriera. Per candidarsi alle ${activeJobs} posizioni aperte del settore serve il Permesso G, residenza in un comune italiano entro 20 km dal confine (Lombardia o Piemonte) e rientro al domicilio almeno una volta a settimana. Il datore richiede il permesso all'Ufficio della migrazione cantonale dopo la firma del contratto: la prima emissione richiede 2-6 settimane, poi viene rinnovato annualmente.`,
+      p2: `Il riferimento retributivo nel ${sectorLabel}${medianTxt ? ` è una mediana di ${medianTxt} lordi annui` : ''}, ma la dispersione dipende molto dal CCL applicato (CCL ramo, contratto aziendale, CCNL nazionale per multinazionali) e dalle certificazioni richieste. Confronta sempre il lordo svizzero con il netto italiano equivalente: a parità di mansione il netto in Ticino resta superiore del 25-45 % grazie alla pressione fiscale e contributiva ridotta, ma l'effetto del cambio CHF/EUR può variare il netto in euro fino al 12 % a parità di lordo. Per un calcolo preciso usa il <a href="${BASE_URL}/calcola-stipendio/">simulatore stipendio</a> con il tuo CCL e la tua composizione familiare. Considera anche i costi del pendolarismo (carburante, usura veicolo, tempo perso ai valichi) prima di confrontare un'offerta del ${sectorLabel} con un'alternativa italiana.`,
+    },
+    en: {
+      h: `${sectorLabel} for cross-border workers: navigating the ${activeJobs} active openings`,
+      p1: `The ${sectorLabel} sector in Ticino is one of the historic hiring areas for Italian cross-border workers: the proximity to Lombardy, transferable technical skills, and a larger pool of openings than the local Italian market make Ticino a concrete option for first hires or career jumps. Applying to the ${activeJobs} active sector openings requires a G Permit, residence in an Italian municipality within the 20 km border zone (Lombardy or Piedmont) and returning home at least once a week. The employer files for the permit at the cantonal migration office after the contract is signed: first issuance takes 2-6 weeks and is renewed yearly.`,
+      p2: `Compensation in ${sectorLabel}${medianTxt ? ` clusters around a ${medianTxt} gross annual median` : ''}, but the spread depends heavily on the applicable collective agreement (sector CCL, company contract, multinational national CCNL) and required certifications. Always compare the Swiss gross with the Italian net equivalent: for the same job, Ticino net is typically 25-45 % higher due to lower fiscal and social burden, but CHF/EUR moves can change EUR net by up to 12 % at the same Swiss gross. For a precise figure use the <a href="${BASE_URL}/en/calculate-salary/">salary simulator</a> with your contract band and household composition. Also factor commute costs (fuel, vehicle wear, time at the border) before comparing a ${sectorLabel} offer with an Italian alternative.`,
+    },
+    de: {
+      h: `${sectorLabel} für Grenzgänger: Orientierung bei ${activeJobs} offenen Stellen`,
+      p1: `Der Sektor ${sectorLabel} im Tessin ist einer der historischen Anstellungsbereiche für italienische Grenzgänger: die Nähe zur Lombardei, übertragbare technische Kompetenzen und ein grösseres Angebot als auf dem lokalen italienischen Markt machen das Tessin zu einer konkreten Option für die erste Anstellung oder einen Karrieresprung. Eine Bewerbung auf die ${activeJobs} aktiven Stellen des Sektors setzt eine G-Bewilligung voraus, Wohnsitz in einer italienischen Gemeinde innerhalb der 20-km-Grenzzone (Lombardei oder Piemont) und Rückkehr nach Hause mindestens einmal pro Woche. Der Arbeitgeber beantragt die Bewilligung beim kantonalen Migrationsamt nach Vertragsunterzeichnung: die erste Ausstellung dauert 2-6 Wochen, anschliessend erfolgt die jährliche Verlängerung.`,
+      p2: `Die Lohnreferenz im Sektor ${sectorLabel}${medianTxt ? ` liegt bei einem Medianbruttojahreslohn von ${medianTxt}` : ''}, aber die Bandbreite hängt stark vom anwendbaren GAV (Branchen-GAV, Firmenvertrag, multinationaler nationaler GAV) und den geforderten Zertifizierungen ab. Vergleichen Sie immer das Schweizer Brutto mit dem italienischen Netto-Äquivalent: für dieselbe Stelle ist das Tessiner Netto typischerweise 25-45 % höher dank tieferer Steuer- und Soziallast, aber Bewegungen des CHF/EUR-Kurses können den Nettobetrag in EUR um bis zu 12 % ändern. Für eine präzise Berechnung verwenden Sie den <a href="${BASE_URL}/de/gehalt-berechnen/">Lohnsimulator</a> mit Ihrer Vertragsstufe und Ihrer Haushaltszusammensetzung. Berücksichtigen Sie auch die Pendelkosten (Treibstoff, Fahrzeugverschleiss, Wartezeit an der Grenze), bevor Sie ein ${sectorLabel}-Angebot mit einer italienischen Alternative vergleichen.`,
+    },
+    fr: {
+      h: `${sectorLabel} pour frontaliers : s'orienter parmi les ${activeJobs} offres actives`,
+      p1: `Le secteur ${sectorLabel} au Tessin est l'un des bassins historiques d'embauche des frontaliers italiens : la proximité avec la Lombardie, des compétences techniques transférables et un volume d'offres supérieur au marché italien local font du Tessin une option concrète pour une première embauche ou un saut de carrière. Pour postuler aux ${activeJobs} postes actifs du secteur, il faut un permis G, une résidence dans une commune italienne située dans la zone frontalière des 20 km (Lombardie ou Piémont) et un retour au domicile au moins une fois par semaine. L'employeur demande le permis à l'office cantonal des migrations après la signature du contrat : la première délivrance prend 2 à 6 semaines, puis le permis est renouvelé chaque année.`,
+      p2: `La référence salariale dans le ${sectorLabel}${medianTxt ? ` se situe autour d'une médiane de ${medianTxt} brut annuel` : ''}, mais la dispersion dépend fortement de la convention collective applicable (CCL de branche, contrat d'entreprise, CCNL national pour les multinationales) et des certifications exigées. Comparez toujours le brut suisse avec le net italien équivalent : pour le même poste, le net tessinois est généralement 25-45 % supérieur grâce à une charge fiscale et sociale plus faible, mais les mouvements du taux CHF/EUR peuvent modifier le net en EUR jusqu'à 12 % à brut suisse égal. Pour un calcul précis, utilisez le <a href="${BASE_URL}/fr/calculer-salaire/">simulateur de salaire</a> avec votre échelon contractuel et votre composition familiale. Tenez aussi compte des coûts du trajet (carburant, usure du véhicule, temps perdu à la frontière) avant de comparer une offre ${sectorLabel} avec une alternative italienne.`,
+    },
+  };
+  const c = copy[locale] || copy.it;
+  return `<section style="margin:24px 0 0" aria-labelledby="sectorFrontalierContext">
+    <h2 id="sectorFrontalierContext" style="${H2_STYLE};margin-bottom:10px">${esc(c.h)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${c.p1}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${c.p2}</p>
+  </section>`;
+}
+
 function renderSectorPage(inp: SectorPageInputs): string {
   const { locale, sector, sectorLabel, canonicalPath, alternates, todayIso, stats, distDir, knownSlugs, rootDir } = inp;
   const copy = SECTOR_COPY[locale];
@@ -2482,6 +2529,13 @@ function renderSectorPage(inp: SectorPageInputs): string {
     })),
   });
 
+  const frontalierContextHtml = renderSectorFrontalierContext({
+    locale,
+    sectorLabel,
+    activeJobs: stats.activeJobs,
+    medianSalary: stats.medianSalary,
+  });
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
     <nav style="${BREADCRUMB_STYLE}">
       <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -2504,6 +2558,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     </section>
     ${topEmployersList}
     ${trendSection}
+    ${frontalierContextHtml}
     ${methodology}
     ${faqHtml}
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
