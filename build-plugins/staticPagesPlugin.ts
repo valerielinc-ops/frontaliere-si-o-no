@@ -2864,6 +2864,14 @@ ${hrefTags}
  // non-existent files and trip the hreflang-no-broken regression test (and
  // Semrush would flag them post-deploy). Mirror the IT homepage for these
  // three locale roots so the SPA shell + hreflang alternates resolve. Idempotent.
+ //
+ // Important: read from disk BEFORE the WriteCollector flushes (line below).
+ // The IT homepage may have had injectHomepageSeoContent called on it via
+ // `_qw` during the seoMap loop, but `_qw` is buffered — `fs.readFileSync`
+ // here gets the pre-injection HTML. To avoid shipping locale-root shells at
+ // 2.31% text/HTML ratio (Semrush low-text-HTML offender), explicitly call
+ // injectHomepageSeoContent on the localized copy with the proper locale
+ // SEO block. Strip any IT block that might already be present.
  try {
    const rootIndex = np.join(distDir, 'index.html');
    if (fs.existsSync(rootIndex)) {
@@ -2873,10 +2881,15 @@ ${hrefTags}
        const file = np.join(dir, 'index.html');
        if (!fs.existsSync(file)) {
          // Rewrite <html lang> + canonical to match the locale.
-         const localized = rootHtml
+         let localized = rootHtml
            .replace(/<html\b[^>]*\blang="[^"]*"/i, `<html lang="${loc}"`)
            .replace(/<link\s+rel="canonical"\s+href="https:\/\/frontaliereticino\.ch\/"/i,
              `<link rel="canonical" href="https://frontaliereticino.ch/${loc}/"`);
+         // Strip any pre-existing (Italian) SEO block, then inject the
+         // locale-correct one. Pattern matches the `<aside id="hp-seo-block"…>…</aside>`
+         // emitted by HOMEPAGE_SEO_BLOCK_HTML — single line, idempotent.
+         localized = localized.replace(/<aside id="hp-seo-block"[\s\S]*?<\/aside>\s*/i, '');
+         localized = injectHomepageSeoContent(localized, loc);
          _qw(file, localized);
        }
      }
