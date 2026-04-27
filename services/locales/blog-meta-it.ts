@@ -2910,6 +2910,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rumore-traffico-svizzera-frontalieri.title': 'Rumore traffico Svizzera: 2.000 morti l\'anno, cosa cambia per i frontalieri',
     'blog.article.rumore-traffico-svizzera-frontalieri.excerpt': 'Il rumore del traffico stradale causa fino a 2.000 decessi prematuri l\'anno in Svizzera, con 850.000 persone esposte a rumori nocivi',
     'blog.article.rumore-traffico-svizzera-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con montagne del Ticino sullo sfondo, giornata limpida',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.title': 'Controversia sull\'uso della bandiera svizzera sulle scarpe On',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.excerpt': 'L\'azienda On ha ottenuto il permesso di usare la bandiera svizzera sulle sue scarpe, prodotte all\'estero, causando polemiche nel mondo imprenditoriale elvetico.',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.imageAlt': 'Paio di scarpe da corsa con bandiera svizzera in un negozio di articoli sportivi moderno',
 };
 
 export default blogMetaIt;

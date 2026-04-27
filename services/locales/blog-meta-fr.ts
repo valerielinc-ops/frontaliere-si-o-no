@@ -2910,6 +2910,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rumore-traffico-svizzera-frontalieri.title': 'Bruit du trafic en Suisse: 2.000 morts par an, ce qui change pour les frontaliers',
     'blog.article.rumore-traffico-svizzera-frontalieri.excerpt': 'Le bruit du trafic routier cause jusqu\'à 2.000 décès prématurés par an en Suisse, avec 850.000 personnes exposées à des bruits nocifs',
     'blog.article.rumore-traffico-svizzera-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan, journée claire',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.title': 'Controverse sur l\'utilisation du drapeau suisse sur les chaussures On',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.excerpt': 'L\'entreprise On a obtenu le permis G d\'utiliser le drapeau suisse sur ses chaussures, produites à l\'étranger, provoquant des polémiques dans le monde entrepreneurial helvétique.',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.imageAlt': 'Paire de chaussures de course avec drapeau suisse dans un magasin de sport moderne',
 };
 
 export default blogMetaFr;

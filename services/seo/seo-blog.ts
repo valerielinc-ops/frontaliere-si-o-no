@@ -15003,6 +15003,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bandiera-svizzera-scarpe-on-controversia': {
+    title: 'Controversia sull\'uso della bandiera | Frontaliere Ticino',
+    description: 'Scopri le polemiche sull\'uso della bandiera svizzera sulle scarpe On prodotte all\'estero e le implicazioni per il mercato elvetico. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, controversia, sull, bandiera, sulle',
+    ogTitle: 'Controversia bandiera svizzera su scarpe On | Frontaliere',
+    ogDescription: 'Scopri le polemiche sull\'uso della bandiera svizzera sulle scarpe On prodotte all\'estero e le implicazioni per il mercato elvetico.',
+    canonicalPath: '/articoli-frontaliere/bandiera-svizzera-scarpe-on-controversia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controversia sull'uso della bandiera svizzera sulle scarpe On",
+      "description": "Scopri le polemiche sull'uso della bandiera svizzera sulle scarpe On prodotte all'estero e le implicazioni per il mercato elvetico. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bandiera-svizzera-scarpe-on-controversia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paio di scarpe da corsa con bandiera svizzera in un negozio di articoli sportivi moderno"
+      },
+      "datePublished": "2026-04-27T12:13:38+00:00",
+      "dateModified": "2026-04-27T12:13:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bandiera-svizzera-scarpe-on-controversia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

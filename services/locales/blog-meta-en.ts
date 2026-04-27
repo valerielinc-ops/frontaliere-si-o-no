@@ -2910,6 +2910,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rumore-traffico-svizzera-frontalieri.title': 'Swiss traffic noise: 2,000 deaths per year, what changes for cross-border workers',
     'blog.article.rumore-traffico-svizzera-frontalieri.excerpt': 'Road traffic noise causes up to 2,000 premature deaths per year in Switzerland, with 850,000 people exposed to harmful noise',
     'blog.article.rumore-traffico-svizzera-frontalieri.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background, clear day',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.title': 'Controversy over the use of the Swiss flag on On shoes',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.excerpt': 'On has obtained permission to use the Swiss flag on its shoes, which are produced abroad, sparking controversy in the Swiss business world.',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.imageAlt': 'Pair of running shoes with Swiss flag in a modern sports store',
 };
 
 export default blogMetaEn;

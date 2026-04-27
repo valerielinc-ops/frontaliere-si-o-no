@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1016,
+ "numberOfItems": 1017,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5740,7 +5740,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1013, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/morcote-eventi-2026-scalinata-caccia-tesoro` },
           { "@type": "ListItem", "position": 1014, "name": "Svizzera a credito energetico: cosa cambia per ...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-credito-energetico-2026` },
           { "@type": "ListItem", "position": 1015, "name": "Oftalmologi ticinesi in Messico: operazioni gra...", "url": `${BASE_URL}/articoli-frontaliere/oftalmologi-svizzeri-messico-vista` },
-          { "@type": "ListItem", "position": 1016, "name": "Rumore traffico Svizzera: 2.000 morti l'anno | ...", "url": `${BASE_URL}/articoli-frontaliere/rumore-traffico-svizzera-frontalieri` }
+          { "@type": "ListItem", "position": 1016, "name": "Rumore traffico Svizzera: 2.000 morti l'anno | ...", "url": `${BASE_URL}/articoli-frontaliere/rumore-traffico-svizzera-frontalieri` },
+          { "@type": "ListItem", "position": 1017, "name": "Controversia sull'uso della bandiera svizzera s...", "url": `${BASE_URL}/articoli-frontaliere/bandiera-svizzera-scarpe-on-controversia` }
  ]
  },
  {

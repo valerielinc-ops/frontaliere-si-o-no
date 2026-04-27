@@ -2910,6 +2910,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rumore-traffico-svizzera-frontalieri.title': 'Verkehrslärm in der Schweiz: 2.000 Tote pro Jahr, was sich für Grenzgänger ändert',
     'blog.article.rumore-traffico-svizzera-frontalieri.excerpt': 'Verkehrslärm verursacht bis zu 2.000 vorzeitige Todesfälle pro Jahr in der Schweiz, wobei 850.000 Menschen schädlichem Lärm ausgesetzt sind',
     'blog.article.rumore-traffico-svizzera-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund, klarer Tag',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.title': 'Kontroverse über die Verwendung der Schweizerflagge auf On-Schuhen',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.excerpt': 'Das Unternehmen On hat die Erlaubnis erhalten, die Schweizerflagge auf seinen im Ausland produzierten Schuhen zu verwenden, was in der Schweizer Wirtschaftswelt für Kontroversen sorgt.',
+    'blog.article.bandiera-svizzera-scarpe-on-controversia.imageAlt': 'Paar Laufschuhe mit Schweizer Flagge in einem modernen Sportgeschäft',
 };
 
 export default blogMetaDe;

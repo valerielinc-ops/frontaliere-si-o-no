@@ -7777,4 +7777,11 @@ export const ARTICLES = [
  image: '/images/blog/rumore-traffico-svizzera-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bandiera-svizzera-scarpe-on-controversia',
+ category: 'novita',
+ date: '2026-04-27T12:13:38.275Z',
+ image: '/images/blog/bandiera-svizzera-scarpe-on-controversia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
