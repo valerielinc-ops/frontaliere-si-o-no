@@ -945,6 +945,42 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return `<p>${lead[loc]}</p><p>${tail[loc]}</p>`;
  };
  /**
+  * Cap the description used inside JobPosting JSON-LD.
+  *
+  * Why: Google's structured-data tester treats ~500-char descriptions as
+  * ideal and the field is an *abstract*, not the full ad. Embedding the
+  * raw 6-7 KB ATS body inflates `<head>` size, drags down text/HTML ratio
+  * (Semrush threshold 10 %), and provides no SERP benefit.
+  *
+  * Behavior:
+  *  - Strip HTML tags so the truncation operates on visible text.
+  *  - Collapse all whitespace runs to a single space.
+  *  - Cap at MAX_JSONLD_DESCRIPTION_CHARS (500), preferring sentence
+  *    boundaries (`. `, `! `, `? `) before falling back to word boundaries.
+  *  - Append a single ellipsis only when truncation actually trimmed text.
+  *  - Returns the original (whitespace-collapsed) input when already short.
+  *
+  * NOTE: This affects ONLY the JSON-LD `description` field. The visible
+  * page body keeps the full text — see `descriptionHtmlParts` upstream.
+  */
+ const MAX_JSONLD_DESCRIPTION_CHARS = 500;
+ const capJsonLdDescription = (input: string): string => {
+ if (!input) return input;
+ // Strip tags and collapse whitespace so length math reflects visible text.
+ const plain = String(input).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+ if (plain.length <= MAX_JSONLD_DESCRIPTION_CHARS) return plain;
+ const window = plain.slice(0, MAX_JSONLD_DESCRIPTION_CHARS);
+ // Prefer the last sentence boundary inside the window.
+ const sentenceMatch = window.match(/^[\s\S]*[.!?](?=\s)/);
+ if (sentenceMatch && sentenceMatch[0].length >= 200) {
+ return `${sentenceMatch[0].trim()}…`;
+ }
+ // Fall back to the last word boundary.
+ const lastSpace = window.lastIndexOf(' ');
+ const cut = lastSpace > 200 ? window.slice(0, lastSpace) : window;
+ return `${cut.trim()}…`;
+ };
+ /**
   * Deterministic non-crypto hash (djb2) — used to pick stable FAQ template
   * variants across rebuilds based on job slug.
   */
@@ -1630,7 +1666,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  id: job.id,
  slug: job.slug,
  title: localizedTitle,
- description: finalJobPostingDescription,
+ description: capJsonLdDescription(finalJobPostingDescription),
  company: job.company,
  companyKey: job.companyKey,
  companyDomain: companyWebsite(job),
@@ -6688,7 +6724,7 @@ ${hreflangLinks}
  id: ejData?.id,
  slug,
  title: realTitle,
- description: finalDescription,
+ description: capJsonLdDescription(finalDescription),
  company: jobCompany,
  companyKey: ejData?.companyKey || slugInfo?.companyKey,
  addressLocality: jobLocation || undefined,
