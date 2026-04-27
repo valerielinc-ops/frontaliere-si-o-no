@@ -3112,6 +3112,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-biciclette-mendrisiotto-2026.title': 'Zwei Festnahmen wegen Fahrraddiebstählen im Mendrisiotto',
     'blog.article.furti-biciclette-mendrisiotto-2026.excerpt': 'Zwei rumänische Staatsbürger wurden mit drei zerlegten Fahrrädern und Einbruchswerkzeug festgenommen. Die Polizei erinnert an Tipps zur Diebstahlprävention.',
     'blog.article.furti-biciclette-mendrisiotto-2026.imageAlt': 'Belebte Straße in Mendrisio mit einem Fahrradgeschäft und Polizeiaktivität im Hintergrund',
+    'blog.article.per-giumai-acquisti-monte-piaroi-2026.title': 'Per Giümai kauft die letzten Gebäude auf dem Monte Piaroi',
+    'blog.article.per-giumai-acquisti-monte-piaroi-2026.excerpt': 'Der Verein Per Giümai hat den Kauf der letzten drei Gebäude auf dem Monte Piaroi dank privater Beiträge und der Zusammenarbeit mit der Schutzorganisation abgeschlossen.',
+    'blog.article.per-giumai-acquisti-monte-piaroi-2026.imageAlt': 'Luftaufnahme von Monte Piaroi im Tessin, Schweiz, mit der umliegenden Landschaft und Gebäuden',
 };
 
 export default blogMetaDe;

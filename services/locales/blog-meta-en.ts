@@ -3112,6 +3112,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-biciclette-mendrisiotto-2026.title': 'Two arrests for bicycle thefts in Mendrisiotto',
     'blog.article.furti-biciclette-mendrisiotto-2026.excerpt': 'Two Romanian citizens arrested with three dismantled bicycles and burglary tools. Police remind prevention tips to avoid thefts.',
     'blog.article.furti-biciclette-mendrisiotto-2026.imageAlt': 'Busy street in Mendrisio with a bicycle shop and police activity in the background',
+    'blog.article.per-giumai-acquisti-monte-piaroi-2026.title': 'Per Giümai buys last three Monte Piaroi buildings',
+    'blog.article.per-giumai-acquisti-monte-piaroi-2026.excerpt': 'The Per Giümai association has completed the purchase of the last three buildings on Monte Piaroi, thanks to private contributions and collaboration with Civil Protection.',
+    'blog.article.per-giumai-acquisti-monte-piaroi-2026.imageAlt': 'Aerial view of Monte Piaroi in Ticino, Switzerland, with the surrounding landscape and buildings',
 };
 
 export default blogMetaEn;

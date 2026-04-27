@@ -17062,6 +17062,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-per-giumai-acquisti-monte-piaroi-2026': {
+    title: 'Per Giümai acquista gli ultimi tre edifici del Monte Piaroi',
+    description: 'L\'associazione Per Giümai ha completato l\'acquisto degli ultimi tre edifici sul Monte Piaroi, grazie al contributo di privati e alla collaborazione con la',
+    keywords: 'frontalieri, ticino, svizzera, italia, giümai, acquista, ultimi, edifici',
+    ogTitle: 'Per Giümai acquista gli ultimi tre edifici del Monte Piaroi',
+    ogDescription: 'L\'associazione Per Giümai ha completato l\'acquisto degli ultimi tre edifici sul Monte Piaroi, grazie al contributo di privati e alla collaborazione con la',
+    canonicalPath: '/articoli-frontaliere/per-giumai-acquisti-monte-piaroi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Per Giümai acquista gli ultimi tre edifici del Monte Piaroi",
+      "description": "L'associazione Per Giümai ha completato l'acquisto degli ultimi tre edifici sul Monte Piaroi, grazie al contributo di privati e alla collaborazione con la",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/per-giumai-acquisti-monte-piaroi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Monte Piaroi in Ticino, Svizzera, con il paesaggio circostante e gli edifici"
+      },
+      "datePublished": "2026-04-27T21:33:11+00:00",
+      "dateModified": "2026-04-27T21:33:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/per-giumai-acquisti-monte-piaroi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

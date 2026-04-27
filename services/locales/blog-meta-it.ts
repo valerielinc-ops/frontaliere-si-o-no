@@ -3113,6 +3113,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-biciclette-mendrisiotto-2026.title': 'Due arresti per furti di biciclette nel Mendrisiotto',
     'blog.article.furti-biciclette-mendrisiotto-2026.excerpt': 'Due cittadini rumeni arrestati con tre biciclette smontate e attrezzi da scasso. Polizia ricorda consigli per prevenire furti.',
     'blog.article.furti-biciclette-mendrisiotto-2026.imageAlt': 'Strada affollata a Mendrisio con negozio di biciclette e polizia in sottofondo',
+    'blog.article.per-giumai-acquisti-monte-piaroi-2026.title': 'Per Giümai acquista gli ultimi tre edifici del Monte Piaroi',
+    'blog.article.per-giumai-acquisti-monte-piaroi-2026.excerpt': 'L\'associazione Per Giümai ha completato l\'acquisto degli ultimi tre edifici sul Monte Piaroi, grazie al contributo di privati e alla collaborazione con la Protezione civile.',
+    'blog.article.per-giumai-acquisti-monte-piaroi-2026.imageAlt': 'Vista aerea del Monte Piaroi in Ticino, Svizzera, con il paesaggio circostante e gli edifici',
 };
 
 export default blogMetaIt;

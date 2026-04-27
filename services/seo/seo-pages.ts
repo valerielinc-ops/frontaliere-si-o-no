@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1087,
+ "numberOfItems": 1088,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5811,7 +5811,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1084, "name": "Raduno di moto storiche a Varese: un tuffo negl...", "url": `${BASE_URL}/articoli-frontaliere/varese-moto-storiche-2026` },
           { "@type": "ListItem", "position": 1085, "name": "Nuovo contratto edilizia Ticino: giornate più c...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-contratto-edilizia-ticino-2026` },
           { "@type": "ListItem", "position": 1086, "name": "Chiusura parziale raccordo Varese-A8 lunedì sera", "url": `${BASE_URL}/articoli-frontaliere/viabilita-varese-racordo-chiuso-2026` },
-          { "@type": "ListItem", "position": 1087, "name": "Due arresti per furti di biciclette nel Mendris...", "url": `${BASE_URL}/articoli-frontaliere/furti-biciclette-mendrisiotto-2026` }
+          { "@type": "ListItem", "position": 1087, "name": "Due arresti per furti di biciclette nel Mendris...", "url": `${BASE_URL}/articoli-frontaliere/furti-biciclette-mendrisiotto-2026` },
+          { "@type": "ListItem", "position": 1088, "name": "Per Giümai acquista gli ultimi tre edifici del ...", "url": `${BASE_URL}/articoli-frontaliere/per-giumai-acquisti-monte-piaroi-2026` }
  ]
  },
  {
