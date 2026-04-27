@@ -2240,6 +2240,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-maxi-spiegamento-fiamme-gialle-comasco-2026': { name: 'Novità', path: '/articoli-frontaliere/maxi-spiegamento-fiamme-gialle-comasco-2026', parent: 'blog' },
     'blog-riforma-medici-famiglia-sumai-organizzazione': { name: 'Riforma medici', path: '/articoli-frontaliere/riforma-medici-famiglia-sumai-organizzazione', parent: 'blog' },
     'blog-lavoratori-pensionati-ticino-2026-2046': { name: 'Novità', path: '/articoli-frontaliere/lavoratori-pensionati-ticino-2026-2046', parent: 'blog' },
+    'blog-universita-varese-intelligenza-artificiale-2026': { name: 'Novità', path: '/articoli-frontaliere/universita-varese-intelligenza-artificiale-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

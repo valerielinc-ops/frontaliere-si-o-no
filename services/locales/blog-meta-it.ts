@@ -2940,6 +2940,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoratori-pensionati-ticino-2026-2046.title': 'Lavoratori in età pensionabile in Ticino: +220% in 20 anni',
     'blog.article.lavoratori-pensionati-ticino-2026-2046.excerpt': 'Nel 2025, 220.000 persone in Svizzera lavoravano oltre l\'età pensionabile. Ecco cosa cambia per i frontalieri del Canton Ticino.',
     'blog.article.lavoratori-pensionati-ticino-2026-2046.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
+    'blog.article.universita-varese-intelligenza-artificiale-2026.title': 'Intelligenza artificiale all\'Università di Varese: una mattinata di studi e confronti',
+    'blog.article.universita-varese-intelligenza-artificiale-2026.excerpt': 'L\'Università dell\'Insubria organizza un evento sull\'intelligenza artificiale il 6 maggio 2026, con interventi di esperti e nuove linee guida per l\'Ateneo.',
+    'blog.article.universita-varese-intelligenza-artificiale-2026.imageAlt': 'Vista aerea del centro storico di Varese con il campus dell\'Università dell\'Insubria in primo piano',
 };
 
 export default blogMetaIt;

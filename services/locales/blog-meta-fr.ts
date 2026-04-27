@@ -2940,6 +2940,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoratori-pensionati-ticino-2026-2046.title': 'Travailleurs en âge de la retraite au Tessin : +220% en 20 ans',
     'blog.article.lavoratori-pensionati-ticino-2026-2046.excerpt': 'En 2025, 220.000 personnes en Suisse travaillaient au-delà de l\'âge de la retraite. Voici ce qui change pour les frontaliers du canton du Tessin.',
     'blog.article.lavoratori-pensionati-ticino-2026-2046.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bâtiments',
+    'blog.article.universita-varese-intelligenza-artificiale-2026.title': 'Intelligence artificielle à l\'Université de Varèse : une matinée d\'études et de comparaisons',
+    'blog.article.universita-varese-intelligenza-artificiale-2026.excerpt': 'L\'Université de l\'Insubria organise un événement sur l\'intelligence artificielle le 6 mai 2026, avec des interventions d\'experts et de nouvelles lignes directrices pour l\'établissement.',
+    'blog.article.universita-varese-intelligenza-artificiale-2026.imageAlt': 'Vue aérienne du centre historique de Varese avec le campus de l\'Université de l\'Insubria en premier plan',
 };
 
 export default blogMetaFr;

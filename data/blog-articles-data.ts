@@ -7847,4 +7847,11 @@ export const ARTICLES = [
  image: '/images/blog/lavoratori-pensionati-ticino-2026-2046.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'universita-varese-intelligenza-artificiale-2026',
+ category: 'novita',
+ date: '2026-04-27T13:22:17.437Z',
+ image: '/images/blog/universita-varese-intelligenza-artificiale-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

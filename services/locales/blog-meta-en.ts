@@ -2940,6 +2940,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoratori-pensionati-ticino-2026-2046.title': 'Workers beyond retirement age in Ticino: +220% in 20 years',
     'blog.article.lavoratori-pensionati-ticino-2026-2046.excerpt': 'In 2025, 220,000 people in Switzerland were working beyond retirement age. Here\'s what changes for cross-border workers in the Canton of Ticino.',
     'blog.article.lavoratori-pensionati-ticino-2026-2046.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
+    'blog.article.universita-varese-intelligenza-artificiale-2026.title': 'Artificial Intelligence at the University of Varese: a morning of studies and comparisons',
+    'blog.article.universita-varese-intelligenza-artificiale-2026.excerpt': 'The University of Insubria is organizing an event on artificial intelligence on May 6, 2026, with expert interventions and new guidelines for the University.',
+    'blog.article.universita-varese-intelligenza-artificiale-2026.imageAlt': 'Aerial view of Varese\'s historic center with the University of Insubria campus in the foreground',
 };
 
 export default blogMetaEn;

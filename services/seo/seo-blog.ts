@@ -15293,6 +15293,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-universita-varese-intelligenza-artificiale-2026': {
+    title: 'Intelligenza artificiale all\'Università | Frontaliere Ticino',
+    description: 'L\'Università dell\'Insubria organizza un evento sull\'intelligenza artificiale il 6 maggio 2026 a Varese, con interventi di esperti e nuove linee guida per',
+    keywords: 'frontalieri, ticino, svizzera, italia, intelligenza, artificiale, università, varese',
+    ogTitle: 'Intelligenza artificiale all\'Università di Varese |',
+    ogDescription: 'L\'Università dell\'Insubria organizza un evento sull\'intelligenza artificiale il 6 maggio 2026 a Varese, con interventi di esperti e nuove linee guida per',
+    canonicalPath: '/articoli-frontaliere/universita-varese-intelligenza-artificiale-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Intelligenza artificiale all'Università di Varese: una mattinata di studi e confronti",
+      "description": "L'Università dell'Insubria organizza un evento sull'intelligenza artificiale il 6 maggio 2026 a Varese, con interventi di esperti e nuove linee guida per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/universita-varese-intelligenza-artificiale-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro storico di Varese con il campus dell'Università dell'Insubria in primo piano"
+      },
+      "datePublished": "2026-04-27T13:22:17+00:00",
+      "dateModified": "2026-04-27T13:22:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/universita-varese-intelligenza-artificiale-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
