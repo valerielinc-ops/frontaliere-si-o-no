@@ -15612,6 +15612,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-arresti-furto-biciclette-2026': {
+    title: 'Chiasso: arrestati due uomini per furto | Frontaliere Ticino',
+    description: 'Due cittadini rumeni arrestati a Chiasso per furto di biciclette. Scoperti attrezzi da scasso e biciclette rubate. Consigli per la sicurezza delle biciclette.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, arrestati, uomini, furto',
+    ogTitle: 'Chiasso: arrestati per furto di biciclette',
+    ogDescription: 'Due cittadini rumeni arrestati a Chiasso per furto di biciclette. Scoperti attrezzi da scasso e biciclette rubate. Consigli per la sicurezza delle biciclette.',
+    canonicalPath: '/articoli-frontaliere/chiasso-arresti-furto-biciclette-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Chiasso: arrestati per furto di",
+      "description": "Due cittadini rumeni arrestati a Chiasso per furto di biciclette. Scoperti attrezzi da scasso e biciclette rubate. Consigli per la sicurezza delle biciclette.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiasso-arresti-furto-biciclette-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Chiasso con presenza di polizia"
+      },
+      "datePublished": "2026-04-27T14:56:19+00:00",
+      "dateModified": "2026-04-27T14:56:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-arresti-furto-biciclette-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2973,6 +2973,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.universita-ticino-tagli-contributi-2026.title': 'Tagli ai contributi e numero chiuso: cosa cambia all\'USI',
     'blog.article.universita-ticino-tagli-contributi-2026.excerpt': 'L\'Università della Svizzera italiana riduce i posti per studenti esteri. Retta raddoppiata per chi viene dall\'estero. Dal 2027 tagli federali.',
     'blog.article.universita-ticino-tagli-contributi-2026.imageAlt': 'Università della Svizzera italiana a Lugano, vista esterna con studenti',
+    'blog.article.chiasso-arresti-furto-biciclette-2026.title': 'Chiasso: arrestati due uomini per furto di biciclette',
+    'blog.article.chiasso-arresti-furto-biciclette-2026.excerpt': 'Due cittadini rumeni arrestati a Chiasso dopo fuga da stazione di servizio senza pagare il carburante. Trovate biciclette rubate e attrezzi da scasso.',
+    'blog.article.chiasso-arresti-furto-biciclette-2026.imageAlt': 'Stazione ferroviaria di Chiasso con presenza di polizia',
 };
 
 export default blogMetaIt;

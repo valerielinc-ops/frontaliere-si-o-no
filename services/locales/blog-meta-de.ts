@@ -2973,6 +2973,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.universita-ticino-tagli-contributi-2026.title': 'Kürzungen bei den Beiträgen und begrenzte Plätze: Was sich an der USI ändert',
     'blog.article.universita-ticino-tagli-contributi-2026.excerpt': 'Die Universität der italienischen Schweiz reduziert die Plätze für ausländische Studierende. Die Gebühren verdoppeln sich für Studierende aus dem Ausland. Ab 2027 gibt es Kürzungen durch den Bund.',
     'blog.article.universita-ticino-tagli-contributi-2026.imageAlt': 'Universität der italienischen Schweiz in Lugano, Außenansicht mit Studierenden',
+    'blog.article.chiasso-arresti-furto-biciclette-2026.title': 'Chiasso: Zwei Männer wegen Fahrraddiebstahls festgenommen',
+    'blog.article.chiasso-arresti-furto-biciclette-2026.excerpt': 'Zwei rumänische Staatsbürger wurden in Chiasso festgenommen, nachdem sie eine Tankstelle ohne Bezahlung des Kraftstoffs verlassen hatten. Gestohlene Fahrräder und Einbruchswerkzeuge wurden gefunden.',
+    'blog.article.chiasso-arresti-furto-biciclette-2026.imageAlt': 'Bahnhof Chiasso mit Polizeianwesenheit',
 };
 
 export default blogMetaDe;

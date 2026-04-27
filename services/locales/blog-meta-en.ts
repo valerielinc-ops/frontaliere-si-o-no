@@ -2973,6 +2973,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.universita-ticino-tagli-contributi-2026.title': 'Cuts to contributions and limited spots: what changes at USI',
     'blog.article.universita-ticino-tagli-contributi-2026.excerpt': 'The University of Italian Switzerland reduces spots for international students. Tuition doubled for those coming from abroad. Federal cuts starting in 2027.',
     'blog.article.universita-ticino-tagli-contributi-2026.imageAlt': 'University of Italian Switzerland in Lugano, exterior view with students',
+    'blog.article.chiasso-arresti-furto-biciclette-2026.title': 'Chiasso: two men arrested for bicycle theft',
+    'blog.article.chiasso-arresti-furto-biciclette-2026.excerpt': 'Two Romanian citizens arrested in Chiasso after fleeing a gas station without paying for fuel. Stolen bicycles and burglary tools found.',
+    'blog.article.chiasso-arresti-furto-biciclette-2026.imageAlt': 'Chiasso railway station with police presence',
 };
 
 export default blogMetaEn;
