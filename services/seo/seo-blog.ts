@@ -15496,6 +15496,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidenti-mortali-lavoro-svizzera-2026': {
+    title: 'SUVA: incidenti mortali sul lavoro in | Frontaliere Ticino',
+    description: 'Dati SUVA: infortuni mortali sul lavoro ridotti dell\'80% dal 1986-1990 al 2020-2024, nonostante aumento occupati. Innovazione e formazione chiave.',
+    keywords: 'frontalieri, ticino, svizzera, italia, suva, incidenti, mortali, lavoro',
+    ogTitle: 'SUVA: incidenti mortali sul lavoro -80% | Frontaliere Ticino',
+    ogDescription: 'Dati SUVA: infortuni mortali sul lavoro ridotti dell\'80% dal 1986-1990 al 2020-2024, nonostante aumento occupati. Innovazione e formazione chiave.',
+    canonicalPath: '/articoli-frontaliere/incidenti-mortali-lavoro-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SUVA: incidenti mortali sul lavoro -80% | Frontaliere Ticino",
+      "description": "Dati SUVA: infortuni mortali sul lavoro ridotti dell'80% dal 1986-1990 al 2020-2024, nonostante aumento occupati. Innovazione e formazione chiave.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidenti-mortali-lavoro-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Ceresio e cielo azzurro"
+      },
+      "datePublished": "2026-04-27T14:23:25+00:00",
+      "dateModified": "2026-04-27T14:23:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidenti-mortali-lavoro-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

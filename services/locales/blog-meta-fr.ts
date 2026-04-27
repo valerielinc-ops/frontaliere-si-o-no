@@ -2961,6 +2961,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.corteo-maggio-lugano-traffico-2024.title': '1er mai à Lugano: routes fermées pour la manifestation syndicale',
     'blog.article.corteo-maggio-lugano-traffico-2024.excerpt': 'De 16h00 à 17h00, le viale Castagnola, la via Capelli et d\'autres rues centrales seront fermées pour la manifestation de l\'USS Ticino et Moesa',
     'blog.article.corteo-maggio-lugano-traffico-2024.imageAlt': 'Vue aérienne de la promenade du lac de Lugano pendant une manifestation du 1er mai',
+    'blog.article.incidenti-mortali-lavoro-svizzera-2026.title': 'SUVA: accidents mortels au travail en Suisse -80% depuis les années \'80',
+    'blog.article.incidenti-mortali-lavoro-svizzera-2026.excerpt': 'Données SUVA: les accidents mortels au travail ont diminué de 80% entre 1986-1990 et 2020-2024, malgré l\'augmentation des travailleurs. L\'innovation et la formation sont des éléments clés.',
+    'blog.article.incidenti-mortali-lavoro-svizzera-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et ciel bleu',
 };
 
 export default blogMetaFr;

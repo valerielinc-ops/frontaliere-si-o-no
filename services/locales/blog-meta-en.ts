@@ -2961,6 +2961,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.corteo-maggio-lugano-traffico-2024.title': '1st May in Lugano: roads closed for the trade union procession',
     'blog.article.corteo-maggio-lugano-traffico-2024.excerpt': 'From 16:00 to 17:00, Viale Castagnola, Via Capelli, and other central streets will be closed for the procession of the USS Ticino and Moesa',
     'blog.article.corteo-maggio-lugano-traffico-2024.imageAlt': 'Aerial view of Lugano\'s lakeside during a May 1st demonstration',
+    'blog.article.incidenti-mortali-lavoro-svizzera-2026.title': 'SUVA: fatal workplace accidents in Switzerland down 80% since the \'80s',
+    'blog.article.incidenti-mortali-lavoro-svizzera-2026.excerpt': 'SUVA data: fatal workplace accidents reduced by 80% from 1986-1990 to 2020-2024, despite increase in employed workers. Innovation and training key.',
+    'blog.article.incidenti-mortali-lavoro-svizzera-2026.imageAlt': 'Aerial view of Lugano with Lake Ceresio and blue sky',
 };
 
 export default blogMetaEn;

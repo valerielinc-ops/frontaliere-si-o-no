@@ -2961,6 +2961,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.corteo-maggio-lugano-traffico-2024.title': '1° maggio a Lugano: strade chiuse per il corteo sindacale',
     'blog.article.corteo-maggio-lugano-traffico-2024.excerpt': 'Dalle 16:00 alle 17:00 saranno chiusi viale Castagnola, via Capelli e altre vie centrali per il corteo dell\'USS Ticino e Moesa',
     'blog.article.corteo-maggio-lugano-traffico-2024.imageAlt': 'Vista aerea del lungolago di Lugano durante una manifestazione del 1° maggio',
+    'blog.article.incidenti-mortali-lavoro-svizzera-2026.title': 'SUVA: incidenti mortali sul lavoro in Svizzera -80% dagli anni \'80',
+    'blog.article.incidenti-mortali-lavoro-svizzera-2026.excerpt': 'Dati SUVA: infortuni mortali sul lavoro ridotti dell\'80% dal 1986-1990 al 2020-2024, nonostante aumento occupati. Innovazione e formazione chiave.',
+    'blog.article.incidenti-mortali-lavoro-svizzera-2026.imageAlt': 'Vista aerea di Lugano con il Lago Ceresio e cielo azzurro',
 };
 
 export default blogMetaIt;

@@ -7896,4 +7896,11 @@ export const ARTICLES = [
  image: '/images/blog/corteo-maggio-lugano-traffico-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incidenti-mortali-lavoro-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-27T14:23:25.539Z',
+ image: '/images/blog/incidenti-mortali-lavoro-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
