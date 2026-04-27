@@ -2809,6 +2809,33 @@ ${hrefTags}
    console.warn('[seo-hubs] emitter failed (non-fatal):', err);
  }
 
+ // ── Locale-root SPA shells (Phase 6 polish) ──
+ // /en/, /de/, /fr/ are valid SPA routes but no plugin emits a static HTML for
+ // them, so hreflang alternates from `dist/index.html` (and friends) point to
+ // non-existent files and trip the hreflang-no-broken regression test (and
+ // Semrush would flag them post-deploy). Mirror the IT homepage for these
+ // three locale roots so the SPA shell + hreflang alternates resolve. Idempotent.
+ try {
+   const rootIndex = np.join(distDir, 'index.html');
+   if (fs.existsSync(rootIndex)) {
+     const rootHtml = fs.readFileSync(rootIndex, 'utf-8');
+     for (const loc of ['en', 'de', 'fr'] as const) {
+       const dir = np.join(distDir, loc);
+       const file = np.join(dir, 'index.html');
+       if (!fs.existsSync(file)) {
+         // Rewrite <html lang> + canonical to match the locale.
+         const localized = rootHtml
+           .replace(/<html\b[^>]*\blang="[^"]*"/i, `<html lang="${loc}"`)
+           .replace(/<link\s+rel="canonical"\s+href="https:\/\/frontaliereticino\.ch\/"/i,
+             `<link rel="canonical" href="https://frontaliereticino.ch/${loc}/"`);
+         _qw(file, localized);
+       }
+     }
+   }
+ } catch (err) {
+   console.warn('[static-pages] locale-root shell emit failed (non-fatal):', err);
+ }
+
  const t0 = Date.now();
  const written = await collector.flush();
  const hashSkipped = collector.skippedByHash;
