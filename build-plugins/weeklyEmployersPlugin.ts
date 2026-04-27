@@ -878,6 +878,16 @@ interface WeeklyCopy {
   companyCityFaqHowApplyA: (employer: string) => string;
   companyCityFaqUpdateQ: string;
   companyCityFaqUpdateA: string;
+  /**
+   * Per-company × city frontalier context section. Two paragraphs covering
+   * permit + commute reality from typical Lombardy origins to {city}, and
+   * the gross-to-net mechanics that determine whether a {employer} offer
+   * in {city} pays off vs an Italian alternative. Adds substantive
+   * page-relevant text — fixes the Semrush text/HTML ratio gate without
+   * filler.
+   */
+  companyCityFrontalierTitle: (employer: string, city: string) => string;
+  companyCityFrontalier: (args: { employer: string; city: string; jobsCount: number }) => string[];
 }
 
 const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
@@ -978,6 +988,11 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
     companyCityFaqUpdateQ: 'Quando viene aggiornata questa pagina?',
     companyCityFaqUpdateA:
       'Ogni lunedì mattina la pipeline genera un nuovo snapshot delle offerte attive e aggiorna delta, classifica e testo editoriale. Puoi tornare settimanalmente per vedere come evolve il quadro assunzioni.',
+    companyCityFrontalierTitle: (e, c) => `Lavorare per ${e} a ${c} da frontaliere`,
+    companyCityFrontalier: ({ employer, city, jobsCount }) => [
+      `Permesso e tragitto. Per candidarsi a una delle ${jobsCount} posizioni aperte di ${employer} a ${city} come frontaliere serve la residenza in un comune italiano entro 20 km dal confine svizzero (Lombardia o Piemonte) e il rientro al domicilio almeno una volta a settimana. Il Permesso G viene richiesto dal datore dopo la firma del contratto: la prima emissione richiede 2-6 settimane, poi il rinnovo è annuale fino al limite contrattuale. Da Como il tragitto verso ${city} passa tipicamente dal valico di Brogeda (autostrada A2) o Chiasso-strada con 25-50 minuti in ora di punta a seconda delle code; da Varese o Luino i valichi di Stabio o Gaggiolo offrono alternative. Verifica i tempi di attesa in tempo reale sulla mappa dei valichi prima di stimare l'orario di arrivo per il colloquio o il primo giorno di lavoro.`,
+      `Stipendio netto e cosa controllare nelle offerte. ${employer} pubblica le retribuzioni come lordo annuo: per un frontaliere assunto nel ${city} dopo il 1° gennaio 2024 il netto reale dipende dal Nuovo Accordo fiscale Italia-Svizzera (imposta concorrente con credito d'imposta italiano fino all'80 % sulla ritenuta svizzera), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 % fino a 148.200 CHF/anno, LPP variabile 7-18 % a seconda dell'età) e dal regime fiscale del cantone. La differenza lordo-netto tipica è 18-28 %. Confronta la retribuzione media di queste ${jobsCount} offerte con i parametri della tua busta paga attuale italiana, calcola il netto effettivo nel <a href="${BASE_URL}/calcola-stipendio/">simulatore stipendio</a> e ricorda di considerare anche i costi del pendolarismo (carburante, usura veicolo, tempo perso) per un confronto onesto.`,
+    ],
   },
   en: {
     sectionLabel: 'Companies hiring',
@@ -1072,6 +1087,11 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
     companyCityFaqUpdateQ: 'How often is this page updated?',
     companyCityFaqUpdateA:
       'Every Monday morning the pipeline regenerates the snapshot of active openings and updates the delta, ranking and editorial copy. Check back weekly to see how the hiring outlook shifts.',
+    companyCityFrontalierTitle: (e, c) => `Working for ${e} in ${c} as a cross-border worker`,
+    companyCityFrontalier: ({ employer, city, jobsCount }) => [
+      `Permit and commute. To apply to one of the ${jobsCount} active positions at ${employer} in ${city} as a cross-border worker you must reside in an Italian municipality within the 20 km border zone (Lombardy or Piedmont) and return home at least once a week. The G permit is requested by the employer at the cantonal migration office after the contract is signed: first issuance takes 2-6 weeks and is then renewed yearly. From Como the commute to ${city} typically goes through the Brogeda crossing (A2 motorway) or Chiasso-strada, with 25-50 minutes at peak times depending on the queue. From Varese or Luino, the Stabio or Gaggiolo crossings offer alternatives. Check the live border-wait map before sizing the arrival time for an interview or your first day on site.`,
+      `Net salary and what to read in the listings. ${employer} posts compensation as gross annual figures: for a cross-border worker hired in ${city} on or after 1 January 2024, the real take-home depends on the Italy-Switzerland fiscal agreement (concurrent taxation with Italian tax credit up to 80 % on the Swiss withholding), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 % up to CHF 148,200/year, LPP rising from 7 % at 25 to 18 % over 55) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Benchmark the average salary across these ${jobsCount} listings against your current Italian payslip, run the actual net figure in the <a href="${BASE_URL}/en/calculate-salary/">salary simulator</a>, and factor in commute costs (fuel, vehicle wear, time lost at the border) for an honest comparison.`,
+    ],
   },
   de: {
     sectionLabel: 'Unternehmen mit offenen Stellen',
@@ -1170,6 +1190,11 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
     companyCityFaqUpdateQ: 'Wie oft wird diese Seite aktualisiert?',
     companyCityFaqUpdateA:
       'Jeden Montagmorgen erstellt die Pipeline einen neuen Snapshot der offenen Stellen und aktualisiert Veränderung, Rangliste und redaktionellen Text. Schauen Sie wöchentlich vorbei, um die Entwicklung zu verfolgen.',
+    companyCityFrontalierTitle: (e, c) => `Als Grenzgänger für ${e} in ${c} arbeiten`,
+    companyCityFrontalier: ({ employer, city, jobsCount }) => [
+      `Bewilligung und Pendelweg. Um sich auf eine der ${jobsCount} aktiven Stellen bei ${employer} in ${city} als Grenzgänger zu bewerben, müssen Sie in einer italienischen Gemeinde innerhalb der 20-km-Grenzzone (Lombardei oder Piemont) wohnen und mindestens einmal pro Woche nach Hause zurückkehren. Die G-Bewilligung wird vom Arbeitgeber nach Vertragsunterzeichnung beim kantonalen Migrationsamt beantragt: die erste Ausstellung dauert 2-6 Wochen, die jährliche Verlängerung erfolgt anschliessend. Von Como führt der Weg nach ${city} typischerweise über den Grenzübergang Brogeda (Autobahn A2) oder Chiasso-Strasse, mit 25-50 Minuten in Stosszeiten je nach Wartezeit. Von Varese oder Luino bieten Stabio oder Gaggiolo Alternativen. Prüfen Sie die Live-Wartezeitenkarte, bevor Sie die Ankunftszeit für ein Vorstellungsgespräch oder den ersten Arbeitstag berechnen.`,
+      `Nettolohn und worauf in den Inseraten zu achten ist. ${employer} gibt Löhne als Bruttojahresgehalt an: Für einen ab dem 1. Januar 2024 in ${city} angestellten Grenzgänger hängt der reale Nettolohn vom neuen Steuerabkommen Italien-Schweiz (konkurrierende Besteuerung, italienische Steuergutschrift bis zu 80 % auf die schweizerische Quellensteuer), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 % bis CHF 148'200/Jahr, BVG variabel von 7 % mit 25 Jahren bis 18 % über 55) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Vergleichen Sie den Durchschnittslohn dieser ${jobsCount} Inserate mit Ihrer aktuellen italienischen Lohnabrechnung, berechnen Sie den exakten Nettowert im <a href="${BASE_URL}/de/gehalt-berechnen/">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten (Treibstoff, Fahrzeugverschleiss, Zeitverlust an der Grenze) für einen ehrlichen Vergleich mit ein.`,
+    ],
   },
   fr: {
     sectionLabel: 'Entreprises qui recrutent',
@@ -1267,6 +1292,11 @@ const COPY: Record<WeeklyEmployersLocale, WeeklyCopy> = {
     companyCityFaqUpdateQ: 'À quelle fréquence cette page est-elle mise à jour ?',
     companyCityFaqUpdateA:
       'Chaque lundi matin, la pipeline régénère le snapshot des offres actives et met à jour la variation, le classement et le texte éditorial. Revenez chaque semaine pour voir comment évolue le plan d\'embauche.',
+    companyCityFrontalierTitle: (e, c) => `Travailler pour ${e} à ${c} en tant que frontalier`,
+    companyCityFrontalier: ({ employer, city, jobsCount }) => [
+      `Permis et trajet. Pour postuler à l'un des ${jobsCount} postes ouverts chez ${employer} à ${city} en tant que frontalier, vous devez résider dans une commune italienne située dans la zone frontière des 20 km (Lombardie ou Piémont) et rentrer chez vous au moins une fois par semaine. Le permis G est demandé par l'employeur à l'office cantonal des migrations après la signature du contrat : la première délivrance prend 2 à 6 semaines, puis le permis est renouvelé chaque année. Depuis Côme, le trajet vers ${city} passe en général par le poste-frontière de Brogeda (autoroute A2) ou par Chiasso-route, en 25-50 minutes aux heures de pointe selon la file. Depuis Varèse ou Luino, les passages de Stabio ou Gaggiolo offrent des alternatives. Vérifiez la carte des temps d'attente en direct avant d'estimer l'heure d'arrivée pour un entretien ou le premier jour de travail.`,
+      `Salaire net et points à vérifier dans les offres. ${employer} publie les rémunérations en brut annuel : pour un frontalier engagé à ${city} à partir du 1er janvier 2024, le net réel dépend du nouvel accord fiscal Italie-Suisse (imposition concurrente, crédit d'impôt italien jusqu'à 80 % sur la retenue suisse), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 % jusqu'à CHF 148'200/an, LPP variable de 7 % à 25 ans à 18 % au-delà de 55 ans) et du régime fiscal cantonal. L'écart brut-net typique est de 18 à 28 %. Comparez le salaire moyen de ces ${jobsCount} offres à votre fiche de paie italienne actuelle, calculez le net exact dans le <a href="${BASE_URL}/fr/calculer-salaire/">simulateur de salaire</a> et tenez compte des coûts du trajet (carburant, usure du véhicule, temps perdu à la frontière) pour une comparaison honnête.`,
+    ],
   },
 };
 
@@ -2089,6 +2119,13 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   <section style="margin:0 0 28px" aria-labelledby="companyCityEditorial">
     <h2 id="companyCityEditorial" style="${H2_STYLE}">${esc(employer)} · ${esc(cityDisplay)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorial)}</p>
+  </section>
+  <section style="margin:0 0 28px" aria-labelledby="companyCityFrontalier">
+    <h2 id="companyCityFrontalier" style="${H2_STYLE}">${esc(copy.companyCityFrontalierTitle(employer, cityDisplay))}</h2>
+    ${copy
+      .companyCityFrontalier({ employer, city: cityDisplay, jobsCount: stats.activeJobsCount })
+      .map((p) => `<p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${p}</p>`)
+      .join('')}
   </section>
   <section style="margin:0 0 28px" aria-labelledby="companyCityLinks">
     <h2 id="companyCityLinks" style="${H2_STYLE}">${esc(copy.relatedLinksTitle)}</h2>
