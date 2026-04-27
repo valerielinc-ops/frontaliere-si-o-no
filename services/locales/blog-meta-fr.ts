@@ -2928,6 +2928,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-massagno-salario-scandaloso.title': 'Un poste de travail réservé uniquement aux frontaliers : « Assez, c\'est scandaleux »',
     'blog.article.frontalieri-massagno-salario-scandaloso.excerpt': 'Fabrizio Sirica dénonce une offre d\'emploi à Massagno réservée exclusivement aux frontaliers avec un salaire de 2.900 francs bruts par mois.',
     'blog.article.frontalieri-massagno-salario-scandaloso.imageAlt': 'Annonces d\'emploi controversées affichées à Massagno sur le lac de Lugano',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.title': 'Soins infirmiers : 190\'000 signatures pour l\'application intégrale de l\'initiative',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.excerpt': '190\'000 signatures remises à Berne pour l\'application immédiate de l\'initiative sur les soins infirmiers. Le Conseil national discute de la nouvelle loi.',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.imageAlt': 'Manifestation d\'infirmières devant le Palais fédéral à Berne',
 };
 
 export default blogMetaFr;

@@ -2928,6 +2928,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-massagno-salario-scandaloso.title': 'A job position only for cross-border workers: \'Enough, it\'s scandalous\'',
     'blog.article.frontalieri-massagno-salario-scandaloso.excerpt': 'Fabrizio Sirica denounces a job posting in Massagno exclusively reserved for cross-border workers with a gross salary of 2,900 francs per month.',
     'blog.article.frontalieri-massagno-salario-scandaloso.imageAlt': 'Controversial job ad posted in Massagno on Lake Lugano',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.title': 'Nursing care: 190,000 signatures for full implementation of the initiative',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.excerpt': '190,000 signatures handed in to Bern for the immediate application of the initiative on nursing care. The National Council discusses the new law.',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.imageAlt': 'Protest of nurses in front of the Federal Palace in Bern',
 };
 
 export default blogMetaEn;

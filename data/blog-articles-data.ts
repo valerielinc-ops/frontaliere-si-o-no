@@ -7819,4 +7819,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-massagno-salario-scandaloso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cure-infermieristiche-190mila-firme-2026',
+ category: 'novita',
+ date: '2026-04-27T12:51:29.276Z',
+ image: '/images/blog/cure-infermieristiche-190mila-firme-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

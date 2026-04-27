@@ -15177,6 +15177,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cure-infermieristiche-190mila-firme-2026': {
+    title: 'Cure infermieristiche: 190mila firme | Frontaliere Ticino',
+    description: '190mila firme consegnate a Berna per l\'applicazione immediata dell\'iniziativa sulle cure infermieristiche. Il Consiglio nazionale discute la nuova legge.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cure, infermieristiche, 190mila, firme',
+    ogTitle: 'Cure infermieristiche: 190mila firme per l\'applicazione',
+    ogDescription: '190mila firme consegnate a Berna per l\'applicazione immediata dell\'iniziativa sulle cure infermieristiche. Il Consiglio nazionale discute la nuova legge.',
+    canonicalPath: '/articoli-frontaliere/cure-infermieristiche-190mila-firme-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cure infermieristiche: 190mila firme per l'applicazione integrale dell'iniziativa",
+      "description": "190mila firme consegnate a Berna per l'applicazione immediata dell'iniziativa sulle cure infermieristiche. Il Consiglio nazionale discute la nuova legge.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cure-infermieristiche-190mila-firme-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione di infermieri davanti al Palazzo federale a Berna"
+      },
+      "datePublished": "2026-04-27T12:51:29+00:00",
+      "dateModified": "2026-04-27T12:51:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-infermieristiche-190mila-firme-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

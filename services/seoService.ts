@@ -2236,6 +2236,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-deepfake-legge-svizzera-2026': { name: 'Deepfake pornografici', path: '/articoli-frontaliere/deepfake-legge-svizzera-2026', parent: 'blog' },
     'blog-ticinesi-missione-ucraina-2026': { name: 'Missioni umanitarie', path: '/articoli-frontaliere/ticinesi-missione-ucraina-2026', parent: 'blog' },
     'blog-frontalieri-massagno-salario-scandaloso': { name: 'Frontalieri e lavoro', path: '/articoli-frontaliere/frontalieri-massagno-salario-scandaloso', parent: 'blog' },
+    'blog-cure-infermieristiche-190mila-firme-2026': { name: 'Cure infermieristiche', path: '/articoli-frontaliere/cure-infermieristiche-190mila-firme-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

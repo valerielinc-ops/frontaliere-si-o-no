@@ -2928,6 +2928,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-massagno-salario-scandaloso.title': 'Un posto di lavoro solo per frontalieri: «Basta, è scandaloso»',
     'blog.article.frontalieri-massagno-salario-scandaloso.excerpt': 'Fabrizio Sirica denuncia un annuncio di lavoro a Massagno riservato esclusivamente ai frontalieri con uno stipendio di 2.900 franchi lordi al mese.',
     'blog.article.frontalieri-massagno-salario-scandaloso.imageAlt': 'Annuncio di lavoro controverso affisso a Massagno sul Lago di Lugano',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.title': 'Cure infermieristiche: 190mila firme per l\'applicazione integrale dell\'iniziativa',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.excerpt': '190mila firme consegnate a Berna per l\'applicazione immediata dell\'iniziativa sulle cure infermieristiche. Il Consiglio nazionale discute la nuova legge.',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.imageAlt': 'Manifestazione di infermieri davanti al Palazzo federale a Berna',
 };
 
 export default blogMetaIt;

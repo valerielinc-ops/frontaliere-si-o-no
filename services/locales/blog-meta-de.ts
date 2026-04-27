@@ -2928,6 +2928,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-massagno-salario-scandaloso.title': 'Ein Arbeitsplatz nur für Grenzgänger: «Genug, das ist skandalös»',
     'blog.article.frontalieri-massagno-salario-scandaloso.excerpt': 'Fabrizio Sirica denunziert eine Stellenausschreibung in Massagno, die ausschließlich Grenzgängern mit einem Bruttolohn von 2.900 Franken pro Monat vorbehalten ist.',
     'blog.article.frontalieri-massagno-salario-scandaloso.imageAlt': 'Umstrittene Stellenausschreibung in Massagno am Luganersee',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.title': 'Pflegeleistungen: 190.000 Unterschriften für die vollständige Umsetzung der Initiative',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.excerpt': '190.000 Unterschriften wurden in Bern eingereicht, um die sofortige Umsetzung der Initiative zu den Pflegeleistungen zu fordern. Der Nationalrat diskutiert das neue Gesetz.',
+    'blog.article.cure-infermieristiche-190mila-firme-2026.imageAlt': 'Protest von Krankenschwestern vor dem Bundeshaus in Bern',
 };
 
 export default blogMetaDe;
