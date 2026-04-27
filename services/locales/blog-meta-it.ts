@@ -2763,6 +2763,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grigioni-viabilita-olimpica-2026.title': 'Viabilità olimpica: i Grigioni risparmiano ma la Lombardia tace',
     'blog.article.grigioni-viabilita-olimpica-2026.excerpt': 'I costi per la gestione del traffico olimpico sono inferiori alle previsioni, ma la Lombardia non ha ancora confermato il suo contributo.',
     'blog.article.grigioni-viabilita-olimpica-2026.imageAlt': 'Panorama delle montagne dei Grigioni con impianti olimpici sullo sfondo',
+    'blog.article.mobilita-sostenibile-citta-vivibili-2026.title': 'Mobilità sostenibile e città più vivibili: esempi da Barcellona, Parigi e Singapore',
+    'blog.article.mobilita-sostenibile-citta-vivibili-2026.excerpt': 'Scopri come Barcellona, Parigi e Singapore stanno ridisegnando lo spazio urbano per ridurre inquinamento e migliorare la qualità della vita',
+    'blog.article.mobilita-sostenibile-citta-vivibili-2026.imageAlt': 'Vista aerea del Lago di Lugano con elementi di pianificazione urbana moderna come piste ciclabili e spazi verdi',
 };
 
 export default blogMetaIt;

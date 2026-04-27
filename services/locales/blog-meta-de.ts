@@ -2763,6 +2763,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grigioni-viabilita-olimpica-2026.title': 'Olympia-Verkehr: Graubünden spart, aber Lombardei schweigt',
     'blog.article.grigioni-viabilita-olimpica-2026.excerpt': 'Die Kosten für die Bewältigung des Olympia-Verkehrs sind niedriger als erwartet, aber die Lombardei hat ihren Beitrag noch nicht bestätigt.',
     'blog.article.grigioni-viabilita-olimpica-2026.imageAlt': 'Panoramablick auf die Berge der Graubünden mit Olympischen Anlagen im Hintergrund',
+    'blog.article.mobilita-sostenibile-citta-vivibili-2026.title': 'Nachhaltige Mobilität und lebenswertere Städte: Beispiele aus Barcelona, Paris und Singapur',
+    'blog.article.mobilita-sostenibile-citta-vivibili-2026.excerpt': 'Entdecken Sie, wie Barcelona, Paris und Singapur den urbanen Raum neu gestalten, um die Umweltverschmutzung zu reduzieren und die Lebensqualität zu verbessern',
+    'blog.article.mobilita-sostenibile-citta-vivibili-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen städtischen Planungselementen wie Fahrradwegen und Grünflächen',
 };
 
 export default blogMetaDe;

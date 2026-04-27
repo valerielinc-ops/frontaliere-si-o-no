@@ -13582,6 +13582,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mobilita-sostenibile-citta-vivibili-2026': {
+    title: 'Mobilità sostenibile e città più | Frontaliere Ticino',
+    description: 'Scopri come Barcellona, Parigi e Singapore stanno ridisegnando lo spazio urbano per ridurre inquinamento e migliorare la qualità della vita per i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, mobilità, sostenibile, città, vivibili',
+    ogTitle: 'Mobilità sostenibile e città vivibili | Frontaliere Ticino',
+    ogDescription: 'Scopri come Barcellona, Parigi e Singapore stanno ridisegnando lo spazio urbano per ridurre inquinamento e migliorare la qualità della vita per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/mobilita-sostenibile-citta-vivibili-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mobilità sostenibile e città vivibili: esempi da Barcellona, Parigi e Singapore",
+      "description": "Scopri come Barcellona, Parigi e Singapore stanno ridisegnando lo spazio urbano per ridurre inquinamento e migliorare la qualità della vita per i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mobilita-sostenibile-citta-vivibili-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con elementi di pianificazione urbana moderna come piste ciclabili e spazi verdi"
+      },
+      "datePublished": "2026-04-27T01:40:03+00:00",
+      "dateModified": "2026-04-27T01:40:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mobilita-sostenibile-citta-vivibili-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

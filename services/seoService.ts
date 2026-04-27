@@ -2181,6 +2181,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo': { name: 'Tennis donne / “Open” di Chiasso, a Marija', path: '/articoli-frontaliere/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo', parent: 'blog' },
     'blog-foreste-sommerse-lago-como-lugano': { name: 'Novità', path: '/articoli-frontaliere/foreste-sommerse-lago-como-lugano', parent: 'blog' },
     'blog-grigioni-viabilita-olimpica-2026': { name: 'Viabilità olimpica', path: '/articoli-frontaliere/grigioni-viabilita-olimpica-2026', parent: 'blog' },
+    'blog-mobilita-sostenibile-citta-vivibili-2026': { name: 'Mobilità sostenibile', path: '/articoli-frontaliere/mobilita-sostenibile-citta-vivibili-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

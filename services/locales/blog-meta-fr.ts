@@ -2763,6 +2763,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grigioni-viabilita-olimpica-2026.title': 'Trafic olympique : les Grisons économisent mais la Lombardie reste silencieuse',
     'blog.article.grigioni-viabilita-olimpica-2026.excerpt': 'Les coûts de gestion du trafic olympique sont inférieurs aux prévisions, mais la Lombardie n\'a pas encore confirmé sa contribution.',
     'blog.article.grigioni-viabilita-olimpica-2026.imageAlt': 'Vue panoramique des montagnes des Grisons avec des sites olympiques en arrière-plan',
+    'blog.article.mobilita-sostenibile-citta-vivibili-2026.title': 'Mobilité durable et villes plus vivables : exemples de Barcelone, Paris et Singapour',
+    'blog.article.mobilita-sostenibile-citta-vivibili-2026.excerpt': 'Découvrez comment Barcelone, Paris et Singapour redessinent l\'espace urbain pour réduire la pollution et améliorer la qualité de vie',
+    'blog.article.mobilita-sostenibile-citta-vivibili-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des éléments de planification urbaine moderne comme des pistes cyclables et des espaces verts',
 };
 
 export default blogMetaFr;

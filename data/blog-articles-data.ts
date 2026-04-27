@@ -7434,4 +7434,11 @@ export const ARTICLES = [
  image: '/images/blog/grigioni-viabilita-olimpica-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mobilita-sostenibile-citta-vivibili-2026',
+ category: 'novita',
+ date: '2026-04-27T01:40:03.938Z',
+ image: '/images/blog/mobilita-sostenibile-citta-vivibili-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
