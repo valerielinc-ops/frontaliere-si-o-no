@@ -8190,4 +8190,11 @@ export const ARTICLES = [
  image: '/images/blog/carburanti-tpl-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'scoperta-africa-materia-castronno-2026',
+ category: 'novita',
+ date: '2026-04-27T19:10:58.937Z',
+ image: '/images/blog/scoperta-africa-materia-castronno-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

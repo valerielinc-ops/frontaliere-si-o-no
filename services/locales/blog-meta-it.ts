@@ -3087,6 +3087,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carburanti-tpl-ticino-2026.title': 'Caro carburanti, rischio stop trasporto pubblico in Ticino',
     'blog.article.carburanti-tpl-ticino-2026.excerpt': 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel.',
     'blog.article.carburanti-tpl-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con mezzi di trasporto pubblico',
+    'blog.article.scoperta-africa-materia-castronno-2026.title': 'Alla scoperta dell’Africa a Materia: dialogo su opportunità',
+    'blog.article.scoperta-africa-materia-castronno-2026.excerpt': 'Martedì 28 aprile 2026 a Castronno, un incontro con Martino Ghielmi e Alfie Nze per esplorare un nuovo rapporto culturale con l\'Africa.',
+    'blog.article.scoperta-africa-materia-castronno-2026.imageAlt': 'Evento culturale a Castronno con focus sull\'Africa, vista lago',
 };
 
 export default blogMetaIt;

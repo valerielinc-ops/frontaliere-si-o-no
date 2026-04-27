@@ -16714,6 +16714,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scoperta-africa-materia-castronno-2026': {
+    title: 'Alla scoperta dell’Africa a Materia | Frontaliere Ticino',
+    description: 'Martedì 28 aprile 2026 a Castronno, un incontro con Martino Ghielmi e Alfie Nze per esplorare un nuovo rapporto culturale con l\'Africa. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, alla, scoperta, dell, africa',
+    ogTitle: 'Alla scoperta dell’Africa a Materia: dialogo su opportunità',
+    ogDescription: 'Martedì 28 aprile 2026 a Castronno, un incontro con Martino Ghielmi e Alfie Nze per esplorare un nuovo rapporto culturale con l\'Africa.',
+    canonicalPath: '/articoli-frontaliere/scoperta-africa-materia-castronno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alla scoperta dell’Africa a Materia: dialogo su opportunità e nuove narrazioni",
+      "description": "Martedì 28 aprile 2026 a Castronno, un incontro con Martino Ghielmi e Alfie Nze per esplorare un nuovo rapporto culturale con l'Africa. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scoperta-africa-materia-castronno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento culturale a Castronno con focus sull'Africa, vista lago"
+      },
+      "datePublished": "2026-04-27T19:10:58+00:00",
+      "dateModified": "2026-04-27T19:10:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scoperta-africa-materia-castronno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

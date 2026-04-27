@@ -3087,6 +3087,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carburanti-tpl-ticino-2026.title': 'Hohe Kraftstoffkosten gefährden den öffentlichen Verkehr im',
     'blog.article.carburanti-tpl-ticino-2026.excerpt': 'Die hohen Kraftstoffkosten bedrohen den öffentlichen Nahverkehr, mit zusätzlichen Kosten von geschätzten 0,54 Millionen Euro pro Tag für Diesel.',
     'blog.article.carburanti-tpl-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit öffentlichen Verkehrsmitteln',
+    'blog.article.scoperta-africa-materia-castronno-2026.title': 'Entdeckung Afrikas in Materia: Dialog über Chancen',
+    'blog.article.scoperta-africa-materia-castronno-2026.excerpt': 'Am Dienstag, den 28. April 2026, findet in Castronno ein Treffen mit Martino Ghielmi und Alfie Nze statt, um eine neue kulturelle Beziehung zu Afrika zu erkunden.',
+    'blog.article.scoperta-africa-materia-castronno-2026.imageAlt': 'Kulturelles Event in Castronno mit Fokus auf Afrika, Seeblick',
 };
 
 export default blogMetaDe;

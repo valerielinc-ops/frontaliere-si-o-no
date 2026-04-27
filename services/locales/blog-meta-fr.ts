@@ -3087,6 +3087,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carburanti-tpl-ticino-2026.title': 'Cherté des carburants, risque d\'arrêt des transports publics',
     'blog.article.carburanti-tpl-ticino-2026.excerpt': 'La cherté des carburants menace les transports publics locaux, avec des coûts supplémentaires estimés à 0,54 million d\'euros par jour pour le diesel.',
     'blog.article.carburanti-tpl-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les transports publics',
+    'blog.article.scoperta-africa-materia-castronno-2026.title': 'Découvrir l\'Afrique à Materia : dialogue sur les',
+    'blog.article.scoperta-africa-materia-castronno-2026.excerpt': 'Mardi 28 avril 2026 à Castronno, une rencontre avec Martino Ghielmi et Alfie Nze pour explorer un nouveau rapport culturel avec l\'Afrique.',
+    'blog.article.scoperta-africa-materia-castronno-2026.imageAlt': 'Événement culturel à Castronno axé sur l\'Afrique, vue sur le lac',
 };
 
 export default blogMetaFr;
