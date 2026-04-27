@@ -2820,6 +2820,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.polizia-stradale-varese-1600-patenti.title': 'Traffic Police: Over 1,600 Licenses Revoked in a Year',
     'blog.article.polizia-stradale-varese-1600-patenti.excerpt': 'In 2025, the Traffic Police of Varese revoked 1,600 licenses, with a 42% decrease for speeding and a 25% decrease for drunk driving.',
     'blog.article.polizia-stradale-varese-1600-patenti.imageAlt': 'A police checkpoint on a busy road in Ticino, with officers checking vehicles and documents.',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.title': 'Wolves, wild boars, and bureaucracy: the challenges of Varesini farmers',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.excerpt': 'The 79th assembly of Confagricoltura Varese highlights the critical issues in the agricultural sector, including wildlife, high costs, and the Green Deal.',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.imageAlt': 'Farmers working in a field in Ticino',
 };
 
 export default blogMetaEn;

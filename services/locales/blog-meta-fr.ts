@@ -2820,6 +2820,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.polizia-stradale-varese-1600-patenti.title': 'Police Routière : plus de 1.600 permis retirés en un an',
     'blog.article.polizia-stradale-varese-1600-patenti.excerpt': 'En 2025, la Police Routière de Varèse a retiré 1.600 permis, avec une baisse de 42 % pour excès de vitesse et de 25 % pour conduite en état d\'ébriété.',
     'blog.article.polizia-stradale-varese-1600-patenti.imageAlt': 'Un contrôle de police sur une route fréquentée dans le Tessin, avec des agents vérifiant les véhicules et les documents.',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.title': 'Loup, sangliers et bureaucratie : les défis des agriculteurs varésans',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.excerpt': 'La 79ème assemblée de Confagricoltura Varese met en évidence les critiques du secteur agricole, entre faune sauvage, coûts élevés et Green Deal.',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.imageAlt': 'Agriculteurs travaillant dans un champ au Tessin',
 };
 
 export default blogMetaFr;

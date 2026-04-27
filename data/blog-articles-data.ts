@@ -7567,4 +7567,11 @@ export const ARTICLES = [
  image: '/images/blog/polizia-stradale-varese-1600-patenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'agricoltori-varesini-sfide-burocrazia',
+ category: 'novita',
+ date: '2026-04-27T06:34:31.686Z',
+ image: '/images/blog/agricoltori-varesini-sfide-burocrazia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

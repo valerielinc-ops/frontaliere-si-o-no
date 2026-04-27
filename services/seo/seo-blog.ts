@@ -14133,6 +14133,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agricoltori-varesini-sfide-burocrazia': {
+    title: 'Lupo, cinghiali e burocrazia: le sfide | Frontaliere Ticino',
+    description: 'La 79ª assemblea di Confagricoltura Varese evidenzia le criticità del settore agricolo, tra fauna selvatica, costi elevati e Green Deal. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lupo, cinghiali, burocrazia, sfide',
+    ogTitle: 'Lupo, cinghiali e burocrazia: le sfide degli agricoltori',
+    ogDescription: 'La 79ª assemblea di Confagricoltura Varese evidenzia le criticità del settore agricolo, tra fauna selvatica, costi elevati e Green Deal.',
+    canonicalPath: '/articoli-frontaliere/agricoltori-varesini-sfide-burocrazia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lupo, cinghiali e burocrazia: le sfide degli agricoltori varesini",
+      "description": "La 79ª assemblea di Confagricoltura Varese evidenzia le criticità del settore agricolo, tra fauna selvatica, costi elevati e Green Deal. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/agricoltori-varesini-sfide-burocrazia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agricoltori al lavoro in un campo del Ticino"
+      },
+      "datePublished": "2026-04-27T06:34:31+00:00",
+      "dateModified": "2026-04-27T06:34:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agricoltori-varesini-sfide-burocrazia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

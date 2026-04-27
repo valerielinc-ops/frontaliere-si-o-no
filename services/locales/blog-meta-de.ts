@@ -2820,6 +2820,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.polizia-stradale-varese-1600-patenti.title': 'Strassenpolizei: über 1.600 Führerscheine in einem Jahr eingezogen',
     'blog.article.polizia-stradale-varese-1600-patenti.excerpt': 'Im Jahr 2025 hat die Strassenpolizei von Varese 1.600 Führerscheine eingezogen, mit einem Rückgang von 42% bei überhöhter Geschwindigkeit und 25% bei Fahrten unter Alkoholeinfluss.',
     'blog.article.polizia-stradale-varese-1600-patenti.imageAlt': 'Eine Polizeikontrolle auf einer belebten Straße in Tessin, mit Beamten, die Fahrzeuge und Dokumente überprüfen.',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.title': 'Wolf, Wildschweine und Bürokratie: Die Herausforderungen der Landwirte aus Varese',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.excerpt': 'Die 79. Generalversammlung von Confagricoltura Varese hebt die Schwierigkeiten des Agrarsektors hervor, zwischen Wildtieren, hohen Kosten und dem Green Deal.',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.imageAlt': 'Bauern arbeiten auf einem Feld in Tessin',
 };
 
 export default blogMetaDe;

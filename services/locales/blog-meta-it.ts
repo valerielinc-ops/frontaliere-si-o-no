@@ -2820,6 +2820,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.polizia-stradale-varese-1600-patenti.title': 'Polizia Stradale: oltre 1.600 patenti ritirate in un anno',
     'blog.article.polizia-stradale-varese-1600-patenti.excerpt': 'Nel 2025, la Polizia Stradale di Varese ha ritirato 1.600 patenti, con un calo del 42% per eccesso di velocità e del 25% per guida in stato di ebbrezza.',
     'blog.article.polizia-stradale-varese-1600-patenti.imageAlt': 'Un posto di blocco della polizia su una strada trafficata in Ticino, con agenti che controllano veicoli e documenti.',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.title': 'Lupo, cinghiali e burocrazia: le sfide degli agricoltori varesini',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.excerpt': 'La 79ª assemblea di Confagricoltura Varese evidenzia le criticità del settore agricolo, tra fauna selvatica, costi elevati e Green Deal.',
+    'blog.article.agricoltori-varesini-sfide-burocrazia.imageAlt': 'Agricoltori al lavoro in un campo del Ticino',
 };
 
 export default blogMetaIt;
