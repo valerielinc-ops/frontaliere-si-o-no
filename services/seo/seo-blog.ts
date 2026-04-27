@@ -14684,6 +14684,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-regione-lombardia-casa-popolari-6-4-milioni': {
+    title: 'Regione Lombardia stanzia 6,4 milioni | Frontaliere Ticino',
+    description: 'Regione Lombardia ha stanziato oltre 6,4 milioni di euro per il recupero di alloggi sfitti e l\'accessibilità in Lombardia. Ecco i dettagli. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, regione, lombardia, stanzia, milioni',
+    ogTitle: 'Regione Lombardia stanzia 6,4 milioni per case popolari |',
+    ogDescription: 'Regione Lombardia ha stanziato oltre 6,4 milioni di euro per il recupero di alloggi sfitti e l\'accessibilità in Lombardia. Ecco i dettagli.',
+    canonicalPath: '/articoli-frontaliere/regione-lombardia-casa-popolari-6-4-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Regione Lombardia stanzia 6,4",
+      "description": "Regione Lombardia ha stanziato oltre 6,4 milioni di euro per il recupero di alloggi sfitti e l'accessibilità in Lombardia. Ecco i dettagli. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/regione-lombardia-casa-popolari-6-4-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con edifici moderni e cantieri edili"
+      },
+      "datePublished": "2026-04-27T10:56:28+00:00",
+      "dateModified": "2026-04-27T10:56:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/regione-lombardia-casa-popolari-6-4-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

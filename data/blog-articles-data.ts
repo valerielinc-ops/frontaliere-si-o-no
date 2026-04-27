@@ -7700,4 +7700,11 @@ export const ARTICLES = [
  image: '/images/blog/nuove-leggi-violenza-domestica-2027.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'regione-lombardia-casa-popolari-6-4-milioni',
+ category: 'novita',
+ date: '2026-04-27T10:56:28.209Z',
+ image: '/images/blog/regione-lombardia-casa-popolari-6-4-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

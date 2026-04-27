@@ -2877,6 +2877,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuove-leggi-violenza-domestica-2027.title': 'Neue Gesetze und nationale Strategie gegen häusliche Gewalt',
     'blog.article.nuove-leggi-violenza-domestica-2027.excerpt': 'Bund und Kantone kündigen Fortschritte an, doch es sind wirksamere Instrumente nötig. Neue Gesetze sind für 2027 geplant.',
     'blog.article.nuove-leggi-violenza-domestica-2027.imageAlt': 'Pressekonferenz in Bern über neue Gesetze gegen häusliche Gewalt',
+    'blog.article.regione-lombardia-casa-popolari-6-4-milioni.title': 'Lombardei stellt 6,4 Millionen für Sozialwohnungen bereit',
+    'blog.article.regione-lombardia-casa-popolari-6-4-milioni.excerpt': 'Über 6,4 Millionen Euro für die Wiederherstellung von leerstehenden Wohnungen und die Zugänglichkeit in der Lombardei. Hier sind die Details.',
+    'blog.article.regione-lombardia-casa-popolari-6-4-milioni.imageAlt': 'Luftaufnahme des Luganersees mit modernen Gebäuden und Baustellen',
 };
 
 export default blogMetaDe;

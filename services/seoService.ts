@@ -2219,6 +2219,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuove-misure-violenza-domestica-svizzera': { name: 'Novità', path: '/articoli-frontaliere/nuove-misure-violenza-domestica-svizzera', parent: 'blog' },
     'blog-ruag-ia-svizzera-difesa-2026': { name: 'Novità', path: '/articoli-frontaliere/ruag-ia-svizzera-difesa-2026', parent: 'blog' },
     'blog-nuove-leggi-violenza-domestica-2027': { name: 'Novità', path: '/articoli-frontaliere/nuove-leggi-violenza-domestica-2027', parent: 'blog' },
+    'blog-regione-lombardia-casa-popolari-6-4-milioni': { name: 'Case popolari', path: '/articoli-frontaliere/regione-lombardia-casa-popolari-6-4-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

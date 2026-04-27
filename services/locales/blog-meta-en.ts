@@ -2877,6 +2877,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-leggi-violenza-domestica-2027.title': 'New laws and national strategy against domestic violence',
     'blog.article.nuove-leggi-violenza-domestica-2027.excerpt': 'Confederation and Cantons announce progress but more effective tools are needed. New laws coming in 2027.',
     'blog.article.nuove-leggi-violenza-domestica-2027.imageAlt': 'Press conference in Berna on new laws against domestic violence',
+    'blog.article.regione-lombardia-casa-popolari-6-4-milioni.title': 'Lombardy Region allocates 6.4 million for social housing',
+    'blog.article.regione-lombardia-casa-popolari-6-4-milioni.excerpt': 'Over 6.4 million euros for the recovery of vacant homes and accessibility in Lombardy. Here are the details.',
+    'blog.article.regione-lombardia-casa-popolari-6-4-milioni.imageAlt': 'Aerial view of Lake Lugano with modern buildings and construction sites',
 };
 
 export default blogMetaEn;

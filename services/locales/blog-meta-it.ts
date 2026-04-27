@@ -2877,6 +2877,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuove-leggi-violenza-domestica-2027.title': 'Nuove leggi e strategia nazionale contro la violenza domestica',
     'blog.article.nuove-leggi-violenza-domestica-2027.excerpt': 'Confederazione e Cantoni annunciano progressi ma servono strumenti più efficaci. Nuove leggi in arrivo per il 2027.',
     'blog.article.nuove-leggi-violenza-domestica-2027.imageAlt': 'Conferenza stampa a Berna su nuove leggi contro la violenza domestica',
+    'blog.article.regione-lombardia-casa-popolari-6-4-milioni.title': 'Regione Lombardia stanzia 6,4 milioni per case popolari',
+    'blog.article.regione-lombardia-casa-popolari-6-4-milioni.excerpt': 'Oltre 6,4 milioni di euro per il recupero di alloggi sfitti e l\'accessibilità in Lombardia. Ecco i dettagli.',
+    'blog.article.regione-lombardia-casa-popolari-6-4-milioni.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e cantieri edili',
 };
 
 export default blogMetaIt;
