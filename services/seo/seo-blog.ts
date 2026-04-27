@@ -17642,6 +17642,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pro-velo-ticino-cambiamento-presidenza-2026': {
+    title: 'Pro Velo Ticino: Marco Vitali lascia la presidenza',
+    description: 'Marco Vitali lascia la presidenza di Pro Velo Ticino dopo aver trasferito il domicilio in Alsazia. Claudio Sabbadini è il nuovo presidente. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, velo, marco, vitali, lascia',
+    ogTitle: 'Pro Velo Ticino: Marco Vitali lascia la presidenza',
+    ogDescription: 'Marco Vitali lascia la presidenza di Pro Velo Ticino dopo aver trasferito il domicilio in Alsazia. Claudio Sabbadini è il nuovo presidente.',
+    canonicalPath: '/articoli-frontaliere/pro-velo-ticino-cambiamento-presidenza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pro Velo Ticino: Marco Vitali lascia la presidenza",
+      "description": "Marco Vitali lascia la presidenza di Pro Velo Ticino dopo aver trasferito il domicilio in Alsazia. Claudio Sabbadini è il nuovo presidente. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pro-velo-ticino-cambiamento-presidenza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ciclisti in una manifestazione a Lugano, Ticino, con vista sul lago e montagne"
+      },
+      "datePublished": "2026-04-27T23:50:17+00:00",
+      "dateModified": "2026-04-27T23:50:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pro-velo-ticino-cambiamento-presidenza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

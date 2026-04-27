@@ -3173,6 +3173,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mendrisio-capitale-culturale-opportunita.title': 'Mendrisio, capitale culturelle : des opportunités à saisir',
     'blog.article.mendrisio-capitale-culturale-opportunita.excerpt': 'La majorité de la gestion de Mendrisio rassure sur les coûts et écarte le risque de dépendance envers Lugano',
     'blog.article.mendrisio-capitale-culturale-opportunita.imageAlt': 'Vue aérienne de Mendrisio, Tessin, Suisse, avec son centre historique et les bâtiments modernes',
+    'blog.article.pro-velo-ticino-cambiamento-presidenza-2026.title': 'Pro Velo Ticino: Marco Vitali quitte la présidence',
+    'blog.article.pro-velo-ticino-cambiamento-presidenza-2026.excerpt': 'Marco Vitali quitte la présidence de Pro Velo Ticino après avoir transféré son domicile en Alsace. Claudio Sabbadini est le nouveau président.',
+    'blog.article.pro-velo-ticino-cambiamento-presidenza-2026.imageAlt': 'Cyclistes participant à un événement à Lugano, Tessin, avec vue sur le lac et les montagnes',
 };
 
 export default blogMetaFr;

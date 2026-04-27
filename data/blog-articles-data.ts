@@ -8414,4 +8414,11 @@ export const ARTICLES = [
  image: '/images/blog/mendrisio-capitale-culturale-opportunita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pro-velo-ticino-cambiamento-presidenza-2026',
+ category: 'novita',
+ date: '2026-04-27T23:50:17.666Z',
+ image: '/images/blog/pro-velo-ticino-cambiamento-presidenza-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

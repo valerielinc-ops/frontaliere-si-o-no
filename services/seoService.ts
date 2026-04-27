@@ -2318,6 +2318,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-national-geographic-scuola-einaudi-varese': { name: 'National Geographic a scuola', path: '/articoli-frontaliere/national-geographic-scuola-einaudi-varese', parent: 'blog' },
     'blog-benessere-scolastico-bellinzona-2026': { name: 'Benessere scolastico', path: '/articoli-frontaliere/benessere-scolastico-bellinzona-2026', parent: 'blog' },
     'blog-mendrisio-capitale-culturale-opportunita': { name: 'Mendrisio Capitale Culturale', path: '/articoli-frontaliere/mendrisio-capitale-culturale-opportunita', parent: 'blog' },
+    'blog-pro-velo-ticino-cambiamento-presidenza-2026': { name: 'Novità', path: '/articoli-frontaliere/pro-velo-ticino-cambiamento-presidenza-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
