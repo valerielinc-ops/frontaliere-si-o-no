@@ -483,7 +483,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-04-27T11:15:38.070Z",
       "jobReqId": "R75426",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-22T10:20:02.469Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -496,8 +495,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "lonza-98fdf6c318e6",

@@ -1,35 +1,5 @@
 [
   {
-    "timestamp": "2026-04-13T08:31:30.742Z",
-    "label": "before",
-    "total": 2922,
-    "needsRetranslation": 19,
-    "incomplete": 0,
-    "complete": 2922,
-    "missingByLocale": {
-      "it": 0,
-      "en": 0,
-      "de": 0,
-      "fr": 0
-    },
-    "topPending": []
-  },
-  {
-    "timestamp": "2026-04-13T08:48:01.259Z",
-    "label": "after",
-    "total": 2922,
-    "needsRetranslation": 17,
-    "incomplete": 0,
-    "complete": 2922,
-    "missingByLocale": {
-      "it": 0,
-      "en": 0,
-      "de": 0,
-      "fr": 0
-    },
-    "topPending": []
-  },
-  {
     "timestamp": "2026-04-13T11:34:42.400Z",
     "label": "before",
     "total": 2947,
@@ -7601,6 +7571,102 @@
       },
       {
         "company": "Coopers Group AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-27T14:22:22.021Z",
+    "label": "before",
+    "total": 2665,
+    "needsRetranslation": 98,
+    "incomplete": 46,
+    "complete": 2619,
+    "missingByLocale": {
+      "it": 34,
+      "en": 17,
+      "de": 33,
+      "fr": 34
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Coopers Group AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-27T15:20:30.095Z",
+    "label": "after",
+    "total": 2665,
+    "needsRetranslation": 61,
+    "incomplete": 27,
+    "complete": 2638,
+    "missingByLocale": {
+      "it": 26,
+      "en": 5,
+      "de": 24,
+      "fr": 24
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Union Bancaire Privée",
         "pending": 1
       }
     ]
