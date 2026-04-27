@@ -266,7 +266,7 @@ export function jobMatchesSector(job: SectorCountableJob, sector: SectorHubKey):
   return pattern.test(haystack);
 }
 
-/** Count active jobs by (locale, sector). Returns a 4 × 3 matrix. */
+/** Count active jobs by (locale, sector). Returns a 4 × {SECTOR_HUB_KEYS.length} matrix. */
 export function countSectorJobsByLocale(
   jobs: readonly SectorCountableJob[],
 ): Record<JobBoardLocale, Record<SectorHubKey, number>> {
@@ -274,6 +274,10 @@ export function countSectorJobsByLocale(
     infermieri: 0,
     'case-anziani': 0,
     educatori: 0,
+    ingegneri: 0,
+    autisti: 0,
+    sviluppatori: 0,
+    ristorazione: 0,
   });
   const counts: Record<JobBoardLocale, Record<SectorHubKey, number>> = {
     it: empty(),
