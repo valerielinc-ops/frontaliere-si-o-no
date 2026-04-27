@@ -3085,6 +3085,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.title': 'Maut in der Lombardei: Ende der kostenlosen Fahrten für Grenzgänger',
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.excerpt': 'Ab dem 1. Mai 2026 ist die Maut auf der Corda Molle obligatorisch, mit 50% Rabatt für Einwohner von 22 Gemeinden. Erleichterungen für Pendler kommen',
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.imageAlt': 'Luftaufnahme einer belebten Autobahn in der Schweiz mit Schweizer-Italienischen Grenzschildern und einer Mautstelle in der Ferne',
+    'blog.article.semaforo-paradiso-melide-2026.title': 'Ampel Melide: 1 Stunde 20 Minuten von Paradiso nach Melide',
+    'blog.article.semaforo-paradiso-melide-2026.excerpt': 'Ein Autofahrer berichtet von einer Odyssee von 1 Stunde und 20 Minuten von Paradiso nach Melide aufgrund einer defekten Ampel.',
+    'blog.article.semaforo-paradiso-melide-2026.imageAlt': 'Luftaufnahme des Luganer Sees in der Nähe von Melide mit Stau auf der Straße',
 };
 
 export default blogMetaDe;

@@ -3086,6 +3086,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.title': 'Péages autoroute Lombardie : fin des voyages gratuits pour les frontaliers',
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.excerpt': 'À partir du 1er mai 2026, péage obligatoire sur la Corda Molle avec des réductions de 50 % pour les résidents de 22 communes. Des avantages en vue pour les navetteurs',
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.imageAlt': 'Vue aérienne d\'une autoroute fréquentée au Tessin avec des panneaux frontaliers suisses-italiens et un péage à distance',
+    'blog.article.semaforo-paradiso-melide-2026.title': 'Feu de Melide : 1h20 pour Paradiso-Melide',
+    'blog.article.semaforo-paradiso-melide-2026.excerpt': 'Un automobiliste raconte une odyssée d\'une heure et vingt minutes pour aller de Paradiso à Melide à cause d\'un feu mal fonctionnant.',
+    'blog.article.semaforo-paradiso-melide-2026.imageAlt': 'Vue aérienne du lac de Lugano près de Melide avec embouteillage sur la route',
 };
 
 export default blogMetaFr;

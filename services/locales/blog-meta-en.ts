@@ -3085,6 +3085,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.title': 'Lombardy highway tolls: end of free travel for cross-border workers',
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.excerpt': 'From 1 May 2026, mandatory tolls on the Corda Molle with 50% discounts for residents of 22 municipalities. Concessions coming for commuters',
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.imageAlt': 'Aerial view of a busy highway in Ticino with Swiss-Italian border signs and a toll booth in the distance',
+    'blog.article.semaforo-paradiso-melide-2026.title': 'Traffic light in Melide: 1h20m from Paradiso to Melide',
+    'blog.article.semaforo-paradiso-melide-2026.excerpt': 'A driver recounts an odyssey of one hour and twenty minutes to go from Paradiso to Melide due to a malfunctioning traffic light.',
+    'blog.article.semaforo-paradiso-melide-2026.imageAlt': 'Aerial view of Lake Lugano near Melide with traffic jam on the road',
 };
 
 export default blogMetaEn;

@@ -8211,4 +8211,11 @@ export const ARTICLES = [
  image: '/images/blog/pedaggi-autostrada-lombardia-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'semaforo-paradiso-melide-2026',
+ category: 'pratico',
+ date: '2026-04-27T20:28:22.641Z',
+ image: '/images/blog/semaforo-paradiso-melide-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

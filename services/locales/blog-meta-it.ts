@@ -3086,6 +3086,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.title': 'Pedaggi autostrada Lombardia: addio viaggi gratis per frontalieri',
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.excerpt': 'Dal 1° maggio 2026 pedaggio obbligatorio sulla Corda Molle con sconti del 50% per residenti di 22 comuni. Agevolazioni in arrivo per pendolari',
     'blog.article.pedaggi-autostrada-lombardia-frontalieri.imageAlt': 'Vista aerea di un\'autostrada trafficata in Ticino con segnaletica del confine svizzero-italiano e casello autostradale in lontananza',
+    'blog.article.semaforo-paradiso-melide-2026.title': 'Semaforo Melide: un\'ora e venti per Paradiso-Melide',
+    'blog.article.semaforo-paradiso-melide-2026.excerpt': 'Un automobilista racconta di un\'odissea di un\'ora e venti per andare da Paradiso a Melide a causa di un semaforo malfunzionante.',
+    'blog.article.semaforo-paradiso-melide-2026.imageAlt': 'Vista aerea del Lago di Lugano vicino a Melide con ingorgo stradale',
 };
 
 export default blogMetaIt;

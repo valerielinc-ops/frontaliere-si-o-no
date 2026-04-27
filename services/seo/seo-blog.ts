@@ -16801,6 +16801,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-semaforo-paradiso-melide-2026': {
+    title: 'Semaforo Melide: un\'ora e venti per Paradiso-Melide',
+    description: 'Un automobilista racconta di un\'odissea di un\'ora e venti per andare da Paradiso a Melide a causa di un semaforo malfunzionante. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, semaforo, melide, venti, paradiso-melide',
+    ogTitle: 'Semaforo Melide: un\'ora e venti per Paradiso-Melide',
+    ogDescription: 'Un automobilista racconta di un\'odissea di un\'ora e venti per andare da Paradiso a Melide a causa di un semaforo malfunzionante.',
+    canonicalPath: '/articoli-frontaliere/semaforo-paradiso-melide-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Semaforo Melide: un'ora e venti per Paradiso-Melide",
+      "description": "Un automobilista racconta di un'odissea di un'ora e venti per andare da Paradiso a Melide a causa di un semaforo malfunzionante. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/semaforo-paradiso-melide-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano vicino a Melide con ingorgo stradale"
+      },
+      "datePublished": "2026-04-27T20:28:22+00:00",
+      "dateModified": "2026-04-27T20:28:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/semaforo-paradiso-melide-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
