@@ -30,6 +30,7 @@ import {
   paginatedPath,
   type HubLocale,
 } from './seoHubsData';
+import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_IT',
@@ -598,11 +599,16 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const sectionRoot = locale === 'it' ? '/cerca-lavoro-ticino' : `/${locale}/${
         locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : 'trouver-emploi-tessin'
       }`;
+      // Sectors with a curated static hub get the canonical URL; the rest
+      // fall back to `?q=` keyword search. Routing footer + SectorsHub
+      // traffic through the canonical hub avoids diluting internal link
+      // equity toward `noindex` query URLs.
       for (const sector of HUB_SECTORS) {
-        items.push({
-          href: `${sectionRoot}/?q=${encodeURIComponent(sector[locale])}`,
-          label: sector[locale],
-        });
+        const hasCuratedHub = (SECTOR_HUB_KEYS as readonly string[]).includes(sector.key);
+        const href = hasCuratedHub
+          ? buildSectorHubPath(locale, sector.key as SectorHubKey)
+          : `${sectionRoot}/?q=${encodeURIComponent(sector[locale])}`;
+        items.push({ href, label: sector[locale] });
       }
     } else if (hubKey === 'companies') {
       pageSize = COMPANIES_PAGE_SIZE;

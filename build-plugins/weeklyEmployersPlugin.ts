@@ -91,6 +91,7 @@ import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
+import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F5 weekly-employers feature.
@@ -1531,12 +1532,36 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     de: '/de/jobs-im-tessin/',
     fr: '/fr/trouver-emploi-tessin/',
   };
+  // Map common role slugs to a SECTOR_HUB_KEY. Promotes the role link to
+  // the canonical sector hub when available (closes the link-equity leak
+  // toward `noindex` `?q=` URLs); falls back to keyword search otherwise.
+  const ROLE_TO_SECTOR_HUB: Record<string, SectorHubKey> = {
+    infermiere: 'infermieri', infermieri: 'infermieri', nurse: 'infermieri', nurses: 'infermieri',
+    pflegefachperson: 'infermieri', pflegepersonal: 'infermieri', infirmier: 'infermieri', infirmiere: 'infermieri',
+    educatore: 'educatori', educatrice: 'educatori', educatori: 'educatori',
+    erzieher: 'educatori', educateur: 'educatori', educateurs: 'educatori',
+    ingegnere: 'ingegneri', ingegneri: 'ingegneri', engineer: 'ingegneri', ingenieur: 'ingegneri',
+    autista: 'autisti', autisti: 'autisti', driver: 'autisti', fahrer: 'autisti', chauffeur: 'autisti',
+    sviluppatore: 'sviluppatori', sviluppatori: 'sviluppatori', developer: 'sviluppatori',
+    entwickler: 'sviluppatori', developpeur: 'sviluppatori',
+    cuoco: 'ristorazione', cuochi: 'ristorazione', chef: 'ristorazione', cameriere: 'ristorazione',
+    koch: 'ristorazione', kellner: 'ristorazione', cuisinier: 'ristorazione', serveur: 'ristorazione',
+    'operatore-socio-sanitario': 'oss', oss: 'oss', osa: 'oss',
+    pflegeassistent: 'oss', 'aide-soignant': 'oss',
+    logistico: 'logistica', logistica: 'logistica', magazziniere: 'logistica',
+    lagerist: 'logistica', logisticien: 'logistica',
+    apprendista: 'apprendistato', apprendisti: 'apprendistato', apprenticeship: 'apprendistato',
+    intern: 'apprendistato', lehrling: 'apprendistato', apprenti: 'apprendistato',
+  };
   const rolesHtml =
     stats.topRoles.length > 0
       ? `<ul style="list-style:disc;padding-left:20px;margin:0 0 0 4px;color:var(--color-body);line-height:1.7">${stats.topRoles
           .map((r) => {
             const roleSlug = slugifyEmployer(r.role);
-            const roleHref = `${jobBoardSearchBase[locale]}?q=${encodeURIComponent(roleSlug || r.role)}`;
+            const sectorKey = ROLE_TO_SECTOR_HUB[roleSlug.toLowerCase()];
+            const roleHref = sectorKey && (SECTOR_HUB_KEYS as readonly string[]).includes(sectorKey)
+              ? buildSectorHubPath(locale, sectorKey)
+              : `${jobBoardSearchBase[locale]}?q=${encodeURIComponent(roleSlug || r.role)}`;
             return `<li><a href="${esc(roleHref)}" style="color:var(--color-link);text-decoration:none;text-transform:capitalize">${esc(r.role)}</a> — ${esc(copy.jobsCountLabel(r.count))}</li>`;
           })
           .join('')}</ul>`
