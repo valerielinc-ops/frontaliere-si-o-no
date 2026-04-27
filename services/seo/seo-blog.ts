@@ -16685,6 +16685,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carburanti-tpl-ticino-2026': {
+    title: 'Caro carburanti, rischio stop trasporto | Frontaliere Ticino',
+    description: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto sui',
+    keywords: 'frontalieri, ticino, svizzera, italia, caro, carburanti, rischio, stop',
+    ogTitle: 'Caro carburanti, rischio stop trasporto pubblico in Ticino',
+    ogDescription: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto sui',
+    canonicalPath: '/articoli-frontaliere/carburanti-tpl-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caro carburanti, rischio stop trasporto pubblico in Ticino",
+      "description": "Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l'impatto sui",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carburanti-tpl-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con mezzi di trasporto pubblico"
+      },
+      "datePublished": "2026-04-27T19:01:21+00:00",
+      "dateModified": "2026-04-27T19:01:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburanti-tpl-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

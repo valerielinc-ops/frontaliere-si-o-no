@@ -3084,6 +3084,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gamberetti-torneo-madrid-2026.title': 'Gamberetti avariati al torneo di Madrid: intossicazioni e',
     'blog.article.gamberetti-torneo-madrid-2026.excerpt': 'Intossicazioni alimentari colpiscono i giocatori al Masters 1000 di Madrid, con Jim Courier che punta il dito contro i gamberetti serviti alla mensa',
     'blog.article.gamberetti-torneo-madrid-2026.imageAlt': 'Campo da tennis a Madrid durante un torneo, con giocatori in azione e spettatori sullo sfondo',
+    'blog.article.carburanti-tpl-ticino-2026.title': 'Caro carburanti, rischio stop trasporto pubblico in Ticino',
+    'blog.article.carburanti-tpl-ticino-2026.excerpt': 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel.',
+    'blog.article.carburanti-tpl-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con mezzi di trasporto pubblico',
 };
 
 export default blogMetaIt;

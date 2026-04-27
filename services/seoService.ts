@@ -2288,6 +2288,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-notifiche-frontalieri-ticino-2026': { name: 'Notifiche frontalieri', path: '/articoli-frontaliere/notifiche-frontalieri-ticino-2026', parent: 'blog' },
     'blog-minacce-informatiche-svizzera-2026': { name: 'Minacce informatiche', path: '/articoli-frontaliere/minacce-informatiche-svizzera-2026', parent: 'blog' },
     'blog-gamberetti-torneo-madrid-2026': { name: 'Novità', path: '/articoli-frontaliere/gamberetti-torneo-madrid-2026', parent: 'blog' },
+    'blog-carburanti-tpl-ticino-2026': { name: 'Trasporto pubblico', path: '/articoli-frontaliere/carburanti-tpl-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

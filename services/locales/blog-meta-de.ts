@@ -3084,6 +3084,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gamberetti-torneo-madrid-2026.title': 'Verdorbene Garnelen beim Turnier in Madrid: Vergiftungen',
     'blog.article.gamberetti-torneo-madrid-2026.excerpt': 'Lebensmittelvergiftungen treffen Spieler beim Masters 1000 in Madrid, wobei Jim Courier die Garnelen im Speisesaal kritisiert',
     'blog.article.gamberetti-torneo-madrid-2026.imageAlt': 'Tennisplatz in Madrid während eines Turniers, mit Spielern in Aktion und Zuschauern im Hintergrund',
+    'blog.article.carburanti-tpl-ticino-2026.title': 'Hohe Kraftstoffkosten gefährden den öffentlichen Verkehr im',
+    'blog.article.carburanti-tpl-ticino-2026.excerpt': 'Die hohen Kraftstoffkosten bedrohen den öffentlichen Nahverkehr, mit zusätzlichen Kosten von geschätzten 0,54 Millionen Euro pro Tag für Diesel.',
+    'blog.article.carburanti-tpl-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit öffentlichen Verkehrsmitteln',
 };
 
 export default blogMetaDe;

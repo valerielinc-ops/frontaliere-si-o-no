@@ -3084,6 +3084,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gamberetti-torneo-madrid-2026.title': 'Crevettes avariées au tournoi de Madrid: intoxications',
     'blog.article.gamberetti-torneo-madrid-2026.excerpt': 'Intoxications alimentaires frappent les joueurs au Masters 1000 de Madrid, avec Jim Courier qui pointe du doigt les crevettes servies à la cantine',
     'blog.article.gamberetti-torneo-madrid-2026.imageAlt': 'Court de tennis à Madrid pendant un tournoi, avec des joueurs en action et des spectateurs en arrière-plan',
+    'blog.article.carburanti-tpl-ticino-2026.title': 'Cherté des carburants, risque d\'arrêt des transports publics',
+    'blog.article.carburanti-tpl-ticino-2026.excerpt': 'La cherté des carburants menace les transports publics locaux, avec des coûts supplémentaires estimés à 0,54 million d\'euros par jour pour le diesel.',
+    'blog.article.carburanti-tpl-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les transports publics',
 };
 
 export default blogMetaFr;

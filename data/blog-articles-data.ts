@@ -8183,4 +8183,11 @@ export const ARTICLES = [
  image: '/images/blog/gamberetti-torneo-madrid-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'carburanti-tpl-ticino-2026',
+ category: 'pratico',
+ date: '2026-04-27T19:01:21.210Z',
+ image: '/images/blog/carburanti-tpl-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

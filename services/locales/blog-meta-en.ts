@@ -3084,6 +3084,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gamberetti-torneo-madrid-2026.title': 'Bad prawns at Madrid tournament: food poisoning',
     'blog.article.gamberetti-torneo-madrid-2026.excerpt': 'Food poisoning hits players at the Madrid Masters 1000, with Jim Courier blaming the prawns served in the canteen',
     'blog.article.gamberetti-torneo-madrid-2026.imageAlt': 'Tennis court in Madrid during a tournament, with players in action and spectators in the background',
+    'blog.article.carburanti-tpl-ticino-2026.title': 'Fuel prices threaten public transport in Ticino',
+    'blog.article.carburanti-tpl-ticino-2026.excerpt': 'High fuel prices are threatening local public transport, with additional costs estimated at 0.54 million euros per day for diesel.',
+    'blog.article.carburanti-tpl-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with public transport',
 };
 
 export default blogMetaEn;
