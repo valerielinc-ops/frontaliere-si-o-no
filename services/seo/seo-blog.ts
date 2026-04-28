@@ -18454,6 +18454,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-kit-escursionisti-montagna-pulita': {
+    title: 'Kit per escursionisti: come non lasciare traccia in montagna',
+    description: 'Scopri il kit \'Non lascio traccia\' per escursionisti e impara a rispettare l\'ambiente montano con pratiche sostenibili. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, escursionisti, lasciare, traccia, montagna',
+    ogTitle: 'Kit per escursionisti: come non lasciare traccia in montagna',
+    ogDescription: 'Scopri il kit \'Non lascio traccia\' per escursionisti e impara a rispettare l\'ambiente montano con pratiche sostenibili.',
+    canonicalPath: '/articoli-frontaliere/kit-escursionisti-montagna-pulita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Kit per escursionisti: come non lasciare traccia in montagna",
+      "description": "Scopri il kit 'Non lascio traccia' per escursionisti e impara a rispettare l'ambiente montano con pratiche sostenibili. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/kit-escursionisti-montagna-pulita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Escursionisti in montagna nel Ticino con un ambiente pulito"
+      },
+      "datePublished": "2026-04-28T07:32:05+00:00",
+      "dateModified": "2026-04-28T07:32:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kit-escursionisti-montagna-pulita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

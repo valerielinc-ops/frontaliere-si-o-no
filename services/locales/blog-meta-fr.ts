@@ -3257,6 +3257,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.momoride-carpooling-benefico-ticino-2026.title': 'MomòRide: le défi de covoiturage solidaire pour Chiasso, Balerna et Novazzano',
     'blog.article.momoride-carpooling-benefico-ticino-2026.excerpt': 'À partir du 1er mai, MomòRide, initiative biennale de covoiturage pour les entreprises et les navetteurs de Chiasso, Balerna et Novazzano. Objectif: 40.000 points en un mois pour offrir 1.000 francs à la Fondation Provvida Madre de Balerna.',
     'blog.article.momoride-carpooling-benefico-ticino-2026.imageAlt': 'Groupe de personnes en covoiturage dans une voiture moderne, campagne du Tessin près de Mendrisio',
+    'blog.article.kit-escursionisti-montagna-pulita.title': 'Kit pour randonneurs: comment ne pas laisser de traces en montagne',
+    'blog.article.kit-escursionisti-montagna-pulita.excerpt': 'Le kit \'Ne laisse pas de traces\' apprend aux randonneurs à respecter l\'environnement montagnard avec des savons écologiques et des sacs pour les déchets',
+    'blog.article.kit-escursionisti-montagna-pulita.imageAlt': 'Randonneurs dans les montagnes du Ticino avec un environnement propre',
 };
 
 export default blogMetaFr;
