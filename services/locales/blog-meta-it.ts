@@ -3497,6 +3497,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.estival-pagamento-caduta-stile-lugano.title': 'Estival Jazz a pagamento: la polemica a Lugano',
     'blog.article.estival-pagamento-caduta-stile-lugano.excerpt': 'Il consigliere comunale Omar Wicht critica le serate a pagamento dell\'evento musicale, chiedendo chiarimenti all\'Esecutivo',
     'blog.article.estival-pagamento-caduta-stile-lugano.imageAlt': 'Vista del lago di Lugano con lo skyline della città',
+    'blog.article.giornata-contro-rumore-lugano-2024.title': 'Giornata contro il rumore: controlli a Lugano dal 28 al 30 aprile',
+    'blog.article.giornata-contro-rumore-lugano-2024.excerpt': 'La Polizia comunale di Lugano estende i controlli sul rumore dal 28 al 30 aprile. Focus su veicoli rumorosi e cantieri',
+    'blog.article.giornata-contro-rumore-lugano-2024.imageAlt': 'Panorama di Lugano con il lago Ceresio e le montagne sullo sfondo',
 };
 
 export default blogMetaIt;

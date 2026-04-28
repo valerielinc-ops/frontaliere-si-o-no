@@ -3496,6 +3496,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.estival-pagamento-caduta-stile-lugano.title': 'Estival Jazz now paid: Lugano controversy',
     'blog.article.estival-pagamento-caduta-stile-lugano.excerpt': 'Councillor Omar Wicht criticizes the paid evenings of the musical event, asking the Executive for clarifications',
     'blog.article.estival-pagamento-caduta-stile-lugano.imageAlt': 'View of Lake Lugano with the city skyline',
+    'blog.article.giornata-contro-rumore-lugano-2024.title': 'Noise control checks in Lugano from 28 to 30 April',
+    'blog.article.giornata-contro-rumore-lugano-2024.excerpt': 'Lugano\'s municipal police will extend noise checks from 28 to 30 April. Focus on noisy vehicles and construction sites',
+    'blog.article.giornata-contro-rumore-lugano-2024.imageAlt': 'Lugano cityscape with Lake Ceresio and mountains in the background',
 };
 
 export default blogMetaEn;

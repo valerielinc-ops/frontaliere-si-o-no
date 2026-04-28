@@ -9170,4 +9170,11 @@ export const ARTICLES = [
  image: '/images/blog/estival-pagamento-caduta-stile-lugano.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'giornata-contro-rumore-lugano-2024',
+ category: 'pratico',
+ date: '2026-04-28T20:04:20.424Z',
+ image: '/images/blog/giornata-contro-rumore-lugano-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

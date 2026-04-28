@@ -20774,6 +20774,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giornata-contro-rumore-lugano-2024': {
+    title: 'Giornata contro il rumore: controlli a Lugano dal 28 al 30 aprile',
+    description: 'La Polizia comunale di Lugano estende i controlli sul rumore dal 28 al 30 aprile. Focus su veicoli rumorosi e cantieri. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, giornata, contro, rumore, controlli',
+    ogTitle: 'Giornata contro il rumore: controlli a Lugano dal 28 al 30 aprile',
+    ogDescription: 'La Polizia comunale di Lugano estende i controlli sul rumore dal 28 al 30 aprile. Focus su veicoli rumorosi e cantieri',
+    canonicalPath: '/articoli-frontaliere/giornata-contro-rumore-lugano-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giornata contro il rumore: controlli a Lugano dal 28 al 30 aprile",
+      "description": "La Polizia comunale di Lugano estende i controlli sul rumore dal 28 al 30 aprile. Focus su veicoli rumorosi e cantieri. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giornata-contro-rumore-lugano-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il lago Ceresio e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-28T20:04:20+00:00",
+      "dateModified": "2026-04-28T20:04:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giornata-contro-rumore-lugano-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

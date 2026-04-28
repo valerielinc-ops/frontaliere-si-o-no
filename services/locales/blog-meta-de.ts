@@ -3496,6 +3496,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.estival-pagamento-caduta-stile-lugano.title': 'Estival Jazz: Eintrittsgebühren sorgen für Kritik in Lugano',
     'blog.article.estival-pagamento-caduta-stile-lugano.excerpt': 'Der Gemeinderatsmitglied Omar Wicht kritisiert die Eintrittsgebühren des Musikfestivals und fordert Aufklärung vom Exekutivrat.',
     'blog.article.estival-pagamento-caduta-stile-lugano.imageAlt': 'Blick auf den Luganersee mit der Skyline der Stadt',
+    'blog.article.giornata-contro-rumore-lugano-2024.title': 'Aktionstage gegen Lärm: Kontrollen in Lugano vom 28. bis 30. April',
+    'blog.article.giornata-contro-rumore-lugano-2024.excerpt': 'Die Stadtpolizei Lugano führt vom 28. bis 30. April Lärmkontrollen durch. Fokus auf laute Fahrzeuge und Baustellen',
+    'blog.article.giornata-contro-rumore-lugano-2024.imageAlt': 'Lugano-Panorama mit dem Ceresio-See und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
