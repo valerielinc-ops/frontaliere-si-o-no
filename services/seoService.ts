@@ -2322,6 +2322,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiasso-ammoniaca-stadio-ghiaccio': { name: 'Novità', path: '/articoli-frontaliere/chiasso-ammoniaca-stadio-ghiaccio', parent: 'blog' },
     'blog-fuga-ammoniaca-chiasso-pista-ghiaccio': { name: 'Novità', path: '/articoli-frontaliere/fuga-ammoniaca-chiasso-pista-ghiaccio', parent: 'blog' },
     'blog-biglietto-trenord-whatsapp-ticino': { name: 'Biglietti Trenord', path: '/articoli-frontaliere/biglietto-trenord-whatsapp-ticino', parent: 'blog' },
+    'blog-tassa-aerei-sostegno-treni': { name: 'Novità', path: '/articoli-frontaliere/tassa-aerei-sostegno-treni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

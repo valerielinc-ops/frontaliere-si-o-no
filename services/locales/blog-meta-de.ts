@@ -3274,6 +3274,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.biglietto-trenord-whatsapp-ticino.title': 'Trenord-Tickets per WhatsApp: So funktioniert\'s',
     'blog.article.biglietto-trenord-whatsapp-ticino.excerpt': 'Trenord führt Tickets ein, die per WhatsApp gekauft werden können. Diese sind an den Selbstbedienungsterminals und den Digital Gates in Mailand und Malpensa T1 erhältlich.',
     'blog.article.biglietto-trenord-whatsapp-ticino.imageAlt': 'Trenord-Ticket auf WhatsApp mit Blick auf den Luganersee',
+    'blog.article.tassa-aerei-sostegno-treni.title': 'Flugticketbesteuerung für den Bahnausbau im Tessin',
+    'blog.article.tassa-aerei-sostegno-treni.excerpt': 'Ein Komitee schlägt vor, Flugtickets zu besteuern, um den öffentlichen Verkehr in der Schweiz zu unterstützen, mit einem Mindestbeitrag von 30 Franken.',
+    'blog.article.tassa-aerei-sostegno-treni.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Dörfern',
 };
 
 export default blogMetaDe;

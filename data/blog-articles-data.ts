@@ -8652,4 +8652,11 @@ export const ARTICLES = [
  image: '/images/blog/biglietto-trenord-whatsapp-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tassa-aerei-sostegno-treni',
+ category: 'novita',
+ date: '2026-04-28T10:17:16.654Z',
+ image: '/images/blog/tassa-aerei-sostegno-treni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

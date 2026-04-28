@@ -3275,6 +3275,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.biglietto-trenord-whatsapp-ticino.title': 'Billets Trenord sur WhatsApp : comment ça marche',
     'blog.article.biglietto-trenord-whatsapp-ticino.excerpt': 'Trenord introduit des billets achetables via WhatsApp, disponibles aux self-service et aux Digital Gate de Milan et Malpensa T1',
     'blog.article.biglietto-trenord-whatsapp-ticino.imageAlt': 'Billet Trenord sur WhatsApp avec vue sur le lac de Lugano',
+    'blog.article.tassa-aerei-sostegno-treni.title': 'Taxe sur les avions pour financer les trains: l\'initiative en Ticino',
+    'blog.article.tassa-aerei-sostegno-treni.excerpt': 'Un comité propose de taxer les billets d\'avion pour soutenir les transports publics en Suisse, avec une contribution minimale de 30 francs.',
+    'blog.article.tassa-aerei-sostegno-treni.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et villages',
 };
 
 export default blogMetaFr;

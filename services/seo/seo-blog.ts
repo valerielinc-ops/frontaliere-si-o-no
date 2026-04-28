@@ -18628,6 +18628,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-aerei-sostegno-treni': {
+    title: 'Tassa su aerei per finanziare i treni: l\'iniziativa in Ticino',
+    description: 'Un comitato propone di tassare i biglietti aerei per sostenere i trasporti pubblici in Svizzera, con un contributo minimo di 30 franchi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, aerei, finanziare, treni',
+    ogTitle: 'Tassa su aerei per finanziare i treni in Ticino',
+    ogDescription: 'Un comitato propone di tassare i biglietti aerei per sostenere i trasporti pubblici in Svizzera, con un contributo minimo di 30 franchi.',
+    canonicalPath: '/articoli-frontaliere/tassa-aerei-sostegno-treni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa su aerei per finanziare i treni in Ticino",
+      "description": "Un comitato propone di tassare i biglietti aerei per sostenere i trasporti pubblici in Svizzera, con un contributo minimo di 30 franchi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-aerei-sostegno-treni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e paesi"
+      },
+      "datePublished": "2026-04-28T10:17:16+00:00",
+      "dateModified": "2026-04-28T10:17:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-aerei-sostegno-treni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
