@@ -19788,6 +19788,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bilancio-val-mara-2025-avanzamento-616mila': {
+    title: 'Val Mara: bilancio 2025 in avanzo di 616mila franchi',
+    description: 'Il Comune di Val Mara chiude il 2025 con un avanzo di 616mila franchi, superando le previsioni negative. Investimenti mirati e pressione fiscale stabile',
+    keywords: 'frontalieri, ticino, svizzera, italia, mara, bilancio, 2025, avanzo',
+    ogTitle: 'Val Mara: bilancio 2025 in avanzo di 616mila franchi',
+    ogDescription: 'Il Comune di Val Mara chiude il 2025 con un avanzo di 616mila franchi, superando le previsioni negative. Investimenti mirati e pressione fiscale stabile',
+    canonicalPath: '/articoli-frontaliere/bilancio-val-mara-2025-avanzamento-616mila',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Val Mara: bilancio 2025 in avanzo di 616mila franchi",
+      "description": "Il Comune di Val Mara chiude il 2025 con un avanzo di 616mila franchi, superando le previsioni negative. Investimenti mirati e pressione fiscale stabile",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bilancio-val-mara-2025-avanzamento-616mila.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Val Mara, Ticino, Svizzera, con i comuni di Maroggia, Melano e Rovio"
+      },
+      "datePublished": "2026-04-28T16:03:27+00:00",
+      "dateModified": "2026-04-28T16:03:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilancio-val-mara-2025-avanzamento-616mila`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

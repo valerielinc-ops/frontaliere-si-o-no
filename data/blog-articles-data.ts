@@ -8932,4 +8932,11 @@ export const ARTICLES = [
  image: '/images/blog/fenealuil-decreto-lavoro-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bilancio-val-mara-2025-avanzamento-616mila',
+ category: 'novita',
+ date: '2026-04-28T16:03:27.683Z',
+ image: '/images/blog/bilancio-val-mara-2025-avanzamento-616mila.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

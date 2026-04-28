@@ -3395,6 +3395,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fenealuil-decreto-lavoro-2026.title': 'Decreto Lavoro 2026: FenealUil moderatamente soddisfatta',
     'blog.article.fenealuil-decreto-lavoro-2026.excerpt': 'Mauro Franzolini, segretario generale FenealUil, commenta la bozza del decreto lavoro in esame al Consiglio dei ministri.',
     'blog.article.fenealuil-decreto-lavoro-2026.imageAlt': 'Lago di Lugano con vista su Lugano e Monte Brè',
+    'blog.article.bilancio-val-mara-2025-avanzamento-616mila.title': 'Val Mara: bilancio 2025 in avanzo di 616mila franchi',
+    'blog.article.bilancio-val-mara-2025-avanzamento-616mila.excerpt': 'Il Comune di Val Mara chiude il 2025 con un avanzo di 616mila franchi, superando le previsioni negative. Investimenti mirati e pressione fiscale stabile all\'80%.',
+    'blog.article.bilancio-val-mara-2025-avanzamento-616mila.imageAlt': 'Vista aerea di Val Mara, Ticino, Svizzera, con i comuni di Maroggia, Melano e Rovio',
 };
 
 export default blogMetaIt;

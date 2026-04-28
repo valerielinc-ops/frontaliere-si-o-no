@@ -3394,6 +3394,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fenealuil-decreto-lavoro-2026.title': 'Arbeitsdekrets 2026: FenealUil zufrieden',
     'blog.article.fenealuil-decreto-lavoro-2026.excerpt': 'Mauro Franzolini, Generalsekretär von FenealUil, kommentiert den Entwurf des Arbeitsdekrets, das im Ministerrat geprüft wird.',
     'blog.article.fenealuil-decreto-lavoro-2026.imageAlt': 'Luganersee mit Blick auf Lugano und Monte Brè',
+    'blog.article.bilancio-val-mara-2025-avanzamento-616mila.title': 'Val Mara: Haushalt 2025 mit 616.000 Franken Überschuss',
+    'blog.article.bilancio-val-mara-2025-avanzamento-616mila.excerpt': 'Die Gemeinde Val Mara schließt das Jahr 2025 mit einem Überschuss von 616.000 Franken ab und übertrifft die negativen Prognosen. Gezielte Investitionen und stabile Steuerbelastung von 80%.',
+    'blog.article.bilancio-val-mara-2025-avanzamento-616mila.imageAlt': 'Luftaufnahme von Val Mara, Tessin, Schweiz, mit den Gemeinden Maroggia, Melano und Rovio',
 };
 
 export default blogMetaDe;

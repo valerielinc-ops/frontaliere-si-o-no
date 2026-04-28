@@ -3394,6 +3394,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fenealuil-decreto-lavoro-2026.title': '2026 Labour Decree: FenealUil moderately satisfied',
     'blog.article.fenealuil-decreto-lavoro-2026.excerpt': 'Mauro Franzolini, FenealUil general secretary, comments on the draft labour decree being examined by the Council of Ministers.',
     'blog.article.fenealuil-decreto-lavoro-2026.imageAlt': 'Lake Lugano with view of Lugano and Monte Brè',
+    'blog.article.bilancio-val-mara-2025-avanzamento-616mila.title': 'Val Mara: 2025 surplus of 616k francs',
+    'blog.article.bilancio-val-mara-2025-avanzamento-616mila.excerpt': 'The municipality of Val Mara closes 2025 with a surplus of 616,000 francs, exceeding negative forecasts. Targeted investments and stable tax pressure at 80%.',
+    'blog.article.bilancio-val-mara-2025-avanzamento-616mila.imageAlt': 'Aerial view of Val Mara, Ticino, Switzerland, with the towns of Maroggia, Melano, and Rovio',
 };
 
 export default blogMetaEn;
