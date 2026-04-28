@@ -8771,4 +8771,11 @@ export const ARTICLES = [
  image: '/images/blog/passi-solidarieta-porto-ceresio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'processo-karimova-archiviazione-parziale',
+ category: 'novita',
+ date: '2026-04-28T12:20:10.262Z',
+ image: '/images/blog/processo-karimova-archiviazione-parziale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

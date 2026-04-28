@@ -3325,6 +3325,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.passi-solidarieta-porto-ceresio-2026.title': 'Solidarity steps: walk in Porto Ceresio for blood donation',
     'blog.article.passi-solidarieta-porto-ceresio-2026.excerpt': 'On Sunday, May 3rd, Avis Valceresio organizes a walk along the lake to raise awareness about blood donation. Meet at 9 am in Piazza Bossi.',
     'blog.article.passi-solidarieta-porto-ceresio-2026.imageAlt': 'Panoramic view of Porto Ceresio lakeside with walkers',
+    'blog.article.processo-karimova-archiviazione-parziale.title': 'Karimova case: partial dismissal for Gulnara',
+    'blog.article.processo-karimova-archiviazione-parziale.excerpt': 'The Swiss Federal Criminal Court dismisses the case against Gulnara Karimova, daughter of the former Uzbek president, but proceedings continue against the bank and the asset manager',
+    'blog.article.processo-karimova-archiviazione-parziale.imageAlt': 'Federal Criminal Court in Bellinzona, courtroom with judges in robes and defendants',
 };
 
 export default blogMetaEn;

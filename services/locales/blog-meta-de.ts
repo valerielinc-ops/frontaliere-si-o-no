@@ -3325,6 +3325,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.passi-solidarieta-porto-ceresio-2026.title': 'Solidaritätsschritte: Spaziergang in Porto Ceresio für Blutspenden',
     'blog.article.passi-solidarieta-porto-ceresio-2026.excerpt': 'Am Sonntag, dem 3. Mai, organisiert Avis Valceresio einen Spaziergang am See, um auf die Blutspende aufmerksam zu machen. Treffpunkt ist um 9 Uhr auf der Piazza Bossi.',
     'blog.article.passi-solidarieta-porto-ceresio-2026.imageAlt': 'Panoramablick auf den Seeuferweg von Porto Ceresio mit Spaziergängern',
+    'blog.article.processo-karimova-archiviazione-parziale.title': 'Prozess Karimova: Teilweise Einstellung für Gulnara',
+    'blog.article.processo-karimova-archiviazione-parziale.excerpt': 'Das Bundesstrafgericht stellt das Verfahren gegen Gulnara Karimova, die Tochter des ehemaligen usbekischen Präsidenten, teilweise ein, setzt es aber gegen die Bank und den Vermögensverwalter fort',
+    'blog.article.processo-karimova-archiviazione-parziale.imageAlt': 'Bundesstrafgericht in Bellinzona, Gerichtssaal mit Richtern in Roben und Angeklagten',
 };
 
 export default blogMetaDe;

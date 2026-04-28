@@ -3326,6 +3326,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.passi-solidarieta-porto-ceresio-2026.title': 'Passi di solidarietà: camminata a Porto Ceresio per la donazione di sangue',
     'blog.article.passi-solidarieta-porto-ceresio-2026.excerpt': 'Domenica 3 maggio, Avis Valceresio organizza una camminata lungo il lago per sensibilizzare sulla donazione di sangue. Ritrovo alle 9 in piazza Bossi.',
     'blog.article.passi-solidarieta-porto-ceresio-2026.imageAlt': 'Vista panoramica del lungolago di Porto Ceresio con passeggiatori',
+    'blog.article.processo-karimova-archiviazione-parziale.title': 'Processo Karimova: archiviazione parziale per Gulnara',
+    'blog.article.processo-karimova-archiviazione-parziale.excerpt': 'Il Tribunale penale federale archivia il caso contro Gulnara Karimova, figlia dell’ex presidente uzbeko, ma prosegue per la banca e il gestore patrimoniale',
+    'blog.article.processo-karimova-archiviazione-parziale.imageAlt': 'Tribunale penale federale a Bellinzona, aula giudiziaria con giudici in toga e imputati',
 };
 
 export default blogMetaIt;

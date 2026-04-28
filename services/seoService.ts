@@ -2339,6 +2339,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bicicletta-insubria-varese-2026': { name: 'Pendolarismo sostenibile', path: '/articoli-frontaliere/bicicletta-insubria-varese-2026', parent: 'blog' },
     'blog-montessori-green-food-week-2026': { name: 'Novità', path: '/articoli-frontaliere/montessori-green-food-week-2026', parent: 'blog' },
     'blog-passi-solidarieta-porto-ceresio-2026': { name: 'Novità', path: '/articoli-frontaliere/passi-solidarieta-porto-ceresio-2026', parent: 'blog' },
+    'blog-processo-karimova-archiviazione-parziale': { name: 'Processo Karimova', path: '/articoli-frontaliere/processo-karimova-archiviazione-parziale', parent: 'blog' },
  };
 
  const info = sectionNames[section];

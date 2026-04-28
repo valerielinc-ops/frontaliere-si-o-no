@@ -3326,6 +3326,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.passi-solidarieta-porto-ceresio-2026.title': 'Marche de solidarité: randonnée à Porto Ceresio pour le don de sang',
     'blog.article.passi-solidarieta-porto-ceresio-2026.excerpt': 'Dimanche 3 mai, Avis Valceresio organise une randonnée autour du lac pour sensibiliser au don de sang. Rendez-vous à 9h sur la piazza Bossi.',
     'blog.article.passi-solidarieta-porto-ceresio-2026.imageAlt': 'Vue panoramique du front de lac de Porto Ceresio avec des promeneurs',
+    'blog.article.processo-karimova-archiviazione-parziale.title': 'Procès Karimova: classement partiel pour Gulnara',
+    'blog.article.processo-karimova-archiviazione-parziale.excerpt': 'Le Tribunal pénal fédéral classe le cas contre Gulnara Karimova, fille de l’ex-président ouzbek, mais poursuit contre la banque et le gestionnaire de patrimoine',
+    'blog.article.processo-karimova-archiviazione-parziale.imageAlt': 'Tribunal pénal fédéral à Bellinzona, salle d\'audience avec juges en robe et accusés',
 };
 
 export default blogMetaFr;

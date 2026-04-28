@@ -19121,6 +19121,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-processo-karimova-archiviazione-parziale': {
+    title: 'Processo Karimova: archiviazione parziale per Gulnara',
+    description: 'Il Tribunale penale federale archivia il caso contro Gulnara Karimova, figlia dell’ex presidente uzbeko, ma prosegue per la banca e il gestore patrimoniale',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, karimova, archiviazione, parziale',
+    ogTitle: 'Processo Karimova: archiviazione parziale per Gulnara',
+    ogDescription: 'Il Tribunale penale federale archivia il caso contro Gulnara Karimova, figlia dell’ex presidente uzbeko, ma prosegue per la banca e il gestore patrimoniale',
+    canonicalPath: '/articoli-frontaliere/processo-karimova-archiviazione-parziale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Processo Karimova: archiviazione parziale per Gulnara",
+      "description": "Il Tribunale penale federale archivia il caso contro Gulnara Karimova, figlia dell’ex presidente uzbeko, ma prosegue per la banca e il gestore patrimoniale",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/processo-karimova-archiviazione-parziale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tribunale penale federale a Bellinzona, aula giudiziaria con giudici in toga e imputati"
+      },
+      "datePublished": "2026-04-28T12:20:10+00:00",
+      "dateModified": "2026-04-28T12:20:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/processo-karimova-archiviazione-parziale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
