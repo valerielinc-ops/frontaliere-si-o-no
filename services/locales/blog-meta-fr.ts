@@ -3563,6 +3563,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-chiese-ticino-rumeni-fermati.title': 'Vols dans les églises : deux Roumains arrêtés au Tessin',
     'blog.article.furti-chiese-ticino-rumeni-fermati.excerpt': 'Deux citoyens roumains ont été arrêtés pour des vols dans des églises tessinoises. Découvrez les détails de l\'opération.',
     'blog.article.furti-chiese-ticino-rumeni-fermati.imageAlt': 'Église en Tessin avec présence policière',
+    'blog.article.attentato-washington-trump-2026.title': 'Attaque à Washington, Donald Trump indemne',
+    'blog.article.attentato-washington-trump-2026.excerpt': 'Donald Trump a échappé à une attaque lors d\'un dîner de gala à Washington. L\'attaquant arrêté.',
+    'blog.article.attentato-washington-trump-2026.imageAlt': 'Vue aérienne de Bellinzone avec ses châteaux, Tessin, Suisse',
 };
 
 export default blogMetaFr;

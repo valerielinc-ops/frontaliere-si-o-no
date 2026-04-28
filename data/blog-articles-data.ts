@@ -9324,4 +9324,11 @@ export const ARTICLES = [
  image: '/images/blog/furti-chiese-ticino-rumeni-fermati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'attentato-washington-trump-2026',
+ category: 'novita',
+ date: '2026-04-28T22:20:38.966Z',
+ image: '/images/blog/attentato-washington-trump-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

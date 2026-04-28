@@ -3563,6 +3563,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-chiese-ticino-rumeni-fermati.title': 'Furti in chiese: fermati due rumeni in Ticino',
     'blog.article.furti-chiese-ticino-rumeni-fermati.excerpt': 'Due cittadini rumeni sono stati fermati per furti in chiese ticinesi. Scopri i dettagli dell\'operazione.',
     'blog.article.furti-chiese-ticino-rumeni-fermati.imageAlt': 'Chiesa in Ticino con presenza di polizia',
+    'blog.article.attentato-washington-trump-2026.title': 'Attentato a Washington, illeso Donald Trump',
+    'blog.article.attentato-washington-trump-2026.excerpt': 'Donald Trump scampato a un attentato durante una cena di gala a Washington. L\'attentatore arrestato.',
+    'blog.article.attentato-washington-trump-2026.imageAlt': 'Vista aerea di Bellinzona con i suoi castelli, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

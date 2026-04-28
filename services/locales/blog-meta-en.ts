@@ -3562,6 +3562,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-chiese-ticino-rumeni-fermati.title': 'Two Romanians arrested for church thefts in Ticino',
     'blog.article.furti-chiese-ticino-rumeni-fermati.excerpt': 'Two Romanian citizens were arrested for thefts in Ticino churches. Discover the details of the operation.',
     'blog.article.furti-chiese-ticino-rumeni-fermati.imageAlt': 'Church in Ticino with police presence',
+    'blog.article.attentato-washington-trump-2026.title': 'Attack in Washington, Donald Trump unharmed',
+    'blog.article.attentato-washington-trump-2026.excerpt': 'Donald Trump escaped an attack during a gala dinner in Washington. The attacker arrested.',
+    'blog.article.attentato-washington-trump-2026.imageAlt': 'Aerial view of Bellinzona with its castles, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

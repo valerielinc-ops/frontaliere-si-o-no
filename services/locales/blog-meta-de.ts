@@ -3562,6 +3562,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-chiese-ticino-rumeni-fermati.title': 'Zwei Rumänen wegen Kirchendiebstählen in Ticino festgenommen',
     'blog.article.furti-chiese-ticino-rumeni-fermati.excerpt': 'Zwei rumänische Staatsbürger wurden wegen Diebstählen in Kirchen im Tessin festgenommen. Erfahren Sie die Details der Operation.',
     'blog.article.furti-chiese-ticino-rumeni-fermati.imageAlt': 'Kirche in Tessin mit Polizeianwesenheit',
+    'blog.article.attentato-washington-trump-2026.title': 'Attentat in Washington, Trump unverletzt',
+    'blog.article.attentato-washington-trump-2026.excerpt': 'Donald Trump überlebte ein Attentat während eines Galadinners in Washington. Der Attentäter wurde festgenommen.',
+    'blog.article.attentato-washington-trump-2026.imageAlt': 'Luftaufnahme von Bellinzona mit seinen Burgen, Tessin, Schweiz',
 };
 
 export default blogMetaDe;
