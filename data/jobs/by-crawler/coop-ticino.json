@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-ghhl6m",
-      "slug": "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden",
+      "slug": "venditore-in-prodotti-freschi-pane-bakery-coop-genossenschaft-klosters-serneus",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte (Brot/Backwaren)",
       "location": "Klosters-Serneus",
@@ -50,10 +50,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m",
-        "en": "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m",
+        "it": "venditore-in-prodotti-freschi-pane-bakery-coop-genossenschaft-klosters-serneus",
+        "en": "seller-in-fresh-products-bread-bakery-coop-genossenschaft-klosters-serneus",
         "de": "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m",
-        "fr": "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m"
+        "fr": "vendeur-dans-des-produits-frais-pain-cuir-coop-genossenschaft-klosters-serneus"
       },
       "addressLocality": "Klosters-Serneus",
       "sourceLang": "de",
@@ -68,7 +68,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m",
+          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden-ghhl6m",
+        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
+      ]
     },
     {
       "id": "company-iblt0s",

@@ -9,7 +9,7 @@
         "it": "student-in-come-ferienaushilfe-denner-gebenstorf",
         "en": "student-in-als-ferienaushilfe-denner-gebenstorf",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-vacances-denner-gebenstorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -71,6 +71,9 @@
         ],
         "en": [
           "student-in-als-ferienaushilfe-denner-horw"
+        ],
+        "fr": [
+          "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [
@@ -783,7 +786,7 @@
         "it": "product-manager-wein-schaumwein-w-m-d-denner",
         "en": "product-manager-wein-schaumwein-w-m-d-denner",
         "de": "product-manager-wein-schaumwein-w-m-d-denner",
-        "fr": "product-manager-wein-schaumwein-w-m-d-denner"
+        "fr": "gestionnaire-de-produits-m-d-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -860,11 +863,11 @@
     },
     {
       "id": "denner-2c23ba7a1092",
-      "slug": "vendeur-vendeuse-denner-paudex",
+      "slug": "venditore-venditore-denner-paudex",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner-paudex",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditore-denner-paudex",
+        "en": "seller-seller-denner-paudex",
+        "de": "verkaufer-denner-paudex",
         "fr": "vendeur-vendeuse-denner-paudex"
       },
       "company": "Denner",
@@ -925,15 +928,23 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner-geneve",
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-paudex"
         ],
         "fr": [
           "vendeur-vendeuse-denner-geneve"
+        ],
+        "en": [
+          "vendeur-vendeuse-denner"
+        ],
+        "de": [
+          "vendeur-vendeuse-denner"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-denner-geneve",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-paudex"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -951,11 +962,11 @@
     },
     {
       "id": "denner-bcb486623cd6",
-      "slug": "etudiant-etudiante-denner",
+      "slug": "studente-denner-yverdon-les-bains",
       "slugByLocale": {
-        "it": "etudiant-etudiante-denner",
-        "en": "etudiant-etudiante-denner-murten-mvukct",
-        "de": "etudiant-etudiante-denner-murten-mvukct",
+        "it": "studente-denner-yverdon-les-bains",
+        "en": "student-denner-yverdon-les-bains",
+        "de": "schuler-denner-yverdon-les-bains",
         "fr": "etudiant-etudiante-denner-yverdon-les-bains"
       },
       "company": "Denner",
@@ -1013,14 +1024,22 @@
       "crawledAt": "2026-04-28T21:44:14.625Z",
       "previousSlugsByLocale": {
         "it": [
-          "studente-studentessa-denner-murten"
+          "studente-studentessa-denner-murten",
+          "etudiant-etudiante-denner"
         ],
         "fr": [
+          "etudiant-etudiante-denner-murten-mvukct"
+        ],
+        "en": [
+          "etudiant-etudiante-denner-murten-mvukct"
+        ],
+        "de": [
           "etudiant-etudiante-denner-murten-mvukct"
         ]
       },
       "previousSlugs": [
         "studente-studentessa-denner-murten",
+        "etudiant-etudiante-denner",
         "etudiant-etudiante-denner-murten-mvukct"
       ],
       "salaryMin": 59000,

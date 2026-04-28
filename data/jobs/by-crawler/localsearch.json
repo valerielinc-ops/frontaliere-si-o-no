@@ -3204,12 +3204,12 @@
     },
     {
       "id": "localsearch-26589b932362",
-      "slug": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21",
+      "slug": "venditore-venditore-nel-campo-localsearch-fehraltorf",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "it": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21",
-        "en": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21",
-        "fr": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21"
+        "it": "venditore-venditore-nel-campo-localsearch-fehraltorf",
+        "en": "seller-seller-in-the-field-localsearch-fehraltorf",
+        "fr": "vendeur-vendeur-dans-le-champ-localsearch-fehraltorf"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -3263,7 +3263,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-28T22:13:23.897Z"
+      "firstSeenAt": "2026-04-28T22:13:23.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21"
+        ],
+        "en": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21"
+      ]
     }
   ]
 }

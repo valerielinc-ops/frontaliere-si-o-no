@@ -3715,12 +3715,12 @@
     },
     {
       "id": "ubp-b14510298b0a",
-      "slug": "eam-account-manager-temporary-until-31-12-2026-ubp-ch",
+      "slug": "eam-account-manager-temporaneo-fino-al-31-12-2026-union-bancaire-privee-basel-switzerland",
       "slugByLocale": {
         "de": "eam-account-manager-temporary-until-31-12-2026-ubp-ch",
-        "it": "eam-account-manager-temporary-until-31-12-2026-ubp-ch",
+        "it": "eam-account-manager-temporaneo-fino-al-31-12-2026-union-bancaire-privee-basel-switzerland",
         "en": "eam-account-manager-temporary-until-31-12-2026-union-bancaire-privee-basel-switzerland",
-        "fr": "eam-account-manager-temporary-until-31-12-2026-ubp-ch"
+        "fr": "gestionnaire-de-comptes-eam-temporaire-jusqu-au-31-12-2026-union-bancaire-privee-basel-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3775,16 +3775,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-28T22:46:31.039Z"
+      "firstSeenAt": "2026-04-28T22:46:31.039Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "eam-account-manager-temporary-until-31-12-2026-ubp-ch"
+        ],
+        "fr": [
+          "eam-account-manager-temporary-until-31-12-2026-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "eam-account-manager-temporary-until-31-12-2026-ubp-ch"
+      ]
     },
     {
       "id": "ubp-42b13c3015e8",
-      "slug": "receptionist-temporary-6-months-ubp-ch",
+      "slug": "receptionist-temporary-6-mesi-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "receptionist-temporary-6-months-union-bancaire-privee-geneva-switzerland",
-        "it": "receptionist-temporary-6-months-ubp-ch",
-        "de": "receptionist-temporary-6-months-ubp-ch",
-        "fr": "receptionist-temporary-6-months-ubp-ch"
+        "it": "receptionist-temporary-6-mesi-union-bancaire-privee-geneva-switzerland",
+        "de": "rezeptionist-temporar-6-monate-union-bancaire-privee-geneva-switzerland",
+        "fr": "receptionniste-temporaire-6-mois-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3839,7 +3850,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-28T22:46:30.438Z"
+      "firstSeenAt": "2026-04-28T22:46:30.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionist-temporary-6-months-ubp-ch"
+        ],
+        "de": [
+          "receptionist-temporary-6-months-ubp-ch"
+        ],
+        "fr": [
+          "receptionist-temporary-6-months-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "receptionist-temporary-6-months-ubp-ch"
+      ]
     }
   ]
 }

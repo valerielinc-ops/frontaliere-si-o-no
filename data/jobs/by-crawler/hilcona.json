@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-2d2c23291f9f",
-      "slug": "leiter-leiterin-finanzbuchhaltung-geiser-ag-schlieren",
+      "slug": "responsabile-finanza-e-contabilita-geiser-ag-schlieren",
       "slugByLocale": {
         "de": "leiter-leiterin-finanzbuchhaltung-geiser-ag-schlieren",
-        "it": "leiter-leiterin-finanzbuchhaltung-geiser-ag-schlieren",
-        "en": "leiter-leiterin-finanzbuchhaltung-geiser-ag-schlieren",
-        "fr": "leiter-leiterin-finanzbuchhaltung-geiser-ag-schlieren"
+        "it": "responsabile-finanza-e-contabilita-geiser-ag-schlieren",
+        "en": "finance-and-accounting-manager-geiser-ag-schlieren",
+        "fr": "responsable-finances-et-comptabilite-geiser-ag-schlieren"
       },
       "company": "Geiser AG",
       "companyKey": "hilcona",
@@ -48,14 +48,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "leiter-leiterin-finanzbuchhaltung-hilcona-schlieren"
+          "leiter-leiterin-finanzbuchhaltung-hilcona-schlieren",
+          "leiter-leiterin-finanzbuchhaltung-geiser-ag-schlieren"
         ],
         "de": [
           "leiter-leiterin-finanzbuchhaltung-hilcona-schlieren"
+        ],
+        "en": [
+          "leiter-leiterin-finanzbuchhaltung-geiser-ag-schlieren"
+        ],
+        "fr": [
+          "leiter-leiterin-finanzbuchhaltung-geiser-ag-schlieren"
         ]
       },
       "previousSlugs": [
-        "leiter-leiterin-finanzbuchhaltung-hilcona-schlieren"
+        "leiter-leiterin-finanzbuchhaltung-hilcona-schlieren",
+        "leiter-leiterin-finanzbuchhaltung-geiser-ag-schlieren"
       ],
       "salaryMin": 98000,
       "salaryMax": 132000,
@@ -74,12 +82,12 @@
     },
     {
       "id": "hilcona-f4f8c6463be3",
-      "slug": "aushilfe-outlet-im-stundenlohn-hilcona-schlieren",
+      "slug": "torna-all-inizio-geiser-ag-schlieren",
       "slugByLocale": {
         "de": "aushilfe-outlet-im-stundenlohn-geiser-ag-schlieren",
-        "it": "aushilfe-outlet-im-stundenlohn-hilcona-schlieren",
-        "en": "aushilfe-outlet-im-stundenlohn-hilcona-schlieren",
-        "fr": "aushilfe-outlet-im-stundenlohn-hilcona-schlieren"
+        "it": "torna-all-inizio-geiser-ag-schlieren",
+        "en": "back-to-top-geiser-ag-schlieren",
+        "fr": "haut-de-page-geiser-ag-schlieren"
       },
       "company": "Geiser AG",
       "companyKey": "hilcona",
@@ -129,7 +137,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-28T22:01:49.267Z"
+      "firstSeenAt": "2026-04-28T22:01:49.267Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-outlet-im-stundenlohn-hilcona-schlieren"
+        ],
+        "en": [
+          "aushilfe-outlet-im-stundenlohn-hilcona-schlieren"
+        ],
+        "fr": [
+          "aushilfe-outlet-im-stundenlohn-hilcona-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-outlet-im-stundenlohn-hilcona-schlieren"
+      ]
     },
     {
       "id": "hilcona-93bb950c373f",

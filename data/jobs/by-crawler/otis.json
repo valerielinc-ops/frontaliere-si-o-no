@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "otis-841f2076379e",
-      "slug": "service-technician-otis-martigny",
+      "slug": "servizio-tecnico-otis-sa-martigny",
       "slugByLocale": {
         "en": "service-technician-otis-martigny",
-        "it": "service-technician-otis-martigny",
+        "it": "servizio-tecnico-otis-sa-martigny",
         "de": "service-technician-otis-martigny",
-        "fr": "service-technician-otis-martigny"
+        "fr": "technicien-des-services-otis-sa-martigny"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -59,7 +59,18 @@
         }
       },
       "postalCode": "1920",
-      "firstSeenAt": "2026-04-28T22:23:55.137Z"
+      "firstSeenAt": "2026-04-28T22:23:55.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-technician-otis-martigny"
+        ],
+        "fr": [
+          "service-technician-otis-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "service-technician-otis-martigny"
+      ]
     },
     {
       "id": "otis-c01bdb073f38",
