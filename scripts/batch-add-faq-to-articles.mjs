@@ -105,19 +105,40 @@ function escapeForSingleQuoteTS(s) {
 }
 
 /** Strip markdown fences and extract JSON array from LLM output */
+function findMatchingClose(src, openIdx) {
+  const open = src[openIdx];
+  const close = open === '[' ? ']' : open === '{' ? '}' : null;
+  if (!close) return -1;
+  let depth = 0, inStr = false, esc = false;
+  for (let i = openIdx; i < src.length; i++) {
+    const ch = src[i];
+    if (esc) { esc = false; continue; }
+    if (ch === '\\') { esc = true; continue; }
+    if (ch === '"') { inStr = !inStr; continue; }
+    if (inStr) continue;
+    if (ch === open) depth++;
+    else if (ch === close) { depth--; if (depth === 0) return i; }
+  }
+  return -1;
+}
+
 function repairJsonArray(s) {
   let c = s.replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
-  // Try to extract array first
+  // Bracket-balanced extraction so trailing prose (LLM "Note: ..." after the
+  // array) does not pull in a foreign ']' via lastIndexOf.
   const arrStart = c.indexOf('[');
-  const arrEnd = c.lastIndexOf(']');
-  if (arrStart !== -1 && arrEnd !== -1 && arrEnd > arrStart) {
-    c = c.slice(arrStart, arrEnd + 1);
+  if (arrStart !== -1) {
+    const arrEnd = findMatchingClose(c, arrStart);
+    if (arrEnd !== -1) c = c.slice(arrStart, arrEnd + 1);
+    else {
+      const lastClose = c.lastIndexOf(']');
+      if (lastClose > arrStart) c = c.slice(arrStart, lastClose + 1);
+    }
   } else {
-    // No array brackets — try object wrapping (model may return {"faq": [...]})
     const objStart = c.indexOf('{');
-    const objEnd = c.lastIndexOf('}');
-    if (objStart !== -1 && objEnd !== -1 && objEnd > objStart) {
-      c = c.slice(objStart, objEnd + 1);
+    if (objStart !== -1) {
+      const objEnd = findMatchingClose(c, objStart);
+      if (objEnd !== -1) c = c.slice(objStart, objEnd + 1);
     }
   }
   // Fix literal newlines inside strings
@@ -671,8 +692,19 @@ async function processArticle(articleId, file, itBodyContent) {
     }
   }
 
-  // 3. Validate — need at least MIN_FAQ_PAIRS for new articles
-  const validFaq = validateFaq(itFaq);
+  // 3. Validate — need at least MIN_FAQ_PAIRS. If the first call produced
+  // 1-2 valid pairs, top up via a second LLM call instead of failing here.
+  let validFaq = validateFaq(itFaq);
+  if (validFaq && validFaq.length > 0 && validFaq.length < MIN_FAQ_PAIRS) {
+    console.error(`${label} ⚠️  Only ${validFaq.length}/${MIN_FAQ_PAIRS} pairs from first call — topping up...`);
+    try {
+      const extraFaq = await generateTopUpFaqIT(articleId, bodyText, validFaq);
+      const extraValid = validateFaq(extraFaq) || [];
+      if (extraValid.length > 0) validFaq = validFaq.concat(extraValid);
+    } catch (topupErr) {
+      console.error(`${label} ⚠️  Top-up call failed: ${topupErr.message}`);
+    }
+  }
   if (!validFaq || validFaq.length < MIN_FAQ_PAIRS) {
     console.error(`${label} ❌ FAQ validation failed (got ${validFaq?.length || itFaq?.length || 0} pairs, need ≥${MIN_FAQ_PAIRS})`);
     return { success: false, error: `Only ${validFaq?.length || 0} pairs (need ≥${MIN_FAQ_PAIRS})` };
