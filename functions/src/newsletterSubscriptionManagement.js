@@ -84,7 +84,55 @@ function buildResponseHtml({ title, message, showResubscribe, email, token, loca
 </html>`;
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, db: injectedDb }) {
+const MAX_ALERTS_PER_USER = 10;
+const ALERT_LIST_FIELDS = ['keywords', 'locations', 'sectors'];
+
+function parseCsvList(value) {
+ if (value === undefined || value === null) return undefined;
+ if (Array.isArray(value)) {
+ const items = value.map((v) => String(v || '').trim()).filter(Boolean);
+ return items.slice(0, 20).map((v) => v.slice(0, 60));
+ }
+ const raw = String(value);
+ const items = raw.split(',').map((v) => v.trim()).filter(Boolean);
+ return items.slice(0, 20).map((v) => v.slice(0, 60));
+}
+
+function normalizeFrequency(value) {
+ if (value === undefined || value === null) return undefined;
+ const v = String(value).trim().toLowerCase();
+ if (v === 'daily' || v === 'weekly') return v;
+ return null; // explicit invalid sentinel
+}
+
+function normalizeBool(value) {
+ if (value === undefined || value === null) return undefined;
+ if (value === true || value === 'true' || value === '1' || value === 1) return true;
+ if (value === false || value === 'false' || value === '0' || value === 0) return false;
+ return undefined;
+}
+
+function serializeAlertDoc(id, data) {
+ const created = data?.createdAt;
+ const lastMatched = data?.lastMatchedAt;
+ return {
+ id,
+ keywords: Array.isArray(data?.keywords) ? data.keywords : [],
+ locations: Array.isArray(data?.locations) ? data.locations : [],
+ sectors: Array.isArray(data?.sectors) ? data.sectors : [],
+ frequency: typeof data?.frequency === 'string' ? data.frequency : 'weekly',
+ active: data?.active !== false,
+ email: typeof data?.email === 'string' ? data.email : null,
+ createdAt: created && typeof created.toMillis === 'function'
+ ? new Date(created.toMillis()).toISOString()
+ : (typeof created === 'string' ? created : null),
+ lastMatchedAt: lastMatched && typeof lastMatched.toMillis === 'function'
+ ? new Date(lastMatched.toMillis()).toISOString()
+ : (typeof lastMatched === 'string' ? lastMatched : null),
+ };
+}
+
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, active = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  const normalizedEmail = normalizeEmail(email);
 
@@ -100,7 +148,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch { /* fallback to 'it' */ }
  }
 
- const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert'];
+ const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert', 'update_alert', 'create_alert'];
  if (!validActions.includes(action)) {
  return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidAction'), showResubscribe: false, email: '', token: '', locale: lang }) };
  }
@@ -163,6 +211,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
  'get_full_status',
  'toggle_newsletter_subscription',
  'delete_alert',
+ 'update_alert',
+ 'create_alert',
  ]);
  if (jsonActions.has(action)) {
  return { status: 403, json: { success: false, error: 'invalid_token' } };
@@ -311,6 +361,129 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch (err) {
  console.error('[delete_alert] Failed:', err?.message);
  return { status: 500, json: { success: false, error: 'delete_failed' } };
+ }
+ }
+
+ if (action === 'update_alert') {
+ const id = String(alertId || '').trim();
+ if (!id || !/^[A-Za-z0-9_-]{1,128}$/.test(id)) {
+ return { status: 400, json: { success: false, error: 'invalid_alert_id' } };
+ }
+ const patch = {};
+ const fields = [];
+
+ const kw = parseCsvList(keywords);
+ if (kw !== undefined) { patch.keywords = kw; fields.push('keywords'); }
+ const loc = parseCsvList(locations);
+ if (loc !== undefined) { patch.locations = loc; fields.push('locations'); }
+ const sec = parseCsvList(sectors);
+ if (sec !== undefined) { patch.sectors = sec; fields.push('sectors'); }
+
+ if (frequency !== undefined && frequency !== null && frequency !== '') {
+ const freq = normalizeFrequency(frequency);
+ if (freq === null) {
+ return { status: 400, json: { success: false, error: 'invalid_frequency' } };
+ }
+ patch.frequency = freq;
+ fields.push('frequency');
+ }
+
+ const activeBool = normalizeBool(active);
+ if (activeBool !== undefined) { patch.active = activeBool; fields.push('active'); }
+
+ if (fields.length === 0) {
+ return { status: 400, json: { success: false, error: 'no_fields_to_update' } };
+ }
+
+ try {
+ const ref = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').doc(id);
+ await ref.set({
+ ...patch,
+ email: normalizedEmail,
+ updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ email: normalizedEmail,
+ event_type: 'job_alert_updated',
+ source_channel: 'preferences_link',
+ meta: { alert_id: id, fields },
+ timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ });
+
+ const fresh = await ref.get();
+ const alert = serializeAlertDoc(id, fresh.exists ? fresh.data() : patch);
+ return { status: 200, json: { success: true, alert_id: id, alert } };
+ } catch (err) {
+ console.error('[update_alert] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'update_failed' } };
+ }
+ }
+
+ if (action === 'create_alert') {
+ const kw = parseCsvList(keywords) || [];
+ const loc = parseCsvList(locations) || [];
+ const sec = parseCsvList(sectors) || [];
+
+ if (kw.length === 0 && loc.length === 0) {
+ return { status: 400, json: { success: false, error: 'missing_filters' } };
+ }
+
+ let freq = 'weekly';
+ if (frequency !== undefined && frequency !== null && frequency !== '') {
+ const normalized = normalizeFrequency(frequency);
+ if (normalized === null) {
+ return { status: 400, json: { success: false, error: 'invalid_frequency' } };
+ }
+ freq = normalized;
+ }
+
+ try {
+ const alertsCol = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts');
+ // Enforce 10-alert cap (count active docs).
+ const existing = await alertsCol.get();
+ let activeCount = 0;
+ existing.forEach((d) => {
+ const data = d.data() || {};
+ if (data.active !== false) activeCount += 1;
+ });
+ if (activeCount >= MAX_ALERTS_PER_USER) {
+ return { status: 400, json: { success: false, error: 'alert_limit_reached' } };
+ }
+
+ const docData = {
+ keywords: kw,
+ locations: loc,
+ sectors: sec,
+ frequency: freq,
+ active: true,
+ email: normalizedEmail,
+ createdAt: admin.firestore.FieldValue.serverTimestamp(),
+ };
+ const newRef = await alertsCol.add(docData);
+
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ email: normalizedEmail,
+ event_type: 'job_alert_created',
+ source_channel: 'preferences_link',
+ meta: { alert_id: newRef.id, fields: ALERT_LIST_FIELDS.concat(['frequency']) },
+ timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ });
+
+ // Read back to capture server timestamp; if read fails, return data we wrote.
+ let alertOut;
+ try {
+ const fresh = await newRef.get();
+ alertOut = serializeAlertDoc(newRef.id, fresh.exists ? fresh.data() : docData);
+ } catch {
+ alertOut = serializeAlertDoc(newRef.id, docData);
+ }
+ return { status: 200, json: { success: true, alert: alertOut } };
+ } catch (err) {
+ console.error('[create_alert] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'create_failed' } };
  }
  }
 

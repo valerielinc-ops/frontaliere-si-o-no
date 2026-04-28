@@ -10,6 +10,8 @@ vi.mock('@/services/newsletterSubscribers', () => ({
  toggleNewsletterSubscription: vi.fn(),
  toggleAutologin: vi.fn(),
  deleteJobAlert: vi.fn(),
+ updateJobAlert: vi.fn(),
+ createJobAlert: vi.fn(),
 }));
 
 // Force a known locale so STRINGS lookup is deterministic.
@@ -178,6 +180,191 @@ describe('SubscriptionPreferencesController — token mode', () => {
  );
 });
 
+describe('SubscriptionPreferencesController — edit + create + frequency', () => {
+ beforeEach(() => {
+ currentLocale = 'en';
+ vi.clearAllMocks();
+ });
+
+ afterEach(() => cleanup());
+
+ it('renders the frequency segmented control and calls updateJobAlert when toggled', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ frequency: 'weekly' })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), frequency: 'daily' },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ // The "daily" button is rendered by FrequencyToggle
+ const dailyBtn = screen.getAllByRole('button', { name: /^daily$/ })[0];
+ fireEvent.click(dailyBtn);
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ expect.objectContaining({ frequency: 'daily' }),
+ );
+ });
+ });
+
+ it('opens the edit form populated from the alert and saves on Save', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({
+ alerts: [
+ sampleAlert({
+ keywords: ['Software Engineer'],
+ locations: ['Lugano'],
+ sectors: ['Banca'],
+ }),
+ ],
+ }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: {
+ ...sampleAlert(),
+ keywords: ['Senior Engineer'],
+ locations: ['Lugano'],
+ sectors: ['Banca'],
+ },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Edit$/ }));
+
+ // Inputs prefilled.
+ const keywordsInput = screen.getByDisplayValue('Software Engineer') as HTMLInputElement;
+ expect(keywordsInput).toBeTruthy();
+ fireEvent.change(keywordsInput, { target: { value: 'Senior Engineer' } });
+
+ const saveBtn = screen.getByRole('button', { name: /^Save$/ });
+ fireEvent.click(saveBtn);
+
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ expect.objectContaining({
+ keywords: ['Senior Engineer'],
+ locations: ['Lugano'],
+ sectors: ['Banca'],
+ frequency: 'weekly',
+ }),
+ );
+ });
+ });
+
+ it('the Add form validates that at least keywords or locations is non-empty', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(okStatus({ alerts: [] }));
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText(/Add new alert/)).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /Add new alert/ }));
+ // Save with all empty.
+ fireEvent.click(screen.getByRole('button', { name: /^Save$/ }));
+ await waitFor(() => {
+ expect(screen.getByText(/Enter at least one keyword or location/)).toBeTruthy();
+ });
+ expect(subs.createJobAlert).not.toHaveBeenCalled();
+ });
+
+ it('Add form calls createJobAlert with collected fields', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(okStatus({ alerts: [] }));
+ (subs.createJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: {
+ id: 'new-alert-1',
+ keywords: ['Python'],
+ locations: ['Lugano'],
+ sectors: [],
+ frequency: 'weekly',
+ active: true,
+ createdAt: null,
+ },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText(/Add new alert/)).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /Add new alert/ }));
+
+ const inputs = screen.getAllByRole('textbox') as HTMLInputElement[];
+ // Order: keywords, locations, sectors
+ fireEvent.change(inputs[0], { target: { value: 'Python' } });
+ fireEvent.change(inputs[1], { target: { value: 'Lugano' } });
+
+ fireEvent.click(screen.getByRole('button', { name: /^Save$/ }));
+
+ await waitFor(() => {
+ expect(subs.createJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ expect.objectContaining({
+ keywords: ['Python'],
+ locations: ['Lugano'],
+ sectors: [],
+ frequency: 'weekly',
+ }),
+ );
+ });
+ });
+
+ it('Add button is hidden and limit message shown when 10 alerts exist', async () => {
+ const tenAlerts = Array.from({ length: 10 }, (_, i) =>
+ sampleAlert({ id: `alert${i}`, keywords: [`Job ${i}`] }),
+ );
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: tenAlerts }),
+ );
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Job 0')).toBeTruthy());
+
+ expect(screen.queryByRole('button', { name: /Add new alert/ })).toBeNull();
+ expect(screen.getByText(/You've reached the 10-alert limit/)).toBeTruthy();
+ });
+
+ it('shows error UI when updateJobAlert returns success:false during edit save', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert()] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({ success: false, error: 'write_failed' });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Edit$/ }));
+ fireEvent.click(screen.getByRole('button', { name: /^Save$/ }));
+
+ await waitFor(() => {
+ expect(screen.getByRole('alert')).toBeTruthy();
+ expect(screen.getByText(/Saving failed/)).toBeTruthy();
+ });
+ });
+});
+
 describe('SubscriptionPreferencesController — auth-mode source check', () => {
  // Auth mode reads/writes Firestore directly; mocking the firebase SDK comprehensively
  // is brittle, so we rely on a source-grep to guarantee both code paths exist.
@@ -198,6 +385,8 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  expect(src).toMatch(/authToggleNewsletter/);
  expect(src).toMatch(/authToggleAutologin/);
  expect(src).toMatch(/authDeleteAlert/);
+ expect(src).toMatch(/authUpdateAlert/);
+ expect(src).toMatch(/authCreateAlert/);
  expect(src).toMatch(/import\(['"]firebase\/firestore['"]\)/);
  expect(src).toMatch(/deleteDoc\(/);
  });

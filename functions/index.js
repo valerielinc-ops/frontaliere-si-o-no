@@ -210,6 +210,11 @@ export const newsletterManageSubscription = onRequest(
  const enabled = params.enabled;
  const subscribed = params.subscribed;
  const alertId = params.alert_id;
+ const keywords = params.keywords;
+ const locations = params.locations;
+ const sectors = params.sectors;
+ const frequency = params.frequency;
+ const active = params.active;
 
  try {
  const { newsletterSecret } = await getNewsletterSecrets();
@@ -221,6 +226,11 @@ export const newsletterManageSubscription = onRequest(
  enabled,
  subscribed,
  alertId,
+ keywords,
+ locations,
+ sectors,
+ frequency,
+ active,
  });
 
  // exchange_auth_code always returns JSON (no HTML page)

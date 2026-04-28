@@ -945,6 +945,126 @@ export async function deleteJobAlert(
  }
 }
 
+export type JobAlertFrequency = 'daily' | 'weekly';
+
+export type JobAlertSummary = {
+ id: string;
+ keywords: string[];
+ locations: string[];
+ sectors: string[];
+ frequency: JobAlertFrequency | string;
+ active: boolean;
+ createdAt: string | number | null;
+ lastMatchedAt?: string | null;
+ email?: string | null;
+};
+
+export type JobAlertPatch = {
+ keywords?: string[];
+ locations?: string[];
+ sectors?: string[];
+ frequency?: JobAlertFrequency;
+ active?: boolean;
+};
+
+export type JobAlertCreatePayload = {
+ keywords: string[];
+ locations: string[];
+ sectors: string[];
+ frequency: JobAlertFrequency;
+};
+
+function normalizeAlertResponse(a: any): JobAlertSummary {
+ return {
+ id: String(a?.id || ''),
+ keywords: Array.isArray(a?.keywords) ? a.keywords.map(String) : [],
+ locations: Array.isArray(a?.locations) ? a.locations.map(String) : [],
+ sectors: Array.isArray(a?.sectors) ? a.sectors.map(String) : [],
+ frequency: typeof a?.frequency === 'string' ? a.frequency : 'weekly',
+ active: a?.active !== false,
+ createdAt: a?.createdAt ?? null,
+ lastMatchedAt: a?.lastMatchedAt ?? null,
+ email: typeof a?.email === 'string' ? a.email : null,
+ };
+}
+
+/**
+ * Update fields on a job alert by id (HMAC-authed).
+ * Backend route: ?action=update_alert. Only the fields supplied in `patch`
+ * are written (merge:true). List fields are sent as CSV strings.
+ */
+export async function updateJobAlert(
+ email: string,
+ token: string,
+ alertId: string,
+ patch: JobAlertPatch,
+): Promise<{ success: boolean; alert?: JobAlertSummary; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const params = new URLSearchParams();
+ params.set('action', 'update_alert');
+ params.set('email', normalizedEmail);
+ params.set('token', token);
+ params.set('alert_id', alertId);
+ params.set('format', 'json');
+ if (patch.keywords !== undefined) params.set('keywords', patch.keywords.join(','));
+ if (patch.locations !== undefined) params.set('locations', patch.locations.join(','));
+ if (patch.sectors !== undefined) params.set('sectors', patch.sectors.join(','));
+ if (patch.frequency !== undefined) params.set('frequency', patch.frequency);
+ if (patch.active !== undefined) params.set('active', patch.active ? 'true' : 'false');
+ const url = `${FUNCTIONS_BASE}/newsletterManageSubscription?${params.toString()}`;
+ const resp = await fetch(url);
+ const data = await resp.json();
+ if (resp.ok && data.success) {
+ return {
+ success: true,
+ alert: data.alert ? normalizeAlertResponse(data.alert) : undefined,
+ };
+ }
+ return { success: false, error: data?.error || 'update_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] updateJobAlert failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
+ * Create a new job alert (HMAC-authed).
+ * Backend route: ?action=create_alert. List fields sent as CSV strings.
+ * Backend caps total alerts per user at 10.
+ */
+export async function createJobAlert(
+ email: string,
+ token: string,
+ payload: JobAlertCreatePayload,
+): Promise<{ success: boolean; alert?: JobAlertSummary; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const params = new URLSearchParams();
+ params.set('action', 'create_alert');
+ params.set('email', normalizedEmail);
+ params.set('token', token);
+ params.set('format', 'json');
+ params.set('keywords', payload.keywords.join(','));
+ params.set('locations', payload.locations.join(','));
+ params.set('sectors', payload.sectors.join(','));
+ params.set('frequency', payload.frequency);
+ const url = `${FUNCTIONS_BASE}/newsletterManageSubscription?${params.toString()}`;
+ const resp = await fetch(url);
+ const data = await resp.json();
+ if (resp.ok && data.success) {
+ return {
+ success: true,
+ alert: data.alert ? normalizeAlertResponse(data.alert) : undefined,
+ };
+ }
+ return { success: false, error: data?.error || 'create_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] createJobAlert failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
 // ─── Email provider helper (FRO-23) ─────────────────────────
 
 const EMAIL_PROVIDERS: Array<{ domains: string[]; name: string; url: string; mobileUrl?: string }> = [

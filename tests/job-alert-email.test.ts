@@ -552,4 +552,22 @@ describe('job alert workflow — TARGET_EMAIL filter (source check)', () => {
     expect(wf).toMatch(/target_email:/);
     expect(wf).toMatch(/TARGET_EMAIL:\s*\$\{\{\s*inputs\.target_email\s*\}\}/);
   });
+
+  it("functions/src/newsletterSubscriptionManagement.js implements update_alert + create_alert", () => {
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../functions/src/newsletterSubscriptionManagement.js'),
+      'utf8',
+    );
+    expect(src).toMatch(/action === 'update_alert'/);
+    expect(src).toMatch(/action === 'create_alert'/);
+  });
+
+  it('services/newsletterSubscribers.ts exports updateJobAlert + createJobAlert', () => {
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../services/newsletterSubscribers.ts'),
+      'utf8',
+    );
+    expect(src).toMatch(/export\s+(?:async\s+)?function\s+updateJobAlert/);
+    expect(src).toMatch(/export\s+(?:async\s+)?function\s+createJobAlert/);
+  });
 });
