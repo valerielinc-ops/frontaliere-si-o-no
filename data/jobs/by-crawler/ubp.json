@@ -141,7 +141,6 @@
         "banking-operations-officer-ubp-ch"
       ],
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -221,7 +220,6 @@
         "it-business-analyst-risk-management-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:18.243Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -301,7 +299,6 @@
         "it-business-analyst-credit-it-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:17.703Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -539,7 +536,6 @@
         "middle-officer-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:16.025Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -619,7 +615,6 @@
         "investment-advisor-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:15.483Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -868,7 +863,6 @@
         "corporate-actions-specialist-6-months-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:13.238Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1261,7 +1255,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:10.624Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1499,7 +1492,6 @@
         "head-of-internal-audit-ubp-ch"
       ],
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1652,7 +1644,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:05.762Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1805,7 +1796,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:04.161Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1955,7 +1945,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2187,7 +2176,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2352,7 +2340,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubp-09f350a4712c",
@@ -2575,7 +2564,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:27:56.455Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2728,7 +2716,6 @@
         "investor-protection-ubp-ch"
       ],
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2882,7 +2869,8 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubp-9039bd9f2bce",
@@ -3102,7 +3090,6 @@
         "business-monitoring-officer-ubp-ch"
       ],
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3255,7 +3242,6 @@
         ]
       },
       "firstSeenAt": "2026-04-21T10:57:40.460Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3411,7 +3397,6 @@
         "investments-data-analyst-temporary-ubp-ch"
       ],
       "firstSeenAt": "2026-04-21T10:57:39.261Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3564,7 +3549,6 @@
         ]
       },
       "firstSeenAt": "2026-04-24T11:04:14.719Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3672,16 +3656,16 @@
       "title": "Data & Analytics Engineer",
       "titleByLocale": {
         "en": "Data & Analytics Engineer",
-        "it": "Data & Analytics Ingegnere",
+        "it": "Ingegnere di dati e analisi",
         "de": "Data & Analytics Ingenieur",
-        "fr": "Data & Analytics Ingénieur"
+        "fr": "Ingénieur Data & Analytics"
       },
       "description": "• Main responsibilities \n• Development of intelligent control solutions to ensure mitigation of business regulatory risk by extracting, transforming, aggregating data into insightful visualizations for Executive Management and Wealth Management (WM) Front Office. You will be reporting to the Head of Business Monitoring in our Geneva office.\n\n• Analyse and understand the existing controls and processes performed within the WM Business Risk and Monitoring function, understand the data sets and business logic in the background, with the aim to automate the data extraction, transformation and visualisation.\n\n• Pursue data transformation and development of feeds to Business Control Monitoring tools, and to existing dashboards (platform: MS PowerBI).\n\n• Enhance the measurement tools allowing to assess the residual risk of the Bank’s Wealth Managements activities from various angles (Investor protection/FinSA, cross-border,credit, external and internal regulatory requirements, internal control framework…). \n\n• Contribute to and implement performance & risk management measurement tools.\n\n• Any other task required by Management relating to the Mission of the employee.\n \n \n\n• Software Proficiency \n• Data extraction and transformation: SQL language. Nice to have: Aqua Data Studio, MS Power Query, SAP Business Object, R, Python, Shiny R Studio.\n\n• Data presentation: MS Power BI and MS Excel.\n \n \n \n• Your Profile \n• 1 to 5 years in data analytics and visualization, preferably in a banking environment\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills\n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Languages : French and English\n \n \n\n• Others \n• Swiss residence mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
       "descriptionByLocale": {
-        "en": "• Main responsibilities \n• Development of intelligent control solutions to ensure mitigation of business regulatory risk by extracting, transforming, aggregating data into insightful visualizations for Executive Management and Wealth Management (WM) Front Office. You will be reporting to the Head of Business Monitoring in our Geneva office.\n\n• Analyse and understand the existing controls and processes performed within the WM Business Risk and Monitoring function, understand the data sets and business logic in the background, with the aim to automate the data extraction, transformation and visualisation.\n\n• Pursue data transformation and development of feeds to Business Control Monitoring tools, and to existing dashboards (platform: MS PowerBI).\n\n• Enhance the measurement tools allowing to assess the residual risk of the Bank’s Wealth Managements activities from various angles (Investor protection/FinSA, cross-border,credit, external and internal regulatory requirements, internal control framework…). \n\n• Contribute to and implement performance & risk management measurement tools.\n\n• Any other task required by Management relating to the Mission of the employee.\n \n \n\n• Software Proficiency \n• Data extraction and transformation: SQL language. Nice to have: Aqua Data Studio, MS Power Query, SAP Business Object, R, Python, Shiny R Studio.\n\n• Data presentation: MS Power BI and MS Excel.\n \n \n \n• Your Profile \n• 1 to 5 years in data analytics and visualization, preferably in a banking environment\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills\n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Languages : French and English\n \n \n\n• Others \n• Swiss residence mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "it": "• Main responsibilities \n• Development of intelligent control solutions to ensure mitigation of business regulatory risk by extracting, transforming, aggregating data into insightful visualizations for Executive Management and Wealth Management (WM) Front Office. You will be reporting to the Head of Business Monitoring in our Geneva office.\n\n• Analyse and understand the existing controls and processes performed within the WM Business Risk and Monitoring function, understand the data sets and business logic in the background, with the aim to automate the data extraction, transformation and visualisation.\n\n• Pursue data transformation and development of feeds to Business Control Monitoring tools, and to existing dashboards (platform: MS PowerBI).\n\n• Enhance the measurement tools allowing to assess the residual risk of the Bank’s Wealth Managements activities from various angles (Investor protection/FinSA, cross-border,credit, external and internal regulatory requirements, internal control framework…). \n\n• Contribute to and implement performance & risk management measurement tools.\n\n• Any other task required by Management relating to the Mission of the employee.\n \n \n\n• Software Proficiency \n• Data extraction and transformation: SQL language. Nice to have: Aqua Data Studio, MS Power Query, SAP Business Object, R, Python, Shiny R Studio.\n\n• Data presentation: MS Power BI and MS Excel.\n \n \n \n• Your Profile \n• 1 to 5 years in data analytics and visualization, preferably in a banking environment\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills\n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Languages : French and English\n \n \n\n• Others \n• Swiss residence mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "• Main responsibilities \n• Development of intelligent control solutions to ensure mitigation of business regulatory risk by extracting, transforming, aggregating data into insightful visualizations for Executive Management and Wealth Management (WM) Front Office. You will be reporting to the Head of Business Monitoring in our Geneva office.\n\n• Analyse and understand the existing controls and processes performed within the WM Business Risk and Monitoring function, understand the data sets and business logic in the background, with the aim to automate the data extraction, transformation and visualisation.\n\n• Pursue data transformation and development of feeds to Business Control Monitoring tools, and to existing dashboards (platform: MS PowerBI).\n\n• Enhance the measurement tools allowing to assess the residual risk of the Bank’s Wealth Managements activities from various angles (Investor protection/FinSA, cross-border,credit, external and internal regulatory requirements, internal control framework…). \n\n• Contribute to and implement performance & risk management measurement tools.\n\n• Any other task required by Management relating to the Mission of the employee.\n \n \n\n• Software Proficiency \n• Data extraction and transformation: SQL language. Nice to have: Aqua Data Studio, MS Power Query, SAP Business Object, R, Python, Shiny R Studio.\n\n• Data presentation: MS Power BI and MS Excel.\n \n \n \n• Your Profile \n• 1 to 5 years in data analytics and visualization, preferably in a banking environment\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills\n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Languages : French and English\n \n \n\n• Others \n• Swiss residence mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "fr": "• Main responsibilities \n• Development of intelligent control solutions to ensure mitigation of business regulatory risk by extracting, transforming, aggregating data into insightful visualizations for Executive Management and Wealth Management (WM) Front Office. You will be reporting to the Head of Business Monitoring in our Geneva office.\n\n• Analyse and understand the existing controls and processes performed within the WM Business Risk and Monitoring function, understand the data sets and business logic in the background, with the aim to automate the data extraction, transformation and visualisation.\n\n• Pursue data transformation and development of feeds to Business Control Monitoring tools, and to existing dashboards (platform: MS PowerBI).\n\n• Enhance the measurement tools allowing to assess the residual risk of the Bank’s Wealth Managements activities from various angles (Investor protection/FinSA, cross-border,credit, external and internal regulatory requirements, internal control framework…). \n\n• Contribute to and implement performance & risk management measurement tools.\n\n• Any other task required by Management relating to the Mission of the employee.\n \n \n\n• Software Proficiency \n• Data extraction and transformation: SQL language. Nice to have: Aqua Data Studio, MS Power Query, SAP Business Object, R, Python, Shiny R Studio.\n\n• Data presentation: MS Power BI and MS Excel.\n \n \n \n• Your Profile \n• 1 to 5 years in data analytics and visualization, preferably in a banking environment\n\n• Strong analytical, naturally well-organized, and curious mindset with excellent research skills\n\n• Assertive, open, and constructive communication, both written and verbal\n\n• An open, flexible, and confident team-player who can quickly adapt to new challenges\n\n• Self-disciplined, goal-oriented, having a \"Problem-Action-Results\" approach\n\n• Languages : French and English\n \n \n\n• Others \n• Swiss residence mandatory \n \n \n Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+        "en": "## Mansioni\n- Sviluppare soluzioni di controllo intelligente per mitigare il rischio regolatorio aziendale, estraendo, trasformando e aggregando dati in visualizzazioni informative per la Direzione Generale e il Front Office della Gestione del Patrimonio (WM)\n- Analizzare e comprendere i controlli e i processi esistenti all'interno della funzione di Monitoraggio e Rischio Regolatorio della WM, comprendere i set di dati e la logica aziendale di fondo, con l'obiettivo di automatizzare l'estrazione, la trasformazione e la visualizzazione dei dati\n- Pursue data transformation and development of feeds to Business Control Monitoring tools, and to existing dashboards (platform: MS PowerBI)\n- Migliorare gli strumenti di misurazione per valutare il rischio residuo delle attività di Gestione del Patrimonio della Banca da diverse prospettive (protezione degli investitori/FinSA, cross-border, credit, requisiti regolatori esterni e interni, quadro di controllo interno...)\n- Contribuire alla creazione e all'implementazione di strumenti di misurazione della performance e della gestione del rischio\n- Svolgere qualsiasi altro compito richiesto dalla Direzione in relazione alla Missione dell'impiegato\n\n## Requisiti\n- Estrazione e trasformazione dei dati: linguaggio SQL. Opzionale: Aqua Data Studio, MS Power Query, SAP Business Object, R, Python, Shiny R Studio\n- Presentazione dei dati: MS Power BI e MS Excel\n\n## Profilo\n- 1 a 5 anni di esperienza in analisi e visualizzazione dei dati, preferibilmente in un ambiente bancario\n- Mentale analitico, naturalmente organizzato e curioso con eccellenti capacità di ricerca\n- Comunicazione assertiva, aperta e costruttiva, sia scritta che verbale\n- Team player aperto, flessibile e sicuro che può adattarsi rapidamente a nuove sfide\n- Autodisciplinato, orientato agli obiettivi, con un approccio \"Problema-Azione-Risultato\"\n- Lingue: francese e inglese\n\n## Altri\n- Residenza svizzera obbligatoria\n\n## Competenze chiave\n- Adesione ai valori aziendali: Dedizione, Conviction, Agilità e Responsabilità\n- Conformità alle normative e alle direttive interne",
+        "it": "Mansioni - Sviluppare soluzioni di controllo intelligente per mitigare il rischio regolatorio aziendale, estraendo, trasformando e aggregando dati in visualizzazioni informative per la Direzione Generale e il Front Office della Gestione del Patrimonio (WM) - Analizzare e comprendere i controlli e i processi esistenti all'interno della funzione di Monitoraggio e Rischio Regolatorio della WM, comprendere i set di dati e la logica aziendale di fondo, con l'obiettivo di automatizzare l'estrazione, la trasformazione e la visualizzazione dei dati - Perseguire la trasformazione dei dati e lo sviluppo di feed per gli strumenti di Business Control Monitoring, e alle dashboard esistenti (piattaforma: MS PowerBI) - Migliorare gli strumenti di misurazione per valutare il rischio residuo delle attività di Gestione del Patrimonio della Banca da diverse prospettive (protezione degli investitori/FinSA, cross-border, credit, requisiti regolatori esterni e interni, quadro di controllo interno...) - Contribuire alla creazione e all'implementazione di strumenti di misurazione della performance e della gestione del rischio - Svolgere qualsiasi altro compito richiesto dalla Direzione in relazione alla Missione dell'iegato ## Requisiti - Estrazione e trasformazione dei dati: linguaggio SQL. Opzionale: Aqua Data Studio, MS Power Query, SAP Business Object, R, Python, Shiny R Studio - Presentazione dei dati: MS Power BI e MS Excel ## Profilo - 1 a 5 anni di esperienza in analisi e visualizzazione dei dati,",
+        "de": "Mansioni - Sviluppare soluzioni di controllero intelligente per mitigare il rischio regolatorio aziendale, estraendo, trasformando e aggregando dati in visualizzazioni informative per la Direzione Generale e il Front Office della Gestione del Patrimonio (WM) - Analizzare e comprendere i controlli e i processi esistenti all'interno della funzione di Monitoraggio e Rischio Regolatorio della WM, comprendere i set di dati e la logica aziendale di fondo, con l' obiettivo di automatizzare l 'estrazione, la trasformazione e la visualizzazione dei dati - Pursue data transformation and development of feeds to Business Control Monitoring tools, und zu vorhandenen Dashboards (Plattform: MS PowerBI) - Migliorare gli strumenti di misurazione per valutare il rischio residuo delle attività di Gestione del Patrimonio della Banca da diverse prospettive (protezione degli investitori/FinSA, cross-border, credit, requisiti regolatori esterni e interni, quadro di controllero interno...) - Contribuire alla creazione e all' implementazione di strumenti di misurazione della performance e della gestione del rischio - Svolgere qualsiasi altro compito richiesto dalla Direzione in relazione alla Missione dell 'impiegato ## Requisiti - Estrazione e trasformazione dei dati: linguaggio SQL. Opzionale: Aqua Data Studio, MS Power Query, SAP Business Object, R, Python, Shiny R Studio - Presentazione dei dati: MS Power BI e MS Excel ## Profilo - 1 a 5 anni di esperienza in analisi e visualizzazione dei dati,",
+        "fr": "Mansioni - Sviluppare soluzioni di controllo intelligente per mitigare il rischio regolatorio aziendale, estraendo, trasformando e aggregando dati in visualizzazioni informative per la Direzione Generale e il Front Office della Gestione del Patrimonio (WM) - Analizzare e comprendere i controlli e i processi esistenti all'interno della funzione di Monitoraggio e Rischio Regolatorio della WM, comprendere i set di dati e la logica aziendale di fondo, con l'obiettivo di automatizzare l'estrazione, la trasformazione e la visualizzazione dei dati - Poursuivre la transformation des données et le développement des flux vers les outils de surveillance du contrôle des activités, et aux tableaux de bord existants (plateforme : MS PowerBI) - Migliorare gli strumenti di misurazione per valutare il rischio residuo delle attività di Gestione del Patrimonio della Banca da diverse prosettive (protezione degli investitori/FinSA, cross-border, credit, requisiti regolatori esterni e interni, quadro di controllo interno...) - Contribuire alla creazione e all' implementazione di strumenti di misurazione della performance e della gestione del rischio - Svolgere qualsiasi altro compito richiesto dalla Direzione in relazione alla Missione dell'impiegato ## Requisiti - Estrazione e trasformazione dei dati : linguaggio SQL. Opzionale : Aqua Data Studio, MS Power Query, SAP Business Object, R, Python, Shiny R Studio - Presentazione dei dati : MS Power BI e MS Excel ## Profilo - 1 a 5 anni di esperienza in analisi e visualizzazione dei dati,"
       },
       "location": "Geneva, Switzerland",
       "canton": "GE",
@@ -3707,7 +3691,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3783,7 +3766,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     }
   ]
 }
