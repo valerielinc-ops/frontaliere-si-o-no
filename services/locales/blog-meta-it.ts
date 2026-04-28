@@ -3227,6 +3227,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tristan-brenn-fischer-decisione.title': 'Tristan Brenn difende la decisione sul caso Fischer',
     'blog.article.tristan-brenn-fischer-decisione.excerpt': 'Il direttore del DFE spiega le ragioni della scelta controversa sul caso Fischer, con implicazioni per i frontalieri',
     'blog.article.tristan-brenn-fischer-decisione.imageAlt': 'Giornalista intervista funzionario a Mendrisio sul lavoro transfrontaliero',
+    'blog.article.svizzera-brevetti-innovazione-2026.title': 'Svizzera leader in brevetti: 5 curiosità 2026',
+    'blog.article.svizzera-brevetti-innovazione-2026.excerpt': 'Roche supera Novartis, sigarette elettroniche e seggiolini per bambini: ecco i dati EPO su brevetti svizzeri',
+    'blog.article.svizzera-brevetti-innovazione-2026.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaIt;

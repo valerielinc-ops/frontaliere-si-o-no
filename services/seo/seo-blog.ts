@@ -18164,6 +18164,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-brevetti-innovazione-2026': {
+    title: 'Svizzera leader in brevetti: 5 curiosità 2026 | Frontaliere Ticino',
+    description: 'Roche supera Novartis, sigarette elettroniche e seggiolini per bambini: ecco i dati EPO su brevetti svizzeri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, leader, brevetti, curiosità, roche',
+    ogTitle: 'Svizzera leader in brevetti: 5 curiosità 2026',
+    ogDescription: 'Roche supera Novartis, sigarette elettroniche e seggiolini per bambini: ecco i dati EPO su brevetti svizzeri',
+    canonicalPath: '/articoli-frontaliere/svizzera-brevetti-innovazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera leader in brevetti: 5 curiosità 2026",
+      "description": "Roche supera Novartis, sigarette elettroniche e seggiolini per bambini: ecco i dati EPO su brevetti svizzeri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-brevetti-innovazione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le Alpi svizzere sullo sfondo"
+      },
+      "datePublished": "2026-04-28T06:26:56+00:00",
+      "dateModified": "2026-04-28T06:26:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-brevetti-innovazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

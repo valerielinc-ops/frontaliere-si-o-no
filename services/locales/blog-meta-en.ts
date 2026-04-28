@@ -3226,6 +3226,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tristan-brenn-fischer-decisione.title': 'Tristan Brenn defends Fischer case decision',
     'blog.article.tristan-brenn-fischer-decisione.excerpt': 'The DFE director explains the reasons behind the controversial Fischer case decision, with implications for cross-border workers',
     'blog.article.tristan-brenn-fischer-decisione.imageAlt': 'Journalist interviews official in Mendrisio about cross-border work',
+    'blog.article.svizzera-brevetti-innovazione-2026.title': 'Switzerland leads in patents: 5 facts 2026',
+    'blog.article.svizzera-brevetti-innovazione-2026.excerpt': 'Roche overtakes Novartis, e-cigarettes and child seats: here are the EPO data on Swiss patents',
+    'blog.article.svizzera-brevetti-innovazione-2026.imageAlt': 'Aerial view of Lake Lugano with Swiss Alps in the background',
 };
 
 export default blogMetaEn;

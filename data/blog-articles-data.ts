@@ -8540,4 +8540,11 @@ export const ARTICLES = [
  image: '/images/blog/tristan-brenn-fischer-decisione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-brevetti-innovazione-2026',
+ category: 'novita',
+ date: '2026-04-28T06:26:55.998Z',
+ image: '/images/blog/svizzera-brevetti-innovazione-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
