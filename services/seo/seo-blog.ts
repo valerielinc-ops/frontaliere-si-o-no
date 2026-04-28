@@ -20078,6 +20078,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-biasca-roller-hockey-uttigen-2026': {
+    title: 'Biasca rimanda la finale: Uttigen vince ai supplementari',
+    description: 'Il Biasca dovrà attendere ancora per la finale dopo la sconfitta ai supplementari contro l\'Uttigen. La serie va a gara 4. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, biasca, rimanda, finale, uttigen',
+    ogTitle: 'Biasca rimanda la finale: Uttigen vince ai supplementari',
+    ogDescription: 'Il Biasca dovrà attendere ancora per la finale dopo la sconfitta ai supplementari contro l\'Uttigen. La serie va a gara 4.',
+    canonicalPath: '/articoli-frontaliere/biasca-roller-hockey-uttigen-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Biasca rimanda la finale: Uttigen vince ai supplementari",
+      "description": "Il Biasca dovrà attendere ancora per la finale dopo la sconfitta ai supplementari contro l'Uttigen. La serie va a gara 4. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/biasca-roller-hockey-uttigen-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di roller hockey in Ticino con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-04-28T17:37:26+00:00",
+      "dateModified": "2026-04-28T17:37:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/biasca-roller-hockey-uttigen-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

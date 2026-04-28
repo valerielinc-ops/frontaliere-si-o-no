@@ -3425,6 +3425,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.berset-sostegno-reynard-crans-montana.title': 'Alain Berset soutient Mathias Reynard après la tragédie de Crans-Montana',
     'blog.article.berset-sostegno-reynard-crans-montana.excerpt': 'L\'ancien conseiller fédéral Alain Berset a offert un soutien psychologique et professionnel à Mathias Reynard après l\'incendie du Nouvel An à Crans-Montana.',
     'blog.article.berset-sostegno-reynard-crans-montana.imageAlt': 'Crans-Montana après l\'incendie du Nouvel An, avec des dégâts visibles et des services d\'urgence',
+    'blog.article.biasca-roller-hockey-uttigen-2026.title': 'Biasca reporté en finale : Uttigen gagne en prolongation',
+    'blog.article.biasca-roller-hockey-uttigen-2026.excerpt': 'Biasca devra attendre pour la finale après la défaite en prolongation contre Uttigen. La série se poursuit en match 4.',
+    'blog.article.biasca-roller-hockey-uttigen-2026.imageAlt': 'Match de roller hockey au Tessin avec les Alpes en arrière-plan',
 };
 
 export default blogMetaFr;

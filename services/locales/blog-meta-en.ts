@@ -3424,6 +3424,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.berset-sostegno-reynard-crans-montana.title': 'Alain Berset backs Mathias Reynard after Crans-Montana tragedy',
     'blog.article.berset-sostegno-reynard-crans-montana.excerpt': 'Former Federal Councillor Alain Berset has offered psychological and professional support to Mathias Reynard after the New Year\'s Eve fire in Crans-Montana.',
     'blog.article.berset-sostegno-reynard-crans-montana.imageAlt': 'Crans-Montana after the New Year\'s fire, with visible damage and emergency services',
+    'blog.article.biasca-roller-hockey-uttigen-2026.title': 'Biasca delayed: Uttigen wins in overtime',
+    'blog.article.biasca-roller-hockey-uttigen-2026.excerpt': 'Biasca will have to wait for the final after losing in overtime to Uttigen. The series goes to game 4.',
+    'blog.article.biasca-roller-hockey-uttigen-2026.imageAlt': 'Roller hockey match in Ticino with the Alps in the background',
 };
 
 export default blogMetaEn;
