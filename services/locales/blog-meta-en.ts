@@ -3490,6 +3490,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caricabatteria-unico-portatili-2024.title': 'Single charger for laptops: what changes from April 28',
     'blog.article.caricabatteria-unico-portatili-2024.excerpt': 'From April 28, 2024, laptops in the EU must support USB-C charging and manufacturers must offer versions without power adapters',
     'blog.article.caricabatteria-unico-portatili-2024.imageAlt': 'A laptop with a USB-C charger on a desk in Ticino, with a view of the Alps',
+    'blog.article.ufficio-open-space-stress-frontalieri.title': 'Open-plan offices cause stress, not communication',
+    'blog.article.ufficio-open-space-stress-frontalieri.excerpt': 'According to psychoanalyst Peter Schneider, open-plan offices sacrifice employee well-being to optimize space, causing stress and micro-conflicts',
+    'blog.article.ufficio-open-space-stress-frontalieri.imageAlt': 'Open-space office in Lugano with workers at desks',
 };
 
 export default blogMetaEn;

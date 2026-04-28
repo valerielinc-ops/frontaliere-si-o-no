@@ -3490,6 +3490,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caricabatteria-unico-portatili-2024.title': 'Einheitlicher Ladeanschluss für Laptops: Änderungen ab 28. April',
     'blog.article.caricabatteria-unico-portatili-2024.excerpt': 'Ab dem 28. April 2024 müssen Laptops in der EU USB-C-Ladung unterstützen und Hersteller müssen Versionen ohne Netzteil anbieten',
     'blog.article.caricabatteria-unico-portatili-2024.imageAlt': 'Ein Laptop mit einem USB-C-Ladegerät auf einem Schreibtisch in Tessin, mit Blick auf die Alpen',
+    'blog.article.ufficio-open-space-stress-frontalieri.title': 'Büro-Open-Space fördert Stress, nicht Kommunikation',
+    'blog.article.ufficio-open-space-stress-frontalieri.excerpt': 'Laut dem Psychoanalytiker Peter Schneider opfern Open-Space-Büros das Wohlbefinden der Mitarbeiter, um Räume zu optimieren, und verursachen Stress und Mikrokonflikte.',
+    'blog.article.ufficio-open-space-stress-frontalieri.imageAlt': 'Open-Space-Büro in Lugano mit Arbeitnehmern an den Schreibtischen',
 };
 
 export default blogMetaDe;

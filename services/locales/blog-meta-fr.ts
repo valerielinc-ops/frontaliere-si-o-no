@@ -3491,6 +3491,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.caricabatteria-unico-portatili-2024.title': 'Chargeur unique pour ordinateurs portables : ce qui change à partir du 28 avril',
     'blog.article.caricabatteria-unico-portatili-2024.excerpt': 'À partir du 28 avril 2024, les ordinateurs portables dans l\'UE doivent supporter la recharge via USB-C et les fabricants doivent proposer des versions sans chargeur.',
     'blog.article.caricabatteria-unico-portatili-2024.imageAlt': 'Un ordinateur portable avec un chargeur USB-C sur un bureau en Tessin, avec vue sur les Alpes',
+    'blog.article.ufficio-open-space-stress-frontalieri.title': 'Bureaux open space: stress et non communication',
+    'blog.article.ufficio-open-space-stress-frontalieri.excerpt': 'Selon le psychanalyste Peter Schneider, les open space sacrifient le bien-être des employés pour optimiser les espaces, causant du stress et des micro-conflits',
+    'blog.article.ufficio-open-space-stress-frontalieri.imageAlt': 'Bureau en open-space à Lugano avec des travailleurs aux bureaux',
 };
 
 export default blogMetaFr;

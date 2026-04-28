@@ -9156,4 +9156,11 @@ export const ARTICLES = [
  image: '/images/blog/caricabatteria-unico-portatili-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ufficio-open-space-stress-frontalieri',
+ category: 'pratico',
+ date: '2026-04-28T19:53:16.262Z',
+ image: '/images/blog/ufficio-open-space-stress-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

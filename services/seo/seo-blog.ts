@@ -20716,6 +20716,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ufficio-open-space-stress-frontalieri': {
+    title: 'Ufficio open space genera stress, non comunicazione',
+    description: 'Secondo lo psicoanalista Peter Schneider, gli open space sacrificano il benessere dei dipendenti per ottimizzare gli spazi, causando stress e micro-conflitti',
+    keywords: 'frontalieri, ticino, svizzera, italia, ufficio, open, space, genera',
+    ogTitle: 'Ufficio open space genera stress, non comunicazione',
+    ogDescription: 'Secondo lo psicoanalista Peter Schneider, gli open space sacrificano il benessere dei dipendenti per ottimizzare gli spazi, causando stress e micro-conflitti',
+    canonicalPath: '/articoli-frontaliere/ufficio-open-space-stress-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ufficio open space genera stress, non comunicazione",
+      "description": "Secondo lo psicoanalista Peter Schneider, gli open space sacrificano il benessere dei dipendenti per ottimizzare gli spazi, causando stress e micro-conflitti",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ufficio-open-space-stress-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio open space a Lugano con lavoratori alle scrivanie"
+      },
+      "datePublished": "2026-04-28T19:53:16+00:00",
+      "dateModified": "2026-04-28T19:53:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ufficio-open-space-stress-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3491,6 +3491,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caricabatteria-unico-portatili-2024.title': 'Caricabatteria unico per portatili: cosa cambia dal 28 aprile',
     'blog.article.caricabatteria-unico-portatili-2024.excerpt': 'Dal 28 aprile 2024, i computer portatili nell\'UE devono supportare la ricarica via USB-C e i produttori devono offrire versioni senza alimentatore',
     'blog.article.caricabatteria-unico-portatili-2024.imageAlt': 'Un computer portatile con caricabatterie USB-C su una scrivania in Ticino, con vista sulle Alpi',
+    'blog.article.ufficio-open-space-stress-frontalieri.title': 'Ufficio open space genera stress, non comunicazione',
+    'blog.article.ufficio-open-space-stress-frontalieri.excerpt': 'Secondo lo psicoanalista Peter Schneider, gli open space sacrificano il benessere dei dipendenti per ottimizzare gli spazi, causando stress e micro-conflitti',
+    'blog.article.ufficio-open-space-stress-frontalieri.imageAlt': 'Ufficio open space a Lugano con lavoratori alle scrivanie',
 };
 
 export default blogMetaIt;
