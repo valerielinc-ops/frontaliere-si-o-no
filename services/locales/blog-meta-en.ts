@@ -3412,6 +3412,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.formazione-ferrero-ministero-2026.title': 'Ferrero and Ministry for sports in schools',
     'blog.article.formazione-ferrero-ministero-2026.excerpt': 'Ministry of Education and Merit and Ferrero spa sign agreement for educational and training activities in primary and lower secondary schools.',
     'blog.article.formazione-ferrero-ministero-2026.imageAlt': 'A classroom in Ticino with children engaged in physical activities, smiling and interacting. The room is bright and colorful, with educational posters on the walls. The teacher is guiding the students in a fun, dynamic exercise.',
+    'blog.article.frontalieri-bellinzonese-truffe-16-mesi.title': 'Cross-border worker sentenced for online scams',
+    'blog.article.frontalieri-bellinzonese-truffe-16-mesi.excerpt': 'A 33-year-old from Bellinzona, suffering from gambling addiction, was sentenced to 16 months for 82 online scams and 65 attempted ones',
+    'blog.article.frontalieri-bellinzonese-truffe-16-mesi.imageAlt': 'Castelgrande and the medieval walls of Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

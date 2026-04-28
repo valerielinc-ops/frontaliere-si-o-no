@@ -2368,6 +2368,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casse-malati-dado-scissione-dossier': { name: 'Casse malati', path: '/articoli-frontaliere/casse-malati-dado-scissione-dossier', parent: 'blog' },
     'blog-iliad-piu-veloci-rete-mobili': { name: 'Novità', path: '/articoli-frontaliere/iliad-piu-veloci-rete-mobili', parent: 'blog' },
     'blog-formazione-ferrero-ministero-2026': { name: 'Novità', path: '/articoli-frontaliere/formazione-ferrero-ministero-2026', parent: 'blog' },
+    'blog-frontalieri-bellinzonese-truffe-16-mesi': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-bellinzonese-truffe-16-mesi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

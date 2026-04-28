@@ -3413,6 +3413,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.formazione-ferrero-ministero-2026.title': 'Ferrero e Ministero per sport nelle scuole',
     'blog.article.formazione-ferrero-ministero-2026.excerpt': 'Ministero dell’Istruzione e del Merito e Ferrero spa firmano protocollo d’intesa per attività educative e formative nelle scuole primarie e secondarie di I grado.',
     'blog.article.formazione-ferrero-ministero-2026.imageAlt': 'Una classe in Ticino con bambini impegnati in attività fisiche, sorridenti e interagenti. La stanza è luminosa e colorata, con poster educativi sulle pareti. L\'insegnante guida gli studenti in un esercizio divertente e dinamico.',
+    'blog.article.frontalieri-bellinzonese-truffe-16-mesi.title': 'Frontaliere condannato a 16 mesi per truffe online',
+    'blog.article.frontalieri-bellinzonese-truffe-16-mesi.excerpt': 'Un 33enne del Bellinzonese, affetto da ludopatia, è stato condannato a 16 mesi per 82 raggiri online e 65 tentati',
+    'blog.article.frontalieri-bellinzonese-truffe-16-mesi.imageAlt': 'Castelgrande e le mura medievali di Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

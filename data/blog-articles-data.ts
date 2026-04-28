@@ -8974,4 +8974,11 @@ export const ARTICLES = [
  image: '/images/blog/formazione-ferrero-ministero-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-bellinzonese-truffe-16-mesi',
+ category: 'novita',
+ date: '2026-04-28T16:56:16.500Z',
+ image: '/images/blog/frontalieri-bellinzonese-truffe-16-mesi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

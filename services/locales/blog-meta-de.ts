@@ -3412,6 +3412,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.formazione-ferrero-ministero-2026.title': 'Ferrero und Ministerium für Sport in Schulen',
     'blog.article.formazione-ferrero-ministero-2026.excerpt': 'Das Ministerium für Bildung und Verdienst und die Ferrero spa unterzeichnen eine Absichtserklärung für Bildungs- und Ausbildungsaktivitäten in Grund- und weiterführenden Schulen.',
     'blog.article.formazione-ferrero-ministero-2026.imageAlt': 'Ein Klassenzimmer im Tessin mit Kindern, die an körperlichen Aktivitäten beteiligt sind, lächeln und interagieren. Der Raum ist hell und farbenfroh, mit Bildungsplakaten an den Wänden. Die Lehrerin führt die Schüler in einer lustigen, dynamischen Übung an.',
+    'blog.article.frontalieri-bellinzonese-truffe-16-mesi.title': 'Grenzgänger wegen Online-Betrug zu 16 Monaten verurteilt',
+    'blog.article.frontalieri-bellinzonese-truffe-16-mesi.excerpt': 'Ein 33-jähriger Mann aus dem Bellinzona-Gebiet, der unter Spielsucht leidet, wurde zu 16 Monaten Haft verurteilt, weil er 82 Online-Betrugsfälle begangen und 65 weitere versucht hat.',
+    'blog.article.frontalieri-bellinzonese-truffe-16-mesi.imageAlt': 'Castelgrande und die mittelalterlichen Mauern von Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

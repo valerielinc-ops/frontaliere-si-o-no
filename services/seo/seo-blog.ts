@@ -19962,6 +19962,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-bellinzonese-truffe-16-mesi': {
+    title: 'Frontaliere condannato a 16 mesi per truffe online',
+    description: 'Un 33enne del Bellinzonese, affetto da ludopatia, è stato condannato a 16 mesi per 82 raggiri online e 65 tentati. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, condannato, mesi, truffe, online',
+    ogTitle: 'Frontaliere condannato a 16 mesi per truffe online',
+    ogDescription: 'Un 33enne del Bellinzonese, affetto da ludopatia, è stato condannato a 16 mesi per 82 raggiri online e 65 tentati',
+    canonicalPath: '/articoli-frontaliere/frontalieri-bellinzonese-truffe-16-mesi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Frontaliere condannato a 16 mesi per truffe online\",\"description\":\"Un 33enne del Bellinzonese, affetto da ludopatia, è stato condannato a 16 mesi per 82 raggiri online e 65 tentati\",\"datePublished\":\"2026-04-28\",\"author\":{\"@type\":\"Organization\",\"name\":\"Frontaliere Ticino\"}}",
+      "description": "Un 33enne del Bellinzonese, affetto da ludopatia, è stato condannato a 16 mesi per 82 raggiri online e 65 tentati. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-bellinzonese-truffe-16-mesi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande e le mura medievali di Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-28T16:56:16+00:00",
+      "dateModified": "2026-04-28T16:56:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-bellinzonese-truffe-16-mesi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
