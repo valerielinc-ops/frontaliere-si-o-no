@@ -9338,4 +9338,11 @@ export const ARTICLES = [
  image: '/images/blog/casa-montana-nante-governo-regolare.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'neuchatel-palloncini-lanterne-vietati',
+ category: 'novita',
+ date: '2026-04-28T22:30:52.873Z',
+ image: '/images/blog/neuchatel-palloncini-lanterne-vietati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

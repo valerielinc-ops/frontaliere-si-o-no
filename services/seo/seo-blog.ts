@@ -21470,6 +21470,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neuchatel-palloncini-lanterne-vietati': {
+    title: 'Neuchâtel vieta palloncini e lanterne: prima svizzera',
+    description: 'Il Gran Consiglio del Canton Neuchâtel ha approvato il divieto di lancio di palloncini e lanterne volanti, con 55 voti a favore. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, neuch, vieta, palloncini, lanterne',
+    ogTitle: 'Neuchâtel vieta palloncini e lanterne: prima svizzera',
+    ogDescription: 'Il Gran Consiglio del Canton Neuchâtel ha approvato il divieto di lancio di palloncini e lanterne volanti, con 55 voti a favore.',
+    canonicalPath: '/articoli-frontaliere/neuchatel-palloncini-lanterne-vietati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Neuchâtel vieta palloncini e lanterne: prima svizzera\",\"description\":\"Il Gran Consiglio del Canton Neuchâtel ha approvato il divieto di lancio di palloncini e lanterne volanti, con 55 voti a favore.\",\"datePublished\":\"2024-08-14\",\"image\":\"https://frontaliereticino.ch/images/lac-lugano.webp\"}",
+      "description": "Il Gran Consiglio del Canton Neuchâtel ha approvato il divieto di lancio di palloncini e lanterne volanti, con 55 voti a favore. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/neuchatel-palloncini-lanterne-vietati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano"
+      },
+      "datePublished": "2026-04-28T22:30:52+00:00",
+      "dateModified": "2026-04-28T22:30:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/neuchatel-palloncini-lanterne-vietati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

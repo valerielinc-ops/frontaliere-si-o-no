@@ -3568,6 +3568,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casa-montana-nante-governo-regolare.title': 'Bergheim Madonna delle Nevi: Alles in Ordnung',
     'blog.article.casa-montana-nante-governo-regolare.excerpt': 'Der Staatsrat des Tessin hat die Beschwerde gegen das Sanierungsprojekt des Bergheims Madonna delle Nevi in Nante abgewiesen und einen Kredit von 4,71 Millionen Franken bestätigt.',
     'blog.article.casa-montana-nante-governo-regolare.imageAlt': 'Das Bergheim Madonna delle Nevi in Nante, Tessin, umgeben von schneebedeckter Alpenlandschaft',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.title': 'Neuenburg verbietet Luftballons und Laternen',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.excerpt': 'Der Grosse Rat des Kantons Neuenburg hat das Verbot des Abfeuerns von Luftballons und Himmelslaternen mit 55 Stimmen angenommen.',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.imageAlt': 'Luftaufnahme des Luganersees mit dem schweizerisch-italienischen Grenzgebiet im Vordergrund',
 };
 
 export default blogMetaDe;

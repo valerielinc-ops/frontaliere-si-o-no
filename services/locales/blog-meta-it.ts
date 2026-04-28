@@ -3569,6 +3569,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casa-montana-nante-governo-regolare.title': 'Casa montana di Nante: il Governo conferma tutto regolare',
     'blog.article.casa-montana-nante-governo-regolare.excerpt': 'Il Consiglio di Stato ticinese ha respinto il ricorso contro il progetto di ristrutturazione della casa montana Madonna delle Nevi a Nante, confermando un credito di 4,71 milioni di franchi.',
     'blog.article.casa-montana-nante-governo-regolare.imageAlt': 'Casa montana Madonna delle Nevi a Nante, Ticino, immersa in un paesaggio alpino innevato',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.title': 'Neuchâtel vieta palloncini e lanterne: prima svizzera',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.excerpt': 'Il Gran Consiglio del Canton Neuchâtel ha approvato il divieto di lancio di palloncini e lanterne volanti, con 55 voti a favore.',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
 };
 
 export default blogMetaIt;

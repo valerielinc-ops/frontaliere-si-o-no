@@ -3568,6 +3568,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casa-montana-nante-governo-regolare.title': 'Nante mountain house: Government confirms all is regular',
     'blog.article.casa-montana-nante-governo-regolare.excerpt': 'The Ticino State Council has dismissed the appeal against the Madonna delle Nevi mountain house renovation project in Nante, confirming a credit of 4.71 million francs.',
     'blog.article.casa-montana-nante-governo-regolare.imageAlt': 'Madonna delle Nevi mountain house in Nante, Ticino, surrounded by snowy alpine landscape',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.title': 'Neuchâtel bans balloons and lanterns: first in Switzerland',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.excerpt': 'The Grand Council of the Canton of Neuchâtel has approved the ban on releasing balloons and sky lanterns, with 55 votes in favor.',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
 };
 
 export default blogMetaEn;

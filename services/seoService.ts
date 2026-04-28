@@ -2420,6 +2420,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-furti-chiese-ticino-rumeni-fermati': { name: 'Furti in chiese', path: '/articoli-frontaliere/furti-chiese-ticino-rumeni-fermati', parent: 'blog' },
     'blog-attentato-washington-trump-2026': { name: 'Attentato Washington', path: '/articoli-frontaliere/attentato-washington-trump-2026', parent: 'blog' },
     'blog-casa-montana-nante-governo-regolare': { name: 'Novità', path: '/articoli-frontaliere/casa-montana-nante-governo-regolare', parent: 'blog' },
+    'blog-neuchatel-palloncini-lanterne-vietati': { name: 'Novità', path: '/articoli-frontaliere/neuchatel-palloncini-lanterne-vietati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

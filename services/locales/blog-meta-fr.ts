@@ -3569,6 +3569,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casa-montana-nante-governo-regolare.title': 'Maison de montagne de Nante: le Gouvernement confirme tout régulier',
     'blog.article.casa-montana-nante-governo-regolare.excerpt': 'Le Conseil d\'Etat tessinois a rejeté le recours contre le projet de rénovation de la maison de montagne Madonna delle Nevi à Nante, confirmant un crédit de 4,71 millions de francs.',
     'blog.article.casa-montana-nante-governo-regolare.imageAlt': 'La maison de montagne Madonna delle Nevi à Nante, Tessin, entourée d\'un paysage alpin enneigé',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.title': 'Neuchâtel interdit les ballons et lanternes',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.excerpt': 'Le Grand Conseil du canton de Neuchâtel a approuvé l\'interdiction de lancer des ballons et des lanternes volantes, avec 55 voix en faveur.',
+    'blog.article.neuchatel-palloncini-lanterne-vietati.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
 };
 
 export default blogMetaFr;
