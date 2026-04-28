@@ -11,6 +11,8 @@ interface State {
  hasError: boolean;
  errorDigest: string;
  errorHint: string;
+ errorName: string;
+ errorMessage: string;
 }
 
 export class ErrorBoundary extends Component<Props, State> {
@@ -21,6 +23,8 @@ export class ErrorBoundary extends Component<Props, State> {
  hasError: false,
  errorDigest: '',
  errorHint: '',
+ errorName: '',
+ errorMessage: '',
  };
 
  /** Simple hash for error fingerprinting (correlation across events). */
@@ -45,7 +49,13 @@ export class ErrorBoundary extends Component<Props, State> {
  : isDecoded
  ? decoded.slice(0, 90)
  : `${(error?.name || 'Error').slice(0, 30)}:${msg.slice(0, 60)}`;
- return { hasError: true, errorDigest: ErrorBoundary.fingerprint(error), errorHint: hint };
+ return {
+ hasError: true,
+ errorDigest: ErrorBoundary.fingerprint(error),
+ errorHint: hint,
+ errorName: (error?.name || 'Error').slice(0, 50),
+ errorMessage: (isDecoded ? decoded : msg).slice(0, 300),
+ };
  }
 
  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
@@ -117,6 +127,23 @@ export class ErrorBoundary extends Component<Props, State> {
  REF: {this.state.errorDigest}{this.state.errorHint && this.state.errorHint !== 'chunk' && this.state.errorHint !== 'network' ? ` — ${this.state.errorHint}` : ''}
  </p>
  )}
+ <div
+ data-testid="error-boundary-details"
+ className="w-full max-w-xl text-left bg-surface-alt border border-edge rounded-lg px-3 py-2 mb-6"
+ >
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
+ Errore
+ </p>
+ <code className="block text-xs text-body font-mono break-all select-all">
+ {this.state.errorName}{this.state.errorMessage ? `: ${this.state.errorMessage}` : ''}
+ </code>
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mt-2 mb-1">
+ URL
+ </p>
+ <code className="block text-xs text-body font-mono break-all select-all">
+ {typeof window !== 'undefined' ? window.location.href : ''}
+ </code>
+ </div>
  <button
  onClick={() => {
  Analytics.trackForceReload({
