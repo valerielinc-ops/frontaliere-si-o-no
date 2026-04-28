@@ -66,6 +66,63 @@ const PREFERENCES_SLUGS = {
 // IT is canonical (no prefix); other locales get /{locale}/ prefix.
 const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
 
+// Brand logo lookup. Builds slug→filename map from public/images/brands/ at
+// startup (~72 logos). Used to render company logos in job cards instead of
+// the initial-letter placeholder. Falls back to initial when no logo matches.
+const BRAND_LOGOS_DIR = path.join(ROOT, 'public', 'images', 'brands');
+const BRAND_LOGO_BY_SLUG = (() => {
+  try {
+    const files = fs.readdirSync(BRAND_LOGOS_DIR);
+    const map = new Map();
+    for (const filename of files) {
+      const m = filename.match(/^(.+)\.(png|jpg|jpeg|svg|webp)$/i);
+      if (m) map.set(m[1].toLowerCase(), filename);
+    }
+    return map;
+  } catch {
+    return new Map();
+  }
+})();
+
+function brandLogoUrl(companyName) {
+  if (!companyName) return null;
+  const slug = String(companyName).toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const filename = BRAND_LOGO_BY_SLUG.get(slug);
+  return filename ? `${BASE_URL}/images/brands/${filename}` : null;
+}
+
+// Format a job salary (annual / monthly / hourly) into a compact, locale-aware label.
+// Returns null if the job has no salary data — caller should not render the chip.
+function formatSalary(job, locale = 'it') {
+  const min = Number(job.salaryMin) || 0;
+  const max = Number(job.salaryMax) || 0;
+  if (!min && !max) return null;
+  const currency = String(job.currency || job.baseSalary?.currency || 'CHF').toUpperCase();
+  const unit = String(job.baseSalary?.value?.unitText || 'YEAR').toUpperCase();
+  const periodSuffix = {
+    it: { YEAR: '/anno', MONTH: '/mese', WEEK: '/settimana', HOUR: '/ora', DAY: '/giorno' },
+    en: { YEAR: '/year', MONTH: '/month', WEEK: '/week', HOUR: '/hour', DAY: '/day' },
+    de: { YEAR: '/Jahr', MONTH: '/Monat', WEEK: '/Woche', HOUR: '/Std.', DAY: '/Tag' },
+    fr: { YEAR: '/an', MONTH: '/mois', WEEK: '/semaine', HOUR: '/heure', DAY: '/jour' },
+  };
+  const suffix = (periodSuffix[locale] || periodSuffix.it)[unit] || '';
+  const compact = (n) => {
+    if (!n) return '';
+    if (n >= 1000) {
+      const k = n / 1000;
+      // Render as 49.5K (one decimal if the half-step matters) or 75K (integer).
+      return (Number.isInteger(k) ? k.toFixed(0) : k.toFixed(1).replace(/\.0$/, '')) + 'K';
+    }
+    return String(n);
+  };
+  const range = min && max && min !== max
+    ? `${compact(min)}\u2013${compact(max)}` // en-dash separator
+    : compact(min || max);
+  return `${currency} ${range}${suffix}`;
+}
+
 // ── i18n strings for email template ─────────────────────────
 const EMAIL_STRINGS = {
   it: {
@@ -417,6 +474,12 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const manageUrl = wrapUrl(`${preferencesUrl}&${utmBase}`);
   const allJobsUrl = wrapUrl(`${BASE_URL}${localizedJobBoardPath}/?${utmBase}`);
 
+  const tagChip = (label, palette = 'orange') => {
+    const bg = palette === 'green' ? 'rgba(34,197,94,0.2)' : palette === 'blue' ? 'rgba(59,130,246,0.18)' : 'rgba(249,115,22,0.15)';
+    const color = palette === 'green' ? '#86efac' : palette === 'blue' ? '#93c5fd' : '#fdba74';
+    return `<span style="font-size:10px;background:${bg};color:${color};padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${label}</span>`;
+  };
+
   const jobCards = matchedJobs.slice(0, 10).map((job) => {
     const title = job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle;
     const company = job.company || '';
@@ -426,13 +489,25 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const rawJobUrl = slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}?${utmBase}` : BASE_URL;
     const url = wrapUrl(rawJobUrl);
     const initial = (company || '?')[0].toUpperCase();
+    const logoSrc = brandLogoUrl(company);
     const tags = [];
-    // "NEW" badge for jobs first seen within 48 hours
+    // "NEW" badge for jobs first seen within 48 hours.
     const firstSeen = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
     const isNew = firstSeen > 0 && (Date.now() - firstSeen) < 48 * 60 * 60 * 1000;
-    if (isNew) tags.push(`<span style="font-size:10px;background:rgba(34,197,94,0.2);color:#86efac;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${s.newBadge}</span>`);
-    if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escHtml(job.contract)}</span>`);
-    if (location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escHtml(location)}</span>`);
+    if (isNew) tags.push(tagChip(s.newBadge, 'green'));
+    // Salary chip — only when the job has structured salary data (most don't).
+    const salaryLabel = formatSalary(job, locale);
+    if (salaryLabel) tags.push(tagChip(escHtml(salaryLabel), 'blue'));
+    if (job.contract) tags.push(tagChip(escHtml(job.contract)));
+    if (location) tags.push(tagChip(escHtml(location)));
+
+    // Avatar: real brand logo when we have one bundled, initial-letter fallback otherwise.
+    // Email clients block remote images by default — the colored fallback box shows
+    // until the user clicks "show images". The img has explicit width/height so the
+    // fallback alt text doesn't reflow the card.
+    const avatar = logoSrc
+      ? `<img src="${logoSrc}" alt="${escHtml(company)}" width="44" height="44" style="display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;">`
+      : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>`;
 
     return `
         <tr><td style="padding:0 0 10px;">
@@ -440,7 +515,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
             <table width="100%" cellpadding="0" cellspacing="0" style="background:${DARK_CARD};border-radius:12px;">
               <tr>
                 <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
-                  <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>
+                  ${avatar}
                 </td>
                 <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
                   <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;overflow:hidden;text-overflow:ellipsis;">${escHtml(title)}</div>

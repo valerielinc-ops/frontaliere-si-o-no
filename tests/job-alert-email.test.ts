@@ -291,6 +291,67 @@ describe('preferences page integration (source check)', () => {
   });
 });
 
+describe('job alert email — brand logo + salary chip', () => {
+  it('renders an <img> avatar when a matching brand logo bundle exists', () => {
+    const job = fixtureJob({ company: 'EOC \u2013 Ente Ospedaliero Cantonale' });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    // Slug = eoc-ente-ospedaliero-cantonale; bundle is public/images/brands/eoc-ente-ospedaliero-cantonale.png
+    expect(result.html).toMatch(/<img\s+src="https:\/\/frontaliereticino\.ch\/images\/brands\/eoc-ente-ospedaliero-cantonale\.png"/);
+  });
+
+  it('falls back to an initial-letter avatar when no logo bundle matches', () => {
+    const job = fixtureJob({ company: 'Nonexistent Company XYZ' });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    // No logo file → no img tag in the avatar position; initial 'N' div instead.
+    expect(result.html).not.toMatch(/\/images\/brands\/nonexistent-company-xyz/);
+    expect(result.html).toMatch(/font-size:18px;font-weight:800;color:#f97316;">N<\/div>/);
+  });
+
+  it('renders a salary chip when the job has salaryMin and salaryMax (annual)', () => {
+    const job = fixtureJob({
+      company: 'Acme Corp',
+      salaryMin: 49500,
+      salaryMax: 75000,
+      currency: 'CHF',
+      baseSalary: { value: { unitText: 'YEAR' } },
+    });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    // IT period suffix = /anno; range with en-dash separator.
+    expect(result.html).toContain('CHF 49.5K\u201375K/anno');
+  });
+
+  it('salary chip uses locale-correct period suffix (EN /year, DE /Jahr, FR /an)', () => {
+    const job = fixtureJob({
+      company: 'Acme Corp',
+      salaryMin: 80000,
+      salaryMax: 100000,
+      currency: 'CHF',
+      baseSalary: { value: { unitText: 'YEAR' } },
+    });
+    expect(buildAlertEmail(fixtureAlert('en'), [job], true).html).toContain('CHF 80K\u2013100K/year');
+    expect(buildAlertEmail(fixtureAlert('de'), [job], true).html).toContain('CHF 80K\u2013100K/Jahr');
+    expect(buildAlertEmail(fixtureAlert('fr'), [job], true).html).toContain('CHF 80K\u2013100K/an');
+  });
+
+  it('omits the salary chip entirely when the job has no salary data', () => {
+    const job = fixtureJob({ company: 'Acme Corp' }); // no salaryMin/Max
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).not.toMatch(/CHF\s+\d/);
+  });
+
+  it('formats hourly rate with /ora (IT)', () => {
+    const job = fixtureJob({
+      company: 'Acme Corp',
+      salaryMin: 35,
+      salaryMax: 0,
+      currency: 'CHF',
+      baseSalary: { value: { unitText: 'HOUR' } },
+    });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toContain('CHF 35/ora');
+  });
+});
+
 describe('job alert workflow — TARGET_EMAIL filter (source check)', () => {
   it('script reads TARGET_EMAIL env to build the allowlist', () => {
     const src = fs.readFileSync(
