@@ -3553,6 +3553,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.banche-golfo-frontalieri-ticino-2026.title': 'Schweizer Banken bereit für Kunden aus dem Golf',
     'blog.article.banche-golfo-frontalieri-ticino-2026.excerpt': 'Kapitaltransfers und potenzielle Umzüge in die Schweiz aufgrund des Konflikts in Iran',
     'blog.article.banche-golfo-frontalieri-ticino-2026.imageAlt': 'Blick auf den Luganersee mit modernen Finanzgebäuden',
+    'blog.article.rilanciare-commercio-saronno-2026.title': 'Saronno: Handel mit strukturellen Maßnahmen fördern',
+    'blog.article.rilanciare-commercio-saronno-2026.excerpt': 'Der Gemeinderat von Saronno prüft einen Antrag zur Förderung des lokalen Handels durch strukturelle und dauerhafte Maßnahmen.',
+    'blog.article.rilanciare-commercio-saronno-2026.imageAlt': 'Luftaufnahme des Stadtzentrums von Saronno mit Geschäften und Menschen, die spazieren gehen',
 };
 
 export default blogMetaDe;

@@ -3553,6 +3553,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.banche-golfo-frontalieri-ticino-2026.title': 'Swiss banks ready for Gulf clients',
     'blog.article.banche-golfo-frontalieri-ticino-2026.excerpt': 'Capital transfers and potential residence moves to Switzerland due to the Iran conflict',
     'blog.article.banche-golfo-frontalieri-ticino-2026.imageAlt': 'Lake Lugano view with modern financial buildings',
+    'blog.article.rilanciare-commercio-saronno-2026.title': 'Saronno: boosting trade with structural measures',
+    'blog.article.rilanciare-commercio-saronno-2026.excerpt': 'The municipal council of Saronno is examining a motion to boost local trade with structural and permanent interventions',
+    'blog.article.rilanciare-commercio-saronno-2026.imageAlt': 'Aerial view of Saronno city center with shops and people walking',
 };
 
 export default blogMetaEn;

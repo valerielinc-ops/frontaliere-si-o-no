@@ -21325,6 +21325,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rilanciare-commercio-saronno-2026': {
+    title: 'Saronno: rilanciare il commercio con interventi strutturali',
+    description: 'Il Consiglio comunale di Saronno esamina una mozione per rilanciare il commercio cittadino con interventi strutturali e permanenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, saronno, rilanciare, commercio, interventi',
+    ogTitle: 'Saronno: rilanciare il commercio con interventi strutturali',
+    ogDescription: 'Il Consiglio comunale di Saronno esamina una mozione per rilanciare il commercio cittadino con interventi strutturali e permanenti',
+    canonicalPath: '/articoli-frontaliere/rilanciare-commercio-saronno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Saronno: rilanciare il commercio con interventi strutturali",
+      "description": "Il Consiglio comunale di Saronno esamina una mozione per rilanciare il commercio cittadino con interventi strutturali e permanenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rilanciare-commercio-saronno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro di Saronno con negozi e persone che camminano"
+      },
+      "datePublished": "2026-04-28T21:56:49+00:00",
+      "dateModified": "2026-04-28T21:56:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rilanciare-commercio-saronno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

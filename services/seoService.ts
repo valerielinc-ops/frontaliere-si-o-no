@@ -2415,6 +2415,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-coalizione-sanitario-volonta-calpestata': { name: 'Novità', path: '/articoli-frontaliere/coalizione-sanitario-volonta-calpestata', parent: 'blog' },
     'blog-volo-swiss-evacuato-passeggeri-bagaglio': { name: 'Novità', path: '/articoli-frontaliere/volo-swiss-evacuato-passeggeri-bagaglio', parent: 'blog' },
     'blog-banche-golfo-frontalieri-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/banche-golfo-frontalieri-ticino-2026', parent: 'blog' },
+    'blog-rilanciare-commercio-saronno-2026': { name: 'Novità', path: '/articoli-frontaliere/rilanciare-commercio-saronno-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

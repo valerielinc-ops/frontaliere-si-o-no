@@ -9303,4 +9303,11 @@ export const ARTICLES = [
  image: '/images/blog/banche-golfo-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rilanciare-commercio-saronno-2026',
+ category: 'novita',
+ date: '2026-04-28T21:56:48.994Z',
+ image: '/images/blog/rilanciare-commercio-saronno-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
