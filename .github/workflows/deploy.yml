@@ -252,6 +252,12 @@ jobs:
       #                            (page's <link rel="canonical"> = the loc).
       #                            Fix the build plugin emitting the offending
       #                            sitemap entry — never weaken the gate.
+      #   - orphan-sitemap-pages → CLAUDE.md "SEO content gate — orphaned pages
+      #                            in sitemaps" playbook. BFS reachability from
+      #                            homepage; ratchet baseline against
+      #                            data/orphan-pages-baseline.json. Default fix:
+      #                            add internal links — never noindex without
+      #                            explicit approval (CLAUDE.md non-negotiable #5).
       - name: Post-build validations + SEO audits + SPA render + E2E (all parallel)
         run: |
           # Group A — 7 file validators
@@ -275,6 +281,11 @@ jobs:
           # mismatch / missing-canonical / missing-html in dist/sitemap-*.xml
           # fails the deploy). Sitemap entries must always self-canonicalize.
           npm run audit:sitemap-canonicals   > /tmp/g8.log 2>&1 & PID15=$!
+          # Gate — orphaned pages in sitemaps (BFS reachability from homepage;
+          # ratchet baseline in data/orphan-pages-baseline.json). Mirrors the
+          # text-html-ratio gate semantics: improvements accepted silently,
+          # any sitemap whose orphan count goes UP fails the deploy.
+          npm run audit:orphan-sitemap-pages -- --gate=baseline > /tmp/g9.log 2>&1 & PID16=$!
 
           # Group C — SPA render validation (5 min internal budget)
           timeout 300 node scripts/validate-spa-render.mjs > /tmp/spa.log 2>&1 & PID_SPA=$!
@@ -298,11 +309,12 @@ jobs:
           wait $PID13 || { echo "::error::audit:h1-title-duplicates failed"; cat /tmp/g6.log; FAIL=1; }
           wait $PID14 || { echo "::error::audit:title-length failed"; cat /tmp/g7.log; FAIL=1; }
           wait $PID15 || { echo "::error::audit:sitemap-canonicals failed (HARD gate)"; cat /tmp/g8.log; FAIL=1; }
+          wait $PID16 || { echo "::error::audit:orphan-sitemap-pages failed"; cat /tmp/g9.log; FAIL=1; }
           wait $PID_SPA || { echo "::error::validate-spa-render failed"; cat /tmp/spa.log; FAIL=1; }
           wait $PID_E2E || { echo "::error::E2E smoke tests failed"; cat /tmp/e2e.log; FAIL=1; }
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 17 post-build validators+audits+SPA+E2E passed"
+          echo "✅ All 18 post-build validators+audits+SPA+E2E passed"
 
       # Visual regression baselines are OS-sensitive (darwin vs linux pixel
       # diffs). We run them only when a linux-specific baseline has been
