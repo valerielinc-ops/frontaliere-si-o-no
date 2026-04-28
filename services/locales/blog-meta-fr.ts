@@ -3269,6 +3269,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.title': 'Fuite d\'ammoniac à la patinoire de Chiasso: trois intoxiqués',
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.excerpt': 'Trois personnes intoxiquées à cause d\'une fuite d\'ammoniac à la patinoire de Chiasso. Intervention des pompiers et des secours.',
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.imageAlt': 'Patinoire de Chiasso avec personnel d\'urgence',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.title': 'Fuite d\'ammoniac à la patinoire de Chiasso',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.excerpt': 'Trois employés de l\'entretien pris en charge par les secours, mais aucun n\'a besoin d\'hospitalisation',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.imageAlt': 'Piste de glace à Chiasso avec les services d\'urgence répondant à une fuite d\'ammoniac',
 };
 
 export default blogMetaFr;

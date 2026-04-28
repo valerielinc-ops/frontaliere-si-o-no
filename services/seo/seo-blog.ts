@@ -18570,6 +18570,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fuga-ammoniaca-chiasso-pista-ghiaccio': {
+    title: 'Fuga di ammoniaca alla pista di ghiaccio di Chiasso',
+    description: 'Tre addetti alla manutenzione visitati dai soccorritori, ma nessuno ha bisogno di ricovero ospedaliero. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuga, ammoniaca, alla, pista',
+    ogTitle: 'Fuga di ammoniaca alla pista di ghiaccio di Chiasso',
+    ogDescription: 'Tre addetti alla manutenzione visitati dai soccorritori, ma nessuno ha bisogno di ricovero ospedaliero',
+    canonicalPath: '/articoli-frontaliere/fuga-ammoniaca-chiasso-pista-ghiaccio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuga di ammoniaca alla pista di ghiaccio di Chiasso",
+      "description": "Tre addetti alla manutenzione visitati dai soccorritori, ma nessuno ha bisogno di ricovero ospedaliero. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fuga-ammoniaca-chiasso-pista-ghiaccio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pista di ghiaccio di Chiasso con intervento dei soccorritori per una fuga di ammoniaca"
+      },
+      "datePublished": "2026-04-28T10:05:40+00:00",
+      "dateModified": "2026-04-28T10:05:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fuga-ammoniaca-chiasso-pista-ghiaccio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

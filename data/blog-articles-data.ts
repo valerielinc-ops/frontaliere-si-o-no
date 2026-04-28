@@ -8638,4 +8638,11 @@ export const ARTICLES = [
  image: '/images/blog/chiasso-ammoniaca-stadio-ghiaccio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fuga-ammoniaca-chiasso-pista-ghiaccio',
+ category: 'novita',
+ date: '2026-04-28T10:05:40.401Z',
+ image: '/images/blog/fuga-ammoniaca-chiasso-pista-ghiaccio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

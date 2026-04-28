@@ -3269,6 +3269,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.title': 'Perdita di ammoniaca allo stadio del ghiaccio di Chiasso: tre intossicati',
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.excerpt': 'Tre persone intossicate a causa di una perdita di ammoniaca allo stadio del ghiaccio di Chiasso. Intervento dei pompieri e dei sanitari.',
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.imageAlt': 'Stadio del ghiaccio di Chiasso con personale di emergenza',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.title': 'Fuga di ammoniaca alla pista di ghiaccio di Chiasso',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.excerpt': 'Tre addetti alla manutenzione visitati dai soccorritori, ma nessuno ha bisogno di ricovero ospedaliero',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.imageAlt': 'Pista di ghiaccio di Chiasso con intervento dei soccorritori per una fuga di ammoniaca',
 };
 
 export default blogMetaIt;

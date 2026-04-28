@@ -3268,6 +3268,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.title': 'Ammoniak-Austritt in der Eishalle von Chiasso: drei Vergiftete',
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.excerpt': 'Drei Personen wurden durch einen Ammoniak-Austritt in der Eishalle von Chiasso vergiftet. Die Feuerwehr und Sanitäter sind im Einsatz.',
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.imageAlt': 'Eisstadion Chiasso mit Rettungspersonal',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.title': 'Ammoniak-Austritt in der Eisfeld von Chiasso',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.excerpt': 'Drei Wartungskräfte wurden von Rettungskräften versorgt, aber niemand benötigt eine Krankenhausaufnahme',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.imageAlt': 'Eisbahn in Chiasso mit Rettungskräften, die auf einen Ammoniakausbruch reagieren',
 };
 
 export default blogMetaDe;

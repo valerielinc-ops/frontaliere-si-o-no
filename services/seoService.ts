@@ -2320,6 +2320,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-moda-sostenibile-bellinzona-9-maggio': { name: 'Moda sostenibile', path: '/articoli-frontaliere/moda-sostenibile-bellinzona-9-maggio', parent: 'blog' },
     'blog-fuga-ammoniaca-chiasso-controllo': { name: 'Novità', path: '/articoli-frontaliere/fuga-ammoniaca-chiasso-controllo', parent: 'blog' },
     'blog-chiasso-ammoniaca-stadio-ghiaccio': { name: 'Novità', path: '/articoli-frontaliere/chiasso-ammoniaca-stadio-ghiaccio', parent: 'blog' },
+    'blog-fuga-ammoniaca-chiasso-pista-ghiaccio': { name: 'Novità', path: '/articoli-frontaliere/fuga-ammoniaca-chiasso-pista-ghiaccio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

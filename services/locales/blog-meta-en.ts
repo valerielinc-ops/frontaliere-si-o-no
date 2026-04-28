@@ -3268,6 +3268,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.title': 'Ammonia leak at Chiasso ice stadium: three poisoned',
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.excerpt': 'Three people poisoned due to an ammonia leak at the ice stadium in Chiasso. Firefighters and medical teams intervened.',
     'blog.article.chiasso-ammoniaca-stadio-ghiaccio.imageAlt': 'Chiasso ice rink with emergency personnel',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.title': 'Ammonia leak at Chiasso ice rink',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.excerpt': 'Three maintenance workers attended by rescuers, but none require hospital admission',
+    'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.imageAlt': 'Ice rink in Chiasso with emergency services responding to an ammonia leak',
 };
 
 export default blogMetaEn;
