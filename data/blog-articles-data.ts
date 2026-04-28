@@ -9387,4 +9387,11 @@ export const ARTICLES = [
  image: '/images/blog/agesp-rifiuti-primo-maggio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'stop-cinese-acquisizione-manus-implicazioni',
+ category: 'novita',
+ date: '2026-04-28T23:21:54.345Z',
+ image: '/images/blog/stop-cinese-acquisizione-manus-implicazioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

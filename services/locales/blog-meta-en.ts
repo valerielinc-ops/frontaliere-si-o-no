@@ -3589,6 +3589,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agesp-rifiuti-primo-maggio-2026.title': 'Agesp: Waste collection schedule for May 1st 2026',
     'blog.article.agesp-rifiuti-primo-maggio-2026.excerpt': 'Changes to urban waste collection services in Busto Arsizio, Fagnano Olona and Venegono Superiore for Labor Day.',
     'blog.article.agesp-rifiuti-primo-maggio-2026.imageAlt': 'Agesp waste collection services during May 1st',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.title': 'China blocks Manus acquisition: here\'s why',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.excerpt': 'Beijing halts Meta\'s }; billion purchase, fearing loss of strategic technology',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.imageAlt': 'Lake Lugano and financial district skyscrapers',
 };
 
 export default blogMetaEn;

@@ -3589,6 +3589,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agesp-rifiuti-primo-maggio-2026.title': 'Agesp: Müllabfuhrzeiten am 1. Mai 2026',
     'blog.article.agesp-rifiuti-primo-maggio-2026.excerpt': 'Änderungen bei der städtischen Müllentsorgung in Busto Arsizio, Fagnano Olona und Venegono Superiore zum Tag der Arbeit.',
     'blog.article.agesp-rifiuti-primo-maggio-2026.imageAlt': 'Agesp Abfallentsorgung am 1. Mai',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.title': 'China blockiert Übernahme von Manus: Gründe',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.excerpt': 'Peking stoppt den Kauf durch Meta für 2 Milliarden Dollar, aus Sorge um den Verlust strategischer Technologie',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.imageAlt': 'Luganer See und Finanzdistrikt-Wolkenkratzer',
 };
 
 export default blogMetaDe;

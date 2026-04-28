@@ -21673,6 +21673,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stop-cinese-acquisizione-manus-implicazioni': {
+    title: 'Cina blocca acquisizione Manus: ecco perché | Frontaliere Ticino',
+    description: 'Pechino ferma l\'acquisto da Meta per 2 miliardi di dollari, temendo perdita di tecnologia strategica. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cina, blocca, acquisizione, manus',
+    ogTitle: 'Cina blocca acquisizione Manus: ecco perché',
+    ogDescription: 'Pechino ferma l\'acquisto da Meta per 2 miliardi di dollari, temendo perdita di tecnologia strategica',
+    canonicalPath: '/articoli-frontaliere/stop-cinese-acquisizione-manus-implicazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cina blocca acquisizione Manus: ecco perché",
+      "description": "Pechino ferma l'acquisto da Meta per 2 miliardi di dollari, temendo perdita di tecnologia strategica. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stop-cinese-acquisizione-manus-implicazioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano lago e grattacieli del centro finanziario"
+      },
+      "datePublished": "2026-04-28T23:21:54+00:00",
+      "dateModified": "2026-04-28T23:21:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stop-cinese-acquisizione-manus-implicazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

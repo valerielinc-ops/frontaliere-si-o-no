@@ -2427,6 +2427,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-infermieri-indipendenti-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/infermieri-indipendenti-ticino-2026', parent: 'blog' },
     'blog-deposito-carrozzeria-sequestrato-como-2026': { name: 'Deposito carrozzeria', path: '/articoli-frontaliere/deposito-carrozzeria-sequestrato-como-2026', parent: 'blog' },
     'blog-agesp-rifiuti-primo-maggio-2026': { name: 'Servizi rifiuti Agesp', path: '/articoli-frontaliere/agesp-rifiuti-primo-maggio-2026', parent: 'blog' },
+    'blog-stop-cinese-acquisizione-manus-implicazioni': { name: 'Novità', path: '/articoli-frontaliere/stop-cinese-acquisizione-manus-implicazioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3590,6 +3590,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.agesp-rifiuti-primo-maggio-2026.title': 'Agesp : horaires de collecte des déchets 1er mai 2026',
     'blog.article.agesp-rifiuti-primo-maggio-2026.excerpt': 'Modifications des services d\'hygiène urbaine à Busto Arsizio, Fagnano Olona et Venegono Superiore pour la Fête du Travail.',
     'blog.article.agesp-rifiuti-primo-maggio-2026.imageAlt': 'Collecte des déchets Agesp le 1er mai',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.title': 'La Chine bloque l\'acquisition de Manus : voici pourquoi',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.excerpt': 'Pékin arrête l\'achat par Meta pour 2 milliards de dollars, craignant la perte de technologies stratégiques',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.imageAlt': 'Lac de Lugano et gratte-ciel du quartier financier',
 };
 
 export default blogMetaFr;

@@ -3590,6 +3590,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agesp-rifiuti-primo-maggio-2026.title': 'Agesp: orari raccolta rifiuti primo maggio 2026',
     'blog.article.agesp-rifiuti-primo-maggio-2026.excerpt': 'Variazioni nei servizi di igiene urbana a Busto Arsizio, Fagnano Olona e Venegono Superiore per la Festa dei Lavoratori.',
     'blog.article.agesp-rifiuti-primo-maggio-2026.imageAlt': 'Raccolta rifiuti e servizi Agesp durante il primo maggio',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.title': 'Cina blocca acquisizione Manus: ecco perché',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.excerpt': 'Pechino ferma l\'acquisto da Meta per 2 miliardi di dollari, temendo perdita di tecnologia strategica',
+    'blog.article.stop-cinese-acquisizione-manus-implicazioni.imageAlt': 'Lugano lago e grattacieli del centro finanziario',
 };
 
 export default blogMetaIt;
