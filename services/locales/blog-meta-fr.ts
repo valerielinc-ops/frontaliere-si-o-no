@@ -3416,6 +3416,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.title': 'Frontalier condamné pour fraudes en ligne',
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.excerpt': 'Un 33 ans du Bellinzonese, atteint de ludopathie, a été condamné à 16 mois pour 82 escroqueries en ligne et 65 tentatives',
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.imageAlt': 'Castelgrande et les murs médiévaux de Bellinzona, Tessin',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.title': 'Décret Travail Meloni : incitations et salaire équitable pour les frontaliers',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.excerpt': 'Feu vert du Conseil des Ministres au décret travail avec incitations pour les embauches et salaire équitable pour les travailleurs',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.imageAlt': 'Panorama de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

@@ -3415,6 +3415,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.title': 'Cross-border worker sentenced for online scams',
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.excerpt': 'A 33-year-old from Bellinzona, suffering from gambling addiction, was sentenced to 16 months for 82 online scams and 65 attempted ones',
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.imageAlt': 'Castelgrande and the medieval walls of Bellinzona, Ticino',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.title': 'Meloni\'s Labour Decree: incentives and fair wages for cross-border workers',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.excerpt': 'The Council of Ministers has given the green light to the labour decree with incentives for hiring and fair wages for workers',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.imageAlt': 'Panorama of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1188,
+ "numberOfItems": 1189,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5823,7 +5823,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1185, "name": "Casse malati, Dadò propone la scissione del dos...", "url": `${BASE_URL}/articoli-frontaliere/casse-malati-dado-scissione-dossier` },
           { "@type": "ListItem", "position": 1186, "name": "Iliad presenta 'Più veloci', piano per reti mob...", "url": `${BASE_URL}/articoli-frontaliere/iliad-piu-veloci-rete-mobili` },
           { "@type": "ListItem", "position": 1187, "name": "Formazione, intesa tra Ministero e Ferrero per ...", "url": `${BASE_URL}/articoli-frontaliere/formazione-ferrero-ministero-2026` },
-          { "@type": "ListItem", "position": 1188, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-bellinzonese-truffe-16-mesi` }
+          { "@type": "ListItem", "position": 1188, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-bellinzonese-truffe-16-mesi` },
+          { "@type": "ListItem", "position": 1189, "name": "Decreto Lavoro Meloni: incentivi e salario gius...", "url": `${BASE_URL}/articoli-frontaliere/decreto-lavoro-meloni-2026-frontalieri` }
  ]
  },
  {

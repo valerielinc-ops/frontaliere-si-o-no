@@ -3416,6 +3416,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.title': 'Frontaliere condannato a 16 mesi per truffe online',
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.excerpt': 'Un 33enne del Bellinzonese, affetto da ludopatia, è stato condannato a 16 mesi per 82 raggiri online e 65 tentati',
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.imageAlt': 'Castelgrande e le mura medievali di Bellinzona, Ticino',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.title': 'Decreto Lavoro Meloni: incentivi e salario giusto per i frontalieri',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.excerpt': 'Via libera del Consiglio dei Ministri al decreto lavoro con incentivi per assunzioni e salario giusto per i lavoratori',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.imageAlt': 'Panorama di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

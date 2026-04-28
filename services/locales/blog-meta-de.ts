@@ -3415,6 +3415,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.title': 'Grenzgänger wegen Online-Betrug zu 16 Monaten verurteilt',
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.excerpt': 'Ein 33-jähriger Mann aus dem Bellinzona-Gebiet, der unter Spielsucht leidet, wurde zu 16 Monaten Haft verurteilt, weil er 82 Online-Betrugsfälle begangen und 65 weitere versucht hat.',
     'blog.article.frontalieri-bellinzonese-truffe-16-mesi.imageAlt': 'Castelgrande und die mittelalterlichen Mauern von Bellinzona, Tessin',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.title': 'Meloni-Arbeitsdekrete: Anreize und fairer Lohn für Grenzgänger',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.excerpt': 'Der Ministerrat hat das Arbeitsdekrete mit Anreizen für Einstellungen und fairem Lohn für Arbeitnehmer gebilligt',
+    'blog.article.decreto-lavoro-meloni-2026-frontalieri.imageAlt': 'Panorama von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

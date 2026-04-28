@@ -19991,6 +19991,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-decreto-lavoro-meloni-2026-frontalieri': {
+    title: 'Decreto Lavoro Meloni: incentivi e salario giusto per i frontalieri',
+    description: 'Via libera del Consiglio dei Ministri al decreto lavoro con incentivi per assunzioni e salario giusto per i lavoratori. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, decreto, lavoro, meloni, incentivi',
+    ogTitle: 'Decreto Lavoro Meloni: incentivi e salario giusto per i frontalieri',
+    ogDescription: 'Via libera del Consiglio dei Ministri al decreto lavoro con incentivi per assunzioni e salario giusto per i lavoratori',
+    canonicalPath: '/articoli-frontaliere/decreto-lavoro-meloni-2026-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Decreto Lavoro Meloni: incentivi e salario giusto per i frontalieri",
+      "description": "Via libera del Consiglio dei Ministri al decreto lavoro con incentivi per assunzioni e salario giusto per i lavoratori. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/decreto-lavoro-meloni-2026-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-04-28T17:09:36+00:00",
+      "dateModified": "2026-04-28T17:09:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/decreto-lavoro-meloni-2026-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

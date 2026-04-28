@@ -8981,4 +8981,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-bellinzonese-truffe-16-mesi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'decreto-lavoro-meloni-2026-frontalieri',
+ category: 'novita',
+ date: '2026-04-28T17:09:36.688Z',
+ image: '/images/blog/decreto-lavoro-meloni-2026-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
