@@ -3476,6 +3476,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.iniziativa-f-35-ticino-2026.title': 'Initiative pour annuler l\'achat des F-35',
     'blog.article.iniziativa-f-35-ticino-2026.excerpt': 'Une association civique lance une initiative pour faire annuler le contrat des F-35, jugés trop coûteux et inadaptés.',
     'blog.article.iniziativa-f-35-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les rives suisse et italienne',
+    'blog.article.giro-e-angera-verbania-2026.title': 'Giro-E 2026 : étape d\'Angera à Verbania sur le Lac Majeur',
+    'blog.article.giro-e-angera-verbania-2026.excerpt': 'Une étape du Giro-E unit le sport, la durabilité et la promotion touristique le long du Lac Majeur, avec un départ d\'Angera le 22 mai 2026.',
+    'blog.article.giro-e-angera-verbania-2026.imageAlt': 'Cyclistes du Giro-E pédalent le long du Lac Majeur',
 };
 
 export default blogMetaFr;

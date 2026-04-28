@@ -2389,6 +2389,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-riforma-infermieri-ticino-2026': { name: 'Riforma infermieristica', path: '/articoli-frontaliere/riforma-infermieri-ticino-2026', parent: 'blog' },
     'blog-emergenza-casa-como-analisi': { name: 'Emergenza casa', path: '/articoli-frontaliere/emergenza-casa-como-analisi', parent: 'blog' },
     'blog-iniziativa-f-35-ticino-2026': { name: 'Iniziativa F-35', path: '/articoli-frontaliere/iniziativa-f-35-ticino-2026', parent: 'blog' },
+    'blog-giro-e-angera-verbania-2026': { name: 'Giro-E 2026', path: '/articoli-frontaliere/giro-e-angera-verbania-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

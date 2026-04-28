@@ -3476,6 +3476,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziativa-f-35-ticino-2026.title': 'Iniziativa per annullare l\'acquisto degli F-35',
     'blog.article.iniziativa-f-35-ticino-2026.excerpt': 'Un\'associazione civica lancia un\'iniziativa per far annullare il contratto degli F-35, considerati troppo costosi e inadatti.',
     'blog.article.iniziativa-f-35-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con le sponde svizzera e italiana',
+    'blog.article.giro-e-angera-verbania-2026.title': 'Giro-E 2026: la tappa da Angera a Verbania sul Lago Maggiore',
+    'blog.article.giro-e-angera-verbania-2026.excerpt': 'Una tappa del Giro-E unisce sport, sostenibilità e promozione turistica lungo il Lago Maggiore, con partenza da Angera il 22 maggio 2026.',
+    'blog.article.giro-e-angera-verbania-2026.imageAlt': 'Ciclisti del Giro-E pedalano lungo il Lago Maggiore',
 };
 
 export default blogMetaIt;

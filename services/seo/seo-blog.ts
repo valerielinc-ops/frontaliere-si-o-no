@@ -20571,6 +20571,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giro-e-angera-verbania-2026': {
+    title: 'Giro-E 2026: la tappa da Angera a Verbania sul Lago Maggiore',
+    description: 'Una tappa del Giro-E unisce sport, sostenibilità e promozione turistica lungo il Lago Maggiore, con partenza da Angera il 22 maggio 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, giro-e, tappa, angera, verbania',
+    ogTitle: 'Giro-E 2026: tappa Angera-Verbania sul Lago Maggiore',
+    ogDescription: 'Una tappa del Giro-E unisce sport, sostenibilità e promozione turistica lungo il Lago Maggiore, con partenza da Angera il 22 maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/giro-e-angera-verbania-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giro-E 2026: tappa Angera-Verbania sul Lago Maggiore",
+      "description": "Una tappa del Giro-E unisce sport, sostenibilità e promozione turistica lungo il Lago Maggiore, con partenza da Angera il 22 maggio 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giro-e-angera-verbania-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ciclisti del Giro-E pedalano lungo il Lago Maggiore"
+      },
+      "datePublished": "2026-04-28T19:21:12+00:00",
+      "dateModified": "2026-04-28T19:21:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giro-e-angera-verbania-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

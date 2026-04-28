@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1208,
+ "numberOfItems": 1209,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5843,7 +5843,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1205, "name": "Conflitto in Medio Oriente: la fattura energeti...", "url": `${BASE_URL}/articoli-frontaliere/fattura-miliardaria-energia-medio-oriente` },
           { "@type": "ListItem", "position": 1206, "name": "Riforma infermieristica in Ticino: orario di la...", "url": `${BASE_URL}/articoli-frontaliere/riforma-infermieri-ticino-2026` },
           { "@type": "ListItem", "position": 1207, "name": "Emergenza casa a Como: analisi e visioni del PD", "url": `${BASE_URL}/articoli-frontaliere/emergenza-casa-como-analisi` },
-          { "@type": "ListItem", "position": 1208, "name": "Iniziativa per annullare l'acquisto degli F-35", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-f-35-ticino-2026` }
+          { "@type": "ListItem", "position": 1208, "name": "Iniziativa per annullare l'acquisto degli F-35", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-f-35-ticino-2026` },
+          { "@type": "ListItem", "position": 1209, "name": "Giro-E 2026: tappa Angera-Verbania sul Lago Mag...", "url": `${BASE_URL}/articoli-frontaliere/giro-e-angera-verbania-2026` }
  ]
  },
  {
