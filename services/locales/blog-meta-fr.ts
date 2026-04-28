@@ -3377,6 +3377,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nidi-extrascolastico-ticino-un-servizio.title': 'Ticino : Crèches et Extrascolaire vers un Service Unique',
     'blog.article.nidi-extrascolastico-ticino-un-servizio.excerpt': 'Bellinzona fait face à la pénurie de places dans les crèches avec une liste d\'attente unique et une vision intégrée des services (Source : laRegione.ch)',
     'blog.article.nidi-extrascolastico-ticino-un-servizio.imageAlt': 'Crèche scolaire de Bellinzona, Tessin',
+    'blog.article.ticinesi-parigi-roland-garros.title': 'Deux Ticinois à Paris pour le Roland Garros',
+    'blog.article.ticinesi-parigi-roland-garros.excerpt': 'Rémy Bertola et Susan Bandecchi seront engagés dans le tableau des qualifications du Roland Garros.',
+    'blog.article.ticinesi-parigi-roland-garros.imageAlt': 'Joueurs de tennis sur le court du Roland Garros à Paris, avec le drapeau suisse visible en arrière-plan',
 };
 
 export default blogMetaFr;

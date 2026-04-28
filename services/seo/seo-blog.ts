@@ -19614,6 +19614,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticinesi-parigi-roland-garros': {
+    title: 'Due ticinesi a Parigi per il Roland Garros | Frontaliere Ticino',
+    description: 'Rémy Bertola e Susan Bandecchi saranno impegnati nel tabellone delle qualificazioni del Roland Garros. Scopri chi altri svizzeri partecipano. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticinesi, parigi, roland, garros',
+    ogTitle: 'Due ticinesi a Parigi per il Roland Garros',
+    ogDescription: 'Rémy Bertola e Susan Bandecchi saranno impegnati nel tabellone delle qualificazioni del Roland Garros. Scopri chi altri svizzeri partecipano.',
+    canonicalPath: '/articoli-frontaliere/ticinesi-parigi-roland-garros',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Due ticinesi a Parigi per il Roland Garros",
+      "description": "Rémy Bertola e Susan Bandecchi saranno impegnati nel tabellone delle qualificazioni del Roland Garros. Scopri chi altri svizzeri partecipano. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticinesi-parigi-roland-garros.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giocatori di tennis sul campo del Roland Garros a Parigi, con la bandiera svizzera visibile in sfondo"
+      },
+      "datePublished": "2026-04-28T15:22:44+00:00",
+      "dateModified": "2026-04-28T15:22:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticinesi-parigi-roland-garros`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3377,6 +3377,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nidi-extrascolastico-ticino-un-servizio.title': 'Ticino: Nidi ed Extrascolastico verso un Unico Servizio',
     'blog.article.nidi-extrascolastico-ticino-un-servizio.excerpt': 'Bellinzona affronta la carenza di posti nei nidi con una lista d\'attesa unica e una visione integrata dei servizi (Fonte: laRegione.ch)',
     'blog.article.nidi-extrascolastico-ticino-un-servizio.imageAlt': 'Asilo scolastico a Bellinzona, Ticino',
+    'blog.article.ticinesi-parigi-roland-garros.title': 'Due ticinesi a Parigi per il Roland Garros',
+    'blog.article.ticinesi-parigi-roland-garros.excerpt': 'Rémy Bertola e Susan Bandecchi saranno impegnati nel tabellone delle qualificazioni del Roland Garros.',
+    'blog.article.ticinesi-parigi-roland-garros.imageAlt': 'Giocatori di tennis sul campo del Roland Garros a Parigi, con la bandiera svizzera visibile in sfondo',
 };
 
 export default blogMetaIt;

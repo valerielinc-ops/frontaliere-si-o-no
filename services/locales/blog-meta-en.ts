@@ -3376,6 +3376,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nidi-extrascolastico-ticino-un-servizio.title': 'Ticino Unites Nursery & After-School Services',
     'blog.article.nidi-extrascolastico-ticino-un-servizio.excerpt': 'Bellinzona tackles nursery shortage with a unified waiting list and integrated service vision (Source: laRegione.ch)',
     'blog.article.nidi-extrascolastico-ticino-un-servizio.imageAlt': 'Bellinzona School Kindergarten, Switzerland',
+    'blog.article.ticinesi-parigi-roland-garros.title': 'Two Ticino residents in Paris for Roland Garros',
+    'blog.article.ticinesi-parigi-roland-garros.excerpt': 'Rémy Bertola and Susan Bandecchi will be competing in the Roland Garros qualification draw.',
+    'blog.article.ticinesi-parigi-roland-garros.imageAlt': 'Tennis players on the court at the Roland Garros stadium in Paris, with the Swiss flag visible in the background',
 };
 
 export default blogMetaEn;

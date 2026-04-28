@@ -8890,4 +8890,11 @@ export const ARTICLES = [
  image: '/images/blog/nidi-extrascolastico-ticino-un-servizio.jpg',
  hasCalculator: false,
  },
+ {
+ id: 'ticinesi-parigi-roland-garros',
+ category: 'novita',
+ date: '2026-04-28T15:22:44.512Z',
+ image: '/images/blog/ticinesi-parigi-roland-garros.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
