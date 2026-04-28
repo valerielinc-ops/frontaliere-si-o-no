@@ -173,11 +173,14 @@ export default defineConfig(({ mode }) => {
  // does not exist on disk, so Semrush no longer counts missing-locale
  // translations as broken internal links (Issue 8/E1, Issue 25/E8).
  hreflangPostprocessPlugin(__dirname, { baseUrl: 'https://frontaliereticino.ch' }),
- // T2.6 — pre-compress every dist/**/*.html (≥ 1 KB) to .br + .gz so the
- // GitHub Pages CDN can serve pre-encoded payloads without runtime cost
- // and the upload-pages-artifact step ships fewer bytes. Runs LAST in
- // the SEO chain — after every other plugin has rewritten HTML.
- precompressHtmlPlugin(__dirname),
+ // T2.6 disabled — brotli quality 11 on 220k HTML files added 5-10 min to
+ // build for negligible benefit: GitHub Pages serves through Fastly which
+ // gzips on-the-fly, and pre-compressed siblings aren't preferentially
+ // served by Pages. Net ROI: -4 to -9 min per deploy. Disabled 2026-04-28.
+ // To re-enable safely, lower BROTLI_PARAM_QUALITY to 4-5 and skip files
+ // <10KB so only large pages benefit. Code retained at
+ // build-plugins/precompressHtmlPlugin.ts for future revival.
+ // precompressHtmlPlugin(__dirname),
  ]),
  // ── Content-hash manifest finalize (runs LAST in closeBundle) ──
  // Saves the manifest of SHA256 hashes for every file the WriteCollector
