@@ -2570,7 +2570,6 @@
         "famille": "Informatique",
         "site": "SION"
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2584,8 +2583,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T21:58:53.567Z",
-      "retranslationAttempts": 2
+      "firstSeenAt": "2026-04-27T21:58:53.567Z"
     },
     {
       "id": "hopital-du-valais-51b02650c089",
@@ -3201,7 +3199,6 @@
           "pflegefachperson-60-80-rehabilitation-2-west-hopital-du-valais-brig"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-20T10:47:50.886Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3215,8 +3212,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-fef5619b1990",
