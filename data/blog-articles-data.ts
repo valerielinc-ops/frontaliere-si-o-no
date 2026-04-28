@@ -9366,4 +9366,11 @@ export const ARTICLES = [
  image: '/images/blog/terremoto-san-gallo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'infermieri-indipendenti-ticino-2026',
+ category: 'novita',
+ date: '2026-04-28T22:53:56.901Z',
+ image: '/images/blog/infermieri-indipendenti-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

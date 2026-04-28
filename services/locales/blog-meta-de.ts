@@ -3580,6 +3580,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.terremoto-san-gallo-2026.title': 'Erdbeben der Stärke 3.8 im Kanton St. Gallen',
     'blog.article.terremoto-san-gallo-2026.excerpt': 'Ein Erdbeben der Stärke 3.8 hat den Kanton St. Gallen um 4.24 Uhr am 26. April 2026 erschüttert, mit Epizentrum in der Nähe von Walenstadt. Keine Schäden gemeldet.',
     'blog.article.terremoto-san-gallo-2026.imageAlt': 'Erdbebenschäden in einem Schweizer Dorf mit Menschen, die reagieren und Gebäuden mit Rissen',
+    'blog.article.infermieri-indipendenti-ticino-2026.title': 'Selbstständige Pflegekräfte im Tessin: zwischen Anerkennung und Kritik',
+    'blog.article.infermieri-indipendenti-ticino-2026.excerpt': 'Andrè Brusasco, selbstständiger Pflegekraft, erzählt über die Realität der Hausbesuche im Tessin und die aktuellen Herausforderungen',
+    'blog.article.infermieri-indipendenti-ticino-2026.imageAlt': 'Selbstständige Krankenschwester in der Arbeit im Tessin',
 };
 
 export default blogMetaDe;

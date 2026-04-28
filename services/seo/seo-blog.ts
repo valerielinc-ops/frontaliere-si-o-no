@@ -21586,6 +21586,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infermieri-indipendenti-ticino-2026': {
+    title: 'Infermieri indipendenti in Ticino: tra riconoscimento e critiche',
+    description: 'Andrè Brusasco, infermiere indipendente, racconta la realtà del lavoro a domicilio in Ticino e le sfide attuali. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, indipendenti, riconoscimento, critiche',
+    ogTitle: 'Infermieri indipendenti in Ticino: tra riconoscimento e critiche',
+    ogDescription: 'Andrè Brusasco, infermiere indipendente, racconta la realtà del lavoro a domicilio in Ticino e le sfide attuali',
+    canonicalPath: '/articoli-frontaliere/infermieri-indipendenti-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri indipendenti in Ticino: tra riconoscimento e critiche",
+      "description": "Andrè Brusasco, infermiere indipendente, racconta la realtà del lavoro a domicilio in Ticino e le sfide attuali. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infermieri-indipendenti-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infermiere indipendente al lavoro in Ticino"
+      },
+      "datePublished": "2026-04-28T22:53:56+00:00",
+      "dateModified": "2026-04-28T22:53:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-indipendenti-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

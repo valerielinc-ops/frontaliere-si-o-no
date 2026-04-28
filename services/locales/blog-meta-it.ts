@@ -3581,6 +3581,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.terremoto-san-gallo-2026.title': 'Terremoto 3.8 in Canton San Gallo',
     'blog.article.terremoto-san-gallo-2026.excerpt': 'Un terremoto di magnitudo 3.8 ha colpito il Canton San Gallo alle 4.24 del 26 aprile 2026, con epicentro vicino a Walenstadt. Nessun danno segnalato.',
     'blog.article.terremoto-san-gallo-2026.imageAlt': 'Danni da terremoto in un villaggio svizzero con persone che reagiscono e edifici con crepe',
+    'blog.article.infermieri-indipendenti-ticino-2026.title': 'Infermieri indipendenti in Ticino: tra riconoscimento e critiche',
+    'blog.article.infermieri-indipendenti-ticino-2026.excerpt': 'Andrè Brusasco, infermiere indipendente, racconta la realtà del lavoro a domicilio in Ticino e le sfide attuali',
+    'blog.article.infermieri-indipendenti-ticino-2026.imageAlt': 'Infermiere indipendente al lavoro in Ticino',
 };
 
 export default blogMetaIt;

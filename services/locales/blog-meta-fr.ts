@@ -3581,6 +3581,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.terremoto-san-gallo-2026.title': 'Séisme de magnitude 3.8 dans le canton de Saint-Gall',
     'blog.article.terremoto-san-gallo-2026.excerpt': 'Un séisme de magnitude 3.8 a frappé le canton de Saint-Gall à 4h24 le 26 avril 2026, avec son épicentre près de Walenstadt. Aucun dommage signalé.',
     'blog.article.terremoto-san-gallo-2026.imageAlt': 'Dégâts causés par un tremblement de terre dans un village suisse avec des personnes réagissant et des bâtiments montrant des fissures',
+    'blog.article.infermieri-indipendenti-ticino-2026.title': 'Infirmiers indépendants au Tessin : entre reconnaissance et critiques',
+    'blog.article.infermieri-indipendenti-ticino-2026.excerpt': 'Andrè Brusasco, infirmier indépendant, raconte la réalité du travail à domicile au Tessin et les défis actuels',
+    'blog.article.infermieri-indipendenti-ticino-2026.imageAlt': 'Infirmière indépendante au travail au Tessin',
 };
 
 export default blogMetaFr;

@@ -3580,6 +3580,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.terremoto-san-gallo-2026.title': '3.8 Magnitude Earthquake in Canton St. Gallen',
     'blog.article.terremoto-san-gallo-2026.excerpt': 'A 3.8 magnitude earthquake struck Canton St. Gallen at 4:24 AM on April 26, 2026, with its epicenter near Walenstadt. No damages reported.',
     'blog.article.terremoto-san-gallo-2026.imageAlt': 'Earthquake damage in a Swiss village with people reacting and buildings showing minor cracks',
+    'blog.article.infermieri-indipendenti-ticino-2026.title': 'Independent nurses in Ticino: recognition and criticism',
+    'blog.article.infermieri-indipendenti-ticino-2026.excerpt': 'Andrè Brusasco, an independent nurse, talks about home care work in Ticino and current challenges',
+    'blog.article.infermieri-indipendenti-ticino-2026.imageAlt': 'Independent nurse working in Ticino',
 };
 
 export default blogMetaEn;
