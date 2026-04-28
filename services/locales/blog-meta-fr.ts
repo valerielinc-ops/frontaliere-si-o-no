@@ -3341,6 +3341,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ex-sede-banca-ditalia-vendita-varese.title': 'Ancienne siège de la Banque d\'Italie à Varese: prix et raisons de la non-vente',
     'blog.article.ex-sede-banca-ditalia-vendita-varese.excerpt': 'L\'ancienne siège de la Banque d\'Italie à Varese est en vente depuis des années. Découvrons le prix et les raisons pour lesquelles elle ne trouve pas d\'acheteurs.',
     'blog.article.ex-sede-banca-ditalia-vendita-varese.imageAlt': 'Vue aérienne de l\'ancien siège de la Banca d\'Italia à Varese, Italie, avec un accent sur ses détails architecturaux et le paysage urbain environnant.',
+    'blog.article.139-frontalieri-ticino-special-olympics.title': '139 athlètes tessinois aux Jeux d\'été de Special Olympics',
+    'blog.article.139-frontalieri-ticino-special-olympics.excerpt': '139 athlètes avec une déficience intellectuelle du Tessin participent aux Jeux d\'été de Special Olympics à Zoug du 28 au 31 mai 2026',
+    'blog.article.139-frontalieri-ticino-special-olympics.imageAlt': 'Athlètes avec un handicap intellectuel participent aux Jeux d\'été nationaux de Special Olympics à Zug',
 };
 
 export default blogMetaFr;

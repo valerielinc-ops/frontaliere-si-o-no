@@ -8806,4 +8806,11 @@ export const ARTICLES = [
  image: '/images/blog/ex-sede-banca-ditalia-vendita-varese.jpg',
  hasCalculator: true,
  },
+ {
+ id: '139-frontalieri-ticino-special-olympics',
+ category: 'novita',
+ date: '2026-04-28T13:01:39.278Z',
+ image: '/images/blog/139-frontalieri-ticino-special-olympics.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

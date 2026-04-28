@@ -3340,6 +3340,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ex-sede-banca-ditalia-vendita-varese.title': 'Ex Bank of Italy HQ for sale in Varese: why it\'s not selling',
     'blog.article.ex-sede-banca-ditalia-vendita-varese.excerpt': 'The former headquarters of the Bank of Italy in Varese has been for sale for years. We discover the price and the reasons why it doesn\'t find buyers.',
     'blog.article.ex-sede-banca-ditalia-vendita-varese.imageAlt': 'Aerial view of the former Banca d\'Italia building in Varese, Italy, with a focus on its architectural details and the surrounding urban landscape.',
+    'blog.article.139-frontalieri-ticino-special-olympics.title': '139 Ticino cross-border athletes at Special Olympics National Summer Games',
+    'blog.article.139-frontalieri-ticino-special-olympics.excerpt': '139 athletes with intellectual disabilities from Ticino will participate in the Special Olympics National Summer Games in Zug from May 28 to 31, 2026.',
+    'blog.article.139-frontalieri-ticino-special-olympics.imageAlt': 'Athletes with intellectual disabilities compete at the Special Olympics National Summer Games in Zug',
 };
 
 export default blogMetaEn;

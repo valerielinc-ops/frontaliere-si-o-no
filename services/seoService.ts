@@ -2344,6 +2344,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ex-capo-esercito-kaiser-partner-privatbank': { name: 'Novità', path: '/articoli-frontaliere/ex-capo-esercito-kaiser-partner-privatbank', parent: 'blog' },
     'blog-nuove-regole-centri-estivi-saronno-2026': { name: 'Novità', path: '/articoli-frontaliere/nuove-regole-centri-estivi-saronno-2026', parent: 'blog' },
     'blog-ex-sede-banca-ditalia-vendita-varese': { name: 'Novità', path: '/articoli-frontaliere/ex-sede-banca-ditalia-vendita-varese', parent: 'blog' },
+    'blog-139-frontalieri-ticino-special-olympics': { name: 'Special Olympics', path: '/articoli-frontaliere/139-frontalieri-ticino-special-olympics', parent: 'blog' },
  };
 
  const info = sectionNames[section];

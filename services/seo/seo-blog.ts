@@ -19266,6 +19266,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-139-frontalieri-ticino-special-olympics': {
+    title: '139 frontalieri del Ticino ai National Summer Games di Special Olympics',
+    description: '139 atleti con disabilità intellettiva dal Ticino partecipano ai National Summer Games di Special Olympics a Zugo dal 28 al 31 maggio 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, national, summer, games, special',
+    ogTitle: '139 frontalieri del Ticino ai National Summer Games di Special Olympics',
+    ogDescription: '139 atleti con disabilità intellettiva dal Ticino partecipano ai National Summer Games di Special Olympics a Zugo dal 28 al 31 maggio 2026',
+    canonicalPath: '/articoli-frontaliere/139-frontalieri-ticino-special-olympics',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "139 frontalieri del Ticino ai National Summer Games di Special Olympics",
+      "description": "139 atleti con disabilità intellettiva dal Ticino partecipano ai National Summer Games di Special Olympics a Zugo dal 28 al 31 maggio 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/139-frontalieri-ticino-special-olympics.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Atleti con disabilità intellettiva partecipano ai National Summer Games di Special Olympics a Zugo"
+      },
+      "datePublished": "2026-04-28T13:01:39+00:00",
+      "dateModified": "2026-04-28T13:01:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/139-frontalieri-ticino-special-olympics`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3341,6 +3341,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ex-sede-banca-ditalia-vendita-varese.title': 'Ex sede Banca d\'Italia in vendita a Varese: quanto costa e perché non si vende',
     'blog.article.ex-sede-banca-ditalia-vendita-varese.excerpt': 'L\'ex sede della Banca d\'Italia a Varese è in vendita da anni. Scopriamo il prezzo e i motivi per cui non trova acquirenti.',
     'blog.article.ex-sede-banca-ditalia-vendita-varese.imageAlt': 'Veduta aerea dell\'ex sede della Banca d\'Italia a Varese, Italia, con particolare attenzione ai dettagli architettonici e al paesaggio urbano circostante.',
+    'blog.article.139-frontalieri-ticino-special-olympics.title': '139 frontalieri del Ticino ai National Summer Games di Special Olympics',
+    'blog.article.139-frontalieri-ticino-special-olympics.excerpt': '139 atleti con disabilità intellettiva dal Ticino partecipano ai National Summer Games di Special Olympics a Zugo dal 28 al 31 maggio 2026',
+    'blog.article.139-frontalieri-ticino-special-olympics.imageAlt': 'Atleti con disabilità intellettiva partecipano ai National Summer Games di Special Olympics a Zugo',
 };
 
 export default blogMetaIt;
