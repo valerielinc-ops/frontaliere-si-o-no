@@ -906,22 +906,20 @@
     }
     </script>
 
-    <!-- WebApplication Schema — main app description (inline for rich results) -->
+    <!-- Homepage description: WebPage with about (the home of frontaliereticino.ch). -->
+    <!-- Policy: WebApplication @type would require aggregateRating + review for -->
+    <!-- rich-result eligibility, and we do not have a real verifiable review -->
+    <!-- corpus, so claiming one would violate Google's structured-data guidelines. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": "WebPage",
       "name": "Simulazione Tasse Nuovi Frontalieri 2026",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": ["Windows", "macOS", "Linux", "Android", "iOS"],
       "url": "https://frontaliereticino.ch",
-      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock"},
       "description": "Strumento completo per il calcolo e il confronto della tassazione per i lavoratori frontalieri tra Svizzera e Italia secondo il nuovo accordo 2026. Include simulatore fiscale, pianificatore pensione LPP/AVS/INPS e guida pratica con informazioni su comuni frontalieri, varchi doganali e costi.",
-      "featureList": ["Calcolo Imposta alla Fonte Svizzera (aliquote 2026 Canton Ticino)","Calcolo IRPEF Italia con franchigia €10.000","Confronto Vecchio vs Nuovo Frontaliere 2026","Pianificatore Pensione (LPP, AVS, INPS, 3° Pilastro)","Cambio CHF/EUR in tempo reale","Confronto assicurazioni sanitarie LAMal (14 assicuratori, 7 cantoni)","Guida 200+ comuni frontalieri","Informazioni varchi doganali e tempi di attesa","Confronto costi vita CH vs IT","Calcolatore costi trasporto","Calendario fiscale"],
       "screenshot": "https://frontaliereticino.ch/og-image.png",
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "inLanguage": ["it-IT", "en-US", "de-CH", "fr-CH"],
-      "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "1247", "bestRating": "5", "worstRating": "1"}
+      "inLanguage": ["it-IT", "en-US", "de-CH", "fr-CH"]
     }
     </script>
 

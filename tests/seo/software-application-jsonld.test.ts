@@ -8,7 +8,7 @@ function asArray<T>(value: T | T[] | undefined): T[] {
  return Array.isArray(value) ? value : [value];
 }
 
-describe('WebApplication / SoftwareApplication structured data', () => {
+describe('WebApplication / SoftwareApplication structured data — policy enforcement', () => {
  const entries = Object.entries(SEO_METADATA)
   .flatMap(([key, meta]) =>
    asArray(meta.structuredData).flatMap((schema) => {
@@ -19,39 +19,16 @@ describe('WebApplication / SoftwareApplication structured data', () => {
    }),
   );
 
- it('finds application schemas in SEO metadata', () => {
-  expect(entries.length).toBeGreaterThan(20);
- });
-
- it('normalizes defaults required by Sprint 1 validators', () => {
-  const failures: string[] = [];
-
-  for (const { key, schema } of entries) {
-   if (!schema.applicationCategory) {
-    failures.push(`${key}: missing applicationCategory`);
-   }
-   if (schema.operatingSystem !== 'Web') {
-    failures.push(`${key}: operatingSystem="${String(schema.operatingSystem)}"`);
-   }
-   if (!schema.offers || typeof schema.offers !== 'object') {
-    failures.push(`${key}: missing offers`);
-    continue;
-   }
-   if (schema.offers.price === undefined || schema.offers.price === null || schema.offers.price === '') {
-    failures.push(`${key}: missing offers.price`);
-   }
-   if (!schema.offers.priceCurrency) {
-    failures.push(`${key}: missing offers.priceCurrency`);
-   }
-  }
-
-  expect(failures).toEqual([]);
- });
-
- it('keeps aggregateRating on the homepage app schema', () => {
-  const homepage = entries.find(({ key }) => key === 'calculator');
-  expect(homepage?.schema.aggregateRating).toBeTruthy();
-  expect(homepage?.schema.aggregateRating?.ratingValue).toBeTruthy();
-  expect(homepage?.schema.aggregateRating?.ratingCount).toBeTruthy();
+ // Policy: pages that are NOT real interactive applications must not
+ // declare WebApplication / SoftwareApplication. Schema.org's "Software App"
+ // rich-result requires aggregateRating + review for eligibility, and
+ // Google's structured-data guidelines forbid fabricated review data.
+ // Without a real verifiable review feed we cannot satisfy that
+ // requirement, so we must NOT claim WebApplication on any seo-pages /
+ // seo-landing entry. Any new declaration here will surface as a
+ // failure here AND at deploy time via the structured-data gate.
+ it('SEO metadata declares ZERO WebApplication / SoftwareApplication entries', () => {
+  const offenders = entries.map(({ key }) => key);
+  expect(offenders).toEqual([]);
  });
 });

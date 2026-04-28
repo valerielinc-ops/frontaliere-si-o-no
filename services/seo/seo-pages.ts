@@ -55,7 +55,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Simulatore Fiscale Frontalieri",
  "url": `${BASE_URL}/`,
  "description": "Calcolo preciso delle tasse per frontalieri tra Svizzera e Italia secondo il nuovo accordo 2026",
@@ -65,13 +65,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "Offer",
  "price": "0",
  "priceCurrency": "CHF"
- },
- "aggregateRating": {
- "@type": "AggregateRating",
- "ratingValue": "4.8",
- "ratingCount": "1247",
- "bestRating": "5",
- "worstRating": "1"
  },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  },
@@ -509,7 +502,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolo Stipendio Netto Svizzera — Simulatore Frontalieri",
  "url": `${BASE_URL}/calcola-stipendio`,
  "description": "Simulatore gratuito per il calcolo dello stipendio netto in Svizzera per frontalieri: AVS, imposta alla fonte Ticino, IRPEF con franchigia 10.000 EUR e confronto CHF/EUR. Nuovo Accordo fiscale 2026.",
@@ -517,13 +510,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "operatingSystem": "Web Browser",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
  "isAccessibleForFree": true,
- "aggregateRating": {
- "@type": "AggregateRating",
- "ratingValue": "4.8",
- "ratingCount": "1247",
- "bestRating": "5",
- "worstRating": "1"
- },
  },
  {
  "@context": "https://schema.org",
@@ -562,71 +548,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "Question", "name": "Quanto si risparmia vivendo in Italia e lavorando in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere con stipendio mediano (CHF 5.600 lordi) e residenza a Varese o Como risparmia mediamente 1.500–2.200 € al mese rispetto a un residente svizzero con lo stesso lordo, grazie ad affitto ~60% inferiore, LAMal sostituita dal SSN (se opta) e spesa alimentare ~30% più bassa. Sottraendo 250–400 €/mese di trasporti (auto+carburante o abbonamento TILO), il risparmio netto reale è 1.100–1.800 €/mese." } },
  { "@type": "Question", "name": "Come confrontare due offerte di lavoro CH con stipendi diversi?", "acceptedAnswer": { "@type": "Answer", "text": "Non confrontare solo il lordo: usa il simulatore 'Confronto RAL CH-IT' inserendo entrambi i lordi, lo stesso stato civile/figli e il comune di residenza. Confronta poi netto mensile in EUR, tredicesima (sempre obbligatoria in CH), contributi LPP (7–18% in base all'età), partecipazione LAMal del datore (se presente), e benefit (mensa, buoni pasto, auto aziendale). Una differenza di CHF 500 lordi può diventare solo 250–300 € netti." } }
  ]
- },
- {
- "@context": "https://schema.org",
- "@type": "Review",
- "itemReviewed": {
- "@type": "WebApplication",
- "name": "Simulatore Stipendio Frontaliere",
- "url": `${BASE_URL}/calcola-stipendio`
- },
- "author": { "@type": "Person", "name": "Marco R." },
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
- "datePublished": "2026-01-15",
- "reviewBody": "Finalmente un calcolatore preciso per frontalieri! Ho verificato con la mia busta paga e il risultato era quasi identico. Utilissimo per chi deve decidere tra Permesso B e G."
- },
- {
- "@context": "https://schema.org",
- "@type": "Review",
- "itemReviewed": {
- "@type": "WebApplication",
- "name": "Simulatore Stipendio Frontaliere",
- "url": `${BASE_URL}/calcola-stipendio`
- },
- "author": { "@type": "Person", "name": "Giulia T." },
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
- "datePublished": "2026-02-08",
- "reviewBody": "Ho usato il confronto Permesso G vs B per decidere se trasferirmi a Lugano o continuare a pendolare da Como. I numeri mi hanno aiutato a fare una scelta consapevole."
- },
- {
- "@context": "https://schema.org",
- "@type": "Review",
- "itemReviewed": {
- "@type": "WebApplication",
- "name": "Simulatore Stipendio Frontaliere",
- "url": `${BASE_URL}/calcola-stipendio`
- },
- "author": { "@type": "Person", "name": "Alessandro M." },
- "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
- "datePublished": "2025-12-10",
- "reviewBody": "Il pianificatore pensione AVS/LPP è molto utile per capire quanto accumulerò lavorando in Svizzera. Manca solo la simulazione del terzo pilastro integrata, ma nel complesso ottimo."
- },
- {
- "@context": "https://schema.org",
- "@type": "Review",
- "itemReviewed": {
- "@type": "WebApplication",
- "name": "Simulatore Stipendio Frontaliere",
- "url": `${BASE_URL}/calcola-stipendio`
- },
- "author": { "@type": "Person", "name": "Francesca B." },
- "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
- "datePublished": "2026-03-22",
- "reviewBody": "Il confronto LAMal vs SSN mi ha fatto risparmiare quasi 200 CHF al mese scegliendo l'assicurazione giusta. Strumento indispensabile per ogni frontaliere."
- },
- {
- "@context": "https://schema.org",
- "@type": "Review",
- "itemReviewed": {
- "@type": "WebApplication",
- "name": "Simulatore Stipendio Frontaliere",
- "url": `${BASE_URL}/calcola-stipendio`
- },
- "author": { "@type": "Person", "name": "Lorenzo C." },
- "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
- "datePublished": "2026-01-28",
- "reviewBody": "Lo uso ogni giorno per controllare il cambio CHF/EUR e calcolare il netto in euro. Pratico e veloce, ormai è il mio punto di riferimento per le finanze da frontaliere."
  }
  ]
  },
@@ -1073,7 +994,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Simulazione Tasse Nuovi Frontalieri 2026",
  "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri`,
  "description": "Simulatore gratuito per il calcolo delle tasse dei nuovi frontalieri secondo il nuovo accordo fiscale Italia-Svizzera: imposta alla fonte, IRPEF con franchigia €10.000, credito d'imposta.",
@@ -1222,7 +1143,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Comparatore Cambio Franco Euro",
  "url": `${BASE_URL}/compara-servizi/cambio-franco-euro`,
  "description": "Confronto tassi di cambio franco-euro in tempo reale tra 6 provider (Wise, Revolut, PostFinance, UBS, Raiffeisen, N26) con tabella spread e calcolatore commissioni.",
@@ -1275,7 +1196,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Confronto Operatori Mobili per Frontalieri",
  "url": `${BASE_URL}/compara-servizi/confronta-operatori-mobili`,
  "description": "Confronto costi mensili di 6 operatori mobili svizzeri con roaming illimitato in Italia",
@@ -1308,7 +1229,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  h1: 'Trasporti frontalieri Ticino 2026 — treni TILO, auto, car-sharing e abbonamenti',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolatore Costi Trasporto Frontalieri",
  "url": `${BASE_URL}/vivere-in-ticino/trasporti-frontalieri`,
  "description": "Calcola e confronta i costi reali di trasporto per frontalieri: auto, treno e bus",
@@ -1329,7 +1250,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Comparatore Assicurazioni Sanitarie LAMal",
  "url": `${BASE_URL}/compara-servizi/confronta-casse-malati`,
  "description": "Confronta premi assicurazione sanitaria LAMal di 14 assicuratori svizzeri in 7 cantoni",
@@ -1364,21 +1285,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  canonicalPath: '/compara-servizi/confronta-banche',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Confronto Banche per Frontalieri",
  "url": `${BASE_URL}/compara-servizi/confronta-banche`,
  "description": "Confronto conti correnti e servizi bancari tra banche svizzere e italiane per lavoratori frontalieri",
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web Browser",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
- "aggregateRating": {
- "@type": "AggregateRating",
- "ratingValue": "4.8",
- "ratingCount": "1247",
- "bestRating": "5",
- "worstRating": "1"
- }
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  }
  },
 
@@ -1392,7 +1306,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Pianificatore Pensione Frontalieri",
  "url": `${BASE_URL}/tasse-e-pensione/calcola-previdenza`,
  "description": "Strumento per calcolare e pianificare la pensione dei lavoratori frontalieri tra Svizzera e Italia",
@@ -1575,7 +1489,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Simulatore What-If Frontalieri",
  "url": `${BASE_URL}/calcola-stipendio/cosa-cambia-se`,
  "description": "Simulazione scenari fiscali per frontalieri: come cambiano le tasse con figlio, stipendio diverso, stato civile",
@@ -1606,7 +1520,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  h1: 'Confronta offerte di lavoro in Svizzera per frontalieri 2026 — netto reale CHF/EUR',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Confronto Offerte Lavoro Svizzera",
  "url": `${BASE_URL}/compara-servizi/confronta-offerte-lavoro`,
  "description": "Confronta fino a 4 offerte di lavoro in Svizzera con calcolo netto reale: tasse, trasporto, benefit",
@@ -1795,7 +1709,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Simulatore 3° Pilastro Svizzera",
  "url": `${BASE_URL}/tasse-e-pensione/simula-terzo-pilastro`,
  "description": "Calcola risparmio fiscale e crescita del 3° pilastro svizzero (3a e 3b) con proiezione a lungo termine",
@@ -1912,7 +1826,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Confronto Prezzi Supermercato Svizzera-Italia",
  "url": `${BASE_URL}/compara-servizi/confronta-prezzi-spesa`,
  "description": "Mappa interattiva di 40+ supermercati di frontiera con confronto prezzi di 25 prodotti e indice di convenienza per zona",
@@ -1969,7 +1883,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Confronto Costo della Vita Svizzera-Italia",
  "url": `${BASE_URL}/compara-servizi/costo-della-vita`,
  "description": "Confronto interattivo del costo della vita tra città di frontiera svizzere e italiane",
@@ -2124,7 +2038,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  h1: 'Costo auto pendolare frontaliere Ticino 2026 — casi studio, tabelle km/CHF, treno',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolatore Costi Pendolarismo Frontaliere",
  "url": `${BASE_URL}/guida-frontaliere/costo-auto-pendolare`,
  "description": "Calcola costi reali del pendolarismo frontaliere: benzina, autostrada, usura auto, abbonamenti treno e bus",
@@ -2206,7 +2120,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Mappa Comuni di Frontiera Italia-Svizzera",
  "url": `${BASE_URL}/vivere-in-ticino/comuni-di-frontiera`,
  "description": "Mappa interattiva dei comuni italiani di frontiera con distanze dai valichi e informazioni utili",
@@ -2599,7 +2513,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolatore RAL Netta Italia vs Svizzera",
  "url": `${BASE_URL}/calcola-stipendio/confronta-retribuzione-ral`,
  "description": "Confronta lo stipendio netto a parità di RAL tra Italia e Svizzera: IRPEF, INPS, imposta alla fonte, contributi sociali svizzeri",
@@ -2633,7 +2547,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolatore Congedo Genitoriale Frontalieri",
  "url": `${BASE_URL}/calcola-stipendio/verifica-congedo-parentale`,
  "description": "Calcola congedo maternità e paternità per frontalieri: IPG svizzera vs INPS italiana, importi e documenti",
@@ -2668,7 +2582,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Mappa Valichi e Comuni di Frontiera Italia-Svizzera",
  "url": `${BASE_URL}/guida-frontaliere/mappa-confine`,
  "description": "Mappa interattiva dei valichi di confine Ticino-Italia con tempi di attesa, webcam live, orari, e comuni di frontiera con addizionali IRPEF",
@@ -2811,7 +2725,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Buongiorno Frontaliere - Dashboard Mattutino",
  "url": `${BASE_URL}/buongiorno-frontaliere`,
  "description": "Dashboard mattutino per frontalieri con meteo, traffico valichi e tasso di cambio CHF-EUR in tempo reale",
@@ -2952,7 +2866,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  canonicalPath: '/calcola-stipendio/simula-cambio-residenza',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Simulatore Cambio Residenza Italia-Svizzera",
  "url": `${BASE_URL}/calcola-stipendio/simula-cambio-residenza`,
  "description": "Simula il costo del cambio residenza tra Italia e Svizzera: confronto costi mensili, costi una tantum, break-even",
@@ -2972,7 +2886,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  canonicalPath: '/calcola-stipendio/quanto-guadagneresti-in-svizzera',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Quiz Stipendio Frontaliere Svizzera",
  "url": `${BASE_URL}/calcola-stipendio/quanto-guadagneresti-in-svizzera`,
  "description": "Quiz interattivo per stimare lo stipendio netto come frontaliere in Svizzera",
@@ -2993,20 +2907,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Simulatore Busta Paga Svizzera",
  "url": `${BASE_URL}/calcola-stipendio/simula-busta-paga`,
  "description": "Simula la busta paga svizzera con deduzioni AVS, AC, LAA, LPP e imposta alla fonte per frontalieri",
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web Browser",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "aggregateRating": {
- "@type": "AggregateRating",
- "ratingValue": "4.8",
- "ratingCount": "1247",
- "bestRating": "5",
- "worstRating": "1"
- },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  },
  {
@@ -3146,7 +3053,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Confronto Permesso G vs B",
  "url": `${BASE_URL}/guida-frontaliere/confronta-permesso-g-vs-b`,
  "description": "Confronto fiscale tra permesso G (frontaliere) e permesso B (dimora): tasse, contributi, costi",
@@ -3342,7 +3249,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  canonicalPath: '/profilo',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Dashboard Personale Frontaliere",
  "url": `${BASE_URL}/profilo`,
  "description": "Dashboard personale per frontalieri: salva simulazioni fiscali, confronta risultati nel tempo, esporta PDF",
@@ -3389,7 +3296,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolatore Credito d'Imposta Frontalieri",
  "url": `${BASE_URL}/tasse-e-pensione/credito-imposta`,
  "description": "Calcola il credito d'imposta per evitare la doppia tassazione Svizzera-Italia per lavoratori frontalieri",
@@ -3648,7 +3555,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  canonicalPath: '/contratti-lavoro-svizzera',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Confronto Contratti Collettivi Svizzera vs Italia",
  "url": `${BASE_URL}/contratti-lavoro-svizzera`,
  "description": "Database interattivo dei contratti collettivi ticinesi (edilizia, metalmeccanica, commercio, ristorazione, sanità) con confronto CCNL italiano.",
@@ -3671,7 +3578,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolatore TFR vs LPP per Frontalieri",
  "url": `${BASE_URL}/tfr-liquidazione-frontaliere`,
  "description": "Simulatore TFR italiano vs 2° pilastro svizzero (LPP/BVG) per lavoratori frontalieri. Confronto su N anni di contributi.",
@@ -3725,7 +3632,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Quiz Permesso B o G per Frontalieri",
  "url": `${BASE_URL}/quiz-permesso-b-o-g`,
  "description": "Quiz interattivo per scegliere tra Permesso B (residenza) e Permesso G (frontaliere) in Svizzera. 8 domande personalizzate.",
@@ -3771,7 +3678,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolatore Tredicesima per Frontalieri",
  "url": `${BASE_URL}/calcolo-tredicesima-frontaliere`,
  "description": "Calcola tredicesima e quattordicesima mensilità per lavoratori frontalieri. Confronto 13° stipendio svizzero vs tredicesima italiana con pro-rata.",
@@ -4099,7 +4006,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Confronto Asili Nido Ticino-Italia",
  "url": `${BASE_URL}/vivere-in-ticino/confronta-asili-nido`,
  "description": "Confronto costi e disponibilità asili nido tra Canton Ticino e Italia per famiglie di frontalieri",
@@ -4185,7 +4092,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  canonicalPath: '/calcola-stipendio/stima-bonus-frontaliere',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolatore Bonus Frontalieri",
  "url": `${BASE_URL}/calcola-stipendio/stima-bonus-frontaliere`,
  "description": "Calcola la tassazione di bonus e tredicesima per lavoratori frontalieri",
@@ -4205,7 +4112,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  canonicalPath: '/compara-servizi/calcola-bonus-ristrutturazione',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Calcolatore Bonus Ristrutturazione",
  "url": `${BASE_URL}/compara-servizi/calcola-bonus-ristrutturazione`,
  "description": "Calcola le detrazioni per ristrutturazione casa disponibili per frontalieri residenti in Italia",
@@ -7609,6 +7516,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // ─── English E-E-A-T alias pages ─────────────────────────────────────────
  // Root-level English paths so SEO crawlers (squirrelscan, Bing) find
  // About / Contact / Privacy pages using English URL heuristics.
+ // NOTE: the blank line below is REQUIRED — staticPagesPlugin's seoMap
+ // parser regex only matches entries preceded by a blank line (consumes
+ // \n\n as the 2-char whitespace prefix it needs to anchor on).
+
  'about': {
  title: 'About Us — Frontaliere Ticino: Cross-Border Workers Guide',
  description: 'Frontaliere Ticino is the leading platform for Italian cross-border workers in Switzerland. Tax simulation, permits, health insurance, pension planning.',
