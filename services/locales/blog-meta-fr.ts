@@ -3473,6 +3473,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.emergenza-casa-como-analisi.title': 'Urgence logement à Côme: analyse et visions du PD',
     'blog.article.emergenza-casa-como-analisi.excerpt': 'Le Parti Démocrate de Côme organise une rencontre pour discuter de l\'urgence du logement en ville, avec des experts et des intervenants.',
     'blog.article.emergenza-casa-como-analisi.imageAlt': 'Vue du centre-ville de Côme avec des bâtiments résidentiels et des discussions sur l\'urbanisme',
+    'blog.article.iniziativa-f-35-ticino-2026.title': 'Initiative pour annuler l\'achat des F-35',
+    'blog.article.iniziativa-f-35-ticino-2026.excerpt': 'Une association civique lance une initiative pour faire annuler le contrat des F-35, jugés trop coûteux et inadaptés.',
+    'blog.article.iniziativa-f-35-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les rives suisse et italienne',
 };
 
 export default blogMetaFr;

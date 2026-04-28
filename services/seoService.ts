@@ -2388,6 +2388,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fattura-miliardaria-energia-medio-oriente': { name: 'Novità', path: '/articoli-frontaliere/fattura-miliardaria-energia-medio-oriente', parent: 'blog' },
     'blog-riforma-infermieri-ticino-2026': { name: 'Riforma infermieristica', path: '/articoli-frontaliere/riforma-infermieri-ticino-2026', parent: 'blog' },
     'blog-emergenza-casa-como-analisi': { name: 'Emergenza casa', path: '/articoli-frontaliere/emergenza-casa-como-analisi', parent: 'blog' },
+    'blog-iniziativa-f-35-ticino-2026': { name: 'Iniziativa F-35', path: '/articoli-frontaliere/iniziativa-f-35-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -20542,6 +20542,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-f-35-ticino-2026': {
+    title: 'Iniziativa per annullare l\'acquisto degli F-35 | Frontaliere Ticino',
+    description: 'Un\'associazione civica lancia un\'iniziativa per far annullare il contratto degli F-35, considerati troppo costosi e inadatti. Scopri le implicazioni per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, annullare, acquisto, f-35',
+    ogTitle: 'Iniziativa per annullare l\'acquisto degli F-35',
+    ogDescription: 'Un\'associazione civica lancia un\'iniziativa per far annullare il contratto degli F-35, considerati troppo costosi e inadatti. Scopri le implicazioni per i',
+    canonicalPath: '/articoli-frontaliere/iniziativa-f-35-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa per annullare l'acquisto degli F-35",
+      "description": "Un'associazione civica lancia un'iniziativa per far annullare il contratto degli F-35, considerati troppo costosi e inadatti. Scopri le implicazioni per i",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziativa-f-35-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le sponde svizzera e italiana"
+      },
+      "datePublished": "2026-04-28T19:14:54+00:00",
+      "dateModified": "2026-04-28T19:14:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-f-35-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

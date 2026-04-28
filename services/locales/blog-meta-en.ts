@@ -3472,6 +3472,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.emergenza-casa-como-analisi.title': 'Housing emergency in Como: PD analysis and views',
     'blog.article.emergenza-casa-como-analisi.excerpt': 'The Democratic Party of Como organizes a meeting to discuss the housing emergency in the city, with experts and speakers.',
     'blog.article.emergenza-casa-como-analisi.imageAlt': 'View of Como city center with residential buildings and urban planning discussions',
+    'blog.article.iniziativa-f-35-ticino-2026.title': 'Initiative to cancel F-35 purchase',
+    'blog.article.iniziativa-f-35-ticino-2026.excerpt': 'A civic association launches an initiative to cancel the F-35 contract, deemed too costly and unsuitable.',
+    'blog.article.iniziativa-f-35-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Swiss and Italian shores',
 };
 
 export default blogMetaEn;

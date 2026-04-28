@@ -3473,6 +3473,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.emergenza-casa-como-analisi.title': 'Emergenza casa a Como: analisi e visioni del PD',
     'blog.article.emergenza-casa-como-analisi.excerpt': 'Il Partito Democratico di Como organizza un incontro per discutere l\'emergenza abitativa in città, con esperti e relatori.',
     'blog.article.emergenza-casa-como-analisi.imageAlt': 'Veduta del centro di Como con edifici residenziali e discussioni su pianificazione urbana',
+    'blog.article.iniziativa-f-35-ticino-2026.title': 'Iniziativa per annullare l\'acquisto degli F-35',
+    'blog.article.iniziativa-f-35-ticino-2026.excerpt': 'Un\'associazione civica lancia un\'iniziativa per far annullare il contratto degli F-35, considerati troppo costosi e inadatti.',
+    'blog.article.iniziativa-f-35-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con le sponde svizzera e italiana',
 };
 
 export default blogMetaIt;

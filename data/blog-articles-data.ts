@@ -9114,4 +9114,11 @@ export const ARTICLES = [
  image: '/images/blog/emergenza-casa-como-analisi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'iniziativa-f-35-ticino-2026',
+ category: 'novita',
+ date: '2026-04-28T19:14:54.498Z',
+ image: '/images/blog/iniziativa-f-35-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

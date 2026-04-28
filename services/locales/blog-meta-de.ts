@@ -3472,6 +3472,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.emergenza-casa-como-analisi.title': 'Wohnungsnot in Como: PD-Analyse und Visionen',
     'blog.article.emergenza-casa-como-analisi.excerpt': 'Die Demokratische Partei von Como organisiert eine Veranstaltung, um die Wohnungsnot in der Stadt mit Experten und Referenten zu diskutieren.',
     'blog.article.emergenza-casa-como-analisi.imageAlt': 'Ansicht des Stadtzentrums von Como mit Wohngebäuden und Diskussionen über Stadtplanung',
+    'blog.article.iniziativa-f-35-ticino-2026.title': 'Initiative zur Stornierung des F-35-Kaufs',
+    'blog.article.iniziativa-f-35-ticino-2026.excerpt': 'Ein Bürgerverband startet eine Initiative zur Aufhebung des F-35-Vertrags, der als zu teuer und ungeeignet gilt.',
+    'blog.article.iniziativa-f-35-ticino-2026.imageAlt': 'Luftaufnahme des Luganersees mit Schweizer und italienischer Küste',
 };
 
 export default blogMetaDe;
