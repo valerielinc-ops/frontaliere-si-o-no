@@ -6829,7 +6829,7 @@ ${hreflangLinks}
  // Skip if any earlier phase (active, bridge, soft-landing) already wrote here.
  if (_writtenPaths.has(indexFile)) continue;
  _md(outDir);
- fs.writeFileSync(indexFile, bridgeHtml);
+ _qw(indexFile, bridgeHtml);
  _writtenPaths.add(indexFile);
  crossLocaleExpiredCount++;
  }
@@ -6979,7 +6979,7 @@ ${hreflangLinks}
  // this job (same content would be written again).
  if (_writtenPaths.has(indexFile)) continue;
  _md(outDir);
- fs.writeFileSync(indexFile, bridgeHtml);
+ _qw(indexFile, bridgeHtml);
  _writtenPaths.add(indexFile);
  // Note: skip the flat `.html` variant — GH Pages serves
  // /dir/index.html for direct URL hits and the flat variant
