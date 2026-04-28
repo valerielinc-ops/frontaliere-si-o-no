@@ -1,3 +1,5 @@
+import { TYPES_ACCEPT_IN_LANGUAGE } from '../seoService';
+
 const DEFAULT_DATASET_LICENSE = 'https://creativecommons.org/licenses/by-nc/4.0/';
 const DEFAULT_APP_CATEGORY = 'FinanceApplication';
 const DEFAULT_OPERATING_SYSTEM = 'Web';
@@ -55,6 +57,14 @@ function normalizeSchemaObject(record: Record<string, any>): Record<string, any>
   }
   if ('speakable' in record) {
    delete record.speakable;
+  }
+ }
+
+ if (record.inLanguage !== undefined) {
+  const typeValue = record['@type'];
+  const primaryType = Array.isArray(typeValue) ? typeValue[0] : typeValue;
+  if (typeof primaryType === 'string' && !TYPES_ACCEPT_IN_LANGUAGE.has(primaryType)) {
+   delete record.inLanguage;
   }
  }
 

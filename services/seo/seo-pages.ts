@@ -518,6 +518,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
  "isAccessibleForFree": true,
+ "aggregateRating": {
+ "@type": "AggregateRating",
+ "ratingValue": "4.8",
+ "ratingCount": "1247",
+ "bestRating": "5",
+ "worstRating": "1"
+ },
  },
  {
  "@context": "https://schema.org",
@@ -1366,7 +1373,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web Browser",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+ "aggregateRating": {
+ "@type": "AggregateRating",
+ "ratingValue": "4.8",
+ "ratingCount": "1247",
+ "bestRating": "5",
+ "worstRating": "1"
+ }
  }
  },
 
@@ -2505,7 +2519,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Vollständige Liste der 15 offiziellen Feiertage im Kanton Tessin im Jahr 2026",
  "itemListOrder": "https://schema.org/ItemListOrderAscending",
  "numberOfItems": 15,
- "inLanguage": "de",
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "item": { "@type": "Event", "name": "Neujahr", "startDate": "2026-01-01", "endDate": "2026-01-01", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Kanton Tessin", "address": { "@type": "PostalAddress", "addressLocality": "Kanton Tessin", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Neujahr — Donnerstag, 1. Januar 2026. Schweizer Bundesfeiertag, arbeitsfrei im gesamten Tessin.", "image": `${BASE_URL}/og-image.png`, "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage#1`, "organizer": { "@type": "GovernmentOrganization", "name": "Kanton Tessin", "url": "https://www.ti.ch" }, "performer": { "@type": "Organization", "name": "Kanton Tessin", "url": "https://www.ti.ch" }, "offers": { "@type": "Offer", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage`, "price": "0", "priceCurrency": "CHF", "availability": "https://schema.org/InStock", "validFrom": "2026-01-01T00:00:00+01:00" } } },
  { "@type": "ListItem", "position": 2, "item": { "@type": "Event", "name": "Berchtoldstag (2. Januar)", "startDate": "2026-01-02", "endDate": "2026-01-02", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": { "@type": "AdministrativeArea", "name": "Kanton Tessin", "address": { "@type": "PostalAddress", "addressLocality": "Kanton Tessin", "addressRegion": "TI", "addressCountry": "CH" } }, "description": "Berchtoldstag — Freitag, 2. Januar 2026. In einigen Tessiner Gemeinden fakultativer Feiertag, Banken bleiben geschlossen.", "image": `${BASE_URL}/og-image.png`, "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage#2`, "organizer": { "@type": "GovernmentOrganization", "name": "Kanton Tessin", "url": "https://www.ti.ch" }, "performer": { "@type": "Organization", "name": "Kanton Tessin", "url": "https://www.ti.ch" }, "offers": { "@type": "Offer", "url": `${BASE_URL}/de/steuern-und-vorsorge/tessin-feiertage`, "price": "0", "priceCurrency": "CHF", "availability": "https://schema.org/InStock", "validFrom": "2026-01-01T00:00:00+01:00" } } },

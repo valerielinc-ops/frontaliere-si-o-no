@@ -67,7 +67,7 @@ const BASE_URL = 'https://frontaliereticino.ch';
  * define this property). ListItem inherits via CreativeWork variants in a
  * handful of cases, but BreadcrumbList/ItemList themselves do not.
  */
-const TYPES_ACCEPT_IN_LANGUAGE: ReadonlySet<string> = new Set([
+export const TYPES_ACCEPT_IN_LANGUAGE: ReadonlySet<string> = new Set([
  'Article',
  'NewsArticle',
  'BlogPosting',
