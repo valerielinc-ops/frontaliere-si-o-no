@@ -3299,6 +3299,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.colazione-equo-ticino-9-maggio-2026.title': 'Petit-déj équitable au Tessin: Journée mondiale',
     'blog.article.colazione-equo-ticino-9-maggio-2026.excerpt': 'Le 9 mai 2026, le Tessin célèbre la Journée mondiale du commerce équitable avec des petits-déjeuners, des dégustations et des promotions dans diverses Botteghe del Mondo.',
     'blog.article.colazione-equo-ticino-9-maggio-2026.imageAlt': 'Une boutique de commerce équitable animée en Tessin, Suisse, avec des personnes profitant d\'un petit-déjeuner équitable. La boutique est décorée de bannières colorées et d\'enseignes promouvant des produits du commerce équitable.',
+    'blog.article.costo-energia-varese-impatti-frontalieri.title': 'Énergie chère à Varèse: impacts sur les entreprises',
+    'blog.article.costo-energia-varese-impatti-frontalieri.excerpt': 'Une petite entreprise de métallurgie paie 30% de plus d\'électricité que la moyenne européenne. Analyse des impacts économiques.',
+    'blog.article.costo-energia-varese-impatti-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

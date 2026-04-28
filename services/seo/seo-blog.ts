@@ -18860,6 +18860,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costo-energia-varese-impatti-frontalieri': {
+    title: 'Caro energia in provincia di Varese: impatti su imprese e frontalieri',
+    description: 'Analisi dell\'impatto del caro energia in provincia di Varese, con focus su imprese metalmeccaniche e lavoratori frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, caro, energia, provincia, varese',
+    ogTitle: 'Caro energia in provincia di Varese: impatti su imprese e frontalieri',
+    ogDescription: 'Analisi dell\'impatto del caro energia in provincia di Varese, con focus su imprese metalmeccaniche e lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/costo-energia-varese-impatti-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caro energia in provincia di Varese: impatti su imprese e frontalieri",
+      "description": "Analisi dell'impatto del caro energia in provincia di Varese, con focus su imprese metalmeccaniche e lavoratori frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costo-energia-varese-impatti-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e confine svizzero-italiano"
+      },
+      "datePublished": "2026-04-28T11:12:16+00:00",
+      "dateModified": "2026-04-28T11:12:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-energia-varese-impatti-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

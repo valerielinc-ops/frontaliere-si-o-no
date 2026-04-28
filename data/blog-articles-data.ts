@@ -8708,4 +8708,11 @@ export const ARTICLES = [
  image: '/images/blog/colazione-equo-ticino-9-maggio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'costo-energia-varese-impatti-frontalieri',
+ category: 'novita',
+ date: '2026-04-28T11:12:16.365Z',
+ image: '/images/blog/costo-energia-varese-impatti-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

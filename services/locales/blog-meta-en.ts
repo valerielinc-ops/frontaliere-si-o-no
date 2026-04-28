@@ -3298,6 +3298,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.colazione-equo-ticino-9-maggio-2026.title': 'Fair Trade Day in Ticino: breakfast events',
     'blog.article.colazione-equo-ticino-9-maggio-2026.excerpt': 'On May 9, 2026, Ticino celebrates World Fair Trade Day with breakfasts, tastings, and promotions at various World Shops.',
     'blog.article.colazione-equo-ticino-9-maggio-2026.imageAlt': 'A bustling Fair Trade shop in Ticino, Switzerland, with people enjoying a fair trade breakfast. The shop is decorated with colorful banners and signs promoting fair trade products.',
+    'blog.article.costo-energia-varese-impatti-frontalieri.title': 'Varese energy costs hit businesses, cross-border workers',
+    'blog.article.costo-energia-varese-impatti-frontalieri.excerpt': 'A small metalworking company pays 30% more for electricity than the European average. Analysis of the economic impacts.',
+    'blog.article.costo-energia-varese-impatti-frontalieri.imageAlt': 'Aerial view of Lake Lugano with mountains and Swiss-Italian border',
 };
 
 export default blogMetaEn;

@@ -3299,6 +3299,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.colazione-equo-ticino-9-maggio-2026.title': 'Colazione equa in Ticino: eventi per la Giornata mondiale del commercio equo',
     'blog.article.colazione-equo-ticino-9-maggio-2026.excerpt': 'Il 9 maggio 2026 il Ticino celebra la Giornata mondiale del commercio equo con colazioni, degustazioni e promozioni in varie Botteghe del Mondo.',
     'blog.article.colazione-equo-ticino-9-maggio-2026.imageAlt': 'Una bottega del mondo affollata in Ticino, Svizzera, con persone che godono di una colazione equa. La bottega è decorata con bandiere colorate e cartelli che promuovono prodotti del commercio equo.',
+    'blog.article.costo-energia-varese-impatti-frontalieri.title': 'Caro energia in provincia di Varese: impatti su imprese e frontalieri',
+    'blog.article.costo-energia-varese-impatti-frontalieri.excerpt': 'Una piccola impresa metalmeccanica paga il 30% in più di elettricità rispetto alla media europea. Analisi sugli impatti economici.',
+    'blog.article.costo-energia-varese-impatti-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con montagne e confine svizzero-italiano',
 };
 
 export default blogMetaIt;

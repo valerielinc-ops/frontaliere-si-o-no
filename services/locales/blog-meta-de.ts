@@ -3298,6 +3298,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.colazione-equo-ticino-9-maggio-2026.title': 'Faire Frühstück im Tessin: Events zum Welttag des Fairen Handels',
     'blog.article.colazione-equo-ticino-9-maggio-2026.excerpt': 'Am 9. Mai 2026 feiert das Tessin den Welttag des Fairen Handels mit Frühstücken, Verkostungen und Aktionen in verschiedenen Weltläden.',
     'blog.article.colazione-equo-ticino-9-maggio-2026.imageAlt': 'Ein belebter Fair-Trade-Laden in Tessin, Schweiz, mit Menschen, die ein faires Frühstück genießen. Der Laden ist mit bunten Bannern und Schildern dekoriert, die Fair-Trade-Produkte bewerben.',
+    'blog.article.costo-energia-varese-impatti-frontalieri.title': 'Hohe Energiepreise in Varese: Auswirkungen auf Unternehmen',
+    'blog.article.costo-energia-varese-impatti-frontalieri.excerpt': 'Ein kleines metallverarbeitendes Unternehmen zahlt 30 % mehr für Strom als der europäische Durchschnitt. Analyse der wirtschaftlichen Auswirkungen.',
+    'blog.article.costo-energia-varese-impatti-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und der Schweizer-Italienischen Grenze',
 };
 
 export default blogMetaDe;
