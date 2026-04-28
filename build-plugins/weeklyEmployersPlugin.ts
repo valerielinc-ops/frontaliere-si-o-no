@@ -2669,8 +2669,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   </section>
   <section style="margin:0 0 28px" aria-labelledby="companyCityLinks">
     <h2 id="companyCityLinks" style="${H2_STYLE}">${esc(copy.relatedLinksTitle)}</h2>
-    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px 18px">${ownRelated.join('')}</ul>
-    ${siblingsPlaceholder}
+    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px 18px">${ownRelated.join('')}<!--SIBLING_LINKS_PLACEHOLDER--></ul>
   </section>
   <section style="margin:0 0 0" aria-labelledby="companyCityFaq">
     <h2 id="companyCityFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
@@ -2762,8 +2761,7 @@ export function injectSiblingLinks(
   if (!items) {
     return html.replace('<!--SIBLING_LINKS_PLACEHOLDER-->', '');
   }
-  const block = `<ul style="list-style:none;padding:0;margin:12px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:4px 16px">${items}</ul>`;
-  return html.replace('<!--SIBLING_LINKS_PLACEHOLDER-->', block);
+  return html.replace('<!--SIBLING_LINKS_PLACEHOLDER-->', items);
 }
 
 // ── Snapshot I/O ────────────────────────────────────────────────
