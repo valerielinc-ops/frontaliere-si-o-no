@@ -17903,6 +17903,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borsa-zurigo-frontalieri-27-aprile-2026': {
+    title: 'Borsa di Zurigo: giornata altalenante per i frontalieri',
+    description: 'Lo Swiss market index chiude a 13\'165.23 punti, con Lonza Group e UBS Group in positivo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borsa, zurigo, giornata, altalenante',
+    ogTitle: 'Borsa di Zurigo: giornata altalenante per i frontalieri',
+    ogDescription: 'Lo Swiss market index chiude a 13\'165.23 punti, con Lonza Group e UBS Group in positivo',
+    canonicalPath: '/articoli-frontaliere/borsa-zurigo-frontalieri-27-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borsa di Zurigo: giornata altalenante per i frontalieri",
+      "description": "Lo Swiss market index chiude a 13'165.23 punti, con Lonza Group e UBS Group in positivo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/borsa-zurigo-frontalieri-27-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con edifici del distretto finanziario"
+      },
+      "datePublished": "2026-04-28T05:37:51+00:00",
+      "dateModified": "2026-04-28T05:37:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borsa-zurigo-frontalieri-27-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

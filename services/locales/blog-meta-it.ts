@@ -3200,6 +3200,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malpensa-parigi-galline-frontalieri.title': 'Malpensa, Parigi e due galline: la complessità del vivere semplice',
     'blog.article.malpensa-parigi-galline-frontalieri.excerpt': 'Un viaggio tra lavoro transfrontaliero e regolamentazioni svizzere sugli animali domestici',
     'blog.article.malpensa-parigi-galline-frontalieri.imageAlt': 'Vista aerea dell\'aeroporto di Malpensa con le montagne del Ticino sullo sfondo',
+    'blog.article.borsa-zurigo-frontalieri-27-aprile-2026.title': 'Borsa di Zurigo: giornata altalenante per i frontalieri',
+    'blog.article.borsa-zurigo-frontalieri-27-aprile-2026.excerpt': 'Lo Swiss market index chiude a 13\'165.23 punti, con Lonza Group e UBS Group in positivo',
+    'blog.article.borsa-zurigo-frontalieri-27-aprile-2026.imageAlt': 'Vista del lago di Lugano con edifici del distretto finanziario',
 };
 
 export default blogMetaIt;

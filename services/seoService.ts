@@ -2327,6 +2327,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bcc-busto-garolfo-2-milioni-territorio': { name: 'Novità', path: '/articoli-frontaliere/bcc-busto-garolfo-2-milioni-territorio', parent: 'blog' },
     'blog-nuova-legge-polizia-ticino-controllo-periodico': { name: 'Novità', path: '/articoli-frontaliere/nuova-legge-polizia-ticino-controllo-periodico', parent: 'blog' },
     'blog-malpensa-parigi-galline-frontalieri': { name: 'Pratico', path: '/articoli-frontaliere/malpensa-parigi-galline-frontalieri', parent: 'blog' },
+    'blog-borsa-zurigo-frontalieri-27-aprile-2026': { name: 'Borsa Zurigo', path: '/articoli-frontaliere/borsa-zurigo-frontalieri-27-aprile-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
