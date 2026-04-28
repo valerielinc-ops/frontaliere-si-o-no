@@ -244,6 +244,68 @@ jobs:
                 fi
               fi
               
+              # Dedupe single-declaration conflicts in routerBlogData.ts and
+              # router.ts. The "keep both sides" sed above is correct for
+              # append-only files (each side adds a different entry), but
+              # `export const ALL_BLOG_ARTICLE_IDS = [...]` and
+              # `type _BlogId5 = '…' | …` are SINGLE declarations: when both
+              # sides modify the same closing token, "keep both" produces two
+              # full declarations with the same name → esbuild fails with
+              # `Multiple exports with the same name`. Caught 2026-04-28 in
+              # cron run 25028468041 after my router-rebase merge introduced
+              # the pattern. We merge the two sides into one declaration that
+              # contains the union of every ID/literal mentioned.
+              if [[ "$file" == *"routerBlogData.ts" ]] || [[ "$file" == *"router.ts" ]]; then
+                if ! node -e "
+                  const fs = require('fs');
+                  const file = '$file';
+                  let src = fs.readFileSync(file, 'utf8');
+                  // Merge duplicate \`export const ALL_BLOG_ARTICLE_IDS = [...]\`
+                  const listRx = /export const ALL_BLOG_ARTICLE_IDS:[^=]+=\s*\[([^\]]+)\];/g;
+                  const listMatches = [...src.matchAll(listRx)];
+                  if (listMatches.length > 1) {
+                    const ids = new Set();
+                    for (const m of listMatches) {
+                      for (const id of m[1].matchAll(/'([^']+)'/g)) ids.add(id[1]);
+                    }
+                    const merged = [...ids].map((s) => \`'\${s}'\`).join(', ');
+                    const replacement = \`export const ALL_BLOG_ARTICLE_IDS: BlogArticleId[] = [\${merged}];\`;
+                    // Drop every duplicate declaration, then insert one canonical version
+                    // at the position of the first match.
+                    const first = listMatches[0];
+                    src = src.slice(0, first.index) + replacement + src.slice(first.index + first[0].length);
+                    src = src.replace(listRx, '');
+                    console.log('  🔁 Merged ' + listMatches.length + ' ALL_BLOG_ARTICLE_IDS declarations into one (' + ids.size + ' ids)');
+                  }
+                  // Merge duplicate \`type _BlogId<N> = '…' | …;\` declarations
+                  const typeRx = /type _BlogId(\d+) = (([^;])+);/g;
+                  const typeGroups = new Map();
+                  for (const m of src.matchAll(typeRx)) {
+                    const n = m[1];
+                    const literals = [...m[2].matchAll(/'([^']+)'/g)].map((x) => x[1]);
+                    if (!typeGroups.has(n)) typeGroups.set(n, []);
+                    typeGroups.get(n).push({ match: m[0], literals });
+                  }
+                  for (const [n, occurrences] of typeGroups) {
+                    if (occurrences.length <= 1) continue;
+                    const all = new Set();
+                    for (const occ of occurrences) for (const lit of occ.literals) all.add(lit);
+                    const mergedDecl = \`type _BlogId\${n} = \${[...all].map((s) => \`'\${s}'\`).join(' | ')};\`;
+                    // Replace first occurrence with merged, drop the rest.
+                    src = src.replace(occurrences[0].match, mergedDecl);
+                    for (let i = 1; i < occurrences.length; i++) {
+                      src = src.replace(occurrences[i].match, '');
+                    }
+                    console.log('  🔁 Merged ' + occurrences.length + ' _BlogId' + n + ' declarations into one (' + all.size + ' literals)');
+                  }
+                  fs.writeFileSync(file, src);
+                "; then
+                  echo "  ❌ $file: dedupe failed"
+                  ALL_RESOLVED=false
+                  continue
+                fi
+              fi
+
               # Syntax check for blog-articles-data.ts — detect merged entries
               # (FRO-328 moved ARTICLES array from BlogArticles.tsx to data/blog-articles-data.ts)
               if [[ "$file" == *"blog-articles-data.ts" ]]; then
