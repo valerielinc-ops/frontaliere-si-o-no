@@ -641,6 +641,8 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  return null;
  };
 
+ // Event does NOT inherit from CreativeWork in schema.org → no inLanguage.
+ // Semrush + Google structured-data testing reject inLanguage on Event.
  ldObj = {
  '@context': 'https://schema.org',
  '@type': 'Event',
@@ -653,7 +655,6 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  height: 675,
  },
  url: full,
- inLanguage: locale,
  author: authorObj,
  speakable: {
  '@type': 'SpeakableSpecification',
