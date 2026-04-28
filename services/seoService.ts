@@ -2334,6 +2334,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ospedali-varesini-cambiamenti-20-anni': { name: 'Novità', path: '/articoli-frontaliere/ospedali-varesini-cambiamenti-20-anni', parent: 'blog' },
     'blog-sunrise-integra-hbb-ssr-2026': { name: 'Novità', path: '/articoli-frontaliere/sunrise-integra-hbb-ssr-2026', parent: 'blog' },
     'blog-infermieri-lavoro-ore-settimanali': { name: 'Novità', path: '/articoli-frontaliere/infermieri-lavoro-ore-settimanali', parent: 'blog' },
+    'blog-sorveglianza-telecomunicazioni-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/sorveglianza-telecomunicazioni-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3310,6 +3310,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infermieri-lavoro-ore-settimanali.title': 'Nurses: no to reducing weekly hours',
     'blog.article.infermieri-lavoro-ore-settimanali.excerpt': 'The National Council has decided to maintain the maximum weekly working hours for nurses at 50, despite the popular initiative approved in 2021.',
     'blog.article.infermieri-lavoro-ore-settimanali.imageAlt': 'Nurse working in a hospital in Lugano, Ticino',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.title': 'Telecom surveillance: +40% in Switzerland, but real-time slows',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.excerpt': 'In 2025, antenna searches increased by 69%, while real-time surveillance grew by only 3%.',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.imageAlt': 'Aerial view of Lugano with Lake Ceresio and surrounding mountains',
 };
 
 export default blogMetaEn;

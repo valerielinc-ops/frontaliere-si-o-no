@@ -3311,6 +3311,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infermieri-lavoro-ore-settimanali.title': 'Infermieri: no alla riduzione delle ore settimanali',
     'blog.article.infermieri-lavoro-ore-settimanali.excerpt': 'Il Consiglio nazionale ha deciso di mantenere a 50 ore la durata massima settimanale del lavoro per gli infermieri, nonostante l\'iniziativa popolare approvata nel 2021.',
     'blog.article.infermieri-lavoro-ore-settimanali.imageAlt': 'Infermiera al lavoro in un ospedale a Lugano, Ticino',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.title': 'Sorveglianza telecomunicazioni: +40% in Svizzera, ma rallenta in tempo reale',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.excerpt': 'Nel 2025, le ricerche tramite antenna sono aumentate del 69%, mentre la sorveglianza in tempo reale è cresciuta solo del 3%.',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.imageAlt': 'Vista aerea di Lugano con il Lago Ceresio e le montagne circostanti',
 };
 
 export default blogMetaIt;

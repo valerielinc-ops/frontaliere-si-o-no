@@ -3310,6 +3310,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infermieri-lavoro-ore-settimanali.title': 'Pfleger: Nein zur Reduzierung der Wochenstunden',
     'blog.article.infermieri-lavoro-ore-settimanali.excerpt': 'Der Nationalrat hat beschlossen, die maximale wöchentliche Arbeitszeit für Pfleger bei 50 Stunden zu belassen, trotz der 2021 angenommenen Volksinitiative.',
     'blog.article.infermieri-lavoro-ore-settimanali.imageAlt': 'Krankenpflegerin in einem Krankenhaus in Lugano, Tessin',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.title': 'Telekommunikationsüberwachung: +40% in der Schweiz, aber Echtzeit verlangsamt',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.excerpt': '2025 stiegen die Antennenrecherchen um 69%, während die Echtzeitüberwachung nur um 3% wuchs.',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Ceresio-See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

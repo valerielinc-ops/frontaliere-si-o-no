@@ -18976,6 +18976,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sorveglianza-telecomunicazioni-ticino-2026': {
+    title: 'Sorveglianza telecomunicazioni: +40% in Svizzera, ma rallenta in tempo reale',
+    description: 'Nel 2025, le ricerche tramite antenna sono aumentate del 69%, mentre la sorveglianza in tempo reale è cresciuta solo del 3%. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, sorveglianza, telecomunicazioni, rallenta, tempo',
+    ogTitle: 'Sorveglianza telecomunicazioni: +40% in Svizzera, ma rallenta in tempo reale',
+    ogDescription: 'Nel 2025, le ricerche tramite antenna sono aumentate del 69%, mentre la sorveglianza in tempo reale è cresciuta solo del 3%.',
+    canonicalPath: '/articoli-frontaliere/sorveglianza-telecomunicazioni-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sorveglianza telecomunicazioni: +40% in Svizzera, ma rallenta in tempo reale",
+      "description": "Nel 2025, le ricerche tramite antenna sono aumentate del 69%, mentre la sorveglianza in tempo reale è cresciuta solo del 3%. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sorveglianza-telecomunicazioni-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Ceresio e le montagne circostanti"
+      },
+      "datePublished": "2026-04-28T11:39:54+00:00",
+      "dateModified": "2026-04-28T11:39:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sorveglianza-telecomunicazioni-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

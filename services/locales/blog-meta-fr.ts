@@ -3311,6 +3311,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infermieri-lavoro-ore-settimanali.title': 'Infirmiers: non à la réduction des heures hebdomadaires',
     'blog.article.infermieri-lavoro-ore-settimanali.excerpt': 'Le Conseil national a décidé de maintenir à 50 heures la durée maximale hebdomadaire de travail pour les infirmiers, malgré l\'initiative populaire approuvée en 2021.',
     'blog.article.infermieri-lavoro-ore-settimanali.imageAlt': 'Infirmière travaillant dans un hôpital à Lugano, Tessin',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.title': 'Surveillance des télécommunications: +40% en Suisse, mais ralentit en temps réel',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.excerpt': 'En 2025, les recherches par antenne ont augmenté de 69%, tandis que la surveillance en temps réel n\'a progressé que de 3%.',
+    'blog.article.sorveglianza-telecomunicazioni-ticino-2026.imageAlt': 'Vue aérienne de Lugano avec le lac Ceresio et les montagnes environnantes',
 };
 
 export default blogMetaFr;
