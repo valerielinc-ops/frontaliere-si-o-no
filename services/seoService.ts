@@ -2332,6 +2332,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disagi-trenord-tilo-s40-25-aprile-2024': { name: 'Disagi linea TiLo S40', path: '/articoli-frontaliere/disagi-trenord-tilo-s40-25-aprile-2024', parent: 'blog' },
     'blog-scommesse-guerra-trump-prediction-market': { name: 'Novità', path: '/articoli-frontaliere/scommesse-guerra-trump-prediction-market', parent: 'blog' },
     'blog-furti-lusso-murten-2026': { name: 'Furti Ticino', path: '/articoli-frontaliere/furti-lusso-murten-2026', parent: 'blog' },
+    'blog-gestione-illecita-rifiuti-varese-arcisate-2026': { name: 'Pratico', path: '/articoli-frontaliere/gestione-illecita-rifiuti-varese-arcisate-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

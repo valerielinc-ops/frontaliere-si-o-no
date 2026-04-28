@@ -8512,4 +8512,11 @@ export const ARTICLES = [
  image: '/images/blog/furti-lusso-murten-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gestione-illecita-rifiuti-varese-arcisate-2026',
+ category: 'pratico',
+ date: '2026-04-28T06:04:46.382Z',
+ image: '/images/blog/gestione-illecita-rifiuti-varese-arcisate-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3215,6 +3215,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-lusso-murten-2026.title': 'Furti di lusso in Ticino: 5 auto rubate in un weekend',
     'blog.article.furti-lusso-murten-2026.excerpt': 'Due furti in una sola garage a Murten: 5 auto di lusso rubate in un weekend',
     'blog.article.furti-lusso-murten-2026.imageAlt': 'Cinque auto di lusso rubate in Ticino',
+    'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.title': 'Gestione illecita di rifiuti tra Varese e Arcisate: tre denunciati e sequestri',
+    'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.excerpt': 'Operazione dei Carabinieri Forestali tra Varese e Arcisate per smaltimento illegale di rifiuti. Tre persone denunciate e sequestri di capannone e mezzi.',
+    'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.imageAlt': 'Vista aerea di Mendrisio, Ticino, Svizzera, con il confine con l\'Italia visibile',
 };
 
 export default blogMetaIt;

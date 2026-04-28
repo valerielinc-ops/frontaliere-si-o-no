@@ -3214,6 +3214,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-lusso-murten-2026.title': 'Luxusautos gestohlen: 5 Wagen in einem Wochenende',
     'blog.article.furti-lusso-murten-2026.excerpt': 'Zwei Einbrüche in einer Garage in Murten: 5 Luxusautos in einem Wochenende gestohlen',
     'blog.article.furti-lusso-murten-2026.imageAlt': 'Fünf Luxusautos in Ticino gestohlen',
+    'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.title': 'Illegale Abfallentsorgung: Drei Anzeigen',
+    'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.excerpt': 'Einsatz der Carabinieri Forestali zwischen Varese und Arcisate wegen illegaler Abfallentsorgung. Drei Personen angezeigt und Beschlagnahmung von Lagerhalle und Fahrzeugen.',
+    'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.imageAlt': 'Luftaufnahme von Mendrisio, Tessin, Schweiz, mit der Grenze zu Italien sichtbar',
 };
 
 export default blogMetaDe;

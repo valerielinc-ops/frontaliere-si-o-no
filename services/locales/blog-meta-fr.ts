@@ -3215,6 +3215,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-lusso-murten-2026.title': '5 voitures de luxe volées en un week-end au Tessin',
     'blog.article.furti-lusso-murten-2026.excerpt': 'Deux vols dans un seul garage à Murten : 5 voitures de luxe volées en un week-end',
     'blog.article.furti-lusso-murten-2026.imageAlt': 'Cinq voitures de luxe volées en Suisse',
+    'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.title': 'Gestion illicite des déchets entre Varèse et Arcisate: trois personnes dénoncées',
+    'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.excerpt': 'Opération des Carabiniers Forestiers entre Varèse et Arcisate pour l\'élimination illégale des déchets. Trois personnes dénoncées et saisie d\'un hangar et de véhicules.',
+    'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.imageAlt': 'Vue aérienne de Mendrisio, Tessin, Suisse, avec la frontière avec l\'Italie visible',
 };
 
 export default blogMetaFr;
