@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-04-27T21:58:35.397Z",
-  "total": 7,
+  "generatedAt": "2026-04-28T11:03:04.559Z",
+  "total": 4,
   "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "updatedCount": 4,
+  "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 40926,
-  "avgDurationMs": 40926,
+  "durationMs": 38171,
+  "avgDurationMs": 38171,
   "durationHistory": [
-    40926
+    38171
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,8 +43,8 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-23T10:15:19.505Z",
-      "retranslationAttempts": 1,
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -163,10 +163,12 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Electrical Design Engineer - Dry Transformers 80 – 100% (f/m/d)",
-      "slug": "electrical-design-engineer-dry-transformers-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
+      "slug": "electrical-design-ingegnere-dry-transformers-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio",
       "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-181930",
       "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Molinazzo-di-Monteggio-Ticino-Switzerland/Electrical-Design-Engineer-80---100---f-m-d-_R0114195/apply",
       "company": "Hitachi Energy",
@@ -203,7 +205,7 @@
     },
     {
       "title": "Environmental and Employee Health & Safety Specialist 80 – 100% (f/m/d)",
-      "slug": "environmental-and-employee-health-safety-specialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
+      "slug": "environmental-and-employee-health-safety-specialista-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio",
       "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-177477",
       "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Molinazzo-di-Monteggio-Ticino-Switzerland/Environmental-and-Employee-Health---Safety-Specialist-80---100---f-m-d-_R0118699/apply",
       "company": "Hitachi Energy",
@@ -240,7 +242,7 @@
     },
     {
       "title": "Business Analyst Global Product Group DT",
-      "slug": "business-analyst-global-product-group-dt-hitachi-energy-remote-zurich-switzerland",
+      "slug": "business-analista-global-product-group-dt-hitachi-energy-remote-zurich",
       "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-174784",
       "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Remote---Zurich-Switzerland/Business-Analyst-Global-Product-Group-DT_R0115436-1/apply",
       "company": "Hitachi Energy",
@@ -267,8 +269,8 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-24T21:46:20.454Z",
-      "retranslationAttempts": 1,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -278,6 +280,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
