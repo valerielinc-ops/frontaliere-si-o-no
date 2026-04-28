@@ -3,14 +3,10 @@
  * audit-orphan-pages-in-sitemaps.mjs
  *
  * Detect "orphaned pages in sitemaps" — URLs listed in any of the live
- * sitemap-*.xml files but with NO internal link pointing to them anywhere
- * in the site graph. Semrush flags these (currently 4,936 on
+ * sitemap-*.xml files but not reachable via internal-link traversal from
+ * the homepage `/`. Semrush flags these (currently ~4,936 on
  * frontaliereticino.ch) because they consume crawl budget without site-
  * structure support and tend to rank worse.
- *
- * Phase 1 deliverable: this is a REPORTING script. It always exits 0 on
- * orphans (the regression gate comes in Phase 3 via a `--gate=baseline`
- * flag — see `compareAgainstBaseline()` below).
  *
  * --------------------------------------------------------------------------
  * Pipeline
@@ -23,11 +19,17 @@
  *    where canonicalPath strips the host, fragments, and normalises
  *    trailing slashes consistently.
  * 3. Build the "linked" set from the LOCAL worktree:
- *      Mode A (preferred): scan dist/**\/*.html for <a href="…">
+ *      Mode A (preferred): BFS reachability from `/` over dist/**\/*.html.
+ *                          Start at dist/index.html, follow every <a href>,
+ *                          stop at noindex pages (don't extract their
+ *                          outgoing links — they're crawl-graph dead-ends),
+ *                          stop at files that don't exist in dist/. The
+ *                          returned set is the reachable subgraph.
  *      Mode B (fallback):  scan source files (App.tsx, components/,
  *                          services/, build-plugins/, scripts/) for
  *                          string/template literals shaped like internal
- *                          paths ('/foo/bar' or `/foo/${slug}`).
+ *                          paths ('/foo/bar' or `/foo/${slug}`). Approximate;
+ *                          used only when dist/ is empty.
  *    Mode A is used automatically when dist/ has ≥ 10 HTML files. Force
  *    Mode B with --source-mode (faster local iteration).
  * 4. Diff: orphans = sitemapUrls \ linkedUrls.
@@ -43,12 +45,16 @@
  * --------------------------------------------------------------------------
  * - Mode B is approximate: dynamic href values built at runtime
  *   (e.g. `/${locale}/articles/${slug}`) may underestimate the linked set,
- *   inflating the orphan count. The ratchet baseline shipped from this run
- *   is therefore a Mode-B baseline; once CI runs Mode A on a real dist/,
+ *   inflating the orphan count. The ratchet baseline shipped from a Mode-B
+ *   run is therefore only a stop-gap; once CI runs Mode A on a real dist/,
  *   regenerate via --rebaseline.
  * - Trailing slashes: both `/foo/` and `/foo` are normalised to the
  *   no-trailing-slash form on BOTH sides before set-diffing (so we never
  *   classify a page as orphan due to a slash mismatch).
+ * - The `--gate=baseline` ratchet only makes sense in Mode A. The two modes
+ *   measure fundamentally different things (graph reachability vs source-
+ *   string membership), so cross-mode comparison is meaningless. Invoking
+ *   the gate in Mode B exits 1 with a clear error.
  *
  * --------------------------------------------------------------------------
  * CLI flags
@@ -61,6 +67,9 @@
  *                       data/orphan-pages-audit.json).
  *   --rebaseline        Overwrite data/orphan-pages-baseline.json from this
  *                       run. Use after a deliberate improvement.
+ *   --gate=baseline     Compare current run to baseline; exit 1 if any
+ *                       sitemap orphan count is HIGHER than baseline. Mode A
+ *                       only.
  */
 
 import { readdir, readFile, stat, writeFile, access } from 'node:fs/promises';
@@ -90,6 +99,8 @@ const OUT_PATH = args.get('out')
   ? resolvePath(String(args.get('out')))
   : join(DATA_DIR, 'orphan-pages-audit.json');
 const REBASELINE = args.has('rebaseline');
+const GATE = args.get('gate'); // string | true | undefined
+const GATE_BASELINE = GATE === 'baseline';
 const BASELINE_PATH = join(DATA_DIR, 'orphan-pages-baseline.json');
 
 function resolvePath(p) {
@@ -202,7 +213,7 @@ async function fetchAllSitemaps() {
 }
 
 // ---------------------------------------------------------------------------
-// Mode A: dist/**\/*.html scan.
+// File-walking helpers.
 // ---------------------------------------------------------------------------
 
 async function* walkFiles(dir, predicate) {
@@ -222,19 +233,24 @@ async function* walkFiles(dir, predicate) {
   }
 }
 
-async function distHasEnoughHtml() {
+async function distHasEnoughHtml(distRoot = DIST) {
   try {
-    await access(DIST);
+    await access(distRoot);
   } catch {
     return false;
   }
   let count = 0;
-  for await (const _ of walkFiles(DIST, (_, name) => name.endsWith('.html'))) {
+  for await (const _ of walkFiles(distRoot, (_, name) => name.endsWith('.html'))) {
     count += 1;
     if (count >= 10) return true;
   }
   return false;
 }
+
+// ---------------------------------------------------------------------------
+// Path normalisation — used both when extracting hrefs from HTML and when
+// matching against sitemap canonical paths.
+// ---------------------------------------------------------------------------
 
 function normaliseInternalPath(href) {
   if (!href) return null;
@@ -261,6 +277,8 @@ function normaliseInternalPath(href) {
   }
   // Bare leading-slash internal path.
   if (h.startsWith('/')) {
+    // Reject protocol-relative ('//foo') and scheme-like prefixes.
+    if (h.startsWith('//')) return null;
     let p = h;
     if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
     return p;
@@ -268,50 +286,150 @@ function normaliseInternalPath(href) {
   return null;
 }
 
-async function collectLinkedUrlsModeA() {
+// ---------------------------------------------------------------------------
+// Mode A: BFS reachability from `/` over dist/.
+// ---------------------------------------------------------------------------
+
+/**
+ * Resolve a normalised internal path to a dist HTML file path.
+ * Returns null if neither candidate exists.
+ *   `/foo/bar` → dist/foo/bar/index.html OR dist/foo/bar.html
+ *   `/`        → dist/index.html
+ */
+async function resolvePathToDistFile(distRoot, path) {
+  if (path === '/' || path === '') {
+    const indexFile = join(distRoot, 'index.html');
+    try {
+      await access(indexFile);
+      return indexFile;
+    } catch {
+      return null;
+    }
+  }
+  // Strip leading slash for join.
+  const rel = path.replace(/^\/+/, '');
+  const candidateA = join(distRoot, rel, 'index.html');
+  try {
+    await access(candidateA);
+    return candidateA;
+  } catch {
+    /* fall through */
+  }
+  const candidateB = join(distRoot, `${rel}.html`);
+  try {
+    await access(candidateB);
+    return candidateB;
+  } catch {
+    return null;
+  }
+}
+
+const ROBOTS_NOINDEX_RE =
+  /<meta\s+[^>]*name\s*=\s*["']robots["'][^>]*content\s*=\s*["'][^"']*\bnoindex\b[^"']*["'][^>]*>/i;
+
+function htmlHasNoindex(html) {
+  return ROBOTS_NOINDEX_RE.test(html);
+}
+
+/**
+ * Extract every <a href="..."> from an HTML string. Deliberately ignores
+ * <link rel="alternate"> and <link rel="canonical"> — Semrush-style BFS
+ * reachability follows only <a> tags (those are the navigable graph).
+ */
+function extractAnchorHrefs(html) {
+  const out = [];
+  // Match <a ...> (NOT <link ...>) and capture its href value.
+  const tagRe = /<a\b[^>]*\shref\s*=\s*("([^"]*)"|'([^']*)'|([^\s>]+))[^>]*>/gi;
+  let m;
+  while ((m = tagRe.exec(html)) !== null) {
+    const href = m[2] ?? m[3] ?? m[4];
+    if (typeof href === 'string') out.push(href);
+  }
+  return out;
+}
+
+/**
+ * BFS reachability from `/` across dist/.
+ * Returns { linked, stats }:
+ *   linked:        Set of normalised paths visited (i.e. files that exist
+ *                  AND were reached via the link graph from `/`).
+ *   stats.visited: linked.size
+ *   stats.noindex: count of pages reached but not crawled-through
+ *                  (their outgoing links were skipped)
+ *   stats.dead:    count of frontier paths whose target file did not exist
+ *                  in dist/ (i.e. dangling links — interesting for separate
+ *                  diagnostics but not part of the reachable set)
+ */
+async function bfsReachableFromHome(distRoot) {
+  const startFile = await resolvePathToDistFile(distRoot, '/');
+  if (!startFile) {
+    throw new Error(`BFS start node missing: ${join(distRoot, 'index.html')} does not exist.`);
+  }
+
   /** @type {Set<string>} */
-  const linked = new Set();
-  const hrefRe = /href\s*=\s*"([^"]+)"|href\s*=\s*'([^']+)'/gi;
-  for await (const file of walkFiles(DIST, (_, name) => name.endsWith('.html'))) {
+  const visited = new Set();
+  /** @type {Set<string>} */
+  const enqueued = new Set();
+  /** @type {string[]} */
+  const frontier = ['/'];
+  enqueued.add('/');
+
+  let noindexCount = 0;
+  let deadCount = 0;
+
+  while (frontier.length > 0) {
+    const current = frontier.shift();
+    const file = await resolvePathToDistFile(distRoot, current);
+    if (!file) {
+      // Dangling internal link — counts as unreachable (nothing to crawl).
+      deadCount += 1;
+      continue;
+    }
     let html;
     try {
       html = await readFile(file, 'utf8');
     } catch {
+      deadCount += 1;
       continue;
     }
-    let m;
-    while ((m = hrefRe.exec(html)) !== null) {
-      const href = m[1] ?? m[2];
-      const p = normaliseInternalPath(href);
-      if (p) linked.add(p);
+    // The page exists, so it IS reachable. Record it.
+    visited.add(current);
+    // If noindex, treat as a bridge: don't extract outgoing links (Semrush
+    // wouldn't propagate equity through a noindex page).
+    if (htmlHasNoindex(html)) {
+      noindexCount += 1;
+      continue;
     }
-    hrefRe.lastIndex = 0;
+    const hrefs = extractAnchorHrefs(html);
+    for (const href of hrefs) {
+      const p = normaliseInternalPath(href);
+      if (!p) continue;
+      if (enqueued.has(p)) continue;
+      enqueued.add(p);
+      frontier.push(p);
+    }
   }
-  return linked;
+
+  return {
+    linked: visited,
+    stats: { visited: visited.size, noindex: noindexCount, dead: deadCount },
+  };
 }
 
 // ---------------------------------------------------------------------------
 // Mode B: source-tree scan for path-shaped string/template literals.
+// (Unchanged from prior implementation — kept as a fallback when no dist/.)
 // ---------------------------------------------------------------------------
 
 const SOURCE_ROOTS = ['App.tsx', 'components', 'services', 'build-plugins', 'scripts'];
 const SOURCE_EXTS = new Set(['.ts', '.tsx', '.mjs', '.js', '.jsx', '.cjs']);
 
 function looksLikeInternalSlugLiteral(s) {
-  // Must start with `/` and not be a protocol-relative URL or filesystem path
-  // marker like `/* */` (which won't appear inside a string anyway).
   if (!s.startsWith('/')) return false;
   if (s.startsWith('//')) return false;
-  // Reject obvious non-URL paths.
   if (/^\/(?:Users|home|tmp|var|opt|usr|etc)(?:\/|$)/.test(s)) return false;
-  // Reject regex-like or escape-heavy literals.
   if (s.includes('\\')) return false;
-  // Allowed slug characters: letters, digits, hyphen, underscore, slash, dot,
-  // plus `${...}` template placeholders (which we'll fold to a wildcard match
-  // — but for the purposes of computing "is this path internally linked?"
-  // we keep the literal prefix).
   if (!/^\/[A-Za-z0-9._\-/${}]*$/.test(s)) return false;
-  // Length sanity — sitemap paths are realistically 1..200 chars.
   if (s.length > 200) return false;
   return true;
 }
@@ -363,21 +481,13 @@ async function scanSourceFile(file, linked, linkedPrefixes, stringRe) {
 
     const dollar = lit.indexOf('${');
     if (dollar < 0) {
-      // Pure literal path: register both the form and its trailing-slash-stripped form.
       let p = lit;
       if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
       linked.add(p);
     } else {
-      // Template path with at least one ${...} placeholder. Take the prefix
-      // up to the first placeholder as a prefix-match key. This treats any
-      // sitemap path beginning with that prefix (and at least one extra
-      // segment) as "potentially linked dynamically".
       const prefix = lit.slice(0, dollar);
-      // Strip trailing slash to keep the prefix consistent with linked-path normalisation.
       let pre = prefix;
       if (pre.length > 1 && pre.endsWith('/')) pre = pre.slice(0, -1);
-      // Require the prefix to contain at least one slash beyond the leading one
-      // — `/${slug}` alone is too generic and would match every URL on the site.
       const slashCount = (pre.match(/\//g) || []).length;
       if (slashCount >= 2) {
         linkedPrefixes.add(pre);
@@ -394,8 +504,6 @@ function isLinked(path, linked, linkedPrefixes) {
   if (linked.has(path)) return true;
   if (!linkedPrefixes || linkedPrefixes.size === 0) return false;
   for (const pre of linkedPrefixes) {
-    // path is "linked dynamically" if it starts with `${pre}/` AND has at
-    // least one more segment beyond the prefix.
     if (path === pre) return true;
     if (path.startsWith(pre + '/')) return true;
   }
@@ -403,7 +511,7 @@ function isLinked(path, linked, linkedPrefixes) {
 }
 
 function computeOrphans(sitemapsToUrls, linked, linkedPrefixes, canonicalToOriginal) {
-  /** @type {Record<string, { total: number; orphans: number; examples: string[] }>} */
+  /** @type {Record<string, { total: number; orphans: number; examples: string[]; orphansList: string[] }>} */
   const perSitemap = {};
   let totalSitemapUrls = 0;
   let totalOrphans = 0;
@@ -421,6 +529,9 @@ function computeOrphans(sitemapsToUrls, linked, linkedPrefixes, canonicalToOrigi
       total: urls.size,
       orphans: orphans.length,
       examples: orphans.slice(0, LIMIT).map((p) => canonicalToOriginal.get(p) || p),
+      // Internal field used for regression diff; not retained in baseline copy
+      // because the example slice is already representative.
+      orphansList: orphans,
     };
     totalSitemapUrls += urls.size;
     totalOrphans += orphans.length;
@@ -458,7 +569,6 @@ function printTable(report, mode) {
     `${'TOTAL'.padEnd(40)} ${String(report.totalSitemapUrls).padStart(7)} ${String(report.totalOrphans).padStart(8)} ${totalPct.toFixed(1).padStart(6)}%`,
   );
 
-  // Examples per sitemap (only those with ≥1 orphan).
   for (const [name, row] of rows) {
     if (row.orphans === 0) continue;
     lines.push('');
@@ -470,7 +580,7 @@ function printTable(report, mode) {
 }
 
 // ---------------------------------------------------------------------------
-// Baseline / ratchet plumbing — wired but not enforced (Phase 3).
+// Baseline / ratchet plumbing.
 // ---------------------------------------------------------------------------
 
 async function readBaseline() {
@@ -482,9 +592,14 @@ async function readBaseline() {
   }
 }
 
-// Phase 3 will wire `--gate=baseline` to call this. Returning a result
-// object now keeps the structure stable.
-// eslint-disable-next-line no-unused-vars
+/**
+ * Compare current run against baseline. Returns:
+ *   { regressed: bool, regressions: Array<{ sitemap, prev, current, newOrphans }> }
+ * Where `newOrphans` is up to 10 paths present in `current` but not in
+ * `baseline` for that sitemap (best-effort: when baseline doesn't carry the
+ * full orphan list — which it shouldn't, to keep file size sane — we fall
+ * back to listing the current-run examples).
+ */
 function compareAgainstBaseline(current, baseline) {
   if (!baseline) return { regressed: false, regressions: [] };
   const regressions = [];
@@ -492,7 +607,14 @@ function compareAgainstBaseline(current, baseline) {
     const prev = baseline.perSitemap?.[name];
     if (!prev) continue;
     if (row.orphans > prev.orphans) {
-      regressions.push({ sitemap: name, prev: prev.orphans, current: row.orphans });
+      const baselineExamplesSet = new Set(prev.examples || []);
+      const currentExamples = row.examples || [];
+      const newOrphans = currentExamples.filter((u) => !baselineExamplesSet.has(u)).slice(0, 10);
+      // If the diff happens to be empty (e.g. baseline carried different
+      // examples), at least surface the current top-10 examples so the
+      // operator has something concrete to investigate.
+      const surfaced = newOrphans.length > 0 ? newOrphans : currentExamples.slice(0, 10);
+      regressions.push({ sitemap: name, prev: prev.orphans, current: row.orphans, newOrphans: surfaced });
     }
   }
   return { regressed: regressions.length > 0, regressions };
@@ -503,26 +625,51 @@ function compareAgainstBaseline(current, baseline) {
 // ---------------------------------------------------------------------------
 
 async function main() {
-  const { sitemapsToUrls, canonicalToOriginal } = await fetchAllSitemaps();
-
+  // Determine mode FIRST so we can fail fast on gate-vs-mode mismatch before
+  // any network traffic.
   const useModeA = !FORCE_SOURCE_MODE && (await distHasEnoughHtml());
   const mode = useModeA ? 'html' : 'source';
-  process.stderr.write(`[audit] Using Mode ${useModeA ? 'A (dist HTML scan)' : 'B (source scan)'}\n`);
+
+  if (GATE_BASELINE && !useModeA) {
+    process.stderr.write(
+      '[audit] FATAL: --gate=baseline requires Mode A (built dist/). Run `npm run build` first, then re-run.\n',
+    );
+    process.exit(1);
+  }
+
+  const { sitemapsToUrls, canonicalToOriginal } = await fetchAllSitemaps();
+  process.stderr.write(`[audit] Using Mode ${useModeA ? 'A (BFS from /)' : 'B (source scan)'}\n`);
 
   let linked;
   let linkedPrefixes;
   if (useModeA) {
-    linked = await collectLinkedUrlsModeA();
+    const r = await bfsReachableFromHome(DIST);
+    linked = r.linked;
     linkedPrefixes = new Set();
+    process.stderr.write(
+      `[audit] BFS visited ${r.stats.visited} reachable pages (skipped ${r.stats.noindex} noindex bridges, ${r.stats.dead} dead-ends)\n`,
+    );
   } else {
     const r = await collectLinkedUrlsModeB();
     linked = r.linked;
     linkedPrefixes = r.linkedPrefixes;
+    process.stderr.write(
+      `[audit] Linked set: ${linked.size} exact paths, ${linkedPrefixes.size} dynamic prefixes\n`,
+    );
   }
 
-  process.stderr.write(`[audit] Linked set: ${linked.size} exact paths, ${linkedPrefixes.size} dynamic prefixes\n`);
-
   const report = computeOrphans(sitemapsToUrls, linked, linkedPrefixes, canonicalToOriginal);
+
+  // Strip the heavy orphansList field before serialising so the JSON stays
+  // small. examples[] is already capped at LIMIT (default 20).
+  const perSitemapForOutput = {};
+  for (const [name, row] of Object.entries(report.perSitemap)) {
+    perSitemapForOutput[name] = {
+      total: row.total,
+      orphans: row.orphans,
+      examples: row.examples,
+    };
+  }
 
   const json = {
     version: 1,
@@ -530,14 +677,39 @@ async function main() {
     mode,
     totalSitemapUrls: report.totalSitemapUrls,
     totalOrphans: report.totalOrphans,
-    perSitemap: report.perSitemap,
+    perSitemap: perSitemapForOutput,
   };
 
   await writeFile(OUT_PATH, JSON.stringify(json, null, 2) + '\n', 'utf8');
   process.stderr.write(`[audit] Wrote report → ${relative(ROOT, OUT_PATH)}\n`);
 
-  // Baseline handling.
+  // Baseline read + gate-check / rebaseline handling.
   const existing = await readBaseline();
+
+  if (GATE_BASELINE) {
+    if (!existing) {
+      process.stderr.write('[audit] FATAL: --gate=baseline invoked but no baseline found.\n');
+      process.exit(1);
+    }
+    const cmp = compareAgainstBaseline(json, existing);
+    if (cmp.regressed) {
+      const lines = [];
+      lines.push('[gate] REGRESSION — orphan-pages-in-sitemaps');
+      for (const r of cmp.regressions) {
+        lines.push(
+          `  ${r.sitemap}: baseline=${r.prev} → current=${r.current} (+${r.current - r.prev})`,
+        );
+        for (const u of r.newOrphans) lines.push(`    - ${u}`);
+      }
+      process.stderr.write(lines.join('\n') + '\n');
+      printTable(report, mode);
+      process.exit(1);
+    }
+    process.stderr.write('[gate] OK — no regression\n');
+    printTable(report, mode);
+    return;
+  }
+
   if (REBASELINE || !existing) {
     await writeFile(BASELINE_PATH, JSON.stringify(json, null, 2) + '\n', 'utf8');
     process.stderr.write(
@@ -548,7 +720,36 @@ async function main() {
   printTable(report, mode);
 }
 
-main().catch((err) => {
-  process.stderr.write(`[audit] FATAL: ${err.stack || err.message}\n`);
-  process.exit(1);
-});
+// Only run main() when invoked directly as a script (not when imported by
+// tests via dynamic import).
+const invokedDirectly = (() => {
+  try {
+    const thisFile = fileURLToPath(import.meta.url);
+    const argv1 = process.argv[1] ? process.argv[1] : '';
+    return argv1 && (argv1 === thisFile || argv1.endsWith('audit-orphan-pages-in-sitemaps.mjs'));
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    process.stderr.write(`[audit] FATAL: ${err.stack || err.message}\n`);
+    process.exit(1);
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Internal exports for tests. (Node ignores these when invoked as a script;
+// they're only reachable via dynamic import().)
+// ---------------------------------------------------------------------------
+
+export const __test = {
+  bfsReachableFromHome,
+  extractAnchorHrefs,
+  htmlHasNoindex,
+  normaliseInternalPath,
+  resolvePathToDistFile,
+  compareAgainstBaseline,
+  distHasEnoughHtml,
+};
