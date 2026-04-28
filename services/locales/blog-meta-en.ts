@@ -3220,6 +3220,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-crescita-2026.title': 'Cross-border workers in Ticino: +30% in 10 years, over 91,000',
     'blog.article.frontalieri-ticino-crescita-2026.excerpt': 'From the Federal Statistical Office: Italian cross-border workers in Switzerland have grown by 30% in 10 years, with Ticino remaining the main hub',
     'blog.article.frontalieri-ticino-crescita-2026.imageAlt': 'Cross-border workers at the Brogeda border between Italy and Switzerland',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.title': 'Transparency in popular initiatives: the proposal to the Grand Council',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.excerpt': 'A new parliamentary initiative aims to strengthen financial transparency in popular initiatives in Ticino, with clearly defined thresholds for sustainability.',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.imageAlt': 'View of Bellinzona\'s historic center with the Gran Consiglio Palace',
 };
 
 export default blogMetaEn;

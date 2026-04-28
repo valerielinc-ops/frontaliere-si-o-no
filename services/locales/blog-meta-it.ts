@@ -3221,6 +3221,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-crescita-2026.title': 'Frontalieri Ticino: +30% in 10 anni, superati i 91.000',
     'blog.article.frontalieri-ticino-crescita-2026.excerpt': 'Dall\'Ufficio federale di statistica: frontalieri italiani in Svizzera cresciuti del 30% in 10 anni, con il Ticino che resta il polo principale',
     'blog.article.frontalieri-ticino-crescita-2026.imageAlt': 'Frontalieri al confine di Brogeda tra Italia e Svizzera',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.title': 'Trasparenza nelle iniziative popolari: la proposta al Gran Consiglio',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.excerpt': 'Una nuova iniziativa parlamentare mira a rafforzare la trasparenza finanziaria nelle iniziative popolari in Ticino, con soglie ben definite per la sostenibilità.',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.imageAlt': 'Veduta del centro storico di Bellinzona con il Palazzo del Gran Consiglio',
 };
 
 export default blogMetaIt;

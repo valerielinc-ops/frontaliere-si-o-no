@@ -8526,4 +8526,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-ticino-crescita-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'trasparenza-iniziative-popolari-ticino-2026',
+ category: 'novita',
+ date: '2026-04-28T06:14:22.537Z',
+ image: '/images/blog/trasparenza-iniziative-popolari-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

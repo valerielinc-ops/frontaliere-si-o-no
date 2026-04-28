@@ -3221,6 +3221,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-crescita-2026.title': 'Frontaliers Ticino: +30% en 10 ans, dépassant les 91.000',
     'blog.article.frontalieri-ticino-crescita-2026.excerpt': 'De l\'Office fédéral de la statistique: les frontaliers italiens en Suisse ont augmenté de 30% en 10 ans, le Tessin restant le pôle principal',
     'blog.article.frontalieri-ticino-crescita-2026.imageAlt': 'Travailleurs frontaliers à la frontière de Brogeda entre l\'Italie et la Suisse',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.title': 'Transparence dans les initiatives populaires: la proposition au Grand Conseil',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.excerpt': 'Une nouvelle initiative parlementaire vise à renforcer la transparence financière dans les initiatives populaires au Tessin, avec des seuils bien définis pour la durabilité.',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.imageAlt': 'Vue du centre historique de Bellinzona avec le Palais du Grand Conseil',
 };
 
 export default blogMetaFr;

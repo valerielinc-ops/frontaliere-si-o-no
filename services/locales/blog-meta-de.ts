@@ -3220,6 +3220,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-crescita-2026.title': 'Grenzgänger im Tessin: +30% in 10 Jahren, über 91.000',
     'blog.article.frontalieri-ticino-crescita-2026.excerpt': 'Vom Bundesamt für Statistik: Italienische Grenzgänger in der Schweiz sind in 10 Jahren um 30% gestiegen, wobei das Tessin der Hauptpol bleibt',
     'blog.article.frontalieri-ticino-crescita-2026.imageAlt': 'Grenzpendler an der Brogeda-Grenze zwischen Italien und der Schweiz',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.title': 'Transparenz bei Volksinitiativen: Vorschlag an den Grossen Rat',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.excerpt': 'Eine neue parlamentarische Initiative zielt darauf ab, die finanzielle Transparenz bei Volksinitiativen im Tessin zu stärken, mit klar definierten Schwellenwerten für die Nachhaltigkeit.',
+    'blog.article.trasparenza-iniziative-popolari-ticino-2026.imageAlt': 'Ansicht des historischen Zentrums von Bellinzona mit dem Gran Consiglio Palast',
 };
 
 export default blogMetaDe;

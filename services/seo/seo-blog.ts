@@ -18106,6 +18106,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasparenza-iniziative-popolari-ticino-2026': {
+    title: 'Trasparenza nelle iniziative popolari: la proposta al Gran Consiglio',
+    description: 'Una nuova iniziativa parlamentare mira a rafforzare la trasparenza finanziaria nelle iniziative popolari in Ticino, con soglie ben definite per la s',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasparenza, nelle, iniziative, popolari',
+    ogTitle: 'Trasparenza iniziative popolari Ticino 2026',
+    ogDescription: 'Una nuova iniziativa parlamentare mira a rafforzare la trasparenza finanziaria nelle iniziative popolari in Ticino, con soglie ben definite per la s',
+    canonicalPath: '/articoli-frontaliere/trasparenza-iniziative-popolari-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasparenza nelle iniziative popolari: la proposta arriva in Gran Consiglio",
+      "description": "Una nuova iniziativa parlamentare mira a rafforzare la trasparenza finanziaria nelle iniziative popolari in Ticino, con soglie ben definite per la s",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trasparenza-iniziative-popolari-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del centro storico di Bellinzona con il Palazzo del Gran Consiglio"
+      },
+      "datePublished": "2026-04-28T06:14:22+00:00",
+      "dateModified": "2026-04-28T06:14:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasparenza-iniziative-popolari-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

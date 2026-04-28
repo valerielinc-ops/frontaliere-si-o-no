@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1123,
+ "numberOfItems": 1124,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5847,7 +5847,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1120, "name": "Scommesse su guerra e Trump: il boom dei predic...", "url": `${BASE_URL}/articoli-frontaliere/scommesse-guerra-trump-prediction-market` },
           { "@type": "ListItem", "position": 1121, "name": "Furti di lusso in Ticino: 5 auto rubate in un w...", "url": `${BASE_URL}/articoli-frontaliere/furti-lusso-murten-2026` },
           { "@type": "ListItem", "position": 1122, "name": "Gestione illecita rifiuti Varese Arcisate", "url": `${BASE_URL}/articoli-frontaliere/gestione-illecita-rifiuti-varese-arcisate-2026` },
-          { "@type": "ListItem", "position": 1123, "name": "Frontalieri Ticino: +30% in 10 anni, superati i...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-crescita-2026` }
+          { "@type": "ListItem", "position": 1123, "name": "Frontalieri Ticino: +30% in 10 anni, superati i...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-crescita-2026` },
+          { "@type": "ListItem", "position": 1124, "name": "Trasparenza nelle iniziative popolari: la propo...", "url": `${BASE_URL}/articoli-frontaliere/trasparenza-iniziative-popolari-ticino-2026` }
  ]
  },
  {
