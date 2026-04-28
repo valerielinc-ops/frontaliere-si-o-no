@@ -3203,6 +3203,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.borsa-zurigo-frontalieri-27-aprile-2026.title': 'Bourse de Zurich : journée mouvementée pour les frontaliers',
     'blog.article.borsa-zurigo-frontalieri-27-aprile-2026.excerpt': 'Le Swiss Market Index clôture à 13\'165.23 points, avec Lonza Group et UBS Group en hausse',
     'blog.article.borsa-zurigo-frontalieri-27-aprile-2026.imageAlt': 'Vue du lac de Lugano avec les bâtiments du quartier financier',
+    'blog.article.colpi-arma-da-fuoco-como-ferito-frontaliere.title': 'Tirs à Como: un jeune étranger blessé',
+    'blog.article.colpi-arma-da-fuoco-como-ferito-frontaliere.excerpt': 'Un jeune étranger a été blessé par des coups de feu tirés depuis une voiture à San Fermo della Battaglia, près de Côme.',
+    'blog.article.colpi-arma-da-fuoco-como-ferito-frontaliere.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

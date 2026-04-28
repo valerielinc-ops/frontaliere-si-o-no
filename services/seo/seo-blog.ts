@@ -17932,6 +17932,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-colpi-arma-da-fuoco-como-ferito-frontaliere': {
+    title: 'Colpi d\'arma da fuoco a Como: ferito giovane straniero',
+    description: 'Un giovane straniero è stato ferito da colpi d\'arma da fuoco sparati da un\'auto a San Fermo della Battaglia, vicino a Como. Scopri di più sull\'incidente e le',
+    keywords: 'frontalieri, ticino, svizzera, italia, colpi, arma, fuoco, como',
+    ogTitle: 'Colpi d\'arma da fuoco a Como: ferito giovane straniero',
+    ogDescription: 'Un giovane straniero è stato ferito da colpi d\'arma da fuoco sparati da un\'auto a San Fermo della Battaglia, vicino a Como. Scopri di più sull\'incidente e le',
+    canonicalPath: '/articoli-frontaliere/colpi-arma-da-fuoco-como-ferito-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Colpi d'arma da fuoco a Como: ferito giovane straniero",
+      "description": "Un giovane straniero è stato ferito da colpi d'arma da fuoco sparati da un'auto a San Fermo della Battaglia, vicino a Como. Scopri di più sull'incidente e le",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/colpi-arma-da-fuoco-como-ferito-frontaliere.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sul confine svizzero-italiano"
+      },
+      "datePublished": "2026-04-28T05:42:57+00:00",
+      "dateModified": "2026-04-28T05:42:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/colpi-arma-da-fuoco-como-ferito-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

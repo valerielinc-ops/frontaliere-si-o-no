@@ -2328,6 +2328,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuova-legge-polizia-ticino-controllo-periodico': { name: 'Novità', path: '/articoli-frontaliere/nuova-legge-polizia-ticino-controllo-periodico', parent: 'blog' },
     'blog-malpensa-parigi-galline-frontalieri': { name: 'Pratico', path: '/articoli-frontaliere/malpensa-parigi-galline-frontalieri', parent: 'blog' },
     'blog-borsa-zurigo-frontalieri-27-aprile-2026': { name: 'Borsa Zurigo', path: '/articoli-frontaliere/borsa-zurigo-frontalieri-27-aprile-2026', parent: 'blog' },
+    'blog-colpi-arma-da-fuoco-como-ferito-frontaliere': { name: 'Incidente Como', path: '/articoli-frontaliere/colpi-arma-da-fuoco-como-ferito-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];

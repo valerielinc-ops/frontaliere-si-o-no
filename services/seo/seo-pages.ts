@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1117,
+ "numberOfItems": 1118,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5841,7 +5841,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1114, "name": "Bcc Busto Garolfo: 14,4 milioni di utile e 2 mi...", "url": `${BASE_URL}/articoli-frontaliere/bcc-busto-garolfo-2-milioni-territorio` },
           { "@type": "ListItem", "position": 1115, "name": "Nuova legge polizia Ticino: controllo periodico...", "url": `${BASE_URL}/articoli-frontaliere/nuova-legge-polizia-ticino-controllo-periodico` },
           { "@type": "ListItem", "position": 1116, "name": "Malpensa, Parigi e due galline: la complessità ...", "url": `${BASE_URL}/articoli-frontaliere/malpensa-parigi-galline-frontalieri` },
-          { "@type": "ListItem", "position": 1117, "name": "Borsa di Zurigo: giornata altalenante per i fro...", "url": `${BASE_URL}/articoli-frontaliere/borsa-zurigo-frontalieri-27-aprile-2026` }
+          { "@type": "ListItem", "position": 1117, "name": "Borsa di Zurigo: giornata altalenante per i fro...", "url": `${BASE_URL}/articoli-frontaliere/borsa-zurigo-frontalieri-27-aprile-2026` },
+          { "@type": "ListItem", "position": 1118, "name": "Colpi d'arma da fuoco a Como: ferito giovane st...", "url": `${BASE_URL}/articoli-frontaliere/colpi-arma-da-fuoco-como-ferito-frontaliere` }
  ]
  },
  {

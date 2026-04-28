@@ -8484,4 +8484,11 @@ export const ARTICLES = [
  image: '/images/blog/borsa-zurigo-frontalieri-27-aprile-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'colpi-arma-da-fuoco-como-ferito-frontaliere',
+ category: 'novita',
+ date: '2026-04-28T05:42:57.873Z',
+ image: '/images/blog/colpi-arma-da-fuoco-como-ferito-frontaliere.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
