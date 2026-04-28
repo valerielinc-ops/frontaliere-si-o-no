@@ -3479,6 +3479,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giro-e-angera-verbania-2026.title': 'Giro-E 2026 : étape d\'Angera à Verbania sur le Lac Majeur',
     'blog.article.giro-e-angera-verbania-2026.excerpt': 'Une étape du Giro-E unit le sport, la durabilité et la promotion touristique le long du Lac Majeur, avec un départ d\'Angera le 22 mai 2026.',
     'blog.article.giro-e-angera-verbania-2026.imageAlt': 'Cyclistes du Giro-E pédalent le long du Lac Majeur',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.title': 'Initiatives des caisses maladie : le plan Dadò',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.excerpt': 'Chaque initiative sur les caisses maladie avance avec des mesures de financement séparées. La proposition de Fiorenzo Dadò.',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.imageAlt': 'Lac de Lugano avec un bâtiment moderne en arrière-plan',
 };
 
 export default blogMetaFr;

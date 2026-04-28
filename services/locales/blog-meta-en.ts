@@ -3478,6 +3478,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giro-e-angera-verbania-2026.title': 'Giro-E 2026: Stage from Angera to Verbania on Lake Maggiore',
     'blog.article.giro-e-angera-verbania-2026.excerpt': 'A Giro-E stage combines sports, sustainability, and tourism promotion along Lake Maggiore, starting from Angera on May 22, 2026.',
     'blog.article.giro-e-angera-verbania-2026.imageAlt': 'Giro-E cyclists riding along Lake Maggiore',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.title': 'Dadò\'s plan for health insurers emerges',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.excerpt': 'Each initiative on health insurers follows its own path with separate funding measures. Fiorenzo Dadò\'s proposal.',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.imageAlt': 'Lake Lugano with a modern building in the background',
 };
 
 export default blogMetaEn;

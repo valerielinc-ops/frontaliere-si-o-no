@@ -3478,6 +3478,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giro-e-angera-verbania-2026.title': 'Giro-E 2026: Etappe von Angera nach Verbania am Lago Maggiore',
     'blog.article.giro-e-angera-verbania-2026.excerpt': 'Eine Etappe des Giro-E verbindet Sport, Nachhaltigkeit und touristische Förderung entlang des Lago Maggiore, mit Start in Angera am 22. Mai 2026.',
     'blog.article.giro-e-angera-verbania-2026.imageAlt': 'Giro-E Radfahrer fahren entlang des Lago Maggiore',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.title': 'Initiativen der Krankenkassen: Dadòs Plan taucht auf',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.excerpt': 'Jede Initiative zu den Krankenkassen verfolgt ihren eigenen Weg mit separaten Finanzierungsmaßnahmen. Der Vorschlag von Fiorenzo Dadò.',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
 };
 
 export default blogMetaDe;

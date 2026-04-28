@@ -20600,6 +20600,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziative-casse-malati-dado-scissione-dossier': {
+    title: 'Iniziative casse malati: spunta il piano Dadò | Frontaliere Ticino',
+    description: 'Ogni iniziativa sulle casse malati prosegue per la propria strada con misure di finanziamento separate. La proposta di Fiorenzo Dadò. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziative, casse, malati, spunta',
+    ogTitle: 'Iniziative casse malati: spunta il piano Dadò',
+    ogDescription: 'Ogni iniziativa sulle casse malati prosegue per la propria strada con misure di finanziamento separate. La proposta di Fiorenzo Dadò.',
+    canonicalPath: '/articoli-frontaliere/iniziative-casse-malati-dado-scissione-dossier',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziative casse malati: spunta il piano Dadò",
+      "description": "Ogni iniziativa sulle casse malati prosegue per la propria strada con misure di finanziamento separate. La proposta di Fiorenzo Dadò. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziative-casse-malati-dado-scissione-dossier.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un edificio moderno sullo sfondo"
+      },
+      "datePublished": "2026-04-28T19:27:21+00:00",
+      "dateModified": "2026-04-28T19:27:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziative-casse-malati-dado-scissione-dossier`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

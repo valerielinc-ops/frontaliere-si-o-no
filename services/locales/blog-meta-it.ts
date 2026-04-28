@@ -3479,6 +3479,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giro-e-angera-verbania-2026.title': 'Giro-E 2026: la tappa da Angera a Verbania sul Lago Maggiore',
     'blog.article.giro-e-angera-verbania-2026.excerpt': 'Una tappa del Giro-E unisce sport, sostenibilità e promozione turistica lungo il Lago Maggiore, con partenza da Angera il 22 maggio 2026.',
     'blog.article.giro-e-angera-verbania-2026.imageAlt': 'Ciclisti del Giro-E pedalano lungo il Lago Maggiore',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.title': 'Iniziative casse malati: spunta il piano Dadò',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.excerpt': 'Ogni iniziativa sulle casse malati prosegue per la propria strada con misure di finanziamento separate. La proposta di Fiorenzo Dadò.',
+    'blog.article.iniziative-casse-malati-dado-scissione-dossier.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
 };
 
 export default blogMetaIt;

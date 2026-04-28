@@ -9128,4 +9128,11 @@ export const ARTICLES = [
  image: '/images/blog/giro-e-angera-verbania-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'iniziative-casse-malati-dado-scissione-dossier',
+ category: 'novita',
+ date: '2026-04-28T19:27:21.030Z',
+ image: '/images/blog/iniziative-casse-malati-dado-scissione-dossier.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
