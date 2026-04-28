@@ -3467,6 +3467,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fattura-miliardaria-energia-medio-oriente.title': 'Conflit au Moyen-Orient: la facture énergétique pour la Suisse et l\'Italie',
     'blog.article.fattura-miliardaria-energia-medio-oriente.excerpt': 'Le conflit au Moyen-Orient fait augmenter les prix des carburants, avec des coûts supplémentaires de près de 5 milliards pour la Suisse et 15 pour l\'Italie.',
     'blog.article.fattura-miliardaria-energia-medio-oriente.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
+    'blog.article.riforma-infermieri-ticino-2026.title': 'Réforme infirmière au Tessin: horaires et réactions contrastées',
+    'blog.article.riforma-infermieri-ticino-2026.excerpt': 'Le Conseil national a décidé de ne pas réduire l\'horaire hebdomadaire maximal des infirmiers, qui reste fixé à 50 heures. Réactions contrastées entre les initiants et les structures sanitaires.',
+    'blog.article.riforma-infermieri-ticino-2026.imageAlt': 'Une infirmière travaillant dans un hôpital du Tessin',
 };
 
 export default blogMetaFr;

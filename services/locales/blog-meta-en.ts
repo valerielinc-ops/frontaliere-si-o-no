@@ -3466,6 +3466,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fattura-miliardaria-energia-medio-oriente.title': 'Middle East conflict: energy bill for Switzerland and Italy',
     'blog.article.fattura-miliardaria-energia-medio-oriente.excerpt': 'The conflict in the Middle East is driving up fuel prices, with additional costs of nearly 5 billion for Switzerland and 15 for Italy.',
     'blog.article.fattura-miliardaria-energia-medio-oriente.imageAlt': 'Aerial view of Lake Lugano with the Ticino landscape',
+    'blog.article.riforma-infermieri-ticino-2026.title': 'Ticino nursing reform: work hours and mixed reactions',
+    'blog.article.riforma-infermieri-ticino-2026.excerpt': 'The National Council has decided not to shorten the maximum weekly working hours for nurses, which remains set at 50 hours. Mixed reactions between activists and healthcare facilities.',
+    'blog.article.riforma-infermieri-ticino-2026.imageAlt': 'A nurse working in a Ticino hospital',
 };
 
 export default blogMetaEn;

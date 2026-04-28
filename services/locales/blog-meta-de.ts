@@ -3466,6 +3466,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fattura-miliardaria-energia-medio-oriente.title': 'Energiekosten durch Nahost-Konflikt für Schweiz und Italien',
     'blog.article.fattura-miliardaria-energia-medio-oriente.excerpt': 'Der Konflikt im Nahen Osten treibt die Kraftstoffpreise in die Höhe, mit zusätzlichen Kosten von fast 5 Milliarden Franken für die Schweiz und 15 Milliarden für Italien.',
     'blog.article.fattura-miliardaria-energia-medio-oriente.imageAlt': 'Luftaufnahme des Luganersees mit der Landschaft des Tessin',
+    'blog.article.riforma-infermieri-ticino-2026.title': 'Pflegereform im Tessin: Arbeitszeiten und unterschiedliche Reaktionen',
+    'blog.article.riforma-infermieri-ticino-2026.excerpt': 'Der Nationalrat hat beschlossen, die maximale Wochenarbeitszeit für Pflegekräfte bei 50 Stunden zu belassen. Unterschiedliche Reaktionen von Initiativen und Gesundheitseinrichtungen.',
+    'blog.article.riforma-infermieri-ticino-2026.imageAlt': 'Eine Krankenschwester arbeitet in einem Krankenhaus in Tessin',
 };
 
 export default blogMetaDe;

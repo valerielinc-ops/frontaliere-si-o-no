@@ -3467,6 +3467,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fattura-miliardaria-energia-medio-oriente.title': 'Conflitto in Medio Oriente: la fattura energetica per Svizzera e Italia',
     'blog.article.fattura-miliardaria-energia-medio-oriente.excerpt': 'Il conflitto in Medio Oriente fa lievitare i prezzi dei carburanti, con costi aggiuntivi di quasi 5 miliardi per la Svizzera e 15 per l\'Italia.',
     'blog.article.fattura-miliardaria-energia-medio-oriente.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
+    'blog.article.riforma-infermieri-ticino-2026.title': 'Riforma infermieristica in Ticino: orario di lavoro e reazioni contrastanti',
+    'blog.article.riforma-infermieri-ticino-2026.excerpt': 'Il Consiglio nazionale ha deciso di non accorciare l’orario massimo settimanale degli infermieri, che resta fissato a 50 ore. Reazioni contrastanti tra iniziativisti e strutture sanitarie.',
+    'blog.article.riforma-infermieri-ticino-2026.imageAlt': 'Un\'infermiera al lavoro in un ospedale del Canton Ticino',
 };
 
 export default blogMetaIt;

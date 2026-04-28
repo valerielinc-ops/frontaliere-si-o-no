@@ -9100,4 +9100,11 @@ export const ARTICLES = [
  image: '/images/blog/fattura-miliardaria-energia-medio-oriente.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'riforma-infermieri-ticino-2026',
+ category: 'novita',
+ date: '2026-04-28T18:58:12.471Z',
+ image: '/images/blog/riforma-infermieri-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

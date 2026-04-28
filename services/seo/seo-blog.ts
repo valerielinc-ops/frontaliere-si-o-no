@@ -20484,6 +20484,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riforma-infermieri-ticino-2026': {
+    title: 'Riforma infermieristica in Ticino: orario di lavoro e reazioni contrastanti',
+    description: 'Il Consiglio nazionale ha deciso di non accorciare l’orario massimo settimanale degli infermieri, che resta fissato a 50 ore. Reazioni contrastanti tra',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, infermieristica, orario, lavoro',
+    ogTitle: 'Riforma infermieristica in Ticino: orario di lavoro e reazioni contrastanti',
+    ogDescription: 'Il Consiglio nazionale ha deciso di non accorciare l’orario massimo settimanale degli infermieri, che resta fissato a 50 ore. Reazioni contrastanti tra',
+    canonicalPath: '/articoli-frontaliere/riforma-infermieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riforma infermieristica in Ticino: orario di lavoro e reazioni contrastanti",
+      "description": "Il Consiglio nazionale ha deciso di non accorciare l’orario massimo settimanale degli infermieri, che resta fissato a 50 ore. Reazioni contrastanti tra",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riforma-infermieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un'infermiera al lavoro in un ospedale del Canton Ticino"
+      },
+      "datePublished": "2026-04-28T18:58:12+00:00",
+      "dateModified": "2026-04-28T18:58:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riforma-infermieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
