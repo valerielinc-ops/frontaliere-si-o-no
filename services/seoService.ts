@@ -2342,6 +2342,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-processo-karimova-archiviazione-parziale': { name: 'Processo Karimova', path: '/articoli-frontaliere/processo-karimova-archiviazione-parziale', parent: 'blog' },
     'blog-cardiocentro-lugano-ristrutturazione-2026': { name: 'Cardiocentro Lugano', path: '/articoli-frontaliere/cardiocentro-lugano-ristrutturazione-2026', parent: 'blog' },
     'blog-ex-capo-esercito-kaiser-partner-privatbank': { name: 'Novità', path: '/articoli-frontaliere/ex-capo-esercito-kaiser-partner-privatbank', parent: 'blog' },
+    'blog-nuove-regole-centri-estivi-saronno-2026': { name: 'Novità', path: '/articoli-frontaliere/nuove-regole-centri-estivi-saronno-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

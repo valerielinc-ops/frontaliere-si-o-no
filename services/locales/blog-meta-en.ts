@@ -3334,6 +3334,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ex-capo-esercito-kaiser-partner-privatbank.title': 'Former army chief joins Kaiser Partner Privatbank board',
     'blog.article.ex-capo-esercito-kaiser-partner-privatbank.excerpt': 'Thomas Süssli, former Swiss army chief, joins the board of Vaduz-based bank.',
     'blog.article.ex-capo-esercito-kaiser-partner-privatbank.imageAlt': 'Panoramic view of Lugano with Lake Ceresio',
+    'blog.article.nuove-regole-centri-estivi-saronno-2026.title': 'Saronno: new rules for summer centres',
+    'blog.article.nuove-regole-centri-estivi-saronno-2026.excerpt': 'From 2026, Saronno introduces a single management for summer centres, discounts for siblings and contributions up to 400 euros for families with ISEE up to 15,000 euros.',
+    'blog.article.nuove-regole-centri-estivi-saronno-2026.imageAlt': 'Municipal summer camps in Saronno, children engaged in summer activities',
 };
 
 export default blogMetaEn;

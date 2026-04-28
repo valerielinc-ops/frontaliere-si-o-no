@@ -19208,6 +19208,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuove-regole-centri-estivi-saronno-2026': {
+    title: 'Saronno: nuove regole per i centri estivi comunali',
+    description: 'Scopri le nuove regole per i centri estivi comunali di Saronno: regia unica, sconti per fratelli e contributi fino a 400 euro. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, saronno, nuove, regole, centri',
+    ogTitle: 'Nuove regole centri estivi Saronno 2026',
+    ogDescription: 'Scopri le nuove regole per i centri estivi comunali di Saronno: regia unica, sconti per fratelli e contributi fino a 400 euro.',
+    canonicalPath: '/articoli-frontaliere/nuove-regole-centri-estivi-saronno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove regole per i centri estivi comunali di Saronno: regia unica, sconti e contributi fino a 400 euro",
+      "description": "Scopri le nuove regole per i centri estivi comunali di Saronno: regia unica, sconti per fratelli e contributi fino a 400 euro. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuove-regole-centri-estivi-saronno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centri estivi comunali a Saronno, bambini impegnati in attività estive"
+      },
+      "datePublished": "2026-04-28T12:37:47+00:00",
+      "dateModified": "2026-04-28T12:37:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuove-regole-centri-estivi-saronno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

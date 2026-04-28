@@ -3335,6 +3335,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ex-capo-esercito-kaiser-partner-privatbank.title': 'Ex capo dell\'esercito nel Cda di Kaiser Partner Privatbank',
     'blog.article.ex-capo-esercito-kaiser-partner-privatbank.excerpt': 'Thomas Süssli, ex capo dell\'esercito svizzero, entra nel consiglio d\'amministrazione della banca di Vaduz.',
     'blog.article.ex-capo-esercito-kaiser-partner-privatbank.imageAlt': 'Vista panoramica di Lugano con il lago Ceresio',
+    'blog.article.nuove-regole-centri-estivi-saronno-2026.title': 'Saronno: nuove regole per i centri estivi comunali',
+    'blog.article.nuove-regole-centri-estivi-saronno-2026.excerpt': 'Dal 2026, Saronno introduce una regia unica per i centri estivi, sconti per fratelli e contributi fino a 400 euro per famiglie con ISEE fino a 15mila euro.',
+    'blog.article.nuove-regole-centri-estivi-saronno-2026.imageAlt': 'Centri estivi comunali a Saronno, bambini impegnati in attività estive',
 };
 
 export default blogMetaIt;

@@ -3334,6 +3334,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ex-capo-esercito-kaiser-partner-privatbank.title': 'Ex-Armeechef im Verwaltungsrat der Kaiser Partner Privatbank',
     'blog.article.ex-capo-esercito-kaiser-partner-privatbank.excerpt': 'Thomas Süssli, ehemaliger Chef des Schweizer Militärs, tritt dem Verwaltungsrat der Bank in Vaduz bei.',
     'blog.article.ex-capo-esercito-kaiser-partner-privatbank.imageAlt': 'Panoramablick von Lugano mit dem Ceresio-See',
+    'blog.article.nuove-regole-centri-estivi-saronno-2026.title': 'Saronno: Neue Regeln für kommunale Sommerzentren',
+    'blog.article.nuove-regole-centri-estivi-saronno-2026.excerpt': 'Ab 2026 führt Saronno eine einheitliche Leitung für die Sommerzentren ein, Rabatte für Geschwister und Zuschüsse bis zu 400 Euro für Familien mit einem ISEE von bis zu 15.000 Euro.',
+    'blog.article.nuove-regole-centri-estivi-saronno-2026.imageAlt': 'Kommunale Sommerlager in Saronno, Kinder bei Sommeraktivitäten',
 };
 
 export default blogMetaDe;
