@@ -19063,6 +19063,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-montessori-green-food-week-2026': {
+    title: 'Montessori Castellanza: menù a basso impatto e lotta agli sprechi',
+    description: 'La scuola Montessori di Castellanza partecipa alla Green Food Week 2026 con menù vegetali e attività educative per ridurre gli sprechi alimentari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, montessori, castellanza, menù, basso',
+    ogTitle: 'Montessori Castellanza: menù a basso impatto e lotta agli sprechi',
+    ogDescription: 'La scuola Montessori di Castellanza partecipa alla Green Food Week 2026 con menù vegetali e attività educative per ridurre gli sprechi alimentari.',
+    canonicalPath: '/articoli-frontaliere/montessori-green-food-week-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Montessori Castellanza: menù a basso impatto e lotta agli sprechi",
+      "description": "La scuola Montessori di Castellanza partecipa alla Green Food Week 2026 con menù vegetali e attività educative per ridurre gli sprechi alimentari.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/montessori-green-food-week-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti della scuola Montessori di Castellanza durante la Green Food Week 2026"
+      },
+      "datePublished": "2026-04-28T12:02:41+00:00",
+      "dateModified": "2026-04-28T12:02:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/montessori-green-food-week-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3319,6 +3319,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bicicletta-insubria-varese-2026.title': 'Sustainable cycling commuting in Insubria',
     'blog.article.bicicletta-insubria-varese-2026.excerpt': 'A teacher shares his experience of cycling between Milan and Varese, highlighting the challenges and potential of a more sustainable system.',
     'blog.article.bicicletta-insubria-varese-2026.imageAlt': 'A professor cycling to the University of Insubria in Varese with a bicycle on a train',
+    'blog.article.montessori-green-food-week-2026.title': 'Montessori Castellanza: low-impact menus and waste reduction',
+    'blog.article.montessori-green-food-week-2026.excerpt': 'The Montessori school of Castellanza participates in the Green Food Week with vegetable menus and educational activities to reduce food waste.',
+    'blog.article.montessori-green-food-week-2026.imageAlt': 'Students of Montessori School in Castellanza during the Green Food Week 2026',
 };
 
 export default blogMetaEn;

@@ -2337,6 +2337,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sorveglianza-telecomunicazioni-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/sorveglianza-telecomunicazioni-ticino-2026', parent: 'blog' },
     'blog-spese-bancarie-titoli-frontalieri': { name: 'Spese bancarie titoli', path: '/articoli-frontaliere/spese-bancarie-titoli-frontalieri', parent: 'blog' },
     'blog-bicicletta-insubria-varese-2026': { name: 'Pendolarismo sostenibile', path: '/articoli-frontaliere/bicicletta-insubria-varese-2026', parent: 'blog' },
+    'blog-montessori-green-food-week-2026': { name: 'Novità', path: '/articoli-frontaliere/montessori-green-food-week-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

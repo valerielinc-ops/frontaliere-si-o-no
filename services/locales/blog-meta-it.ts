@@ -3320,6 +3320,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bicicletta-insubria-varese-2026.title': 'Pendolarismo sostenibile in bici all\'Insubria',
     'blog.article.bicicletta-insubria-varese-2026.excerpt': 'Un docente racconta la sua esperienza di pendolarismo in bicicletta tra Milano e Varese, evidenziando le difficoltà e le potenzialità di un sistema più sostenibile.',
     'blog.article.bicicletta-insubria-varese-2026.imageAlt': 'Un professore in bicicletta verso l\'Università dell\'Insubria a Varese con la bici sul treno',
+    'blog.article.montessori-green-food-week-2026.title': 'Montessori Castellanza: menù a basso impatto e lotta agli sprechi',
+    'blog.article.montessori-green-food-week-2026.excerpt': 'La scuola Montessori di Castellanza partecipa alla Green Food Week con menù vegetali e attività educative per ridurre gli sprechi alimentari.',
+    'blog.article.montessori-green-food-week-2026.imageAlt': 'Studenti della scuola Montessori di Castellanza durante la Green Food Week 2026',
 };
 
 export default blogMetaIt;
