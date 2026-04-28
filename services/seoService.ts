@@ -2329,6 +2329,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-airpack-lombardia-41-lavoratori': { name: 'Novità', path: '/articoli-frontaliere/airpack-lombardia-41-lavoratori', parent: 'blog' },
     'blog-tassa-aerei-trasporto-pubblico': { name: 'Iniziativa tassa aerei', path: '/articoli-frontaliere/tassa-aerei-trasporto-pubblico', parent: 'blog' },
     'blog-settimanaprofessionale-ticino-2024': { name: 'Novità', path: '/articoli-frontaliere/settimanaprofessionale-ticino-2024', parent: 'blog' },
+    'blog-colazione-equo-ticino-9-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/colazione-equo-ticino-9-maggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

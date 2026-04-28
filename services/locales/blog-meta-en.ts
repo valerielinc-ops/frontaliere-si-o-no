@@ -3295,6 +3295,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.settimanaprofessionale-ticino-2024.title': 'Vocational training week: 30 events in Ticino',
     'blog.article.settimanaprofessionale-ticino-2024.excerpt': 'From May 4 to 8, over 30 events on radio, TV, and in-person to discover professions in Ticino',
     'blog.article.settimanaprofessionale-ticino-2024.imageAlt': 'Aerial view of Bellinzona with Castelgrande, Ticino, Switzerland',
+    'blog.article.colazione-equo-ticino-9-maggio-2026.title': 'Fair Trade Day in Ticino: breakfast events',
+    'blog.article.colazione-equo-ticino-9-maggio-2026.excerpt': 'On May 9, 2026, Ticino celebrates World Fair Trade Day with breakfasts, tastings, and promotions at various World Shops.',
+    'blog.article.colazione-equo-ticino-9-maggio-2026.imageAlt': 'A bustling Fair Trade shop in Ticino, Switzerland, with people enjoying a fair trade breakfast. The shop is decorated with colorful banners and signs promoting fair trade products.',
 };
 
 export default blogMetaEn;

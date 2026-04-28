@@ -3295,6 +3295,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.settimanaprofessionale-ticino-2024.title': 'Berufswoche: 30 Veranstaltungen im Tessin',
     'blog.article.settimanaprofessionale-ticino-2024.excerpt': 'Vom 4. bis 8. Mai über 30 Veranstaltungen im Radio, TV und vor Ort, um die Berufe im Tessin kennenzulernen',
     'blog.article.settimanaprofessionale-ticino-2024.imageAlt': 'Luftaufnahme von Bellinzona mit Castelgrande, Tessin, Schweiz',
+    'blog.article.colazione-equo-ticino-9-maggio-2026.title': 'Faire Frühstück im Tessin: Events zum Welttag des Fairen Handels',
+    'blog.article.colazione-equo-ticino-9-maggio-2026.excerpt': 'Am 9. Mai 2026 feiert das Tessin den Welttag des Fairen Handels mit Frühstücken, Verkostungen und Aktionen in verschiedenen Weltläden.',
+    'blog.article.colazione-equo-ticino-9-maggio-2026.imageAlt': 'Ein belebter Fair-Trade-Laden in Tessin, Schweiz, mit Menschen, die ein faires Frühstück genießen. Der Laden ist mit bunten Bannern und Schildern dekoriert, die Fair-Trade-Produkte bewerben.',
 };
 
 export default blogMetaDe;

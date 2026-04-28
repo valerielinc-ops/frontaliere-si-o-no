@@ -18831,6 +18831,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-colazione-equo-ticino-9-maggio-2026': {
+    title: 'Colazione equa in Ticino: eventi per la Giornata mondiale del commercio equo',
+    description: 'Il 9 maggio 2026 il Ticino celebra la Giornata mondiale del commercio equo con colazioni, degustazioni e promozioni in varie Botteghe del Mondo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, colazione, equa, eventi, giornata',
+    ogTitle: 'Colazione equa in Ticino: eventi per la Giornata mondiale del commercio equo',
+    ogDescription: 'Il 9 maggio 2026 il Ticino celebra la Giornata mondiale del commercio equo con colazioni, degustazioni e promozioni in varie Botteghe del Mondo.',
+    canonicalPath: '/articoli-frontaliere/colazione-equo-ticino-9-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Colazione equa in Ticino: eventi per la Giornata mondiale del commercio equo",
+      "description": "Il 9 maggio 2026 il Ticino celebra la Giornata mondiale del commercio equo con colazioni, degustazioni e promozioni in varie Botteghe del Mondo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/colazione-equo-ticino-9-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una bottega del mondo affollata in Ticino, Svizzera, con persone che godono di una colazione equa. La bottega è decorata con bandiere colorate e cartelli che promuovono prodotti del commercio equo."
+      },
+      "datePublished": "2026-04-28T11:02:58+00:00",
+      "dateModified": "2026-04-28T11:02:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/colazione-equo-ticino-9-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

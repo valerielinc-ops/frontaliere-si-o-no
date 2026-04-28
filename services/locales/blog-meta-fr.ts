@@ -3296,6 +3296,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.settimanaprofessionale-ticino-2024.title': 'Semaine de la formation professionnelle: 30 événements au Tessin',
     'blog.article.settimanaprofessionale-ticino-2024.excerpt': 'Du 4 au 8 mai, plus de 30 rendez-vous à la radio, à la télévision et sur le territoire pour découvrir les professions au Tessin',
     'blog.article.settimanaprofessionale-ticino-2024.imageAlt': 'Vue aérienne de Bellinzone avec Castelgrande, Tessin, Suisse',
+    'blog.article.colazione-equo-ticino-9-maggio-2026.title': 'Petit-déj équitable au Tessin: Journée mondiale',
+    'blog.article.colazione-equo-ticino-9-maggio-2026.excerpt': 'Le 9 mai 2026, le Tessin célèbre la Journée mondiale du commerce équitable avec des petits-déjeuners, des dégustations et des promotions dans diverses Botteghe del Mondo.',
+    'blog.article.colazione-equo-ticino-9-maggio-2026.imageAlt': 'Une boutique de commerce équitable animée en Tessin, Suisse, avec des personnes profitant d\'un petit-déjeuner équitable. La boutique est décorée de bannières colorées et d\'enseignes promouvant des produits du commerce équitable.',
 };
 
 export default blogMetaFr;
