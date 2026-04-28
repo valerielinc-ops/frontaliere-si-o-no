@@ -29,9 +29,9 @@
         "de": "Feld Service Techniker",
         "fr": "Field Service Technicien"
       },
-      "slug": "field-service-technician-swisscom-chur-b1qkn8",
+      "slug": "servizio-di-campo-tecnico-swisscom-sede-ticino-chur",
       "slugByLocale": {
-        "it": "field-service-technician-swisscom-chur-b1qkn8",
+        "it": "servizio-di-campo-tecnico-swisscom-sede-ticino-chur",
         "en": "field-service-technician-swisscom-sede-ticino-chur",
         "de": "field-service-technician-swisscom-chur-b1qkn8",
         "fr": "field-service-technicien-swisscom-sede-ticino-chur"
@@ -67,7 +67,15 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-04-27T22:38:16.178Z"
+      "firstSeenAt": "2026-04-27T22:38:16.178Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-service-technician-swisscom-chur-b1qkn8"
+        ]
+      },
+      "previousSlugs": [
+        "field-service-technician-swisscom-chur-b1qkn8"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Monthey/Apprentissage--Gestionnaire-du-commerce-de-dtail-CFC-_R-0001986",

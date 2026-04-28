@@ -240,9 +240,9 @@
       "slug": "formazione-infermiere-i-specializzato-a-hf-nel-campo-della-psichiatria-psychiatrische-dienste-graubunden-cazis-chur-davo",
       "slugByLocale": {
         "it": "formazione-infermiere-i-specializzato-a-hf-nel-campo-della-psichiatria-psychiatrische-dienste-graubunden-cazis-chur-davo",
-        "en": "hf-training-nurse-in-the-field-of-psychiatry-psychiatrische-dienste-graubunden-cazis-chur-davos-glarus-ilanz-rothenbrunn",
+        "en": "training-as-a-specialist-nurse-hf-in-the-field-of-psychiatry-psychiatrische-dienste-graubunden-ticino",
         "de": "ausbildung-pflegefachfrau-pflegefachmann-hf-im-arbeitsfeld-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur-davo",
-        "fr": "formation-d-infirmier-hf-dans-le-domaine-de-la-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur-davos-glarus-ila"
+        "fr": "formation-d-infirmier-ere-specialise-e-hf-dans-le-domaine-de-la-psychiatrie-psychiatrische-dienste-graubunden-ticino"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -294,11 +294,19 @@
         "it": [
           "ausbildung-pflegefachfrau-pflegefachmann-hf-im-arbeitsfeld-psychiatrie-pdgr-ch",
           "formazione-assistente-infermieristico-hf-nel-campo-della-psichiatria-psychiatrische-dienste-graubunden-cazis-chur-davos-"
+        ],
+        "en": [
+          "hf-training-nurse-in-the-field-of-psychiatry-psychiatrische-dienste-graubunden-cazis-chur-davos-glarus-ilanz-rothenbrunn"
+        ],
+        "fr": [
+          "formation-d-infirmier-hf-dans-le-domaine-de-la-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur-davos-glarus-ila"
         ]
       },
       "previousSlugs": [
         "ausbildung-pflegefachfrau-pflegefachmann-hf-im-arbeitsfeld-psychiatrie-pdgr-ch",
-        "formazione-assistente-infermieristico-hf-nel-campo-della-psichiatria-psychiatrische-dienste-graubunden-cazis-chur-davos-"
+        "formazione-assistente-infermieristico-hf-nel-campo-della-psichiatria-psychiatrische-dienste-graubunden-cazis-chur-davos-",
+        "hf-training-nurse-in-the-field-of-psychiatry-psychiatrische-dienste-graubunden-cazis-chur-davos-glarus-ilanz-rothenbrunn",
+        "formation-d-infirmier-hf-dans-le-domaine-de-la-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur-davos-glarus-ila"
       ],
       "firstSeenAt": "2026-04-13T11:06:32.989Z",
       "salaryMin": 49500,
