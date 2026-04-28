@@ -1465,6 +1465,280 @@ export interface WeeklyEmployersPageInputs {
   knownSlugs?: ReadonlySet<string>;
   /** Repository root — enables `public/images/brands/*.png` lookup for company logos. */
   rootDir?: string;
+  /**
+   * Per-employer leaves emitted for this (city, locale). When supplied,
+   * the city hub renders an extra `<section>` with one BFS-traversable
+   * `<a>` per leaf so the orphan-pages audit reaches every leaf URL through
+   * the city hub it belongs to. Empty array (or omit) disables the section.
+   */
+  cityLeaves?: ReadonlyArray<{ companySlug: string; employer: string }>;
+}
+
+// ── Top hub + cross-locale linking helpers (orphan-graph closure) ─────────
+//
+// The orphan-pages-in-sitemaps audit (Apr 2026) flagged 174/188 entries in
+// sitemap-weekly-employers.xml as unreachable from `/`. Root cause: there was
+// no top hub at `/aziende-che-assumono/` (only 28 city hubs and per-employer
+// leaves), and no <a> cross-links existed between locale variants. These
+// helpers emit a top hub per locale + cross-link block consumed by every
+// city hub and every leaf. See tests/seo/weekly-employers-bfs-reachable.test.ts.
+
+/** Path of the locale-specific top hub (e.g. `/aziende-che-assumono/`). */
+function topHubPath(locale: WeeklyEmployersLocale): string {
+  const prefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
+  return `${prefix}/${WEEKLY_EMPLOYERS_SECTION[locale]}/`.replace(/\/+/g, '/');
+}
+
+/** Locale-specific labels for the city-hubs and locale-switch link blocks. */
+const LINKING_COPY: Record<
+  WeeklyEmployersLocale,
+  {
+    topHubTitle: string;
+    cityHubsTitle: string;
+    leavesTitle: (city: string) => string;
+    localeSwitchTitle: string;
+    parentHubLabel: string;
+    localeLabels: Record<WeeklyEmployersLocale, string>;
+  }
+> = {
+  it: {
+    topHubTitle: 'Aziende che assumono in Ticino',
+    cityHubsTitle: 'Tutte le città',
+    leavesTitle: (c) => `Schede aziendali settimanali a ${c}`,
+    localeSwitchTitle: 'Disponibile anche in',
+    parentHubLabel: 'Tutte le città — aziende che assumono',
+    localeLabels: { it: 'Italiano', en: 'English', de: 'Deutsch', fr: 'Français' },
+  },
+  en: {
+    topHubTitle: 'Companies hiring in Ticino',
+    cityHubsTitle: 'All cities',
+    leavesTitle: (c) => `Weekly company snapshots in ${c}`,
+    localeSwitchTitle: 'Also available in',
+    parentHubLabel: 'All cities — companies hiring',
+    localeLabels: { it: 'Italiano', en: 'English', de: 'Deutsch', fr: 'Français' },
+  },
+  de: {
+    topHubTitle: 'Unternehmen, die im Tessin einstellen',
+    cityHubsTitle: 'Alle Städte',
+    leavesTitle: (c) => `Wöchentliche Unternehmensseiten in ${c}`,
+    localeSwitchTitle: 'Auch verfügbar in',
+    parentHubLabel: 'Alle Städte — einstellende Unternehmen',
+    localeLabels: { it: 'Italiano', en: 'English', de: 'Deutsch', fr: 'Français' },
+  },
+  fr: {
+    topHubTitle: 'Entreprises qui recrutent au Tessin',
+    cityHubsTitle: 'Toutes les villes',
+    leavesTitle: (c) => `Fiches entreprises hebdomadaires à ${c}`,
+    localeSwitchTitle: 'Disponible aussi en',
+    parentHubLabel: 'Toutes les villes — entreprises qui recrutent',
+    localeLabels: { it: 'Italiano', en: 'English', de: 'Deutsch', fr: 'Français' },
+  },
+};
+
+/**
+ * Renders a `<section>` with `<a>` to every other city hub in the same locale
+ * (excluding `currentCity` if provided). Used by city hubs and the top hub
+ * to keep all 7 city URLs reachable from any one of them.
+ */
+function renderCityHubsListBlock(
+  locale: WeeklyEmployersLocale,
+  currentCity?: WeeklyEmployersCity,
+): string {
+  const t = LINKING_COPY[locale];
+  const items = WEEKLY_EMPLOYERS_CITIES.filter((c) => c !== currentCity)
+    .map((c) => {
+      const href = buildCurrentWeekPath(locale, c);
+      const label = WEEKLY_EMPLOYERS_CITY_DISPLAY[c];
+      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(label)}</a></li>`;
+    })
+    .join('');
+  return `<section style="margin:0 0 28px" aria-labelledby="weCityHubs">
+    <h2 id="weCityHubs" style="${H2_STYLE}">${esc(t.cityHubsTitle)}</h2>
+    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:4px 16px">${items}</ul>
+  </section>`;
+}
+
+/**
+ * Renders a `<section>` with `<a>` to every per-employer × city leaf for the
+ * given (locale, city). Each anchor is BFS-traversable so the orphan audit
+ * reaches every leaf URL through the city hub it belongs to.
+ */
+function renderCompanyLeavesForCityBlock(
+  locale: WeeklyEmployersLocale,
+  city: WeeklyEmployersCity,
+  pairsForCity: ReadonlyArray<{ companySlug: string; employer: string }>,
+): string {
+  if (city === 'ticino' || pairsForCity.length === 0) return '';
+  const t = LINKING_COPY[locale];
+  const cityDisplay = WEEKLY_EMPLOYERS_CITY_DISPLAY[city];
+  // Sort alphabetically for stable, scannable output. Group visually via grid.
+  const sorted = [...pairsForCity].sort((a, b) => a.employer.localeCompare(b.employer));
+  const items = sorted
+    .map((p) => {
+      const href = buildCompanyCityCurrentPath(
+        locale,
+        city as WeeklyEmployersCompanyCity,
+        p.companySlug,
+      );
+      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE}">${esc(p.employer)}</a></li>`;
+    })
+    .join('');
+  return `<section style="margin:0 0 28px" aria-labelledby="weLeaves">
+    <h2 id="weLeaves" style="${H2_STYLE}">${esc(t.leavesTitle(cityDisplay))}</h2>
+    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:4px 16px">${items}</ul>
+  </section>`;
+}
+
+/**
+ * Renders a `<section>` with `<a hreflang>` links to the top hub of every
+ * other locale. BFS-traversable (unlike `<link rel="alternate">` which the
+ * orphan audit ignores).
+ */
+function renderLocaleSwitcherBlock(
+  locale: WeeklyEmployersLocale,
+  buildAlternatePath: (alt: WeeklyEmployersLocale) => string,
+): string {
+  const t = LINKING_COPY[locale];
+  const items = WEEKLY_EMPLOYERS_LOCALES.filter((alt) => alt !== locale)
+    .map((alt) => {
+      const href = buildAlternatePath(alt);
+      const label = t.localeLabels[alt];
+      return `<li style="margin:0;padding:0"><a hreflang="${alt}" href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE}">${esc(label)}</a></li>`;
+    })
+    .join('');
+  return `<section style="margin:0 0 24px" aria-labelledby="weLocaleSwitch">
+    <h2 id="weLocaleSwitch" style="${H2_STYLE}">${esc(t.localeSwitchTitle)}</h2>
+    <ul style="list-style:none;padding:0;margin:0;display:flex;gap:14px;flex-wrap:wrap">${items}</ul>
+  </section>`;
+}
+
+// ── Top hub renderer ───────────────────────────────────────────────
+//
+// Emits a static HTML page at the locale-specific top hub path (e.g.
+// `/aziende-che-assumono/`). Lists every city hub in the locale and links
+// to all sibling-locale top hubs so BFS from `/` reaches the full link
+// graph regardless of starting locale.
+export interface TopHubPageInputs {
+  locale: WeeklyEmployersLocale;
+  today: Date;
+  /** Total active jobs count across the Ticino regional aggregation, used in the lede. */
+  jobsCount: number;
+  /** Total distinct companies across the regional aggregation. */
+  companiesCount: number;
+  distDir?: string;
+}
+
+export function renderTopHubPage(inp: TopHubPageInputs): string {
+  const { locale, today, jobsCount, companiesCount, distDir } = inp;
+  const t = LINKING_COPY[locale];
+  const copy = COPY[locale];
+  const dateStamp = today.toISOString().slice(0, 10);
+  const canonicalPath = topHubPath(locale);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+  // Hreflang block (head) — emits 4 locales + x-default for the same top hub.
+  const hreflangPaths = WEEKLY_EMPLOYERS_LOCALES.reduce<
+    Record<WeeklyEmployersLocale, string>
+  >(
+    (acc, alt) => {
+      acc[alt] = topHubPath(alt);
+      return acc;
+    },
+    { it: '', en: '', de: '', fr: '' },
+  );
+  const hreflangHtml = renderHreflangTags(hreflangPaths as HreflangPaths);
+
+  // Per-locale lede paragraph. Frontaliere-relevant, no filler.
+  const lede: Record<WeeklyEmployersLocale, string> = {
+    it: `Indice settimanale delle aziende che assumono in Ticino, organizzato per città. Ogni scheda città elenca i datori di lavoro con il maggior numero di nuove offerte negli ultimi 7 giorni e il delta rispetto alla settimana precedente — utile per chi cerca lavoro come frontaliere e vuole concentrare la candidatura sulle aziende effettivamente in fase di assunzione. Aggiornato ogni lunedì mattina con i dati aggregati dai job-board monitorati: oggi ${jobsCount} offerte attive distribuite su ${companiesCount} aziende.`,
+    en: `Weekly index of companies hiring in Ticino, organised by city. Each city page lists the employers with the most new openings over the last 7 days and the delta vs the previous week — useful for cross-border job seekers who want to focus their applications on companies actively in hiring mode. Updated every Monday morning from the aggregated job-board feeds: today ${jobsCount} active openings across ${companiesCount} companies.`,
+    de: `Wöchentlicher Index der Unternehmen, die im Tessin einstellen, nach Stadt gegliedert. Jede Stadt-Seite listet die Arbeitgeber mit den meisten neuen Stellen der letzten 7 Tage und das Delta zur Vorwoche — nützlich für stellensuchende Grenzgänger, die ihre Bewerbung auf aktiv einstellende Unternehmen fokussieren wollen. Jeden Montagmorgen aktualisiert aus den aggregierten Job-Board-Feeds: heute ${jobsCount} offene Stellen verteilt auf ${companiesCount} Unternehmen.`,
+    fr: `Index hebdomadaire des entreprises qui recrutent au Tessin, organisé par ville. Chaque page ville liste les employeurs avec le plus de nouvelles offres sur les 7 derniers jours et le delta par rapport à la semaine précédente — utile pour les frontaliers qui veulent concentrer leur candidature sur les entreprises en phase active de recrutement. Mis à jour chaque lundi matin à partir des flux job-board agrégés : aujourd'hui ${jobsCount} postes ouverts répartis sur ${companiesCount} entreprises.`,
+  };
+
+  // Per-locale methodology paragraph — explains how the city pages are
+  // computed and how to read them as a frontaliere. Real page-relevant text,
+  // not filler: it answers the question every visitor has on first arrival.
+  const methodology: Record<WeeklyEmployersLocale, string> = {
+    it: `Come funziona. Ogni lunedì mattina alle 06:00 UTC la nostra pipeline confronta lo snapshot delle offerte attive in Ticino con quello della settimana precedente e calcola, per ciascuna azienda e ciascuna città, il numero di posizioni nuove (delta positivo) o chiuse (delta negativo). I sei centri principali del cantone — Lugano, Mendrisio, Chiasso, Stabio, Bellinzona, Locarno — più la pagina aggregata Ticino-wide hanno una scheda dedicata. Per il frontaliere italiano questo è il segnale operativo più rapido: un delta positivo per due settimane consecutive su una stessa azienda è il momento migliore per inviare una candidatura, anche fuori da una posizione esattamente in linea, perché HR e responsabili stanno valutando profili attivamente. Le sei città sono ordinate per visibilità GSC sulle query "aziende che assumono a {città}", e ciascuna apre la lista completa dei datori di lavoro con almeno tre offerte aperte.`,
+    en: `How it works. Every Monday at 06:00 UTC our pipeline compares the active-jobs snapshot for Ticino against the previous week's snapshot and computes, for each company and each city, the count of new openings (positive delta) and closed openings (negative delta). The canton's six main centres — Lugano, Mendrisio, Chiasso, Stabio, Bellinzona, Locarno — plus the Ticino-wide aggregated page each get a dedicated card. For Italian cross-border workers this is the fastest operational signal: a positive delta for two consecutive weeks on the same company is the best moment to send an application, even outside an exactly aligned opening, because HR and line managers are actively assessing profiles. The six cities are ordered by GSC visibility on "companies hiring in {city}" queries, and each opens the full list of employers with at least three live openings.`,
+    de: `So funktioniert es. Jeden Montag um 06:00 UTC vergleicht unsere Pipeline den Snapshot der aktiven Stellen im Tessin mit dem Snapshot der Vorwoche und berechnet je Unternehmen und Stadt die Zahl der neuen Stellen (positives Delta) und der geschlossenen Stellen (negatives Delta). Die sechs Hauptzentren des Kantons — Lugano, Mendrisio, Chiasso, Stabio, Bellinzona, Locarno — plus die Tessin-weite Aggregat-Seite haben jeweils eine eigene Karte. Für italienische Grenzgänger ist das das schnellste operative Signal: ein positives Delta über zwei aufeinanderfolgende Wochen bei demselben Unternehmen ist der beste Moment, eine Bewerbung zu senden — auch ausserhalb einer exakt passenden Stelle, weil HR und Linienvorgesetzte aktiv Profile prüfen. Die sechs Städte sind nach GSC-Sichtbarkeit für "Unternehmen, die in {Stadt} einstellen" sortiert, und jede öffnet die vollständige Liste der Arbeitgeber mit mindestens drei aktiven Stellen.`,
+    fr: `Comment ça marche. Chaque lundi à 06:00 UTC notre pipeline compare le panorama des offres actives au Tessin avec celui de la semaine précédente et calcule, pour chaque entreprise et chaque ville, le nombre de nouvelles offres (delta positif) et d'offres fermées (delta négatif). Les six centres principaux du canton — Lugano, Mendrisio, Chiasso, Stabio, Bellinzona, Locarno — plus la page Tessin-wide ont chacun une fiche dédiée. Pour les frontaliers italiens c'est le signal opérationnel le plus rapide : un delta positif sur deux semaines consécutives chez la même entreprise est le meilleur moment pour envoyer une candidature, même hors d'une offre exactement alignée, car les RH et les responsables hiérarchiques évaluent activement des profils. Les six villes sont triées par visibilité GSC sur les requêtes "entreprises qui recrutent à {ville}", et chacune ouvre la liste complète des employeurs avec au moins trois postes ouverts.`,
+  };
+
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: t.topHubTitle, item: canonicalUrl },
+    ],
+  });
+  const itemListLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: t.topHubTitle,
+    numberOfItems: WEEKLY_EMPLOYERS_CITIES.length,
+    itemListElement: WEEKLY_EMPLOYERS_CITIES.map((c, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      url: `${BASE_URL}${buildCurrentWeekPath(locale, c)}`,
+      name: WEEKLY_EMPLOYERS_CITY_DISPLAY[c],
+    })),
+  });
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: t.topHubTitle,
+    url: canonicalUrl,
+    inLanguage: locale,
+    dateModified: dateStamp,
+  });
+
+  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    <span>${esc(t.topHubTitle)}</span>
+  </nav>
+  <header style="margin-bottom:22px">
+    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.kickerCurrent)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
+    <h1 style="${H1_STYLE}">${esc(t.topHubTitle)}</h1>
+    <p style="${LEDE_STYLE}">${esc(lede[locale])}</p>
+  </header>
+  ${renderCityHubsListBlock(locale)}
+  <section style="margin:0 0 28px" aria-labelledby="weTopMethodology">
+    <h2 id="weTopMethodology" style="${H2_STYLE}">${esc(LINKING_COPY[locale].cityHubsTitle)} — ${esc(copy.kickerCurrent)}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(methodology[locale])}</p>
+  </section>
+  ${renderLocaleSwitcherBlock(locale, (alt) => topHubPath(alt))}
+</article>`;
+
+  const title = clampSiteSuffix(t.topHubTitle, 'Frontaliere Ticino');
+  const description = lede[locale].slice(0, 180);
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">`;
+
+  return buildSeoPageHtml({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
+    hreflangHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd],
+    bodyHtml,
+    distDir,
+    hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
+  });
 }
 
 function cityJobsHubPath(locale: WeeklyEmployersLocale, city: WeeklyEmployersCity): string {
@@ -1574,6 +1848,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     distDir,
     knownSlugs,
     rootDir,
+    cityLeaves,
   } = inp;
 
   const copy = COPY[locale];
@@ -1833,7 +2108,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <span>${esc(copy.sectionLabel)}</span>
+    <a href="${esc(topHubPath(locale))}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.sectionLabel)}</a>
     <span> / </span>
     <span>${esc(cityDisplay)}</span>
   </nav>
@@ -1863,6 +2138,9 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px;font-size:14px">${esc(methodology)}</p>
   </section>
   ${renderWeeklyEmployersFrontalierContext({ locale, cityDisplay, isRegional, jobsCount, companiesCount })}
+  ${renderCompanyLeavesForCityBlock(locale, city, cityLeaves ?? [])}
+  ${renderCityHubsListBlock(locale, city)}
+  ${renderLocaleSwitcherBlock(locale, (alt) => (variant === 'current' ? buildCurrentWeekPath(alt, city) : buildArchiveWeekPath(alt, city, weekNum, year)))}
   <section style="margin:0 0 28px" aria-labelledby="relatedLinks">
     <h2 id="relatedLinks" style="${H2_STYLE}">${esc(copy.relatedLinksTitle)}</h2>
     ${relatedHtml}
@@ -2533,6 +2811,42 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
 
   const pages: GeneratedPage[] = [];
 
+  // Pre-enumerate qualifying (city × company) pairs once so the city-hub
+  // renderer can list every per-employer leaf URL it owns. The same pair
+  // list is reused below for per-leaf page generation.
+  const qualifyingPairs = enumerateCompanyCityPairs(opts.jobs);
+  const leavesByCity = new Map<
+    WeeklyEmployersCompanyCity,
+    Array<{ companySlug: string; employer: string }>
+  >();
+  for (const pair of qualifyingPairs) {
+    const list = leavesByCity.get(pair.city) ?? [];
+    list.push({ companySlug: pair.companySlug, employer: pair.employer });
+    leavesByCity.set(pair.city, list);
+  }
+
+  // Top hub per locale (`/aziende-che-assumono/`, `/en/companies-hiring/`,
+  // `/de/unternehmen-einstellen/`, `/fr/entreprises-recrutent/`). Lists every
+  // city hub in its locale + cross-links to other-locale top hubs so BFS
+  // from `/` reaches the full link graph regardless of starting locale.
+  const totalActiveJobs = opts.jobs.filter((j) => jobIsActive(j, 'it')).length;
+  const totalCompanies = new Set(
+    opts.jobs
+      .filter((j) => jobIsActive(j, 'it'))
+      .map((j) => normEmployerKey(String(j.company || ''), j.companyKey))
+      .filter((k) => k.length > 0),
+  ).size;
+  for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+    const html = renderTopHubPage({
+      locale,
+      today,
+      jobsCount: totalActiveJobs,
+      companiesCount: totalCompanies,
+      distDir,
+    });
+    pages.push({ path: topHubPath(locale), html, indexable: true });
+  }
+
   // Current week (always emit regardless of snapshot history — degraded mode)
   for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
     for (const city of WEEKLY_EMPLOYERS_CITIES) {
@@ -2544,6 +2858,8 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         historicalSnapshots: olderSnapshots,
       });
       const canonicalPath = buildCurrentWeekPath(locale, city);
+      const cityLeaves =
+        city === 'ticino' ? [] : leavesByCity.get(city as WeeklyEmployersCompanyCity) ?? [];
       const html = renderWeeklyEmployersPage({
         locale,
         city,
@@ -2559,6 +2875,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         distDir,
         knownSlugs,
         rootDir: opts.rootDir,
+        cityLeaves,
       });
       pages.push({ path: canonicalPath, html, indexable: true });
     }
@@ -2642,8 +2959,9 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   // ── D-2 Expansion B: per-company × per-city pages ──────────────
   // Runs AFTER the city-level loop so we can lean on the latest snapshot
   // as the "previous week" for delta. Skipped for the regional "ticino"
-  // hub (already covered by per-city pages).
-  const pairs = enumerateCompanyCityPairs(opts.jobs);
+  // hub (already covered by per-city pages). Reuses the pair list already
+  // enumerated above for the city-hub `cityLeaves` injection.
+  const pairs = qualifyingPairs;
 
   // Pass 1: compute stats per (pair, locale) to know which pages will be
   // generated. Both the older <!--SIBLING_LINKS_PLACEHOLDER--> block and the
