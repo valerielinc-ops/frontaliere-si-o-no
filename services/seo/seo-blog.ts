@@ -17758,6 +17758,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-mediano-ticino-2026': {
+    title: 'Salario minimo e mediano: il mix che mette a rischio il Ticino',
+    description: 'Analisi delle tensioni salariali tra frontalieri e residenti, con impatti sul mercato del lavoro ticinese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, mediano, mette',
+    ogTitle: 'Salario minimo e mediano: il mix che mette a rischio il Ticino',
+    ogDescription: 'Analisi delle tensioni salariali tra frontalieri e residenti, con impatti sul mercato del lavoro ticinese.',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-mediano-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Analisi delle tensioni salariali tra frontalieri e residenti, con impatti sul mercato del lavoro ticinese.",
+      "description": "Analisi delle tensioni salariali tra frontalieri e residenti, con impatti sul mercato del lavoro ticinese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-mediano-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con la città sullo sfondo"
+      },
+      "datePublished": "2026-04-28T04:55:14+00:00",
+      "dateModified": "2026-04-28T04:55:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-mediano-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

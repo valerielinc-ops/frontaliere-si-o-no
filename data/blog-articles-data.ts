@@ -8442,4 +8442,11 @@ export const ARTICLES = [
  image: '/images/blog/ticino-calimero-sindrome-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'salario-minimo-mediano-ticino-2026',
+ category: 'fiscale',
+ date: '2026-04-28T04:55:14.953Z',
+ image: '/images/blog/salario-minimo-mediano-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

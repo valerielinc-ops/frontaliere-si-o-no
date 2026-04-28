@@ -2322,6 +2322,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nomine-sims-fallimento': { name: 'Nomine SIMS', path: '/articoli-frontaliere/nomine-sims-fallimento', parent: 'blog' },
     'blog-crans-montana-fatture-scontro-roma-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-fatture-scontro-roma-2026', parent: 'blog' },
     'blog-ticino-calimero-sindrome-2026': { name: 'Novità', path: '/articoli-frontaliere/ticino-calimero-sindrome-2026', parent: 'blog' },
+    'blog-salario-minimo-mediano-ticino-2026': { name: 'Salari Ticino', path: '/articoli-frontaliere/salario-minimo-mediano-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3184,6 +3184,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-calimero-sindrome-2026.title': 'Ticino, enough complaining: goodbye Calimero syndrome',
     'blog.article.ticino-calimero-sindrome-2026.excerpt': 'Nicoletta Casanova, Aiti president, criticizes the poor economic debate in Ticino and invites a change in attitude',
     'blog.article.ticino-calimero-sindrome-2026.imageAlt': 'Lugano skyline with Lake Ceresio in the background',
+    'blog.article.salario-minimo-mediano-ticino-2026.title': 'Minimum and median wages: the mix threatening Ticino',
+    'blog.article.salario-minimo-mediano-ticino-2026.excerpt': 'Analysis of wage tensions between cross-border workers and residents, with impacts on the Ticino job market.',
+    'blog.article.salario-minimo-mediano-ticino-2026.imageAlt': 'View of Lake Lugano with the city in the background',
 };
 
 export default blogMetaEn;

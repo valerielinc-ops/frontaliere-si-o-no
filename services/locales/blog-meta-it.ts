@@ -3185,6 +3185,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-calimero-sindrome-2026.title': 'Ticino, basta lamentele: addio alla sindrome di Calimero',
     'blog.article.ticino-calimero-sindrome-2026.excerpt': 'Nicoletta Casanova, presidente Aiti, critica il pessimo dibattito economico ticinese e invita a cambiare atteggiamento',
     'blog.article.ticino-calimero-sindrome-2026.imageAlt': 'Skyline di Lugano con il Lago Ceresio sullo sfondo',
+    'blog.article.salario-minimo-mediano-ticino-2026.title': 'Salario minimo e mediano: il mix che mette a rischio il Ticino',
+    'blog.article.salario-minimo-mediano-ticino-2026.excerpt': 'Analisi delle tensioni salariali tra frontalieri e residenti, con impatti sul mercato del lavoro ticinese.',
+    'blog.article.salario-minimo-mediano-ticino-2026.imageAlt': 'Vista del lago di Lugano con la città sullo sfondo',
 };
 
 export default blogMetaIt;

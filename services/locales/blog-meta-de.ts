@@ -3184,6 +3184,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-calimero-sindrome-2026.title': 'Tessin, Schluss mit Jammern: Abschied von Calimero-Syndrom',
     'blog.article.ticino-calimero-sindrome-2026.excerpt': 'Nicoletta Casanova, Präsidentin Aiti, kritisiert die schlechte wirtschaftliche Debatte im Tessin und fordert eine Einstellungsumstellung',
     'blog.article.ticino-calimero-sindrome-2026.imageAlt': 'Skyline von Lugano mit dem Ceresio-See im Hintergrund',
+    'blog.article.salario-minimo-mediano-ticino-2026.title': 'Mindest- und Medianlohn: Risiko für den Tessin',
+    'blog.article.salario-minimo-mediano-ticino-2026.excerpt': 'Analyse der Lohnspannungen zwischen Grenzgängern und Einheimischen und deren Auswirkungen auf den Arbeitsmarkt im Tessin.',
+    'blog.article.salario-minimo-mediano-ticino-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;
