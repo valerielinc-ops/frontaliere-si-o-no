@@ -3583,6 +3583,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infermieri-indipendenti-ticino-2026.title': 'Independent nurses in Ticino: recognition and criticism',
     'blog.article.infermieri-indipendenti-ticino-2026.excerpt': 'Andrè Brusasco, an independent nurse, talks about home care work in Ticino and current challenges',
     'blog.article.infermieri-indipendenti-ticino-2026.imageAlt': 'Independent nurse working in Ticino',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.title': 'Seized warehouse in Como: investigation into abandoned cars',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.excerpt': 'Como\'s local police have seized a body shop warehouse for environmental violations, discovering abandoned waste and irregularities in the temporary storage.',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.imageAlt': 'Aerial view of Lake Como with police activity near a car repair shop',
 };
 
 export default blogMetaEn;

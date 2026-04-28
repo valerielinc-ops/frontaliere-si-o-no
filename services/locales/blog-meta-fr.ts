@@ -3584,6 +3584,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infermieri-indipendenti-ticino-2026.title': 'Infirmiers indépendants au Tessin : entre reconnaissance et critiques',
     'blog.article.infermieri-indipendenti-ticino-2026.excerpt': 'Andrè Brusasco, infirmier indépendant, raconte la réalité du travail à domicile au Tessin et les défis actuels',
     'blog.article.infermieri-indipendenti-ticino-2026.imageAlt': 'Infirmière indépendante au travail au Tessin',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.title': 'Dépôt saisi à Côme: enquête sur des voitures abandonnées',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.excerpt': 'La police locale de Côme a saisi un dépôt de carrosserie pour des violations environnementales, découvrant des déchets abandonnés et des irrégularités dans le dépôt temporaire.',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.imageAlt': 'Vue aérienne du lac de Côme avec une activité policière près d\'un atelier de réparation automobile',
 };
 
 export default blogMetaFr;

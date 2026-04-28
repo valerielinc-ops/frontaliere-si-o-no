@@ -2425,6 +2425,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rogo-san-fermo-battaglia-2024': { name: 'Novità', path: '/articoli-frontaliere/rogo-san-fermo-battaglia-2024', parent: 'blog' },
     'blog-terremoto-san-gallo-2026': { name: 'Novità', path: '/articoli-frontaliere/terremoto-san-gallo-2026', parent: 'blog' },
     'blog-infermieri-indipendenti-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/infermieri-indipendenti-ticino-2026', parent: 'blog' },
+    'blog-deposito-carrozzeria-sequestrato-como-2026': { name: 'Deposito carrozzeria', path: '/articoli-frontaliere/deposito-carrozzeria-sequestrato-como-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

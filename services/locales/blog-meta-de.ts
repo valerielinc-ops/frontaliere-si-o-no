@@ -3583,6 +3583,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infermieri-indipendenti-ticino-2026.title': 'Selbstständige Pflegekräfte im Tessin: zwischen Anerkennung und Kritik',
     'blog.article.infermieri-indipendenti-ticino-2026.excerpt': 'Andrè Brusasco, selbstständiger Pflegekraft, erzählt über die Realität der Hausbesuche im Tessin und die aktuellen Herausforderungen',
     'blog.article.infermieri-indipendenti-ticino-2026.imageAlt': 'Selbstständige Krankenschwester in der Arbeit im Tessin',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.title': 'Lager in Como beschlagnahmt: Ermittlungen zu verlassenen Autos',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.excerpt': 'Die örtliche Polizei von Como hat ein Lager einer Karosseriewerkstatt wegen Umweltverstößen beschlagnahmt und dabei Abfall und Unregelmäßigkeiten im Zwischenlager entdeckt.',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.imageAlt': 'Luftansicht des Comer Sees mit Polizeiaktivität in der Nähe einer Autowerkstatt',
 };
 
 export default blogMetaDe;

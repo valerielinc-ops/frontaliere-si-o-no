@@ -3584,6 +3584,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infermieri-indipendenti-ticino-2026.title': 'Infermieri indipendenti in Ticino: tra riconoscimento e critiche',
     'blog.article.infermieri-indipendenti-ticino-2026.excerpt': 'Andrè Brusasco, infermiere indipendente, racconta la realtà del lavoro a domicilio in Ticino e le sfide attuali',
     'blog.article.infermieri-indipendenti-ticino-2026.imageAlt': 'Infermiere indipendente al lavoro in Ticino',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.title': 'Deposito sequestrato a Como: indagini su auto abbandonate',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.excerpt': 'La Polizia locale di Como ha sequestrato un deposito di una carrozzeria per violazioni ambientali, scoprendo rifiuti abbandonati e irregolarità nel deposito temporaneo.',
+    'blog.article.deposito-carrozzeria-sequestrato-como-2026.imageAlt': 'Vista aerea del Lago di Como con attività della polizia vicino a un\'officina di riparazione auto',
 };
 
 export default blogMetaIt;

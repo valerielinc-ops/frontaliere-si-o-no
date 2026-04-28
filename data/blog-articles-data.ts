@@ -9373,4 +9373,11 @@ export const ARTICLES = [
  image: '/images/blog/infermieri-indipendenti-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'deposito-carrozzeria-sequestrato-como-2026',
+ category: 'pratico',
+ date: '2026-04-28T23:03:22.588Z',
+ image: '/images/blog/deposito-carrozzeria-sequestrato-como-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

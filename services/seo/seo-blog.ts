@@ -21615,6 +21615,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deposito-carrozzeria-sequestrato-como-2026': {
+    title: 'Deposito sequestrato a Como: indagini su auto abbandonate',
+    description: 'La Polizia locale di Como ha sequestrato un deposito di una carrozzeria per violazioni ambientali, scoprendo rifiuti abbandonati e irregolarità nel deposito',
+    keywords: 'frontalieri, ticino, svizzera, italia, deposito, sequestrato, como, indagini',
+    ogTitle: 'Deposito carrozzeria sequestrato a Como: indagini partite da pezzi d\'auto abbandonati',
+    ogDescription: 'La Polizia locale di Como ha sequestrato un deposito di una carrozzeria per violazioni ambientali, scoprendo rifiuti abbandonati e irregolarità nel deposito',
+    canonicalPath: '/articoli-frontaliere/deposito-carrozzeria-sequestrato-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Deposito carrozzeria sequestrato a Como: indagini partite da pezzi d'auto abbandonati",
+      "description": "La Polizia locale di Como ha sequestrato un deposito di una carrozzeria per violazioni ambientali, scoprendo rifiuti abbandonati e irregolarità nel deposito",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/deposito-carrozzeria-sequestrato-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Como con attività della polizia vicino a un'officina di riparazione auto"
+      },
+      "datePublished": "2026-04-28T23:03:22+00:00",
+      "dateModified": "2026-04-28T23:03:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deposito-carrozzeria-sequestrato-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
