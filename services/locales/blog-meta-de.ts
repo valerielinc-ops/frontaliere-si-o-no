@@ -3532,6 +3532,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.servizio-clienti-bancario-promossi-bocciati.title': 'Bankkundenservice: UBS an der Spitze, digitale Banken enttäuschen',
     'blog.article.servizio-clienti-bancario-promossi-bocciati.excerpt': 'UBS und die Basellandschaftliche Kantonalbank bieten einen 24/7-Service an, während Online-Banken wie Revolut und Neon am Ende der Rangliste stehen.',
     'blog.article.servizio-clienti-bancario-promossi-bocciati.imageAlt': 'Blick auf den Luganersee mit modernen Bankgebäuden im Hintergrund',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.title': 'Erstes europäisches Zentrum für Weltraumlandwirtschaft in der Schweiz',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.excerpt': 'In der Schweiz wurde das erste europäische Forschungszentrum für Weltraumlandwirtschaft eröffnet. Innovation für die Zukunft der Ernährung.',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.imageAlt': 'Luftaufnahme eines Hochtechnologie-Landwirtschaftsforschungszentrums in Tessin, Schweiz. Fortschrittliche Gewächshäuser mit Weltraum-Landwirtschaftstechnologie.',
 };
 
 export default blogMetaDe;

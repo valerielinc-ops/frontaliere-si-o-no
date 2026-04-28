@@ -21122,6 +21122,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agricoltura-spaziale-svizzera-ricerca': {
+    title: 'Agricoltura spaziale: primo centro europeo in Svizzera',
+    description: 'Inaugurato il primo centro europeo di ricerca sull\'agricoltura spaziale in Svizzera. Innovazione per il futuro dell\'alimentazione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, agricoltura, spaziale, primo, centro',
+    ogTitle: 'Agricoltura spaziale: primo centro europeo in Svizzera',
+    ogDescription: 'Inaugurato il primo centro europeo di ricerca sull\'agricoltura spaziale in Svizzera. Innovazione per il futuro dell\'alimentazione.',
+    canonicalPath: '/articoli-frontaliere/agricoltura-spaziale-svizzera-ricerca',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agricoltura spaziale: primo centro europeo in Svizzera",
+      "description": "Inaugurato il primo centro europeo di ricerca sull'agricoltura spaziale in Svizzera. Innovazione per il futuro dell'alimentazione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/agricoltura-spaziale-svizzera-ricerca.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di un centro di ricerca agricola ad alta tecnologia in Ticino, Svizzera. Serre avanzate con tecnologia di agricoltura spaziale."
+      },
+      "datePublished": "2026-04-28T21:13:16+00:00",
+      "dateModified": "2026-04-28T21:13:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agricoltura-spaziale-svizzera-ricerca`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

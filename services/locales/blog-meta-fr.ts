@@ -3533,6 +3533,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.servizio-clienti-bancario-promossi-bocciati.title': 'Service client bancaire : UBS en tête, les digitales à la traîne',
     'blog.article.servizio-clienti-bancario-promossi-bocciati.excerpt': 'UBS et la Banque cantonale de Bâle-Campagne garantissent un service 24/7, tandis que les banques en ligne comme Revolut et Neon ferment la marche.',
     'blog.article.servizio-clienti-bancario-promossi-bocciati.imageAlt': 'Vue du lac de Lugano avec des bâtiments bancaires modernes en arrière-plan',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.title': 'Premier centre européen d\'agriculture spatiale en Suisse',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.excerpt': 'Inauguré le premier centre européen de recherche sur l\'agriculture spatiale en Suisse. Innovation pour l\'avenir de l\'alimentation.',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.imageAlt': 'Vue aérienne d\'un centre de recherche agricole de haute technologie en Tessin, Suisse. Serres avancées avec technologie d\'agriculture spatiale.',
 };
 
 export default blogMetaFr;

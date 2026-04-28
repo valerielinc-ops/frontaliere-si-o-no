@@ -3533,6 +3533,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.servizio-clienti-bancario-promossi-bocciati.title': 'Servizio clienti bancario: UBS al top, le digitali bocciate',
     'blog.article.servizio-clienti-bancario-promossi-bocciati.excerpt': 'UBS e Banca cantonale di Basilea Campagna garantiscono servizio 24/7, mentre le banche online come Revolut e Neon sono ultime in classifica.',
     'blog.article.servizio-clienti-bancario-promossi-bocciati.imageAlt': 'Vista del lago di Lugano con edifici bancari moderni sullo sfondo',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.title': 'Agricoltura spaziale: primo centro europeo in Svizzera',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.excerpt': 'Inaugurato il primo centro europeo di ricerca sull\'agricoltura spaziale in Svizzera. Innovazione per il futuro dell\'alimentazione.',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.imageAlt': 'Vista aerea di un centro di ricerca agricola ad alta tecnologia in Ticino, Svizzera. Serre avanzate con tecnologia di agricoltura spaziale.',
 };
 
 export default blogMetaIt;

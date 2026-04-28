@@ -3532,6 +3532,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.servizio-clienti-bancario-promossi-bocciati.title': 'Bank customer service: UBS leads, digital banks lag',
     'blog.article.servizio-clienti-bancario-promossi-bocciati.excerpt': 'UBS and Basel-Landschaft Cantonal Bank offer 24/7 service, while online banks like Revolut and Neon rank last.',
     'blog.article.servizio-clienti-bancario-promossi-bocciati.imageAlt': 'View of Lake Lugano with modern banking buildings in the background',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.title': 'Space farming: first European center in Switzerland',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.excerpt': 'The first European research center on space agriculture has been inaugurated in Switzerland. Innovation for the future of food.',
+    'blog.article.agricoltura-spaziale-svizzera-ricerca.imageAlt': 'Aerial view of a high-tech agricultural research center in Ticino, Switzerland. Advanced greenhouses with space farming technology.',
 };
 
 export default blogMetaEn;

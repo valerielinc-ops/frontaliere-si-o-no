@@ -9254,4 +9254,11 @@ export const ARTICLES = [
  image: '/images/blog/servizio-clienti-bancario-promossi-bocciati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'agricoltura-spaziale-svizzera-ricerca',
+ category: 'novita',
+ date: '2026-04-28T21:13:16.271Z',
+ image: '/images/blog/agricoltura-spaziale-svizzera-ricerca.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
