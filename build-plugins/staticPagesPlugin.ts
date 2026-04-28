@@ -1552,21 +1552,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  const buildPage = (locale: string, urlPath: string, seoData: SeoEntry, hreflangs: { lang: string; href: string }[]) => {
  const canonicalPath = withTrailingSlash(urlPath);
- // Legacy English-content alias paths (`/about/`, `/contact/`, `/privacy-policy/`)
- // are NOT their own canonical — they share the English cluster with the
- // proper `/en/…` slug. Emit the canonical pointing there so Google
- // collapses the alias into the proper EN member and the hreflang cluster
- // in the sitemap (which now points `hreflang="en"` at `/en/about-us/` etc.)
- // stays self-consistent.
- const LEGACY_EN_ALIAS_CANONICAL: Record<string, string> = {
-  '/about/': '/en/about-us/',
-  '/contact/': '/en/contact-us/',
-  '/privacy-policy/': '/en/privacy/',
- };
- const overrideCanonical = LEGACY_EN_ALIAS_CANONICAL[canonicalPath];
- const fullUrl = overrideCanonical
-  ? `${BASE_URL}${overrideCanonical}`
-  : `${BASE_URL}${canonicalPath}`;
+ // English-slug E-E-A-T aliases (`/about/`, `/contact/`, `/privacy-policy/`)
+ // self-canonicalize. Earlier this routed them to `/en/about-us/` etc. to
+ // consolidate cluster signal, but Semrush flagged the resulting
+ // sitemap mismatch (loc ≠ canonical). hreflang="en" alternates in the
+ // sitemap still tie them to the `/en/...` cluster, which is the
+ // proper schema-level link Google uses.
+ const fullUrl = `${BASE_URL}${canonicalPath}`;
  const pp = canonicalPath.slice(1).replace(/&/g, '~and~');
  // Filter out any hreflang entry with an empty lang or empty href —
  // Semrush flags empty hreflang codes as conflicts. Empty strings can

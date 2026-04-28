@@ -1482,6 +1482,39 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://frontaliereticino.ch/about/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/chi-siamo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/about-us/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/ueber-uns/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/a-propos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/about/" />
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/contattaci/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/contact-us/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/contactez-nous/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/contact/" />
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/privacy-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/datenschutz/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/confidentialite/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/privacy-policy/" />
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
   <!-- Workstream C — Nuove landing pages SEO (SemRush growth plan) -->
   <url>
     <loc>https://frontaliereticino.ch/guida-frontaliere/tassa-salute-frontalieri/</loc>
