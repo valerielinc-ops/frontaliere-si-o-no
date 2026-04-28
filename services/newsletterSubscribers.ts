@@ -833,6 +833,118 @@ export async function toggleAutologin(
  }
 }
 
+// ─── Subscription preferences controller (HMAC token mode) ─────
+
+export type SubscriptionAlertSummary = {
+ id: string;
+ keywords: string[];
+ locations: string[];
+ sectors: string[];
+ frequency: string;
+ active: boolean;
+ createdAt: number | null;
+};
+
+export type FullSubscriptionStatus = {
+ success: boolean;
+ email?: string;
+ newsletter?: { subscribed: boolean; autologinEnabled: boolean };
+ alerts?: SubscriptionAlertSummary[];
+ error?: string;
+};
+
+/**
+ * Read full subscription status (newsletter + alerts) for an email via HMAC token.
+ * Backend route: ?action=get_full_status. Used by the public preferences page.
+ */
+export async function getFullSubscriptionStatus(
+ email: string,
+ token: string,
+): Promise<FullSubscriptionStatus> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+ const url = `${endpoint}?action=get_full_status&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&format=json`;
+ const resp = await fetch(url);
+ const data = await resp.json();
+ if (resp.ok && data.success) {
+ return {
+ success: true,
+ email: typeof data.email === 'string' ? data.email : normalizedEmail,
+ newsletter: {
+ subscribed: data.newsletter?.subscribed === true,
+ autologinEnabled: data.newsletter?.autologinEnabled !== false,
+ },
+ alerts: Array.isArray(data.alerts)
+ ? data.alerts.map((a: any) => ({
+ id: String(a.id || ''),
+ keywords: Array.isArray(a.keywords) ? a.keywords.map(String) : [],
+ locations: Array.isArray(a.locations) ? a.locations.map(String) : [],
+ sectors: Array.isArray(a.sectors) ? a.sectors.map(String) : [],
+ frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
+ active: a.active !== false,
+ createdAt: typeof a.createdAt === 'number' ? a.createdAt : null,
+ }))
+ : [],
+ };
+ }
+ return { success: false, error: data?.error || 'read_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] getFullSubscriptionStatus failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
+ * Toggle the newsletter subscription for an HMAC-authed email.
+ * subscribed=true → status:'subscribed', isActive:true. subscribed=false → unsubscribe.
+ */
+export async function toggleNewsletterSubscription(
+ email: string,
+ token: string,
+ subscribed: boolean,
+): Promise<{ success: boolean; subscribed?: boolean; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+ const url = `${endpoint}?action=toggle_newsletter_subscription&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&subscribed=${subscribed ? 'true' : 'false'}&format=json`;
+ const resp = await fetch(url);
+ const data = await resp.json();
+ if (resp.ok && data.success) {
+ return { success: true, subscribed: data.subscribed === true };
+ }
+ return { success: false, error: data?.error || 'write_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] toggleNewsletterSubscription failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
+/**
+ * Delete a job alert by id for an HMAC-authed email.
+ * Backend hard-deletes the doc at job_alert_subscribers/{email}/alerts/{alertId}.
+ */
+export async function deleteJobAlert(
+ email: string,
+ token: string,
+ alertId: string,
+): Promise<{ success: boolean; alertId?: string; error?: string }> {
+ try {
+ const normalizedEmail = email.toLowerCase().trim();
+ const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+ const url = `${endpoint}?action=delete_alert&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(token)}&alert_id=${encodeURIComponent(alertId)}&format=json`;
+ const resp = await fetch(url);
+ const data = await resp.json();
+ if (resp.ok && data.success) {
+ return { success: true, alertId: typeof data.alert_id === 'string' ? data.alert_id : alertId };
+ }
+ return { success: false, error: data?.error || 'delete_failed' };
+ } catch (error: any) {
+ console.warn('[newsletter] deleteJobAlert failed:', error?.message);
+ return { success: false, error: error?.message || 'unknown_error' };
+ }
+}
+
 // ─── Email provider helper (FRO-23) ─────────────────────────
 
 const EMAIL_PROVIDERS: Array<{ domains: string[]; name: string; url: string; mobileUrl?: string }> = [

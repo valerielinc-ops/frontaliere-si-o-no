@@ -208,6 +208,8 @@ export const newsletterManageSubscription = onRequest(
  const token = String(params.token || '').trim();
  const format = String(params.format || '').trim().toLowerCase();
  const enabled = params.enabled;
+ const subscribed = params.subscribed;
+ const alertId = params.alert_id;
 
  try {
  const { newsletterSecret } = await getNewsletterSecrets();
@@ -217,6 +219,8 @@ export const newsletterManageSubscription = onRequest(
  token,
  secret: newsletterSecret,
  enabled,
+ subscribed,
+ alertId,
  });
 
  // exchange_auth_code always returns JSON (no HTML page)

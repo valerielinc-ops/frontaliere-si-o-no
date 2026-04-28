@@ -84,7 +84,7 @@ function buildResponseHtml({ title, message, showResubscribe, email, token, loca
 </html>`;
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  const normalizedEmail = normalizeEmail(email);
 
@@ -100,7 +100,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch { /* fallback to 'it' */ }
  }
 
- const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin'];
+ const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code', 'get_autologin_status', 'toggle_autologin', 'get_full_status', 'toggle_newsletter_subscription', 'delete_alert'];
  if (!validActions.includes(action)) {
  return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidAction'), showResubscribe: false, email: '', token: '', locale: lang }) };
  }
@@ -156,8 +156,15 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  if (!verifyHmacToken(normalizedEmail, token, secret)) {
- // get_autologin_status/toggle_autologin return JSON on error (they're called from SPA)
- if (action === 'get_autologin_status' || action === 'toggle_autologin') {
+ // JSON-returning actions (called from SPA) report invalid_token as JSON.
+ const jsonActions = new Set([
+ 'get_autologin_status',
+ 'toggle_autologin',
+ 'get_full_status',
+ 'toggle_newsletter_subscription',
+ 'delete_alert',
+ ]);
+ if (jsonActions.has(action)) {
  return { status: 403, json: { success: false, error: 'invalid_token' } };
  }
  return { status: 403, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidToken'), showResubscribe: false, email: '', token: '', locale: lang }) };
@@ -197,6 +204,113 @@ export async function handleSubscriptionManagement({ action, email, token, local
  } catch (err) {
  console.error('[toggle_autologin] Failed:', err?.message);
  return { status: 500, json: { success: false, error: 'write_failed' } };
+ }
+ }
+
+ if (action === 'get_full_status') {
+ try {
+ const subDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
+ let newsletter = { subscribed: false, autologinEnabled: true };
+ if (subDoc.exists) {
+ const data = subDoc.data() || {};
+ const status = data.status;
+ const hasUnsubAt = !!data.unsubscribed_at;
+ const isActive = data.isActive === true || data.active === true;
+ // Subscribed unless explicitly unsubscribed.
+ const subscribed = status !== 'unsubscribed' && !hasUnsubAt && (isActive || status === 'confirmed' || status === 'pending');
+ newsletter = {
+ subscribed,
+ autologinEnabled: data.autologin_enabled !== false,
+ };
+ }
+
+ const alertsSnap = await db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').get();
+ const alerts = [];
+ alertsSnap.forEach((d) => {
+ const a = d.data() || {};
+ // Skip soft-deleted alerts (active === false set by deleteAlert).
+ if (a.active === false) return;
+ const created = a.createdAt;
+ alerts.push({
+ id: d.id,
+ keywords: Array.isArray(a.keywords) ? a.keywords : [],
+ locations: Array.isArray(a.locations) ? a.locations : [],
+ sectors: Array.isArray(a.sectors) ? a.sectors : [],
+ frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
+ active: a.active !== false,
+ createdAt: created && typeof created.toMillis === 'function' ? created.toMillis() : null,
+ });
+ });
+
+ return { status: 200, json: { success: true, email: normalizedEmail, newsletter, alerts } };
+ } catch (err) {
+ console.error('[get_full_status] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'read_failed' } };
+ }
+ }
+
+ if (action === 'toggle_newsletter_subscription') {
+ const desired = subscribed === true || subscribed === 'true' || subscribed === '1';
+ try {
+ if (desired) {
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ email: normalizedEmail,
+ status: 'subscribed',
+ isActive: true,
+ active: true,
+ resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribed_at: admin.firestore.FieldValue.delete(),
+ updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+ } else {
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ email: normalizedEmail,
+ status: 'unsubscribed',
+ isActive: false,
+ active: false,
+ unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+ }
+
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ email: normalizedEmail,
+ event_type: desired ? 'subscription_resubscribed' : 'subscription_unsubscribed',
+ source_channel: 'preferences_link',
+ timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ });
+
+ return { status: 200, json: { success: true, subscribed: desired } };
+ } catch (err) {
+ console.error('[toggle_newsletter_subscription] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'write_failed' } };
+ }
+ }
+
+ if (action === 'delete_alert') {
+ const id = String(alertId || '').trim();
+ // Defensive validation: Firestore IDs are typically alphanumeric (addDoc uses 20-char base57).
+ // Allow letters, digits, dash, underscore. Reject anything else to prevent path traversal.
+ if (!id || !/^[A-Za-z0-9_-]{1,128}$/.test(id)) {
+ return { status: 400, json: { success: false, error: 'invalid_alert_id' } };
+ }
+ try {
+ await db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').doc(id).delete();
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
+ email: normalizedEmail,
+ event_type: 'job_alert_deleted',
+ source_channel: 'preferences_link',
+ meta: { alert_id: id },
+ timestamp: admin.firestore.FieldValue.serverTimestamp(),
+ occurred_at: new Date().toISOString(),
+ });
+ return { status: 200, json: { success: true, alert_id: id } };
+ } catch (err) {
+ console.error('[delete_alert] Failed:', err?.message);
+ return { status: 500, json: { success: false, error: 'delete_failed' } };
  }
  }
 

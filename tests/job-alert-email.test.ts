@@ -253,6 +253,25 @@ describe('job alert sorting — score tiebreak by recency', () => {
   });
 });
 
+describe('preferences page integration (source check)', () => {
+  it('NewsletterPreferences uses SubscriptionPreferencesController in token mode', () => {
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../components/pages/NewsletterPreferences.tsx'),
+      'utf8',
+    );
+    expect(src).toMatch(/SubscriptionPreferencesController/);
+    expect(src).toMatch(/mode="token"/);
+  });
+  it('UserProfile embeds SubscriptionPreferencesController in auth mode', () => {
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../components/pages/UserProfile.tsx'),
+      'utf8',
+    );
+    expect(src).toMatch(/SubscriptionPreferencesController/);
+    expect(src).toMatch(/mode="auth"/);
+  });
+});
+
 describe('job alert workflow — TARGET_EMAIL filter (source check)', () => {
   it('script reads TARGET_EMAIL env to build the allowlist', () => {
     const src = fs.readFileSync(
