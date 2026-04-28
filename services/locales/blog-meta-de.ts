@@ -3265,6 +3265,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-controllo.title': 'Ammoniakausbruch in Chiasso, Situation unter Kontrolle',
     'blog.article.fuga-ammoniaca-chiasso-controllo.excerpt': 'Unfall in der Eisbahn, drei Personen vergiftet, aber keine schweren Verletzungen. Die Bevölkerung ist nicht in Gefahr.',
     'blog.article.fuga-ammoniaca-chiasso-controllo.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.chiasso-ammoniaca-stadio-ghiaccio.title': 'Ammoniak-Austritt in der Eishalle von Chiasso: drei Vergiftete',
+    'blog.article.chiasso-ammoniaca-stadio-ghiaccio.excerpt': 'Drei Personen wurden durch einen Ammoniak-Austritt in der Eishalle von Chiasso vergiftet. Die Feuerwehr und Sanitäter sind im Einsatz.',
+    'blog.article.chiasso-ammoniaca-stadio-ghiaccio.imageAlt': 'Eisstadion Chiasso mit Rettungspersonal',
 };
 
 export default blogMetaDe;

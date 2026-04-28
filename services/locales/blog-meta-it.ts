@@ -3266,6 +3266,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-controllo.title': 'Fuga di ammoniaca a Chiasso, situazione sotto controllo',
     'blog.article.fuga-ammoniaca-chiasso-controllo.excerpt': 'Incidente alla pista di ghiaccio, tre persone intossicate ma nessuna grave. La popolazione non è in pericolo.',
     'blog.article.fuga-ammoniaca-chiasso-controllo.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.chiasso-ammoniaca-stadio-ghiaccio.title': 'Perdita di ammoniaca allo stadio del ghiaccio di Chiasso: tre intossicati',
+    'blog.article.chiasso-ammoniaca-stadio-ghiaccio.excerpt': 'Tre persone intossicate a causa di una perdita di ammoniaca allo stadio del ghiaccio di Chiasso. Intervento dei pompieri e dei sanitari.',
+    'blog.article.chiasso-ammoniaca-stadio-ghiaccio.imageAlt': 'Stadio del ghiaccio di Chiasso con personale di emergenza',
 };
 
 export default blogMetaIt;

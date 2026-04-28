@@ -3266,6 +3266,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-controllo.title': 'Fuite d\'ammoniac à Chiasso, situation sous contrôle',
     'blog.article.fuga-ammoniaca-chiasso-controllo.excerpt': 'Incident à la patinoire, trois personnes intoxiquées mais aucun cas grave. La population n\'est pas en danger.',
     'blog.article.fuga-ammoniaca-chiasso-controllo.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.chiasso-ammoniaca-stadio-ghiaccio.title': 'Fuite d\'ammoniac à la patinoire de Chiasso: trois intoxiqués',
+    'blog.article.chiasso-ammoniaca-stadio-ghiaccio.excerpt': 'Trois personnes intoxiquées à cause d\'une fuite d\'ammoniac à la patinoire de Chiasso. Intervention des pompiers et des secours.',
+    'blog.article.chiasso-ammoniaca-stadio-ghiaccio.imageAlt': 'Patinoire de Chiasso avec personnel d\'urgence',
 };
 
 export default blogMetaFr;

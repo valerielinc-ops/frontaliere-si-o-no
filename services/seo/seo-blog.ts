@@ -18541,6 +18541,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-ammoniaca-stadio-ghiaccio': {
+    title: 'Perdita di ammoniaca allo stadio del ghiaccio di Chiasso: tre intossicati',
+    description: 'Tre persone intossicate a causa di una perdita di ammoniaca allo stadio del ghiaccio di Chiasso. Intervento dei pompieri e dei sanitari. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, perdita, ammoniaca, allo, stadio',
+    ogTitle: 'Perdita di ammoniaca a Chiasso: tre intossicati',
+    ogDescription: 'Tre persone intossicate a causa di una perdita di ammoniaca allo stadio del ghiaccio di Chiasso. Intervento dei pompieri e dei sanitari.',
+    canonicalPath: '/articoli-frontaliere/chiasso-ammoniaca-stadio-ghiaccio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Perdita di ammoniaca a Chiasso: tre intossicati",
+      "description": "Tre persone intossicate a causa di una perdita di ammoniaca allo stadio del ghiaccio di Chiasso. Intervento dei pompieri e dei sanitari. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiasso-ammoniaca-stadio-ghiaccio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio del ghiaccio di Chiasso con personale di emergenza"
+      },
+      "datePublished": "2026-04-28T09:59:33+00:00",
+      "dateModified": "2026-04-28T09:59:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-ammoniaca-stadio-ghiaccio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
