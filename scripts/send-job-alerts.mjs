@@ -425,12 +425,24 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     cut = cut.replace(/[\s,;:.\-\u2013\u2014]+$/, '');
     return cut + '\u2026';
   };
+  // Strip filler prefixes the crawler / AI translator sometimes prepends to job
+  // titles ("Posizione aperta:", "Open position:", "Job opening:", "Open role:")
+  // and uppercase the first character so cards never display "addetti..." or
+  // "Posizione aperta: consulente..." — both seen live in the latest test send.
+  const cleanTitle = (raw) => {
+    let t = String(raw || '').trim();
+    t = t.replace(/^(?:posizione\s+aperta|posto\s+vacante|annuncio\s+aperto|open\s+(?:position|role|job|posting)|job\s+opening|stellenausschreibung|offene\s+stelle|poste\s+ouvert|offre\s+ouverte)\s*:?\s*/i, '');
+    if (t && /[a-zà-ÿ]/i.test(t[0])) {
+      t = t.charAt(0).toLocaleUpperCase(locale === 'it' ? 'it-CH' : locale) + t.slice(1);
+    }
+    return t || raw;
+  };
   let subject;
   if (matchedJobs.length === 0) {
     subject = `${s.subjectNew(matchedJobs.length)} ${s.subjectFor}: ${subjectLabel}`;
   } else {
     const topJob = matchedJobs[0];
-    const topTitle = (topJob.titleByLocale?.[locale] || topJob.titleByLocale?.it || topJob.title || s.fallbackTitle).trim();
+    const topTitle = cleanTitle(topJob.titleByLocale?.[locale] || topJob.titleByLocale?.it || topJob.title || s.fallbackTitle);
     const topCompany = (topJob.company || '').trim();
     const extra = matchedJobs.length - 1;
     const bell = '\ud83d\udd14';
@@ -493,7 +505,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   };
 
   const jobCards = matchedJobs.slice(0, 10).map((job) => {
-    const title = job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle;
+    const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
     const rawLocation = job.location || job.addressLocality || '';
     const location = rawLocation.replace(/^[-\u2013\u2014\s]+/, '').trim();
@@ -646,7 +658,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   // Built from the same data source as the HTML — never regex-stripped.
   const heroLine = s.heroTitle(matchedJobs.length).replace(/\ud83d\udd14\s*/, '\u{1F514} ');
   const textJobs = matchedJobs.slice(0, 10).map((job) => {
-    const title = job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle;
+    const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
     const rawLocation = (job.location || job.addressLocality || '').replace(/^[-\u2013\u2014\s]+/, '').trim();
     const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';

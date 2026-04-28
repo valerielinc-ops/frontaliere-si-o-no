@@ -395,6 +395,45 @@ describe('job alert dedup — per-company cap', () => {
   });
 });
 
+describe('job alert email — title cleanup', () => {
+  // Live regression: titles arrived as "addetti/e pulizia urbana presso..."
+  // (lowercase first letter from crawler) and "Posizione aperta: consulente
+  // immobiliare..." (filler prefix). Both must be cleaned in the email.
+  it('IT: capitalizes the first letter of a lowercased crawled title', () => {
+    const job = fixtureJob({ title: 'addetti/e pulizia urbana presso il comune' });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toMatch(/>Addetti\/e pulizia urbana presso il comune</);
+    expect(result.html).not.toMatch(/>addetti\/e/);
+  });
+
+  it('IT: strips "Posizione aperta:" prefix and capitalizes the new first letter', () => {
+    const job = fixtureJob({ title: 'Posizione aperta: consulente immobiliare 100% Lugano' });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toContain('>Consulente immobiliare 100% Lugano<');
+    expect(result.html).not.toMatch(/Posizione aperta:/);
+  });
+
+  it('EN: strips "Open position:" prefix', () => {
+    const job = fixtureJob({ title: 'Open position: Senior Backend Engineer' });
+    const result = buildAlertEmail(fixtureAlert('en'), [job], true);
+    expect(result.html).toContain('>Senior Backend Engineer<');
+    expect(result.html).not.toMatch(/Open position:/);
+  });
+
+  it('cleanup is applied to subject as well as cards', () => {
+    const job = fixtureJob({ title: 'addetti/e pulizia urbana', company: 'Acme' });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.subject).toMatch(/^🔔\s+Addetti\/e/);
+  });
+
+  it('cleanup is applied to plaintext alternative as well', () => {
+    const job = fixtureJob({ title: 'Posizione aperta: developer' });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.text).toContain('Developer');
+    expect(result.text).not.toMatch(/Posizione aperta:/);
+  });
+});
+
 describe('job alert workflow — TARGET_EMAIL filter (source check)', () => {
   it('script reads TARGET_EMAIL env to build the allowlist', () => {
     const src = fs.readFileSync(
