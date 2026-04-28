@@ -3442,6 +3442,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-scuole-vernate-neggio-2026.title': 'New schools for Vernate and Neggio: an investment for the future',
     'blog.article.nuove-scuole-vernate-neggio-2026.excerpt': 'The communities of Vernate and Neggio have inaugurated the new intermunicipal schools, a strategic project for education and community building',
     'blog.article.nuove-scuole-vernate-neggio-2026.imageAlt': 'Aerial view of the new schools in Vernate and Neggio, surrounded by mountains and lakes, with students and families exploring the facilities',
+    'blog.article.casse-malati-ticino-divise-2026.title': 'Ticino health insurers: initiatives may split',
+    'blog.article.casse-malati-ticino-divise-2026.excerpt': 'The Ticino State Council presents a partial plan for health insurance initiatives, but parties propose to separate them',
+    'blog.article.casse-malati-ticino-divise-2026.imageAlt': 'Panoramic view of Lake Lugano with Monte Bre in the distance',
 };
 
 export default blogMetaEn;

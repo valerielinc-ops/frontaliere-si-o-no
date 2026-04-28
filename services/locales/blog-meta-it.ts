@@ -3443,6 +3443,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuove-scuole-vernate-neggio-2026.title': 'Nuove scuole per Vernate e Neggio: un investimento per il futuro',
     'blog.article.nuove-scuole-vernate-neggio-2026.excerpt': 'Le comunità di Vernate e Neggio hanno inaugurato le nuove scuole intercomunali, un progetto strategico per l\'educazione e l\'aggregazione',
     'blog.article.nuove-scuole-vernate-neggio-2026.imageAlt': 'Vista aerea delle nuove scuole di Vernate e Neggio, circondate da montagne e laghi, con studenti e famiglie che esplorano le strutture',
+    'blog.article.casse-malati-ticino-divise-2026.title': 'Casse malati Ticino: le due iniziative potrebbero dividersi',
+    'blog.article.casse-malati-ticino-divise-2026.excerpt': 'Il Consiglio di Stato ticinese presenta un piano parziale per le iniziative casse malati, ma i partiti propongono di separarle',
+    'blog.article.casse-malati-ticino-divise-2026.imageAlt': 'Vista panoramica del Lago di Lugano con Monte Brè in lontananza',
 };
 
 export default blogMetaIt;

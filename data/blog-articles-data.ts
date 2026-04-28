@@ -9044,4 +9044,11 @@ export const ARTICLES = [
  image: '/images/blog/nuove-scuole-vernate-neggio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'casse-malati-ticino-divise-2026',
+ category: 'novita',
+ date: '2026-04-28T18:18:24.265Z',
+ image: '/images/blog/casse-malati-ticino-divise-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

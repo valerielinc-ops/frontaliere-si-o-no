@@ -3443,6 +3443,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuove-scuole-vernate-neggio-2026.title': 'Nouvelles écoles pour Vernate et Neggio: un investissement pour l\'avenir',
     'blog.article.nuove-scuole-vernate-neggio-2026.excerpt': 'Les communautés de Vernate et Neggio ont inauguré les nouvelles écoles intercommunales, un projet stratégique pour l\'éducation et l\'agrégation',
     'blog.article.nuove-scuole-vernate-neggio-2026.imageAlt': 'Vue aérienne des nouvelles écoles de Vernate et Neggio, entourées de montagnes et de lacs, avec des élèves et des familles explorant les installations',
+    'blog.article.casse-malati-ticino-divise-2026.title': 'Caisse maladie du Tessin: les initiatives pourraient se séparer',
+    'blog.article.casse-malati-ticino-divise-2026.excerpt': 'Le Conseil d\'État tessinois présente un plan partiel pour les initiatives des caisses maladie, mais les partis proposent de les séparer',
+    'blog.article.casse-malati-ticino-divise-2026.imageAlt': 'Vue panoramique du lac de Lugano avec le Monte Brè au loin',
 };
 
 export default blogMetaFr;

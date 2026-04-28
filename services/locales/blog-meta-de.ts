@@ -3442,6 +3442,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuove-scuole-vernate-neggio-2026.title': 'Neue Schulen für Vernate und Neggio: eine Investition in die Zukunft',
     'blog.article.nuove-scuole-vernate-neggio-2026.excerpt': 'Die Gemeinden Vernate und Neggio haben die neuen interkommunalen Schulen eröffnet, ein strategisches Projekt für Bildung und Gemeinschaft.',
     'blog.article.nuove-scuole-vernate-neggio-2026.imageAlt': 'Luftaufnahme der neuen Schulen in Vernate und Neggio, umgeben von Bergen und Seen, mit Schülern und Familien, die die Einrichtungen erkunden',
+    'blog.article.casse-malati-ticino-divise-2026.title': 'Krankenkassen im Tessin: Initiativen könnten sich trennen',
+    'blog.article.casse-malati-ticino-divise-2026.excerpt': 'Der Staatsrat des Tessin präsentiert einen Teilplan für die Krankenkassen-Initiativen, doch die Parteien schlagen vor, sie zu trennen',
+    'blog.article.casse-malati-ticino-divise-2026.imageAlt': 'Panoramablick auf den Luganersee mit Monte Bre in der Ferne',
 };
 
 export default blogMetaDe;
