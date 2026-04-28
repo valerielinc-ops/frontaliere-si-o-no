@@ -2303,6 +2303,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(
  `<p style="margin:.5rem 0;font-weight:500;font-size:1rem;line-height:1.7"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (Nuovo Accordo 2026 ratificato, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica definitiva del telelavoro fino a 45 giorni, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Ogni articolo cita le fonti primarie, include riferimenti normativi aggiornati e collega direttamente ai simulatori della piattaforma così da passare dalla notizia alla stima numerica in pochi click. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
  );
+ // Visible CTA → full A-Z archive. Critical for crawler reachability:
+ // closes the BFS path from this index to /articoli-frontaliere/tutti/
+ // so articles only reachable via /tutti/page-N/ are not flagged as
+ // orphans in the sitemap (Semrush "orphaned pages in sitemaps" gate).
+ editorialBlocks.push(
+ `<p style="margin:1rem 0"><a href="/articoli-frontaliere/tutti/" style="display:inline-block;padding:.5rem 1rem;border-radius:6px;background:#2563eb;color:#fff;text-decoration:none;font-weight:600">Vedi l'archivio completo →</a></p>`,
+ );
  editorialBlocks.push(
  `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come è organizzata la redazione di Frontaliere Ticino</h2>`,
  `La sezione articoli è costruita come hub editoriale: ogni contenuto approfondisce un tema operativo e collega strumenti o guide utili per passare rapidamente dalla notizia alla simulazione numerica. I temi spaziano dalla fiscalità del Nuovo Accordo 2026 alle guide pratiche sull'apertura del conto bancario svizzero, dalla pianificazione del terzo pilastro 3a al confronto tra LAMal svizzera e SSN italiano per i figli residenti in Italia.`,
