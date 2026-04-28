@@ -2348,6 +2348,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-momoride-carpooling-benefico-ticino-2026': { name: 'MomòRide', path: '/articoli-frontaliere/momoride-carpooling-benefico-ticino-2026', parent: 'blog' },
     'blog-kit-escursionisti-montagna-pulita': { name: 'Kit escursionisti', path: '/articoli-frontaliere/kit-escursionisti-montagna-pulita', parent: 'blog' },
     'blog-moda-sostenibile-bellinzona-9-maggio': { name: 'Moda sostenibile', path: '/articoli-frontaliere/moda-sostenibile-bellinzona-9-maggio', parent: 'blog' },
+    'blog-fuga-ammoniaca-chiasso-controllo': { name: 'Novità', path: '/articoli-frontaliere/fuga-ammoniaca-chiasso-controllo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

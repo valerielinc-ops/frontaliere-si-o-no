@@ -3262,6 +3262,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.moda-sostenibile-bellinzona-9-maggio.title': 'Sustainable fashion in Bellinzona: reuse and repair day',
     'blog.article.moda-sostenibile-bellinzona-9-maggio.excerpt': 'On Saturday, May 9th in Bellinzona, workshops, upcycling, and sheep shearing to raise awareness against fast fashion',
     'blog.article.moda-sostenibile-bellinzona-9-maggio.imageAlt': 'Sustainable fashion event in Bellinzona with upcycling and clothing repair workshops',
+    'blog.article.fuga-ammoniaca-chiasso-controllo.title': 'Ammonia leak in Chiasso, situation under control',
+    'blog.article.fuga-ammoniaca-chiasso-controllo.excerpt': 'Incident at the ice rink, three people intoxicated but none seriously. The population is not in danger.',
+    'blog.article.fuga-ammoniaca-chiasso-controllo.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

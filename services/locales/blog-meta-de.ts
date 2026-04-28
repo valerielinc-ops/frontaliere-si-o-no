@@ -3262,6 +3262,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.moda-sostenibile-bellinzona-9-maggio.title': 'Nachhaltige Mode in Bellinzona: Tag des Recyclings und der Reparatur',
     'blog.article.moda-sostenibile-bellinzona-9-maggio.excerpt': 'Am Samstag, 9. Mai, in Bellinzona: Workshops, Upcycling und Schafschur zur Sensibilisierung gegen Fast Fashion',
     'blog.article.moda-sostenibile-bellinzona-9-maggio.imageAlt': 'Nachhaltige Modeveranstaltung in Bellinzona mit Upcycling- und Kleiderreparatur-Workshops',
+    'blog.article.fuga-ammoniaca-chiasso-controllo.title': 'Ammoniakausbruch in Chiasso, Situation unter Kontrolle',
+    'blog.article.fuga-ammoniaca-chiasso-controllo.excerpt': 'Unfall in der Eisbahn, drei Personen vergiftet, aber keine schweren Verletzungen. Die Bevölkerung ist nicht in Gefahr.',
+    'blog.article.fuga-ammoniaca-chiasso-controllo.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -8624,4 +8624,11 @@ export const ARTICLES = [
  image: '/images/blog/moda-sostenibile-bellinzona-9-maggio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fuga-ammoniaca-chiasso-controllo',
+ category: 'novita',
+ date: '2026-04-28T07:42:56.464Z',
+ image: '/images/blog/fuga-ammoniaca-chiasso-controllo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
