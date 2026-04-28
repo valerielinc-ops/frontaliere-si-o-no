@@ -8428,4 +8428,11 @@ export const ARTICLES = [
  image: '/images/blog/nomine-sims-fallimento.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-fatture-scontro-roma-2026',
+ category: 'novita',
+ date: '2026-04-28T04:26:38.357Z',
+ image: '/images/blog/crans-montana-fatture-scontro-roma-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

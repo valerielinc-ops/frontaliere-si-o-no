@@ -3178,6 +3178,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nomine-sims-fallimento.title': 'Fehlschlag bei den SIMS-Bestellungen: Die Haltung der Lega',
     'blog.article.nomine-sims-fallimento.excerpt': 'Die Angelegenheit der SIMS-Bestellungen endet laut der Lega dei ticinesi mit einem Urteil des Scheiterns, während die Regierung versucht, gegenzusteuern.',
     'blog.article.nomine-sims-fallimento.imageAlt': 'Öffentliche Ämter in Tessin mit Mitarbeitenden bei der Arbeit, realistische Umgebung.',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.title': 'Crans-Montana: Rechnungen entfachen Streit mit Rom',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.excerpt': 'Die Rechnungen für die in der Schweiz erbrachten Behandlungen der italienischen Opfer der Tragödie von Crans-Montana haben die Spannungen zwischen Rom und Bern wieder entfacht.',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.imageAlt': 'Crans-Montana, Panoramablick auf die Berge und das Dorf',
 };
 
 export default blogMetaDe;

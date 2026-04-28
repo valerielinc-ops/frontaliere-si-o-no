@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1109,
+ "numberOfItems": 1110,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5833,7 +5833,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1106, "name": "Nuovi programmi educativi a Bellinzona per il b...", "url": `${BASE_URL}/articoli-frontaliere/benessere-scolastico-bellinzona-2026` },
           { "@type": "ListItem", "position": 1107, "name": "Mendrisio Capitale Culturale: Opportunità da Co...", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-capitale-culturale-opportunita` },
           { "@type": "ListItem", "position": 1108, "name": "Pro Velo Ticino: Marco Vitali lascia la presidenza", "url": `${BASE_URL}/articoli-frontaliere/pro-velo-ticino-cambiamento-presidenza-2026` },
-          { "@type": "ListItem", "position": 1109, "name": "JSON-LD: Caso SIMS e gestione pubblica Ticino", "url": `${BASE_URL}/articoli-frontaliere/nomine-sims-fallimento` }
+          { "@type": "ListItem", "position": 1109, "name": "JSON-LD: Caso SIMS e gestione pubblica Ticino", "url": `${BASE_URL}/articoli-frontaliere/nomine-sims-fallimento` },
+          { "@type": "ListItem", "position": 1110, "name": "Crans-Montana, le fatture riaprono lo scontro c...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-fatture-scontro-roma-2026` }
  ]
  },
  {

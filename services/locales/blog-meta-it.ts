@@ -3179,6 +3179,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nomine-sims-fallimento.title': 'Il fallimento delle nomine SIMS: la posizione della Lega',
     'blog.article.nomine-sims-fallimento.excerpt': 'La vicenda delle nomine SIMS si conclude con un giudizio di fallimento secondo la Lega dei ticinesi, mentre il Governo cerca di rimediare.',
     'blog.article.nomine-sims-fallimento.imageAlt': 'Uffici pubblici in Ticino con funzionari al lavoro, ambiente ufficiale e dettagli realistici.',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.title': 'Crans-Montana, le fatture riaprono lo scontro con Roma',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.excerpt': 'Le fatture per le cure prestate in Svizzera alle vittime italiane della tragedia di Crans-Montana hanno riacceso le tensioni tra Roma e Berna.',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.imageAlt': 'Crans-Montana, vista panoramica delle montagne e del villaggio',
 };
 
 export default blogMetaIt;

@@ -17700,6 +17700,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-fatture-scontro-roma-2026': {
+    title: 'Crans-Montana, le fatture riaprono lo scontro con Roma',
+    description: 'Le fatture per le cure prestate in Svizzera alle vittime italiane della tragedia di Crans-Montana hanno riacceso le tensioni tra Roma e Berna. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, fatture, riaprono, scontro',
+    ogTitle: 'Crans-Montana, le fatture riaprono lo scontro con Roma',
+    ogDescription: 'Le fatture per le cure prestate in Svizzera alle vittime italiane della tragedia di Crans-Montana hanno riacceso le tensioni tra Roma e Berna.',
+    canonicalPath: '/articoli-frontaliere/crans-montana-fatture-scontro-roma-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana, le fatture riaprono lo scontro con Roma",
+      "description": "Le fatture per le cure prestate in Svizzera alle vittime italiane della tragedia di Crans-Montana hanno riacceso le tensioni tra Roma e Berna. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-fatture-scontro-roma-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Crans-Montana, vista panoramica delle montagne e del villaggio"
+      },
+      "datePublished": "2026-04-28T04:26:38+00:00",
+      "dateModified": "2026-04-28T04:26:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-fatture-scontro-roma-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

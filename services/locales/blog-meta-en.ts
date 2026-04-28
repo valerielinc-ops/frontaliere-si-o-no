@@ -3178,6 +3178,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nomine-sims-fallimento.title': 'The Failure of SIMS Appointments: Lega\'s Stance',
     'blog.article.nomine-sims-fallimento.excerpt': 'The SIMS appointment process ends in failure according to the Ticino Lega, while the government seeks to find a solution.',
     'blog.article.nomine-sims-fallimento.imageAlt': 'Public offices in Ticino with officials at work, realistic environment and details.',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.title': 'Crans-Montana bills reignite tensions with Rome',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.excerpt': 'The bills for the care provided in Switzerland to Italian victims of the Crans-Montana tragedy have reignited tensions between Rome and Berna.',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.imageAlt': 'Crans-Montana, panoramic view of the mountains and village',
 };
 
 export default blogMetaEn;

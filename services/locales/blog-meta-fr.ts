@@ -3179,6 +3179,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nomine-sims-fallimento.title': 'L\'échec des nominations SIMS: la position de la Lega',
     'blog.article.nomine-sims-fallimento.excerpt': 'L\'affaire des nominations SIMS se conclut par un jugement d\'échec selon la Lega des tessinois, tandis que le Gouvernement tente de remédier à la situation.',
     'blog.article.nomine-sims-fallimento.imageAlt': 'Bureaux publics au Tessin avec employés au travail, environnement réaliste.',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.title': 'Crans-Montana, les factures relancent le conflit avec Rome',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.excerpt': 'Les factures pour les soins prodigués en Suisse aux victimes italiennes de la tragédie de Crans-Montana ont ravivé les tensions entre Rome et Berne.',
+    'blog.article.crans-montana-fatture-scontro-roma-2026.imageAlt': 'Crans-Montana, vue panoramique des montagnes et du village',
 };
 
 export default blogMetaFr;
