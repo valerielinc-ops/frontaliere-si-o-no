@@ -10,6 +10,7 @@
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
 import { WriteCollector } from './batchWrite';
+import { resolveStaticPagesFlushed } from './shared/buildSignals';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
@@ -3101,6 +3102,12 @@ ${hrefTags}
  console.log(`[static-pages] Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (hashSkipped > 0 ? ` (${hashSkipped} skipped by content hash)` : ''));
  console.log(`\x1b[36m[static-pages]\x1b[0m Generated ${count} static pages (${skipped} skipped — already exist or no SEO data)`);
+
+ // Signal post-injection plugins (e.g. professionLandingsLinksPlugin) that
+ // every queued write has landed on disk. Without this signal they race the
+ // WriteCollector's background auto-flush and silently lose their patches —
+ // see build-plugins/shared/buildSignals.ts for the full rationale.
+ resolveStaticPagesFlushed();
 
  /* ── Auto-update sitemap index lastmod dates to today ─────── */
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');

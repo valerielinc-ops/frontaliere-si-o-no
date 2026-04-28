@@ -19,6 +19,26 @@
  *
  * The pillar page only gets the 2 healthcare/education professions; the
  * hubs get the full top-10 list.
+ *
+ * ───────────────────────────────────────────────────────────────────────
+ * Determinism note (2026-04-28):
+ *
+ * Vite/Rollup runs `closeBundle` hooks IN PARALLEL via `hookParallel`.
+ * Both `staticPagesPlugin` and `professionLandingsPlugin` write the same
+ * hub `index.html` paths via `WriteCollector.add()`, which auto-flushes
+ * in the background once the pending queue crosses 5 000 writes. Under
+ * heavy CI builds the hub HTML can be (a) written by an early background
+ * batch, (b) read+patched by this plugin's `waitForStable` poll, then
+ * (c) overwritten by a later background batch from staticPagesPlugin —
+ * silently losing every patch. Symptom in CI: `Injected … into 0/5
+ * parent pages.` and 10 sitemap-professions.xml orphans.
+ *
+ * Fix: instead of polling mtime, await explicit signals from each
+ * producer plugin (see `build-plugins/shared/buildSignals.ts`). The
+ * producers resolve their signals AFTER `await collector.flush()`, so by
+ * the time we patch the file content is final. We also throw a hard
+ * error if any target hub remains unpatched, so any future regression
+ * surfaces in the build log instead of an audit five minutes later.
  */
 
 import fs from 'node:fs';
@@ -32,6 +52,10 @@ import {
   type ProfessionId,
   type ProfessionLocale,
 } from './professionLandingsData';
+import {
+  staticPagesFlushed,
+  professionLandingsFlushed,
+} from './shared/buildSignals';
 
 interface InjectionTarget {
   readonly indexPath: string;
@@ -112,59 +136,69 @@ function renderBlock(target: InjectionTarget): string {
   return `<aside data-ae3-profession-links style="margin:1.5rem 0;padding:16px 18px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc"><p style="margin:0 0 8px;color:#0f172a;font-size:1rem;font-weight:700">${esc(target.title)}</p><p style="margin:0 0 10px;color:#334155;font-size:.95rem;line-height:1.55">${esc(target.intro)}</p><ul style="margin:0;padding:0 0 0 18px;color:#0f172a;font-size:.95rem;line-height:1.6">${items}</ul></aside>`;
 }
 
-async function waitForStable(
-  path: string,
-  timeoutMs = 600_000,
-  stableMs = 750,
-  pollMs = 250,
-): Promise<boolean> {
-  // Wait for the file to exist AND remain unchanged in size+mtime for
-  // `stableMs` — staticPagesPlugin + professionLandingsPlugin run in parallel
-  // via rollup's `closeBundle` hook, so a file can briefly exist then be
-  // rewritten. We need the final flush to land before patching.
-  const deadline = Date.now() + timeoutMs;
-  let lastSig = '';
-  let stableSince = 0;
-  while (Date.now() < deadline) {
-    try {
-      const st = fs.statSync(path);
-      const sig = `${st.size}|${st.mtimeMs}`;
-      if (sig === lastSig) {
-        if (Date.now() - stableSince >= stableMs) return true;
-      } else {
-        lastSig = sig;
-        stableSince = Date.now();
-      }
-    } catch {
-      // File does not exist yet — keep polling.
-    }
-    await new Promise((resolve) => setTimeout(resolve, pollMs));
+/**
+ * Pure injector — exported for unit tests.
+ *
+ * Inserts `block` immediately after the opening `<main …>` tag in `html`.
+ * Falls back to the position just before `</main>` and then `</body>` if
+ * neither exists. Returns the original string when:
+ *  - the marker `data-ae3-profession-links` is already present (idempotent), OR
+ *  - none of `<main>`, `</main>`, `</body>` are found (caller treats as failure).
+ *
+ * The third return tuple element reports `'inserted' | 'duplicate' | 'no-anchor'`
+ * so the plugin can hard-fail on `'no-anchor'` and silently no-op on `'duplicate'`.
+ */
+export type InjectionOutcome = 'inserted' | 'duplicate' | 'no-anchor';
+
+export function injectAe3Block(
+  html: string,
+  block: string,
+): { html: string; outcome: InjectionOutcome } {
+  if (html.includes('data-ae3-profession-links')) {
+    return { html, outcome: 'duplicate' };
   }
-  return fs.existsSync(path);
-}
 
-function patchFile(target: InjectionTarget): boolean {
-  if (!fs.existsSync(target.indexPath)) return false;
-  let html = fs.readFileSync(target.indexPath, 'utf-8');
-  if (html.includes('data-ae3-profession-links')) return false;
-
-  const block = renderBlock(target);
   const mainOpen = html.match(/<main\b[^>]*>/);
   if (mainOpen && mainOpen.index !== undefined) {
     const insertAt = mainOpen.index + mainOpen[0].length;
-    html = html.slice(0, insertAt) + block + html.slice(insertAt);
-  } else if (html.includes('</main>')) {
-    html = html.replace('</main>', `${block}</main>`);
-  } else if (html.includes('</body>')) {
-    html = html.replace('</body>', `${block}</body>`);
-  } else {
-    return false;
+    return {
+      html: html.slice(0, insertAt) + block + html.slice(insertAt),
+      outcome: 'inserted',
+    };
   }
+  if (html.includes('</main>')) {
+    return {
+      html: html.replace('</main>', `${block}</main>`),
+      outcome: 'inserted',
+    };
+  }
+  if (html.includes('</body>')) {
+    return {
+      html: html.replace('</body>', `${block}</body>`),
+      outcome: 'inserted',
+    };
+  }
+  return { html, outcome: 'no-anchor' };
+}
 
-  fs.writeFileSync(target.indexPath, html, 'utf-8');
+interface PatchResult {
+  readonly target: InjectionTarget;
+  readonly outcome: InjectionOutcome | 'missing-file';
+}
+
+function patchFile(target: InjectionTarget): PatchResult {
+  if (!fs.existsSync(target.indexPath)) {
+    return { target, outcome: 'missing-file' };
+  }
+  const html = fs.readFileSync(target.indexPath, 'utf-8');
+  const block = renderBlock(target);
+  const { html: patched, outcome } = injectAe3Block(html, block);
+  if (outcome === 'inserted') {
+    fs.writeFileSync(target.indexPath, patched, 'utf-8');
+  }
   // Do not write the flat .html sibling — it is a redirect bridge emitted
   // by flatHtmlRedirectPlugin and must stay untouched.
-  return true;
+  return { target, outcome };
 }
 
 function buildTargets(distDir: string): InjectionTarget[] {
@@ -238,11 +272,10 @@ export function professionLandingsLinksPlugin(rootDir: string): Plugin {
   return {
     name: 'profession-landings-links',
     apply: 'build',
-    // `closeBundle` hooks run in parallel across plugins; mark this one `post`
-    // so it runs AFTER staticPagesPlugin (which writes the target hub HTML)
-    // and AFTER professionLandingsPlugin has flushed its own files. Combined
-    // with the waitForStable poll, this ensures we inject AFTER the writer
-    // has finished — otherwise the patch is silently overwritten.
+    // `closeBundle` hooks run in parallel across plugins, so `enforce: 'post'`
+    // alone is NOT enough to guarantee ordering against `staticPagesPlugin`
+    // (which is also `enforce: 'post'`) — see the Determinism note at the top
+    // of this file. We rely on the explicit signals exported by each producer.
     enforce: 'post',
     async closeBundle() {
       if (process.env.SKIP_PROFESSION_LANDINGS === '1') return;
@@ -257,19 +290,41 @@ export function professionLandingsLinksPlugin(rootDir: string): Plugin {
 
       const targets = buildTargets(distDir);
 
-      // staticPagesPlugin batches + flushes its writes via WriteCollector at
-      // the end of its own closeBundle (~250s into the build). Poll for each
-      // target's file to stabilise before we patch, otherwise the writer
-      // races over our injection.
-      await Promise.all(targets.map((t) => waitForStable(t.indexPath)));
+      // Wait for both producers to flush before we read+patch. This replaces
+      // the previous `waitForStable(t.indexPath)` mtime poll, which was
+      // racing under heavy CI builds (5/5 → 0/5 silent regression).
+      await Promise.all([staticPagesFlushed, professionLandingsFlushed]);
 
-      let patched = 0;
-      for (const t of targets) {
-        if (patchFile(t)) patched++;
-      }
+      const results = targets.map((t) => patchFile(t));
+
+      const inserted = results.filter((r) => r.outcome === 'inserted').length;
+      const duplicate = results.filter((r) => r.outcome === 'duplicate').length;
+      const missingFile = results.filter((r) => r.outcome === 'missing-file');
+      const noAnchor = results.filter((r) => r.outcome === 'no-anchor');
+
       console.log(
-        `\x1b[36m[profession-landings-links]\x1b[0m Injected AE-3 profession-links block into ${patched}/${targets.length} parent pages.`,
+        `\x1b[36m[profession-landings-links]\x1b[0m Injected AE-3 profession-links block into ${inserted}/${targets.length} parent pages` +
+          (duplicate > 0 ? ` (${duplicate} already had the marker)` : '') +
+          '.',
       );
+
+      // Hard-fail on any non-idempotent miss. A successful build MUST inject
+      // the block into every target where it isn't already present — otherwise
+      // the AE-3 internal-links graph collapses and 10 profession landings
+      // turn into sitemap-professions.xml orphans (Semrush gate).
+      const failures = [...missingFile, ...noAnchor];
+      if (failures.length > 0) {
+        const lines = failures.map(
+          (r) =>
+            ` - [${r.outcome}] ${np.relative(distDir, r.target.indexPath)}`,
+        );
+        throw new Error(
+          `[profession-landings-links] AE-3 injection failed for ${failures.length}/${targets.length} target(s):\n${lines.join('\n')}\n\n` +
+            'This breaks the AE-3 link graph and creates sitemap-professions.xml orphans. ' +
+            'Diagnose: the target file did not exist after the producer signals fired (race condition), ' +
+            'or the HTML had no <main>/</main>/</body> anchor. See build-plugins/shared/buildSignals.ts.',
+        );
+      }
     },
   };
 }
