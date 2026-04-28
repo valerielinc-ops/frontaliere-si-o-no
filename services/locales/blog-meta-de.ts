@@ -3211,6 +3211,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scommesse-guerra-trump-prediction-market.title': 'Wetten auf Krieg und Trump: Boom der Prognosemärkte',
     'blog.article.scommesse-guerra-trump-prediction-market.excerpt': 'Plattformen wie Polymarket ermöglichen Wetten auf globale Ereignisse, aber mit ethischen und finanziellen Risiken.',
     'blog.article.scommesse-guerra-trump-prediction-market.imageAlt': 'Lugano mit Blick auf den Luganersee',
+    'blog.article.furti-lusso-murten-2026.title': 'Luxusautos gestohlen: 5 Wagen in einem Wochenende',
+    'blog.article.furti-lusso-murten-2026.excerpt': 'Zwei Einbrüche in einer Garage in Murten: 5 Luxusautos in einem Wochenende gestohlen',
+    'blog.article.furti-lusso-murten-2026.imageAlt': 'Fünf Luxusautos in Ticino gestohlen',
 };
 
 export default blogMetaDe;

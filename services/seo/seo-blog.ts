@@ -18019,6 +18019,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-lusso-murten-2026': {
+    title: 'Furti di lusso in Ticino: 5 auto rubate in un weekend',
+    description: 'Due furti in una sola garage a Murten: 5 auto di lusso rubate in un weekend. Scopri le implicazioni per i frontalieri e le misure di sicurezza. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, lusso, auto, rubate',
+    ogTitle: 'Furti di lusso in Ticino: 5 auto rubate in un weekend',
+    ogDescription: 'Due furti in una sola garage a Murten: 5 auto di lusso rubate in un weekend. Scopri le implicazioni per i frontalieri e le misure di sicurezza.',
+    canonicalPath: '/articoli-frontaliere/furti-lusso-murten-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furti di lusso in Ticino: 5 auto rubate in un weekend",
+      "description": "Due furti in una sola garage a Murten: 5 auto di lusso rubate in un weekend. Scopri le implicazioni per i frontalieri e le misure di sicurezza. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furti-lusso-murten-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cinque auto di lusso rubate in Ticino"
+      },
+      "datePublished": "2026-04-28T05:58:15+00:00",
+      "dateModified": "2026-04-28T05:58:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-lusso-murten-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

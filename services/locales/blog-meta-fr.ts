@@ -3212,6 +3212,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scommesse-guerra-trump-prediction-market.title': 'Paris sur la guerre et Trump : l\'essor des marchés prédictifs',
     'blog.article.scommesse-guerra-trump-prediction-market.excerpt': 'Des plateformes comme Polymarket permettent de parier sur des événements mondiaux, mais avec des risques éthiques et financiers.',
     'blog.article.scommesse-guerra-trump-prediction-market.imageAlt': 'Panorama de Lugano avec le lac de Lugano',
+    'blog.article.furti-lusso-murten-2026.title': '5 voitures de luxe volées en un week-end au Tessin',
+    'blog.article.furti-lusso-murten-2026.excerpt': 'Deux vols dans un seul garage à Murten : 5 voitures de luxe volées en un week-end',
+    'blog.article.furti-lusso-murten-2026.imageAlt': 'Cinq voitures de luxe volées en Suisse',
 };
 
 export default blogMetaFr;

@@ -3212,6 +3212,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scommesse-guerra-trump-prediction-market.title': 'Scommesse su guerra e Trump: il boom dei prediction market',
     'blog.article.scommesse-guerra-trump-prediction-market.excerpt': 'Piattaforme come Polymarket permettono di scommettere su eventi globali, ma con rischi etici e finanziari.',
     'blog.article.scommesse-guerra-trump-prediction-market.imageAlt': 'Panorama di Lugano con il Lago di Lugano',
+    'blog.article.furti-lusso-murten-2026.title': 'Furti di lusso in Ticino: 5 auto rubate in un weekend',
+    'blog.article.furti-lusso-murten-2026.excerpt': 'Due furti in una sola garage a Murten: 5 auto di lusso rubate in un weekend',
+    'blog.article.furti-lusso-murten-2026.imageAlt': 'Cinque auto di lusso rubate in Ticino',
 };
 
 export default blogMetaIt;
