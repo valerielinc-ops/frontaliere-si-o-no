@@ -247,6 +247,11 @@ jobs:
       #   - title-length         → shorten headline construction (≤90 char incl.
       #                            " | Frontaliere Ticino" suffix); see
       #                            truncateTitleCore in jobsSeoPagesPlugin.ts
+      #   - sitemap-canonicals   → HARD gate, no baseline. Every <loc> in every
+      #                            dist/sitemap-*.xml must self-canonicalize
+      #                            (page's <link rel="canonical"> = the loc).
+      #                            Fix the build plugin emitting the offending
+      #                            sitemap entry — never weaken the gate.
       - name: Post-build validations + SEO audits + SPA render + E2E (all parallel)
         run: |
           # Group A — 7 file validators
@@ -266,6 +271,10 @@ jobs:
           npm run audit:text-html-ratio      > /tmp/g5.log 2>&1 & PID12=$!
           npm run audit:h1-title-duplicates  > /tmp/g6.log 2>&1 & PID13=$!
           npm run audit:title-length         > /tmp/g7.log 2>&1 & PID14=$!
+          # Gate — sitemap canonical integrity (HARD gate, no baseline; any
+          # mismatch / missing-canonical / missing-html in dist/sitemap-*.xml
+          # fails the deploy). Sitemap entries must always self-canonicalize.
+          npm run audit:sitemap-canonicals   > /tmp/g8.log 2>&1 & PID15=$!
 
           # Group C — SPA render validation (5 min internal budget)
           timeout 300 node scripts/validate-spa-render.mjs > /tmp/spa.log 2>&1 & PID_SPA=$!
@@ -288,11 +297,12 @@ jobs:
           wait $PID12 || { echo "::error::audit:text-html-ratio failed"; cat /tmp/g5.log; FAIL=1; }
           wait $PID13 || { echo "::error::audit:h1-title-duplicates failed"; cat /tmp/g6.log; FAIL=1; }
           wait $PID14 || { echo "::error::audit:title-length failed"; cat /tmp/g7.log; FAIL=1; }
+          wait $PID15 || { echo "::error::audit:sitemap-canonicals failed (HARD gate)"; cat /tmp/g8.log; FAIL=1; }
           wait $PID_SPA || { echo "::error::validate-spa-render failed"; cat /tmp/spa.log; FAIL=1; }
           wait $PID_E2E || { echo "::error::E2E smoke tests failed"; cat /tmp/e2e.log; FAIL=1; }
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 16 post-build validators+audits+SPA+E2E passed"
+          echo "✅ All 17 post-build validators+audits+SPA+E2E passed"
 
       # Visual regression baselines are OS-sensitive (darwin vs linux pixel
       # diffs). We run them only when a linux-specific baseline has been
