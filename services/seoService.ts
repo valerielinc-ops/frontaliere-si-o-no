@@ -2335,6 +2335,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gestione-illecita-rifiuti-varese-arcisate-2026': { name: 'Pratico', path: '/articoli-frontaliere/gestione-illecita-rifiuti-varese-arcisate-2026', parent: 'blog' },
     'blog-frontalieri-ticino-crescita-2026': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-crescita-2026', parent: 'blog' },
     'blog-trasparenza-iniziative-popolari-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/trasparenza-iniziative-popolari-ticino-2026', parent: 'blog' },
+    'blog-tristan-brenn-fischer-decisione': { name: 'Novità', path: '/articoli-frontaliere/tristan-brenn-fischer-decisione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

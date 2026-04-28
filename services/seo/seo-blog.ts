@@ -18135,6 +18135,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tristan-brenn-fischer-decisione': {
+    title: 'Tristan Brenn difende la decisione sul caso Fischer',
+    description: 'Tristan Brenn, direttore del DFE, spiega le ragioni della decisione sul caso Fischer e le implicazioni per i frontalieri in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tristan, brenn, difende, decisione',
+    ogTitle: 'Tristan Brenn difende la decisione sul caso Fischer',
+    ogDescription: 'Tristan Brenn, direttore del DFE, spiega le ragioni della decisione sul caso Fischer e le implicazioni per i frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/tristan-brenn-fischer-decisione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tristan Brenn difende la decisione sul caso Fischer",
+      "description": "Tristan Brenn, direttore del DFE, spiega le ragioni della decisione sul caso Fischer e le implicazioni per i frontalieri in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tristan-brenn-fischer-decisione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giornalista intervista funzionario a Mendrisio sul lavoro transfrontaliero"
+      },
+      "datePublished": "2026-04-28T06:21:31+00:00",
+      "dateModified": "2026-04-28T06:21:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tristan-brenn-fischer-decisione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

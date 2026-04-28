@@ -8533,4 +8533,11 @@ export const ARTICLES = [
  image: '/images/blog/trasparenza-iniziative-popolari-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tristan-brenn-fischer-decisione',
+ category: 'novita',
+ date: '2026-04-28T06:21:31.770Z',
+ image: '/images/blog/tristan-brenn-fischer-decisione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

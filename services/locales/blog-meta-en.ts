@@ -3223,6 +3223,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasparenza-iniziative-popolari-ticino-2026.title': 'Transparency in popular initiatives: the proposal to the Grand Council',
     'blog.article.trasparenza-iniziative-popolari-ticino-2026.excerpt': 'A new parliamentary initiative aims to strengthen financial transparency in popular initiatives in Ticino, with clearly defined thresholds for sustainability.',
     'blog.article.trasparenza-iniziative-popolari-ticino-2026.imageAlt': 'View of Bellinzona\'s historic center with the Gran Consiglio Palace',
+    'blog.article.tristan-brenn-fischer-decisione.title': 'Tristan Brenn defends Fischer case decision',
+    'blog.article.tristan-brenn-fischer-decisione.excerpt': 'The DFE director explains the reasons behind the controversial Fischer case decision, with implications for cross-border workers',
+    'blog.article.tristan-brenn-fischer-decisione.imageAlt': 'Journalist interviews official in Mendrisio about cross-border work',
 };
 
 export default blogMetaEn;
