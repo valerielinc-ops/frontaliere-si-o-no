@@ -20281,6 +20281,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cina-spostamenti-frontalieri-primo-maggio': {
+    title: 'Cina, picco di spostamenti transfrontalieri per il Primo Maggio',
+    description: 'La Cina si prepara a un aumento record di viaggi transfrontalieri durante le vacanze del Primo Maggio, con picchi di oltre 2,4 milioni di passeggeri al giorno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cina, picco, spostamenti, transfrontalieri',
+    ogTitle: 'Cina, picco di spostamenti transfrontalieri per il Primo Maggio',
+    ogDescription: 'La Cina si prepara a un aumento record di viaggi transfrontalieri durante le vacanze del Primo Maggio, con picchi di oltre 2,4 milioni di passeggeri al giorno.',
+    canonicalPath: '/articoli-frontaliere/cina-spostamenti-frontalieri-primo-maggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cina, picco di spostamenti transfrontalieri per il Primo Maggio",
+      "description": "La Cina si prepara a un aumento record di viaggi transfrontalieri durante le vacanze del Primo Maggio, con picchi di oltre 2,4 milioni di passeggeri al giorno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cina-spostamenti-frontalieri-primo-maggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e confine svizzero-italiano"
+      },
+      "datePublished": "2026-04-28T18:23:40+00:00",
+      "dateModified": "2026-04-28T18:23:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cina-spostamenti-frontalieri-primo-maggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

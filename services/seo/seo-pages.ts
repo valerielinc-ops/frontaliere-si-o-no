@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1198,
+ "numberOfItems": 1199,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5833,7 +5833,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1195, "name": "Nuovo hotel di lusso sul Lago di Como: The Lake...", "url": `${BASE_URL}/articoli-frontaliere/lago-como-edition-hotel-lusso` },
           { "@type": "ListItem", "position": 1196, "name": "MomòRide lancia sfida di carpooling per pendola...", "url": `${BASE_URL}/articoli-frontaliere/momoride-carpooling-sfida-collettiva` },
           { "@type": "ListItem", "position": 1197, "name": "Nuove scuole Vernate Neggio 2026", "url": `${BASE_URL}/articoli-frontaliere/nuove-scuole-vernate-neggio-2026` },
-          { "@type": "ListItem", "position": 1198, "name": "Casse malati Ticino: le due iniziative potrebbe...", "url": `${BASE_URL}/articoli-frontaliere/casse-malati-ticino-divise-2026` }
+          { "@type": "ListItem", "position": 1198, "name": "Casse malati Ticino: le due iniziative potrebbe...", "url": `${BASE_URL}/articoli-frontaliere/casse-malati-ticino-divise-2026` },
+          { "@type": "ListItem", "position": 1199, "name": "Cina, picco di spostamenti transfrontalieri per...", "url": `${BASE_URL}/articoli-frontaliere/cina-spostamenti-frontalieri-primo-maggio` }
  ]
  },
  {

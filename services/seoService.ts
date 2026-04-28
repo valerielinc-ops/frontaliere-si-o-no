@@ -2379,6 +2379,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-momoride-carpooling-sfida-collettiva': { name: 'Carpooling', path: '/articoli-frontaliere/momoride-carpooling-sfida-collettiva', parent: 'blog' },
     'blog-nuove-scuole-vernate-neggio-2026': { name: 'Nuove scuole', path: '/articoli-frontaliere/nuove-scuole-vernate-neggio-2026', parent: 'blog' },
     'blog-casse-malati-ticino-divise-2026': { name: 'Casse malati', path: '/articoli-frontaliere/casse-malati-ticino-divise-2026', parent: 'blog' },
+    'blog-cina-spostamenti-frontalieri-primo-maggio': { name: 'Novità', path: '/articoli-frontaliere/cina-spostamenti-frontalieri-primo-maggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

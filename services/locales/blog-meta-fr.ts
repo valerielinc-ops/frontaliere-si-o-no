@@ -3446,6 +3446,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casse-malati-ticino-divise-2026.title': 'Caisse maladie du Tessin: les initiatives pourraient se séparer',
     'blog.article.casse-malati-ticino-divise-2026.excerpt': 'Le Conseil d\'État tessinois présente un plan partiel pour les initiatives des caisses maladie, mais les partis proposent de les séparer',
     'blog.article.casse-malati-ticino-divise-2026.imageAlt': 'Vue panoramique du lac de Lugano avec le Monte Brè au loin',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.title': 'Chine, pic de déplacements frontaliers pour le Premier Mai',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.excerpt': 'La Chine se prépare à une augmentation record de voyages transfrontaliers pendant les vacances du Premier Mai, avec des pics de plus de 2,4 millions de passagers par jour.',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

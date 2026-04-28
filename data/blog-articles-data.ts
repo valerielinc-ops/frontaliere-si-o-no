@@ -9051,4 +9051,11 @@ export const ARTICLES = [
  image: '/images/blog/casse-malati-ticino-divise-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cina-spostamenti-frontalieri-primo-maggio',
+ category: 'novita',
+ date: '2026-04-28T18:23:40.400Z',
+ image: '/images/blog/cina-spostamenti-frontalieri-primo-maggio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

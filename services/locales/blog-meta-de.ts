@@ -3445,6 +3445,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casse-malati-ticino-divise-2026.title': 'Krankenkassen im Tessin: Initiativen könnten sich trennen',
     'blog.article.casse-malati-ticino-divise-2026.excerpt': 'Der Staatsrat des Tessin präsentiert einen Teilplan für die Krankenkassen-Initiativen, doch die Parteien schlagen vor, sie zu trennen',
     'blog.article.casse-malati-ticino-divise-2026.imageAlt': 'Panoramablick auf den Luganersee mit Monte Bre in der Ferne',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.title': 'China: Rekord an grenzüberschreitenden Reisen zum 1. Mai',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.excerpt': 'China bereitet sich auf einen Rekordanstieg der grenzüberschreitenden Reisen während der Feiertage zum 1. Mai vor, mit Spitzenwerten von über 2,4 Millionen Passagieren pro Tag.',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und der Schweizer-Italienischen Grenze',
 };
 
 export default blogMetaDe;

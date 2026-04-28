@@ -3446,6 +3446,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casse-malati-ticino-divise-2026.title': 'Casse malati Ticino: le due iniziative potrebbero dividersi',
     'blog.article.casse-malati-ticino-divise-2026.excerpt': 'Il Consiglio di Stato ticinese presenta un piano parziale per le iniziative casse malati, ma i partiti propongono di separarle',
     'blog.article.casse-malati-ticino-divise-2026.imageAlt': 'Vista panoramica del Lago di Lugano con Monte Brè in lontananza',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.title': 'Cina, picco di spostamenti transfrontalieri per il Primo Maggio',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.excerpt': 'La Cina si prepara a un aumento record di viaggi transfrontalieri durante le vacanze del Primo Maggio, con picchi di oltre 2,4 milioni di passeggeri al giorno.',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.imageAlt': 'Vista aerea del Lago di Lugano con montagne e confine svizzero-italiano',
 };
 
 export default blogMetaIt;

@@ -3445,6 +3445,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casse-malati-ticino-divise-2026.title': 'Ticino health insurers: initiatives may split',
     'blog.article.casse-malati-ticino-divise-2026.excerpt': 'The Ticino State Council presents a partial plan for health insurance initiatives, but parties propose to separate them',
     'blog.article.casse-malati-ticino-divise-2026.imageAlt': 'Panoramic view of Lake Lugano with Monte Bre in the distance',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.title': 'China braces for record cross-border travel for May Day',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.excerpt': 'China is preparing for a record increase in cross-border travel during the May Day holidays, with peaks of over 2.4 million passengers per day.',
+    'blog.article.cina-spostamenti-frontalieri-primo-maggio.imageAlt': 'Aerial view of Lake Lugano with mountains and Swiss-Italian border',
 };
 
 export default blogMetaEn;
