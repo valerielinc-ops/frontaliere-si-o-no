@@ -17787,6 +17787,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-padroncini-lavoratori-stabili-bassi-2025': {
+    title: 'Padroncini e lavoratori distaccati stabili su livelli bassi',
+    description: 'Il numero di ditte notificate in Ticino rimane stabile su livelli bassi, ma l\'AIC avverte: non abbassare la guardia. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, padroncini, lavoratori, distaccati, stabili',
+    ogTitle: 'Padroncini e lavoratori distaccati stabili su livelli bassi',
+    ogDescription: 'Il numero di ditte notificate in Ticino rimane stabile su livelli bassi, ma l\'AIC avverte: non abbassare la guardia',
+    canonicalPath: '/articoli-frontaliere/padroncini-lavoratori-stabili-bassi-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Padroncini e lavoratori distaccati stabili su livelli bassi",
+      "description": "Il numero di ditte notificate in Ticino rimane stabile su livelli bassi, ma l'AIC avverte: non abbassare la guardia. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/padroncini-lavoratori-stabili-bassi-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-04-28T05:00:16+00:00",
+      "dateModified": "2026-04-28T05:00:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/padroncini-lavoratori-stabili-bassi-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

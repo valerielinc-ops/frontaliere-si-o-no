@@ -8449,4 +8449,11 @@ export const ARTICLES = [
  image: '/images/blog/salario-minimo-mediano-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'padroncini-lavoratori-stabili-bassi-2025',
+ category: 'novita',
+ date: '2026-04-28T05:00:16.244Z',
+ image: '/images/blog/padroncini-lavoratori-stabili-bassi-2025.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

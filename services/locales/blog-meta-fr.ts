@@ -3188,6 +3188,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salario-minimo-mediano-ticino-2026.title': 'Salaire minimum et médian: le mix qui menace le Tessin',
     'blog.article.salario-minimo-mediano-ticino-2026.excerpt': 'Analyse des tensions salariales entre frontaliers et résidents, avec des impacts sur le marché du travail tessinois.',
     'blog.article.salario-minimo-mediano-ticino-2026.imageAlt': 'Vue du lac de Lugano avec la ville en arrière-plan',
+    'blog.article.padroncini-lavoratori-stabili-bassi-2025.title': 'Patrons et travailleurs frontaliers à des niveaux bas',
+    'blog.article.padroncini-lavoratori-stabili-bassi-2025.excerpt': 'Le nombre d\'entreprises notifiées dans le canton du Ticino reste stable, mais l\'AIC avertit : ne pas baisser la garde',
+    'blog.article.padroncini-lavoratori-stabili-bassi-2025.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

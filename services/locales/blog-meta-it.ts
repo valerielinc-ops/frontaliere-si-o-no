@@ -3188,6 +3188,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salario-minimo-mediano-ticino-2026.title': 'Salario minimo e mediano: il mix che mette a rischio il Ticino',
     'blog.article.salario-minimo-mediano-ticino-2026.excerpt': 'Analisi delle tensioni salariali tra frontalieri e residenti, con impatti sul mercato del lavoro ticinese.',
     'blog.article.salario-minimo-mediano-ticino-2026.imageAlt': 'Vista del lago di Lugano con la città sullo sfondo',
+    'blog.article.padroncini-lavoratori-stabili-bassi-2025.title': 'Padroncini e lavoratori distaccati stabili su livelli bassi',
+    'blog.article.padroncini-lavoratori-stabili-bassi-2025.excerpt': 'Il numero di ditte notificate in Ticino rimane stabile, ma l\'AIC avverte: non abbassare la guardia',
+    'blog.article.padroncini-lavoratori-stabili-bassi-2025.imageAlt': 'Vista aerea del Lago di Lugano con montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

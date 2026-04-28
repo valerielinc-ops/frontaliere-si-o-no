@@ -3187,6 +3187,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salario-minimo-mediano-ticino-2026.title': 'Minimum and median wages: the mix threatening Ticino',
     'blog.article.salario-minimo-mediano-ticino-2026.excerpt': 'Analysis of wage tensions between cross-border workers and residents, with impacts on the Ticino job market.',
     'blog.article.salario-minimo-mediano-ticino-2026.imageAlt': 'View of Lake Lugano with the city in the background',
+    'blog.article.padroncini-lavoratori-stabili-bassi-2025.title': 'Self-employed and cross-border workers remain low',
+    'blog.article.padroncini-lavoratori-stabili-bassi-2025.excerpt': 'The number of companies notified in Ticino remains stable, but AIC warns: don\'t let your guard down',
+    'blog.article.padroncini-lavoratori-stabili-bassi-2025.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;

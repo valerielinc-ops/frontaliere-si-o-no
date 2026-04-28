@@ -2323,6 +2323,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-fatture-scontro-roma-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-fatture-scontro-roma-2026', parent: 'blog' },
     'blog-ticino-calimero-sindrome-2026': { name: 'Novità', path: '/articoli-frontaliere/ticino-calimero-sindrome-2026', parent: 'blog' },
     'blog-salario-minimo-mediano-ticino-2026': { name: 'Salari Ticino', path: '/articoli-frontaliere/salario-minimo-mediano-ticino-2026', parent: 'blog' },
+    'blog-padroncini-lavoratori-stabili-bassi-2025': { name: 'Novità', path: '/articoli-frontaliere/padroncini-lavoratori-stabili-bassi-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];
