@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1225,
+ "numberOfItems": 1226,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5860,7 +5860,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1222, "name": "Unitas festeggia 80 anni con una rivista audio", "url": `${BASE_URL}/articoli-frontaliere/unitas-80-anni-innovazione-inclusione` },
           { "@type": "ListItem", "position": 1223, "name": "Dfp, Giorgetti: deficit ridotto senza manovre r...", "url": `${BASE_URL}/articoli-frontaliere/dfp-giorgetti-deficit-ridotto` },
           { "@type": "ListItem", "position": 1224, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/castiglione-olona-ufficio-postale-riaperto` },
-          { "@type": "ListItem", "position": 1225, "name": "Nuovi programmi educativi a Bellinzona: prevenz...", "url": `${BASE_URL}/articoli-frontaliere/programmi-educativi-bellinzona-2026` }
+          { "@type": "ListItem", "position": 1225, "name": "Nuovi programmi educativi a Bellinzona: prevenz...", "url": `${BASE_URL}/articoli-frontaliere/programmi-educativi-bellinzona-2026` },
+          { "@type": "ListItem", "position": 1226, "name": "Aeroporti Milano: boom fatturato e dividendi 19...", "url": `${BASE_URL}/articoli-frontaliere/aeroporti-milano-boom-fatturato-197-milioni` }
  ]
  },
  {

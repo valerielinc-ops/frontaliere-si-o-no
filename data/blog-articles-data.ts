@@ -9240,4 +9240,11 @@ export const ARTICLES = [
  image: '/images/blog/programmi-educativi-bellinzona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aeroporti-milano-boom-fatturato-197-milioni',
+ category: 'novita',
+ date: '2026-04-28T21:02:25.638Z',
+ image: '/images/blog/aeroporti-milano-boom-fatturato-197-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

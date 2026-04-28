@@ -3526,6 +3526,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.programmi-educativi-bellinzona-2026.title': 'New educational programs in Bellinzona: prevention and respect',
     'blog.article.programmi-educativi-bellinzona-2026.excerpt': 'Starting in September, Bellinzona\'s municipal school institute launches three educational programs for the second cycle of elementary school.',
     'blog.article.programmi-educativi-bellinzona-2026.imageAlt': 'Elementary school in Bellinzona, children in educational activity',
+    'blog.article.aeroporti-milano-boom-fatturato-197-milioni.title': 'Milan Airports: Record Revenue and 197M Dividends',
+    'blog.article.aeroporti-milano-boom-fatturato-197-milioni.excerpt': 'Malpensa and Linate close 2025 with 876.8M revenue and 8% passenger traffic growth. Record dividends for shareholders.',
+    'blog.article.aeroporti-milano-boom-fatturato-197-milioni.imageAlt': 'Aerial view of Malpensa Airport with planes and passengers',
 };
 
 export default blogMetaEn;

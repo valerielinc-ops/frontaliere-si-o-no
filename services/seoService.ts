@@ -2406,6 +2406,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dfp-giorgetti-deficit-ridotto': { name: 'Fiscale', path: '/articoli-frontaliere/dfp-giorgetti-deficit-ridotto', parent: 'blog' },
     'blog-castiglione-olona-ufficio-postale-riaperto': { name: 'Novità', path: '/articoli-frontaliere/castiglione-olona-ufficio-postale-riaperto', parent: 'blog' },
     'blog-programmi-educativi-bellinzona-2026': { name: 'Programmi educativi', path: '/articoli-frontaliere/programmi-educativi-bellinzona-2026', parent: 'blog' },
+    'blog-aeroporti-milano-boom-fatturato-197-milioni': { name: 'Novità', path: '/articoli-frontaliere/aeroporti-milano-boom-fatturato-197-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

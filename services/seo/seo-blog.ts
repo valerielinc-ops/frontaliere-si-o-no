@@ -21064,6 +21064,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aeroporti-milano-boom-fatturato-197-milioni': {
+    title: 'Aeroporti di Milano: boom di fatturato e dividendi da 197 milioni',
+    description: 'Malpensa e Linate chiudono il 2025 con ricavi a 876,8 milioni e traffico passeggeri in aumento dell\'8%. Dividendi record per gli azionisti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporti, milano, boom, fatturato',
+    ogTitle: 'Aeroporti Milano: boom fatturato e dividendi 197 milioni',
+    ogDescription: 'Malpensa e Linate chiudono il 2025 con ricavi a 876,8 milioni e traffico passeggeri in aumento dell\'8%. Dividendi record per gli azionisti.',
+    canonicalPath: '/articoli-frontaliere/aeroporti-milano-boom-fatturato-197-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporti Milano: boom fatturato e dividendi 197 milioni",
+      "description": "Malpensa e Linate chiudono il 2025 con ricavi a 876,8 milioni e traffico passeggeri in aumento dell'8%. Dividendi record per gli azionisti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aeroporti-milano-boom-fatturato-197-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'aeroporto di Malpensa con aerei e passeggeri"
+      },
+      "datePublished": "2026-04-28T21:02:25+00:00",
+      "dateModified": "2026-04-28T21:02:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aeroporti-milano-boom-fatturato-197-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
