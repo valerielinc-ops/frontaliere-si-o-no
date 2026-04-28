@@ -2101,9 +2101,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  italianUrls
  .filter(u => u.path.startsWith(prefix) && u.path !== prefix.replace(/\/+$/, ''))
  .map(u => withTrailingSlash(u.path));
- const renderList = (heading: string, hrefs: string[]): string => {
+ // Cap per-group anchor count to keep /mappa-del-sito/ HTML under the 200KB
+ // page-weight gate. The long-tail of e.g. salary-hub scenarios (~1732
+ // entries) and per-blog detail pages already has dedicated paginated
+ // archives reachable via their hubs (T1 scenari, T9 articoli/tutti).
+ const MAX_ITEMS_PER_GROUP = 30;
+ const renderList = (heading: string, hrefs: string[], seeAllHref?: string, seeAllLabel?: string): string => {
  if (!hrefs.length) return '';
- const items = hrefs.map(href => {
+ const truncated = hrefs.length > MAX_ITEMS_PER_GROUP;
+ const visible = truncated ? hrefs.slice(0, MAX_ITEMS_PER_GROUP) : hrefs;
+ const items = visible.map(href => {
  const slug = href.replace(/\/+$/, '').split('/').pop() ?? href;
  const label = slug
  .replace(/-/g, ' ')
@@ -2125,7 +2132,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  .replace(/\bAinp\b/g, 'AINP');
  return `<li style="margin:.2rem 0"><a href="${href}" style="color:#2563eb;text-decoration:none">${esc(label)}</a></li>`;
  }).join('');
- return `<h3 style="font-size:0.95rem;font-weight:700;margin:1rem 0 .35rem;color:#1e293b">${esc(heading)}</h3><ul style="margin:0 0 .5rem 1.25rem;padding:0;font-size:0.85rem;line-height:1.5">${items}</ul>`;
+ const seeAll = truncated && seeAllHref
+ ? `<li style="margin:.4rem 0 .2rem"><a href="${seeAllHref}" style="color:#2563eb;text-decoration:none;font-weight:600">${esc(seeAllLabel ?? `→ Vedi tutti (${hrefs.length})`)}</a></li>`
+ : '';
+ return `<h3 style="font-size:0.95rem;font-weight:700;margin:1rem 0 .35rem;color:#1e293b">${esc(heading)}</h3><ul style="margin:0 0 .5rem 1.25rem;padding:0;font-size:0.85rem;line-height:1.5">${items}${seeAll}</ul>`;
+ };
+
+ // Per-segment "see all" indexes (already emitted by their respective plugins).
+ const SEG_SEE_ALL: Record<string, { href: string; label: string }> = {
+ 'calcola-stipendio': { href: '/calcola-stipendio/scenari/', label: '→ Vedi tutti gli scenari di stipendio' },
+ 'articoli-frontaliere': { href: '/articoli-frontaliere/tutti/', label: '→ Vedi tutti gli articoli' },
  };
 
  // Static lists for hubs that are NOT in sitemap-pages.xml but whose
@@ -2240,7 +2256,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // First: in-section pages from sitemap-pages.xml + sitemap-glossario.xml
  ...Array.from(grouped.entries())
  .filter(([seg]) => segHeading[seg])
- .map(([seg, hrefs]) => renderList(segHeading[seg], hrefs.sort())),
+ .map(([seg, hrefs]) => {
+ const seeAll = SEG_SEE_ALL[seg];
+ return renderList(segHeading[seg], hrefs.sort(), seeAll?.href, seeAll?.label);
+ }),
  // Special-cased pages
  renderHubLinks('Glossario frontaliere — tutti i termini', italianUrls
  .filter(u => u.path.startsWith('/glossario-frontaliere'))
