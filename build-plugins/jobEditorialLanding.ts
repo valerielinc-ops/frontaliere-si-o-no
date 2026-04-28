@@ -99,11 +99,34 @@ const SECTOR_SLUG_ALIASES: Record<string, JobLandingSectorKey> = {
 
 type JobLike = Record<string, any>;
 
-type LandingJobLink = {
+// ── Editorial job-link shape ─────────────────────────────────────────
+//
+// The thin {title, company, location, href} contract was sufficient when
+// editorial landings rendered plaintext lists, but the shared SPA-style
+// renderer (build-plugins/shared/jobCardHtml.ts) needs salary, contract,
+// posted-date, logo, canton and featured flags to draw the same chips the
+// in-app <JobCard> shows. We mirror the enrichment pattern already used by
+// `RecencyJobLink` in build-plugins/jobRecencyLanding.ts so every
+// editorial-model job listing renders an identical card.
+//
+// All enrichment fields are optional — callers without source data still
+// produce valid `LandingJobLink`s and the renderer simply hides the
+// corresponding chips.
+export type LandingJobLink = {
  title: string;
  company: string;
  location: string;
  href: string;
+ datePosted?: string;
+ titleByLocale?: Partial<Record<JobLandingLocale, string>>;
+ companyKey?: string;
+ canton?: string;
+ contract?: string;
+ salaryMin?: number | null;
+ salaryMax?: number | null;
+ featured?: boolean;
+ logo?: string | null;
+ addressLocality?: string;
 };
 
 type LandingSection = {
@@ -1094,12 +1117,43 @@ function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
 }
 
 function toLinkedJobs(jobs: JobLike[], now: Date, locale: JobLandingLocale, options: { baseUrl: string; localePrefix: string; sectionSlug: string; localizedSlug: (job: JobLike, locale: JobLandingLocale) => string }, max = 12): LandingJobLink[] {
- return sortByFreshness(jobs, now).slice(0, max).map((job) => ({
- title: normalizeSpace(String(job?.titleByLocale?.[locale] || job.title || 'Offerta lavoro')),
- company: normalizeSpace(job.company || ''),
- location: normalizeSpace(job.location || ''),
- href: buildJobHref(options.baseUrl, options.localePrefix, options.sectionSlug, options.localizedSlug(job, locale)),
- }));
+ return sortByFreshness(jobs, now).slice(0, max).map((job) => {
+  const j = job as Record<string, unknown>;
+  const rawTitleByLocale =
+   (j.titleByLocale as Record<string, unknown> | undefined) || {};
+  // Normalize the title-by-locale dict so only string values survive into
+  // the typed `Partial<Record<JobLandingLocale,string>>` shape.
+  const titleByLocaleTyped = Object.fromEntries(
+   Object.entries(rawTitleByLocale).filter(([, v]) => typeof v === 'string'),
+  ) as Partial<Record<JobLandingLocale, string>>;
+  const posted = getJobFreshnessDate(job as JobLike);
+  const datePosted = posted
+   ? posted.toISOString()
+   : typeof j.postedDate === 'string'
+    ? j.postedDate
+    : typeof j.datePosted === 'string'
+     ? j.datePosted
+     : undefined;
+  return {
+   title: normalizeSpace(String(j.titleByLocale && typeof (j.titleByLocale as Record<string, unknown>)[locale] === 'string'
+    ? (j.titleByLocale as Record<string, string>)[locale]
+    : j.title || 'Offerta lavoro')),
+   company: normalizeSpace(typeof j.company === 'string' ? j.company : ''),
+   location: normalizeSpace(typeof j.location === 'string' ? j.location : ''),
+   href: buildJobHref(options.baseUrl, options.localePrefix, options.sectionSlug, options.localizedSlug(job, locale)),
+   datePosted,
+   titleByLocale: titleByLocaleTyped,
+   companyKey: typeof j.companyKey === 'string' ? j.companyKey : undefined,
+   canton: typeof j.canton === 'string' ? j.canton : undefined,
+   contract: typeof j.contract === 'string' ? j.contract : undefined,
+   salaryMin: typeof j.salaryMin === 'number' ? j.salaryMin : undefined,
+   salaryMax: typeof j.salaryMax === 'number' ? j.salaryMax : undefined,
+   featured: j.featured === true,
+   logo: typeof j.logo === 'string' ? j.logo : undefined,
+   addressLocality:
+    typeof j.addressLocality === 'string' ? j.addressLocality : undefined,
+  };
+ });
 }
 
 function normalizeLocation(value: string): string {

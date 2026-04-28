@@ -3005,21 +3005,52 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  let editorialEntries = '';
  {
  const editorialSitemapEntries: string[] = [];
- // SPA-matching cards via the shared renderer. The editorial models only
- // carry the thin {title,company,location,href} shape today, so salary /
- // contract / posted-date chips will be hidden for these pages — the
- // visual layout (rounded card, logo slot, mappin chip) still aligns
- // with the in-app JobCard. Pass `locale='it'` since these editorial
- // landing pages render IT copy regardless of route locale.
- const renderJobList = (items: Array<{ title: string; company: string; location: string; href: string }>) => {
+ // SPA-matching cards via the shared renderer. Editorial models now carry
+ // the full enrichment payload (salary, contract, posted-date, logo,
+ // canton, featured) so we forward every field to the renderer. Missing
+ // fields gracefully hide the corresponding chip. Pass `locale='it'`
+ // since these editorial landing pages render IT copy regardless of the
+ // route locale.
+ const renderJobList = (
+   items: Array<{
+     title: string;
+     company: string;
+     location: string;
+     href: string;
+     datePosted?: string;
+     titleByLocale?: Partial<Record<'it' | 'en' | 'de' | 'fr', string>>;
+     companyKey?: string;
+     canton?: string;
+     contract?: string;
+     salaryMin?: number | null;
+     salaryMax?: number | null;
+     featured?: boolean;
+     logo?: string | null;
+     addressLocality?: string;
+   }>,
+ ) => {
    if (items.length === 0) {
      return '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
    }
    return renderJobCardListHtml(
-     items.map((item) => ({
-       job: { title: item.title, company: item.company, location: item.location } as JobCardJob,
-       href: item.href,
-     })),
+     items.map((item) => {
+       const job: JobCardJob = {
+         title: item.title,
+         company: item.company,
+         location: item.location,
+         titleByLocale: item.titleByLocale,
+         companyKey: item.companyKey,
+         canton: item.canton,
+         contract: item.contract,
+         salaryMin: item.salaryMin,
+         salaryMax: item.salaryMax,
+         featured: item.featured,
+         logo: item.logo,
+         addressLocality: item.addressLocality,
+         datePosted: item.datePosted,
+       };
+       return { job, href: item.href };
+     }),
      { locale: 'it' },
    );
  };
