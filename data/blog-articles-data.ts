@@ -8715,4 +8715,11 @@ export const ARTICLES = [
  image: '/images/blog/costo-energia-varese-impatti-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ospedali-varesini-cambiamenti-20-anni',
+ category: 'novita',
+ date: '2026-04-28T11:18:36.417Z',
+ image: '/images/blog/ospedali-varesini-cambiamenti-20-anni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

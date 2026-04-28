@@ -2331,6 +2331,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-settimanaprofessionale-ticino-2024': { name: 'Novità', path: '/articoli-frontaliere/settimanaprofessionale-ticino-2024', parent: 'blog' },
     'blog-colazione-equo-ticino-9-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/colazione-equo-ticino-9-maggio-2026', parent: 'blog' },
     'blog-costo-energia-varese-impatti-frontalieri': { name: 'Caro energia', path: '/articoli-frontaliere/costo-energia-varese-impatti-frontalieri', parent: 'blog' },
+    'blog-ospedali-varesini-cambiamenti-20-anni': { name: 'Novità', path: '/articoli-frontaliere/ospedali-varesini-cambiamenti-20-anni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -18889,6 +18889,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ospedali-varesini-cambiamenti-20-anni': {
+    title: 'Ospedali varesini: meno letti, più specializzazione in 20 anni',
+    description: 'Negli ultimi vent\'anni i posti letto negli ospedali del Varesotto si sono ridotti del 30-40%, con un modello di cura più efficiente ma anche più fragile.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedali, varesini, meno, letti',
+    ogTitle: 'Ospedali varesini: meno letti, più specializzazione in 20 anni',
+    ogDescription: 'Negli ultimi vent\'anni i posti letto negli ospedali del Varesotto si sono ridotti del 30-40%, con un modello di cura più efficiente ma anche più fragile.',
+    canonicalPath: '/articoli-frontaliere/ospedali-varesini-cambiamenti-20-anni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedali varesini: meno letti, più specializzazione in 20 anni",
+      "description": "Negli ultimi vent'anni i posti letto negli ospedali del Varesotto si sono ridotti del 30-40%, con un modello di cura più efficiente ma anche più fragile.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ospedali-varesini-cambiamenti-20-anni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale di Varese, piazza Repubblica, dettagli architettonici, personale sanitario"
+      },
+      "datePublished": "2026-04-28T11:18:36+00:00",
+      "dateModified": "2026-04-28T11:18:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ospedali-varesini-cambiamenti-20-anni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

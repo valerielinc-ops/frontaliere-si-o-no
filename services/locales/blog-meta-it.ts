@@ -3302,6 +3302,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costo-energia-varese-impatti-frontalieri.title': 'Caro energia in provincia di Varese: impatti su imprese e frontalieri',
     'blog.article.costo-energia-varese-impatti-frontalieri.excerpt': 'Una piccola impresa metalmeccanica paga il 30% in più di elettricità rispetto alla media europea. Analisi sugli impatti economici.',
     'blog.article.costo-energia-varese-impatti-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con montagne e confine svizzero-italiano',
+    'blog.article.ospedali-varesini-cambiamenti-20-anni.title': 'Ospedali varesini: meno letti, più specializzazione in 20 anni',
+    'blog.article.ospedali-varesini-cambiamenti-20-anni.excerpt': 'Negli ultimi vent\'anni i posti letto negli ospedali del Varesotto si sono ridotti del 30-40%, con un modello di cura più efficiente ma anche più fragile.',
+    'blog.article.ospedali-varesini-cambiamenti-20-anni.imageAlt': 'Ospedale di Varese, piazza Repubblica, dettagli architettonici, personale sanitario',
 };
 
 export default blogMetaIt;

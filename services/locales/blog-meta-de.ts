@@ -3301,6 +3301,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.costo-energia-varese-impatti-frontalieri.title': 'Hohe Energiepreise in Varese: Auswirkungen auf Unternehmen',
     'blog.article.costo-energia-varese-impatti-frontalieri.excerpt': 'Ein kleines metallverarbeitendes Unternehmen zahlt 30 % mehr für Strom als der europäische Durchschnitt. Analyse der wirtschaftlichen Auswirkungen.',
     'blog.article.costo-energia-varese-impatti-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und der Schweizer-Italienischen Grenze',
+    'blog.article.ospedali-varesini-cambiamenti-20-anni.title': 'Varese-Krankenhäuser: Weniger Betten, mehr Spezialisierung in 20 Jahren',
+    'blog.article.ospedali-varesini-cambiamenti-20-anni.excerpt': 'In den letzten 20 Jahren haben sich die Betten in den Krankenhäusern des Varesotto um 30-40% reduziert, mit einem effizienteren, aber auch fragilerem Versorgungsmodell.',
+    'blog.article.ospedali-varesini-cambiamenti-20-anni.imageAlt': 'Krankenhaus Varese, Piazza Repubblica, architektonische Details, Gesundheitsdienst',
 };
 
 export default blogMetaDe;

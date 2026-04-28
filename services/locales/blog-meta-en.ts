@@ -3301,6 +3301,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costo-energia-varese-impatti-frontalieri.title': 'Varese energy costs hit businesses, cross-border workers',
     'blog.article.costo-energia-varese-impatti-frontalieri.excerpt': 'A small metalworking company pays 30% more for electricity than the European average. Analysis of the economic impacts.',
     'blog.article.costo-energia-varese-impatti-frontalieri.imageAlt': 'Aerial view of Lake Lugano with mountains and Swiss-Italian border',
+    'blog.article.ospedali-varesini-cambiamenti-20-anni.title': 'Varese hospitals: fewer beds, more specialization in 20 years',
+    'blog.article.ospedali-varesini-cambiamenti-20-anni.excerpt': 'Over the past two decades, the number of beds in Varese hospitals has decreased by 30-40%, with a more efficient but also more fragile care model.',
+    'blog.article.ospedali-varesini-cambiamenti-20-anni.imageAlt': 'Varese Hospital, Piazza Repubblica, architectural details, healthcare staff',
 };
 
 export default blogMetaEn;
