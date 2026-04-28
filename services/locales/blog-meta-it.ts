@@ -3176,6 +3176,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pro-velo-ticino-cambiamento-presidenza-2026.title': 'Pro Velo Ticino: Marco Vitali lascia la presidenza',
     'blog.article.pro-velo-ticino-cambiamento-presidenza-2026.excerpt': 'Marco Vitali lascia la presidenza di Pro Velo Ticino dopo aver trasferito il domicilio in Alsazia. Claudio Sabbadini è il nuovo presidente.',
     'blog.article.pro-velo-ticino-cambiamento-presidenza-2026.imageAlt': 'Ciclisti in una manifestazione a Lugano, Ticino, con vista sul lago e montagne',
+    'blog.article.nomine-sims-fallimento.title': 'Il fallimento delle nomine SIMS: la posizione della Lega',
+    'blog.article.nomine-sims-fallimento.excerpt': 'La vicenda delle nomine SIMS si conclude con un giudizio di fallimento secondo la Lega dei ticinesi, mentre il Governo cerca di rimediare.',
+    'blog.article.nomine-sims-fallimento.imageAlt': 'Uffici pubblici in Ticino con funzionari al lavoro, ambiente ufficiale e dettagli realistici.',
 };
 
 export default blogMetaIt;

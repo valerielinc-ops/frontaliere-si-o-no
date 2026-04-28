@@ -8421,4 +8421,11 @@ export const ARTICLES = [
  image: '/images/blog/pro-velo-ticino-cambiamento-presidenza-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nomine-sims-fallimento',
+ category: 'fiscale',
+ date: '2026-04-28T04:17:38.196Z',
+ image: '/images/blog/nomine-sims-fallimento.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

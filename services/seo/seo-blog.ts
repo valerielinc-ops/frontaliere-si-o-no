@@ -17671,6 +17671,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nomine-sims-fallimento': {
+    title: 'Il fallimento delle nomine SIMS: la posizione della Lega',
+    description: 'La vicenda delle nomine SIMS si conclude con l’annullamento delle nomine del 2024 e 2025, sollevando dubbi sulla gestione pubblica in Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fallimento, nomine, sims, posizione',
+    ogTitle: 'Fallimento nomine SIMS in Ticino',
+    ogDescription: 'La vicenda delle nomine SIMS mette in discussione la gestione dei concorsi pubblici nel Canton Ticino, con ripercussioni sulla credibilità istituzionale.',
+    canonicalPath: '/articoli-frontaliere/nomine-sims-fallimento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "JSON-LD: Caso SIMS e gestione pubblica Ticino",
+      "description": "La vicenda delle nomine SIMS si conclude con l’annullamento delle nomine del 2024 e 2025, sollevando dubbi sulla gestione pubblica in Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nomine-sims-fallimento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici pubblici in Ticino con funzionari al lavoro, ambiente ufficiale e dettagli realistici."
+      },
+      "datePublished": "2026-04-28T04:17:38+00:00",
+      "dateModified": "2026-04-28T04:17:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nomine-sims-fallimento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3176,6 +3176,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pro-velo-ticino-cambiamento-presidenza-2026.title': 'Pro Velo Ticino: Marco Vitali quitte la présidence',
     'blog.article.pro-velo-ticino-cambiamento-presidenza-2026.excerpt': 'Marco Vitali quitte la présidence de Pro Velo Ticino après avoir transféré son domicile en Alsace. Claudio Sabbadini est le nouveau président.',
     'blog.article.pro-velo-ticino-cambiamento-presidenza-2026.imageAlt': 'Cyclistes participant à un événement à Lugano, Tessin, avec vue sur le lac et les montagnes',
+    'blog.article.nomine-sims-fallimento.title': 'L\'échec des nominations SIMS: la position de la Lega',
+    'blog.article.nomine-sims-fallimento.excerpt': 'L\'affaire des nominations SIMS se conclut par un jugement d\'échec selon la Lega des tessinois, tandis que le Gouvernement tente de remédier à la situation.',
+    'blog.article.nomine-sims-fallimento.imageAlt': 'Bureaux publics au Tessin avec employés au travail, environnement réaliste.',
 };
 
 export default blogMetaFr;
