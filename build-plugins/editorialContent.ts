@@ -2161,6 +2161,10 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  },
 
  // ───── Blog index ─────────────────────────────────────────────
+ // The visible "browse all articles" anchor closes the BFS path from
+ // the recent-articles index to the full A-Z archive (/tutti/, /all/,
+ // /alle/, /tous/). Without it, Semrush flags every article only
+ // reachable via /tutti/page-N/ as an orphan in sitemap.
  '/articoli-frontaliere': {
  en: [
  '<strong>Cross-Border Articles</strong> is the editorial hub of Frontaliere Ticino with over 700 in-depth articles for cross-border workers between Italy and Switzerland. Content covers taxation (2026 New Agreement, IRPEF, withholding tax), pensions (AVS, LPP, pillar 3a), practical guides (permits, banking, customs), and legislative updates.',
@@ -2168,6 +2172,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  'Main categories: Tax (cross-border taxation, withholding tax, IRPEF), Practical (permits, customs, transport, banking), News (Swiss and Italian legislative updates), Pension (AVS, LPP, pillar 3a). Articles are updated whenever significant regulatory changes occur.',
  'The article library covers a broad range of categories tailored to cross-border worker needs: fiscal deep-dives on the 2026 New Agreement and withholding tax tables, practical guides for opening Swiss bank accounts and transferring vehicles, pension planning articles comparing AVS projections with Italian INPS, job market analyses for Ticino\'s key sectors, and lifestyle content on housing, schools, and healthcare. A search and category filter system helps readers find relevant content quickly.',
  'Every article follows a rigorous editorial approach: content is verified against official sources including Swiss Federal Council publications, Canton Ticino tax authority (Divisione delle contribuzioni) circulars, Italian Agenzia delle Entrate guidelines, and bilateral agreement texts. Articles referencing 2026 regulations are reviewed and updated whenever new implementing provisions are published, ensuring readers always access current and actionable information rather than outdated guidance.',
+ '<p style="margin:1rem 0"><a href="/en/cross-border-articles/all/" style="display:inline-block;padding:.5rem 1rem;border-radius:6px;background:#2563eb;color:#fff;text-decoration:none;font-weight:600">Browse all articles →</a></p>',
  ],
  de: [
  '<strong>Grenzgänger-Artikel</strong> ist der redaktionelle Hub von Frontaliere Ticino mit über 700 Vertiefungsartikeln für Grenzgänger zwischen Italien und der Schweiz. Die Inhalte decken Besteuerung (Neues Abkommen 2026, IRPEF, Quellensteuer), Vorsorge (AHV, BVG, Säule 3a), praktische Leitfäden (Bewilligungen, Bank, Zoll) und Gesetzesänderungen ab.',
@@ -2175,6 +2180,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  'Hauptkategorien: Steuer (Grenzgängerbesteuerung, Quellensteuer, IRPEF), Praktisch (Bewilligungen, Zoll, Transport, Bank), Neuigkeiten (Schweizer und italienische Gesetzesänderungen), Vorsorge (AHV, BVG, Säule 3a). Artikel werden bei jeder bedeutenden Rechtsänderung aktualisiert.',
  'Die Artikelbibliothek deckt ein breites Spektrum an Kategorien ab, die auf Grenzgänger-Bedürfnisse zugeschnitten sind: steuerliche Vertiefungen zum Neuen Abkommen 2026 und den Quellensteuertabellen, praktische Leitfäden zur Eröffnung von Schweizer Bankkonten und zum Fahrzeugtransfer, Vorsorge-Artikel mit Vergleichen der AHV-Projektionen und der italienischen INPS, Arbeitsmarktanalysen für die Tessiner Schlüsselbranchen sowie Lifestyle-Inhalte zu Wohnen, Schulen und Gesundheitsversorgung.',
  'Jeder Artikel folgt einem rigorosen redaktionellen Ansatz: Die Inhalte werden anhand offizieller Quellen verifiziert — darunter Publikationen des Schweizer Bundesrats, Rundschreiben der Tessiner Steuerverwaltung (Divisione delle contribuzioni), Leitlinien der italienischen Agenzia delle Entrate und Abkommenstexte. Artikel mit Bezug auf 2026er-Regelungen werden bei jeder neuen Durchführungsbestimmung überprüft und aktualisiert, um stets aktuelle und umsetzbare Informationen zu gewährleisten.',
+ '<p style="margin:1rem 0"><a href="/de/grenzgaenger-artikel/alle/" style="display:inline-block;padding:.5rem 1rem;border-radius:6px;background:#2563eb;color:#fff;text-decoration:none;font-weight:600">Alle Artikel ansehen →</a></p>',
  ],
  fr: [
  '<strong>Articles Frontalier</strong> est le hub éditorial de Frontaliere Ticino avec plus de 700 articles approfondis pour les travailleurs frontaliers entre l\'Italie et la Suisse. Les contenus couvrent la fiscalité (Nouvel Accord 2026, IRPEF, impôt à la source), la prévoyance (AVS, LPP, 3e pilier), des guides pratiques (permis, banque, douane) et les mises à jour législatives.',
@@ -2182,6 +2188,7 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  'Catégories principales : Fiscal (fiscalité frontalière, impôt à la source, IRPEF), Pratique (permis, douane, transport, banque), Actualités (mises à jour législatives suisses et italiennes), Prévoyance (AVS, LPP, 3e pilier). Les articles sont mis à jour à chaque modification réglementaire significative.',
  'La bibliothèque d\'articles couvre un large éventail de catégories adaptées aux besoins des frontaliers : analyses fiscales approfondies du Nouvel Accord 2026 et des barèmes d\'imposition à la source, guides pratiques pour l\'ouverture de comptes bancaires suisses et le transfert de véhicules, articles de planification retraite comparant les projections AVS avec l\'INPS italienne, analyses du marché de l\'emploi pour les secteurs clés du Tessin, et contenus lifestyle sur le logement, les écoles et la santé.',
  'Chaque article suit une approche éditoriale rigoureuse : les contenus sont vérifiés auprès de sources officielles incluant les publications du Conseil fédéral suisse, les circulaires de l\'administration fiscale tessinoise (Divisione delle contribuzioni), les directives de l\'Agenzia delle Entrate italienne et les textes des accords bilatéraux. Les articles référençant les réglementations 2026 sont révisés et mis à jour à chaque nouvelle disposition d\'application, garantissant des informations toujours actuelles et exploitables.',
+ '<p style="margin:1rem 0"><a href="/fr/articles-frontalier/tous/" style="display:inline-block;padding:.5rem 1rem;border-radius:6px;background:#2563eb;color:#fff;text-decoration:none;font-weight:600">Voir tous les articles →</a></p>',
  ],
  },
 
