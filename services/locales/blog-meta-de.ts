@@ -3463,6 +3463,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-centro-pacchi-cadenazzo.title': 'Diebstähle im Cadenazzo-Paketzentrum: Zwei Mitarbeiter entlassen',
     'blog.article.furti-centro-pacchi-cadenazzo.excerpt': 'Zwei Mitarbeiter der Schweizer Post wurden wegen Diebstählen im Cadenazzo-Paketzentrum entlassen. Ein Teil der Beute wurde sichergestellt.',
     'blog.article.furti-centro-pacchi-cadenazzo.imageAlt': 'Verteilerzentrum Cadenazzo, Tessin, Schweiz',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.title': 'Energiekosten durch Nahost-Konflikt für Schweiz und Italien',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.excerpt': 'Der Konflikt im Nahen Osten treibt die Kraftstoffpreise in die Höhe, mit zusätzlichen Kosten von fast 5 Milliarden Franken für die Schweiz und 15 Milliarden für Italien.',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.imageAlt': 'Luftaufnahme des Luganersees mit der Landschaft des Tessin',
 };
 
 export default blogMetaDe;

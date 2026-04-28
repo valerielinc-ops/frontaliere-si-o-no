@@ -3463,6 +3463,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-centro-pacchi-cadenazzo.title': 'Two employees fired for thefts at Cadenazzo parcel center',
     'blog.article.furti-centro-pacchi-cadenazzo.excerpt': 'Two Swiss Post employees were fired for thefts at the Cadenazzo parcel center. Part of the stolen goods has been recovered.',
     'blog.article.furti-centro-pacchi-cadenazzo.imageAlt': 'Cadenazzo distribution center, Ticino, Switzerland',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.title': 'Middle East conflict: energy bill for Switzerland and Italy',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.excerpt': 'The conflict in the Middle East is driving up fuel prices, with additional costs of nearly 5 billion for Switzerland and 15 for Italy.',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.imageAlt': 'Aerial view of Lake Lugano with the Ticino landscape',
 };
 
 export default blogMetaEn;

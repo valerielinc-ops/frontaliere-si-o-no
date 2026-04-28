@@ -9093,4 +9093,11 @@ export const ARTICLES = [
  image: '/images/blog/furti-centro-pacchi-cadenazzo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fattura-miliardaria-energia-medio-oriente',
+ category: 'novita',
+ date: '2026-04-28T18:53:41.145Z',
+ image: '/images/blog/fattura-miliardaria-energia-medio-oriente.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

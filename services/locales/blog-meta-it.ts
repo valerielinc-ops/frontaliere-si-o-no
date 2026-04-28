@@ -3464,6 +3464,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-centro-pacchi-cadenazzo.title': 'Furti al Centro pacchi di Cadenazzo: licenziati due dipendenti',
     'blog.article.furti-centro-pacchi-cadenazzo.excerpt': 'Due dipendenti della Posta svizzera sono stati licenziati per furti al Centro pacchi di Cadenazzo. Parte della refurtiva è stata recuperata.',
     'blog.article.furti-centro-pacchi-cadenazzo.imageAlt': 'Centro pacchi di Cadenazzo, Ticino, Svizzera',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.title': 'Conflitto in Medio Oriente: la fattura energetica per Svizzera e Italia',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.excerpt': 'Il conflitto in Medio Oriente fa lievitare i prezzi dei carburanti, con costi aggiuntivi di quasi 5 miliardi per la Svizzera e 15 per l\'Italia.',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
 };
 
 export default blogMetaIt;

@@ -3464,6 +3464,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-centro-pacchi-cadenazzo.title': 'Deux employés licenciés pour vols au centre de colis de Cadenazzo',
     'blog.article.furti-centro-pacchi-cadenazzo.excerpt': 'Deux employés de la Poste suisse ont été licenciés pour des vols au centre de colis de Cadenazzo. Une partie de la marchandise volée a été récupérée.',
     'blog.article.furti-centro-pacchi-cadenazzo.imageAlt': 'Centre de distribution de Cadenazzo, Tessin, Suisse',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.title': 'Conflit au Moyen-Orient: la facture énergétique pour la Suisse et l\'Italie',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.excerpt': 'Le conflit au Moyen-Orient fait augmenter les prix des carburants, avec des coûts supplémentaires de près de 5 milliards pour la Suisse et 15 pour l\'Italie.',
+    'blog.article.fattura-miliardaria-energia-medio-oriente.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin',
 };
 
 export default blogMetaFr;

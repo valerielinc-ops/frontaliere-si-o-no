@@ -20455,6 +20455,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fattura-miliardaria-energia-medio-oriente': {
+    title: 'Conflitto in Medio Oriente: la fattura energetica per Svizzera e Italia',
+    description: 'Il conflitto in Medio Oriente fa lievitare i prezzi dei carburanti, con costi aggiuntivi di quasi 5 miliardi per la Svizzera e 15 per l\'Italia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, conflitto, medio, oriente, fattura',
+    ogTitle: 'Conflitto in Medio Oriente: la fattura energetica per Svizzera e Italia',
+    ogDescription: 'Il conflitto in Medio Oriente fa lievitare i prezzi dei carburanti, con costi aggiuntivi di quasi 5 miliardi per la Svizzera e 15 per l\'Italia.',
+    canonicalPath: '/articoli-frontaliere/fattura-miliardaria-energia-medio-oriente',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conflitto in Medio Oriente: la fattura energetica per Svizzera e Italia",
+      "description": "Il conflitto in Medio Oriente fa lievitare i prezzi dei carburanti, con costi aggiuntivi di quasi 5 miliardi per la Svizzera e 15 per l'Italia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fattura-miliardaria-energia-medio-oriente.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il paesaggio del Ticino"
+      },
+      "datePublished": "2026-04-28T18:53:41+00:00",
+      "dateModified": "2026-04-28T18:53:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fattura-miliardaria-energia-medio-oriente`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
