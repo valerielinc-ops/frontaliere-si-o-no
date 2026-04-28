@@ -3287,6 +3287,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.universita-insubria-4-4-milioni-ricerca.title': 'Università Insubria: 4,4 milioni per la ricerca a Como e Varese',
     'blog.article.universita-insubria-4-4-milioni-ricerca.excerpt': 'La région Lombardie finance les projets IMPACTT et SustAA pour renforcer les infrastructures de recherche et d\'innovation durable.',
     'blog.article.universita-insubria-4-4-milioni-ricerca.imageAlt': 'Campus universitaire avec des installations de recherche modernes à Côme ou Varèse, Lombardie. Étudiants et chercheurs travaillant dans des laboratoires.',
+    'blog.article.airpack-lombardia-41-lavoratori.title': 'Airpack Lombardie : 41 employés menacés de licenciement',
+    'blog.article.airpack-lombardia-41-lavoratori.excerpt': 'Le propriétaire belge Abriso insiste sur la fermeture de l\'usine d\'Ossago Lodigiano, malgré les offres d\'achat.',
+    'blog.article.airpack-lombardia-41-lavoratori.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin, ciel bleu clair et eaux calmes',
 };
 
 export default blogMetaFr;

@@ -8680,4 +8680,11 @@ export const ARTICLES = [
  image: '/images/blog/universita-insubria-4-4-milioni-ricerca.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'airpack-lombardia-41-lavoratori',
+ category: 'novita',
+ date: '2026-04-28T10:44:19.549Z',
+ image: '/images/blog/airpack-lombardia-41-lavoratori.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

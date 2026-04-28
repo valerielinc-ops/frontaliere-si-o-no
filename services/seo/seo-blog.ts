@@ -18744,6 +18744,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-airpack-lombardia-41-lavoratori': {
+    title: 'Airpack Lombardia: 41 lavoratori a rischio licenziamento',
+    description: 'La proprietà belga Abriso insiste sulla chiusura dello stabilimento di Ossago Lodigiano, nonostante le offerte di acquisto. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, airpack, lombardia, lavoratori, rischio',
+    ogTitle: 'Airpack Lombardia: 41 lavoratori a rischio licenziamento',
+    ogDescription: 'La proprietà belga Abriso insiste sulla chiusura dello stabilimento di Ossago Lodigiano, nonostante le offerte di acquisto.',
+    canonicalPath: '/articoli-frontaliere/airpack-lombardia-41-lavoratori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Airpack Lombardia: 41 lavoratori a rischio licenziamento",
+      "description": "La proprietà belga Abriso insiste sulla chiusura dello stabilimento di Ossago Lodigiano, nonostante le offerte di acquisto. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/airpack-lombardia-41-lavoratori.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le montagne del Ticino, cielo azzurro limpido e acque calme"
+      },
+      "datePublished": "2026-04-28T10:44:19+00:00",
+      "dateModified": "2026-04-28T10:44:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/airpack-lombardia-41-lavoratori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

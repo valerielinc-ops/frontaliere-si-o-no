@@ -3287,6 +3287,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.universita-insubria-4-4-milioni-ricerca.title': 'Università Insubria: 4,4 milioni per ricerca a Como e Varese',
     'blog.article.universita-insubria-4-4-milioni-ricerca.excerpt': 'Regione Lombardia finanzia progetti IMPACTT e SustAA per potenziare infrastrutture di ricerca e innovazione sostenibile.',
     'blog.article.universita-insubria-4-4-milioni-ricerca.imageAlt': 'Campus universitario con strutture di ricerca moderne a Como o Varese, Lombardia. Studenti e ricercatori al lavoro nei laboratori.',
+    'blog.article.airpack-lombardia-41-lavoratori.title': 'Airpack Lombardia: 41 lavoratori a rischio licenziamento',
+    'blog.article.airpack-lombardia-41-lavoratori.excerpt': 'La proprietà belga Abriso insiste sulla chiusura dello stabilimento di Ossago Lodigiano, nonostante le offerte di acquisto.',
+    'blog.article.airpack-lombardia-41-lavoratori.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino, cielo azzurro limpido e acque calme',
 };
 
 export default blogMetaIt;
