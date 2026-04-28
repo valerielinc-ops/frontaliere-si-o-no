@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1193,
+ "numberOfItems": 1194,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5828,7 +5828,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1190, "name": "Calcio Dnb: Belli a un passo dal baratro dopo l...", "url": `${BASE_URL}/articoli-frontaliere/calcio-dnb-belli-crisi` },
           { "@type": "ListItem", "position": 1191, "name": "Alain Berset sostiene Mathias Reynard dopo la t...", "url": `${BASE_URL}/articoli-frontaliere/berset-sostegno-reynard-crans-montana` },
           { "@type": "ListItem", "position": 1192, "name": "Biasca rimanda la finale: Uttigen vince ai supp...", "url": `${BASE_URL}/articoli-frontaliere/biasca-roller-hockey-uttigen-2026` },
-          { "@type": "ListItem", "position": 1193, "name": "Basket: il divario tra Ginevra e Olympic", "url": `${BASE_URL}/articoli-frontaliere/vuoto-ginevra-olympic-basket` }
+          { "@type": "ListItem", "position": 1193, "name": "Basket: il divario tra Ginevra e Olympic", "url": `${BASE_URL}/articoli-frontaliere/vuoto-ginevra-olympic-basket` },
+          { "@type": "ListItem", "position": 1194, "name": "Nuova pista ciclopedonale Bodio-Giornico: 2,1 k...", "url": `${BASE_URL}/articoli-frontaliere/nuova-pista-ciclopedonale-bodio-giornico-2026` }
  ]
  },
  {

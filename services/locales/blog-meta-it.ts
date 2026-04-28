@@ -3431,6 +3431,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vuoto-ginevra-olympic-basket.title': 'Basket: il divario tra Ginevra e Olympic',
     'blog.article.vuoto-ginevra-olympic-basket.excerpt': 'Analisi del campionato svizzero di basket con un divario evidente tra le prime e le altre squadre',
     'blog.article.vuoto-ginevra-olympic-basket.imageAlt': 'Partita di basket professionistica a Lugano',
+    'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.title': 'Nuova pista ciclopedonale Bodio-Giornico: 2,1 km di sicurezza e connessione',
+    'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.excerpt': 'Inaugurata la nuova pista ciclopedonale che collega Bodio e Giornico lungo il fiume Ticino, con un investimento di 3,7 milioni di franchi.',
+    'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'Nuova pista ciclopedonale lungo il fiume Ticino tra Bodio e Giornico',
 };
 
 export default blogMetaIt;

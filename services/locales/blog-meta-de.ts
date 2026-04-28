@@ -3430,6 +3430,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vuoto-ginevra-olympic-basket.title': 'Basket: Die Kluft zwischen Genf und Olympic',
     'blog.article.vuoto-ginevra-olympic-basket.excerpt': 'Analyse der Schweizer Basketballmeisterschaft mit einem deutlichen Unterschied zwischen den ersten und den anderen Teams',
     'blog.article.vuoto-ginevra-olympic-basket.imageAlt': 'Professionelles Basketballspiel in Lugano',
+    'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.title': 'Neuer Rad- und Gehweg Bodio-Giornico: 2,1 km Sicherheit und Verbindung',
+    'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.excerpt': 'Die neue Rad- und Gehwegverbindung zwischen Bodio und Giornico entlang des Ticino-Flusses wurde eröffnet, mit einer Investition von 3,7 Millionen Franken.',
+    'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'Neuer Fahrrad- und Fußweg entlang des Ticino-Flusses zwischen Bodio und Giornico',
 };
 
 export default blogMetaDe;

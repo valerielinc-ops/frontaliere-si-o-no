@@ -20136,6 +20136,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuova-pista-ciclopedonale-bodio-giornico-2026': {
+    title: 'Nuova pista ciclopedonale Bodio-Giornico: 2,1 km di sicurezza e connessione',
+    description: 'Scopri la nuova pista ciclopedonale che collega Bodio e Giornico lungo il fiume Ticino, con un investimento di 3,7 milioni di franchi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, pista, ciclopedonale, bodio-giornico',
+    ogTitle: 'Nuova pista ciclopedonale Bodio-Giornico: 2,1 km di sicurezza e connessione',
+    ogDescription: 'Scopri la nuova pista ciclopedonale che collega Bodio e Giornico lungo il fiume Ticino, con un investimento di 3,7 milioni di franchi.',
+    canonicalPath: '/articoli-frontaliere/nuova-pista-ciclopedonale-bodio-giornico-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova pista ciclopedonale Bodio-Giornico: 2,1 km di sicurezza e connessione",
+      "description": "Scopri la nuova pista ciclopedonale che collega Bodio e Giornico lungo il fiume Ticino, con un investimento di 3,7 milioni di franchi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuova-pista-ciclopedonale-bodio-giornico-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuova pista ciclopedonale lungo il fiume Ticino tra Bodio e Giornico"
+      },
+      "datePublished": "2026-04-28T17:51:13+00:00",
+      "dateModified": "2026-04-28T17:51:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuova-pista-ciclopedonale-bodio-giornico-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

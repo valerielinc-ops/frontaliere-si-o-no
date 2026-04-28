@@ -9016,4 +9016,11 @@ export const ARTICLES = [
  image: '/images/blog/vuoto-ginevra-olympic-basket.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuova-pista-ciclopedonale-bodio-giornico-2026',
+ category: 'novita',
+ date: '2026-04-28T17:51:13.855Z',
+ image: '/images/blog/nuova-pista-ciclopedonale-bodio-giornico-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

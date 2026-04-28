@@ -2374,6 +2374,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-berset-sostegno-reynard-crans-montana': { name: 'Novità', path: '/articoli-frontaliere/berset-sostegno-reynard-crans-montana', parent: 'blog' },
     'blog-biasca-roller-hockey-uttigen-2026': { name: 'Novità', path: '/articoli-frontaliere/biasca-roller-hockey-uttigen-2026', parent: 'blog' },
     'blog-vuoto-ginevra-olympic-basket': { name: 'Novità', path: '/articoli-frontaliere/vuoto-ginevra-olympic-basket', parent: 'blog' },
+    'blog-nuova-pista-ciclopedonale-bodio-giornico-2026': { name: 'Nuova pista ciclopedonale', path: '/articoli-frontaliere/nuova-pista-ciclopedonale-bodio-giornico-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
