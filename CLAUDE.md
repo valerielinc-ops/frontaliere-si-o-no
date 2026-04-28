@@ -224,6 +224,49 @@ not ratchet up.
 
 ---
 
+# SEO content gate — orphaned pages in sitemaps
+
+**Why it exists.** Semrush flagged 4,936 "orphaned pages in sitemaps" — pages
+listed in any sitemap-*.xml but not reachable via internal `<a href>` BFS from
+the homepage. Crawlers waste budget on these pages, and they tend to rank
+worse since they lack site-structure support.
+
+**Where it runs.** Two places:
+- Local: `npm run audit:orphan-sitemap-pages` (after `npm run build`).
+- CI: `Gate — orphan pages in sitemaps` step in `.github/workflows/deploy.yml`,
+  blocking deploy on regression.
+
+**The gate is a ratchet.** It compares the current dist/ orphan count to
+`data/orphan-pages-baseline.json` and FAILS only when any sitemap's orphan
+count goes UP. Improvements (count drops) are always accepted but do NOT
+auto-rebaseline; run `npm run audit:orphan-sitemap-pages:rebaseline` after
+a deliberate improvement and commit the new baseline together with the fix.
+
+**If the gate fails, here is the playbook:**
+
+1. Reproduce locally: `npm run build && npm run audit:orphan-sitemap-pages`.
+   Stdout names which sitemap regressed and shows top-10 newly-orphan URLs.
+2. The cause is almost always one of:
+   - **Static archive page lost an internal link** (e.g. nav widget removed).
+     Fix the link source.
+   - **New auto-generated content** (cron-published article/job) that no
+     existing static page links to. Add a link from the relevant index
+     (e.g. `/articoli-frontaliere/` → `/articoli-frontaliere/tutti/`) or
+     update the archive pagination so the new content is reachable.
+   - **Sitemap entry without HTML** (stale entry). Either restore the page
+     or remove from the sitemap.
+3. Rebuild and rerun the audit. Once the regression is gone:
+   ```
+   npm run audit:orphan-sitemap-pages:rebaseline
+   ```
+   Commit the updated baseline together with the fix in the same PR.
+
+**Hard rule.** Per CLAUDE.md non-negotiable rule #5, **never** "fix" an
+orphan by setting `noindex` without explicit approval. The default fix is
+to **add internal links**.
+
+---
+
 # Completion Checklist — Before Every PR
 
 - [ ] All tests pass: `npx vitest run`
