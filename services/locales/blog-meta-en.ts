@@ -3292,6 +3292,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-aerei-trasporto-pubblico.title': 'Swiss initiative: 1.5 billion for trains and mobility vouchers',
     'blog.article.tassa-aerei-trasporto-pubblico.excerpt': 'A Swiss popular initiative aims to tax flight tickets to fund public transport and mobility vouchers. Here\'s what changes.',
     'blog.article.tassa-aerei-trasporto-pubblico.imageAlt': 'Aerial view of Lake Lugano with a train and an airplane in the sky',
+    'blog.article.settimanaprofessionale-ticino-2024.title': 'Vocational training week: 30 events in Ticino',
+    'blog.article.settimanaprofessionale-ticino-2024.excerpt': 'From May 4 to 8, over 30 events on radio, TV, and in-person to discover professions in Ticino',
+    'blog.article.settimanaprofessionale-ticino-2024.imageAlt': 'Aerial view of Bellinzona with Castelgrande, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

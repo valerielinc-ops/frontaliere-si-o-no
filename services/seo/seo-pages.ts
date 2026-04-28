@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1147,
+ "numberOfItems": 1148,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5782,7 +5782,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1144, "name": "Auto elettriche: il momento della ricarica è il...", "url": `${BASE_URL}/articoli-frontaliere/auto-elettriche-ricarica-breganzona` },
           { "@type": "ListItem", "position": 1145, "name": "Università Insubria: 4,4 milioni per ricerca a ...", "url": `${BASE_URL}/articoli-frontaliere/universita-insubria-4-4-milioni-ricerca` },
           { "@type": "ListItem", "position": 1146, "name": "Airpack Lombardia: 41 lavoratori a rischio lice...", "url": `${BASE_URL}/articoli-frontaliere/airpack-lombardia-41-lavoratori` },
-          { "@type": "ListItem", "position": 1147, "name": "Iniziativa tassa aerei: 1,5 miliardi per treni ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-aerei-trasporto-pubblico` }
+          { "@type": "ListItem", "position": 1147, "name": "Iniziativa tassa aerei: 1,5 miliardi per treni ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-aerei-trasporto-pubblico` },
+          { "@type": "ListItem", "position": 1148, "name": "Settimana formazione professionale Ticino 2024", "url": `${BASE_URL}/articoli-frontaliere/settimanaprofessionale-ticino-2024` }
  ]
  },
  {

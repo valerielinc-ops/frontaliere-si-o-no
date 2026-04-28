@@ -18802,6 +18802,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-settimanaprofessionale-ticino-2024': {
+    title: 'Settimana della formazione professionale: 30 eventi in Ticino',
+    description: 'Dal 4 all’8 maggio, oltre 30 eventi tra radio, TV e sul territorio per scoprire le professioni in Ticino. Scopri come partecipare. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, settimana, formazione, professionale, eventi',
+    ogTitle: 'Settimana formazione professionale Ticino 2024',
+    ogDescription: 'Dal 4 all’8 maggio, oltre 30 eventi tra radio, TV e sul territorio per scoprire le professioni in Ticino. Scopri come partecipare.',
+    canonicalPath: '/articoli-frontaliere/settimanaprofessionale-ticino-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Settimana formazione professionale Ticino 2024",
+      "description": "Dal 4 all’8 maggio, oltre 30 eventi tra radio, TV e sul territorio per scoprire le professioni in Ticino. Scopri come partecipare. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/settimanaprofessionale-ticino-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona con Castelgrande, Ticino, Svizzera"
+      },
+      "datePublished": "2026-04-28T10:57:34+00:00",
+      "dateModified": "2026-04-28T10:57:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/settimanaprofessionale-ticino-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

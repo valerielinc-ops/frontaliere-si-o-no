@@ -3292,6 +3292,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-aerei-trasporto-pubblico.title': 'Flugticketbesteuerung: 1,5 Milliarden für Züge und Mobilitätsgutscheine',
     'blog.article.tassa-aerei-trasporto-pubblico.excerpt': 'Eine Schweizer Volksinitiative will Flugtickets besteuern, um öffentliche Verkehrsmittel und Mobilitätsgutscheine zu finanzieren. Hier sind die Änderungen.',
     'blog.article.tassa-aerei-trasporto-pubblico.imageAlt': 'Luftaufnahme des Luganer Sees mit einem Zug und einem Flugzeug am Himmel',
+    'blog.article.settimanaprofessionale-ticino-2024.title': 'Berufswoche: 30 Veranstaltungen im Tessin',
+    'blog.article.settimanaprofessionale-ticino-2024.excerpt': 'Vom 4. bis 8. Mai über 30 Veranstaltungen im Radio, TV und vor Ort, um die Berufe im Tessin kennenzulernen',
+    'blog.article.settimanaprofessionale-ticino-2024.imageAlt': 'Luftaufnahme von Bellinzona mit Castelgrande, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

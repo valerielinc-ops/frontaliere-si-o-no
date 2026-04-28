@@ -8694,4 +8694,11 @@ export const ARTICLES = [
  image: '/images/blog/tassa-aerei-trasporto-pubblico.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'settimanaprofessionale-ticino-2024',
+ category: 'novita',
+ date: '2026-04-28T10:57:34.916Z',
+ image: '/images/blog/settimanaprofessionale-ticino-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

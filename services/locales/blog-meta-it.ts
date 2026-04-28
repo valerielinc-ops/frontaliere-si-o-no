@@ -3293,6 +3293,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-aerei-trasporto-pubblico.title': 'Iniziativa tassa aerei: 1,5 miliardi per treni e buoni mobilità',
     'blog.article.tassa-aerei-trasporto-pubblico.excerpt': 'Un\'iniziativa popolare svizzera vuole tassare i biglietti aerei per finanziare trasporti pubblici e buoni mobilità. Ecco cosa cambia.',
     'blog.article.tassa-aerei-trasporto-pubblico.imageAlt': 'Vista aerea del Lago di Lugano con un treno e un aereo in cielo',
+    'blog.article.settimanaprofessionale-ticino-2024.title': 'Settimana della formazione professionale: 30 eventi in Ticino',
+    'blog.article.settimanaprofessionale-ticino-2024.excerpt': 'Dal 4 all’8 maggio, oltre 30 appuntamenti tra radio, TV e eventi sul territorio per scoprire le professioni in Ticino',
+    'blog.article.settimanaprofessionale-ticino-2024.imageAlt': 'Vista aerea di Bellinzona con Castelgrande, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

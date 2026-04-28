@@ -2328,6 +2328,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-universita-insubria-4-4-milioni-ricerca': { name: 'Novità', path: '/articoli-frontaliere/universita-insubria-4-4-milioni-ricerca', parent: 'blog' },
     'blog-airpack-lombardia-41-lavoratori': { name: 'Novità', path: '/articoli-frontaliere/airpack-lombardia-41-lavoratori', parent: 'blog' },
     'blog-tassa-aerei-trasporto-pubblico': { name: 'Iniziativa tassa aerei', path: '/articoli-frontaliere/tassa-aerei-trasporto-pubblico', parent: 'blog' },
+    'blog-settimanaprofessionale-ticino-2024': { name: 'Novità', path: '/articoli-frontaliere/settimanaprofessionale-ticino-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

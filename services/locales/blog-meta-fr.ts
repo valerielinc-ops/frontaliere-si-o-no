@@ -3293,6 +3293,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-aerei-trasporto-pubblico.title': 'Initiative taxe avions: 1,5 milliard pour trains et mobilité',
     'blog.article.tassa-aerei-trasporto-pubblico.excerpt': 'Une initiative populaire suisse veut taxer les billets d\'avion pour financer les transports publics et les bons de mobilité. Voici ce qui change.',
     'blog.article.tassa-aerei-trasporto-pubblico.imageAlt': 'Vue aérienne du lac de Lugano avec un train et un avion dans le ciel',
+    'blog.article.settimanaprofessionale-ticino-2024.title': 'Semaine de la formation professionnelle: 30 événements au Tessin',
+    'blog.article.settimanaprofessionale-ticino-2024.excerpt': 'Du 4 au 8 mai, plus de 30 rendez-vous à la radio, à la télévision et sur le territoire pour découvrir les professions au Tessin',
+    'blog.article.settimanaprofessionale-ticino-2024.imageAlt': 'Vue aérienne de Bellinzone avec Castelgrande, Tessin, Suisse',
 };
 
 export default blogMetaFr;
