@@ -3329,6 +3329,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.processo-karimova-archiviazione-parziale.title': 'Procès Karimova: classement partiel pour Gulnara',
     'blog.article.processo-karimova-archiviazione-parziale.excerpt': 'Le Tribunal pénal fédéral classe le cas contre Gulnara Karimova, fille de l’ex-président ouzbek, mais poursuit contre la banque et le gestionnaire de patrimoine',
     'blog.article.processo-karimova-archiviazione-parziale.imageAlt': 'Tribunal pénal fédéral à Bellinzona, salle d\'audience avec juges en robe et accusés',
+    'blog.article.cardiocentro-lugano-ristrutturazione-2026.title': 'Cardiocentro de Lugano: trois étages supplémentaires et un bar panoramique',
+    'blog.article.cardiocentro-lugano-ristrutturazione-2026.excerpt': 'Le Cardiocentro de Lugano se présente avec trois étages supplémentaires et un bar panoramique après trois ans de travaux. Confort et vues à couper le souffle pour les patients et le personnel.',
+    'blog.article.cardiocentro-lugano-ristrutturazione-2026.imageAlt': 'Vue panoramique du Cardiocentro à Lugano avec le lac et les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

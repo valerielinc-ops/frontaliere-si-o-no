@@ -8778,4 +8778,11 @@ export const ARTICLES = [
  image: '/images/blog/processo-karimova-archiviazione-parziale.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cardiocentro-lugano-ristrutturazione-2026',
+ category: 'novita',
+ date: '2026-04-28T12:25:30.038Z',
+ image: '/images/blog/cardiocentro-lugano-ristrutturazione-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

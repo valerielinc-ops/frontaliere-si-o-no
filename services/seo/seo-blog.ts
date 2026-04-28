@@ -19150,6 +19150,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cardiocentro-lugano-ristrutturazione-2026': {
+    title: 'Cardiocentro Lugano: tre piani in più e un bar panoramico',
+    description: 'Il Cardiocentro di Lugano si presenta con tre piani in più e un bar panoramico dopo tre anni di lavori. Comfort e panorami mozzafiato per pazienti e personale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cardiocentro, lugano, piani, panoramico',
+    ogTitle: 'Cardiocentro Lugano: tre piani in più e un bar panoramico',
+    ogDescription: 'Il Cardiocentro di Lugano si presenta con tre piani in più e un bar panoramico dopo tre anni di lavori. Comfort e panorami mozzafiato per pazienti e personale.',
+    canonicalPath: '/articoli-frontaliere/cardiocentro-lugano-ristrutturazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cardiocentro Lugano: tre piani in più e un bar panoramico",
+      "description": "Il Cardiocentro di Lugano si presenta con tre piani in più e un bar panoramico dopo tre anni di lavori. Comfort e panorami mozzafiato per pazienti e personale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cardiocentro-lugano-ristrutturazione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Cardiocentro di Lugano con il lago e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-28T12:25:30+00:00",
+      "dateModified": "2026-04-28T12:25:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cardiocentro-lugano-ristrutturazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

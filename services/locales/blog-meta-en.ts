@@ -3328,6 +3328,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.processo-karimova-archiviazione-parziale.title': 'Karimova case: partial dismissal for Gulnara',
     'blog.article.processo-karimova-archiviazione-parziale.excerpt': 'The Swiss Federal Criminal Court dismisses the case against Gulnara Karimova, daughter of the former Uzbek president, but proceedings continue against the bank and the asset manager',
     'blog.article.processo-karimova-archiviazione-parziale.imageAlt': 'Federal Criminal Court in Bellinzona, courtroom with judges in robes and defendants',
+    'blog.article.cardiocentro-lugano-ristrutturazione-2026.title': 'Cardiocentro Lugano: three more floors and a panoramic bar',
+    'blog.article.cardiocentro-lugano-ristrutturazione-2026.excerpt': 'The Cardiocentro in Lugano unveils three additional floors and a panoramic bar after three years of work. Comfort and breathtaking views for patients and staff.',
+    'blog.article.cardiocentro-lugano-ristrutturazione-2026.imageAlt': 'Panoramic view of the Cardiocentro in Lugano with the lake and mountains in the background',
 };
 
 export default blogMetaEn;

@@ -3328,6 +3328,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.processo-karimova-archiviazione-parziale.title': 'Prozess Karimova: Teilweise Einstellung für Gulnara',
     'blog.article.processo-karimova-archiviazione-parziale.excerpt': 'Das Bundesstrafgericht stellt das Verfahren gegen Gulnara Karimova, die Tochter des ehemaligen usbekischen Präsidenten, teilweise ein, setzt es aber gegen die Bank und den Vermögensverwalter fort',
     'blog.article.processo-karimova-archiviazione-parziale.imageAlt': 'Bundesstrafgericht in Bellinzona, Gerichtssaal mit Richtern in Roben und Angeklagten',
+    'blog.article.cardiocentro-lugano-ristrutturazione-2026.title': 'Cardiocentro Lugano: drei Stockwerke mehr und eine Panoramabar',
+    'blog.article.cardiocentro-lugano-ristrutturazione-2026.excerpt': 'Das Cardiocentro in Lugano präsentiert sich nach drei Jahren Bauzeit mit drei zusätzlichen Stockwerken und einer Panoramabar. Komfort und atemberaubende Aussichten für Patienten und Personal.',
+    'blog.article.cardiocentro-lugano-ristrutturazione-2026.imageAlt': 'Panoramablick auf das Cardiocentro in Lugano mit dem See und den Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
