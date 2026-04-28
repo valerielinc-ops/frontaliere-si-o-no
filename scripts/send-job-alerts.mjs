@@ -72,6 +72,14 @@ const EMAIL_STRINGS = {
     newBadge: '\u2728 NUOVA',
     fallbackTitle: 'Offerta di lavoro',
     allOffers: 'tutte le offerte',
+    at: 'presso',
+    more: 'altre offerte',
+    intendedFor: (email, filter) => `Questa email \u00e8 stata inviata a ${email} in base al tuo alert: <strong>${filter}</strong>.`,
+    textFilters: 'Filtri',
+    textViewAllLine: 'Vedi tutte le offerte:',
+    textManageLine: 'Gestisci le tue alert:',
+    textUnsubThisLine: 'Disiscriviti da questa alert:',
+    textUnsubAllLine: 'Disiscriviti da tutte le alert:',
   },
   en: {
     subjectNew: (n) => `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'}`,
@@ -94,6 +102,14 @@ const EMAIL_STRINGS = {
     newBadge: '\u2728 NEW',
     fallbackTitle: 'Job offer',
     allOffers: 'all offers',
+    at: 'at',
+    more: 'more',
+    intendedFor: (email, filter) => `This email was sent to ${email} based on your alert: <strong>${filter}</strong>.`,
+    textFilters: 'Filters',
+    textViewAllLine: 'View all matching jobs:',
+    textManageLine: 'Manage alerts:',
+    textUnsubThisLine: 'Unsubscribe this alert:',
+    textUnsubAllLine: 'Unsubscribe all:',
   },
   de: {
     subjectNew: (n) => `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'}`,
@@ -116,6 +132,14 @@ const EMAIL_STRINGS = {
     newBadge: '\u2728 NEU',
     fallbackTitle: 'Stellenangebot',
     allOffers: 'alle Angebote',
+    at: 'bei',
+    more: 'weitere',
+    intendedFor: (email, filter) => `Diese E-Mail wurde an ${email} basierend auf deinem Alert gesendet: <strong>${filter}</strong>.`,
+    textFilters: 'Filter',
+    textViewAllLine: 'Alle Stellen ansehen:',
+    textManageLine: 'Alerts verwalten:',
+    textUnsubThisLine: 'Von diesem Alert abmelden:',
+    textUnsubAllLine: 'Von allen Alerts abmelden:',
   },
   fr: {
     subjectNew: (n) => `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}`,
@@ -138,6 +162,14 @@ const EMAIL_STRINGS = {
     newBadge: '\u2728 NOUVELLE',
     fallbackTitle: 'Offre d\'emploi',
     allOffers: 'toutes les offres',
+    at: 'chez',
+    more: 'autres',
+    intendedFor: (email, filter) => `Cet e-mail a \u00e9t\u00e9 envoy\u00e9 \u00e0 ${email} en fonction de votre alerte\u00a0: <strong>${filter}</strong>.`,
+    textFilters: 'Filtres',
+    textViewAllLine: 'Voir toutes les offres\u00a0:',
+    textManageLine: 'G\u00e9rer vos alertes\u00a0:',
+    textUnsubThisLine: 'Se d\u00e9sabonner de cette alerte\u00a0:',
+    textUnsubAllLine: 'Se d\u00e9sabonner de toutes les alertes\u00a0:',
   },
 };
 
@@ -287,7 +319,42 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const keyword = alert.keywords?.join(', ') || '';
   const locationLabel = alert.locations?.length > 0 ? alert.locations.join(', ') : '';
   const subjectLabel = keyword || locationLabel || s.subjectDefault;
-  const subject = `${s.subjectNew(matchedJobs.length)} ${s.subjectFor}: ${subjectLabel}`;
+
+  // Subject: lead with the most relevant job (LinkedIn-style personalization).
+  // Format: "🔔 {title} at {company}" or "🔔 {title} at {company} (+N more)"
+  // Capped at 78 characters total. Empty matches fall back to the legacy generic subject.
+  const SUBJECT_MAX = 78;
+  let subject;
+  if (matchedJobs.length === 0) {
+    subject = `${s.subjectNew(matchedJobs.length)} ${s.subjectFor}: ${subjectLabel}`;
+  } else {
+    const topJob = matchedJobs[0];
+    const topTitle = (topJob.titleByLocale?.[locale] || topJob.titleByLocale?.it || topJob.title || s.fallbackTitle).trim();
+    const topCompany = (topJob.company || '').trim();
+    const extra = matchedJobs.length - 1;
+    const bell = '\ud83d\udd14';
+    const suffix = extra > 0 ? ` (+${extra} ${s.more})` : '';
+    // Build: "🔔 {title} at {company}{suffix}"
+    const atPart = topCompany ? ` ${s.at} ${topCompany}` : '';
+    let candidate = `${bell} ${topTitle}${atPart}${suffix}`;
+    if (candidate.length > SUBJECT_MAX) {
+      // Truncate the title, keeping the company + suffix intact when possible.
+      const fixed = `${bell} ${atPart}${suffix}`; // includes the leading space before company
+      const room = SUBJECT_MAX - fixed.length - 1; // -1 for the ellipsis
+      if (room >= 4) {
+        const truncatedTitle = topTitle.slice(0, Math.max(1, room)).trimEnd() + '\u2026';
+        candidate = `${bell} ${truncatedTitle}${atPart}${suffix}`;
+      } else {
+        // Not enough room — drop company part and truncate the whole tail.
+        candidate = candidate.slice(0, SUBJECT_MAX - 1).trimEnd() + '\u2026';
+      }
+      // Final defensive cap (handles edge cases where suffix itself is huge).
+      if (candidate.length > SUBJECT_MAX) {
+        candidate = candidate.slice(0, SUBJECT_MAX - 1).trimEnd() + '\u2026';
+      }
+    }
+    subject = candidate;
+  }
 
   // Brand colors (aligned with newsletter-template.mjs)
   const BRAND_ORANGE = '#f97316';
@@ -379,8 +446,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
               <td style="font-size:15px;font-weight:800;color:${WHITE};letter-spacing:-0.3px;">
                 <span style="color:${BRAND_ORANGE};">\u25cf</span> Frontaliere Ticino
               </td>
-              <td align="right" style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">
-                Job Alert
+              <td align="right" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">
+                <a href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:none;">${s.manageAlerts}</a>
               </td>
             </tr>
           </table>
@@ -419,6 +486,9 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
 
         <!-- Footer (dark, aligned with newsletter) -->
         <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
+          <div style="font-size:11px;color:${MUTED};margin:0 0 14px;line-height:1.5;">
+            ${s.intendedFor(escHtml(alert.email), filterSummary)}
+          </div>
           <div style="margin-bottom:12px;">
             <a href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
             <a href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
@@ -445,7 +515,37 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
 </body>
 </html>`;
 
-  return { subject, html, unsubscribeUrl };
+  // ── Plaintext alternative (multipart/alternative) ──────────
+  // Built from the same data source as the HTML — never regex-stripped.
+  const heroLine = s.heroTitle(matchedJobs.length).replace(/\ud83d\udd14\s*/, '\u{1F514} ');
+  const textJobs = matchedJobs.slice(0, 10).map((job) => {
+    const title = job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle;
+    const company = job.company || '';
+    const rawLocation = (job.location || job.addressLocality || '').replace(/^[-\u2013\u2014\s]+/, '').trim();
+    const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
+    const rawJobUrl = slug ? `${BASE_URL}/${jobBoardPath}/${slug}?${utmBase}` : BASE_URL;
+    const url = wrapUrl(rawJobUrl);
+    const meta = [company, rawLocation].filter(Boolean).join(' \u00b7 ');
+    return `${title}\n${meta}\n${url}`;
+  }).join('\n---\n');
+
+  const text = [
+    heroLine,
+    '',
+    `${s.textFilters}: ${filterLabel}`,
+    '',
+    textJobs,
+    '',
+    `${s.textViewAllLine} ${allJobsUrl}`,
+    '',
+    `${s.textManageLine} ${manageUrl}`,
+    `${s.textUnsubThisLine} ${unsubscribeUrl}`,
+    `${s.textUnsubAllLine} ${unsubAllUrl}`,
+    '',
+    `\u00a9 ${new Date().getFullYear()} Frontaliere Ticino`,
+  ].join('\n');
+
+  return { subject, html, text, unsubscribeUrl };
 }
 
 function escHtml(s) {
@@ -458,25 +558,31 @@ async function sendBatch(emails) {
   // Use cascade for bulk sending
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
 
-  const cascadeEmails = emails.map(e => ({
-    payload: {
-      from: FROM_EMAIL,
-      to: [e.to],
-      subject: e.subject,
-      html: e.html,
-      tags: [
-        { name: 'type', value: 'job-alert' },
-        { name: 'alert_id', value: e.alertId },
-      ],
-      // RFC 8058: List-Unsubscribe + List-Unsubscribe-Post for one-click unsubscribe
-      headers: e.unsubscribeUrl ? {
-        'List-Unsubscribe': `<${e.unsubscribeUrl}>`,
-        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-      } : undefined,
-    },
-    recipient: { email: e.to },
-    meta: { type: 'job-alert', alertId: e.alertId },
-  }));
+  const cascadeEmails = emails.map(e => {
+    // Gmail FBL: Feedback-ID category:identifier:sender-name
+    const feedbackHeader = { 'Feedback-ID': `job-alert:${e.alertId}:frontaliere-ticino` };
+    // RFC 8058: List-Unsubscribe + List-Unsubscribe-Post for one-click unsubscribe
+    const unsubHeaders = e.unsubscribeUrl ? {
+      'List-Unsubscribe': `<${e.unsubscribeUrl}>`,
+      'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+    } : {};
+    return {
+      payload: {
+        from: FROM_EMAIL,
+        to: [e.to],
+        subject: e.subject,
+        html: e.html,
+        text: e.text,
+        tags: [
+          { name: 'type', value: 'job-alert' },
+          { name: 'alert_id', value: e.alertId },
+        ],
+        headers: { ...feedbackHeader, ...unsubHeaders },
+      },
+      recipient: { email: e.to },
+      meta: { type: 'job-alert', alertId: e.alertId },
+    };
+  });
 
   const result = await sendEmailCascade(cascadeEmails, { concurrency: 3 });
   logProviderSummary();
@@ -726,12 +832,13 @@ async function main() {
 
     totalMatches += matched.length;
     const autologinEnabled = !autologinDisabledSet.has(alert.email.toLowerCase());
-    const { subject, html, unsubscribeUrl } = buildAlertEmail(alert, matched, autologinEnabled);
+    const { subject, html, text, unsubscribeUrl } = buildAlertEmail(alert, matched, autologinEnabled);
 
     emailsToSend.push({
       to: alert.email,
       subject,
       html,
+      text,
       alertId: alert.id,
       ref: alert.ref,
       matchCount: matched.length,
@@ -782,7 +889,20 @@ async function main() {
   console.log('\n🔔 Job Alert Matching — Done.');
 }
 
-main().catch((err) => {
-  console.error('Fatal error:', err);
-  process.exit(1);
-});
+// Only run main() when executed directly (not when imported by tests).
+const isEntryPoint = (() => {
+  try {
+    return process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+  } catch {
+    return false;
+  }
+})();
+
+if (isEntryPoint) {
+  main().catch((err) => {
+    console.error('Fatal error:', err);
+    process.exit(1);
+  });
+}
+
+export { buildAlertEmail };
