@@ -759,23 +759,33 @@ async function main() {
   }
 
   // 2. Load active alerts from Firestore.
-  // Layout: job_alert_subscribers/{email}/alerts/{alertId} — collectionGroup query
-  // requires composite index (active ASC, frequency ASC) defined in firestore.indexes.json.
-  const alertsSnap = await db.collectionGroup('alerts').where('active', '==', true).get();
-  let alerts = alertsSnap.docs
-    .filter((doc) => {
+  // Fast path: when TARGET_EMAIL is set, query that user's subcollection directly
+  // (collection scope, no composite/single-field index required). This unblocks
+  // workflow_dispatch test sends even if the collection-group index is missing.
+  // Normal path: collectionGroup across job_alert_subscribers/*/alerts/* — needs
+  // the composite index (active ASC, frequency ASC) declared in firestore.indexes.json.
+  let alertDocs;
+  if (TARGET_EMAIL_RAW) {
+    const subRef = db.collection('job_alert_subscribers').doc(TARGET_EMAIL_RAW).collection('alerts');
+    const snap = await subRef.where('active', '==', true).get();
+    alertDocs = snap.docs;
+    console.log(`   📍 Direct subcollection query for ${TARGET_EMAIL_RAW}: ${alertDocs.length} active alert(s)`);
+  } else {
+    const alertsSnap = await db.collectionGroup('alerts').where('active', '==', true).get();
+    alertDocs = alertsSnap.docs.filter((doc) => {
       // Defensive: collectionGroup returns ALL `alerts` subcollections in the project.
       // Restrict to docs whose grandparent collection is job_alert_subscribers.
       const grandparent = doc.ref.parent.parent?.parent?.id;
       return grandparent === 'job_alert_subscribers';
-    })
-    .map((doc) => {
-      const data = doc.data();
-      const parentEmail = doc.ref.parent.parent?.id || data.email;
-      // `ref` is preserved so the post-send batch can update lastMatchedAt without
-      // having to rebuild the path.
-      return { id: doc.id, ref: doc.ref, ...data, email: data.email || parentEmail };
     });
+  }
+  let alerts = alertDocs.map((doc) => {
+    const data = doc.data();
+    const parentEmail = doc.ref.parent.parent?.id || data.email;
+    // `ref` is preserved so the post-send batch can update lastMatchedAt without
+    // having to rebuild the path.
+    return { id: doc.id, ref: doc.ref, ...data, email: data.email || parentEmail };
+  });
 
   // Filter to allowed emails during testing phase
   if (ALLOWED_EMAILS) {
