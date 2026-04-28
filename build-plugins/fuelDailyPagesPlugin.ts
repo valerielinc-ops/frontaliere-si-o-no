@@ -57,6 +57,12 @@ import {
   type ItalianCityEntry,
 } from './fuelDailyData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import {
+  generateFuelIndexPages,
+  renderFuelIndexHubLinks,
+  type SwissStationLeaf,
+  type ItalianStationLeaf,
+} from './fuelStationIndexPages';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import {
   JOB_MARKET_LOCALE_PREFIX,
@@ -1506,6 +1512,7 @@ function renderPage(inp: PageInputs): string {
   </section>
   ${faqHtml}
   ${renderFuelTodayFrontalierContext({ locale, fuelLabel, zoneLabel, priceFmt, deltaYestFmt, delta7Fmt, isZone: !!zone })}
+  ${renderFuelIndexHubLinks({ locale, fuel })}
   ${renderDiscoverMore(locale, FUEL_DAILY_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'fuel_daily', { fuelType: fuel, fuelZone: zone ?? undefined, city: zone ?? undefined })}
 </article>`;
@@ -3794,6 +3801,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         'sitemap-fuel-stations.xml',
         'sitemap-fuel-italian-cities.xml',
         'sitemap-fuel-italian-stations.xml',
+        'sitemap-fuel-indexes.xml',
       ]);
 
       // Read fuel-prices.json — soft-fail to keep the build green on worktrees
@@ -3815,6 +3823,33 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       const stationPages = generateFuelStationPages({ dataset, today, distDir });
       const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir });
       const italianStationPages = generateFuelItalianStationPages({ dataset, history, today, distDir });
+
+      // ── F6.5: Browseable indexes (anti-orphan-page fix) ────────
+      // Build leaf lists once from the same collectors used for the per-station
+      // pages, so what we link from the index is exactly what we publish.
+      const swissContexts = collectSwissStationContexts(dataset);
+      const swissLeaves: SwissStationLeaf[] = swissContexts.map((c) => ({
+        zone: c.zone,
+        slug: c.slug,
+        name: c.station.name ?? c.brandDisplay,
+        brand: c.brandDisplay,
+        address: c.station.address ?? '',
+      }));
+      const italianContexts = collectItalianStationContexts(dataset);
+      const italianLeaves: ItalianStationLeaf[] = italianContexts.map((c) => ({
+        citySlug: c.cityEntry.slug,
+        cityDisplay: c.cityEntry.display,
+        stationSlug: c.slug,
+        name: c.station.stationName ?? c.brandDisplay,
+        brand: c.brandDisplay,
+        address: c.station.address ?? '',
+      }));
+      const indexPages = generateFuelIndexPages({
+        distDir,
+        today,
+        swissStations: swissLeaves,
+        italianStations: italianLeaves,
+      });
 
       const collector = new WriteCollector({ distDir });
 
@@ -3896,6 +3931,29 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         italianStationPagesWritten++;
       }
 
+      // ── F6.5: Index pages (anti-orphan-page fix) ───────────────
+      // These pages exist exactly to surface every per-station / per-city leaf
+      // via internal <a href> links, so the orphan-pages-in-sitemaps gate
+      // (CLAUDE.md "SEO content gate — orphan pages in sitemaps") sees them
+      // reachable from the homepage BFS. Word-count gate is intentionally a
+      // touch lower than per-station pages because each index has a long anchor
+      // list that contributes meaningfully to the visible content surface.
+      const INDEX_MIN_WORDS = 220;
+      const indexSitemapPaths: string[] = [];
+      let indexPagesWritten = 0;
+      for (const [path, html] of Object.entries(indexPages)) {
+        const words = countHtmlBodyWords(html);
+        if (words < INDEX_MIN_WORDS) {
+          skipped++;
+          console.warn(`[fuel-daily-pages] index thin content (${words} words) for ${path} — skipping`);
+          continue;
+        }
+        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
+        indexSitemapPaths.push(path);
+        indexPagesWritten++;
+      }
+
       await collector.flush();
 
       // ── Emit sitemap-fuel-daily.xml ─────────────────────────────
@@ -3929,6 +3987,7 @@ ${urlEntries}
       writeSitemap(stationSitemapPaths, 'sitemap-fuel-stations.xml', 'daily');
       writeSitemap(italianCitySitemapPaths, 'sitemap-fuel-italian-cities.xml', 'daily');
       writeSitemap(italianStationSitemapPaths, 'sitemap-fuel-italian-stations.xml', 'daily');
+      writeSitemap(indexSitemapPaths, 'sitemap-fuel-indexes.xml', 'daily');
 
       const result: PluginResult = {
         pagesWritten,
@@ -3939,7 +3998,7 @@ ${urlEntries}
         italianStationPagesWritten,
       };
       console.log(
-        `\x1b[36m[fuel-daily-pages]\x1b[0m Generated ${result.pagesWritten} daily + ${result.archivesWritten} archives + ${stationPagesWritten} CH-station + ${italianCityPagesWritten} IT-city + ${italianStationPagesWritten} IT-station pages (skipped ${result.skippedForWordCount})`,
+        `\x1b[36m[fuel-daily-pages]\x1b[0m Generated ${result.pagesWritten} daily + ${result.archivesWritten} archives + ${stationPagesWritten} CH-station + ${italianCityPagesWritten} IT-city + ${italianStationPagesWritten} IT-station + ${indexPagesWritten} indexes (skipped ${result.skippedForWordCount})`,
       );
     },
   };

@@ -3,7 +3,7 @@
   "generatedAt": "2026-04-28T12:03:12.644Z",
   "mode": "html",
   "totalSitemapUrls": 7533,
-  "totalOrphans": 2768,
+  "totalOrphans": 1982,
   "perSitemap": {
     "sitemap-annual-report.xml": {
       "total": 4,
@@ -114,7 +114,7 @@
     },
     "sitemap-fuel-daily.xml": {
       "total": 48,
-      "orphans": 24,
+      "orphans": 4,
       "examples": [
         "https://frontaliereticino.ch/de/dieselpreis-schweiz/heute/",
         "https://frontaliereticino.ch/de/dieselpreis-schweiz/chiasso/heute/",
@@ -140,7 +140,7 @@
     },
     "sitemap-fuel-italian-cities.xml": {
       "total": 88,
-      "orphans": 88,
+      "orphans": 8,
       "examples": [
         "https://frontaliereticino.ch/prezzi-diesel/italia/como/oggi/",
         "https://frontaliereticino.ch/en/diesel-price-switzerland/italy/como/today/",
@@ -166,7 +166,7 @@
     },
     "sitemap-fuel-italian-stations.xml": {
       "total": 424,
-      "orphans": 424,
+      "orphans": 40,
       "examples": [
         "https://frontaliereticino.ch/prezzi-benzina/italia/como/stazioni/carrefour-via-cristoforo-colombo/",
         "https://frontaliereticino.ch/prezzi-benzina/italia/como/stazioni/q8-via-pasquale-paoli-s-n/",
@@ -192,7 +192,7 @@
     },
     "sitemap-fuel-stations.xml": {
       "total": 488,
-      "orphans": 342,
+      "orphans": 40,
       "examples": [
         "https://frontaliereticino.ch/prezzi-diesel/chiasso/stazioni/socar-via-maestri-comacini/",
         "https://frontaliereticino.ch/prezzi-diesel/lugano/stazioni/eni-strada-per-gandria/",
