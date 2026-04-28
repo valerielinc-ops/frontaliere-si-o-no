@@ -566,13 +566,27 @@ export function buildBriefingPrompt(ctx) {
     ? `Reader sector interest: ${ctx.subscriber.sectorInterest}`
     : '';
 
+  // Locale-specific job-mention examples. Keeping the example phrasing in the
+  // target language prevents the model from copying Italian phrasings like
+  // "dai un'occhiata al ruolo di ... presso ... a Chiasso" verbatim into an
+  // English/German/French email.
+  const briefingExamplesByLocale = {
+    it: `dai un'occhiata al ruolo di <a href="JOB_URL" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso <a href="COMPANY_URL" style="color:#2563eb;text-decoration:underline;">Board International</a> a Chiasso`,
+    en: `take a look at the <a href="JOB_URL" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> role at <a href="COMPANY_URL" style="color:#2563eb;text-decoration:underline;">Board International</a> in Chiasso`,
+    de: `schau dir die Stelle als <a href="JOB_URL" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> bei <a href="COMPANY_URL" style="color:#2563eb;text-decoration:underline;">Board International</a> in Chiasso an`,
+    fr: `jetez un œil au poste de <a href="JOB_URL" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> chez <a href="COMPANY_URL" style="color:#2563eb;text-decoration:underline;">Board International</a> à Chiasso`,
+  };
+  const briefingExample = briefingExamplesByLocale[locale] || briefingExamplesByLocale.it;
+
   const system = [
     `You write the opening section of a weekly email newsletter for "Frontaliere Ticino", a platform for cross-border workers (frontalieri) between Italy and Switzerland.`,
     `Write in ${langName}. Be warm, conversational, and practical. Like a knowledgeable friend sharing useful updates.`,
+    `ABSOLUTE LANGUAGE RULE: Every word in your output MUST be in ${langName}. ${locale === 'it' ? '' : `NEVER copy Italian phrasings from any reference material into your ${langName} output — use only natural ${langName} prepositions and verbs to introduce job mentions, company names, and city names. `}Tool names, brand names, and proper nouns are the only exceptions.`,
     `Output 2-3 short paragraphs. Use simple HTML ONLY: <p> tags for paragraphs, <strong> for emphasis, <a href="URL" style="color:#2563eb;text-decoration:underline;"> for links. No greetings, no sign-offs, no subject line.`,
     `CRITICAL: NEVER use Markdown syntax. Do NOT use **bold**, *italic*, [text](link), or any asterisks for emphasis. Always use the HTML tags above. Asterisks will render as literal characters in the email.`,
     `STRUCTURE RULE: First paragraph MUST mention 1-2 specific job opportunities with clickable hyperlinks. Second paragraph covers exchange rate context. Keep jobs EARLY — never push them to the end.`,
-    `CRITICAL JOB LINKING RULE: Every job mention MUST have TWO hyperlinks: (1) the job title linked to JOB_URL, and (2) the company name linked to COMPANY_URL. Copy URLs exactly from the data. NEVER use <strong> for job titles or company names — ALWAYS use <a>. If a job has no URL, do NOT mention it. Example: "dai un'occhiata al ruolo di <a href="JOB_URL" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso <a href="COMPANY_URL" style="color:#2563eb;text-decoration:underline;">Board International</a> a Chiasso".`,
+    `CRITICAL JOB LINKING RULE: Every job mention MUST have TWO hyperlinks: (1) the job title linked to JOB_URL, and (2) the company name linked to COMPANY_URL. Copy URLs exactly from the data. NEVER use <strong> for job titles or company names — ALWAYS use <a>. If a job has no URL, do NOT mention it. Example (in ${langName}): "${briefingExample}".`,
+    `If a Featured tool name is provided, use it EXACTLY as written in the data — never translate, never substitute. The tool name comes pre-localized.`,
     `CRITICAL EXCHANGE RATE RULE: Use ONLY the weekly change percentage provided in the data below. Do NOT calculate or invent a different percentage.`,
     `Naturally weave in the exchange rate, any relevant job or fiscal context, and the weekly fact if interesting. Do NOT list everything — pick what matters most for this reader.`,
     `CRITICAL: Only mention dates that are explicitly provided in the data below. NEVER invent, guess, or assume dates for events, job postings, or facts. If no date is given for something, do not add one. Today's date is ${todayStr}.`,
