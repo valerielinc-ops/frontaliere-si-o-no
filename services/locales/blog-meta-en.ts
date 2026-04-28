@@ -3247,6 +3247,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.architettura-sostenibile-ticino-2026.title': 'Sustainable architecture in Ticino: USI\'s new IAST',
     'blog.article.architettura-sostenibile-ticino-2026.excerpt': 'The new Institute for Sustainable Architecture and Technology at USI promotes the reuse and conservation of existing buildings.',
     'blog.article.architettura-sostenibile-ticino-2026.imageAlt': 'Castelgrande in Bellinzona, Ticino, Switzerland',
+    'blog.article.sisa-contro-tagli-governo-2024.title': 'SISA criticizes government\'s health insurance plan',
+    'blog.article.sisa-contro-tagli-governo-2024.excerpt': 'Cuts to schools and transport: student union denounces unacceptable strategy',
+    'blog.article.sisa-contro-tagli-governo-2024.imageAlt': 'Castelgrande in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

@@ -18367,6 +18367,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sisa-contro-tagli-governo-2024': {
+    title: 'SISA attacca il piano del Governo sulle casse malati',
+    description: 'Il sindacato studentesco critica i tagli ai servizi essenziali e l’aumento delle tasse universitarie in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sisa, attacca, piano, governo',
+    ogTitle: 'SISA attacca il piano del Governo sulle casse malati',
+    ogDescription: 'Il sindacato studentesco critica i tagli ai servizi essenziali e l’aumento delle tasse universitarie in Ticino',
+    canonicalPath: '/articoli-frontaliere/sisa-contro-tagli-governo-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SISA attacca il piano del Governo sulle casse malati",
+      "description": "Il sindacato studentesco critica i tagli ai servizi essenziali e l’aumento delle tasse universitarie in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sisa-contro-tagli-governo-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-28T07:12:28+00:00",
+      "dateModified": "2026-04-28T07:12:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sisa-contro-tagli-governo-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

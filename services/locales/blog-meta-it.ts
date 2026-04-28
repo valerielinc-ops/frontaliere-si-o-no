@@ -3248,6 +3248,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.architettura-sostenibile-ticino-2026.title': 'Architettura sostenibile in Ticino: il nuovo IAST dell\'USI',
     'blog.article.architettura-sostenibile-ticino-2026.excerpt': 'Il nuovo Istituto per l\'architettura sostenibile e la tecnologia dell\'USI promuove il riuso e la conservazione degli edifici esistenti.',
     'blog.article.architettura-sostenibile-ticino-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino, Svizzera',
+    'blog.article.sisa-contro-tagli-governo-2024.title': 'SISA attacca il piano del Governo sulle casse malati',
+    'blog.article.sisa-contro-tagli-governo-2024.excerpt': 'Tagli a scuola e trasporti: il sindacato studentesco denuncia una strategia inaccettabile',
+    'blog.article.sisa-contro-tagli-governo-2024.imageAlt': 'Castelgrande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

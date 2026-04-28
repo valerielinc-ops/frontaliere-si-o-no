@@ -2343,6 +2343,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-allerta-meteo-ticino-lombardia-2026': { name: 'Allerta meteo', path: '/articoli-frontaliere/allerta-meteo-ticino-lombardia-2026', parent: 'blog' },
     'blog-rottamazione-quinquies-scadenza-30-aprile': { name: 'Rottamazione-quinquies', path: '/articoli-frontaliere/rottamazione-quinquies-scadenza-30-aprile', parent: 'blog' },
     'blog-architettura-sostenibile-ticino-2026': { name: 'Architettura sostenibile', path: '/articoli-frontaliere/architettura-sostenibile-ticino-2026', parent: 'blog' },
+    'blog-sisa-contro-tagli-governo-2024': { name: 'Novità', path: '/articoli-frontaliere/sisa-contro-tagli-governo-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

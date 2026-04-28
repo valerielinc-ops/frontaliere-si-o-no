@@ -3247,6 +3247,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.architettura-sostenibile-ticino-2026.title': 'Nachhaltige Architektur im Tessin: Das neue IAST der USI',
     'blog.article.architettura-sostenibile-ticino-2026.excerpt': 'Das neue Institut für nachhaltige Architektur und Technologie der USI fördert die Wiederverwendung und den Erhalt bestehender Gebäude.',
     'blog.article.architettura-sostenibile-ticino-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin, Schweiz',
+    'blog.article.sisa-contro-tagli-governo-2024.title': 'SISA kritisiert Regierungsplan zu Krankenkassen',
+    'blog.article.sisa-contro-tagli-governo-2024.excerpt': 'Kürzungen bei Schule und Verkehr: Der Schülerverband beanstandet eine inakzeptable Strategie',
+    'blog.article.sisa-contro-tagli-governo-2024.imageAlt': 'Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;
