@@ -3355,6 +3355,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.title': 'Bankitalia: Begrenzte Spielräume durch Schulden, nicht nur EU-Regeln',
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.excerpt': 'Die begrenzten Spielräume entstehen aus der Notwendigkeit, die Schulden zu reduzieren, nicht nur aus den EU-Regeln. Ab 2027 absteigender Pfad.',
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.imageAlt': 'Luganersee mit Blick auf Lugano und Monte Brè',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.title': 'MomòRide: Die Spenden-Carsharing-Challenge im Tessin',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.excerpt': 'Die erste kollektive Carsharing-Challenge für einen guten Zweck startet am 1. Mai im Tessin, mit dem Ziel, Punkte zu sammeln, um tausend Franken zu spenden.',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.imageAlt': 'Gruppe von Menschen im Fahrgemeinschaft mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

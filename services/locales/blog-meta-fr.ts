@@ -3356,6 +3356,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.title': 'Dfp, Banque d\'Italie : marges limitées par la dette',
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.excerpt': 'Les marges limitées découlent de la nécessité de réduire la dette, pas seulement des règles de l\'UE. À partir de 2027, une trajectoire descendante.',
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.imageAlt': 'Lac de Lugano avec vue sur Lugano et Monte Brè',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.title': 'MomòRide: le défi de covoiturage solidaire en Suisse',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.excerpt': 'Le premier défi collectif de covoiturage à but solidaire commence le 1er mai en Suisse, avec l\'objectif de collecter des points pour offrir mille francs.',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.imageAlt': 'Groupe de personnes en covoiturage avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

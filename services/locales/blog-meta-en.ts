@@ -3355,6 +3355,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.title': 'Bankitalia: Limited margins due to debt, not just EU rules',
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.excerpt': 'Limited margins stem from the need to reduce debt, not just EU rules. Downward path from 2027.',
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.imageAlt': 'Lake Lugano with view of Lugano and Monte Brè',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.title': 'MomòRide: Ticino\'s charity carpooling challenge',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.excerpt': 'The first collective carpooling challenge for charity starts on May 1st in Ticino, aiming to collect points to donate 1,000 francs.',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.imageAlt': 'Group of people carpooling with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

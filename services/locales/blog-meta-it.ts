@@ -3356,6 +3356,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.title': 'Dfp, Bankitalia: Margini limitati più per debito che per regole Ue',
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.excerpt': 'I margini limitati derivano dall\'esigenza di ridurre il debito, non solo dalle regole Ue. Dal 2027 sentiero discendente.',
     'blog.article.dfp-bankitalia-margini-debito-ue-2026.imageAlt': 'Lago di Lugano con vista su Lugano e Monte Brè',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.title': 'MomòRide: la sfida di carpooling benefico in Ticino',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.excerpt': 'La prima sfida collettiva di carpooling a scopo benefico inizia il 1° maggio in Ticino, con l\'obiettivo di raccogliere punti per donare mille franchi.',
+    'blog.article.momoride-carpooling-benefico-ticino-2024.imageAlt': 'Gruppo di persone in carpooling con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;
