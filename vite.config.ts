@@ -55,6 +55,7 @@ import { faqHubPlugin } from './build-plugins/faqHubPlugin';
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
+import { withProfile, profileSummaryPlugin } from './build-plugins/profilePlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -71,15 +72,17 @@ const isFastBuild = !!process.env.FAST_BUILD;
  * ================================================================ */
 export default defineConfig(({ mode }) => {
  const env = loadEnv(mode, '.', '');
- return {
- base: '/',
- server: {
- port: 3000,
- host: '0.0.0.0',
- },
- plugins: [
+ // Build the unified plugin list, then wrap every entry in `withProfile()`
+ // and append `profileSummaryPlugin()` last so it emits the total line
+ // after every wrapped closeBundle has resolved. `withProfile` is a no-op
+ // when BUILD_PROFILE !== '1' (zero overhead in normal local builds).
+ const allPlugins: Plugin[] = [
  // ── Core plugins (always run, including FAST_BUILD) ──────────
- react(),
+ // `@vitejs/plugin-react` returns multiple plugins (one per React feature
+ // such as Fast Refresh, JSX runtime). Spread so each is wrapped
+ // individually by withProfile() — most lack a closeBundle hook so the
+ // wrapper just returns them unchanged.
+ ...react(),
  prepareOutDirPlugin(__dirname),
  // ── Content-hash manifest DISABLED 2026-04-28 ────────────────
  // Was bootstrapping a SHA256 manifest used by WriteCollector to skip
@@ -185,6 +188,18 @@ export default defineConfig(({ mode }) => {
  // ── Content-hash manifest finalize DISABLED 2026-04-28 ──────
  // Paired with the disabled bootstrap above. Code retained for future
  // revival once a use-case (rollback / hotfix-only chains) emerges.
+ ];
+ return {
+ base: '/',
+ server: {
+ port: 3000,
+ host: '0.0.0.0',
+ },
+ plugins: [
+ ...allPlugins.map(withProfile),
+ // Last entry: emits `[profile-total] ...` after every wrapped plugin's
+ // closeBundle has resolved. No-op when BUILD_PROFILE !== '1'.
+ profileSummaryPlugin(),
  ],
  define: {
  // No secrets injected at build time — all sensitive keys come from Firebase Remote Config at runtime

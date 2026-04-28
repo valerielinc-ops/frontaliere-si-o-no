@@ -166,7 +166,33 @@ jobs:
       # plugins in vite.config.ts.
 
       - name: Build
-        run: npm run build:ci
+        env:
+          BUILD_PROFILE: '1'
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build:ci 2>&1 | tee /tmp/build.log
+
+      - name: Build profile summary
+        if: always()
+        shell: bash
+        run: |
+          if [ ! -f /tmp/build.log ]; then
+            echo "Build log not found — profiling skipped" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          {
+            echo "## Build profile (per-plugin closeBundle time)"
+            echo ""
+            echo "| Plugin | Time (s) |"
+            echo "|---|---:|"
+            grep -E '^\[profile\]' /tmp/build.log \
+              | sed -E 's/^\[profile\] +//; s/ +([0-9.]+)s$/|\1/' \
+              | awk -F'|' '{printf "| %s | %s |\n", $1, $2}' \
+              | sort -t'|' -k3 -nr
+            echo ""
+            grep -E '^\[profile-total\]' /tmp/build.log | sed 's/^\[profile-total\] /**/' || true
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Merge previous CSS/JS assets for Clarity recordings
         continue-on-error: true
