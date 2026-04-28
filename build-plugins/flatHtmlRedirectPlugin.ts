@@ -94,6 +94,63 @@ interface FlatRedirectOptions {
   readonly baseUrl: string;
 }
 
+/**
+ * Pure transform: given a flat `.html` file path, the file's current HTML, and
+ * the dist root, return the redirect-bridge HTML — or `null` if the file is
+ * NOT a bridge candidate (no sibling `<basename>/index.html` on disk).
+ *
+ * Extracted from the plugin's closeBundle handler so the
+ * `postWalkCoordinatorPlugin` can apply it during a single shared dist/ walk.
+ *
+ * Inputs:
+ *   - filePath: absolute path to the candidate flat .html file
+ *   - distDir: absolute path to dist/ (used only to build the public URL)
+ *   - trimmedBase: baseUrl with trailing slashes stripped
+ *   - readSibling: callback that returns the sibling index.html contents
+ *     (or `null` if the sibling does not exist). Centralises filesystem
+ *     access so the coordinator can pass an in-memory cache.
+ */
+export interface FlatRedirectTransformInput {
+  readonly filePath: string;
+  readonly distDir: string;
+  readonly trimmedBase: string;
+  readonly readSibling: (siblingPath: string) => string | null;
+}
+
+export function transformFlatRedirect(input: FlatRedirectTransformInput): string | null {
+  const { filePath, distDir, trimmedBase, readSibling } = input;
+  if (path.basename(filePath) === 'index.html') return null;
+  if (!filePath.endsWith('.html')) return null;
+
+  const stem = filePath.slice(0, -'.html'.length);
+  const sibling = path.join(stem, 'index.html');
+  const siblingHtml = readSibling(sibling);
+  if (siblingHtml === null) return null;
+
+  const relPath = path.relative(distDir, stem).replace(/\\/g, '/');
+  const slashUrl = `${trimmedBase}/${relPath}/`;
+  let title = `Redirecting to ${slashUrl}`;
+  let ogTags = '';
+  try {
+    const titleMatch = siblingHtml.match(/<title[^>]*>([^<]+)<\/title>/i);
+    if (titleMatch && titleMatch[1]) {
+      const extracted = titleMatch[1].trim();
+      if (extracted.length > 0) {
+        title = extracted;
+      }
+    }
+    ogTags = extractOgTags(siblingHtml);
+  } catch {
+    // fallback already set; ogTags stays empty
+  }
+  return NOINDEX_BRIDGE(slashUrl, title, ogTags);
+}
+
+/**
+ * @deprecated Consumed internally by {@link postWalkCoordinatorPlugin}.
+ * Kept exported for backward compatibility and unit-test access. Do NOT
+ * register both this plugin AND the coordinator — they would duplicate work.
+ */
 export function flatHtmlRedirectPlugin(rootDir: string, opts: FlatRedirectOptions): Plugin {
   const { baseUrl } = opts;
   const trimmedBase = baseUrl.replace(/\/+$/, '');

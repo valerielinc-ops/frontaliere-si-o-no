@@ -387,7 +387,7 @@ export function injectContextualLinks(
 
 // ── Filesystem walkers ────────────────────────────────────────────
 
-function readBlogIndexSlugs(rootDir: string): Record<BlogLinkLocale, string> {
+export function readBlogIndexSlugs(rootDir: string): Record<BlogLinkLocale, string> {
   const out: Record<BlogLinkLocale, string> = { ...DEFAULT_BLOG_INDEX_SLUG };
   try {
     const src = fs.readFileSync(path.resolve(rootDir, 'services/router.ts'), 'utf-8');
@@ -402,7 +402,7 @@ function readBlogIndexSlugs(rootDir: string): Record<BlogLinkLocale, string> {
   return out;
 }
 
-interface BlogArticleHtmlFile {
+export interface BlogArticleHtmlFile {
   readonly locale: BlogLinkLocale;
   readonly absPath: string;
   readonly articleSlug: string;
@@ -413,7 +413,7 @@ interface BlogArticleHtmlFile {
  * up both `.../<slug>/index.html` (directory form) and `.../<slug>.html`
  * (flat form), because `ogPagesPlugin` writes both.
  */
-function listBlogArticleHtmlFiles(
+export function listBlogArticleHtmlFiles(
   distDir: string,
   blogIndexSlugs: Record<BlogLinkLocale, string>,
 ): BlogArticleHtmlFile[] {
@@ -449,6 +449,11 @@ function listBlogArticleHtmlFiles(
 
 // ── Vite plugin ───────────────────────────────────────────────────
 
+/**
+ * @deprecated Consumed internally by {@link postWalkCoordinatorPlugin}.
+ * Kept exported for backward compatibility and unit-test access. Do NOT
+ * register both this plugin AND the coordinator — they would duplicate work.
+ */
 export function blogContextualLinksPlugin(rootDir: string): Plugin {
   return {
     name: 'blog-contextual-links',

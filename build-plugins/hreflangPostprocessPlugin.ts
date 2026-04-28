@@ -74,6 +74,116 @@ function* walkHtml(dir: string): Iterable<string> {
   }
 }
 
+/**
+ * Pure transform: strip `<link rel="alternate" hreflang>` tags whose target
+ * file does not pass the supplied existence predicate. Returns `null` if the
+ * HTML has no hreflang tags or all tags survive (no rewrite needed).
+ *
+ * Extracted from the plugin's closeBundle handler so the
+ * `postWalkCoordinatorPlugin` can apply it during a single shared dist/ walk.
+ *
+ * Inputs:
+ *   - html: current HTML string (already potentially mutated by prior steps)
+ *   - distDir / baseUrl: passed through to `filterExistingAlternates`
+ *   - existsCheck (optional): override the disk lookup. Useful when the
+ *     coordinator has built an in-memory Set of every emitted HTML path so
+ *     the walk avoids repeated `fs.existsSync` syscalls.
+ */
+export interface HreflangTransformResult {
+  readonly html: string;
+  readonly kept: number;
+  readonly dropped: number;
+}
+
+export function transformHreflang(
+  html: string,
+  distDir: string,
+  baseUrl: string,
+  existsCheck?: (absPath: string) => boolean,
+): HreflangTransformResult | null {
+  if (!html.includes('hreflang=')) return null;
+
+  const matches: Array<{
+    full: string;
+    entry: LocaleAlternates;
+    index: number;
+  }> = [];
+  HREFLANG_LINK_RX.lastIndex = 0;
+  let m: RegExpExecArray | null;
+  while ((m = HREFLANG_LINK_RX.exec(html)) !== null) {
+    matches.push({
+      full: m[0],
+      entry: { locale: m[1], url: m[2] },
+      index: m.index,
+    });
+  }
+  if (matches.length === 0) return null;
+
+  const alternates: readonly LocaleAlternates[] = matches.map((x) => x.entry);
+  const kept = existsCheck
+    ? filterExistingAlternatesWith(alternates, distDir, baseUrl, existsCheck)
+    : filterExistingAlternates(alternates, distDir, baseUrl);
+  const keptUrls = new Set(kept.map((k) => `${k.locale}|${k.url}`));
+
+  if (kept.length === alternates.length) {
+    // Nothing to drop — return null so the coordinator skips a write.
+    return null;
+  }
+
+  let rewritten = html;
+  let droppedCount = 0;
+  for (let i = matches.length - 1; i >= 0; i--) {
+    const match = matches[i];
+    const key = `${match.entry.locale}|${match.entry.url}`;
+    if (keptUrls.has(key)) continue;
+    droppedCount++;
+    const end = match.index + match.full.length;
+    const tail = rewritten.slice(end);
+    const trailingNl = tail.startsWith('\n') ? 1 : 0;
+    rewritten =
+      rewritten.slice(0, match.index) +
+      rewritten.slice(end + trailingNl);
+  }
+
+  return { html: rewritten, kept: keptUrls.size, dropped: droppedCount };
+}
+
+/**
+ * Variant of {@link filterExistingAlternates} that accepts a custom existence
+ * predicate. Used by the coordinator to substitute disk lookups with an
+ * in-memory Set of every HTML path emitted during the build.
+ */
+function filterExistingAlternatesWith(
+  alternates: readonly LocaleAlternates[],
+  distDir: string,
+  baseUrl: string,
+  existsCheck: (absPath: string) => boolean,
+): readonly LocaleAlternates[] {
+  const trimmedBase = baseUrl.replace(/\/+$/, '');
+  return alternates.filter(({ url }) => {
+    let p = url;
+    if (p.startsWith(trimmedBase)) p = p.slice(trimmedBase.length);
+    const q = p.indexOf('?');
+    if (q !== -1) p = p.slice(0, q);
+    const h = p.indexOf('#');
+    if (h !== -1) p = p.slice(0, h);
+    p = p.replace(/\/+$/, '');
+    if (p === '' || p === '/') {
+      return existsCheck(path.join(distDir, 'index.html'));
+    }
+    if (p.startsWith('/')) p = p.slice(1);
+    return (
+      existsCheck(path.join(distDir, p, 'index.html')) ||
+      existsCheck(path.join(distDir, `${p}.html`))
+    );
+  });
+}
+
+/**
+ * @deprecated Consumed internally by {@link postWalkCoordinatorPlugin}.
+ * Kept exported for backward compatibility. Do NOT register both this plugin
+ * AND the coordinator — they would duplicate work.
+ */
 export function hreflangPostprocessPlugin(
   rootDir: string,
   opts: HreflangPostprocessOptions,
