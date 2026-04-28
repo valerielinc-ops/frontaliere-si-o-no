@@ -71,11 +71,30 @@ export function parseAltenDetailHtml(html = '', pageUrl = '') {
   const root = document.querySelector('.wp-block-jobboard-offer') || document.querySelector('.entry-content') || document.body;
   const title = compact(document.querySelector('h1')?.textContent || document.querySelector('h2.wp-block-post-title')?.textContent || '');
   const applyUrl = document.querySelector('a[href$="/apply"]')?.getAttribute('href') || '';
-  const location = compact(
+  // Strip the leading "Location" label and ANY trailing prose:
+  //   1. `[class*="location"]` selector (loose) sometimes matches the
+  //      requirements <p> when ALTEN inlines "Location: Ticino, Switzerland."
+  //      mid-paragraph (no newline before the next sentence). Without a
+  //      sentence-boundary cut, the previous parser took the entire trailing
+  //      paragraph as the city ("Ticino, Switzerland.Availability to work
+  //      on-site is required. What we offer you…", 450 char). That broken
+  //      field then leaked into addressLocality, the SEO slug, and the
+  //      <title> downstream — caught 2026-04-28 on the
+  //      java-software-ingegnere-alten-switzerland-… page.
+  //   2. The label can be `Location:Ticino` (no space) → strip the optional
+  //      colon explicitly so we don't keep a leading `:` in the value.
+  //   3. Cut at the first sentence boundary (`.`, `;`, newline) so a
+  //      compact city string survives even when the surrounding markup
+  //      runs prose into the same node.
+  const rawLocationNode = compact(
     Array.from(document.querySelectorAll('.block--inner, .wp-block-jobboard-offer-sidebar, .card-location, [class*="location"]'))
       .map((el) => compact(el.textContent || ''))
       .find((text) => /Location/i.test(text) && isTargetSwissLocation(text)) || ''
-  ).replace(/^.*?Location\s*/i, '');
+  );
+  const location = rawLocationNode
+    .replace(/^.*?Location\s*[:.]?\s*/i, '')
+    .split(/[\n.;]/)[0]
+    .trim();
   const postedDate =
     compact(
       Array.from(document.querySelectorAll('.block--inner, .card-date, [class*="date"]'))
