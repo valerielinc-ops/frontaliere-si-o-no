@@ -338,7 +338,7 @@ export const FEATURED_TOOLS = [
   { icon: '\ud83d\udcb1', title: 'Cambio Valuta', description: 'Tasso aggiornato ogni ora + confronto tra banche e servizi. Perch\u00e9 0.2% di differenza su 60k sono 120\u20ac.', toolUrl: '/compara-servizi/cambio-franco-euro' },
 ];
 
-function getFeaturedTools(locale) {
+export function getFeaturedTools(locale) {
   return [
     { icon: '\ud83d\udcb0', title: nlT(locale, 'toolCalc'), popular: true, description: nlT(locale, 'toolCalcDesc'), toolUrl: '/calcola-stipendio' },
     { icon: '\ud83c\udfe5', title: nlT(locale, 'toolLamal'), description: nlT(locale, 'toolLamalDesc'), toolUrl: '/compara-servizi/confronta-casse-malati' },

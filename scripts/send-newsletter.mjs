@@ -30,7 +30,7 @@ import { createHash, createHmac } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildNewsletter, FEATURED_TOOLS, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
+import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 
@@ -460,9 +460,11 @@ function makeResubscribeUrl(email) {
   return `${BASE_URL}/?action=resubscribe&email=${encodeURIComponent(email)}&token=${token}`;
 }
 
-function makePreferencesUrl(email) {
+function makePreferencesUrl(email, locale = 'it') {
   const secret = process.env.NEWSLETTER_SECRET;
-  const base = `${BASE_URL}/preferenze-newsletter?email=${encodeURIComponent(email.toLowerCase())}`;
+  const slug = PREFERENCES_SLUG[locale] || PREFERENCES_SLUG.it;
+  const prefix = localePathPrefix(locale);
+  const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(email.toLowerCase())}`;
   if (!secret) return base;
   const token = createHmac('sha256', secret).update(email.toLowerCase()).digest('hex');
   return `${base}&token=${token}`;
@@ -755,6 +757,19 @@ function loadBlogMeta(articleId, locale = 'it') {
 /** Blog section URL path per locale (matches router.ts SLUG_TABLES) */
 const BLOG_SECTION_PATH = { it: 'articoli-frontaliere', en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' };
 
+/** Newsletter preferences slug per locale (matches router.ts SLUG_TABLES) */
+const PREFERENCES_SLUG = {
+  it: 'preferenze-newsletter',
+  en: 'newsletter-preferences',
+  de: 'newsletter-einstellungen',
+  fr: 'preferences-newsletter',
+};
+
+/** Build the locale URL prefix — empty for IT (canonical), `/{lang}` otherwise. */
+function localePathPrefix(locale) {
+  return locale === 'it' ? '' : `/${locale}`;
+}
+
 const DEFAULT_ARTICLE_ID = 'comuni-migliori-frontalieri';
 
 /**
@@ -765,10 +780,11 @@ function localizeArticle(articleId, locale) {
   const slug = getBlogSlug(articleId, locale);
   const meta = loadBlogMeta(articleId, locale);
   if (!meta) return null;
+  const prefix = localePathPrefix(locale);
   return {
     title: meta.title,
     excerpt: meta.excerpt,
-    url: `/${blogPath}/${slug}`,
+    url: `${prefix}/${blogPath}/${slug}`,
     badge: true,
   };
 }
@@ -1407,8 +1423,13 @@ async function main() {
   }
 
   const { jobs } = loadLocalJobsData();
-  const toolIndex = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000)) % FEATURED_TOOLS.length;
-  const featuredTool = FEATURED_TOOLS[toolIndex];
+  // Tool-of-the-week index: shared across all locales so every subscriber sees the
+  // same featured tool, but the tool's title/description is rendered in their locale.
+  const toolIndex = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000)) % 4;
+  const getFeaturedToolForLocale = (locale) => {
+    const tools = getFeaturedTools(locale);
+    return tools[toolIndex % tools.length];
+  };
   // Campaign ID anchored to the week's Monday so multi-day sends share the same ID
   const now = new Date();
   const monday = new Date(now);
@@ -1424,6 +1445,7 @@ async function main() {
   // ── Preview mode ──
   if (mode === 'preview') {
     const locale = 'it';
+    const previewFeaturedTool = getFeaturedToolForLocale(locale);
     const previewJobs = validateJobUrls(
       matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, jobs, 4),
       jobs,
@@ -1432,7 +1454,7 @@ async function main() {
       ? getFallbackBriefing(locale, exchangeRate)
       : (await generateAIBriefing({
           subscriber: { locale, preferences: { jobs: true, taxUpdates: true } },
-          exchangeRate, exchangeInsight, matchedJobs: previewJobs, weeklyFact: getWeeklyFact(locale), featuredTool,
+          exchangeRate, exchangeInsight, matchedJobs: previewJobs, weeklyFact: getWeeklyFact(locale), featuredTool: previewFeaturedTool,
         })) || getFallbackBriefing(locale, exchangeRate);
     // Always inject job links — applies to both AI and fallback briefings
     briefing = injectJobAndCompanyLinks(briefing, previewJobs, locale);
@@ -1443,7 +1465,7 @@ async function main() {
       matchedJobs: previewJobs,
       totalJobs: jobs.length,
       article: featuredArticle(locale),
-      featuredTool,
+      featuredTool: previewFeaturedTool,
       weeklyFact: getWeeklyFact(locale),
       metrics: loadDashboardMetrics(),
       locale,
@@ -1547,7 +1569,8 @@ async function main() {
           subscriber: cohort.subscriber,
           exchangeRate, exchangeInsight,
           matchedJobs: cohort.matchedJobs,
-          weeklyFact: getWeeklyFact(cohort.locale), featuredTool,
+          weeklyFact: getWeeklyFact(cohort.locale),
+          featuredTool: getFeaturedToolForLocale(cohort.locale),
         });
         return [key, briefing];
       }, AI_CONCURRENCY);
@@ -1632,14 +1655,14 @@ async function main() {
       matchedJobs,
       totalJobs: jobs.length,
       article: featuredArticle(locale),
-      featuredTool,
+      featuredTool: getFeaturedToolForLocale(locale),
       weeklyFact: getWeeklyFact(locale),
       metrics,
       locale,
       issueNumber,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
-      preferencesUrl: makePreferencesUrl(subscriber.email),
+      preferencesUrl: makePreferencesUrl(subscriber.email, locale),
     });
 
     // Personalize links with pre-generated HMAC autologin code (never expires)
