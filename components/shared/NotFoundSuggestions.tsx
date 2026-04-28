@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { SearchX, ArrowRight, Home, Briefcase, FileText, BookOpen, Calculator, Search } from 'lucide-react';
 import { useTranslation, getCantonI18nParams } from '@/services/i18n';
+import { Analytics } from '@/services/analytics';
 
 // Lazy-loaded data is passed via props to avoid coupling
 interface Suggestion {
@@ -145,6 +146,16 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
  ? t('notFound.articleMoved')
  : null;
 
+ useEffect(() => {
+ if (typeof window === 'undefined') return;
+ Analytics.trackEvent('not_found_view', {
+ not_found_path: path,
+ not_found_url: window.location.href,
+ not_found_referrer: document.referrer || '(none)',
+ content_type: contentType,
+ });
+ }, [path, contentType]);
+
  return (
  <div className="max-w-2xl mx-auto py-8 sm:py-12 px-4">
  {/* Header */}
@@ -163,6 +174,17 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
  {contextMessage}
  </p>
  )}
+ <div
+ data-testid="not-found-url"
+ className="mt-4 mx-auto max-w-xl text-left bg-surface-alt border border-edge rounded-lg px-3 py-2"
+ >
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
+ URL
+ </p>
+ <code className="block text-xs text-body font-mono break-all select-all">
+ {typeof window !== 'undefined' ? window.location.href : path}
+ </code>
+ </div>
  </div>
 
  {/* Suggestions */}
