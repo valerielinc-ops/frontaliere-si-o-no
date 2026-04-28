@@ -3236,6 +3236,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.equans-licenziamenti-monteceneri-2026.title': 'Equans, 19 licenciements confirmés',
     'blog.article.equans-licenziamenti-monteceneri-2026.excerpt': 'Après l\'échec de la médiation, Equans procédera à 19 licenciements à Monteceneri. Les employés concernés sont libres immédiatement.',
     'blog.article.equans-licenziamenti-monteceneri-2026.imageAlt': 'Vue aérienne de la vallée de Monteceneri dans le canton du Tessin, avec des bâtiments industriels et des montagnes environnantes',
+    'blog.article.momenti-paura-velivolo-swiss-2026.title': 'Moments de peur sur un avion Swiss',
+    'blog.article.momenti-paura-velivolo-swiss-2026.excerpt': 'Un incident sur un vol Swiss a causé des moments de tension. Voici ce qui s\'est passé et les implications pour les passagers.',
+    'blog.article.momenti-paura-velivolo-swiss-2026.imageAlt': 'Vue aérienne du lac de Lugano avec un avion Swiss en arrière-plan',
 };
 
 export default blogMetaFr;

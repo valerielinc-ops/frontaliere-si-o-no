@@ -2339,6 +2339,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-brevetti-innovazione-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-brevetti-innovazione-2026', parent: 'blog' },
     'blog-frontalieri-rega-boglia-intervento': { name: 'Intervento Rega', path: '/articoli-frontaliere/frontalieri-rega-boglia-intervento', parent: 'blog' },
     'blog-equans-licenziamenti-monteceneri-2026': { name: 'Novità', path: '/articoli-frontaliere/equans-licenziamenti-monteceneri-2026', parent: 'blog' },
+    'blog-momenti-paura-velivolo-swiss-2026': { name: 'Incidente aereo', path: '/articoli-frontaliere/momenti-paura-velivolo-swiss-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

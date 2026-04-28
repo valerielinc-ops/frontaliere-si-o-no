@@ -3235,6 +3235,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.equans-licenziamenti-monteceneri-2026.title': 'Equans confirms 19 job cuts',
     'blog.article.equans-licenziamenti-monteceneri-2026.excerpt': 'After failed mediation, Equans will proceed with 19 layoffs in Monteceneri. Affected employees are free immediately.',
     'blog.article.equans-licenziamenti-monteceneri-2026.imageAlt': 'Aerial view of Monteceneri valley in Ticino, Switzerland, with industrial buildings and surrounding mountains',
+    'blog.article.momenti-paura-velivolo-swiss-2026.title': 'Tense moments on a Swiss plane',
+    'blog.article.momenti-paura-velivolo-swiss-2026.excerpt': 'An incident on a Swiss flight caused moments of tension. Here\'s what happened and the implications for passengers.',
+    'blog.article.momenti-paura-velivolo-swiss-2026.imageAlt': 'Aerial view of Lugano Lake with Swiss aircraft in the background',
 };
 
 export default blogMetaEn;

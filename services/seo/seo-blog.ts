@@ -18251,6 +18251,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-momenti-paura-velivolo-swiss-2026': {
+    title: 'Momenti di paura su un velivolo Swiss | Frontaliere Ticino',
+    description: 'Un incidente tecnico su un velivolo Swiss ha causato momenti di tensione. Ecco cosa è successo e le implicazioni per i passeggeri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, momenti, paura, velivolo, swiss',
+    ogTitle: 'Momenti di paura su un velivolo Swiss',
+    ogDescription: 'Un incidente tecnico su un velivolo Swiss ha causato momenti di tensione. Ecco cosa è successo e le implicazioni per i passeggeri.',
+    canonicalPath: '/articoli-frontaliere/momenti-paura-velivolo-swiss-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Momenti di paura su un velivolo Swiss",
+      "description": "Un incidente tecnico su un velivolo Swiss ha causato momenti di tensione. Ecco cosa è successo e le implicazioni per i passeggeri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/momenti-paura-velivolo-swiss-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con aereo Swiss in volo"
+      },
+      "datePublished": "2026-04-28T06:47:41+00:00",
+      "dateModified": "2026-04-28T06:47:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/momenti-paura-velivolo-swiss-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

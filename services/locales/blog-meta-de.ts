@@ -3235,6 +3235,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.equans-licenziamenti-monteceneri-2026.title': 'Equans bestätigt Entlassungen: 19 Jobs weg',
     'blog.article.equans-licenziamenti-monteceneri-2026.excerpt': 'Nach gescheiterter Mediation wird Equans in Monteceneri 19 Mitarbeiter entlassen. Die betroffenen Arbeitnehmer sind ab sofort frei.',
     'blog.article.equans-licenziamenti-monteceneri-2026.imageAlt': 'Luftaufnahme des Monteceneri-Tals in der Schweiz, mit Industriegebäuden und umliegenden Bergen',
+    'blog.article.momenti-paura-velivolo-swiss-2026.title': 'Angstmomente an Bord einer Swiss-Maschine',
+    'blog.article.momenti-paura-velivolo-swiss-2026.excerpt': 'Ein Zwischenfall an Bord einer Swiss-Maschine hat für Anspannung gesorgt. Hier erfahren Sie, was passiert ist und welche Auswirkungen dies auf die Passagiere hat.',
+    'blog.article.momenti-paura-velivolo-swiss-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit einem Swiss-Flugzeug im Hintergrund',
 };
 
 export default blogMetaDe;

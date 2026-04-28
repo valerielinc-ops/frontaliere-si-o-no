@@ -8561,4 +8561,11 @@ export const ARTICLES = [
  image: '/images/blog/equans-licenziamenti-monteceneri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'momenti-paura-velivolo-swiss-2026',
+ category: 'novita',
+ date: '2026-04-28T06:47:41.595Z',
+ image: '/images/blog/momenti-paura-velivolo-swiss-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
