@@ -1,18 +1,49 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-04-27T22:39:49.427Z",
+  "generatedAt": "2026-04-28T11:44:39.711Z",
   "total": 2,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 831,
-  "avgDurationMs": 831,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 1124,
+  "avgDurationMs": 1124,
   "durationHistory": [
-    831
+    1124
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Security & Network Engineer",
+      "slug": "security-network-engineer-tinext-lugano-secnetsys",
+      "url": "https://tinext.kenjo.io/secnetsys",
+      "applyUrl": "https://tinext.kenjo.io/secnetsys",
+      "company": "Tinext SA",
+      "companyKey": "tinext",
+      "companyDomain": "tinext.com",
+      "location": "Morbio",
+      "addressLocality": "Morbio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "IT & Digital Transformation",
+      "sector": "IT & Digital Transformation",
+      "source": "tinext-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-28",
+      "validThrough": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Freelance Java Developer | Full-remote",
@@ -32,7 +63,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-27",
+      "postedDate": "2026-04-28",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -52,8 +83,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Executive Assistant",
       "slug": "executive-assistant-tinext-lugano-exass",
@@ -91,5 +121,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
