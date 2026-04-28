@@ -2345,6 +2345,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuove-regole-centri-estivi-saronno-2026': { name: 'Novità', path: '/articoli-frontaliere/nuove-regole-centri-estivi-saronno-2026', parent: 'blog' },
     'blog-ex-sede-banca-ditalia-vendita-varese': { name: 'Novità', path: '/articoli-frontaliere/ex-sede-banca-ditalia-vendita-varese', parent: 'blog' },
     'blog-139-frontalieri-ticino-special-olympics': { name: 'Special Olympics', path: '/articoli-frontaliere/139-frontalieri-ticino-special-olympics', parent: 'blog' },
+    'blog-gastrobellinzona-andrea-giuliani': { name: 'Novità', path: '/articoli-frontaliere/gastrobellinzona-andrea-giuliani', parent: 'blog' },
  };
 
  const info = sectionNames[section];

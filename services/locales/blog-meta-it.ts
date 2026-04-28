@@ -3344,6 +3344,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.139-frontalieri-ticino-special-olympics.title': '139 frontalieri del Ticino ai National Summer Games di Special Olympics',
     'blog.article.139-frontalieri-ticino-special-olympics.excerpt': '139 atleti con disabilità intellettiva dal Ticino partecipano ai National Summer Games di Special Olympics a Zugo dal 28 al 31 maggio 2026',
     'blog.article.139-frontalieri-ticino-special-olympics.imageAlt': 'Atleti con disabilità intellettiva partecipano ai National Summer Games di Special Olympics a Zugo',
+    'blog.article.gastrobellinzona-andrea-giuliani.title': 'Andrea Giuliani guida GastroBellinzona Alto Ticino',
+    'blog.article.gastrobellinzona-andrea-giuliani.excerpt': 'Andrea Giuliani è il nuovo presidente di GastroBellinzona Alto Ticino. L\'associazione affronta sfide economiche e speranze per la ristorazione.',
+    'blog.article.gastrobellinzona-andrea-giuliani.imageAlt': 'Interno di un ristorante tradizionale a Bellinzona, Ticino, con vista sulle montagne circostanti.',
 };
 
 export default blogMetaIt;

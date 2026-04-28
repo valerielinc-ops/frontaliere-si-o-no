@@ -8813,4 +8813,11 @@ export const ARTICLES = [
  image: '/images/blog/139-frontalieri-ticino-special-olympics.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gastrobellinzona-andrea-giuliani',
+ category: 'novita',
+ date: '2026-04-28T13:09:55.186Z',
+ image: '/images/blog/gastrobellinzona-andrea-giuliani.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

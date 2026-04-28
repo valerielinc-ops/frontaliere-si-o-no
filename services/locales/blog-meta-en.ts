@@ -3343,6 +3343,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.139-frontalieri-ticino-special-olympics.title': '139 Ticino cross-border athletes at Special Olympics National Summer Games',
     'blog.article.139-frontalieri-ticino-special-olympics.excerpt': '139 athletes with intellectual disabilities from Ticino will participate in the Special Olympics National Summer Games in Zug from May 28 to 31, 2026.',
     'blog.article.139-frontalieri-ticino-special-olympics.imageAlt': 'Athletes with intellectual disabilities compete at the Special Olympics National Summer Games in Zug',
+    'blog.article.gastrobellinzona-andrea-giuliani.title': 'Andrea Giuliani leads GastroBellinzona Alto Ticino',
+    'blog.article.gastrobellinzona-andrea-giuliani.excerpt': 'Andrea Giuliani is the new president of GastroBellinzona Alto Ticino. The association faces economic challenges and hopes for the catering industry.',
+    'blog.article.gastrobellinzona-andrea-giuliani.imageAlt': 'Interior of a traditional restaurant in Bellinzona, Ticino, with a view of the surrounding mountains.',
 };
 
 export default blogMetaEn;

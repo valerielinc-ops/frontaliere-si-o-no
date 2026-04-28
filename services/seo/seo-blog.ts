@@ -19295,6 +19295,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gastrobellinzona-andrea-giuliani': {
+    title: 'Andrea Giuliani guida GastroBellinzona Alto Ticino',
+    description: 'Andrea Giuliani è il nuovo presidente di GastroBellinzona Alto Ticino. L\'associazione affronta sfide economiche e speranze per la ristorazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, andrea, giuliani, gastrobellinzona, alto',
+    ogTitle: 'Andrea Giuliani guida GastroBellinzona Alto Ticino',
+    ogDescription: 'Andrea Giuliani è il nuovo presidente di GastroBellinzona Alto Ticino. L\'associazione affronta sfide economiche e speranze per la ristorazione.',
+    canonicalPath: '/articoli-frontaliere/gastrobellinzona-andrea-giuliani',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Andrea Giuliani guida GastroBellinzona Alto Ticino",
+      "description": "Andrea Giuliani è il nuovo presidente di GastroBellinzona Alto Ticino. L'associazione affronta sfide economiche e speranze per la ristorazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gastrobellinzona-andrea-giuliani.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di un ristorante tradizionale a Bellinzona, Ticino, con vista sulle montagne circostanti."
+      },
+      "datePublished": "2026-04-28T13:09:55+00:00",
+      "dateModified": "2026-04-28T13:09:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gastrobellinzona-andrea-giuliani`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

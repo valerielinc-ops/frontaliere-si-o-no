@@ -3343,6 +3343,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.139-frontalieri-ticino-special-olympics.title': '139 Grenzgänger aus dem Tessin bei den Special Olympics',
     'blog.article.139-frontalieri-ticino-special-olympics.excerpt': '139 Athletinnen und Athleten mit geistiger Behinderung aus dem Tessin nehmen vom 28. bis 31. Mai 2026 an den National Summer Games von Special Olympics in Zug teil',
     'blog.article.139-frontalieri-ticino-special-olympics.imageAlt': 'Athleten mit geistiger Behinderung nehmen an den Special Olympics National Summer Games in Zug teil',
+    'blog.article.gastrobellinzona-andrea-giuliani.title': 'Andrea Giuliani leitet GastroBellinzona Alto Ticino',
+    'blog.article.gastrobellinzona-andrea-giuliani.excerpt': 'Andrea Giuliani ist der neue Präsident von GastroBellinzona Alto Ticino. Der Verband steht vor wirtschaftlichen Herausforderungen und Hoffnungen für die Gastronomie.',
+    'blog.article.gastrobellinzona-andrea-giuliani.imageAlt': 'Innenraum eines traditionellen Restaurants in Bellinzona, Tessin, mit Blick auf die umliegenden Berge.',
 };
 
 export default blogMetaDe;
