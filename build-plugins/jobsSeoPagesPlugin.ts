@@ -19,6 +19,7 @@ import {
  renderJobCardListHtml,
  type JobCardJob,
 } from './shared/jobCardHtml';
+import { renderListingPaginationProse } from './shared/jobListingProse';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
 import {
@@ -4647,7 +4648,7 @@ ${alternates}
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
  entryJs: hasSpaBundle ? entryJs : undefined,
  entryCss: hasSpaBundle ? entryCss : undefined,
- bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>`,
+ bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}`,
  });
  const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
  activeJobDirs.add(pgCanonicalPath.slice(1).replace(/\/+$/, ''));

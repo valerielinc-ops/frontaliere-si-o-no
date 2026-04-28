@@ -43,6 +43,8 @@ import {
   type JobCardJob,
   type JobCardListItem,
 } from './shared/jobCardHtml';
+import { renderRecencyHubProse } from './shared/jobListingProse';
+import { windowDaysForVariant } from './jobRecencyLanding';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -208,6 +210,17 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
   </section>`
             : '';
 
+          // SEO content gate (text-to-HTML ratio): the recency hubs were
+          // flagged as <10 % visible text in the Apr 2026 audit because the
+          // body is mostly job-card markup. Append a methodology + extended
+          // FAQ block built from the shared frontaliere-relevant prose pool.
+          // Different `windowDays` values pick different variants so the
+          // 3-day and 1-day hubs aren't textually identical.
+          const proseHtml = renderRecencyHubProse(
+            locale,
+            windowDaysForVariant(variant),
+          );
+
           // JSON-LD — BreadcrumbList + ItemList + (when jobs present) JobPosting array + FAQPage
           const sectionRootUrl = `${BASE_URL}${withSlash(
             `${LOCALE_PREFIX[locale]}/${SECTION_BY_LOCALE[locale]}`.replace(/\/+/g, '/'),
@@ -328,6 +341,7 @@ ${alternates}
         </div>
         ${jobsHtml}
       </section>
+      ${proseHtml}
       ${faqHtml}
     </main>
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}

@@ -1556,6 +1556,66 @@ interface ArchiveInputs {
   distDir?: string;
 }
 
+/**
+ * SEO methodology + frontaliere-context prose appended to the monthly
+ * archive pages. Each page interpolates `monthKey`, `zoneLabel` and
+ * `avgFmt` so the final text is page-specific (no template duplication
+ * Google would penalise). Locale-correct, no hidden text.
+ */
+function renderFuelArchiveProse(args: {
+  locale: FuelDailyLocale;
+  fuelLabel: string;
+  zoneLabel: string;
+  monthKey: string; // YYYY-MM
+  avgFmt: string;
+}): string {
+  const { locale, fuelLabel, zoneLabel, monthKey, avgFmt } = args;
+  const calcHref =
+    locale === 'it' ? `${BASE_URL}/calcola-stipendio/`
+    : locale === 'en' ? `${BASE_URL}/en/calculate-salary/`
+    : locale === 'de' ? `${BASE_URL}/de/gehalt-berechnen/`
+    : `${BASE_URL}/fr/calculer-salaire/`;
+  const calcLabel =
+    locale === 'it' ? 'simulatore stipendio frontaliere'
+    : locale === 'en' ? 'cross-border salary simulator'
+    : locale === 'de' ? 'Grenzgänger-Lohnsimulator'
+    : 'simulateur de salaire frontalier';
+
+  const copy: Record<FuelDailyLocale, { h: string; p1: string; p2: string; p3: string }> = {
+    it: {
+      h: `Metodologia e contesto per il prezzo del ${fuelLabel.toLowerCase()} a ${zoneLabel}`,
+      p1: `I prezzi giornalieri di questa pagina (${monthKey}, media mensile ${avgFmt} CHF/litro) sono raccolti dal nostro pipeline di crawling notturno che interroga TCS Benzinpreis — il database del Touring Club Svizzero che aggrega le tariffe ufficiali di tutte le stazioni svizzere. Per ogni giorno calcoliamo la media dei distributori entro 20 km dal valico più vicino alla zona ${zoneLabel}, escludendo le pompe self-service di stazioni di servizio autostradali (tipicamente 8-12 % più care del prezzo medio cittadino). I dati restano disponibili per 24 mesi così puoi confrontare l'andamento storico stagione su stagione.`,
+      p2: `Per i frontalieri italiani che entrano in Ticino dai valichi di Brogeda (Como), Stabio-Gaggiolo (Varese), Ponte Tresa o Bizzarone, il prezzo medio mensile è solo metà del confronto: l'altra metà è il prezzo italiano alla pompa nelle città di partenza (Como, Lecco, Varese, Lugano italiana). Quando il delta CH-IT è inferiore a 0,08 EUR/litro, fare il pieno in Italia non compensa il tempo perso ai valichi (~30 minuti × tariffa oraria del proprio stipendio); quando supera 0,15 EUR/litro l'italiano vince anche tenendo conto del costo opportunità. Confronta sempre con il prezzo italiano nella tua città di residenza prima di decidere dove rifornirti.`,
+      p3: `Per integrare il costo carburante nello stipendio reale del Permesso G, usa il <a href="${calcHref}" style="color:var(--color-link)">${calcLabel}</a>: il modello considera 220 giorni lavorativi × consumo medio 6 L/100 km × distanza casa-lavoro tipica del frontaliere ticinese e mostra l'impatto netto su base annua. Su 13'200 km annui (60 km/giorno andata-ritorno medio), una variazione di CHF 0,10/litro al pompa cambia la spesa annua di circa CHF 80 — sembra poco ma sommato a usura veicolo, vignetta autostradale e bollo si arriva facilmente a CHF 3'000/anno di costi pendolarismo da sottrarre al lordo per ottenere il netto reale.`,
+    },
+    en: {
+      h: `Methodology and context for the ${fuelLabel.toLowerCase()} price in ${zoneLabel}`,
+      p1: `The daily prices on this page (${monthKey}, monthly average ${avgFmt} CHF/litre) are collected by our nightly crawler from TCS Benzinpreis — the Touring Club Switzerland database that aggregates the official tariffs of every Swiss station. Each day we average the pumps within 20 km of the closest crossing for the ${zoneLabel} zone, excluding motorway-service-area self-service pumps (typically 8-12 % more expensive than the city average). Data is retained for 24 months so you can compare historical trends season-on-season.`,
+      p2: `For Italian-resident cross-border workers entering Ticino through Brogeda (Como), Stabio-Gaggiolo (Varese), Ponte Tresa or Bizzarone, the monthly average is only half the comparison: the other half is the Italian price at the pump in the home city (Como, Lecco, Varese, Italian Lugano). When the CH-IT delta is below 0.08 EUR/litre, refuelling in Italy does not pay back the time lost at the crossing (~30 min × your hourly rate); above 0.15 EUR/litre Italy wins even after the opportunity-cost penalty. Always compare with the Italian price in your residence city before deciding where to fill up.`,
+      p3: `To integrate fuel into the real take-home pay of a G-permit holder, use the <a href="${calcHref}" style="color:var(--color-link)">${calcLabel}</a>: the model factors 220 working days × 6 L/100 km × the typical Ticino cross-border commute distance and shows the annualised net impact. Across 13,200 km/year (60 km round-trip average), a CHF 0.10/litre swing shifts annual spend by ~CHF 80 — small in isolation, but combined with vehicle wear, motorway vignette and road tax you quickly reach CHF 3,000/year of commute costs to subtract from gross to obtain real net.`,
+    },
+    de: {
+      h: `Methodik und Kontext zum ${fuelLabel}preis in ${zoneLabel}`,
+      p1: `Die Tagespreise auf dieser Seite (${monthKey}, Monatsdurchschnitt ${avgFmt} CHF/Liter) werden von unserem nächtlichen Crawler aus TCS Benzinpreis bezogen — die Datenbank des Touring Club Schweiz, die die offiziellen Tarife aller Schweizer Tankstellen aggregiert. Pro Tag bilden wir den Durchschnitt der Pumpen innerhalb von 20 km zum nächstgelegenen Grenzübergang in der Zone ${zoneLabel}, ohne Selbstbedienungs-Tankstellen an Autobahnraststätten (typisch 8-12 % teurer als der Stadtdurchschnitt). Die Daten bleiben 24 Monate verfügbar, sodass Sie historische Trends saisonübergreifend vergleichen können.`,
+      p2: `Für italienisch-residente Grenzgänger, die über Brogeda (Como), Stabio-Gaggiolo (Varese), Ponte Tresa oder Bizzarone ins Tessin einreisen, ist der Monatsdurchschnitt nur die Hälfte des Vergleichs: die andere Hälfte ist der italienische Preis an der Pumpe in der Wohnstadt (Como, Lecco, Varese, Italienisches Lugano). Wenn die CH-IT-Differenz unter 0,08 EUR/Liter liegt, lohnt sich das Tanken in Italien nicht — die Wartezeit am Übergang (~30 Min. × Stundenlohn) frisst den Vorteil; über 0,15 EUR/Liter gewinnt Italien auch nach Berücksichtigung der Opportunitätskosten. Vergleichen Sie immer mit dem italienischen Preis in Ihrer Wohnstadt, bevor Sie entscheiden, wo Sie tanken.`,
+      p3: `Um Treibstoff in das reale Netto eines G-Bewilligungs-Inhabers zu integrieren, nutzen Sie den <a href="${calcHref}" style="color:var(--color-link)">${calcLabel}</a>: das Modell rechnet 220 Arbeitstage × 6 L/100 km × typische Tessiner Grenzgänger-Distanz und zeigt den jährlichen Netto-Effekt. Über 13'200 km/Jahr (60 km Hin- und Rückfahrt) verschiebt eine Schwankung von CHF 0,10/Liter die Jahresausgabe um ~CHF 80 — wenig isoliert betrachtet, aber zusammen mit Fahrzeugverschleiss, Autobahnvignette und Motorfahrzeugsteuer erreicht man schnell CHF 3'000/Jahr Pendelkosten, die vom Brutto abzuziehen sind, um das echte Netto zu erhalten.`,
+    },
+    fr: {
+      h: `Méthodologie et contexte pour le prix du ${fuelLabel.toLowerCase()} à ${zoneLabel}`,
+      p1: `Les prix quotidiens de cette page (${monthKey}, moyenne mensuelle ${avgFmt} CHF/litre) sont collectés par notre crawler nocturne depuis TCS Benzinpreis — la base de données du Touring Club Suisse qui agrège les tarifs officiels de toutes les stations suisses. Chaque jour nous moyennons les pompes situées dans un rayon de 20 km du passage frontalier le plus proche pour la zone ${zoneLabel}, en excluant les pompes self-service des aires d'autoroute (typiquement 8-12 % plus chères que la moyenne urbaine). Les données restent disponibles pendant 24 mois afin de comparer les tendances historiques saison après saison.`,
+      p2: `Pour les frontaliers résidents italiens qui entrent au Tessin via Brogeda (Côme), Stabio-Gaggiolo (Varèse), Ponte Tresa ou Bizzarone, la moyenne mensuelle n'est qu'une moitié de la comparaison : l'autre moitié est le prix italien à la pompe dans la ville de résidence (Côme, Lecco, Varèse, Lugano italienne). Quand l'écart CH-IT descend sous 0,08 EUR/litre, faire le plein en Italie ne rentabilise pas le temps perdu au passage (~30 min × votre taux horaire) ; au-dessus de 0,15 EUR/litre, l'Italie gagne même après le coût d'opportunité. Comparez toujours avec le prix italien dans votre ville avant de décider où faire le plein.`,
+      p3: `Pour intégrer le carburant dans le net réel d'un permis G, utilisez le <a href="${calcHref}" style="color:var(--color-link)">${calcLabel}</a> : le modèle prend en compte 220 jours ouvrables × 6 L/100 km × la distance typique du trajet frontalier tessinois et affiche l'impact net annualisé. Sur 13'200 km/an (60 km aller-retour moyen), une variation de CHF 0,10/litre déplace la dépense annuelle d'environ CHF 80 — peu isolément, mais combiné à l'usure, à la vignette autoroutière et à la taxe de circulation, on atteint vite CHF 3'000/an de coûts de trajet à soustraire du brut pour obtenir le net réel.`,
+    },
+  };
+  const c = copy[locale] || copy.it;
+  return `<section style="margin:32px 0 0;max-width:860px" aria-labelledby="archiveContext">
+    <h2 id="archiveContext" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7">${c.p1}</p>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7">${c.p2}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7">${c.p3}</p>
+  </section>`;
+}
+
 function renderArchive(inp: ArchiveInputs): string {
   const { locale, fuel, zone, monthKey, snapshots, canonicalPath, today, distDir } = inp;
   const copy = COPY[locale];
@@ -1651,6 +1711,15 @@ function renderArchive(inp: ArchiveInputs): string {
     dateModified: dateStamp,
   });
 
+  // SEO content gate (text-to-HTML ratio): the monthly archive pages
+  // were among the 75 fuel-daily offenders flagged at <10% in the
+  // Apr 2026 audit because the body is mostly a single paragraph + a
+  // small SVG chart + a numeric table. Append a methodology paragraph
+  // explaining how the dataset is sourced (TCS Benzinpreis / MIMIT
+  // Osservaprezzi), refresh cadence, and a frontaliere-routing context
+  // block so each page emits real, page-relevant prose.
+  const archiveProse = renderFuelArchiveProse({ locale, fuelLabel, zoneLabel, monthKey, avgFmt: formatPrice(avg, locale) });
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
         <nav style="${BREADCRUMB_STYLE}">
           <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -1666,6 +1735,7 @@ function renderArchive(inp: ArchiveInputs): string {
         </header>
         ${archiveChartHtml}
         <section>${tableHtml}</section>
+        ${archiveProse}
       </article>`;
 
   return buildSeoPageHtml({
