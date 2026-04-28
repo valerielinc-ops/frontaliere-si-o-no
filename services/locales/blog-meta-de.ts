@@ -3382,6 +3382,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.locarno-landquart-rifiuti-1000-tonnellate.title': 'Locarno entsorgt Abfälle in Landquart: 1000 Tonnen über 156 km',
     'blog.article.locarno-landquart-rifiuti-1000-tonnellate.excerpt': 'Locarno entsorgt pflanzliche Abfälle in Landquart und verursacht dabei jährlich 6,5 Tonnen CO2. Eine Anfrage an den Gemeinderat wegen mangelnder Umweltkohärenz.',
     'blog.article.locarno-landquart-rifiuti-1000-tonnellate.imageAlt': 'Luftaufnahme von Locarno und dem Lago Maggiore, Schweiz, mit Bergen im Hintergrund',
+    'blog.article.stipendi-svizzeri-crescono-2025.title': 'Schweizer Löhne steigen: +1,6% im 2025',
+    'blog.article.stipendi-svizzeri-crescono-2025.excerpt': 'Die realen Löhne in der Schweiz sind im Jahr 2025 um 1,6% gestiegen, der höchste Anstieg seit 2009',
+    'blog.article.stipendi-svizzeri-crescono-2025.imageAlt': 'Luganersee mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

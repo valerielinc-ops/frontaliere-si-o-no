@@ -19672,6 +19672,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendi-svizzeri-crescono-2025': {
+    title: 'Stipendi svizzeri in crescita: +1,6% nel 2025 | Frontaliere Ticino',
+    description: 'I salari reali in Svizzera sono aumentati dell\'1,6% nel 2025, il guadagno più consistente dal 2009. Scopri di più sugli aumenti e le implicazioni per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendi, svizzeri, crescita, 2025',
+    ogTitle: 'Stipendi svizzeri in crescita: +1,6% nel 2025',
+    ogDescription: 'I salari reali in Svizzera sono aumentati dell\'1,6% nel 2025, il guadagno più consistente dal 2009. Scopri di più sugli aumenti e le implicazioni per i',
+    canonicalPath: '/articoli-frontaliere/stipendi-svizzeri-crescono-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendi svizzeri in crescita: +1,6% nel 2025",
+      "description": "I salari reali in Svizzera sono aumentati dell'1,6% nel 2025, il guadagno più consistente dal 2009. Scopri di più sugli aumenti e le implicazioni per i",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stipendi-svizzeri-crescono-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne e edifici circostanti"
+      },
+      "datePublished": "2026-04-28T15:35:16+00:00",
+      "dateModified": "2026-04-28T15:35:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendi-svizzeri-crescono-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

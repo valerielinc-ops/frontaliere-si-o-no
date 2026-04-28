@@ -8904,4 +8904,11 @@ export const ARTICLES = [
  image: '/images/blog/locarno-landquart-rifiuti-1000-tonnellate.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'stipendi-svizzeri-crescono-2025',
+ category: 'novita',
+ date: '2026-04-28T15:35:16.763Z',
+ image: '/images/blog/stipendi-svizzeri-crescono-2025.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

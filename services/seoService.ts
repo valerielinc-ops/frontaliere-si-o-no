@@ -2358,6 +2358,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nidi-extrascolastico-ticino-un-servizio': { name: 'Ticino', path: '/articoli-frontaliere/nidi-extrascolastico-ticino-un-servizio', parent: 'blog' },
     'blog-ticinesi-parigi-roland-garros': { name: 'Roland Garros', path: '/articoli-frontaliere/ticinesi-parigi-roland-garros', parent: 'blog' },
     'blog-locarno-landquart-rifiuti-1000-tonnellate': { name: 'Novità', path: '/articoli-frontaliere/locarno-landquart-rifiuti-1000-tonnellate', parent: 'blog' },
+    'blog-stipendi-svizzeri-crescono-2025': { name: 'Novità', path: '/articoli-frontaliere/stipendi-svizzeri-crescono-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

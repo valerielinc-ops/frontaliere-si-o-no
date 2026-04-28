@@ -3382,6 +3382,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.locarno-landquart-rifiuti-1000-tonnellate.title': 'Locarno disposes waste in Landquart: 1,000 tonnes over 156 km',
     'blog.article.locarno-landquart-rifiuti-1000-tonnellate.excerpt': 'Locarno disposes of plant waste in Landquart, generating 6.5 tonnes of CO2 annually. Interrogation to the Municipality for lack of environmental coherence.',
     'blog.article.locarno-landquart-rifiuti-1000-tonnellate.imageAlt': 'Aerial view of Locarno and Lake Maggiore, Switzerland, with mountains in the background',
+    'blog.article.stipendi-svizzeri-crescono-2025.title': 'Swiss salaries rise: +1.6% in 2025',
+    'blog.article.stipendi-svizzeri-crescono-2025.excerpt': 'Real wages in Switzerland increased by 1.6% in 2025, the most significant gain since 2009',
+    'blog.article.stipendi-svizzeri-crescono-2025.imageAlt': 'Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;

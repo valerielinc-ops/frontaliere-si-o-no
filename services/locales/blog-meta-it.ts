@@ -3383,6 +3383,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.locarno-landquart-rifiuti-1000-tonnellate.title': 'Locarno smaltisce rifiuti a Landquart: 1000 tonnellate su 156 km',
     'blog.article.locarno-landquart-rifiuti-1000-tonnellate.excerpt': 'Locarno smaltisce rifiuti vegetali a Landquart, generando 6,5 tonnellate di CO2 annuali. Interrogazione al Municipio per la mancanza di coerenza ambientale.',
     'blog.article.locarno-landquart-rifiuti-1000-tonnellate.imageAlt': 'Vista aerea di Locarno e del Lago Maggiore, Svizzera, con montagne sullo sfondo',
+    'blog.article.stipendi-svizzeri-crescono-2025.title': 'Stipendi svizzeri in crescita: +1,6% nel 2025',
+    'blog.article.stipendi-svizzeri-crescono-2025.excerpt': 'I salari reali in Svizzera sono aumentati dell\'1,6% nel 2025, il guadagno più consistente dal 2009',
+    'blog.article.stipendi-svizzeri-crescono-2025.imageAlt': 'Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;
