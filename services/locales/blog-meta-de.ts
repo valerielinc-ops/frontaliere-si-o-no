@@ -3391,6 +3391,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.quadri-interpella-consiglio-frontiere-tasse.title': 'Quadri drängt Bundesrat zu Grenzen und LKW-Steuern',
     'blog.article.quadri-interpella-consiglio-frontiere-tasse.excerpt': 'Lorenzo Quadri (Lega dei Ticinesi) stellt eine Interpellation zum neuen NMTS-System für die Schwerverkehrsabgabe.',
     'blog.article.quadri-interpella-consiglio-frontiere-tasse.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
+    'blog.article.fenealuil-decreto-lavoro-2026.title': 'Arbeitsdekrets 2026: FenealUil zufrieden',
+    'blog.article.fenealuil-decreto-lavoro-2026.excerpt': 'Mauro Franzolini, Generalsekretär von FenealUil, kommentiert den Entwurf des Arbeitsdekrets, das im Ministerrat geprüft wird.',
+    'blog.article.fenealuil-decreto-lavoro-2026.imageAlt': 'Luganersee mit Blick auf Lugano und Monte Brè',
 };
 
 export default blogMetaDe;

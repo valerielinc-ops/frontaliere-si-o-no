@@ -3392,6 +3392,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quadri-interpella-consiglio-frontiere-tasse.title': 'Quadri incalza il Consiglio federale su frontiere e tasse sui camion',
     'blog.article.quadri-interpella-consiglio-frontiere-tasse.excerpt': 'Lorenzo Quadri (Lega dei Ticinesi) presenta un\'interpellanza sul nuovo sistema NMTS per la tassa sul traffico pesante.',
     'blog.article.quadri-interpella-consiglio-frontiere-tasse.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
+    'blog.article.fenealuil-decreto-lavoro-2026.title': 'Decreto Lavoro 2026: FenealUil moderatamente soddisfatta',
+    'blog.article.fenealuil-decreto-lavoro-2026.excerpt': 'Mauro Franzolini, segretario generale FenealUil, commenta la bozza del decreto lavoro in esame al Consiglio dei ministri.',
+    'blog.article.fenealuil-decreto-lavoro-2026.imageAlt': 'Lago di Lugano con vista su Lugano e Monte Brè',
 };
 
 export default blogMetaIt;

@@ -2361,6 +2361,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stipendi-svizzeri-crescono-2025': { name: 'Novità', path: '/articoli-frontaliere/stipendi-svizzeri-crescono-2025', parent: 'blog' },
     'blog-tassa-traffico-pesante-lacune-controlli': { name: 'Fiscale', path: '/articoli-frontaliere/tassa-traffico-pesante-lacune-controlli', parent: 'blog' },
     'blog-quadri-interpella-consiglio-frontiere-tasse': { name: 'Frontiere e tasse', path: '/articoli-frontaliere/quadri-interpella-consiglio-frontiere-tasse', parent: 'blog' },
+    'blog-fenealuil-decreto-lavoro-2026': { name: 'Decreto Lavoro', path: '/articoli-frontaliere/fenealuil-decreto-lavoro-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

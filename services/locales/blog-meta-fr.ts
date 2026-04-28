@@ -3392,6 +3392,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.quadri-interpella-consiglio-frontiere-tasse.title': 'Quadri interpelle le Conseil fédéral sur les taxes des camions',
     'blog.article.quadri-interpella-consiglio-frontiere-tasse.excerpt': 'Lorenzo Quadri (Lega dei Ticinesi) dépose une interpellation sur le nouveau système NMTS pour la taxe sur le trafic lourd.',
     'blog.article.quadri-interpella-consiglio-frontiere-tasse.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bâtiments',
+    'blog.article.fenealuil-decreto-lavoro-2026.title': 'Décret Travail 2026 : FenealUil modérément satisfaite',
+    'blog.article.fenealuil-decreto-lavoro-2026.excerpt': 'Mauro Franzolini, secrétaire général de la FenealUil, commente la version préliminaire du décret travail en examen au Conseil des ministres.',
+    'blog.article.fenealuil-decreto-lavoro-2026.imageAlt': 'Lac de Lugano avec vue sur Lugano et Monte Brè',
 };
 
 export default blogMetaFr;

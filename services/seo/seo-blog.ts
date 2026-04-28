@@ -19759,6 +19759,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fenealuil-decreto-lavoro-2026': {
+    title: 'Decreto Lavoro 2026: FenealUil moderatamente soddisfatta',
+    description: 'Mauro Franzolini, segretario generale FenealUil, commenta la bozza del decreto lavoro in esame al Consiglio dei ministri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, decreto, lavoro, fenealuil, moderatamente',
+    ogTitle: 'Decreto Lavoro 2026: FenealUil moderatamente soddisfatta',
+    ogDescription: 'Mauro Franzolini, segretario generale FenealUil, commenta la bozza del decreto lavoro in esame al Consiglio dei ministri.',
+    canonicalPath: '/articoli-frontaliere/fenealuil-decreto-lavoro-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Decreto Lavoro 2026: FenealUil moderatamente soddisfatta",
+      "description": "Mauro Franzolini, segretario generale FenealUil, commenta la bozza del decreto lavoro in esame al Consiglio dei ministri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fenealuil-decreto-lavoro-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista su Lugano e Monte Brè"
+      },
+      "datePublished": "2026-04-28T15:54:28+00:00",
+      "dateModified": "2026-04-28T15:54:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fenealuil-decreto-lavoro-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
