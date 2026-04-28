@@ -67,6 +67,11 @@ export const TYPES_ACCEPT_IN_LANGUAGE: ReadonlySet<string> = new Set([
  'ImageObject',
  'AudioObject',
  'MediaObject',
+ 'DigitalDocument',
+ 'TextDigitalDocument',
+ 'PresentationDigitalDocument',
+ 'SpreadsheetDigitalDocument',
+ 'NoteDigitalDocument',
  // Explicitly listed by schema.org as accepting inLanguage
  'Event',
  'LinkRole',
