@@ -1,4 +1,5 @@
 import admin from 'firebase-admin';
+import { refreshEngagementScore } from './lib/engagementScore.js';
 
 /**
  * Mailjet webhook handler — receives delivery events and stores them in Firestore.
@@ -76,28 +77,44 @@ export async function persistMailjetEvent(db, eventData) {
  return persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId, timestamp, eventData });
  }
 
+ const FieldValue = admin.firestore.FieldValue;
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
- // Update subscriber-level status for critical events
+ // Update subscriber-level fields (aligned with Resend/Mailgun/Unosend handlers)
  const subscriberUpdate = {
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: FieldValue.serverTimestamp(),
  };
 
- if (type === 'bounce') {
+ if (type === 'send') {
+ subscriberUpdate.last_sent_at = FieldValue.serverTimestamp();
+ subscriberUpdate.send_count = FieldValue.increment(1);
+ } else if (type === 'open') {
+ subscriberUpdate.last_open_at = FieldValue.serverTimestamp();
+ subscriberUpdate.open_count = FieldValue.increment(1);
+ } else if (type === 'click') {
+ subscriberUpdate.last_click_at = FieldValue.serverTimestamp();
+ subscriberUpdate.click_count = FieldValue.increment(1);
+ subscriberUpdate.last_clicked_url = eventData.url || '';
+ } else if (type === 'bounce') {
  subscriberUpdate.status = 'bounced';
- subscriberUpdate.bounced_at = admin.firestore.FieldValue.serverTimestamp();
+ subscriberUpdate.bounced_at = FieldValue.serverTimestamp();
  subscriberUpdate.bounce_reason = eventData.error || '';
  subscriberUpdate.bounce_hard = !!eventData.hard_bounce;
  } else if (type === 'unsubscribed') {
  subscriberUpdate.status = 'unsubscribed';
- subscriberUpdate.unsubscribed_at = admin.firestore.FieldValue.serverTimestamp();
+ subscriberUpdate.unsubscribed_at = FieldValue.serverTimestamp();
  } else if (type === 'complaint') {
  subscriberUpdate.status = 'complained';
- subscriberUpdate.complained_at = admin.firestore.FieldValue.serverTimestamp();
+ subscriberUpdate.complained_at = FieldValue.serverTimestamp();
  }
 
  if (Object.keys(subscriberUpdate).length > 1) {
  await subscriberRef.set(subscriberUpdate, { merge: true });
+ }
+
+ // Refresh engagement score after counter changes (FRO-17)
+ if (type === 'open' || type === 'click' || type === 'send') {
+ await refreshEngagementScore(subscriberRef, FieldValue);
  }
 
  // Update campaign delivery doc

@@ -1,5 +1,6 @@
 import admin from 'firebase-admin';
 import { Resend } from 'resend';
+import { refreshEngagementScore } from './lib/engagementScore.js';
 
 function normalizeEmail(value) {
  return String(value || '').trim().toLowerCase();
@@ -161,32 +162,6 @@ function buildSubscriberUpdate(eventType, data, currentStatus) {
  return update;
 }
 
-function calculateEngagementScore(subscriberData) {
- const sendCount = Number(subscriberData?.send_count || subscriberData?.sendCount) || 0;
- const openCount = Number(subscriberData?.open_count || subscriberData?.openCount) || 0;
- const clickCount = Number(subscriberData?.click_count || subscriberData?.clickCount) || 0;
- const openRate = sendCount > 0 ? openCount / sendCount : 0;
- const clickRate = sendCount > 0 ? clickCount / sendCount : 0;
- const openScore = Math.min(40, Math.round(openRate * 80));
- const clickScore = Math.min(30, Math.round(clickRate * 150));
- const lastEngagement = subscriberData?.last_click_at || subscriberData?.last_open_at;
- let recencyScore = 0;
- if (lastEngagement) {
- const ts = typeof lastEngagement === 'object' && lastEngagement.toDate
- ? lastEngagement.toDate().getTime()
- : new Date(lastEngagement).getTime();
- const daysSince = (Date.now() - ts) / (1000 * 60 * 60 * 24);
- if (daysSince < 7) recencyScore = 30;
- else if (daysSince < 14) recencyScore = 25;
- else if (daysSince < 30) recencyScore = 18;
- else if (daysSince < 60) recencyScore = 10;
- else if (daysSince < 90) recencyScore = 5;
- }
- const score = Math.min(100, openScore + clickScore + recencyScore);
- const level = score >= 70 ? 'hot' : score >= 50 ? 'warm' : score >= 30 ? 'cool' : score >= 10 ? 'cold' : 'dormant';
- return { score, level };
-}
-
 export async function applyResendWebhookEvent(rawEvent, options = {}) {
  const db = options.db || getAdminDb();
  const type = mapWebhookType(rawEvent?.type);
@@ -249,19 +224,10 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  // Update engagement score after metrics change (FRO-17)
  if (type === 'open' || type === 'click' || type === 'send') {
- try {
- const updatedDoc = await db.collection('newsletter_subscribers').doc(email).get();
- if (updatedDoc.exists) {
- const { score, level } = calculateEngagementScore(updatedDoc.data());
- await db.collection('newsletter_subscribers').doc(email).set({
- engagement_score: score,
- engagement_level: level,
- engagement_updated_at: admin.firestore.FieldValue.serverTimestamp(),
- }, { merge: true });
- }
- } catch {
- // Non-critical — skip engagement score update
- }
+ await refreshEngagementScore(
+ db.collection('newsletter_subscribers').doc(email),
+ admin.firestore.FieldValue,
+ );
  }
 
  await db.collection('newsletter_subscribers').doc(email).collection('campaign_deliveries').doc(buildDeliveryDocId(email, campaignId)).set({
@@ -365,19 +331,7 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
 
  // ── Engagement score ────────────────────────────────────────
  if (type === 'open' || type === 'click' || type === 'send') {
- try {
- const doc = await subscriberRef.get();
- if (doc.exists) {
- const { score, level } = calculateEngagementScore(doc.data());
- await subscriberRef.set({
- engagement_score: score,
- engagement_level: level,
- engagement_updated_at: FieldValue.serverTimestamp(),
- }, { merge: true });
- }
- } catch {
- // Non-critical
- }
+ await refreshEngagementScore(subscriberRef, FieldValue);
  }
 
  // ── Per-alert delivery record (subcollection) ───────────────

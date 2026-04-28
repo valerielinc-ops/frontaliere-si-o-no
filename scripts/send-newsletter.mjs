@@ -33,6 +33,8 @@ import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
+import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
+import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -971,6 +973,7 @@ async function fetchSubscribers() {
     // Exclude only those who explicitly opted out or have delivery issues.
     const snap = await db.collection('newsletter_subscribers').get();
     snap.docs.forEach((d) => {
+      if (d.id === '_meta_') return;
       const row = d.data();
       const email = normalizeEmail(row.email);
       if (!email) return;
@@ -978,6 +981,9 @@ async function fetchSubscribers() {
       if (EXCLUDED_STATUSES.has(status)) return;
       // Belt-and-suspenders: also exclude if unsubscribedAt is set (frontend handler bug backfill)
       if (row.unsubscribedAt || row.unsubscribed_at) return;
+      // Recompute engagement on-the-fly from raw counters — Firestore engagement_score
+      // is partially stale (FRO-17 bug fixed in webhooks; pre-existing rows lag).
+      const fresh = calculateEngagementScore(row);
       subscribers.set(email, {
         email,
         locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
@@ -992,6 +998,10 @@ async function fetchSubscribers() {
         // Default true: only skip autologin if user explicitly opted out
         autologinEnabled: row.autologin_enabled !== false,
         createdAt: row.createdAt?.toDate?.() || (row.created_at ? new Date(row.created_at) : null),
+        // Engagement metadata used for prioritized send order
+        sendCount: Number(row.send_count || row.sendCount) || 0,
+        engagementScore: fresh.score,
+        engagementLevel: fresh.level,
       });
     });
   } catch (e) {
@@ -1000,8 +1010,9 @@ async function fetchSubscribers() {
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
 
-  return [...subscribers.values()];
+  return prioritizeSubscribers([...subscribers.values()]);
 }
+
 
 // ─── Email headers ──────────────────────────────────────────
 
@@ -1090,6 +1101,12 @@ async function persistDelivery(recipient, messageId, meta) {
       send_count: FieldValue ? FieldValue.increment(1) : 1,
       updated_at: new Date(),
     }, { merge: true });
+    // Refresh engagement score after counter changes (FRO-17). Belt-and-suspenders
+    // alongside the ESP webhook recompute, so the persisted score stays fresh
+    // even if a webhook delivery is lost.
+    if (FieldValue) {
+      await refreshEngagementScore(subRef, FieldValue);
+    }
   } catch (e) {
     console.warn('\u26a0\ufe0f Delivery persist failed:', e?.message);
   }

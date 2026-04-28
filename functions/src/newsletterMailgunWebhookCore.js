@@ -1,5 +1,6 @@
 import admin from 'firebase-admin';
 import crypto from 'crypto';
+import { refreshEngagementScore } from './lib/engagementScore.js';
 
 /**
  * Mailgun webhook handler — receives delivery events and stores them in Firestore.
@@ -117,6 +118,11 @@ async function persistMailgunEvent(db, eventData) {
  }
 
  await subscriberRef.set(subscriberUpdate, { merge: true });
+
+ // Refresh engagement score after counter changes (FRO-17)
+ if (type === 'open' || type === 'click' || type === 'send') {
+ await refreshEngagementScore(subscriberRef, FieldValue);
+ }
 
  // Update campaign delivery doc
  const deliveryData = {

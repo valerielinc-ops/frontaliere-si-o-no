@@ -1,4 +1,5 @@
 import admin from 'firebase-admin';
+import { refreshEngagementScore } from './lib/engagementScore.js';
 
 /**
  * Mailtrap webhook handler — receives delivery events and stores them in Firestore.
@@ -103,6 +104,11 @@ async function persistMailtrapEvent(db, eventData) {
  }
 
  await subscriberRef.set(subscriberUpdate, { merge: true });
+
+ // Refresh engagement score after counter changes (FRO-17)
+ if (type === 'open' || type === 'click' || type === 'send') {
+ await refreshEngagementScore(subscriberRef, FieldValue);
+ }
 
  // Update campaign delivery doc
  const deliveryData = {
