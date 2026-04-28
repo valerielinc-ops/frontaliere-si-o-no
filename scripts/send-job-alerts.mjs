@@ -23,6 +23,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { normalizeContract } from '../services/newsletter-content.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -84,11 +85,22 @@ const BRAND_LOGO_BY_SLUG = (() => {
   }
 })();
 
+// Brand aliases: when crawlers emit different legal-entity names for the same
+// parent brand (e.g. "Coop Genossenschaft" vs "Coop Ticino"), map them to the
+// bundled logo slug. Add new entries lower-cased on the LEFT, slug on the RIGHT.
+const BRAND_ALIASES = new Map([
+  ['coop-genossenschaft', 'coop-ticino'],
+  ['coop-svizzera', 'coop-ticino'],
+  ['eoc', 'eoc-ente-ospedaliero-cantonale'],
+  ['eoc-ospedaliero-cantonale', 'eoc-ente-ospedaliero-cantonale'],
+]);
+
 function brandLogoUrl(companyName) {
   if (!companyName) return null;
-  const slug = String(companyName).toLowerCase()
+  const baseSlug = String(companyName).toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const slug = BRAND_ALIASES.get(baseSlug) || baseSlug;
   const filename = BRAND_LOGO_BY_SLUG.get(slug);
   return filename ? `${BASE_URL}/images/brands/${filename}` : null;
 }
@@ -498,7 +510,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     // Salary chip — only when the job has structured salary data (most don't).
     const salaryLabel = formatSalary(job, locale);
     if (salaryLabel) tags.push(tagChip(escHtml(salaryLabel), 'blue'));
-    if (job.contract) tags.push(tagChip(escHtml(job.contract)));
+    if (job.contract) tags.push(tagChip(escHtml(normalizeContract(job.contract, locale))));
     if (location) tags.push(tagChip(escHtml(location)));
 
     // Avatar: real brand logo when we have one bundled, initial-letter fallback otherwise.
@@ -947,7 +959,7 @@ async function main() {
   let totalMatches = 0;
 
   for (const alert of alerts) {
-    const matched = recentJobs
+    const sorted = recentJobs
       .map((job) => ({ job, score: matchJobToAlert(job, alert) }))
       .filter((m) => m.score > 0)
       .sort((a, b) => {
@@ -960,8 +972,28 @@ async function main() {
         const aTime = a.job.firstSeenAt ? new Date(a.job.firstSeenAt).getTime() : 0;
         const bTime = b.job.firstSeenAt ? new Date(b.job.firstSeenAt).getTime() : 0;
         return bTime - aTime;
-      })
-      .map((m) => m.job);
+      });
+
+    // Per-company cap: at most 2 jobs per company in the surfaced list. Without
+    // this, recency-sorted location-only alerts produce 9/10 cards from the same
+    // employer (e.g. all EOC) — visually monotone. Overflow jobs are kept in
+    // `remainder` and appended after the cap is exhausted, so the user still
+    // sees the count when they have enough variety.
+    const PER_COMPANY_CAP = 2;
+    const perCompany = new Map();
+    const surfaced = [];
+    const remainder = [];
+    for (const m of sorted) {
+      const key = String(m.job.company || '\u2205').toLowerCase();
+      const count = perCompany.get(key) || 0;
+      if (count < PER_COMPANY_CAP) {
+        surfaced.push(m.job);
+        perCompany.set(key, count + 1);
+      } else {
+        remainder.push(m.job);
+      }
+    }
+    const matched = surfaced.concat(remainder).map((job) => job);
 
     if (matched.length === 0) continue;
 

@@ -48,7 +48,7 @@ const CONTRACT_LABELS = {
   fr: { part: 'Temps partiel', intern: 'Stage', appr: 'Apprentissage', temp: 'Durée déterminée', full: 'Temps plein', default: 'Annonce active' },
 };
 
-function normalizeContract(contract, locale = 'it') {
+export function normalizeContract(contract, locale = 'it') {
   const labels = CONTRACT_LABELS[locale] || CONTRACT_LABELS.it;
   const value = String(contract || '').toLowerCase();
   if (value.includes('part')) return labels.part;

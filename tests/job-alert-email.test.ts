@@ -352,6 +352,49 @@ describe('job alert email — brand logo + salary chip', () => {
   });
 });
 
+describe('job alert email — contract chip translation', () => {
+  it('IT contract chip: "internship" → "Stage"', () => {
+    const job = fixtureJob({ contract: 'internship' });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toContain('>Stage<');
+    expect(result.html).not.toMatch(/>internship</i);
+  });
+  it('EN contract chip: "internship" stays "Internship"', () => {
+    const job = fixtureJob({ contract: 'internship' });
+    const result = buildAlertEmail(fixtureAlert('en'), [job], true);
+    expect(result.html).toMatch(/>Internship</);
+  });
+  it('IT contract chip: "full-time" → "Tempo pieno"', () => {
+    const job = fixtureJob({ contract: 'full-time' });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toContain('>Tempo pieno<');
+  });
+  it('DE contract chip: "part-time" → "Teilzeit"', () => {
+    const job = fixtureJob({ contract: 'part-time' });
+    const result = buildAlertEmail(fixtureAlert('de'), [job], true);
+    expect(result.html).toContain('>Teilzeit<');
+  });
+});
+
+describe('job alert email — brand alias logo lookup', () => {
+  it('"Coop Genossenschaft" resolves to coop-ticino logo via alias', () => {
+    const job = fixtureJob({ company: 'Coop Genossenschaft' });
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toMatch(/\/images\/brands\/coop-ticino\.png/);
+  });
+});
+
+describe('job alert dedup — per-company cap', () => {
+  it('source contains a per-company cap that allows max 2 jobs per company before overflow', () => {
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
+      'utf8',
+    );
+    expect(src).toMatch(/PER_COMPANY_CAP\s*=\s*2/);
+    expect(src).toMatch(/perCompany\.get\(key\)\s*\|\|\s*0/);
+  });
+});
+
 describe('job alert workflow — TARGET_EMAIL filter (source check)', () => {
   it('script reads TARGET_EMAIL env to build the allowlist', () => {
     const src = fs.readFileSync(
