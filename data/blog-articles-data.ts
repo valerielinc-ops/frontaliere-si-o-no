@@ -9296,4 +9296,11 @@ export const ARTICLES = [
  image: '/images/blog/volo-swiss-evacuato-passeggeri-bagaglio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'banche-golfo-frontalieri-ticino-2026',
+ category: 'novita',
+ date: '2026-04-28T21:50:14.467Z',
+ image: '/images/blog/banche-golfo-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3551,6 +3551,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.title': 'Volo Swiss evacuato: passeggeri non mollano il bagaglio a mano',
     'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.excerpt': 'Un Airbus A330 della Swiss è stato evacuato a New Delhi dopo un\'interruzione del decollo. Molti passeggeri non hanno seguito le istruzioni di sicurezza.',
     'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.imageAlt': 'Aereo Swiss evacuato a New Delhi con passeggeri e scivoli di emergenza',
+    'blog.article.banche-golfo-frontalieri-ticino-2026.title': 'Banche svizzere pronte per i clienti del Golfo',
+    'blog.article.banche-golfo-frontalieri-ticino-2026.excerpt': 'Trasferimenti di capitali e potenziali trasferimenti di residenza verso la Svizzera a causa del conflitto in Iran',
+    'blog.article.banche-golfo-frontalieri-ticino-2026.imageAlt': 'Vista del lago di Lugano con edifici finanziari moderni',
 };
 
 export default blogMetaIt;

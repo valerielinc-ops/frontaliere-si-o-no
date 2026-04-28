@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1233,
+ "numberOfItems": 1234,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5868,7 +5868,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1230, "name": "Andrea Giuliani nuovo presidente di Gastro Bell...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-presidente-gastro-bellinzona` },
           { "@type": "ListItem", "position": 1231, "name": "Presidio UIL FP a Varese: parcheggi e carenza d...", "url": `${BASE_URL}/articoli-frontaliere/varese-ospedale-parcheggi-personale-2026` },
           { "@type": "ListItem", "position": 1232, "name": "Coalizione sanitaria: «Calpestata la volontà po...", "url": `${BASE_URL}/articoli-frontaliere/coalizione-sanitario-volonta-calpestata` },
-          { "@type": "ListItem", "position": 1233, "name": "Volo Swiss evacuato: passeggeri non mollano il ...", "url": `${BASE_URL}/articoli-frontaliere/volo-swiss-evacuato-passeggeri-bagaglio` }
+          { "@type": "ListItem", "position": 1233, "name": "Volo Swiss evacuato: passeggeri non mollano il ...", "url": `${BASE_URL}/articoli-frontaliere/volo-swiss-evacuato-passeggeri-bagaglio` },
+          { "@type": "ListItem", "position": 1234, "name": "Banche svizzere pronte per i clienti del Golfo", "url": `${BASE_URL}/articoli-frontaliere/banche-golfo-frontalieri-ticino-2026` }
  ]
  },
  {

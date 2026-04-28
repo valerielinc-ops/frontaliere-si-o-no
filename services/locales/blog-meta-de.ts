@@ -3550,6 +3550,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.title': 'Swiss-Flugzeug evakuiert: Passagiere halten Handgepäck fest',
     'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.excerpt': 'Ein Airbus A330 der Swiss wurde nach einem abgebrochenen Start in Neu-Delhi evakuiert. Viele Passagiere folgten nicht den Sicherheitsanweisungen.',
     'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.imageAlt': 'Evakuiertes Swiss-Flugzeug in Neu-Delhi mit Passagieren und Notrutschen',
+    'blog.article.banche-golfo-frontalieri-ticino-2026.title': 'Schweizer Banken bereit für Kunden aus dem Golf',
+    'blog.article.banche-golfo-frontalieri-ticino-2026.excerpt': 'Kapitaltransfers und potenzielle Umzüge in die Schweiz aufgrund des Konflikts in Iran',
+    'blog.article.banche-golfo-frontalieri-ticino-2026.imageAlt': 'Blick auf den Luganersee mit modernen Finanzgebäuden',
 };
 
 export default blogMetaDe;

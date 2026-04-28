@@ -3550,6 +3550,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.title': 'Swiss flight evacuated: passengers refuse to leave carry-on',
     'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.excerpt': 'An Airbus A330 of Swiss was evacuated in New Delhi after an aborted takeoff. Many passengers did not follow safety instructions.',
     'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.imageAlt': 'Swiss airplane evacuated in New Delhi with passengers and emergency slides',
+    'blog.article.banche-golfo-frontalieri-ticino-2026.title': 'Swiss banks ready for Gulf clients',
+    'blog.article.banche-golfo-frontalieri-ticino-2026.excerpt': 'Capital transfers and potential residence moves to Switzerland due to the Iran conflict',
+    'blog.article.banche-golfo-frontalieri-ticino-2026.imageAlt': 'Lake Lugano view with modern financial buildings',
 };
 
 export default blogMetaEn;

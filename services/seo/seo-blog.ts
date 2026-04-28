@@ -21296,6 +21296,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banche-golfo-frontalieri-ticino-2026': {
+    title: 'Banche svizzere pronte per i clienti del Golfo | Frontaliere Ticino',
+    description: 'Trasferimenti di capitali e potenziali trasferimenti di residenza verso la Svizzera a causa del conflitto in Iran. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, pronte, clienti',
+    ogTitle: 'Banche svizzere pronte per i clienti del Golfo',
+    ogDescription: 'Trasferimenti di capitali e potenziali trasferimenti di residenza verso la Svizzera a causa del conflitto in Iran',
+    canonicalPath: '/articoli-frontaliere/banche-golfo-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banche svizzere pronte per i clienti del Golfo",
+      "description": "Trasferimenti di capitali e potenziali trasferimenti di residenza verso la Svizzera a causa del conflitto in Iran. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/banche-golfo-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con edifici finanziari moderni"
+      },
+      "datePublished": "2026-04-28T21:50:14+00:00",
+      "dateModified": "2026-04-28T21:50:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banche-golfo-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
