@@ -89,24 +89,21 @@ jobs:
 
       - name: Commit and push
         if: steps.changes.outputs.has_changes == 'true'
+        env:
+          PARSER_COMPANY_NAME: ${{ inputs.company_name }}
+          PARSER_COMPANY_WEBSITE: ${{ inputs.company_website }}
+          PARSER_COMPANY_KEY: ${{ inputs.company_key }}
+          PARSER_APPLY_CONFIG: ${{ inputs.apply_config == 'true' && '1' || '0' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git fetch origin main
-          LOCAL=$(git rev-parse HEAD)
-          REMOTE=$(git rev-parse origin/main)
-
-          if [ "$LOCAL" != "$REMOTE" ]; then
-            echo "⚠️ Remote updated — rebasing before commit..."
-            if ! git pull --rebase origin main; then
-              git rebase --abort || true
-              echo "⚠️ Rebase conflict — defer to next run"
-              exit 0
-            fi
-          fi
-
           git add data/jobs-crawler-parser-proposals.json data/jobs-crawler-config.json
           git commit -m "🤖 Generate company crawler parser proposal"
-          git push origin main
+
+          # Centralized rebase-retry helper survives concurrent pushes from
+          # other data-refresh workflows. On rebase conflict, re-run the
+          # parser generator on the new base.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/generate-company-parser.mjs && git add data/jobs-crawler-parser-proposals.json data/jobs-crawler-config.json"
 

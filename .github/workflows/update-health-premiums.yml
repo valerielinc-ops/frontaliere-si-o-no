@@ -50,8 +50,11 @@ jobs:
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "🏥 Auto-update health insurance premiums (UFSP/BAG)"
-            git pull --rebase --autostash origin main
-            git push origin main
+            # Centralized rebase-retry helper survives concurrent pushes from
+            # other data-refresh workflows. On rebase conflict, re-fetch
+            # premiums on the new base before retrying.
+            bash scripts/lib/git-push-with-retry.sh \
+              --regenerate-cmd "node scripts/fetch-health-premiums.mjs && (git add data/health-premiums data/health-premiums.json public/data/health-premiums public/data/health-premiums.json 2>/dev/null || true)"
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 

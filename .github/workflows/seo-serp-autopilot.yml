@@ -96,8 +96,11 @@ jobs:
 
           git commit -m "chore(seo): update SERP autopilot state"
 
-          for attempt in 1 2 3; do
-            git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "$GITHUB_REF_NAME" && break
-            echo "⚠️ Push attempt $attempt failed, retrying..."
-            sleep 5
-          done
+          # Centralized rebase-retry helper survives concurrent pushes.
+          # Autopilot state is non-deterministic (depends on Analytics window
+          # + RC publish state); on rebase conflict we re-stage the artifacts
+          # we already produced on top of the new base and let the helper
+          # commit them.
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --regenerate-cmd "git checkout HEAD@{1} -- data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json 2>/dev/null || true; git add data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json"

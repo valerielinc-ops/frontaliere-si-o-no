@@ -160,196 +160,21 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # ── Helper: auto-resolve merge conflicts in append-only files ──
-          # Article generation only APPENDS entries to structured files
-          # (BlogArticles.tsx, router.ts, seoService.ts, sitemaps, blog-meta-*.ts,
+
+          # Source the centralized append-only conflict resolver. Article
+          # generation only APPENDS entries to structured files (BlogArticles.tsx,
+          # router.ts, routerBlogData.ts, blog-articles-data.ts, sitemaps,
           # article-source-urls.json). When both sides add entries at the same
           # insertion point, git marks it as a conflict but both additions are
-          # valid and should be kept. This function removes conflict markers,
-          # keeping content from BOTH sides.
-          resolve_append_conflicts() {
-            local CONFLICTED
-            CONFLICTED=$(git diff --name-only --diff-filter=U 2>/dev/null || true)
-            if [ -z "$CONFLICTED" ]; then
-              return 0  # No conflicts
-            fi
-            
-            echo "🔧 Auto-resolving conflicts in append-only files..."
-            local ALL_RESOLVED=true
-            
-            while IFS= read -r file; do
-              [ -z "$file" ] && continue
-              
-              if ! grep -q '<<<<<<<' "$file" 2>/dev/null; then
-                echo "  ⚠️  $file: no conflict markers found, skipping"
-                ALL_RESOLVED=false
-                continue
-              fi
-              
-              # Remove conflict markers, keeping BOTH sides
-              # This works for append-only files where both sides added new entries
-              sed -i 's/^<<<<<<< .*$//' "$file"
-              sed -i '/^=======$/d' "$file"
-              sed -i 's/^>>>>>>> .*$//' "$file"
-              
-              # Remove blank lines left by marker removal (max 2 consecutive)
-              sed -i '/^$/N;/^\n$/d' "$file"
-              
-              # Verify no conflict markers remain
-              if grep -q '<<<<<<<\|>>>>>>>' "$file" 2>/dev/null; then
-                echo "  ❌ $file: conflict markers still present after resolution"
-                ALL_RESOLVED=false
-                continue
-              fi
-              
-              # Basic syntax check for JSON files
-              if [[ "$file" == *.json ]]; then
-                if ! node -e "JSON.parse(require('fs').readFileSync('$file','utf8'))" 2>/dev/null; then
-                  echo "  ⚠️  $file: JSON syntax error after resolution — attempting fix..."
-                  # After removing conflict markers, common issues include:
-                  # - Missing comma between entries ("value"\n  "key")
-                  # - Duplicate commas (,\n,)
-                  # - Trailing comma before closing bracket
-                  # - Missing comma between nested objects (}\n  {)
-                  # - Duplicate keys (both sides added at same insertion point)
-                  node -e "
-                    const fs = require('fs');
-                    let s = fs.readFileSync('$file','utf8');
-                    // Fix double commas
-                    s = s.replace(/,(\s*),/g, ',\$1');
-                    // Fix trailing comma before closing bracket/brace
-                    s = s.replace(/,(\s*[}\]])/g, '\$1');
-                    // Fix missing comma between entries: \"value\"\\n  \"key\"
-                    // Matches any JSON value (string, number, bool, null, }, ]) followed
-                    // by whitespace then a new JSON key or value start
-                    s = s.replace(/(\"[^\"]*\"|true|false|null|\d+(?:\.\d+)?|\}|\])(\s*\n\s*)(\")/g, '\$1,\$2\$3');
-                    // Fix missing comma between } or ] and next { or [
-                    s = s.replace(/(\}|\])(\s*\n\s*)(\{|\[)/g, '\$1,\$2\$3');
-                    try {
-                      const obj = JSON.parse(s);
-                      // Deduplicate keys: JSON.parse keeps last value for duplicate keys,
-                      // which is fine — both sides added different keys at same position
-                      fs.writeFileSync('$file', JSON.stringify(obj, null, 2) + '\n');
-                      console.log('  ✅ $file: JSON fixed and formatted');
-                    } catch(e) {
-                      console.log('  ❌ $file: JSON still invalid — ' + e.message);
-                      process.exit(1);
-                    }
-                  " 2>/dev/null
-                  if [ $? -ne 0 ]; then
-                    ALL_RESOLVED=false
-                    continue
-                  fi
-                fi
-              fi
-              
-              # Dedupe single-declaration conflicts in routerBlogData.ts and
-              # router.ts. The "keep both sides" sed above is correct for
-              # append-only files (each side adds a different entry), but
-              # `export const ALL_BLOG_ARTICLE_IDS = [...]` and
-              # `type _BlogId5 = '…' | …` are SINGLE declarations: when both
-              # sides modify the same closing token, "keep both" produces two
-              # full declarations with the same name → esbuild fails with
-              # `Multiple exports with the same name`. Caught 2026-04-28 in
-              # cron run 25028468041 after my router-rebase merge introduced
-              # the pattern. We merge the two sides into one declaration that
-              # contains the union of every ID/literal mentioned.
-              if [[ "$file" == *"routerBlogData.ts" ]] || [[ "$file" == *"router.ts" ]]; then
-                if ! node -e "
-                  const fs = require('fs');
-                  const file = '$file';
-                  let src = fs.readFileSync(file, 'utf8');
-                  // Merge duplicate \`export const ALL_BLOG_ARTICLE_IDS = [...]\`
-                  const listRx = /export const ALL_BLOG_ARTICLE_IDS:[^=]+=\s*\[([^\]]+)\];/g;
-                  const listMatches = [...src.matchAll(listRx)];
-                  if (listMatches.length > 1) {
-                    const ids = new Set();
-                    for (const m of listMatches) {
-                      for (const id of m[1].matchAll(/'([^']+)'/g)) ids.add(id[1]);
-                    }
-                    const merged = [...ids].map((s) => \`'\${s}'\`).join(', ');
-                    const replacement = \`export const ALL_BLOG_ARTICLE_IDS: BlogArticleId[] = [\${merged}];\`;
-                    // Drop every duplicate declaration, then insert one canonical version
-                    // at the position of the first match.
-                    const first = listMatches[0];
-                    src = src.slice(0, first.index) + replacement + src.slice(first.index + first[0].length);
-                    src = src.replace(listRx, '');
-                    console.log('  🔁 Merged ' + listMatches.length + ' ALL_BLOG_ARTICLE_IDS declarations into one (' + ids.size + ' ids)');
-                  }
-                  // Merge duplicate \`type _BlogId<N> = '…' | …;\` declarations
-                  const typeRx = /type _BlogId(\d+) = (([^;])+);/g;
-                  const typeGroups = new Map();
-                  for (const m of src.matchAll(typeRx)) {
-                    const n = m[1];
-                    const literals = [...m[2].matchAll(/'([^']+)'/g)].map((x) => x[1]);
-                    if (!typeGroups.has(n)) typeGroups.set(n, []);
-                    typeGroups.get(n).push({ match: m[0], literals });
-                  }
-                  for (const [n, occurrences] of typeGroups) {
-                    if (occurrences.length <= 1) continue;
-                    const all = new Set();
-                    for (const occ of occurrences) for (const lit of occ.literals) all.add(lit);
-                    const mergedDecl = \`type _BlogId\${n} = \${[...all].map((s) => \`'\${s}'\`).join(' | ')};\`;
-                    // Replace first occurrence with merged, drop the rest.
-                    src = src.replace(occurrences[0].match, mergedDecl);
-                    for (let i = 1; i < occurrences.length; i++) {
-                      src = src.replace(occurrences[i].match, '');
-                    }
-                    console.log('  🔁 Merged ' + occurrences.length + ' _BlogId' + n + ' declarations into one (' + all.size + ' literals)');
-                  }
-                  fs.writeFileSync(file, src);
-                "; then
-                  echo "  ❌ $file: dedupe failed"
-                  ALL_RESOLVED=false
-                  continue
-                fi
-              fi
+          # valid; the function strips conflict markers and keeps both sides,
+          # then dedupes single-declaration conflicts in router.ts.
+          source scripts/lib/resolve-append-conflicts.sh
 
-              # Syntax check for blog-articles-data.ts — detect merged entries
-              # (FRO-328 moved ARTICLES array from BlogArticles.tsx to data/blog-articles-data.ts)
-              if [[ "$file" == *"blog-articles-data.ts" ]]; then
-                if ! node -e "
-                  const fs = require('fs');
-                  const src = fs.readFileSync('$file', 'utf8');
-                  const ids = [...src.matchAll(/^\s+id:\s*'([^']+)'/gm)].map(m => m[1]);
-                  const dupes = ids.filter((id, i) => ids.indexOf(id) !== i);
-                  if (dupes.length) {
-                    console.error('  ❌ $file: duplicate article IDs after conflict resolution: ' + dupes.join(', '));
-                    process.exit(1);
-                  }
-                  // Verify each id is inside its own object literal (not merged)
-                  const entryStarts = (src.match(/\{\s*\n\s+id:\s*'/g) || []).length;
-                  if (entryStarts !== ids.length) {
-                    console.error('  ❌ $file: ' + ids.length + ' ids but ' + entryStarts + ' entry blocks — merged entries detected');
-                    process.exit(1);
-                  }
-                  console.log('  ✅ $file: ' + ids.length + ' article entries validated (no duplicates)');
-                " 2>&1; then
-                  echo "  ❌ $file: blog-articles-data.ts validation failed after conflict resolution"
-                  ALL_RESOLVED=false
-                  continue
-                fi
-              fi
-
-              git add "$file"
-              echo "  ✅ $file: resolved (both sides kept)"
-            done <<< "$CONFLICTED"
-            
-            if [ "$ALL_RESOLVED" = true ]; then
-              echo "✅ All conflicts auto-resolved"
-              return 0
-            else
-              echo "❌ Some conflicts could not be auto-resolved"
-              return 1
-            fi
-          }
-          
           # ── Sync with remote BEFORE committing ──
           git fetch origin main
           LOCAL=$(git rev-parse HEAD)
           REMOTE=$(git rev-parse origin/main)
-          
+
           if [ "$LOCAL" != "$REMOTE" ]; then
             echo "⚠️  Remote has new commits since checkout — rebasing before commit..."
             git stash --include-untracked
@@ -374,40 +199,24 @@ jobs:
               git stash drop 2>/dev/null || true
             fi
           fi
-          
+
           git add -A
           git commit -m "📰 Auto-generated blog article"
-          
-          # Push with retry (handles edge case of push between fetch and push)
-          for attempt in 1 2 3; do
-            if git push origin main; then
-              echo "✅ Article committed and pushed to main"
-              echo "committed=true" >> "$GITHUB_OUTPUT"
-              exit 0
-            fi
-            echo "⚠️  Push attempt $attempt failed — rebasing..."
-            if ! git pull --rebase origin main; then
-              echo "⚠️  Pull --rebase had conflicts — attempting auto-resolution..."
-              if resolve_append_conflicts; then
-                git add -A
-                if ! git rebase --continue; then
-                  git rebase --abort
-                  echo "⚠️  Rebase continue failed — deferring to next run"
-                  echo "committed=false" >> "$GITHUB_OUTPUT"
-                  exit 0
-                fi
-              else
-                git rebase --abort
-                echo "⚠️  Auto-resolution during push retry failed — deferring to next run"
-                echo "committed=false" >> "$GITHUB_OUTPUT"
-                exit 0
-              fi
-            fi
-            sleep 3
-          done
-          echo "❌ Push failed after 3 attempts"
-          echo "committed=false" >> "$GITHUB_OUTPUT"
-          exit 1
+
+          # Push with centralized rebase-retry helper. The append-only files
+          # the article generator touches can conflict with concurrent main
+          # writers; --in-place-resolver-cmd keeps the local commit and runs
+          # resolve_append_conflicts inside the rebase, then `rebase --continue`.
+          if bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 3 \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"; then
+            echo "✅ Article committed and pushed to main"
+            echo "committed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "⚠️  Push helper failed — deferring article to next run"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
       - name: Verify article exists in committed source and dist
         if: steps.commit.outputs.committed == 'true' && steps.generate.outputs.article_id != ''

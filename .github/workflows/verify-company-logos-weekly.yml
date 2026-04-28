@@ -45,27 +45,8 @@ jobs:
           fi
           git commit -m "chore(seo): refresh company-logos broken-URL report"
 
-          # Push with rebase-retry to survive concurrent scheduled pushes.
-          attempt=1
-          max_attempts=5
-          until git push origin HEAD:main; do
-            if [ "$attempt" -ge "$max_attempts" ]; then
-              echo "::error::Failed to push after $max_attempts attempts"
-              exit 1
-            fi
-            echo "Push rejected (attempt $attempt/$max_attempts); rebasing onto origin/main..."
-            git fetch origin main
-            if ! git rebase origin/main; then
-              git rebase --abort
-              git reset --hard origin/main
-              node scripts/verify-company-logos.mjs || true
-              git add data/company-logos-broken.json
-              if git diff --cached --quiet; then
-                echo "No changes after regeneration; nothing to push"
-                exit 0
-              fi
-              git commit -m "chore(seo): refresh company-logos broken-URL report"
-            fi
-            attempt=$((attempt + 1))
-            sleep $((attempt * 2))
-          done
+          # Centralized rebase-retry helper survives concurrent scheduled
+          # pushes. On rebase conflict, regenerate the broken-logos report
+          # against the rebased base.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/verify-company-logos.mjs || true; git add data/company-logos-broken.json"

@@ -56,33 +56,8 @@ jobs:
 
           Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
 
-          # Push with rebase-and-retry to survive concurrent pushes from
-          # other scheduled workflows (ported from refresh-keyword-config.yml).
-          attempt=1
-          max_attempts=5
-          until git push origin HEAD:main; do
-            if [ "$attempt" -ge "$max_attempts" ]; then
-              echo "::error::Failed to push after $max_attempts attempts"
-              exit 1
-            fi
-            echo "Push rejected (attempt $attempt/$max_attempts); rebasing onto origin/main and retrying..."
-            git fetch origin main
-            if ! git rebase origin/main; then
-              echo "Rebase conflict; regenerating snapshot on top of new base"
-              git rebase --abort
-              git reset --hard origin/main
-              node scripts/assemble-jobs-dataset.mjs || true
-              node scripts/snapshot-jobs-weekly.mjs
-              node scripts/compute-weekly-employer-delta.mjs
-              git add data/jobs-snapshots-history/ data/weekly-employers-delta.json
-              if git diff --cached --quiet; then
-                echo "No changes after regeneration; nothing to push"
-                exit 0
-              fi
-              git commit -m "chore(seo): refresh weekly-employers snapshot
-
-          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
-            fi
-            attempt=$((attempt + 1))
-            sleep $((attempt * 2))
-          done
+          # Centralized rebase-retry helper survives concurrent pushes from
+          # other scheduled workflows. On rebase conflict, regenerate the
+          # snapshot + delta on top of the new base.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json"

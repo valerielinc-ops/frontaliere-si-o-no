@@ -83,12 +83,12 @@ jobs:
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "⛽ Daily fuel prices cache update"
-            # Rebase-retry loop to handle concurrent pushes from other workflows
-            for attempt in 1 2 3; do
-              git pull --rebase origin main && git push origin main && break
-              echo "⚠️ Push attempt $attempt/3 failed, retrying in ${attempt}s..."
-              sleep "$attempt"
-            done
+            # Centralized rebase-retry helper handles concurrent pushes from
+            # other workflows. Fuel cache files are deterministic outputs of
+            # generate-fuel-prices-dataset.mjs; on rebase conflict re-fetch
+            # and re-snapshot before retrying.
+            bash scripts/lib/git-push-with-retry.sh \
+              --regenerate-cmd 'node scripts/generate-fuel-prices-dataset.mjs --save-local && mkdir -p data/fuel-prices-history && cp public/data/fuel-prices.json data/fuel-prices-history/$(date -u +%F).json && node scripts/snapshot-fuel-history.mjs && git add -f data/fuel-prices.json public/data/fuel-prices.json data/fuel-prices-history/'
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
