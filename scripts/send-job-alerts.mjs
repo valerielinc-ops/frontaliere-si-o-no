@@ -334,10 +334,6 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
   const autologinCode = autologinEnabled ? generateAutologinCode(alert.email) : null;
   const preferencesUrl = makePreferencesUrl(alert.email, locale);
-  const prefsLabel = locale === 'en' ? 'Manage preferences'
-    : locale === 'de' ? 'Einstellungen verwalten'
-    : locale === 'fr' ? 'Gérer les préférences'
-    : 'Gestisci preferenze';
 
   const keyword = alert.keywords?.join(', ') || '';
   const locationLabel = alert.locations?.length > 0 ? alert.locations.join(', ') : '';
@@ -374,15 +370,24 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const atPart = topCompany ? ` ${s.at} ${topCompany}` : '';
     let candidate = `${bell} ${topTitle}${atPart}${suffix}`;
     if (candidate.length > SUBJECT_MAX) {
-      // Truncate the title at a word boundary, keeping the company + suffix intact.
-      const fixed = `${bell} ${atPart}${suffix}`; // total chars consumed by non-title parts
-      const room = SUBJECT_MAX - fixed.length;
-      if (room >= 6) {
-        const truncatedTitle = truncateAtWord(topTitle, room);
-        candidate = `${bell} ${truncatedTitle}${atPart}${suffix}`;
+      // Step 1: drop the company — preserves the full title (the most informative
+      // part) when the company name is too long. "🔔 Assistente di studio medico
+      // (+57 altre offerte)" is far better than "🔔 Assistente di… presso EOC –
+      // Ente Ospedaliero Cantonale (+57 altre offerte)".
+      const noCompany = `${bell} ${topTitle}${suffix}`;
+      if (noCompany.length <= SUBJECT_MAX) {
+        candidate = noCompany;
       } else {
-        // Not enough room for a usable title — drop company, truncate the whole tail.
-        candidate = truncateAtWord(`${bell} ${topTitle}${suffix}`, SUBJECT_MAX);
+        // Step 2: title alone still too long — truncate it at a word boundary.
+        // Need ≥10 chars of usable title; otherwise fall through to a hard cap.
+        const fixed = `${bell} ${suffix}`;
+        const room = SUBJECT_MAX - fixed.length;
+        if (room >= 10) {
+          const truncatedTitle = truncateAtWord(topTitle, room);
+          candidate = `${bell} ${truncatedTitle}${suffix}`;
+        } else {
+          candidate = truncateAtWord(noCompany, SUBJECT_MAX);
+        }
       }
       // Final defensive cap (handles edge cases where suffix itself is huge).
       if (candidate.length > SUBJECT_MAX) {
@@ -540,9 +545,6 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
           </div>
           <div style="font-size:12px;color:${MUTED};margin:4px 0;">
             <a href="${unsubAllUrl}" style="color:#94a3b8;text-decoration:underline;">${s.unsubAll}</a> ${s.unsubJoke}
-          </div>
-          <div style="font-size:12px;color:${MUTED};margin:4px 0;">
-            <a href="${preferencesUrl}" style="color:#94a3b8;text-decoration:underline;">${prefsLabel}</a>
           </div>
           <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
         </td></tr>

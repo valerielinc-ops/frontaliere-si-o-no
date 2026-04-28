@@ -178,9 +178,11 @@ describe('job alert email — locale-aware URLs', () => {
 });
 
 describe('job alert email — subject truncation polish', () => {
-  // Regression: the live email had subject "🔔 Revisori dei conti, esperti tecnici… presso MTIC Group (+57 altre offerte)"
-  // — truncation cut mid-thought after a comma, leaving the dangling comma in place.
-  it('truncates titles at a word boundary, not mid-word', () => {
+  // Live regression: the email had "🔔 Revisori dei conti, esperti tecnici… presso MTIC Group (+57 altre offerte)"
+  // — truncation cut mid-thought after a comma, leaving a dangling comma in place.
+  // New strategy: drop the company before truncating the title — the full title is
+  // more informative than "title… presso CompanyName".
+  it('keeps the full title intact by dropping company when subject would overflow', () => {
     const job = {
       ...fixtureJob(),
       title: 'Revisori dei conti, esperti tecnici e clinici',
@@ -189,24 +191,41 @@ describe('job alert email — subject truncation polish', () => {
     const jobs = [job, ...Array.from({ length: 57 }, () => fixtureJob({ title: 'Filler' }))];
     const result = buildAlertEmail(fixtureAlert('it'), jobs, true);
     expect(result.subject.length).toBeLessThanOrEqual(78);
-    // The ellipsis must NOT immediately follow a comma or other dangling punctuation.
+    // No dangling punctuation directly before the ellipsis.
     expect(result.subject).not.toMatch(/[,;:\-]\u2026/);
-    expect(result.subject).toContain('presso MTIC Group');
+    // Full title preserved (+57 altre offerte) — company was dropped.
+    expect(result.subject).toContain('Revisori dei conti, esperti tecnici e clinici');
     expect(result.subject).toContain('(+57 altre offerte)');
+    // No "presso ..." segment when company was dropped.
+    expect(result.subject).not.toMatch(/\bpresso\b/);
   });
 
-  it('does not produce a 1-2 char title when room is tight', () => {
+  it('truncates the title at a word boundary only when even the no-company subject overflows', () => {
     const job = {
       ...fixtureJob(),
+      // 67-char title — exceeds 78-char cap on its own with " (+1 altre offerte)" suffix.
       title: 'Senior Software Engineering Manager — Distributed Backend Platforms',
       company: 'Acme Corporation International Holdings',
     };
     const result = buildAlertEmail(fixtureAlert('it'), [job, fixtureJob()], true);
     expect(result.subject.length).toBeLessThanOrEqual(78);
-    // Title segment (after bell+space, before " presso ") must be at least 6 chars.
-    const m = result.subject.match(/^🔔\s+(.+?)\s+presso\s+/);
-    expect(m).not.toBeNull();
-    expect(m![1].length).toBeGreaterThanOrEqual(6);
+    // Company dropped → no "presso".
+    expect(result.subject).not.toMatch(/\bpresso\b/);
+    // Subject must contain an ellipsis (truncation happened).
+    expect(result.subject).toMatch(/\u2026/);
+    // Word-boundary truncation: the chars immediately before the ellipsis are
+    // part of a word ≥3 letters long (no dangling 1-2 letter fragments at the cut).
+    // Capture: a space (or start), then a 1-2 letter sequence, then ellipsis.
+    expect(result.subject).not.toMatch(/(?:^|\s)[a-zA-Z]{1,2}\u2026/);
+    // No dangling punctuation directly before the ellipsis.
+    expect(result.subject).not.toMatch(/[,;:\-]\u2026/);
+  });
+
+  it('keeps the company segment when the full subject already fits', () => {
+    const job = { ...fixtureJob(), title: 'QA Engineer', company: 'Tiny Co' };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    // Short title + short company + no extras: the standard subject form.
+    expect(result.subject).toBe('🔔 QA Engineer presso Tiny Co');
   });
 });
 
