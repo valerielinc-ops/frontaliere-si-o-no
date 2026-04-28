@@ -515,7 +515,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Simulatore gratuito per il calcolo dello stipendio netto in Svizzera per frontalieri: AVS, imposta alla fonte Ticino, IRPEF con franchigia 10.000 EUR e confronto CHF/EUR. Nuovo Accordo fiscale 2026.",
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web Browser",
- "inLanguage": "it",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
  "isAccessibleForFree": true,
  "aggregateRating": {
@@ -1081,7 +1080,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "Web",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "inLanguage": "it",
  "dateModified": BUILD_DATE_ISO,
  "provider": {
  "@type": "Organization",
@@ -3657,7 +3655,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "All",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "inLanguage": "it",
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  },
  },
@@ -3681,7 +3678,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "All",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "inLanguage": "it",
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  },
  {
@@ -3736,7 +3732,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "All",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "inLanguage": "it",
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  },
  {
@@ -3783,7 +3778,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "applicationCategory": "FinanceApplication",
  "operatingSystem": "All",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
- "inLanguage": "it",
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  },
  {

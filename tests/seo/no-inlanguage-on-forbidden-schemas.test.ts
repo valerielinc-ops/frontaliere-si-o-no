@@ -293,7 +293,9 @@ function scanFile(file: string): readonly Offender[] {
 }
 
 describe('static guard — no inLanguage on forbidden schema types', () => {
-  it('scans all build-plugin and seo source files for offenders', () => {
+  // Full parse of services/seo + build-plugins typically takes ~13-14s on
+  // CI. Bump above the default 15s to leave headroom for variance.
+  it('scans all build-plugin and seo source files for offenders', { timeout: 60_000 }, () => {
     const all: Offender[] = [];
     for (const root of ROOTS) {
       for (const file of walk(root)) {

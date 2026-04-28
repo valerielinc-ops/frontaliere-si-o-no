@@ -1,4 +1,4 @@
-import { TYPES_ACCEPT_IN_LANGUAGE } from '../seoService';
+import { TYPES_ACCEPT_IN_LANGUAGE } from './inlanguage-whitelist';
 
 const DEFAULT_DATASET_LICENSE = 'https://creativecommons.org/licenses/by-nc/4.0/';
 const DEFAULT_APP_CATEGORY = 'FinanceApplication';

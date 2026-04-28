@@ -56,41 +56,11 @@ export interface SEOMetadata {
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
-/**
- * Schema.org types that officially accept an `inLanguage` property.
- * Any other @type (BreadcrumbList, ItemList, SoftwareApplication,
- * WebApplication, Organization, Place, Offer, LocalBusiness, Event, ...)
- * must NOT receive `inLanguage` — Semrush + Google structured-data testing
- * flag it as an error.
- *
- * Source: schema.org/CreativeWork#inLanguage (only CreativeWork + subclasses
- * define this property). ListItem inherits via CreativeWork variants in a
- * handful of cases, but BreadcrumbList/ItemList themselves do not.
- */
-export const TYPES_ACCEPT_IN_LANGUAGE: ReadonlySet<string> = new Set([
- 'Article',
- 'NewsArticle',
- 'BlogPosting',
- 'WebPage',
- 'CollectionPage',
- 'AboutPage',
- 'ContactPage',
- 'FAQPage',
- 'QAPage',
- 'JobPosting',
- 'Dataset',
- 'CreativeWork',
- 'HowTo',
- 'Product',
- 'Review',
- 'VideoObject',
- 'ImageObject',
- 'AudioObject',
- 'Book',
- 'Course',
- 'Recipe',
- 'Message',
-]);
+// inLanguage whitelist lives in ./seo/inlanguage-whitelist so that test files
+// which mock '@/services/seoService' (tests/setup.tsx) don't accidentally
+// hide it from non-mocked consumers like services/seo/schema-normalizers.ts.
+export { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
+import { TYPES_ACCEPT_IN_LANGUAGE } from './seo/inlanguage-whitelist';
 
 /**
  * E-E-A-T Author & Publisher Schema for YMYL content.
