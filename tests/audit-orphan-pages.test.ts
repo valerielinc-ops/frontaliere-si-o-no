@@ -1,15 +1,20 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { spawn } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+import { pathToFileURL } from 'node:url';
 
 // Pull internal helpers out of the audit script via dynamic import. The
 // script's `main()` only runs when invoked as the entrypoint (we guard with
 // `process.argv[1]` matching), so a regular import returns its `__test`
 // bundle without executing the audit pipeline.
-const SCRIPT_URL = new URL('../scripts/audit-orphan-pages-in-sitemaps.mjs', import.meta.url);
+//
+// Use process.cwd() to resolve the script path because `import.meta.url`
+// is rewritten to an http:// scheme by vitest's worker (the default ESM
+// loader rejects http:// URLs with TypeError).
+const SCRIPT_PATH = resolve(process.cwd(), 'scripts/audit-orphan-pages-in-sitemaps.mjs');
+const SCRIPT_URL_HREF = pathToFileURL(SCRIPT_PATH).href;
 
 interface AuditTestExports {
   bfsReachableFromHome: (
@@ -30,7 +35,7 @@ interface AuditTestExports {
 }
 
 async function loadHelpers(): Promise<AuditTestExports> {
-  const mod = (await import(SCRIPT_URL.href)) as { __test: AuditTestExports };
+  const mod = (await import(SCRIPT_URL_HREF)) as { __test: AuditTestExports };
   return mod.__test;
 }
 
@@ -221,8 +226,7 @@ describe('audit-orphan-pages: --gate=baseline', () => {
     // can't realistically fetch remote sitemaps from a unit test, so we
     // instead force an early-exit path: the Mode B + gate combo bails out
     // before any network call.
-    const scriptPath = fileURLToPath(SCRIPT_URL);
-    const { code, stderr } = await runScript(scriptPath, ['--source-mode', '--gate=baseline'], {
+    const { code, stderr } = await runScript(SCRIPT_PATH, ['--source-mode', '--gate=baseline'], {
       // Run in a temp cwd with no dist/ so fetchAllSitemaps wouldn't be
       // reached anyway.
       cwd: process.cwd(),
