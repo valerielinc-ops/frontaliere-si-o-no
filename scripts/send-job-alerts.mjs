@@ -141,6 +141,56 @@ function brandLogoUrl(companyName, companyKey) {
   return null;
 }
 
+// Job-board aggregator domains — when an alert pulls from these, the URL
+// host is NOT the company site, so the favicon would be wrong (LinkedIn /
+// Indeed / Jobup logo instead of the actual employer). Skip the favicon
+// fallback for these and let the initial-letter avatar render instead.
+const AGGREGATOR_HOSTS = new Set([
+  'linkedin.com', 'indeed.com', 'indeed.ch', 'glassdoor.com',
+  'jobs.ch', 'jobup.ch', 'jobscout24.ch', 'monster.ch', 'monster.com',
+  'stepstone.ch', 'stepstone.com', 'jobagent.ch', 'job-room.ch',
+  'arbeit.swiss', 'work.swiss', 'topjobs.ch',
+]);
+
+function extractCompanyDomain(rawUrl) {
+  if (!rawUrl) return null;
+  try {
+    const host = new URL(rawUrl).hostname.replace(/^www\./, '').toLowerCase();
+    if (!host) return null;
+    // Reject our own domain (job board on frontaliereticino.ch) and aggregators.
+    if (host === 'frontaliereticino.ch' || host.endsWith('.frontaliereticino.ch')) return null;
+    if (AGGREGATOR_HOSTS.has(host)) return null;
+    // For subdomains like jobs.companysite.com / careers.companysite.com,
+    // strip the leading subdomain so the favicon comes from the parent.
+    if (/^(?:careers?|jobs?|recruiting|hr|werkenbij|emplois|stellen|carriere)\./.test(host)) {
+      return host.split('.').slice(1).join('.');
+    }
+    return host;
+  } catch {
+    return null;
+  }
+}
+
+// Universal logo fallback via Google's S2 favicons CDN. ALWAYS returns an icon
+// for any reachable domain (lower quality than bundled logos — usually 32–128px
+// favicons — but covers every long-tail employer not in our 72-brand bundle).
+function faviconUrl(domain) {
+  if (!domain) return null;
+  return `https://www.google.com/s2/favicons?sz=128&domain=${encodeURIComponent(domain)}`;
+}
+
+function resolveAvatarSrc(job) {
+  // Tier 1: bundled, high-quality brand logo.
+  const bundled = brandLogoUrl(job.company, job.companyKey);
+  if (bundled) return { src: bundled, kind: 'bundled' };
+  // Tier 2: site favicon for the company's own domain.
+  const sourceUrl = job.url || job.applyUrl || job.urlByLocale?.it || null;
+  const domain = extractCompanyDomain(sourceUrl);
+  const fav = faviconUrl(domain);
+  if (fav) return { src: fav, kind: 'favicon' };
+  return null;
+}
+
 // Format a job salary (annual / monthly / hourly) into a compact, locale-aware label.
 // Returns null if the job has no salary data — caller should not render the chip.
 function formatSalary(job, locale = 'it') {
@@ -549,7 +599,13 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const rawJobUrl = slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}?${utmBase}` : BASE_URL;
     const url = wrapUrl(rawJobUrl);
     const initial = (company || '?')[0].toUpperCase();
-    const logoSrc = brandLogoUrl(company, job.companyKey);
+    const avatar = resolveAvatarSrc(job);
+    const logoSrc = avatar?.src || null;
+    // Bundled logos render contained on white, favicons render edge-to-edge
+    // on a dark surface (favicons are usually transparent or have their own bg).
+    const logoStyle = avatar?.kind === 'favicon'
+      ? 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:cover;'
+      : 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;';
     const tags = [];
     // "NEW" badge for jobs first seen within 48 hours.
     const firstSeen = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
@@ -565,8 +621,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     // Email clients block remote images by default — the colored fallback box shows
     // until the user clicks "show images". The img has explicit width/height so the
     // fallback alt text doesn't reflow the card.
-    const avatar = logoSrc
-      ? `<img src="${logoSrc}" alt="${escHtml(company)}" width="44" height="44" style="display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;">`
+    const avatarHtml = logoSrc
+      ? `<img src="${logoSrc}" alt="${escHtml(company)}" width="44" height="44" style="${logoStyle}">`
       : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>`;
 
     return `
@@ -575,7 +631,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
             <table width="100%" cellpadding="0" cellspacing="0" style="background:${DARK_CARD};border-radius:12px;">
               <tr>
                 <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
-                  ${avatar}
+                  ${avatarHtml}
                 </td>
                 <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
                   <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;overflow:hidden;text-overflow:ellipsis;">${escHtml(title)}</div>

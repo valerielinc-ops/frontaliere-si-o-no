@@ -395,6 +395,69 @@ describe('job alert dedup — per-company cap', () => {
   });
 });
 
+describe('job alert email — universal favicon fallback', () => {
+  // When no bundled brand file matches, derive the company domain from the
+  // job URL and fall back to Google's favicon CDN. Covers long-tail employers
+  // not in our 72-brand bundle (Tether Operations, Ticino Premium Properties, …).
+  it('falls back to a Google Favicons URL when no bundled logo exists, using job.url host', () => {
+    const job = {
+      ...fixtureJob(),
+      company: 'Tether Operations Limited',
+      companyKey: 'tether-operations',
+      url: 'https://tether.io/careers/ai-engineer-100-remote',
+    };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toMatch(/google\.com\/s2\/favicons\?sz=128&domain=tether\.io/);
+    // No initial-letter fallback when a favicon URL was produced.
+    expect(result.html).not.toMatch(/font-size:18px;font-weight:800;color:#f97316;">T<\/div>/);
+  });
+
+  it('strips a leading "careers." subdomain so favicon comes from the parent', () => {
+    const job = {
+      ...fixtureJob(),
+      company: 'Ticino Premium Properties SA',
+      url: 'https://careers.ticinopremium.ch/jobs/consulente-100',
+    };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toMatch(/google\.com\/s2\/favicons\?sz=128&domain=ticinopremium\.ch/);
+    expect(result.html).not.toMatch(/domain=careers\.ticinopremium/);
+  });
+
+  it('does NOT fall back to a favicon when the job URL is on a job-board aggregator', () => {
+    const job = {
+      ...fixtureJob(),
+      company: 'Tether Operations Limited',
+      url: 'https://www.linkedin.com/comm/jobs/view/4337083572/',
+    };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    // Initial-letter avatar should render; no LinkedIn favicon hijack.
+    expect(result.html).not.toMatch(/google\.com\/s2\/favicons.*linkedin\.com/);
+    expect(result.html).toMatch(/font-size:18px;font-weight:800;color:#f97316;">T<\/div>/);
+  });
+
+  it('does NOT fall back to a favicon when the job URL is our own domain', () => {
+    const job = {
+      ...fixtureJob(),
+      company: 'Some Company',
+      url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/some-job/',
+    };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).not.toMatch(/google\.com\/s2\/favicons.*frontaliereticino/);
+    expect(result.html).toMatch(/">S<\/div>/);
+  });
+
+  it('bundled logo still wins over the favicon fallback', () => {
+    const job = {
+      ...fixtureJob(),
+      company: 'EOC \u2013 Ente Ospedaliero Cantonale',
+      url: 'https://eoc.ch/careers/...',
+    };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toMatch(/\/images\/brands\/eoc-ente-ospedaliero-cantonale\.png/);
+    expect(result.html).not.toMatch(/google\.com\/s2\/favicons/);
+  });
+});
+
 describe('job alert email — broader brand logo matching', () => {
   it('matches via job.companyKey when set, even if display name slug differs', () => {
     const job = {
