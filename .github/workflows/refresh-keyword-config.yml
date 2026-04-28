@@ -46,35 +46,7 @@ jobs:
           # Push with rebase-and-retry to survive concurrent pushes from other
           # workflows. The generator is deterministic given the same GSC data
           # file, so rebasing onto a newer main is always safe: our commit
-          # only touches data/keyword-pages-config.json.
-          attempt=1
-          max_attempts=5
-          until git push origin HEAD:main; do
-            if [ "$attempt" -ge "$max_attempts" ]; then
-              echo "::error::Failed to push after $max_attempts attempts"
-              exit 1
-            fi
-            echo "Push rejected (attempt $attempt/$max_attempts); rebasing onto origin/main and retrying..."
-            git fetch origin main
-            # Rebase our single commit on top of the updated remote main.
-            # If rebase fails (e.g. the file was changed upstream in the same
-            # window), fall back to regenerating the file on top of the new
-            # base so the output reflects the latest state.
-            if ! git rebase origin/main; then
-              echo "Rebase conflict on data/keyword-pages-config.json; regenerating on top of new base"
-              git rebase --abort
-              git reset --hard origin/main
-              node scripts/generate-keyword-pages-config.mjs
-              node scripts/cluster-orphan-queries.mjs
-              git add data/keyword-pages-config.json data/gsc-orphan-queries-clusters.json
-              if git diff --cached --quiet; then
-                echo "No changes after regeneration; nothing to push"
-                exit 0
-              fi
-              git commit -m "chore: refresh GSC keyword pages config
-
-          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
-            fi
-            attempt=$((attempt + 1))
-            sleep $((attempt * 2))
-          done
+          # only touches data/keyword-pages-config.json. On rebase conflict,
+          # regenerate both data files on the new base and re-stage them.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/generate-keyword-pages-config.mjs && node scripts/cluster-orphan-queries.mjs && git add data/keyword-pages-config.json data/gsc-orphan-queries-clusters.json"

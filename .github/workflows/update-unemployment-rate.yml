@@ -44,22 +44,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Rebase if remote advanced while we ran
-          git fetch origin main
-          LOCAL=$(git rev-parse HEAD)
-          REMOTE=$(git rev-parse origin/main)
-          if [ "$LOCAL" != "$REMOTE" ]; then
-            echo "⚠️ Remote updated — rebasing..."
-            if ! git pull --rebase origin main; then
-              git rebase --abort || true
-              echo "⚠️ Rebase conflict — defer to next run"
-              exit 0
-            fi
-          fi
-
           git add public/data/switzerland-unemployment-rate.json
           git commit -m "chore(data): sync Switzerland unemployment rate (SECO)"
-          git push origin main
+
+          # Centralized rebase-retry helper survives concurrent pushes from
+          # other data-refresh workflows. On rebase conflict, re-fetch the
+          # SECO dataset on top of the new base.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/update-switzerland-unemployment-rate.mjs && git add public/data/switzerland-unemployment-rate.json"
 
           # GITHUB_TOKEN pushes don't trigger other workflows — trigger deploy manually
           bash scripts/lib/trigger-deploy.sh || true

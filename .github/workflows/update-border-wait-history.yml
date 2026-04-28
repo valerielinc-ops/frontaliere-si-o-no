@@ -45,8 +45,8 @@ jobs:
         run: node scripts/snapshot-border-wait-history.mjs
 
       - name: Commit + push (with rebase-retry)
-        # Port of the rebase-retry pattern from refresh-keyword-config.yml so
-        # we survive concurrent pushes from other data-refresh workflows.
+        # Centralized rebase-retry helper (scripts/lib/git-push-with-retry.sh)
+        # survives concurrent pushes from other data-refresh workflows.
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -56,13 +56,6 @@ jobs:
             exit 0
           fi
           git commit -m "chore(border-wait): snapshot history $(date -u +%Y-%m-%d)"
-          for i in 1 2 3 4 5; do
-            if git pull --rebase origin "${GITHUB_REF_NAME:-main}" && git push origin HEAD:"${GITHUB_REF_NAME:-main}"; then
-              echo "✅ push succeeded on attempt $i"
-              exit 0
-            fi
-            echo "⚠️ push attempt $i failed, retrying after 5s…"
-            sleep 5
-          done
-          echo "::error::Failed to push after 5 attempts"
-          exit 1
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "${GITHUB_REF_NAME:-main}" \
+            --regenerate-cmd "node scripts/snapshot-border-wait-history.mjs && git add data/border-wait-history data/border-wait-current.json"

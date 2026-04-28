@@ -67,23 +67,20 @@ jobs:
 
       - name: Commit and push
         if: steps.changes.outputs.has_changes == 'true'
+        env:
+          ADAPTER_KEY: ${{ inputs.adapter_key }}
+          ADAPTER_ACTION: ${{ inputs.action }}
+          ADAPTER_ENABLED: ${{ inputs.enabled }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git fetch origin main
-          LOCAL=$(git rev-parse HEAD)
-          REMOTE=$(git rev-parse origin/main)
-
-          if [ "$LOCAL" != "$REMOTE" ]; then
-            echo "⚠️ Remote updated — rebasing before commit..."
-            if ! git pull --rebase origin main; then
-              git rebase --abort || true
-              echo "⚠️ Rebase conflict — defer to next run"
-              exit 0
-            fi
-          fi
-
           git add data/jobs-crawler-adapters/adapters/*.json
           git commit -m "🛠️ Manage company adapter (${{ inputs.adapter_key }}, ${{ inputs.action }})"
-          git push origin main
+
+          # Centralized rebase-retry helper survives concurrent pushes from
+          # other data-refresh workflows. On rebase conflict, re-run the
+          # adapter manager on the new base so the staged JSON reflects the
+          # latest state.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/manage-company-adapter.mjs && git add data/jobs-crawler-adapters/adapters/*.json"

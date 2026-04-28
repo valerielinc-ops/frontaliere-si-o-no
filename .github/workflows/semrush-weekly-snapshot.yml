@@ -93,40 +93,11 @@ jobs:
           Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
 
           # Push with rebase-and-retry to survive concurrent pushes from
-          # other scheduled workflows (pattern ported from
-          # snapshot-jobs-weekly.yml / refresh-keyword-config.yml).
-          attempt=1
-          max_attempts=5
-          until git push origin HEAD:main; do
-            if [ "$attempt" -ge "$max_attempts" ]; then
-              echo "::error::Failed to push after $max_attempts attempts"
-              exit 1
-            fi
-            echo "Push rejected (attempt $attempt/$max_attempts); rebasing onto origin/main and retrying..."
-            git fetch origin main
-            if ! git rebase origin/main; then
-              echo "Rebase conflict; regenerating snapshot on top of new base"
-              git rebase --abort
-              git reset --hard origin/main
-              if [ "${{ steps.detect.outputs.has_key }}" = "true" ]; then
-                SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" node scripts/seo/semrush-snapshot.mjs || true
-                SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" SEMRUSH_PROJECT_ID="${{ secrets.SEMRUSH_PROJECT_ID }}" node scripts/seo/semrush-site-audit.mjs || true
-                SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" node scripts/seo/detect-cannibalization.mjs || true
-              else
-                node scripts/seo/semrush-snapshot.mjs --dry-run || true
-                node scripts/seo/semrush-site-audit.mjs --dry-run || true
-                node scripts/seo/detect-cannibalization.mjs --dry-run || true
-              fi
-              node scripts/seo/generate-weekly-report.mjs || true
-              git add data/seo-snapshots/ reports/ docs/seo-reports/
-              if git diff --cached --quiet; then
-                echo "No changes after regeneration; nothing to push"
-                exit 0
-              fi
-              git commit -m "chore(seo): refresh weekly SEMrush snapshot + site-audit diff
-
-          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
-            fi
-            attempt=$((attempt + 1))
-            sleep $((attempt * 2))
-          done
+          # other scheduled workflows. On rebase conflict, regenerate the
+          # snapshot + site-audit + cannibalization + report on the new base.
+          if [ "${{ steps.detect.outputs.has_key }}" = "true" ]; then
+            REGEN_CMD='SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" node scripts/seo/semrush-snapshot.mjs || true; SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" SEMRUSH_PROJECT_ID="${{ secrets.SEMRUSH_PROJECT_ID }}" node scripts/seo/semrush-site-audit.mjs || true; SEMRUSH_API_KEY="${{ secrets.SEMRUSH_API_KEY }}" node scripts/seo/detect-cannibalization.mjs || true; node scripts/seo/generate-weekly-report.mjs || true; git add data/seo-snapshots/ reports/ docs/seo-reports/'
+          else
+            REGEN_CMD='node scripts/seo/semrush-snapshot.mjs --dry-run || true; node scripts/seo/semrush-site-audit.mjs --dry-run || true; node scripts/seo/detect-cannibalization.mjs --dry-run || true; node scripts/seo/generate-weekly-report.mjs || true; git add data/seo-snapshots/ reports/ docs/seo-reports/'
+          fi
+          bash scripts/lib/git-push-with-retry.sh --regenerate-cmd "$REGEN_CMD"

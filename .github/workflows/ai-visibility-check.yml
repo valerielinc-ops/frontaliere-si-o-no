@@ -79,10 +79,13 @@ jobs:
           fi
           DATE=$(date -u +%Y-%m-%d)
           git commit -m "📊 AI visibility report — ${DATE}"
-          for attempt in 1 2 3; do
-            git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "$GITHUB_REF_NAME" && break
-            sleep 5
-          done
+          # Centralized rebase-retry helper survives concurrent pushes.
+          # AI visibility reports are timestamped append-only files plus a
+          # single latest.md; on rebase conflict re-stage the artifacts we
+          # already produced on top of the new base.
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --regenerate-cmd "git add reports/ai-visibility-*.json reports/ai-visibility-latest.md"
 
       - name: Create GitHub issue if citations dropped
         if: inputs.dry_run != 'true'
