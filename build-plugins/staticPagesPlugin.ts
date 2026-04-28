@@ -2085,8 +2085,215 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `Le guide coprono l'intero ciclo di vita del frontaliere: dal primo impiego al pensionamento, passando per disoccupazione, trasferimento auto, valichi di confine e maternità/paternità transfrontaliera.`,
  `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
  );
+ } else if (canonicalPath === '/mappa-del-sito/' || canonicalPath === '/mappa-del-sito') {
+ // Comprehensive site index — closes ~67 sitemap-pages and ~30
+ // sitemap-glossario orphans by listing every Italian URL plus the
+ // root hubs of small SEO sitemaps (border-wait, border-wait-map,
+ // job-market, career-landings, cost-of-living, nursing,
+ // fr-salaire-net, annual-report, market-report, guides).
+ //
+ // Per CLAUDE.md non-negotiable rule #5: the canonical fix for
+ // orphans-in-sitemaps is to add internal `<a href>` links from a
+ // hub page reachable from `/`. `/mappa-del-sito/` is in NAV_LABELS.it
+ // so every IT page links to it; this page in turn links every URL
+ // listed in any sitemap-*.xml that the BFS audit checks.
+ const groupByPrefix = (prefix: string) =>
+ italianUrls
+ .filter(u => u.path.startsWith(prefix) && u.path !== prefix.replace(/\/+$/, ''))
+ .map(u => withTrailingSlash(u.path));
+ const renderList = (heading: string, hrefs: string[]): string => {
+ if (!hrefs.length) return '';
+ const items = hrefs.map(href => {
+ const slug = href.replace(/\/+$/, '').split('/').pop() ?? href;
+ const label = slug
+ .replace(/-/g, ' ')
+ .replace(/\b\w/g, c => c.toUpperCase())
+ .replace(/\bChf\b/g, 'CHF')
+ .replace(/\bAvs\b/g, 'AVS')
+ .replace(/\bLpp\b/g, 'LPP')
+ .replace(/\bCu\b/g, 'CU')
+ .replace(/\bRal\b/g, 'RAL')
+ .replace(/\bSsn\b/g, 'SSN')
+ .replace(/\bSepa\b/g, 'SEPA')
+ .replace(/\bCcnl\b/g, 'CCNL')
+ .replace(/\bIpg\b/g, 'IPG')
+ .replace(/\bAc\b/g, 'AC')
+ .replace(/\bCmu\b/g, 'CMU')
+ .replace(/\bLamal\b/g, 'LAMal')
+ .replace(/\bNaspi\b/g, 'NASpI')
+ .replace(/\bIrpef\b/g, 'IRPEF')
+ .replace(/\bAinp\b/g, 'AINP');
+ return `<li style="margin:.2rem 0"><a href="${href}" style="color:#2563eb;text-decoration:none">${esc(label)}</a></li>`;
+ }).join('');
+ return `<h3 style="font-size:0.95rem;font-weight:700;margin:1rem 0 .35rem;color:#1e293b">${esc(heading)}</h3><ul style="margin:0 0 .5rem 1.25rem;padding:0;font-size:0.85rem;line-height:1.5">${items}</ul>`;
+ };
+
+ // Static lists for hubs that are NOT in sitemap-pages.xml but whose
+ // sitemaps still flag orphans (small SEO landings).
+ const BORDER_WAIT_HUB_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/traffico-dogane/', label: 'Tempi attesa dogane (live)' },
+ { href: '/en/border-wait/', label: 'Border wait times (English)' },
+ { href: '/de/wartezeit-grenze/', label: 'Wartezeiten Grenze (Deutsch)' },
+ { href: '/fr/temps-attente-douane/', label: 'Temps d\'attente douane (Français)' },
+ ];
+ const BORDER_WAIT_MAP_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/guida-frontaliere/mappa-live-valichi/', label: 'Mappa live valichi (italiano)' },
+ { href: '/en/cross-border-guide/live-border-crossings-map/', label: 'Live border crossings map' },
+ { href: '/de/grenzgaenger-ratgeber/live-grenzuebergaenge-karte/', label: 'Live-Grenzübergänge-Karte' },
+ { href: '/fr/guide-frontalier/carte-live-passages-frontaliers/', label: 'Carte live passages frontaliers' },
+ ];
+ const JOB_MARKET_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/mercato-lavoro-ticino/', label: 'Mercato lavoro Ticino — panoramica' },
+ { href: '/mercato-lavoro-ticino/settimana-13-2026/', label: 'Snapshot settimana 13/2026' },
+ { href: '/mercato-lavoro-ticino/settore/infermieri/', label: 'Settore: Infermieri' },
+ { href: '/mercato-lavoro-ticino/settore/educatori/', label: 'Settore: Educatori' },
+ { href: '/mercato-lavoro-ticino/settore/case-anziani/', label: 'Settore: Case Anziani' },
+ { href: '/mercato-lavoro-ticino/settore/sanita/', label: 'Settore: Sanità' },
+ { href: '/mercato-lavoro-ticino/settore/amministrativo/', label: 'Settore: Amministrativo' },
+ { href: '/mercato-lavoro-ticino/settore/vendite/', label: 'Settore: Vendite' },
+ { href: '/mercato-lavoro-ticino/settore/finanza/', label: 'Settore: Finanza' },
+ { href: '/mercato-lavoro-ticino/settore/informatica/', label: 'Settore: Informatica' },
+ { href: '/mercato-lavoro-ticino/settore/retail/', label: 'Settore: Retail' },
+ { href: '/mercato-lavoro-ticino/settore/meccanica/', label: 'Settore: Meccanica' },
+ { href: '/mercato-lavoro-ticino/settore/edilizia/', label: 'Settore: Edilizia' },
+ { href: '/mercato-lavoro-ticino/settore/ristorazione/', label: 'Settore: Ristorazione' },
+ { href: '/mercato-lavoro-ticino/settore/logistica/', label: 'Settore: Logistica' },
+ { href: '/mercato-lavoro-ticino/settore/ingegneria/', label: 'Settore: Ingegneria' },
+ ];
+ const CAREER_LANDING_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/agenzie-del-lavoro-lugano/', label: 'Agenzie del lavoro Lugano' },
+ { href: '/concorsi-pubblici-lugano/', label: 'Concorsi pubblici Lugano' },
+ { href: '/stage-lugano/', label: 'Stage Lugano' },
+ { href: '/contratti-lavoro-frontalieri/', label: 'Contratti lavoro frontalieri' },
+ ];
+ const COST_OF_LIVING_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/costo-vita-lugano-ticino/', label: 'Costo vita Lugano' },
+ { href: '/costo-vita-mendrisio-ticino/', label: 'Costo vita Mendrisio' },
+ { href: '/costo-vita-bellinzona-ticino/', label: 'Costo vita Bellinzona' },
+ { href: '/costo-vita-locarno-ticino/', label: 'Costo vita Locarno' },
+ ];
+ const NURSING_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/lavoro-infermieri-svizzera/', label: 'Lavoro infermieri Svizzera' },
+ { href: '/lavoro-oss-svizzera/', label: 'Lavoro OSS Svizzera' },
+ { href: '/lavoro-sanitario-ticino/', label: 'Lavoro sanitario Ticino' },
+ ];
+ const REPORT_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/report/frontaliere-ticino-2026/', label: 'Annual Report 2026 (italiano)' },
+ { href: '/en/report/cross-border-workers-2026/', label: 'Annual Report 2026 (English)' },
+ { href: '/de/report/grenzgaenger-2026/', label: 'Annual Report 2026 (Deutsch)' },
+ { href: '/fr/report/frontaliers-2026/', label: 'Annual Report 2026 (Français)' },
+ { href: '/reports/mercato-lavoro-frontalieri-ticino-2026/', label: 'Market Report 2026 (italiano)' },
+ { href: '/en/reports/cross-border-job-market-ticino-2026/', label: 'Market Report 2026 (English)' },
+ { href: '/de/reports/tessiner-grenzgaenger-arbeitsmarkt-2026/', label: 'Market Report 2026 (Deutsch)' },
+ { href: '/fr/reports/marche-emploi-frontaliers-tessin-2026/', label: 'Market Report 2026 (Français)' },
+ ];
+ const FUEL_IT_CITY_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/prezzi-diesel/italia/como/oggi/', label: 'Prezzi diesel Como' },
+ { href: '/prezzi-benzina/italia/como/oggi/', label: 'Prezzi benzina Como' },
+ { href: '/prezzi-diesel/italia/varese/oggi/', label: 'Prezzi diesel Varese' },
+ { href: '/prezzi-benzina/italia/varese/oggi/', label: 'Prezzi benzina Varese' },
+ { href: '/prezzi-diesel/italia/luino/oggi/', label: 'Prezzi diesel Luino' },
+ { href: '/prezzi-benzina/italia/luino/oggi/', label: 'Prezzi benzina Luino' },
+ ];
+ const GUIDE_PDF_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/guides/guida-completa-frontaliere-2026/', label: 'Guida completa frontaliere 2026' },
+ { href: '/guides/guida-completa-frontaliere-2026.pdf', label: 'Guida completa frontaliere 2026 (PDF)' },
+ { href: '/guides/permesso-g-vantaggi-svantaggi/', label: 'Permesso G: vantaggi e svantaggi' },
+ { href: '/guides/permesso-g-vantaggi-svantaggi.pdf', label: 'Permesso G: vantaggi e svantaggi (PDF)' },
+ { href: '/guides/lamal-vs-ssn-frontalieri/', label: 'LAMal vs SSN per frontalieri' },
+ { href: '/guides/lamal-vs-ssn-frontalieri.pdf', label: 'LAMal vs SSN per frontalieri (PDF)' },
+ { href: '/guides/trovare-lavoro-ticino-frontaliere/', label: 'Trovare lavoro in Ticino' },
+ { href: '/guides/trovare-lavoro-ticino-frontaliere.pdf', label: 'Trovare lavoro in Ticino (PDF)' },
+ ];
+ const FR_SALAIRE_LINKS: ReadonlyArray<{ href: string; label: string }> = [
+ { href: '/fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/', label: 'Calcul salaire net frontalier (FR)' },
+ ];
+
+ const renderHubLinks = (heading: string, items: ReadonlyArray<{ href: string; label: string }>): string =>
+ items.length
+ ? `<h3 style="font-size:0.95rem;font-weight:700;margin:1rem 0 .35rem;color:#1e293b">${esc(heading)}</h3><ul style="margin:0 0 .5rem 1.25rem;padding:0;font-size:0.85rem;line-height:1.5">${items.map(it => `<li style="margin:.2rem 0"><a href="${it.href}" style="color:#2563eb;text-decoration:none">${esc(it.label)}</a></li>`).join('')}</ul>`
+ : '';
+
+ // Group all italianUrls by their first path segment for an organized index.
+ const grouped = new Map<string, string[]>();
+ for (const u of italianUrls) {
+ if (u.path === '/') continue;
+ const seg = u.path.replace(/^\/+/, '').split('/')[0] || 'root';
+ const arr = grouped.get(seg) ?? [];
+ arr.push(withTrailingSlash(u.path));
+ grouped.set(seg, arr);
+ }
+ const segHeading: Record<string, string> = {
+ 'calcola-stipendio': 'Calcolatori stipendio',
+ 'compara-servizi': 'Comparatori servizi',
+ 'tasse-e-pensione': 'Tasse e pensione',
+ 'guida-frontaliere': 'Guida frontaliere',
+ 'vivere-in-ticino': 'Vivere in Ticino',
+ 'vita-in-ticino': 'Vita in Ticino',
+ 'statistiche': 'Statistiche',
+ 'articoli-frontaliere': 'Articoli',
+ };
+
+ editorialBlocks.push(
+ `<h2 style="font-size:1.1rem;font-weight:700;margin:1rem 0 .5rem">Indice completo del sito</h2>`,
+ `<p>Questa pagina elenca tutti gli strumenti, le guide, i comparatori e le risorse pubblicate su Frontaliere Ticino. È pensata sia per la navigazione umana che per i motori di ricerca: ogni voce è un link diretto alla pagina di destinazione, organizzata per categoria. Le pagine in lingua inglese, tedesca e francese sono raggiungibili dal selettore lingua in alto.</p>`,
+ // First: in-section pages from sitemap-pages.xml + sitemap-glossario.xml
+ ...Array.from(grouped.entries())
+ .filter(([seg]) => segHeading[seg])
+ .map(([seg, hrefs]) => renderList(segHeading[seg], hrefs.sort())),
+ // Special-cased pages
+ renderHubLinks('Glossario frontaliere — tutti i termini', italianUrls
+ .filter(u => u.path.startsWith('/glossario-frontaliere'))
+ .map(u => ({ href: withTrailingSlash(u.path), label: (u.path.split('/').pop() ?? u.path).replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) }))
+ .sort((a, b) => a.label.localeCompare(b.label))),
+ // Tier-B SEO landings
+ renderHubLinks('Tempi attesa dogane — multi-lingua', BORDER_WAIT_HUB_LINKS),
+ renderHubLinks('Mappa live valichi — multi-lingua', BORDER_WAIT_MAP_LINKS),
+ renderHubLinks('Mercato lavoro Ticino — settori', JOB_MARKET_LINKS),
+ renderHubLinks('Carriere Lugano — landing pages', CAREER_LANDING_LINKS),
+ renderHubLinks('Costo della vita per città', COST_OF_LIVING_LINKS),
+ renderHubLinks('Lavoro sanitario Ticino', NURSING_LINKS),
+ renderHubLinks('Report annuali', REPORT_LINKS),
+ renderHubLinks('Prezzi carburante città italiane', FUEL_IT_CITY_LINKS),
+ renderHubLinks('Guide PDF scaricabili', GUIDE_PDF_LINKS),
+ renderHubLinks('Risorse in altre lingue', FR_SALAIRE_LINKS),
+ `<p style="margin-top:1rem;color:#64748b;font-size:0.85rem">Pagine root non in elenco: <a href="/" style="color:#2563eb;text-decoration:none">homepage</a>, <a href="/cerca-lavoro-ticino/" style="color:#2563eb;text-decoration:none">job-board</a>, <a href="/articoli-frontaliere/" style="color:#2563eb;text-decoration:none">archivio articoli</a>, <a href="/glossario-frontaliere/" style="color:#2563eb;text-decoration:none">glossario</a>, <a href="/domande-frequenti-frontalieri/" style="color:#2563eb;text-decoration:none">FAQ</a>.</p>`,
+ );
  } else if (canonicalPath === '/glossario-frontaliere/') {
  // H.5: Landing del glossario — intro 300w + 3 FAQ prima della lista
+ // Build the alphabetised anchor list of every glossary term so each
+ // child glossario page is reachable in 1 BFS hop from this hub.
+ // Per CLAUDE.md non-negotiable rule #5: the canonical fix for orphan
+ // glossary entries is hub-side internal linking, NOT noindex.
+ const glossaryEntries = italianUrls
+ .filter(u => u.path.startsWith('/glossario-frontaliere/') && u.path !== '/glossario-frontaliere')
+ .map(u => {
+ const slug = u.path.split('/').filter(Boolean).pop() ?? u.path;
+ const label = slug
+ .replace(/-/g, ' ')
+ .replace(/\b\w/g, c => c.toUpperCase())
+ .replace(/\bAvs\b/g, 'AVS')
+ .replace(/\bLpp\b/g, 'LPP')
+ .replace(/\bCu\b/g, 'CU')
+ .replace(/\bRal\b/g, 'RAL')
+ .replace(/\bSsn\b/g, 'SSN')
+ .replace(/\bSepa\b/g, 'SEPA')
+ .replace(/\bCcnl\b/g, 'CCNL')
+ .replace(/\bIpg\b/g, 'IPG')
+ .replace(/\bAc\b/g, 'AC')
+ .replace(/\bCmu\b/g, 'CMU')
+ .replace(/\bLamal\b/g, 'LAMal')
+ .replace(/\bNaspi\b/g, 'NASpI')
+ .replace(/\bIrpef\b/g, 'IRPEF')
+ .replace(/\bAinp\b/g, 'AINP');
+ return { href: withTrailingSlash(u.path), label };
+ })
+ .sort((a, b) => a.label.localeCompare(b.label));
+ const glossaryListHtml = glossaryEntries.length
+ ? `<h2 style="font-size:1.05rem;font-weight:700;margin:1.25rem 0 .5rem">Tutti i termini del glossario</h2><ul style="margin:0 0 1rem 1.25rem;padding:0;font-size:0.9rem;line-height:1.6">${glossaryEntries
+ .map(g => `<li style="margin:.15rem 0"><a href="${g.href}" style="color:#2563eb;text-decoration:none">${esc(g.label)}</a></li>`)
+ .join('')}</ul>`
+ : '';
  editorialBlocks.push(
  `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">A cosa serve un glossario per frontalieri Svizzera-Italia</h2>`,
  `Il glossario frontaliere raccoglie 52 definizioni essenziali per chi lavora in Svizzera (Canton Ticino) e vive in Italia. Ogni voce affronta un termine tecnico che un frontaliere incontra in busta paga, contratto di lavoro, dichiarazione dei redditi o pratica amministrativa — dalle sigle fiscali (AVS, LPP, LAMal, IRPEF, TUIR) ai documenti ufficiali (Lohnausweis, Modello 730, CU, Quellensteuerausweis), fino ai concetti giuridici chiave dell'Accordo bilaterale 2020 (residenza fiscale, franchigia 10.000 EUR, tassazione concorrente).`,
@@ -2097,6 +2304,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<p><strong>Il glossario include anche i termini italiani non presenti in Svizzera?</strong> Sì: IRPEF, addizionale regionale, addizionale comunale, quadro CE, quadro RW, CU (Certificazione Unica), 730 e Modello Redditi PF sono termini italiani fondamentali per il frontaliere, perché la dichiarazione in Italia resta obbligatoria per i nuovi frontalieri assunti dal 17 luglio 2023. Vedi la <a href="/tasse-e-pensione/dichiarazione-redditi/">guida dichiarazione dei redditi frontaliere</a>.</p>`,
  `<p><strong>Con quale frequenza viene aggiornato?</strong> Le cifre numeriche (aliquote, franchigie, massimali) vengono riviste annualmente a gennaio. I cambiamenti normativi strutturali (come il Nuovo Accordo 2020) vengono incorporati entro 30 giorni dalla pubblicazione ufficiale. Le nuove voci vengono aggiunte in base alle ricerche più frequenti degli utenti e alle novità normative segnalate dai patronati OCST, SIT e Unia Ticino.</p>`,
  `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">AFC</a> · <a href="https://www.bsv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">UFAS</a> · <a href="https://www.agenziaentrate.gov.it" style="color:#2563eb;text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
+ glossaryListHtml,
  );
  } else if (canonicalPath.startsWith('/glossario-frontaliere/')) {
  editorialBlocks.push(
