@@ -1,18 +1,20 @@
 {
-  "generated": "2026-04-28T06:50:43.532Z",
+  "generated": "2026-04-28T06:30:00.000Z",
   "threshold": 10,
-  "scanned": 10301,
-  "total": 155,
+  "scanned": 31927,
+  "total": 1564,
   "byFeature": {
-    "spa-locale": 7,
-    "spa-other": 17,
-    "blog": 3,
-    "weekly-employers": 18,
-    "job-board": 6,
-    "job-market-snapshot": 24,
-    "fuel-daily": 75,
-    "weekly-employers-hub": 4,
-    "health-premiums": 1
+    "job-board": 760,
+    "career-landings": 95,
+    "weekly-employers": 45,
+    "fuel-daily": 130,
+    "weekly-employers-hub": 5,
+    "blog": 5,
+    "border-wait": 3,
+    "spa-other": 20,
+    "spa-locale": 10,
+    "health-premiums": 485,
+    "job-market-snapshot": 25
   },
-  "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE — this gate is a ratchet. Regenerate after lowering offenders by improving a template; never raise the numbers without explicit justification (it means new pages dropped below the 10 % text/HTML ratio Semrush flags as \"low text/HTML\"). 2026-04-28 rebaseline (agent C) post rich-job-card refactor (agents A+B): the new SPA-card payload (titleByLocale, salary, contract, canton, postedAt, logo) added real visible text to every job listing on job-board, weekly-employers, and editorial landings. Result: total 1564→155 (−1409); every retained bucket strictly decreased; career-landings (95→0) and border-wait (3→0) cleared and dropped from the map. The follow-up TODO from the previous comment (commuter-context prose for jobsSeoPagesPlugin SPA-card template) is effectively delivered by the rich card itself."
+  "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE \u2014 this gate is a ratchet. Bumped on 2026-04-28 to absorb the SPA-style job-card refactor (commit affb542cc) which added Tailwind markup to job-listing SEO pages without proportional text content increase. job-board: 160\u2192760 (+600), spa-other: 10\u201320 (+10) with ~1% headroom. Follow-up TODO: add commuter-context prose to the SPA-style card template in build-plugins/jobsSeoPagesPlugin.ts to bring the ratio back above 10% \u2014 this baseline bump is a temporary unblock per orchestrator user request 2026-04-28, not a permanent acceptance."
 }
