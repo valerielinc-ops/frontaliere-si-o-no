@@ -3385,6 +3385,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendi-svizzeri-crescono-2025.title': 'Schweizer Löhne steigen: +1,6% im 2025',
     'blog.article.stipendi-svizzeri-crescono-2025.excerpt': 'Die realen Löhne in der Schweiz sind im Jahr 2025 um 1,6% gestiegen, der höchste Anstieg seit 2009',
     'blog.article.stipendi-svizzeri-crescono-2025.imageAlt': 'Luganersee mit umliegenden Bergen und Gebäuden',
+    'blog.article.tassa-traffico-pesante-lacune-controlli.title': 'Schwerverkehrsabgabe: Fehlende Einnahmen und Kontrolllücken',
+    'blog.article.tassa-traffico-pesante-lacune-controlli.excerpt': 'Lorenzo Quadri kritisiert Probleme im neuen System der Schwerverkehrsabgabe, mit Risiken von Betrug und fehlenden Einnahmen.',
+    'blog.article.tassa-traffico-pesante-lacune-controlli.imageAlt': 'Luftaufnahme des Schwerverkehrs an der Schweizer-Italienischen Grenze, mit LKWs in der Schlange an der Grenzkontrolle, vor der Kulisse des Luganer Sees und der umliegenden Berge.',
 };
 
 export default blogMetaDe;

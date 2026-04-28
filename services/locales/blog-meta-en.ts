@@ -3385,6 +3385,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendi-svizzeri-crescono-2025.title': 'Swiss salaries rise: +1.6% in 2025',
     'blog.article.stipendi-svizzeri-crescono-2025.excerpt': 'Real wages in Switzerland increased by 1.6% in 2025, the most significant gain since 2009',
     'blog.article.stipendi-svizzeri-crescono-2025.imageAlt': 'Lake Lugano with surrounding mountains and buildings',
+    'blog.article.tassa-traffico-pesante-lacune-controlli.title': 'Heavy traffic tax: missed revenue and control gaps',
+    'blog.article.tassa-traffico-pesante-lacune-controlli.excerpt': 'Lorenzo Quadri reports issues with the new heavy traffic tax collection system, with risks of fraud and missed revenue.',
+    'blog.article.tassa-traffico-pesante-lacune-controlli.imageAlt': 'Aerial view of heavy traffic at the Swiss-Italian border, with trucks queuing at the customs checkpoint, set against the backdrop of Lake Lugano and the surrounding mountains.',
 };
 
 export default blogMetaEn;

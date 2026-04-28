@@ -8911,4 +8911,11 @@ export const ARTICLES = [
  image: '/images/blog/stipendi-svizzeri-crescono-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tassa-traffico-pesante-lacune-controlli',
+ category: 'fiscale',
+ date: '2026-04-28T15:41:07.686Z',
+ image: '/images/blog/tassa-traffico-pesante-lacune-controlli.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

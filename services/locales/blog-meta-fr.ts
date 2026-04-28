@@ -3386,6 +3386,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendi-svizzeri-crescono-2025.title': 'Salaires suisses en hausse: +1,6% en 2025',
     'blog.article.stipendi-svizzeri-crescono-2025.excerpt': 'Les salaires réels en Suisse ont augmenté de 1,6% en 2025, la plus forte hausse depuis 2009',
     'blog.article.stipendi-svizzeri-crescono-2025.imageAlt': 'Lac de Lugano avec montagnes et bâtiments environnants',
+    'blog.article.tassa-traffico-pesante-lacune-controlli.title': 'Taxe sur le trafic lourd : revenus manquants et lacunes dans les contrôles',
+    'blog.article.tassa-traffico-pesante-lacune-controlli.excerpt': 'Lorenzo Quadri dénonce des problèmes dans le nouveau système de perception de la taxe sur le trafic lourd, avec des risques de fraude et de revenus manquants.',
+    'blog.article.tassa-traffico-pesante-lacune-controlli.imageAlt': 'Vue aérienne du trafic lourd à la frontière suisse-italienne, avec des camions en file à la douane, sur fond de lac de Lugano et des montagnes environnantes.',
 };
 
 export default blogMetaFr;
