@@ -10,6 +10,16 @@
  * require PNG.
  *
  * Quality: 82 (visually lossless for photographs, good compression).
+ *
+ * Skip-if-fresh (perf optimization 2026-04-28): each source image is only
+ * re-converted when:
+ *   1. the corresponding `.webp` does not exist, OR
+ *   2. the existing `.webp` mtime is older than the source file mtime.
+ *
+ * Combined with the GitHub Actions cache step (`actions/cache@v5` keyed on
+ * the hash of `public/images/**\/*.{jpg,png,jpeg}`), this drops a 500s
+ * conversion cost down to a few seconds on cache-hit builds. When source
+ * images change, the cache key rotates and conversion runs in full.
  */
 
 import type { Plugin } from 'vite';
@@ -62,12 +72,29 @@ export function webpPlugin(rootDir: string): Plugin {
  return results;
  }
 
+ /**
+  * Skip-if-fresh: existing .webp counts as fresh when its mtime is
+  * greater than or equal to the source file's mtime. Returns `true` if
+  * the conversion should be skipped (file is up to date), `false` if
+  * it must run.
+  */
+ function isWebpFresh(srcPath: string, webpPath: string): boolean {
+ try {
+ const srcStat = fs.statSync(srcPath);
+ const webpStat = fs.statSync(webpPath);
+ return webpStat.mtimeMs >= srcStat.mtimeMs;
+ } catch {
+ return false;
+ }
+ }
+
  const images = findImages(distDir);
  if (images.length === 0) {
  console.log('[webp-plugin] No PNG/JPG images found in dist/');
  return;
  }
 
+ const startTotal = Date.now();
  let converted = 0;
  let skipped = 0;
  let errors = 0;
@@ -78,7 +105,7 @@ export function webpPlugin(rootDir: string): Plugin {
  const results = await Promise.allSettled(
  batch.map(async (imgPath) => {
  const webpPath = imgPath.replace(/\.(png|jpe?g)$/i, '.webp');
- if (fs.existsSync(webpPath)) {
+ if (fs.existsSync(webpPath) && isWebpFresh(imgPath, webpPath)) {
  skipped++;
  return;
  }
@@ -96,8 +123,9 @@ export function webpPlugin(rootDir: string): Plugin {
  }
  }
 
+ const dur = ((Date.now() - startTotal) / 1000).toFixed(2);
  console.log(
- `[webp-plugin] Done: ${converted} converted, ${skipped} already existed, ${errors} errors (from ${images.length} images)`,
+ `[webp-conversion] converted ${converted} | skipped ${skipped} | errors ${errors} | total time ${dur}s (from ${images.length} images)`,
  );
  },
  };

@@ -158,6 +158,27 @@ jobs:
           restore-keys: |
             vite-${{ runner.os }}-
 
+      # Cache webp-converted images. The webpPlugin walks dist/images/ and
+      # converts every PNG/JPG to .webp, which is otherwise a 500s cost on
+      # every build (deploy run #25039504369 timing). The cache key rotates
+      # only when the actual source images change, so most builds restore
+      # the .webp files and the plugin's skip-if-fresh logic short-circuits
+      # the conversion to a few seconds.
+      #
+      # We cache `public/images/**/*.webp` (committed alongside source PNGs;
+      # Vite copies them into dist/ on build) and `dist/images/**/*.webp`
+      # (defense in depth — dist is wiped on prepareOutDirPlugin but cache
+      # restore happens AFTER wipe in some plugin configurations).
+      - name: Cache webp-converted images
+        uses: actions/cache@v5
+        with:
+          path: |
+            public/images/**/*.webp
+            dist/images/**/*.webp
+          key: webp-${{ runner.os }}-${{ hashFiles('public/images/**/*.{jpg,png,jpeg}') }}
+          restore-keys: |
+            webp-${{ runner.os }}-
+
       # Cache content-hash manifest step DISABLED 2026-04-28 — paired with the
       # disabled bootstrap/finalize plugins in vite.config.ts. The repo's
       # auto-blog/auto-translate churn meant ~80% of deploys had data changes,
