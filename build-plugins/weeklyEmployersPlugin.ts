@@ -68,6 +68,7 @@ import {
   type WeeklyEmployersLocale,
 } from './weeklyEmployersData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { adSlotHtml } from './lib/adSlotHtml';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -2221,6 +2222,9 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   </section>
   ${renderDiscoverMore(locale, WEEKLY_EMPLOYERS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'weekly_employers', { city, weeklyCity: city })}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   // Extra head: OG image dims + twitter card — matches pre-shell-wrap output.
@@ -2698,6 +2702,9 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     employer,
     companySiblingCities,
   })}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">

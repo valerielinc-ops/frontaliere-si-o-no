@@ -2747,6 +2747,17 @@ function BlogArticles({
  </div>
  </div>
  </a>
+ {/* In-feed AdSense — single multiplex after the 3rd card (FRO-adsense-static-seo). */}
+ {idx === 2 && (
+ <Suspense fallback={<div style={{ minHeight: AD_SLOTS.JOBLIST_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="sm:col-span-2 lg:col-span-3" />}>
+ <AdSenseBanner
+ adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+ adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+ fullWidthResponsive={false}
+ className="sm:col-span-2 lg:col-span-3"
+ />
+ </Suspense>
+ )}
  </Fragment>
  ))}
  </div>
@@ -2836,17 +2847,9 @@ function BlogArticles({
  </div>
  )}
 
- {/* End-of-listing multiplex ad — after all articles & pagination */}
- {pageArticles.length > 0 && (
- <Suspense fallback={null}>
- <AdSenseBanner
- adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}
- adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format}
- fullWidthResponsive={false}
- className="mt-8 mb-4"
- />
- </Suspense>
- )}
+ {/* End-of-listing multiplex removed 2026-04-28 — single in-feed slot
+     (above, after card 3) replaces it. Two stacked multiplex on the same
+     listing tripped AdSense over-stuffing heuristics and depressed RPM. */}
 
  {/* SEO content block */}
  <div className="bg-surface-alt/50 rounded-xl p-4 sm:p-6 border border-edge">

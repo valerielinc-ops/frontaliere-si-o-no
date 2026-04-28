@@ -77,6 +77,7 @@ import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanu
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { JOB_RECENCY_LANDING_SLUGS } from './jobRecencyLanding';
+import { adSlotHtml } from './lib/adSlotHtml';
 import {
   WEEKLY_EMPLOYERS_CURRENT_SLUG,
   WEEKLY_EMPLOYERS_LOCALE_PREFIX,
@@ -1397,6 +1398,9 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${relatedHtml}
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
+    <section style="margin-top:32px" aria-label="advertisement">
+      ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
+    </section>
   </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
@@ -1631,6 +1635,9 @@ function renderHubPage(inp: HubPageInputs): string {
     ${relatedHtml}
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
+    <section style="margin-top:32px" aria-label="advertisement">
+      ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
+    </section>
   </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
@@ -2575,6 +2582,9 @@ function renderSectorPage(inp: SectorPageInputs): string {
     ${faqHtml}
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
+    <section style="margin-top:32px" aria-label="advertisement">
+      ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
+    </section>
   </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">

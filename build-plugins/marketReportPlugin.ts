@@ -42,6 +42,7 @@ import {
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { CITY_HUB_KEYS } from './cityJobsHub';
+import { adSlotHtml } from './lib/adSlotHtml';
 import {
   STAT_TILE_BASE,
   STAT_TILE_LABEL,
@@ -688,7 +689,8 @@ function renderReport(opts: {
     </section>
   `;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>`;
+  const adSection = `<section style="max-width:1100px;margin:32px auto 0;padding:0 20px" aria-label="advertisement">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</section>`;
+  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>${adSection}`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

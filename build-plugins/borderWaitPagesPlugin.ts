@@ -69,6 +69,7 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { adSlotHtml } from './lib/adSlotHtml';
 import {
   FUEL_LOCALE_PREFIX,
   FUEL_SECTION_SLUG,
@@ -1386,6 +1387,9 @@ function renderLeafPage(inp: LeafInputs): string {
   ${faqHtml}
   ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
 </article>${webcamRefreshScript}`;
 
   // Per-page OG image: when the build-time webcam snapshot is available, use
@@ -1656,6 +1660,9 @@ function renderHubPage(inp: HubInputs): string {
   </section>
   ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
@@ -1795,6 +1802,9 @@ function renderArchivePage(inp: ArchiveInputs): string {
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>
+        </section>
+        <section style="margin-top:32px" aria-label="advertisement">
+          ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
         </section>
       </article>`;
 
