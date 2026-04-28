@@ -8988,4 +8988,11 @@ export const ARTICLES = [
  image: '/images/blog/decreto-lavoro-meloni-2026-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'calcio-dnb-belli-crisi',
+ category: 'novita',
+ date: '2026-04-28T17:16:58.561Z',
+ image: '/images/blog/calcio-dnb-belli-crisi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

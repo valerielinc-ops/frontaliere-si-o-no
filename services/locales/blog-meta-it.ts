@@ -3419,6 +3419,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.decreto-lavoro-meloni-2026-frontalieri.title': 'Decreto Lavoro Meloni: incentivi e salario giusto per i frontalieri',
     'blog.article.decreto-lavoro-meloni-2026-frontalieri.excerpt': 'Via libera del Consiglio dei Ministri al decreto lavoro con incentivi per assunzioni e salario giusto per i lavoratori',
     'blog.article.decreto-lavoro-meloni-2026-frontalieri.imageAlt': 'Panorama di Lugano con il lago e le montagne circostanti',
+    'blog.article.calcio-dnb-belli-crisi.title': 'Calcio Dnb: Belli a un passo dal baratro dopo la sconfitta',
+    'blog.article.calcio-dnb-belli-crisi.excerpt': 'La squadra di calcio Dnb Belli ha segnato un solo goal in due tiri, ma non è bastato per evitare una situazione critica.',
+    'blog.article.calcio-dnb-belli-crisi.imageAlt': 'Stadio di calcio in Ticino con tifosi e giocatori in campo',
 };
 
 export default blogMetaIt;

@@ -20020,6 +20020,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calcio-dnb-belli-crisi': {
+    title: 'Calcio Dnb: Belli a un passo dal baratro dopo la sconfitta',
+    description: 'La squadra di calcio Dnb Belli ha segnato un solo goal in due tiri, ma non è bastato per evitare una situazione critica. Analisi e soluzioni. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcio, belli, passo, baratro',
+    ogTitle: 'Calcio Dnb: Belli a un passo dal baratro dopo la sconfitta',
+    ogDescription: 'La squadra di calcio Dnb Belli ha segnato un solo goal in due tiri, ma non è bastato per evitare una situazione critica. Analisi e soluzioni.',
+    canonicalPath: '/articoli-frontaliere/calcio-dnb-belli-crisi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcio Dnb: Belli a un passo dal baratro dopo la sconfitta",
+      "description": "La squadra di calcio Dnb Belli ha segnato un solo goal in due tiri, ma non è bastato per evitare una situazione critica. Analisi e soluzioni. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/calcio-dnb-belli-crisi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di calcio in Ticino con tifosi e giocatori in campo"
+      },
+      "datePublished": "2026-04-28T17:16:58+00:00",
+      "dateModified": "2026-04-28T17:16:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcio-dnb-belli-crisi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

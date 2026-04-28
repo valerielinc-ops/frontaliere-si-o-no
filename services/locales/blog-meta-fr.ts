@@ -3419,6 +3419,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.decreto-lavoro-meloni-2026-frontalieri.title': 'Décret Travail Meloni : incitations et salaire équitable pour les frontaliers',
     'blog.article.decreto-lavoro-meloni-2026-frontalieri.excerpt': 'Feu vert du Conseil des Ministres au décret travail avec incitations pour les embauches et salaire équitable pour les travailleurs',
     'blog.article.decreto-lavoro-meloni-2026-frontalieri.imageAlt': 'Panorama de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.calcio-dnb-belli-crisi.title': 'Football Dnb : Belli au bord du gouffre après la défaite',
+    'blog.article.calcio-dnb-belli-crisi.excerpt': 'L\'équipe de football Dnb Belli a marqué un seul but en deux tirs, mais cela n\'a pas suffi pour éviter une situation critique.',
+    'blog.article.calcio-dnb-belli-crisi.imageAlt': 'Stade de football en Tessin avec des supporters et des joueurs sur le terrain',
 };
 
 export default blogMetaFr;

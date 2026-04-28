@@ -3418,6 +3418,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.decreto-lavoro-meloni-2026-frontalieri.title': 'Meloni\'s Labour Decree: incentives and fair wages for cross-border workers',
     'blog.article.decreto-lavoro-meloni-2026-frontalieri.excerpt': 'The Council of Ministers has given the green light to the labour decree with incentives for hiring and fair wages for workers',
     'blog.article.decreto-lavoro-meloni-2026-frontalieri.imageAlt': 'Panorama of Lugano with the lake and surrounding mountains',
+    'blog.article.calcio-dnb-belli-crisi.title': 'Dnb Belli on the brink after defeat',
+    'blog.article.calcio-dnb-belli-crisi.excerpt': 'The Dnb Belli football team scored just one goal in two attempts, but it wasn\'t enough to avoid a critical situation.',
+    'blog.article.calcio-dnb-belli-crisi.imageAlt': 'Football stadium in Ticino with fans and players on the field',
 };
 
 export default blogMetaEn;
