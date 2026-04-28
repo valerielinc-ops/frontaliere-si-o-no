@@ -3218,6 +3218,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.title': 'Gestion illicite des déchets entre Varèse et Arcisate: trois personnes dénoncées',
     'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.excerpt': 'Opération des Carabiniers Forestiers entre Varèse et Arcisate pour l\'élimination illégale des déchets. Trois personnes dénoncées et saisie d\'un hangar et de véhicules.',
     'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.imageAlt': 'Vue aérienne de Mendrisio, Tessin, Suisse, avec la frontière avec l\'Italie visible',
+    'blog.article.frontalieri-ticino-crescita-2026.title': 'Frontaliers Ticino: +30% en 10 ans, dépassant les 91.000',
+    'blog.article.frontalieri-ticino-crescita-2026.excerpt': 'De l\'Office fédéral de la statistique: les frontaliers italiens en Suisse ont augmenté de 30% en 10 ans, le Tessin restant le pôle principal',
+    'blog.article.frontalieri-ticino-crescita-2026.imageAlt': 'Travailleurs frontaliers à la frontière de Brogeda entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

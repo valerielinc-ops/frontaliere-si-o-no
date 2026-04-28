@@ -18077,6 +18077,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-crescita-2026': {
+    title: 'Frontalieri Ticino: +30% in 10 anni, superati i 91.000',
+    description: 'Dall\'Ufficio federale di statistica: frontalieri italiani in Svizzera cresciuti del 30% in 10 anni, con il Ticino che resta il polo principale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, anni, superati, dall, ufficio',
+    ogTitle: 'Frontalieri Ticino: +30% in 10 anni, superati i 91.000',
+    ogDescription: 'Dall\'Ufficio federale di statistica: frontalieri italiani in Svizzera cresciuti del 30% in 10 anni, con il Ticino che resta il polo principale',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-crescita-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri Ticino: +30% in 10 anni, superati i 91.000",
+      "description": "Dall'Ufficio federale di statistica: frontalieri italiani in Svizzera cresciuti del 30% in 10 anni, con il Ticino che resta il polo principale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-crescita-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri al confine di Brogeda tra Italia e Svizzera"
+      },
+      "datePublished": "2026-04-28T06:08:57+00:00",
+      "dateModified": "2026-04-28T06:08:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-crescita-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

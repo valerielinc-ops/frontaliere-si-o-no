@@ -3217,6 +3217,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.title': 'Illegal waste management: 3 reported, seizures',
     'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.excerpt': 'Operation by the Forestry Carabinieri between Varese and Arcisate for illegal waste disposal. Three people reported and seizures of warehouse and vehicles.',
     'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.imageAlt': 'Aerial view of Mendrisio, Ticino, Switzerland, with the border to Italy visible',
+    'blog.article.frontalieri-ticino-crescita-2026.title': 'Cross-border workers in Ticino: +30% in 10 years, over 91,000',
+    'blog.article.frontalieri-ticino-crescita-2026.excerpt': 'From the Federal Statistical Office: Italian cross-border workers in Switzerland have grown by 30% in 10 years, with Ticino remaining the main hub',
+    'blog.article.frontalieri-ticino-crescita-2026.imageAlt': 'Cross-border workers at the Brogeda border between Italy and Switzerland',
 };
 
 export default blogMetaEn;

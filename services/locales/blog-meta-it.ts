@@ -3218,6 +3218,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.title': 'Gestione illecita di rifiuti tra Varese e Arcisate: tre denunciati e sequestri',
     'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.excerpt': 'Operazione dei Carabinieri Forestali tra Varese e Arcisate per smaltimento illegale di rifiuti. Tre persone denunciate e sequestri di capannone e mezzi.',
     'blog.article.gestione-illecita-rifiuti-varese-arcisate-2026.imageAlt': 'Vista aerea di Mendrisio, Ticino, Svizzera, con il confine con l\'Italia visibile',
+    'blog.article.frontalieri-ticino-crescita-2026.title': 'Frontalieri Ticino: +30% in 10 anni, superati i 91.000',
+    'blog.article.frontalieri-ticino-crescita-2026.excerpt': 'Dall\'Ufficio federale di statistica: frontalieri italiani in Svizzera cresciuti del 30% in 10 anni, con il Ticino che resta il polo principale',
+    'blog.article.frontalieri-ticino-crescita-2026.imageAlt': 'Frontalieri al confine di Brogeda tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
