@@ -9177,4 +9177,11 @@ export const ARTICLES = [
  image: '/images/blog/giornata-contro-rumore-lugano-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'estival-jazz-lugano-pagamento-2024',
+ category: 'novita',
+ date: '2026-04-28T20:08:44.426Z',
+ image: '/images/blog/estival-jazz-lugano-pagamento-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

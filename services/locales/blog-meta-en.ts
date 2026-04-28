@@ -3499,6 +3499,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giornata-contro-rumore-lugano-2024.title': 'Noise control checks in Lugano from 28 to 30 April',
     'blog.article.giornata-contro-rumore-lugano-2024.excerpt': 'Lugano\'s municipal police will extend noise checks from 28 to 30 April. Focus on noisy vehicles and construction sites',
     'blog.article.giornata-contro-rumore-lugano-2024.imageAlt': 'Lugano cityscape with Lake Ceresio and mountains in the background',
+    'blog.article.estival-jazz-lugano-pagamento-2024.title': 'Lugano Estival Jazz introduces paid tickets',
+    'blog.article.estival-jazz-lugano-pagamento-2024.excerpt': 'From 2024, two out of three festival evenings will be paid to ensure the event\'s sustainability',
+    'blog.article.estival-jazz-lugano-pagamento-2024.imageAlt': 'Photograph of the Estival Jazz festival in Lugano by Lake Ceresio',
 };
 
 export default blogMetaEn;

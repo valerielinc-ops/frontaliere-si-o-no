@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1216,
+ "numberOfItems": 1217,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5851,7 +5851,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1213, "name": "Caricabatteria unico per portatili: cosa cambia...", "url": `${BASE_URL}/articoli-frontaliere/caricabatteria-unico-portatili-2024` },
           { "@type": "ListItem", "position": 1214, "name": "Ufficio open space genera stress, non comunicaz...", "url": `${BASE_URL}/articoli-frontaliere/ufficio-open-space-stress-frontalieri` },
           { "@type": "ListItem", "position": 1215, "name": "Estival Jazz a pagamento: la polemica a Lugano", "url": `${BASE_URL}/articoli-frontaliere/estival-pagamento-caduta-stile-lugano` },
-          { "@type": "ListItem", "position": 1216, "name": "Giornata contro il rumore: controlli a Lugano d...", "url": `${BASE_URL}/articoli-frontaliere/giornata-contro-rumore-lugano-2024` }
+          { "@type": "ListItem", "position": 1216, "name": "Giornata contro il rumore: controlli a Lugano d...", "url": `${BASE_URL}/articoli-frontaliere/giornata-contro-rumore-lugano-2024` },
+          { "@type": "ListItem", "position": 1217, "name": "Estival Jazz Lugano introduce biglietti a pagam...", "url": `${BASE_URL}/articoli-frontaliere/estival-jazz-lugano-pagamento-2024` }
  ]
  },
  {

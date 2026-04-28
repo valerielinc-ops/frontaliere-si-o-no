@@ -20803,6 +20803,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-estival-jazz-lugano-pagamento-2024': {
+    title: 'Estival Jazz Lugano introduce biglietti a pagamento',
+    description: 'Dal 2024 due serate su tre del festival saranno a pagamento per garantire la sostenibilità dell\'evento. Scopri di più. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, estival, jazz, lugano, introduce',
+    ogTitle: 'Estival Jazz Lugano introduce biglietti a pagamento',
+    ogDescription: 'Dal 2024 due serate su tre del festival saranno a pagamento per garantire la sostenibilità dell\'evento. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/estival-jazz-lugano-pagamento-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Estival Jazz Lugano introduce biglietti a pagamento",
+      "description": "Dal 2024 due serate su tre del festival saranno a pagamento per garantire la sostenibilità dell'evento. Scopri di più. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/estival-jazz-lugano-pagamento-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia del festival Estival Jazz a Lugano sul lago Ceresio"
+      },
+      "datePublished": "2026-04-28T20:08:44+00:00",
+      "dateModified": "2026-04-28T20:08:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/estival-jazz-lugano-pagamento-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

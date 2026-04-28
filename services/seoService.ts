@@ -2397,6 +2397,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ufficio-open-space-stress-frontalieri': { name: 'Lavoro e benessere', path: '/articoli-frontaliere/ufficio-open-space-stress-frontalieri', parent: 'blog' },
     'blog-estival-pagamento-caduta-stile-lugano': { name: 'Novità', path: '/articoli-frontaliere/estival-pagamento-caduta-stile-lugano', parent: 'blog' },
     'blog-giornata-contro-rumore-lugano-2024': { name: 'Controlli rumore', path: '/articoli-frontaliere/giornata-contro-rumore-lugano-2024', parent: 'blog' },
+    'blog-estival-jazz-lugano-pagamento-2024': { name: 'Novità', path: '/articoli-frontaliere/estival-jazz-lugano-pagamento-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

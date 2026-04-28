@@ -3500,6 +3500,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giornata-contro-rumore-lugano-2024.title': 'Giornata contro il rumore: controlli a Lugano dal 28 al 30 aprile',
     'blog.article.giornata-contro-rumore-lugano-2024.excerpt': 'La Polizia comunale di Lugano estende i controlli sul rumore dal 28 al 30 aprile. Focus su veicoli rumorosi e cantieri',
     'blog.article.giornata-contro-rumore-lugano-2024.imageAlt': 'Panorama di Lugano con il lago Ceresio e le montagne sullo sfondo',
+    'blog.article.estival-jazz-lugano-pagamento-2024.title': 'Estival Jazz Lugano introduce biglietti a pagamento',
+    'blog.article.estival-jazz-lugano-pagamento-2024.excerpt': 'Dal 2024 due serate su tre del festival saranno a pagamento per garantire la sostenibilità dell\'evento',
+    'blog.article.estival-jazz-lugano-pagamento-2024.imageAlt': 'Fotografia del festival Estival Jazz a Lugano sul lago Ceresio',
 };
 
 export default blogMetaIt;
