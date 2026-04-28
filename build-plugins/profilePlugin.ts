@@ -32,6 +32,10 @@
 import type { Plugin } from 'vite';
 
 const PROFILE_ON = process.env.BUILD_PROFILE === '1';
+// Force sequential closeBundle execution. Use only for one-off profiling runs:
+// it serializes every plugin so wall-clock per plugin reflects real work
+// instead of parallel-overlapped time. Slower than normal — opt-in via env.
+const SEQUENTIAL_PROFILE = process.env.SEQUENTIAL_PROFILE === '1';
 
 // Module-level shared accumulator. Each wrapped plugin updates this map
 // inside its `finally` block; `profileSummaryPlugin` reads it once at the
@@ -50,21 +54,53 @@ export function withProfile(plugin: Plugin): Plugin {
   const orig = plugin.closeBundle;
   if (!orig) return plugin;
 
+  const wrappedHandler = async function (
+    this: unknown,
+    handler: (...a: unknown[]) => unknown,
+    args: unknown[],
+  ) {
+    const startWall = Date.now();
+    const startCpu = process.cpuUsage();
+    try {
+      return await handler.apply(this, args);
+    } finally {
+      const dur = Date.now() - startWall;
+      const cpu = process.cpuUsage(startCpu);
+      const cpuMs = (cpu.user + cpu.system) / 1000;
+      timings.set(name, (timings.get(name) || 0) + dur);
+      // Original format preserved so the existing `Build profile summary`
+      // step in deploy.yml keeps parsing correctly.
+      console.log(`[profile] ${name.padEnd(40)} ${(dur / 1000).toFixed(2)}s`);
+      // Detail line emitted only under SEQUENTIAL_PROFILE: it includes CPU
+      // time which is the "real work" signal once we serialize closeBundle.
+      // Parser-friendly: name, wall_s, cpu_s as separate space-delimited
+      // tokens after the marker.
+      if (SEQUENTIAL_PROFILE) {
+        console.log(
+          `[profile-detail] ${name.padEnd(40)} wall_s=${(dur / 1000).toFixed(2)} cpu_s=${(cpuMs / 1000).toFixed(2)}`,
+        );
+      }
+    }
+  };
+
   // Function form: `closeBundle() { ... }`
   if (typeof orig === 'function') {
+    const handler = orig as (...a: unknown[]) => unknown;
+    if (SEQUENTIAL_PROFILE) {
+      return {
+        ...plugin,
+        closeBundle: {
+          sequential: true,
+          handler: async function (this: unknown, ...args: unknown[]) {
+            return wrappedHandler.call(this, handler, args);
+          },
+        },
+      };
+    }
     return {
       ...plugin,
       closeBundle: async function (this: unknown, ...args: unknown[]) {
-        const start = Date.now();
-        try {
-          // Preserve `this` and forward all arguments verbatim so we never
-          // break a plugin that relies on the rollup plugin context.
-          return await (orig as (...a: unknown[]) => unknown).apply(this, args);
-        } finally {
-          const dur = Date.now() - start;
-          timings.set(name, (timings.get(name) || 0) + dur);
-          console.log(`[profile] ${name.padEnd(40)} ${(dur / 1000).toFixed(2)}s`);
-        }
+        return wrappedHandler.call(this, handler, args);
       },
     };
   }
@@ -80,15 +116,9 @@ export function withProfile(plugin: Plugin): Plugin {
       ...plugin,
       closeBundle: {
         ...oh,
+        sequential: SEQUENTIAL_PROFILE ? true : oh.sequential,
         handler: async function (this: unknown, ...args: unknown[]) {
-          const start = Date.now();
-          try {
-            return await oh.handler.apply(this, args);
-          } finally {
-            const dur = Date.now() - start;
-            timings.set(name, (timings.get(name) || 0) + dur);
-            console.log(`[profile] ${name.padEnd(40)} ${(dur / 1000).toFixed(2)}s`);
-          }
+          return wrappedHandler.call(this, oh.handler, args);
         },
       },
     };

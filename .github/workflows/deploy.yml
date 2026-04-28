@@ -30,6 +30,11 @@ on:
         description: 'Optional article category used for Facebook hashtags'
         required: false
         type: string
+      profile_sequential:
+        description: 'Run a sequential plugin profile (slower build, accurate per-plugin wall+CPU times). Use only for one-off investigations.'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -216,6 +221,11 @@ jobs:
       - name: Build
         env:
           BUILD_PROFILE: '1'
+          # Opt-in via workflow_dispatch input. When set, profilePlugin forces
+          # closeBundle hooks to run sequentially so per-plugin wall+CPU times
+          # are accurate (parallel execution otherwise overlaps timings).
+          # Slower than normal — use only for one-off investigations.
+          SEQUENTIAL_PROFILE: ${{ github.event.inputs.profile_sequential == 'true' && '1' || '' }}
         shell: bash
         run: |
           set -o pipefail
@@ -240,6 +250,29 @@ jobs:
               | sort -t'|' -k3 -nr
             echo ""
             grep -E '^\[profile-total\]' /tmp/build.log | sed 's/^\[profile-total\] /**/' || true
+            # Detailed per-plugin wall+CPU table is emitted only when
+            # SEQUENTIAL_PROFILE was set (workflow_dispatch input). Parallel
+            # closeBundle execution makes wall-clock unreliable as a "who is
+            # slow" signal — see profilePlugin.ts. The detail section uses
+            # the [profile-detail] marker emitted alongside the original
+            # [profile] line, so it's only present on opt-in profiling runs.
+            if grep -qE '^\[profile-detail\]' /tmp/build.log; then
+              echo ""
+              echo "## Build profile — sequential, per-plugin wall + CPU"
+              echo ""
+              echo "| Plugin | Wall (s) | CPU (s) |"
+              echo "|---|---:|---:|"
+              # [profile-detail] <name padded> wall_s=N.NN cpu_s=N.NN
+              grep -E '^\[profile-detail\]' /tmp/build.log \
+                | sed -E 's/^\[profile-detail\] +//' \
+                | awk '{
+                    name=""; for(i=1;i<=NF-2;i++) name = name (i>1?" ":"") $i;
+                    wall=$(NF-1); cpu=$NF;
+                    sub(/wall_s=/, "", wall); sub(/cpu_s=/, "", cpu);
+                    printf "| %s | %s | %s |\n", name, wall, cpu
+                  }' \
+                | sort -t'|' -k3 -nr
+            fi
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Merge previous CSS/JS assets for Clarity recordings
