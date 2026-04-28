@@ -9317,4 +9317,11 @@ export const ARTICLES = [
  image: '/images/blog/lugano-aggressione-abitazione-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'furti-chiese-ticino-rumeni-fermati',
+ category: 'novita',
+ date: '2026-04-28T22:13:24.791Z',
+ image: '/images/blog/furti-chiese-ticino-rumeni-fermati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

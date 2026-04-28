@@ -3559,6 +3559,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lugano-aggressione-abitazione-2024.title': 'Lugano: Zwei Frauen in Wohnung überfallen, Täter festgenommen',
     'blog.article.lugano-aggressione-abitazione-2024.excerpt': 'Ein Mann hat zwei Frauen in ihrer Wohnung in Lugano angegriffen. Der Täter wurde festgenommen und von den Behörden verhört.',
     'blog.article.lugano-aggressione-abitazione-2024.imageAlt': 'Ansicht eines Wohnviertels in Lugano mit einem modernen Gebäude und einer ruhigen Straße',
+    'blog.article.furti-chiese-ticino-rumeni-fermati.title': 'Zwei Rumänen wegen Kirchendiebstählen in Ticino festgenommen',
+    'blog.article.furti-chiese-ticino-rumeni-fermati.excerpt': 'Zwei rumänische Staatsbürger wurden wegen Diebstählen in Kirchen im Tessin festgenommen. Erfahren Sie die Details der Operation.',
+    'blog.article.furti-chiese-ticino-rumeni-fermati.imageAlt': 'Kirche in Tessin mit Polizeianwesenheit',
 };
 
 export default blogMetaDe;

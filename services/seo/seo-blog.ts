@@ -21383,6 +21383,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-chiese-ticino-rumeni-fermati': {
+    title: 'Furti in chiese: fermati due rumeni in Ticino | Frontaliere Ticino',
+    description: 'Due cittadini rumeni sono stati fermati per furti in chiese ticinesi. Scopri i dettagli dell\'operazione e le misure di sicurezza. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, chiese, fermati, rumeni',
+    ogTitle: 'Furti in chiese: fermati due rumeni in Ticino',
+    ogDescription: 'Due cittadini rumeni sono stati fermati per furti in chiese ticinesi. Scopri i dettagli dell\'operazione e le misure di sicurezza.',
+    canonicalPath: '/articoli-frontaliere/furti-chiese-ticino-rumeni-fermati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furti in chiese: fermati due rumeni in Ticino",
+      "description": "Due cittadini rumeni sono stati fermati per furti in chiese ticinesi. Scopri i dettagli dell'operazione e le misure di sicurezza. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furti-chiese-ticino-rumeni-fermati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiesa in Ticino con presenza di polizia"
+      },
+      "datePublished": "2026-04-28T22:13:24+00:00",
+      "dateModified": "2026-04-28T22:13:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-chiese-ticino-rumeni-fermati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

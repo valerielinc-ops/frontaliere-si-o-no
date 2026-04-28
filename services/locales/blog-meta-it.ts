@@ -3560,6 +3560,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lugano-aggressione-abitazione-2024.title': 'Lugano: aggressione a due donne in casa, arrestato l\'aggressore',
     'blog.article.lugano-aggressione-abitazione-2024.excerpt': 'Un uomo ha aggredito due donne nella loro abitazione a Lugano. L\'aggressore è stato preso e interrogato dalle autorità.',
     'blog.article.lugano-aggressione-abitazione-2024.imageAlt': 'Vista di un quartiere residenziale a Lugano, con un edificio moderno e una strada tranquilla',
+    'blog.article.furti-chiese-ticino-rumeni-fermati.title': 'Furti in chiese: fermati due rumeni in Ticino',
+    'blog.article.furti-chiese-ticino-rumeni-fermati.excerpt': 'Due cittadini rumeni sono stati fermati per furti in chiese ticinesi. Scopri i dettagli dell\'operazione.',
+    'blog.article.furti-chiese-ticino-rumeni-fermati.imageAlt': 'Chiesa in Ticino con presenza di polizia',
 };
 
 export default blogMetaIt;

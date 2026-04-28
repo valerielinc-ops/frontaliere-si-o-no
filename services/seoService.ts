@@ -2417,6 +2417,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-banche-golfo-frontalieri-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/banche-golfo-frontalieri-ticino-2026', parent: 'blog' },
     'blog-rilanciare-commercio-saronno-2026': { name: 'Novità', path: '/articoli-frontaliere/rilanciare-commercio-saronno-2026', parent: 'blog' },
     'blog-lugano-aggressione-abitazione-2024': { name: 'Novità', path: '/articoli-frontaliere/lugano-aggressione-abitazione-2024', parent: 'blog' },
+    'blog-furti-chiese-ticino-rumeni-fermati': { name: 'Furti in chiese', path: '/articoli-frontaliere/furti-chiese-ticino-rumeni-fermati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

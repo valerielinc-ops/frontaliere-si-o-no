@@ -3560,6 +3560,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lugano-aggressione-abitazione-2024.title': 'Lugano : agression de deux femmes chez elles, l\'agresseur arrêté',
     'blog.article.lugano-aggressione-abitazione-2024.excerpt': 'Un homme a agressé deux femmes dans leur domicile à Lugano. L\'agresseur a été arrêté et interrogé par les autorités.',
     'blog.article.lugano-aggressione-abitazione-2024.imageAlt': 'Vue d\'un quartier résidentiel à Lugano, avec un immeuble moderne et une rue calme',
+    'blog.article.furti-chiese-ticino-rumeni-fermati.title': 'Vols dans les églises : deux Roumains arrêtés au Tessin',
+    'blog.article.furti-chiese-ticino-rumeni-fermati.excerpt': 'Deux citoyens roumains ont été arrêtés pour des vols dans des églises tessinoises. Découvrez les détails de l\'opération.',
+    'blog.article.furti-chiese-ticino-rumeni-fermati.imageAlt': 'Église en Tessin avec présence policière',
 };
 
 export default blogMetaFr;
