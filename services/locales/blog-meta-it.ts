@@ -3434,6 +3434,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.title': 'Nuova pista ciclopedonale Bodio-Giornico: 2,1 km di sicurezza e connessione',
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.excerpt': 'Inaugurata la nuova pista ciclopedonale che collega Bodio e Giornico lungo il fiume Ticino, con un investimento di 3,7 milioni di franchi.',
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'Nuova pista ciclopedonale lungo il fiume Ticino tra Bodio e Giornico',
+    'blog.article.lago-como-edition-hotel-lusso.title': 'Nuovo hotel di lusso sul Lago di Como: The Lake Como EDITION',
+    'blog.article.lago-como-edition-hotel-lusso.excerpt': 'Inaugurato il nuovo The Lake Como EDITION, un hotel di lusso sulla sponda occidentale del Lago di Como, con eventi esclusivi e cucina stellata.',
+    'blog.article.lago-como-edition-hotel-lusso.imageAlt': 'Hotel di lusso sul Lago di Como con vista panoramica',
 };
 
 export default blogMetaIt;

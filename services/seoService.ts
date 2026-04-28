@@ -2375,6 +2375,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-biasca-roller-hockey-uttigen-2026': { name: 'Novità', path: '/articoli-frontaliere/biasca-roller-hockey-uttigen-2026', parent: 'blog' },
     'blog-vuoto-ginevra-olympic-basket': { name: 'Novità', path: '/articoli-frontaliere/vuoto-ginevra-olympic-basket', parent: 'blog' },
     'blog-nuova-pista-ciclopedonale-bodio-giornico-2026': { name: 'Nuova pista ciclopedonale', path: '/articoli-frontaliere/nuova-pista-ciclopedonale-bodio-giornico-2026', parent: 'blog' },
+    'blog-lago-como-edition-hotel-lusso': { name: 'Novità', path: '/articoli-frontaliere/lago-como-edition-hotel-lusso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

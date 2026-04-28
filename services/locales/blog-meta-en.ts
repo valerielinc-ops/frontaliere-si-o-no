@@ -3433,6 +3433,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.title': 'New Bodio-Giornico bike path: 2.1 km of safety and connection',
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.excerpt': 'The new bike path connecting Bodio and Giornico along the Ticino River has been inaugurated, with an investment of 3.7 million francs.',
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'New cycling and pedestrian path along the Ticino River between Bodio and Giornico',
+    'blog.article.lago-como-edition-hotel-lusso.title': 'New luxury hotel on Lake Como: The Lake Como EDITION',
+    'blog.article.lago-como-edition-hotel-lusso.excerpt': 'The new The Lake Como EDITION has opened, a luxury hotel on the western shore of Lake Como, featuring exclusive events and starred cuisine.',
+    'blog.article.lago-como-edition-hotel-lusso.imageAlt': 'Luxury hotel on Lake Como with panoramic views',
 };
 
 export default blogMetaEn;

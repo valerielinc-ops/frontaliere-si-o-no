@@ -9023,4 +9023,11 @@ export const ARTICLES = [
  image: '/images/blog/nuova-pista-ciclopedonale-bodio-giornico-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lago-como-edition-hotel-lusso',
+ category: 'novita',
+ date: '2026-04-28T18:01:15.148Z',
+ image: '/images/blog/lago-como-edition-hotel-lusso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

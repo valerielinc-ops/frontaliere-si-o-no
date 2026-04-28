@@ -3434,6 +3434,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.title': 'Nouvelle piste cyclable Bodio-Giornico: 2,1 km de sécurité et de connexion',
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.excerpt': 'Inaugurée la nouvelle piste cyclable qui relie Bodio et Giornico le long du fleuve Ticino, avec un investissement de 3,7 millions de francs.',
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'Nouvelle piste cyclable et piétonne le long du fleuve Ticino entre Bodio et Giornico',
+    'blog.article.lago-como-edition-hotel-lusso.title': 'Nouvel hôtel de luxe sur le lac de Côme : The Lake Como EDITION',
+    'blog.article.lago-como-edition-hotel-lusso.excerpt': 'Inauguration du nouvel hôtel The Lake Como EDITION, un établissement de luxe sur la rive occidentale du lac de Côme, avec des événements exclusifs et une cuisine étoilée.',
+    'blog.article.lago-como-edition-hotel-lusso.imageAlt': 'Hôtel de luxe sur le lac de Côme avec vue panoramique',
 };
 
 export default blogMetaFr;

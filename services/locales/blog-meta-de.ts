@@ -3433,6 +3433,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.title': 'Neuer Rad- und Gehweg Bodio-Giornico: 2,1 km Sicherheit und Verbindung',
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.excerpt': 'Die neue Rad- und Gehwegverbindung zwischen Bodio und Giornico entlang des Ticino-Flusses wurde eröffnet, mit einer Investition von 3,7 Millionen Franken.',
     'blog.article.nuova-pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'Neuer Fahrrad- und Fußweg entlang des Ticino-Flusses zwischen Bodio und Giornico',
+    'blog.article.lago-como-edition-hotel-lusso.title': 'Neues Luxushotel am Comer See: The Lake Como EDITION',
+    'blog.article.lago-como-edition-hotel-lusso.excerpt': 'Das neue The Lake Como EDITION, ein Luxushotel an der Westseite des Comer Sees, wurde eröffnet und bietet exklusive Events und Sterne-Küche.',
+    'blog.article.lago-como-edition-hotel-lusso.imageAlt': 'Luxushotel am Comer See mit Panoramablick',
 };
 
 export default blogMetaDe;

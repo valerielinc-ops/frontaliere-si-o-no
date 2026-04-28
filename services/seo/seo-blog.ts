@@ -20165,6 +20165,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lago-como-edition-hotel-lusso': {
+    title: 'Nuovo hotel di lusso sul Lago di Como: The Lake Como EDITION',
+    description: 'Scopri il nuovo hotel di lusso sul Lago di Como, The Lake Como EDITION, con eventi esclusivi e cucina stellata. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, hotel, lusso, lago',
+    ogTitle: 'Nuovo hotel di lusso sul Lago di Como: The Lake Como EDITION',
+    ogDescription: 'Scopri il nuovo hotel di lusso sul Lago di Como, The Lake Como EDITION, con eventi esclusivi e cucina stellata.',
+    canonicalPath: '/articoli-frontaliere/lago-como-edition-hotel-lusso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo hotel di lusso sul Lago di Como: The Lake Como EDITION",
+      "description": "Scopri il nuovo hotel di lusso sul Lago di Como, The Lake Como EDITION, con eventi esclusivi e cucina stellata. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lago-como-edition-hotel-lusso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Hotel di lusso sul Lago di Como con vista panoramica"
+      },
+      "datePublished": "2026-04-28T18:01:15+00:00",
+      "dateModified": "2026-04-28T18:01:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lago-como-edition-hotel-lusso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
