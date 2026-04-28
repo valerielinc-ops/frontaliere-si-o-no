@@ -1594,6 +1594,36 @@ function renderHubPage(inp: HubInputs): string {
     fuelZone: CROSSING_TO_FUEL_ZONE[primaryCrossing],
   };
 
+  // Cross-locale links — only emitted on the root hub (no `region`).
+  // Each root hub anchor-links the other 3 locales' root hubs so that
+  // BFS from `/` (which reaches the IT root hub via `/mappa-del-sito/`)
+  // also reaches the DE/EN/FR root hubs and, via their tables, every
+  // per-crossing locale variant. This closes the ~54 orphans flagged
+  // for sitemap-border-wait.xml in the 2026-04-28 audit.
+  const otherLocaleHubsHtml = !region
+    ? (() => {
+        const labels: Record<BorderWaitLocale, string> = {
+          it: 'Italiano — tempi attesa dogane',
+          en: 'English — border wait times',
+          de: 'Deutsch — Wartezeiten Grenze',
+          fr: 'Français — temps d\'attente douane',
+        };
+        const heading =
+          locale === 'it'
+            ? 'Stessa pagina in altre lingue'
+            : locale === 'de'
+              ? 'Diese Seite in anderen Sprachen'
+              : locale === 'fr'
+                ? 'Cette page dans d\'autres langues'
+                : 'This page in other languages';
+        const others = (BORDER_WAIT_LOCALES as ReadonlyArray<BorderWaitLocale>).filter((l) => l !== locale);
+        const items = others
+          .map((l) => `<li style="margin:.2rem 0"><a href="${BASE_URL}${buildRootHubPath(l)}" hreflang="${l}" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(labels[l])}</a></li>`)
+          .join('');
+        return `<section style="margin:0 0 24px" aria-label="${esc(heading)}"><h2 style="${H2_STYLE}">${esc(heading)}</h2><ul style="margin:0 0 0 1.25rem;padding:0">${items}</ul></section>`;
+      })()
+    : '';
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -1618,6 +1648,7 @@ function renderHubPage(inp: HubInputs): string {
     )}</h2>
     ${tableHtml}
   </section>
+  ${otherLocaleHubsHtml}
   <section style="margin:0 0 24px">
     <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(secondary)}</p>
     <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(methodologyPara)}</p>
