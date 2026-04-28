@@ -20629,6 +20629,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-moschea-pregassona-udc-interroga-municipio': {
+    title: 'Moschea a Pregassona: l\'UDC interroga il Municipio',
+    description: 'L\'UDC chiede garanzie e trasparenza per il progetto di un centro culturale islamico con moschea e appartamenti a Pregassona. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, moschea, pregassona, interroga, municipio',
+    ogTitle: 'Moschea Pregassona: UDC interroga Municipio',
+    ogDescription: 'L\'UDC chiede garanzie e trasparenza per il progetto di un centro culturale islamico con moschea e appartamenti a Pregassona.',
+    canonicalPath: '/articoli-frontaliere/moschea-pregassona-udc-interroga-municipio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Moschea Pregassona: UDC interroga Municipio",
+      "description": "L'UDC chiede garanzie e trasparenza per il progetto di un centro culturale islamico con moschea e appartamenti a Pregassona. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/moschea-pregassona-udc-interroga-municipio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti"
+      },
+      "datePublished": "2026-04-28T19:34:24+00:00",
+      "dateModified": "2026-04-28T19:34:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/moschea-pregassona-udc-interroga-municipio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

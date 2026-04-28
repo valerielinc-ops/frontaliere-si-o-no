@@ -3481,6 +3481,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iniziative-casse-malati-dado-scissione-dossier.title': 'Dadò\'s plan for health insurers emerges',
     'blog.article.iniziative-casse-malati-dado-scissione-dossier.excerpt': 'Each initiative on health insurers follows its own path with separate funding measures. Fiorenzo Dadò\'s proposal.',
     'blog.article.iniziative-casse-malati-dado-scissione-dossier.imageAlt': 'Lake Lugano with a modern building in the background',
+    'blog.article.moschea-pregassona-udc-interroga-municipio.title': 'Mosque in Pregassona: UDC questions the Municipality',
+    'blog.article.moschea-pregassona-udc-interroga-municipio.excerpt': 'The UDC asks for guarantees and transparency for the project of an Islamic cultural center with a mosque and apartments in Pregassona.',
+    'blog.article.moschea-pregassona-udc-interroga-municipio.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
 };
 
 export default blogMetaEn;

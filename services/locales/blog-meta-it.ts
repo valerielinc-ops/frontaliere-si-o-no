@@ -3482,6 +3482,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziative-casse-malati-dado-scissione-dossier.title': 'Iniziative casse malati: spunta il piano Dadò',
     'blog.article.iniziative-casse-malati-dado-scissione-dossier.excerpt': 'Ogni iniziativa sulle casse malati prosegue per la propria strada con misure di finanziamento separate. La proposta di Fiorenzo Dadò.',
     'blog.article.iniziative-casse-malati-dado-scissione-dossier.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
+    'blog.article.moschea-pregassona-udc-interroga-municipio.title': 'Moschea a Pregassona: l\'UDC interroga il Municipio',
+    'blog.article.moschea-pregassona-udc-interroga-municipio.excerpt': 'L\'UDC chiede garanzie e trasparenza per il progetto di un centro culturale islamico con moschea e appartamenti a Pregassona.',
+    'blog.article.moschea-pregassona-udc-interroga-municipio.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
 };
 
 export default blogMetaIt;

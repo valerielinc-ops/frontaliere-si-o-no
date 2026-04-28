@@ -9135,4 +9135,11 @@ export const ARTICLES = [
  image: '/images/blog/iniziative-casse-malati-dado-scissione-dossier.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'moschea-pregassona-udc-interroga-municipio',
+ category: 'novita',
+ date: '2026-04-28T19:34:24.578Z',
+ image: '/images/blog/moschea-pregassona-udc-interroga-municipio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
