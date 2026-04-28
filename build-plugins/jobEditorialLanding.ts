@@ -1635,9 +1635,14 @@ export function buildJobLocationLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: locationJobs.length,
- feed: { label: copy.feedLabel(location), jobs: toLinkedJobs(locationJobs, now, locale, { ...options, baseUrl }, 18) },
+ // Increased cap 18 → 60 (and latest 12 → 30) to densify BFS reachability
+ // from the city hubs. Apr 2026 audit showed 1039/2409 job-detail pages
+ // were orphaned because the cap caused only ~30 detail pages to be
+ // linked from each city hub. 60 + 30 = 90 cards per city hub × 5 cities
+ // = 450 reachable details directly from city hubs (vs 150 before).
+ feed: { label: copy.feedLabel(location), jobs: toLinkedJobs(locationJobs, now, locale, { ...options, baseUrl }, 60) },
  latestLabel: copy.latestLabel(location),
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+ latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 30),
  relatedTypeLinks: buildLocationTypeLinks({ ...options, location, now, baseUrl }),
  relatedSectorLinks: buildLocationSectorLinks({ ...options, location, now, baseUrl }),
  openAllLabel: copy.openAll,
@@ -1679,9 +1684,10 @@ export function buildJobLocationTypeLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: matches.length,
- feed: { label: copy.feedLabel(label, location), jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18) },
+ // BFS-densification cap (see buildJobLocationLandingModel comment).
+ feed: { label: copy.feedLabel(label, location), jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 50) },
  latestLabel: copy.latestLabel(label, location),
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+ latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 25),
  parentLocationHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${buildLocationSlug(locale, location)}`.replace(/\/+/g, '/')}`),
  siblingTypeLinks,
  openAllLabel: copy.openAll,
@@ -1723,9 +1729,10 @@ export function buildJobLocationSectorLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: matches.length,
- feed: { label: copy.feedLabel(label, location), jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18) },
+ // BFS-densification cap (see buildJobLocationLandingModel comment).
+ feed: { label: copy.feedLabel(label, location), jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 50) },
  latestLabel: copy.latestLabel(label, location),
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+ latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 25),
  parentLocationHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${buildLocationSlug(locale, location)}`.replace(/\/+/g, '/')}`),
  siblingSectorLinks,
  openAllLabel: copy.openAll,

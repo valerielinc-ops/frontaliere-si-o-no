@@ -20,6 +20,7 @@ import {
  type JobCardJob,
 } from './shared/jobCardHtml';
 import { renderListingPaginationProse } from './shared/jobListingProse';
+import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
 import {
@@ -1554,9 +1555,50 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const summaryParagraphs = canonicalSummary.length > 0 ? canonicalSummary : bodyParagraphs;
  const mergedRequirements = canonicalRequirements.length > 0 ? canonicalRequirements : requirements;
  const logoUrl = companyLogo(job);
- const related = validJobs
- .filter((r: any) => r.slug !== job.slug && (r.category === job.category || r.location === job.location))
- .slice(0, 4);
+ // Related jobs cross-link block — densifies BFS reachability so the
+ // ~2400 job-detail pages are reachable from the city/sector hubs even
+ // when those hubs only embed top-30 cards. Selection: same category
+ // OR same location, sorted with a deterministic salt of the slug to
+ // distribute outbound links across the whole job graph rather than
+ // always picking the same 10 freshest jobs (which would leave deeper
+ // listings orphaned). Cap 10 → ~10 outbound links per detail page,
+ // 10 × 1370 reachable details = 13.7k edges into the orphan pool.
+ const relatedPool = validJobs
+ .filter((r: any) => r.slug !== job.slug && (r.category === job.category || r.location === job.location));
+ // Stable hash of own slug → starting offset into the pool, so
+ // different details surface different neighbours (no "always top 10")
+ // without losing determinism between builds.
+ const relatedSeed = (() => {
+ const s = String(job.slug || '');
+ let h = 2166136261 >>> 0;
+ for (let i = 0; i < s.length; i++) {
+ h = (h ^ s.charCodeAt(i)) >>> 0;
+ h = (h * 16777619) >>> 0;
+ }
+ return h;
+ })();
+ const related = relatedPool.length === 0 ? [] : (() => {
+ const out: any[] = [];
+ const seen = new Set<string>();
+ const N = Math.min(10, relatedPool.length);
+ for (let i = 0; i < N; i++) {
+ const idx = (relatedSeed + i * 2654435761) % relatedPool.length;
+ const cand = relatedPool[idx];
+ if (cand && !seen.has(cand.slug)) {
+ seen.add(cand.slug);
+ out.push(cand);
+ }
+ }
+ // Top-up with sequential picks if hash collisions reduced count.
+ for (let i = 0; out.length < N && i < relatedPool.length; i++) {
+ const cand = relatedPool[i];
+ if (cand && !seen.has(cand.slug)) {
+ seen.add(cand.slug);
+ out.push(cand);
+ }
+ }
+ return out;
+ })();
  const relatedHtml = related
  .map((r: any) => {
  const rp = `${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(r, locale)}`.replace(/\/+/g, '/');
@@ -3376,6 +3418,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.partTime.label)}</h2>
  ${renderJobList(model.sections.partTime.jobs)}
  </section>
+ ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true })}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -3530,6 +3573,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div style="display:grid;gap:12px">${faqHtml}</div>
  </section>
+ ${renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true })}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -3688,6 +3732,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div style="display:grid;gap:12px">${faqHtml}</div>
  </section>
+ ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true })}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -3846,6 +3891,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div style="display:grid;gap:12px">${faqHtml}</div>
  </section>
+ ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true })}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4002,6 +4048,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante')}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
  </section>
+ ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé' })}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4187,6 +4234,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Settori a ${location}` : locale === 'en' ? `Sectors in ${location}` : locale === 'de' ? `Branchen in ${location}` : `Secteurs a ${location}`)}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${sectorLinks}</div>
  </section>
+ ${renderJobBoardCommuterContext({ locale, location })}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4384,6 +4432,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Altri tipi di lavoro a ${location}` : locale === 'en' ? `Other job types in ${location}` : locale === 'de' ? `Weitere Jobtypen in ${location}` : `Autres types d'emploi a ${location}`)}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
  </section>
+ ${renderJobBoardCommuterContext({ locale, location, sectorOrType: model.typeLabel })}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4540,6 +4589,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Altri settori a ${location}` : locale === 'en' ? `Other sectors in ${location}` : locale === 'de' ? `Weitere Branchen in ${location}` : `Autres secteurs a ${location}`)}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
  </section>
+ ${renderJobBoardCommuterContext({ locale, location, sectorOrType: model.sectorLabel })}
  </main>
  </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4780,7 +4830,7 @@ ${alternates}
  title: catTitle,
  };
  const catH1 = formatSeoH1(catLocaleParts) + (catPage > 1 ? (locale === 'it' ? ` — Pagina ${catPage}` : locale === 'de' ? ` — Seite ${catPage}` : locale === 'fr' ? ` — Page ${catPage}` : ` — Page ${catPage}`) : '');
- return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav style="margin:20px 0;font-size:14px">${catNavLabel}: ${catOtherLinks.join(' \u00b7 ')}</nav>`;
+ return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav style="margin:20px 0;font-size:14px">${catNavLabel}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n ${renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true, sectorOrType: catLabel })}`;
  })(),
  });
  const catOutDir = np.join(distDir, catCanonicalPath.slice(1));
