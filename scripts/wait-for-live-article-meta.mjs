@@ -18,7 +18,11 @@ if (!rawUrl || !expectedOgTitle) {
 }
 
 const url = rawUrl.trim();
-const timeoutMs = Number(process.env.LIVE_ARTICLE_WAIT_TIMEOUT_MS || 15 * 60 * 1000);
+// Reduced 15min → 5min after fix for flat-bridge OG fallback (deploy run #25033670793).
+// With the bridge serving a JS-only redirect, fetch() never followed it; we now
+// re-fetch from canonical when og:title is missing. If OG still hasn't surfaced
+// after 5 min, something is genuinely broken and we should release the deploy lock.
+const timeoutMs = Number(process.env.LIVE_ARTICLE_WAIT_TIMEOUT_MS || 5 * 60 * 1000);
 const intervalMs = Number(process.env.LIVE_ARTICLE_WAIT_INTERVAL_MS || 10 * 1000);
 const deadline = Date.now() + timeoutMs;
 
@@ -149,7 +153,7 @@ const expectedOgTitleNormalized = normalize(expectedOgTitle);
 const expectedOgImageNormalized = normalizeUrlForCompare(expectedOgImage);
 
 let titlePathMatchCount = 0;
-const IMAGE_SOFT_THRESHOLD = 3; // Accept after 3 consecutive title+path matches without image
+const IMAGE_SOFT_THRESHOLD = 2; // Accept after 2 consecutive title+path matches without image
 
 while (Date.now() < deadline) {
   try {
@@ -172,16 +176,58 @@ while (Date.now() < deadline) {
     const canonicalUrl = normalize(extractCanonicalUrl(html));
     const finalUrl = normalize(res.url || url);
 
+    // If the served HTML lacks og:title (likely a flat redirect bridge from
+    // build-plugins/flatHtmlRedirectPlugin.ts), follow the canonical link and
+    // re-extract OG from there. The bridge has only a <script>location.replace</script>
+    // JS redirect that fetch() doesn't follow (only HTTP 301/302 are followed
+    // by redirect:'follow'). Without this, deploy run #25033670793 timed out at 15min.
+    let effectiveHtml = html;
+    let effectiveTitle = title;
+    let effectiveOgTitle = ogTitle;
+    let effectiveOgImage = ogImage;
+    let effectiveOgUrl = ogUrl;
+    let effectiveCanonical = canonicalUrl;
+    let effectiveFinalUrl = finalUrl;
+
+    const looksLikeBridge = !ogTitle && canonicalUrl && normalizeUrlForCompare(canonicalUrl) !== normalizeUrlForCompare(finalUrl);
+    if (looksLikeBridge) {
+      try {
+        const canonRes = await fetch(canonicalUrl, {
+          redirect: 'follow',
+          headers: {
+            'user-agent': 'FrontaliereTicinoMetaWait/1.0 (+https://frontaliereticino.ch)',
+            'cache-control': 'no-cache',
+            pragma: 'no-cache',
+          },
+        });
+        if (canonRes.ok) {
+          effectiveHtml = await canonRes.text();
+          effectiveTitle = normalize(extractTitle(effectiveHtml));
+          effectiveOgTitle = normalize(extractMeta(effectiveHtml, 'og:title'));
+          effectiveOgImage = normalize(extractMeta(effectiveHtml, 'og:image'));
+          effectiveOgUrl = normalize(extractMeta(effectiveHtml, 'og:url'));
+          effectiveCanonical = normalize(extractCanonicalUrl(effectiveHtml));
+          effectiveFinalUrl = normalize(canonRes.url || canonicalUrl);
+        }
+      } catch {
+        // canonical fetch failed — keep original values, will retry next poll
+      }
+    }
+
     // og:title may omit the "| Site Name" suffix that <title> includes,
-    // so match against both og:title and <title> tag
-    const titleMatches = ogTitle === expectedOgTitleNormalized
-      || title === expectedOgTitleNormalized
-      || (expectedOgTitleNormalized.includes('|') && ogTitle === expectedOgTitleNormalized.split('|')[0].trim());
-    const imageMatches = !expectedOgImageNormalized || normalizeUrlForCompare(ogImage) === expectedOgImageNormalized;
+    // so match against both og:title and <title> tag (in either direction).
+    const titleStripped = effectiveTitle.includes('|')
+      ? effectiveTitle.split('|').slice(0, -1).join('|').trim()
+      : effectiveTitle;
+    const titleMatches = effectiveOgTitle === expectedOgTitleNormalized
+      || effectiveTitle === expectedOgTitleNormalized
+      || titleStripped === expectedOgTitleNormalized
+      || (expectedOgTitleNormalized.includes('|') && effectiveOgTitle === expectedOgTitleNormalized.split('|')[0].trim());
+    const imageMatches = !expectedOgImageNormalized || normalizeUrlForCompare(effectiveOgImage) === expectedOgImageNormalized;
     const pathCandidates = [
-      ['og:url', getPathCandidate(ogUrl)],
-      ['canonical', getPathCandidate(canonicalUrl)],
-      ['final-url', getPathCandidate(finalUrl)],
+      ['og:url', getPathCandidate(effectiveOgUrl)],
+      ['canonical', getPathCandidate(effectiveCanonical)],
+      ['final-url', getPathCandidate(effectiveFinalUrl)],
     ].filter(([, path]) => Boolean(path));
     const matchedPathSource = pathCandidates.find(([, path]) => path === expectedPath)?.[0] || '';
     const pathMatches = Boolean(matchedPathSource);
@@ -191,7 +237,7 @@ while (Date.now() < deadline) {
       if (titlePathMatchCount >= IMAGE_SOFT_THRESHOLD) {
         console.log(`⚠️  Image not yet matching after ${titlePathMatchCount} checks — accepting (CDN lag)`);
         console.log(`   expected: ${expectedOgImageNormalized}`);
-        console.log(`   actual:   ${normalizeUrlForCompare(ogImage)}`);
+        console.log(`   actual:   ${normalizeUrlForCompare(effectiveOgImage)}`);
         console.log(`✅ Live article metadata ready (title+path confirmed): ${url}`);
         process.exit(0);
       }
@@ -201,20 +247,23 @@ while (Date.now() < deadline) {
 
     if (res.ok && titleMatches && imageMatches && pathMatches) {
       console.log(`✅ Live article metadata ready: ${url}`);
-      console.log(`   og:title = ${ogTitle}`);
-      console.log(`   og:image = ${ogImage}`);
+      console.log(`   og:title = ${effectiveOgTitle}`);
+      console.log(`   og:image = ${effectiveOgImage}`);
       console.log(`   path     = ${expectedPath} via ${matchedPathSource}`);
       process.exit(0);
     }
 
     console.log(`⏳ Waiting for deployed article metadata...`);
     console.log(`   status   = ${res.status}`);
-    console.log(`   <title>  = ${title || '(missing)'}`);
-    console.log(`   og:title = ${ogTitle || '(missing)'}`);
-    console.log(`   og:image = ${ogImage || '(missing)'}`);
-    console.log(`   og:url   = ${ogUrl || '(missing)'}`);
-    console.log(`   canonical= ${canonicalUrl || '(missing)'}`);
-    console.log(`   final-url= ${finalUrl || '(missing)'}`);
+    console.log(`   <title>  = ${effectiveTitle || '(missing)'}`);
+    console.log(`   og:title = ${effectiveOgTitle || '(missing)'}`);
+    console.log(`   og:image = ${effectiveOgImage || '(missing)'}`);
+    console.log(`   og:url   = ${effectiveOgUrl || '(missing)'}`);
+    console.log(`   canonical= ${effectiveCanonical || '(missing)'}`);
+    console.log(`   final-url= ${effectiveFinalUrl || '(missing)'}`);
+    if (looksLikeBridge) {
+      console.log(`   note     = followed canonical from flat-bridge response`);
+    }
     console.log(
       `   checks   = title:${titleMatches ? 'ok' : 'wait'} image:${imageMatches ? 'ok' : 'wait'} path:${pathMatches ? `ok (${matchedPathSource})` : 'wait'}`,
     );
