@@ -3206,6 +3206,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.colpi-arma-da-fuoco-como-ferito-frontaliere.title': 'Colpi d\'arma da fuoco a Como: ferito giovane straniero',
     'blog.article.colpi-arma-da-fuoco-como-ferito-frontaliere.excerpt': 'Un giovane straniero è stato ferito da colpi d\'arma da fuoco sparati da un\'auto a San Fermo della Battaglia, vicino a Como.',
     'blog.article.colpi-arma-da-fuoco-como-ferito-frontaliere.imageAlt': 'Lago di Lugano con vista sul confine svizzero-italiano',
+    'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.title': 'Disagi linea TiLo S40: errore nella programmazione del personale',
+    'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.excerpt': 'Trenord spiega i disagi del 25 aprile: problema nella programmazione dei turni del personale. Ecco cosa è successo.',
+    'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.imageAlt': 'Lago di Lugano con stazione ferroviaria sullo sfondo',
 };
 
 export default blogMetaIt;

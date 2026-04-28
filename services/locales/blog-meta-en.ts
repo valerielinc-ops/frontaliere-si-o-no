@@ -3205,6 +3205,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.colpi-arma-da-fuoco-como-ferito-frontaliere.title': 'Gunshots in Como: Foreign youth injured',
     'blog.article.colpi-arma-da-fuoco-como-ferito-frontaliere.excerpt': 'A young foreigner was injured by gunshots fired from a car in San Fermo della Battaglia, near Como.',
     'blog.article.colpi-arma-da-fuoco-como-ferito-frontaliere.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
+    'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.title': 'TiLo S40 disruptions: staff scheduling error',
+    'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.excerpt': 'Trenord explains the issues on April 25th: problem with staff shift scheduling. Here\'s what happened.',
+    'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.imageAlt': 'Lake Lugano with a train station in the background',
 };
 
 export default blogMetaEn;

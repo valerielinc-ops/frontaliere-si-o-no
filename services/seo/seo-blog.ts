@@ -17961,6 +17961,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disagi-trenord-tilo-s40-25-aprile-2024': {
+    title: 'Disagi linea TiLo S40: errore nella programmazione del personale',
+    description: 'Trenord spiega i disagi del 25 aprile: problema nella programmazione dei turni del personale. Ecco cosa è successo. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, disagi, linea, tilo, errore',
+    ogTitle: 'Disagi linea TiLo S40: errore nella programmazione del personale',
+    ogDescription: 'Trenord spiega i disagi del 25 aprile: problema nella programmazione dei turni del personale. Ecco cosa è successo.',
+    canonicalPath: '/articoli-frontaliere/disagi-trenord-tilo-s40-25-aprile-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disagi linea TiLo S40: errore nella programmazione del personale",
+      "description": "Trenord spiega i disagi del 25 aprile: problema nella programmazione dei turni del personale. Ecco cosa è successo. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disagi-trenord-tilo-s40-25-aprile-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con stazione ferroviaria sullo sfondo"
+      },
+      "datePublished": "2026-04-28T05:48:32+00:00",
+      "dateModified": "2026-04-28T05:48:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disagi-trenord-tilo-s40-25-aprile-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

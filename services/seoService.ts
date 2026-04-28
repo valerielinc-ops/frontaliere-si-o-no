@@ -2329,6 +2329,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-malpensa-parigi-galline-frontalieri': { name: 'Pratico', path: '/articoli-frontaliere/malpensa-parigi-galline-frontalieri', parent: 'blog' },
     'blog-borsa-zurigo-frontalieri-27-aprile-2026': { name: 'Borsa Zurigo', path: '/articoli-frontaliere/borsa-zurigo-frontalieri-27-aprile-2026', parent: 'blog' },
     'blog-colpi-arma-da-fuoco-como-ferito-frontaliere': { name: 'Incidente Como', path: '/articoli-frontaliere/colpi-arma-da-fuoco-como-ferito-frontaliere', parent: 'blog' },
+    'blog-disagi-trenord-tilo-s40-25-aprile-2024': { name: 'Disagi linea TiLo S40', path: '/articoli-frontaliere/disagi-trenord-tilo-s40-25-aprile-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];
