@@ -322,6 +322,149 @@ function validateWebApplication(schema, filePath) {
   return errors;
 }
 
+// ── Schema.org @type whitelists ─────────────────────────────────────────────
+
+// Types that MAY carry `inLanguage` (CreativeWork + descendants we use).
+// Anything outside this set carrying inLanguage is rejected by Semrush.
+const INLANGUAGE_WHITELIST = new Set([
+  'Article',
+  'NewsArticle',
+  'BlogPosting',
+  'WebPage',
+  'CollectionPage',
+  'AboutPage',
+  'ContactPage',
+  'FAQPage',
+  'QAPage',
+  'JobPosting',
+  'Dataset',
+  'CreativeWork',
+  'HowTo',
+  'Product',
+  'Review',
+  'VideoObject',
+  'ImageObject',
+  'AudioObject',
+  'Book',
+  'Course',
+  'Recipe',
+  'Message',
+]);
+
+const WEBAPP_TYPES = new Set(['WebApplication', 'SoftwareApplication']);
+
+/**
+ * Recursively walk a schema tree, calling `visit(node)` for every object node
+ * (objects nested inside arrays are descended transparently).
+ */
+function walkSchemaTree(node, visit) {
+  if (Array.isArray(node)) {
+    for (const item of node) walkSchemaTree(item, visit);
+    return;
+  }
+  if (node && typeof node === 'object') {
+    visit(node);
+    for (const v of Object.values(node)) {
+      if (v && typeof v === 'object') walkSchemaTree(v, visit);
+    }
+  }
+}
+
+/**
+ * WebApplication / SoftwareApplication anywhere in the tree must carry
+ * either an aggregateRating (with ratingValue + ratingCount/reviewCount) OR
+ * a non-empty review with reviewRating.ratingValue + author.name. GSC and
+ * Semrush both flag these as "missing field" warnings otherwise.
+ */
+function validateWebApplicationRatingOrReview(schema, filePath) {
+  const errors = [];
+  walkSchemaTree(schema, (obj) => {
+    const types = Array.isArray(obj['@type']) ? obj['@type'] : [obj['@type']];
+    if (!types.some((t) => WEBAPP_TYPES.has(t))) return;
+
+    const typeName = types.find((t) => WEBAPP_TYPES.has(t)) ?? 'WebApplication';
+
+    const rating = obj.aggregateRating;
+    const ratingOk =
+      rating &&
+      typeof rating === 'object' &&
+      isNonEmpty(rating.ratingValue) &&
+      (isNonEmpty(rating.ratingCount) || isNonEmpty(rating.reviewCount));
+
+    const reviews = Array.isArray(obj.review)
+      ? obj.review
+      : (obj.review ? [obj.review] : []);
+    const reviewOk = reviews.some((r) => {
+      if (!r || typeof r !== 'object') return false;
+      const rr = r.reviewRating;
+      const author = r.author;
+      const authorName = typeof author === 'string' ? author : author?.name;
+      return (
+        rr &&
+        typeof rr === 'object' &&
+        isNonEmpty(rr.ratingValue) &&
+        isNonEmpty(authorName)
+      );
+    });
+
+    if (!ratingOk && !reviewOk) {
+      errors.push({
+        file: filePath,
+        type: typeName,
+        field: 'aggregateRating|review',
+        message: 'WebApplication/SoftwareApplication requires aggregateRating or review',
+      });
+    }
+  });
+  return errors;
+}
+
+/**
+ * `LocalBusiness` (and subtypes) must NOT carry `serviceType` — schema.org
+ * does not define that property on LocalBusiness; Semrush flags it as
+ * "Invalid value for type". The valid replacements are `makesOffer`,
+ * `hasOfferCatalog`, or `knowsAbout` depending on intent.
+ */
+function validateLocalBusinessNoServiceType(schema, filePath) {
+  const errors = [];
+  walkSchemaTree(schema, (obj) => {
+    const types = Array.isArray(obj['@type']) ? obj['@type'] : [obj['@type']];
+    const isLB = types.some((t) => typeof t === 'string' && t.includes('LocalBusiness'));
+    if (!isLB) return;
+    if (Object.prototype.hasOwnProperty.call(obj, 'serviceType')) {
+      errors.push({
+        file: filePath,
+        type: 'LocalBusiness',
+        field: 'serviceType',
+        message: 'LocalBusiness must not carry "serviceType" (use makesOffer/hasOfferCatalog/knowsAbout)',
+      });
+    }
+  });
+  return errors;
+}
+
+/**
+ * `inLanguage` is only valid on CreativeWork-derived types. Any object whose
+ * @type is outside the whitelist that carries `inLanguage` is rejected.
+ */
+function validateInLanguageWhitelist(schema, filePath) {
+  const errors = [];
+  walkSchemaTree(schema, (obj) => {
+    if (!Object.prototype.hasOwnProperty.call(obj, 'inLanguage')) return;
+    const types = Array.isArray(obj['@type']) ? obj['@type'] : [obj['@type']];
+    const hasAllowed = types.some((t) => typeof t === 'string' && INLANGUAGE_WHITELIST.has(t));
+    if (hasAllowed) return;
+    const typeName = (types.find((t) => typeof t === 'string') ?? 'unknown');
+    errors.push({
+      file: filePath,
+      type: typeName,
+      field: 'inLanguage',
+      message: `inLanguage not allowed on @type "${typeName}" (CreativeWork descendants only)`,
+    });
+  });
+  return errors;
+}
+
 function validateFuelMerchantProduct(schema, filePath) {
   const errors = [];
   const types = Array.isArray(schema['@type']) ? schema['@type'] : [schema['@type']];
@@ -649,6 +792,19 @@ async function main() {
         if (schemaTypes.includes('Product')) {
           errors.push(...validateFuelMerchantProduct(schema, file));
         }
+      }
+
+      // Tree-walk validators (run once per top-level schema; recurse internally).
+      // These three gates were added to catch Semrush regressions on
+      // /calcola-stipendio (WebApplication missing aggregateRating/review),
+      // /compara-servizi/confronta-banche (LocalBusiness with serviceType),
+      // and /en/cost-of-living-* + /de/.../tessin-feiertage (inLanguage on
+      // non-CreativeWork @types).
+      for (const schema of schemas) {
+        if (!schema || typeof schema !== 'object' || !schema['@type']) continue;
+        errors.push(...validateWebApplicationRatingOrReview(schema, file));
+        errors.push(...validateLocalBusinessNoServiceType(schema, file));
+        errors.push(...validateInLanguageWhitelist(schema, file));
       }
       return { errors, schemas: schemas_, datasets: datasets_, jobs: jobs_, events: events_ };
     }));
