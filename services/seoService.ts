@@ -2419,6 +2419,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lugano-aggressione-abitazione-2024': { name: 'Novità', path: '/articoli-frontaliere/lugano-aggressione-abitazione-2024', parent: 'blog' },
     'blog-furti-chiese-ticino-rumeni-fermati': { name: 'Furti in chiese', path: '/articoli-frontaliere/furti-chiese-ticino-rumeni-fermati', parent: 'blog' },
     'blog-attentato-washington-trump-2026': { name: 'Attentato Washington', path: '/articoli-frontaliere/attentato-washington-trump-2026', parent: 'blog' },
+    'blog-casa-montana-nante-governo-regolare': { name: 'Novità', path: '/articoli-frontaliere/casa-montana-nante-governo-regolare', parent: 'blog' },
  };
 
  const info = sectionNames[section];

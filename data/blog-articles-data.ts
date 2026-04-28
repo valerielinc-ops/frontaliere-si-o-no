@@ -9331,4 +9331,11 @@ export const ARTICLES = [
  image: '/images/blog/attentato-washington-trump-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'casa-montana-nante-governo-regolare',
+ category: 'novita',
+ date: '2026-04-28T22:25:50.903Z',
+ image: '/images/blog/casa-montana-nante-governo-regolare.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

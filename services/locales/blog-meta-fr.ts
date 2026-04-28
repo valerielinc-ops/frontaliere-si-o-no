@@ -3566,6 +3566,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.attentato-washington-trump-2026.title': 'Attaque à Washington, Donald Trump indemne',
     'blog.article.attentato-washington-trump-2026.excerpt': 'Donald Trump a échappé à une attaque lors d\'un dîner de gala à Washington. L\'attaquant arrêté.',
     'blog.article.attentato-washington-trump-2026.imageAlt': 'Vue aérienne de Bellinzone avec ses châteaux, Tessin, Suisse',
+    'blog.article.casa-montana-nante-governo-regolare.title': 'Maison de montagne de Nante: le Gouvernement confirme tout régulier',
+    'blog.article.casa-montana-nante-governo-regolare.excerpt': 'Le Conseil d\'Etat tessinois a rejeté le recours contre le projet de rénovation de la maison de montagne Madonna delle Nevi à Nante, confirmant un crédit de 4,71 millions de francs.',
+    'blog.article.casa-montana-nante-governo-regolare.imageAlt': 'La maison de montagne Madonna delle Nevi à Nante, Tessin, entourée d\'un paysage alpin enneigé',
 };
 
 export default blogMetaFr;

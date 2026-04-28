@@ -3565,6 +3565,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.attentato-washington-trump-2026.title': 'Attentat in Washington, Trump unverletzt',
     'blog.article.attentato-washington-trump-2026.excerpt': 'Donald Trump überlebte ein Attentat während eines Galadinners in Washington. Der Attentäter wurde festgenommen.',
     'blog.article.attentato-washington-trump-2026.imageAlt': 'Luftaufnahme von Bellinzona mit seinen Burgen, Tessin, Schweiz',
+    'blog.article.casa-montana-nante-governo-regolare.title': 'Bergheim Madonna delle Nevi: Alles in Ordnung',
+    'blog.article.casa-montana-nante-governo-regolare.excerpt': 'Der Staatsrat des Tessin hat die Beschwerde gegen das Sanierungsprojekt des Bergheims Madonna delle Nevi in Nante abgewiesen und einen Kredit von 4,71 Millionen Franken bestätigt.',
+    'blog.article.casa-montana-nante-governo-regolare.imageAlt': 'Das Bergheim Madonna delle Nevi in Nante, Tessin, umgeben von schneebedeckter Alpenlandschaft',
 };
 
 export default blogMetaDe;

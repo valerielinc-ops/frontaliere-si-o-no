@@ -3565,6 +3565,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.attentato-washington-trump-2026.title': 'Attack in Washington, Donald Trump unharmed',
     'blog.article.attentato-washington-trump-2026.excerpt': 'Donald Trump escaped an attack during a gala dinner in Washington. The attacker arrested.',
     'blog.article.attentato-washington-trump-2026.imageAlt': 'Aerial view of Bellinzona with its castles, Ticino, Switzerland',
+    'blog.article.casa-montana-nante-governo-regolare.title': 'Nante mountain house: Government confirms all is regular',
+    'blog.article.casa-montana-nante-governo-regolare.excerpt': 'The Ticino State Council has dismissed the appeal against the Madonna delle Nevi mountain house renovation project in Nante, confirming a credit of 4.71 million francs.',
+    'blog.article.casa-montana-nante-governo-regolare.imageAlt': 'Madonna delle Nevi mountain house in Nante, Ticino, surrounded by snowy alpine landscape',
 };
 
 export default blogMetaEn;

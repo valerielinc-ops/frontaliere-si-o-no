@@ -3566,6 +3566,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.attentato-washington-trump-2026.title': 'Attentato a Washington, illeso Donald Trump',
     'blog.article.attentato-washington-trump-2026.excerpt': 'Donald Trump scampato a un attentato durante una cena di gala a Washington. L\'attentatore arrestato.',
     'blog.article.attentato-washington-trump-2026.imageAlt': 'Vista aerea di Bellinzona con i suoi castelli, Ticino, Svizzera',
+    'blog.article.casa-montana-nante-governo-regolare.title': 'Casa montana di Nante: il Governo conferma tutto regolare',
+    'blog.article.casa-montana-nante-governo-regolare.excerpt': 'Il Consiglio di Stato ticinese ha respinto il ricorso contro il progetto di ristrutturazione della casa montana Madonna delle Nevi a Nante, confermando un credito di 4,71 milioni di franchi.',
+    'blog.article.casa-montana-nante-governo-regolare.imageAlt': 'Casa montana Madonna delle Nevi a Nante, Ticino, immersa in un paesaggio alpino innevato',
 };
 
 export default blogMetaIt;

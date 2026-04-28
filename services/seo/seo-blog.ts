@@ -21441,6 +21441,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-montana-nante-governo-regolare': {
+    title: 'Casa montana di Nante: il Governo conferma tutto regolare',
+    description: 'Il Consiglio di Stato ticinese ha respinto il ricorso contro il progetto di ristrutturazione della casa montana Madonna delle Nevi a Nante, confermando un',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, montana, nante, governo',
+    ogTitle: 'Casa montana di Nante: il Governo conferma tutto regolare',
+    ogDescription: 'Il Consiglio di Stato ticinese ha respinto il ricorso contro il progetto di ristrutturazione della casa montana Madonna delle Nevi a Nante, confermando un',
+    canonicalPath: '/articoli-frontaliere/casa-montana-nante-governo-regolare',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa montana di Nante: il Governo conferma tutto regolare",
+      "description": "Il Consiglio di Stato ticinese ha respinto il ricorso contro il progetto di ristrutturazione della casa montana Madonna delle Nevi a Nante, confermando un",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/casa-montana-nante-governo-regolare.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa montana Madonna delle Nevi a Nante, Ticino, immersa in un paesaggio alpino innevato"
+      },
+      "datePublished": "2026-04-28T22:25:50+00:00",
+      "dateModified": "2026-04-28T22:25:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casa-montana-nante-governo-regolare`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
