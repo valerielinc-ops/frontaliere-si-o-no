@@ -36,7 +36,13 @@ const RETRY_COLLECTION = 'job_alert_retry_queue';
 
 // Testing allowlist: set to a Set of emails for admin-only testing,
 // or null to enable for all users.
-const ALLOWED_EMAILS = null;
+// Can also be set at runtime via TARGET_EMAIL env var (single email) — useful
+// for workflow_dispatch test sends without code changes.
+const TARGET_EMAIL_RAW = (process.env.TARGET_EMAIL || '').trim().toLowerCase();
+const ALLOWED_EMAILS = TARGET_EMAIL_RAW ? new Set([TARGET_EMAIL_RAW]) : null;
+if (TARGET_EMAIL_RAW) {
+  console.log(`🎯 TARGET_EMAIL set — limiting send to: ${TARGET_EMAIL_RAW}`);
+}
 
 // Cloud Function URL for one-click unsubscribe (RFC 8058)
 const UNSUB_FUNCTION_URL = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/jobAlertUnsubscribe';

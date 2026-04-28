@@ -177,3 +177,23 @@ describe('job alert email — locale-aware URLs', () => {
     expect(result.text).not.toMatch(/frontaliereticino\.ch\/find-jobs-ticino\//);
   });
 });
+
+describe('job alert workflow — TARGET_EMAIL filter (source check)', () => {
+  it('script reads TARGET_EMAIL env to build the allowlist', () => {
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
+      'utf8',
+    );
+    expect(src).toMatch(/process\.env\.TARGET_EMAIL/);
+    expect(src).toMatch(/new Set\(\[TARGET_EMAIL_RAW\]\)/);
+  });
+
+  it('workflow exposes a target_email dispatch input', () => {
+    const wf = fs.readFileSync(
+      path.resolve(__dirname, '../.github/workflows/send-job-alerts.yml'),
+      'utf8',
+    );
+    expect(wf).toMatch(/target_email:/);
+    expect(wf).toMatch(/TARGET_EMAIL:\s*\$\{\{\s*inputs\.target_email\s*\}\}/);
+  });
+});

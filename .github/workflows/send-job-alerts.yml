@@ -3,7 +3,13 @@ name: Send Job Alert Emails
 on:
   schedule:
     - cron: '0 7 * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      target_email:
+        description: 'Limit send to a single email (test mode). Empty = send to all active alerts.'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
   group: job-alerts
@@ -54,6 +60,9 @@ jobs:
         id: send-alerts
         env:
           ENABLE_JOB_ALERTS: 'true'
+          TARGET_EMAIL: ${{ inputs.target_email }}
+          # Bypass newsletter cooldown when targeting a single test recipient
+          SKIP_NEWSLETTER_COOLDOWN: ${{ inputs.target_email != '' && '1' || '' }}
         run: node scripts/send-job-alerts.mjs
 
       - name: Report failure to Linear
