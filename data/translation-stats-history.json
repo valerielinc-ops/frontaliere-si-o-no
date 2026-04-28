@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-14T10:56:23.750Z",
-    "label": "before",
-    "total": 2930,
-    "needsRetranslation": 1257,
-    "incomplete": 105,
-    "complete": 2825,
-    "missingByLocale": {
-      "it": 41,
-      "en": 85,
-      "de": 69,
-      "fr": 88
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 47
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 5
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Fondation Domus",
-        "pending": 3
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 2
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 2
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 2
-      },
-      {
-        "company": "Graubündner Kantonalbank",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-14T12:15:41.950Z",
-    "label": "after",
-    "total": 2930,
-    "needsRetranslation": 49,
-    "incomplete": 13,
-    "complete": 2917,
-    "missingByLocale": {
-      "it": 6,
-      "en": 8,
-      "de": 6,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 2
-      },
-      {
-        "company": "Badrutt's Palace Hotel",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Groupe Mutuel",
-        "pending": 1
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 1
-      },
-      {
-        "company": "Otis SA",
-        "pending": 1
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-14T14:05:28.116Z",
     "label": "before",
     "total": 2930,
@@ -7867,6 +7755,118 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-28T22:53:39.458Z",
+    "label": "before",
+    "total": 2678,
+    "needsRetranslation": 1165,
+    "incomplete": 78,
+    "complete": 2600,
+    "missingByLocale": {
+      "it": 64,
+      "en": 34,
+      "de": 51,
+      "fr": 64
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Marriott International",
+        "pending": 11
+      },
+      {
+        "company": "Denner",
+        "pending": 4
+      },
+      {
+        "company": "Lonza",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-28T23:56:33.523Z",
+    "label": "after",
+    "total": 2678,
+    "needsRetranslation": 95,
+    "incomplete": 36,
+    "complete": 2642,
+    "missingByLocale": {
+      "it": 27,
+      "en": 12,
+      "de": 28,
+      "fr": 29
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
         "pending": 1
       }
     ]
