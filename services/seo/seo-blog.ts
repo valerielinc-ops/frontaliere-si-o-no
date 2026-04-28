@@ -18309,6 +18309,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rottamazione-quinquies-scadenza-30-aprile': {
+    title: 'Rottamazione-quinquies: domande entro il 30 aprile',
+    description: 'Scade il 30 aprile il termine per aderire alla rottamazione-quinquies. Ecco cosa sapere e come fare la domanda per regolarizzare i debiti senza sanzioni e',
+    keywords: 'frontalieri, ticino, svizzera, italia, rottamazione-quinquies, domande, entro, aprile',
+    ogTitle: 'Rottamazione-quinquies: domande entro il 30 aprile',
+    ogDescription: 'Scade il 30 aprile il termine per aderire alla rottamazione-quinquies. Ecco cosa sapere e come fare la domanda per regolarizzare i debiti senza sanzioni e',
+    canonicalPath: '/articoli-frontaliere/rottamazione-quinquies-scadenza-30-aprile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rottamazione-quinquies: domande entro il 30 aprile",
+      "description": "Scade il 30 aprile il termine per aderire alla rottamazione-quinquies. Ecco cosa sapere e come fare la domanda per regolarizzare i debiti senza sanzioni e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rottamazione-quinquies-scadenza-30-aprile.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-04-28T06:59:44+00:00",
+      "dateModified": "2026-04-28T06:59:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rottamazione-quinquies-scadenza-30-aprile`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

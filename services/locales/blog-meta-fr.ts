@@ -3242,6 +3242,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.allerta-meteo-ticino-lombardia-2026.title': 'Alerte météo au Tessin et en Lombardie : pluies et orages',
     'blog.article.allerta-meteo-ticino-lombardia-2026.excerpt': 'La protection civile lombarde a émis une alerte pour orages et pluies intenses, avec risque de vent fort en Valteline.',
     'blog.article.allerta-meteo-ticino-lombardia-2026.imageAlt': 'Tempête sur le lac de Lugano avec des nuages sombres et de fortes pluies',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.title': 'Rachat-quinquies: demande avant le 30 avril',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.excerpt': 'Le délai pour adhérer au rachat-quinquies expire le 30 avril. Voici ce qu\'il faut savoir et comment faire la demande.',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

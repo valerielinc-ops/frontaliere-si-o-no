@@ -3241,6 +3241,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.allerta-meteo-ticino-lombardia-2026.title': 'Weather alert in Ticino and Lombardy: rain and storms',
     'blog.article.allerta-meteo-ticino-lombardia-2026.excerpt': 'The Lombardy Civil Protection has issued an alert for storms and heavy rain, with a risk of strong wind in Valtellina.',
     'blog.article.allerta-meteo-ticino-lombardia-2026.imageAlt': 'Stormy weather over Lake Lugano with dark clouds and heavy rain',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.title': 'Rottamazione-quinquies: apply by April 30',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.excerpt': 'The deadline to join the rottamazione-quinquies is April 30. Here\'s what you need to know and how to apply.',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

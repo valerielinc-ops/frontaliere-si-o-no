@@ -2341,6 +2341,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-equans-licenziamenti-monteceneri-2026': { name: 'Novità', path: '/articoli-frontaliere/equans-licenziamenti-monteceneri-2026', parent: 'blog' },
     'blog-momenti-paura-velivolo-swiss-2026': { name: 'Incidente aereo', path: '/articoli-frontaliere/momenti-paura-velivolo-swiss-2026', parent: 'blog' },
     'blog-allerta-meteo-ticino-lombardia-2026': { name: 'Allerta meteo', path: '/articoli-frontaliere/allerta-meteo-ticino-lombardia-2026', parent: 'blog' },
+    'blog-rottamazione-quinquies-scadenza-30-aprile': { name: 'Rottamazione-quinquies', path: '/articoli-frontaliere/rottamazione-quinquies-scadenza-30-aprile', parent: 'blog' },
  };
 
  const info = sectionNames[section];

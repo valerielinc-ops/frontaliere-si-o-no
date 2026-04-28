@@ -3241,6 +3241,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.allerta-meteo-ticino-lombardia-2026.title': 'Wetterwarnung im Tessin und in der Lombardei: Regen und Gewitter',
     'blog.article.allerta-meteo-ticino-lombardia-2026.excerpt': 'Die lombardische Schutzbehörde hat eine Warnung vor Gewittern und starken Regenfällen herausgegeben, mit dem Risiko von starkem Wind im Veltlin.',
     'blog.article.allerta-meteo-ticino-lombardia-2026.imageAlt': 'Sturmwetter über dem Luganersee mit dunklen Wolken und starkem Regen',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.title': 'Rottamazione-quinquies: domande entro il 30 aprile',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.excerpt': 'Die Frist für die Teilnahme an der Rottamazione-quinquies endet am 30. April. Hier erfahren Sie, was Sie wissen müssen und wie Sie den Antrag stellen können.',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

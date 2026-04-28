@@ -8575,4 +8575,11 @@ export const ARTICLES = [
  image: '/images/blog/allerta-meteo-ticino-lombardia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rottamazione-quinquies-scadenza-30-aprile',
+ category: 'fiscale',
+ date: '2026-04-28T06:59:44.515Z',
+ image: '/images/blog/rottamazione-quinquies-scadenza-30-aprile.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

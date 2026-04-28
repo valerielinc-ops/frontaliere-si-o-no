@@ -3242,6 +3242,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.allerta-meteo-ticino-lombardia-2026.title': 'Allerta meteo in Ticino e Lombardia: piogge e temporali',
     'blog.article.allerta-meteo-ticino-lombardia-2026.excerpt': 'La Protezione civile lombarda ha emesso un\'allerta per temporali e piogge intense, con rischio di vento forte in Valtellina.',
     'blog.article.allerta-meteo-ticino-lombardia-2026.imageAlt': 'Tempesta sul Lago di Lugano con nuvole scure e pioggia intensa',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.title': 'Rottamazione-quinquies: domande entro il 30 aprile',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.excerpt': 'Scade il 30 aprile il termine per aderire alla rottamazione-quinquies. Ecco cosa sapere e come fare la domanda.',
+    'blog.article.rottamazione-quinquies-scadenza-30-aprile.imageAlt': 'Veduta aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;
