@@ -3379,6 +3379,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticinesi-parigi-roland-garros.title': 'Zwei Tessinier in Paris für Roland Garros',
     'blog.article.ticinesi-parigi-roland-garros.excerpt': 'Rémy Bertola und Susan Bandecchi werden im Qualifikationswettbewerb des Roland Garros eingesetzt.',
     'blog.article.ticinesi-parigi-roland-garros.imageAlt': 'Tennisspieler auf dem Platz des Roland Garros in Paris, mit der Schweizer Fahne im Hintergrund',
+    'blog.article.locarno-landquart-rifiuti-1000-tonnellate.title': 'Locarno entsorgt Abfälle in Landquart: 1000 Tonnen über 156 km',
+    'blog.article.locarno-landquart-rifiuti-1000-tonnellate.excerpt': 'Locarno entsorgt pflanzliche Abfälle in Landquart und verursacht dabei jährlich 6,5 Tonnen CO2. Eine Anfrage an den Gemeinderat wegen mangelnder Umweltkohärenz.',
+    'blog.article.locarno-landquart-rifiuti-1000-tonnellate.imageAlt': 'Luftaufnahme von Locarno und dem Lago Maggiore, Schweiz, mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -8897,4 +8897,11 @@ export const ARTICLES = [
  image: '/images/blog/ticinesi-parigi-roland-garros.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'locarno-landquart-rifiuti-1000-tonnellate',
+ category: 'novita',
+ date: '2026-04-28T15:29:17.767Z',
+ image: '/images/blog/locarno-landquart-rifiuti-1000-tonnellate.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

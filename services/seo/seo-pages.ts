@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1176,
+ "numberOfItems": 1177,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5811,7 +5811,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1173, "name": "Lombardia: 115 milioni per il piano ciclabile", "url": `${BASE_URL}/articoli-frontaliere/lombardia-piano-ciclabile-115-milioni` },
           { "@type": "ListItem", "position": 1174, "name": "25 anni di emergenze sanitarie: il S.A.M. di Me...", "url": `${BASE_URL}/articoli-frontaliere/sam-mendrisiotto-25-anni-emergenze` },
           { "@type": "ListItem", "position": 1175, "name": "Ticino: Nidi ed Extrascolastico verso un Unico ...", "url": `${BASE_URL}/articoli-frontaliere/nidi-extrascolastico-ticino-un-servizio` },
-          { "@type": "ListItem", "position": 1176, "name": "Due ticinesi a Parigi per il Roland Garros", "url": `${BASE_URL}/articoli-frontaliere/ticinesi-parigi-roland-garros` }
+          { "@type": "ListItem", "position": 1176, "name": "Due ticinesi a Parigi per il Roland Garros", "url": `${BASE_URL}/articoli-frontaliere/ticinesi-parigi-roland-garros` },
+          { "@type": "ListItem", "position": 1177, "name": "Locarno smaltisce rifiuti a Landquart: 1000 ton...", "url": `${BASE_URL}/articoli-frontaliere/locarno-landquart-rifiuti-1000-tonnellate` }
  ]
  },
  {

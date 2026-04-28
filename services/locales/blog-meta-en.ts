@@ -3379,6 +3379,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticinesi-parigi-roland-garros.title': 'Two Ticino residents in Paris for Roland Garros',
     'blog.article.ticinesi-parigi-roland-garros.excerpt': 'Rémy Bertola and Susan Bandecchi will be competing in the Roland Garros qualification draw.',
     'blog.article.ticinesi-parigi-roland-garros.imageAlt': 'Tennis players on the court at the Roland Garros stadium in Paris, with the Swiss flag visible in the background',
+    'blog.article.locarno-landquart-rifiuti-1000-tonnellate.title': 'Locarno disposes waste in Landquart: 1,000 tonnes over 156 km',
+    'blog.article.locarno-landquart-rifiuti-1000-tonnellate.excerpt': 'Locarno disposes of plant waste in Landquart, generating 6.5 tonnes of CO2 annually. Interrogation to the Municipality for lack of environmental coherence.',
+    'blog.article.locarno-landquart-rifiuti-1000-tonnellate.imageAlt': 'Aerial view of Locarno and Lake Maggiore, Switzerland, with mountains in the background',
 };
 
 export default blogMetaEn;

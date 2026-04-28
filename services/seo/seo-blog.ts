@@ -19643,6 +19643,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-locarno-landquart-rifiuti-1000-tonnellate': {
+    title: 'Locarno smaltisce rifiuti a Landquart: 1000 tonnellate su 156 km',
+    description: 'Locarno smaltisce rifiuti vegetali a Landquart, generando 6,5 tonnellate di CO2 annuali. Interrogazione al Municipio per la mancanza di coerenza ambientale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, locarno, smaltisce, rifiuti, landquart',
+    ogTitle: 'Locarno smaltisce rifiuti a Landquart: 1000 tonnellate su 156 km',
+    ogDescription: 'Locarno smaltisce rifiuti vegetali a Landquart, generando 6,5 tonnellate di CO2 annuali. Interrogazione al Municipio per la mancanza di coerenza ambientale.',
+    canonicalPath: '/articoli-frontaliere/locarno-landquart-rifiuti-1000-tonnellate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Locarno smaltisce rifiuti a Landquart: 1000 tonnellate su 156 km",
+      "description": "Locarno smaltisce rifiuti vegetali a Landquart, generando 6,5 tonnellate di CO2 annuali. Interrogazione al Municipio per la mancanza di coerenza ambientale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/locarno-landquart-rifiuti-1000-tonnellate.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Locarno e del Lago Maggiore, Svizzera, con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-28T15:29:17+00:00",
+      "dateModified": "2026-04-28T15:29:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-landquart-rifiuti-1000-tonnellate`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

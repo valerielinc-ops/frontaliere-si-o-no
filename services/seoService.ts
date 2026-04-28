@@ -2357,6 +2357,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sam-mendrisiotto-25-anni-emergenze': { name: 'Emergenze Sanitarie', path: '/articoli-frontaliere/sam-mendrisiotto-25-anni-emergenze', parent: 'blog' },
     'blog-nidi-extrascolastico-ticino-un-servizio': { name: 'Ticino', path: '/articoli-frontaliere/nidi-extrascolastico-ticino-un-servizio', parent: 'blog' },
     'blog-ticinesi-parigi-roland-garros': { name: 'Roland Garros', path: '/articoli-frontaliere/ticinesi-parigi-roland-garros', parent: 'blog' },
+    'blog-locarno-landquart-rifiuti-1000-tonnellate': { name: 'Novità', path: '/articoli-frontaliere/locarno-landquart-rifiuti-1000-tonnellate', parent: 'blog' },
  };
 
  const info = sectionNames[section];

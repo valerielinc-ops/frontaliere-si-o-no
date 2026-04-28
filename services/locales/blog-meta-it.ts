@@ -3380,6 +3380,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticinesi-parigi-roland-garros.title': 'Due ticinesi a Parigi per il Roland Garros',
     'blog.article.ticinesi-parigi-roland-garros.excerpt': 'Rémy Bertola e Susan Bandecchi saranno impegnati nel tabellone delle qualificazioni del Roland Garros.',
     'blog.article.ticinesi-parigi-roland-garros.imageAlt': 'Giocatori di tennis sul campo del Roland Garros a Parigi, con la bandiera svizzera visibile in sfondo',
+    'blog.article.locarno-landquart-rifiuti-1000-tonnellate.title': 'Locarno smaltisce rifiuti a Landquart: 1000 tonnellate su 156 km',
+    'blog.article.locarno-landquart-rifiuti-1000-tonnellate.excerpt': 'Locarno smaltisce rifiuti vegetali a Landquart, generando 6,5 tonnellate di CO2 annuali. Interrogazione al Municipio per la mancanza di coerenza ambientale.',
+    'blog.article.locarno-landquart-rifiuti-1000-tonnellate.imageAlt': 'Vista aerea di Locarno e del Lago Maggiore, Svizzera, con montagne sullo sfondo',
 };
 
 export default blogMetaIt;
