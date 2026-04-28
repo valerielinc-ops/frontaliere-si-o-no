@@ -3230,6 +3230,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-brevetti-innovazione-2026.title': 'Svizzera leader in brevetti: 5 curiosità 2026',
     'blog.article.svizzera-brevetti-innovazione-2026.excerpt': 'Roche supera Novartis, sigarette elettroniche e seggiolini per bambini: ecco i dati EPO su brevetti svizzeri',
     'blog.article.svizzera-brevetti-innovazione-2026.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi svizzere sullo sfondo',
+    'blog.article.frontalieri-rega-boglia-intervento.title': 'Intervento Rega sul Boglia: soccorso in montagna',
+    'blog.article.frontalieri-rega-boglia-intervento.excerpt': 'Un elicottero della Rega è intervenuto sul Monte Boglia per soccorrere un escursionista in difficoltà. Ecco cosa è successo.',
+    'blog.article.frontalieri-rega-boglia-intervento.imageAlt': 'Vista aerea del Monte Boglia con elicottero di soccorso in azione',
 };
 
 export default blogMetaIt;

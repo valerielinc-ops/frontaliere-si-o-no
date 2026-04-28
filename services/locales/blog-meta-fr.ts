@@ -3230,6 +3230,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-brevetti-innovazione-2026.title': 'Suisse leader en brevets: 5 curiosités 2026',
     'blog.article.svizzera-brevetti-innovazione-2026.excerpt': 'Roche dépasse Novartis, cigarettes électroniques et sièges pour enfants: voici les données de l\'OEB sur les brevets suisses',
     'blog.article.svizzera-brevetti-innovazione-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les Alpes suisses en arrière-plan',
+    'blog.article.frontalieri-rega-boglia-intervento.title': 'Intervention de la Rega au Monte Boglia : sauvetage en montagne',
+    'blog.article.frontalieri-rega-boglia-intervento.excerpt': 'Un hélicoptère de la Rega est intervenu au Monte Boglia pour secourir un randonneur en difficulté. Voici ce qui s\'est passé.',
+    'blog.article.frontalieri-rega-boglia-intervento.imageAlt': 'Vue aérienne du Monte Boglia avec un hélicoptère de secours en action',
 };
 
 export default blogMetaFr;

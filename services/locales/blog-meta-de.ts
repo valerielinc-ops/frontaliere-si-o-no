@@ -3229,6 +3229,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-brevetti-innovazione-2026.title': 'Schweiz führt bei Patenten: 5 Fakten 2026',
     'blog.article.svizzera-brevetti-innovazione-2026.excerpt': 'Roche überholt Novartis, E-Zigaretten und Kindersitze: Hier sind die EPO-Daten zu Schweizer Patenten',
     'blog.article.svizzera-brevetti-innovazione-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Schweizer Alpen im Hintergrund',
+    'blog.article.frontalieri-rega-boglia-intervento.title': 'Rega-Einsatz am Monte Boglia: Bergrettung',
+    'blog.article.frontalieri-rega-boglia-intervento.excerpt': 'Ein Rega-Hubschrauber ist am Monte Boglia eingesetzt worden, um einen in Not geratenen Wanderer zu retten. Hier ist, was passiert ist.',
+    'blog.article.frontalieri-rega-boglia-intervento.imageAlt': 'Luftaufnahme des Monte Boglia mit Rettungshubschrauber im Einsatz',
 };
 
 export default blogMetaDe;

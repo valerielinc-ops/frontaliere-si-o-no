@@ -18193,6 +18193,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-rega-boglia-intervento': {
+    title: 'Intervento Rega sul Boglia: soccorso in montagna | Frontaliere Ticino',
+    description: 'Un elicottero della Rega è intervenuto sul Monte Boglia per soccorrere un escursionista in difficoltà. Ecco cosa è successo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, intervento, rega, boglia, soccorso',
+    ogTitle: 'Intervento Rega sul Boglia: soccorso in montagna',
+    ogDescription: 'Un elicottero della Rega è intervenuto sul Monte Boglia per soccorrere un escursionista in difficoltà. Ecco cosa è successo.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-rega-boglia-intervento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Intervento Rega sul Boglia: soccorso in montagna",
+      "description": "Un elicottero della Rega è intervenuto sul Monte Boglia per soccorrere un escursionista in difficoltà. Ecco cosa è successo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-rega-boglia-intervento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Monte Boglia con elicottero di soccorso in azione"
+      },
+      "datePublished": "2026-04-28T06:35:15+00:00",
+      "dateModified": "2026-04-28T06:35:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-rega-boglia-intervento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

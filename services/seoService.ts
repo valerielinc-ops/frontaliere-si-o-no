@@ -2337,6 +2337,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasparenza-iniziative-popolari-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/trasparenza-iniziative-popolari-ticino-2026', parent: 'blog' },
     'blog-tristan-brenn-fischer-decisione': { name: 'Novità', path: '/articoli-frontaliere/tristan-brenn-fischer-decisione', parent: 'blog' },
     'blog-svizzera-brevetti-innovazione-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-brevetti-innovazione-2026', parent: 'blog' },
+    'blog-frontalieri-rega-boglia-intervento': { name: 'Intervento Rega', path: '/articoli-frontaliere/frontalieri-rega-boglia-intervento', parent: 'blog' },
  };
 
  const info = sectionNames[section];

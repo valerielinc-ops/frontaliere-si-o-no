@@ -8547,4 +8547,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-brevetti-innovazione-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-rega-boglia-intervento',
+ category: 'novita',
+ date: '2026-04-28T06:35:15.960Z',
+ image: '/images/blog/frontalieri-rega-boglia-intervento.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
