@@ -148,6 +148,16 @@ jobs:
                  dist/de/jobs-im-tessin.html \
                  dist/fr/trouver-emploi-tessin.html
 
+      - name: Cache Vite optimized deps + AST cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            node_modules/.vite
+            .vite-cache
+          key: vite-${{ runner.os }}-${{ hashFiles('package-lock.json', 'vite.config.ts', 'build-plugins/**/*.ts') }}
+          restore-keys: |
+            vite-${{ runner.os }}-
+
       - name: Build
         run: npm run build:ci
 
@@ -175,44 +185,24 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
-      - name: Validate SEO quality (7 file validators in parallel)
-        run: |
-          npm run validate:jobposting-schema > /tmp/v1.log 2>&1 &
-          PID1=$!
-          npm run validate:jobs-quality > /tmp/v2.log 2>&1 &
-          PID2=$!
-          npm run validate:sitemap-links > /tmp/v3.log 2>&1 &
-          PID3=$!
-          node scripts/validate-soft404.mjs > /tmp/v4.log 2>&1 &
-          PID4=$!
-          node scripts/validate-canonical.mjs > /tmp/v5.log 2>&1 &
-          PID5=$!
-          node scripts/validate-content-quality.mjs > /tmp/v6.log 2>&1 &
-          PID6=$!
-          node scripts/validate-structured-data-completeness.mjs > /tmp/v7.log 2>&1 &
-          PID7=$!
-
-          FAIL=0
-          wait $PID1 || { echo "::error::jobposting-schema failed"; cat /tmp/v1.log; FAIL=1; }
-          wait $PID2 || { echo "::error::jobs-quality failed"; cat /tmp/v2.log; FAIL=1; }
-          wait $PID3 || { echo "::error::sitemap-links failed"; cat /tmp/v3.log; FAIL=1; }
-          wait $PID4 || { echo "::error::soft-404 failed"; cat /tmp/v4.log; FAIL=1; }
-          wait $PID5 || { echo "::error::canonical failed"; cat /tmp/v5.log; FAIL=1; }
-          wait $PID6 || { echo "::error::content-quality failed"; cat /tmp/v6.log; FAIL=1; }
-          wait $PID7 || { echo "::error::structured-data failed"; cat /tmp/v7.log; FAIL=1; }
-
-          if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 7 file validators passed"
-
-      # SEO audit gates (7 dist/ walkers in parallel, ratcheted against baselines).
+      # Post-build validations + SEO audits + SPA render + E2E (all parallel).
       #
-      # All seven scripts only READ dist/ and (optionally) compare the offender
-      # count to a checked-in JSON baseline — they never write to dist/ and only
-      # ever write their own baseline file under --write-baseline (off in CI).
-      # That makes them safe to run concurrently. Wall-clock = max(durations)
-      # instead of sum, saving ~3 min per deploy vs the previous serial chain.
+      # Combines what used to be 4 sequential steps:
+      #   - Validate SEO quality (7 file validators)
+      #   - SEO audit gates (7 dist/ walkers, ratcheted against baselines)
+      #   - Validate SPA render (canonical, schema, robots)
+      #   - E2E smoke tests (Playwright)
       #
-      # If any gate FAILS, its stderr is replayed and the matching playbook is:
+      # All 16 jobs are read-only against dist/ and have no shared state, so
+      # wall-clock = max(durations) instead of sum. Real-run timing data
+      # (run #25028714773): 83s + 131s + 65s + 49s = 328s sequential vs ~131s
+      # parallel — saves ~197s per deploy.
+      #
+      # SPA render gets a 300s shell-level cap; Playwright gets 180s. These
+      # replace the previous step-level `timeout-minutes` fields (which only
+      # work on standalone steps, not background jobs).
+      #
+      # If any gate FAILS, its stderr is replayed. Playbook for the SEO gates:
       #   - hreflang             → fix locale-aware <link rel="alternate"> tags
       #   - title-uniqueness     → make every canonical URL emit a unique <title>
       #   - content-duplicates   → diversify body copy on near-duplicate templates
@@ -224,42 +214,52 @@ jobs:
       #   - title-length         → shorten headline construction (≤90 char incl.
       #                            " | Frontaliere Ticino" suffix); see
       #                            truncateTitleCore in jobsSeoPagesPlugin.ts
-      - name: SEO audit gates (7 in parallel)
+      - name: Post-build validations + SEO audits + SPA render + E2E (all parallel)
         run: |
-          npm run audit:hreflang             > /tmp/g1.log 2>&1 &
-          PID1=$!
-          npm run audit:title-uniqueness     > /tmp/g2.log 2>&1 &
-          PID2=$!
-          npm run audit:content-duplicates   > /tmp/g3.log 2>&1 &
-          PID3=$!
-          npm run audit:page-weight          > /tmp/g4.log 2>&1 &
-          PID4=$!
-          npm run audit:text-html-ratio      > /tmp/g5.log 2>&1 &
-          PID5=$!
-          npm run audit:h1-title-duplicates  > /tmp/g6.log 2>&1 &
-          PID6=$!
-          npm run audit:title-length         > /tmp/g7.log 2>&1 &
-          PID7=$!
+          # Group A — 7 file validators
+          npm run validate:jobposting-schema > /tmp/v1.log 2>&1 & PID1=$!
+          npm run validate:jobs-quality > /tmp/v2.log 2>&1 & PID2=$!
+          npm run validate:sitemap-links > /tmp/v3.log 2>&1 & PID3=$!
+          node scripts/validate-soft404.mjs > /tmp/v4.log 2>&1 & PID4=$!
+          node scripts/validate-canonical.mjs > /tmp/v5.log 2>&1 & PID5=$!
+          node scripts/validate-content-quality.mjs > /tmp/v6.log 2>&1 & PID6=$!
+          node scripts/validate-structured-data-completeness.mjs > /tmp/v7.log 2>&1 & PID7=$!
+
+          # Group B — 7 SEO audit gates
+          npm run audit:hreflang             > /tmp/g1.log 2>&1 & PID8=$!
+          npm run audit:title-uniqueness     > /tmp/g2.log 2>&1 & PID9=$!
+          npm run audit:content-duplicates   > /tmp/g3.log 2>&1 & PID10=$!
+          npm run audit:page-weight          > /tmp/g4.log 2>&1 & PID11=$!
+          npm run audit:text-html-ratio      > /tmp/g5.log 2>&1 & PID12=$!
+          npm run audit:h1-title-duplicates  > /tmp/g6.log 2>&1 & PID13=$!
+          npm run audit:title-length         > /tmp/g7.log 2>&1 & PID14=$!
+
+          # Group C — SPA render validation (5 min internal budget)
+          timeout 300 node scripts/validate-spa-render.mjs > /tmp/spa.log 2>&1 & PID_SPA=$!
+
+          # Group D — E2E smoke (3 min internal budget)
+          timeout 180 npx playwright test > /tmp/e2e.log 2>&1 & PID_E2E=$!
 
           FAIL=0
-          wait $PID1 || { echo "::error::audit:hreflang failed";            cat /tmp/g1.log; FAIL=1; }
-          wait $PID2 || { echo "::error::audit:title-uniqueness failed";    cat /tmp/g2.log; FAIL=1; }
-          wait $PID3 || { echo "::error::audit:content-duplicates failed";  cat /tmp/g3.log; FAIL=1; }
-          wait $PID4 || { echo "::error::audit:page-weight failed";         cat /tmp/g4.log; FAIL=1; }
-          wait $PID5 || { echo "::error::audit:text-html-ratio failed";     cat /tmp/g5.log; FAIL=1; }
-          wait $PID6 || { echo "::error::audit:h1-title-duplicates failed"; cat /tmp/g6.log; FAIL=1; }
-          wait $PID7 || { echo "::error::audit:title-length failed";        cat /tmp/g7.log; FAIL=1; }
+          wait $PID1  || { echo "::error::jobposting-schema failed"; cat /tmp/v1.log; FAIL=1; }
+          wait $PID2  || { echo "::error::jobs-quality failed"; cat /tmp/v2.log; FAIL=1; }
+          wait $PID3  || { echo "::error::sitemap-links failed"; cat /tmp/v3.log; FAIL=1; }
+          wait $PID4  || { echo "::error::soft-404 failed"; cat /tmp/v4.log; FAIL=1; }
+          wait $PID5  || { echo "::error::canonical failed"; cat /tmp/v5.log; FAIL=1; }
+          wait $PID6  || { echo "::error::content-quality failed"; cat /tmp/v6.log; FAIL=1; }
+          wait $PID7  || { echo "::error::structured-data failed"; cat /tmp/v7.log; FAIL=1; }
+          wait $PID8  || { echo "::error::audit:hreflang failed"; cat /tmp/g1.log; FAIL=1; }
+          wait $PID9  || { echo "::error::audit:title-uniqueness failed"; cat /tmp/g2.log; FAIL=1; }
+          wait $PID10 || { echo "::error::audit:content-duplicates failed"; cat /tmp/g3.log; FAIL=1; }
+          wait $PID11 || { echo "::error::audit:page-weight failed"; cat /tmp/g4.log; FAIL=1; }
+          wait $PID12 || { echo "::error::audit:text-html-ratio failed"; cat /tmp/g5.log; FAIL=1; }
+          wait $PID13 || { echo "::error::audit:h1-title-duplicates failed"; cat /tmp/g6.log; FAIL=1; }
+          wait $PID14 || { echo "::error::audit:title-length failed"; cat /tmp/g7.log; FAIL=1; }
+          wait $PID_SPA || { echo "::error::validate-spa-render failed"; cat /tmp/spa.log; FAIL=1; }
+          wait $PID_E2E || { echo "::error::E2E smoke tests failed"; cat /tmp/e2e.log; FAIL=1; }
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 7 SEO audit gates passed"
-
-      - name: Validate SPA render — canonical, schema, robots (blocking)
-        timeout-minutes: 5
-        run: node scripts/validate-spa-render.mjs
-
-      - name: E2E smoke tests — runtime errors, navigation (blocking)
-        timeout-minutes: 3
-        run: npx playwright test
+          echo "✅ All 16 post-build validators+audits+SPA+E2E passed"
 
       # Visual regression baselines are OS-sensitive (darwin vs linux pixel
       # diffs). We run them only when a linux-specific baseline has been
@@ -414,14 +414,16 @@ jobs:
         env:
           ARTICLE_URL: ${{ github.event.inputs.article_url }}
         run: |
-          # Run all indexing submissions in parallel — saves ~2 min vs sequential
-          node scripts/submit-google-indexing-jobs.js &
+          # Run all indexing submissions in parallel — saves ~2 min vs sequential.
+          # Each script gets a 90s shell-level cap so a slow API can't monopolize
+          # the 5min outer step-level timeout-minutes budget.
+          timeout 90 node scripts/submit-google-indexing-jobs.js &
           PID_GOOGLE=$!
-          node scripts/submit-indexnow.js &
+          timeout 90 node scripts/submit-indexnow.js &
           PID_INDEXNOW=$!
-          node scripts/submit-google-indexing.js &
+          timeout 90 node scripts/submit-google-indexing.js &
           PID_GSC=$!
-          node scripts/verify-post-deploy-seo.mjs &
+          timeout 90 node scripts/verify-post-deploy-seo.mjs &
           PID_SEO=$!
 
           # Wait for all and collect exit codes (continue-on-error at step level)
