@@ -19846,6 +19846,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riforma-ue-disoccupazione-frontalieri': {
+    title: 'Riforma UE: disoccupazione frontalieri costerà caro alla Svizzera',
+    description: 'La revisione europea cambierebbe le regole: oggi paga il Paese di residenza, in futuro quello di lavoro. Un caso che mette alla prova i nuovi accordi tra',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, disoccupazione, costerà, caro',
+    ogTitle: 'Riforma UE: disoccupazione frontalieri costerà caro alla Svizzera',
+    ogDescription: 'La revisione europea cambierebbe le regole: oggi paga il Paese di residenza, in futuro quello di lavoro. Un caso che mette alla prova i nuovi accordi tra',
+    canonicalPath: '/articoli-frontaliere/riforma-ue-disoccupazione-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riforma UE: disoccupazione frontalieri costerà caro alla Svizzera",
+      "description": "La revisione europea cambierebbe le regole: oggi paga il Paese di residenza, in futuro quello di lavoro. Un caso che mette alla prova i nuovi accordi tra",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riforma-ue-disoccupazione-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in attesa presso l'ufficio di frontiera di Brogeda, Mendrisio"
+      },
+      "datePublished": "2026-04-28T16:15:40+00:00",
+      "dateModified": "2026-04-28T16:15:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riforma-ue-disoccupazione-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

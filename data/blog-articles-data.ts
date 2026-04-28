@@ -8946,4 +8946,11 @@ export const ARTICLES = [
  image: '/images/blog/ambulatorio-cardio-metabolico-villa-san-giuseppe.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'riforma-ue-disoccupazione-frontalieri',
+ category: 'novita',
+ date: '2026-04-28T16:15:40.903Z',
+ image: '/images/blog/riforma-ue-disoccupazione-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

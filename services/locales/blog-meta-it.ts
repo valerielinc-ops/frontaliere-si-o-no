@@ -3401,6 +3401,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.title': 'Villa San Giuseppe KOS: nuovo ambulatorio cardio-metabolico',
     'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.excerpt': 'A Anzano del Parco, presso la Clinica Villa San Giuseppe KOS, è attivo un nuovo ambulatorio dedicato alla salute cardiovascolare e metabolica.',
     'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.imageAlt': 'Clinica medica moderna sul lago di Lugano, Ticino',
+    'blog.article.riforma-ue-disoccupazione-frontalieri.title': 'Riforma UE: disoccupazione frontalieri costerà caro alla Svizzera',
+    'blog.article.riforma-ue-disoccupazione-frontalieri.excerpt': 'La revisione europea cambierebbe le regole: oggi paga il Paese di residenza, in futuro quello di lavoro. Un caso che mette alla prova i nuovi accordi tra Svizzera e UE.',
+    'blog.article.riforma-ue-disoccupazione-frontalieri.imageAlt': 'Frontalieri in attesa presso l\'ufficio di frontiera di Brogeda, Mendrisio',
 };
 
 export default blogMetaIt;
