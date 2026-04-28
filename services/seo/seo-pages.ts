@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1140,
+ "numberOfItems": 1141,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5775,7 +5775,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1137, "name": "Moda sostenibile a Bellinzona: giornata dedicat...", "url": `${BASE_URL}/articoli-frontaliere/moda-sostenibile-bellinzona-9-maggio` },
           { "@type": "ListItem", "position": 1138, "name": "Fuga di ammoniaca a Chiasso, situazione sotto c...", "url": `${BASE_URL}/articoli-frontaliere/fuga-ammoniaca-chiasso-controllo` },
           { "@type": "ListItem", "position": 1139, "name": "Perdita di ammoniaca a Chiasso: tre intossicati", "url": `${BASE_URL}/articoli-frontaliere/chiasso-ammoniaca-stadio-ghiaccio` },
-          { "@type": "ListItem", "position": 1140, "name": "Fuga di ammoniaca alla pista di ghiaccio di Chi...", "url": `${BASE_URL}/articoli-frontaliere/fuga-ammoniaca-chiasso-pista-ghiaccio` }
+          { "@type": "ListItem", "position": 1140, "name": "Fuga di ammoniaca alla pista di ghiaccio di Chi...", "url": `${BASE_URL}/articoli-frontaliere/fuga-ammoniaca-chiasso-pista-ghiaccio` },
+          { "@type": "ListItem", "position": 1141, "name": "Biglietti Trenord su WhatsApp: come funziona", "url": `${BASE_URL}/articoli-frontaliere/biglietto-trenord-whatsapp-ticino` }
  ]
  },
  {

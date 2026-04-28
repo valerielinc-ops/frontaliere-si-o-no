@@ -3272,6 +3272,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.title': 'Fuga di ammoniaca alla pista di ghiaccio di Chiasso',
     'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.excerpt': 'Tre addetti alla manutenzione visitati dai soccorritori, ma nessuno ha bisogno di ricovero ospedaliero',
     'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.imageAlt': 'Pista di ghiaccio di Chiasso con intervento dei soccorritori per una fuga di ammoniaca',
+    'blog.article.biglietto-trenord-whatsapp-ticino.title': 'Biglietti Trenord su WhatsApp: come funziona',
+    'blog.article.biglietto-trenord-whatsapp-ticino.excerpt': 'Trenord introduce biglietti acquistabili via WhatsApp, disponibili alle self-service e ai Digital Gate di Milano e Malpensa T1',
+    'blog.article.biglietto-trenord-whatsapp-ticino.imageAlt': 'Biglietto Trenord su WhatsApp con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

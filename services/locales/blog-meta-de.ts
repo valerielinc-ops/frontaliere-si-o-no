@@ -3271,6 +3271,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.title': 'Ammoniak-Austritt in der Eisfeld von Chiasso',
     'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.excerpt': 'Drei Wartungskräfte wurden von Rettungskräften versorgt, aber niemand benötigt eine Krankenhausaufnahme',
     'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.imageAlt': 'Eisbahn in Chiasso mit Rettungskräften, die auf einen Ammoniakausbruch reagieren',
+    'blog.article.biglietto-trenord-whatsapp-ticino.title': 'Trenord-Tickets per WhatsApp: So funktioniert\'s',
+    'blog.article.biglietto-trenord-whatsapp-ticino.excerpt': 'Trenord führt Tickets ein, die per WhatsApp gekauft werden können. Diese sind an den Selbstbedienungsterminals und den Digital Gates in Mailand und Malpensa T1 erhältlich.',
+    'blog.article.biglietto-trenord-whatsapp-ticino.imageAlt': 'Trenord-Ticket auf WhatsApp mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

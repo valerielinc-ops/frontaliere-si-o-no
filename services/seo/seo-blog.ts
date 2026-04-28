@@ -18599,6 +18599,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-biglietto-trenord-whatsapp-ticino': {
+    title: 'Biglietti Trenord su WhatsApp: come funziona | Frontaliere Ticino',
+    description: 'Scopri come acquistare biglietti Trenord su WhatsApp, disponibili alle self-service e ai Digital Gate di Milano e Malpensa T1. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, biglietti, trenord, whatsapp, funziona',
+    ogTitle: 'Biglietti Trenord su WhatsApp: come funziona',
+    ogDescription: 'Scopri come acquistare biglietti Trenord su WhatsApp, disponibili alle self-service e ai Digital Gate di Milano e Malpensa T1',
+    canonicalPath: '/articoli-frontaliere/biglietto-trenord-whatsapp-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Biglietti Trenord su WhatsApp: come funziona",
+      "description": "Scopri come acquistare biglietti Trenord su WhatsApp, disponibili alle self-service e ai Digital Gate di Milano e Malpensa T1. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/biglietto-trenord-whatsapp-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Biglietto Trenord su WhatsApp con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-28T10:11:12+00:00",
+      "dateModified": "2026-04-28T10:11:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/biglietto-trenord-whatsapp-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -8645,4 +8645,11 @@ export const ARTICLES = [
  image: '/images/blog/fuga-ammoniaca-chiasso-pista-ghiaccio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'biglietto-trenord-whatsapp-ticino',
+ category: 'novita',
+ date: '2026-04-28T10:11:12.093Z',
+ image: '/images/blog/biglietto-trenord-whatsapp-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

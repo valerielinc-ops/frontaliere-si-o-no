@@ -3271,6 +3271,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.title': 'Ammonia leak at Chiasso ice rink',
     'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.excerpt': 'Three maintenance workers attended by rescuers, but none require hospital admission',
     'blog.article.fuga-ammoniaca-chiasso-pista-ghiaccio.imageAlt': 'Ice rink in Chiasso with emergency services responding to an ammonia leak',
+    'blog.article.biglietto-trenord-whatsapp-ticino.title': 'Trenord tickets on WhatsApp: how it works',
+    'blog.article.biglietto-trenord-whatsapp-ticino.excerpt': 'Trenord introduces tickets purchasable via WhatsApp, available at self-service and Digital Gate in Milan and Malpensa T1',
+    'blog.article.biglietto-trenord-whatsapp-ticino.imageAlt': 'Trenord ticket on WhatsApp with view of Lake Lugano',
 };
 
 export default blogMetaEn;
