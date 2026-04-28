@@ -50,7 +50,8 @@ https://frontaliereticino.ch/mercato-lavoro-ticino/
 
 # F5 weekly employers — /aziende-che-assumono/{city}/{company}/settimana-corrente/
 # (the /{city}/ index is an intermediate dir without index.html — probe a leaf)
-https://frontaliereticino.ch/aziende-che-assumono/lugano/amministrazione-cantonale-ticino/settimana-corrente/
+# EOC Lugano: largest stable Ticino employer, present across all weekly snapshots
+https://frontaliereticino.ch/aziende-che-assumono/lugano/eoc-ente-ospedaliero-cantonale/settimana-corrente/
 
 # F6 daily fuel prices — /prezzi-benzina/{city}/oggi/ and /prezzi-diesel/{city}/oggi/
 # (city dir contains /oggi/ + /stazioni/ subdirs, no own index.html)
