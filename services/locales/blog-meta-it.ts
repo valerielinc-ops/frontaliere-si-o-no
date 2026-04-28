@@ -3323,6 +3323,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.montessori-green-food-week-2026.title': 'Montessori Castellanza: menù a basso impatto e lotta agli sprechi',
     'blog.article.montessori-green-food-week-2026.excerpt': 'La scuola Montessori di Castellanza partecipa alla Green Food Week con menù vegetali e attività educative per ridurre gli sprechi alimentari.',
     'blog.article.montessori-green-food-week-2026.imageAlt': 'Studenti della scuola Montessori di Castellanza durante la Green Food Week 2026',
+    'blog.article.passi-solidarieta-porto-ceresio-2026.title': 'Passi di solidarietà: camminata a Porto Ceresio per la donazione di sangue',
+    'blog.article.passi-solidarieta-porto-ceresio-2026.excerpt': 'Domenica 3 maggio, Avis Valceresio organizza una camminata lungo il lago per sensibilizzare sulla donazione di sangue. Ritrovo alle 9 in piazza Bossi.',
+    'blog.article.passi-solidarieta-porto-ceresio-2026.imageAlt': 'Vista panoramica del lungolago di Porto Ceresio con passeggiatori',
 };
 
 export default blogMetaIt;

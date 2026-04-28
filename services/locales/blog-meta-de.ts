@@ -3322,6 +3322,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.montessori-green-food-week-2026.title': 'Montessori Castellanza: vegetarische Gerichte und Kampf gegen Verschwendung',
     'blog.article.montessori-green-food-week-2026.excerpt': 'Die Montessori-Schule Castellanza nimmt an der Green Food Week teil mit vegetarischen Menüs und Bildungsaktivitäten zur Reduzierung von Lebensmittelverschwendung.',
     'blog.article.montessori-green-food-week-2026.imageAlt': 'Schüler der Montessori-Schule in Castellanza während der Green Food Week 2026',
+    'blog.article.passi-solidarieta-porto-ceresio-2026.title': 'Solidaritätsschritte: Spaziergang in Porto Ceresio für Blutspenden',
+    'blog.article.passi-solidarieta-porto-ceresio-2026.excerpt': 'Am Sonntag, dem 3. Mai, organisiert Avis Valceresio einen Spaziergang am See, um auf die Blutspende aufmerksam zu machen. Treffpunkt ist um 9 Uhr auf der Piazza Bossi.',
+    'blog.article.passi-solidarieta-porto-ceresio-2026.imageAlt': 'Panoramablick auf den Seeuferweg von Porto Ceresio mit Spaziergängern',
 };
 
 export default blogMetaDe;

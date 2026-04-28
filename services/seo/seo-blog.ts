@@ -19092,6 +19092,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-passi-solidarieta-porto-ceresio-2026': {
+    title: 'Passi di solidarietà: camminata a Porto Ceresio per la donazione di sangue',
+    description: 'Domenica 3 maggio, Avis Valceresio organizza una camminata lungo il lago per sensibilizzare sulla donazione di sangue. Ritrovo alle 9 in piazza Bossi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, passi, solidarietà, camminata, porto',
+    ogTitle: 'Passi di solidarietà: camminata a Porto Ceresio per la donazione di sangue',
+    ogDescription: 'Domenica 3 maggio, Avis Valceresio organizza una camminata lungo il lago per sensibilizzare sulla donazione di sangue. Ritrovo alle 9 in piazza Bossi.',
+    canonicalPath: '/articoli-frontaliere/passi-solidarieta-porto-ceresio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Passi di solidarietà: camminata a Porto Ceresio per la donazione di sangue",
+      "description": "Domenica 3 maggio, Avis Valceresio organizza una camminata lungo il lago per sensibilizzare sulla donazione di sangue. Ritrovo alle 9 in piazza Bossi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/passi-solidarieta-porto-ceresio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del lungolago di Porto Ceresio con passeggiatori"
+      },
+      "datePublished": "2026-04-28T12:09:54+00:00",
+      "dateModified": "2026-04-28T12:09:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passi-solidarieta-porto-ceresio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

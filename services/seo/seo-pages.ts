@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1157,
+ "numberOfItems": 1158,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5792,7 +5792,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1154, "name": "Sorveglianza telecomunicazioni: +40% in Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/sorveglianza-telecomunicazioni-ticino-2026` },
           { "@type": "ListItem", "position": 1155, "name": "Spese bancarie per titoli: Meierhans critica i ...", "url": `${BASE_URL}/articoli-frontaliere/spese-bancarie-titoli-frontalieri` },
           { "@type": "ListItem", "position": 1156, "name": "In bicicletta all'università dell'Insubria: la ...", "url": `${BASE_URL}/articoli-frontaliere/bicicletta-insubria-varese-2026` },
-          { "@type": "ListItem", "position": 1157, "name": "Montessori Castellanza: menù a basso impatto e ...", "url": `${BASE_URL}/articoli-frontaliere/montessori-green-food-week-2026` }
+          { "@type": "ListItem", "position": 1157, "name": "Montessori Castellanza: menù a basso impatto e ...", "url": `${BASE_URL}/articoli-frontaliere/montessori-green-food-week-2026` },
+          { "@type": "ListItem", "position": 1158, "name": "Passi di solidarietà: camminata a Porto Ceresio...", "url": `${BASE_URL}/articoli-frontaliere/passi-solidarieta-porto-ceresio-2026` }
  ]
  },
  {
