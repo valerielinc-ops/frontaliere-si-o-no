@@ -4776,6 +4776,32 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.firstSeenAt = old.firstSeenAt;
     }
 
+    // Preserve postedDate / datePosted — the original posting date is
+    // immutable. ~30 dedicated crawlers set `postedDate: new Date()` on
+    // every run, which used to mark every job in the dataset as "posted
+    // today" after each re-crawl (data audit Apr-2026 found 32 % of all
+    // jobs reporting postedDate within the last 1-3 days while only 4 %
+    // were actually first seen by us in that window — most of the
+    // dataset was 2-4 weeks old). Always keep the OLDER of the two
+    // dates: it's the closest proxy to the true employer posting date
+    // when the crawler can't read it from the page. Only let `fresh`
+    // win when it's actually older (rare; the crawler probably learned
+    // to read the real posting timestamp).
+    const preserveOlder = (key) => {
+      if (!old[key]) return;
+      if (!fresh[key]) { fresh[key] = old[key]; return; }
+      const oldD = new Date(old[key]);
+      const newD = new Date(fresh[key]);
+      if (
+        !Number.isNaN(oldD.getTime())
+        && (Number.isNaN(newD.getTime()) || oldD.getTime() < newD.getTime())
+      ) {
+        fresh[key] = old[key];
+      }
+    };
+    preserveOlder('postedDate');
+    preserveOlder('datePosted');
+
     return fresh;
   });
 }
