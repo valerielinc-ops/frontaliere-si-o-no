@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1179,
+ "numberOfItems": 1180,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5814,7 +5814,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1176, "name": "Due ticinesi a Parigi per il Roland Garros", "url": `${BASE_URL}/articoli-frontaliere/ticinesi-parigi-roland-garros` },
           { "@type": "ListItem", "position": 1177, "name": "Locarno smaltisce rifiuti a Landquart: 1000 ton...", "url": `${BASE_URL}/articoli-frontaliere/locarno-landquart-rifiuti-1000-tonnellate` },
           { "@type": "ListItem", "position": 1178, "name": "Stipendi svizzeri in crescita: +1,6% nel 2025", "url": `${BASE_URL}/articoli-frontaliere/stipendi-svizzeri-crescono-2025` },
-          { "@type": "ListItem", "position": 1179, "name": "Tassa traffico pesante: entrate mancate e lacun...", "url": `${BASE_URL}/articoli-frontaliere/tassa-traffico-pesante-lacune-controlli` }
+          { "@type": "ListItem", "position": 1179, "name": "Tassa traffico pesante: entrate mancate e lacun...", "url": `${BASE_URL}/articoli-frontaliere/tassa-traffico-pesante-lacune-controlli` },
+          { "@type": "ListItem", "position": 1180, "name": "Quadri incalza il Consiglio federale su frontie...", "url": `${BASE_URL}/articoli-frontaliere/quadri-interpella-consiglio-frontiere-tasse` }
  ]
  },
  {

@@ -3389,6 +3389,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-traffico-pesante-lacune-controlli.title': 'Taxe sur le trafic lourd : revenus manquants et lacunes dans les contrôles',
     'blog.article.tassa-traffico-pesante-lacune-controlli.excerpt': 'Lorenzo Quadri dénonce des problèmes dans le nouveau système de perception de la taxe sur le trafic lourd, avec des risques de fraude et de revenus manquants.',
     'blog.article.tassa-traffico-pesante-lacune-controlli.imageAlt': 'Vue aérienne du trafic lourd à la frontière suisse-italienne, avec des camions en file à la douane, sur fond de lac de Lugano et des montagnes environnantes.',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.title': 'Quadri interpelle le Conseil fédéral sur les taxes des camions',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.excerpt': 'Lorenzo Quadri (Lega dei Ticinesi) dépose une interpellation sur le nouveau système NMTS pour la taxe sur le trafic lourd.',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bâtiments',
 };
 
 export default blogMetaFr;

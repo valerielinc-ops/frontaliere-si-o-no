@@ -19730,6 +19730,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-quadri-interpella-consiglio-frontiere-tasse': {
+    title: 'Quadri incalza il Consiglio federale su frontiere e tasse sui camion',
+    description: 'Lorenzo Quadri (Lega dei Ticinesi) presenta un\'interpellanza sul nuovo sistema NMTS per la tassa sul traffico pesante. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, quadri, incalza, consiglio, federale',
+    ogTitle: 'Quadri incalza il Consiglio federale su frontiere e tasse sui camion',
+    ogDescription: 'Lorenzo Quadri (Lega dei Ticinesi) presenta un\'interpellanza sul nuovo sistema NMTS per la tassa sul traffico pesante.',
+    canonicalPath: '/articoli-frontaliere/quadri-interpella-consiglio-frontiere-tasse',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quadri incalza il Consiglio federale su frontiere e tasse sui camion",
+      "description": "Lorenzo Quadri (Lega dei Ticinesi) presenta un'interpellanza sul nuovo sistema NMTS per la tassa sul traffico pesante. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/quadri-interpella-consiglio-frontiere-tasse.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici"
+      },
+      "datePublished": "2026-04-28T15:46:35+00:00",
+      "dateModified": "2026-04-28T15:46:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quadri-interpella-consiglio-frontiere-tasse`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

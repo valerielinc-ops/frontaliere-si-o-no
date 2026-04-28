@@ -8918,4 +8918,11 @@ export const ARTICLES = [
  image: '/images/blog/tassa-traffico-pesante-lacune-controlli.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'quadri-interpella-consiglio-frontiere-tasse',
+ category: 'fiscale',
+ date: '2026-04-28T15:46:35.284Z',
+ image: '/images/blog/quadri-interpella-consiglio-frontiere-tasse.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

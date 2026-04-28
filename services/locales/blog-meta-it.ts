@@ -3389,6 +3389,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-traffico-pesante-lacune-controlli.title': 'Tassa traffico pesante: entrate mancate e lacune nei controlli',
     'blog.article.tassa-traffico-pesante-lacune-controlli.excerpt': 'Lorenzo Quadri denuncia problemi nel nuovo sistema di riscossione della tassa sul traffico pesante, con rischi di frodi e mancati introiti.',
     'blog.article.tassa-traffico-pesante-lacune-controlli.imageAlt': 'Vista aerea del traffico pesante al confine svizzero-italiano, con camion in coda al posto di frontiera, sullo sfondo del Lago di Lugano e delle montagne circostanti.',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.title': 'Quadri incalza il Consiglio federale su frontiere e tasse sui camion',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.excerpt': 'Lorenzo Quadri (Lega dei Ticinesi) presenta un\'interpellanza sul nuovo sistema NMTS per la tassa sul traffico pesante.',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;

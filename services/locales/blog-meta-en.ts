@@ -3388,6 +3388,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-traffico-pesante-lacune-controlli.title': 'Heavy traffic tax: missed revenue and control gaps',
     'blog.article.tassa-traffico-pesante-lacune-controlli.excerpt': 'Lorenzo Quadri reports issues with the new heavy traffic tax collection system, with risks of fraud and missed revenue.',
     'blog.article.tassa-traffico-pesante-lacune-controlli.imageAlt': 'Aerial view of heavy traffic at the Swiss-Italian border, with trucks queuing at the customs checkpoint, set against the backdrop of Lake Lugano and the surrounding mountains.',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.title': 'Quadri challenges federal council on borders and truck taxes',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.excerpt': 'Lorenzo Quadri (Lega dei Ticinesi) presents an interpellation on the new NMTS system for heavy traffic tax.',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
 };
 
 export default blogMetaEn;

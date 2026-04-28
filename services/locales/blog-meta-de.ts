@@ -3388,6 +3388,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-traffico-pesante-lacune-controlli.title': 'Schwerverkehrsabgabe: Fehlende Einnahmen und Kontrolllücken',
     'blog.article.tassa-traffico-pesante-lacune-controlli.excerpt': 'Lorenzo Quadri kritisiert Probleme im neuen System der Schwerverkehrsabgabe, mit Risiken von Betrug und fehlenden Einnahmen.',
     'blog.article.tassa-traffico-pesante-lacune-controlli.imageAlt': 'Luftaufnahme des Schwerverkehrs an der Schweizer-Italienischen Grenze, mit LKWs in der Schlange an der Grenzkontrolle, vor der Kulisse des Luganer Sees und der umliegenden Berge.',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.title': 'Quadri drängt Bundesrat zu Grenzen und LKW-Steuern',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.excerpt': 'Lorenzo Quadri (Lega dei Ticinesi) stellt eine Interpellation zum neuen NMTS-System für die Schwerverkehrsabgabe.',
+    'blog.article.quadri-interpella-consiglio-frontiere-tasse.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;
