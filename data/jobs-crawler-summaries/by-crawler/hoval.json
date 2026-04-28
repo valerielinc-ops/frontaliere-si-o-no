@@ -1,21 +1,19 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-04-27T21:59:09.307Z",
+  "generatedAt": "2026-04-28T11:04:06.578Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 13071,
-  "avgDurationMs": 13071,
+  "unchangedCount": 0,
+  "durationMs": 16848,
+  "avgDurationMs": 16848,
   "durationHistory": [
-    13071
+    16848
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Consulente tecnico interno di vendita (m/f/d)",
       "slug": "consulente-tecnico-interno-di-vendita-m-f-d-hoval-mezzovico",
@@ -34,7 +32,7 @@
       "sector": "Amministrazione",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-27",
+      "postedDate": "2026-04-28",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -71,7 +69,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-27",
+      "postedDate": "2026-04-28",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -108,7 +106,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-27",
+      "postedDate": "2026-04-28",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -127,5 +125,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
