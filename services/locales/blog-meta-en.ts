@@ -3346,6 +3346,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gastrobellinzona-andrea-giuliani.title': 'Andrea Giuliani leads GastroBellinzona Alto Ticino',
     'blog.article.gastrobellinzona-andrea-giuliani.excerpt': 'Andrea Giuliani is the new president of GastroBellinzona Alto Ticino. The association faces economic challenges and hopes for the catering industry.',
     'blog.article.gastrobellinzona-andrea-giuliani.imageAlt': 'Interior of a traditional restaurant in Bellinzona, Ticino, with a view of the surrounding mountains.',
+    'blog.article.infermieri-ticino-ore-lavorative-2026.title': 'Ticino nurses: no reduction in working hours',
+    'blog.article.infermieri-ticino-ore-lavorative-2026.excerpt': 'The National Council has decided to keep the working week for nurses at a maximum of 50 hours, rejecting the proposal to reduce it to 45 hours.',
+    'blog.article.infermieri-ticino-ore-lavorative-2026.imageAlt': 'A nurse working in a modern hospital in Lugano, with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

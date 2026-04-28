@@ -19324,6 +19324,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infermieri-ticino-ore-lavorative-2026': {
+    title: 'Infermieri Ticino: settimana lavorativa non accorciata',
+    description: 'Il Consiglio nazionale svizzero ha deciso di mantenere la durata massima della settimana lavorativa degli infermieri a 50 ore, rifiutando la proposta di ridurla',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, settimana, lavorativa, accorciata',
+    ogTitle: 'Infermieri Ticino: settimana lavorativa non accorciata',
+    ogDescription: 'Il Consiglio nazionale svizzero ha deciso di mantenere la durata massima della settimana lavorativa degli infermieri a 50 ore, rifiutando la proposta di ridurla',
+    canonicalPath: '/articoli-frontaliere/infermieri-ticino-ore-lavorative-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri Ticino: settimana lavorativa non accorciata",
+      "description": "Il Consiglio nazionale svizzero ha deciso di mantenere la durata massima della settimana lavorativa degli infermieri a 50 ore, rifiutando la proposta di ridurla",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infermieri-ticino-ore-lavorative-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un'infermiera che lavora in un ospedale moderno a Lugano, con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-28T13:17:30+00:00",
+      "dateModified": "2026-04-28T13:17:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-ticino-ore-lavorative-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
