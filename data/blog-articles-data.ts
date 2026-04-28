@@ -8666,4 +8666,11 @@ export const ARTICLES = [
  image: '/images/blog/comune-como-appuntamenti-cie-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'auto-elettriche-ricarica-breganzona',
+ category: 'novita',
+ date: '2026-04-28T10:28:49.053Z',
+ image: '/images/blog/auto-elettriche-ricarica-breganzona.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

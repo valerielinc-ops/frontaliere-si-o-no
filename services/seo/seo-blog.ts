@@ -18686,6 +18686,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-auto-elettriche-ricarica-breganzona': {
+    title: 'Auto elettriche: il momento della ricarica è il più delicato',
+    description: 'Un incendio in un\'autorimessa di Breganzona ha riacceso i riflettori sui rischi legati alla ricarica delle auto elettriche. Scopri cosa fare per garantire la',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, elettriche, momento, ricarica',
+    ogTitle: 'Auto elettriche: il momento della ricarica è il più delicato',
+    ogDescription: 'Un incendio in un\'autorimessa di Breganzona ha riacceso i riflettori sui rischi legati alla ricarica delle auto elettriche. Scopri cosa fare per garantire la',
+    canonicalPath: '/articoli-frontaliere/auto-elettriche-ricarica-breganzona',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Auto elettriche: il momento della ricarica è il più delicato",
+      "description": "Un incendio in un'autorimessa di Breganzona ha riacceso i riflettori sui rischi legati alla ricarica delle auto elettriche. Scopri cosa fare per garantire la",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/auto-elettriche-ricarica-breganzona.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto elettrica in carica in un garage a Breganzona, Ticino"
+      },
+      "datePublished": "2026-04-28T10:28:49+00:00",
+      "dateModified": "2026-04-28T10:28:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/auto-elettriche-ricarica-breganzona`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

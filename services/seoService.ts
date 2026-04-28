@@ -2324,6 +2324,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-biglietto-trenord-whatsapp-ticino': { name: 'Biglietti Trenord', path: '/articoli-frontaliere/biglietto-trenord-whatsapp-ticino', parent: 'blog' },
     'blog-tassa-aerei-sostegno-treni': { name: 'Novità', path: '/articoli-frontaliere/tassa-aerei-sostegno-treni', parent: 'blog' },
     'blog-comune-como-appuntamenti-cie-2026': { name: 'Novità', path: '/articoli-frontaliere/comune-como-appuntamenti-cie-2026', parent: 'blog' },
+    'blog-auto-elettriche-ricarica-breganzona': { name: 'Auto elettriche', path: '/articoli-frontaliere/auto-elettriche-ricarica-breganzona', parent: 'blog' },
  };
 
  const info = sectionNames[section];

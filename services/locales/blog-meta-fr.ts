@@ -3281,6 +3281,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comune-como-appuntamenti-cie-2026.title': 'Commune de Côme : rendez-vous obligatoires pour 12 guichets',
     'blog.article.comune-como-appuntamenti-cie-2026.excerpt': 'À partir du 4 mai 2026, 12 services de la commune de Côme ne seront disponibles que sur rendez-vous, dont la délivrance de la carte d\'identité électronique (CIE).',
     'blog.article.comune-como-appuntamenti-cie-2026.imageAlt': 'Une rue animée à Côme, près de la frontière suisse, avec des personnes faisant la queue devant un bureau gouvernemental',
+    'blog.article.auto-elettriche-ricarica-breganzona.title': 'Voitures électriques : le moment de la recharge est le plus délicat',
+    'blog.article.auto-elettriche-ricarica-breganzona.excerpt': 'Un incendie dans un garage de Breganzona a ravivé les projecteurs sur les risques liés à la recharge des voitures électriques.',
+    'blog.article.auto-elettriche-ricarica-breganzona.imageAlt': 'Voiture électrique en charge dans un garage à Breganzona, Tessin',
 };
 
 export default blogMetaFr;

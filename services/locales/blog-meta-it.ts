@@ -3281,6 +3281,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comune-como-appuntamenti-cie-2026.title': 'Comune di Como: dal 4 maggio 2026 solo appuntamento per 12 sportelli',
     'blog.article.comune-como-appuntamenti-cie-2026.excerpt': 'Dal 4 maggio 2026, 12 servizi del Comune di Como saranno disponibili solo su appuntamento, tra cui il rilascio della Carta d\'Identità Elettronica (CIE).',
     'blog.article.comune-como-appuntamenti-cie-2026.imageAlt': 'Una strada affollata a Como, vicino al confine svizzero, con persone in fila davanti a un ufficio governativo',
+    'blog.article.auto-elettriche-ricarica-breganzona.title': 'Auto elettriche: il momento della ricarica è il più delicato',
+    'blog.article.auto-elettriche-ricarica-breganzona.excerpt': 'Un incendio in un\'autorimessa di Breganzona ha riacceso i riflettori sui rischi legati alla ricarica delle auto elettriche.',
+    'blog.article.auto-elettriche-ricarica-breganzona.imageAlt': 'Auto elettrica in carica in un garage a Breganzona, Ticino',
 };
 
 export default blogMetaIt;

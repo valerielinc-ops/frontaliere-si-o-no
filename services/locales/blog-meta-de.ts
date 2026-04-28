@@ -3280,6 +3280,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comune-como-appuntamenti-cie-2026.title': 'Gemeinde Como: ab 4. Mai 2026 nur mit Termin für 12 Schalter',
     'blog.article.comune-como-appuntamenti-cie-2026.excerpt': 'Ab dem 4. Mai 2026 sind 12 Dienstleistungen der Gemeinde Como nur noch mit Termin verfügbar, darunter die Ausstellung der elektronischen Identitätskarte (CIE).',
     'blog.article.comune-como-appuntamenti-cie-2026.imageAlt': 'Eine belebte Straße in Como, in der Nähe der Schweizer Grenze, mit Menschen, die vor einem Regierungsgebäude anstehen',
+    'blog.article.auto-elettriche-ricarica-breganzona.title': 'Elektroautos: Ladevorgang ist am kritischsten',
+    'blog.article.auto-elettriche-ricarica-breganzona.excerpt': 'Ein Brand in einer Autogarage in Breganzona hat die Risiken beim Laden von Elektroautos wieder in den Fokus gerückt.',
+    'blog.article.auto-elettriche-ricarica-breganzona.imageAlt': 'Elektroauto lädt in einer Garage in Breganzona, Tessin',
 };
 
 export default blogMetaDe;

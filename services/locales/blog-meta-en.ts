@@ -3280,6 +3280,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comune-como-appuntamenti-cie-2026.title': 'Como Municipality: 12 counters by appointment only from May 4, 2026',
     'blog.article.comune-como-appuntamenti-cie-2026.excerpt': 'From May 4, 2026, 12 services of the Como Municipality will be available by appointment only, including the issuance of the Electronic Identity Card (CIE).',
     'blog.article.comune-como-appuntamenti-cie-2026.imageAlt': 'A busy street in Como, near the Swiss border, with people queuing outside a government office',
+    'blog.article.auto-elettriche-ricarica-breganzona.title': 'Electric cars: charging is the most critical moment',
+    'blog.article.auto-elettriche-ricarica-breganzona.excerpt': 'A fire in a Breganzona garage has refocused attention on the risks associated with charging electric cars.',
+    'blog.article.auto-elettriche-ricarica-breganzona.imageAlt': 'Electric car charging in a garage in Breganzona, Ticino',
 };
 
 export default blogMetaEn;
