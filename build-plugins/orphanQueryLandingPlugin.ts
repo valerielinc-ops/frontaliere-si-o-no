@@ -75,6 +75,7 @@ import {
   type OrphanLandingRoute,
 } from './orphanQueryData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { adSlotHtml } from './lib/adSlotHtml';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
@@ -571,6 +572,9 @@ function renderPage(opts: {
   // `<div id="root">` with `skipMainWrap: true` to avoid nested <main>.
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
         ${body}
+        <section style="margin-top:32px" aria-label="advertisement">
+          ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
+        </section>
       </article>`;
 
   const html = buildSeoPageHtml({
