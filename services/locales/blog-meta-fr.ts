@@ -3233,6 +3233,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-rega-boglia-intervento.title': 'Intervention de la Rega au Monte Boglia : sauvetage en montagne',
     'blog.article.frontalieri-rega-boglia-intervento.excerpt': 'Un hélicoptère de la Rega est intervenu au Monte Boglia pour secourir un randonneur en difficulté. Voici ce qui s\'est passé.',
     'blog.article.frontalieri-rega-boglia-intervento.imageAlt': 'Vue aérienne du Monte Boglia avec un hélicoptère de secours en action',
+    'blog.article.equans-licenziamenti-monteceneri-2026.title': 'Equans, 19 licenciements confirmés',
+    'blog.article.equans-licenziamenti-monteceneri-2026.excerpt': 'Après l\'échec de la médiation, Equans procédera à 19 licenciements à Monteceneri. Les employés concernés sont libres immédiatement.',
+    'blog.article.equans-licenziamenti-monteceneri-2026.imageAlt': 'Vue aérienne de la vallée de Monteceneri dans le canton du Tessin, avec des bâtiments industriels et des montagnes environnantes',
 };
 
 export default blogMetaFr;

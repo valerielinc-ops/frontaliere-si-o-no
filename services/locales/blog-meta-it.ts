@@ -3233,6 +3233,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-rega-boglia-intervento.title': 'Intervento Rega sul Boglia: soccorso in montagna',
     'blog.article.frontalieri-rega-boglia-intervento.excerpt': 'Un elicottero della Rega è intervenuto sul Monte Boglia per soccorrere un escursionista in difficoltà. Ecco cosa è successo.',
     'blog.article.frontalieri-rega-boglia-intervento.imageAlt': 'Vista aerea del Monte Boglia con elicottero di soccorso in azione',
+    'blog.article.equans-licenziamenti-monteceneri-2026.title': 'Equans, licenziamenti confermati: 19 posti di lavoro in meno',
+    'blog.article.equans-licenziamenti-monteceneri-2026.excerpt': 'Dopo la mediazione fallita, Equans procederà con 19 licenziamenti a Monteceneri. I dipendenti interessati sono liberi da subito.',
+    'blog.article.equans-licenziamenti-monteceneri-2026.imageAlt': 'Vista aerea della valle di Monteceneri in Ticino, con edifici industriali e montagne circostanti',
 };
 
 export default blogMetaIt;

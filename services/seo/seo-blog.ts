@@ -18222,6 +18222,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-equans-licenziamenti-monteceneri-2026': {
+    title: 'Equans, licenziamenti confermati: 19 posti di lavoro in meno',
+    description: 'Equans procederà con 19 licenziamenti presso la sua sede di Monteceneri. I lavoratori interessati sono liberi da subito. Scopri le implicazioni e le',
+    keywords: 'frontalieri, ticino, svizzera, italia, equans, licenziamenti, confermati, posti',
+    ogTitle: 'Equans licenzia 19 dipendenti a Monteceneri',
+    ogDescription: 'Equans procederà con 19 licenziamenti presso la sua sede di Monteceneri. I lavoratori interessati sono liberi da subito. Scopri le implicazioni e le',
+    canonicalPath: '/articoli-frontaliere/equans-licenziamenti-monteceneri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Equans licenzia 19 dipendenti a Monteceneri",
+      "description": "Equans procederà con 19 licenziamenti presso la sua sede di Monteceneri. I lavoratori interessati sono liberi da subito. Scopri le implicazioni e le",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/equans-licenziamenti-monteceneri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della valle di Monteceneri in Ticino, con edifici industriali e montagne circostanti"
+      },
+      "datePublished": "2026-04-28T06:41:22+00:00",
+      "dateModified": "2026-04-28T06:41:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/equans-licenziamenti-monteceneri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
