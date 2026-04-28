@@ -1,49 +1,18 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-04-28T11:44:39.711Z",
+  "generatedAt": "2026-04-28T22:43:39.983Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1124,
-  "avgDurationMs": 1124,
+  "durationMs": 1019,
+  "avgDurationMs": 1019,
   "durationHistory": [
-    1124
+    1019
   ],
-  "newJobs": [
-    {
-      "title": "Security & Network Engineer",
-      "slug": "security-network-engineer-tinext-lugano-secnetsys",
-      "url": "https://tinext.kenjo.io/secnetsys",
-      "applyUrl": "https://tinext.kenjo.io/secnetsys",
-      "company": "Tinext SA",
-      "companyKey": "tinext",
-      "companyDomain": "tinext.com",
-      "location": "Morbio",
-      "addressLocality": "Morbio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "IT & Digital Transformation",
-      "sector": "IT & Digital Transformation",
-      "source": "tinext-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-28",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 63,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Freelance Java Developer | Full-remote",
@@ -81,46 +50,45 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "Executive Assistant",
-      "slug": "executive-assistant-tinext-lugano-exass",
-      "url": "https://tinext.kenjo.io/exass",
-      "applyUrl": "https://tinext.kenjo.io/exass",
+      "title": "Security & Network Engineer",
+      "slug": "security-network-engineer-tinext-lugano-secnetsys",
+      "url": "https://tinext.kenjo.io/secnetsys",
+      "applyUrl": "https://tinext.kenjo.io/secnetsys",
       "company": "Tinext SA",
       "companyKey": "tinext",
       "companyDomain": "tinext.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
+      "location": "Morbio",
+      "addressLocality": "Morbio",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "category": "Administration",
+      "category": "IT & Digital Transformation",
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-27",
+      "sourceLang": "en",
+      "postedDate": "2026-04-28",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "id": "tinext-8a05a5f06e0c",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Cantonale 18",
       "postalCode": "6928",
-      "id": "tinext-79bef914fa4b",
-      "firstSeenAt": "2026-04-13T22:33:11.051Z",
-      "_qualityScore": 93,
+      "firstSeenAt": "2026-04-28T11:44:39.710Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
