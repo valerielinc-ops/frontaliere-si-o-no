@@ -59,6 +59,17 @@ import {
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
+/**
+ * Hard caps used by this plugin to keep emitted HTML inside the 200 KB
+ * `audit:page-weight` budget. The 30-job ceiling was tuned so that the
+ * heaviest sector (case-anziani / FR maisons-retraite) lands at ~190 KB
+ * with a 5 KB safety margin. Bumping this number requires re-running
+ * `scripts/audit-page-weight.mjs` and confirming the worst page stays
+ * under SECTOR_PAGE_HARD_BUDGET_BYTES.
+ */
+const MAX_EMBEDDED_JOBS = 30;
+const SECTOR_PAGE_HARD_BUDGET_BYTES = 195 * 1024; // 195 KB (5 KB safety margin under 200 KB).
+
 const LOCALE_OG: Record<JobBoardLocale, string> = {
   it: 'it_IT',
   en: 'en_US',
@@ -116,185 +127,160 @@ function buildJobHref(
   return `${BASE_URL}${prefix}/${section}/${slug}/`.replace(/([^:])\/+/g, '$1/');
 }
 
-export function jobSectorPagesPlugin(rootDir: string): Plugin {
-  return {
-    name: 'job-sector-pages',
-    apply: 'build',
-    async closeBundle() {
-      const fs = await import('node:fs');
-      const np = await import('node:path');
-      const distDir = np.resolve(rootDir, 'dist');
-      const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+export interface BuildSectorLandingHtmlOptions {
+  sector: SectorHubKey;
+  locale: JobBoardLocale;
+  /** Pre-filtered job list — already capped to MAX_EMBEDDED_JOBS by caller. */
+  matchingJobs: ReadonlyArray<SectorCountableJob>;
+  /** Total active job count for the sector (the H1/stat-tile number). */
+  count: number;
+  year: number;
+  /** YYYY-MM-DD date stamp for the "updated" label. */
+  dateStamp: string;
+  /** Pre-loaded sector prose data map (or empty `{}`). */
+  sectorProseData: Parameters<typeof buildSectorProse>[3];
+  /** Hashed asset filenames discovered from dist/index.html (empty when SPA bundle absent). */
+  entryJs?: string;
+  entryCss?: string;
+}
 
-      // Read jobs.json (gitignored in dev; present in CI).
-      let jobs: SectorCountableJob[] = [];
-      try {
-        if (fs.existsSync(jobsPath)) {
-          const raw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
-          if (Array.isArray(raw)) jobs = raw as SectorCountableJob[];
-        }
-      } catch (err) {
-        console.warn('[job-sector-pages] failed to read data/jobs.json', err);
-      }
+/**
+ * Pure HTML builder for a single sector landing page. Extracted so the
+ * regression unit test (`tests/seo/job-sector-page-weight.test.ts`) can
+ * exercise the exact byte-for-byte output without driving a full Vite
+ * build. Callers must cap `matchingJobs.length` to `MAX_EMBEDDED_JOBS`
+ * (the cap is the primary lever keeping HTML under the 195 KB budget).
+ */
+export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): string {
+  const { sector, locale, matchingJobs, count, year, dateStamp, sectorProseData } = opts;
+  const entryJs = opts.entryJs || '';
+  const entryCss = opts.entryCss || '';
+  const hasSpaBundle = !!(entryJs && entryCss);
 
-      const counts = countSectorJobsByLocale(jobs);
-      const sectorProseData = loadSectorProseData(rootDir);
+  const seo = buildSectorHubSeo(locale, sector, count, year);
+  const proseDisplayName = SECTOR_HUB_DISPLAY[locale][sector];
+  const prose = buildSectorProse(sector, locale, proseDisplayName, sectorProseData);
 
-      // Try to discover hashed SPA entry bundle
-      let entryJs = '';
-      let entryCss = '';
-      try {
-        const builtHtml = fs.readFileSync(np.join(distDir, 'index.html'), 'utf-8');
-        entryJs = builtHtml.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/)?.[1] ?? '';
-        entryCss = builtHtml.match(/href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/)?.[1] ?? '';
-      } catch {
-        /* index.html missing — degrade gracefully */
-      }
-      const hasSpaBundle = !!(entryJs && entryCss);
+  const canonicalPath = buildSectorHubPath(locale, sector);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
-      const dateStamp = new Date().toISOString().slice(0, 10);
-      const year = new Date().getUTCFullYear();
-      const sitemapEntries: string[] = [];
+  const alternates = LOCALES.map((altLocale) => {
+    const altPath = buildSectorHubPath(altLocale, sector);
+    return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}">`;
+  }).join('\n');
+  const xDefaultPath = buildSectorHubPath('it', sector);
 
-      const ensuredDirs = new Set<string>();
-      const ensureDir = (dir: string): void => {
-        if (ensuredDirs.has(dir)) return;
-        fs.mkdirSync(dir, { recursive: true });
-        ensuredDirs.add(dir);
-      };
+  const cardItems: JobCardListItem[] = matchingJobs.map((job) => ({
+    job: job as JobCardJob,
+    href: buildJobHref(locale, job),
+  }));
 
-      for (const sector of SECTOR_HUB_KEYS) {
-        for (const locale of LOCALES) {
-          const count = counts[locale][sector];
-          const seo = buildSectorHubSeo(locale, sector, count, year);
-          const matchingJobs = filterSectorJobs(jobs, sector, locale, 50);
-          const proseDisplayName = SECTOR_HUB_DISPLAY[locale][sector];
-          const prose = buildSectorProse(sector, locale, proseDisplayName, sectorProseData);
+  const jobCards = cardItems.map(({ job, href }) => {
+    const titleByLocale = job.titleByLocale as Record<string, string> | undefined;
+    const localizedTitle = String(titleByLocale?.[locale] || job.title || 'Offerta lavoro');
+    return {
+      title: String(localizedTitle).replace(/\s+/g, ' ').trim(),
+      company: String(job.company || '').replace(/\s+/g, ' ').trim(),
+      location: String(job.location || '').replace(/\s+/g, ' ').trim(),
+      href,
+      datePosted: job.datePosted || job.postedDate || undefined,
+    };
+  });
 
-          const canonicalPath = buildSectorHubPath(locale, sector);
-          const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const noResultsLabel = {
+    it: 'Nessuna offerta al momento. Torna a breve — la lista si aggiorna più volte al giorno.',
+    en: 'No listings right now. Check back soon — the list refreshes multiple times per day.',
+    de: 'Aktuell keine Angebote. Schauen Sie bald wieder vorbei — die Liste wird mehrmals täglich aktualisiert.',
+    fr: "Aucune offre pour l'instant. Revenez bientôt — la liste est mise à jour plusieurs fois par jour.",
+  }[locale];
+  const emptyStateHtml = `<p style="margin:0;padding:16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading);border:1px solid var(--color-warning-border)">${esc(noResultsLabel)}</p>`;
+  const jobsHtml = renderJobCardListHtml(cardItems, { locale, emptyStateHtml });
 
-          const alternates = LOCALES.map((altLocale) => {
-            const altPath = buildSectorHubPath(altLocale, sector);
-            return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}">`;
-          }).join('\n');
-          const xDefaultPath = buildSectorHubPath('it', sector);
-
-          const cardItems: JobCardListItem[] = matchingJobs.map((job) => ({
-            job: job as JobCardJob,
-            href: buildJobHref(locale, job),
-          }));
-
-          // Lightweight schema-friendly shape for ItemList JSON-LD downstream
-          const jobCards = cardItems.map(({ job, href }) => {
-            const titleByLocale = job.titleByLocale as Record<string, string> | undefined;
-            const localizedTitle = String(titleByLocale?.[locale] || job.title || 'Offerta lavoro');
-            return {
-              title: String(localizedTitle).replace(/\s+/g, ' ').trim(),
-              company: String(job.company || '').replace(/\s+/g, ' ').trim(),
-              location: String(job.location || '').replace(/\s+/g, ' ').trim(),
-              href,
-              datePosted: job.datePosted || job.postedDate || undefined,
-            };
-          });
-
-          const noResultsLabel = {
-            it: 'Nessuna offerta al momento. Torna a breve — la lista si aggiorna più volte al giorno.',
-            en: 'No listings right now. Check back soon — the list refreshes multiple times per day.',
-            de: 'Aktuell keine Angebote. Schauen Sie bald wieder vorbei — die Liste wird mehrmals täglich aktualisiert.',
-            fr: "Aucune offre pour l'instant. Revenez bientôt — la liste est mise à jour plusieurs fois par jour.",
-          }[locale];
-          const emptyStateHtml = `<p style="margin:0;padding:16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading);border:1px solid var(--color-warning-border)">${esc(noResultsLabel)}</p>`;
-          const jobsHtml = renderJobCardListHtml(cardItems, {
-            locale,
-            emptyStateHtml,
-          });
-
-          const faqHtml = seo.faq.length > 0
-            ? `<section style="margin:28px 0 0">
+  const faqHtml = seo.faq.length > 0
+    ? `<section style="margin:28px 0 0">
     <h2 style="margin:0 0 12px;font-size:22px">FAQ</h2>
     ${seo.faq.map((f) => `<details style="${CARD_STYLE};margin-bottom:8px"><summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.question)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.6">${esc(f.answer)}</p></details>`).join('')}
   </section>`
-            : '';
+    : '';
 
-          const sectionRootUrl = `${BASE_URL}${withSlash(
-            `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}`.replace(/\/+/g, '/'),
-          )}`;
+  const sectionRootUrl = `${BASE_URL}${withSlash(
+    `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}`.replace(/\/+/g, '/'),
+  )}`;
 
-          const breadcrumbLd = JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-              { '@type': 'ListItem', position: 2, name: SECTION_NAME[locale], item: sectionRootUrl },
-              { '@type': 'ListItem', position: 3, name: seo.h1, item: canonicalUrl },
-            ],
-          });
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: SECTION_NAME[locale], item: sectionRootUrl },
+      { '@type': 'ListItem', position: 3, name: seo.h1, item: canonicalUrl },
+    ],
+  });
 
-          const itemListLd = jobCards.length > 0
-            ? JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'ItemList',
-                name: seo.h1,
-                numberOfItems: jobCards.length,
-                itemListElement: jobCards.map((j, idx) => ({
-                  '@type': 'ListItem',
-                  position: idx + 1,
-                  name: j.title,
-                  url: j.href,
-                })),
-              })
-            : '';
+  const itemListLd = jobCards.length > 0
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: seo.h1,
+        numberOfItems: jobCards.length,
+        itemListElement: jobCards.map((j, idx) => ({
+          '@type': 'ListItem',
+          position: idx + 1,
+          name: j.title,
+          url: j.href,
+        })),
+      })
+    : '';
 
-          const collectionLd = JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'CollectionPage',
-            name: seo.h1,
-            url: canonicalUrl,
-            description: seo.desc,
-            inLanguage: locale,
-            isPartOf: sectionRootUrl,
-            dateModified: new Date().toISOString(),
-          });
+  const collectionLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: seo.h1,
+    url: canonicalUrl,
+    description: seo.desc,
+    inLanguage: locale,
+    isPartOf: sectionRootUrl,
+    dateModified: new Date().toISOString(),
+  });
 
-          const faqLd = seo.faq.length > 0
-            ? JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'FAQPage',
-                mainEntity: seo.faq.map((f) => ({
-                  '@type': 'Question',
-                  name: f.question,
-                  acceptedAnswer: { '@type': 'Answer', text: f.answer },
-                })),
-              })
-            : '';
+  const faqLd = seo.faq.length > 0
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: seo.faq.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      })
+    : '';
 
-          const countsLabelByLocale: Record<JobBoardLocale, string> = {
-            it: 'Offerte attive',
-            en: 'Active jobs',
-            de: 'Aktive Stellen',
-            fr: 'Offres actives',
-          };
-          const updatedLabelByLocale: Record<JobBoardLocale, string> = {
-            it: 'Aggiornato',
-            en: 'Updated',
-            de: 'Aktualisiert',
-            fr: 'Mis à jour',
-          };
-          const jobsSectionLabelByLocale: Record<JobBoardLocale, string> = {
-            it: 'Annunci disponibili',
-            en: 'Available listings',
-            de: 'Verfügbare Angebote',
-            fr: 'Annonces disponibles',
-          };
-          const openAllByLocale: Record<JobBoardLocale, string> = {
-            it: 'Vedi tutte le offerte di lavoro in Ticino',
-            en: 'See all jobs in Ticino',
-            de: 'Alle Stellenangebote im Tessin ansehen',
-            fr: "Voir toutes les offres d'emploi au Tessin",
-          };
+  const countsLabelByLocale: Record<JobBoardLocale, string> = {
+    it: 'Offerte attive',
+    en: 'Active jobs',
+    de: 'Aktive Stellen',
+    fr: 'Offres actives',
+  };
+  const updatedLabelByLocale: Record<JobBoardLocale, string> = {
+    it: 'Aggiornato',
+    en: 'Updated',
+    de: 'Aktualisiert',
+    fr: 'Mis à jour',
+  };
+  const jobsSectionLabelByLocale: Record<JobBoardLocale, string> = {
+    it: 'Annunci disponibili',
+    en: 'Available listings',
+    de: 'Verfügbare Angebote',
+    fr: 'Annonces disponibles',
+  };
+  const openAllByLocale: Record<JobBoardLocale, string> = {
+    it: 'Vedi tutte le offerte di lavoro in Ticino',
+    en: 'See all jobs in Ticino',
+    de: 'Alle Stellenangebote im Tessin ansehen',
+    fr: "Voir toutes les offres d'emploi au Tessin",
+  };
 
-          const html = `<!doctype html>
+  return `<!doctype html>
 <html lang="${locale}">
   <head>
     <meta charset="utf-8">
@@ -359,6 +345,96 @@ ${alternates}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
 </html>`;
+}
+
+export function jobSectorPagesPlugin(rootDir: string): Plugin {
+  return {
+    name: 'job-sector-pages',
+    apply: 'build',
+    async closeBundle() {
+      const fs = await import('node:fs');
+      const np = await import('node:path');
+      const distDir = np.resolve(rootDir, 'dist');
+      const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+
+      // Read jobs.json (gitignored in dev; present in CI).
+      let jobs: SectorCountableJob[] = [];
+      try {
+        if (fs.existsSync(jobsPath)) {
+          const raw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+          if (Array.isArray(raw)) jobs = raw as SectorCountableJob[];
+        }
+      } catch (err) {
+        console.warn('[job-sector-pages] failed to read data/jobs.json', err);
+      }
+
+      const counts = countSectorJobsByLocale(jobs);
+      const sectorProseData = loadSectorProseData(rootDir);
+
+      // Try to discover hashed SPA entry bundle
+      let entryJs = '';
+      let entryCss = '';
+      try {
+        const builtHtml = fs.readFileSync(np.join(distDir, 'index.html'), 'utf-8');
+        entryJs = builtHtml.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/)?.[1] ?? '';
+        entryCss = builtHtml.match(/href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/)?.[1] ?? '';
+      } catch {
+        /* index.html missing — degrade gracefully */
+      }
+      const hasSpaBundle = !!(entryJs && entryCss);
+
+      const dateStamp = new Date().toISOString().slice(0, 10);
+      const year = new Date().getUTCFullYear();
+      const sitemapEntries: string[] = [];
+
+      const ensuredDirs = new Set<string>();
+      const ensureDir = (dir: string): void => {
+        if (ensuredDirs.has(dir)) return;
+        fs.mkdirSync(dir, { recursive: true });
+        ensuredDirs.add(dir);
+      };
+
+      for (const sector of SECTOR_HUB_KEYS) {
+        for (const locale of LOCALES) {
+          const count = counts[locale][sector];
+          // Cap embedded JobPosting cards at 30 per landing. The full count
+          // is still surfaced via the stat tile + H1 ("X open positions"),
+          // but only the freshest 30 are rendered as cards. Without this
+          // cap, popular sectors (case-anziani, ingegneri, ristorazione)
+          // pushed the page HTML past the 200 KB audit:page-weight budget
+          // — each JobCard with logo + Tailwind classes + icons is ~1.5 KB,
+          // so 50 cards added ~30 KB on top of prose/FAQ/JSON-LD and broke
+          // the gate. 30 cards keeps every page comfortably under 195 KB.
+          const matchingJobs = filterSectorJobs(jobs, sector, locale, MAX_EMBEDDED_JOBS);
+
+          const canonicalPath = buildSectorHubPath(locale, sector);
+          const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+
+          const html = buildSectorLandingHtml({
+            sector,
+            locale,
+            matchingJobs,
+            count,
+            year,
+            dateStamp,
+            sectorProseData,
+            entryJs,
+            entryCss,
+          });
+
+          // Hard budget gate — prevents future regressions from quietly
+          // breaking the 200 KB audit:page-weight CI gate. CLAUDE.md
+          // non-negotiable rule #1: never lower thresholds — instead,
+          // compress the offending content (cap embedded jobs further,
+          // strip unused JSON-LD fields, etc.).
+          const htmlBytes = Buffer.byteLength(html, 'utf-8');
+          if (htmlBytes > SECTOR_PAGE_HARD_BUDGET_BYTES) {
+            throw new Error(
+              `[job-sector-pages] HTML for ${canonicalPath} is ${(htmlBytes / 1024).toFixed(1)} KB, ` +
+                `exceeds hard budget of ${SECTOR_PAGE_HARD_BUDGET_BYTES / 1024} KB. ` +
+                `Reduce MAX_EMBEDDED_JOBS, compress JSON-LD, or trim per-card markup.`,
+            );
+          }
 
           // Write both /path/index.html and /path.html
           const outDir = np.join(distDir, canonicalPath.slice(1));
