@@ -1,10 +1,13 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
 /* ── Build-time constants ────────────────────────────────────────── */
 import { BUILD_ID, COMMIT_HASH, SHORT_COMMIT_HASH } from './build-plugins/constants';
+
+/* ── Content-hash manifest (incremental build I/O skipper) ──── */
+import { initManifest, saveManifest, getManifest } from './build-plugins/contentHash';
 
 /* ── Custom build plugins (extracted for clarity) ─────────────── */
 import { buildIdPlugin } from './build-plugins/buildIdPlugin';
@@ -77,6 +80,15 @@ export default defineConfig(({ mode }) => {
  // ── Core plugins (always run, including FAST_BUILD) ──────────
  react(),
  prepareOutDirPlugin(__dirname),
+ // ── Content-hash manifest bootstrap (runs FIRST in buildStart) ──
+ // Initializes the cross-plugin manifest used by WriteCollector to skip
+ // writes for files whose content is unchanged since the last build.
+ // The manifest lives in .build-cache/build-manifest.json (outside dist/,
+ // which is wiped each build) and is restored from CI cache.
+ {
+ name: 'content-hash-manifest-bootstrap',
+ buildStart() { initManifest(__dirname); },
+ } as Plugin,
  buildIdPlugin(__dirname),
  asyncCssPlugin(),
  preloadLocalePlugin(__dirname),
@@ -161,6 +173,30 @@ export default defineConfig(({ mode }) => {
  // translations as broken internal links (Issue 8/E1, Issue 25/E8).
  hreflangPostprocessPlugin(__dirname, { baseUrl: 'https://frontaliereticino.ch' }),
  ]),
+ // ── Content-hash manifest finalize (runs LAST in closeBundle) ──
+ // Saves the manifest of SHA256 hashes for every file the WriteCollector
+ // routed through it, so the next build can skip identical writes.
+ // Placed OUTSIDE the !isFastBuild spread so the manifest is updated for
+ // both FAST_BUILD and full builds. enforce: 'post' + closeBundle order
+ // 'post' guarantees this runs after every other plugin's closeBundle.
+ {
+ name: 'content-hash-manifest-finalize',
+ enforce: 'post' as const,
+ closeBundle: {
+ order: 'post' as const,
+ sequential: true,
+ handler() {
+ const manifest = getManifest();
+ if (manifest) {
+ console.log(
+ `[content-hash] ${manifest.skipped} skipped / ${manifest.written} written ` +
+ `(previous manifest: ${manifest.previousSize} entries)`
+ );
+ }
+ saveManifest();
+ },
+ },
+ } as Plugin,
  ],
  define: {
  // No secrets injected at build time — all sensitive keys come from Firebase Remote Config at runtime
