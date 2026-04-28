@@ -8498,4 +8498,11 @@ export const ARTICLES = [
  image: '/images/blog/disagi-trenord-tilo-s40-25-aprile-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'scommesse-guerra-trump-prediction-market',
+ category: 'novita',
+ date: '2026-04-28T05:53:44.099Z',
+ image: '/images/blog/scommesse-guerra-trump-prediction-market.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

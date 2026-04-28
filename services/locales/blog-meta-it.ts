@@ -3209,6 +3209,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.title': 'Disagi linea TiLo S40: errore nella programmazione del personale',
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.excerpt': 'Trenord spiega i disagi del 25 aprile: problema nella programmazione dei turni del personale. Ecco cosa è successo.',
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.imageAlt': 'Lago di Lugano con stazione ferroviaria sullo sfondo',
+    'blog.article.scommesse-guerra-trump-prediction-market.title': 'Scommesse su guerra e Trump: il boom dei prediction market',
+    'blog.article.scommesse-guerra-trump-prediction-market.excerpt': 'Piattaforme come Polymarket permettono di scommettere su eventi globali, ma con rischi etici e finanziari.',
+    'blog.article.scommesse-guerra-trump-prediction-market.imageAlt': 'Panorama di Lugano con il Lago di Lugano',
 };
 
 export default blogMetaIt;

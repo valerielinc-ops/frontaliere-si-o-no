@@ -17990,6 +17990,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scommesse-guerra-trump-prediction-market': {
+    title: 'Scommesse su guerra e Trump: il boom dei prediction market',
+    description: 'Scopri come le piattaforme di prediction market stanno diventando popolari, permettendo scommesse su eventi globali con rischi etici e finanziari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scommesse, guerra, trump, boom',
+    ogTitle: 'Scommesse su guerra e Trump: il boom dei prediction market',
+    ogDescription: 'Scopri come le piattaforme di prediction market stanno diventando popolari, permettendo scommesse su eventi globali con rischi etici e finanziari.',
+    canonicalPath: '/articoli-frontaliere/scommesse-guerra-trump-prediction-market',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scommesse su guerra e Trump: il boom dei prediction market",
+      "description": "Scopri come le piattaforme di prediction market stanno diventando popolari, permettendo scommesse su eventi globali con rischi etici e finanziari.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scommesse-guerra-trump-prediction-market.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il Lago di Lugano"
+      },
+      "datePublished": "2026-04-28T05:53:44+00:00",
+      "dateModified": "2026-04-28T05:53:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scommesse-guerra-trump-prediction-market`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

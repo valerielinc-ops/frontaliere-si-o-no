@@ -3209,6 +3209,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.title': 'Perturbations ligne TiLo S40: erreur dans la planification du personnel',
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.excerpt': 'Trenord explique les perturbations du 25 avril: problème dans la planification des quarts de travail du personnel. Voici ce qui s\'est passé.',
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.imageAlt': 'Lac de Lugano avec une gare en arrière-plan',
+    'blog.article.scommesse-guerra-trump-prediction-market.title': 'Paris sur la guerre et Trump : l\'essor des marchés prédictifs',
+    'blog.article.scommesse-guerra-trump-prediction-market.excerpt': 'Des plateformes comme Polymarket permettent de parier sur des événements mondiaux, mais avec des risques éthiques et financiers.',
+    'blog.article.scommesse-guerra-trump-prediction-market.imageAlt': 'Panorama de Lugano avec le lac de Lugano',
 };
 
 export default blogMetaFr;

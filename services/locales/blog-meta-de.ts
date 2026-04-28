@@ -3208,6 +3208,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.title': 'Störungen auf der TiLo S40: Fehler bei der Personaleinsatzplanung',
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.excerpt': 'Trenord erklärt die Störungen vom 25. April: Problem bei der Planung der Personalschichten. Hier ist, was passiert ist.',
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.imageAlt': 'Luganersee mit Bahnhof im Hintergrund',
+    'blog.article.scommesse-guerra-trump-prediction-market.title': 'Wetten auf Krieg und Trump: Boom der Prognosemärkte',
+    'blog.article.scommesse-guerra-trump-prediction-market.excerpt': 'Plattformen wie Polymarket ermöglichen Wetten auf globale Ereignisse, aber mit ethischen und finanziellen Risiken.',
+    'blog.article.scommesse-guerra-trump-prediction-market.imageAlt': 'Lugano mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

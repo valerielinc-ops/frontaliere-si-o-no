@@ -3208,6 +3208,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.title': 'TiLo S40 disruptions: staff scheduling error',
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.excerpt': 'Trenord explains the issues on April 25th: problem with staff shift scheduling. Here\'s what happened.',
     'blog.article.disagi-trenord-tilo-s40-25-aprile-2024.imageAlt': 'Lake Lugano with a train station in the background',
+    'blog.article.scommesse-guerra-trump-prediction-market.title': 'Betting on war and Trump: prediction market boom',
+    'blog.article.scommesse-guerra-trump-prediction-market.excerpt': 'Platforms like Polymarket allow betting on global events, but with ethical and financial risks.',
+    'blog.article.scommesse-guerra-trump-prediction-market.imageAlt': 'Lugano cityscape with Lake Lugano',
 };
 
 export default blogMetaEn;
