@@ -3605,6 +3605,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.emporio-solidarieta-olgiate-olona.title': 'Ouverture de l\'Epicerie Solidaire d\'Olgiate Olona',
     'blog.article.emporio-solidarieta-olgiate-olona.excerpt': 'Inauguration samedi 9 mai avec des stands d\'information et un apéritif communautaire. Participation d\'associations locales comme la Mensa del Padre Nostro et le CAV de Castellanza.',
     'blog.article.emporio-solidarieta-olgiate-olona.imageAlt': 'Inauguration de l\'Épicerie de la Solidarité à Olgiate Olona',
+    'blog.article.estival-jazz-lugano-cambia-formula-2026.title': 'Estival Jazz Lugano change de formule : deux soirées payantes',
+    'blog.article.estival-jazz-lugano-cambia-formula-2026.excerpt': 'Dès 2026, Estival Jazz propose deux soirées payantes avec Ernia et Antonello Venditti. Fin de l\'ère des concerts gratuits.',
+    'blog.article.estival-jazz-lugano-cambia-formula-2026.imageAlt': 'Concert d\'été à Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;

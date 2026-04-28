@@ -3604,6 +3604,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.emporio-solidarieta-olgiate-olona.title': 'Olgiate Olona Solidarity Emporium Opens',
     'blog.article.emporio-solidarieta-olgiate-olona.excerpt': 'Inauguration on Saturday, May 9th with info stands and community aperitif. Local groups like Mensa del Padre Nostro and CAV of Castellanza will participate.',
     'blog.article.emporio-solidarieta-olgiate-olona.imageAlt': 'Inauguration of the Solidarity Emporium in Olgiate Olona',
+    'blog.article.estival-jazz-lugano-cambia-formula-2026.title': 'Estival Jazz Lugano changes format: two paid evenings',
+    'blog.article.estival-jazz-lugano-cambia-formula-2026.excerpt': 'From 2026, Estival Jazz offers two paid evenings with Ernia and Antonello Venditti. The era of free concerts is over.',
+    'blog.article.estival-jazz-lugano-cambia-formula-2026.imageAlt': 'Summer concert in Lugano with lake view',
 };
 
 export default blogMetaEn;

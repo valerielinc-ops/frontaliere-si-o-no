@@ -9422,4 +9422,11 @@ export const ARTICLES = [
  image: '/images/blog/emporio-solidarieta-olgiate-olona.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'estival-jazz-lugano-cambia-formula-2026',
+ category: 'novita',
+ date: '2026-04-28T23:55:25.022Z',
+ image: '/images/blog/estival-jazz-lugano-cambia-formula-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

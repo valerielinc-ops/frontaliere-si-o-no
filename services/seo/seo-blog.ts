@@ -21818,6 +21818,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-estival-jazz-lugano-cambia-formula-2026': {
+    title: 'Estival Jazz Lugano cambia formula: due serate a pagamento',
+    description: 'Dal 2026 Estival Jazz propone due serate a pagamento con Ernia e Antonello Venditti. Fine dell\'era dei concerti gratuiti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, estival, jazz, lugano, cambia',
+    ogTitle: 'Estival Jazz Lugano cambia formula: due serate a pagamento',
+    ogDescription: 'Dal 2026 Estival Jazz propone due serate a pagamento con Ernia e Antonello Venditti. Fine dell\'era dei concerti gratuiti.',
+    canonicalPath: '/articoli-frontaliere/estival-jazz-lugano-cambia-formula-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Estival Jazz Lugano cambia formula: due serate a pagamento",
+      "description": "Dal 2026 Estival Jazz propone due serate a pagamento con Ernia e Antonello Venditti. Fine dell'era dei concerti gratuiti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/estival-jazz-lugano-cambia-formula-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Concerto estivo a Lugano con vista sul lago"
+      },
+      "datePublished": "2026-04-28T23:55:25+00:00",
+      "dateModified": "2026-04-28T23:55:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/estival-jazz-lugano-cambia-formula-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
