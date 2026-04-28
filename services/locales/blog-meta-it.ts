@@ -3278,6 +3278,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-aerei-sostegno-treni.title': 'Tassa su aerei per finanziare i treni: l\'iniziativa in Ticino',
     'blog.article.tassa-aerei-sostegno-treni.excerpt': 'Un comitato propone di tassare i biglietti aerei per sostenere i trasporti pubblici in Svizzera, con un contributo minimo di 30 franchi.',
     'blog.article.tassa-aerei-sostegno-treni.imageAlt': 'Vista aerea del Lago di Lugano con montagne e paesi',
+    'blog.article.comune-como-appuntamenti-cie-2026.title': 'Comune di Como: dal 4 maggio 2026 solo appuntamento per 12 sportelli',
+    'blog.article.comune-como-appuntamenti-cie-2026.excerpt': 'Dal 4 maggio 2026, 12 servizi del Comune di Como saranno disponibili solo su appuntamento, tra cui il rilascio della Carta d\'Identità Elettronica (CIE).',
+    'blog.article.comune-como-appuntamenti-cie-2026.imageAlt': 'Una strada affollata a Como, vicino al confine svizzero, con persone in fila davanti a un ufficio governativo',
 };
 
 export default blogMetaIt;

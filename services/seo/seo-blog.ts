@@ -18657,6 +18657,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comune-como-appuntamenti-cie-2026': {
+    title: 'Comune di Como: dal 4 maggio 2026 solo appuntamento per 12 sportelli',
+    description: 'Dal 4 maggio 2026, 12 servizi del Comune di Como saranno disponibili solo su appuntamento, tra cui il rilascio della Carta d\'Identità Elettronica (CIE).',
+    keywords: 'frontalieri, ticino, svizzera, italia, comune, como, maggio, solo',
+    ogTitle: 'Comune di Como: appuntamenti obbligatori per 12 servizi dal 4 maggio 2026',
+    ogDescription: 'Dal 4 maggio 2026, 12 servizi del Comune di Como saranno disponibili solo su appuntamento, tra cui il rilascio della Carta d\'Identità Elettronica (CIE).',
+    canonicalPath: '/articoli-frontaliere/comune-como-appuntamenti-cie-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comune di Como: appuntamenti obbligatori per 12 servizi dal 4 maggio 2026",
+      "description": "Dal 4 maggio 2026, 12 servizi del Comune di Como saranno disponibili solo su appuntamento, tra cui il rilascio della Carta d'Identità Elettronica (CIE).",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comune-como-appuntamenti-cie-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una strada affollata a Como, vicino al confine svizzero, con persone in fila davanti a un ufficio governativo"
+      },
+      "datePublished": "2026-04-28T10:22:10+00:00",
+      "dateModified": "2026-04-28T10:22:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comune-como-appuntamenti-cie-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -8659,4 +8659,11 @@ export const ARTICLES = [
  image: '/images/blog/tassa-aerei-sostegno-treni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'comune-como-appuntamenti-cie-2026',
+ category: 'novita',
+ date: '2026-04-28T10:22:10.317Z',
+ image: '/images/blog/comune-como-appuntamenti-cie-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

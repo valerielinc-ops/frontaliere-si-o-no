@@ -3277,6 +3277,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-aerei-sostegno-treni.title': 'Flugticketbesteuerung für den Bahnausbau im Tessin',
     'blog.article.tassa-aerei-sostegno-treni.excerpt': 'Ein Komitee schlägt vor, Flugtickets zu besteuern, um den öffentlichen Verkehr in der Schweiz zu unterstützen, mit einem Mindestbeitrag von 30 Franken.',
     'blog.article.tassa-aerei-sostegno-treni.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Dörfern',
+    'blog.article.comune-como-appuntamenti-cie-2026.title': 'Gemeinde Como: ab 4. Mai 2026 nur mit Termin für 12 Schalter',
+    'blog.article.comune-como-appuntamenti-cie-2026.excerpt': 'Ab dem 4. Mai 2026 sind 12 Dienstleistungen der Gemeinde Como nur noch mit Termin verfügbar, darunter die Ausstellung der elektronischen Identitätskarte (CIE).',
+    'blog.article.comune-como-appuntamenti-cie-2026.imageAlt': 'Eine belebte Straße in Como, in der Nähe der Schweizer Grenze, mit Menschen, die vor einem Regierungsgebäude anstehen',
 };
 
 export default blogMetaDe;

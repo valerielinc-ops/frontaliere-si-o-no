@@ -3278,6 +3278,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-aerei-sostegno-treni.title': 'Taxe sur les avions pour financer les trains: l\'initiative en Ticino',
     'blog.article.tassa-aerei-sostegno-treni.excerpt': 'Un comité propose de taxer les billets d\'avion pour soutenir les transports publics en Suisse, avec une contribution minimale de 30 francs.',
     'blog.article.tassa-aerei-sostegno-treni.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et villages',
+    'blog.article.comune-como-appuntamenti-cie-2026.title': 'Commune de Côme : rendez-vous obligatoires pour 12 guichets',
+    'blog.article.comune-como-appuntamenti-cie-2026.excerpt': 'À partir du 4 mai 2026, 12 services de la commune de Côme ne seront disponibles que sur rendez-vous, dont la délivrance de la carte d\'identité électronique (CIE).',
+    'blog.article.comune-como-appuntamenti-cie-2026.imageAlt': 'Une rue animée à Côme, près de la frontière suisse, avec des personnes faisant la queue devant un bureau gouvernemental',
 };
 
 export default blogMetaFr;

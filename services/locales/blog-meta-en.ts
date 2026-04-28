@@ -3277,6 +3277,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-aerei-sostegno-treni.title': 'Tax on planes to fund trains: initiative in Ticino',
     'blog.article.tassa-aerei-sostegno-treni.excerpt': 'A committee proposes taxing plane tickets to support public transport in Switzerland, with a minimum contribution of 30 francs.',
     'blog.article.tassa-aerei-sostegno-treni.imageAlt': 'Aerial view of Lake Lugano with mountains and towns',
+    'blog.article.comune-como-appuntamenti-cie-2026.title': 'Como Municipality: 12 counters by appointment only from May 4, 2026',
+    'blog.article.comune-como-appuntamenti-cie-2026.excerpt': 'From May 4, 2026, 12 services of the Como Municipality will be available by appointment only, including the issuance of the Electronic Identity Card (CIE).',
+    'blog.article.comune-como-appuntamenti-cie-2026.imageAlt': 'A busy street in Como, near the Swiss border, with people queuing outside a government office',
 };
 
 export default blogMetaEn;
