@@ -146,15 +146,41 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
  ? t('notFound.articleMoved')
  : null;
 
+ // Snapshot URLs at the FIRST render frame, before any later
+ // history.replaceState() / location.replace() can rewrite the address bar
+ // (legacy redirect bridges, canonical normalisation, etc. routinely rewrite
+ // the URL after the SPA mounts — by the time the user takes a Clarity
+ // screenshot, window.location.href no longer reflects what they typed).
+ const debugSnapshot = useMemo(() => {
+ if (typeof window === 'undefined') {
+ return { current: path, referrer: '(ssr)', sessionRedirect: '(ssr)', search: '', hash: '' };
+ }
+ let sessionRedirect = '(none)';
+ try {
+ sessionRedirect = sessionStorage.getItem('redirect') || '(consumed)';
+ } catch { /* private mode / disabled storage */ }
+ return {
+ current: window.location.href,
+ referrer: document.referrer || '(direct)',
+ sessionRedirect,
+ search: window.location.search,
+ hash: window.location.hash,
+ };
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, []);
+
  useEffect(() => {
  if (typeof window === 'undefined') return;
  Analytics.trackEvent('not_found_view', {
- not_found_path: path,
- not_found_url: window.location.href,
- not_found_referrer: document.referrer || '(none)',
+ not_found_path: path, // original path parsed by router (immune to later replaceState)
+ not_found_url: debugSnapshot.current, // address bar at first render
+ not_found_referrer: debugSnapshot.referrer,
+ not_found_session_redirect: debugSnapshot.sessionRedirect, // GH Pages 404.html → SPA bridge value
+ not_found_search: debugSnapshot.search,
+ not_found_hash: debugSnapshot.hash,
  content_type: contentType,
  });
- }, [path, contentType]);
+ }, [path, contentType, debugSnapshot]);
 
  return (
  <div className="max-w-2xl mx-auto py-8 sm:py-12 px-4">
@@ -176,14 +202,40 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
  )}
  <div
  data-testid="not-found-url"
- className="mt-4 mx-auto max-w-xl text-left bg-surface-alt border border-edge rounded-lg px-3 py-2"
+ className="mt-4 mx-auto max-w-xl text-left bg-surface-alt border border-edge rounded-lg px-3 py-2 space-y-1.5"
  >
+ <div>
  <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
- URL
+ Path richiesto (originale)
  </p>
  <code className="block text-xs text-body font-mono break-all select-all">
- {typeof window !== 'undefined' ? window.location.href : path}
+ {path || '/'}
  </code>
+ </div>
+ <div>
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
+ URL ora in barra
+ </p>
+ <code className="block text-xs text-body font-mono break-all select-all">
+ {debugSnapshot.current}
+ </code>
+ </div>
+ <div>
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
+ Provenienza (referrer)
+ </p>
+ <code className="block text-xs text-body font-mono break-all select-all">
+ {debugSnapshot.referrer}
+ </code>
+ </div>
+ <div>
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
+ Bridge sessionStorage
+ </p>
+ <code className="block text-xs text-body font-mono break-all select-all">
+ {debugSnapshot.sessionRedirect}
+ </code>
+ </div>
  </div>
  </div>
 
