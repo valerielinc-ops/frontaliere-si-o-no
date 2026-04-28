@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1171,
+ "numberOfItems": 1172,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5806,7 +5806,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1168, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/dfp-bankitalia-margini-debito-ue-2026` },
           { "@type": "ListItem", "position": 1169, "name": "MomòRide: carpooling benefico in Ticino", "url": `${BASE_URL}/articoli-frontaliere/momoride-carpooling-benefico-ticino-2024` },
           { "@type": "ListItem", "position": 1170, "name": "Borse europee in flessione, Zurigo non decolla", "url": `${BASE_URL}/articoli-frontaliere/borse-zurigo-flessione-2026` },
-          { "@type": "ListItem", "position": 1171, "name": "Traffico di droga: sei arresti tra Svizzera ed ...", "url": `${BASE_URL}/articoli-frontaliere/traffico-droga-arresti-svizzera-estero-2026` }
+          { "@type": "ListItem", "position": 1171, "name": "Traffico di droga: sei arresti tra Svizzera ed ...", "url": `${BASE_URL}/articoli-frontaliere/traffico-droga-arresti-svizzera-estero-2026` },
+          { "@type": "ListItem", "position": 1172, "name": "Caslano chiude 2025 con 311mila franchi di avanzo", "url": `${BASE_URL}/articoli-frontaliere/caslano-2025-bilancio-avanzamento` }
  ]
  },
  {

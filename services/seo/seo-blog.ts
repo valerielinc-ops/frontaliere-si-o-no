@@ -19498,6 +19498,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caslano-2025-bilancio-avanzamento': {
+    title: 'Caslano ribalta le previsioni e chiude il 2025 con 311mila franchi di avanzo',
+    description: 'Il Comune di Caslano ha chiuso il 2025 con un avanzo di 311mila franchi, superando le previsioni di disavanzo di 79mila franchi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, caslano, ribalta, previsioni, chiude',
+    ogTitle: 'Caslano chiude 2025 con 311mila franchi di avanzo',
+    ogDescription: 'Il Comune di Caslano ha chiuso il 2025 con un avanzo di 311mila franchi, superando le previsioni di disavanzo di 79mila franchi.',
+    canonicalPath: '/articoli-frontaliere/caslano-2025-bilancio-avanzamento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caslano chiude 2025 con 311mila franchi di avanzo",
+      "description": "Il Comune di Caslano ha chiuso il 2025 con un avanzo di 311mila franchi, superando le previsioni di disavanzo di 79mila franchi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/caslano-2025-bilancio-avanzamento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Caslano, Ticino"
+      },
+      "datePublished": "2026-04-28T14:10:04+00:00",
+      "dateModified": "2026-04-28T14:10:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caslano-2025-bilancio-avanzamento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

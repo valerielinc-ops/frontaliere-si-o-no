@@ -3365,6 +3365,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-droga-arresti-svizzera-estero-2026.title': 'Traffic de drogue : six arrestations en Suisse et à l\'étranger',
     'blog.article.traffico-droga-arresti-svizzera-estero-2026.excerpt': 'Opération conjointe du Ministère public de la Confédération et de la Police judiciaire fédérale contre une organisation criminelle.',
     'blog.article.traffico-droga-arresti-svizzera-estero-2026.imageAlt': 'Vue panoramique du lac de Lugano avec Lugano et le Monte Brè en arrière-plan',
+    'blog.article.caslano-2025-bilancio-avanzamento.title': 'Caslano termine 2025 avec un excédent de 311\'000 francs',
+    'blog.article.caslano-2025-bilancio-avanzamento.excerpt': 'La commune de Caslano clôture l\'année 2025 avec un excédent de 311\'000 francs, dépassant les prévisions de déficit de 79\'000 francs.',
+    'blog.article.caslano-2025-bilancio-avanzamento.imageAlt': 'Vue panoramique de Caslano, Tessin',
 };
 
 export default blogMetaFr;

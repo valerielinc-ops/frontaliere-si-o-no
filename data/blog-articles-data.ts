@@ -8862,4 +8862,11 @@ export const ARTICLES = [
  image: '/images/blog/traffico-droga-arresti-svizzera-estero-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'caslano-2025-bilancio-avanzamento',
+ category: 'novita',
+ date: '2026-04-28T14:10:04.095Z',
+ image: '/images/blog/caslano-2025-bilancio-avanzamento.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
