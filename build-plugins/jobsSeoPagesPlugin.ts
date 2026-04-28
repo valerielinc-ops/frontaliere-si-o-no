@@ -16,6 +16,7 @@ import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CH
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
  renderJobCardHtml,
+ renderJobCardListHtml,
  type JobCardJob,
 } from './shared/jobCardHtml';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
@@ -3004,10 +3005,24 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  let editorialEntries = '';
  {
  const editorialSitemapEntries: string[] = [];
- const renderJobList = (items: Array<{ title: string; company: string; location: string; href: string }>) =>
- items.length > 0
- ? `<ul style="list-style:none;padding:0;margin:0">${items.map((item) => `<li style="margin:0 0 12px 0;padding:0 0 12px;border-bottom:1px solid var(--color-edge)"><a href="${item.href}" style="text-decoration:none;color:var(--color-link);font-weight:700">${esc(item.title)}</a><div style="font-size:13px;color:var(--color-subtle);margin-top:4px">${esc(item.company)} · ${esc(item.location)}</div></li>`).join('')}</ul>`
- : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+ // SPA-matching cards via the shared renderer. The editorial models only
+ // carry the thin {title,company,location,href} shape today, so salary /
+ // contract / posted-date chips will be hidden for these pages — the
+ // visual layout (rounded card, logo slot, mappin chip) still aligns
+ // with the in-app JobCard. Pass `locale='it'` since these editorial
+ // landing pages render IT copy regardless of route locale.
+ const renderJobList = (items: Array<{ title: string; company: string; location: string; href: string }>) => {
+   if (items.length === 0) {
+     return '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+   }
+   return renderJobCardListHtml(
+     items.map((item) => ({
+       job: { title: item.title, company: item.company, location: item.location } as JobCardJob,
+       href: item.href,
+     })),
+     { locale: 'it' },
+   );
+ };
 
  /**
   * Per-(city × type) frontalier context section. Same intent as the
@@ -4559,13 +4574,7 @@ ${alternates}
  const pgNextHref = pageNum < totalListingPages ? `${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${pageNum + 1}`.replace(/\/+/g, '/'))}` : '';
  const pgPrevLink = ` <link rel="prev" href="${pgPrevHref}">`;
  const pgNextLink = pgNextHref ? `\n <link rel="next" href="${pgNextHref}">` : '';
- const pgListHtml = pgJobs.map((job: any) => {
- const jSlug = localizedSlug(job, locale);
- const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
- const jHref = `${BASE_URL}${withSlash(jPath)}`;
- const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 10px 0"><a href="${jHref}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
- }).join('');
+ const pgListHtml = pgJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
  const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
@@ -4684,7 +4693,7 @@ ${alternates}
  ...catAlternatesPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
  ...(catXDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`] : []),
  ].join('\n');
- const catListHtml = catPageJobs.map((job: any) => { const jSlug = localizedSlug(job, locale); const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/'); const jTitle = String(job?.titleByLocale?.[locale] || job.title || ''); return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`; }).join('');
+ const catListHtml = catPageJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
  const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:var(--color-link);display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
  const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
@@ -4812,12 +4821,7 @@ ${alternates}
  ...kwAlternatesPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
  ...(kwXDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${kwXDefaultHref}">`] : []),
  ].join('\n');
- const kwListHtml = kwJobs.map((job: any) => {
- const jSlug = localizedSlug(job, locale);
- const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
- const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
- }).join('');
+ const kwListHtml = kwJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
  const kwCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: kwTitle, url: kwCanonicalUrl, description: kwDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const kwCtaCopy: Record<string, string> = {
  it: `Consulta le ${kwJobs.length} posizioni aperte qui sotto. Le offerte vengono aggiornate quotidianamente da aziende con sede in Ticino e Grigioni. Utilizza il nostro calcolatore per confrontare stipendio netto, tasse e costo della vita tra Svizzera e Italia.`,
@@ -4928,13 +4932,7 @@ ${alternates}
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
   ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
  ].join('\n');
- const listHtml = matchingJobs.map((job: any) => {
- const slug = localizedSlug(job, locale);
- const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
- const href = `${BASE_URL}${withSlash(path)}`;
- const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 10px 0"><a href="${href}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jobTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} · ${esc(job.location)}</div></li>`;
- }).join('');
+ const listHtml = matchingJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
 
  const twitterCards = ` <meta name="twitter:card" content="summary_large_image">\n <meta name="twitter:title" content="${esc(title)}">\n <meta name="twitter:description" content="${esc(description)}">\n <meta name="twitter:site" content="@frontaliereticino">`;
  const searchBodyParts: string[] = [];
@@ -5051,13 +5049,7 @@ ${alternates}
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
   ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
  ].join('\n');
- const listHtml = matchingJobs.map((job: any) => {
- const slug = localizedSlug(job, locale);
- const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
- const href = `${BASE_URL}${withSlash(path)}`;
- const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return `<li style="margin:0 0 10px 0"><a href="${href}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(jobTitle)}</a><div style="font-size:13px;color:var(--color-subtle)">${esc(job.company)} · ${esc(job.location)}</div></li>`;
- }).join('');
+ const listHtml = matchingJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
 
  const comboOgImage = ` <meta property="og:image" content="${BASE_URL}/og-image.png">\n <meta property="og:image:width" content="1200">\n <meta property="og:image:height" content="630">\n <meta property="og:image:type" content="image/png">`;
  const comboBodyParts: string[] = [];
