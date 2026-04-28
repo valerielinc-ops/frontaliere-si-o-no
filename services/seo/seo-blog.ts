@@ -21035,6 +21035,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-programmi-educativi-bellinzona-2026': {
+    title: 'Nuovi programmi educativi a Bellinzona: prevenzione e rispetto',
+    description: 'Da settembre 2026, l\'Istituto scolastico comunale di Bellinzona avvia tre programmi educativi per il secondo ciclo della scuola elementare. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovi, programmi, educativi, bellinzona',
+    ogTitle: 'Nuovi programmi educativi a Bellinzona: prevenzione e rispetto',
+    ogDescription: 'Da settembre 2026, l\'Istituto scolastico comunale di Bellinzona avvia tre programmi educativi per il secondo ciclo della scuola elementare.',
+    canonicalPath: '/articoli-frontaliere/programmi-educativi-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi programmi educativi a Bellinzona: prevenzione e rispetto",
+      "description": "Da settembre 2026, l'Istituto scolastico comunale di Bellinzona avvia tre programmi educativi per il secondo ciclo della scuola elementare. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/programmi-educativi-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola elementare a Bellinzona, bambini in attività educativa"
+      },
+      "datePublished": "2026-04-28T20:58:04+00:00",
+      "dateModified": "2026-04-28T20:58:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/programmi-educativi-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

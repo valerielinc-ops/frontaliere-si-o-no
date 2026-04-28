@@ -3524,6 +3524,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.castiglione-olona-ufficio-postale-riaperto.title': 'Castiglione Olona: réouverture du bureau de poste avec de nouveaux services',
     'blog.article.castiglione-olona-ufficio-postale-riaperto.excerpt': 'Le bureau de poste de Castiglione Olona a été rouvert après une rénovation complète, offrant de nouveaux services et améliorant l\'accessibilité.',
     'blog.article.castiglione-olona-ufficio-postale-riaperto.imageAlt': 'Le bureau de poste de Castiglione Olona, récemment rénové et doté de nouveaux services.',
+    'blog.article.programmi-educativi-bellinzona-2026.title': 'Nouveaux programmes éducatifs à Bellinzona : prévention et respect',
+    'blog.article.programmi-educativi-bellinzona-2026.excerpt': 'Dès septembre, l\'institut scolaire communal de Bellinzona lance trois programmes éducatifs pour le deuxième cycle de l\'école primaire.',
+    'blog.article.programmi-educativi-bellinzona-2026.imageAlt': 'École primaire à Bellinzone, enfants en activité éducative',
 };
 
 export default blogMetaFr;

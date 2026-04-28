@@ -3524,6 +3524,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.castiglione-olona-ufficio-postale-riaperto.title': 'Castiglione Olona: riaperto l\'ufficio postale con nuovi servizi',
     'blog.article.castiglione-olona-ufficio-postale-riaperto.excerpt': 'L\'ufficio postale di Castiglione Olona è stato riaperto dopo una ristrutturazione completa, offrendo nuovi servizi e migliorando l\'accessibilità.',
     'blog.article.castiglione-olona-ufficio-postale-riaperto.imageAlt': 'L\'ufficio postale di Castiglione Olona, recentemente ristrutturato e dotato di nuovi servizi.',
+    'blog.article.programmi-educativi-bellinzona-2026.title': 'Nuovi programmi educativi a Bellinzona: prevenzione e rispetto',
+    'blog.article.programmi-educativi-bellinzona-2026.excerpt': 'Da settembre, l\'Istituto scolastico comunale di Bellinzona avvia tre programmi educativi per il secondo ciclo della scuola elementare.',
+    'blog.article.programmi-educativi-bellinzona-2026.imageAlt': 'Scuola elementare a Bellinzona, bambini in attività educativa',
 };
 
 export default blogMetaIt;

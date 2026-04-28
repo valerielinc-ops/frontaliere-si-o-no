@@ -2405,6 +2405,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-unitas-80-anni-innovazione-inclusione': { name: 'Unitas 80 anni', path: '/articoli-frontaliere/unitas-80-anni-innovazione-inclusione', parent: 'blog' },
     'blog-dfp-giorgetti-deficit-ridotto': { name: 'Fiscale', path: '/articoli-frontaliere/dfp-giorgetti-deficit-ridotto', parent: 'blog' },
     'blog-castiglione-olona-ufficio-postale-riaperto': { name: 'Novità', path: '/articoli-frontaliere/castiglione-olona-ufficio-postale-riaperto', parent: 'blog' },
+    'blog-programmi-educativi-bellinzona-2026': { name: 'Programmi educativi', path: '/articoli-frontaliere/programmi-educativi-bellinzona-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
