@@ -3521,6 +3521,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dfp-giorgetti-deficit-ridotto.title': 'Dfp, Giorgetti: déficit réduit sans mesures restrictives',
     'blog.article.dfp-giorgetti-deficit-ridotto.excerpt': 'Le ministre de l\'Économie annonce une réduction du déficit sans mesures restrictives grâce à une gestion prudente des finances publiques.',
     'blog.article.dfp-giorgetti-deficit-ridotto.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.castiglione-olona-ufficio-postale-riaperto.title': 'Castiglione Olona: réouverture du bureau de poste avec de nouveaux services',
+    'blog.article.castiglione-olona-ufficio-postale-riaperto.excerpt': 'Le bureau de poste de Castiglione Olona a été rouvert après une rénovation complète, offrant de nouveaux services et améliorant l\'accessibilité.',
+    'blog.article.castiglione-olona-ufficio-postale-riaperto.imageAlt': 'Le bureau de poste de Castiglione Olona, récemment rénové et doté de nouveaux services.',
 };
 
 export default blogMetaFr;

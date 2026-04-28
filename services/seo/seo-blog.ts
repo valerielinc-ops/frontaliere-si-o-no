@@ -21006,6 +21006,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-castiglione-olona-ufficio-postale-riaperto': {
+    title: 'Castiglione Olona: riaperto l\'ufficio postale con nuovi servizi',
+    description: 'L\'ufficio postale di Castiglione Olona è stato riaperto dopo una completa ristrutturazione, offrendo nuovi servizi e migliorando l\'accessibilità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, castiglione, olona, riaperto, ufficio',
+    ogTitle: 'Castiglione Olona: riaperto l\'ufficio postale con nuovi servizi',
+    ogDescription: 'L\'ufficio postale di Castiglione Olona è stato riaperto dopo una completa ristrutturazione, offrendo nuovi servizi e migliorando l\'accessibilità.',
+    canonicalPath: '/articoli-frontaliere/castiglione-olona-ufficio-postale-riaperto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Castiglione Olona: riaperto l'ufficio postale con nuovi servizi\",\"description\":\"L'ufficio postale di Castiglione Olona è stato riaperto dopo una completa ristrutturazione, offrendo nuovi servizi e migliorando l'accessibilità.\",\"datePublished\":\"2026-04-27\",\"image\":\"https://frontaliereticino.ch/images/castelgrande.webp\"}",
+      "description": "L'ufficio postale di Castiglione Olona è stato riaperto dopo una completa ristrutturazione, offrendo nuovi servizi e migliorando l'accessibilità.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/castiglione-olona-ufficio-postale-riaperto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'ufficio postale di Castiglione Olona, recentemente ristrutturato e dotato di nuovi servizi."
+      },
+      "datePublished": "2026-04-28T20:51:06+00:00",
+      "dateModified": "2026-04-28T20:51:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/castiglione-olona-ufficio-postale-riaperto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

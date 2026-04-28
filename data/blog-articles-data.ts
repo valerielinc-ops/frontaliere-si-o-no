@@ -9226,4 +9226,11 @@ export const ARTICLES = [
  image: '/images/blog/dfp-giorgetti-deficit-ridotto.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'castiglione-olona-ufficio-postale-riaperto',
+ category: 'novita',
+ date: '2026-04-28T20:51:06.938Z',
+ image: '/images/blog/castiglione-olona-ufficio-postale-riaperto.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
