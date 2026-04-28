@@ -1666,6 +1666,49 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     fr: `Comment ça marche. Chaque lundi à 06:00 UTC notre pipeline compare le panorama des offres actives au Tessin avec celui de la semaine précédente et calcule, pour chaque entreprise et chaque ville, le nombre de nouvelles offres (delta positif) et d'offres fermées (delta négatif). Les six centres principaux du canton — Lugano, Mendrisio, Chiasso, Stabio, Bellinzona, Locarno — plus la page Tessin-wide ont chacun une fiche dédiée. Pour les frontaliers italiens c'est le signal opérationnel le plus rapide : un delta positif sur deux semaines consécutives chez la même entreprise est le meilleur moment pour envoyer une candidature, même hors d'une offre exactement alignée, car les RH et les responsables hiérarchiques évaluent activement des profils. Les six villes sont triées par visibilité GSC sur les requêtes "entreprises qui recrutent à {ville}", et chacune ouvre la liste complète des employeurs avec au moins trois postes ouverts.`,
   };
 
+  // Per-locale frontaliere commute-context paragraph. Three of the six city
+  // hubs (Lugano, Mendrisio, Chiasso) sit on the TILO S10/S40/S50 lines from
+  // the Italian border; reading commute zones alongside the per-employer
+  // pages lets a candidate filter against transport time + Permit G zone
+  // overlap before clicking through. This block answers the second question
+  // every frontaliere has on the page (after "what is this index?"): how do
+  // I use the city × employer split to plan my actual commute?
+  const commuteContext: Record<WeeklyEmployersLocale, string> = {
+    it: `Come usare l'indice da frontaliere. Le sei città mostrate qui non sono equidistanti dal confine italiano: Chiasso e Mendrisio sono raggiungibili in meno di 15 minuti dal valico di Brogeda con la TILO S10/S50, Lugano richiede 25-30 minuti dalla stessa linea, mentre Bellinzona e Locarno aggiungono un cambio a Lugano e portano il tragitto totale verso 60-75 minuti. Quando apri la scheda città vedi il delta settimanale per ogni datore di lavoro: incrociandolo con la zona di commuting in cui ti senti sostenibile (per costo abbonamento Arcobaleno e tempo porta-a-porta) ottieni una shortlist operativa di aziende su cui concentrare candidature spontanee. La scheda per-azienda × città è poi il livello più granulare: ti dice se lo stesso gruppo industriale ha un piano assunzioni concentrato a Lugano oppure distribuito anche su Mendrisio e Chiasso, così puoi scegliere la sede con il commuting più favorevole prima ancora di leggere la job description.`,
+    en: `How to use the index as a cross-border worker. The six cities shown here are not equidistant from the Italian border: Chiasso and Mendrisio are reachable in under 15 minutes from the Brogeda crossing on the TILO S10/S50 lines, Lugano takes 25-30 minutes on the same line, while Bellinzona and Locarno add a Lugano transfer and push the door-to-door journey to 60-75 minutes. When you open a city card you see the weekly delta per employer: cross-referencing it with the commute zone you find sustainable (by Arcobaleno season-ticket cost and total travel time) gives you a shortlist of companies to focus spontaneous applications on. The per-company × city card is then the most granular level: it tells you whether the same industrial group concentrates hiring in Lugano or spreads it across Mendrisio and Chiasso, so you can pick the location with the better commute even before reading the job description.`,
+    de: `Wie der Index für Grenzgänger genutzt wird. Die sechs hier gezeigten Städte sind nicht gleich weit von der italienischen Grenze entfernt: Chiasso und Mendrisio sind vom Übergang Brogeda mit der TILO S10/S50 in weniger als 15 Minuten erreichbar, Lugano benötigt auf derselben Linie 25-30 Minuten, während Bellinzona und Locarno einen Umstieg in Lugano hinzufügen und die Tür-zu-Tür-Fahrt auf 60-75 Minuten verlängern. Beim Öffnen einer Stadt-Karte sehen Sie das Wochendelta je Arbeitgeber: in Kombination mit der für Sie tragbaren Pendelzone (nach Arcobaleno-Abonnementpreis und Gesamtreisezeit) ergibt sich eine operative Shortlist von Unternehmen, auf die Sie Initiativbewerbungen konzentrieren können. Die Per-Unternehmen-x-Stadt-Karte ist die granularste Ebene: sie zeigt, ob dieselbe Industriegruppe ihre Einstellungen in Lugano konzentriert oder auf Mendrisio und Chiasso verteilt, sodass Sie den Standort mit dem besseren Pendel auswählen können, bevor Sie überhaupt die Stellenbeschreibung lesen.`,
+    fr: `Comment utiliser l'index quand on est frontalier. Les six villes affichées ici ne sont pas équidistantes de la frontière italienne : Chiasso et Mendrisio sont accessibles en moins de 15 minutes depuis le passage de Brogeda via la TILO S10/S50, Lugano demande 25-30 minutes sur la même ligne, tandis que Bellinzona et Locarno ajoutent un changement à Lugano et portent le trajet porte-à-porte à 60-75 minutes. Lorsque vous ouvrez une fiche ville, vous voyez le delta hebdomadaire par employeur : en le croisant avec la zone de pendularité que vous jugez soutenable (selon le coût de l'abonnement Arcobaleno et le temps de trajet total), vous obtenez une shortlist opérationnelle d'entreprises sur lesquelles concentrer des candidatures spontanées. La fiche par entreprise × ville est ensuite le niveau le plus granulaire : elle indique si le même groupe industriel concentre son recrutement à Lugano ou le répartit sur Mendrisio et Chiasso, pour que vous puissiez choisir le site avec le meilleur trajet avant même de lire la description du poste.`,
+  };
+
+  // Per-locale FAQ — three Q&A pairs reused from the per-city/per-employer
+  // COPY (frequency, delta meaning, how to apply) so the top hub answers the
+  // same operational questions as the leaf pages without restating the index.
+  // Each Q&A is page-relevant, not boilerplate: the same FAQPage JSON-LD is
+  // emitted on the per-city pages (different scope) and crawlers pick up the
+  // top-hub variant via its dedicated canonical URL.
+  const faqEntries: ReadonlyArray<{ q: string; a: string }> = [
+    { q: copy.faqHowOftenQ, a: copy.faqHowOftenA },
+    { q: copy.faqDeltaQ, a: copy.faqDeltaA },
+    { q: copy.faqApplyQ, a: copy.faqApplyA },
+  ];
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqEntries.map((qa) => ({
+      '@type': 'Question',
+      name: qa.q,
+      acceptedAnswer: { '@type': 'Answer', text: qa.a },
+    })),
+  });
+  const faqHtml = faqEntries
+    .map(
+      (qa) => `    <details style="margin:0 0 12px;padding:14px 16px;border:1px solid var(--color-edge);border-radius:14px;background:var(--color-surface)">
+      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(qa.q)}</summary>
+      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(qa.a)}</p>
+    </details>`,
+    )
+    .join('\n');
+
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -1695,6 +1738,14 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     dateModified: dateStamp,
   });
 
+  // Heading for the new commute-context section. Locale-specific.
+  const commuteHeading: Record<WeeklyEmployersLocale, string> = {
+    it: 'Pianifica il commuting prima di candidarti',
+    en: 'Plan the commute before you apply',
+    de: 'Pendelweg planen, bevor Sie sich bewerben',
+    fr: "Planifier le trajet avant de postuler",
+  };
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -1710,6 +1761,14 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   <section style="margin:0 0 28px" aria-labelledby="weTopMethodology">
     <h2 id="weTopMethodology" style="${H2_STYLE}">${esc(LINKING_COPY[locale].cityHubsTitle)} — ${esc(copy.kickerCurrent)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(methodology[locale])}</p>
+  </section>
+  <section style="margin:0 0 28px" aria-labelledby="weTopCommute">
+    <h2 id="weTopCommute" style="${H2_STYLE}">${esc(commuteHeading[locale])}</h2>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(commuteContext[locale])}</p>
+  </section>
+  <section style="margin:0 0 28px" aria-labelledby="weTopFaq">
+    <h2 id="weTopFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
+${faqHtml}
   </section>
   ${renderLocaleSwitcherBlock(locale, (alt) => topHubPath(alt))}
 </article>`;
@@ -1734,7 +1793,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
     hreflangHtml,
     extraHeadHtml: extraHead,
-    jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd],
+    jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },

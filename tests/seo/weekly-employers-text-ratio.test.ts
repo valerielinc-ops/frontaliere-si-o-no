@@ -23,6 +23,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   renderCompanyCityPage,
+  renderTopHubPage,
   type CompanyCityPageInputs,
 } from '@/build-plugins/weeklyEmployersPlugin';
 import type {
@@ -163,4 +164,27 @@ describe('weekly-employers company × city — text-to-HTML ratio', () => {
       expect(pct, `${locale} ratio ${pct.toFixed(2)}%`).toBeGreaterThan(12);
     }
   });
+});
+
+describe('weekly-employers TOP HUB — text-to-HTML ratio', () => {
+  // Regression for the Apr 2026 audit failure: 3 of the 4 top hubs
+  // (`/aziende-che-assumono/`, `/en/companies-hiring/`, `/de/...`,
+  // `/fr/...`) measured ≤10 % text-to-HTML ratio because the only
+  // visible-text content was a short lede + methodology paragraph
+  // wrapping a link-heavy `<ul>` of city anchors. The fix added a
+  // frontaliere-specific commute-context paragraph and a 3-question
+  // FAQ block sourced from the per-city COPY. This test asserts every
+  // locale clears the 12 % bar (10 % gate + 2 pt margin).
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    it(`top hub (${locale}) clears the Semrush 10 % threshold with margin`, () => {
+      const html = renderTopHubPage({
+        locale,
+        today: new Date('2026-04-28T07:00:00.000Z'),
+        jobsCount: 1247,
+        companiesCount: 312,
+      });
+      const pct = ratioPct(html);
+      expect(pct, `${locale} top hub ratio ${pct.toFixed(2)}%`).toBeGreaterThan(12);
+    });
+  }
 });

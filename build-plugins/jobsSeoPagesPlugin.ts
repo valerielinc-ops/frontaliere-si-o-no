@@ -1561,13 +1561,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // when those hubs only embed top-30 cards. Selection: same category
  // OR same location, sorted with a deterministic salt of the slug to
  // distribute outbound links across the whole job graph rather than
- // always picking the same 10 freshest jobs (which would leave deeper
- // listings orphaned). Cap 10 → ~10 outbound links per detail page,
- // 10 × 1370 reachable details = 13.7k edges into the orphan pool.
+ // always picking the same freshest jobs (which would leave deeper
+ // listings orphaned). Cap held at 6 (1.5× the original 4) — high
+ // enough to keep the orphan pool reachable at ~8.2k edges
+ // (6 × 1370 reachable details), low enough to keep detail-page byte
+ // weight under the audit:page-weight budget.
  const relatedPool = validJobs
  .filter((r: any) => r.slug !== job.slug && (r.category === job.category || r.location === job.location));
  // Stable hash of own slug → starting offset into the pool, so
- // different details surface different neighbours (no "always top 10")
+ // different details surface different neighbours (no "always top N")
  // without losing determinism between builds.
  const relatedSeed = (() => {
  const s = String(job.slug || '');
@@ -1581,7 +1583,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const related = relatedPool.length === 0 ? [] : (() => {
  const out: any[] = [];
  const seen = new Set<string>();
- const N = Math.min(10, relatedPool.length);
+ const N = Math.min(6, relatedPool.length);
  for (let i = 0; i < N; i++) {
  const idx = (relatedSeed + i * 2654435761) % relatedPool.length;
  const cand = relatedPool[idx];
@@ -4253,6 +4255,21 @@ ${alternates}
  _qw(flatFile, body.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
  };
+ // Hard-fail guard mirroring the jobSectorPagesPlugin invariant — keeps
+ // city/type/sector landing HTML strictly under the 195 KB safety margin
+ // (200 KB audit:page-weight budget − 5 KB headroom). If a future cap
+ // bump or template change pushes us over, the build fails immediately
+ // with a precise URL instead of waiting for the post-build audit.
+ const CITY_HUB_HARD_BUDGET_BYTES = 195 * 1024;
+ const htmlBytes = Buffer.byteLength(html, 'utf-8');
+ if (htmlBytes > CITY_HUB_HARD_BUDGET_BYTES) {
+ throw new Error(
+ `[jobsSeoPagesPlugin] City/editorial landing ${canonicalPath} renders to ` +
+ `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
+ `${CITY_HUB_HARD_BUDGET_BYTES / 1024} KB. Reduce feed/latest caps in ` +
+ `buildJobLocationLandingModel or trim per-card markup.`,
+ );
+ }
  writeCityOrLegacy(canonicalPath, html);
  // Geo-hub cities: keep the legacy /<section>/ricerca-<city>/ path live
  // (backward-compat + external links). Strip hreflang on the legacy
