@@ -2392,6 +2392,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giro-e-angera-verbania-2026': { name: 'Giro-E 2026', path: '/articoli-frontaliere/giro-e-angera-verbania-2026', parent: 'blog' },
     'blog-iniziative-casse-malati-dado-scissione-dossier': { name: 'Iniziative casse malati', path: '/articoli-frontaliere/iniziative-casse-malati-dado-scissione-dossier', parent: 'blog' },
     'blog-moschea-pregassona-udc-interroga-municipio': { name: 'Moschea Pregassona', path: '/articoli-frontaliere/moschea-pregassona-udc-interroga-municipio', parent: 'blog' },
+    'blog-como-area-camper-26-posti-lavori': { name: 'Novità', path: '/articoli-frontaliere/como-area-camper-26-posti-lavori', parent: 'blog' },
  };
 
  const info = sectionNames[section];

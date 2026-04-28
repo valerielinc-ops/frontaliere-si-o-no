@@ -3484,6 +3484,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.moschea-pregassona-udc-interroga-municipio.title': 'Mosque in Pregassona: UDC questions the Municipality',
     'blog.article.moschea-pregassona-udc-interroga-municipio.excerpt': 'The UDC asks for guarantees and transparency for the project of an Islamic cultural center with a mosque and apartments in Pregassona.',
     'blog.article.moschea-pregassona-udc-interroga-municipio.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
+    'blog.article.como-area-camper-26-posti-lavori.title': 'Como: work starts on 26-spot camper area',
+    'blog.article.como-area-camper-26-posti-lavori.excerpt': 'Construction has begun on the expansion of the camper area in Tavernola. Here\'s when the work will be finished and the project details.',
+    'blog.article.como-area-camper-26-posti-lavori.imageAlt': 'Renovated camper area in Como with 26 spots and picnic tables',
 };
 
 export default blogMetaEn;

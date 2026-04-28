@@ -9142,4 +9142,11 @@ export const ARTICLES = [
  image: '/images/blog/moschea-pregassona-udc-interroga-municipio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-area-camper-26-posti-lavori',
+ category: 'novita',
+ date: '2026-04-28T19:40:18.521Z',
+ image: '/images/blog/como-area-camper-26-posti-lavori.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

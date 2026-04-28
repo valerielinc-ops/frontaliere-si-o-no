@@ -20658,6 +20658,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-area-camper-26-posti-lavori': {
+    title: 'Como, al via i lavori per l\'area camper da 26 posti',
+    description: 'Il cantiere per l\'ampliamento dell\'area camper di Tavernola è iniziato. Ecco quando finiranno i lavori e i dettagli del progetto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, lavori, area, camper',
+    ogTitle: 'Como, al via i lavori per l\'area camper da 26 posti',
+    ogDescription: 'Il cantiere per l\'ampliamento dell\'area camper di Tavernola è iniziato. Ecco quando finiranno i lavori e i dettagli del progetto.',
+    canonicalPath: '/articoli-frontaliere/como-area-camper-26-posti-lavori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, al via i lavori per l'area camper da 26 posti",
+      "description": "Il cantiere per l'ampliamento dell'area camper di Tavernola è iniziato. Ecco quando finiranno i lavori e i dettagli del progetto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-area-camper-26-posti-lavori.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area camper rinnovata a Como con 26 posti e tavoli da picnic"
+      },
+      "datePublished": "2026-04-28T19:40:18+00:00",
+      "dateModified": "2026-04-28T19:40:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-area-camper-26-posti-lavori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

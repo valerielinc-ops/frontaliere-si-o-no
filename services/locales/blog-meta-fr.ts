@@ -3485,6 +3485,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.moschea-pregassona-udc-interroga-municipio.title': 'Mosquée à Pregassona: l\'UDC interroge la municipalité',
     'blog.article.moschea-pregassona-udc-interroga-municipio.excerpt': 'L\'UDC demande des garanties et de la transparence pour le projet d\'un centre culturel islamique avec mosquée et appartements à Pregassona.',
     'blog.article.moschea-pregassona-udc-interroga-municipio.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
+    'blog.article.como-area-camper-26-posti-lavori.title': 'Como, début des travaux pour une aire de camping-cars de 26 places',
+    'blog.article.como-area-camper-26-posti-lavori.excerpt': 'Le chantier pour l\'extension de l\'aire de camping-cars de Tavernola a commencé. Voici quand les travaux se termineront et les détails du projet.',
+    'blog.article.como-area-camper-26-posti-lavori.imageAlt': 'Aire de camping-car rénovée à Côme avec 26 places et tables de pique-nique',
 };
 
 export default blogMetaFr;
