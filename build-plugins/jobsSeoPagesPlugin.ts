@@ -4216,6 +4216,15 @@ ${alternates}
  }
  }
 
+ // SEO: skip — page self-canonicalizes elsewhere (Semrush gate).
+ // For geo-hub cities the rendered legacy `ricerca-<city>` page sets
+ // <link rel="canonical"> to the clean `/cerca-lavoro-ticino/<city>/`
+ // URL, so emitting a sitemap entry for the legacy slug would advertise
+ // a non-canonical URL. The clean canonical is added separately below.
+ const isGeoHubCity = CITY_HUB_KEYS.some(
+ (k) => k.toLowerCase() === location.toLowerCase(),
+ );
+ if (!isGeoHubCity) {
  pushEditorialSitemapEntry((locale) => buildJobLocationLandingModel({
  jobs: validJobs,
  locale,
@@ -4226,6 +4235,7 @@ ${alternates}
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
  }), '0.75');
+ }
 
  // Geo-hub city: add a dedicated sitemap entry for the clean canonical
  // URL /cerca-lavoro-ticino/<city>/ (and locale variants). Priority 0.85
@@ -5041,13 +5051,25 @@ ${alternates}
  if (fallbackMatchingJobs.length >= 3) {
  const sItSlug = `${searchRoutePrefix.it}-${key}`;
  const sItPath = withSlash(`/${sectionByLocale.it}/${sItSlug}`.replace(/\/+/g, '/'));
+ const sItUrl = `${BASE_URL}${sItPath}`;
+ // SEO: skip — page self-canonicalizes elsewhere (Semrush gate).
+ // (a) Editorial geo-hub cities (Lugano/Bellinzona/Mendrisio/Locarno/Chiasso)
+ // canonicalize their `ricerca-<city>` page to the clean `/{city}/` hub,
+ // so emitting the legacy slug here would duplicate the editorial entry
+ // already added with a non-canonical loc. (b) Any search-leader slug
+ // present in canonicalOverrides has its rendered <link rel="canonical">
+ // pointing elsewhere — never advertise it as a sitemap loc.
+ const isEditorialDuplicate = editorialSearchSlugsByLocale.get('it')?.has(sItSlug) === true;
+ const overrideUrl = resolveCanonicalUrl(sItSlug, sItUrl);
+ if (!isEditorialDuplicate && overrideUrl === sItUrl) {
  const sAlternates = localeList.map((l) => {
  const lSlug = `${searchRoutePrefix[l]}-${key}`;
  const sp = `${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/');
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(sp)}" />`;
  }).join('\n');
- const sXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${sItPath}" />`;
- searchSitemapEntries.push(` <url>\n <loc>${BASE_URL}${sItPath}</loc>\n${sAlternates}\n${sXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ const sXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${sItUrl}" />`;
+ searchSitemapEntries.push(` <url>\n <loc>${sItUrl}</loc>\n${sAlternates}\n${sXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ }
  }
  }
 
@@ -5153,13 +5175,22 @@ ${alternates}
  if (matchingJobs.length >= 3) {
  const cItSlug = `${searchRoutePrefix.it}-${comboKey}`;
  const cItPath = withSlash(`/${sectionByLocale.it}/${cItSlug}`.replace(/\/+/g, '/'));
+ const cItUrl = `${BASE_URL}${cItPath}`;
+ // SEO: skip — page self-canonicalizes elsewhere (Semrush gate).
+ // Same rationale as the search-leader block above: editorial duplicates
+ // and canonical-override slugs must never be advertised under their
+ // own URL.
+ const isEditorialDuplicate = editorialSearchSlugsByLocale.get('it')?.has(cItSlug) === true;
+ const overrideUrl = resolveCanonicalUrl(cItSlug, cItUrl);
+ if (!isEditorialDuplicate && overrideUrl === cItUrl) {
  const cAlternates = localeList.map((l) => {
  const lSlug = `${searchRoutePrefix[l]}-${comboKey}`;
  const cp = `${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/');
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(cp)}" />`;
  }).join('\n');
- const cXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${cItPath}" />`;
- searchSitemapEntries.push(` <url>\n <loc>${BASE_URL}${cItPath}</loc>\n${cAlternates}\n${cXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ const cXDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${cItUrl}" />`;
+ searchSitemapEntries.push(` <url>\n <loc>${cItUrl}</loc>\n${cAlternates}\n${cXDefault}\n <lastmod>${dateStamp}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
+ }
  }
  };
 
@@ -5390,14 +5421,23 @@ ${alternates}
  fr: localizedSlug(job, 'fr'),
  };
  const itPath = withSlash(`/${sectionByLocale.it}/${perLocaleSlugMap.it}`.replace(/\/+/g, '/'));
+ const itUrl = `${BASE_URL}${itPath}`;
+ // SEO: skip — page self-canonicalizes elsewhere (Semrush gate).
+ // Jobs listed in data/job-canonical-overrides.json have <link rel="canonical">
+ // pointing to a different URL (typically a brand-hub /azienda-<slug>/),
+ // so advertising the per-job slug in the sitemap raises a "Non-canonical
+ // URL in sitemap" error. The brand-hub canonical is already advertised
+ // via companyEntries above.
+ const overrideUrl = resolveCanonicalUrl(perLocaleSlugMap.it, itUrl);
+ if (overrideUrl !== itUrl) return '';
  const alternateLinks = localeList.map((l) => {
  const p = `${localePrefix[l]}/${sectionByLocale[l]}/${perLocaleSlugMap[l]}`.replace(/\/+/g, '/');
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
  }).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
  const jobLastmod = (safeIsoDate(job.crawledAt) || '').slice(0, 10) || dateStamp;
- return ` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n${xDefault}\n <lastmod>${jobLastmod}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
- }).join('\n');
+ return ` <url>\n <loc>${itUrl}</loc>\n${alternateLinks}\n${xDefault}\n <lastmod>${jobLastmod}</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`;
+ }).filter((s) => s.length > 0).join('\n');
 
  // FRO-SEO / seo/sitemap-crawl-budget: previousSlugs bridge pages are NOT
  // listed in the sitemap. Each bridge already emits `<link rel="canonical">`
