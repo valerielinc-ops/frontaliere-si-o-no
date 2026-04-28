@@ -3494,6 +3494,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ufficio-open-space-stress-frontalieri.title': 'Bureaux open space: stress et non communication',
     'blog.article.ufficio-open-space-stress-frontalieri.excerpt': 'Selon le psychanalyste Peter Schneider, les open space sacrifient le bien-être des employés pour optimiser les espaces, causant du stress et des micro-conflits',
     'blog.article.ufficio-open-space-stress-frontalieri.imageAlt': 'Bureau en open-space à Lugano avec des travailleurs aux bureaux',
+    'blog.article.estival-pagamento-caduta-stile-lugano.title': 'Estival Jazz payant: la polémique à Lugano',
+    'blog.article.estival-pagamento-caduta-stile-lugano.excerpt': 'Le conseiller communal Omar Wicht critique les soirées payantes de l\'événement musical, demandant des éclaircissements à l\'Exécutif',
+    'blog.article.estival-pagamento-caduta-stile-lugano.imageAlt': 'Vue du lac de Lugano avec la skyline de la ville',
 };
 
 export default blogMetaFr;

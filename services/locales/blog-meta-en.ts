@@ -3493,6 +3493,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ufficio-open-space-stress-frontalieri.title': 'Open-plan offices cause stress, not communication',
     'blog.article.ufficio-open-space-stress-frontalieri.excerpt': 'According to psychoanalyst Peter Schneider, open-plan offices sacrifice employee well-being to optimize space, causing stress and micro-conflicts',
     'blog.article.ufficio-open-space-stress-frontalieri.imageAlt': 'Open-space office in Lugano with workers at desks',
+    'blog.article.estival-pagamento-caduta-stile-lugano.title': 'Estival Jazz now paid: Lugano controversy',
+    'blog.article.estival-pagamento-caduta-stile-lugano.excerpt': 'Councillor Omar Wicht criticizes the paid evenings of the musical event, asking the Executive for clarifications',
+    'blog.article.estival-pagamento-caduta-stile-lugano.imageAlt': 'View of Lake Lugano with the city skyline',
 };
 
 export default blogMetaEn;

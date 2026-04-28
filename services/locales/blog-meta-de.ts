@@ -3493,6 +3493,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ufficio-open-space-stress-frontalieri.title': 'Büro-Open-Space fördert Stress, nicht Kommunikation',
     'blog.article.ufficio-open-space-stress-frontalieri.excerpt': 'Laut dem Psychoanalytiker Peter Schneider opfern Open-Space-Büros das Wohlbefinden der Mitarbeiter, um Räume zu optimieren, und verursachen Stress und Mikrokonflikte.',
     'blog.article.ufficio-open-space-stress-frontalieri.imageAlt': 'Open-Space-Büro in Lugano mit Arbeitnehmern an den Schreibtischen',
+    'blog.article.estival-pagamento-caduta-stile-lugano.title': 'Estival Jazz: Eintrittsgebühren sorgen für Kritik in Lugano',
+    'blog.article.estival-pagamento-caduta-stile-lugano.excerpt': 'Der Gemeinderatsmitglied Omar Wicht kritisiert die Eintrittsgebühren des Musikfestivals und fordert Aufklärung vom Exekutivrat.',
+    'blog.article.estival-pagamento-caduta-stile-lugano.imageAlt': 'Blick auf den Luganersee mit der Skyline der Stadt',
 };
 
 export default blogMetaDe;

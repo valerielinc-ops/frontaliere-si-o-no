@@ -9163,4 +9163,11 @@ export const ARTICLES = [
  image: '/images/blog/ufficio-open-space-stress-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'estival-pagamento-caduta-stile-lugano',
+ category: 'novita',
+ date: '2026-04-28T19:59:25.792Z',
+ image: '/images/blog/estival-pagamento-caduta-stile-lugano.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -20745,6 +20745,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-estival-pagamento-caduta-stile-lugano': {
+    title: 'Estival Jazz a pagamento: la polemica a Lugano | Frontaliere Ticino',
+    description: 'Il consigliere comunale Omar Wicht critica le serate a pagamento dell\'evento musicale Estival Jazz a Lugano, chiedendo chiarimenti all\'Esecutivo. Dati',
+    keywords: 'frontalieri, ticino, svizzera, italia, estival, jazz, pagamento, polemica',
+    ogTitle: 'Estival Jazz a pagamento: la polemica a Lugano',
+    ogDescription: 'Il consigliere comunale Omar Wicht critica le serate a pagamento dell\'evento musicale Estival Jazz a Lugano, chiedendo chiarimenti all\'Esecutivo',
+    canonicalPath: '/articoli-frontaliere/estival-pagamento-caduta-stile-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Estival Jazz a pagamento: la polemica a Lugano",
+      "description": "Il consigliere comunale Omar Wicht critica le serate a pagamento dell'evento musicale Estival Jazz a Lugano, chiedendo chiarimenti all'Esecutivo. Dati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/estival-pagamento-caduta-stile-lugano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con lo skyline della città"
+      },
+      "datePublished": "2026-04-28T19:59:25+00:00",
+      "dateModified": "2026-04-28T19:59:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/estival-pagamento-caduta-stile-lugano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
