@@ -3409,6 +3409,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iliad-piu-veloci-rete-mobili.title': 'Iliad unveils \'Faster\', new-gen mobile network plan',
     'blog.article.iliad-piu-veloci-rete-mobili.excerpt': 'Iliad\'s \'Faster\' plan aims to accelerate mobile network development in Italy, impacting citizens, businesses, and operators.',
     'blog.article.iliad-piu-veloci-rete-mobili.imageAlt': 'Panoramic view of Lugano with 5G network towers and people using smartphones',
+    'blog.article.formazione-ferrero-ministero-2026.title': 'Ferrero and Ministry for sports in schools',
+    'blog.article.formazione-ferrero-ministero-2026.excerpt': 'Ministry of Education and Merit and Ferrero spa sign agreement for educational and training activities in primary and lower secondary schools.',
+    'blog.article.formazione-ferrero-ministero-2026.imageAlt': 'A classroom in Ticino with children engaged in physical activities, smiling and interacting. The room is bright and colorful, with educational posters on the walls. The teacher is guiding the students in a fun, dynamic exercise.',
 };
 
 export default blogMetaEn;

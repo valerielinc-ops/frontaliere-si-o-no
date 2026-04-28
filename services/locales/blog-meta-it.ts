@@ -3410,6 +3410,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iliad-piu-veloci-rete-mobili.title': 'Iliad presenta \'Più veloci\', piano per reti mobili di nuova generazione',
     'blog.article.iliad-piu-veloci-rete-mobili.excerpt': 'Il piano \'Più Veloci\' di Iliad mira a accelerare lo sviluppo delle reti mobili in Italia, con impatto su cittadini, imprese e operatori.',
     'blog.article.iliad-piu-veloci-rete-mobili.imageAlt': 'Vista panoramica di Lugano con torri di rete 5G e persone che usano smartphone',
+    'blog.article.formazione-ferrero-ministero-2026.title': 'Ferrero e Ministero per sport nelle scuole',
+    'blog.article.formazione-ferrero-ministero-2026.excerpt': 'Ministero dell’Istruzione e del Merito e Ferrero spa firmano protocollo d’intesa per attività educative e formative nelle scuole primarie e secondarie di I grado.',
+    'blog.article.formazione-ferrero-ministero-2026.imageAlt': 'Una classe in Ticino con bambini impegnati in attività fisiche, sorridenti e interagenti. La stanza è luminosa e colorata, con poster educativi sulle pareti. L\'insegnante guida gli studenti in un esercizio divertente e dinamico.',
 };
 
 export default blogMetaIt;

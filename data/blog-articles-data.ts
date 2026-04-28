@@ -8967,4 +8967,11 @@ export const ARTICLES = [
  image: '/images/blog/iliad-piu-veloci-rete-mobili.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'formazione-ferrero-ministero-2026',
+ category: 'novita',
+ date: '2026-04-28T16:40:53.955Z',
+ image: '/images/blog/formazione-ferrero-ministero-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

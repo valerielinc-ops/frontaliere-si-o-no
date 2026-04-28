@@ -3409,6 +3409,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iliad-piu-veloci-rete-mobili.title': 'Iliad stellt \'Schneller\' vor, Plan für Mobilfunknetze der neuen Generation',
     'blog.article.iliad-piu-veloci-rete-mobili.excerpt': 'Der Plan \'Schneller\' von Iliad zielt darauf ab, die Entwicklung der Mobilfunknetze in Italien zu beschleunigen, mit Auswirkungen auf Bürger, Unternehmen und Betreiber.',
     'blog.article.iliad-piu-veloci-rete-mobili.imageAlt': 'Panoramablick von Lugano mit 5G-Netztürmen und Menschen, die Smartphones nutzen',
+    'blog.article.formazione-ferrero-ministero-2026.title': 'Ferrero und Ministerium für Sport in Schulen',
+    'blog.article.formazione-ferrero-ministero-2026.excerpt': 'Das Ministerium für Bildung und Verdienst und die Ferrero spa unterzeichnen eine Absichtserklärung für Bildungs- und Ausbildungsaktivitäten in Grund- und weiterführenden Schulen.',
+    'blog.article.formazione-ferrero-ministero-2026.imageAlt': 'Ein Klassenzimmer im Tessin mit Kindern, die an körperlichen Aktivitäten beteiligt sind, lächeln und interagieren. Der Raum ist hell und farbenfroh, mit Bildungsplakaten an den Wänden. Die Lehrerin führt die Schüler in einer lustigen, dynamischen Übung an.',
 };
 
 export default blogMetaDe;

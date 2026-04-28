@@ -19933,6 +19933,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formazione-ferrero-ministero-2026': {
+    title: 'Ferrero e Ministero per sport nelle scuole | Frontaliere Ticino',
+    description: 'Ministero dell’Istruzione e del Merito e Ferrero spa firmano protocollo d’intesa per attività educative e formative nelle scuole primarie e secondarie di I',
+    keywords: 'frontalieri, ticino, svizzera, italia, ferrero, ministero, sport, nelle',
+    ogTitle: 'Formazione, intesa tra Ministero e Ferrero per promuovere attività sportive nelle scuole',
+    ogDescription: 'Ministero dell’Istruzione e del Merito e Ferrero spa firmano protocollo d’intesa per attività educative e formative nelle scuole primarie e secondarie di I',
+    canonicalPath: '/articoli-frontaliere/formazione-ferrero-ministero-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione, intesa tra Ministero e Ferrero per promuovere attività sportive nelle scuole",
+      "description": "Ministero dell’Istruzione e del Merito e Ferrero spa firmano protocollo d’intesa per attività educative e formative nelle scuole primarie e secondarie di I",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/formazione-ferrero-ministero-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una classe in Ticino con bambini impegnati in attività fisiche, sorridenti e interagenti. La stanza è luminosa e colorata, con poster educativi sulle pareti. L'insegnante guida gli studenti in un esercizio divertente e dinamico."
+      },
+      "datePublished": "2026-04-28T16:40:53+00:00",
+      "dateModified": "2026-04-28T16:40:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/formazione-ferrero-ministero-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
