@@ -19005,6 +19005,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spese-bancarie-titoli-frontalieri': {
+    title: 'Spese bancarie per titoli: Meierhans critica i costi',
+    description: 'Le spese per il trasferimento di titoli in Svizzera sono tra i 60 e i 120 franchi, secondo la Sorveglianza dei prezzi. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, spese, bancarie, titoli, meierhans',
+    ogTitle: 'Spese bancarie per titoli: Meierhans critica i costi',
+    ogDescription: 'Le spese per il trasferimento di titoli in Svizzera sono tra i 60 e i 120 franchi, secondo la Sorveglianza dei prezzi.',
+    canonicalPath: '/articoli-frontaliere/spese-bancarie-titoli-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spese bancarie per titoli: Meierhans critica i costi",
+      "description": "Le spese per il trasferimento di titoli in Svizzera sono tra i 60 e i 120 franchi, secondo la Sorveglianza dei prezzi. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spese-bancarie-titoli-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con edifici moderni e persone che camminano"
+      },
+      "datePublished": "2026-04-28T11:48:07+00:00",
+      "dateModified": "2026-04-28T11:48:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spese-bancarie-titoli-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

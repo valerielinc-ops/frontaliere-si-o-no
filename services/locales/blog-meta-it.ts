@@ -3314,6 +3314,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.title': 'Sorveglianza telecomunicazioni: +40% in Svizzera, ma rallenta in tempo reale',
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.excerpt': 'Nel 2025, le ricerche tramite antenna sono aumentate del 69%, mentre la sorveglianza in tempo reale è cresciuta solo del 3%.',
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.imageAlt': 'Vista aerea di Lugano con il Lago Ceresio e le montagne circostanti',
+    'blog.article.spese-bancarie-titoli-frontalieri.title': 'Spese bancarie per titoli: Meierhans critica i costi',
+    'blog.article.spese-bancarie-titoli-frontalieri.excerpt': 'Le spese per il trasferimento di titoli in Svizzera sono tra i 60 e i 120 franchi, secondo la Sorveglianza dei prezzi.',
+    'blog.article.spese-bancarie-titoli-frontalieri.imageAlt': 'Vista del lago di Lugano con edifici moderni e persone che camminano',
 };
 
 export default blogMetaIt;

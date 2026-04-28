@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1154,
+ "numberOfItems": 1155,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5789,7 +5789,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1151, "name": "Ospedali varesini: meno letti, più specializzaz...", "url": `${BASE_URL}/articoli-frontaliere/ospedali-varesini-cambiamenti-20-anni` },
           { "@type": "ListItem", "position": 1152, "name": "Sunrise dovrà integrare l’offerta HBB della SSR", "url": `${BASE_URL}/articoli-frontaliere/sunrise-integra-hbb-ssr-2026` },
           { "@type": "ListItem", "position": 1153, "name": "Infermieri: no alla riduzione delle ore settima...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-lavoro-ore-settimanali` },
-          { "@type": "ListItem", "position": 1154, "name": "Sorveglianza telecomunicazioni: +40% in Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/sorveglianza-telecomunicazioni-ticino-2026` }
+          { "@type": "ListItem", "position": 1154, "name": "Sorveglianza telecomunicazioni: +40% in Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/sorveglianza-telecomunicazioni-ticino-2026` },
+          { "@type": "ListItem", "position": 1155, "name": "Spese bancarie per titoli: Meierhans critica i ...", "url": `${BASE_URL}/articoli-frontaliere/spese-bancarie-titoli-frontalieri` }
  ]
  },
  {

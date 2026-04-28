@@ -3314,6 +3314,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.title': 'Surveillance des télécommunications: +40% en Suisse, mais ralentit en temps réel',
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.excerpt': 'En 2025, les recherches par antenne ont augmenté de 69%, tandis que la surveillance en temps réel n\'a progressé que de 3%.',
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.imageAlt': 'Vue aérienne de Lugano avec le lac Ceresio et les montagnes environnantes',
+    'blog.article.spese-bancarie-titoli-frontalieri.title': 'Frais bancaires pour titres : Meierhans critique les coûts',
+    'blog.article.spese-bancarie-titoli-frontalieri.excerpt': 'Les frais de transfert de titres en Suisse sont compris entre 60 et 120 francs, selon la Surveillance des prix.',
+    'blog.article.spese-bancarie-titoli-frontalieri.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes et des personnes qui marchent',
 };
 
 export default blogMetaFr;

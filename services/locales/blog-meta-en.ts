@@ -3313,6 +3313,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.title': 'Telecom surveillance: +40% in Switzerland, but real-time slows',
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.excerpt': 'In 2025, antenna searches increased by 69%, while real-time surveillance grew by only 3%.',
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.imageAlt': 'Aerial view of Lugano with Lake Ceresio and surrounding mountains',
+    'blog.article.spese-bancarie-titoli-frontalieri.title': 'Meierhans criticizes stock transfer fees',
+    'blog.article.spese-bancarie-titoli-frontalieri.excerpt': 'Fees for transferring securities in Switzerland range from 60 to 120 francs, according to Price Surveillance.',
+    'blog.article.spese-bancarie-titoli-frontalieri.imageAlt': 'View of Lake Lugano with modern buildings and people walking',
 };
 
 export default blogMetaEn;

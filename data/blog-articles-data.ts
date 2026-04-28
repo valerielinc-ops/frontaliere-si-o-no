@@ -8743,4 +8743,11 @@ export const ARTICLES = [
  image: '/images/blog/sorveglianza-telecomunicazioni-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'spese-bancarie-titoli-frontalieri',
+ category: 'pratico',
+ date: '2026-04-28T11:48:07.375Z',
+ image: '/images/blog/spese-bancarie-titoli-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

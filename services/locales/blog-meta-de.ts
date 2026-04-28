@@ -3313,6 +3313,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.title': 'Telekommunikationsüberwachung: +40% in der Schweiz, aber Echtzeit verlangsamt',
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.excerpt': '2025 stiegen die Antennenrecherchen um 69%, während die Echtzeitüberwachung nur um 3% wuchs.',
     'blog.article.sorveglianza-telecomunicazioni-ticino-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Ceresio-See und den umliegenden Bergen',
+    'blog.article.spese-bancarie-titoli-frontalieri.title': 'Meierhans kritisiert Gebühren für Wertpapiere',
+    'blog.article.spese-bancarie-titoli-frontalieri.excerpt': 'Die Gebühren für den Transfer von Wertpapieren in der Schweiz liegen zwischen 60 und 120 Franken, wie die Preiskontrolle mitteilt.',
+    'blog.article.spese-bancarie-titoli-frontalieri.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und Menschen, die spazieren gehen',
 };
 
 export default blogMetaDe;
