@@ -9212,4 +9212,11 @@ export const ARTICLES = [
  image: '/images/blog/fuga-ammoniaca-chiasso-causa-trovata.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'unitas-80-anni-innovazione-inclusione',
+ category: 'novita',
+ date: '2026-04-28T20:37:55.115Z',
+ image: '/images/blog/unitas-80-anni-innovazione-inclusione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

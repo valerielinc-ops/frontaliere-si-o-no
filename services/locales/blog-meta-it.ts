@@ -3515,6 +3515,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.title': 'Fuga di ammoniaca a Chiasso: causa individuata',
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.excerpt': 'La fuga di ammoniaca alla pista di ghiaccio di Chiasso è stata causata da una guarnizione difettosa. Tre dipendenti leggermente intossicati.',
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
+    'blog.article.unitas-80-anni-innovazione-inclusione.title': 'Unitas festeggia 80 anni con una rivista audio',
+    'blog.article.unitas-80-anni-innovazione-inclusione.excerpt': 'L\'associazione per non vedenti celebra il traguardo con una rivista audio e progetti per il futuro',
+    'blog.article.unitas-80-anni-innovazione-inclusione.imageAlt': 'Celebrazione degli 80 anni di Unitas a Lugano con persone che ascoltano una rivista audio',
 };
 
 export default blogMetaIt;

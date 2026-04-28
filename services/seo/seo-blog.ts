@@ -20948,6 +20948,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-unitas-80-anni-innovazione-inclusione': {
+    title: 'Unitas festeggia 80 anni con una rivista audio | Frontaliere Ticino',
+    description: 'L\'associazione per non vedenti celebra il traguardo con una rivista audio e progetti per il futuro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, unitas, festeggia, anni, rivista',
+    ogTitle: 'Unitas festeggia 80 anni con una rivista audio',
+    ogDescription: 'L\'associazione per non vedenti celebra il traguardo con una rivista audio e progetti per il futuro',
+    canonicalPath: '/articoli-frontaliere/unitas-80-anni-innovazione-inclusione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Unitas festeggia 80 anni con una rivista audio",
+      "description": "L'associazione per non vedenti celebra il traguardo con una rivista audio e progetti per il futuro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/unitas-80-anni-innovazione-inclusione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Celebrazione degli 80 anni di Unitas a Lugano con persone che ascoltano una rivista audio"
+      },
+      "datePublished": "2026-04-28T20:37:55+00:00",
+      "dateModified": "2026-04-28T20:37:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/unitas-80-anni-innovazione-inclusione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2402,6 +2402,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lombardia-30-milioni-quartiere-efficientamento': { name: 'Novità', path: '/articoli-frontaliere/lombardia-30-milioni-quartiere-efficientamento', parent: 'blog' },
     'blog-moschea-lugano-pregassona-2026': { name: 'Novità', path: '/articoli-frontaliere/moschea-lugano-pregassona-2026', parent: 'blog' },
     'blog-fuga-ammoniaca-chiasso-causa-trovata': { name: 'Novità', path: '/articoli-frontaliere/fuga-ammoniaca-chiasso-causa-trovata', parent: 'blog' },
+    'blog-unitas-80-anni-innovazione-inclusione': { name: 'Unitas 80 anni', path: '/articoli-frontaliere/unitas-80-anni-innovazione-inclusione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

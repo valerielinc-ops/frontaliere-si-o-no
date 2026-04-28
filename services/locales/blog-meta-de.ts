@@ -3514,6 +3514,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.title': 'Ammoniakleck in Chiasso: Ursache gefunden',
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.excerpt': 'Der Ammoniakleck in der Eisdiele von Chiasso wurde durch eine defekte Dichtung verursacht. Drei Mitarbeiter leicht vergiftet.',
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund',
+    'blog.article.unitas-80-anni-innovazione-inclusione.title': 'Unitas feiert 80 Jahre mit einer Hörzeitschrift',
+    'blog.article.unitas-80-anni-innovazione-inclusione.excerpt': 'Der Verband für Sehbehinderte feiert das Jubiläum mit einer Hörzeitschrift und Projekten für die Zukunft',
+    'blog.article.unitas-80-anni-innovazione-inclusione.imageAlt': '80-Jahr-Feier von Unitas in Lugano mit Menschen, die ein Hörmagazin anhören',
 };
 
 export default blogMetaDe;

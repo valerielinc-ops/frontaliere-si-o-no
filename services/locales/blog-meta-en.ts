@@ -3514,6 +3514,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.title': 'Ammonia leak in Chiasso: cause identified',
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.excerpt': 'The ammonia leak at Chiasso\'s ice rink was caused by a defective seal. Three employees slightly intoxicated.',
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background',
+    'blog.article.unitas-80-anni-innovazione-inclusione.title': 'Unitas celebrates 80 years with an audio magazine',
+    'blog.article.unitas-80-anni-innovazione-inclusione.excerpt': 'The association for the visually impaired marks the milestone with an audio magazine and future projects',
+    'blog.article.unitas-80-anni-innovazione-inclusione.imageAlt': '80th anniversary celebration of Unitas in Lugano with people listening to an audio magazine',
 };
 
 export default blogMetaEn;

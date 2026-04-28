@@ -3515,6 +3515,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.title': 'Fuite d\'ammoniac à Chiasso: cause identifiée',
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.excerpt': 'La fuite d\'ammoniac à la patinoire de Chiasso a été causée par un joint défectueux. Trois employés légèrement intoxiqués.',
     'blog.article.fuga-ammoniaca-chiasso-causa-trovata.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.unitas-80-anni-innovazione-inclusione.title': 'Unitas fête ses 80 ans avec un magazine audio',
+    'blog.article.unitas-80-anni-innovazione-inclusione.excerpt': 'L\'association pour non-voyants célèbre cet anniversaire avec un magazine audio et des projets pour l\'avenir',
+    'blog.article.unitas-80-anni-innovazione-inclusione.imageAlt': 'Célébration des 80 ans d\'Unitas à Lugano avec des personnes écoutant un magazine audio',
 };
 
 export default blogMetaFr;
