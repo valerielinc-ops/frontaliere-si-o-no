@@ -10,9 +10,9 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://career.ibsagroup.com/job/Grancia-Procurement-Category-Specialist-TI-6916/1344998255/",
     "https://career.ibsagroup.com/job/Grancia-Customer-&-Business-Support-Specialist-TI-6916/1345574555/",
     "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/",
+    "https://career.ibsagroup.com/job/Grancia-Procurement-Category-Specialist-TI-6916/1344998255/",
     "https://career.ibsagroup.com/job/Lugano-Pazzallo-Meccatronico-TI-6912/1342644055/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Accounting-Officer-%28sost_-maternit%C3%A0%29-TI-6926/1343827855/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-ET&T-QA-Specialist-TI-6926/1343995755/",
@@ -28,15 +28,8 @@
     "https://career.ibsagroup.com/job/Manno-Health%2C-Safety-and-Environment-Specialist-TI-6928/1329492855/"
   ],
   "notes": "Dedicated IBSA crawler seeds from career.ibsagroup.com TI search and canonicalizes detail URLs under /job/.../:jobId/.",
-  "updatedAt": "2026-04-27T22:00:06.164Z",
+  "updatedAt": "2026-04-28T11:04:36.160Z",
   "seedMetaByUrl": {
-    "https://career.ibsagroup.com/job/Grancia-Procurement-Category-Specialist-TI-6916/1344998255/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
     "https://career.ibsagroup.com/job/Grancia-Customer-&-Business-Support-Specialist-TI-6916/1345574555/": {
       "location": "Ticino",
       "canton": "TI",
@@ -45,6 +38,13 @@
       "companyDomain": "ibsa.ch"
     },
     "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/": {
+      "location": "Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
+    "https://career.ibsagroup.com/job/Grancia-Procurement-Category-Specialist-TI-6916/1344998255/": {
       "location": "Ticino",
       "canton": "TI",
       "country": "CH",
