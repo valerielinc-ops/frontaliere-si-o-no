@@ -395,6 +395,43 @@ describe('job alert dedup — per-company cap', () => {
   });
 });
 
+describe('job alert email — broader brand logo matching', () => {
+  it('matches via job.companyKey when set, even if display name slug differs', () => {
+    const job = {
+      ...fixtureJob(),
+      company: 'Cornèr Banca SA',
+      companyKey: 'corner-banca',
+    };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toMatch(/\/images\/brands\/corner-banca\.png/);
+  });
+
+  it('strips legal suffix "AG" so "Banca Cler AG" maps to banca-cler.png', () => {
+    const job = { ...fixtureJob(), company: 'Banca Cler AG' };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toMatch(/\/images\/brands\/banca-cler\.png/);
+  });
+
+  it('strips legal suffix "SA" so "Banca Sempione SA" maps to banca-sempione.png', () => {
+    const job = { ...fixtureJob(), company: 'Banca Sempione SA' };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toMatch(/\/images\/brands\/banca-sempione\.png/);
+  });
+
+  it('"Coop Genossenschaft" still resolves via alias map', () => {
+    const job = { ...fixtureJob(), company: 'Coop Genossenschaft' };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).toMatch(/\/images\/brands\/coop-ticino\.png/);
+  });
+
+  it('falls back to initial-letter avatar when neither name, alias, nor stripped slug matches', () => {
+    const job = { ...fixtureJob(), company: 'Acme Nonexistent SA' };
+    const result = buildAlertEmail(fixtureAlert('it'), [job], true);
+    expect(result.html).not.toMatch(/\/images\/brands\/acme/);
+    expect(result.html).toMatch(/font-size:18px;font-weight:800;color:#f97316;">A<\/div>/);
+  });
+});
+
 describe('job alert email — title cleanup', () => {
   // Live regression: titles arrived as "addetti/e pulizia urbana presso..."
   // (lowercase first letter from crawler) and "Posizione aperta: consulente

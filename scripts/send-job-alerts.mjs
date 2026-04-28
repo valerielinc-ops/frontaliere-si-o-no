@@ -93,16 +93,52 @@ const BRAND_ALIASES = new Map([
   ['coop-svizzera', 'coop-ticino'],
   ['eoc', 'eoc-ente-ospedaliero-cantonale'],
   ['eoc-ospedaliero-cantonale', 'eoc-ente-ospedaliero-cantonale'],
+  ['tether-operations', 'tether'],
+  ['tether-io', 'tether'],
+  ['amministrazione-cantonale-ticino', 'amministrazione-cantonale-ti'],
+  ['allianz-suisse-sa', 'allianz-suisse'],
+  ['allianz-svizzera', 'allianz-suisse'],
+  ['banca-cler-ag', 'banca-cler'],
+  ['banca-sempione-sa', 'banca-sempione'],
+  ['bps-suisse-sa', 'bps-suisse'],
+  ['avaloq-group-ag', 'avaloq'],
+  ['alpiq-holding', 'alpiq'],
+  ['agie-charmilles-management', 'agie-charmilles'],
+  ['gf-machining-solutions', 'agie-charmilles'],
+  ['boggi-milano-sa', 'boggi-milano'],
 ]);
 
-function brandLogoUrl(companyName) {
-  if (!companyName) return null;
-  const baseSlug = String(companyName).toLowerCase()
+// Strip common legal suffixes so "Banca Cler AG" matches "banca-cler.png".
+const LEGAL_SUFFIX_RE = /[- ](?:sa|sagl|s-a|ag|gmbh|s-r-l|srl|spa|s-p-a|holding|group|international|svizzera|suisse|ticino)(?:[- ](?:sa|sagl|ag|gmbh|holding|group))?$/;
+
+function trySlug(slug) {
+  if (!slug) return null;
+  const aliased = BRAND_ALIASES.get(slug) || slug;
+  const filename = BRAND_LOGO_BY_SLUG.get(aliased);
+  return filename ? `${BASE_URL}/images/brands/${filename}` : null;
+}
+
+function brandLogoUrl(companyName, companyKey) {
+  if (!companyName && !companyKey) return null;
+  // 1. Crawler-provided companyKey (already normalized, most reliable).
+  if (companyKey) {
+    const hit = trySlug(String(companyKey).toLowerCase());
+    if (hit) return hit;
+  }
+  // 2. Slugified display name.
+  const baseSlug = String(companyName || '').toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-  const slug = BRAND_ALIASES.get(baseSlug) || baseSlug;
-  const filename = BRAND_LOGO_BY_SLUG.get(slug);
-  return filename ? `${BASE_URL}/images/brands/${filename}` : null;
+  if (!baseSlug) return null;
+  const direct = trySlug(baseSlug);
+  if (direct) return direct;
+  // 3. Strip a single legal-suffix tier ("Banca Cler AG" → "banca-cler").
+  const stripped = baseSlug.replace(LEGAL_SUFFIX_RE, '');
+  if (stripped !== baseSlug) {
+    const hit = trySlug(stripped);
+    if (hit) return hit;
+  }
+  return null;
 }
 
 // Format a job salary (annual / monthly / hourly) into a compact, locale-aware label.
@@ -513,7 +549,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const rawJobUrl = slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}?${utmBase}` : BASE_URL;
     const url = wrapUrl(rawJobUrl);
     const initial = (company || '?')[0].toUpperCase();
-    const logoSrc = brandLogoUrl(company);
+    const logoSrc = brandLogoUrl(company, job.companyKey);
     const tags = [];
     // "NEW" badge for jobs first seen within 48 hours.
     const firstSeen = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
