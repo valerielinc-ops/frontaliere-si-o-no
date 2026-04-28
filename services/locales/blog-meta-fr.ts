@@ -3578,6 +3578,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rogo-san-fermo-battaglia-2024.title': 'Incendie à San Fermo della Battaglia, aucun blessé',
     'blog.article.rogo-san-fermo-battaglia-2024.excerpt': 'Un incendie s\'est déclaré sur le Pin Umbrèla à San Fermo della Battaglia, dans la province de Côme, sans faire de victimes.',
     'blog.article.rogo-san-fermo-battaglia-2024.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les villes environnantes',
+    'blog.article.terremoto-san-gallo-2026.title': 'Séisme de magnitude 3.8 dans le canton de Saint-Gall',
+    'blog.article.terremoto-san-gallo-2026.excerpt': 'Un séisme de magnitude 3.8 a frappé le canton de Saint-Gall à 4h24 le 26 avril 2026, avec son épicentre près de Walenstadt. Aucun dommage signalé.',
+    'blog.article.terremoto-san-gallo-2026.imageAlt': 'Dégâts causés par un tremblement de terre dans un village suisse avec des personnes réagissant et des bâtiments montrant des fissures',
 };
 
 export default blogMetaFr;

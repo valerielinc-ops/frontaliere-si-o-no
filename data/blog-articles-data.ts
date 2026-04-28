@@ -9359,4 +9359,11 @@ export const ARTICLES = [
  image: '/images/blog/rogo-san-fermo-battaglia-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'terremoto-san-gallo-2026',
+ category: 'novita',
+ date: '2026-04-28T22:46:21.089Z',
+ image: '/images/blog/terremoto-san-gallo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

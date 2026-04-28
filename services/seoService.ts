@@ -2423,6 +2423,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-neuchatel-palloncini-lanterne-vietati': { name: 'Novità', path: '/articoli-frontaliere/neuchatel-palloncini-lanterne-vietati', parent: 'blog' },
     'blog-vaud-parlamento-dimissioni-dittli': { name: 'Novità', path: '/articoli-frontaliere/vaud-parlamento-dimissioni-dittli', parent: 'blog' },
     'blog-rogo-san-fermo-battaglia-2024': { name: 'Novità', path: '/articoli-frontaliere/rogo-san-fermo-battaglia-2024', parent: 'blog' },
+    'blog-terremoto-san-gallo-2026': { name: 'Novità', path: '/articoli-frontaliere/terremoto-san-gallo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

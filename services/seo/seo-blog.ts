@@ -21557,6 +21557,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terremoto-san-gallo-2026': {
+    title: 'Terremoto 3.8 in Canton San Gallo | Frontaliere Ticino',
+    description: 'Un terremoto di magnitudo 3.8 ha colpito il Canton San Gallo il 26 aprile 2026, con epicentro vicino a Walenstadt. Scosse avvertite in tutta la Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, terremoto, canton, gallo, magnitudo',
+    ogTitle: 'Terremoto in Canton San Gallo: magnitudo 3.8, scosse avvertite in tutta la Svizzera',
+    ogDescription: 'Un terremoto di magnitudo 3.8 ha colpito il Canton San Gallo il 26 aprile 2026, con epicentro vicino a Walenstadt. Scosse avvertite in tutta la Svizzera.',
+    canonicalPath: '/articoli-frontaliere/terremoto-san-gallo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terremoto in Canton San Gallo: magnitudo 3.8, scosse avvertite in tutta la Svizzera",
+      "description": "Un terremoto di magnitudo 3.8 ha colpito il Canton San Gallo il 26 aprile 2026, con epicentro vicino a Walenstadt. Scosse avvertite in tutta la Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/terremoto-san-gallo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Danni da terremoto in un villaggio svizzero con persone che reagiscono e edifici con crepe"
+      },
+      "datePublished": "2026-04-28T22:46:21+00:00",
+      "dateModified": "2026-04-28T22:46:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/terremoto-san-gallo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

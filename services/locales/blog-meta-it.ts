@@ -3578,6 +3578,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rogo-san-fermo-battaglia-2024.title': 'Rogo a San Fermo della Battaglia, nessuno ferito',
     'blog.article.rogo-san-fermo-battaglia-2024.excerpt': 'Un incendio è divampato sul Pin Umbrèla a San Fermo della Battaglia, in provincia di Como, senza causare vittime.',
     'blog.article.rogo-san-fermo-battaglia-2024.imageAlt': 'Vista aerea del Lago di Lugano con montagne e paesi circostanti',
+    'blog.article.terremoto-san-gallo-2026.title': 'Terremoto 3.8 in Canton San Gallo',
+    'blog.article.terremoto-san-gallo-2026.excerpt': 'Un terremoto di magnitudo 3.8 ha colpito il Canton San Gallo alle 4.24 del 26 aprile 2026, con epicentro vicino a Walenstadt. Nessun danno segnalato.',
+    'blog.article.terremoto-san-gallo-2026.imageAlt': 'Danni da terremoto in un villaggio svizzero con persone che reagiscono e edifici con crepe',
 };
 
 export default blogMetaIt;

@@ -3577,6 +3577,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rogo-san-fermo-battaglia-2024.title': 'Brand in San Fermo della Battaglia, keine Verletzten',
     'blog.article.rogo-san-fermo-battaglia-2024.excerpt': 'Ein Feuer ist auf dem Pin Umbrèla in San Fermo della Battaglia, Provinz Como, ausgebrochen, ohne Opfer zu verursachen.',
     'blog.article.rogo-san-fermo-battaglia-2024.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Bergen und Städten',
+    'blog.article.terremoto-san-gallo-2026.title': 'Erdbeben der Stärke 3.8 im Kanton St. Gallen',
+    'blog.article.terremoto-san-gallo-2026.excerpt': 'Ein Erdbeben der Stärke 3.8 hat den Kanton St. Gallen um 4.24 Uhr am 26. April 2026 erschüttert, mit Epizentrum in der Nähe von Walenstadt. Keine Schäden gemeldet.',
+    'blog.article.terremoto-san-gallo-2026.imageAlt': 'Erdbebenschäden in einem Schweizer Dorf mit Menschen, die reagieren und Gebäuden mit Rissen',
 };
 
 export default blogMetaDe;
