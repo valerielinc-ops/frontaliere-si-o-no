@@ -161,6 +161,51 @@ jobs:
           restore-keys: |
             vite-${{ runner.os }}-
 
+      # Cache webp-converted images. The webpPlugin walks dist/images/ and
+      # converts every PNG/JPG to .webp, which is otherwise a 500s cost on
+      # every build (deploy run #25039504369 timing). The cache key rotates
+      # only when the actual source images change, so most builds restore
+      # the .webp files and the plugin's skip-if-fresh logic short-circuits
+      # the conversion to a few seconds.
+      #
+      # We cache `public/images/**/*.webp` (committed alongside source PNGs;
+      # Vite copies them into dist/ on build) and `dist/images/**/*.webp`
+      # (defense in depth — dist is wiped on prepareOutDirPlugin but cache
+      # restore happens AFTER wipe in some plugin configurations).
+      - name: Cache webp-converted images
+        uses: actions/cache@v5
+        with:
+          path: |
+            public/images/**/*.webp
+            dist/images/**/*.webp
+          key: webp-${{ runner.os }}-${{ hashFiles('public/images/**/*.{jpg,png,jpeg}') }}
+          restore-keys: |
+            webp-${{ runner.os }}-
+
+      # Cache PDF whitepapers. The pdfWhitepapersPlugin generates 4 large
+      # PDFs every build (~480s total in deploy run #25039504369). Source
+      # content lives under services/locales/blog-body/it/*.ts and changes
+      # rarely, so most builds can short-circuit by reading the cached PDF.
+      #
+      # The plugin maintains `.build-cache/pdf-manifest.json` keyed by
+      # filename → sha256(markdown + render-version). On cache restore the
+      # cached PDFs land back in `.build-cache/pdf-cache/` and the plugin
+      # skip path copies them straight into dist/guides/.
+      #
+      # Cache key inputs:
+      #   - the plugin source (any rendering change must invalidate)
+      #   - the 4 blog-body files the GUIDES array points at
+      - name: Cache PDF whitepapers
+        uses: actions/cache@v5
+        with:
+          path: |
+            .build-cache/pdf-manifest.json
+            .build-cache/pdf-cache/**/*.pdf
+            dist/guides/**/*.pdf
+          key: pdf-${{ runner.os }}-${{ hashFiles('build-plugins/pdfWhitepapersPlugin.ts', 'services/locales/blog-body/it/guida-completa-frontaliere.ts', 'services/locales/blog-body/it/permesso-g-vantaggi-svantaggi.ts', 'services/locales/blog-body/it/lamal-vs-ssn-decisione.ts', 'services/locales/blog-body/it/trovare-lavoro-ticino.ts') }}
+          restore-keys: |
+            pdf-${{ runner.os }}-
+
       # Cache content-hash manifest step DISABLED 2026-04-28 — paired with the
       # disabled bootstrap/finalize plugins in vite.config.ts. The repo's
       # auto-blog/auto-translate churn meant ~80% of deploys had data changes,

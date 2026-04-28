@@ -22,8 +22,12 @@ import { orphanQueryLandingPlugin } from './build-plugins/orphanQueryLandingPlug
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
+// flatHtmlRedirectPlugin + hreflangPostprocessPlugin imports retained for
+// type re-exports / unit tests. Their plugin exports are now consumed
+// internally by `postWalkCoordinatorPlugin` (single-walk perf optimization).
 import { flatHtmlRedirectPlugin } from './build-plugins/flatHtmlRedirectPlugin';
 import { hreflangPostprocessPlugin } from './build-plugins/hreflangPostprocessPlugin';
+import { postWalkCoordinatorPlugin } from './build-plugins/postWalkCoordinatorPlugin';
 // flatContentPlugin removed — all plugins now write real content to both index.html and flat .html directly,
 // then flatHtmlRedirectPlugin (post-processor) converts each flat .html with a sibling /index.html into a
 // 301-style redirect bridge to close ~3.2k Semrush hreflang↔canonical conflicts.
@@ -39,6 +43,8 @@ import { fuelDailyPagesPlugin } from './build-plugins/fuelDailyPagesPlugin';
 import { weeklyEmployersPlugin } from './build-plugins/weeklyEmployersPlugin';
 import { jobMarketSnapshotPlugin } from './build-plugins/jobMarketSnapshotPlugin';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
+// blogContextualLinksPlugin import retained for tests / type re-exports.
+// Its plugin export is now consumed internally by `postWalkCoordinatorPlugin`.
 import { blogContextualLinksPlugin } from './build-plugins/blogContextualLinksPlugin';
 import { borderWaitPagesPlugin } from './build-plugins/borderWaitPagesPlugin';
 import { marketReportPlugin } from './build-plugins/marketReportPlugin';
@@ -170,20 +176,22 @@ export default defineConfig(({ mode }) => {
  llmsTxtPlugin(__dirname),
  webpPlugin(__dirname),
  pdfWhitepapersPlugin(__dirname),
- // A6: inject contextual links from blog articles to feature hubs.
- // MUST run after ogPagesPlugin + jobsSeoPagesPlugin so the target
- // HTML files already exist on disk when closeBundle fires.
- blogContextualLinksPlugin(__dirname),
- // Post-processor — runs LAST, after every other plugin has written its
- // flat .html files. Converts each `<path>.html` that has a sibling
- // `<path>/index.html` into a 301-style redirect bridge so crawlers
- // never see two canonical-conflicting copies of the same content.
- flatHtmlRedirectPlugin(__dirname, { baseUrl: 'https://frontaliereticino.ch' }),
- // Phase 2-hreflang — runs AFTER flatHtmlRedirectPlugin. Walks every
- // dist/*.html and strips `<link rel="alternate" hreflang>` whose target
- // does not exist on disk, so Semrush no longer counts missing-locale
- // translations as broken internal links (Issue 8/E1, Issue 25/E8).
- hreflangPostprocessPlugin(__dirname, { baseUrl: 'https://frontaliereticino.ch' }),
+ // ── Post-walk coordinator (perf optimization 2026-04-28) ─────
+ // Replaces three sequential dist/**/*.html walkers that used to run
+ // here independently:
+ //   1. blogContextualLinksPlugin (~9.5s)  — inject 1-2 contextual
+ //      links per blog article HTML.
+ //   2. flatHtmlRedirectPlugin (~52.7s)    — convert every flat .html
+ //      with a sibling /index.html into a redirect bridge.
+ //   3. hreflangPostprocessPlugin (~76.3s) — strip broken
+ //      <link rel="alternate" hreflang> tags whose target is absent.
+ //
+ // All three are now applied during ONE shared walk inside the
+ // coordinator: each HTML file is opened once, transformed in order,
+ // and written at most once. The legacy plugin exports remain
+ // available for unit tests but MUST NOT be registered here — that
+ // would duplicate the work and erase the perf win.
+ postWalkCoordinatorPlugin(__dirname, { baseUrl: 'https://frontaliereticino.ch' }),
  // T2.6 disabled — brotli quality 11 on 220k HTML files added 5-10 min to
  // build for negligible benefit: GitHub Pages serves through Fastly which
  // gzips on-the-fly, and pre-compressed siblings aren't preferentially
