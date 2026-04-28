@@ -3451,6 +3451,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lugano-cultura-digitale-2024.title': 'Lugano Kultur erneuert sich: ein einzigartiger digitaler Raum',
     'blog.article.lugano-cultura-digitale-2024.excerpt': 'Neue digitale Plattform, um Kultur in Lugano zu entdecken: Anbieter, Veranstaltungen und historisches Erbe an einem Ort',
     'blog.article.lugano-cultura-digitale-2024.imageAlt': 'Start der digitalen Plattform Lugano Cultura in Lugano',
+    'blog.article.fondazione-xenia-patto-generazionale.title': 'Stiftung Xenia: Generationenpakt für behinderte Kinder',
+    'blog.article.fondazione-xenia-patto-generazionale.excerpt': 'Ein innovatives Projekt, um behinderten Kindern eine sorgenfreie Zukunft zu garantieren, inspiriert von der Tradition des Hofhauses.',
+    'blog.article.fondazione-xenia-patto-generazionale.imageAlt': 'Idyllische Seegemeinde im Tessin mit modernen Gebäuden und Familien, die Outdoor-Aktivitäten genießen',
 };
 
 export default blogMetaDe;

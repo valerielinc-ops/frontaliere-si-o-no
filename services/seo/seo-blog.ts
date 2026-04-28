@@ -20339,6 +20339,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondazione-xenia-patto-generazionale': {
+    title: 'Fondazione Xenia: il Patto Generazionale per l\'assistenza ai figli disabili',
+    description: 'Scopri il progetto innovativo della Fondazione Xenia per garantire un futuro sereno ai figli disabili, ispirato alla tradizione della casa di corte.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondazione, xenia, patto, generazionale',
+    ogTitle: 'Fondazione Xenia: il Patto Generazionale per l\'assistenza ai figli disabili',
+    ogDescription: 'Scopri il progetto innovativo della Fondazione Xenia per garantire un futuro sereno ai figli disabili, ispirato alla tradizione della casa di corte.',
+    canonicalPath: '/articoli-frontaliere/fondazione-xenia-patto-generazionale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fondazione Xenia: il Patto Generazionale per l'assistenza ai figli disabili",
+      "description": "Scopri il progetto innovativo della Fondazione Xenia per garantire un futuro sereno ai figli disabili, ispirato alla tradizione della casa di corte.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fondazione-xenia-patto-generazionale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Comunità serena sul lago in Ticino con edifici moderni e famiglie che godono delle attività all'aperto"
+      },
+      "datePublished": "2026-04-28T18:33:16+00:00",
+      "dateModified": "2026-04-28T18:33:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fondazione-xenia-patto-generazionale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

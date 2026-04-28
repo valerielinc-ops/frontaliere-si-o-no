@@ -2381,6 +2381,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casse-malati-ticino-divise-2026': { name: 'Casse malati', path: '/articoli-frontaliere/casse-malati-ticino-divise-2026', parent: 'blog' },
     'blog-cina-spostamenti-frontalieri-primo-maggio': { name: 'Novità', path: '/articoli-frontaliere/cina-spostamenti-frontalieri-primo-maggio', parent: 'blog' },
     'blog-lugano-cultura-digitale-2024': { name: 'Novità culturale', path: '/articoli-frontaliere/lugano-cultura-digitale-2024', parent: 'blog' },
+    'blog-fondazione-xenia-patto-generazionale': { name: 'Fondazione Xenia', path: '/articoli-frontaliere/fondazione-xenia-patto-generazionale', parent: 'blog' },
  };
 
  const info = sectionNames[section];

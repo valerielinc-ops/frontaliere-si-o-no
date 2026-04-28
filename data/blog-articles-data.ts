@@ -9065,4 +9065,11 @@ export const ARTICLES = [
  image: '/images/blog/lugano-cultura-digitale-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fondazione-xenia-patto-generazionale',
+ category: 'novita',
+ date: '2026-04-28T18:33:16.096Z',
+ image: '/images/blog/fondazione-xenia-patto-generazionale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
