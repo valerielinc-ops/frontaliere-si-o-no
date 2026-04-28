@@ -1,18 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-04-28T11:13:02.216Z",
+  "generatedAt": "2026-04-28T22:12:17.829Z",
   "total": 12,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 18667,
-  "avgDurationMs": 18667,
+  "durationMs": 27030,
+  "avgDurationMs": 27030,
   "durationHistory": [
-    18667
+    27030
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-xsgkjj",
       "slug": "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino-xsgkjj",
@@ -36,21 +37,25 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-04-28T11:13:02.001Z",
       "firstSeenAt": "2026-04-28T11:13:02.001Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "postalCode": "6595",
       "streetAddress": "Via Stradonino 1",
-      "_qualityScore": 72,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 2,
-        "completeness": 20
+        "translation": 23,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-7p9uz6",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6",
