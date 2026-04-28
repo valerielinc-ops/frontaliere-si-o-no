@@ -4392,13 +4392,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  canonicalPath: '/statistiche/confronto-mutui',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebApplication",
- "name": "Simulatore Confronto Mutui Italia vs Svizzera",
+ "@type": "WebPage",
+ "name": "Confronto Mutui Italia vs Svizzera",
  "url": `${BASE_URL}/statistiche/confronto-mutui`,
- "description": "Simulatore interattivo per confrontare mutui italiani e ipoteche svizzere: rata mensile, interessi totali, vantaggi fiscali, Tragbarkeit",
- "applicationCategory": "FinanceApplication",
- "operatingSystem": "Web",
- "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "description": "Pagina di confronto tra mutui italiani e ipoteche svizzere per frontalieri: rata mensile, interessi totali, vantaggi fiscali, Tragbarkeit",
  "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
  }

@@ -24,13 +24,18 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 
+// @types that do NOT accept inLanguage per schema.org. Anything else flagged
+// here was a false-positive: see services/seo/inlanguage-whitelist.ts for the
+// canonical positive list (CreativeWork descendants + Event + JobPosting +
+// Product). SoftwareApplication / WebApplication are CreativeWork descendants
+// and DO accept inLanguage despite an earlier comment claiming otherwise.
 const FORBIDDEN = new Set([
   'BreadcrumbList',
   'ItemList',
   'Place',
   'Organization',
-  'SoftwareApplication',
-  'WebApplication',
+  'LocalBusiness',
+  'Offer',
 ]);
 
 const ROOTS = ['build-plugins', 'services/seo', 'services/seoService.ts'];

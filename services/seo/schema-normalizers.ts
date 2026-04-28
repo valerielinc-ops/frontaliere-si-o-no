@@ -9,18 +9,6 @@ const DEFAULT_OFFER = {
  priceCurrency: 'CHF',
 } as const;
 
-// Brand-consistent default rating reused on `index.html`, `/calcola-stipendio`,
-// `/compara-servizi/confronta-banche`, `/simula-busta-paga`. Auto-injected on any
-// WebApplication/SoftwareApplication that arrives without aggregateRating or review
-// so Semrush's "Software App requires aggregateRating or review" gate stops firing.
-const DEFAULT_AGGREGATE_RATING = {
- '@type': 'AggregateRating',
- ratingValue: '4.8',
- ratingCount: '1247',
- bestRating: '5',
- worstRating: '1',
-} as const;
-
 function normalizeOffer(value: unknown): Record<string, any> {
  if (!value || typeof value !== 'object' || Array.isArray(value)) {
   return { ...DEFAULT_OFFER };
@@ -70,18 +58,11 @@ function normalizeSchemaObject(record: Record<string, any>): Record<string, any>
   if ('speakable' in record) {
    delete record.speakable;
   }
-  // Inject brand-consistent default rating when neither aggregateRating nor a
-  // non-empty review array is present. Schema.org's WebApplication/SoftwareApplication
-  // pattern requires at least one for "Software App" rich-result eligibility, and
-  // Semrush hard-fails the page otherwise. Pages that already supply their own
-  // rating (e.g. /calcola-stipendio with explicit Reviews) are left untouched.
-  const hasRating = record.aggregateRating !== undefined && record.aggregateRating !== null;
-  const hasReview =
-   (Array.isArray(record.review) && record.review.length > 0) ||
-   (record.review !== undefined && record.review !== null && !Array.isArray(record.review));
-  if (!hasRating && !hasReview) {
-   record.aggregateRating = { ...DEFAULT_AGGREGATE_RATING };
-  }
+  // Note: aggregateRating is NOT auto-injected. Faking review data violates
+  // Google's structured-data guidelines (manual-action risk). Pages that
+  // genuinely qualify as a SoftwareApplication should declare their own
+  // ratings explicitly; SEO landing pages without real reviews must instead
+  // use a non-app @type (WebPage / CollectionPage / Article).
  }
 
  if (record.inLanguage !== undefined) {

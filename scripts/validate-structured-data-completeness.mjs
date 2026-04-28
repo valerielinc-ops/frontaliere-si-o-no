@@ -324,31 +324,55 @@ function validateWebApplication(schema, filePath) {
 
 // ── Schema.org @type whitelists ─────────────────────────────────────────────
 
-// Types that MAY carry `inLanguage` (CreativeWork + descendants we use).
-// Anything outside this set carrying inLanguage is rejected by Semrush.
+// Types that MAY carry `inLanguage` per schema.org/inLanguage:
+// CreativeWork (and ALL subclasses) + Event + LinkRole + WriteAction.
+// Google's rich-results validator additionally accepts inLanguage on
+// JobPosting and Product. Anything outside this set is rejected.
+//
+// Keep in sync with services/seo/inlanguage-whitelist.ts.
 const INLANGUAGE_WHITELIST = new Set([
-  'Article',
-  'NewsArticle',
-  'BlogPosting',
+  // CreativeWork itself
+  'CreativeWork',
+  // WebPage subtree
   'WebPage',
   'CollectionPage',
   'AboutPage',
   'ContactPage',
   'FAQPage',
   'QAPage',
-  'JobPosting',
+  'WebSite',
+  // Article subtree
+  'Article',
+  'NewsArticle',
+  'BlogPosting',
+  'ScholarlyArticle',
+  'TechArticle',
+  'OpinionNewsArticle',
+  'ReportageNewsArticle',
+  // Software application subtree (extends CreativeWork)
+  'SoftwareApplication',
+  'WebApplication',
+  'MobileApplication',
+  // Other CreativeWork descendants
   'Dataset',
-  'CreativeWork',
   'HowTo',
-  'Product',
+  'Recipe',
+  'Course',
+  'Book',
+  'Message',
   'Review',
+  'ClaimReview',
   'VideoObject',
   'ImageObject',
   'AudioObject',
-  'Book',
-  'Course',
-  'Recipe',
-  'Message',
+  'MediaObject',
+  // schema.org explicitly lists these as accepting inLanguage
+  'Event',
+  'LinkRole',
+  'WriteAction',
+  // Google rich-results validator also accepts inLanguage here
+  'JobPosting',
+  'Product',
 ]);
 
 const WEBAPP_TYPES = new Set(['WebApplication', 'SoftwareApplication']);
