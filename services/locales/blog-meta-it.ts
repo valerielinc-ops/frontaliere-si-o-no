@@ -3428,6 +3428,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.biasca-roller-hockey-uttigen-2026.title': 'Biasca rimanda la finale: Uttigen vince ai supplementari',
     'blog.article.biasca-roller-hockey-uttigen-2026.excerpt': 'Il Biasca dovrà attendere ancora per la finale dopo la sconfitta ai supplementari contro l\'Uttigen. La serie va a gara 4.',
     'blog.article.biasca-roller-hockey-uttigen-2026.imageAlt': 'Partita di roller hockey in Ticino con le Alpi sullo sfondo',
+    'blog.article.vuoto-ginevra-olympic-basket.title': 'Basket: il divario tra Ginevra e Olympic',
+    'blog.article.vuoto-ginevra-olympic-basket.excerpt': 'Analisi del campionato svizzero di basket con un divario evidente tra le prime e le altre squadre',
+    'blog.article.vuoto-ginevra-olympic-basket.imageAlt': 'Partita di basket professionistica a Lugano',
 };
 
 export default blogMetaIt;

@@ -20107,6 +20107,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vuoto-ginevra-olympic-basket': {
+    title: 'Basket: il divario tra Ginevra e Olympic | Frontaliere Ticino',
+    description: 'Analisi del campionato svizzero di basket con un divario evidente tra le prime e le altre squadre. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, basket, divario, ginevra, olympic',
+    ogTitle: 'Basket: il divario tra Ginevra e Olympic',
+    ogDescription: 'Analisi del campionato svizzero di basket con un divario evidente tra le prime e le altre squadre',
+    canonicalPath: '/articoli-frontaliere/vuoto-ginevra-olympic-basket',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Basket: il divario tra Ginevra e Olympic",
+      "description": "Analisi del campionato svizzero di basket con un divario evidente tra le prime e le altre squadre. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vuoto-ginevra-olympic-basket.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di basket professionistica a Lugano"
+      },
+      "datePublished": "2026-04-28T17:45:45+00:00",
+      "dateModified": "2026-04-28T17:45:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vuoto-ginevra-olympic-basket`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

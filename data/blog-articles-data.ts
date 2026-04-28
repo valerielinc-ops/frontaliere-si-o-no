@@ -9009,4 +9009,11 @@ export const ARTICLES = [
  image: '/images/blog/biasca-roller-hockey-uttigen-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vuoto-ginevra-olympic-basket',
+ category: 'novita',
+ date: '2026-04-28T17:45:45.927Z',
+ image: '/images/blog/vuoto-ginevra-olympic-basket.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

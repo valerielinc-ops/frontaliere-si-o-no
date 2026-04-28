@@ -3427,6 +3427,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.biasca-roller-hockey-uttigen-2026.title': 'Biasca muss auf Finale warten: Uttigen gewinnt in Verlängerung',
     'blog.article.biasca-roller-hockey-uttigen-2026.excerpt': 'Biasca muss noch auf das Finale warten nach der Niederlage in der Verlängerung gegen Uttigen. Die Serie geht in Spiel 4.',
     'blog.article.biasca-roller-hockey-uttigen-2026.imageAlt': 'Rollerhockey-Spiel in Tessin mit den Alpen im Hintergrund',
+    'blog.article.vuoto-ginevra-olympic-basket.title': 'Basket: Die Kluft zwischen Genf und Olympic',
+    'blog.article.vuoto-ginevra-olympic-basket.excerpt': 'Analyse der Schweizer Basketballmeisterschaft mit einem deutlichen Unterschied zwischen den ersten und den anderen Teams',
+    'blog.article.vuoto-ginevra-olympic-basket.imageAlt': 'Professionelles Basketballspiel in Lugano',
 };
 
 export default blogMetaDe;

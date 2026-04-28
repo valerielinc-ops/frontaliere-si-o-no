@@ -2373,6 +2373,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-calcio-dnb-belli-crisi': { name: 'Calcio Dnb', path: '/articoli-frontaliere/calcio-dnb-belli-crisi', parent: 'blog' },
     'blog-berset-sostegno-reynard-crans-montana': { name: 'Novità', path: '/articoli-frontaliere/berset-sostegno-reynard-crans-montana', parent: 'blog' },
     'blog-biasca-roller-hockey-uttigen-2026': { name: 'Novità', path: '/articoli-frontaliere/biasca-roller-hockey-uttigen-2026', parent: 'blog' },
+    'blog-vuoto-ginevra-olympic-basket': { name: 'Novità', path: '/articoli-frontaliere/vuoto-ginevra-olympic-basket', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3427,6 +3427,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.biasca-roller-hockey-uttigen-2026.title': 'Biasca delayed: Uttigen wins in overtime',
     'blog.article.biasca-roller-hockey-uttigen-2026.excerpt': 'Biasca will have to wait for the final after losing in overtime to Uttigen. The series goes to game 4.',
     'blog.article.biasca-roller-hockey-uttigen-2026.imageAlt': 'Roller hockey match in Ticino with the Alps in the background',
+    'blog.article.vuoto-ginevra-olympic-basket.title': 'Basket: the gap between Geneva and Olympic',
+    'blog.article.vuoto-ginevra-olympic-basket.excerpt': 'Analysis of the Swiss basketball championship with an evident gap between the top teams and the rest',
+    'blog.article.vuoto-ginevra-olympic-basket.imageAlt': 'Professional basketball game in Lugano',
 };
 
 export default blogMetaEn;
