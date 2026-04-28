@@ -34,14 +34,53 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 
-const NOINDEX_BRIDGE = (slashUrl: string, title: string): string =>
+/**
+ * Extract og:* / twitter:* / description meta tags from the sibling index.html
+ * so the bridge can serve them to crawlers (Facebook, Twitter, LinkedIn, Slack…)
+ * that don't follow the JS location.replace redirect. The bridge keeps
+ * `noindex,follow` for Google — only social crawlers care about OG.
+ *
+ * Tolerant matching: meta tags can appear with attributes in any order,
+ * single or double quotes. We capture the entire <meta ...> tag verbatim and
+ * filter by property/name.
+ *
+ * Defense-in-depth for deploy run #25033670793: even if a crawler hits the
+ * no-slash URL, it now gets correct preview metadata instead of a blank bridge.
+ */
+function extractOgTags(indexHtml: string): string {
+  const tags: string[] = [];
+  const metaRx = /<meta\b[^>]*\/?>/gi;
+  const attrRx = /([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
+  let match: RegExpExecArray | null;
+  while ((match = metaRx.exec(indexHtml))) {
+    const tag = match[0];
+    attrRx.lastIndex = 0;
+    const attrs: Record<string, string> = {};
+    let attrMatch: RegExpExecArray | null;
+    while ((attrMatch = attrRx.exec(tag))) {
+      const [, rawName, dq = '', sq = ''] = attrMatch;
+      attrs[String(rawName || '').toLowerCase()] = dq || sq || '';
+    }
+    const property = String(attrs.property || '').toLowerCase();
+    const name = String(attrs.name || '').toLowerCase();
+    const isOg = property.startsWith('og:');
+    const isTwitter = name.startsWith('twitter:');
+    const isDescription = name === 'description';
+    if (isOg || isTwitter || isDescription) {
+      tags.push(tag);
+    }
+  }
+  return tags.join('\n');
+}
+
+const NOINDEX_BRIDGE = (slashUrl: string, title: string, ogTags: string): string =>
   `<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
 <title>${title}</title>
 <link rel="canonical" href="${slashUrl}">
-<meta name="robots" content="noindex,follow">
+<meta name="robots" content="noindex,follow">${ogTags ? `\n${ogTags}` : ''}
 <script>location.replace(${JSON.stringify(slashUrl)} + window.location.search + window.location.hash)</script>
 </head>
 <body><a href="${slashUrl}">Continua su ${slashUrl}</a></body>
@@ -97,6 +136,7 @@ export function flatHtmlRedirectPlugin(rootDir: string, opts: FlatRedirectOption
         const relPath = path.relative(distDir, stem).replace(/\\/g, '/');
         const slashUrl = `${trimmedBase}/${relPath}/`;
         let title = `Redirecting to ${slashUrl}`;
+        let ogTags = '';
         try {
           const siblingHtml = fs.readFileSync(sibling, 'utf-8');
           const titleMatch = siblingHtml.match(/<title[^>]*>([^<]+)<\/title>/i);
@@ -106,10 +146,11 @@ export function flatHtmlRedirectPlugin(rootDir: string, opts: FlatRedirectOption
               title = extracted;
             }
           }
+          ogTags = extractOgTags(siblingHtml);
         } catch {
-          // fallback already set
+          // fallback already set; ogTags stays empty
         }
-        fs.writeFileSync(file, NOINDEX_BRIDGE(slashUrl, title));
+        fs.writeFileSync(file, NOINDEX_BRIDGE(slashUrl, title, ogTags));
         converted++;
       }
 
