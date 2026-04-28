@@ -3406,6 +3406,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casse-malati-dado-scissione-dossier.title': 'Dadò proposes splitting health insurance dossier',
     'blog.article.casse-malati-dado-scissione-dossier.excerpt': 'Fiorenzo Dadò, president of the Centro, suggests dividing the health insurance dossier into two separate reports. A popular vote is possible.',
     'blog.article.casse-malati-dado-scissione-dossier.imageAlt': 'Lake Lugano with a modern financial district in the background',
+    'blog.article.iliad-piu-veloci-rete-mobili.title': 'Iliad unveils \'Faster\', new-gen mobile network plan',
+    'blog.article.iliad-piu-veloci-rete-mobili.excerpt': 'Iliad\'s \'Faster\' plan aims to accelerate mobile network development in Italy, impacting citizens, businesses, and operators.',
+    'blog.article.iliad-piu-veloci-rete-mobili.imageAlt': 'Panoramic view of Lugano with 5G network towers and people using smartphones',
 };
 
 export default blogMetaEn;

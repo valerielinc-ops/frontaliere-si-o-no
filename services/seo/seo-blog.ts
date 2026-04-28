@@ -19904,6 +19904,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iliad-piu-veloci-rete-mobili': {
+    title: 'Iliad presenta \'Più veloci\', piano per reti mobili di nuova generazione',
+    description: 'Iliad presenta \'Più Veloci\', un piano per accelerare lo sviluppo delle reti mobili in Italia, con impatto su cittadini, imprese e operatori. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, iliad, presenta, veloci, piano',
+    ogTitle: 'Iliad presenta \'Più veloci\', piano per reti mobili di nuova generazione',
+    ogDescription: 'Iliad presenta \'Più Veloci\', un piano per accelerare lo sviluppo delle reti mobili in Italia, con impatto su cittadini, imprese e operatori.',
+    canonicalPath: '/articoli-frontaliere/iliad-piu-veloci-rete-mobili',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iliad presenta 'Più veloci', piano per reti mobili di nuova generazione",
+      "description": "Iliad presenta 'Più Veloci', un piano per accelerare lo sviluppo delle reti mobili in Italia, con impatto su cittadini, imprese e operatori. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iliad-piu-veloci-rete-mobili.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con torri di rete 5G e persone che usano smartphone"
+      },
+      "datePublished": "2026-04-28T16:29:26+00:00",
+      "dateModified": "2026-04-28T16:29:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iliad-piu-veloci-rete-mobili`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

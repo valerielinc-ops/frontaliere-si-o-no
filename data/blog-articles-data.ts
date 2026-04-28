@@ -8960,4 +8960,11 @@ export const ARTICLES = [
  image: '/images/blog/casse-malati-dado-scissione-dossier.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'iliad-piu-veloci-rete-mobili',
+ category: 'novita',
+ date: '2026-04-28T16:29:26.653Z',
+ image: '/images/blog/iliad-piu-veloci-rete-mobili.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

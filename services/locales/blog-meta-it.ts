@@ -3407,6 +3407,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casse-malati-dado-scissione-dossier.title': 'Casse malati, Dadò propone la scissione del dossier',
     'blog.article.casse-malati-dado-scissione-dossier.excerpt': 'Il presidente del Centro Fiorenzo Dadò suggerisce di suddividere il dossier sulle casse malati in due rapporti distinti. Possibile votazione popolare.',
     'blog.article.casse-malati-dado-scissione-dossier.imageAlt': 'Lago di Lugano con il centro finanziario moderno sullo sfondo',
+    'blog.article.iliad-piu-veloci-rete-mobili.title': 'Iliad presenta \'Più veloci\', piano per reti mobili di nuova generazione',
+    'blog.article.iliad-piu-veloci-rete-mobili.excerpt': 'Il piano \'Più Veloci\' di Iliad mira a accelerare lo sviluppo delle reti mobili in Italia, con impatto su cittadini, imprese e operatori.',
+    'blog.article.iliad-piu-veloci-rete-mobili.imageAlt': 'Vista panoramica di Lugano con torri di rete 5G e persone che usano smartphone',
 };
 
 export default blogMetaIt;

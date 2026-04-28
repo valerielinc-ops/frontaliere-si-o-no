@@ -3406,6 +3406,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casse-malati-dado-scissione-dossier.title': 'Dadò schlägt Spaltung des Krankenkassendossiers vor',
     'blog.article.casse-malati-dado-scissione-dossier.excerpt': 'Der Präsident des Centro Fiorenzo Dadò schlägt vor, das Dossier zu den Krankenkassen in zwei separate Berichte aufzuteilen. Mögliche Volksabstimmung.',
     'blog.article.casse-malati-dado-scissione-dossier.imageAlt': 'Luganersee mit modernem Finanzzentrum im Hintergrund',
+    'blog.article.iliad-piu-veloci-rete-mobili.title': 'Iliad stellt \'Schneller\' vor, Plan für Mobilfunknetze der neuen Generation',
+    'blog.article.iliad-piu-veloci-rete-mobili.excerpt': 'Der Plan \'Schneller\' von Iliad zielt darauf ab, die Entwicklung der Mobilfunknetze in Italien zu beschleunigen, mit Auswirkungen auf Bürger, Unternehmen und Betreiber.',
+    'blog.article.iliad-piu-veloci-rete-mobili.imageAlt': 'Panoramablick von Lugano mit 5G-Netztürmen und Menschen, die Smartphones nutzen',
 };
 
 export default blogMetaDe;

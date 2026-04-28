@@ -3407,6 +3407,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casse-malati-dado-scissione-dossier.title': 'Caisse-maladie : Dadò propose de scinder le dossier',
     'blog.article.casse-malati-dado-scissione-dossier.excerpt': 'Le président du Centre Fiorenzo Dadò suggère de diviser le dossier sur les caisses-maladie en deux rapports distincts. Une votation populaire est possible.',
     'blog.article.casse-malati-dado-scissione-dossier.imageAlt': 'Lac de Lugano avec un quartier financier moderne en arrière-plan',
+    'blog.article.iliad-piu-veloci-rete-mobili.title': 'Iliad lance \'Plus rapides\', plan pour réseaux mobiles nouvelle génération',
+    'blog.article.iliad-piu-veloci-rete-mobili.excerpt': 'Le plan \'Plus Rapides\' d\'Iliad vise à accélérer le développement des réseaux mobiles en Italie, avec un impact sur les citoyens, les entreprises et les opérateurs.',
+    'blog.article.iliad-piu-veloci-rete-mobili.imageAlt': 'Vue panoramique de Lugano avec des tours de réseau 5G et des personnes utilisant des smartphones',
 };
 
 export default blogMetaFr;
