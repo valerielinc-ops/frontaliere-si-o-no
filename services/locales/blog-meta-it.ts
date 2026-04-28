@@ -3182,6 +3182,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-fatture-scontro-roma-2026.title': 'Crans-Montana, le fatture riaprono lo scontro con Roma',
     'blog.article.crans-montana-fatture-scontro-roma-2026.excerpt': 'Le fatture per le cure prestate in Svizzera alle vittime italiane della tragedia di Crans-Montana hanno riacceso le tensioni tra Roma e Berna.',
     'blog.article.crans-montana-fatture-scontro-roma-2026.imageAlt': 'Crans-Montana, vista panoramica delle montagne e del villaggio',
+    'blog.article.ticino-calimero-sindrome-2026.title': 'Ticino, basta lamentele: addio alla sindrome di Calimero',
+    'blog.article.ticino-calimero-sindrome-2026.excerpt': 'Nicoletta Casanova, presidente Aiti, critica il pessimo dibattito economico ticinese e invita a cambiare atteggiamento',
+    'blog.article.ticino-calimero-sindrome-2026.imageAlt': 'Skyline di Lugano con il Lago Ceresio sullo sfondo',
 };
 
 export default blogMetaIt;

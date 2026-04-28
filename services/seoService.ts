@@ -2321,6 +2321,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pro-velo-ticino-cambiamento-presidenza-2026': { name: 'Novità', path: '/articoli-frontaliere/pro-velo-ticino-cambiamento-presidenza-2026', parent: 'blog' },
     'blog-nomine-sims-fallimento': { name: 'Nomine SIMS', path: '/articoli-frontaliere/nomine-sims-fallimento', parent: 'blog' },
     'blog-crans-montana-fatture-scontro-roma-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-fatture-scontro-roma-2026', parent: 'blog' },
+    'blog-ticino-calimero-sindrome-2026': { name: 'Novità', path: '/articoli-frontaliere/ticino-calimero-sindrome-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

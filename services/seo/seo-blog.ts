@@ -17729,6 +17729,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-calimero-sindrome-2026': {
+    title: 'Ticino, basta lamentele: addio alla sindrome di Calimero',
+    description: 'Nicoletta Casanova, presidente Aiti, critica il dibattito economico ticinese e invita a cambiare atteggiamento per migliorare le opportunità per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, basta, lamentele, addio, alla',
+    ogTitle: 'Ticino, basta lamentele: addio alla sindrome di Calimero',
+    ogDescription: 'Nicoletta Casanova, presidente Aiti, critica il dibattito economico ticinese e invita a cambiare atteggiamento per migliorare le opportunità per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ticino-calimero-sindrome-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino, basta lamentele: addio alla sindrome di Calimero",
+      "description": "Nicoletta Casanova, presidente Aiti, critica il dibattito economico ticinese e invita a cambiare atteggiamento per migliorare le opportunità per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticino-calimero-sindrome-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Skyline di Lugano con il Lago Ceresio sullo sfondo"
+      },
+      "datePublished": "2026-04-28T04:41:58+00:00",
+      "dateModified": "2026-04-28T04:41:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-calimero-sindrome-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

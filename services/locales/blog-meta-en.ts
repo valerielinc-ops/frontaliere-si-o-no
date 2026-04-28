@@ -3181,6 +3181,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-fatture-scontro-roma-2026.title': 'Crans-Montana bills reignite tensions with Rome',
     'blog.article.crans-montana-fatture-scontro-roma-2026.excerpt': 'The bills for the care provided in Switzerland to Italian victims of the Crans-Montana tragedy have reignited tensions between Rome and Berna.',
     'blog.article.crans-montana-fatture-scontro-roma-2026.imageAlt': 'Crans-Montana, panoramic view of the mountains and village',
+    'blog.article.ticino-calimero-sindrome-2026.title': 'Ticino, enough complaining: goodbye Calimero syndrome',
+    'blog.article.ticino-calimero-sindrome-2026.excerpt': 'Nicoletta Casanova, Aiti president, criticizes the poor economic debate in Ticino and invites a change in attitude',
+    'blog.article.ticino-calimero-sindrome-2026.imageAlt': 'Lugano skyline with Lake Ceresio in the background',
 };
 
 export default blogMetaEn;

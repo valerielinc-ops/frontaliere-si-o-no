@@ -3181,6 +3181,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-fatture-scontro-roma-2026.title': 'Crans-Montana: Rechnungen entfachen Streit mit Rom',
     'blog.article.crans-montana-fatture-scontro-roma-2026.excerpt': 'Die Rechnungen für die in der Schweiz erbrachten Behandlungen der italienischen Opfer der Tragödie von Crans-Montana haben die Spannungen zwischen Rom und Bern wieder entfacht.',
     'blog.article.crans-montana-fatture-scontro-roma-2026.imageAlt': 'Crans-Montana, Panoramablick auf die Berge und das Dorf',
+    'blog.article.ticino-calimero-sindrome-2026.title': 'Tessin, Schluss mit Jammern: Abschied von Calimero-Syndrom',
+    'blog.article.ticino-calimero-sindrome-2026.excerpt': 'Nicoletta Casanova, Präsidentin Aiti, kritisiert die schlechte wirtschaftliche Debatte im Tessin und fordert eine Einstellungsumstellung',
+    'blog.article.ticino-calimero-sindrome-2026.imageAlt': 'Skyline von Lugano mit dem Ceresio-See im Hintergrund',
 };
 
 export default blogMetaDe;

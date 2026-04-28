@@ -8435,4 +8435,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-fatture-scontro-roma-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ticino-calimero-sindrome-2026',
+ category: 'novita',
+ date: '2026-04-28T04:41:58.151Z',
+ image: '/images/blog/ticino-calimero-sindrome-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
