@@ -3556,6 +3556,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rilanciare-commercio-saronno-2026.title': 'Saronno: Handel mit strukturellen Maßnahmen fördern',
     'blog.article.rilanciare-commercio-saronno-2026.excerpt': 'Der Gemeinderat von Saronno prüft einen Antrag zur Förderung des lokalen Handels durch strukturelle und dauerhafte Maßnahmen.',
     'blog.article.rilanciare-commercio-saronno-2026.imageAlt': 'Luftaufnahme des Stadtzentrums von Saronno mit Geschäften und Menschen, die spazieren gehen',
+    'blog.article.lugano-aggressione-abitazione-2024.title': 'Lugano: Zwei Frauen in Wohnung überfallen, Täter festgenommen',
+    'blog.article.lugano-aggressione-abitazione-2024.excerpt': 'Ein Mann hat zwei Frauen in ihrer Wohnung in Lugano angegriffen. Der Täter wurde festgenommen und von den Behörden verhört.',
+    'blog.article.lugano-aggressione-abitazione-2024.imageAlt': 'Ansicht eines Wohnviertels in Lugano mit einem modernen Gebäude und einer ruhigen Straße',
 };
 
 export default blogMetaDe;

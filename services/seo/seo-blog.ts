@@ -21354,6 +21354,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-aggressione-abitazione-2024': {
+    title: 'Lugano: aggressione a due donne in casa, arrestato l\'aggressore',
+    description: 'Un uomo ha aggredito due donne nella loro abitazione a Lugano. L\'aggressore è stato preso e interrogato dalle autorità. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, aggressione, donne, casa',
+    ogTitle: 'Lugano: aggressione a due donne in casa, arrestato l\'aggressore',
+    ogDescription: 'Un uomo ha aggredito due donne nella loro abitazione a Lugano. L\'aggressore è stato preso e interrogato dalle autorità.',
+    canonicalPath: '/articoli-frontaliere/lugano-aggressione-abitazione-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Lugano: aggressione a due donne in casa, arrestato l'aggressore\",\"description\":\"Un uomo ha aggredito due donne nella loro abitazione a Lugano. L'aggressore è stato preso e interrogato dalle autorità.\",\"datePublished\":\"2024-06-20\",\"image\":\"https://frontaliereticino.ch/images/lac-lugano.webp\"}",
+      "description": "Un uomo ha aggredito due donne nella loro abitazione a Lugano. L'aggressore è stato preso e interrogato dalle autorità. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-aggressione-abitazione-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un quartiere residenziale a Lugano, con un edificio moderno e una strada tranquilla"
+      },
+      "datePublished": "2026-04-28T22:02:58+00:00",
+      "dateModified": "2026-04-28T22:02:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-aggressione-abitazione-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

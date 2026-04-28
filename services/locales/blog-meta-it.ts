@@ -3557,6 +3557,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rilanciare-commercio-saronno-2026.title': 'Saronno: rilanciare il commercio con interventi strutturali',
     'blog.article.rilanciare-commercio-saronno-2026.excerpt': 'Il Consiglio comunale di Saronno esamina una mozione per rilanciare il commercio cittadino con interventi strutturali e permanenti',
     'blog.article.rilanciare-commercio-saronno-2026.imageAlt': 'Vista aerea del centro di Saronno con negozi e persone che camminano',
+    'blog.article.lugano-aggressione-abitazione-2024.title': 'Lugano: aggressione a due donne in casa, arrestato l\'aggressore',
+    'blog.article.lugano-aggressione-abitazione-2024.excerpt': 'Un uomo ha aggredito due donne nella loro abitazione a Lugano. L\'aggressore è stato preso e interrogato dalle autorità.',
+    'blog.article.lugano-aggressione-abitazione-2024.imageAlt': 'Vista di un quartiere residenziale a Lugano, con un edificio moderno e una strada tranquilla',
 };
 
 export default blogMetaIt;

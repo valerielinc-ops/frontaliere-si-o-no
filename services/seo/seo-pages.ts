@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1235,
+ "numberOfItems": 1236,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5870,7 +5870,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1232, "name": "Coalizione sanitaria: «Calpestata la volontà po...", "url": `${BASE_URL}/articoli-frontaliere/coalizione-sanitario-volonta-calpestata` },
           { "@type": "ListItem", "position": 1233, "name": "Volo Swiss evacuato: passeggeri non mollano il ...", "url": `${BASE_URL}/articoli-frontaliere/volo-swiss-evacuato-passeggeri-bagaglio` },
           { "@type": "ListItem", "position": 1234, "name": "Banche svizzere pronte per i clienti del Golfo", "url": `${BASE_URL}/articoli-frontaliere/banche-golfo-frontalieri-ticino-2026` },
-          { "@type": "ListItem", "position": 1235, "name": "Saronno: rilanciare il commercio con interventi...", "url": `${BASE_URL}/articoli-frontaliere/rilanciare-commercio-saronno-2026` }
+          { "@type": "ListItem", "position": 1235, "name": "Saronno: rilanciare il commercio con interventi...", "url": `${BASE_URL}/articoli-frontaliere/rilanciare-commercio-saronno-2026` },
+          { "@type": "ListItem", "position": 1236, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/lugano-aggressione-abitazione-2024` }
  ]
  },
  {
