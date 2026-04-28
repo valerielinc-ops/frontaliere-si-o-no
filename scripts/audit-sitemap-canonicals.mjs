@@ -8,11 +8,19 @@
  * at a non-canonical URL train Google to ignore the sitemap; Semrush flags
  * them as "Non-canonical URL in sitemap".
  *
- * The gate is unconditionally strict — there is NO baseline and NO ratchet.
- * Any of these is a fail:
- *   - mismatch        : <link rel="canonical"> URL ≠ sitemap <loc>
+ * The gate is strict on canonical correctness — there is NO baseline and NO
+ * ratchet. Hard fails (the original Semrush issue this gate exists for):
+ *   - mismatch         : <link rel="canonical"> URL ≠ sitemap <loc>
  *   - missing-canonical: HTML exists but has no <link rel="canonical">
- *   - missing-html    : sitemap <loc> has no corresponding HTML in dist/
+ *
+ * Reported as WARN only (does NOT fail the gate):
+ *   - missing-html     : sitemap <loc> has no corresponding HTML in dist/
+ * That is a separate stale-sitemap concern; the authoritative gate is
+ * `tests/post-build/sitemap-completeness.test.ts`.
+ *
+ * Non-HTML asset URLs (`.pdf`, `.xml`, `.txt`, `.json`, `.rss`, `.xsl`, `.ico`)
+ * are skipped: they have no <link rel="canonical"> and Google treats the URL
+ * itself as canonical for those.
  *
  * Run AFTER `npm run build` so dist/ is fresh.
  *
@@ -230,6 +238,9 @@ function main() {
     }
     const locs = extractLocs(xml);
     for (const loc of locs) {
+      if (/\.(pdf|xml|txt|json|rss|xsl|ico)(\?|#|$)/i.test(loc)) {
+        continue;
+      }
       totalChecked++;
       const htmlPath = locToHtmlPath(loc);
       if (!htmlPath) {
@@ -268,20 +279,38 @@ function main() {
       `OK: ${okCount}, mismatches: ${counts.mismatch}, missing-html: ${counts['missing-html']}, missing-canonical: ${counts['missing-canonical']}\n`
   );
 
-  if (offenders.length === 0) {
+  // Hard fails: mismatch + missing-canonical (the Semrush "non-canonical URL"
+  // class). missing-html is a separate stale-sitemap concern — warn only.
+  const hardFailers = offenders.filter(o => o.category !== 'missing-html');
+  const warners = offenders.filter(o => o.category === 'missing-html');
+
+  if (warners.length > 0) {
+    process.stderr.write(
+      `\nWARN: ${warners.length} sitemap <loc>(s) have no HTML in dist/ ` +
+        `(separate concern — see sitemap-completeness.test.ts):\n`
+    );
+    const slice = warners.slice(0, Math.min(LIMIT, warners.length));
+    for (const o of slice) {
+      process.stderr.write(`[missing-html] ${o.sitemap}: ${o.loc}\n`);
+    }
+    if (warners.length > slice.length) {
+      process.stderr.write(`… ${warners.length - slice.length} more\n`);
+    }
+  }
+
+  if (hardFailers.length === 0) {
     process.exit(0);
   }
 
   process.stderr.write(
-    `\nFAIL: sitemap canonical integrity gate found ${offenders.length} offender(s).\n` +
+    `\nFAIL: sitemap canonical integrity gate found ${hardFailers.length} offender(s).\n` +
       `Sitemap <loc> URLs MUST self-canonicalize. See CLAUDE.md SEO rules.\n\n`
   );
 
-  // Group printout by category for legibility, capped at LIMIT total lines.
-  const order = ['mismatch', 'missing-canonical', 'missing-html'];
+  const order = ['mismatch', 'missing-canonical'];
   const byCat = new Map();
   for (const c of order) byCat.set(c, []);
-  for (const o of offenders) byCat.get(o.category).push(o);
+  for (const o of hardFailers) byCat.get(o.category).push(o);
 
   let printed = 0;
   for (const cat of order) {
@@ -295,8 +324,8 @@ function main() {
     }
     if (printed >= LIMIT) break;
   }
-  if (offenders.length > printed) {
-    process.stderr.write(`… ${offenders.length - printed} more (raise --limit=N to see them)\n`);
+  if (hardFailers.length > printed) {
+    process.stderr.write(`… ${hardFailers.length - printed} more (raise --limit=N to see them)\n`);
   }
 
   process.exit(1);
