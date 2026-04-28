@@ -8785,4 +8785,11 @@ export const ARTICLES = [
  image: '/images/blog/cardiocentro-lugano-ristrutturazione-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ex-capo-esercito-kaiser-partner-privatbank',
+ category: 'novita',
+ date: '2026-04-28T12:31:58.247Z',
+ image: '/images/blog/ex-capo-esercito-kaiser-partner-privatbank.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

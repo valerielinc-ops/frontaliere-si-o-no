@@ -3332,6 +3332,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cardiocentro-lugano-ristrutturazione-2026.title': 'Cardiocentro de Lugano: trois étages supplémentaires et un bar panoramique',
     'blog.article.cardiocentro-lugano-ristrutturazione-2026.excerpt': 'Le Cardiocentro de Lugano se présente avec trois étages supplémentaires et un bar panoramique après trois ans de travaux. Confort et vues à couper le souffle pour les patients et le personnel.',
     'blog.article.cardiocentro-lugano-ristrutturazione-2026.imageAlt': 'Vue panoramique du Cardiocentro à Lugano avec le lac et les montagnes en arrière-plan',
+    'blog.article.ex-capo-esercito-kaiser-partner-privatbank.title': 'L\'ex chef de l\'armée au conseil d\'administration de Kaiser Partner Privatbank',
+    'blog.article.ex-capo-esercito-kaiser-partner-privatbank.excerpt': 'Thomas Süssli, ancien chef de l\'armée suisse, rejoint le conseil d\'administration de la banque de Vaduz.',
+    'blog.article.ex-capo-esercito-kaiser-partner-privatbank.imageAlt': 'Vue panoramique de Lugano avec le lac de Ceresio',
 };
 
 export default blogMetaFr;

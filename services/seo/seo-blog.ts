@@ -19179,6 +19179,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ex-capo-esercito-kaiser-partner-privatbank': {
+    title: 'Ex capo dell\'esercito nel Cda di Kaiser Partner Privatbank',
+    description: 'Thomas Süssli, ex capo dell\'esercito svizzero, entra nel consiglio d\'amministrazione della banca di Vaduz. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, capo, dell, esercito, kaiser',
+    ogTitle: 'Ex capo dell\'esercito nel Cda di Kaiser Partner Privatbank',
+    ogDescription: 'Thomas Süssli, ex capo dell\'esercito svizzero, entra nel consiglio d\'amministrazione della banca di Vaduz. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ex-capo-esercito-kaiser-partner-privatbank',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ex capo dell'esercito nel Cda di Kaiser Partner Privatbank",
+      "description": "Thomas Süssli, ex capo dell'esercito svizzero, entra nel consiglio d'amministrazione della banca di Vaduz. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ex-capo-esercito-kaiser-partner-privatbank.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago Ceresio"
+      },
+      "datePublished": "2026-04-28T12:31:58+00:00",
+      "dateModified": "2026-04-28T12:31:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ex-capo-esercito-kaiser-partner-privatbank`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
