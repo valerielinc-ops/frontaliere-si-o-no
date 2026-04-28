@@ -409,7 +409,10 @@ function readCompanySlugs(fs: typeof fsT, np: typeof npT, rootDir: string): stri
 
 /**
  * Read article slugs from blog-meta-{lang}.ts. Each line keyed
- * `'blog.article.<slug>.title'` is one article.
+ * `'blog.article.<slug>.title'` is one article. The `slug` returned is
+ * the canonical {@link BlogArticleId} key (matches `BLOG_SLUGS` keys in
+ * `routerBlogData.ts`) — NOT the URL slug. Use {@link readBlogUrlSlugs}
+ * to get the locale-specific URL slug for hub anchor construction.
  */
 function readArticleSlugs(
   fs: typeof fsT,
@@ -434,6 +437,46 @@ function readArticleSlugs(
     }
   } catch (err) {
     console.warn(`[seo-hubs] failed to read blog-meta-${locale}.ts`, err);
+  }
+  return out;
+}
+
+/**
+ * Read the {@link BlogArticleId} → per-locale URL-slug map from
+ * `services/routerBlogData.ts` (the `BLOG_SLUGS` constant). Mirrors the
+ * parser in {@link ogPagesPlugin}.
+ *
+ * **Why this exists.** `blog-meta-{lang}.ts` keys are `BlogArticleId`s
+ * (e.g. `stipendio-netto-2026`), but the canonical sitemap URL uses the
+ * locale-specific slug (`stipendio-netto-frontaliere-2026` in IT). When the
+ * paginated articles archive at `/articoli-frontaliere/tutti/page-N/` lists
+ * articles by `BlogArticleId`, the resulting `<a href>` does NOT match the
+ * sitemap URL — and the BFS reachability audit flags ~174 articles as
+ * "orphans in sitemap" even though the archive renders them.
+ *
+ * This map is the source of truth for `BlogArticleId → URL slug`. Returns
+ * `{}` if the file is missing or unparseable (callers fall back to the
+ * `BlogArticleId` as URL slug, preserving prior behaviour for tests).
+ */
+function readBlogUrlSlugs(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+): Record<string, Record<HubLocale, string>> {
+  const file = np.resolve(rootDir, 'services/routerBlogData.ts');
+  const out: Record<string, Record<HubLocale, string>> = {};
+  try {
+    if (!fs.existsSync(file)) return out;
+    const src = fs.readFileSync(file, 'utf-8');
+    const block = src.match(/const BLOG_SLUGS[\s\S]*?\n\};/m)?.[0] ?? '';
+    if (!block) return out;
+    const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+    let bm: RegExpExecArray | null;
+    while ((bm = rx.exec(block)) !== null) {
+      out[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
+    }
+  } catch (err) {
+    console.warn('[seo-hubs] failed to read BLOG_SLUGS from routerBlogData.ts', err);
   }
   return out;
 }
@@ -722,12 +765,20 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       }
     } else {
       pageSize = ARTICLES_PAGE_SIZE;
-      // Use IT slug list as master across all locales so totalPages is identical.
-      // For non-IT locales, prefer the locale-specific title when translated;
-      // fall back to the IT title when the translation is missing.
+      // Use IT BlogArticleId list as master across all locales so totalPages is
+      // identical. For non-IT locales, prefer the locale-specific title when
+      // translated; fall back to the IT title when the translation is missing.
+      //
+      // CRITICAL — `a.slug` here is the `BlogArticleId` (e.g. `stipendio-netto-2026`),
+      // not the canonical URL slug. The sitemap URL uses the per-locale slug from
+      // `BLOG_SLUGS` (e.g. IT: `stipendio-netto-frontaliere-2026`). We MUST resolve
+      // the URL via `BLOG_SLUGS` — otherwise hub anchors point to non-existent
+      // BlogArticleId paths and the BFS audit flags every remapped article as
+      // an orphan-in-sitemap (Apr-2026 regression: ~174 IT articles, ~700 cross-locale).
       const itArticles = readArticleSlugs(fs, np, rootDir, 'it');
       const localeArticles = locale === 'it' ? itArticles : readArticleSlugs(fs, np, rootDir, locale);
       const localeBySlug = new Map(localeArticles.map((a) => [a.slug, a.title]));
+      const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir);
       const blogSection = locale === 'it' ? 'articoli-frontaliere'
         : locale === 'en' ? 'cross-border-articles'
         : locale === 'de' ? 'grenzgaenger-artikel'
@@ -735,7 +786,11 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const prefix = locale === 'it' ? '' : `/${locale}`;
       for (const a of itArticles) {
         const label = localeBySlug.get(a.slug) ?? a.title;
-        items.push({ href: `${prefix}/${blogSection}/${a.slug}/`, label });
+        // Resolve URL slug for this locale via BLOG_SLUGS; fall back to the
+        // BlogArticleId itself when the article is missing from BLOG_SLUGS
+        // (older articles or auto-generated entries can lag the slug map).
+        const urlSlug = blogUrlSlugs[a.slug]?.[locale] ?? a.slug;
+        items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label });
       }
     }
 
