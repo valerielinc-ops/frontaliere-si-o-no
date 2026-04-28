@@ -3290,6 +3290,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.airpack-lombardia-41-lavoratori.title': 'Airpack Lombardia: 41 lavoratori a rischio licenziamento',
     'blog.article.airpack-lombardia-41-lavoratori.excerpt': 'La proprietà belga Abriso insiste sulla chiusura dello stabilimento di Ossago Lodigiano, nonostante le offerte di acquisto.',
     'blog.article.airpack-lombardia-41-lavoratori.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino, cielo azzurro limpido e acque calme',
+    'blog.article.tassa-aerei-trasporto-pubblico.title': 'Iniziativa tassa aerei: 1,5 miliardi per treni e buoni mobilità',
+    'blog.article.tassa-aerei-trasporto-pubblico.excerpt': 'Un\'iniziativa popolare svizzera vuole tassare i biglietti aerei per finanziare trasporti pubblici e buoni mobilità. Ecco cosa cambia.',
+    'blog.article.tassa-aerei-trasporto-pubblico.imageAlt': 'Vista aerea del Lago di Lugano con un treno e un aereo in cielo',
 };
 
 export default blogMetaIt;

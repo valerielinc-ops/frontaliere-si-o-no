@@ -3289,6 +3289,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.airpack-lombardia-41-lavoratori.title': 'Airpack Lombardia: 41 jobs at risk of dismissal',
     'blog.article.airpack-lombardia-41-lavoratori.excerpt': 'Belgian owner Abriso insists on closing the Ossago Lodigiano plant, despite purchase offers.',
     'blog.article.airpack-lombardia-41-lavoratori.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains, clear blue sky, and calm waters',
+    'blog.article.tassa-aerei-trasporto-pubblico.title': 'Swiss initiative: 1.5 billion for trains and mobility vouchers',
+    'blog.article.tassa-aerei-trasporto-pubblico.excerpt': 'A Swiss popular initiative aims to tax flight tickets to fund public transport and mobility vouchers. Here\'s what changes.',
+    'blog.article.tassa-aerei-trasporto-pubblico.imageAlt': 'Aerial view of Lake Lugano with a train and an airplane in the sky',
 };
 
 export default blogMetaEn;

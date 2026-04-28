@@ -3290,6 +3290,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.airpack-lombardia-41-lavoratori.title': 'Airpack Lombardie : 41 employés menacés de licenciement',
     'blog.article.airpack-lombardia-41-lavoratori.excerpt': 'Le propriétaire belge Abriso insiste sur la fermeture de l\'usine d\'Ossago Lodigiano, malgré les offres d\'achat.',
     'blog.article.airpack-lombardia-41-lavoratori.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin, ciel bleu clair et eaux calmes',
+    'blog.article.tassa-aerei-trasporto-pubblico.title': 'Initiative taxe avions: 1,5 milliard pour trains et mobilité',
+    'blog.article.tassa-aerei-trasporto-pubblico.excerpt': 'Une initiative populaire suisse veut taxer les billets d\'avion pour financer les transports publics et les bons de mobilité. Voici ce qui change.',
+    'blog.article.tassa-aerei-trasporto-pubblico.imageAlt': 'Vue aérienne du lac de Lugano avec un train et un avion dans le ciel',
 };
 
 export default blogMetaFr;

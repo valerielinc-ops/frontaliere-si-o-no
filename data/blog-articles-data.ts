@@ -8687,4 +8687,11 @@ export const ARTICLES = [
  image: '/images/blog/airpack-lombardia-41-lavoratori.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tassa-aerei-trasporto-pubblico',
+ category: 'novita',
+ date: '2026-04-28T10:51:14.826Z',
+ image: '/images/blog/tassa-aerei-trasporto-pubblico.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

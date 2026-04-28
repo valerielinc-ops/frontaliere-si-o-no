@@ -18773,6 +18773,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-aerei-trasporto-pubblico': {
+    title: 'Iniziativa tassa aerei: 1,5 miliardi per treni e buoni mobilità',
+    description: 'Un\'iniziativa popolare svizzera vuole tassare i biglietti aerei per finanziare trasporti pubblici e buoni mobilità. Ecco cosa cambia per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, tassa, aerei, miliardi',
+    ogTitle: 'Iniziativa tassa aerei: 1,5 miliardi per treni e buoni mobilità',
+    ogDescription: 'Un\'iniziativa popolare svizzera vuole tassare i biglietti aerei per finanziare trasporti pubblici e buoni mobilità. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/tassa-aerei-trasporto-pubblico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa tassa aerei: 1,5 miliardi per treni e buoni mobilità",
+      "description": "Un'iniziativa popolare svizzera vuole tassare i biglietti aerei per finanziare trasporti pubblici e buoni mobilità. Ecco cosa cambia per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-aerei-trasporto-pubblico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con un treno e un aereo in cielo"
+      },
+      "datePublished": "2026-04-28T10:51:14+00:00",
+      "dateModified": "2026-04-28T10:51:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-aerei-trasporto-pubblico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

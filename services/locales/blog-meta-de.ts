@@ -3289,6 +3289,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.airpack-lombardia-41-lavoratori.title': 'Airpack Lombardei: 41 Arbeitsplätze gefährdet',
     'blog.article.airpack-lombardia-41-lavoratori.excerpt': 'Die belgische Eigentümerin Abriso besteht auf der Schließung des Werks in Ossago Lodigiano, trotz Kaufangeboten.',
     'blog.article.airpack-lombardia-41-lavoratori.imageAlt': 'Luftaufnahme des Luganersees mit den Tessin-Berge, klarer blauer Himmel und ruhiges Wasser',
+    'blog.article.tassa-aerei-trasporto-pubblico.title': 'Flugticketbesteuerung: 1,5 Milliarden für Züge und Mobilitätsgutscheine',
+    'blog.article.tassa-aerei-trasporto-pubblico.excerpt': 'Eine Schweizer Volksinitiative will Flugtickets besteuern, um öffentliche Verkehrsmittel und Mobilitätsgutscheine zu finanzieren. Hier sind die Änderungen.',
+    'blog.article.tassa-aerei-trasporto-pubblico.imageAlt': 'Luftaufnahme des Luganer Sees mit einem Zug und einem Flugzeug am Himmel',
 };
 
 export default blogMetaDe;
