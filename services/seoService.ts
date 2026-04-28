@@ -2355,6 +2355,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-caslano-2025-bilancio-avanzamento': { name: 'Bilancio Caslano', path: '/articoli-frontaliere/caslano-2025-bilancio-avanzamento', parent: 'blog' },
     'blog-lombardia-piano-ciclabile-115-milioni': { name: 'Piano ciclabile', path: '/articoli-frontaliere/lombardia-piano-ciclabile-115-milioni', parent: 'blog' },
     'blog-sam-mendrisiotto-25-anni-emergenze': { name: 'Emergenze Sanitarie', path: '/articoli-frontaliere/sam-mendrisiotto-25-anni-emergenze', parent: 'blog' },
+    'blog-nidi-extrascolastico-ticino-un-servizio': { name: 'Ticino', path: '/articoli-frontaliere/nidi-extrascolastico-ticino-un-servizio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

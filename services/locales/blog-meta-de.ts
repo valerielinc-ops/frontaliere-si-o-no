@@ -3373,6 +3373,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sam-mendrisiotto-25-anni-emergenze.title': '25 Jahre Notfälle: Der SAM Mendrisiotto',
     'blog.article.sam-mendrisiotto-25-anni-emergenze.excerpt': 'Seit 1999 ist der Sanitätsdienst Mendrisiotto im Einsatz. Heute erzählt Direktor Carlo Realini über die aktuellen Herausforderungen.',
     'blog.article.sam-mendrisiotto-25-anni-emergenze.imageAlt': 'Luftaufnahme des Luganer Sees mit der Region Mendrisiotto im Tessin',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.title': 'Ticino: Einheitlicher Dienst für Kindergärten und Nachschulbetreuung',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.excerpt': 'Bellinzona kämpft mit dem Mangel an Kindergartenplätzen an - Lösung: Eine Warteliste und eine integrierte Sicht auf die Dienstleistungen (Quelle: laRegione.ch)',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.imageAlt': 'Kindertagesstätte Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

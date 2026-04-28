@@ -3374,6 +3374,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sam-mendrisiotto-25-anni-emergenze.title': '25 anni di emergenze sanitarie: il S.A.M. di Mendrisiotto',
     'blog.article.sam-mendrisiotto-25-anni-emergenze.excerpt': 'Dal 1999 il Servizio Autoambulanze Mendrisiotto risponde alle emergenze. Oggi il direttore Carlo Realini racconta le sfide attuali',
     'blog.article.sam-mendrisiotto-25-anni-emergenze.imageAlt': 'Vista aerea del Lago di Lugano con la regione del Mendrisiotto in Ticino',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.title': 'Ticino: Nidi ed Extrascolastico verso un Unico Servizio',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.excerpt': 'Bellinzona affronta la carenza di posti nei nidi con una lista d\'attesa unica e una visione integrata dei servizi (Fonte: laRegione.ch)',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.imageAlt': 'Asilo scolastico a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

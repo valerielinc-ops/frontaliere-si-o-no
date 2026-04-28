@@ -8883,4 +8883,11 @@ export const ARTICLES = [
  image: '/images/blog/sam-mendrisiotto-25-anni-emergenze.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nidi-extrascolastico-ticino-un-servizio',
+ category: 'pratico',
+ date: '2026-04-28T15:11:28.284Z',
+ image: '/images/blog/nidi-extrascolastico-ticino-un-servizio.jpg',
+ hasCalculator: false,
+ },
 ] satisfies Article[];

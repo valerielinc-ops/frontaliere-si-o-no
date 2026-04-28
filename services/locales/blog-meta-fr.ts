@@ -3374,6 +3374,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sam-mendrisiotto-25-anni-emergenze.title': '25 ans de services d\'urgence sanitaire: le SAM de Mendrisiotto',
     'blog.article.sam-mendrisiotto-25-anni-emergenze.excerpt': 'Depuis 1999, le Service d\'Autoambulances de Mendrisiotto répond aux urgences. Aujourd\'hui, le directeur Carlo Realini raconte les défis actuels',
     'blog.article.sam-mendrisiotto-25-anni-emergenze.imageAlt': 'Vue aérienne du lac de Lugano avec la région de Mendrisiotto au Tessin',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.title': 'Ticino : Crèches et Extrascolaire vers un Service Unique',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.excerpt': 'Bellinzona fait face à la pénurie de places dans les crèches avec une liste d\'attente unique et une vision intégrée des services (Source : laRegione.ch)',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.imageAlt': 'Crèche scolaire de Bellinzona, Tessin',
 };
 
 export default blogMetaFr;

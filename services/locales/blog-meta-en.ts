@@ -3373,6 +3373,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sam-mendrisiotto-25-anni-emergenze.title': '25 years of medical emergencies: Mendrisiotto\'s SAM',
     'blog.article.sam-mendrisiotto-25-anni-emergenze.excerpt': 'Since 1999, Mendrisiotto\'s Emergency Ambulance Service has been responding to emergencies. Today, director Carlo Realini talks about current challenges',
     'blog.article.sam-mendrisiotto-25-anni-emergenze.imageAlt': 'Aerial view of Lake Lugano with the Mendrisiotto region in Ticino',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.title': 'Ticino Unites Nursery & After-School Services',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.excerpt': 'Bellinzona tackles nursery shortage with a unified waiting list and integrated service vision (Source: laRegione.ch)',
+    'blog.article.nidi-extrascolastico-ticino-un-servizio.imageAlt': 'Bellinzona School Kindergarten, Switzerland',
 };
 
 export default blogMetaEn;

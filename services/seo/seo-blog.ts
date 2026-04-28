@@ -19585,6 +19585,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nidi-extrascolastico-ticino-un-servizio': {
+    title: 'Ticino: Nidi ed Extrascolastico verso un Unico Servizio',
+    description: 'Bellinzona affronta la carenza di posti nei nidi con una lista d\'attesa unica e una visione integrata dei servizi (Fonte: laRegione.ch). Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, nidi, extrascolastico, verso, unico',
+    ogTitle: 'Ticino: Nidi ed Extrascolastico verso un Unico Servizio',
+    ogDescription: 'Bellinzona affronta la carenza di posti nei nidi con una lista d\'attesa unica e una visione integrata dei servizi (Fonte: laRegione.ch)',
+    canonicalPath: '/articoli-frontaliere/nidi-extrascolastico-ticino-un-servizio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: Nidi ed Extrascolastico verso un Unico Servizio",
+      "description": "Bellinzona affronta la carenza di posti nei nidi con una lista d'attesa unica e una visione integrata dei servizi (Fonte: laRegione.ch). Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nidi-extrascolastico-ticino-un-servizio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo scolastico a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-28T15:11:28+00:00",
+      "dateModified": "2026-04-28T15:11:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nidi-extrascolastico-ticino-un-servizio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
