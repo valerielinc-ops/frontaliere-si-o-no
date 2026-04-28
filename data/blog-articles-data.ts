@@ -8750,4 +8750,11 @@ export const ARTICLES = [
  image: '/images/blog/spese-bancarie-titoli-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bicicletta-insubria-varese-2026',
+ category: 'pratico',
+ date: '2026-04-28T11:54:51.858Z',
+ image: '/images/blog/bicicletta-insubria-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

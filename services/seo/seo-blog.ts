@@ -19034,6 +19034,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bicicletta-insubria-varese-2026': {
+    title: 'Pendolarismo sostenibile in bici all\'Insubria | Frontaliere Ticino',
+    description: 'Un docente racconta la sua esperienza di pendolarismo in bicicletta tra Milano e Varese, evidenziando le difficoltà e le potenzialità di un sistema più',
+    keywords: 'frontalieri, ticino, svizzera, italia, pendolarismo, sostenibile, bici, insubria',
+    ogTitle: 'In bicicletta all\'università dell\'Insubria: la sfida del pendolarismo sostenibile',
+    ogDescription: 'Un docente racconta la sua esperienza di pendolarismo in bicicletta tra Milano e Varese, evidenziando le difficoltà e le potenzialità di un sistema più',
+    canonicalPath: '/articoli-frontaliere/bicicletta-insubria-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "In bicicletta all'università dell'Insubria: la sfida del pendolarismo sostenibile",
+      "description": "Un docente racconta la sua esperienza di pendolarismo in bicicletta tra Milano e Varese, evidenziando le difficoltà e le potenzialità di un sistema più",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bicicletta-insubria-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un professore in bicicletta verso l'Università dell'Insubria a Varese con la bici sul treno"
+      },
+      "datePublished": "2026-04-28T11:54:51+00:00",
+      "dateModified": "2026-04-28T11:54:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bicicletta-insubria-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3316,6 +3316,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spese-bancarie-titoli-frontalieri.title': 'Meierhans criticizes stock transfer fees',
     'blog.article.spese-bancarie-titoli-frontalieri.excerpt': 'Fees for transferring securities in Switzerland range from 60 to 120 francs, according to Price Surveillance.',
     'blog.article.spese-bancarie-titoli-frontalieri.imageAlt': 'View of Lake Lugano with modern buildings and people walking',
+    'blog.article.bicicletta-insubria-varese-2026.title': 'Sustainable cycling commuting in Insubria',
+    'blog.article.bicicletta-insubria-varese-2026.excerpt': 'A teacher shares his experience of cycling between Milan and Varese, highlighting the challenges and potential of a more sustainable system.',
+    'blog.article.bicicletta-insubria-varese-2026.imageAlt': 'A professor cycling to the University of Insubria in Varese with a bicycle on a train',
 };
 
 export default blogMetaEn;

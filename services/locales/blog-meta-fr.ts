@@ -3317,6 +3317,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spese-bancarie-titoli-frontalieri.title': 'Frais bancaires pour titres : Meierhans critique les coûts',
     'blog.article.spese-bancarie-titoli-frontalieri.excerpt': 'Les frais de transfert de titres en Suisse sont compris entre 60 et 120 francs, selon la Surveillance des prix.',
     'blog.article.spese-bancarie-titoli-frontalieri.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes et des personnes qui marchent',
+    'blog.article.bicicletta-insubria-varese-2026.title': 'Pendularité durable à vélo en Insubrie',
+    'blog.article.bicicletta-insubria-varese-2026.excerpt': 'Un enseignant partage son expérience de trajet domicile-travail à vélo entre Milan et Varèse, soulignant les défis et les potentialités d\'un système plus durable.',
+    'blog.article.bicicletta-insubria-varese-2026.imageAlt': 'Un professeur à vélo vers l\'Université de l\'Insubria à Varese avec le vélo dans le train',
 };
 
 export default blogMetaFr;

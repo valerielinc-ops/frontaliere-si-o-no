@@ -3317,6 +3317,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spese-bancarie-titoli-frontalieri.title': 'Spese bancarie per titoli: Meierhans critica i costi',
     'blog.article.spese-bancarie-titoli-frontalieri.excerpt': 'Le spese per il trasferimento di titoli in Svizzera sono tra i 60 e i 120 franchi, secondo la Sorveglianza dei prezzi.',
     'blog.article.spese-bancarie-titoli-frontalieri.imageAlt': 'Vista del lago di Lugano con edifici moderni e persone che camminano',
+    'blog.article.bicicletta-insubria-varese-2026.title': 'Pendolarismo sostenibile in bici all\'Insubria',
+    'blog.article.bicicletta-insubria-varese-2026.excerpt': 'Un docente racconta la sua esperienza di pendolarismo in bicicletta tra Milano e Varese, evidenziando le difficoltà e le potenzialità di un sistema più sostenibile.',
+    'blog.article.bicicletta-insubria-varese-2026.imageAlt': 'Un professore in bicicletta verso l\'Università dell\'Insubria a Varese con la bici sul treno',
 };
 
 export default blogMetaIt;

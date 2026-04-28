@@ -3316,6 +3316,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spese-bancarie-titoli-frontalieri.title': 'Meierhans kritisiert Gebühren für Wertpapiere',
     'blog.article.spese-bancarie-titoli-frontalieri.excerpt': 'Die Gebühren für den Transfer von Wertpapieren in der Schweiz liegen zwischen 60 und 120 Franken, wie die Preiskontrolle mitteilt.',
     'blog.article.spese-bancarie-titoli-frontalieri.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und Menschen, die spazieren gehen',
+    'blog.article.bicicletta-insubria-varese-2026.title': 'Nachhaltige Fahrradpendelung in der Insubria',
+    'blog.article.bicicletta-insubria-varese-2026.excerpt': 'Ein Dozent erzählt von seiner Erfahrung als Fahrradpendler zwischen Mailand und Varese und hebt die Schwierigkeiten und das Potenzial eines nachhaltigeren Systems hervor.',
+    'blog.article.bicicletta-insubria-varese-2026.imageAlt': 'Ein Professor fährt mit dem Fahrrad zur Universität Insubria in Varese mit dem Fahrrad im Zug',
 };
 
 export default blogMetaDe;
