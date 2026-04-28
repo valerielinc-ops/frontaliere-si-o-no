@@ -3353,6 +3353,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dezonare-terreni-blenio-2026.title': 'Désaffecter des terrains constructibles: urgence pour la Val di Blenio',
     'blog.article.dezonare-terreni-blenio-2026.excerpt': 'Les maires de Blenio inquiets face à des excédents de 600-900% et un silence institutionnel. Quelles sont les implications pour les frontaliers?',
     'blog.article.dezonare-terreni-blenio-2026.imageAlt': 'Vue aérienne de la Val di Blenio, Tessin, Suisse, montrant à la fois des zones bâties et non bâties.',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.title': 'Dfp, Banque d\'Italie : marges limitées par la dette',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.excerpt': 'Les marges limitées découlent de la nécessité de réduire la dette, pas seulement des règles de l\'UE. À partir de 2027, une trajectoire descendante.',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.imageAlt': 'Lac de Lugano avec vue sur Lugano et Monte Brè',
 };
 
 export default blogMetaFr;

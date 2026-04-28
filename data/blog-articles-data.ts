@@ -8834,4 +8834,11 @@ export const ARTICLES = [
  image: '/images/blog/dezonare-terreni-blenio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dfp-bankitalia-margini-debito-ue-2026',
+ category: 'fiscale',
+ date: '2026-04-28T13:38:03.513Z',
+ image: '/images/blog/dfp-bankitalia-margini-debito-ue-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

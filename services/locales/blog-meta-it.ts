@@ -3353,6 +3353,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dezonare-terreni-blenio-2026.title': 'Dezonare terreni edificabili: emergenza per la Val di Blenio',
     'blog.article.dezonare-terreni-blenio-2026.excerpt': 'I sindaci di Blenio preoccupati per esuberi del 600-900% e silenzio istituzionale. Quali sono le implicazioni per i frontalieri?',
     'blog.article.dezonare-terreni-blenio-2026.imageAlt': 'Vista aerea della Val di Blenio, Ticino, Svizzera, che mostra sia aree edificate che non edificate.',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.title': 'Dfp, Bankitalia: Margini limitati più per debito che per regole Ue',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.excerpt': 'I margini limitati derivano dall\'esigenza di ridurre il debito, non solo dalle regole Ue. Dal 2027 sentiero discendente.',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.imageAlt': 'Lago di Lugano con vista su Lugano e Monte Brè',
 };
 
 export default blogMetaIt;

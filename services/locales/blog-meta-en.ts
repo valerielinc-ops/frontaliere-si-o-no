@@ -3352,6 +3352,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dezonare-terreni-blenio-2026.title': 'Dezoning building land: emergency in Val di Blenio',
     'blog.article.dezonare-terreni-blenio-2026.excerpt': 'Mayors of Blenio concerned about surpluses of 600-900% and institutional silence. What are the implications for cross-border workers?',
     'blog.article.dezonare-terreni-blenio-2026.imageAlt': 'Aerial view of Val di Blenio, Ticino, Switzerland, showing both built and undeveloped areas.',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.title': 'Bankitalia: Limited margins due to debt, not just EU rules',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.excerpt': 'Limited margins stem from the need to reduce debt, not just EU rules. Downward path from 2027.',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.imageAlt': 'Lake Lugano with view of Lugano and Monte Brè',
 };
 
 export default blogMetaEn;

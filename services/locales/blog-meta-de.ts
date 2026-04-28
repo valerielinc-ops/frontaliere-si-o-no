@@ -3352,6 +3352,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dezonare-terreni-blenio-2026.title': 'Bauland entzonen: Notstand im Bleniotal',
     'blog.article.dezonare-terreni-blenio-2026.excerpt': 'Die Bürgermeister von Blenio sind besorgt über Überschüsse von 600-900% und institutionelle Schweigsamkeit. Welche Auswirkungen hat dies auf Grenzgänger?',
     'blog.article.dezonare-terreni-blenio-2026.imageAlt': 'Luftaufnahme des Val di Blenio, Tessin, Schweiz, die sowohl bebaute als auch unbebaute Gebiete zeigt.',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.title': 'Bankitalia: Begrenzte Spielräume durch Schulden, nicht nur EU-Regeln',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.excerpt': 'Die begrenzten Spielräume entstehen aus der Notwendigkeit, die Schulden zu reduzieren, nicht nur aus den EU-Regeln. Ab 2027 absteigender Pfad.',
+    'blog.article.dfp-bankitalia-margini-debito-ue-2026.imageAlt': 'Luganersee mit Blick auf Lugano und Monte Brè',
 };
 
 export default blogMetaDe;

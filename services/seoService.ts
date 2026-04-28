@@ -2348,6 +2348,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gastrobellinzona-andrea-giuliani': { name: 'Novità', path: '/articoli-frontaliere/gastrobellinzona-andrea-giuliani', parent: 'blog' },
     'blog-infermieri-ticino-ore-lavorative-2026': { name: 'Novità', path: '/articoli-frontaliere/infermieri-ticino-ore-lavorative-2026', parent: 'blog' },
     'blog-dezonare-terreni-blenio-2026': { name: 'Novità', path: '/articoli-frontaliere/dezonare-terreni-blenio-2026', parent: 'blog' },
+    'blog-dfp-bankitalia-margini-debito-ue-2026': { name: 'Fiscale', path: '/articoli-frontaliere/dfp-bankitalia-margini-debito-ue-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

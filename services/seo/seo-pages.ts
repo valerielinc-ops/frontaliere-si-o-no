@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1167,
+ "numberOfItems": 1168,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5802,7 +5802,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1164, "name": "139 frontalieri del Ticino ai National Summer G...", "url": `${BASE_URL}/articoli-frontaliere/139-frontalieri-ticino-special-olympics` },
           { "@type": "ListItem", "position": 1165, "name": "Andrea Giuliani guida GastroBellinzona Alto Ticino", "url": `${BASE_URL}/articoli-frontaliere/gastrobellinzona-andrea-giuliani` },
           { "@type": "ListItem", "position": 1166, "name": "Infermieri Ticino: settimana lavorativa non acc...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-ticino-ore-lavorative-2026` },
-          { "@type": "ListItem", "position": 1167, "name": "Dezonare terreni edificabili: emergenza per la ...", "url": `${BASE_URL}/articoli-frontaliere/dezonare-terreni-blenio-2026` }
+          { "@type": "ListItem", "position": 1167, "name": "Dezonare terreni edificabili: emergenza per la ...", "url": `${BASE_URL}/articoli-frontaliere/dezonare-terreni-blenio-2026` },
+          { "@type": "ListItem", "position": 1168, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/dfp-bankitalia-margini-debito-ue-2026` }
  ]
  },
  {

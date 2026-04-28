@@ -19382,6 +19382,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dfp-bankitalia-margini-debito-ue-2026': {
+    title: 'Dfp, Bankitalia: Margini limitati più per debito che per regole Ue',
+    description: 'I margini limitati derivano dall\'esigenza di ridurre il debito, non solo dalle regole Ue. Dal 2027 sentiero discendente. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, bankitalia, margini, limitati, debito',
+    ogTitle: 'Dfp, Bankitalia: Margini limitati più per debito che per regole Ue',
+    ogDescription: 'I margini limitati derivano dall\'esigenza di ridurre il debito, non solo dalle regole Ue. Dal 2027 sentiero discendente.',
+    canonicalPath: '/articoli-frontaliere/dfp-bankitalia-margini-debito-ue-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Dfp, Bankitalia: Margini limitati più per debito che per regole Ue\",\"description\":\"I margini limitati derivano dall'esigenza di ridurre il debito, non solo dalle regole Ue. Dal 2027 sentiero discendente.\",\"datePublished\":\"2026-04-28\",\"image\":\"https://frontaliereticino.ch/images/lac-lugano.webp\"}",
+      "description": "I margini limitati derivano dall'esigenza di ridurre il debito, non solo dalle regole Ue. Dal 2027 sentiero discendente. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dfp-bankitalia-margini-debito-ue-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista su Lugano e Monte Brè"
+      },
+      "datePublished": "2026-04-28T13:38:03+00:00",
+      "dateModified": "2026-04-28T13:38:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dfp-bankitalia-margini-debito-ue-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
