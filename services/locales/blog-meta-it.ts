@@ -3539,6 +3539,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ubs-lobbying-parlamento-ticino-2026.title': 'UBS sotto accusa: lobbying aggressivo sul Parlamento svizzero',
     'blog.article.ubs-lobbying-parlamento-ticino-2026.excerpt': 'La banca UBS esercita pressioni senza precedenti sui parlamentari per ostacolare una legge che la obbligherebbe a rafforzare i capitali.',
     'blog.article.ubs-lobbying-parlamento-ticino-2026.imageAlt': 'Lobbying a Lugano con sede UBS in sottofondo',
+    'blog.article.nuovo-presidente-gastro-bellinzona.title': 'Andrea Giuliani nuovo presidente di Gastro Bellinzona e Alto Ticino',
+    'blog.article.nuovo-presidente-gastro-bellinzona.excerpt': 'Cambio ai vertici di Gastro Bellinzona e Alto Ticino: Andrea Giuliani subentra a Luca Merlo. Preoccupazioni per la stagione in corso.',
+    'blog.article.nuovo-presidente-gastro-bellinzona.imageAlt': 'Ristorante tradizionale in Bellinzona, Ticino, con chef al lavoro',
 };
 
 export default blogMetaIt;

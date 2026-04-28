@@ -21180,6 +21180,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-presidente-gastro-bellinzona': {
+    title: 'Andrea Giuliani nuovo presidente di Gastro Bellinzona e Alto Ticino',
+    description: 'Andrea Giuliani è il nuovo presidente di Gastro Bellinzona e Alto Ticino. Scopri le implicazioni per i frontalieri e le strategie per affrontare le sfide',
+    keywords: 'frontalieri, ticino, svizzera, italia, andrea, giuliani, nuovo, presidente',
+    ogTitle: 'Andrea Giuliani nuovo presidente di Gastro Bellinzona e Alto Ticino',
+    ogDescription: 'Andrea Giuliani è il nuovo presidente di Gastro Bellinzona e Alto Ticino. Scopri le implicazioni per i frontalieri e le strategie per affrontare le sfide',
+    canonicalPath: '/articoli-frontaliere/nuovo-presidente-gastro-bellinzona',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Andrea Giuliani nuovo presidente di Gastro Bellinzona e Alto Ticino",
+      "description": "Andrea Giuliani è il nuovo presidente di Gastro Bellinzona e Alto Ticino. Scopri le implicazioni per i frontalieri e le strategie per affrontare le sfide",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-presidente-gastro-bellinzona.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ristorante tradizionale in Bellinzona, Ticino, con chef al lavoro"
+      },
+      "datePublished": "2026-04-28T21:25:58+00:00",
+      "dateModified": "2026-04-28T21:25:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-presidente-gastro-bellinzona`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

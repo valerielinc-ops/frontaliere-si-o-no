@@ -9268,4 +9268,11 @@ export const ARTICLES = [
  image: '/images/blog/ubs-lobbying-parlamento-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovo-presidente-gastro-bellinzona',
+ category: 'novita',
+ date: '2026-04-28T21:25:58.531Z',
+ image: '/images/blog/nuovo-presidente-gastro-bellinzona.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

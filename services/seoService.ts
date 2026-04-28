@@ -2410,6 +2410,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-servizio-clienti-bancario-promossi-bocciati': { name: 'Servizio clienti', path: '/articoli-frontaliere/servizio-clienti-bancario-promossi-bocciati', parent: 'blog' },
     'blog-agricoltura-spaziale-svizzera-ricerca': { name: 'Novità', path: '/articoli-frontaliere/agricoltura-spaziale-svizzera-ricerca', parent: 'blog' },
     'blog-ubs-lobbying-parlamento-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-lobbying-parlamento-ticino-2026', parent: 'blog' },
+    'blog-nuovo-presidente-gastro-bellinzona': { name: 'Novità', path: '/articoli-frontaliere/nuovo-presidente-gastro-bellinzona', parent: 'blog' },
  };
 
  const info = sectionNames[section];
