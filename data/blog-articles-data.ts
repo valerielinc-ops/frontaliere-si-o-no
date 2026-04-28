@@ -9275,4 +9275,11 @@ export const ARTICLES = [
  image: '/images/blog/nuovo-presidente-gastro-bellinzona.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-ospedale-parcheggi-personale-2026',
+ category: 'novita',
+ date: '2026-04-28T21:33:28.346Z',
+ image: '/images/blog/varese-ospedale-parcheggi-personale-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

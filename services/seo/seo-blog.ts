@@ -21209,6 +21209,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-ospedale-parcheggi-personale-2026': {
+    title: 'Presidio UIL FP a Varese: parcheggi e carenza di personale all\'ospedale',
+    description: 'La UIL FP protesta davanti all\'ospedale di Varese per parcheggi insufficienti e carenza di personale, con turni massacranti per i lavoratori. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, presidio, varese, parcheggi, carenza',
+    ogTitle: 'Presidio UIL FP a Varese: parcheggi e carenza di personale all\'ospedale',
+    ogDescription: 'La UIL FP protesta davanti all\'ospedale di Varese per parcheggi insufficienti e carenza di personale, con turni massacranti per i lavoratori',
+    canonicalPath: '/articoli-frontaliere/varese-ospedale-parcheggi-personale-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Presidio UIL FP a Varese: parcheggi e carenza di personale all'ospedale",
+      "description": "La UIL FP protesta davanti all'ospedale di Varese per parcheggi insufficienti e carenza di personale, con turni massacranti per i lavoratori. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-ospedale-parcheggi-personale-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestanti davanti all'ospedale di Varese per protestare contro i parcheggi insufficienti e la carenza di personale"
+      },
+      "datePublished": "2026-04-28T21:33:28+00:00",
+      "dateModified": "2026-04-28T21:33:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-ospedale-parcheggi-personale-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

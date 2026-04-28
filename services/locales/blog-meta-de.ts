@@ -3541,6 +3541,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-presidente-gastro-bellinzona.title': 'Andrea Giuliani neuer Präsident von Gastro Bellinzona und Alto Ticino',
     'blog.article.nuovo-presidente-gastro-bellinzona.excerpt': 'Wechsel an der Spitze von Gastro Bellinzona und Alto Ticino: Andrea Giuliani folgt auf Luca Merlo. Sorgen um die laufende Saison.',
     'blog.article.nuovo-presidente-gastro-bellinzona.imageAlt': 'Traditionelles Restaurant in Bellinzona, Tessin, mit Koch bei der Arbeit',
+    'blog.article.varese-ospedale-parcheggi-personale-2026.title': 'UIL FP protestiert in Varese: Parkplätze und Personalmangel im Krankenhaus',
+    'blog.article.varese-ospedale-parcheggi-personale-2026.excerpt': 'Die UIL FP protestiert vor dem Krankenhaus in Varese wegen unzureichender Parkplätze und Personalmangel, mit erschöpfenden Schichten für die Arbeiter',
+    'blog.article.varese-ospedale-parcheggi-personale-2026.imageAlt': 'Demonstranten vor dem Krankenhaus von Varese, die bessere Parkplätze und Personal fordern',
 };
 
 export default blogMetaDe;
