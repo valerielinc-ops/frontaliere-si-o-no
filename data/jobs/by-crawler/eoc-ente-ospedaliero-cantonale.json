@@ -42,7 +42,6 @@
         "de": "Beschreibung Ente Ospedaliero Cantonale | EOC Verantwortung und Kompetenz Wir kümmern uns um jeden, der seine Würde und seine Bedürfnisse respektiert. Klinische Medikamente und Medikamente 30. März 2026 Sekundarschule in Lugano - 21. Mai 2026 Hören Sie auf Ihre Gesundheit: Eine Reise in die Otolaryngologie - 28. Mai 2026 Schulter- und Ellbogen- Pathologien: von klinischem Bild bis zum gemeinsamen Management. Über uns Der Kantonal Hospitaller ist ein staatliches Unternehmen mit eigener Rechtspersönlichkeit des öffentlichen Rechts. Es verwaltet, koordiniert und integriert in eine Qualitätsgesundheit bieten ein Netz von öffentlichen Krankenhäusern mit dem Ziel, möglichst nah an die Bedürfnisse der Bevölkerung zu sein, eine bewährte Wirksamkeit Medizin und eine respektvolle Pflege der Zentralität des Patienten zu gewährleisten. Statistik - 41'492 Degenated Patients in 2024 - 668'449 Ambulante Besuche in 2024 - 1'574 Geboren in 2024 / Patienteninformation Laden Sie die neue EOC Together App herunter",
         "fr": "Description Ente Ospedaliero Cantonale Nous prenons soin de chacun, en respectant sa dignité et ses besoins. Médicaments et médicaments cliniques 30 mars 2026 École secondaire à Lugano - 21 mai 2026 Écoutez votre santé : un voyage en otolaryngologie - 28 mai 2026 Les pathologies des épaules et des coudes : de l'image clinique à la gestion partagée ## À propos de nous Le cantonal Hospitaller est une société d'État ayant sa propre personnalité juridique en droit public. Il gère, coordonne et intègre dans un système de santé de qualité un réseau d'hôpitaux publics dans le but d'être le plus proche possible des besoins de la population, en assurant une médecine d'efficacité éprouvée et un soin respectueux de la centralité du patient. ## Statistiques - 41'492 Patients dégénérés en 2024 - 668'449 Visites externes en 2024 - 1'574 Né en 2024 ## Information sur le patient Téléchargez la nouvelle application EOC Together"
       },
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "cosa sapere e come comportarsi?"
@@ -70,7 +69,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "en": [
           "responsabilita-e-competenze-eoc-2026-riapertura-consultazioni-specialistiche-di-allergologia-per-pazienti-adulti-rkf7dn"
@@ -630,7 +628,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -679,7 +677,8 @@
         "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano",
-        "administrative-staff-eoc-ente-ospedaliero-cantonale-lugano"
+        "administrative-staff-eoc-ente-ospedaliero-cantonale-lugano",
+        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -690,7 +689,8 @@
         ],
         "de": [
           "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
-          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano"
@@ -1897,7 +1897,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -1936,7 +1936,8 @@
         ],
         "de": [
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
@@ -1946,7 +1947,8 @@
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -1993,7 +1995,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -2025,7 +2027,8 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -2036,7 +2039,8 @@
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
@@ -2091,7 +2095,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -2123,7 +2127,8 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -2134,7 +2139,8 @@
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
@@ -2210,7 +2216,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "previousSlugs": [
@@ -2222,7 +2228,8 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -2238,7 +2245,8 @@
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
@@ -2311,7 +2319,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "previousSlugs": [
@@ -2323,7 +2331,8 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -2339,7 +2348,8 @@
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
@@ -4022,7 +4032,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -4066,7 +4076,8 @@
         ],
         "de": [
           "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio",
-          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -4077,7 +4088,8 @@
         "administrative-employee-eoc-ente-ospedaliero-cantonale-novaggio",
         "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio"
+        "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio",
+        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
