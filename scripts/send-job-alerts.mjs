@@ -49,6 +49,17 @@ const JOB_BOARD_PATHS = {
   fr: 'trouver-emploi-tessin',
 };
 
+// Locale-aware newsletter preferences slugs (must match router.ts slug tables)
+const PREFERENCES_SLUGS = {
+  it: 'preferenze-newsletter',
+  en: 'newsletter-preferences',
+  de: 'newsletter-einstellungen',
+  fr: 'preferences-newsletter',
+};
+
+// IT is canonical (no prefix); other locales get /{locale}/ prefix.
+const localePathPrefix = (locale) => (locale === 'it' ? '' : `/${locale}`);
+
 // ── i18n strings for email template ─────────────────────────
 const EMAIL_STRINGS = {
   it: {
@@ -213,10 +224,12 @@ function makeAuthenticatedUrl(targetUrl, email, autologinCode, utmMedium = 'job_
   return url.toString();
 }
 
-function makePreferencesUrl(email) {
+function makePreferencesUrl(email, locale = 'it') {
   const secret = process.env.NEWSLETTER_SECRET;
   const normalized = email.toLowerCase().trim();
-  const base = `${BASE_URL}/preferenze-newsletter?email=${encodeURIComponent(normalized)}`;
+  const slug = PREFERENCES_SLUGS[locale] || PREFERENCES_SLUGS.it;
+  const prefix = localePathPrefix(locale);
+  const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(normalized)}`;
   if (!secret) return base;
   const token = createHmac('sha256', secret).update(normalized).digest('hex');
   return `${base}&token=${token}`;
@@ -309,8 +322,9 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const locale = alert.locale || 'it';
   const s = getStrings(locale);
   const jobBoardPath = JOB_BOARD_PATHS[locale] || JOB_BOARD_PATHS.it;
+  const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
   const autologinCode = autologinEnabled ? generateAutologinCode(alert.email) : null;
-  const preferencesUrl = makePreferencesUrl(alert.email);
+  const preferencesUrl = makePreferencesUrl(alert.email, locale);
   const prefsLabel = locale === 'en' ? 'Manage preferences'
     : locale === 'de' ? 'Einstellungen verwalten'
     : locale === 'fr' ? 'Gérer les préférences'
@@ -371,8 +385,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
 
   // Build locale-aware URLs with autologin
   const wrapUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode);
-  const manageUrl = wrapUrl(`${BASE_URL}/${jobBoardPath}/?${utmBase}`);
-  const allJobsUrl = wrapUrl(`${BASE_URL}/${jobBoardPath}/?${utmBase}`);
+  const manageUrl = wrapUrl(`${BASE_URL}${localizedJobBoardPath}/?${utmBase}`);
+  const allJobsUrl = wrapUrl(`${BASE_URL}${localizedJobBoardPath}/?${utmBase}`);
 
   const jobCards = matchedJobs.slice(0, 10).map((job) => {
     const title = job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle;
@@ -380,7 +394,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const rawLocation = job.location || job.addressLocality || '';
     const location = rawLocation.replace(/^[-\u2013\u2014\s]+/, '').trim();
     const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
-    const rawJobUrl = slug ? `${BASE_URL}/${jobBoardPath}/${slug}?${utmBase}` : BASE_URL;
+    const rawJobUrl = slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}?${utmBase}` : BASE_URL;
     const url = wrapUrl(rawJobUrl);
     const initial = (company || '?')[0].toUpperCase();
     const tags = [];
@@ -523,7 +537,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const company = job.company || '';
     const rawLocation = (job.location || job.addressLocality || '').replace(/^[-\u2013\u2014\s]+/, '').trim();
     const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
-    const rawJobUrl = slug ? `${BASE_URL}/${jobBoardPath}/${slug}?${utmBase}` : BASE_URL;
+    const rawJobUrl = slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}?${utmBase}` : BASE_URL;
     const url = wrapUrl(rawJobUrl);
     const meta = [company, rawLocation].filter(Boolean).join(' \u00b7 ');
     return `${title}\n${meta}\n${url}`;

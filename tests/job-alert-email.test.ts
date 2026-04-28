@@ -120,3 +120,60 @@ describe('job alert email — Feedback-ID header (source check)', () => {
     expect(src).toMatch(/text:\s*e\.text|payload:\s*\{[^}]*text:/s);
   });
 });
+
+describe('job alert email — locale-aware URLs', () => {
+  // Regression: send-job-alerts.mjs previously hardcoded IT slug `/preferenze-newsletter`
+  // and built job board URLs without the `/{locale}/` prefix for non-IT locales.
+  // Mirror the bugs we fixed in send-newsletter.mjs.
+
+  it('IT preferences URL uses IT slug without locale prefix', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+    expect(result.html).toMatch(/https:\/\/frontaliereticino\.ch\/preferenze-newsletter\?email=/);
+  });
+
+  it('EN preferences URL uses EN slug with /en/ prefix', () => {
+    const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
+    expect(result.html).toMatch(/https:\/\/frontaliereticino\.ch\/en\/newsletter-preferences\?email=/);
+    expect(result.html).not.toMatch(/\/preferenze-newsletter\?/);
+  });
+
+  it('DE preferences URL uses DE slug with /de/ prefix', () => {
+    const result = buildAlertEmail(fixtureAlert('de'), [fixtureJob()], true);
+    expect(result.html).toMatch(/https:\/\/frontaliereticino\.ch\/de\/newsletter-einstellungen\?email=/);
+  });
+
+  it('FR preferences URL uses FR slug with /fr/ prefix', () => {
+    const result = buildAlertEmail(fixtureAlert('fr'), [fixtureJob()], true);
+    expect(result.html).toMatch(/https:\/\/frontaliereticino\.ch\/fr\/preferences-newsletter\?email=/);
+  });
+
+  it('IT job board URLs have no locale prefix', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+    expect(result.html).toMatch(/https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\//);
+  });
+
+  it('EN job board URLs are /en/find-jobs-ticino prefixed', () => {
+    const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
+    expect(result.html).toMatch(/https:\/\/frontaliereticino\.ch\/en\/find-jobs-ticino\//);
+    // Must NOT contain unprefixed /find-jobs-ticino/ (job board path without locale)
+    expect(result.html).not.toMatch(/https:\/\/frontaliereticino\.ch\/find-jobs-ticino\//);
+  });
+
+  it('DE job board URLs are /de/jobs-im-tessin prefixed', () => {
+    const result = buildAlertEmail(fixtureAlert('de'), [fixtureJob()], true);
+    expect(result.html).toMatch(/https:\/\/frontaliereticino\.ch\/de\/jobs-im-tessin\//);
+    expect(result.html).not.toMatch(/https:\/\/frontaliereticino\.ch\/jobs-im-tessin\//);
+  });
+
+  it('FR job board URLs are /fr/trouver-emploi-tessin prefixed', () => {
+    const result = buildAlertEmail(fixtureAlert('fr'), [fixtureJob()], true);
+    expect(result.html).toMatch(/https:\/\/frontaliereticino\.ch\/fr\/trouver-emploi-tessin\//);
+    expect(result.html).not.toMatch(/https:\/\/frontaliereticino\.ch\/trouver-emploi-tessin\//);
+  });
+
+  it('plaintext alternative also uses locale-prefixed URLs (EN)', () => {
+    const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
+    expect(result.text).toMatch(/\/en\/find-jobs-ticino\//);
+    expect(result.text).not.toMatch(/frontaliereticino\.ch\/find-jobs-ticino\//);
+  });
+});
