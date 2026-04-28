@@ -2351,6 +2351,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dfp-bankitalia-margini-debito-ue-2026': { name: 'Fiscale', path: '/articoli-frontaliere/dfp-bankitalia-margini-debito-ue-2026', parent: 'blog' },
     'blog-momoride-carpooling-benefico-ticino-2024': { name: 'MomòRide', path: '/articoli-frontaliere/momoride-carpooling-benefico-ticino-2024', parent: 'blog' },
     'blog-borse-zurigo-flessione-2026': { name: 'Borse europee', path: '/articoli-frontaliere/borse-zurigo-flessione-2026', parent: 'blog' },
+    'blog-traffico-droga-arresti-svizzera-estero-2026': { name: 'Novità', path: '/articoli-frontaliere/traffico-droga-arresti-svizzera-estero-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

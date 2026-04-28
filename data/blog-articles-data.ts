@@ -8855,4 +8855,11 @@ export const ARTICLES = [
  image: '/images/blog/borse-zurigo-flessione-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'traffico-droga-arresti-svizzera-estero-2026',
+ category: 'novita',
+ date: '2026-04-28T14:04:21.172Z',
+ image: '/images/blog/traffico-droga-arresti-svizzera-estero-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

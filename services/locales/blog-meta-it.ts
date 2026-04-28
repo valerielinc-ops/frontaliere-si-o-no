@@ -3362,6 +3362,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.borse-zurigo-flessione-2026.title': 'Borse europee in flessione, Zurigo non decolla',
     'blog.article.borse-zurigo-flessione-2026.excerpt': 'Le borse europee mostrano una linea comune incerta, mentre Zurigo registra un listino primario in flessione.',
     'blog.article.borse-zurigo-flessione-2026.imageAlt': 'Vista panoramica di Lugano con il Lago Ceresio e le montagne circostanti',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.title': 'Traffico di droga: sei arresti tra Svizzera ed estero',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.excerpt': 'Operazione congiunta del Ministero pubblico della Confederazione e della Polizia giudiziaria federale contro un\'organizzazione criminale.',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.imageAlt': 'Vista panoramica del Lago di Lugano con Lugano e Monte Brè sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -3361,6 +3361,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.borse-zurigo-flessione-2026.title': 'Europäische Börsen schwächeln, Zürich stagniert',
     'blog.article.borse-zurigo-flessione-2026.excerpt': 'Die europäischen Börsen zeigen eine gemeinsame unsichere Tendenz, während Zürich einen primären Kursrückgang verzeichnet.',
     'blog.article.borse-zurigo-flessione-2026.imageAlt': 'Panoramablick auf Lugano mit dem Luganersee und den umliegenden Bergen',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.title': 'Drogenhandel: Sechs Festnahmen in der Schweiz und im Ausland',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.excerpt': 'Gemeinsame Operation der Bundesanwaltschaft und der Bundespolizei gegen eine kriminelle Organisation.',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.imageAlt': 'Panoramablick auf den Luganersee mit Lugano und Monte Brè im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -3362,6 +3362,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.borse-zurigo-flessione-2026.title': 'Bourses européennes en baisse, Zurich ne décolle pas',
     'blog.article.borse-zurigo-flessione-2026.excerpt': 'Les bourses européennes affichent une tendance incertaine, tandis que Zurich enregistre un marché primaire en baisse.',
     'blog.article.borse-zurigo-flessione-2026.imageAlt': 'Vue panoramique de Lugano avec le lac de Lugano et les montagnes environnantes',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.title': 'Traffic de drogue : six arrestations en Suisse et à l\'étranger',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.excerpt': 'Opération conjointe du Ministère public de la Confédération et de la Police judiciaire fédérale contre une organisation criminelle.',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.imageAlt': 'Vue panoramique du lac de Lugano avec Lugano et le Monte Brè en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -3361,6 +3361,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.borse-zurigo-flessione-2026.title': 'European markets falter, Zurich struggles',
     'blog.article.borse-zurigo-flessione-2026.excerpt': 'European markets show a common uncertain trend, while Zurich registers a primary list in decline.',
     'blog.article.borse-zurigo-flessione-2026.imageAlt': 'Panoramic view of Lugano with Lake Ceresio and surrounding mountains',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.title': 'Drug trafficking: six arrests in Switzerland and abroad',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.excerpt': 'Joint operation by the Federal Department of Justice and Police against a criminal organization.',
+    'blog.article.traffico-droga-arresti-svizzera-estero-2026.imageAlt': 'Panoramic view of Lake Lugano with Lugano and Monte Brè in the background',
 };
 
 export default blogMetaEn;
