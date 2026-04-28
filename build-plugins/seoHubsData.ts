@@ -73,6 +73,35 @@ export function hubBasePaths(): readonly string[] {
   return out;
 }
 
+/**
+ * Set of trailing-slug names that the SEO hub family (jobs, sectors, companies,
+ * articles archives) reserves for its paginated index pages. These slugs MUST
+ * NOT be claimed by jobsSeoPagesPlugin.ts as soft-landing slugs — otherwise an
+ * expired-job soft-landing would overwrite the seoHubs HTML at e.g.
+ * `/cerca-lavoro-ticino/tutti/index.html`, severing the pagination chain from
+ * `/page-2/` onwards (hundreds of orphaned sitemap entries).
+ *
+ * The set is intentionally slug-only (not full paths) because the
+ * jobsSeoPagesPlugin.ts soft-landing code matches tracking keys by slug.
+ * Concrete slugs covered (per HUB_SLUGS):
+ *  - jobs:      tutti / all / alle / tous
+ *  - sectors:   settori / sectors / branchen / secteurs
+ *  - companies: tutte / all / alle / toutes
+ *  - articles:  tutti / all / alle / tous (re-uses the jobs slug name)
+ */
+export const SEO_HUB_RESERVED_SLUGS: readonly string[] = (() => {
+  const s = new Set<string>();
+  for (const loc of HUB_LOCALES) {
+    const h = HUB_SLUGS[loc];
+    for (const path of [h.jobsAll, h.sectorsAll, h.companiesAll, h.articlesAll]) {
+      const trimmed = path.replace(/\/+$/, '');
+      const last = trimmed.split('/').pop();
+      if (last) s.add(last);
+    }
+  }
+  return Array.from(s);
+})();
+
 /** Returns true when the path matches any hub base or paginated variant. */
 export function isSeoHubPath(pathname: string): boolean {
   const norm = pathname.endsWith('/') ? pathname : `${pathname}/`;

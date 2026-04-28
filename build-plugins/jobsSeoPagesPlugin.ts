@@ -57,6 +57,7 @@ import {
  jobMatchesSector,
  type SectorHubKey,
 } from './jobSectorLanding';
+import { SEO_HUB_RESERVED_SLUGS } from './seoHubsData';
 // F3a — Job Page CTR Optimization: shared 50-60 char title templates and
 // 140-160 char meta-description templates that drive SERP CTR on the
 // top-20 job listing pages. See services/seo/job-board-titles.ts and
@@ -5660,6 +5661,14 @@ ${alternates}
  for (const loc of ['it', 'en', 'de', 'fr'] as const) {
  RESERVED_HUB_SLUGS.add(CITY_HUB_SLUG[loc][city]);
  }
+ }
+ // SEO archive-hub trailing slugs (jobs/sectors/companies/articles "all" pages).
+ // Without this guard, an expired-job tracking key with slug e.g. "tutti" would
+ // soft-land at `/cerca-lavoro-ticino/tutti/index.html` AFTER seoHubsPlugin
+ // emitted the paginated index there, severing the page-1 → page-N chain and
+ // orphaning every paginated variant in sitemap-seo-hubs.xml.
+ for (const slug of SEO_HUB_RESERVED_SLUGS) {
+ RESERVED_HUB_SLUGS.add(slug);
  }
 
  // Strip pre-existing reserved-hub keys from tracking BEFORE the file write.
