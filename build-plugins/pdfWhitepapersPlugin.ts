@@ -1,6 +1,31 @@
 import path from 'path';
+import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
+
+/**
+ * Cache directory for the PDF content-hash manifest. Mirrors the convention
+ * used by `contentHash.ts`. The manifest stores `filename → sha256(source)`
+ * so the plugin can skip regeneration when neither the source markdown nor
+ * the rendering options have changed since the previous build.
+ *
+ * Contents survive across CI runs via the `actions/cache@v5` step keyed on
+ * the plugin source + the article body files.
+ */
+const PDF_CACHE_DIR = '.build-cache';
+const PDF_MANIFEST_FILE = 'pdf-manifest.json';
+
+interface PdfManifest {
+ readonly version: number;
+ readonly hashes: Readonly<Record<string, string>>;
+}
+
+interface PdfCacheEntry {
+ /** Absolute path to the cached PDF (under the cache dir). */
+ readonly cachedPath: string;
+ /** Source content hash that produced the cached PDF. */
+ readonly hash: string;
+}
 
 interface PdfGuide {
  filename: string;
@@ -534,6 +559,65 @@ ${entries}
  fs.writeFileSync(publicPath, sitemap, 'utf-8');
 }
 
+/* ── Cache helpers (perf optimization 2026-04-28) ─────────── */
+
+/**
+ * Bump this version when the rendering pipeline changes (fonts, layout,
+ * COLORS, page size, footer text, …). Embedded into every cached entry's
+ * hash so layout-only changes invalidate the cache cleanly.
+ */
+const PDF_RENDER_VERSION = 'v1-2026-04-28';
+
+/** Compute a stable hash over the source markdown + render version. */
+function hashSource(markdown: string, guide: PdfGuide): string {
+ return createHash('sha256')
+ .update(PDF_RENDER_VERSION)
+ .update('\n')
+ .update(guide.filename)
+ .update('\n')
+ .update(guide.title)
+ .update('\n')
+ .update(guide.subtitle)
+ .update('\n')
+ .update(markdown)
+ .digest('hex');
+}
+
+/** Read the persisted PDF manifest (or return an empty one). */
+function loadPdfManifest(
+ fs: typeof import('node:fs'),
+ rootDir: string,
+): PdfManifest {
+ try {
+ const manifestPath = path.join(rootDir, PDF_CACHE_DIR, PDF_MANIFEST_FILE);
+ const raw = fs.readFileSync(manifestPath, 'utf-8');
+ const parsed = JSON.parse(raw) as PdfManifest;
+ if (parsed && parsed.version === 1 && parsed.hashes && typeof parsed.hashes === 'object') {
+ return parsed;
+ }
+ } catch {
+ // Missing or corrupted manifest — start fresh.
+ }
+ return { version: 1, hashes: {} };
+}
+
+/** Persist the PDF manifest. */
+function savePdfManifest(
+ fs: typeof import('node:fs'),
+ rootDir: string,
+ manifest: PdfManifest,
+): void {
+ const cacheDir = path.join(rootDir, PDF_CACHE_DIR);
+ fs.mkdirSync(cacheDir, { recursive: true });
+ const manifestPath = path.join(cacheDir, PDF_MANIFEST_FILE);
+ fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
+}
+
+/** Resolve the absolute path of the cached PDF for a guide. */
+function getCachedPdfPath(rootDir: string, guide: PdfGuide): string {
+ return path.join(rootDir, PDF_CACHE_DIR, 'pdf-cache', `${guide.filename}.pdf`);
+}
+
 /* ── Vite Plugin ──────────────────────────────────────────── */
 
 export function pdfWhitepapersPlugin(rootDir: string): Plugin {
@@ -545,9 +629,18 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
  const outDir = path.join(rootDir, 'dist', 'guides');
  fs.mkdirSync(outDir, { recursive: true });
 
+ const startTotal = Date.now();
  const dateStamp = new Date().toISOString().slice(0, 10);
  let generated = 0;
+ let skipped = 0;
  const generatedGuides: PdfGuide[] = [];
+
+ // Load the previous manifest and seed the new one. The new manifest
+ // is rebuilt from scratch each run so removed guides drop out cleanly.
+ const previousManifest = loadPdfManifest(fs, rootDir);
+ const nextHashes: Record<string, string> = {};
+ const cacheRoot = path.join(rootDir, PDF_CACHE_DIR, 'pdf-cache');
+ fs.mkdirSync(cacheRoot, { recursive: true });
 
  for (const guide of GUIDES) {
  try {
@@ -557,21 +650,42 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
  continue;
  }
 
- const pdfBuffer = await generatePdf(guide, markdown);
+ const sourceHash = hashSource(markdown, guide);
+ nextHashes[guide.filename] = sourceHash;
+
  const outPath = path.join(outDir, `${guide.filename}.pdf`);
+ const cachedPath = getCachedPdfPath(rootDir, guide);
+ const previousHash = previousManifest.hashes[guide.filename];
+
+ // ── Skip path: source unchanged AND cached PDF is on disk ───
+ // Copy the cached PDF to dist/ rather than regenerating. The
+ // landing page is cheap (HTML string interpolation) so we
+ // always re-emit it to pick up date stamps + size.
+ let pdfBuffer: Buffer;
+ if (previousHash === sourceHash && fs.existsSync(cachedPath)) {
+ pdfBuffer = fs.readFileSync(cachedPath);
  fs.writeFileSync(outPath, pdfBuffer);
+ skipped++;
+ } else {
+ pdfBuffer = await generatePdf(guide, markdown);
+ fs.writeFileSync(outPath, pdfBuffer);
+ // Persist into the cache directory so subsequent builds can reuse.
+ try {
+ fs.writeFileSync(cachedPath, pdfBuffer);
+ } catch {
+ // Cache write is best-effort.
+ }
+ generated++;
+ }
 
  const sizeKb = (pdfBuffer.length / 1024).toFixed(1);
- console.log(`[pdf-guides] ✓ ${guide.filename}.pdf (${sizeKb} KB)`);
 
- // Generate HTML landing page
+ // Generate HTML landing page (always — cheap, picks up date)
  const landingDir = path.join(rootDir, 'dist', 'guides', guide.filename);
  fs.mkdirSync(landingDir, { recursive: true });
  const landingHtml = generateLandingPage(guide, sizeKb, dateStamp);
  fs.writeFileSync(path.join(landingDir, 'index.html'), landingHtml, 'utf-8');
- console.log(`[pdf-guides] ✓ ${guide.filename}/index.html (landing page)`);
 
- generated++;
  generatedGuides.push(guide);
  } catch (err) {
  console.warn(`[pdf-guides] ⚠ Failed to generate ${guide.filename}.pdf:`, err);
@@ -581,10 +695,15 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
  // Update sitemap-guides.xml with both landing pages and PDF URLs
  if (generatedGuides.length > 0) {
  updateGuidesSitemap(fs, rootDir, generatedGuides, dateStamp);
- console.log(`[pdf-guides] Updated sitemap-guides.xml (${generatedGuides.length * 2} URLs)`);
  }
 
- console.log(`[pdf-guides] Generated ${generated} PDF whitepapers + landing pages in dist/guides/`);
+ // Persist the manifest (replaces any stale entries from removed guides).
+ savePdfManifest(fs, rootDir, { version: 1, hashes: nextHashes });
+
+ const dur = ((Date.now() - startTotal) / 1000).toFixed(2);
+ console.log(
+ `[pdf-whitepapers] generated ${generated} | skipped ${skipped} | total time ${dur}s (from ${GUIDES.length} guides)`,
+ );
  },
  };
 }
