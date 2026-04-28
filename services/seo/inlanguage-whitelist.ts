@@ -59,6 +59,7 @@ export const TYPES_ACCEPT_IN_LANGUAGE: ReadonlySet<string> = new Set([
  'Recipe',
  'Course',
  'Book',
+ 'Map',
  'Message',
  'Review',
  'ClaimReview',

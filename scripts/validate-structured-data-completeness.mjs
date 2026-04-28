@@ -359,6 +359,7 @@ const INLANGUAGE_WHITELIST = new Set([
   'Recipe',
   'Course',
   'Book',
+  'Map',
   'Message',
   'Review',
   'ClaimReview',
