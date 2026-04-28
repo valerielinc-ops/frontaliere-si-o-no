@@ -1175,7 +1175,9 @@
         "quality-technician-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "qualitatstechniker-m-w-d-ffs-officine-ferrovie-federali-bellinzona",
         "technicien-qualite-m-f-j-ffs-officine-ferrovie-federali-bellinzona"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "sbb-881d5d3205ac",
@@ -1283,7 +1285,9 @@
       "streetAddress": "Via Officina 3",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "sbb-be44adbeacac",

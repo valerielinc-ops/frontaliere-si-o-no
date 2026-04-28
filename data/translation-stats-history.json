@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-04-14T08:14:50.472Z",
-    "label": "before",
-    "total": 2893,
-    "needsRetranslation": 33,
-    "incomplete": 6,
-    "complete": 2887,
-    "missingByLocale": {
-      "it": 1,
-      "en": 0,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Tether Operations",
-        "pending": 5
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-14T08:45:15.572Z",
-    "label": "after",
-    "total": 2893,
-    "needsRetranslation": 35,
-    "incomplete": 6,
-    "complete": 2887,
-    "missingByLocale": {
-      "it": 1,
-      "en": 0,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Tether Operations",
-        "pending": 5
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-14T10:56:23.750Z",
     "label": "before",
     "total": 2930,
@@ -7823,6 +7775,98 @@
       },
       {
         "company": "ALDI SUISSE",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-28T14:36:58.145Z",
+    "label": "before",
+    "total": 2684,
+    "needsRetranslation": 100,
+    "incomplete": 50,
+    "complete": 2634,
+    "missingByLocale": {
+      "it": 36,
+      "en": 19,
+      "de": 31,
+      "fr": 39
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 2
+      },
+      {
+        "company": "PEMSA",
+        "pending": 2
+      },
+      {
+        "company": "TRUMPF Schweiz AG",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-28T15:42:09.196Z",
+    "label": "after",
+    "total": 2684,
+    "needsRetranslation": 73,
+    "incomplete": 26,
+    "complete": 2658,
+    "missingByLocale": {
+      "it": 25,
+      "en": 5,
+      "de": 23,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
         "pending": 1
       }
     ]

@@ -2571,7 +2571,6 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-04-27T21:58:53.567Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "application-owner-100-hopital-du-valais-sion"
@@ -2595,8 +2594,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-51b02650c089",
@@ -3374,7 +3372,6 @@
         ]
       },
       "firstSeenAt": "2026-04-20T10:47:50.886Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3387,8 +3384,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-702424b48585",
@@ -4072,7 +4068,6 @@
         "famille": "Administratif",
         "site": "ST-MAURICE"
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -4087,7 +4082,6 @@
         }
       },
       "firstSeenAt": "2026-04-28T11:03:21.611Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l"
