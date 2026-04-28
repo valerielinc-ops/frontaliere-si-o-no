@@ -12,7 +12,8 @@
  * and its subclasses (CollectionPage, AboutPage, ContactPage, FAQPage,
  * QAPage, …), WebSite, Dataset, HowTo (and Recipe), Course, Book,
  * MediaObject (VideoObject, ImageObject, AudioObject), Review/ClaimReview,
- * Message, and SoftwareApplication (and its WebApplication and
+ * Message, DigitalDocument (and its Text/Presentation/Spreadsheet/Note
+ * subtypes), and SoftwareApplication (and its WebApplication and
  * MobileApplication subclasses). All of these accept `inLanguage`.
  *
  * Types that do NOT accept `inLanguage` (Thing/Intangible/Place subtree):
@@ -26,57 +27,13 @@
  * by Google's rich-results validator (even though both extend Intangible /
  * Thing rather than CreativeWork).
  *
- * Lives in its own module so test files that mock `@/services/seoService`
- * (see tests/setup.tsx) don't accidentally hide this whitelist from
- * non-mocked consumers like services/seo/schema-normalizers.ts.
+ * Single source of truth lives in `inlanguage-whitelist.data.mjs` so the
+ * Node-only validator script (`scripts/validate-structured-data-completeness.mjs`)
+ * can import it without a TypeScript transformer.
  */
-export const TYPES_ACCEPT_IN_LANGUAGE: ReadonlySet<string> = new Set([
- // CreativeWork itself
- 'CreativeWork',
- // WebPage subtree
- 'WebPage',
- 'CollectionPage',
- 'AboutPage',
- 'ContactPage',
- 'FAQPage',
- 'QAPage',
- 'WebSite',
- // Article subtree
- 'Article',
- 'NewsArticle',
- 'BlogPosting',
- 'ScholarlyArticle',
- 'TechArticle',
- 'OpinionNewsArticle',
- 'ReportageNewsArticle',
- // Software application subtree (extends CreativeWork)
- 'SoftwareApplication',
- 'WebApplication',
- 'MobileApplication',
- // Other CreativeWork descendants
- 'Dataset',
- 'HowTo',
- 'Recipe',
- 'Course',
- 'Book',
- 'Map',
- 'Message',
- 'Review',
- 'ClaimReview',
- 'VideoObject',
- 'ImageObject',
- 'AudioObject',
- 'MediaObject',
- 'DigitalDocument',
- 'TextDigitalDocument',
- 'PresentationDigitalDocument',
- 'SpreadsheetDigitalDocument',
- 'NoteDigitalDocument',
- // Explicitly listed by schema.org as accepting inLanguage
- 'Event',
- 'LinkRole',
- 'WriteAction',
- // Listed by Google rich-results validator as supporting inLanguage
- 'JobPosting',
- 'Product',
-]);
+
+import { TYPES_ACCEPT_IN_LANGUAGE_LIST } from './inlanguage-whitelist.data.mjs';
+
+export const TYPES_ACCEPT_IN_LANGUAGE: ReadonlySet<string> = new Set(
+ TYPES_ACCEPT_IN_LANGUAGE_LIST as readonly string[],
+);
