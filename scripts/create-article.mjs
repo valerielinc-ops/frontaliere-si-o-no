@@ -5489,9 +5489,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
 
   console.error('\n✅ Articolo creato! I test verificheranno la correttezza.');
   console.error(`   Titolo: ${data.content.it.title}`);
-  console.error(`   URL: ${BASE_URL}/articoli-frontaliere/${data.id}`);
+  console.error(`   URL: ${BASE_URL}/articoli-frontaliere/${data.id}/`);
   RUN_REPORT.article.id = data.id;
-  RUN_REPORT.article.url = `${BASE_URL}/articoli-frontaliere/${data.id}`;
+  RUN_REPORT.article.url = `${BASE_URL}/articoli-frontaliere/${data.id}/`;
   RUN_REPORT.article.sourceDomain = sourceDomain || null;
 
   // Write GitHub Actions outputs for downstream steps (Facebook posting, etc.)
@@ -5499,7 +5499,13 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   const ghOutput = process.env.GITHUB_OUTPUT;
   if (ghOutput) {
     const { appendFileSync } = await import('fs');
-    const articleUrl = `${BASE_URL}/articoli-frontaliere/${data.id}`;
+    // ALWAYS emit article_url with trailing slash. Without it, GitHub Pages serves
+    // the flat redirect bridge (dist/<path>.html) — 643 bytes of <script>location.replace</script>
+    // with no OG meta tags. The wait-script and Facebook crawler can't follow JS
+    // redirects, so og:title appears missing and the deploy times out (run #25033670793).
+    // The with-slash URL serves the proper index.html (~22 KB) with full OG metadata.
+    const articleUrlRaw = `${BASE_URL}/articoli-frontaliere/${data.id}`;
+    const articleUrl = articleUrlRaw.endsWith('/') ? articleUrlRaw : `${articleUrlRaw}/`;
     const ogImagePath = data._generatedImagePath
       ? data._generatedImagePath.replace(/^\//, '')
       : `images/places/${data.image}`;
