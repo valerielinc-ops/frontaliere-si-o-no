@@ -1,16 +1,85 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-04-27T22:21:12.174Z",
-  "total": 0,
-  "newCount": 0,
+  "generatedAt": "2026-04-28T11:25:44.062Z",
+  "total": 1,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "newJobs": [],
+  "durationMs": 1844,
+  "avgDurationMs": 1844,
+  "durationHistory": [
+    1844
+  ],
+  "newJobs": [
+    {
+      "title": "PROJECT CONTROL MANAGER - SVIZZERA",
+      "slug": "project-control-manager-svizzera-impresa-pizzarotti-c-s-p-a-impresa-pizzarotti-c-s-p-a",
+      "url": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/project-control-manager-svizzera-659346/it/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/project-control-manager-svizzera-659346/it/",
+      "company": "Impresa Pizzarotti & C. S.p.A.",
+      "companyKey": "impresa-pizzarotti",
+      "companyDomain": "pizzarotti.it",
+      "location": "Impresa Pizzarotti & C. S.p.A.",
+      "addressLocality": "Impresa Pizzarotti & C. S.p.A.",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "canton": "NE",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Costruzioni & Infrastrutture",
+      "source": "pizzarotti-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "removedJobs": [
+    {
+      "title": "PREVENTIVISTA - SVIZZERA",
+      "slug": "preventivista-svizzera-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera",
+      "url": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/preventivista-svizzera-672374/it/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/preventivista-svizzera-672374/it/",
+      "company": "Impresa Pizzarotti & C. S.p.A.",
+      "companyKey": "impresa-pizzarotti",
+      "companyDomain": "pizzarotti.it",
+      "location": "Bellinzona, Svizzera",
+      "addressLocality": "Bellinzona, Svizzera",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Costruzioni & Infrastrutture",
+      "source": "pizzarotti-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-07",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "currency": "CHF",
+      "postalCode": "6500",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "unchangedJobs": []
 }
