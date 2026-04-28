@@ -1,10 +1,10 @@
 {
   "crawlerKey": "swatch-group-assembly",
-  "assembledAt": "2026-04-27T22:37:34.737Z",
+  "assembledAt": "2026-04-28T11:42:12.929Z",
   "jobs": [
     {
       "id": "company-7uarkf",
-      "slug": "assistente-alle-vendite-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-mar",
+      "slug": "assistente-alle-vendite-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-ticino",
       "company": "The Swatch Group (Italia) S.p.A.",
       "title": "Sales Assistant - part time - Forte dei marmi - contratto temporaneo",
       "location": "Ticino",
@@ -45,8 +45,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "assistente-alle-vendite-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-mar",
-        "en": "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-tosca",
+        "it": "assistente-alle-vendite-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-ticino",
+        "en": "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-ticino",
         "de": "vertriebsassistent-teilzeit-forte-dei-marmi-befristeter-vertrag-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-tosc",
         "fr": "assistant-commercial-temps-partiel-forte-dei-marmi-contrat-temporaire-the-swatch-group-italia-s-p-a-55042-forte-dei-marm"
       },
@@ -54,20 +54,26 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-add",
-          "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-add-7uarkf"
+          "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-add-7uarkf",
+          "assistente-alle-vendite-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-mar"
         ],
         "de": [
           "sales-assistent-teilzeit-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-addr-7uarkf"
         ],
         "fr": [
           "sales-assistant-temps-partiel-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-7uarkf"
+        ],
+        "en": [
+          "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-tosca"
         ]
       },
       "previousSlugs": [
         "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-add",
         "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-add-7uarkf",
+        "assistente-alle-vendite-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-mar",
         "sales-assistent-teilzeit-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-addr-7uarkf",
-        "sales-assistant-temps-partiel-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-7uarkf"
+        "sales-assistant-temps-partiel-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-toscana-italy-company-7uarkf",
+        "sales-assistant-part-time-forte-dei-marmi-contratto-temporaneo-the-swatch-group-italia-s-p-a-55042-forte-dei-marmi-tosca"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -82,7 +88,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "needsRetranslation": true
     }
   ]
 }
