@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-04-27T21:25:59.224Z",
+  "generatedAt": "2026-04-28T10:30:29.045Z",
   "total": 7,
-  "newCount": 2,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18594,
-  "avgDurationMs": 18594,
+  "durationMs": 22699,
+  "avgDurationMs": 22699,
   "durationHistory": [
-    18594
+    22699
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-20h-Landquart_R_783942",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-20h-Landquart_R_783942",
@@ -41,13 +42,17 @@
         "location": "Graubünden"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
+      "id": "capri-holdings-86013576b6b0",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-04-27T21:25:59.223Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 15
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -78,17 +83,19 @@
         "location": "Graubünden"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
+      "id": "capri-holdings-c7b470232d5a",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-04-27T21:25:59.223Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 15
+        "translation": 25,
+        "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-50----Landquart_R_783737",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-50----Landquart_R_783737",
