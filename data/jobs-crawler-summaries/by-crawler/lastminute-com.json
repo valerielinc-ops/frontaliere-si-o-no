@@ -1,18 +1,60 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-04-27T22:08:11.089Z",
-  "total": 4,
-  "newCount": 4,
+  "generatedAt": "2026-04-28T11:12:47.201Z",
+  "total": 5,
+  "newCount": 5,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17003,
-  "avgDurationMs": 17003,
+  "durationMs": 19364,
+  "avgDurationMs": 19364,
   "durationHistory": [
-    17003
+    19364
   ],
   "newJobs": [
+    {
+      "id": "company-5rojoy",
+      "slug": "implementation-specialista-servizio-clienti-chiasso",
+      "company": "lastminute.com",
+      "title": "Implementation Specialist – Customer Service",
+      "location": "Chiasso",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-28",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000123408769&jobName=Implementation+Specialist+%E2%80%93+Customer+Service",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "crawledAt": "2026-04-28T11:12:46.435Z",
+      "firstSeenAt": "2026-04-28T11:12:46.435Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chiasso",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Balestra 12",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 21,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-wndocq",
       "slug": "software-ingegnere-etls-microservices-chiasso",
@@ -47,7 +89,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 1,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
