@@ -54,6 +54,7 @@ import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandings
 import { faqHubPlugin } from './build-plugins/faqHubPlugin';
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
+import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -172,6 +173,11 @@ export default defineConfig(({ mode }) => {
  // does not exist on disk, so Semrush no longer counts missing-locale
  // translations as broken internal links (Issue 8/E1, Issue 25/E8).
  hreflangPostprocessPlugin(__dirname, { baseUrl: 'https://frontaliereticino.ch' }),
+ // T2.6 — pre-compress every dist/**/*.html (≥ 1 KB) to .br + .gz so the
+ // GitHub Pages CDN can serve pre-encoded payloads without runtime cost
+ // and the upload-pages-artifact step ships fewer bytes. Runs LAST in
+ // the SEO chain — after every other plugin has rewritten HTML.
+ precompressHtmlPlugin(__dirname),
  ]),
  // ── Content-hash manifest finalize (runs LAST in closeBundle) ──
  // Saves the manifest of SHA256 hashes for every file the WriteCollector
