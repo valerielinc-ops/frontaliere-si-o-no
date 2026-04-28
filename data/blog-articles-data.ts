@@ -8463,4 +8463,11 @@ export const ARTICLES = [
  image: '/images/blog/bcc-busto-garolfo-2-milioni-territorio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuova-legge-polizia-ticino-controllo-periodico',
+ category: 'novita',
+ date: '2026-04-28T05:22:06.805Z',
+ image: '/images/blog/nuova-legge-polizia-ticino-controllo-periodico.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

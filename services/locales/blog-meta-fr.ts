@@ -3194,6 +3194,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bcc-busto-garolfo-2-milioni-territorio.title': 'Bcc Busto Garolfo : 14,4 millions de bénéfice et 2 millions pour le territoire',
     'blog.article.bcc-busto-garolfo-2-milioni-territorio.excerpt': 'L\'assemblée des sociétaires approuve le bilan 2025 avec un bénéfice net de 14,4 millions et 2 millions destinés au territoire',
     'blog.article.bcc-busto-garolfo-2-milioni-territorio.imageAlt': 'Vue aérienne de Lugano avec lac et ciel dégagé',
+    'blog.article.nuova-legge-polizia-ticino-controllo-periodico.title': 'Nouvelle loi police: contrôle périodique obligatoire',
+    'blog.article.nuova-legge-polizia-ticino-controllo-periodico.excerpt': 'Padlina et Rigamonti proposent un rapport annuel pour la police cantonale. Voici ce qui change pour les frontaliers.',
+    'blog.article.nuova-legge-polizia-ticino-controllo-periodico.imageAlt': 'Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;

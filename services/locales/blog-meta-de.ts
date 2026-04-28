@@ -3193,6 +3193,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bcc-busto-garolfo-2-milioni-territorio.title': 'Bcc Busto Garolfo: 14,4 Mio. Gewinn und 2 Mio. für die Region',
     'blog.article.bcc-busto-garolfo-2-milioni-territorio.excerpt': 'Die Generalversammlung genehmigt den Jahresabschluss 2025 mit einem Nettogewinn von 14,4 Millionen und 2 Millionen für die Region',
     'blog.article.bcc-busto-garolfo-2-milioni-territorio.imageAlt': 'Luftaufnahme von Lugano mit See und klarem Himmel',
+    'blog.article.nuova-legge-polizia-ticino-controllo-periodico.title': 'Neues Polizeigesetz im Tessin: Pflichtkontrollen',
+    'blog.article.nuova-legge-polizia-ticino-controllo-periodico.excerpt': 'Padlina und Rigamonti schlagen jährlichen Bericht für die Kantonspolizei vor. Was sich für Grenzgänger ändert.',
+    'blog.article.nuova-legge-polizia-ticino-controllo-periodico.imageAlt': 'Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

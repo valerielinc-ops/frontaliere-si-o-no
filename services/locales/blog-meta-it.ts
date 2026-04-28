@@ -3194,6 +3194,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bcc-busto-garolfo-2-milioni-territorio.title': 'Bcc Busto Garolfo: 14,4 milioni di utile e 2 milioni per il territorio',
     'blog.article.bcc-busto-garolfo-2-milioni-territorio.excerpt': 'L\'assemblea dei soci approva il bilancio 2025 con un utile netto di 14,4 milioni e 2 milioni destinati al territorio',
     'blog.article.bcc-busto-garolfo-2-milioni-territorio.imageAlt': 'Vista aerea di Lugano con lago e cielo sereno',
+    'blog.article.nuova-legge-polizia-ticino-controllo-periodico.title': 'Nuova legge polizia Ticino: controllo periodico obbligatorio',
+    'blog.article.nuova-legge-polizia-ticino-controllo-periodico.excerpt': 'Padlina e Rigamonti propongono rapporto annuale per la polizia cantonale. Ecco cosa cambia per i frontalieri.',
+    'blog.article.nuova-legge-polizia-ticino-controllo-periodico.imageAlt': 'Castelgrande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

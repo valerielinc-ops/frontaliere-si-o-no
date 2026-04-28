@@ -17845,6 +17845,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuova-legge-polizia-ticino-controllo-periodico': {
+    title: 'Nuova legge polizia Ticino: controllo periodico obbligatorio',
+    description: 'Padlina e Rigamonti propongono rapporto annuale per la polizia cantonale. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, legge, polizia, controllo',
+    ogTitle: 'Nuova legge polizia Ticino: controllo periodico obbligatorio',
+    ogDescription: 'Padlina e Rigamonti propongono rapporto annuale per la polizia cantonale. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/nuova-legge-polizia-ticino-controllo-periodico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova legge polizia Ticino: controllo periodico obbligatorio",
+      "description": "Padlina e Rigamonti propongono rapporto annuale per la polizia cantonale. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuova-legge-polizia-ticino-controllo-periodico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-28T05:22:06+00:00",
+      "dateModified": "2026-04-28T05:22:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuova-legge-polizia-ticino-controllo-periodico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
