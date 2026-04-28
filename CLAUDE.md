@@ -283,6 +283,16 @@ to **add internal links**.
 
 **Every time a task is completed successfully** (tests pass + build succeeds), **automatically commit and push to the remote repository** (`git push`). Do not wait for explicit user confirmation. If the push fails for a non-network reason, report the error.
 
+## Auto-merge Rule (orchestrator mode)
+
+When operating in orchestrator mode (parallel agents dispatching tasks via worktrees), the agent is **pre-authorized** to:
+- Merge open PRs into `main` without explicit human review, provided CI is green
+- Delete merged feature branches and their worktrees
+- Drop or apply git stashes left over from completed work
+- Merge stale-but-useful branches and clean up the rest, leaving only `main` in a working state
+
+This authorization is durable across sessions and overrides the default "confirm before destructive shared-state actions" guardrail for these specific operations only. All other destructive actions (force push, history rewrite, dropping tables, deleting prod data) still require explicit confirmation.
+
 ---
 
 # Skill routing
