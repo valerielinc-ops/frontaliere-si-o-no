@@ -17874,6 +17874,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-malpensa-parigi-galline-frontalieri': {
+    title: 'Malpensa, Parigi e due galline: la complessità del vivere semplice',
+    description: 'Un viaggio tra lavoro transfrontaliero e regolamentazioni svizzere sugli animali domestici. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, malpensa, parigi, galline, complessità',
+    ogTitle: 'Malpensa, Parigi e due galline: la complessità del vivere semplice',
+    ogDescription: 'Un viaggio tra lavoro transfrontaliero e regolamentazioni svizzere sugli animali domestici',
+    canonicalPath: '/articoli-frontaliere/malpensa-parigi-galline-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malpensa, Parigi e due galline: la complessità del vivere semplice",
+      "description": "Un viaggio tra lavoro transfrontaliero e regolamentazioni svizzere sugli animali domestici. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/malpensa-parigi-galline-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'aeroporto di Malpensa con le montagne del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-04-28T05:31:04+00:00",
+      "dateModified": "2026-04-28T05:31:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malpensa-parigi-galline-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

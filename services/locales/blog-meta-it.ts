@@ -3197,6 +3197,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuova-legge-polizia-ticino-controllo-periodico.title': 'Nuova legge polizia Ticino: controllo periodico obbligatorio',
     'blog.article.nuova-legge-polizia-ticino-controllo-periodico.excerpt': 'Padlina e Rigamonti propongono rapporto annuale per la polizia cantonale. Ecco cosa cambia per i frontalieri.',
     'blog.article.nuova-legge-polizia-ticino-controllo-periodico.imageAlt': 'Castelgrande a Bellinzona, Ticino',
+    'blog.article.malpensa-parigi-galline-frontalieri.title': 'Malpensa, Parigi e due galline: la complessità del vivere semplice',
+    'blog.article.malpensa-parigi-galline-frontalieri.excerpt': 'Un viaggio tra lavoro transfrontaliero e regolamentazioni svizzere sugli animali domestici',
+    'blog.article.malpensa-parigi-galline-frontalieri.imageAlt': 'Vista aerea dell\'aeroporto di Malpensa con le montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

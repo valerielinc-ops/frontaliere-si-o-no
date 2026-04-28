@@ -2326,6 +2326,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-padroncini-lavoratori-stabili-bassi-2025': { name: 'Novità', path: '/articoli-frontaliere/padroncini-lavoratori-stabili-bassi-2025', parent: 'blog' },
     'blog-bcc-busto-garolfo-2-milioni-territorio': { name: 'Novità', path: '/articoli-frontaliere/bcc-busto-garolfo-2-milioni-territorio', parent: 'blog' },
     'blog-nuova-legge-polizia-ticino-controllo-periodico': { name: 'Novità', path: '/articoli-frontaliere/nuova-legge-polizia-ticino-controllo-periodico', parent: 'blog' },
+    'blog-malpensa-parigi-galline-frontalieri': { name: 'Pratico', path: '/articoli-frontaliere/malpensa-parigi-galline-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

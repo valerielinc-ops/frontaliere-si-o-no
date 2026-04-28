@@ -8470,4 +8470,11 @@ export const ARTICLES = [
  image: '/images/blog/nuova-legge-polizia-ticino-controllo-periodico.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'malpensa-parigi-galline-frontalieri',
+ category: 'pratico',
+ date: '2026-04-28T05:31:04.195Z',
+ image: '/images/blog/malpensa-parigi-galline-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

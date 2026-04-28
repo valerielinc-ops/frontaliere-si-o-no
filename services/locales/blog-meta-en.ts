@@ -3196,6 +3196,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuova-legge-polizia-ticino-controllo-periodico.title': 'New Ticino police law: mandatory periodic checks',
     'blog.article.nuova-legge-polizia-ticino-controllo-periodico.excerpt': 'Padlina and Rigamonti propose an annual report for the cantonal police. Here\'s what changes for cross-border workers.',
     'blog.article.nuova-legge-polizia-ticino-controllo-periodico.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.malpensa-parigi-galline-frontalieri.title': 'Malpensa, Paris and two chickens: the complexity of simple living',
+    'blog.article.malpensa-parigi-galline-frontalieri.excerpt': 'A journey through cross-border work and Swiss regulations on pets',
+    'blog.article.malpensa-parigi-galline-frontalieri.imageAlt': 'Aerial view of Malpensa Airport with Ticino mountains in the background',
 };
 
 export default blogMetaEn;

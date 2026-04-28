@@ -3197,6 +3197,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuova-legge-polizia-ticino-controllo-periodico.title': 'Nouvelle loi police: contrôle périodique obligatoire',
     'blog.article.nuova-legge-polizia-ticino-controllo-periodico.excerpt': 'Padlina et Rigamonti proposent un rapport annuel pour la police cantonale. Voici ce qui change pour les frontaliers.',
     'blog.article.nuova-legge-polizia-ticino-controllo-periodico.imageAlt': 'Castelgrande à Bellinzone, Tessin',
+    'blog.article.malpensa-parigi-galline-frontalieri.title': 'Malpensa, Paris et deux poules : la complexité de la vie simple',
+    'blog.article.malpensa-parigi-galline-frontalieri.excerpt': 'Un voyage entre le travail transfrontalier et les réglementations suisses sur les animaux domestiques',
+    'blog.article.malpensa-parigi-galline-frontalieri.imageAlt': 'Vue aérienne de l\'aéroport de Malpensa avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;
