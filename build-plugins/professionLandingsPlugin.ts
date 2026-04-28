@@ -33,6 +33,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
+import { resolveProfessionLandingsFlushed } from './shared/buildSignals';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -502,6 +503,10 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
       console.log(
         `\x1b[36m[profession-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
       );
+      // Signal the linker (professionLandingsLinksPlugin) that the 40 landings
+      // have landed on disk. Combined with the staticPagesFlushed signal, this
+      // removes the closeBundle race entirely — no more mtime polling.
+      resolveProfessionLandingsFlushed();
     },
   };
 }
