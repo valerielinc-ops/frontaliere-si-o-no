@@ -3586,6 +3586,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.title': 'Lager in Como beschlagnahmt: Ermittlungen zu verlassenen Autos',
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.excerpt': 'Die örtliche Polizei von Como hat ein Lager einer Karosseriewerkstatt wegen Umweltverstößen beschlagnahmt und dabei Abfall und Unregelmäßigkeiten im Zwischenlager entdeckt.',
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.imageAlt': 'Luftansicht des Comer Sees mit Polizeiaktivität in der Nähe einer Autowerkstatt',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.title': 'Agesp: Müllabfuhrzeiten am 1. Mai 2026',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.excerpt': 'Änderungen bei der städtischen Müllentsorgung in Busto Arsizio, Fagnano Olona und Venegono Superiore zum Tag der Arbeit.',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.imageAlt': 'Agesp Abfallentsorgung am 1. Mai',
 };
 
 export default blogMetaDe;

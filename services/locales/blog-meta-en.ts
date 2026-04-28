@@ -3586,6 +3586,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.title': 'Seized warehouse in Como: investigation into abandoned cars',
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.excerpt': 'Como\'s local police have seized a body shop warehouse for environmental violations, discovering abandoned waste and irregularities in the temporary storage.',
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.imageAlt': 'Aerial view of Lake Como with police activity near a car repair shop',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.title': 'Agesp: Waste collection schedule for May 1st 2026',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.excerpt': 'Changes to urban waste collection services in Busto Arsizio, Fagnano Olona and Venegono Superiore for Labor Day.',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.imageAlt': 'Agesp waste collection services during May 1st',
 };
 
 export default blogMetaEn;

@@ -3587,6 +3587,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.title': 'Deposito sequestrato a Como: indagini su auto abbandonate',
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.excerpt': 'La Polizia locale di Como ha sequestrato un deposito di una carrozzeria per violazioni ambientali, scoprendo rifiuti abbandonati e irregolarità nel deposito temporaneo.',
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.imageAlt': 'Vista aerea del Lago di Como con attività della polizia vicino a un\'officina di riparazione auto',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.title': 'Agesp: orari raccolta rifiuti primo maggio 2026',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.excerpt': 'Variazioni nei servizi di igiene urbana a Busto Arsizio, Fagnano Olona e Venegono Superiore per la Festa dei Lavoratori.',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.imageAlt': 'Raccolta rifiuti e servizi Agesp durante il primo maggio',
 };
 
 export default blogMetaIt;

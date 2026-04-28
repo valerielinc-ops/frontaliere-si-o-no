@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1245,
+ "numberOfItems": 1246,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5880,7 +5880,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1242, "name": "Rogo a San Fermo della Battaglia, nessuno ferito", "url": `${BASE_URL}/articoli-frontaliere/rogo-san-fermo-battaglia-2024` },
           { "@type": "ListItem", "position": 1243, "name": "Terremoto in Canton San Gallo: magnitudo 3.8, s...", "url": `${BASE_URL}/articoli-frontaliere/terremoto-san-gallo-2026` },
           { "@type": "ListItem", "position": 1244, "name": "Infermieri indipendenti in Ticino: tra riconosc...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-indipendenti-ticino-2026` },
-          { "@type": "ListItem", "position": 1245, "name": "Deposito carrozzeria sequestrato a Como: indagi...", "url": `${BASE_URL}/articoli-frontaliere/deposito-carrozzeria-sequestrato-como-2026` }
+          { "@type": "ListItem", "position": 1245, "name": "Deposito carrozzeria sequestrato a Como: indagi...", "url": `${BASE_URL}/articoli-frontaliere/deposito-carrozzeria-sequestrato-como-2026` },
+          { "@type": "ListItem", "position": 1246, "name": "Agesp: le variazioni del primo maggio per la ra...", "url": `${BASE_URL}/articoli-frontaliere/agesp-rifiuti-primo-maggio-2026` }
  ]
  },
  {

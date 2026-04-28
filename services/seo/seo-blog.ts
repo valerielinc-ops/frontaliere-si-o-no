@@ -21644,6 +21644,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agesp-rifiuti-primo-maggio-2026': {
+    title: 'Agesp: orari raccolta rifiuti primo maggio 2026 | Frontaliere Ticino',
+    description: 'Variazioni nei servizi Agesp il 1° maggio a Busto Arsizio, Fagnano Olona e Venegono Superiore. Info su raccolta rifiuti e chiusure uffici. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, agesp, orari, raccolta, rifiuti',
+    ogTitle: 'Agesp: orari raccolta rifiuti primo maggio 2026',
+    ogDescription: 'Variazioni nei servizi Agesp il 1° maggio a Busto Arsizio, Fagnano Olona e Venegono Superiore. Info su raccolta rifiuti e chiusure uffici.',
+    canonicalPath: '/articoli-frontaliere/agesp-rifiuti-primo-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agesp: le variazioni del primo maggio per la raccolta rifiuti",
+      "description": "Variazioni nei servizi Agesp il 1° maggio a Busto Arsizio, Fagnano Olona e Venegono Superiore. Info su raccolta rifiuti e chiusure uffici. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/agesp-rifiuti-primo-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Raccolta rifiuti e servizi Agesp durante il primo maggio"
+      },
+      "datePublished": "2026-04-28T23:17:14+00:00",
+      "dateModified": "2026-04-28T23:17:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agesp-rifiuti-primo-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

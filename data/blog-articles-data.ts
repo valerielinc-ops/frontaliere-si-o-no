@@ -9380,4 +9380,11 @@ export const ARTICLES = [
  image: '/images/blog/deposito-carrozzeria-sequestrato-como-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'agesp-rifiuti-primo-maggio-2026',
+ category: 'pratico',
+ date: '2026-04-28T23:17:13.992Z',
+ image: '/images/blog/agesp-rifiuti-primo-maggio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

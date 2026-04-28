@@ -3587,6 +3587,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.title': 'Dépôt saisi à Côme: enquête sur des voitures abandonnées',
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.excerpt': 'La police locale de Côme a saisi un dépôt de carrosserie pour des violations environnementales, découvrant des déchets abandonnés et des irrégularités dans le dépôt temporaire.',
     'blog.article.deposito-carrozzeria-sequestrato-como-2026.imageAlt': 'Vue aérienne du lac de Côme avec une activité policière près d\'un atelier de réparation automobile',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.title': 'Agesp : horaires de collecte des déchets 1er mai 2026',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.excerpt': 'Modifications des services d\'hygiène urbaine à Busto Arsizio, Fagnano Olona et Venegono Superiore pour la Fête du Travail.',
+    'blog.article.agesp-rifiuti-primo-maggio-2026.imageAlt': 'Collecte des déchets Agesp le 1er mai',
 };
 
 export default blogMetaFr;
