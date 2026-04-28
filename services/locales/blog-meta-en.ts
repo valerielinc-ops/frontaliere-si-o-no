@@ -3436,6 +3436,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lago-como-edition-hotel-lusso.title': 'New luxury hotel on Lake Como: The Lake Como EDITION',
     'blog.article.lago-como-edition-hotel-lusso.excerpt': 'The new The Lake Como EDITION has opened, a luxury hotel on the western shore of Lake Como, featuring exclusive events and starred cuisine.',
     'blog.article.lago-como-edition-hotel-lusso.imageAlt': 'Luxury hotel on Lake Como with panoramic views',
+    'blog.article.momoride-carpooling-sfida-collettiva.title': 'MomòRide launches carpooling challenge for Mendrisiotto commuters',
+    'blog.article.momoride-carpooling-sfida-collettiva.excerpt': 'A collective carpooling challenge to collect points and donate 1000 CHF to the Provvida Madre Foundation of Balerna',
+    'blog.article.momoride-carpooling-sfida-collettiva.imageAlt': 'Commuters sharing a car in a parking lot in Mendrisio',
 };
 
 export default blogMetaEn;

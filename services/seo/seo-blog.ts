@@ -20194,6 +20194,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-momoride-carpooling-sfida-collettiva': {
+    title: 'MomòRide lancia sfida di carpooling per pendolari del Mendrisiotto',
+    description: 'MomòRide lancia una sfida collettiva di carpooling per pendolari del Mendrisiotto. Obiettivo: raccogliere 40.000 punti in un mese per donare 1.000 CHF alla',
+    keywords: 'frontalieri, ticino, svizzera, italia, momòride, lancia, sfida, carpooling',
+    ogTitle: 'MomòRide lancia sfida di carpooling per pendolari del Mendrisiotto',
+    ogDescription: 'MomòRide lancia una sfida collettiva di carpooling per pendolari del Mendrisiotto. Obiettivo: raccogliere 40.000 punti in un mese per donare 1.000 CHF alla',
+    canonicalPath: '/articoli-frontaliere/momoride-carpooling-sfida-collettiva',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "MomòRide lancia sfida di carpooling per pendolari del Mendrisiotto",
+      "description": "MomòRide lancia una sfida collettiva di carpooling per pendolari del Mendrisiotto. Obiettivo: raccogliere 40.000 punti in un mese per donare 1.000 CHF alla",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/momoride-carpooling-sfida-collettiva.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari che condividono un'auto in un parcheggio a Mendrisio"
+      },
+      "datePublished": "2026-04-28T18:06:31+00:00",
+      "dateModified": "2026-04-28T18:06:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/momoride-carpooling-sfida-collettiva`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

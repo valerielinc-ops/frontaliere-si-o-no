@@ -9030,4 +9030,11 @@ export const ARTICLES = [
  image: '/images/blog/lago-como-edition-hotel-lusso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'momoride-carpooling-sfida-collettiva',
+ category: 'pratico',
+ date: '2026-04-28T18:06:31.240Z',
+ image: '/images/blog/momoride-carpooling-sfida-collettiva.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

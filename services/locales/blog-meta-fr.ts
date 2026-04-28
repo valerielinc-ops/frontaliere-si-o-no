@@ -3437,6 +3437,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lago-como-edition-hotel-lusso.title': 'Nouvel hôtel de luxe sur le lac de Côme : The Lake Como EDITION',
     'blog.article.lago-como-edition-hotel-lusso.excerpt': 'Inauguration du nouvel hôtel The Lake Como EDITION, un établissement de luxe sur la rive occidentale du lac de Côme, avec des événements exclusifs et une cuisine étoilée.',
     'blog.article.lago-como-edition-hotel-lusso.imageAlt': 'Hôtel de luxe sur le lac de Côme avec vue panoramique',
+    'blog.article.momoride-carpooling-sfida-collettiva.title': 'MomòRide lance un défi de covoiturage pour les pendulaires du Mendrisiotto',
+    'blog.article.momoride-carpooling-sfida-collettiva.excerpt': 'Un défi collectif de covoiturage pour collecter des points et donner 1000 CHF à la Fondation Provvida Madre de Balerna',
+    'blog.article.momoride-carpooling-sfida-collettiva.imageAlt': 'Des navetteurs partageant une voiture dans un parking à Mendrisio',
 };
 
 export default blogMetaFr;

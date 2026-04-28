@@ -3436,6 +3436,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lago-como-edition-hotel-lusso.title': 'Neues Luxushotel am Comer See: The Lake Como EDITION',
     'blog.article.lago-como-edition-hotel-lusso.excerpt': 'Das neue The Lake Como EDITION, ein Luxushotel an der Westseite des Comer Sees, wurde eröffnet und bietet exklusive Events und Sterne-Küche.',
     'blog.article.lago-como-edition-hotel-lusso.imageAlt': 'Luxushotel am Comer See mit Panoramablick',
+    'blog.article.momoride-carpooling-sfida-collettiva.title': 'MomòRide startet Carpooling-Challenge für Pendler aus Mendrisiotto',
+    'blog.article.momoride-carpooling-sfida-collettiva.excerpt': 'Eine kollektive Carpooling-Challenge, um Punkte zu sammeln und 1000 CHF an die Stiftung Provvida Madre in Balerna zu spenden',
+    'blog.article.momoride-carpooling-sfida-collettiva.imageAlt': 'Pendler teilen sich ein Auto auf einem Parkplatz in Mendrisio',
 };
 
 export default blogMetaDe;
