@@ -2345,6 +2345,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-architettura-sostenibile-ticino-2026': { name: 'Architettura sostenibile', path: '/articoli-frontaliere/architettura-sostenibile-ticino-2026', parent: 'blog' },
     'blog-sisa-contro-tagli-governo-2024': { name: 'Novità', path: '/articoli-frontaliere/sisa-contro-tagli-governo-2024', parent: 'blog' },
     'blog-pista-ciclopedonale-bodio-giornico-2026': { name: 'Novità', path: '/articoli-frontaliere/pista-ciclopedonale-bodio-giornico-2026', parent: 'blog' },
+    'blog-momoride-carpooling-benefico-ticino-2026': { name: 'MomòRide', path: '/articoli-frontaliere/momoride-carpooling-benefico-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

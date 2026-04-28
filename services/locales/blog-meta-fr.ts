@@ -3254,6 +3254,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pista-ciclopedonale-bodio-giornico-2026.title': 'Piste cyclable Bodio-Giornico: mobilité lente et durable',
     'blog.article.pista-ciclopedonale-bodio-giornico-2026.excerpt': 'La nouvelle piste cyclable entre Bodio et Giornico est achevée, un projet pour une mobilité durable dans la région',
     'blog.article.pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'Piste cyclable et piétonne le long de la rivière Ticino entre Bodio et Giornico',
+    'blog.article.momoride-carpooling-benefico-ticino-2026.title': 'MomòRide: le défi de covoiturage solidaire pour Chiasso, Balerna et Novazzano',
+    'blog.article.momoride-carpooling-benefico-ticino-2026.excerpt': 'À partir du 1er mai, MomòRide, initiative biennale de covoiturage pour les entreprises et les navetteurs de Chiasso, Balerna et Novazzano. Objectif: 40.000 points en un mois pour offrir 1.000 francs à la Fondation Provvida Madre de Balerna.',
+    'blog.article.momoride-carpooling-benefico-ticino-2026.imageAlt': 'Groupe de personnes en covoiturage dans une voiture moderne, campagne du Tessin près de Mendrisio',
 };
 
 export default blogMetaFr;

@@ -8603,4 +8603,11 @@ export const ARTICLES = [
  image: '/images/blog/pista-ciclopedonale-bodio-giornico-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'momoride-carpooling-benefico-ticino-2026',
+ category: 'novita',
+ date: '2026-04-28T07:25:43.952Z',
+ image: '/images/blog/momoride-carpooling-benefico-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

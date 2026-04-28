@@ -3253,6 +3253,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pista-ciclopedonale-bodio-giornico-2026.title': 'Bodio-Giornico: slow and sustainable mobility',
     'blog.article.pista-ciclopedonale-bodio-giornico-2026.excerpt': 'The new cycle and pedestrian path between Bodio and Giornico has been completed, a project for sustainable mobility in the region',
     'blog.article.pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'Cyclopedestrian path along the Ticino River between Bodio and Giornico',
+    'blog.article.momoride-carpooling-benefico-ticino-2026.title': 'MomòRide: carpooling challenge for Chiasso, Balerna and Novazzano',
+    'blog.article.momoride-carpooling-benefico-ticino-2026.excerpt': 'From May 1st, MomòRide, a biennial carpooling initiative for companies and commuters in Chiasso, Balerna and Novazzano, kicks off. Goal: 40,000 points in a month to donate CHF 1,000 to the Provvida Madre Foundation in Balerna.',
+    'blog.article.momoride-carpooling-benefico-ticino-2026.imageAlt': 'Group of people carpooling in a modern car, Ticino countryside near Mendrisio',
 };
 
 export default blogMetaEn;

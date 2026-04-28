@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1134,
+ "numberOfItems": 1135,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5858,7 +5858,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1131, "name": "Rottamazione-quinquies: domande entro il 30 aprile", "url": `${BASE_URL}/articoli-frontaliere/rottamazione-quinquies-scadenza-30-aprile` },
           { "@type": "ListItem", "position": 1132, "name": "Architettura sostenibile in Ticino: il nuovo IA...", "url": `${BASE_URL}/articoli-frontaliere/architettura-sostenibile-ticino-2026` },
           { "@type": "ListItem", "position": 1133, "name": "SISA attacca il piano del Governo sulle casse m...", "url": `${BASE_URL}/articoli-frontaliere/sisa-contro-tagli-governo-2024` },
-          { "@type": "ListItem", "position": 1134, "name": "Pista ciclopedonale Bodio-Giornico: mobilità le...", "url": `${BASE_URL}/articoli-frontaliere/pista-ciclopedonale-bodio-giornico-2026` }
+          { "@type": "ListItem", "position": 1134, "name": "Pista ciclopedonale Bodio-Giornico: mobilità le...", "url": `${BASE_URL}/articoli-frontaliere/pista-ciclopedonale-bodio-giornico-2026` },
+          { "@type": "ListItem", "position": 1135, "name": "MomòRide: carpooling benefico Chiasso Balerna N...", "url": `${BASE_URL}/articoli-frontaliere/momoride-carpooling-benefico-ticino-2026` }
  ]
  },
  {

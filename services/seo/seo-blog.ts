@@ -18425,6 +18425,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-momoride-carpooling-benefico-ticino-2026': {
+    title: 'MomòRide: la sfida di carpooling benefica per Chiasso, Balerna e Novazzano',
+    description: 'Dal 1° maggio parte MomòRide, iniziativa biennale di carpooling per aziende e pendolari di Chiasso, Balerna e Novazzano. Obiettivo: 40.000 punti in un mese per',
+    keywords: 'frontalieri, ticino, svizzera, italia, momòride, sfida, carpooling, benefica',
+    ogTitle: 'MomòRide: carpooling benefico Chiasso Balerna Novazzano',
+    ogDescription: 'Dal 1° maggio parte MomòRide, iniziativa biennale di carpooling per aziende e pendolari di Chiasso, Balerna e Novazzano. Obiettivo: 40.000 punti in un mese per',
+    canonicalPath: '/articoli-frontaliere/momoride-carpooling-benefico-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "MomòRide: carpooling benefico Chiasso Balerna Novazzano",
+      "description": "Dal 1° maggio parte MomòRide, iniziativa biennale di carpooling per aziende e pendolari di Chiasso, Balerna e Novazzano. Obiettivo: 40.000 punti in un mese per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/momoride-carpooling-benefico-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone in carpooling in auto moderna, paesaggio Ticino Mendrisio"
+      },
+      "datePublished": "2026-04-28T07:25:43+00:00",
+      "dateModified": "2026-04-28T07:25:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/momoride-carpooling-benefico-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
