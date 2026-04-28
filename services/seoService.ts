@@ -2342,6 +2342,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-momenti-paura-velivolo-swiss-2026': { name: 'Incidente aereo', path: '/articoli-frontaliere/momenti-paura-velivolo-swiss-2026', parent: 'blog' },
     'blog-allerta-meteo-ticino-lombardia-2026': { name: 'Allerta meteo', path: '/articoli-frontaliere/allerta-meteo-ticino-lombardia-2026', parent: 'blog' },
     'blog-rottamazione-quinquies-scadenza-30-aprile': { name: 'Rottamazione-quinquies', path: '/articoli-frontaliere/rottamazione-quinquies-scadenza-30-aprile', parent: 'blog' },
+    'blog-architettura-sostenibile-ticino-2026': { name: 'Architettura sostenibile', path: '/articoli-frontaliere/architettura-sostenibile-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -18338,6 +18338,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-architettura-sostenibile-ticino-2026': {
+    title: 'Architettura sostenibile in Ticino: il nuovo IAST dell\'USI',
+    description: 'Scopri come il nuovo Istituto per l\'architettura sostenibile e la tecnologia dell\'USI promuove il riuso e la conservazione degli edifici esistenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, architettura, sostenibile, nuovo, iast',
+    ogTitle: 'Architettura sostenibile in Ticino: il nuovo IAST dell\'USI',
+    ogDescription: 'Scopri come il nuovo Istituto per l\'architettura sostenibile e la tecnologia dell\'USI promuove il riuso e la conservazione degli edifici esistenti.',
+    canonicalPath: '/articoli-frontaliere/architettura-sostenibile-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Architettura sostenibile in Ticino: il nuovo IAST dell'USI",
+      "description": "Scopri come il nuovo Istituto per l'architettura sostenibile e la tecnologia dell'USI promuove il riuso e la conservazione degli edifici esistenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/architettura-sostenibile-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino, Svizzera"
+      },
+      "datePublished": "2026-04-28T07:05:10+00:00",
+      "dateModified": "2026-04-28T07:05:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/architettura-sostenibile-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

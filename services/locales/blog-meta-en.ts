@@ -3244,6 +3244,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rottamazione-quinquies-scadenza-30-aprile.title': 'Rottamazione-quinquies: apply by April 30',
     'blog.article.rottamazione-quinquies-scadenza-30-aprile.excerpt': 'The deadline to join the rottamazione-quinquies is April 30. Here\'s what you need to know and how to apply.',
     'blog.article.rottamazione-quinquies-scadenza-30-aprile.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.architettura-sostenibile-ticino-2026.title': 'Sustainable architecture in Ticino: USI\'s new IAST',
+    'blog.article.architettura-sostenibile-ticino-2026.excerpt': 'The new Institute for Sustainable Architecture and Technology at USI promotes the reuse and conservation of existing buildings.',
+    'blog.article.architettura-sostenibile-ticino-2026.imageAlt': 'Castelgrande in Bellinzona, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

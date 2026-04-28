@@ -3245,6 +3245,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rottamazione-quinquies-scadenza-30-aprile.title': 'Rottamazione-quinquies: domande entro il 30 aprile',
     'blog.article.rottamazione-quinquies-scadenza-30-aprile.excerpt': 'Scade il 30 aprile il termine per aderire alla rottamazione-quinquies. Ecco cosa sapere e come fare la domanda.',
     'blog.article.rottamazione-quinquies-scadenza-30-aprile.imageAlt': 'Veduta aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.architettura-sostenibile-ticino-2026.title': 'Architettura sostenibile in Ticino: il nuovo IAST dell\'USI',
+    'blog.article.architettura-sostenibile-ticino-2026.excerpt': 'Il nuovo Istituto per l\'architettura sostenibile e la tecnologia dell\'USI promuove il riuso e la conservazione degli edifici esistenti.',
+    'blog.article.architettura-sostenibile-ticino-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

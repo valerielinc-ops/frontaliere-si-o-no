@@ -3245,6 +3245,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rottamazione-quinquies-scadenza-30-aprile.title': 'Rachat-quinquies: demande avant le 30 avril',
     'blog.article.rottamazione-quinquies-scadenza-30-aprile.excerpt': 'Le délai pour adhérer au rachat-quinquies expire le 30 avril. Voici ce qu\'il faut savoir et comment faire la demande.',
     'blog.article.rottamazione-quinquies-scadenza-30-aprile.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.architettura-sostenibile-ticino-2026.title': 'Architecture durable au Tessin : le nouvel IAST de l\'USI',
+    'blog.article.architettura-sostenibile-ticino-2026.excerpt': 'Le nouvel Institut pour l\'architecture durable et la technologie de l\'USI promeut la réutilisation et la conservation des bâtiments existants.',
+    'blog.article.architettura-sostenibile-ticino-2026.imageAlt': 'Castelgrande à Bellinzone, Tessin, Suisse',
 };
 
 export default blogMetaFr;

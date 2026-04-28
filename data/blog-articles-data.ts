@@ -8582,4 +8582,11 @@ export const ARTICLES = [
  image: '/images/blog/rottamazione-quinquies-scadenza-30-aprile.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'architettura-sostenibile-ticino-2026',
+ category: 'novita',
+ date: '2026-04-28T07:05:10.251Z',
+ image: '/images/blog/architettura-sostenibile-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

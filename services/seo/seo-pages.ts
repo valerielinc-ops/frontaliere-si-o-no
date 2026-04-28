@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1131,
+ "numberOfItems": 1132,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5855,7 +5855,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1128, "name": "Equans licenzia 19 dipendenti a Monteceneri", "url": `${BASE_URL}/articoli-frontaliere/equans-licenziamenti-monteceneri-2026` },
           { "@type": "ListItem", "position": 1129, "name": "Momenti di paura su un velivolo Swiss", "url": `${BASE_URL}/articoli-frontaliere/momenti-paura-velivolo-swiss-2026` },
           { "@type": "ListItem", "position": 1130, "name": "Allerta meteo in Ticino e Lombardia: piogge e t...", "url": `${BASE_URL}/articoli-frontaliere/allerta-meteo-ticino-lombardia-2026` },
-          { "@type": "ListItem", "position": 1131, "name": "Rottamazione-quinquies: domande entro il 30 aprile", "url": `${BASE_URL}/articoli-frontaliere/rottamazione-quinquies-scadenza-30-aprile` }
+          { "@type": "ListItem", "position": 1131, "name": "Rottamazione-quinquies: domande entro il 30 aprile", "url": `${BASE_URL}/articoli-frontaliere/rottamazione-quinquies-scadenza-30-aprile` },
+          { "@type": "ListItem", "position": 1132, "name": "Architettura sostenibile in Ticino: il nuovo IA...", "url": `${BASE_URL}/articoli-frontaliere/architettura-sostenibile-ticino-2026` }
  ]
  },
  {
