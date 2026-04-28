@@ -2422,6 +2422,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casa-montana-nante-governo-regolare': { name: 'Novità', path: '/articoli-frontaliere/casa-montana-nante-governo-regolare', parent: 'blog' },
     'blog-neuchatel-palloncini-lanterne-vietati': { name: 'Novità', path: '/articoli-frontaliere/neuchatel-palloncini-lanterne-vietati', parent: 'blog' },
     'blog-vaud-parlamento-dimissioni-dittli': { name: 'Novità', path: '/articoli-frontaliere/vaud-parlamento-dimissioni-dittli', parent: 'blog' },
+    'blog-rogo-san-fermo-battaglia-2024': { name: 'Novità', path: '/articoli-frontaliere/rogo-san-fermo-battaglia-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

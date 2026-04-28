@@ -3574,6 +3574,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vaud-parlamento-dimissioni-dittli.title': 'Waadt, Parlament fordert Rücktritt von Valérie Dittli',
     'blog.article.vaud-parlamento-dimissioni-dittli.excerpt': 'Der Waadtländer Grosse Rat hat eine symbolische Resolution verabschiedet, um den Rücktritt der Staatsrätin Valérie Dittli zu fordern.',
     'blog.article.vaud-parlamento-dimissioni-dittli.imageAlt': 'Luftaufnahme von Bellinzona mit seinen Burgen und dem Fluss Ticino',
+    'blog.article.rogo-san-fermo-battaglia-2024.title': 'Brand in San Fermo della Battaglia, keine Verletzten',
+    'blog.article.rogo-san-fermo-battaglia-2024.excerpt': 'Ein Feuer ist auf dem Pin Umbrèla in San Fermo della Battaglia, Provinz Como, ausgebrochen, ohne Opfer zu verursachen.',
+    'blog.article.rogo-san-fermo-battaglia-2024.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Bergen und Städten',
 };
 
 export default blogMetaDe;

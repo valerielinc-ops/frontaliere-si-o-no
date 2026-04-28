@@ -3575,6 +3575,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vaud-parlamento-dimissioni-dittli.title': 'Vaud, le Parlement demande la démission de Valérie Dittli',
     'blog.article.vaud-parlamento-dimissioni-dittli.excerpt': 'Le Grand Conseil vaudois a adopté une résolution symbolique pour demander la démission de la conseillère d\'État Valérie Dittli.',
     'blog.article.vaud-parlamento-dimissioni-dittli.imageAlt': 'Vue aérienne de Bellinzone avec ses châteaux et la rivière du Tessin',
+    'blog.article.rogo-san-fermo-battaglia-2024.title': 'Incendie à San Fermo della Battaglia, aucun blessé',
+    'blog.article.rogo-san-fermo-battaglia-2024.excerpt': 'Un incendie s\'est déclaré sur le Pin Umbrèla à San Fermo della Battaglia, dans la province de Côme, sans faire de victimes.',
+    'blog.article.rogo-san-fermo-battaglia-2024.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les villes environnantes',
 };
 
 export default blogMetaFr;

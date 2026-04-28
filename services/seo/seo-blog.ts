@@ -21528,6 +21528,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rogo-san-fermo-battaglia-2024': {
+    title: 'Rogo a San Fermo della Battaglia, nessuno ferito | Frontaliere Ticino',
+    description: 'Un incendio è divampato sul Pin Umbrèla a San Fermo della Battaglia, in provincia di Como, senza causare vittime. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, rogo, fermo, battaglia, nessuno',
+    ogTitle: 'Rogo a San Fermo della Battaglia, nessuno ferito',
+    ogDescription: 'Un incendio è divampato sul Pin Umbrèla a San Fermo della Battaglia, in provincia di Como, senza causare vittime.',
+    canonicalPath: '/articoli-frontaliere/rogo-san-fermo-battaglia-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rogo a San Fermo della Battaglia, nessuno ferito",
+      "description": "Un incendio è divampato sul Pin Umbrèla a San Fermo della Battaglia, in provincia di Como, senza causare vittime. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rogo-san-fermo-battaglia-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e paesi circostanti"
+      },
+      "datePublished": "2026-04-28T22:39:23+00:00",
+      "dateModified": "2026-04-28T22:39:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rogo-san-fermo-battaglia-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
