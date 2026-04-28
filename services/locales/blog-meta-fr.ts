@@ -3404,6 +3404,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riforma-ue-disoccupazione-frontalieri.title': 'Réforme UE: le chômage des frontaliers coûtera cher à la Suisse',
     'blog.article.riforma-ue-disoccupazione-frontalieri.excerpt': 'La révision européenne changerait les règles: aujourd\'hui, c\'est le pays de résidence qui paie, demain ce sera celui de travail. Un cas qui met à l\'épreuve les nouveaux accords entre la Suisse et l\'UE.',
     'blog.article.riforma-ue-disoccupazione-frontalieri.imageAlt': 'Travailleurs frontaliers en attente au bureau de frontière de Brogeda, Mendrisio',
+    'blog.article.casse-malati-dado-scissione-dossier.title': 'Caisse-maladie : Dadò propose de scinder le dossier',
+    'blog.article.casse-malati-dado-scissione-dossier.excerpt': 'Le président du Centre Fiorenzo Dadò suggère de diviser le dossier sur les caisses-maladie en deux rapports distincts. Une votation populaire est possible.',
+    'blog.article.casse-malati-dado-scissione-dossier.imageAlt': 'Lac de Lugano avec un quartier financier moderne en arrière-plan',
 };
 
 export default blogMetaFr;

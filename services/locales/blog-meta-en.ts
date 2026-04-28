@@ -3403,6 +3403,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-ue-disoccupazione-frontalieri.title': 'EU reform: cross-border unemployment to cost Switzerland dearly',
     'blog.article.riforma-ue-disoccupazione-frontalieri.excerpt': 'The European revision would change the rules: today the country of residence pays, in the future the country of work. A case that tests the new agreements between Switzerland and the EU.',
     'blog.article.riforma-ue-disoccupazione-frontalieri.imageAlt': 'Frontalier workers waiting at the Brogeda border office, Mendrisio',
+    'blog.article.casse-malati-dado-scissione-dossier.title': 'Dadò proposes splitting health insurance dossier',
+    'blog.article.casse-malati-dado-scissione-dossier.excerpt': 'Fiorenzo Dadò, president of the Centro, suggests dividing the health insurance dossier into two separate reports. A popular vote is possible.',
+    'blog.article.casse-malati-dado-scissione-dossier.imageAlt': 'Lake Lugano with a modern financial district in the background',
 };
 
 export default blogMetaEn;

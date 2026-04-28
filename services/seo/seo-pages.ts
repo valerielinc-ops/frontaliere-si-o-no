@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1184,
+ "numberOfItems": 1185,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5819,7 +5819,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1181, "name": "Decreto Lavoro 2026: FenealUil moderatamente so...", "url": `${BASE_URL}/articoli-frontaliere/fenealuil-decreto-lavoro-2026` },
           { "@type": "ListItem", "position": 1182, "name": "Val Mara: bilancio 2025 in avanzo di 616mila fr...", "url": `${BASE_URL}/articoli-frontaliere/bilancio-val-mara-2025-avanzamento-616mila` },
           { "@type": "ListItem", "position": 1183, "name": "Villa San Giuseppe KOS: nuovo ambulatorio cardi...", "url": `${BASE_URL}/articoli-frontaliere/ambulatorio-cardio-metabolico-villa-san-giuseppe` },
-          { "@type": "ListItem", "position": 1184, "name": "Riforma UE: disoccupazione frontalieri costerà ...", "url": `${BASE_URL}/articoli-frontaliere/riforma-ue-disoccupazione-frontalieri` }
+          { "@type": "ListItem", "position": 1184, "name": "Riforma UE: disoccupazione frontalieri costerà ...", "url": `${BASE_URL}/articoli-frontaliere/riforma-ue-disoccupazione-frontalieri` },
+          { "@type": "ListItem", "position": 1185, "name": "Casse malati, Dadò propone la scissione del dos...", "url": `${BASE_URL}/articoli-frontaliere/casse-malati-dado-scissione-dossier` }
  ]
  },
  {

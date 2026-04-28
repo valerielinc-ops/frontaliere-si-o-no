@@ -8953,4 +8953,11 @@ export const ARTICLES = [
  image: '/images/blog/riforma-ue-disoccupazione-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'casse-malati-dado-scissione-dossier',
+ category: 'novita',
+ date: '2026-04-28T16:22:11.302Z',
+ image: '/images/blog/casse-malati-dado-scissione-dossier.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

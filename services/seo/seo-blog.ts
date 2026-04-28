@@ -19875,6 +19875,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casse-malati-dado-scissione-dossier': {
+    title: 'Casse malati, Dadò propone la scissione del dossier',
+    description: 'Fiorenzo Dadò suggerisce di suddividere il dossier sulle casse malati in due rapporti distinti. Possibile votazione popolare. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, malati, dadò, propone',
+    ogTitle: 'Casse malati, Dadò propone la scissione del dossier',
+    ogDescription: 'Fiorenzo Dadò suggerisce di suddividere il dossier sulle casse malati in due rapporti distinti. Possibile votazione popolare.',
+    canonicalPath: '/articoli-frontaliere/casse-malati-dado-scissione-dossier',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse malati, Dadò propone la scissione del dossier",
+      "description": "Fiorenzo Dadò suggerisce di suddividere il dossier sulle casse malati in due rapporti distinti. Possibile votazione popolare. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/casse-malati-dado-scissione-dossier.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con il centro finanziario moderno sullo sfondo"
+      },
+      "datePublished": "2026-04-28T16:22:11+00:00",
+      "dateModified": "2026-04-28T16:22:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casse-malati-dado-scissione-dossier`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2365,6 +2365,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bilancio-val-mara-2025-avanzamento-616mila': { name: 'Bilancio Val Mara', path: '/articoli-frontaliere/bilancio-val-mara-2025-avanzamento-616mila', parent: 'blog' },
     'blog-ambulatorio-cardio-metabolico-villa-san-giuseppe': { name: 'Novità sanitarie', path: '/articoli-frontaliere/ambulatorio-cardio-metabolico-villa-san-giuseppe', parent: 'blog' },
     'blog-riforma-ue-disoccupazione-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/riforma-ue-disoccupazione-frontalieri', parent: 'blog' },
+    'blog-casse-malati-dado-scissione-dossier': { name: 'Casse malati', path: '/articoli-frontaliere/casse-malati-dado-scissione-dossier', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3403,6 +3403,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-ue-disoccupazione-frontalieri.title': 'EU-Reform: Arbeitslosigkeit von Grenzgängern kostet die Schweiz',
     'blog.article.riforma-ue-disoccupazione-frontalieri.excerpt': 'Die europäische Überarbeitung würde die Regeln ändern: Heute zahlt das Wohnsitzland, in Zukunft das Arbeitsland. Ein Fall, der die neuen Abkommen zwischen der Schweiz und der EU auf die Probe stellt.',
     'blog.article.riforma-ue-disoccupazione-frontalieri.imageAlt': 'Frontalierarbeiter warten am Grenzamt Brogeda, Mendrisio',
+    'blog.article.casse-malati-dado-scissione-dossier.title': 'Dadò schlägt Spaltung des Krankenkassendossiers vor',
+    'blog.article.casse-malati-dado-scissione-dossier.excerpt': 'Der Präsident des Centro Fiorenzo Dadò schlägt vor, das Dossier zu den Krankenkassen in zwei separate Berichte aufzuteilen. Mögliche Volksabstimmung.',
+    'blog.article.casse-malati-dado-scissione-dossier.imageAlt': 'Luganersee mit modernem Finanzzentrum im Hintergrund',
 };
 
 export default blogMetaDe;
