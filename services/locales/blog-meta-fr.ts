@@ -3308,6 +3308,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sunrise-integra-hbb-ssr-2026.title': 'Sunrise doit intégrer l\'offre HBB de la SSR',
     'blog.article.sunrise-integra-hbb-ssr-2026.excerpt': 'Le Tribunal administratif fédéral a statué que Sunrise doit inclure l\'offre HBB de la SSR, avec des fonctionnalités pour les personnes handicapées sensorielles.',
     'blog.article.sunrise-integra-hbb-ssr-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
+    'blog.article.infermieri-lavoro-ore-settimanali.title': 'Infirmiers: non à la réduction des heures hebdomadaires',
+    'blog.article.infermieri-lavoro-ore-settimanali.excerpt': 'Le Conseil national a décidé de maintenir à 50 heures la durée maximale hebdomadaire de travail pour les infirmiers, malgré l\'initiative populaire approuvée en 2021.',
+    'blog.article.infermieri-lavoro-ore-settimanali.imageAlt': 'Infirmière travaillant dans un hôpital à Lugano, Tessin',
 };
 
 export default blogMetaFr;

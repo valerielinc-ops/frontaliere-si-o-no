@@ -18947,6 +18947,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infermieri-lavoro-ore-settimanali': {
+    title: 'Infermieri: no alla riduzione delle ore settimanali',
+    description: 'Il Consiglio nazionale ha deciso di mantenere a 50 ore la durata massima settimanale del lavoro per gli infermieri, nonostante l\'iniziativa popolare approvata',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, alla, riduzione, settimanali',
+    ogTitle: 'Infermieri: no alla riduzione delle ore settimanali',
+    ogDescription: 'Il Consiglio nazionale ha deciso di mantenere a 50 ore la durata massima settimanale del lavoro per gli infermieri, nonostante l\'iniziativa popolare approvata',
+    canonicalPath: '/articoli-frontaliere/infermieri-lavoro-ore-settimanali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri: no alla riduzione delle ore settimanali",
+      "description": "Il Consiglio nazionale ha deciso di mantenere a 50 ore la durata massima settimanale del lavoro per gli infermieri, nonostante l'iniziativa popolare approvata",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infermieri-lavoro-ore-settimanali.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infermiera al lavoro in un ospedale a Lugano, Ticino"
+      },
+      "datePublished": "2026-04-28T11:31:32+00:00",
+      "dateModified": "2026-04-28T11:31:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-lavoro-ore-settimanali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

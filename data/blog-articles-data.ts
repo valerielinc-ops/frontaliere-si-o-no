@@ -8729,4 +8729,11 @@ export const ARTICLES = [
  image: '/images/blog/sunrise-integra-hbb-ssr-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'infermieri-lavoro-ore-settimanali',
+ category: 'novita',
+ date: '2026-04-28T11:31:32.242Z',
+ image: '/images/blog/infermieri-lavoro-ore-settimanali.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
