@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-28T07:20:00.000Z",
+  "generated": "2026-04-28T13:00:00.000Z",
   "threshold": 10,
   "scanned": 31927,
-  "total": 1600,
+  "total": 1530,
   "byFeature": {
     "job-board": 830,
     "career-landings": 95,
-    "weekly-employers": 70,
+    "weekly-employers": 10,
     "fuel-daily": 130,
     "weekly-employers-hub": 5,
     "blog": 5,
@@ -16,5 +16,5 @@
     "health-premiums": 485,
     "job-market-snapshot": 25
   },
-  "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE \u2014 this gate is a ratchet. Bumped on 2026-04-28 to absorb the SPA-style job-card refactor (commit affb542cc) which added Tailwind markup to job-listing SEO pages without proportional text content increase. job-board: 160\u2192760 (+600), spa-other: 10\u201320 (+10) with ~1% headroom. Follow-up TODO: add commuter-context prose to the SPA-style card template in build-plugins/jobsSeoPagesPlugin.ts to bring the ratio back above 10% \u2014 this baseline bump is a temporary unblock per orchestrator user request 2026-04-28, not a permanent acceptance."
+  "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE \u2014 this gate is a ratchet. 2026-04-28 update: weekly-employers lowered 70\u219210 after expanding companyCityFrontalier (5th paragraph on contract clauses), adding a per-page methodology section and two extra FAQ entries (telework + SBFI/SEFRI title equivalence) to build-plugins/weeklyEmployersPlugin.ts. Local partial build showed 80\u21921 offenders, leaving ample headroom under the new 10 cap; total dropped from 1600\u21921530 to reflect the same 60-page improvement. Earlier (same day) bumped to absorb the SPA-style job-card refactor (commit affb542cc) which added Tailwind markup to job-listing SEO pages without proportional text content increase. Follow-up TODO: add commuter-context prose to the SPA-style card template in build-plugins/jobsSeoPagesPlugin.ts to bring the ratio back above 10% \u2014 the job-board: 830 line stays a temporary unblock until that lands."
 }
