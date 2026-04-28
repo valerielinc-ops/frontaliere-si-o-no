@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1240,
+ "numberOfItems": 1241,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5875,7 +5875,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1237, "name": "Furti in chiese: fermati due rumeni in Ticino", "url": `${BASE_URL}/articoli-frontaliere/furti-chiese-ticino-rumeni-fermati` },
           { "@type": "ListItem", "position": 1238, "name": "Attentato a Washington, illeso Donald Trump", "url": `${BASE_URL}/articoli-frontaliere/attentato-washington-trump-2026` },
           { "@type": "ListItem", "position": 1239, "name": "Casa montana di Nante: il Governo conferma tutt...", "url": `${BASE_URL}/articoli-frontaliere/casa-montana-nante-governo-regolare` },
-          { "@type": "ListItem", "position": 1240, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/neuchatel-palloncini-lanterne-vietati` }
+          { "@type": "ListItem", "position": 1240, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/neuchatel-palloncini-lanterne-vietati` },
+          { "@type": "ListItem", "position": 1241, "name": "Vaud, il Parlamento chiede le dimissioni di Val...", "url": `${BASE_URL}/articoli-frontaliere/vaud-parlamento-dimissioni-dittli` }
  ]
  },
  {

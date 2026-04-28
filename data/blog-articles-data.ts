@@ -9345,4 +9345,11 @@ export const ARTICLES = [
  image: '/images/blog/neuchatel-palloncini-lanterne-vietati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vaud-parlamento-dimissioni-dittli',
+ category: 'novita',
+ date: '2026-04-28T22:34:58.485Z',
+ image: '/images/blog/vaud-parlamento-dimissioni-dittli.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

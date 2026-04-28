@@ -21499,6 +21499,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vaud-parlamento-dimissioni-dittli': {
+    title: 'Vaud, il Parlamento chiede le dimissioni di Valérie Dittli',
+    description: 'Il Gran Consiglio vodese ha approvato una risoluzione simbolica per chiedere le dimissioni della consigliera di Stato Valérie Dittli. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, vaud, parlamento, chiede, dimissioni',
+    ogTitle: 'Vaud, il Parlamento chiede le dimissioni di Valérie Dittli',
+    ogDescription: 'Il Gran Consiglio vodese ha approvato una risoluzione simbolica per chiedere le dimissioni della consigliera di Stato Valérie Dittli.',
+    canonicalPath: '/articoli-frontaliere/vaud-parlamento-dimissioni-dittli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vaud, il Parlamento chiede le dimissioni di Valérie Dittli",
+      "description": "Il Gran Consiglio vodese ha approvato una risoluzione simbolica per chiedere le dimissioni della consigliera di Stato Valérie Dittli. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vaud-parlamento-dimissioni-dittli.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Bellinzona con i suoi castelli e il fiume Ticino"
+      },
+      "datePublished": "2026-04-28T22:34:58+00:00",
+      "dateModified": "2026-04-28T22:34:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vaud-parlamento-dimissioni-dittli`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

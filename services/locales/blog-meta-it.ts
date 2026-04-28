@@ -3572,6 +3572,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.neuchatel-palloncini-lanterne-vietati.title': 'Neuchâtel vieta palloncini e lanterne: prima svizzera',
     'blog.article.neuchatel-palloncini-lanterne-vietati.excerpt': 'Il Gran Consiglio del Canton Neuchâtel ha approvato il divieto di lancio di palloncini e lanterne volanti, con 55 voti a favore.',
     'blog.article.neuchatel-palloncini-lanterne-vietati.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
+    'blog.article.vaud-parlamento-dimissioni-dittli.title': 'Vaud, il Parlamento chiede le dimissioni di Valérie Dittli',
+    'blog.article.vaud-parlamento-dimissioni-dittli.excerpt': 'Il Gran Consiglio vodese ha approvato una risoluzione simbolica per chiedere le dimissioni della consigliera di Stato Valérie Dittli.',
+    'blog.article.vaud-parlamento-dimissioni-dittli.imageAlt': 'Veduta aerea di Bellinzona con i suoi castelli e il fiume Ticino',
 };
 
 export default blogMetaIt;

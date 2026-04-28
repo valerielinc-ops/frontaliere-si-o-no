@@ -3571,6 +3571,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.neuchatel-palloncini-lanterne-vietati.title': 'Neuenburg verbietet Luftballons und Laternen',
     'blog.article.neuchatel-palloncini-lanterne-vietati.excerpt': 'Der Grosse Rat des Kantons Neuenburg hat das Verbot des Abfeuerns von Luftballons und Himmelslaternen mit 55 Stimmen angenommen.',
     'blog.article.neuchatel-palloncini-lanterne-vietati.imageAlt': 'Luftaufnahme des Luganersees mit dem schweizerisch-italienischen Grenzgebiet im Vordergrund',
+    'blog.article.vaud-parlamento-dimissioni-dittli.title': 'Waadt, Parlament fordert Rücktritt von Valérie Dittli',
+    'blog.article.vaud-parlamento-dimissioni-dittli.excerpt': 'Der Waadtländer Grosse Rat hat eine symbolische Resolution verabschiedet, um den Rücktritt der Staatsrätin Valérie Dittli zu fordern.',
+    'blog.article.vaud-parlamento-dimissioni-dittli.imageAlt': 'Luftaufnahme von Bellinzona mit seinen Burgen und dem Fluss Ticino',
 };
 
 export default blogMetaDe;

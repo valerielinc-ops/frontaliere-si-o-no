@@ -3572,6 +3572,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.neuchatel-palloncini-lanterne-vietati.title': 'Neuchâtel interdit les ballons et lanternes',
     'blog.article.neuchatel-palloncini-lanterne-vietati.excerpt': 'Le Grand Conseil du canton de Neuchâtel a approuvé l\'interdiction de lancer des ballons et des lanternes volantes, avec 55 voix en faveur.',
     'blog.article.neuchatel-palloncini-lanterne-vietati.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
+    'blog.article.vaud-parlamento-dimissioni-dittli.title': 'Vaud, le Parlement demande la démission de Valérie Dittli',
+    'blog.article.vaud-parlamento-dimissioni-dittli.excerpt': 'Le Grand Conseil vaudois a adopté une résolution symbolique pour demander la démission de la conseillère d\'État Valérie Dittli.',
+    'blog.article.vaud-parlamento-dimissioni-dittli.imageAlt': 'Vue aérienne de Bellinzone avec ses châteaux et la rivière du Tessin',
 };
 
 export default blogMetaFr;

@@ -3571,6 +3571,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.neuchatel-palloncini-lanterne-vietati.title': 'Neuchâtel bans balloons and lanterns: first in Switzerland',
     'blog.article.neuchatel-palloncini-lanterne-vietati.excerpt': 'The Grand Council of the Canton of Neuchâtel has approved the ban on releasing balloons and sky lanterns, with 55 votes in favor.',
     'blog.article.neuchatel-palloncini-lanterne-vietati.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
+    'blog.article.vaud-parlamento-dimissioni-dittli.title': 'Vaud Parliament demands Valérie Dittli\'s resignation',
+    'blog.article.vaud-parlamento-dimissioni-dittli.excerpt': 'The Vaud Council of State has approved a symbolic resolution calling for the resignation of State Councillor Valérie Dittli.',
+    'blog.article.vaud-parlamento-dimissioni-dittli.imageAlt': 'Aerial view of Bellinzona with its castles and the Ticino river',
 };
 
 export default blogMetaEn;
