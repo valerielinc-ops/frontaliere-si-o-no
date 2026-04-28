@@ -1,18 +1,49 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-04-28T10:32:06.815Z",
-  "total": 4,
-  "newCount": 0,
+  "generatedAt": "2026-04-28T21:31:28.579Z",
+  "total": 5,
+  "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1040,
-  "avgDurationMs": 1040,
+  "durationMs": 1039,
+  "avgDurationMs": 1039,
   "durationHistory": [
-    1040
+    1039
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Project Engineer – Centiel UK",
+      "slug": "project-engineer-centiel-uk-centiel-ticino",
+      "url": "https://www.centiel.com/wp-content/uploads/2026/04/Centiel-UK_Projects-Engineer-Job-Description_Apr-26.pdf",
+      "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/04/Centiel-UK_Projects-Engineer-Job-Description_Apr-26.pdf",
+      "company": "Centiel",
+      "companyKey": "centiel",
+      "companyDomain": "centiel.com",
+      "location": "Cadro (Lugano)",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia / UPS / Power Protection",
+      "source": "centiel-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Application Engineer – critical power",
