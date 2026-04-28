@@ -857,6 +857,8 @@ export const Analytics = {
  apiEndpoint?: string;
  apiMethod?: string;
  errorFingerprint?: string;
+ referrer?: string;
+ sessionRedirect?: string;
  } = {}
  ) => {
  const pagePath = info.pagePath || (typeof window !== 'undefined'
@@ -913,6 +915,8 @@ export const Analytics = {
  screen_width: window.innerWidth || 0,
  screen_height: window.innerHeight || 0,
  error_fingerprint: info.errorFingerprint || '',
+ referrer: truncate(info.referrer || '', 200),
+ session_redirect: truncate(info.sessionRedirect || '', 200),
  timestamp: new Date().toISOString(),
  });
  },

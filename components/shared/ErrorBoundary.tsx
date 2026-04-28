@@ -13,6 +13,14 @@ interface State {
  errorHint: string;
  errorName: string;
  errorMessage: string;
+ // Snapshot captured at the exact frame the error fired, BEFORE any
+ // subsequent history.replaceState() / location.replace() can rewrite the
+ // address bar (legacy redirect bridges, canonical normalisation). Without
+ // this, a Clarity replay shows the stale rewritten URL instead of where
+ // the error actually happened.
+ snapshotUrl: string;
+ snapshotReferrer: string;
+ snapshotSessionRedirect: string;
 }
 
 export class ErrorBoundary extends Component<Props, State> {
@@ -25,6 +33,9 @@ export class ErrorBoundary extends Component<Props, State> {
  errorHint: '',
  errorName: '',
  errorMessage: '',
+ snapshotUrl: '',
+ snapshotReferrer: '',
+ snapshotSessionRedirect: '',
  };
 
  /** Simple hash for error fingerprinting (correlation across events). */
@@ -35,6 +46,21 @@ export class ErrorBoundary extends Component<Props, State> {
  h = ((h << 5) - h + raw.charCodeAt(i)) | 0;
  }
  return (h >>> 0).toString(36);
+ }
+
+ private static snapshotEnv() {
+ if (typeof window === 'undefined') {
+ return { url: '(ssr)', referrer: '(ssr)', sessionRedirect: '(ssr)' };
+ }
+ let sessionRedirect = '(none)';
+ try {
+ sessionRedirect = sessionStorage.getItem('redirect') || '(consumed)';
+ } catch { /* private mode / disabled storage */ }
+ return {
+ url: window.location.href,
+ referrer: document.referrer || '(direct)',
+ sessionRedirect,
+ };
  }
 
  public static getDerivedStateFromError(error: Error): State {
@@ -49,12 +75,16 @@ export class ErrorBoundary extends Component<Props, State> {
  : isDecoded
  ? decoded.slice(0, 90)
  : `${(error?.name || 'Error').slice(0, 30)}:${msg.slice(0, 60)}`;
+ const env = ErrorBoundary.snapshotEnv();
  return {
  hasError: true,
  errorDigest: ErrorBoundary.fingerprint(error),
  errorHint: hint,
  errorName: (error?.name || 'Error').slice(0, 50),
  errorMessage: (isDecoded ? decoded : msg).slice(0, 300),
+ snapshotUrl: env.url,
+ snapshotReferrer: env.referrer,
+ snapshotSessionRedirect: env.sessionRedirect,
  };
  }
 
@@ -81,12 +111,20 @@ export class ErrorBoundary extends Component<Props, State> {
  msg.includes('Loading CSS chunk') ||
  error?.name === 'ChunkLoadError';
 
+ // Use the snapshot from getDerivedStateFromError — by now any post-mount
+ // history.replaceState may have already rewritten location.
+ const snapUrl = this.state.snapshotUrl || (typeof window !== 'undefined' ? window.location.href : '');
+ const snapReferrer = this.state.snapshotReferrer || (typeof document !== 'undefined' ? (document.referrer || '(direct)') : '');
+ const snapSessionRedirect = this.state.snapshotSessionRedirect || '(unknown)';
+
  if (isChunkError) {
  Analytics.trackAppError('chunk_load', {
  message: `[ErrorBoundary:${crashedComponent}] ${error.name}: ${msg.slice(0, 120)}`,
  stack: error.stack?.slice(0, 500) || '',
- pagePath: window.location.pathname + window.location.search,
+ pagePath: snapUrl,
  fatal: true,
+ referrer: snapReferrer,
+ sessionRedirect: snapSessionRedirect,
  });
  // Fall through to show error UI — user can manually refresh
  }
@@ -98,10 +136,12 @@ export class ErrorBoundary extends Component<Props, State> {
  message: `[ErrorBoundary:${crashedComponent}] ${error.name}: ${error.message}`,
  stack: error.stack?.slice(0, 500) || '',
  componentStack: errorInfo.componentStack?.slice(0, 300) || '',
- pagePath: window.location.pathname + window.location.search,
+ pagePath: snapUrl,
  pageTitle: document.title,
  fatal: true,
  errorFingerprint: fp,
+ referrer: snapReferrer,
+ sessionRedirect: snapSessionRedirect,
  });
  }
 
@@ -129,27 +169,47 @@ export class ErrorBoundary extends Component<Props, State> {
  )}
  <div
  data-testid="error-boundary-details"
- className="w-full max-w-xl text-left bg-surface-alt border border-edge rounded-lg px-3 py-2 mb-6"
+ className="w-full max-w-xl text-left bg-surface-alt border border-edge rounded-lg px-3 py-2 mb-6 space-y-1.5"
  >
+ <div>
  <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
  Errore
  </p>
  <code className="block text-xs text-body font-mono break-all select-all">
  {this.state.errorName}{this.state.errorMessage ? `: ${this.state.errorMessage}` : ''}
  </code>
- <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mt-2 mb-1">
- URL
+ </div>
+ <div>
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
+ URL al crash
  </p>
  <code className="block text-xs text-body font-mono break-all select-all">
- {typeof window !== 'undefined' ? window.location.href : ''}
+ {this.state.snapshotUrl || (typeof window !== 'undefined' ? window.location.href : '')}
  </code>
+ </div>
+ <div>
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
+ Provenienza (referrer)
+ </p>
+ <code className="block text-xs text-body font-mono break-all select-all">
+ {this.state.snapshotReferrer || '(direct)'}
+ </code>
+ </div>
+ <div>
+ <p className="text-[10px] uppercase tracking-wider text-muted font-semibold mb-1">
+ Bridge sessionStorage
+ </p>
+ <code className="block text-xs text-body font-mono break-all select-all">
+ {this.state.snapshotSessionRedirect || '(unknown)'}
+ </code>
+ </div>
  </div>
  <button
  onClick={() => {
  Analytics.trackForceReload({
  source: 'user_click',
  reason: 'error_page_manual_reload',
- pagePath: window.location.pathname + window.location.search,
+ pagePath: this.state.snapshotUrl || window.location.pathname + window.location.search,
  blocked: false,
  });
  window.location.reload();
