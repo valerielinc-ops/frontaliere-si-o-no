@@ -2347,6 +2347,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pista-ciclopedonale-bodio-giornico-2026': { name: 'Novità', path: '/articoli-frontaliere/pista-ciclopedonale-bodio-giornico-2026', parent: 'blog' },
     'blog-momoride-carpooling-benefico-ticino-2026': { name: 'MomòRide', path: '/articoli-frontaliere/momoride-carpooling-benefico-ticino-2026', parent: 'blog' },
     'blog-kit-escursionisti-montagna-pulita': { name: 'Kit escursionisti', path: '/articoli-frontaliere/kit-escursionisti-montagna-pulita', parent: 'blog' },
+    'blog-moda-sostenibile-bellinzona-9-maggio': { name: 'Moda sostenibile', path: '/articoli-frontaliere/moda-sostenibile-bellinzona-9-maggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

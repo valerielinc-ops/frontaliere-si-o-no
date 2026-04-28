@@ -18483,6 +18483,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-moda-sostenibile-bellinzona-9-maggio': {
+    title: 'Moda sostenibile a Bellinzona: giornata dedicata al riuso e alla riparazione',
+    description: 'Sabato 9 maggio a Bellinzona laboratori, upcycling e tosatura delle pecore per sensibilizzare contro la fast fashion. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, moda, sostenibile, bellinzona, giornata',
+    ogTitle: 'Moda sostenibile a Bellinzona: giornata dedicata al riuso e alla riparazione',
+    ogDescription: 'Sabato 9 maggio a Bellinzona laboratori, upcycling e tosatura delle pecore per sensibilizzare contro la fast fashion',
+    canonicalPath: '/articoli-frontaliere/moda-sostenibile-bellinzona-9-maggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Moda sostenibile a Bellinzona: giornata dedicata al riuso e alla riparazione",
+      "description": "Sabato 9 maggio a Bellinzona laboratori, upcycling e tosatura delle pecore per sensibilizzare contro la fast fashion. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/moda-sostenibile-bellinzona-9-maggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento di moda sostenibile a Bellinzona con laboratori di upcycling e riparazione abiti"
+      },
+      "datePublished": "2026-04-28T07:38:10+00:00",
+      "dateModified": "2026-04-28T07:38:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/moda-sostenibile-bellinzona-9-maggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

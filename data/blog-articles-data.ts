@@ -8617,4 +8617,11 @@ export const ARTICLES = [
  image: '/images/blog/kit-escursionisti-montagna-pulita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'moda-sostenibile-bellinzona-9-maggio',
+ category: 'novita',
+ date: '2026-04-28T07:38:10.428Z',
+ image: '/images/blog/moda-sostenibile-bellinzona-9-maggio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

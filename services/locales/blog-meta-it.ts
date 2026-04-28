@@ -3260,6 +3260,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kit-escursionisti-montagna-pulita.title': 'Kit per escursionisti: come non lasciare traccia in montagna',
     'blog.article.kit-escursionisti-montagna-pulita.excerpt': 'Il kit \'Non lascio traccia\' insegna agli escursionisti a rispettare l\'ambiente montano con saponette ecologiche e sacchetti per i rifiuti',
     'blog.article.kit-escursionisti-montagna-pulita.imageAlt': 'Escursionisti in montagna nel Ticino con un ambiente pulito',
+    'blog.article.moda-sostenibile-bellinzona-9-maggio.title': 'Moda sostenibile a Bellinzona: giornata dedicata al riuso e alla riparazione',
+    'blog.article.moda-sostenibile-bellinzona-9-maggio.excerpt': 'Sabato 9 maggio a Bellinzona laboratori, upcycling e tosatura delle pecore per sensibilizzare contro la fast fashion',
+    'blog.article.moda-sostenibile-bellinzona-9-maggio.imageAlt': 'Evento di moda sostenibile a Bellinzona con laboratori di upcycling e riparazione abiti',
 };
 
 export default blogMetaIt;
