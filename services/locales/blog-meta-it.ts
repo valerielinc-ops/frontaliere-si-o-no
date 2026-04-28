@@ -3518,6 +3518,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.unitas-80-anni-innovazione-inclusione.title': 'Unitas festeggia 80 anni con una rivista audio',
     'blog.article.unitas-80-anni-innovazione-inclusione.excerpt': 'L\'associazione per non vedenti celebra il traguardo con una rivista audio e progetti per il futuro',
     'blog.article.unitas-80-anni-innovazione-inclusione.imageAlt': 'Celebrazione degli 80 anni di Unitas a Lugano con persone che ascoltano una rivista audio',
+    'blog.article.dfp-giorgetti-deficit-ridotto.title': 'Dfp, Giorgetti: deficit ridotto senza manovre restrittive',
+    'blog.article.dfp-giorgetti-deficit-ridotto.excerpt': 'Il ministro dell\'Economia annuncia una riduzione del deficit senza manovre restrittive grazie a una gestione prudente della finanza pubblica.',
+    'blog.article.dfp-giorgetti-deficit-ridotto.imageAlt': 'Vista del lago di Lugano con il centro di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

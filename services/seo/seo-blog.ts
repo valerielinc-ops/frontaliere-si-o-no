@@ -20977,6 +20977,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dfp-giorgetti-deficit-ridotto': {
+    title: 'Dfp, Giorgetti: deficit ridotto senza manovre restrittive',
+    description: 'Il ministro dell\'Economia annuncia una riduzione del deficit senza manovre restrittive grazie a una gestione prudente della finanza pubblica. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, giorgetti, deficit, ridotto, senza',
+    ogTitle: 'Dfp, Giorgetti: deficit ridotto senza manovre restrittive',
+    ogDescription: 'Il ministro dell\'Economia annuncia una riduzione del deficit senza manovre restrittive grazie a una gestione prudente della finanza pubblica.',
+    canonicalPath: '/articoli-frontaliere/dfp-giorgetti-deficit-ridotto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dfp, Giorgetti: deficit ridotto senza manovre restrittive",
+      "description": "Il ministro dell'Economia annuncia una riduzione del deficit senza manovre restrittive grazie a una gestione prudente della finanza pubblica. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dfp-giorgetti-deficit-ridotto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con il centro di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-28T20:43:05+00:00",
+      "dateModified": "2026-04-28T20:43:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dfp-giorgetti-deficit-ridotto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

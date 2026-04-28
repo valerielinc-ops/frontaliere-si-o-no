@@ -9219,4 +9219,11 @@ export const ARTICLES = [
  image: '/images/blog/unitas-80-anni-innovazione-inclusione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dfp-giorgetti-deficit-ridotto',
+ category: 'fiscale',
+ date: '2026-04-28T20:43:05.563Z',
+ image: '/images/blog/dfp-giorgetti-deficit-ridotto.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
