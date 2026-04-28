@@ -127,6 +127,11 @@ export type LandingJobLink = {
  featured?: boolean;
  logo?: string | null;
  addressLocality?: string;
+ /** Pass-through for the SPA-card logo chain (resolveCompanyWebsiteHost
+  * needs companyDomain/url to produce a Google favicon — without them
+  * the renderer falls back to the deterministic initials placeholder). */
+ companyDomain?: string;
+ url?: string;
 };
 
 type LandingSection = {
@@ -1152,6 +1157,8 @@ function toLinkedJobs(jobs: JobLike[], now: Date, locale: JobLandingLocale, opti
    logo: typeof j.logo === 'string' ? j.logo : undefined,
    addressLocality:
     typeof j.addressLocality === 'string' ? j.addressLocality : undefined,
+   companyDomain: typeof j.companyDomain === 'string' ? j.companyDomain : undefined,
+   url: typeof j.url === 'string' ? j.url : undefined,
   };
  });
 }

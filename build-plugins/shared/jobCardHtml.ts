@@ -272,7 +272,17 @@ function renderLogoSlot(job: JobCardJob, logoSrc: string): string {
   const altText = company ? `Logo ${company}` : 'Logo azienda';
   const safeAlt = escHtml(altText);
   const safeSrc = escHtml(logoSrc);
-  return `<div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"><img alt="${safeAlt}" class="w-7 h-7 sm:w-10 sm:h-10 object-contain" width="40" height="40" loading="lazy" src="${safeSrc}"></div>`;
+  // Runtime onerror fallback to the deterministic initials data URI when the
+  // primary src 404s (Google favicons sometimes miss for less-known domains)
+  // — mirrors the SPA `handleCompanyLogoError` chain at static-HTML time so
+  // the user never sees a broken-image icon. The handler swaps src once and
+  // unhooks itself to avoid loops.
+  const fallbackSrc = company
+    ? generateInitialsLogo(company)
+    : LOGO_FALLBACK_SRC;
+  const safeFallback = escHtml(fallbackSrc);
+  const onerror = `this.onerror=null;this.src=&quot;${safeFallback}&quot;`;
+  return `<div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"><img alt="${safeAlt}" class="w-7 h-7 sm:w-10 sm:h-10 object-contain" width="40" height="40" loading="lazy" src="${safeSrc}" onerror="${onerror}"></div>`;
 }
 
 // ── Main renderer ────────────────────────────────────────────────────

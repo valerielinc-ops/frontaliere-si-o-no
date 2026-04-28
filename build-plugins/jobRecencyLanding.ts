@@ -38,6 +38,11 @@ export interface RecencyJobLink {
   featured?: boolean;
   logo?: string | null;
   addressLocality?: string;
+  /** Pass-through for the SPA-card logo chain (resolveCompanyWebsiteHost
+   * needs companyDomain/url to land on the right Google favicon — without
+   * them every job falls to the deterministic initials placeholder). */
+  companyDomain?: string;
+  url?: string;
 }
 
 export interface JobRecencyLandingModel {
@@ -517,6 +522,8 @@ export function buildJobRecencyLandingModel(options: {
       logo: typeof j.logo === 'string' ? j.logo : undefined,
       addressLocality:
         typeof j.addressLocality === 'string' ? j.addressLocality : undefined,
+      companyDomain: typeof j.companyDomain === 'string' ? j.companyDomain : undefined,
+      url: typeof j.url === 'string' ? j.url : undefined,
     };
   });
 
