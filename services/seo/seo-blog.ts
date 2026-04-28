@@ -19237,6 +19237,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ex-sede-banca-ditalia-vendita-varese': {
+    title: 'Ex sede Banca d\'Italia in vendita a Varese: quanto costa e perché non si vende',
+    description: 'L\'ex sede della Banca d\'Italia a Varese è in vendita da anni. Scopriamo il prezzo e i motivi per cui non trova acquirenti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, sede, banca, vendita, varese',
+    ogTitle: 'Ex sede Banca d\'Italia in vendita a Varese: quanto costa e perché non si vende',
+    ogDescription: 'L\'ex sede della Banca d\'Italia a Varese è in vendita da anni. Scopriamo il prezzo e i motivi per cui non trova acquirenti.',
+    canonicalPath: '/articoli-frontaliere/ex-sede-banca-ditalia-vendita-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ex sede Banca d'Italia in vendita a Varese: quanto costa e perché non si vende",
+      "description": "L'ex sede della Banca d'Italia a Varese è in vendita da anni. Scopriamo il prezzo e i motivi per cui non trova acquirenti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ex-sede-banca-ditalia-vendita-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea dell'ex sede della Banca d'Italia a Varese, Italia, con particolare attenzione ai dettagli architettonici e al paesaggio urbano circostante."
+      },
+      "datePublished": "2026-04-28T12:46:47+00:00",
+      "dateModified": "2026-04-28T12:46:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ex-sede-banca-ditalia-vendita-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

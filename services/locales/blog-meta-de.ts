@@ -3337,6 +3337,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuove-regole-centri-estivi-saronno-2026.title': 'Saronno: Neue Regeln für kommunale Sommerzentren',
     'blog.article.nuove-regole-centri-estivi-saronno-2026.excerpt': 'Ab 2026 führt Saronno eine einheitliche Leitung für die Sommerzentren ein, Rabatte für Geschwister und Zuschüsse bis zu 400 Euro für Familien mit einem ISEE von bis zu 15.000 Euro.',
     'blog.article.nuove-regole-centri-estivi-saronno-2026.imageAlt': 'Kommunale Sommerlager in Saronno, Kinder bei Sommeraktivitäten',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.title': 'Ehemalige Banca d\'Italia-Filiale in Varese: Preis und Verkaufsschwierigkeiten',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.excerpt': 'Die ehemalige Filiale der Banca d\'Italia in Varese steht seit Jahren zum Verkauf. Wir erfahren den Preis und die Gründe, warum sie keinen Käufer findet.',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.imageAlt': 'Luftaufnahme des ehemaligen Gebäudes der Banca d\'Italia in Varese, Italien, mit Fokus auf architektonische Details und die umliegende Stadtlandschaft.',
 };
 
 export default blogMetaDe;

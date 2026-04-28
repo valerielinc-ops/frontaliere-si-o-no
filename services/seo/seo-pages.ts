@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1162,
+ "numberOfItems": 1163,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5797,7 +5797,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1159, "name": "Processo Karimova: archiviazione parziale per G...", "url": `${BASE_URL}/articoli-frontaliere/processo-karimova-archiviazione-parziale` },
           { "@type": "ListItem", "position": 1160, "name": "Cardiocentro Lugano: tre piani in più e un bar ...", "url": `${BASE_URL}/articoli-frontaliere/cardiocentro-lugano-ristrutturazione-2026` },
           { "@type": "ListItem", "position": 1161, "name": "Ex capo dell'esercito nel Cda di Kaiser Partner...", "url": `${BASE_URL}/articoli-frontaliere/ex-capo-esercito-kaiser-partner-privatbank` },
-          { "@type": "ListItem", "position": 1162, "name": "Nuove regole per i centri estivi comunali di Sa...", "url": `${BASE_URL}/articoli-frontaliere/nuove-regole-centri-estivi-saronno-2026` }
+          { "@type": "ListItem", "position": 1162, "name": "Nuove regole per i centri estivi comunali di Sa...", "url": `${BASE_URL}/articoli-frontaliere/nuove-regole-centri-estivi-saronno-2026` },
+          { "@type": "ListItem", "position": 1163, "name": "Ex sede Banca d'Italia in vendita a Varese: qua...", "url": `${BASE_URL}/articoli-frontaliere/ex-sede-banca-ditalia-vendita-varese` }
  ]
  },
  {

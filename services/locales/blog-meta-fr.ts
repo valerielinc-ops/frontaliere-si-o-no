@@ -3338,6 +3338,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuove-regole-centri-estivi-saronno-2026.title': 'Saronno: nouvelles règles pour les centres estivaux',
     'blog.article.nuove-regole-centri-estivi-saronno-2026.excerpt': 'À partir de 2026, Saronno introduit une gestion unique pour les centres estivaux, des réductions pour les frères et sœurs et des contributions allant jusqu\'à 400 euros pour les familles avec un ISEE jusqu\'à 15 000 euros.',
     'blog.article.nuove-regole-centri-estivi-saronno-2026.imageAlt': 'Centres de vacances communaux à Saronno, enfants engagés dans des activités estivales',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.title': 'Ancienne siège de la Banque d\'Italie à Varese: prix et raisons de la non-vente',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.excerpt': 'L\'ancienne siège de la Banque d\'Italie à Varese est en vente depuis des années. Découvrons le prix et les raisons pour lesquelles elle ne trouve pas d\'acheteurs.',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.imageAlt': 'Vue aérienne de l\'ancien siège de la Banca d\'Italia à Varese, Italie, avec un accent sur ses détails architecturaux et le paysage urbain environnant.',
 };
 
 export default blogMetaFr;

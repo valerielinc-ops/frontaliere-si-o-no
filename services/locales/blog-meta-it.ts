@@ -3338,6 +3338,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuove-regole-centri-estivi-saronno-2026.title': 'Saronno: nuove regole per i centri estivi comunali',
     'blog.article.nuove-regole-centri-estivi-saronno-2026.excerpt': 'Dal 2026, Saronno introduce una regia unica per i centri estivi, sconti per fratelli e contributi fino a 400 euro per famiglie con ISEE fino a 15mila euro.',
     'blog.article.nuove-regole-centri-estivi-saronno-2026.imageAlt': 'Centri estivi comunali a Saronno, bambini impegnati in attività estive',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.title': 'Ex sede Banca d\'Italia in vendita a Varese: quanto costa e perché non si vende',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.excerpt': 'L\'ex sede della Banca d\'Italia a Varese è in vendita da anni. Scopriamo il prezzo e i motivi per cui non trova acquirenti.',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.imageAlt': 'Veduta aerea dell\'ex sede della Banca d\'Italia a Varese, Italia, con particolare attenzione ai dettagli architettonici e al paesaggio urbano circostante.',
 };
 
 export default blogMetaIt;

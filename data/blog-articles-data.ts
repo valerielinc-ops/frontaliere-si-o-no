@@ -8799,4 +8799,11 @@ export const ARTICLES = [
  image: '/images/blog/nuove-regole-centri-estivi-saronno-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ex-sede-banca-ditalia-vendita-varese',
+ category: 'novita',
+ date: '2026-04-28T12:46:47.868Z',
+ image: '/images/blog/ex-sede-banca-ditalia-vendita-varese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

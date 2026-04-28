@@ -3337,6 +3337,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-regole-centri-estivi-saronno-2026.title': 'Saronno: new rules for summer centres',
     'blog.article.nuove-regole-centri-estivi-saronno-2026.excerpt': 'From 2026, Saronno introduces a single management for summer centres, discounts for siblings and contributions up to 400 euros for families with ISEE up to 15,000 euros.',
     'blog.article.nuove-regole-centri-estivi-saronno-2026.imageAlt': 'Municipal summer camps in Saronno, children engaged in summer activities',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.title': 'Ex Bank of Italy HQ for sale in Varese: why it\'s not selling',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.excerpt': 'The former headquarters of the Bank of Italy in Varese has been for sale for years. We discover the price and the reasons why it doesn\'t find buyers.',
+    'blog.article.ex-sede-banca-ditalia-vendita-varese.imageAlt': 'Aerial view of the former Banca d\'Italia building in Varese, Italy, with a focus on its architectural details and the surrounding urban landscape.',
 };
 
 export default blogMetaEn;
