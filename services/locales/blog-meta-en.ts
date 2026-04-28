@@ -3592,6 +3592,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stop-cinese-acquisizione-manus-implicazioni.title': 'China blocks Manus acquisition: here\'s why',
     'blog.article.stop-cinese-acquisizione-manus-implicazioni.excerpt': 'Beijing halts Meta\'s }; billion purchase, fearing loss of strategic technology',
     'blog.article.stop-cinese-acquisizione-manus-implicazioni.imageAlt': 'Lake Lugano and financial district skyscrapers',
+    'blog.article.gita-cuore-soncino-saronno-point.title': 'Heartfelt trip to Soncino to support Saronno Point',
+    'blog.article.gita-cuore-soncino-saronno-point.excerpt': 'A day of history, art, and solidarity to fund Saronno Point\'s activities for cancer patients.',
+    'blog.article.gita-cuore-soncino-saronno-point.imageAlt': 'Group of people enjoying a scenic walk in Soncino, Italy, surrounded by historic buildings and lush greenery.',
 };
 
 export default blogMetaEn;

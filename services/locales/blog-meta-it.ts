@@ -3593,6 +3593,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stop-cinese-acquisizione-manus-implicazioni.title': 'Cina blocca acquisizione Manus: ecco perché',
     'blog.article.stop-cinese-acquisizione-manus-implicazioni.excerpt': 'Pechino ferma l\'acquisto da Meta per 2 miliardi di dollari, temendo perdita di tecnologia strategica',
     'blog.article.stop-cinese-acquisizione-manus-implicazioni.imageAlt': 'Lugano lago e grattacieli del centro finanziario',
+    'blog.article.gita-cuore-soncino-saronno-point.title': 'Gita del cuore a Soncino per sostenere Saronno Point',
+    'blog.article.gita-cuore-soncino-saronno-point.excerpt': 'Una giornata tra storia, arte e solidarietà per finanziare le attività di Saronno Point dedicate ai malati oncologici.',
+    'blog.article.gita-cuore-soncino-saronno-point.imageAlt': 'Gruppo di persone in una passeggiata a Soncino, Italia, circondati da edifici storici e verde lussureggiante.',
 };
 
 export default blogMetaIt;

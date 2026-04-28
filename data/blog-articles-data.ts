@@ -9394,4 +9394,11 @@ export const ARTICLES = [
  image: '/images/blog/stop-cinese-acquisizione-manus-implicazioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gita-cuore-soncino-saronno-point',
+ category: 'novita',
+ date: '2026-04-28T23:27:40.136Z',
+ image: '/images/blog/gita-cuore-soncino-saronno-point.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
