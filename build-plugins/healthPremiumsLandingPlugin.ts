@@ -60,6 +60,7 @@ import {
   type BracketTrend,
 } from './healthPremiumsData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import {
   BREADCRUMB_LINK_STYLE,
@@ -1615,6 +1616,9 @@ function renderLeafPage(inp: LeafInputs): string {
   ${faqHtml}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton, age })}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
@@ -1871,6 +1875,9 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   ${faqHtml}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
@@ -2040,6 +2047,9 @@ function renderRootHubPage(inp: RootHubInputs): string {
   ${faqHtml}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">

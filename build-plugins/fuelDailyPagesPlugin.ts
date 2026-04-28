@@ -57,6 +57,14 @@ import {
   type ItalianCityEntry,
 } from './fuelDailyData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { adSlotHtml } from './lib/adSlotHtml';
+// TODO(adsense): F6 fuel-daily pages historically earn €0 / 30d despite ≥400
+// daily views (GA4 ↔ AdSense link, 2026-04-28). The end-of-content multiplex
+// below is cheap insurance, but if it still earns €0 after 14 days the content
+// classifier may be flagging these as thin (heavy table, light prose). Audit
+// with `node scripts/audit-text-html-ratio.mjs --feature=fuel-daily --limit=5`
+// and consider adding more methodology / FAQ prose. Do NOT noindex without
+// explicit approval (CLAUDE.md non-negotiable rule #5b).
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import {
   JOB_MARKET_LOCALE_PREFIX,
@@ -1508,6 +1516,9 @@ function renderPage(inp: PageInputs): string {
   ${renderFuelTodayFrontalierContext({ locale, fuelLabel, zoneLabel, priceFmt, deltaYestFmt, delta7Fmt, isZone: !!zone })}
   ${renderDiscoverMore(locale, FUEL_DAILY_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'fuel_daily', { fuelType: fuel, fuelZone: zone ?? undefined, city: zone ?? undefined })}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   // Extra head: OG image dimensions + twitter card — kept for parity with the
@@ -1736,6 +1747,9 @@ function renderArchive(inp: ArchiveInputs): string {
         ${archiveChartHtml}
         <section>${tableHtml}</section>
         ${archiveProse}
+        <section style="margin-top:32px" aria-label="advertisement">
+          ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+        </section>
       </article>`;
 
   return buildSeoPageHtml({
@@ -2366,6 +2380,9 @@ function renderStationPage(opts: {
     stationSlug: ctx.slug,
     siblingStations,
   })}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
@@ -2866,6 +2883,9 @@ function renderItalianCityPage(opts: {
     italianCityDisplay: entry.display,
     fuelZone: entry.nearestZone,
   })}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
@@ -3555,6 +3575,9 @@ function renderItalianStationPage(opts: {
     : ''}
   <p style="margin:0 0 22px"><a href="${BASE_URL}${cityHubPath}" style="${LINK_ACCENT_STYLE};font-weight:600">← ${esc(copy.backToCity(cityName))}</a></p>
   ${siblingsHtml}
+  <section style="margin-top:32px" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
