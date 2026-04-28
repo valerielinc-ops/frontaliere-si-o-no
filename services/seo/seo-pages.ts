@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1212,
+ "numberOfItems": 1213,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5847,7 +5847,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1209, "name": "Giro-E 2026: tappa Angera-Verbania sul Lago Mag...", "url": `${BASE_URL}/articoli-frontaliere/giro-e-angera-verbania-2026` },
           { "@type": "ListItem", "position": 1210, "name": "Iniziative casse malati: spunta il piano Dadò", "url": `${BASE_URL}/articoli-frontaliere/iniziative-casse-malati-dado-scissione-dossier` },
           { "@type": "ListItem", "position": 1211, "name": "Moschea Pregassona: UDC interroga Municipio", "url": `${BASE_URL}/articoli-frontaliere/moschea-pregassona-udc-interroga-municipio` },
-          { "@type": "ListItem", "position": 1212, "name": "Como, al via i lavori per l'area camper da 26 p...", "url": `${BASE_URL}/articoli-frontaliere/como-area-camper-26-posti-lavori` }
+          { "@type": "ListItem", "position": 1212, "name": "Como, al via i lavori per l'area camper da 26 p...", "url": `${BASE_URL}/articoli-frontaliere/como-area-camper-26-posti-lavori` },
+          { "@type": "ListItem", "position": 1213, "name": "Caricabatteria unico per portatili: cosa cambia...", "url": `${BASE_URL}/articoli-frontaliere/caricabatteria-unico-portatili-2024` }
  ]
  },
  {

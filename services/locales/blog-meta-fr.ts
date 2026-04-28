@@ -3488,6 +3488,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-area-camper-26-posti-lavori.title': 'Como, début des travaux pour une aire de camping-cars de 26 places',
     'blog.article.como-area-camper-26-posti-lavori.excerpt': 'Le chantier pour l\'extension de l\'aire de camping-cars de Tavernola a commencé. Voici quand les travaux se termineront et les détails du projet.',
     'blog.article.como-area-camper-26-posti-lavori.imageAlt': 'Aire de camping-car rénovée à Côme avec 26 places et tables de pique-nique',
+    'blog.article.caricabatteria-unico-portatili-2024.title': 'Chargeur unique pour ordinateurs portables : ce qui change à partir du 28 avril',
+    'blog.article.caricabatteria-unico-portatili-2024.excerpt': 'À partir du 28 avril 2024, les ordinateurs portables dans l\'UE doivent supporter la recharge via USB-C et les fabricants doivent proposer des versions sans chargeur.',
+    'blog.article.caricabatteria-unico-portatili-2024.imageAlt': 'Un ordinateur portable avec un chargeur USB-C sur un bureau en Tessin, avec vue sur les Alpes',
 };
 
 export default blogMetaFr;

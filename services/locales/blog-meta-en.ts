@@ -3487,6 +3487,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-area-camper-26-posti-lavori.title': 'Como: work starts on 26-spot camper area',
     'blog.article.como-area-camper-26-posti-lavori.excerpt': 'Construction has begun on the expansion of the camper area in Tavernola. Here\'s when the work will be finished and the project details.',
     'blog.article.como-area-camper-26-posti-lavori.imageAlt': 'Renovated camper area in Como with 26 spots and picnic tables',
+    'blog.article.caricabatteria-unico-portatili-2024.title': 'Single charger for laptops: what changes from April 28',
+    'blog.article.caricabatteria-unico-portatili-2024.excerpt': 'From April 28, 2024, laptops in the EU must support USB-C charging and manufacturers must offer versions without power adapters',
+    'blog.article.caricabatteria-unico-portatili-2024.imageAlt': 'A laptop with a USB-C charger on a desk in Ticino, with a view of the Alps',
 };
 
 export default blogMetaEn;

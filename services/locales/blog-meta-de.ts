@@ -3487,6 +3487,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-area-camper-26-posti-lavori.title': 'Como: Bauarbeiten für 26 Stellplätze beginnen',
     'blog.article.como-area-camper-26-posti-lavori.excerpt': 'Die Bauarbeiten für die Erweiterung des Stellplatzes in Tavernola haben begonnen. Hier erfahren Sie, wann die Arbeiten abgeschlossen sein werden und die Details des Projekts.',
     'blog.article.como-area-camper-26-posti-lavori.imageAlt': 'Erneuerter Wohnmobilstellplatz in Como mit 26 Stellplätzen und Picknicktischen',
+    'blog.article.caricabatteria-unico-portatili-2024.title': 'Einheitlicher Ladeanschluss für Laptops: Änderungen ab 28. April',
+    'blog.article.caricabatteria-unico-portatili-2024.excerpt': 'Ab dem 28. April 2024 müssen Laptops in der EU USB-C-Ladung unterstützen und Hersteller müssen Versionen ohne Netzteil anbieten',
+    'blog.article.caricabatteria-unico-portatili-2024.imageAlt': 'Ein Laptop mit einem USB-C-Ladegerät auf einem Schreibtisch in Tessin, mit Blick auf die Alpen',
 };
 
 export default blogMetaDe;

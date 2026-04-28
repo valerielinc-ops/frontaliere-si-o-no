@@ -20687,6 +20687,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caricabatteria-unico-portatili-2024': {
+    title: 'Caricabatteria unico per portatili: cosa cambia dal 28 aprile',
+    description: 'Dal 28 aprile 2024, i computer portatili nell\'UE devono supportare la ricarica via USB-C e i produttori devono offrire versioni senza alimentatore',
+    keywords: 'frontalieri, ticino, svizzera, italia, caricabatteria, unico, portatili, cosa',
+    ogTitle: 'Caricabatteria unico per portatili: cosa cambia dal 28 aprile',
+    ogDescription: 'Dal 28 aprile 2024, i computer portatili nell\'UE devono supportare la ricarica via USB-C e i produttori devono offrire versioni senza alimentatore',
+    canonicalPath: '/articoli-frontaliere/caricabatteria-unico-portatili-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caricabatteria unico per portatili: cosa cambia dal 28 aprile",
+      "description": "Dal 28 aprile 2024, i computer portatili nell'UE devono supportare la ricarica via USB-C e i produttori devono offrire versioni senza alimentatore",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/caricabatteria-unico-portatili-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un computer portatile con caricabatterie USB-C su una scrivania in Ticino, con vista sulle Alpi"
+      },
+      "datePublished": "2026-04-28T19:49:01+00:00",
+      "dateModified": "2026-04-28T19:49:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caricabatteria-unico-portatili-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

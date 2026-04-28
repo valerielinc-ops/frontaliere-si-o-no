@@ -3488,6 +3488,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-area-camper-26-posti-lavori.title': 'Como, al via i lavori per l\'area camper da 26 posti',
     'blog.article.como-area-camper-26-posti-lavori.excerpt': 'Il cantiere per l\'ampliamento dell\'area camper di Tavernola è iniziato. Ecco quando finiranno i lavori e i dettagli del progetto.',
     'blog.article.como-area-camper-26-posti-lavori.imageAlt': 'Area camper rinnovata a Como con 26 posti e tavoli da picnic',
+    'blog.article.caricabatteria-unico-portatili-2024.title': 'Caricabatteria unico per portatili: cosa cambia dal 28 aprile',
+    'blog.article.caricabatteria-unico-portatili-2024.excerpt': 'Dal 28 aprile 2024, i computer portatili nell\'UE devono supportare la ricarica via USB-C e i produttori devono offrire versioni senza alimentatore',
+    'blog.article.caricabatteria-unico-portatili-2024.imageAlt': 'Un computer portatile con caricabatterie USB-C su una scrivania in Ticino, con vista sulle Alpi',
 };
 
 export default blogMetaIt;

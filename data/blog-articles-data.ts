@@ -9149,4 +9149,11 @@ export const ARTICLES = [
  image: '/images/blog/como-area-camper-26-posti-lavori.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'caricabatteria-unico-portatili-2024',
+ category: 'novita',
+ date: '2026-04-28T19:49:01.896Z',
+ image: '/images/blog/caricabatteria-unico-portatili-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

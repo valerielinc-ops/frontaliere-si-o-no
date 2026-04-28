@@ -2393,6 +2393,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iniziative-casse-malati-dado-scissione-dossier': { name: 'Iniziative casse malati', path: '/articoli-frontaliere/iniziative-casse-malati-dado-scissione-dossier', parent: 'blog' },
     'blog-moschea-pregassona-udc-interroga-municipio': { name: 'Moschea Pregassona', path: '/articoli-frontaliere/moschea-pregassona-udc-interroga-municipio', parent: 'blog' },
     'blog-como-area-camper-26-posti-lavori': { name: 'Novità', path: '/articoli-frontaliere/como-area-camper-26-posti-lavori', parent: 'blog' },
+    'blog-caricabatteria-unico-portatili-2024': { name: 'Novità', path: '/articoli-frontaliere/caricabatteria-unico-portatili-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];
