@@ -3595,6 +3595,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gita-cuore-soncino-saronno-point.title': 'Heartfelt trip to Soncino to support Saronno Point',
     'blog.article.gita-cuore-soncino-saronno-point.excerpt': 'A day of history, art, and solidarity to fund Saronno Point\'s activities for cancer patients.',
     'blog.article.gita-cuore-soncino-saronno-point.imageAlt': 'Group of people enjoying a scenic walk in Soncino, Italy, surrounded by historic buildings and lush greenery.',
+    'blog.article.decreto-lavoro-meloni-frontalieri-ticino.title': 'Meloni\'s labour decree: fair wage and end to pirate contracts',
+    'blog.article.decreto-lavoro-meloni-frontalieri-ticino.excerpt': 'Green light for the labour decree with fair wage and incentives for hiring. Meloni: pact with businesses and unions.',
+    'blog.article.decreto-lavoro-meloni-frontalieri-ticino.imageAlt': 'Panorama of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

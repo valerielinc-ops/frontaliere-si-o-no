@@ -3596,6 +3596,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gita-cuore-soncino-saronno-point.title': 'Gita del cuore a Soncino per sostenere Saronno Point',
     'blog.article.gita-cuore-soncino-saronno-point.excerpt': 'Una giornata tra storia, arte e solidarietà per finanziare le attività di Saronno Point dedicate ai malati oncologici.',
     'blog.article.gita-cuore-soncino-saronno-point.imageAlt': 'Gruppo di persone in una passeggiata a Soncino, Italia, circondati da edifici storici e verde lussureggiante.',
+    'blog.article.decreto-lavoro-meloni-frontalieri-ticino.title': 'Decreto lavoro Meloni: salario giusto e stop ai contratti pirata',
+    'blog.article.decreto-lavoro-meloni-frontalieri-ticino.excerpt': 'Via libera al decreto lavoro con salario giusto e incentivi per le assunzioni. Meloni: patto con imprese e sindacati.',
+    'blog.article.decreto-lavoro-meloni-frontalieri-ticino.imageAlt': 'Panorama di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

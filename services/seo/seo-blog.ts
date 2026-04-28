@@ -21731,6 +21731,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-decreto-lavoro-meloni-frontalieri-ticino': {
+    title: 'Decreto lavoro Meloni: salario giusto e stop ai contratti pirata',
+    description: 'Via libera al decreto lavoro con salario giusto e incentivi per le assunzioni. Meloni: patto con imprese e sindacati. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, decreto, lavoro, meloni, salario',
+    ogTitle: 'Decreto lavoro Meloni: salario giusto e stop ai contratti pirata',
+    ogDescription: 'Via libera al decreto lavoro con salario giusto e incentivi per le assunzioni. Meloni: patto con imprese e sindacati.',
+    canonicalPath: '/articoli-frontaliere/decreto-lavoro-meloni-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Decreto lavoro Meloni: salario giusto e stop ai contratti pirata",
+      "description": "Via libera al decreto lavoro con salario giusto e incentivi per le assunzioni. Meloni: patto con imprese e sindacati. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/decreto-lavoro-meloni-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-04-28T23:35:34+00:00",
+      "dateModified": "2026-04-28T23:35:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/decreto-lavoro-meloni-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

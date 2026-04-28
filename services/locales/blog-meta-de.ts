@@ -3595,6 +3595,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gita-cuore-soncino-saronno-point.title': 'Herzliche Ausflug nach Soncino für Saronno Point',
     'blog.article.gita-cuore-soncino-saronno-point.excerpt': 'Ein Tag voller Geschichte, Kunst und Solidarität, um die Aktivitäten von Saronno Point für Krebspatienten zu finanzieren.',
     'blog.article.gita-cuore-soncino-saronno-point.imageAlt': 'Gruppe von Menschen, die einen malerischen Spaziergang in Soncino, Italien, umgeben von historischen Gebäuden und üppiger Vegetation genießen.',
+    'blog.article.decreto-lavoro-meloni-frontalieri-ticino.title': 'Meloni: gerechter Lohn und Ende der Piratenverträge',
+    'blog.article.decreto-lavoro-meloni-frontalieri-ticino.excerpt': 'Freigabe des Arbeitsdekrets mit gerechtem Lohn und Anreizen für Einstellungen. Meloni: Pakt mit Unternehmen und Gewerkschaften.',
+    'blog.article.decreto-lavoro-meloni-frontalieri-ticino.imageAlt': 'Panorama von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

@@ -9401,4 +9401,11 @@ export const ARTICLES = [
  image: '/images/blog/gita-cuore-soncino-saronno-point.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'decreto-lavoro-meloni-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-04-28T23:35:34.665Z',
+ image: '/images/blog/decreto-lavoro-meloni-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
