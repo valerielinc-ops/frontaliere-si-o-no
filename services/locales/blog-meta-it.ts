@@ -3305,6 +3305,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ospedali-varesini-cambiamenti-20-anni.title': 'Ospedali varesini: meno letti, più specializzazione in 20 anni',
     'blog.article.ospedali-varesini-cambiamenti-20-anni.excerpt': 'Negli ultimi vent\'anni i posti letto negli ospedali del Varesotto si sono ridotti del 30-40%, con un modello di cura più efficiente ma anche più fragile.',
     'blog.article.ospedali-varesini-cambiamenti-20-anni.imageAlt': 'Ospedale di Varese, piazza Repubblica, dettagli architettonici, personale sanitario',
+    'blog.article.sunrise-integra-hbb-ssr-2026.title': 'Sunrise dovrà integrare l’offerta HBB della SSR',
+    'blog.article.sunrise-integra-hbb-ssr-2026.excerpt': 'Il Tribunale amministrativo federale ha sancito che Sunrise deve includere l’offerta HBB della SSR, con funzionalità per disabili sensoriali.',
+    'blog.article.sunrise-integra-hbb-ssr-2026.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
 };
 
 export default blogMetaIt;

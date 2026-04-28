@@ -3305,6 +3305,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ospedali-varesini-cambiamenti-20-anni.title': 'Hôpitaux varésans : moins de lits, plus de spécialisation en 20 ans',
     'blog.article.ospedali-varesini-cambiamenti-20-anni.excerpt': 'Au cours des vingt dernières années, le nombre de lits d\'hôpital dans le Varesotto a diminué de 30 à 40 %, avec un modèle de soins plus efficace mais aussi plus fragile.',
     'blog.article.ospedali-varesini-cambiamenti-20-anni.imageAlt': 'Hôpital de Varese, Piazza Repubblica, détails architecturaux, personnel soignant',
+    'blog.article.sunrise-integra-hbb-ssr-2026.title': 'Sunrise doit intégrer l\'offre HBB de la SSR',
+    'blog.article.sunrise-integra-hbb-ssr-2026.excerpt': 'Le Tribunal administratif fédéral a statué que Sunrise doit inclure l\'offre HBB de la SSR, avec des fonctionnalités pour les personnes handicapées sensorielles.',
+    'blog.article.sunrise-integra-hbb-ssr-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
 };
 
 export default blogMetaFr;

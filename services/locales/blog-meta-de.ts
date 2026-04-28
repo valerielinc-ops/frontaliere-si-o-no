@@ -3304,6 +3304,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ospedali-varesini-cambiamenti-20-anni.title': 'Varese-Krankenhäuser: Weniger Betten, mehr Spezialisierung in 20 Jahren',
     'blog.article.ospedali-varesini-cambiamenti-20-anni.excerpt': 'In den letzten 20 Jahren haben sich die Betten in den Krankenhäusern des Varesotto um 30-40% reduziert, mit einem effizienteren, aber auch fragilerem Versorgungsmodell.',
     'blog.article.ospedali-varesini-cambiamenti-20-anni.imageAlt': 'Krankenhaus Varese, Piazza Repubblica, architektonische Details, Gesundheitsdienst',
+    'blog.article.sunrise-integra-hbb-ssr-2026.title': 'Sunrise muss das HBB-Angebot der SSR integrieren',
+    'blog.article.sunrise-integra-hbb-ssr-2026.excerpt': 'Das Bundesverwaltungsgericht hat entschieden, dass Sunrise das HBB-Angebot der SSR mit Funktionen für Menschen mit Sinnesbehinderungen aufnehmen muss.',
+    'blog.article.sunrise-integra-hbb-ssr-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

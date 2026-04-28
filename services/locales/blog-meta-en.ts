@@ -3304,6 +3304,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ospedali-varesini-cambiamenti-20-anni.title': 'Varese hospitals: fewer beds, more specialization in 20 years',
     'blog.article.ospedali-varesini-cambiamenti-20-anni.excerpt': 'Over the past two decades, the number of beds in Varese hospitals has decreased by 30-40%, with a more efficient but also more fragile care model.',
     'blog.article.ospedali-varesini-cambiamenti-20-anni.imageAlt': 'Varese Hospital, Piazza Repubblica, architectural details, healthcare staff',
+    'blog.article.sunrise-integra-hbb-ssr-2026.title': 'Sunrise must integrate SSR\'s HBB offer',
+    'blog.article.sunrise-integra-hbb-ssr-2026.excerpt': 'The Federal Administrative Court ruled that Sunrise must include the SSR\'s HBB offer, with features for sensory-impaired users.',
+    'blog.article.sunrise-integra-hbb-ssr-2026.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
 };
 
 export default blogMetaEn;
