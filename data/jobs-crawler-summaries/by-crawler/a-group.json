@@ -1,59 +1,19 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-04-27T21:04:56.751Z",
-  "total": 3,
+  "generatedAt": "2026-04-28T10:09:13.482Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3454,
-  "avgDurationMs": 3454,
+  "updatedCount": 2,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2664,
+  "avgDurationMs": 2664,
   "durationHistory": [
-    3454
+    2664
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Real Estate Project Manager",
-      "slug": "real-estate-project-manager-a-plus-plus-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "real-estate",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-27",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "a-group-cf1b4e6d7133",
-      "salaryMin": 73000,
-      "salaryMax": 121500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T20:58:04.592Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "title": "Consulente Legal Jr.",
       "slug": "consulente-legal-jr-a-plus-plus-group-massagno",
@@ -74,7 +34,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-27",
+      "postedDate": "2026-04-28",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -91,6 +51,45 @@
         "completeness": 25
       }
     },
+    {
+      "title": "Real Estate Project Manager",
+      "slug": "real-estate-project-manager-a-plus-plus-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
+      "company": "A++ Group",
+      "companyKey": "a-group",
+      "companyDomain": "a2plus.green",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "postalCode": "6900",
+      "streetAddress": "Via Molinazzo 4",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "real-estate",
+      "sector": "Architettura & Design",
+      "source": "a-plus-plus-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "a-group-cf1b4e6d7133",
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-04-13T20:58:04.592Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Ingegnere edile Jr.",
       "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno",
@@ -128,5 +127,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
