@@ -2371,6 +2371,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-bellinzonese-truffe-16-mesi': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-bellinzonese-truffe-16-mesi', parent: 'blog' },
     'blog-decreto-lavoro-meloni-2026-frontalieri': { name: 'Decreto Lavoro', path: '/articoli-frontaliere/decreto-lavoro-meloni-2026-frontalieri', parent: 'blog' },
     'blog-calcio-dnb-belli-crisi': { name: 'Calcio Dnb', path: '/articoli-frontaliere/calcio-dnb-belli-crisi', parent: 'blog' },
+    'blog-berset-sostegno-reynard-crans-montana': { name: 'Novità', path: '/articoli-frontaliere/berset-sostegno-reynard-crans-montana', parent: 'blog' },
  };
 
  const info = sectionNames[section];

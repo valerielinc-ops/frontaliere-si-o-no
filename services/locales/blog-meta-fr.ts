@@ -3422,6 +3422,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calcio-dnb-belli-crisi.title': 'Football Dnb : Belli au bord du gouffre après la défaite',
     'blog.article.calcio-dnb-belli-crisi.excerpt': 'L\'équipe de football Dnb Belli a marqué un seul but en deux tirs, mais cela n\'a pas suffi pour éviter une situation critique.',
     'blog.article.calcio-dnb-belli-crisi.imageAlt': 'Stade de football en Tessin avec des supporters et des joueurs sur le terrain',
+    'blog.article.berset-sostegno-reynard-crans-montana.title': 'Alain Berset soutient Mathias Reynard après la tragédie de Crans-Montana',
+    'blog.article.berset-sostegno-reynard-crans-montana.excerpt': 'L\'ancien conseiller fédéral Alain Berset a offert un soutien psychologique et professionnel à Mathias Reynard après l\'incendie du Nouvel An à Crans-Montana.',
+    'blog.article.berset-sostegno-reynard-crans-montana.imageAlt': 'Crans-Montana après l\'incendie du Nouvel An, avec des dégâts visibles et des services d\'urgence',
 };
 
 export default blogMetaFr;

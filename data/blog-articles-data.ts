@@ -8995,4 +8995,11 @@ export const ARTICLES = [
  image: '/images/blog/calcio-dnb-belli-crisi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'berset-sostegno-reynard-crans-montana',
+ category: 'novita',
+ date: '2026-04-28T17:22:05.198Z',
+ image: '/images/blog/berset-sostegno-reynard-crans-montana.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

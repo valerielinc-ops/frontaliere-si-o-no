@@ -20049,6 +20049,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-berset-sostegno-reynard-crans-montana': {
+    title: 'Alain Berset sostiene Mathias Reynard dopo la tragedia di Crans-Montana',
+    description: 'L\'ex consigliere federale Alain Berset ha offerto sostegno psicologico e professionale a Mathias Reynard dopo l\'incendio di Capodanno a Crans-Montana.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alain, berset, sostiene, mathias',
+    ogTitle: 'Alain Berset sostiene Mathias Reynard dopo la tragedia di Crans-Montana',
+    ogDescription: 'L\'ex consigliere federale Alain Berset ha offerto sostegno psicologico e professionale a Mathias Reynard dopo l\'incendio di Capodanno a Crans-Montana.',
+    canonicalPath: '/articoli-frontaliere/berset-sostegno-reynard-crans-montana',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alain Berset sostiene Mathias Reynard dopo la tragedia di Crans-Montana",
+      "description": "L'ex consigliere federale Alain Berset ha offerto sostegno psicologico e professionale a Mathias Reynard dopo l'incendio di Capodanno a Crans-Montana.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/berset-sostegno-reynard-crans-montana.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Crans-Montana dopo l'incendio di Capodanno, con i vigili del fuoco e i danni visibili"
+      },
+      "datePublished": "2026-04-28T17:22:05+00:00",
+      "dateModified": "2026-04-28T17:22:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/berset-sostegno-reynard-crans-montana`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
