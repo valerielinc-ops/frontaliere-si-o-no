@@ -137,24 +137,17 @@ export function postWalkCoordinatorPlugin(
         let hreflangLinksDropped = 0;
         let totalWrites = 0;
 
-        // Sibling HTML cache for flat-redirect — many flat .html share the
-        // same canonical sibling under a single slug, so caching avoids
-        // re-reading the same big index.html dozens of times.
-        const siblingCache = new Map<string, string | null>();
+        // Sibling HTML reader — NO IN-MEMORY CACHE. Caching every sibling
+        // would balloon to ~4 GB (145k bridges × ~30 KB sibling each) and
+        // cause OOM on the 14 GB CI heap. Each sibling is read once per
+        // bridge from the OS page cache (already hot since these files were
+        // just written by the parallel cohort). Cost ≈ 145k syscalls,
+        // negligible compared to the I/O the parallel cohort already did.
         const readSibling = (siblingPath: string): string | null => {
-          if (siblingCache.has(siblingPath)) {
-            return siblingCache.get(siblingPath) ?? null;
-          }
-          if (!existingHtmlSet.has(siblingPath)) {
-            siblingCache.set(siblingPath, null);
-            return null;
-          }
+          if (!existingHtmlSet.has(siblingPath)) return null;
           try {
-            const html = fs.readFileSync(siblingPath, 'utf-8');
-            siblingCache.set(siblingPath, html);
-            return html;
+            return fs.readFileSync(siblingPath, 'utf-8');
           } catch {
-            siblingCache.set(siblingPath, null);
             return null;
           }
         };
