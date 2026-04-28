@@ -9037,4 +9037,11 @@ export const ARTICLES = [
  image: '/images/blog/momoride-carpooling-sfida-collettiva.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuove-scuole-vernate-neggio-2026',
+ category: 'novita',
+ date: '2026-04-28T18:11:55.868Z',
+ image: '/images/blog/nuove-scuole-vernate-neggio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

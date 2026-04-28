@@ -3440,6 +3440,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.momoride-carpooling-sfida-collettiva.title': 'MomòRide lance un défi de covoiturage pour les pendulaires du Mendrisiotto',
     'blog.article.momoride-carpooling-sfida-collettiva.excerpt': 'Un défi collectif de covoiturage pour collecter des points et donner 1000 CHF à la Fondation Provvida Madre de Balerna',
     'blog.article.momoride-carpooling-sfida-collettiva.imageAlt': 'Des navetteurs partageant une voiture dans un parking à Mendrisio',
+    'blog.article.nuove-scuole-vernate-neggio-2026.title': 'Nouvelles écoles pour Vernate et Neggio: un investissement pour l\'avenir',
+    'blog.article.nuove-scuole-vernate-neggio-2026.excerpt': 'Les communautés de Vernate et Neggio ont inauguré les nouvelles écoles intercommunales, un projet stratégique pour l\'éducation et l\'agrégation',
+    'blog.article.nuove-scuole-vernate-neggio-2026.imageAlt': 'Vue aérienne des nouvelles écoles de Vernate et Neggio, entourées de montagnes et de lacs, avec des élèves et des familles explorant les installations',
 };
 
 export default blogMetaFr;

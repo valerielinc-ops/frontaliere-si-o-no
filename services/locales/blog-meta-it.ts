@@ -3440,6 +3440,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.momoride-carpooling-sfida-collettiva.title': 'MomòRide lancia sfida di carpooling per pendolari del Mendrisiotto',
     'blog.article.momoride-carpooling-sfida-collettiva.excerpt': 'Una sfida collettiva di carpooling per raccogliere punti e donare 1000 CHF alla Fondazione Provvida Madre di Balerna',
     'blog.article.momoride-carpooling-sfida-collettiva.imageAlt': 'Pendolari che condividono un\'auto in un parcheggio a Mendrisio',
+    'blog.article.nuove-scuole-vernate-neggio-2026.title': 'Nuove scuole per Vernate e Neggio: un investimento per il futuro',
+    'blog.article.nuove-scuole-vernate-neggio-2026.excerpt': 'Le comunità di Vernate e Neggio hanno inaugurato le nuove scuole intercomunali, un progetto strategico per l\'educazione e l\'aggregazione',
+    'blog.article.nuove-scuole-vernate-neggio-2026.imageAlt': 'Vista aerea delle nuove scuole di Vernate e Neggio, circondate da montagne e laghi, con studenti e famiglie che esplorano le strutture',
 };
 
 export default blogMetaIt;

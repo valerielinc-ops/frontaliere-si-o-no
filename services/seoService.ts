@@ -2377,6 +2377,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuova-pista-ciclopedonale-bodio-giornico-2026': { name: 'Nuova pista ciclopedonale', path: '/articoli-frontaliere/nuova-pista-ciclopedonale-bodio-giornico-2026', parent: 'blog' },
     'blog-lago-como-edition-hotel-lusso': { name: 'Novità', path: '/articoli-frontaliere/lago-como-edition-hotel-lusso', parent: 'blog' },
     'blog-momoride-carpooling-sfida-collettiva': { name: 'Carpooling', path: '/articoli-frontaliere/momoride-carpooling-sfida-collettiva', parent: 'blog' },
+    'blog-nuove-scuole-vernate-neggio-2026': { name: 'Nuove scuole', path: '/articoli-frontaliere/nuove-scuole-vernate-neggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

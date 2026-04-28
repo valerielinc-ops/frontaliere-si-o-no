@@ -20223,6 +20223,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuove-scuole-vernate-neggio-2026': {
+    title: 'Nuove scuole per Vernate e Neggio: un investimento per il futuro',
+    description: 'Le comunità di Vernate e Neggio hanno inaugurato le nuove scuole intercomunali, un progetto strategico per l\'educazione e l\'aggregazione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, scuole, vernate, neggio',
+    ogTitle: 'Nuove scuole Vernate Neggio 2026',
+    ogDescription: 'Le comunità di Vernate e Neggio hanno inaugurato le nuove scuole intercomunali, un progetto strategico per l\'educazione e l\'aggregazione',
+    canonicalPath: '/articoli-frontaliere/nuove-scuole-vernate-neggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove scuole Vernate Neggio 2026",
+      "description": "Le comunità di Vernate e Neggio hanno inaugurato le nuove scuole intercomunali, un progetto strategico per l'educazione e l'aggregazione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuove-scuole-vernate-neggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea delle nuove scuole di Vernate e Neggio, circondate da montagne e laghi, con studenti e famiglie che esplorano le strutture"
+      },
+      "datePublished": "2026-04-28T18:11:55+00:00",
+      "dateModified": "2026-04-28T18:11:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuove-scuole-vernate-neggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
