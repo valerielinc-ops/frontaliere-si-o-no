@@ -3508,6 +3508,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lombardia-30-milioni-quartiere-efficientamento.title': 'Lombardei: 30 Millionen für das Quartier, das die Stromrechnungen revolutioniert',
     'blog.article.lombardia-30-milioni-quartiere-efficientamento.excerpt': 'Eine Investition von 30 Millionen für das Quartier Livorno Parco in Brescia, mit Einsparungen von bis zu 60 % bei den Energierechnungen.',
     'blog.article.lombardia-30-milioni-quartiere-efficientamento.imageAlt': 'Moderne Wohnanlage in der Lombardei mit energieeffizienten Merkmalen',
+    'blog.article.moschea-lugano-pregassona-2026.title': 'Neue Moschee in Lugano: Fragen und Zweifel',
+    'blog.article.moschea-lugano-pregassona-2026.excerpt': 'Sieben UDC-Gemeinderäte stellen eine Anfrage an den Stadtrat von Lugano zum Moscheeprojekt in Pregassona',
+    'blog.article.moschea-lugano-pregassona-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

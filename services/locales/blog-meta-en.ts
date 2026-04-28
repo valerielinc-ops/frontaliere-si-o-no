@@ -3508,6 +3508,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-30-milioni-quartiere-efficientamento.title': 'Lombardy: 30 million for the neighborhood that revolutionizes bills',
     'blog.article.lombardia-30-milioni-quartiere-efficientamento.excerpt': 'A 30 million investment for the Livorno Parco neighborhood in Brescia, with savings of up to 60% on energy bills.',
     'blog.article.lombardia-30-milioni-quartiere-efficientamento.imageAlt': 'Modern residential complex in Lombardy with energy-efficient features',
+    'blog.article.moschea-lugano-pregassona-2026.title': 'New mosque in Lugano: questions and doubts',
+    'blog.article.moschea-lugano-pregassona-2026.excerpt': 'Seven UDC city councilors submit an interrogation to the Lugano Municipality regarding the mosque project in Pregassona',
+    'blog.article.moschea-lugano-pregassona-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

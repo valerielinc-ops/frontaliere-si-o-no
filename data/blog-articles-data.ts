@@ -9198,4 +9198,11 @@ export const ARTICLES = [
  image: '/images/blog/lombardia-30-milioni-quartiere-efficientamento.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'moschea-lugano-pregassona-2026',
+ category: 'novita',
+ date: '2026-04-28T20:28:04.367Z',
+ image: '/images/blog/moschea-lugano-pregassona-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

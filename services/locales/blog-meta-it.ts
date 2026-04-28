@@ -3509,6 +3509,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lombardia-30-milioni-quartiere-efficientamento.title': 'Lombardia: 30 milioni per il quartiere che rivoluziona le bollette',
     'blog.article.lombardia-30-milioni-quartiere-efficientamento.excerpt': 'Un investimento di 30 milioni per il quartiere Livorno Parco a Brescia, con risparmi fino al 60% sulle bollette energetiche.',
     'blog.article.lombardia-30-milioni-quartiere-efficientamento.imageAlt': 'Complesso residenziale moderno in Lombardia con caratteristiche di efficienza energetica',
+    'blog.article.moschea-lugano-pregassona-2026.title': 'Nuova moschea a Lugano: interrogazioni e dubbi',
+    'blog.article.moschea-lugano-pregassona-2026.excerpt': 'Sette consiglieri comunali UDC presentano interrogazione al Municipio di Lugano su progetto moschea a Pregassona',
+    'blog.article.moschea-lugano-pregassona-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

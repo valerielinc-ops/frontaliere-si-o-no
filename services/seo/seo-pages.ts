@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1219,
+ "numberOfItems": 1220,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5854,7 +5854,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1216, "name": "Giornata contro il rumore: controlli a Lugano d...", "url": `${BASE_URL}/articoli-frontaliere/giornata-contro-rumore-lugano-2024` },
           { "@type": "ListItem", "position": 1217, "name": "Estival Jazz Lugano introduce biglietti a pagam...", "url": `${BASE_URL}/articoli-frontaliere/estival-jazz-lugano-pagamento-2024` },
           { "@type": "ListItem", "position": 1218, "name": "Varese sostenibilità CSR Camera Commercio", "url": `${BASE_URL}/articoli-frontaliere/varese-sostenibilita-csr-camera-commercio` },
-          { "@type": "ListItem", "position": 1219, "name": "Lombardia: 30 milioni per il quartiere che rivo...", "url": `${BASE_URL}/articoli-frontaliere/lombardia-30-milioni-quartiere-efficientamento` }
+          { "@type": "ListItem", "position": 1219, "name": "Lombardia: 30 milioni per il quartiere che rivo...", "url": `${BASE_URL}/articoli-frontaliere/lombardia-30-milioni-quartiere-efficientamento` },
+          { "@type": "ListItem", "position": 1220, "name": "Nuova moschea a Lugano: interrogazioni e dubbi", "url": `${BASE_URL}/articoli-frontaliere/moschea-lugano-pregassona-2026` }
  ]
  },
  {
