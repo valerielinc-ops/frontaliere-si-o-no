@@ -3545,6 +3545,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-ospedale-parcheggi-personale-2026.title': 'Presidio UIL FP a Varese: parcheggi e carenza di personale all\'ospedale',
     'blog.article.varese-ospedale-parcheggi-personale-2026.excerpt': 'La UIL FP protesta davanti all\'ospedale di Varese per parcheggi insufficienti e carenza di personale, con turni massacranti per i lavoratori',
     'blog.article.varese-ospedale-parcheggi-personale-2026.imageAlt': 'Manifestanti davanti all\'ospedale di Varese per protestare contro i parcheggi insufficienti e la carenza di personale',
+    'blog.article.coalizione-sanitario-volonta-calpestata.title': 'Coalizione sanitaria: «Calpestata la volontà popolare»',
+    'blog.article.coalizione-sanitario-volonta-calpestata.excerpt': 'La Coalizione del personale sanitario critica la decisione del Consiglio nazionale di non ridurre il tempo di lavoro e migliorare le condizioni degli infermieri.',
+    'blog.article.coalizione-sanitario-volonta-calpestata.imageAlt': 'Manifestazione di operatori sanitari a Lugano',
 };
 
 export default blogMetaIt;

@@ -21238,6 +21238,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coalizione-sanitario-volonta-calpestata': {
+    title: 'Coalizione sanitaria: «Calpestata la volontà popolare»',
+    description: 'La Coalizione del personale sanitario critica la decisione del Consiglio nazionale di non ridurre il tempo di lavoro degli infermieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, coalizione, sanitaria, calpestata, volontà',
+    ogTitle: 'Coalizione sanitaria: «Calpestata la volontà popolare»',
+    ogDescription: 'La Coalizione del personale sanitario critica la decisione del Consiglio nazionale di non ridurre il tempo di lavoro degli infermieri.',
+    canonicalPath: '/articoli-frontaliere/coalizione-sanitario-volonta-calpestata',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Coalizione sanitaria: «Calpestata la volontà popolare»",
+      "description": "La Coalizione del personale sanitario critica la decisione del Consiglio nazionale di non ridurre il tempo di lavoro degli infermieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/coalizione-sanitario-volonta-calpestata.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione di operatori sanitari a Lugano"
+      },
+      "datePublished": "2026-04-28T21:40:16+00:00",
+      "dateModified": "2026-04-28T21:40:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coalizione-sanitario-volonta-calpestata`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

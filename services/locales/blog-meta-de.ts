@@ -3544,6 +3544,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-ospedale-parcheggi-personale-2026.title': 'UIL FP protestiert in Varese: Parkplätze und Personalmangel im Krankenhaus',
     'blog.article.varese-ospedale-parcheggi-personale-2026.excerpt': 'Die UIL FP protestiert vor dem Krankenhaus in Varese wegen unzureichender Parkplätze und Personalmangel, mit erschöpfenden Schichten für die Arbeiter',
     'blog.article.varese-ospedale-parcheggi-personale-2026.imageAlt': 'Demonstranten vor dem Krankenhaus von Varese, die bessere Parkplätze und Personal fordern',
+    'blog.article.coalizione-sanitario-volonta-calpestata.title': 'Gesundheitskoalition: «Volkswille mit Füßen getreten»',
+    'blog.article.coalizione-sanitario-volonta-calpestata.excerpt': 'Die Gesundheitskoalition kritisiert den Entscheid des Nationalrats, die Arbeitszeit nicht zu reduzieren und die Arbeitsbedingungen der Pflegekräfte nicht zu verbessern.',
+    'blog.article.coalizione-sanitario-volonta-calpestata.imageAlt': 'Protest von Gesundheitsarbeitern in Lugano',
 };
 
 export default blogMetaDe;

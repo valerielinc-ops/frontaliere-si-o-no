@@ -9282,4 +9282,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-ospedale-parcheggi-personale-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'coalizione-sanitario-volonta-calpestata',
+ category: 'novita',
+ date: '2026-04-28T21:40:16.605Z',
+ image: '/images/blog/coalizione-sanitario-volonta-calpestata.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

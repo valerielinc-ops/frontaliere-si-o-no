@@ -2412,6 +2412,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ubs-lobbying-parlamento-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-lobbying-parlamento-ticino-2026', parent: 'blog' },
     'blog-nuovo-presidente-gastro-bellinzona': { name: 'Novità', path: '/articoli-frontaliere/nuovo-presidente-gastro-bellinzona', parent: 'blog' },
     'blog-varese-ospedale-parcheggi-personale-2026': { name: 'Presidio UIL FP', path: '/articoli-frontaliere/varese-ospedale-parcheggi-personale-2026', parent: 'blog' },
+    'blog-coalizione-sanitario-volonta-calpestata': { name: 'Novità', path: '/articoli-frontaliere/coalizione-sanitario-volonta-calpestata', parent: 'blog' },
  };
 
  const info = sectionNames[section];
