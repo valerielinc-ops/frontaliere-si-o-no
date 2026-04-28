@@ -3602,6 +3602,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.othermovie-lugano-2026-god-witness.title': 'OtherMovie Lugano 2026: triomphe de \'God as my Witness\'',
     'blog.article.othermovie-lugano-2026-god-witness.excerpt': 'Le film gagnant du festival OtherMovie Lugano 2026 aborde le délicat sujet des abus sexuels avec plus de 1.200 présences et trois sold out',
     'blog.article.othermovie-lugano-2026-god-witness.imageAlt': 'Vue aérienne du front de lac de Lugano avec le LAC en premier plan pendant un festival de cinéma',
+    'blog.article.emporio-solidarieta-olgiate-olona.title': 'Ouverture de l\'Epicerie Solidaire d\'Olgiate Olona',
+    'blog.article.emporio-solidarieta-olgiate-olona.excerpt': 'Inauguration samedi 9 mai avec des stands d\'information et un apéritif communautaire. Participation d\'associations locales comme la Mensa del Padre Nostro et le CAV de Castellanza.',
+    'blog.article.emporio-solidarieta-olgiate-olona.imageAlt': 'Inauguration de l\'Épicerie de la Solidarité à Olgiate Olona',
 };
 
 export default blogMetaFr;

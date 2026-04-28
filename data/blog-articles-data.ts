@@ -9415,4 +9415,11 @@ export const ARTICLES = [
  image: '/images/blog/othermovie-lugano-2026-god-witness.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'emporio-solidarieta-olgiate-olona',
+ category: 'novita',
+ date: '2026-04-28T23:49:42.248Z',
+ image: '/images/blog/emporio-solidarieta-olgiate-olona.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

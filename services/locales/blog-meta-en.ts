@@ -3601,6 +3601,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.othermovie-lugano-2026-god-witness.title': '\'God as my Witness\' wins OtherMovie Lugano 2026',
     'blog.article.othermovie-lugano-2026-god-witness.excerpt': 'The winning film of the OtherMovie Lugano 2026 festival tackles the delicate issue of sexual abuse with over 1,200 attendees and three sold-out screenings',
     'blog.article.othermovie-lugano-2026-god-witness.imageAlt': 'Aerial view of Lugano\'s lakefront with the LAC in the foreground during a film festival',
+    'blog.article.emporio-solidarieta-olgiate-olona.title': 'Olgiate Olona Solidarity Emporium Opens',
+    'blog.article.emporio-solidarieta-olgiate-olona.excerpt': 'Inauguration on Saturday, May 9th with info stands and community aperitif. Local groups like Mensa del Padre Nostro and CAV of Castellanza will participate.',
+    'blog.article.emporio-solidarieta-olgiate-olona.imageAlt': 'Inauguration of the Solidarity Emporium in Olgiate Olona',
 };
 
 export default blogMetaEn;

@@ -2431,6 +2431,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gita-cuore-soncino-saronno-point': { name: 'Gita del cuore', path: '/articoli-frontaliere/gita-cuore-soncino-saronno-point', parent: 'blog' },
     'blog-decreto-lavoro-meloni-frontalieri-ticino': { name: 'Decreto lavoro', path: '/articoli-frontaliere/decreto-lavoro-meloni-frontalieri-ticino', parent: 'blog' },
     'blog-othermovie-lugano-2026-god-witness': { name: 'OtherMovie Lugano', path: '/articoli-frontaliere/othermovie-lugano-2026-god-witness', parent: 'blog' },
+    'blog-emporio-solidarieta-olgiate-olona': { name: 'Novità', path: '/articoli-frontaliere/emporio-solidarieta-olgiate-olona', parent: 'blog' },
  };
 
  const info = sectionNames[section];

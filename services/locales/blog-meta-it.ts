@@ -3602,6 +3602,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.othermovie-lugano-2026-god-witness.title': 'OtherMovie Lugano 2026: trionfa \'God as my Witness\'',
     'blog.article.othermovie-lugano-2026-god-witness.excerpt': 'Il film vincitore del festival OtherMovie Lugano 2026 affronta il delicato tema degli abusi sessuali con oltre 1.200 presenze e tre sold out',
     'blog.article.othermovie-lugano-2026-god-witness.imageAlt': 'Veduta aerea del lungolago di Lugano con il LAC in primo piano durante un festival del cinema',
+    'blog.article.emporio-solidarieta-olgiate-olona.title': 'Nasce l’Emporio della Solidarietà di Olgiate Olona',
+    'blog.article.emporio-solidarieta-olgiate-olona.excerpt': 'Inaugurazione sabato 9 maggio con stand informativi e aperitivo comunitario. Partecipano realtà locali come Mensa del Padre Nostro e CAV di Castellanza.',
+    'blog.article.emporio-solidarieta-olgiate-olona.imageAlt': 'Inaugurazione Emporio della Solidarietà a Olgiate Olona',
 };
 
 export default blogMetaIt;

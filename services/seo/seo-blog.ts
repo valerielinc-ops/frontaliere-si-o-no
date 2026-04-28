@@ -21789,6 +21789,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-emporio-solidarieta-olgiate-olona': {
+    title: 'Nasce l’Emporio della Solidarietà di Olgiate Olona',
+    description: 'Inaugurazione sabato 9 maggio con stand informativi e aperitivo comunitario. Partecipano realtà locali come Mensa del Padre Nostro e CAV di Castellanza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nasce, emporio, solidarietà, olgiate',
+    ogTitle: 'Nasce l’Emporio della Solidarietà di Olgiate Olona',
+    ogDescription: 'Inaugurazione sabato 9 maggio con stand informativi e aperitivo comunitario. Partecipano realtà locali come Mensa del Padre Nostro e CAV di Castellanza.',
+    canonicalPath: '/articoli-frontaliere/emporio-solidarieta-olgiate-olona',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Nasce l’Emporio della Solidarietà di Olgiate Olona\",\"description\":\"Inaugurazione sabato 9 maggio con stand informativi e aperitivo comunitario. Partecipano realtà locali come Mensa del Padre Nostro e CAV di Castellanza.\",\"datePublished\":\"2026-04-28\",\"image\":\"https://frontaliereticino.ch/images/lac-lugano.webp\"}",
+      "description": "Inaugurazione sabato 9 maggio con stand informativi e aperitivo comunitario. Partecipano realtà locali come Mensa del Padre Nostro e CAV di Castellanza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/emporio-solidarieta-olgiate-olona.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Inaugurazione Emporio della Solidarietà a Olgiate Olona"
+      },
+      "datePublished": "2026-04-28T23:49:42+00:00",
+      "dateModified": "2026-04-28T23:49:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/emporio-solidarieta-olgiate-olona`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
