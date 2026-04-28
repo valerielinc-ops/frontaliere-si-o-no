@@ -8827,4 +8827,11 @@ export const ARTICLES = [
  image: '/images/blog/infermieri-ticino-ore-lavorative-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dezonare-terreni-blenio-2026',
+ category: 'novita',
+ date: '2026-04-28T13:25:43.416Z',
+ image: '/images/blog/dezonare-terreni-blenio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

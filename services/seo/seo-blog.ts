@@ -19353,6 +19353,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dezonare-terreni-blenio-2026': {
+    title: 'Dezonare terreni edificabili: emergenza per la Val di Blenio',
+    description: 'I sindaci di Blenio preoccupati per esuberi del 600-900% e silenzio istituzionale. Quali sono le implicazioni per i frontalieri?. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, dezonare, terreni, edificabili, emergenza',
+    ogTitle: 'Dezonare terreni edificabili: emergenza per la Val di Blenio',
+    ogDescription: 'I sindaci di Blenio preoccupati per esuberi del 600-900% e silenzio istituzionale. Quali sono le implicazioni per i frontalieri?',
+    canonicalPath: '/articoli-frontaliere/dezonare-terreni-blenio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dezonare terreni edificabili: emergenza per la Val di Blenio",
+      "description": "I sindaci di Blenio preoccupati per esuberi del 600-900% e silenzio istituzionale. Quali sono le implicazioni per i frontalieri?. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dezonare-terreni-blenio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della Val di Blenio, Ticino, Svizzera, che mostra sia aree edificate che non edificate."
+      },
+      "datePublished": "2026-04-28T13:25:43+00:00",
+      "dateModified": "2026-04-28T13:25:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dezonare-terreni-blenio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

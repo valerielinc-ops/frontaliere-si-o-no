@@ -3350,6 +3350,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infermieri-ticino-ore-lavorative-2026.title': 'Infermieri Ticino: settimana lavorativa non accorciata',
     'blog.article.infermieri-ticino-ore-lavorative-2026.excerpt': 'Il Consiglio nazionale ha deciso di mantenere la settimana lavorativa degli infermieri a 50 ore massime, rifiutando la proposta di ridurla a 45 ore.',
     'blog.article.infermieri-ticino-ore-lavorative-2026.imageAlt': 'Un\'infermiera che lavora in un ospedale moderno a Lugano, con vista sul Lago di Lugano',
+    'blog.article.dezonare-terreni-blenio-2026.title': 'Dezonare terreni edificabili: emergenza per la Val di Blenio',
+    'blog.article.dezonare-terreni-blenio-2026.excerpt': 'I sindaci di Blenio preoccupati per esuberi del 600-900% e silenzio istituzionale. Quali sono le implicazioni per i frontalieri?',
+    'blog.article.dezonare-terreni-blenio-2026.imageAlt': 'Vista aerea della Val di Blenio, Ticino, Svizzera, che mostra sia aree edificate che non edificate.',
 };
 
 export default blogMetaIt;

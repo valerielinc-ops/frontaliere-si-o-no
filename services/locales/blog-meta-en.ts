@@ -3349,6 +3349,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infermieri-ticino-ore-lavorative-2026.title': 'Ticino nurses: no reduction in working hours',
     'blog.article.infermieri-ticino-ore-lavorative-2026.excerpt': 'The National Council has decided to keep the working week for nurses at a maximum of 50 hours, rejecting the proposal to reduce it to 45 hours.',
     'blog.article.infermieri-ticino-ore-lavorative-2026.imageAlt': 'A nurse working in a modern hospital in Lugano, with a view of Lake Lugano',
+    'blog.article.dezonare-terreni-blenio-2026.title': 'Dezoning building land: emergency in Val di Blenio',
+    'blog.article.dezonare-terreni-blenio-2026.excerpt': 'Mayors of Blenio concerned about surpluses of 600-900% and institutional silence. What are the implications for cross-border workers?',
+    'blog.article.dezonare-terreni-blenio-2026.imageAlt': 'Aerial view of Val di Blenio, Ticino, Switzerland, showing both built and undeveloped areas.',
 };
 
 export default blogMetaEn;

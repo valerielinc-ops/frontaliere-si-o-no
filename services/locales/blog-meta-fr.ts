@@ -3350,6 +3350,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infermieri-ticino-ore-lavorative-2026.title': 'Infirmiers du Tessin : semaine de travail inchangée',
     'blog.article.infermieri-ticino-ore-lavorative-2026.excerpt': 'Le Conseil national a décidé de maintenir la semaine de travail des infirmiers à 50 heures maximum, rejetant la proposition de la réduire à 45 heures.',
     'blog.article.infermieri-ticino-ore-lavorative-2026.imageAlt': 'Une infirmière travaillant dans un hôpital moderne à Lugano, avec vue sur le lac de Lugano',
+    'blog.article.dezonare-terreni-blenio-2026.title': 'Désaffecter des terrains constructibles: urgence pour la Val di Blenio',
+    'blog.article.dezonare-terreni-blenio-2026.excerpt': 'Les maires de Blenio inquiets face à des excédents de 600-900% et un silence institutionnel. Quelles sont les implications pour les frontaliers?',
+    'blog.article.dezonare-terreni-blenio-2026.imageAlt': 'Vue aérienne de la Val di Blenio, Tessin, Suisse, montrant à la fois des zones bâties et non bâties.',
 };
 
 export default blogMetaFr;

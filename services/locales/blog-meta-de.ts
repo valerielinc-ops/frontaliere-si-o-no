@@ -3349,6 +3349,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infermieri-ticino-ore-lavorative-2026.title': 'Pfleger im Tessin: Arbeitswoche bleibt bei 50 Stunden',
     'blog.article.infermieri-ticino-ore-lavorative-2026.excerpt': 'Der Nationalrat hat beschlossen, die Arbeitswoche der Pfleger auf maximal 50 Stunden zu belassen und einen Vorschlag zur Reduzierung auf 45 Stunden abgelehnt.',
     'blog.article.infermieri-ticino-ore-lavorative-2026.imageAlt': 'Eine Krankenschwester arbeitet in einem modernen Krankenhaus in Lugano mit Blick auf den Luganersee',
+    'blog.article.dezonare-terreni-blenio-2026.title': 'Bauland entzonen: Notstand im Bleniotal',
+    'blog.article.dezonare-terreni-blenio-2026.excerpt': 'Die Bürgermeister von Blenio sind besorgt über Überschüsse von 600-900% und institutionelle Schweigsamkeit. Welche Auswirkungen hat dies auf Grenzgänger?',
+    'blog.article.dezonare-terreni-blenio-2026.imageAlt': 'Luftaufnahme des Val di Blenio, Tessin, Schweiz, die sowohl bebaute als auch unbebaute Gebiete zeigt.',
 };
 
 export default blogMetaDe;

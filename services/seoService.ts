@@ -2347,6 +2347,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-139-frontalieri-ticino-special-olympics': { name: 'Special Olympics', path: '/articoli-frontaliere/139-frontalieri-ticino-special-olympics', parent: 'blog' },
     'blog-gastrobellinzona-andrea-giuliani': { name: 'Novità', path: '/articoli-frontaliere/gastrobellinzona-andrea-giuliani', parent: 'blog' },
     'blog-infermieri-ticino-ore-lavorative-2026': { name: 'Novità', path: '/articoli-frontaliere/infermieri-ticino-ore-lavorative-2026', parent: 'blog' },
+    'blog-dezonare-terreni-blenio-2026': { name: 'Novità', path: '/articoli-frontaliere/dezonare-terreni-blenio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
