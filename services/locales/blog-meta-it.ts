@@ -3530,6 +3530,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.title': 'Aeroporti di Milano: boom di fatturato e dividendi da 197 milioni',
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.excerpt': 'Malpensa e Linate chiudono il 2025 con ricavi a 876,8 milioni e traffico passeggeri in aumento dell\'8%. Dividendi record per gli azionisti.',
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.imageAlt': 'Vista aerea dell\'aeroporto di Malpensa con aerei e passeggeri',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.title': 'Servizio clienti bancario: UBS al top, le digitali bocciate',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.excerpt': 'UBS e Banca cantonale di Basilea Campagna garantiscono servizio 24/7, mentre le banche online come Revolut e Neon sono ultime in classifica.',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.imageAlt': 'Vista del lago di Lugano con edifici bancari moderni sullo sfondo',
 };
 
 export default blogMetaIt;

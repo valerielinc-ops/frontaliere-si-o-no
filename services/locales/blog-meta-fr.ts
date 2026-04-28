@@ -3530,6 +3530,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.title': 'Aéroports de Milan : chiffre d\'affaires record et dividendes de 197 millions',
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.excerpt': 'Malpensa et Linate clôturent 2025 avec des revenus de 876,8 millions et une augmentation de 8% du trafic passagers. Dividendes records pour les actionnaires.',
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.imageAlt': 'Vue aérienne de l\'aéroport de Malpensa avec des avions et des passagers',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.title': 'Service client bancaire : UBS en tête, les digitales à la traîne',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.excerpt': 'UBS et la Banque cantonale de Bâle-Campagne garantissent un service 24/7, tandis que les banques en ligne comme Revolut et Neon ferment la marche.',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.imageAlt': 'Vue du lac de Lugano avec des bâtiments bancaires modernes en arrière-plan',
 };
 
 export default blogMetaFr;

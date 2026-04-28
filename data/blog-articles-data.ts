@@ -9247,4 +9247,11 @@ export const ARTICLES = [
  image: '/images/blog/aeroporti-milano-boom-fatturato-197-milioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'servizio-clienti-bancario-promossi-bocciati',
+ category: 'pratico',
+ date: '2026-04-28T21:07:06.912Z',
+ image: '/images/blog/servizio-clienti-bancario-promossi-bocciati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

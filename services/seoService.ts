@@ -2407,6 +2407,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-castiglione-olona-ufficio-postale-riaperto': { name: 'Novità', path: '/articoli-frontaliere/castiglione-olona-ufficio-postale-riaperto', parent: 'blog' },
     'blog-programmi-educativi-bellinzona-2026': { name: 'Programmi educativi', path: '/articoli-frontaliere/programmi-educativi-bellinzona-2026', parent: 'blog' },
     'blog-aeroporti-milano-boom-fatturato-197-milioni': { name: 'Novità', path: '/articoli-frontaliere/aeroporti-milano-boom-fatturato-197-milioni', parent: 'blog' },
+    'blog-servizio-clienti-bancario-promossi-bocciati': { name: 'Servizio clienti', path: '/articoli-frontaliere/servizio-clienti-bancario-promossi-bocciati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

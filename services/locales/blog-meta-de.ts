@@ -3529,6 +3529,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.title': 'Mailand-Flughäfen: Rekordumsatz und Dividenden von 197 Mio.',
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.excerpt': 'Malpensa und Linate schließen 2025 mit 876,8 Mio. Umsatz und 8% mehr Passagieren. Rekorddividenden für Aktionäre.',
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.imageAlt': 'Luftaufnahme des Flughafens Malpensa mit Flugzeugen und Passagieren',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.title': 'Bankkundenservice: UBS an der Spitze, digitale Banken enttäuschen',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.excerpt': 'UBS und die Basellandschaftliche Kantonalbank bieten einen 24/7-Service an, während Online-Banken wie Revolut und Neon am Ende der Rangliste stehen.',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.imageAlt': 'Blick auf den Luganersee mit modernen Bankgebäuden im Hintergrund',
 };
 
 export default blogMetaDe;

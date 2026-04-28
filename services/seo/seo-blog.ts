@@ -21093,6 +21093,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-servizio-clienti-bancario-promossi-bocciati': {
+    title: 'Servizio clienti bancario: UBS al top, le digitali bocciate',
+    description: 'UBS e Banca cantonale di Basilea Campagna garantiscono servizio 24/7, mentre le banche online come Revolut e Neon sono ultime in classifica. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, servizio, clienti, bancario, digitali',
+    ogTitle: 'Servizio clienti bancario: UBS al top, le digitali bocciate',
+    ogDescription: 'UBS e Banca cantonale di Basilea Campagna garantiscono servizio 24/7, mentre le banche online come Revolut e Neon sono ultime in classifica.',
+    canonicalPath: '/articoli-frontaliere/servizio-clienti-bancario-promossi-bocciati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Servizio clienti bancario: UBS al top, le digitali bocciate",
+      "description": "UBS e Banca cantonale di Basilea Campagna garantiscono servizio 24/7, mentre le banche online come Revolut e Neon sono ultime in classifica. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/servizio-clienti-bancario-promossi-bocciati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con edifici bancari moderni sullo sfondo"
+      },
+      "datePublished": "2026-04-28T21:07:06+00:00",
+      "dateModified": "2026-04-28T21:07:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/servizio-clienti-bancario-promossi-bocciati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

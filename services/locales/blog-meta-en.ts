@@ -3529,6 +3529,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.title': 'Milan Airports: Record Revenue and 197M Dividends',
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.excerpt': 'Malpensa and Linate close 2025 with 876.8M revenue and 8% passenger traffic growth. Record dividends for shareholders.',
     'blog.article.aeroporti-milano-boom-fatturato-197-milioni.imageAlt': 'Aerial view of Malpensa Airport with planes and passengers',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.title': 'Bank customer service: UBS leads, digital banks lag',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.excerpt': 'UBS and Basel-Landschaft Cantonal Bank offer 24/7 service, while online banks like Revolut and Neon rank last.',
+    'blog.article.servizio-clienti-bancario-promossi-bocciati.imageAlt': 'View of Lake Lugano with modern banking buildings in the background',
 };
 
 export default blogMetaEn;
