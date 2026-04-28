@@ -9107,4 +9107,11 @@ export const ARTICLES = [
  image: '/images/blog/riforma-infermieri-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'emergenza-casa-como-analisi',
+ category: 'novita',
+ date: '2026-04-28T19:04:11.307Z',
+ image: '/images/blog/emergenza-casa-como-analisi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2387,6 +2387,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-furti-centro-pacchi-cadenazzo': { name: 'Novità', path: '/articoli-frontaliere/furti-centro-pacchi-cadenazzo', parent: 'blog' },
     'blog-fattura-miliardaria-energia-medio-oriente': { name: 'Novità', path: '/articoli-frontaliere/fattura-miliardaria-energia-medio-oriente', parent: 'blog' },
     'blog-riforma-infermieri-ticino-2026': { name: 'Riforma infermieristica', path: '/articoli-frontaliere/riforma-infermieri-ticino-2026', parent: 'blog' },
+    'blog-emergenza-casa-como-analisi': { name: 'Emergenza casa', path: '/articoli-frontaliere/emergenza-casa-como-analisi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3469,6 +3469,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-infermieri-ticino-2026.title': 'Ticino nursing reform: work hours and mixed reactions',
     'blog.article.riforma-infermieri-ticino-2026.excerpt': 'The National Council has decided not to shorten the maximum weekly working hours for nurses, which remains set at 50 hours. Mixed reactions between activists and healthcare facilities.',
     'blog.article.riforma-infermieri-ticino-2026.imageAlt': 'A nurse working in a Ticino hospital',
+    'blog.article.emergenza-casa-como-analisi.title': 'Housing emergency in Como: PD analysis and views',
+    'blog.article.emergenza-casa-como-analisi.excerpt': 'The Democratic Party of Como organizes a meeting to discuss the housing emergency in the city, with experts and speakers.',
+    'blog.article.emergenza-casa-como-analisi.imageAlt': 'View of Como city center with residential buildings and urban planning discussions',
 };
 
 export default blogMetaEn;

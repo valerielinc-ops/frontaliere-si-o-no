@@ -3469,6 +3469,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-infermieri-ticino-2026.title': 'Pflegereform im Tessin: Arbeitszeiten und unterschiedliche Reaktionen',
     'blog.article.riforma-infermieri-ticino-2026.excerpt': 'Der Nationalrat hat beschlossen, die maximale Wochenarbeitszeit für Pflegekräfte bei 50 Stunden zu belassen. Unterschiedliche Reaktionen von Initiativen und Gesundheitseinrichtungen.',
     'blog.article.riforma-infermieri-ticino-2026.imageAlt': 'Eine Krankenschwester arbeitet in einem Krankenhaus in Tessin',
+    'blog.article.emergenza-casa-como-analisi.title': 'Wohnungsnot in Como: PD-Analyse und Visionen',
+    'blog.article.emergenza-casa-como-analisi.excerpt': 'Die Demokratische Partei von Como organisiert eine Veranstaltung, um die Wohnungsnot in der Stadt mit Experten und Referenten zu diskutieren.',
+    'blog.article.emergenza-casa-como-analisi.imageAlt': 'Ansicht des Stadtzentrums von Como mit Wohngebäuden und Diskussionen über Stadtplanung',
 };
 
 export default blogMetaDe;

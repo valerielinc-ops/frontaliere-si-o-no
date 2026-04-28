@@ -20513,6 +20513,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-emergenza-casa-como-analisi': {
+    title: 'Emergenza casa a Como: analisi e visioni del PD | Frontaliere Ticino',
+    description: 'Il Partito Democratico di Como organizza un incontro per discutere l\'emergenza abitativa in città, con esperti e relatori. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, emergenza, casa, como, analisi',
+    ogTitle: 'Emergenza casa a Como: analisi e visioni del PD',
+    ogDescription: 'Il Partito Democratico di Como organizza un incontro per discutere l\'emergenza abitativa in città, con esperti e relatori.',
+    canonicalPath: '/articoli-frontaliere/emergenza-casa-como-analisi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emergenza casa a Como: analisi e visioni del PD",
+      "description": "Il Partito Democratico di Como organizza un incontro per discutere l'emergenza abitativa in città, con esperti e relatori. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/emergenza-casa-como-analisi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del centro di Como con edifici residenziali e discussioni su pianificazione urbana"
+      },
+      "datePublished": "2026-04-28T19:04:11+00:00",
+      "dateModified": "2026-04-28T19:04:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/emergenza-casa-como-analisi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

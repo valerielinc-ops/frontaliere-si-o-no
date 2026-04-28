@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1206,
+ "numberOfItems": 1207,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5841,7 +5841,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1203, "name": "Bando giovani Viggiù 2026: 1000 euro per proget...", "url": `${BASE_URL}/articoli-frontaliere/viggi-bando-giovani-comunit-2026` },
           { "@type": "ListItem", "position": 1204, "name": "Furti al Centro pacchi di Cadenazzo: licenziati...", "url": `${BASE_URL}/articoli-frontaliere/furti-centro-pacchi-cadenazzo` },
           { "@type": "ListItem", "position": 1205, "name": "Conflitto in Medio Oriente: la fattura energeti...", "url": `${BASE_URL}/articoli-frontaliere/fattura-miliardaria-energia-medio-oriente` },
-          { "@type": "ListItem", "position": 1206, "name": "Riforma infermieristica in Ticino: orario di la...", "url": `${BASE_URL}/articoli-frontaliere/riforma-infermieri-ticino-2026` }
+          { "@type": "ListItem", "position": 1206, "name": "Riforma infermieristica in Ticino: orario di la...", "url": `${BASE_URL}/articoli-frontaliere/riforma-infermieri-ticino-2026` },
+          { "@type": "ListItem", "position": 1207, "name": "Emergenza casa a Como: analisi e visioni del PD", "url": `${BASE_URL}/articoli-frontaliere/emergenza-casa-como-analisi` }
  ]
  },
  {

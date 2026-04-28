@@ -3470,6 +3470,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riforma-infermieri-ticino-2026.title': 'Riforma infermieristica in Ticino: orario di lavoro e reazioni contrastanti',
     'blog.article.riforma-infermieri-ticino-2026.excerpt': 'Il Consiglio nazionale ha deciso di non accorciare l’orario massimo settimanale degli infermieri, che resta fissato a 50 ore. Reazioni contrastanti tra iniziativisti e strutture sanitarie.',
     'blog.article.riforma-infermieri-ticino-2026.imageAlt': 'Un\'infermiera al lavoro in un ospedale del Canton Ticino',
+    'blog.article.emergenza-casa-como-analisi.title': 'Emergenza casa a Como: analisi e visioni del PD',
+    'blog.article.emergenza-casa-como-analisi.excerpt': 'Il Partito Democratico di Como organizza un incontro per discutere l\'emergenza abitativa in città, con esperti e relatori.',
+    'blog.article.emergenza-casa-como-analisi.imageAlt': 'Veduta del centro di Como con edifici residenziali e discussioni su pianificazione urbana',
 };
 
 export default blogMetaIt;

@@ -3470,6 +3470,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riforma-infermieri-ticino-2026.title': 'Réforme infirmière au Tessin: horaires et réactions contrastées',
     'blog.article.riforma-infermieri-ticino-2026.excerpt': 'Le Conseil national a décidé de ne pas réduire l\'horaire hebdomadaire maximal des infirmiers, qui reste fixé à 50 heures. Réactions contrastées entre les initiants et les structures sanitaires.',
     'blog.article.riforma-infermieri-ticino-2026.imageAlt': 'Une infirmière travaillant dans un hôpital du Tessin',
+    'blog.article.emergenza-casa-como-analisi.title': 'Urgence logement à Côme: analyse et visions du PD',
+    'blog.article.emergenza-casa-como-analisi.excerpt': 'Le Parti Démocrate de Côme organise une rencontre pour discuter de l\'urgence du logement en ville, avec des experts et des intervenants.',
+    'blog.article.emergenza-casa-como-analisi.imageAlt': 'Vue du centre-ville de Côme avec des bâtiments résidentiels et des discussions sur l\'urbanisme',
 };
 
 export default blogMetaFr;
