@@ -214,7 +214,7 @@ function renderPage(opts: {
     url: BASE_URL,
     image: `${BASE_URL}/og-image.png`,
     areaServed: { '@type': city === 'ticino' ? 'AdministrativeArea' : 'City', name: cityName },
-    serviceType:
+    description:
       locale === 'it'
         ? 'Consulenza frontalieri: simulazione stipendio, costo vita, permessi'
         : locale === 'en'
