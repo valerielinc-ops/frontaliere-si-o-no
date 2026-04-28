@@ -47,7 +47,12 @@ concurrency:
   # single queue so deploys run strictly serially. cancel-in-progress is false
   # to preserve post-deploy steps (social media posts, IndexNow) that happen
   # after the Pages deployment succeeds.
-  group: pages-deploy
+  #
+  # Exception: a workflow_dispatch with profile_sequential=true is a build-only
+  # investigation run that skips the deploy steps. It uses a per-run group so
+  # the long sequential profile can complete without being cancelled by the
+  # next push to main, and without blocking real deploys behind it.
+  group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-deploy-profile-{0}', github.run_id) || 'pages-deploy' }}
   cancel-in-progress: false
 
 env:
@@ -431,10 +436,12 @@ jobs:
           find dist -name "*.css" ! -name "*.gz" -exec du -sh {} + | sort -rh
 
       - name: Capture pre-deploy sitemap URLs (for IndexNow diff)
+        if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
         run: node scripts/capture-deployed-sitemaps.mjs
 
       - name: Upload artifact for GitHub Pages
+        if: github.event.inputs.profile_sequential != 'true'
         uses: actions/upload-pages-artifact@v5
         with:
           path: dist
@@ -443,23 +450,24 @@ jobs:
       # pushes trigger this workflow, the second run can hit "in progress
       # deployment" errors. Retry once after a short wait to handle this.
       - name: Deploy to GitHub Pages
+        if: github.event.inputs.profile_sequential != 'true'
         id: deployment_first
         uses: actions/deploy-pages@v5
         continue-on-error: true
 
       - name: Wait for previous Pages deployment to finish
-        if: steps.deployment_first.outcome == 'failure'
+        if: github.event.inputs.profile_sequential != 'true' && steps.deployment_first.outcome == 'failure'
         run: |
           echo "::warning::First deploy attempt failed (likely Pages busy). Retrying in 30s..."
           sleep 30
 
       - name: Deploy to GitHub Pages (retry)
         id: deployment
-        if: steps.deployment_first.outcome == 'failure'
+        if: github.event.inputs.profile_sequential != 'true' && steps.deployment_first.outcome == 'failure'
         uses: actions/deploy-pages@v5
 
       - name: Fail if both deploy attempts failed
-        if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome != 'success'
+        if: github.event.inputs.profile_sequential != 'true' && steps.deployment_first.outcome == 'failure' && steps.deployment.outcome != 'success'
         run: exit 1
 
       - name: Wait for GitHub Pages CDN propagation
@@ -468,18 +476,18 @@ jobs:
         # the previous HTML for ~1-2 minutes. Polls the live /build-id.txt and
         # returns as soon as it matches the local dist/build-id.txt — usually
         # 15-60s, instead of a blind sleep.
-        if: success()
+        if: success() && github.event.inputs.profile_sequential != 'true'
         run: node scripts/wait-for-pages-propagation.mjs
 
       - name: Post-deploy availability probe (4XX/5XX)
         # Same script as production-canary.yml — runs after every deploy so a
         # bad slug change or removed plugin output blocks the workflow run
         # (visible in the deploy status, not 15 min later in the canary).
-        if: success()
+        if: success() && github.event.inputs.profile_sequential != 'true'
         run: npm run probe:5xx
 
       - name: Wait for live article metadata
-        if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_url != '' && github.event.inputs.og_title != ''
+        if: success() && github.event.inputs.profile_sequential != 'true' && github.event_name == 'workflow_dispatch' && github.event.inputs.article_url != '' && github.event.inputs.og_title != ''
         id: wait_live_meta
         # Best-effort post-deploy verification: the GitHub Pages CDN can take
         # several minutes to propagate the new HTML even after deploy-pages
@@ -501,7 +509,7 @@ jobs:
             "$OG_IMAGE"
 
       - name: Post to Facebook Page
-        if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
+        if: success() && github.event.inputs.profile_sequential != 'true' && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
         env:
           ARTICLE_ID: ${{ github.event.inputs.article_id }}
@@ -518,7 +526,7 @@ jobs:
             "$ARTICLE_CATEGORY"
 
       - name: Post to LinkedIn Company Page
-        if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
+        if: success() && github.event.inputs.profile_sequential != 'true' && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
         env:
           ARTICLE_ID: ${{ github.event.inputs.article_id }}
@@ -535,6 +543,7 @@ jobs:
             "$ARTICLE_CATEGORY"
 
       - name: Restore indexing API daily tracker
+        if: github.event.inputs.profile_sequential != 'true'
         id: indexing-cache
         uses: actions/cache@v5
         with:
@@ -544,7 +553,7 @@ jobs:
             indexing-api-
 
       - name: Post-deploy indexing (parallel)
-        if: success()
+        if: success() && github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
         timeout-minutes: 5
         env:
