@@ -1635,16 +1635,18 @@ export function buildJobLocationLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: locationJobs.length,
- // Caps held at 30 (feed) + 15 (latest) to keep emitted city-hub HTML
+ // Caps held at 25 (feed) + 12 (latest) to keep emitted city-hub HTML
  // strictly under the 195 KB hard budget enforced by audit:page-weight.
  // Earlier bump to 60 + 30 violated that budget on Lugano/Bellinzona
- // (376 KB). BFS reachability for the long tail of detail pages is
- // achieved via paginated /<city>/page-N/ archives + the per-detail
- // related-jobs cross-link block (see jobsSeoPagesPlugin), not by
- // packing more cards onto the city hub itself.
- feed: { label: copy.feedLabel(location), jobs: toLinkedJobs(locationJobs, now, locale, { ...options, baseUrl }, 30) },
+ // (376 KB); the 30 + 15 step also tripped the hard-fail at 203.5 KB on
+ // lugano (commuter-context prose adds ~5-7 KB structural HTML on top of
+ // the per-card cost). BFS reachability for the long tail of detail
+ // pages is achieved via paginated /<city>/page-N/ archives + the
+ // per-detail related-jobs cross-link block (see jobsSeoPagesPlugin),
+ // not by packing more cards onto the city hub itself.
+ feed: { label: copy.feedLabel(location), jobs: toLinkedJobs(locationJobs, now, locale, { ...options, baseUrl }, 25) },
  latestLabel: copy.latestLabel(location),
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 15),
+ latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
  relatedTypeLinks: buildLocationTypeLinks({ ...options, location, now, baseUrl }),
  relatedSectorLinks: buildLocationSectorLinks({ ...options, location, now, baseUrl }),
  openAllLabel: copy.openAll,
