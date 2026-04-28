@@ -1,23 +1,21 @@
 {
   "version": 1,
-  "generatedAt": "2026-04-28T09:03:15.754Z",
+  "generatedAt": "2026-04-28T12:03:12.644Z",
   "mode": "html",
-  "totalSitemapUrls": 7536,
-  "totalOrphans": 6933,
+  "totalSitemapUrls": 7533,
+  "totalOrphans": 4500,
   "perSitemap": {
     "sitemap-annual-report.xml": {
       "total": 4,
-      "orphans": 4,
+      "orphans": 2,
       "examples": [
-        "https://frontaliereticino.ch/report/frontalieri-2026/",
-        "https://frontaliereticino.ch/en/report/cross-border-workers-2026/",
         "https://frontaliereticino.ch/de/report/grenzgaenger-2026/",
         "https://frontaliereticino.ch/fr/report/frontaliers-2026/"
       ]
     },
     "sitemap-blog.xml": {
-      "total": 1080,
-      "orphans": 983,
+      "total": 1084,
+      "orphans": 174,
       "examples": [
         "https://frontaliereticino.ch/articoli-frontaliere/stipendio-netto-frontaliere-2026/",
         "https://frontaliereticino.ch/articoli-frontaliere/lamal-vs-cmi-frontaliere/",
@@ -25,12 +23,10 @@
         "https://frontaliereticino.ch/articoli-frontaliere/tredicesima-netta-frontaliere/",
         "https://frontaliereticino.ch/articoli-frontaliere/terzo-pilastro-3a-frontaliere/",
         "https://frontaliereticino.ch/articoli-frontaliere/migliori-comuni-frontalieri/",
-        "https://frontaliereticino.ch/articoli-frontaliere/costo-vita-ticino-vs-lombardia/",
         "https://frontaliereticino.ch/articoli-frontaliere/tassa-salute-aumentano-tensioni-ticino/",
         "https://frontaliereticino.ch/articoli-frontaliere/comprare-casa-italia-confine-ticino/",
         "https://frontaliereticino.ch/articoli-frontaliere/franco-forte-effetti-stipendio-frontalieri/",
         "https://frontaliereticino.ch/articoli-frontaliere/cu-2026-scadenze-telelavoro-frontalieri/",
-        "https://frontaliereticino.ch/articoli-frontaliere/telelavoro-italia-svizzera-ratifica/",
         "https://frontaliereticino.ch/articoli-frontaliere/telelavoro-frontalieri-accordo-italia-svizzera-ratifica-definitiva/",
         "https://frontaliereticino.ch/articoli-frontaliere/tassa-salute-ticino-chiede-stop-ristorni-italia/",
         "https://frontaliereticino.ch/articoli-frontaliere/frontalieri-cu-2026-telelavoro-45-giorni-regole-definitive/",
@@ -38,7 +34,9 @@
         "https://frontaliereticino.ch/articoli-frontaliere/disoccupazione-svizzera-gennaio-2026-dati-ticino-frontalieri/",
         "https://frontaliereticino.ch/articoli-frontaliere/riscaldamento-casa-ticino-norme-energetiche-risparmio/",
         "https://frontaliereticino.ch/articoli-frontaliere/sostituzione-caldaia-ticino-norme-2026-risparmio/",
-        "https://frontaliereticino.ch/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri/"
+        "https://frontaliereticino.ch/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri/",
+        "https://frontaliereticino.ch/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri/",
+        "https://frontaliereticino.ch/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano/"
       ]
     },
     "sitemap-border-wait-map.xml": {
@@ -53,28 +51,28 @@
     },
     "sitemap-border-wait.xml": {
       "total": 108,
-      "orphans": 81,
+      "orphans": 54,
       "examples": [
-        "https://frontaliereticino.ch/en/border-wait/",
-        "https://frontaliereticino.ch/en/border-wait/ticino-como/",
-        "https://frontaliereticino.ch/en/border-wait/ticino-varese/",
-        "https://frontaliereticino.ch/en/border-wait/chiasso-centro/today/",
-        "https://frontaliereticino.ch/en/border-wait/chiasso-brogeda/today/",
-        "https://frontaliereticino.ch/en/border-wait/chiasso-strada/today/",
-        "https://frontaliereticino.ch/en/border-wait/maslianico-pizzamiglio/today/",
-        "https://frontaliereticino.ch/en/border-wait/maslianico-roggiana/today/",
-        "https://frontaliereticino.ch/en/border-wait/bizzarone-novazzano/today/",
-        "https://frontaliereticino.ch/en/border-wait/ronago-novazzano/today/",
-        "https://frontaliereticino.ch/en/border-wait/crociale-dei-mulini/today/",
-        "https://frontaliereticino.ch/en/border-wait/drezzo-pedrinate/today/",
-        "https://frontaliereticino.ch/en/border-wait/lanzo-d-intelvi-arogno/today/",
-        "https://frontaliereticino.ch/en/border-wait/campione-d-italia-bissone/today/",
-        "https://frontaliereticino.ch/en/border-wait/oria-gandria/today/",
-        "https://frontaliereticino.ch/en/border-wait/gaggiolo/today/",
-        "https://frontaliereticino.ch/en/border-wait/san-pietro/today/",
-        "https://frontaliereticino.ch/en/border-wait/clivio-ligornetto/today/",
-        "https://frontaliereticino.ch/en/border-wait/rodero-stabio/today/",
-        "https://frontaliereticino.ch/en/border-wait/saltrio-arzo/today/"
+        "https://frontaliereticino.ch/de/wartezeit-grenze/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/ticino-como/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/ticino-varese/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/chiasso-centro/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/chiasso-brogeda/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/chiasso-strada/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/maslianico-pizzamiglio/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/maslianico-roggiana/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/bizzarone-novazzano/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/ronago-novazzano/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/crociale-dei-mulini/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/drezzo-pedrinate/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/lanzo-d-intelvi-arogno/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/campione-d-italia-bissone/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/oria-gandria/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/gaggiolo/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/san-pietro/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/clivio-ligornetto/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/rodero-stabio/heute/",
+        "https://frontaliereticino.ch/de/wartezeit-grenze/saltrio-arzo/heute/"
       ]
     },
     "sitemap-career-landings.xml": {
@@ -116,14 +114,8 @@
     },
     "sitemap-fuel-daily.xml": {
       "total": 48,
-      "orphans": 36,
+      "orphans": 24,
       "examples": [
-        "https://frontaliereticino.ch/en/diesel-price-switzerland/today/",
-        "https://frontaliereticino.ch/en/diesel-price-switzerland/chiasso/today/",
-        "https://frontaliereticino.ch/en/diesel-price-switzerland/mendrisio/today/",
-        "https://frontaliereticino.ch/en/diesel-price-switzerland/lugano/today/",
-        "https://frontaliereticino.ch/en/diesel-price-switzerland/bellinzona/today/",
-        "https://frontaliereticino.ch/en/diesel-price-switzerland/locarno/today/",
         "https://frontaliereticino.ch/de/dieselpreis-schweiz/heute/",
         "https://frontaliereticino.ch/de/dieselpreis-schweiz/chiasso/heute/",
         "https://frontaliereticino.ch/de/dieselpreis-schweiz/mendrisio/heute/",
@@ -136,8 +128,14 @@
         "https://frontaliereticino.ch/fr/prix-gasoil-suisse/lugano/aujourd-hui/",
         "https://frontaliereticino.ch/fr/prix-gasoil-suisse/bellinzona/aujourd-hui/",
         "https://frontaliereticino.ch/fr/prix-gasoil-suisse/locarno/aujourd-hui/",
-        "https://frontaliereticino.ch/en/gasoline-price-switzerland/today/",
-        "https://frontaliereticino.ch/en/gasoline-price-switzerland/chiasso/today/"
+        "https://frontaliereticino.ch/de/benzinpreis-schweiz/heute/",
+        "https://frontaliereticino.ch/de/benzinpreis-schweiz/chiasso/heute/",
+        "https://frontaliereticino.ch/de/benzinpreis-schweiz/mendrisio/heute/",
+        "https://frontaliereticino.ch/de/benzinpreis-schweiz/lugano/heute/",
+        "https://frontaliereticino.ch/de/benzinpreis-schweiz/bellinzona/heute/",
+        "https://frontaliereticino.ch/de/benzinpreis-schweiz/locarno/heute/",
+        "https://frontaliereticino.ch/fr/prix-essence-suisse/aujourd-hui/",
+        "https://frontaliereticino.ch/fr/prix-essence-suisse/chiasso/aujourd-hui/"
       ]
     },
     "sitemap-fuel-italian-cities.xml": {
@@ -194,7 +192,7 @@
     },
     "sitemap-fuel-stations.xml": {
       "total": 488,
-      "orphans": 415,
+      "orphans": 342,
       "examples": [
         "https://frontaliereticino.ch/prezzi-diesel/chiasso/stazioni/socar-via-maestri-comacini/",
         "https://frontaliereticino.ch/prezzi-diesel/lugano/stazioni/eni-strada-per-gandria/",
@@ -285,66 +283,43 @@
       ]
     },
     "sitemap-jobs.xml": {
-      "total": 2416,
-      "orphans": 2415,
+      "total": 2409,
+      "orphans": 1039,
       "examples": [
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-tally-weijl/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-grand-hotel-kronenhof/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-kulm-hotel-st-moritz/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-mtic-group/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-afry/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-kantonale-verwaltung-graubunden/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-board-international/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hubers-landhendl-gmbh/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hugli-nahrmittel-ag/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-bell-schweiz-ag/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hugli-nahrmittel-erzeugung-gmbh/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-bell-deutschland-gmbh-co-kg/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hugli-nahrungsmittel-gmbh/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-suddeutsche-truthahn-ag/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hilcona-ag/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hilcona-feinkost-gmbh/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-eisberg-ag/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-bell-schwarzwalder-schinken-gmbh/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-eisberg-osterreich-gmbh/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-geiser-ag/"
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hilcona-gourmet-s-a/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hfc-gmbh/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-bell-suisse-sa/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-die-mobiliar/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-prada-group/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-coopers-group-ag/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-engadin-tourismus-ag/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-aldi-suisse/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-ibsa-institut-biochimique/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-ariston-group/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-christ-uhren-schmuck-ag/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-hitachi-energy/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-fondation-domus/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-the-swatch-group-italia-s-p-a/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-siegfried/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-weisse-arena-gruppe/"
       ]
     },
     "sitemap-market-report.xml": {
       "total": 4,
-      "orphans": 4,
+      "orphans": 2,
       "examples": [
-        "https://frontaliereticino.ch/reports/mercato-lavoro-frontalieri-ticino-2026/",
-        "https://frontaliereticino.ch/en/reports/ticino-cross-border-job-market-2026/",
         "https://frontaliereticino.ch/de/reports/tessiner-grenzgaenger-arbeitsmarkt-2026/",
         "https://frontaliereticino.ch/fr/reports/marche-emploi-frontaliers-tessin-2026/"
       ]
     },
     "sitemap-news.xml": {
-      "total": 195,
-      "orphans": 98,
-      "examples": [
-        "https://frontaliereticino.ch/articoli-frontaliere/medici-senza-permesso-svizzera-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/crans-montana-spese-cura-italiani-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/lombardia-aumenta-stipendi-sanitari-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/petizione-gioventu-comunista-tassa-esenzione-militare/",
-        "https://frontaliereticino.ch/articoli-frontaliere/petizione-tassa-esenzione-militare-ticino/",
-        "https://frontaliereticino.ch/articoli-frontaliere/immigrazione-svizzera-60-anni-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/supermercati-ticino-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/latte-ticino-crisi-politica-ritardo/",
-        "https://frontaliereticino.ch/articoli-frontaliere/maria-timofeeva-trionfa-chiasso-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/crans-montana-cure-italiani-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/costi-salute-svizzera-frontalieri-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/imposta-ocse-multinazionali-obiettivi-lontani/",
-        "https://frontaliereticino.ch/articoli-frontaliere/settimana-corta-svizzera-frontalieri/",
-        "https://frontaliereticino.ch/articoli-frontaliere/adulti-genitori-sostegno-finanziario-ticino-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/swiss-lufthansa-economy-basic-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/twint-account-frode-frontalieri/",
-        "https://frontaliereticino.ch/articoli-frontaliere/costi-sanitari-ticino-2024-4-percento/",
-        "https://frontaliereticino.ch/articoli-frontaliere/cybersicurezza-industriale-ticino-2026/",
-        "https://frontaliereticino.ch/articoli-frontaliere/redditi-varesotti-2024-luvinate/",
-        "https://frontaliereticino.ch/articoli-frontaliere/chiusure-autostrade-ticino-2026/"
-      ]
+      "total": 198,
+      "orphans": 0,
+      "examples": []
     },
     "sitemap-nursing.xml": {
       "total": 3,
@@ -380,8 +355,8 @@
       ]
     },
     "sitemap-pages.xml": {
-      "total": 144,
-      "orphans": 72,
+      "total": 141,
+      "orphans": 67,
       "examples": [
         "https://frontaliereticino.ch/calcola-stipendio/stipendio-netto-40000-chf/",
         "https://frontaliereticino.ch/calcola-stipendio/stipendio-netto-60000-chf-vecchio-frontaliere/",
@@ -443,25 +418,13 @@
     },
     "sitemap-sector.xml": {
       "total": 10,
-      "orphans": 10,
-      "examples": [
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/infermieri/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/case-anziani/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/educatori/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/ingegneri/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/autisti/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/sviluppatori/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/ristorazione/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/operatori-socio-sanitari/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/logistica/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/apprendistato/"
-      ]
+      "orphans": 0,
+      "examples": []
     },
     "sitemap-seo-hubs.xml": {
       "total": 303,
-      "orphans": 303,
+      "orphans": 291,
       "examples": [
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-2/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-3/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-4/",
@@ -480,20 +443,14 @@
         "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-17/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-18/",
         "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-19/",
-        "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-20/"
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-20/",
+        "https://frontaliereticino.ch/cerca-lavoro-ticino/tutti/page-21/"
       ]
     },
     "sitemap-weekly-employers.xml": {
       "total": 188,
-      "orphans": 181,
+      "orphans": 174,
       "examples": [
-        "https://frontaliereticino.ch/en/companies-hiring/ticino/current-week/",
-        "https://frontaliereticino.ch/en/companies-hiring/lugano/current-week/",
-        "https://frontaliereticino.ch/en/companies-hiring/mendrisio/current-week/",
-        "https://frontaliereticino.ch/en/companies-hiring/chiasso/current-week/",
-        "https://frontaliereticino.ch/en/companies-hiring/stabio/current-week/",
-        "https://frontaliereticino.ch/en/companies-hiring/bellinzona/current-week/",
-        "https://frontaliereticino.ch/en/companies-hiring/locarno/current-week/",
         "https://frontaliereticino.ch/de/unternehmen-einstellen/ticino/aktuelle-woche/",
         "https://frontaliereticino.ch/de/unternehmen-einstellen/lugano/aktuelle-woche/",
         "https://frontaliereticino.ch/de/unternehmen-einstellen/mendrisio/aktuelle-woche/",
@@ -506,7 +463,14 @@
         "https://frontaliereticino.ch/fr/entreprises-recrutent/mendrisio/semaine-courante/",
         "https://frontaliereticino.ch/fr/entreprises-recrutent/chiasso/semaine-courante/",
         "https://frontaliereticino.ch/fr/entreprises-recrutent/stabio/semaine-courante/",
-        "https://frontaliereticino.ch/fr/entreprises-recrutent/bellinzona/semaine-courante/"
+        "https://frontaliereticino.ch/fr/entreprises-recrutent/bellinzona/semaine-courante/",
+        "https://frontaliereticino.ch/fr/entreprises-recrutent/locarno/semaine-courante/",
+        "https://frontaliereticino.ch/aziende-che-assumono/bellinzona/eoc-ente-ospedaliero-cantonale/settimana-corrente/",
+        "https://frontaliereticino.ch/en/companies-hiring/bellinzona/eoc-ente-ospedaliero-cantonale/current-week/",
+        "https://frontaliereticino.ch/de/unternehmen-einstellen/bellinzona/eoc-ente-ospedaliero-cantonale/aktuelle-woche/",
+        "https://frontaliereticino.ch/fr/entreprises-recrutent/bellinzona/eoc-ente-ospedaliero-cantonale/semaine-courante/",
+        "https://frontaliereticino.ch/aziende-che-assumono/bellinzona/genossenschaft-migros-ostschweiz/settimana-corrente/",
+        "https://frontaliereticino.ch/en/companies-hiring/bellinzona/genossenschaft-migros-ostschweiz/current-week/"
       ]
     }
   }
