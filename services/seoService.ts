@@ -2413,6 +2413,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-presidente-gastro-bellinzona': { name: 'Novità', path: '/articoli-frontaliere/nuovo-presidente-gastro-bellinzona', parent: 'blog' },
     'blog-varese-ospedale-parcheggi-personale-2026': { name: 'Presidio UIL FP', path: '/articoli-frontaliere/varese-ospedale-parcheggi-personale-2026', parent: 'blog' },
     'blog-coalizione-sanitario-volonta-calpestata': { name: 'Novità', path: '/articoli-frontaliere/coalizione-sanitario-volonta-calpestata', parent: 'blog' },
+    'blog-volo-swiss-evacuato-passeggeri-bagaglio': { name: 'Novità', path: '/articoli-frontaliere/volo-swiss-evacuato-passeggeri-bagaglio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

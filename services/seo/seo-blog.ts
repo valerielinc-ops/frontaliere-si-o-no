@@ -21267,6 +21267,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-volo-swiss-evacuato-passeggeri-bagaglio': {
+    title: 'Volo Swiss evacuato: passeggeri non mollano il bagaglio a mano',
+    description: 'Un Airbus A330 della Swiss è stato evacuato a New Delhi dopo un\'interruzione del decollo. Molti passeggeri non hanno seguito le istruzioni di sicurezza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, volo, swiss, evacuato, passeggeri',
+    ogTitle: 'Volo Swiss evacuato: passeggeri non mollano il bagaglio a mano',
+    ogDescription: 'Un Airbus A330 della Swiss è stato evacuato a New Delhi dopo un\'interruzione del decollo. Molti passeggeri non hanno seguito le istruzioni di sicurezza.',
+    canonicalPath: '/articoli-frontaliere/volo-swiss-evacuato-passeggeri-bagaglio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Volo Swiss evacuato: passeggeri non mollano il bagaglio a mano",
+      "description": "Un Airbus A330 della Swiss è stato evacuato a New Delhi dopo un'interruzione del decollo. Molti passeggeri non hanno seguito le istruzioni di sicurezza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/volo-swiss-evacuato-passeggeri-bagaglio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aereo Swiss evacuato a New Delhi con passeggeri e scivoli di emergenza"
+      },
+      "datePublished": "2026-04-28T21:45:17+00:00",
+      "dateModified": "2026-04-28T21:45:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/volo-swiss-evacuato-passeggeri-bagaglio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

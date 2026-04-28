@@ -9289,4 +9289,11 @@ export const ARTICLES = [
  image: '/images/blog/coalizione-sanitario-volonta-calpestata.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'volo-swiss-evacuato-passeggeri-bagaglio',
+ category: 'novita',
+ date: '2026-04-28T21:45:17.953Z',
+ image: '/images/blog/volo-swiss-evacuato-passeggeri-bagaglio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

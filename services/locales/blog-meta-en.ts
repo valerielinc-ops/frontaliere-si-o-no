@@ -3547,6 +3547,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coalizione-sanitario-volonta-calpestata.title': 'Health coalition: \'Popular will trampled\'',
     'blog.article.coalizione-sanitario-volonta-calpestata.excerpt': 'The healthcare workers\' coalition criticizes the National Council\'s decision not to reduce working hours and improve nurses\' conditions.',
     'blog.article.coalizione-sanitario-volonta-calpestata.imageAlt': 'Protest by healthcare workers in Lugano',
+    'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.title': 'Swiss flight evacuated: passengers refuse to leave carry-on',
+    'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.excerpt': 'An Airbus A330 of Swiss was evacuated in New Delhi after an aborted takeoff. Many passengers did not follow safety instructions.',
+    'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.imageAlt': 'Swiss airplane evacuated in New Delhi with passengers and emergency slides',
 };
 
 export default blogMetaEn;

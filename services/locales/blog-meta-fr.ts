@@ -3548,6 +3548,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coalizione-sanitario-volonta-calpestata.title': 'Coalition sanitaire: «La volonté populaire bafouée»',
     'blog.article.coalizione-sanitario-volonta-calpestata.excerpt': 'La coalition du personnel sanitaire critique la décision du Conseil national de ne pas réduire le temps de travail et d\'améliorer les conditions des infirmiers.',
     'blog.article.coalizione-sanitario-volonta-calpestata.imageAlt': 'Manifestation des travailleurs de la santé à Lugano',
+    'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.title': 'Vol Swiss évacué : passagers refusent de lâcher leurs bagages à main',
+    'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.excerpt': 'Un Airbus A330 de Swiss a été évacué à New Delhi après une interruption du décollage. De nombreux passagers n\'ont pas suivi les consignes de sécurité.',
+    'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.imageAlt': 'Avion Swiss évacué à New Delhi avec passagers et toboggans de secours',
 };
 
 export default blogMetaFr;

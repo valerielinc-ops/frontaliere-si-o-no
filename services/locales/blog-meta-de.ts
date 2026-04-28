@@ -3547,6 +3547,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coalizione-sanitario-volonta-calpestata.title': 'Gesundheitskoalition: «Volkswille mit Füßen getreten»',
     'blog.article.coalizione-sanitario-volonta-calpestata.excerpt': 'Die Gesundheitskoalition kritisiert den Entscheid des Nationalrats, die Arbeitszeit nicht zu reduzieren und die Arbeitsbedingungen der Pflegekräfte nicht zu verbessern.',
     'blog.article.coalizione-sanitario-volonta-calpestata.imageAlt': 'Protest von Gesundheitsarbeitern in Lugano',
+    'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.title': 'Swiss-Flugzeug evakuiert: Passagiere halten Handgepäck fest',
+    'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.excerpt': 'Ein Airbus A330 der Swiss wurde nach einem abgebrochenen Start in Neu-Delhi evakuiert. Viele Passagiere folgten nicht den Sicherheitsanweisungen.',
+    'blog.article.volo-swiss-evacuato-passeggeri-bagaglio.imageAlt': 'Evakuiertes Swiss-Flugzeug in Neu-Delhi mit Passagieren und Notrutschen',
 };
 
 export default blogMetaDe;
