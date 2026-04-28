@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-93bb950c373f",
-      "slug": "local-buyer-rohstoffe-m-w-d-hilcona-steinach",
+      "slug": "acquirente-locale-materiali-primari-m-w-d-hugli-nahrmittel-ag-steinach",
       "slugByLocale": {
         "de": "local-buyer-rohstoffe-m-w-d-hugli-nahrmittel-ag-steinach",
-        "it": "local-buyer-rohstoffe-m-w-d-hilcona-steinach",
-        "en": "local-buyer-rohstoffe-m-w-d-hilcona-steinach",
-        "fr": "local-buyer-rohstoffe-m-w-d-hilcona-steinach"
+        "it": "acquirente-locale-materiali-primari-m-w-d-hugli-nahrmittel-ag-steinach",
+        "en": "local-buyer-raw-materials-m-w-d-hugli-nahrmittel-ag-steinach",
+        "fr": "acheteur-local-matieres-premieres-m-w-d-hugli-nahrmittel-ag-steinach"
       },
       "company": "Hügli Nährmittel AG",
       "companyKey": "hilcona",
@@ -59,7 +59,21 @@
         }
       },
       "postalCode": "9000",
-      "firstSeenAt": "2026-04-27T21:58:02.481Z"
+      "firstSeenAt": "2026-04-27T21:58:02.481Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "local-buyer-rohstoffe-m-w-d-hilcona-steinach"
+        ],
+        "en": [
+          "local-buyer-rohstoffe-m-w-d-hilcona-steinach"
+        ],
+        "fr": [
+          "local-buyer-rohstoffe-m-w-d-hilcona-steinach"
+        ]
+      },
+      "previousSlugs": [
+        "local-buyer-rohstoffe-m-w-d-hilcona-steinach"
+      ]
     },
     {
       "id": "hilcona-fad4b3a0e88f",

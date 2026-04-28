@@ -1986,8 +1986,8 @@
       "slugByLocale": {
         "en": "internship-msat-material-management-msat-process-expert-lonza-ch",
         "it": "internship-msat-material-management-msat-process-expert-lonza-ch",
-        "de": "internship-msat-material-management-msat-process-expert-lonza-ch",
-        "fr": "internship-msat-material-management-msat-process-expert-lonza-ch"
+        "de": "praktikum-msat-materialmanagement-msat-prozessexperte-lonza-ch",
+        "fr": "stage-msat-gestion-des-materiaux-expert-en-processus-msat-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2120,12 +2120,12 @@
     },
     {
       "id": "lonza-505256e42f41",
-      "slug": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch",
+      "slug": "tecnico-di-automazione-progetto-dps-growth-80-100-lonza-ch",
       "slugByLocale": {
         "de": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch",
-        "it": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch",
+        "it": "tecnico-di-automazione-progetto-dps-growth-80-100-lonza-ch",
         "en": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch",
-        "fr": "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch"
+        "fr": "technicien-d-automatisation-projet-de-croissance-dps-80-100-m-p-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2179,7 +2179,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T22:10:28.113Z"
+      "firstSeenAt": "2026-04-27T22:10:28.113Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automation-technician-dps-growth-project-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-f8576f8fe2ba",
@@ -2188,7 +2199,7 @@
         "en": "mes-expert-drug-product-80-100-m-f-d-lonza-ch",
         "it": "mes-expert-drug-product-80-100-m-f-d-lonza-ch",
         "de": "mes-expert-drug-product-80-100-m-f-d-lonza-ch",
-        "fr": "mes-expert-drug-product-80-100-m-f-d-lonza-ch"
+        "fr": "produit-pharmaceutique-expert-du-sem-80-100-m-f-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2246,12 +2257,12 @@
     },
     {
       "id": "lonza-e287b653535b",
-      "slug": "ehs-manager-large-scale-operations-80-100-m-f-d-lonza-ch",
+      "slug": "ehs-manager-grandi-operazioni-scala-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "en": "ehs-manager-large-scale-operations-80-100-m-f-d-lonza-ch",
-        "it": "ehs-manager-large-scale-operations-80-100-m-f-d-lonza-ch",
-        "de": "ehs-manager-large-scale-operations-80-100-m-f-d-lonza-ch",
-        "fr": "ehs-manager-large-scale-operations-80-100-m-f-d-lonza-ch"
+        "it": "ehs-manager-grandi-operazioni-scala-80-100-m-f-d-lonza-ch",
+        "de": "ehs-manager-gro-waagebetrieb-80-100-m-f-d-lonza-ch",
+        "fr": "gestionnaire-ehs-operations-a-grande-echelle-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2305,7 +2316,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T22:10:26.679Z"
+      "firstSeenAt": "2026-04-27T22:10:26.679Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ehs-manager-large-scale-operations-80-100-m-f-d-lonza-ch"
+        ],
+        "de": [
+          "ehs-manager-large-scale-operations-80-100-m-f-d-lonza-ch"
+        ],
+        "fr": [
+          "ehs-manager-large-scale-operations-80-100-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ehs-manager-large-scale-operations-80-100-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-ea0bce81125a",
@@ -2314,7 +2339,7 @@
         "en": "head-of-oe-pmo-lonza-ch",
         "it": "head-of-oe-pmo-lonza-ch",
         "de": "head-of-oe-pmo-lonza-ch",
-        "fr": "head-of-oe-pmo-lonza-ch"
+        "fr": "chef-de-l-oe-et-de-l-omp-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2372,12 +2397,12 @@
     },
     {
       "id": "lonza-61e17eb626a8",
-      "slug": "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch",
+      "slug": "direttore-associato-asset-design-e-innovazione-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "en": "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch",
-        "it": "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch",
+        "it": "direttore-associato-asset-design-e-innovazione-80-100-m-f-d-lonza-ch",
         "de": "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch",
-        "fr": "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch"
+        "fr": "directeur-associe-conception-des-actifs-et-innovation-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2431,16 +2456,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T22:10:25.230Z"
+      "firstSeenAt": "2026-04-27T22:10:25.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch"
+        ],
+        "fr": [
+          "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-asset-design-and-innovation-80-100-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-a29211105513",
-      "slug": "senior-msat-specialist-small-molecules-80-100-m-f-d-lonza-ch",
+      "slug": "specialista-msat-senior-molecole-piccole-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "en": "senior-msat-specialist-small-molecules-80-100-m-f-d-lonza-ch",
-        "it": "senior-msat-specialist-small-molecules-80-100-m-f-d-lonza-ch",
+        "it": "specialista-msat-senior-molecole-piccole-80-100-m-f-d-lonza-ch",
         "de": "senior-msat-specialist-small-molecules-80-100-m-f-d-lonza-ch",
-        "fr": "senior-msat-specialist-small-molecules-80-100-m-f-d-lonza-ch"
+        "fr": "specialiste-principal-des-msat-petites-molecules-80-a-100-m-f-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2494,7 +2530,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T22:10:24.499Z"
+      "firstSeenAt": "2026-04-27T22:10:24.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-msat-specialist-small-molecules-80-100-m-f-d-lonza-ch"
+        ],
+        "fr": [
+          "senior-msat-specialist-small-molecules-80-100-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-msat-specialist-small-molecules-80-100-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-8bcfe2373fa7",
@@ -2633,12 +2680,12 @@
     },
     {
       "id": "lonza-458d44a6054c",
-      "slug": "hr-intern-integrated-biologics-80-100-lonza-ch",
+      "slug": "interno-hr-biologici-integrati-80-100-lonza-ch",
       "slugByLocale": {
         "en": "hr-intern-integrated-biologics-80-100-lonza-ch",
-        "it": "hr-intern-integrated-biologics-80-100-lonza-ch",
+        "it": "interno-hr-biologici-integrati-80-100-lonza-ch",
         "de": "hr-intern-integrated-biologics-80-100-lonza-ch",
-        "fr": "hr-intern-integrated-biologics-80-100-lonza-ch"
+        "fr": "stagiaire-en-rh-produits-biologiques-integres-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2692,16 +2739,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T22:10:22.267Z"
+      "firstSeenAt": "2026-04-27T22:10:22.267Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-intern-integrated-biologics-80-100-lonza-ch"
+        ],
+        "fr": [
+          "hr-intern-integrated-biologics-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-intern-integrated-biologics-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-6a747f347fd9",
-      "slug": "senior-qa-specialist-clean-utilities-and-environmental-monitoring-80-100-f-m-d-lonza-ch",
+      "slug": "specialista-senior-qa-utilita-pulite-e-monitoraggio-ambientale-80-100-f-m-d-lonza-ch",
       "slugByLocale": {
         "en": "senior-qa-specialist-clean-utilities-and-environmental-monitoring-80-100-f-m-d-lonza-ch",
-        "it": "senior-qa-specialist-clean-utilities-and-environmental-monitoring-80-100-f-m-d-lonza-ch",
+        "it": "specialista-senior-qa-utilita-pulite-e-monitoraggio-ambientale-80-100-f-m-d-lonza-ch",
         "de": "senior-qa-specialist-clean-utilities-and-environmental-monitoring-80-100-f-m-d-lonza-ch",
-        "fr": "senior-qa-specialist-clean-utilities-and-environmental-monitoring-80-100-f-m-d-lonza-ch"
+        "fr": "specialiste-principal-de-l-aq-services-publics-propres-et-surveillance-de-l-environnement-80-100-f-m-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2755,7 +2813,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T22:10:21.525Z"
+      "firstSeenAt": "2026-04-27T22:10:21.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-qa-specialist-clean-utilities-and-environmental-monitoring-80-100-f-m-d-lonza-ch"
+        ],
+        "fr": [
+          "senior-qa-specialist-clean-utilities-and-environmental-monitoring-80-100-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-qa-specialist-clean-utilities-and-environmental-monitoring-80-100-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-557272462f9c",

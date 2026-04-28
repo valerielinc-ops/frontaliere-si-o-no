@@ -5498,12 +5498,12 @@
     },
     {
       "id": "tether-b5d595160506",
-      "slug": "data-and-payments-compliance-analyst-100-remote-tether-ch",
+      "slug": "analizzatore-di-conformita-dati-e-pagamenti-100-remote-tether-operations-santiago-de-chile-region-metropolitana-de-santi",
       "slugByLocale": {
         "en": "data-and-payments-compliance-analyst-100-remote-tether-ch",
-        "it": "data-and-payments-compliance-analyst-100-remote-tether-ch",
-        "de": "data-and-payments-compliance-analyst-100-remote-tether-ch",
-        "fr": "data-and-payments-compliance-analyst-100-remote-tether-ch"
+        "it": "analizzatore-di-conformita-dati-e-pagamenti-100-remote-tether-operations-santiago-de-chile-region-metropolitana-de-santi",
+        "de": "daten-und-zahlungen-compliance-analyst-100-remote-tether-operations-santiago-de-chile-region-metropolitana-de-santiago",
+        "fr": "analyste-de-la-conformite-des-donnees-et-des-paiements-100-remote-tether-operations-santiago-de-chile-region-metropolita"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -5561,7 +5561,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T22:39:15.051Z"
+      "firstSeenAt": "2026-04-27T22:39:15.051Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-and-payments-compliance-analyst-100-remote-tether-ch"
+        ],
+        "de": [
+          "data-and-payments-compliance-analyst-100-remote-tether-ch"
+        ],
+        "fr": [
+          "data-and-payments-compliance-analyst-100-remote-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-and-payments-compliance-analyst-100-remote-tether-ch"
+      ]
     },
     {
       "id": "tether-63e9d9a0cdef",

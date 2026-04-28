@@ -3643,12 +3643,12 @@
     },
     {
       "id": "ubp-f7eba3d63158",
-      "slug": "data-analytics-engineer-ubp-ch",
+      "slug": "ingegnere-di-dati-e-analisi-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "data-analytics-engineer-union-bancaire-privee-geneva-switzerland",
-        "it": "data-analytics-engineer-ubp-ch",
-        "de": "data-analytics-engineer-ubp-ch",
-        "fr": "data-analytics-engineer-ubp-ch"
+        "it": "ingegnere-di-dati-e-analisi-union-bancaire-privee-geneva-switzerland",
+        "de": "data-analytics-ingenieur-union-bancaire-privee-geneva-switzerland",
+        "fr": "ingenieur-data-analytics-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3703,7 +3703,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T22:42:38.086Z"
+      "firstSeenAt": "2026-04-27T22:42:38.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-analytics-engineer-ubp-ch"
+        ],
+        "de": [
+          "data-analytics-engineer-ubp-ch"
+        ],
+        "fr": [
+          "data-analytics-engineer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-analytics-engineer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-40eb10282cdf",

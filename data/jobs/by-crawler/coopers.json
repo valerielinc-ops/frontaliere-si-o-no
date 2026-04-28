@@ -294,12 +294,12 @@
     },
     {
       "id": "coopers-96c3c9554410",
-      "slug": "msat-cleaning-validation-expert-m-w-d-coopers-wallis",
+      "slug": "ingegnere-di-software-m-w-d-coopers-group-ag-wallis",
       "slugByLocale": {
         "de": "msat-cleaning-validation-expert-m-w-d-coopers-wallis",
-        "it": "msat-cleaning-validation-expert-m-w-d-coopers-wallis",
+        "it": "ingegnere-di-software-m-w-d-coopers-group-ag-wallis",
         "en": "msat-cleaning-validation-expert-m-w-d-coopers-wallis",
-        "fr": "msat-cleaning-validation-expert-m-w-d-coopers-wallis"
+        "fr": "ingenieur-logiciel-m-w-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -366,7 +366,18 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-27T21:37:33.393Z"
+      "firstSeenAt": "2026-04-27T21:37:33.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "msat-cleaning-validation-expert-m-w-d-coopers-wallis"
+        ],
+        "fr": [
+          "msat-cleaning-validation-expert-m-w-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "msat-cleaning-validation-expert-m-w-d-coopers-wallis"
+      ]
     }
   ]
 }
