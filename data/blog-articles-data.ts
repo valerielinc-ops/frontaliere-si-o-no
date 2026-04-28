@@ -9191,4 +9191,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-sostenibilita-csr-camera-commercio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lombardia-30-milioni-quartiere-efficientamento',
+ category: 'novita',
+ date: '2026-04-28T20:20:15.653Z',
+ image: '/images/blog/lombardia-30-milioni-quartiere-efficientamento.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

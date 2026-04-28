@@ -3506,6 +3506,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-sostenibilita-csr-camera-commercio.title': 'Varèse, capitale de la durabilité: Salon de la RSE à la Chambre de Commerce',
     'blog.article.varese-sostenibilita-csr-camera-commercio.excerpt': 'Le Salon de la RSE et de l\'Innovation Sociale fait escale à Varèse avec un focus sur l\'écosystème circulaire et les avantages concurrentiels pour les entreprises.',
     'blog.article.varese-sostenibilita-csr-camera-commercio.imageAlt': 'Chambre de commerce de Varese, conférence sur la durabilité',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.title': 'Lombardie: 30 millions pour un quartier révolutionnaire',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.excerpt': 'Un investissement de 30 millions pour le quartier Livorno Parco à Brescia, avec des économies allant jusqu\'à 60% sur les factures énergétiques.',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.imageAlt': 'Complexe résidentiel moderne en Lombardie avec des caractéristiques écoénergétiques',
 };
 
 export default blogMetaFr;

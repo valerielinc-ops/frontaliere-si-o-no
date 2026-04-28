@@ -3506,6 +3506,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-sostenibilita-csr-camera-commercio.title': 'Varese capitale della sostenibilità: il Salone della CSR in Camera di Commercio',
     'blog.article.varese-sostenibilita-csr-camera-commercio.excerpt': 'Il Salone della CSR e dell\'Innovazione Sociale approda a Varese con focus su ecosistema circolare e vantaggi competitivi per le imprese.',
     'blog.article.varese-sostenibilita-csr-camera-commercio.imageAlt': 'Camera di Commercio di Varese, convegno sostenibilità',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.title': 'Lombardia: 30 milioni per il quartiere che rivoluziona le bollette',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.excerpt': 'Un investimento di 30 milioni per il quartiere Livorno Parco a Brescia, con risparmi fino al 60% sulle bollette energetiche.',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.imageAlt': 'Complesso residenziale moderno in Lombardia con caratteristiche di efficienza energetica',
 };
 
 export default blogMetaIt;

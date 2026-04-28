@@ -20861,6 +20861,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombardia-30-milioni-quartiere-efficientamento': {
+    title: 'Lombardia: 30 milioni per il quartiere che rivoluziona le bollette',
+    description: 'Scopri come il progetto Livorno Parco a Brescia sta rivoluzionando le bollette energetiche con un investimento di 30 milioni di euro. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, milioni, quartiere, rivoluziona',
+    ogTitle: 'Lombardia: 30 milioni per il quartiere che rivoluziona le bollette',
+    ogDescription: 'Scopri come il progetto Livorno Parco a Brescia sta rivoluzionando le bollette energetiche con un investimento di 30 milioni di euro.',
+    canonicalPath: '/articoli-frontaliere/lombardia-30-milioni-quartiere-efficientamento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lombardia: 30 milioni per il quartiere che rivoluziona le bollette",
+      "description": "Scopri come il progetto Livorno Parco a Brescia sta rivoluzionando le bollette energetiche con un investimento di 30 milioni di euro. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lombardia-30-milioni-quartiere-efficientamento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Complesso residenziale moderno in Lombardia con caratteristiche di efficienza energetica"
+      },
+      "datePublished": "2026-04-28T20:20:15+00:00",
+      "dateModified": "2026-04-28T20:20:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-30-milioni-quartiere-efficientamento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

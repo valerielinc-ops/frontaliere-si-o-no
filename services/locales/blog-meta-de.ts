@@ -3505,6 +3505,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-sostenibilita-csr-camera-commercio.title': 'Varese: Hauptstadt der Nachhaltigkeit',
     'blog.article.varese-sostenibilita-csr-camera-commercio.excerpt': 'Die Messe für CSR und soziale Innovation findet in Varese statt, mit Fokus auf Kreislaufwirtschaft und Wettbewerbsvorteile für Unternehmen.',
     'blog.article.varese-sostenibilita-csr-camera-commercio.imageAlt': 'Handelskammer Varese, Nachhaltigkeitskonferenz',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.title': 'Lombardei: 30 Millionen für das Quartier, das die Stromrechnungen revolutioniert',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.excerpt': 'Eine Investition von 30 Millionen für das Quartier Livorno Parco in Brescia, mit Einsparungen von bis zu 60 % bei den Energierechnungen.',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.imageAlt': 'Moderne Wohnanlage in der Lombardei mit energieeffizienten Merkmalen',
 };
 
 export default blogMetaDe;

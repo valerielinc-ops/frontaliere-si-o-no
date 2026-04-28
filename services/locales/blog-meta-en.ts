@@ -3505,6 +3505,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-sostenibilita-csr-camera-commercio.title': 'Varese: capital of sustainability and social innovation',
     'blog.article.varese-sostenibilita-csr-camera-commercio.excerpt': 'The CSR and Social Innovation Fair lands in Varese with a focus on circular ecosystem and competitive advantages for businesses.',
     'blog.article.varese-sostenibilita-csr-camera-commercio.imageAlt': 'Varese Chamber of Commerce, sustainability conference',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.title': 'Lombardy: 30 million for the neighborhood that revolutionizes bills',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.excerpt': 'A 30 million investment for the Livorno Parco neighborhood in Brescia, with savings of up to 60% on energy bills.',
+    'blog.article.lombardia-30-milioni-quartiere-efficientamento.imageAlt': 'Modern residential complex in Lombardy with energy-efficient features',
 };
 
 export default blogMetaEn;
