@@ -3397,6 +3397,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bilancio-val-mara-2025-avanzamento-616mila.title': 'Val Mara: 2025 surplus of 616k francs',
     'blog.article.bilancio-val-mara-2025-avanzamento-616mila.excerpt': 'The municipality of Val Mara closes 2025 with a surplus of 616,000 francs, exceeding negative forecasts. Targeted investments and stable tax pressure at 80%.',
     'blog.article.bilancio-val-mara-2025-avanzamento-616mila.imageAlt': 'Aerial view of Val Mara, Ticino, Switzerland, with the towns of Maroggia, Melano, and Rovio',
+    'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.title': 'Villa San Giuseppe KOS: new cardio-metabolic clinic',
+    'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.excerpt': 'In Anzano del Parco, at the Villa San Giuseppe KOS Clinic, a new outpatient clinic dedicated to cardiovascular and metabolic health is now active.',
+    'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.imageAlt': 'Modern medical clinic by Lake Lugano, Ticino',
 };
 
 export default blogMetaEn;

@@ -3398,6 +3398,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bilancio-val-mara-2025-avanzamento-616mila.title': 'Val Mara: bilancio 2025 in avanzo di 616mila franchi',
     'blog.article.bilancio-val-mara-2025-avanzamento-616mila.excerpt': 'Il Comune di Val Mara chiude il 2025 con un avanzo di 616mila franchi, superando le previsioni negative. Investimenti mirati e pressione fiscale stabile all\'80%.',
     'blog.article.bilancio-val-mara-2025-avanzamento-616mila.imageAlt': 'Vista aerea di Val Mara, Ticino, Svizzera, con i comuni di Maroggia, Melano e Rovio',
+    'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.title': 'Villa San Giuseppe KOS: nuovo ambulatorio cardio-metabolico',
+    'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.excerpt': 'A Anzano del Parco, presso la Clinica Villa San Giuseppe KOS, è attivo un nuovo ambulatorio dedicato alla salute cardiovascolare e metabolica.',
+    'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.imageAlt': 'Clinica medica moderna sul lago di Lugano, Ticino',
 };
 
 export default blogMetaIt;

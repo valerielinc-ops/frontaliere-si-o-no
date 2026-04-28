@@ -3397,6 +3397,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bilancio-val-mara-2025-avanzamento-616mila.title': 'Val Mara: Haushalt 2025 mit 616.000 Franken Überschuss',
     'blog.article.bilancio-val-mara-2025-avanzamento-616mila.excerpt': 'Die Gemeinde Val Mara schließt das Jahr 2025 mit einem Überschuss von 616.000 Franken ab und übertrifft die negativen Prognosen. Gezielte Investitionen und stabile Steuerbelastung von 80%.',
     'blog.article.bilancio-val-mara-2025-avanzamento-616mila.imageAlt': 'Luftaufnahme von Val Mara, Tessin, Schweiz, mit den Gemeinden Maroggia, Melano und Rovio',
+    'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.title': 'Villa San Giuseppe KOS: neue kardiometabolische Ambulanz',
+    'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.excerpt': 'In Anzano del Parco, in der Klinik Villa San Giuseppe KOS, ist eine neue Ambulanz für die kardiovaskuläre und metabolische Gesundheit aktiv.',
+    'blog.article.ambulatorio-cardio-metabolico-villa-san-giuseppe.imageAlt': 'Moderne Klinik am Luganersee, Tessin',
 };
 
 export default blogMetaDe;

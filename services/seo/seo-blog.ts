@@ -19817,6 +19817,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ambulatorio-cardio-metabolico-villa-san-giuseppe': {
+    title: 'Villa San Giuseppe KOS: nuovo ambulatorio cardio-metabolico',
+    description: 'Scopri il nuovo ambulatorio cardio-metabolico presso la Clinica Villa San Giuseppe KOS ad Anzano del Parco. Servizio multidisciplinare per la salute',
+    keywords: 'frontalieri, ticino, svizzera, italia, villa, giuseppe, nuovo, ambulatorio',
+    ogTitle: 'Villa San Giuseppe KOS: nuovo ambulatorio cardio-metabolico',
+    ogDescription: 'Scopri il nuovo ambulatorio cardio-metabolico presso la Clinica Villa San Giuseppe KOS ad Anzano del Parco. Servizio multidisciplinare per la salute',
+    canonicalPath: '/articoli-frontaliere/ambulatorio-cardio-metabolico-villa-san-giuseppe',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Villa San Giuseppe KOS: nuovo ambulatorio cardio-metabolico",
+      "description": "Scopri il nuovo ambulatorio cardio-metabolico presso la Clinica Villa San Giuseppe KOS ad Anzano del Parco. Servizio multidisciplinare per la salute",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ambulatorio-cardio-metabolico-villa-san-giuseppe.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Clinica medica moderna sul lago di Lugano, Ticino"
+      },
+      "datePublished": "2026-04-28T16:09:16+00:00",
+      "dateModified": "2026-04-28T16:09:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ambulatorio-cardio-metabolico-villa-san-giuseppe`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -8939,4 +8939,11 @@ export const ARTICLES = [
  image: '/images/blog/bilancio-val-mara-2025-avanzamento-616mila.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ambulatorio-cardio-metabolico-villa-san-giuseppe',
+ category: 'novita',
+ date: '2026-04-28T16:09:16.732Z',
+ image: '/images/blog/ambulatorio-cardio-metabolico-villa-san-giuseppe.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
