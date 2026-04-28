@@ -3190,6 +3190,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.title': 'Self-employed and cross-border workers remain low',
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.excerpt': 'The number of companies notified in Ticino remains stable, but AIC warns: don\'t let your guard down',
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.title': 'Bcc Busto Garolfo: 14.4 million profit and 2 million for the area',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.excerpt': 'The shareholders\' meeting approves the 2025 budget with a net profit of 14.4 million and 2 million allocated for the area',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.imageAlt': 'Aerial view of Lugano with lake and clear sky',
 };
 
 export default blogMetaEn;

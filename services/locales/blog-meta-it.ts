@@ -3191,6 +3191,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.title': 'Padroncini e lavoratori distaccati stabili su livelli bassi',
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.excerpt': 'Il numero di ditte notificate in Ticino rimane stabile, ma l\'AIC avverte: non abbassare la guardia',
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.imageAlt': 'Vista aerea del Lago di Lugano con montagne del Ticino sullo sfondo',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.title': 'Bcc Busto Garolfo: 14,4 milioni di utile e 2 milioni per il territorio',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.excerpt': 'L\'assemblea dei soci approva il bilancio 2025 con un utile netto di 14,4 milioni e 2 milioni destinati al territorio',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.imageAlt': 'Vista aerea di Lugano con lago e cielo sereno',
 };
 
 export default blogMetaIt;

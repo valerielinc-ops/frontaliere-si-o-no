@@ -17816,6 +17816,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bcc-busto-garolfo-2-milioni-territorio': {
+    title: 'Bcc Busto Garolfo: 14,4 milioni di utile e 2 milioni per il territorio',
+    description: 'L\'assemblea dei soci approva il bilancio 2025 con un utile netto di 14,4 milioni e 2 milioni destinati al territorio. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, busto, garolfo, milioni, utile',
+    ogTitle: 'Bcc Busto Garolfo: 14,4 milioni di utile e 2 milioni per il territorio',
+    ogDescription: 'L\'assemblea dei soci approva il bilancio 2025 con un utile netto di 14,4 milioni e 2 milioni destinati al territorio',
+    canonicalPath: '/articoli-frontaliere/bcc-busto-garolfo-2-milioni-territorio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bcc Busto Garolfo: 14,4 milioni di utile e 2 milioni per il territorio",
+      "description": "L'assemblea dei soci approva il bilancio 2025 con un utile netto di 14,4 milioni e 2 milioni destinati al territorio. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bcc-busto-garolfo-2-milioni-territorio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con lago e cielo sereno"
+      },
+      "datePublished": "2026-04-28T05:10:53+00:00",
+      "dateModified": "2026-04-28T05:10:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bcc-busto-garolfo-2-milioni-territorio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

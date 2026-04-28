@@ -2324,6 +2324,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-calimero-sindrome-2026': { name: 'Novità', path: '/articoli-frontaliere/ticino-calimero-sindrome-2026', parent: 'blog' },
     'blog-salario-minimo-mediano-ticino-2026': { name: 'Salari Ticino', path: '/articoli-frontaliere/salario-minimo-mediano-ticino-2026', parent: 'blog' },
     'blog-padroncini-lavoratori-stabili-bassi-2025': { name: 'Novità', path: '/articoli-frontaliere/padroncini-lavoratori-stabili-bassi-2025', parent: 'blog' },
+    'blog-bcc-busto-garolfo-2-milioni-territorio': { name: 'Novità', path: '/articoli-frontaliere/bcc-busto-garolfo-2-milioni-territorio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

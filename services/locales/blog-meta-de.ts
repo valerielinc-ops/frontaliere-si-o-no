@@ -3190,6 +3190,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.title': 'Arbeitnehmer und entsandte Arbeiter auf niedrigem Niveau',
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.excerpt': 'Die Anzahl der gemeldeten Unternehmen im Tessin bleibt stabil, aber die AIC warnt: die Wachsamkeit nicht senken',
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.imageAlt': 'Luftaufnahme des Luganersees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.title': 'Bcc Busto Garolfo: 14,4 Mio. Gewinn und 2 Mio. für die Region',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.excerpt': 'Die Generalversammlung genehmigt den Jahresabschluss 2025 mit einem Nettogewinn von 14,4 Millionen und 2 Millionen für die Region',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.imageAlt': 'Luftaufnahme von Lugano mit See und klarem Himmel',
 };
 
 export default blogMetaDe;

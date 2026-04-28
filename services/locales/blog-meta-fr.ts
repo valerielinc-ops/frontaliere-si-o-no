@@ -3191,6 +3191,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.title': 'Patrons et travailleurs frontaliers à des niveaux bas',
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.excerpt': 'Le nombre d\'entreprises notifiées dans le canton du Ticino reste stable, mais l\'AIC avertit : ne pas baisser la garde',
     'blog.article.padroncini-lavoratori-stabili-bassi-2025.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.title': 'Bcc Busto Garolfo : 14,4 millions de bénéfice et 2 millions pour le territoire',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.excerpt': 'L\'assemblée des sociétaires approuve le bilan 2025 avec un bénéfice net de 14,4 millions et 2 millions destinés au territoire',
+    'blog.article.bcc-busto-garolfo-2-milioni-territorio.imageAlt': 'Vue aérienne de Lugano avec lac et ciel dégagé',
 };
 
 export default blogMetaFr;

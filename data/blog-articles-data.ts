@@ -8456,4 +8456,11 @@ export const ARTICLES = [
  image: '/images/blog/padroncini-lavoratori-stabili-bassi-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bcc-busto-garolfo-2-milioni-territorio',
+ category: 'novita',
+ date: '2026-04-28T05:10:53.475Z',
+ image: '/images/blog/bcc-busto-garolfo-2-milioni-territorio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
