@@ -263,6 +263,127 @@ a.seo-entity-card:focus-visible {
   outline-offset: 2px;
 }
 
+/* ── Footer SEO content blocks (homepage / calculator / job-board) ──────────
+   Substantive prerendered content injected as sibling of #root so React
+   hydration leaves it untouched. Sits below the footer; presented as a
+   minimal collapsible "Approfondimenti" panel via native <details>/<summary>
+   so the visual footprint stays small while the content remains fully
+   indexable by search engines. Colors use design-token CSS vars so the
+   block auto-adapts to dark mode. */
+aside.seo-footer-block {
+  max-width: 1100px;
+  margin: 24px auto 56px;
+  padding: 0 20px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-body);
+  line-height: 1.65;
+  border-top: 1px solid var(--color-edge);
+  padding-top: 24px;
+}
+aside.seo-footer-block .seo-fb-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0 0 10px;
+}
+aside.seo-footer-block .seo-fb-intro {
+  font-size: 14px;
+  color: var(--color-subtle);
+  margin: 0 0 16px;
+  max-width: 70ch;
+}
+aside.seo-footer-block details {
+  border-top: 1px solid var(--color-edge);
+}
+aside.seo-footer-block details:first-of-type {
+  border-top: none;
+}
+aside.seo-footer-block summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-heading);
+  list-style: none;
+  padding: 12px 32px 12px 0;
+  position: relative;
+  user-select: none;
+}
+aside.seo-footer-block summary::-webkit-details-marker { display: none; }
+aside.seo-footer-block summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-subtle);
+}
+aside.seo-footer-block details[open] summary::after { content: "−"; }
+aside.seo-footer-block summary:hover { color: var(--color-link); }
+aside.seo-footer-block summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+aside.seo-footer-block .seo-fb-section-body {
+  padding: 4px 0 18px;
+  color: var(--color-body);
+}
+aside.seo-footer-block .seo-fb-section-body p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-body);
+}
+aside.seo-footer-block .seo-fb-section-body p:last-child { margin-bottom: 0; }
+aside.seo-footer-block .seo-fb-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 0 0 14px;
+}
+aside.seo-footer-block .seo-fb-card {
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-edge);
+  border-radius: 12px;
+  padding: 14px;
+}
+aside.seo-footer-block .seo-fb-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--color-heading);
+}
+aside.seo-footer-block .seo-fb-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-body);
+  line-height: 1.5;
+}
+aside.seo-footer-block dl { margin: 0; }
+aside.seo-footer-block dt {
+  font-weight: 600;
+  color: var(--color-heading);
+  margin: 12px 0 4px;
+  font-size: 14px;
+}
+aside.seo-footer-block dt:first-child { margin-top: 0; }
+aside.seo-footer-block dd {
+  margin: 0 0 12px;
+  color: var(--color-body);
+  font-size: 14px;
+  line-height: 1.65;
+}
+aside.seo-footer-block .seo-fb-disclaimer {
+  margin: 18px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-edge);
+  font-size: 12px;
+  color: var(--color-subtle);
+  font-style: italic;
+}
+
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 

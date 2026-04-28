@@ -404,10 +404,63 @@ const HOMEPAGE_SEO_BLOCK_HTML: Record<HpSeoLocale, string> = {
  fr: `<aside id="hp-seo-block" style="max-width:1100px;margin:32px auto 56px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#334155;line-height:1.65" aria-labelledby="hpSeoTitle"><h2 id="hpSeoTitle" style="font-size:24px;font-weight:700;color:#0f172a;margin:0 0 14px">Ce qu'est Frontaliere Ticino et à qui il s'adresse</h2><p style="margin:0 0 14px">Frontaliere Ticino est le guide en ligne destiné aux travailleurs italiens qui traversent quotidiennement la frontière pour travailler au Canton du Tessin ou ailleurs en Suisse. Le site propose des simulateurs fiscaux, des comparateurs de services (caisses maladie, banques, opérateurs mobiles, coût de la vie), un tableau d'offres avec plus de 1 000 postes actifs, des statistiques cantonales en temps réel et une archive éditoriale de guides pratiques sur le permis G, l'accord fiscal 2024, l'AVS/LPP, les "ristorni", la santé transfrontalière et le pendulaire. Toutes les données sont rafraîchies automatiquement depuis des sources officielles (OFSP/BAG, USTAT, MIMIT, BAZG, TCS) et les principaux ATS des entreprises du canton.</p><h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:24px 0 12px">Quatre outils pour tous les frontaliers</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 22px"><div style="background:#f1f5f9;border-radius:12px;padding:16px"><h3 style="font-size:15px;font-weight:700;margin:0 0 6px;color:#1e293b">Simulateur de salaire</h3><p style="margin:0;font-size:14px">Calcul brut-net avec impôt à la source cantonal, AVS-AI-APG, AC et LPP, plus une estimation IRPEF italienne sous le régime concurrent 2024 (crédit d'impôt jusqu'à 80 %).</p></div><div style="background:#f1f5f9;border-radius:12px;padding:16px"><h3 style="font-size:15px;font-weight:700;margin:0 0 6px;color:#1e293b">Comparateur d'assurance</h3><p style="margin:0;font-size:14px">Primes LAMal mises à jour chaque année par canton, tranche d'âge et modèle (standard, médecin de famille, telmed, HMO) avec franchise de CHF 300 à 2 500.</p></div><div style="background:#f1f5f9;border-radius:12px;padding:16px"><h3 style="font-size:15px;font-weight:700;margin:0 0 6px;color:#1e293b">Tableau d'offres tessinois</h3><p style="margin:0;font-size:14px">Annonces rafraîchies quotidiennement depuis 40+ ATS d'entreprise et portails officiels, dédupliquées, chacune avec page détail et lien direct vers le canal de candidature officiel.</p></div><div style="background:#f1f5f9;border-radius:12px;padding:16px"><h3 style="font-size:15px;font-weight:700;margin:0 0 6px;color:#1e293b">Temps d'attente aux frontières</h3><p style="margin:0;font-size:14px">Files en direct à Brogeda, Chiasso, Stabio, Gaggiolo, Ponte Tresa avec patrons horaires et hebdomadaires des 30 derniers jours, plus webcams BAZG en direct lorsque disponibles.</p></div></div><h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:24px 0 12px">Questions fréquentes des frontaliers</h2><dl style="margin:0 0 22px"><dt style="font-weight:600;color:#0f172a;margin-bottom:4px">Qui est considéré comme frontalier au sens de l'accord 2024 ?</dt><dd style="margin:0 0 14px">Le frontalier est un résident italien d'une commune située dans la zone frontière des 20 km (Lombardie ou Piémont), employé en Suisse par un employeur basé dans un canton frontalier (Tessin, Grisons, Valais), et qui rentre au domicile italien au moins une fois par semaine. Les "anciens frontaliers" (engagés avant le 17 juillet 2023) restent imposés uniquement en Suisse ; les "nouveaux" relèvent du régime concurrent avec imposition aussi en Italie, compensée par un crédit d'impôt italien sur la retenue suisse à hauteur de 80 %.</dd><dt style="font-weight:600;color:#0f172a;margin-bottom:4px">Quel est le salaire net réel ?</dt><dd style="margin:0 0 14px">Sur le brut suisse l'employeur retient l'impôt à la source (5-19 % au Canton du Tessin selon revenu, état civil, personnes à charge), AVS-AI-APG (5,3 %), AC (1,1 % jusqu'à CHF 148'200/an) et LPP (7-18 % selon l'âge), pour un écart brut-net typique de 18-28 %. Les nouveaux frontaliers paient en plus l'IRPEF italienne — 23 à 43 % au-delà de € 50 000 — net du crédit sur la retenue suisse. Le simulateur de salaire effectue le calcul par âge, état civil, enfants et canton de travail.</dd><dt style="font-weight:600;color:#0f172a;margin-bottom:4px">LAMal suisse ou rester au SSN italien ?</dt><dd style="margin:0 0 14px">Le droit d'option doit être exercé dans les 3 mois suivant le début du travail. Pour les profils jeunes en bonne santé, le SSN italien est généralement plus avantageux (prime moindre, même réseau italien) ; pour les familles avec enfants, les actifs de plus de 50 ans ou souffrant de maladies chroniques, la LAMal offre des temps d'accès plus courts et un réseau local plus réactif, à une prime mensuelle de CHF 350-500 par adulte. Le comparateur LAMal calcule la prime exacte pour votre canton et tranche d'âge.</dd><dt style="font-weight:600;color:#0f172a;margin-bottom:4px">Comment trouver un emploi au Tessin en tant que frontalier ?</dt><dd style="margin:0 0 14px">Trois canaux principaux : les portails agrégateurs (jobup.ch, jobs.ch, indeed.ch et notre tableau d'offres), les pages carrières des entreprises (Lonza, Helsinn, Medacta, BancaStato, Migros Ticino, etc.) et la candidature spontanée, particulièrement efficace auprès des PME tessinoises qui n'annoncent pas toujours. Le tableau d'offres surveille 40+ employeurs et classe chaque semaine delta + ranking dans "entreprises qui recrutent" ; utilisez la fiche entreprise pour les notes propres aux frontaliers (permis G, lieu, secteurs, contrats).</dd><dt style="font-weight:600;color:#0f172a;margin-bottom:4px">Combien coûte le pendulaire ?</dt><dd style="margin:0 0 14px">Pour un trajet typique Côme/Varèse-Lugano (60-90 km/jour), le carburant mensuel s'élève à 130-180 EUR (200 litres × prix de l'essence) ; les péages d'autoroute italienne et les abonnements ferroviaires tessinois s'ajoutent (CHF 45-150/mois). Ajoutez 30 minutes de file moyenne au passage × 4 semaines = ~2 heures/mois de coût-temps (≈ 25-35 EUR pour un brut de CHF 4 000-6 000/mois). Les pages "temps d'attente aux frontières" et "prix carburant" permettent de planifier la journée pour minimiser les deux.</dd></dl><h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:24px 0 12px">D'où viennent nos données</h2><p style="margin:0 0 14px">Les simulations fiscales s'appuient sur les barèmes officiels d'impôt à la source du Canton du Tessin (DT) et des autres cantons concernés, mis à jour chaque année ; les primes LAMal viennent de la base BAG/OFSP publiée fin septembre pour l'année suivante ; les statistiques d'emploi proviennent de l'USTAT (office cantonal de statistique du Tessin) et de l'OFS fédéral ; les prix carburant en direct combinent le flux TCS Benzinpreis côté suisse et MIMIT-Osservaprezzi côté italien ; les temps d'attente aux frontières viennent de la pipeline BAZG + API TomTom Traffic. Toutes les données sont rafraîchies à chaque déploiement (4-8 par jour) et archivées pour le calcul des tendances.</p><p style="margin:0;font-size:14px;color:#64748b">Frontaliere Ticino est un projet éditorial indépendant, gratuit et sans publicité intrusive. Pour des questions spécifiques sur contrats, fiscalité ou démarches administratives, consultez toujours un fiduciaire ou un "patronato" — le site fournit des informations à but éducatif et ne remplace pas un conseil professionnel.</p></aside>`,
 };
 
+/**
+ * Transform the prerendered SEO block HTML into a compact, dark-mode-aware
+ * collapsible <details>/<summary> panel with class-based styling. Pure
+ * string transform — works on the existing HTML constants without touching
+ * the prose, so all 12 (3 blocks × 4 locales) sets of curated copy stay
+ * byte-identical for content, just re-wrapped visually.
+ */
+export function collapsifySeoBlock(html: string): string {
+ const SEC_OPEN = '\u0001SECOPEN\u0001';
+ const SEC_MID = '\u0001SECMID\u0001';
+ let out = html;
+
+ out = out.replace(
+  /<aside id="((?:hp|calc|jb)-seo-block)" style="[^"]*" aria-labelledby="([^"]+)">/,
+  '<aside id="$1" class="seo-footer-block" aria-labelledby="$2">',
+ );
+ out = out.replace(
+  /<h2 id="([^"]+SeoTitle)" style="[^"]*">/,
+  '<h2 id="$1" class="seo-fb-title">',
+ );
+ out = out.replace(
+  /<p style="margin:0;font-size:14px;color:#64748b">/g,
+  '<p class="seo-fb-disclaimer">',
+ );
+ out = out.replace(
+  /<h2 style="font-size:20px;font-weight:700;color:#0f172a;margin:24px 0 12px">([\s\S]*?)<\/h2>/g,
+  `${SEC_OPEN}$1${SEC_MID}`,
+ );
+ out = out.replace(/<(h3|p|dl|dt|dd) style="[^"]*"/g, '<$1');
+ out = out.replace(
+  /<div style="display:grid;grid-template-columns:repeat\(auto-fit,minmax\(220px,1fr\)\);gap:14px;margin:0 0 22px">/g,
+  '<div class="seo-fb-cards">',
+ );
+ out = out.replace(
+  /<div style="background:#f1f5f9;border-radius:12px;padding:16px">/g,
+  '<div class="seo-fb-card">',
+ );
+ out = out.replace(
+  /(<h2 id="[^"]+SeoTitle" class="seo-fb-title">[\s\S]*?<\/h2>\s*)<p>([\s\S]*?)<\/p>/,
+  '$1<p class="seo-fb-intro">$2</p>',
+ );
+ const detailsRegex = new RegExp(
+  `${SEC_OPEN}([\\s\\S]*?)${SEC_MID}([\\s\\S]*?)(?=${SEC_OPEN}|<p class="seo-fb-disclaimer"|</aside>)`,
+  'g',
+ );
+ out = out.replace(
+  detailsRegex,
+  '<details><summary>$1</summary><div class="seo-fb-section-body">$2</div></details>',
+ );
+
+ return out;
+}
+
 function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // Inject only once: skip if already present.
  if (html.includes('id="hp-seo-block"')) return html;
- const block = HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it;
+ const block = collapsifySeoBlock(HOMEPAGE_SEO_BLOCK_HTML[locale] ?? HOMEPAGE_SEO_BLOCK_HTML.it);
  // Place the block before </body> so it sits as a sibling of #root and is
  // not touched by React hydration. Falls back to no-op if no </body>.
  if (!html.includes('</body>')) return html;
@@ -429,7 +482,7 @@ const CALCULATOR_SEO_BLOCK_HTML: Record<HpSeoLocale, string> = {
 
 function injectCalculatorSeoContent(html: string, locale: HpSeoLocale): string {
  if (html.includes('id="calc-seo-block"')) return html;
- const block = CALCULATOR_SEO_BLOCK_HTML[locale] ?? CALCULATOR_SEO_BLOCK_HTML.it;
+ const block = collapsifySeoBlock(CALCULATOR_SEO_BLOCK_HTML[locale] ?? CALCULATOR_SEO_BLOCK_HTML.it);
  if (!html.includes('</body>')) return html;
  return html.replace('</body>', `${block}\n</body>`);
 }
@@ -449,7 +502,7 @@ const JOBBOARD_SEO_BLOCK_HTML: Record<HpSeoLocale, string> = {
 
 function injectJobboardSeoContent(html: string, locale: HpSeoLocale): string {
  if (html.includes('id="jb-seo-block"')) return html;
- const block = JOBBOARD_SEO_BLOCK_HTML[locale] ?? JOBBOARD_SEO_BLOCK_HTML.it;
+ const block = collapsifySeoBlock(JOBBOARD_SEO_BLOCK_HTML[locale] ?? JOBBOARD_SEO_BLOCK_HTML.it);
  if (!html.includes('</body>')) return html;
  return html.replace('</body>', `${block}\n</body>`);
 }
