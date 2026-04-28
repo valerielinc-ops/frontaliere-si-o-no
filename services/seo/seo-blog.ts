@@ -19440,6 +19440,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-zurigo-flessione-2026': {
+    title: 'Borse europee in flessione, Zurigo non decolla | Frontaliere Ticino',
+    description: 'Le borse europee mostrano una linea comune incerta, mentre Zurigo registra un listino primario in flessione. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, europee, flessione, zurigo',
+    ogTitle: 'Borse europee in flessione, Zurigo non decolla',
+    ogDescription: 'Le borse europee mostrano una linea comune incerta, mentre Zurigo registra un listino primario in flessione.',
+    canonicalPath: '/articoli-frontaliere/borse-zurigo-flessione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse europee in flessione, Zurigo non decolla",
+      "description": "Le borse europee mostrano una linea comune incerta, mentre Zurigo registra un listino primario in flessione. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/borse-zurigo-flessione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il Lago Ceresio e le montagne circostanti"
+      },
+      "datePublished": "2026-04-28T13:58:44+00:00",
+      "dateModified": "2026-04-28T13:58:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borse-zurigo-flessione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

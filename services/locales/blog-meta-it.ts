@@ -3359,6 +3359,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.momoride-carpooling-benefico-ticino-2024.title': 'MomòRide: la sfida di carpooling benefico in Ticino',
     'blog.article.momoride-carpooling-benefico-ticino-2024.excerpt': 'La prima sfida collettiva di carpooling a scopo benefico inizia il 1° maggio in Ticino, con l\'obiettivo di raccogliere punti per donare mille franchi.',
     'blog.article.momoride-carpooling-benefico-ticino-2024.imageAlt': 'Gruppo di persone in carpooling con vista sul Lago di Lugano',
+    'blog.article.borse-zurigo-flessione-2026.title': 'Borse europee in flessione, Zurigo non decolla',
+    'blog.article.borse-zurigo-flessione-2026.excerpt': 'Le borse europee mostrano una linea comune incerta, mentre Zurigo registra un listino primario in flessione.',
+    'blog.article.borse-zurigo-flessione-2026.imageAlt': 'Vista panoramica di Lugano con il Lago Ceresio e le montagne circostanti',
 };
 
 export default blogMetaIt;

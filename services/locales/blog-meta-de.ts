@@ -3358,6 +3358,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.momoride-carpooling-benefico-ticino-2024.title': 'MomòRide: Die Spenden-Carsharing-Challenge im Tessin',
     'blog.article.momoride-carpooling-benefico-ticino-2024.excerpt': 'Die erste kollektive Carsharing-Challenge für einen guten Zweck startet am 1. Mai im Tessin, mit dem Ziel, Punkte zu sammeln, um tausend Franken zu spenden.',
     'blog.article.momoride-carpooling-benefico-ticino-2024.imageAlt': 'Gruppe von Menschen im Fahrgemeinschaft mit Blick auf den Luganersee',
+    'blog.article.borse-zurigo-flessione-2026.title': 'Europäische Börsen schwächeln, Zürich stagniert',
+    'blog.article.borse-zurigo-flessione-2026.excerpt': 'Die europäischen Börsen zeigen eine gemeinsame unsichere Tendenz, während Zürich einen primären Kursrückgang verzeichnet.',
+    'blog.article.borse-zurigo-flessione-2026.imageAlt': 'Panoramablick auf Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

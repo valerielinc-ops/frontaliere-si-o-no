@@ -3358,6 +3358,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.momoride-carpooling-benefico-ticino-2024.title': 'MomòRide: Ticino\'s charity carpooling challenge',
     'blog.article.momoride-carpooling-benefico-ticino-2024.excerpt': 'The first collective carpooling challenge for charity starts on May 1st in Ticino, aiming to collect points to donate 1,000 francs.',
     'blog.article.momoride-carpooling-benefico-ticino-2024.imageAlt': 'Group of people carpooling with a view of Lake Lugano',
+    'blog.article.borse-zurigo-flessione-2026.title': 'European markets falter, Zurich struggles',
+    'blog.article.borse-zurigo-flessione-2026.excerpt': 'European markets show a common uncertain trend, while Zurich registers a primary list in decline.',
+    'blog.article.borse-zurigo-flessione-2026.imageAlt': 'Panoramic view of Lugano with Lake Ceresio and surrounding mountains',
 };
 
 export default blogMetaEn;

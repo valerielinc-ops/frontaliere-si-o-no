@@ -8848,4 +8848,11 @@ export const ARTICLES = [
  image: '/images/blog/momoride-carpooling-benefico-ticino-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'borse-zurigo-flessione-2026',
+ category: 'fiscale',
+ date: '2026-04-28T13:58:44.687Z',
+ image: '/images/blog/borse-zurigo-flessione-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

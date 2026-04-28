@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1169,
+ "numberOfItems": 1170,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5804,7 +5804,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1166, "name": "Infermieri Ticino: settimana lavorativa non acc...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-ticino-ore-lavorative-2026` },
           { "@type": "ListItem", "position": 1167, "name": "Dezonare terreni edificabili: emergenza per la ...", "url": `${BASE_URL}/articoli-frontaliere/dezonare-terreni-blenio-2026` },
           { "@type": "ListItem", "position": 1168, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/dfp-bankitalia-margini-debito-ue-2026` },
-          { "@type": "ListItem", "position": 1169, "name": "MomòRide: carpooling benefico in Ticino", "url": `${BASE_URL}/articoli-frontaliere/momoride-carpooling-benefico-ticino-2024` }
+          { "@type": "ListItem", "position": 1169, "name": "MomòRide: carpooling benefico in Ticino", "url": `${BASE_URL}/articoli-frontaliere/momoride-carpooling-benefico-ticino-2024` },
+          { "@type": "ListItem", "position": 1170, "name": "Borse europee in flessione, Zurigo non decolla", "url": `${BASE_URL}/articoli-frontaliere/borse-zurigo-flessione-2026` }
  ]
  },
  {

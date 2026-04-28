@@ -3359,6 +3359,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.momoride-carpooling-benefico-ticino-2024.title': 'MomòRide: le défi de covoiturage solidaire en Suisse',
     'blog.article.momoride-carpooling-benefico-ticino-2024.excerpt': 'Le premier défi collectif de covoiturage à but solidaire commence le 1er mai en Suisse, avec l\'objectif de collecter des points pour offrir mille francs.',
     'blog.article.momoride-carpooling-benefico-ticino-2024.imageAlt': 'Groupe de personnes en covoiturage avec vue sur le lac de Lugano',
+    'blog.article.borse-zurigo-flessione-2026.title': 'Bourses européennes en baisse, Zurich ne décolle pas',
+    'blog.article.borse-zurigo-flessione-2026.excerpt': 'Les bourses européennes affichent une tendance incertaine, tandis que Zurich enregistre un marché primaire en baisse.',
+    'blog.article.borse-zurigo-flessione-2026.imageAlt': 'Vue panoramique de Lugano avec le lac de Lugano et les montagnes environnantes',
 };
 
 export default blogMetaFr;
