@@ -48,6 +48,7 @@ import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { careerLandingsPlugin } from './build-plugins/careerLandingsPlugin';
 import { professionLandingsPlugin } from './build-plugins/professionLandingsPlugin';
 import { professionLandingsLinksPlugin } from './build-plugins/professionLandingsLinksPlugin';
+import { salaryHubIndexLinkPlugin } from './build-plugins/salaryHubIndexLinkPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
@@ -159,6 +160,13 @@ export default defineConfig(({ mode }) => {
  // the target HTML files already exist on disk. Idempotent via
  // `data-ae3-profession-links` marker.
  professionLandingsLinksPlugin(__dirname),
+ // Salary-hub orphan fix — patch the calculator hub (/calcola-stipendio/
+ // + 3 locale twins) with a single anchor to /calcola-stipendio/scenari/
+ // (and locale variants) so BFS from `/` reaches every one of the 1 732
+ // salary-hub scenario pages. Awaits explicit signals from
+ // staticPagesPlugin + salaryHubPlugin to avoid the parallel-flush race
+ // that previously bit professionLandingsLinksPlugin.
+ salaryHubIndexLinkPlugin(__dirname),
  llmsTxtPlugin(__dirname),
  webpPlugin(__dirname),
  pdfWhitepapersPlugin(__dirname),
