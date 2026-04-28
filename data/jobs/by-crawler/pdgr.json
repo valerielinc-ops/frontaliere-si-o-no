@@ -4335,12 +4335,12 @@
     },
     {
       "id": "pdgr-fef51ffa0c76",
-      "slug": "responsabile-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur",
+      "slug": "direttore-direttrice-di-centri-residenziali-membro-del-direttivo-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "de": "leiter-in-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur",
-        "it": "responsabile-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur",
-        "en": "leiter-in-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur",
-        "fr": "leiter-in-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur"
+        "it": "direttore-direttrice-di-centri-residenziali-membro-del-direttivo-psychiatrische-dienste-graubunden-chur",
+        "en": "director-of-residential-centers-member-of-the-executive-board-psychiatrische-dienste-graubunden-chur",
+        "fr": "directeur-directrice-de-centres-residentiels-membre-du-conseil-d-administration-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -4390,14 +4390,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-heimzentren-mitglied-der-geschaftsleitung-pdgr-ch"
+          "leiter-in-heimzentren-mitglied-der-geschaftsleitung-pdgr-ch",
+          "responsabile-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
           "leiter-in-heimzentren-mitglied-der-geschaftsleitung-pdgr-ch"
+        ],
+        "en": [
+          "leiter-in-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur"
+        ],
+        "fr": [
+          "leiter-in-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "leiter-in-heimzentren-mitglied-der-geschaftsleitung-pdgr-ch"
+        "leiter-in-heimzentren-mitglied-der-geschaftsleitung-pdgr-ch",
+        "responsabile-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur",
+        "leiter-in-heimzentren-mitglied-der-geschaftsleitung-psychiatrische-dienste-graubunden-chur"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
