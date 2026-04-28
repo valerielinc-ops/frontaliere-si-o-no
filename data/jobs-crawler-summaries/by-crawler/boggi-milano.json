@@ -1,16 +1,16 @@
 {
   "key": "boggi-milano",
   "label": "Boggi Milano",
-  "generatedAt": "2026-04-27T21:22:19.070Z",
+  "generatedAt": "2026-04-28T10:26:23.813Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 30210,
-  "avgDurationMs": 30210,
+  "durationMs": 4301,
+  "avgDurationMs": 4301,
   "durationHistory": [
-    30210
+    4301
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -126,44 +126,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Cercasi Neolaureato/a in Ingegneria Gestionale per stage in ambito Purchasing",
-      "slug": "cercasi-neolaureato-a-in-ingegneria-gestionale-per-stage-in-ambito-purchasing-boggi-milano-mendrisio-ticino",
-      "url": "https://boggimilano1.recruitee.com/l/it/o/cercasi-neolaureatoa-in-ingegneria-gestionale-per-stage-in-ambito-purchasing",
-      "applyUrl": "https://boggimilano1.recruitee.com/o/cercasi-neolaureatoa-in-ingegneria-gestionale-per-stage-in-ambito-purchasing/c/new",
-      "company": "Boggi Milano",
-      "companyKey": "boggi-milano",
-      "companyDomain": "recruitee.com",
-      "location": "Mendrisio, Ticino",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "internship",
-      "sector": "Moda & Retail",
-      "source": "boggi-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2025-11-26",
-      "employmentType": "internship",
-      "contractType": "internship",
-      "validThrough": "",
-      "id": "boggi-milano-25076f81f261",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Via A. Maspoli 18",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-04-13T21:15:19.174Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
