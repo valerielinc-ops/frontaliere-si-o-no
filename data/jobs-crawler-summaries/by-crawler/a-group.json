@@ -1,56 +1,19 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-04-28T10:09:13.482Z",
+  "generatedAt": "2026-04-28T21:08:48.159Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 2664,
-  "avgDurationMs": 2664,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 2929,
+  "avgDurationMs": 2929,
   "durationHistory": [
-    2664
+    2929
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Consulente Legal Jr.",
-      "slug": "consulente-legal-jr-a-plus-plus-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/consulente-legal-jr-698911/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/consulente-legal-jr-698911/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "architecture",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "a-group-6cbebae3da1d",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T20:58:04.592Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "title": "Real Estate Project Manager",
       "slug": "real-estate-project-manager-a-plus-plus-group-massagno",
@@ -89,12 +52,13 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Ingegnere edile Jr.",
-      "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
+      "title": "Consulente Legal Jr.",
+      "slug": "consulente-legal-jr-a-plus-plus-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/consulente-legal-jr-698911/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/consulente-legal-jr-698911/en/",
       "company": "A++ Group",
       "companyKey": "a-group",
       "companyDomain": "a2plus.green",
@@ -106,27 +70,26 @@
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "category": "tech",
+      "category": "architecture",
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-27",
+      "postedDate": "2026-04-28",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 55500,
-      "salaryMax": 75500,
+      "id": "a-group-6cbebae3da1d",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "currency": "CHF",
-      "id": "a-group-95bf228f7209",
       "firstSeenAt": "2026-04-13T20:58:04.592Z",
-      "_qualityScore": 97,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
+        "richness": 10,
         "translation": 25,
         "completeness": 25
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
