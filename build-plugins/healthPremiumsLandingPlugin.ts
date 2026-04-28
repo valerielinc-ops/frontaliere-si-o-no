@@ -588,6 +588,53 @@ interface HubCopy {
     title: string;
     body: (year: number) => string;
   };
+  /**
+   * Root-hub frontaliere deep dive — opt-out, CMU/SSN trade-off, family
+   * coverage, and the formal "right of option" deadline. Adds substantial
+   * topic-relevant prose to the root landing so the EN/DE/FR root pages
+   * (which had the leanest ratios pre-fix at 9.8-10.5%) clear the 10% gate
+   * with margin and the IT root mirrors the lift.
+   */
+  rootFrontalierGuide: {
+    title: string;
+    intro: string;
+    bullets: ReadonlyArray<{ heading: string; body: string }>;
+  };
+  /**
+   * Root-hub deductible / model trade-off methodology block.  Explains how
+   * the four LAMal models (standard, family-doctor, telmed, HMO) and the
+   * five deductible tiers compose monthly cost so readers understand why
+   * the median number on each canton page is just the starting point.
+   */
+  rootDeductibleAndModelGuide: {
+    title: string;
+    body: string;
+    bullets: ReadonlyArray<{ heading: string; body: string }>;
+  };
+  /**
+   * Per-canton supplementary methodology block. Discusses the four cost
+   * levers (region, model, deductible, fund) with a concrete monthly-saving
+   * scenario that uses the canton's median premium as the anchor. Pushes
+   * sparse-data canton hubs (Uri / Zug at ~11% pre-fix) safely above the
+   * 10% Semrush gate while staying coherent with the page topic.
+   */
+  cantonDeductibleGuide: {
+    title: string;
+    body: (canton: string, median: string) => string;
+    bullets: ReadonlyArray<{ heading: string; body: string }>;
+  };
+  /**
+   * Per-canton frontaliere-only block — the formal opt-out form, the
+   * 3-month exercise window, the CMU/SSN comparison, dependants, and what
+   * the median premium implies for a cross-border household budget. Anchored
+   * with locale-aware copy so DE/FR canton hubs (which were leanest) inherit
+   * the same lift as IT/EN.
+   */
+  cantonFrontalierGuide: {
+    title: string;
+    body: (canton: string) => string;
+    bullets: ReadonlyArray<{ heading: string; body: string }>;
+  };
 }
 
 const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
@@ -923,6 +970,110 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       body: (y) =>
         `I premi LAMal sono fissati a livello cantonale, non federale: il Consiglio federale approva ogni autunno le tariffe presentate dalle casse, che variano per cantone e per regione premio interna al cantone. Per il ${y} la differenza fra il cantone più caro (Ginevra) e quelli più economici della Svizzera centrale supera spesso i 100 CHF/mese per un adulto. Quando confronti due cantoni controlla sempre tre cose: il numero di regioni premio (Ticino e Sciaffusa hanno una sola regione, Grigioni e Vallese ne hanno tre con prezzi che differiscono fino a 25 CHF/mese), il mix di modelli disponibili (Hausarzt o telmed sono più diffusi nei cantoni germanofoni e tagliano il premio del 10-22 %), e la qualità della rete ospedaliera del cantone, perché un ricovero fuori cantone richiede l'autorizzazione preventiva della cassa o del cantone di domicilio. Per chi è frontaliere conta anche la presenza di centri sanitari vicini al confine: chi sceglie la LAMal si appoggia agli ospedali svizzeri del cantone di lavoro, mentre chi opta per il SSN italiano resta coperto dal proprio servizio regionale di residenza, con accesso ai medici svizzeri solo a tariffa privata. Le pagine cantonali in basso forniscono mediana, minimo, massimo e ranking completo delle casse per ogni fascia d'età, aggiornati annualmente con i dati ufficiali UFSP/BAG.`,
     },
+    rootFrontalierGuide: {
+      title: 'Frontalieri: LAMal, SSN o CMU? Come scegliere',
+      intro:
+        "Il frontaliere italiano che lavora in Svizzera è soggetto a un obbligo assicurativo svizzero ma può rinunciarvi attraverso il diritto di opzione, formalizzato con il modulo cantonale dell'autorità sanitaria di vigilanza entro tre mesi dall'inizio dell'attività. La scelta non è solo finanziaria: incide sulla rete dei fornitori, sulle franchigie disponibili, sulla copertura familiare e sulla deducibilità fiscale dei premi. Le quattro variabili di seguito riassumono le differenze più rilevanti per chi sta valutando se confermare o meno l'opzione SSN.",
+      bullets: [
+        {
+          heading: 'Costo lordo annuale',
+          body: 'La LAMal svizzera ha un costo annuo fisso pari a 12 mensilità del premio cantonale (esempio in Ticino 31-45 anni: circa 4.300-5.200 CHF/anno). Il SSN italiano costa il 7,5 % del reddito imponibile fino a un massimale annuo aggiornato annualmente dal Ministero della Salute. Per chi guadagna meno di 80.000 CHF lordi, l\'opzione SSN è quasi sempre la scelta meno cara; sopra i 100.000 CHF il calcolo si inverte.',
+        },
+        {
+          heading: 'Rete dei fornitori',
+          body: 'Con la LAMal accedi all\'intera rete ospedaliera svizzera del cantone di lavoro (a Bellinzona EOC, a Lugano Civico, a Mendrisio OBV) con franchigia minima 300 CHF/anno. Con il SSN italiano resti coperto dal servizio sanitario regionale e accedi al sistema svizzero solo a tariffa privata: la visita specialistica può costare 200-400 CHF se non passi attraverso una struttura convenzionata transfrontaliera.',
+        },
+        {
+          heading: 'Copertura familiare',
+          body: 'In Svizzera ogni componente del nucleo è assicurato individualmente: il coniuge non lavoratore e i figli pagano premi separati (sconti per minori e giovani adulti previsti dalla legge). In Italia la copertura SSN è familiare e i figli minorenni risultano automaticamente assistiti senza contributi addizionali — vantaggio significativo per famiglie con 2-3 figli.',
+        },
+        {
+          heading: 'Deducibilità fiscale',
+          body: 'I premi LAMal sono integralmente deducibili dall\'imponibile cantonale e federale svizzero (con tetto cantonale variabile). Il contributo SSN del frontaliere non è deducibile dal 730 italiano (è un onere obbligatorio non opzionale) ma riduce la base imponibile per via dell\'accordo bilaterale. Per chi paga in fascia IRPEF 38-43 % la LAMal recupera 1.500-2.500 CHF/anno netti — un parametro che cambia il confronto puro CHF.',
+        },
+        {
+          heading: 'Scadenze e revoca',
+          body: "Il diritto di opzione va esercitato entro 90 giorni dall'inizio del rapporto di lavoro o dal trasferimento di residenza in Italia. La revoca è ammessa solo in casi tassativi: nascita di un figlio, matrimonio con persona iscritta a regime diverso, perdita del posto di lavoro, trasferimento del datore di lavoro in altro cantone. Pianifica la scelta entro le prime 8 settimane di attività per non lasciar scattare la copertura LAMal d'ufficio: il premio retroattivo è dovuto integralmente.",
+        },
+      ],
+    },
+    rootDeductibleAndModelGuide: {
+      title: 'Modelli LAMal, franchigie e leve di risparmio',
+      body:
+        'Sotto l\'etichetta unica "premio LAMal" si nascondono otto combinazioni di prodotto che la stessa cassa offre per la stessa persona: quattro modelli (standard, Hausarzt, telmed, HMO) e cinque franchigie annue per gli adulti (300, 500, 1.000, 1.500, 2.500 CHF). La mediana che pubblichiamo per ogni cantone si riferisce al modello standard con franchigia minima — il caso più caro. Selezionando le combinazioni alternative si può ridurre il premio fino al 50 % senza cambiare cassa, a patto di accettare il vincolo del medico di porta o di alzare la franchigia.',
+      bullets: [
+        {
+          heading: 'Modello Hausarzt / medico di famiglia',
+          body: 'Riduzione tipica 10-15 %. Devi designare un medico di base che funge da gatekeeper: senza la sua segnalazione la cassa non rimborsa visite specialistiche. Conviene se hai già un medico di fiducia nel cantone di lavoro e se prevedi pochi episodi acuti annuali.',
+        },
+        {
+          heading: 'Modello telmed / consulto telefonico',
+          body: 'Riduzione tipica 12-18 %. Prima di ogni visita devi chiamare un servizio di teleconsulto attivo 24/7 (Medi24, Medgate). L\'operatore decide se autorizzare la visita o suggerire un\'auto-cura. Il risparmio è massimo se sei giovane e in salute.',
+        },
+        {
+          heading: 'Modello HMO / centro medico convenzionato',
+          body: 'Riduzione tipica 18-22 %. Devi rivolgerti esclusivamente a un centro medico contrattualizzato dalla cassa (poliambulatorio); le specialistiche dentro il centro sono coperte senza segnalazione. Funziona bene nelle aree urbane (Lugano, Bellinzona, Locarno) dove la copertura HMO è densa.',
+        },
+        {
+          heading: 'Franchigia annua opzionale',
+          body: 'Da 300 a 2.500 CHF in cinque scaglioni. Ogni 500 CHF di franchigia in più riduce il premio di circa 7-10 %. Conviene quando il costo medio annuale di prestazioni LAMal è inferiore a 1.000 CHF: il break-even è a 5-6 visite mediche/anno con una piccola prescrizione.',
+        },
+        {
+          heading: 'Quota retributiva (10 %) e cap annuo',
+          body: 'Sopra la franchigia paghi il 10 % delle prestazioni fino a un massimo annuo di 700 CHF (adulti) o 350 CHF (minori). Sommando franchigia 300 + cap 700 il rischio massimo annuo è 1.000 CHF — una cifra utile per confrontare il modello più conveniente in base al numero di prestazioni mediche attese.',
+        },
+      ],
+    },
+    cantonDeductibleGuide: {
+      title: 'Quattro leve per ridurre il premio in questo cantone',
+      body: (c, m) =>
+        `La mediana di ${m} CHF/mese in ${c} corrisponde al modello standard con franchigia 300 CHF — il caso più caro fra le combinazioni disponibili. Cambiando una sola leva il premio cala fra il 7 e il 22 %; combinando modello + franchigia il risparmio annuo arriva fino a 1.200-1.800 CHF. La scelta migliore dipende dalla tua frequenza di utilizzo del sistema sanitario, non solo dal prezzo lordo.`,
+      bullets: [
+        {
+          heading: 'Regione premio interna al cantone',
+          body: 'Verifica nella documentazione della cassa o sul portale priminfo.admin.ch a quale regione premio appartiene il tuo comune di residenza/lavoro. In molti cantoni c\'è una differenza di 15-30 CHF/mese fra zona urbana e zona periferica per la stessa cassa e lo stesso modello.',
+        },
+        {
+          heading: 'Modello assicurativo',
+          body: 'Hausarzt e telmed sono ormai disponibili in quasi tutti i cantoni; HMO è denso solo nelle aree urbane. Se sei in salute e fai meno di 4 visite specialistiche/anno, telmed o HMO recuperano 30-50 CHF/mese senza compromettere la qualità delle cure.',
+        },
+        {
+          heading: 'Franchigia annua',
+          body: 'Una franchigia 2.500 CHF taglia il premio di circa 35-50 CHF/mese (420-600 CHF/anno) — conveniente se il costo annuo medio dei tuoi farmaci e visite è sotto i 1.000 CHF. Sopra i 50 anni e con patologie ricorrenti la franchigia minima 300 CHF resta la scelta razionale.',
+        },
+        {
+          heading: 'Cambio cassa annuale',
+          body: 'Le tariffe vengono pubblicate dal Consiglio federale fine settembre per il 1° gennaio successivo. Hai tempo fino al 30 novembre per disdire la polizza in corso. La differenza fra la cassa più cara e la più economica nello stesso cantone supera quasi sempre i 100 CHF/mese: il confronto annuale è la leva di risparmio più sottoutilizzata.',
+        },
+      ],
+    },
+    cantonFrontalierGuide: {
+      title: 'Frontalieri in questo cantone: cosa fare nei primi 90 giorni',
+      body: (c) =>
+        `Se inizi un lavoro in ${c}, hai 90 giorni di tempo per scegliere fra LAMal svizzera e SSN italiano (diritto di opzione). La scelta è formalizzata davanti all'autorità sanitaria cantonale — in Ticino l'Ufficio del medico cantonale, negli altri cantoni le rispettive direzioni della sanità — con un modulo dedicato. Senza esercizio attivo dell'opzione scatta automaticamente l'iscrizione LAMal con effetto retroattivo dal primo giorno di lavoro: il premio è dovuto integralmente. La checklist sotto raccoglie i passaggi tipici di un nuovo frontaliere nel cantone.`,
+      bullets: [
+        {
+          heading: 'Modulo di opzione SSN',
+          body: 'Compila il modulo "Diritto di opzione" rilasciato dal cantone, allega contratto di lavoro e attestato di residenza italiana. Il documento va presentato all\'autorità cantonale di vigilanza sulle assicurazioni malattia entro 90 giorni dall\'inizio dell\'attività.',
+        },
+        {
+          heading: 'Iscrizione ASL italiana',
+          body: 'Una volta optato per il SSN, registra il rapporto di lavoro frontaliere presso la tua ASL di residenza. Riceverai una tessera sanitaria modello UE-S2/E106 valida sia in Italia sia per cure programmate in Svizzera presso strutture convenzionate.',
+        },
+        {
+          heading: 'Confronto LAMal personalizzato',
+          body: 'Se opti per la LAMal, usa il nostro comparatore pre-filtrato per il tuo cantone di lavoro per ottenere preventivi da tutte le casse autorizzate. Confronta sempre 3 modelli (standard, Hausarzt, telmed) e 2 franchigie (300 e 1.500 CHF) prima di firmare.',
+        },
+        {
+          heading: 'Coniuge e figli',
+          body: 'In LAMal ogni componente è assicurato individualmente. Verifica i premi per la fascia 0-18 e 19-25 prima di optare per la LAMal di nucleo: con due o più figli il SSN italiano è quasi sempre più conveniente perché copre tutti senza contributi addizionali per i minori.',
+        },
+        {
+          heading: 'Riserve e patologie pregresse',
+          body: 'La LAMal non può rifiutare l\'iscrizione né applicare riserve sulle prestazioni di base. Le casse devono accettarti indipendentemente da età, sesso e stato di salute. Le riserve si applicano solo alle complementari LCA (camera privata, dentista, medicina alternativa) — verifica le clausole prima di sottoscriverle.',
+        },
+      ],
+    },
   },
   en: {
     breadcrumbHome: 'Home',
@@ -996,6 +1147,110 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       title: 'How to compare premiums between cantons',
       body: (y) =>
         `LAMal premiums are set at the cantonal level, not federally: each autumn the Federal Council ratifies the tariffs proposed by the funds, which vary by canton and by premium region inside the canton. For ${y} the gap between the most expensive canton (Geneva) and the cheapest in central Switzerland often tops 100 CHF/month for an adult. When you compare two cantons, check three things: the number of premium regions (Ticino and Schaffhausen run a single region, Graubünden and Valais have three with up to 25 CHF/month spread), the mix of available models (Hausarzt and telmed plans are widespread in German-speaking cantons and trim the premium by 10-22 %), and the quality of the cantonal hospital network, since out-of-canton inpatient care needs prior authorisation from the fund or the canton of residence. For cross-border workers the proximity of clinics to the border also matters: those who pick LAMal rely on the Swiss hospitals of the canton of work, while those who opt into the Italian SSN remain covered by their region of residence and can only use Swiss doctors at private rates. The cantonal pages below give the median, minimum, maximum and full ranking of funds for every age bracket, refreshed yearly with official FOPH/BAG data.`,
+    },
+    rootFrontalierGuide: {
+      title: 'Cross-border workers: LAMal, SSN or CMU? How to choose',
+      intro:
+        'Italian frontalieri working in Switzerland are subject to mandatory Swiss health insurance but may opt out under the bilateral "right of option" by filing a cantonal form within three months of starting employment. The choice is not purely financial: it changes the provider network, the deductible options, the family-coverage rules, and the tax deductibility of the premium. The four variables below summarise the differences that matter most when deciding whether to confirm or waive the SSN option.',
+      bullets: [
+        {
+          heading: 'Annual gross cost',
+          body: 'Swiss LAMal is a fixed twelve-month premium based on the cantonal tariff (example in Ticino, 31-45 bracket: roughly CHF 4,300-5,200/year). The Italian SSN is 7.5 % of taxable income up to an annual cap reviewed yearly by the Italian Ministry of Health. Below CHF 80,000 gross the SSN option is almost always cheaper; above CHF 100,000 the maths flips.',
+        },
+        {
+          heading: 'Provider network',
+          body: 'LAMal gives you the full Swiss hospital network in the canton of work (in Ticino: EOC Bellinzona, Civico Lugano, OBV Mendrisio) at the minimum CHF 300 deductible. With the Italian SSN you stay covered by your regional health service and access Swiss specialists only at private tariff: a routine specialist visit can cost CHF 200-400 unless you go through a cross-border partner facility.',
+        },
+        {
+          heading: 'Family coverage',
+          body: 'In Switzerland every household member is insured individually: the non-working spouse and the children pay separate premiums (with statutory discounts for minors and young adults). In Italy SSN coverage is family-based and minor children are automatically insured at no additional contribution — a meaningful saving for households with two or three children.',
+        },
+        {
+          heading: 'Tax deductibility',
+          body: 'LAMal premiums are fully deductible from the Swiss federal and cantonal taxable base (with cantonal caps). The frontaliere SSN contribution is not directly deductible from the Italian 730 (it is a mandatory levy, not a discretionary deduction) but reduces the taxable base under the bilateral framework. For workers in the 38-43 % IRPEF bracket, LAMal recovers CHF 1,500-2,500/year net — a parameter that flips the pure-CHF comparison.',
+        },
+        {
+          heading: 'Deadlines and revocation',
+          body: 'The right of option must be exercised within 90 days of starting employment or moving residence to Italy. Revocation is allowed only in narrow cases: birth of a child, marriage to a person under a different regime, job loss, employer relocation to a different canton. Plan the choice within the first 8 weeks of activity to avoid an automatic LAMal enrolment with retroactive premium charges.',
+        },
+      ],
+    },
+    rootDeductibleAndModelGuide: {
+      title: 'LAMal models, deductibles and saving levers',
+      body:
+        'Behind the single label "LAMal premium" there are eight product combinations the same fund offers the same person: four models (standard, Hausarzt, telmed, HMO) and five adult deductible tiers (300, 500, 1,000, 1,500, 2,500 CHF). The median we publish for each canton refers to the standard model with the minimum deductible — the most expensive case. Picking alternative combinations cuts the premium by up to 50 % without changing fund, provided you accept the gatekeeper-doctor constraint or a higher deductible.',
+      bullets: [
+        {
+          heading: 'Hausarzt / family-doctor model',
+          body: 'Typical reduction 10-15 %. You designate a family doctor as gatekeeper: without their referral the fund will not reimburse specialist visits. Worth it if you already have a trusted doctor in the canton of work and expect few acute episodes per year.',
+        },
+        {
+          heading: 'Telmed / phone consult model',
+          body: 'Typical reduction 12-18 %. Before any visit you must call a 24/7 telehealth service (Medi24, Medgate). The agent decides whether to authorise a visit or recommend self-care. Maximum saving for young, healthy adults.',
+        },
+        {
+          heading: 'HMO / managed-care centre model',
+          body: 'Typical reduction 18-22 %. You must use a contracted medical centre (polyclinic) for primary care; in-centre specialist appointments require no referral. Works well in urban areas (Lugano, Bellinzona, Locarno) where HMO coverage is dense.',
+        },
+        {
+          heading: 'Optional annual deductible',
+          body: 'Five tiers from 300 to 2,500 CHF. Every additional 500 CHF of deductible cuts the premium by roughly 7-10 %. Worth it when expected yearly LAMal costs stay below 1,000 CHF: break-even is around 5-6 medical visits per year with a small prescription.',
+        },
+        {
+          heading: 'Co-pay (10 %) and annual cap',
+          body: 'Above the deductible you pay 10 % of services up to an annual cap of 700 CHF (adults) or 350 CHF (minors). Adding deductible 300 + cap 700, your maximum yearly out-of-pocket is 1,000 CHF — a useful number to compare which model is the best fit for your expected utilisation.',
+        },
+      ],
+    },
+    cantonDeductibleGuide: {
+      title: 'Four levers to lower the premium in this canton',
+      body: (c, m) =>
+        `The CHF ${m}/month median in ${c} matches the standard model with the CHF 300 deductible — the most expensive of the available combinations. Changing a single lever drops the premium by 7-22 %; combining model and deductible saves CHF 1,200-1,800 per year. The right pick depends on how often you actually use the health system, not just on the headline price.`,
+      bullets: [
+        {
+          heading: 'Premium region inside the canton',
+          body: 'Check the fund documentation or priminfo.admin.ch to see which premium region your residence/workplace municipality falls into. In multi-region cantons the urban/peripheral spread is typically CHF 15-30/month for the same fund and model.',
+        },
+        {
+          heading: 'Insurance model',
+          body: 'Hausarzt and telmed are now available in nearly every canton; HMO density is concentrated in urban areas. If you are healthy and make fewer than 4 specialist visits/year, telmed or HMO save CHF 30-50/month with no quality compromise.',
+        },
+        {
+          heading: 'Annual deductible',
+          body: 'A CHF 2,500 deductible cuts the premium by roughly CHF 35-50/month (CHF 420-600/year) — worth it when your annual prescription and visit costs stay below CHF 1,000. Above 50 with chronic conditions the minimum CHF 300 deductible remains the rational pick.',
+        },
+        {
+          heading: 'Annual fund switch',
+          body: 'Tariffs are ratified by the Federal Council in late September for the following 1 January. You have until 30 November to terminate your existing policy. The cheapest-vs-most-expensive fund spread inside a canton routinely tops CHF 100/month: the yearly comparison is the most under-used saving lever.',
+        },
+      ],
+    },
+    cantonFrontalierGuide: {
+      title: 'Cross-border workers in this canton: what to do in the first 90 days',
+      body: (c) =>
+        `If you start a job in ${c}, you have 90 days to choose between Swiss LAMal and the Italian SSN (right of option). The choice is filed with the cantonal health-supervision authority — Ufficio del medico cantonale in Ticino, the corresponding cantonal health departments elsewhere — using a dedicated form. Without an active election Swiss LAMal kicks in automatically with retroactive effect from day one of employment, and the premium is fully due. The checklist below covers the typical onboarding steps for a new cross-border worker in the canton.`,
+      bullets: [
+        {
+          heading: 'SSN option form',
+          body: 'Fill in the "Right of option" form issued by the canton, attach your employment contract and proof of Italian residence. The document must reach the cantonal supervisory authority within 90 days of taking up the job.',
+        },
+        {
+          heading: 'Italian ASL registration',
+          body: 'Once you opt for SSN, register the cross-border employment relationship with your residence ASL. You will receive a UE-S2/E106 health card valid both in Italy and for scheduled care in Switzerland through partner facilities.',
+        },
+        {
+          heading: 'Personalised LAMal comparison',
+          body: 'If you choose LAMal, use our comparator pre-filtered on your canton of work to obtain quotes from every authorised fund. Always compare three models (standard, Hausarzt, telmed) and two deductibles (300 and 1,500 CHF) before signing.',
+        },
+        {
+          heading: 'Spouse and children',
+          body: 'Under LAMal each household member is insured individually. Check the 0-18 and 19-25 brackets before opting into LAMal for the whole family: with two or more children the Italian SSN is almost always cheaper because it covers minors at no extra cost.',
+        },
+        {
+          heading: 'Reservations and pre-existing conditions',
+          body: 'LAMal cannot deny enrolment or apply reservations on basic services. Funds must accept you regardless of age, sex or health status. Reservations apply only to supplementary LCA cover (private room, dental, alternative medicine) — review the clauses before signing.',
+        },
+      ],
     },
   },
   de: {
@@ -1071,6 +1326,110 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       body: (y) =>
         `KVG-Prämien werden auf kantonaler Ebene festgelegt, nicht eidgenössisch: Der Bundesrat genehmigt jeden Herbst die von den Kassen vorgeschlagenen Tarife, die je nach Kanton und Prämienregion innerhalb des Kantons variieren. Für ${y} überschreitet die Differenz zwischen dem teuersten Kanton (Genf) und den günstigsten in der Zentralschweiz oft 100 CHF/Monat für einen Erwachsenen. Beim Vergleich zweier Kantone prüfen Sie drei Dinge: die Anzahl Prämienregionen (Tessin und Schaffhausen haben eine einzige Region, Graubünden und Wallis drei mit Spreizungen bis 25 CHF/Monat), den Mix verfügbarer Modelle (Hausarzt und Telmed sind in der Deutschschweiz weit verbreitet und senken die Prämie um 10-22 %) und die Qualität des kantonalen Spitalnetzes, da ausserkantonale stationäre Behandlungen die Vorbewilligung der Kasse oder des Wohnkantons erfordern. Für Grenzgänger zählt zusätzlich die Nähe von Kliniken zur Grenze: Wer KVG wählt, ist auf die Spitäler des Arbeitskantons angewiesen, wer ins italienische SSN optiert, bleibt durch seine Wohnregion abgesichert und kann Schweizer Ärzte nur zum Privattarif konsultieren. Die kantonalen Seiten unten zeigen Median, Minimum, Maximum und das vollständige Kassenranking pro Altersgruppe, jährlich aktualisiert mit offiziellen BAG/UFSP-Daten.`,
     },
+    rootFrontalierGuide: {
+      title: 'Grenzgänger: KVG, SSN oder CMU? So entscheiden Sie',
+      intro:
+        'Italienische Grenzgänger, die in der Schweiz arbeiten, unterliegen der obligatorischen Schweizer Krankenversicherung, können sich aber im Rahmen des bilateralen Optionsrechts dagegen entscheiden, indem sie innerhalb von drei Monaten nach Stellenantritt ein kantonales Formular einreichen. Die Wahl ist nicht nur finanziell: Sie verändert das Leistungserbringernetz, die verfügbaren Franchisen, die Familienabdeckung und die steuerliche Abzugsfähigkeit der Prämie. Die folgenden vier Variablen fassen die wichtigsten Unterschiede zusammen, wenn Sie überlegen, ob Sie die SSN-Option bestätigen oder verwerfen.',
+      bullets: [
+        {
+          heading: 'Brutto-Jahreskosten',
+          body: 'Die Schweizer KVG ist eine fixe 12-monatige Prämie nach Kantonstarif (Beispiel Tessin, Gruppe 31-45: rund 4.300-5.200 CHF/Jahr). Der italienische SSN beträgt 7,5 % des steuerpflichtigen Einkommens bis zu einer jährlich vom italienischen Gesundheitsministerium festgelegten Obergrenze. Unter 80.000 CHF brutto ist die SSN-Option fast immer günstiger; über 100.000 CHF kippt die Rechnung.',
+        },
+        {
+          heading: 'Leistungserbringernetz',
+          body: 'Mit der KVG erhalten Sie das vollständige Spitalnetz im Arbeitskanton (im Tessin: EOC Bellinzona, Civico Lugano, OBV Mendrisio) bei Mindestfranchise CHF 300/Jahr. Mit dem italienischen SSN bleiben Sie durch Ihren regionalen Gesundheitsdienst gedeckt und können Schweizer Spezialisten nur zum Privattarif konsultieren: eine Routinevisite kostet ohne grenzüberschreitende Partnerinstitution 200-400 CHF.',
+        },
+        {
+          heading: 'Familienabdeckung',
+          body: 'In der Schweiz ist jedes Haushaltsmitglied einzeln versichert: nicht erwerbstätige Ehepartner und Kinder zahlen separate Prämien (gesetzliche Rabatte für Minderjährige und junge Erwachsene). In Italien ist die SSN-Deckung familiär — minderjährige Kinder sind ohne zusätzliche Beiträge automatisch versichert. Bedeutender Vorteil für Familien mit zwei oder drei Kindern.',
+        },
+        {
+          heading: 'Steuerliche Abzugsfähigkeit',
+          body: 'KVG-Prämien sind vollständig vom kantonalen und eidgenössischen Steuerbaren abziehbar (mit kantonalen Höchstgrenzen). Der SSN-Beitrag des Grenzgängers ist vom italienischen 730 nicht direkt abzugsfähig (er ist eine obligatorische Abgabe), reduziert aber die Bemessungsgrundlage gemäss bilateralem Abkommen. In der italienischen IRPEF-Stufe 38-43 % erstattet die KVG netto 1.500-2.500 CHF/Jahr — ein Parameter, der den reinen CHF-Vergleich verändert.',
+        },
+        {
+          heading: 'Fristen und Widerruf',
+          body: 'Das Optionsrecht muss innerhalb von 90 Tagen nach Stellenantritt oder Wohnsitzwechsel nach Italien ausgeübt werden. Ein Widerruf ist nur in eng umgrenzten Fällen möglich: Geburt eines Kindes, Heirat einer Person unter anderem Regime, Stellenverlust, Verlegung des Arbeitgebers in einen anderen Kanton. Planen Sie die Wahl innerhalb der ersten 8 Wochen der Tätigkeit, um eine automatische KVG-Anmeldung mit rückwirkender Prämienpflicht zu vermeiden.',
+        },
+      ],
+    },
+    rootDeductibleAndModelGuide: {
+      title: 'KVG-Modelle, Franchisen und Sparhebel',
+      body:
+        'Hinter der Etikette "KVG-Prämie" verbergen sich acht Produktkombinationen, die dieselbe Kasse derselben Person anbietet: vier Modelle (Standard, Hausarzt, Telmed, HMO) und fünf Franchisestufen für Erwachsene (300, 500, 1.000, 1.500, 2.500 CHF). Der Median, den wir pro Kanton publizieren, bezieht sich auf das Standardmodell mit der Mindestfranchise — den teuersten Fall. Mit alternativen Kombinationen sinkt die Prämie um bis zu 50 % ohne Kassenwechsel, sofern Sie den Hausarzt-Filter oder eine höhere Franchise akzeptieren.',
+      bullets: [
+        {
+          heading: 'Hausarzt-Modell',
+          body: 'Typische Reduktion 10-15 %. Sie bestimmen einen Hausarzt als Gatekeeper: ohne dessen Überweisung erstattet die Kasse keine Spezialistenbesuche. Lohnt sich, wenn Sie bereits einen vertrauten Arzt im Arbeitskanton haben und wenige akute Episoden pro Jahr erwarten.',
+        },
+        {
+          heading: 'Telmed-Modell',
+          body: 'Typische Reduktion 12-18 %. Vor jeder Konsultation rufen Sie einen 24/7-Teledienst an (Medi24, Medgate). Der Berater entscheidet, ob ein Arztbesuch autorisiert wird oder eine Selbstbehandlung empfohlen wird. Maximaler Spareffekt für junge, gesunde Erwachsene.',
+        },
+        {
+          heading: 'HMO-Modell',
+          body: 'Typische Reduktion 18-22 %. Sie nutzen ausschliesslich ein vertraglich gebundenes Gesundheitszentrum (Polyklinik); Spezialisten innerhalb des Zentrums brauchen keine Überweisung. Funktioniert gut in Stadtgebieten (Lugano, Bellinzona, Locarno), wo die HMO-Dichte hoch ist.',
+        },
+        {
+          heading: 'Wahlfranchise',
+          body: 'Fünf Stufen von 300 bis 2.500 CHF. Jede zusätzlichen 500 CHF Franchise senken die Prämie um etwa 7-10 %. Lohnt sich, wenn die erwarteten KVG-Jahreskosten unter 1.000 CHF bleiben: Break-even bei 5-6 Arztbesuchen pro Jahr mit kleiner Verschreibung.',
+        },
+        {
+          heading: 'Selbstbehalt (10 %) und Jahresplafond',
+          body: 'Über der Franchise zahlen Sie 10 % der Leistungen bis zu einem Jahresplafond von 700 CHF (Erwachsene) oder 350 CHF (Minderjährige). Franchise 300 + Plafond 700 ergibt ein maximales Risiko von 1.000 CHF/Jahr — eine nützliche Zahl, um zu vergleichen, welches Modell zur erwarteten Inanspruchnahme passt.',
+        },
+      ],
+    },
+    cantonDeductibleGuide: {
+      title: 'Vier Hebel zur Prämiensenkung in diesem Kanton',
+      body: (c, m) =>
+        `Der Median von ${m} CHF/Monat im ${c} entspricht dem Standardmodell mit der Mindestfranchise von 300 CHF — dem teuersten der verfügbaren Kombinationen. Wird ein einzelner Hebel verändert, sinkt die Prämie um 7-22 %; die Kombination aus Modell und Franchise spart 1.200-1.800 CHF pro Jahr. Die richtige Wahl hängt davon ab, wie häufig Sie das Gesundheitssystem tatsächlich nutzen, nicht nur vom Listenpreis.`,
+      bullets: [
+        {
+          heading: 'Prämienregion innerhalb des Kantons',
+          body: 'Prüfen Sie in den Kassenunterlagen oder auf priminfo.admin.ch, in welcher Prämienregion Ihre Wohn- bzw. Arbeitsgemeinde liegt. In Mehrregionen-Kantonen liegt die Spreizung zwischen Stadt und Peripherie typisch bei 15-30 CHF/Monat für dieselbe Kasse und dasselbe Modell.',
+        },
+        {
+          heading: 'Versicherungsmodell',
+          body: 'Hausarzt und Telmed sind heute in fast jedem Kanton verfügbar; HMO-Dichte konzentriert sich auf Stadtgebiete. Wenn Sie gesund sind und weniger als 4 Spezialistenbesuche/Jahr machen, sparen Telmed oder HMO 30-50 CHF/Monat ohne Qualitätsverlust.',
+        },
+        {
+          heading: 'Wahlfranchise',
+          body: 'Eine Franchise von 2.500 CHF senkt die Prämie um etwa 35-50 CHF/Monat (420-600 CHF/Jahr) — lohnt sich, wenn Ihre jährlichen Rezepte und Arztkosten unter 1.000 CHF bleiben. Über 50 mit chronischen Erkrankungen bleibt die Mindestfranchise von 300 CHF die rationale Wahl.',
+        },
+        {
+          heading: 'Jährlicher Kassenwechsel',
+          body: 'Tarife werden vom Bundesrat Ende September für den 1. Januar des Folgejahrs genehmigt. Sie haben bis 30. November Zeit, die laufende Police zu kündigen. Der Spread zwischen der günstigsten und der teuersten Kasse innerhalb eines Kantons übersteigt regelmässig 100 CHF/Monat: Der jährliche Vergleich ist der am meisten unterschätzte Sparhebel.',
+        },
+      ],
+    },
+    cantonFrontalierGuide: {
+      title: 'Grenzgänger in diesem Kanton: was in den ersten 90 Tagen zu tun ist',
+      body: (c) =>
+        `Wenn Sie eine Stelle im ${c} antreten, haben Sie 90 Tage Zeit, zwischen Schweizer KVG und italienischem SSN (Optionsrecht) zu wählen. Die Wahl wird bei der kantonalen Aufsichtsbehörde für Krankenversicherungen eingereicht — im Tessin beim Ufficio del medico cantonale, in den anderen Kantonen bei den jeweiligen Gesundheitsdirektionen — mit einem dedizierten Formular. Ohne aktive Wahl tritt die Schweizer KVG automatisch mit Wirkung ab dem ersten Arbeitstag in Kraft und die Prämie ist vollständig geschuldet. Die Checkliste unten fasst die typischen Onboarding-Schritte für einen neuen Grenzgänger im Kanton zusammen.`,
+      bullets: [
+        {
+          heading: 'SSN-Optionsformular',
+          body: 'Füllen Sie das vom Kanton ausgegebene Formular "Optionsrecht" aus, fügen Sie Arbeitsvertrag und Wohnsitznachweis Italien bei. Das Dokument muss die kantonale Aufsichtsbehörde innerhalb von 90 Tagen nach Stellenantritt erreichen.',
+        },
+        {
+          heading: 'Anmeldung bei der italienischen ASL',
+          body: 'Sobald Sie für den SSN optiert haben, registrieren Sie das Grenzgänger-Arbeitsverhältnis bei Ihrer Wohnsitz-ASL. Sie erhalten eine UE-S2/E106-Gesundheitskarte, gültig sowohl in Italien als auch für geplante Behandlungen in der Schweiz bei Partnerinstitutionen.',
+        },
+        {
+          heading: 'Personalisierter KVG-Vergleich',
+          body: 'Wenn Sie KVG wählen, nutzen Sie unseren auf Ihren Arbeitskanton vorgefilterten Vergleicher, um Offerten von allen zugelassenen Kassen zu erhalten. Vergleichen Sie immer drei Modelle (Standard, Hausarzt, Telmed) und zwei Franchisen (300 und 1.500 CHF) bevor Sie unterschreiben.',
+        },
+        {
+          heading: 'Ehepartner und Kinder',
+          body: 'Unter der KVG ist jedes Haushaltsmitglied einzeln versichert. Prüfen Sie die Prämien in den Gruppen 0-18 und 19-25 vor einer KVG-Familienoption: Bei zwei oder mehr Kindern ist der italienische SSN fast immer günstiger, weil er Minderjährige ohne Zusatzbeitrag deckt.',
+        },
+        {
+          heading: 'Vorbehalte und Vorerkrankungen',
+          body: 'Die KVG kann den Beitritt nicht verweigern und keine Vorbehalte auf Grundleistungen anbringen. Die Kassen müssen Sie unabhängig von Alter, Geschlecht und Gesundheitszustand annehmen. Vorbehalte gelten nur für Zusatzversicherungen VVG (Privatzimmer, Zahn, Alternativmedizin) — prüfen Sie die Klauseln vor der Unterschrift.',
+        },
+      ],
+    },
   },
   fr: {
     breadcrumbHome: 'Accueil',
@@ -1144,6 +1503,110 @@ const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
       title: 'Comment comparer les primes entre cantons',
       body: (y) =>
         `Les primes LAMal sont fixées au niveau cantonal, pas fédéral : chaque automne le Conseil fédéral approuve les tarifs proposés par les caisses, qui varient selon le canton et selon la région de prime à l'intérieur du canton. Pour ${y} l'écart entre le canton le plus cher (Genève) et les moins chers de Suisse centrale dépasse souvent 100 CHF/mois pour un adulte. Lorsque vous comparez deux cantons, vérifiez trois éléments : le nombre de régions de prime (Tessin et Schaffhouse n'en ont qu'une, Grisons et Valais en ont trois avec un écart pouvant atteindre 25 CHF/mois), l'éventail des modèles disponibles (Hausarzt et telmed sont fréquents en Suisse alémanique et abaissent la prime de 10 à 22 %) et la qualité du réseau hospitalier cantonal, parce qu'un séjour stationnaire hors canton requiert l'accord préalable de la caisse ou du canton de domicile. Pour les frontaliers, la proximité de cliniques près de la frontière compte aussi : ceux qui choisissent la LAMal dépendent des hôpitaux suisses du canton de travail, ceux qui optent pour le SSN italien restent couverts par leur région de résidence et n'accèdent aux médecins suisses qu'au tarif privé. Les pages cantonales ci-dessous fournissent la médiane, le minimum, le maximum et le classement complet des caisses pour chaque tranche d'âge, mises à jour annuellement avec les données officielles OFSP/BAG.`,
+    },
+    rootFrontalierGuide: {
+      title: 'Frontaliers : LAMal, SSN ou CMU ? Comment choisir',
+      intro:
+        'Le frontalier italien employé en Suisse est soumis à l\'obligation d\'assurance suisse mais peut y renoncer via le droit d\'option, formalisé sur un formulaire cantonal de l\'autorité de surveillance de l\'assurance-maladie dans les trois mois suivant la prise d\'emploi. Ce choix n\'est pas que financier : il modifie le réseau de prestataires, les franchises disponibles, la couverture familiale et la déductibilité fiscale de la prime. Les quatre variables ci-dessous résument les différences les plus importantes pour qui hésite à confirmer ou abandonner l\'option SSN.',
+      bullets: [
+        {
+          heading: 'Coût brut annuel',
+          body: 'La LAMal suisse est une prime fixe sur 12 mois selon le tarif cantonal (exemple Tessin, tranche 31-45 : environ 4 300-5 200 CHF/an). Le SSN italien représente 7,5 % du revenu imposable jusqu\'à un plafond annuel mis à jour chaque année par le Ministère italien de la Santé. En dessous de 80 000 CHF brut, l\'option SSN est presque toujours moins chère ; au-dessus de 100 000 CHF la balance s\'inverse.',
+        },
+        {
+          heading: 'Réseau de prestataires',
+          body: 'Avec la LAMal vous accédez à l\'ensemble du réseau hospitalier suisse du canton de travail (au Tessin : EOC Bellinzona, Civico Lugano, OBV Mendrisio) avec la franchise minimale de 300 CHF/an. Avec le SSN italien vous restez couvert par votre service de santé régional et n\'accédez aux spécialistes suisses qu\'au tarif privé : une consultation de routine peut coûter 200-400 CHF en dehors d\'une structure transfrontalière conventionnée.',
+        },
+        {
+          heading: 'Couverture familiale',
+          body: 'En Suisse chaque membre du foyer est assuré individuellement : le conjoint sans activité et les enfants paient des primes séparées (rabais légaux pour mineurs et jeunes adultes). En Italie la couverture SSN est familiale et les enfants mineurs sont automatiquement assistés sans contribution supplémentaire — un avantage significatif pour les familles de deux ou trois enfants.',
+        },
+        {
+          heading: 'Déductibilité fiscale',
+          body: 'Les primes LAMal sont intégralement déductibles du revenu imposable cantonal et fédéral suisse (avec plafonds cantonaux). La cotisation SSN du frontalier n\'est pas directement déductible du 730 italien (charge obligatoire et non discrétionnaire) mais réduit la base imposable selon l\'accord bilatéral. Pour les contribuables en tranche IRPEF 38-43 %, la LAMal récupère 1 500-2 500 CHF/an net — paramètre qui modifie la comparaison purement en CHF.',
+        },
+        {
+          heading: 'Délais et révocation',
+          body: "Le droit d'option doit être exercé dans les 90 jours suivant la prise de fonction ou le transfert de résidence en Italie. La révocation n'est admise que dans des cas restreints : naissance d'un enfant, mariage avec une personne sous régime différent, perte d'emploi, transfert de l'employeur dans un autre canton. Planifiez la décision dans les 8 premières semaines d'activité pour éviter une affiliation LAMal automatique avec prime rétroactive.",
+        },
+      ],
+    },
+    rootDeductibleAndModelGuide: {
+      title: 'Modèles LAMal, franchises et leviers d\'économie',
+      body:
+        'Derrière l\'étiquette unique "prime LAMal" se cachent huit combinaisons de produit que la même caisse propose à la même personne : quatre modèles (standard, médecin de famille, telmed, HMO) et cinq franchises annuelles pour adultes (300, 500, 1 000, 1 500, 2 500 CHF). La médiane que nous publions pour chaque canton se réfère au modèle standard avec franchise minimale — le cas le plus cher. En choisissant des combinaisons alternatives on réduit la prime jusqu\'à 50 % sans changer de caisse, à condition d\'accepter le médecin filtre ou une franchise plus élevée.',
+      bullets: [
+        {
+          heading: 'Modèle Hausarzt / médecin de famille',
+          body: 'Réduction typique 10-15 %. Vous désignez un médecin de famille comme filtre : sans son orientation la caisse ne rembourse pas les visites de spécialiste. Intéressant si vous avez déjà un médecin de confiance dans le canton de travail et anticipez peu d\'épisodes aigus par an.',
+        },
+        {
+          heading: 'Modèle telmed / consultation téléphonique',
+          body: 'Réduction typique 12-18 %. Avant chaque consultation vous devez appeler un service de téléconsultation 24/7 (Medi24, Medgate). L\'opérateur décide d\'autoriser la visite ou de suggérer une auto-soin. Économie maximale pour les jeunes adultes en bonne santé.',
+        },
+        {
+          heading: 'Modèle HMO / centre médical conventionné',
+          body: 'Réduction typique 18-22 %. Vous devez vous adresser exclusivement à un centre médical contracté par la caisse (polyclinique) ; les spécialistes au sein du centre sont couverts sans orientation. Fonctionne bien dans les zones urbaines (Lugano, Bellinzona, Locarno) où la couverture HMO est dense.',
+        },
+        {
+          heading: 'Franchise annuelle optionnelle',
+          body: 'Cinq paliers de 300 à 2 500 CHF. Chaque tranche additionnelle de 500 CHF de franchise réduit la prime d\'environ 7-10 %. Intéressant si le coût annuel attendu de prestations LAMal reste sous 1 000 CHF : seuil de rentabilité à 5-6 visites médicales/an avec une petite prescription.',
+        },
+        {
+          heading: 'Quote-part (10 %) et plafond annuel',
+          body: 'Au-dessus de la franchise vous payez 10 % des prestations jusqu\'à un plafond annuel de 700 CHF (adultes) ou 350 CHF (mineurs). En cumulant franchise 300 + plafond 700, le risque maximal annuel est de 1 000 CHF — chiffre utile pour comparer le modèle le mieux adapté à votre utilisation prévue.',
+        },
+      ],
+    },
+    cantonDeductibleGuide: {
+      title: 'Quatre leviers pour réduire la prime dans ce canton',
+      body: (c, m) =>
+        `La médiane de ${m} CHF/mois à ${c} correspond au modèle standard avec franchise 300 CHF — le cas le plus cher des combinaisons disponibles. Modifier un seul levier abaisse la prime de 7 à 22 % ; combiner modèle et franchise économise 1 200-1 800 CHF par an. Le bon choix dépend de la fréquence à laquelle vous utilisez réellement le système de santé, pas seulement du prix affiché.`,
+      bullets: [
+        {
+          heading: 'Région de prime à l\'intérieur du canton',
+          body: 'Vérifiez dans la documentation de la caisse ou sur priminfo.admin.ch à quelle région de prime appartient votre commune de résidence/travail. Dans les cantons à plusieurs régions, l\'écart urbain/périphérique est typiquement de 15-30 CHF/mois pour la même caisse et le même modèle.',
+        },
+        {
+          heading: 'Modèle d\'assurance',
+          body: 'Hausarzt et telmed sont désormais disponibles dans presque tous les cantons ; HMO est dense uniquement dans les zones urbaines. Si vous êtes en bonne santé et faites moins de 4 consultations spécialisées par an, telmed ou HMO permettent d\'économiser 30-50 CHF/mois sans compromettre la qualité des soins.',
+        },
+        {
+          heading: 'Franchise annuelle',
+          body: 'Une franchise de 2 500 CHF abaisse la prime d\'environ 35-50 CHF/mois (420-600 CHF/an) — intéressant si le coût annuel de vos prescriptions et consultations reste sous 1 000 CHF. Au-delà de 50 ans avec des pathologies récurrentes, la franchise minimale 300 CHF reste le choix rationnel.',
+        },
+        {
+          heading: 'Changement de caisse annuel',
+          body: 'Les tarifs sont approuvés par le Conseil fédéral fin septembre pour le 1er janvier suivant. Vous avez jusqu\'au 30 novembre pour résilier votre police en cours. L\'écart entre la caisse la moins chère et la plus chère au sein du même canton dépasse régulièrement 100 CHF/mois : la comparaison annuelle est le levier d\'économie le plus sous-utilisé.',
+        },
+      ],
+    },
+    cantonFrontalierGuide: {
+      title: 'Frontaliers dans ce canton : que faire dans les 90 premiers jours',
+      body: (c) =>
+        `Si vous prenez un emploi à ${c}, vous avez 90 jours pour choisir entre la LAMal suisse et le SSN italien (droit d'option). Le choix est déposé auprès de l'autorité cantonale de surveillance de la santé — Ufficio del medico cantonale au Tessin, services cantonaux de la santé dans les autres cantons — au moyen d'un formulaire dédié. Sans exercice actif de l'option, la LAMal suisse s'applique automatiquement avec effet rétroactif au premier jour d'emploi et la prime est intégralement due. La check-list ci-dessous résume les étapes typiques d'onboarding pour un nouveau frontalier dans le canton.`,
+      bullets: [
+        {
+          heading: 'Formulaire d\'option SSN',
+          body: 'Remplissez le formulaire « Droit d\'option » émis par le canton, joignez votre contrat de travail et votre attestation de résidence italienne. Le document doit parvenir à l\'autorité de surveillance cantonale dans les 90 jours suivant la prise de fonction.',
+        },
+        {
+          heading: 'Inscription à l\'ASL italienne',
+          body: 'Une fois l\'option SSN choisie, enregistrez la relation d\'emploi frontalier auprès de votre ASL de résidence. Vous recevrez une carte sanitaire UE-S2/E106 valable à la fois en Italie et pour des soins programmés en Suisse via des structures partenaires.',
+        },
+        {
+          heading: 'Comparaison LAMal personnalisée',
+          body: 'Si vous optez pour la LAMal, utilisez notre comparateur pré-filtré sur votre canton de travail pour obtenir des devis de toutes les caisses autorisées. Comparez toujours trois modèles (standard, médecin de famille, telmed) et deux franchises (300 et 1 500 CHF) avant de signer.',
+        },
+        {
+          heading: 'Conjoint et enfants',
+          body: 'Sous LAMal chaque membre du foyer est assuré individuellement. Vérifiez les primes pour les tranches 0-18 et 19-25 avant d\'opter pour la LAMal pour toute la famille : avec deux enfants ou plus, le SSN italien est presque toujours plus avantageux car il couvre les mineurs sans contribution supplémentaire.',
+        },
+        {
+          heading: 'Réserves et antécédents médicaux',
+          body: 'La LAMal ne peut refuser l\'affiliation ni appliquer de réserves sur les prestations de base. Les caisses doivent vous accepter quel que soit l\'âge, le sexe ou l\'état de santé. Les réserves ne s\'appliquent qu\'aux complémentaires LCA (chambre privée, dentaire, médecines alternatives) — vérifiez les clauses avant signature.',
+        },
+      ],
     },
   },
 };
@@ -1863,6 +2326,18 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   </section>
   ${yoyHubHtml}
   ${triYearHubHtml}
+  ${renderMethodologyBulletList({
+    id: 'cantonDeductibleGuide',
+    title: copy.cantonDeductibleGuide.title,
+    intro: copy.cantonDeductibleGuide.body(cantonLabel, medFmt),
+    bullets: copy.cantonDeductibleGuide.bullets,
+  })}
+  ${renderMethodologyBulletList({
+    id: 'cantonFrontalierGuide',
+    title: copy.cantonFrontalierGuide.title,
+    intro: copy.cantonFrontalierGuide.body(cantonLabel),
+    bullets: copy.cantonFrontalierGuide.bullets,
+  })}
   <section style="margin:0 0 24px" aria-labelledby="cantonComparatorCta">
     <h2 id="cantonComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
@@ -1907,6 +2382,31 @@ interface RootHubInputs {
   today: Date;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
+}
+
+/**
+ * Render an `<h2>` + intro paragraph + bulleted list of `{heading, body}` items.
+ * Used by the root and canton hub pages to surface methodology / frontaliere
+ * checklists with substantive prose. Every label is escaped and the section
+ * is anchored with a stable id derived from the supplied id prefix.
+ */
+function renderMethodologyBulletList(args: {
+  id: string;
+  title: string;
+  intro: string;
+  bullets: ReadonlyArray<{ heading: string; body: string }>;
+}): string {
+  const { id, title, intro, bullets } = args;
+  const items = bullets
+    .map(
+      (b) => `<li style="margin:0 0 12px;line-height:1.6"><strong style="color:var(--color-heading)">${esc(b.heading)}</strong> — <span style="color:var(--color-body)">${esc(b.body)}</span></li>`,
+    )
+    .join('');
+  return `<section style="margin:0 0 24px" aria-labelledby="${esc(id)}">
+    <h2 id="${esc(id)}" style="${H2_STYLE}">${esc(title)}</h2>
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+    <ul style="margin:0;padding-left:20px;max-width:860px">${items}</ul>
+  </section>`;
 }
 
 function renderRootHubPage(inp: RootHubInputs): string {
@@ -2032,6 +2532,18 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <h2 id="rootMethodology" style="${H2_STYLE}">${esc(copy.rootMethodology.title)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.rootMethodology.body(year))}</p>
   </section>
+  ${renderMethodologyBulletList({
+    id: 'rootDeductibleAndModelGuide',
+    title: copy.rootDeductibleAndModelGuide.title,
+    intro: copy.rootDeductibleAndModelGuide.body,
+    bullets: copy.rootDeductibleAndModelGuide.bullets,
+  })}
+  ${renderMethodologyBulletList({
+    id: 'rootFrontalierGuide',
+    title: copy.rootFrontalierGuide.title,
+    intro: copy.rootFrontalierGuide.intro,
+    bullets: copy.rootFrontalierGuide.bullets,
+  })}
   <section style="margin:0 0 24px" aria-labelledby="rootComparatorCta">
     <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>

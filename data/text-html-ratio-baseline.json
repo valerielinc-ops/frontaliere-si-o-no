@@ -2,7 +2,7 @@
   "generated": "2026-04-28T13:00:00.000Z",
   "threshold": 10,
   "scanned": 31927,
-  "total": 1530,
+  "total": 1045,
   "byFeature": {
     "job-board": 830,
     "career-landings": 95,
@@ -13,8 +13,8 @@
     "border-wait": 3,
     "spa-other": 20,
     "spa-locale": 10,
-    "health-premiums": 485,
+    "health-premiums": 0,
     "job-market-snapshot": 25
   },
-  "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE \u2014 this gate is a ratchet. 2026-04-28 update: weekly-employers lowered 70\u219210 after expanding companyCityFrontalier (5th paragraph on contract clauses), adding a per-page methodology section and two extra FAQ entries (telework + SBFI/SEFRI title equivalence) to build-plugins/weeklyEmployersPlugin.ts. Local partial build showed 80\u21921 offenders, leaving ample headroom under the new 10 cap; total dropped from 1600\u21921530 to reflect the same 60-page improvement. Earlier (same day) bumped to absorb the SPA-style job-card refactor (commit affb542cc) which added Tailwind markup to job-listing SEO pages without proportional text content increase. The 830 job-board ceiling is the TEMPORARY pre-fix bound; the commuter-context prose now landed (build-plugins/shared/jobBoardCommuterContext.ts injected into city/sector/type/today/category templates of build-plugins/jobsSeoPagesPlugin.ts) is expected to drive job-board offenders down sharply on the next CI build. After CI rebuilds dist/ with the new helper, run `npm run audit:text-html-ratio:rebaseline` to lock in the new floor and commit the updated baseline; current job-board ceiling stays at 830 only until that next ratchet lands."
+  "_comment": "Baseline for audit-text-html-ratio.mjs. Numbers must only DECREASE \u2014 this gate is a ratchet. 2026-04-28 update (health-premiums): lowered 485\u21920 after adding two new methodology+frontaliere checklist sections to the root hub (rootDeductibleAndModelGuide + rootFrontalierGuide) and two corresponding sections to every canton hub (cantonDeductibleGuide + cantonFrontalierGuide) in build-plugins/healthPremiumsLandingPlugin.ts. The new sections are wired through a shared renderMethodologyBulletList helper and carry locale-aware prose covering LAMal models, deductibles, the right-of-option deadline, family coverage and tax deductibility. Local partial build (732 health-premium pages) reports 0 offenders with the worst page at 11.47 % ratio (zug/adult-56-plus EN), well above the 10 % gate. Total dropped 1530\u21921045 to reflect the same improvement; the 0 cap means any future health-premium template regression that drops a single page below 10 % will trip the ratchet \u2014 fix the template, never raise the cap. Earlier same-day update: weekly-employers lowered 70\u219210 after expanding companyCityFrontalier (5th paragraph on contract clauses), adding a per-page methodology section and two extra FAQ entries (telework + SBFI/SEFRI title equivalence) to build-plugins/weeklyEmployersPlugin.ts. Local partial build showed 80\u21921 offenders, leaving ample headroom under the new 10 cap. The 830 job-board ceiling is the TEMPORARY pre-fix bound; the commuter-context prose now landed (build-plugins/shared/jobBoardCommuterContext.ts injected into city/sector/type/today/category templates of build-plugins/jobsSeoPagesPlugin.ts) is expected to drive job-board offenders down sharply on the next CI build. After CI rebuilds dist/ with the new helper, run `npm run audit:text-html-ratio:rebaseline` to lock in the new floor and commit the updated baseline; current job-board ceiling stays at 830 only until that next ratchet lands."
 }
