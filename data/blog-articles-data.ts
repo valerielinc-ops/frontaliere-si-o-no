@@ -9086,4 +9086,11 @@ export const ARTICLES = [
  image: '/images/blog/viggi-bando-giovani-comunit-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'furti-centro-pacchi-cadenazzo',
+ category: 'novita',
+ date: '2026-04-28T18:48:40.439Z',
+ image: '/images/blog/furti-centro-pacchi-cadenazzo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

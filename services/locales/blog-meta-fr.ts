@@ -3461,6 +3461,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.viggi-bando-giovani-comunit-2026.title': 'À Viggiù, un appel à projets pour les jeunes : 1000 euros pour la communauté',
     'blog.article.viggi-bando-giovani-comunit-2026.excerpt': 'Une initiative pour les jeunes de Viggiù : 1000 euros pour réaliser des projets pour la communauté. Date limite : 10 mai 2026.',
     'blog.article.viggi-bando-giovani-comunit-2026.imageAlt': 'Groupe de jeunes présentant un projet à la communauté en Tessin',
+    'blog.article.furti-centro-pacchi-cadenazzo.title': 'Deux employés licenciés pour vols au centre de colis de Cadenazzo',
+    'blog.article.furti-centro-pacchi-cadenazzo.excerpt': 'Deux employés de la Poste suisse ont été licenciés pour des vols au centre de colis de Cadenazzo. Une partie de la marchandise volée a été récupérée.',
+    'blog.article.furti-centro-pacchi-cadenazzo.imageAlt': 'Centre de distribution de Cadenazzo, Tessin, Suisse',
 };
 
 export default blogMetaFr;

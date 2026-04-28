@@ -3460,6 +3460,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.viggi-bando-giovani-comunit-2026.title': 'In Viggiù 1000 Franken für Jugendprojekte',
     'blog.article.viggi-bando-giovani-comunit-2026.excerpt': 'Eine Initiative für die Jugendlichen von Viggiù: 1000 Franken für Projekte für die Gemeinschaft. Frist 10. Mai 2026.',
     'blog.article.viggi-bando-giovani-comunit-2026.imageAlt': 'Gruppe von Jugendlichen präsentiert ein Projekt der Gemeinschaft in Tessin',
+    'blog.article.furti-centro-pacchi-cadenazzo.title': 'Diebstähle im Cadenazzo-Paketzentrum: Zwei Mitarbeiter entlassen',
+    'blog.article.furti-centro-pacchi-cadenazzo.excerpt': 'Zwei Mitarbeiter der Schweizer Post wurden wegen Diebstählen im Cadenazzo-Paketzentrum entlassen. Ein Teil der Beute wurde sichergestellt.',
+    'blog.article.furti-centro-pacchi-cadenazzo.imageAlt': 'Verteilerzentrum Cadenazzo, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

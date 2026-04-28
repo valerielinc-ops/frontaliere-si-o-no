@@ -3461,6 +3461,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.viggi-bando-giovani-comunit-2026.title': 'A Viggiù un bando per i giovani: mille euro per progetti comunitari',
     'blog.article.viggi-bando-giovani-comunit-2026.excerpt': 'Un\'iniziativa per i giovani di Viggiù: 1000 euro per realizzare progetti per la comunità. Scadenza 10 maggio 2026.',
     'blog.article.viggi-bando-giovani-comunit-2026.imageAlt': 'Gruppo di giovani presenta un progetto alla comunità in Ticino',
+    'blog.article.furti-centro-pacchi-cadenazzo.title': 'Furti al Centro pacchi di Cadenazzo: licenziati due dipendenti',
+    'blog.article.furti-centro-pacchi-cadenazzo.excerpt': 'Due dipendenti della Posta svizzera sono stati licenziati per furti al Centro pacchi di Cadenazzo. Parte della refurtiva è stata recuperata.',
+    'blog.article.furti-centro-pacchi-cadenazzo.imageAlt': 'Centro pacchi di Cadenazzo, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

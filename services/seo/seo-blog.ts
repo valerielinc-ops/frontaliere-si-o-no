@@ -20426,6 +20426,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-centro-pacchi-cadenazzo': {
+    title: 'Furti al Centro pacchi di Cadenazzo: licenziati due dipendenti',
+    description: 'Due dipendenti della Posta svizzera sono stati licenziati per furti al Centro pacchi di Cadenazzo. Parte della refurtiva è stata recuperata. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, centro, pacchi, cadenazzo',
+    ogTitle: 'Furti al Centro pacchi di Cadenazzo: licenziati due dipendenti',
+    ogDescription: 'Due dipendenti della Posta svizzera sono stati licenziati per furti al Centro pacchi di Cadenazzo. Parte della refurtiva è stata recuperata.',
+    canonicalPath: '/articoli-frontaliere/furti-centro-pacchi-cadenazzo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furti al Centro pacchi di Cadenazzo: licenziati due dipendenti",
+      "description": "Due dipendenti della Posta svizzera sono stati licenziati per furti al Centro pacchi di Cadenazzo. Parte della refurtiva è stata recuperata. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furti-centro-pacchi-cadenazzo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro pacchi di Cadenazzo, Ticino, Svizzera"
+      },
+      "datePublished": "2026-04-28T18:48:40+00:00",
+      "dateModified": "2026-04-28T18:48:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-centro-pacchi-cadenazzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
