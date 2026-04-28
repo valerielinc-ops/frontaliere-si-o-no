@@ -3283,6 +3283,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.auto-elettriche-ricarica-breganzona.title': 'Electric cars: charging is the most critical moment',
     'blog.article.auto-elettriche-ricarica-breganzona.excerpt': 'A fire in a Breganzona garage has refocused attention on the risks associated with charging electric cars.',
     'blog.article.auto-elettriche-ricarica-breganzona.imageAlt': 'Electric car charging in a garage in Breganzona, Ticino',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.title': 'Insubria University: €4.4m for Como and Varese research',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.excerpt': 'Lombardy Region funds IMPACTT and SustAA projects to boost research and sustainable innovation infrastructure.',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.imageAlt': 'University campus with modern research facilities in Como or Varese, Lombardy. Students and researchers working in labs.',
 };
 
 export default blogMetaEn;

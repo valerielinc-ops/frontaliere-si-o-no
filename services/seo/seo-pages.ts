@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1144,
+ "numberOfItems": 1145,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5779,7 +5779,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1141, "name": "Biglietti Trenord su WhatsApp: come funziona", "url": `${BASE_URL}/articoli-frontaliere/biglietto-trenord-whatsapp-ticino` },
           { "@type": "ListItem", "position": 1142, "name": "Tassa su aerei per finanziare i treni in Ticino", "url": `${BASE_URL}/articoli-frontaliere/tassa-aerei-sostegno-treni` },
           { "@type": "ListItem", "position": 1143, "name": "Comune di Como: appuntamenti obbligatori per 12...", "url": `${BASE_URL}/articoli-frontaliere/comune-como-appuntamenti-cie-2026` },
-          { "@type": "ListItem", "position": 1144, "name": "Auto elettriche: il momento della ricarica è il...", "url": `${BASE_URL}/articoli-frontaliere/auto-elettriche-ricarica-breganzona` }
+          { "@type": "ListItem", "position": 1144, "name": "Auto elettriche: il momento della ricarica è il...", "url": `${BASE_URL}/articoli-frontaliere/auto-elettriche-ricarica-breganzona` },
+          { "@type": "ListItem", "position": 1145, "name": "Università Insubria: 4,4 milioni per ricerca a ...", "url": `${BASE_URL}/articoli-frontaliere/universita-insubria-4-4-milioni-ricerca` }
  ]
  },
  {

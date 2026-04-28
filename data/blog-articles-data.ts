@@ -8673,4 +8673,11 @@ export const ARTICLES = [
  image: '/images/blog/auto-elettriche-ricarica-breganzona.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'universita-insubria-4-4-milioni-ricerca',
+ category: 'novita',
+ date: '2026-04-28T10:33:11.263Z',
+ image: '/images/blog/universita-insubria-4-4-milioni-ricerca.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

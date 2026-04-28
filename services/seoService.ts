@@ -2325,6 +2325,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-aerei-sostegno-treni': { name: 'Novità', path: '/articoli-frontaliere/tassa-aerei-sostegno-treni', parent: 'blog' },
     'blog-comune-como-appuntamenti-cie-2026': { name: 'Novità', path: '/articoli-frontaliere/comune-como-appuntamenti-cie-2026', parent: 'blog' },
     'blog-auto-elettriche-ricarica-breganzona': { name: 'Auto elettriche', path: '/articoli-frontaliere/auto-elettriche-ricarica-breganzona', parent: 'blog' },
+    'blog-universita-insubria-4-4-milioni-ricerca': { name: 'Novità', path: '/articoli-frontaliere/universita-insubria-4-4-milioni-ricerca', parent: 'blog' },
  };
 
  const info = sectionNames[section];

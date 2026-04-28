@@ -3283,6 +3283,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.auto-elettriche-ricarica-breganzona.title': 'Elektroautos: Ladevorgang ist am kritischsten',
     'blog.article.auto-elettriche-ricarica-breganzona.excerpt': 'Ein Brand in einer Autogarage in Breganzona hat die Risiken beim Laden von Elektroautos wieder in den Fokus gerückt.',
     'blog.article.auto-elettriche-ricarica-breganzona.imageAlt': 'Elektroauto lädt in einer Garage in Breganzona, Tessin',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.title': 'Università Insubria: 4,4 Mio. für Forschung in Como und Varese',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.excerpt': 'Die Region Lombardei finanziert die Projekte IMPACTT und SustAA, um die Forschungs- und nachhaltige Innovationsinfrastrukturen zu stärken.',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.imageAlt': 'Universitätscampus mit modernen Forschungseinrichtungen in Como oder Varese, Lombardei. Studenten und Forscher arbeiten in Laboren.',
 };
 
 export default blogMetaDe;

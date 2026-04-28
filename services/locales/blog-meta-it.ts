@@ -3284,6 +3284,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.auto-elettriche-ricarica-breganzona.title': 'Auto elettriche: il momento della ricarica è il più delicato',
     'blog.article.auto-elettriche-ricarica-breganzona.excerpt': 'Un incendio in un\'autorimessa di Breganzona ha riacceso i riflettori sui rischi legati alla ricarica delle auto elettriche.',
     'blog.article.auto-elettriche-ricarica-breganzona.imageAlt': 'Auto elettrica in carica in un garage a Breganzona, Ticino',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.title': 'Università Insubria: 4,4 milioni per ricerca a Como e Varese',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.excerpt': 'Regione Lombardia finanzia progetti IMPACTT e SustAA per potenziare infrastrutture di ricerca e innovazione sostenibile.',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.imageAlt': 'Campus universitario con strutture di ricerca moderne a Como o Varese, Lombardia. Studenti e ricercatori al lavoro nei laboratori.',
 };
 
 export default blogMetaIt;

@@ -18715,6 +18715,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-universita-insubria-4-4-milioni-ricerca': {
+    title: 'Università Insubria: 4,4 milioni per ricerca a Como e Varese',
+    description: 'Regione Lombardia finanzia progetti IMPACTT e SustAA per potenziare infrastrutture di ricerca e innovazione sostenibile. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, università, insubria, milioni, ricerca',
+    ogTitle: 'Università Insubria: 4,4 milioni per ricerca a Como e Varese',
+    ogDescription: 'Regione Lombardia finanzia progetti IMPACTT e SustAA per potenziare infrastrutture di ricerca e innovazione sostenibile.',
+    canonicalPath: '/articoli-frontaliere/universita-insubria-4-4-milioni-ricerca',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Università Insubria: 4,4 milioni per ricerca a Como e Varese",
+      "description": "Regione Lombardia finanzia progetti IMPACTT e SustAA per potenziare infrastrutture di ricerca e innovazione sostenibile. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/universita-insubria-4-4-milioni-ricerca.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus universitario con strutture di ricerca moderne a Como o Varese, Lombardia. Studenti e ricercatori al lavoro nei laboratori."
+      },
+      "datePublished": "2026-04-28T10:33:11+00:00",
+      "dateModified": "2026-04-28T10:33:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/universita-insubria-4-4-milioni-ricerca`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

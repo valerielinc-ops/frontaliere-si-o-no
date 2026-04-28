@@ -3284,6 +3284,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.auto-elettriche-ricarica-breganzona.title': 'Voitures électriques : le moment de la recharge est le plus délicat',
     'blog.article.auto-elettriche-ricarica-breganzona.excerpt': 'Un incendie dans un garage de Breganzona a ravivé les projecteurs sur les risques liés à la recharge des voitures électriques.',
     'blog.article.auto-elettriche-ricarica-breganzona.imageAlt': 'Voiture électrique en charge dans un garage à Breganzona, Tessin',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.title': 'Università Insubria: 4,4 milioni per la ricerca a Como e Varese',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.excerpt': 'La région Lombardie finance les projets IMPACTT et SustAA pour renforcer les infrastructures de recherche et d\'innovation durable.',
+    'blog.article.universita-insubria-4-4-milioni-ricerca.imageAlt': 'Campus universitaire avec des installations de recherche modernes à Côme ou Varèse, Lombardie. Étudiants et chercheurs travaillant dans des laboratoires.',
 };
 
 export default blogMetaFr;
