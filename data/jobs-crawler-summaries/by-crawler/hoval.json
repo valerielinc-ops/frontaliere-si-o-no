@@ -1,19 +1,20 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-04-28T11:04:06.578Z",
-  "total": 3,
+  "generatedAt": "2026-04-28T22:03:02.222Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16848,
-  "avgDurationMs": 16848,
+  "updatedCount": 0,
+  "removedCount": 1,
+  "unchangedCount": 2,
+  "durationMs": 12831,
+  "avgDurationMs": 12831,
   "durationHistory": [
-    16848
+    12831
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "Consulente tecnico interno di vendita (m/f/d)",
       "slug": "consulente-tecnico-interno-di-vendita-m-f-d-hoval-mezzovico",
@@ -50,7 +51,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -125,7 +128,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
