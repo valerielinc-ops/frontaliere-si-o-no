@@ -176,6 +176,13 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
             baseUrl: BASE_URL,
             sectionSlug: SECTION_BY_LOCALE[locale],
             localePrefix: LOCALE_PREFIX[locale],
+            // 50 SPA cards × ~3 KB per card put the page over the 200 KB
+            // CI page-weight gate (207-210 KB measured). Capping at 30 keeps
+            // the page under 180 KB while still covering the most relevant
+            // recency window. Users searching for "lavoro Ticino da ieri"
+            // typically scan the top 20-30 results — the rest fall off the
+            // recency window quickly anyway.
+            maxJobs: 30,
           });
 
           const canonicalPath = withSlash(
