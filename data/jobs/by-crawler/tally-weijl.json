@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tally-weijl",
-  "assembledAt": "2026-04-27T22:38:45.007Z",
+  "assembledAt": "2026-04-28T11:43:50.862Z",
   "jobs": [
     {
       "id": "tally-weijl-fd86e03560b7",
@@ -33,7 +33,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pnuq/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:42.299Z",
+      "crawledAt": "2026-04-28T11:43:48.163Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -93,6 +93,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:52.199Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -138,7 +139,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zxpy/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:41.645Z",
+      "crawledAt": "2026-04-28T11:43:47.486Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -153,7 +154,9 @@
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zxpy/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-04-27T11:43:27.353Z",
+      "previousSlugs": [
+        "teilzeit-modeberaterin-m-w-d-tally-weijl-olten"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teilzeit-modeberaterin-m-w-d-tally-weijl-olten"
@@ -165,9 +168,8 @@
           "teilzeit-modeberaterin-m-w-d-tally-weijl-olten"
         ]
       },
-      "previousSlugs": [
-        "teilzeit-modeberaterin-m-w-d-tally-weijl-olten"
-      ],
+      "firstSeenAt": "2026-04-27T11:43:27.353Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -213,7 +215,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:40.995Z",
+      "crawledAt": "2026-04-28T11:43:46.810Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -272,6 +274,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.870Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -317,7 +320,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:40.338Z",
+      "crawledAt": "2026-04-28T11:43:46.161Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -376,6 +379,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:51.502Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -421,7 +425,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:39.671Z",
+      "crawledAt": "2026-04-28T11:43:45.522Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -480,6 +484,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.216Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -525,7 +530,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p9hl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:39.052Z",
+      "crawledAt": "2026-04-28T11:43:44.828Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -584,6 +589,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:49.585Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -629,7 +635,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zwu7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:38.436Z",
+      "crawledAt": "2026-04-28T11:43:44.141Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -688,6 +694,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:49.002Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -733,7 +740,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:37.775Z",
+      "crawledAt": "2026-04-28T11:43:43.507Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -788,6 +795,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:46.588Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -833,7 +841,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:37.116Z",
+      "crawledAt": "2026-04-28T11:43:42.861Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -887,6 +895,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.230Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -932,7 +941,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:36.455Z",
+      "crawledAt": "2026-04-28T11:43:42.172Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -986,6 +995,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:48.369Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1031,7 +1041,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:35.796Z",
+      "crawledAt": "2026-04-28T11:43:41.557Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1085,6 +1095,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.809Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1130,7 +1141,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:35.124Z",
+      "crawledAt": "2026-04-28T11:43:40.870Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1189,6 +1200,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:45.359Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1234,7 +1246,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2y8/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:34.480Z",
+      "crawledAt": "2026-04-28T11:43:40.273Z",
       "addressLocality": "Baden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1261,6 +1273,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T22:21:29.384Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1306,7 +1319,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pi2p/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:33.840Z",
+      "crawledAt": "2026-04-28T11:43:39.624Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1365,6 +1378,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:44.750Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1410,7 +1424,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2qx/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:33.192Z",
+      "crawledAt": "2026-04-28T11:43:39.012Z",
       "addressLocality": "Emmen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1469,6 +1483,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:44.122Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1514,7 +1529,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr2w/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-27T22:38:32.605Z",
+      "crawledAt": "2026-04-28T11:43:38.416Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -1572,6 +1587,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:43.474Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1617,7 +1633,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-27T22:38:31.283Z",
+      "crawledAt": "2026-04-28T11:43:37.099Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1680,6 +1696,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:42.270Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1725,7 +1742,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z29q/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-27T22:38:30.619Z",
+      "crawledAt": "2026-04-28T11:43:36.481Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1786,7 +1803,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z297/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-27T22:38:30.029Z",
+      "crawledAt": "2026-04-28T11:43:35.876Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1835,6 +1852,70 @@
       "postalCode": "4001"
     },
     {
+      "id": "tally-weijl-002964b35782",
+      "slug": "group-accounting-manager-consolidation-amp-reporting-basel-tally-weijl-basel",
+      "slugByLocale": {
+        "en": "group-accounting-manager-consolidation-amp-reporting-basel-tally-weijl-basel",
+        "it": "group-accounting-manager-consolidation-amp-reporting-basel-tally-weijl-basel",
+        "de": "group-accounting-manager-consolidation-amp-reporting-basel-tally-weijl-basel",
+        "fr": "group-accounting-manager-consolidation-amp-reporting-basel-tally-weijl-basel"
+      },
+      "company": "TALLY WEiJL",
+      "companyKey": "tally-weijl",
+      "companyDomain": "tally-weijl.com",
+      "title": "Group Accounting Manager – Consolidation & Reporting BASEL",
+      "titleByLocale": {
+        "en": "Group Accounting Manager – Consolidation & Reporting BASEL",
+        "it": "Group Accounting Manager – Consolidation & Reporting BASEL",
+        "de": "Group Accounting Manager – Consolidation & Reporting BASEL",
+        "fr": "Group Accounting Manager – Consolidation & Reporting BASEL"
+      },
+      "description": "We're here to make you feel sexy, empowered & UNSTOPPABLE. \n\n Founded in 1984, TALLY WEiJL has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. \n\n Today we’re present in 35 markets with about 400 stores, online presence, and 3m+ fans across social channels. \n\n About the Role \n\n We are looking for a Group Accounting Manager – Consolidation & Reporting to oversee and manage the financial consolidation and reporting activities at Group level. \n\n This role plays a key part in ensuring accurate, timely and compliant financial reporting across all international entities, while supporting both operational excellence and strategic decision-making. \n\n Your Responsibilities \n\n · Creation, analysis and commenting of consolidated results as part of the monthly, quarterly and year-end closing process \n\n · Maintenance of the consolidation system (SAP BPC) \n\n · Perform plausibility checks of monthly financial statements from international subsidiaries and consolidate figures at Group level \n\n · Coordinate planning processes including forecasts, budgets and mid-term planning from a consolidation perspective \n\n · Prepare reports for management and the Board of Directors \n\n · Manage and further develop consolidation and reporting systems \n\n · Prepare and review annual financial statements (standalone and consolidated) \n\n · Prepare transfer pricing documentation \n\n · Maintain general ledger, prepare journal entries and accounting schedules for the parent companies \n\n · Review accounts and tax returns \n\n · Liaise with external auditors \n\n Your Profile \n\n · Strong experience in Group Accounting, Consolidation and Financial Reporting \n\n · Solid knowledge of closing processes and international accounting standards \n\n · Experience with consolidation tools (SAP BPC or similar) \n\n · Strong analytical and problem-solving skills \n\n · High level of accuracy and attention to detail \n\n · Ability to work in an international environment and manage multiple stakeholders \n\n · Strong communication skills \n\n · Fluent in English; additional languages are a plus \n\n What We Offer \n\n · A key role within the Group Finance team \n\n · A dynamic, international and fast-paced working environment \n\n · The opportunity to contribute to financial reporting and consolidation at Group level \n\n · Competitive compensation and benefits package \n\n Would you like to become a part of our fashion story and an enthusiastic member of our TALLY Family? Then share your individual talent with us and send us your application! Or contact directly our Internal Recruiter at c.barone@tally-weijl.com",
+      "descriptionByLocale": {
+        "en": "We're here to make you feel sexy, empowered & UNSTOPPABLE. \n\n Founded in 1984, TALLY WEiJL has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. \n\n Today we’re present in 35 markets with about 400 stores, online presence, and 3m+ fans across social channels. \n\n About the Role \n\n We are looking for a Group Accounting Manager – Consolidation & Reporting to oversee and manage the financial consolidation and reporting activities at Group level. \n\n This role plays a key part in ensuring accurate, timely and compliant financial reporting across all international entities, while supporting both operational excellence and strategic decision-making. \n\n Your Responsibilities \n\n · Creation, analysis and commenting of consolidated results as part of the monthly, quarterly and year-end closing process \n\n · Maintenance of the consolidation system (SAP BPC) \n\n · Perform plausibility checks of monthly financial statements from international subsidiaries and consolidate figures at Group level \n\n · Coordinate planning processes including forecasts, budgets and mid-term planning from a consolidation perspective \n\n · Prepare reports for management and the Board of Directors \n\n · Manage and further develop consolidation and reporting systems \n\n · Prepare and review annual financial statements (standalone and consolidated) \n\n · Prepare transfer pricing documentation \n\n · Maintain general ledger, prepare journal entries and accounting schedules for the parent companies \n\n · Review accounts and tax returns \n\n · Liaise with external auditors \n\n Your Profile \n\n · Strong experience in Group Accounting, Consolidation and Financial Reporting \n\n · Solid knowledge of closing processes and international accounting standards \n\n · Experience with consolidation tools (SAP BPC or similar) \n\n · Strong analytical and problem-solving skills \n\n · High level of accuracy and attention to detail \n\n · Ability to work in an international environment and manage multiple stakeholders \n\n · Strong communication skills \n\n · Fluent in English; additional languages are a plus \n\n What We Offer \n\n · A key role within the Group Finance team \n\n · A dynamic, international and fast-paced working environment \n\n · The opportunity to contribute to financial reporting and consolidation at Group level \n\n · Competitive compensation and benefits package \n\n Would you like to become a part of our fashion story and an enthusiastic member of our TALLY Family? Then share your individual talent with us and send us your application! Or contact directly our Internal Recruiter at c.barone@tally-weijl.com",
+        "it": "We're here to make you feel sexy, empowered & UNSTOPPABLE. \n\n Founded in 1984, TALLY WEiJL has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. \n\n Today we’re present in 35 markets with about 400 stores, online presence, and 3m+ fans across social channels. \n\n About the Role \n\n We are looking for a Group Accounting Manager – Consolidation & Reporting to oversee and manage the financial consolidation and reporting activities at Group level. \n\n This role plays a key part in ensuring accurate, timely and compliant financial reporting across all international entities, while supporting both operational excellence and strategic decision-making. \n\n Your Responsibilities \n\n · Creation, analysis and commenting of consolidated results as part of the monthly, quarterly and year-end closing process \n\n · Maintenance of the consolidation system (SAP BPC) \n\n · Perform plausibility checks of monthly financial statements from international subsidiaries and consolidate figures at Group level \n\n · Coordinate planning processes including forecasts, budgets and mid-term planning from a consolidation perspective \n\n · Prepare reports for management and the Board of Directors \n\n · Manage and further develop consolidation and reporting systems \n\n · Prepare and review annual financial statements (standalone and consolidated) \n\n · Prepare transfer pricing documentation \n\n · Maintain general ledger, prepare journal entries and accounting schedules for the parent companies \n\n · Review accounts and tax returns \n\n · Liaise with external auditors \n\n Your Profile \n\n · Strong experience in Group Accounting, Consolidation and Financial Reporting \n\n · Solid knowledge of closing processes and international accounting standards \n\n · Experience with consolidation tools (SAP BPC or similar) \n\n · Strong analytical and problem-solving skills \n\n · High level of accuracy and attention to detail \n\n · Ability to work in an international environment and manage multiple stakeholders \n\n · Strong communication skills \n\n · Fluent in English; additional languages are a plus \n\n What We Offer \n\n · A key role within the Group Finance team \n\n · A dynamic, international and fast-paced working environment \n\n · The opportunity to contribute to financial reporting and consolidation at Group level \n\n · Competitive compensation and benefits package \n\n Would you like to become a part of our fashion story and an enthusiastic member of our TALLY Family? Then share your individual talent with us and send us your application! Or contact directly our Internal Recruiter at c.barone@tally-weijl.com",
+        "de": "We're here to make you feel sexy, empowered & UNSTOPPABLE. \n\n Founded in 1984, TALLY WEiJL has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. \n\n Today we’re present in 35 markets with about 400 stores, online presence, and 3m+ fans across social channels. \n\n About the Role \n\n We are looking for a Group Accounting Manager – Consolidation & Reporting to oversee and manage the financial consolidation and reporting activities at Group level. \n\n This role plays a key part in ensuring accurate, timely and compliant financial reporting across all international entities, while supporting both operational excellence and strategic decision-making. \n\n Your Responsibilities \n\n · Creation, analysis and commenting of consolidated results as part of the monthly, quarterly and year-end closing process \n\n · Maintenance of the consolidation system (SAP BPC) \n\n · Perform plausibility checks of monthly financial statements from international subsidiaries and consolidate figures at Group level \n\n · Coordinate planning processes including forecasts, budgets and mid-term planning from a consolidation perspective \n\n · Prepare reports for management and the Board of Directors \n\n · Manage and further develop consolidation and reporting systems \n\n · Prepare and review annual financial statements (standalone and consolidated) \n\n · Prepare transfer pricing documentation \n\n · Maintain general ledger, prepare journal entries and accounting schedules for the parent companies \n\n · Review accounts and tax returns \n\n · Liaise with external auditors \n\n Your Profile \n\n · Strong experience in Group Accounting, Consolidation and Financial Reporting \n\n · Solid knowledge of closing processes and international accounting standards \n\n · Experience with consolidation tools (SAP BPC or similar) \n\n · Strong analytical and problem-solving skills \n\n · High level of accuracy and attention to detail \n\n · Ability to work in an international environment and manage multiple stakeholders \n\n · Strong communication skills \n\n · Fluent in English; additional languages are a plus \n\n What We Offer \n\n · A key role within the Group Finance team \n\n · A dynamic, international and fast-paced working environment \n\n · The opportunity to contribute to financial reporting and consolidation at Group level \n\n · Competitive compensation and benefits package \n\n Would you like to become a part of our fashion story and an enthusiastic member of our TALLY Family? Then share your individual talent with us and send us your application! Or contact directly our Internal Recruiter at c.barone@tally-weijl.com",
+        "fr": "We're here to make you feel sexy, empowered & UNSTOPPABLE. \n\n Founded in 1984, TALLY WEiJL has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. \n\n Today we’re present in 35 markets with about 400 stores, online presence, and 3m+ fans across social channels. \n\n About the Role \n\n We are looking for a Group Accounting Manager – Consolidation & Reporting to oversee and manage the financial consolidation and reporting activities at Group level. \n\n This role plays a key part in ensuring accurate, timely and compliant financial reporting across all international entities, while supporting both operational excellence and strategic decision-making. \n\n Your Responsibilities \n\n · Creation, analysis and commenting of consolidated results as part of the monthly, quarterly and year-end closing process \n\n · Maintenance of the consolidation system (SAP BPC) \n\n · Perform plausibility checks of monthly financial statements from international subsidiaries and consolidate figures at Group level \n\n · Coordinate planning processes including forecasts, budgets and mid-term planning from a consolidation perspective \n\n · Prepare reports for management and the Board of Directors \n\n · Manage and further develop consolidation and reporting systems \n\n · Prepare and review annual financial statements (standalone and consolidated) \n\n · Prepare transfer pricing documentation \n\n · Maintain general ledger, prepare journal entries and accounting schedules for the parent companies \n\n · Review accounts and tax returns \n\n · Liaise with external auditors \n\n Your Profile \n\n · Strong experience in Group Accounting, Consolidation and Financial Reporting \n\n · Solid knowledge of closing processes and international accounting standards \n\n · Experience with consolidation tools (SAP BPC or similar) \n\n · Strong analytical and problem-solving skills \n\n · High level of accuracy and attention to detail \n\n · Ability to work in an international environment and manage multiple stakeholders \n\n · Strong communication skills \n\n · Fluent in English; additional languages are a plus \n\n What We Offer \n\n · A key role within the Group Finance team \n\n · A dynamic, international and fast-paced working environment \n\n · The opportunity to contribute to financial reporting and consolidation at Group level \n\n · Competitive compensation and benefits package \n\n Would you like to become a part of our fashion story and an enthusiastic member of our TALLY Family? Then share your individual talent with us and send us your application! Or contact directly our Internal Recruiter at c.barone@tally-weijl.com"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zxrc/",
+      "source": "TALLY WEiJL Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-28T11:43:35.259Z",
+      "addressLocality": "Basel",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Moda / Abbigliamento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-28",
+      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zxrc/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4001",
+      "firstSeenAt": "2026-04-28T11:43:35.259Z"
+    },
+    {
       "id": "tally-weijl-8e5687719d49",
       "slug": "aushilfe-flessibile-m-p-g-tally-weijl-schaffhausen",
       "slugByLocale": {
@@ -1865,7 +1946,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-27T22:38:29.450Z",
+      "crawledAt": "2026-04-28T11:43:34.587Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1921,6 +2002,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.789Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1966,7 +2048,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-27T22:38:28.812Z",
+      "crawledAt": "2026-04-28T11:43:33.930Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2021,6 +2103,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2066,7 +2149,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z27g/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-27T22:38:28.165Z",
+      "crawledAt": "2026-04-28T11:43:33.262Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2138,7 +2221,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-27T22:38:27.566Z",
+      "crawledAt": "2026-04-28T11:43:32.360Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -2201,6 +2284,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:36.816Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2246,7 +2330,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z29i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-27T22:38:26.977Z",
+      "crawledAt": "2026-04-28T11:43:31.758Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
