@@ -95,11 +95,10 @@ describe('job alert email — identity footer', () => {
 });
 
 describe('job alert email — top-bar manage alerts CTA', () => {
-  it('html contains a Manage alerts link in the top bar (above the hero)', () => {
+  it('all-jobs button still points to the job board', () => {
     const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
-    // Check the manageUrl appears in two places: top bar and footer
-    const manageMatches = result.html.match(/href="[^"]*\/find-jobs-ticino\/?\?[^"]*utm_source=job_alert[^"]*"/g) ?? [];
-    expect(manageMatches.length).toBeGreaterThanOrEqual(2);
+    // The "View all jobs" CTA continues to land on /en/find-jobs-ticino
+    expect(result.html).toMatch(/href="[^"]*\/en\/find-jobs-ticino\/?\?[^"]*"/);
   });
 });
 
@@ -175,6 +174,82 @@ describe('job alert email — locale-aware URLs', () => {
     const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
     expect(result.text).toMatch(/\/en\/find-jobs-ticino\//);
     expect(result.text).not.toMatch(/frontaliereticino\.ch\/find-jobs-ticino\//);
+  });
+});
+
+describe('job alert email — subject truncation polish', () => {
+  // Regression: the live email had subject "🔔 Revisori dei conti, esperti tecnici… presso MTIC Group (+57 altre offerte)"
+  // — truncation cut mid-thought after a comma, leaving the dangling comma in place.
+  it('truncates titles at a word boundary, not mid-word', () => {
+    const job = {
+      ...fixtureJob(),
+      title: 'Revisori dei conti, esperti tecnici e clinici',
+      company: 'MTIC Group',
+    };
+    const jobs = [job, ...Array.from({ length: 57 }, () => fixtureJob({ title: 'Filler' }))];
+    const result = buildAlertEmail(fixtureAlert('it'), jobs, true);
+    expect(result.subject.length).toBeLessThanOrEqual(78);
+    // The ellipsis must NOT immediately follow a comma or other dangling punctuation.
+    expect(result.subject).not.toMatch(/[,;:\-]\u2026/);
+    expect(result.subject).toContain('presso MTIC Group');
+    expect(result.subject).toContain('(+57 altre offerte)');
+  });
+
+  it('does not produce a 1-2 char title when room is tight', () => {
+    const job = {
+      ...fixtureJob(),
+      title: 'Senior Software Engineering Manager — Distributed Backend Platforms',
+      company: 'Acme Corporation International Holdings',
+    };
+    const result = buildAlertEmail(fixtureAlert('it'), [job, fixtureJob()], true);
+    expect(result.subject.length).toBeLessThanOrEqual(78);
+    // Title segment (after bell+space, before " presso ") must be at least 6 chars.
+    const m = result.subject.match(/^🔔\s+(.+?)\s+presso\s+/);
+    expect(m).not.toBeNull();
+    expect(m![1].length).toBeGreaterThanOrEqual(6);
+  });
+});
+
+describe('job alert email — UTM hygiene', () => {
+  it('utm_medium is "email" (not "job_alert" duplicating utm_source)', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+    expect(result.html).toMatch(/utm_source=job_alert/);
+    expect(result.html).toMatch(/utm_medium=email/);
+    expect(result.html).not.toMatch(/utm_medium=job_alert/);
+  });
+
+  it('plaintext URLs also use utm_medium=email', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+    expect(result.text).toMatch(/utm_medium=email/);
+    expect(result.text).not.toMatch(/utm_medium=job_alert/);
+  });
+});
+
+describe('job alert email — Manage alerts URL points to preferences', () => {
+  it('IT manage URL uses /preferenze-newsletter (not the job board)', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+    // Top-bar Manage link should land on the preferences page, not just the job board.
+    // We assert that at least one occurrence of /preferenze-newsletter is referenced
+    // outside the footer "Gestisci preferenze" line.
+    const occurrences = (result.html.match(/\/preferenze-newsletter\?/g) ?? []).length;
+    expect(occurrences).toBeGreaterThanOrEqual(2);
+  });
+
+  it('EN manage URL uses /en/newsletter-preferences', () => {
+    const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
+    const occurrences = (result.html.match(/\/en\/newsletter-preferences\?/g) ?? []).length;
+    expect(occurrences).toBeGreaterThanOrEqual(2);
+  });
+});
+
+describe('job alert sorting — score tiebreak by recency', () => {
+  it('sort logic in source uses firstSeenAt as secondary key', () => {
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
+      'utf8',
+    );
+    // Confirms the tiebreak exists in the matching loop (regression guard).
+    expect(src).toMatch(/firstSeenAt[\s\S]{0,400}bTime\s*-\s*aTime/);
   });
 });
 

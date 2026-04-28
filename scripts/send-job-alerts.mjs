@@ -222,11 +222,14 @@ function generateAutologinCode(email) {
     .digest('hex');
 }
 
-function makeAuthenticatedUrl(targetUrl, email, autologinCode, utmMedium = 'job_alert') {
+function makeAuthenticatedUrl(targetUrl, email, autologinCode, utmMedium = 'email') {
   const url = new URL(targetUrl, BASE_URL);
   url.searchParams.set('ne', email.toLowerCase());
   if (autologinCode) url.searchParams.set('ac', autologinCode);
-  url.searchParams.set('utm_medium', utmMedium);
+  // Preserve utm_medium if caller already set it on the URL (e.g. utmBase).
+  // Default switched from 'job_alert' (which duplicated utm_source) to 'email'
+  // — analytics convention is utm_medium=channel, utm_source=identifier.
+  if (!url.searchParams.has('utm_medium')) url.searchParams.set('utm_medium', utmMedium);
   return url.toString();
 }
 
@@ -344,6 +347,19 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   // Format: "🔔 {title} at {company}" or "🔔 {title} at {company} (+N more)"
   // Capped at 78 characters total. Empty matches fall back to the legacy generic subject.
   const SUBJECT_MAX = 78;
+  // Truncate at the last word boundary before max chars and strip dangling punctuation.
+  // This avoids ugly mid-word ellipses like "Revisori dei conti, esperti tecnici…".
+  const truncateAtWord = (str, max) => {
+    if (str.length <= max) return str;
+    const slot = str.slice(0, max - 1); // reserve 1 char for the ellipsis
+    const lastSpace = slot.lastIndexOf(' ');
+    // If a sensible word boundary exists past 50% of the slot, cut there;
+    // otherwise hard-cut to avoid producing a 2-character title.
+    let cut = lastSpace > Math.floor(max * 0.5) ? slot.slice(0, lastSpace) : slot;
+    // Drop trailing punctuation (commas, semicolons, dashes, periods, en/em dashes).
+    cut = cut.replace(/[\s,;:.\-\u2013\u2014]+$/, '');
+    return cut + '\u2026';
+  };
   let subject;
   if (matchedJobs.length === 0) {
     subject = `${s.subjectNew(matchedJobs.length)} ${s.subjectFor}: ${subjectLabel}`;
@@ -358,19 +374,19 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const atPart = topCompany ? ` ${s.at} ${topCompany}` : '';
     let candidate = `${bell} ${topTitle}${atPart}${suffix}`;
     if (candidate.length > SUBJECT_MAX) {
-      // Truncate the title, keeping the company + suffix intact when possible.
-      const fixed = `${bell} ${atPart}${suffix}`; // includes the leading space before company
-      const room = SUBJECT_MAX - fixed.length - 1; // -1 for the ellipsis
-      if (room >= 4) {
-        const truncatedTitle = topTitle.slice(0, Math.max(1, room)).trimEnd() + '\u2026';
+      // Truncate the title at a word boundary, keeping the company + suffix intact.
+      const fixed = `${bell} ${atPart}${suffix}`; // total chars consumed by non-title parts
+      const room = SUBJECT_MAX - fixed.length;
+      if (room >= 6) {
+        const truncatedTitle = truncateAtWord(topTitle, room);
         candidate = `${bell} ${truncatedTitle}${atPart}${suffix}`;
       } else {
-        // Not enough room — drop company part and truncate the whole tail.
-        candidate = candidate.slice(0, SUBJECT_MAX - 1).trimEnd() + '\u2026';
+        // Not enough room for a usable title — drop company, truncate the whole tail.
+        candidate = truncateAtWord(`${bell} ${topTitle}${suffix}`, SUBJECT_MAX);
       }
       // Final defensive cap (handles edge cases where suffix itself is huge).
       if (candidate.length > SUBJECT_MAX) {
-        candidate = candidate.slice(0, SUBJECT_MAX - 1).trimEnd() + '\u2026';
+        candidate = truncateAtWord(candidate, SUBJECT_MAX);
       }
     }
     subject = candidate;
@@ -391,7 +407,9 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
 
   // Build locale-aware URLs with autologin
   const wrapUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode);
-  const manageUrl = wrapUrl(`${BASE_URL}${localizedJobBoardPath}/?${utmBase}`);
+  // "Manage alerts" points to the user's preferences page (which has alert controls),
+  // NOT the job board landing — the job board has no alert-management UI.
+  const manageUrl = wrapUrl(`${preferencesUrl}&${utmBase}`);
   const allJobsUrl = wrapUrl(`${BASE_URL}${localizedJobBoardPath}/?${utmBase}`);
 
   const jobCards = matchedJobs.slice(0, 10).map((job) => {
@@ -855,7 +873,17 @@ async function main() {
     const matched = recentJobs
       .map((job) => ({ job, score: matchJobToAlert(job, alert) }))
       .filter((m) => m.score > 0)
-      .sort((a, b) => b.score - a.score)
+      .sort((a, b) => {
+        // Primary: higher score first.
+        const scoreDiff = b.score - a.score;
+        if (scoreDiff !== 0) return scoreDiff;
+        // Tiebreak: more recently first-seen jobs first. Without this, location-only
+        // alerts (where every match has score=2) yielded an arbitrary insertion order
+        // and stale jobs leaked into the subject line.
+        const aTime = a.job.firstSeenAt ? new Date(a.job.firstSeenAt).getTime() : 0;
+        const bTime = b.job.firstSeenAt ? new Date(b.job.firstSeenAt).getTime() : 0;
+        return bTime - aTime;
+      })
       .map((m) => m.job);
 
     if (matched.length === 0) continue;
