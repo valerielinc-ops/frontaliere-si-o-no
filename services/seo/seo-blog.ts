@@ -19527,6 +19527,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombardia-piano-ciclabile-115-milioni': {
+    title: 'Lombardia: 115 milioni per il piano ciclabile | Frontaliere Ticino',
+    description: 'La Regione Lombardia investe 115 milioni di euro nel piano ciclabile con 25 grandi percorsi per migliorare la mobilità sostenibile. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, milioni, piano, ciclabile',
+    ogTitle: 'Lombardia: 115 milioni per il piano ciclabile',
+    ogDescription: 'La Regione Lombardia investe 115 milioni di euro nel piano ciclabile con 25 grandi percorsi',
+    canonicalPath: '/articoli-frontaliere/lombardia-piano-ciclabile-115-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lombardia: 115 milioni per il piano ciclabile",
+      "description": "La Regione Lombardia investe 115 milioni di euro nel piano ciclabile con 25 grandi percorsi per migliorare la mobilità sostenibile. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lombardia-piano-ciclabile-115-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pista ciclabile in riva al lago di Lugano"
+      },
+      "datePublished": "2026-04-28T14:44:00+00:00",
+      "dateModified": "2026-04-28T14:44:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-piano-ciclabile-115-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

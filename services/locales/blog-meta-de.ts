@@ -3367,6 +3367,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caslano-2025-bilancio-avanzamento.title': 'Caslano schließt 2025 mit 311.000 Franken Überschuss ab',
     'blog.article.caslano-2025-bilancio-avanzamento.excerpt': 'Die Gemeinde Caslano schließt das Jahr 2025 mit einem Überschuss von 311.000 Franken ab und übertrifft damit die prognostizierten 79.000 Franken Defizit.',
     'blog.article.caslano-2025-bilancio-avanzamento.imageAlt': 'Panoramablick von Caslano, Tessin',
+    'blog.article.lombardia-piano-ciclabile-115-milioni.title': 'Lombardei: 115 Millionen für Radwegeplan',
+    'blog.article.lombardia-piano-ciclabile-115-milioni.excerpt': 'Die Region Lombardei investiert 115 Millionen Euro in den Radwegeplan mit 25 großen Routen',
+    'blog.article.lombardia-piano-ciclabile-115-milioni.imageAlt': 'Luganer See Radweg',
 };
 
 export default blogMetaDe;

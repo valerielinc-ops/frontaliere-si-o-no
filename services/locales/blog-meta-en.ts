@@ -3367,6 +3367,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caslano-2025-bilancio-avanzamento.title': 'Caslano defies forecasts with 311k CHF surplus',
     'blog.article.caslano-2025-bilancio-avanzamento.excerpt': 'The municipality of Caslano closes 2025 with a surplus of 311,000 CHF, exceeding the forecasted deficit of 79,000 CHF.',
     'blog.article.caslano-2025-bilancio-avanzamento.imageAlt': 'Panoramic view of Caslano, Ticino',
+    'blog.article.lombardia-piano-ciclabile-115-milioni.title': 'Lombardy: 115 million for cycling plan',
+    'blog.article.lombardia-piano-ciclabile-115-milioni.excerpt': 'The Lombardy Region is investing 115 million euros in the cycling plan with 25 major routes',
+    'blog.article.lombardia-piano-ciclabile-115-milioni.imageAlt': 'Lugano lake bike path',
 };
 
 export default blogMetaEn;

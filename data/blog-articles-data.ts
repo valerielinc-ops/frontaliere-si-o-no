@@ -8869,4 +8869,11 @@ export const ARTICLES = [
  image: '/images/blog/caslano-2025-bilancio-avanzamento.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lombardia-piano-ciclabile-115-milioni',
+ category: 'pratico',
+ date: '2026-04-28T14:44:00.800Z',
+ image: '/images/blog/lombardia-piano-ciclabile-115-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

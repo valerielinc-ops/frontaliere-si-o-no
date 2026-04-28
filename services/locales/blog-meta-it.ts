@@ -3368,6 +3368,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caslano-2025-bilancio-avanzamento.title': 'Caslano ribalta le previsioni e chiude il 2025 con 311mila franchi di avanzo',
     'blog.article.caslano-2025-bilancio-avanzamento.excerpt': 'Il Comune di Caslano chiude il 2025 con un avanzo di 311mila franchi, superando le previsioni di disavanzo di 79mila franchi.',
     'blog.article.caslano-2025-bilancio-avanzamento.imageAlt': 'Veduta panoramica di Caslano, Ticino',
+    'blog.article.lombardia-piano-ciclabile-115-milioni.title': 'Lombardia: 115 milioni per il piano ciclabile',
+    'blog.article.lombardia-piano-ciclabile-115-milioni.excerpt': 'La Regione Lombardia investe 115 milioni di euro nel piano ciclabile con 25 grandi percorsi',
+    'blog.article.lombardia-piano-ciclabile-115-milioni.imageAlt': 'Pista ciclabile in riva al lago di Lugano',
 };
 
 export default blogMetaIt;

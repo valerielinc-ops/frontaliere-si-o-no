@@ -2353,6 +2353,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-borse-zurigo-flessione-2026': { name: 'Borse europee', path: '/articoli-frontaliere/borse-zurigo-flessione-2026', parent: 'blog' },
     'blog-traffico-droga-arresti-svizzera-estero-2026': { name: 'Novità', path: '/articoli-frontaliere/traffico-droga-arresti-svizzera-estero-2026', parent: 'blog' },
     'blog-caslano-2025-bilancio-avanzamento': { name: 'Bilancio Caslano', path: '/articoli-frontaliere/caslano-2025-bilancio-avanzamento', parent: 'blog' },
+    'blog-lombardia-piano-ciclabile-115-milioni': { name: 'Piano ciclabile', path: '/articoli-frontaliere/lombardia-piano-ciclabile-115-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];
