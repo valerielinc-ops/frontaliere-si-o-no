@@ -38,6 +38,11 @@ import {
   STAT_TILE_VALUE,
   HERO_EYEBROW_STYLE,
 } from './shared/seoContentTokens';
+import {
+  renderJobCardListHtml,
+  type JobCardJob,
+  type JobCardListItem,
+} from './shared/jobCardHtml';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -103,25 +108,6 @@ function localizedJobSlug(job: Record<string, unknown>, locale: JobLandingLocale
 }
 
 const VARIANTS: ReadonlyArray<JobRecencyVariant> = ['last-3-days', 'since-yesterday'];
-
-function renderJobCard(job: {
-  title: string;
-  company: string;
-  location: string;
-  href: string;
-  datePosted?: string;
-}): string {
-  const datePart = job.datePosted
-    ? `<time datetime="${esc(job.datePosted)}" style="color:var(--color-subtle);font-size:13px">${esc(job.datePosted.slice(0, 10))}</time>`
-    : '';
-  return `<li style="${CARD_STYLE};border-radius:14px;margin-bottom:10px;list-style:none">
-  <a href="${esc(job.href)}" style="color:var(--color-heading);text-decoration:none;display:block">
-    <div style="font-weight:700;font-size:16px;line-height:1.35">${esc(job.title)}</div>
-    <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(job.company)}${job.company && job.location ? ' · ' : ''}${esc(job.location)}</div>
-    ${datePart ? `<div style="margin-top:4px">${datePart}</div>` : ''}
-  </a>
-</li>`;
-}
 
 export function jobRecencyPagesPlugin(rootDir: string): Plugin {
   return {
@@ -203,9 +189,17 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
             return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}">`;
           }).join('\n');
 
-          const jobsHtml = model.jobs.length > 0
-            ? `<ul style="margin:0;padding:0">${model.jobs.map(renderJobCard).join('')}</ul>`
-            : `<p style="${STAT_TILE_WARNING};margin:0;padding:16px;border-radius:12px">${esc(model.noResultsLabel)}</p>`;
+          const cardItems: JobCardListItem[] = model.jobs.map((job) => ({
+            // RecencyJobLink already includes title/company/location/href/date
+            // plus the SPA-card enrichment fields (companyKey, salary, contract,
+            // canton, featured, titleByLocale).
+            job: job as JobCardJob,
+            href: job.href,
+          }));
+          const jobsHtml = renderJobCardListHtml(cardItems, {
+            locale,
+            emptyStateHtml: `<p style="${STAT_TILE_WARNING};margin:0;padding:16px;border-radius:12px">${esc(model.noResultsLabel)}</p>`,
+          });
 
           const faqHtml = model.faq.length > 0
             ? `<section style="margin:28px 0 0">

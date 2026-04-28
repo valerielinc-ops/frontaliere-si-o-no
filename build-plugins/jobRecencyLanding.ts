@@ -26,6 +26,18 @@ export interface RecencyJobLink {
   location: string;
   href: string;
   datePosted?: string;
+  // ── Enrichment fields used by the SPA-style job card renderer
+  // (build-plugins/shared/jobCardHtml.ts). All optional to keep the
+  // contract permissive for callers that only need the link shape.
+  titleByLocale?: Partial<Record<JobLandingLocale, string>>;
+  companyKey?: string;
+  canton?: string;
+  contract?: string;
+  salaryMin?: number | null;
+  salaryMax?: number | null;
+  featured?: boolean;
+  logo?: string | null;
+  addressLocality?: string;
 }
 
 export interface JobRecencyLandingModel {
@@ -486,12 +498,25 @@ export function buildJobRecencyLandingModel(options: {
     const rawSlug = options.localizedSlug(job, locale);
     const href = buildRecencyHref(baseUrl, options.localePrefix, options.sectionSlug, rawSlug);
     const posted = getJobFreshnessDate(job as JobLike);
+    const titleByLocaleTyped = Object.fromEntries(
+      Object.entries(titleByLocale).filter(([, v]) => typeof v === 'string'),
+    ) as Partial<Record<JobLandingLocale, string>>;
     return {
       title: normalizeSpace(localized),
       company: normalizeSpace(j.company),
       location: normalizeSpace(j.location),
       href,
       datePosted: posted ? posted.toISOString() : undefined,
+      titleByLocale: titleByLocaleTyped,
+      companyKey: typeof j.companyKey === 'string' ? j.companyKey : undefined,
+      canton: typeof j.canton === 'string' ? j.canton : undefined,
+      contract: typeof j.contract === 'string' ? j.contract : undefined,
+      salaryMin: typeof j.salaryMin === 'number' ? j.salaryMin : undefined,
+      salaryMax: typeof j.salaryMax === 'number' ? j.salaryMax : undefined,
+      featured: j.featured === true,
+      logo: typeof j.logo === 'string' ? j.logo : undefined,
+      addressLocality:
+        typeof j.addressLocality === 'string' ? j.addressLocality : undefined,
     };
   });
 

@@ -35,6 +35,11 @@ import {
   TABLE_HEAD_STYLE,
   TABLE_CELL_STYLE,
 } from './shared/seoContentTokens';
+import {
+  renderJobCardListHtml,
+  type JobCardJob,
+  type JobCardListItem,
+} from './shared/jobCardHtml';
 import type { JobBoardLocale } from './jobBoardSeo';
 import {
   SECTOR_HUB_KEYS,
@@ -111,25 +116,6 @@ function buildJobHref(
   return `${BASE_URL}${prefix}/${section}/${slug}/`.replace(/([^:])\/+/g, '$1/');
 }
 
-function renderJobCard(j: {
-  title: string;
-  company: string;
-  location: string;
-  href: string;
-  datePosted?: string;
-}): string {
-  const datePart = j.datePosted
-    ? `<time datetime="${esc(j.datePosted)}" style="color:var(--color-subtle);font-size:13px">${esc(String(j.datePosted).slice(0, 10))}</time>`
-    : '';
-  return `<li style="${CARD_STYLE};margin-bottom:10px;list-style:none">
-  <a href="${esc(j.href)}" style="color:var(--color-heading);text-decoration:none;display:block">
-    <div style="font-weight:700;font-size:16px;line-height:1.35">${esc(j.title)}</div>
-    <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(j.company)}${j.company && j.location ? ' · ' : ''}${esc(j.location)}</div>
-    ${datePart ? `<div style="margin-top:4px">${datePart}</div>` : ''}
-  </a>
-</li>`;
-}
-
 export function jobSectorPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'job-sector-pages',
@@ -194,14 +180,20 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           }).join('\n');
           const xDefaultPath = buildSectorHubPath('it', sector);
 
-          const jobCards = matchingJobs.map((job) => {
+          const cardItems: JobCardListItem[] = matchingJobs.map((job) => ({
+            job: job as JobCardJob,
+            href: buildJobHref(locale, job),
+          }));
+
+          // Lightweight schema-friendly shape for ItemList JSON-LD downstream
+          const jobCards = cardItems.map(({ job, href }) => {
             const titleByLocale = job.titleByLocale as Record<string, string> | undefined;
             const localizedTitle = String(titleByLocale?.[locale] || job.title || 'Offerta lavoro');
             return {
               title: String(localizedTitle).replace(/\s+/g, ' ').trim(),
               company: String(job.company || '').replace(/\s+/g, ' ').trim(),
               location: String(job.location || '').replace(/\s+/g, ' ').trim(),
-              href: buildJobHref(locale, job),
+              href,
               datePosted: job.datePosted || job.postedDate || undefined,
             };
           });
@@ -212,9 +204,11 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
             de: 'Aktuell keine Angebote. Schauen Sie bald wieder vorbei — die Liste wird mehrmals täglich aktualisiert.',
             fr: "Aucune offre pour l'instant. Revenez bientôt — la liste est mise à jour plusieurs fois par jour.",
           }[locale];
-          const jobsHtml = jobCards.length > 0
-            ? `<ul style="margin:0;padding:0">${jobCards.map(renderJobCard).join('')}</ul>`
-            : `<p style="margin:0;padding:16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading);border:1px solid var(--color-warning-border)">${esc(noResultsLabel)}</p>`;
+          const emptyStateHtml = `<p style="margin:0;padding:16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading);border:1px solid var(--color-warning-border)">${esc(noResultsLabel)}</p>`;
+          const jobsHtml = renderJobCardListHtml(cardItems, {
+            locale,
+            emptyStateHtml,
+          });
 
           const faqHtml = seo.faq.length > 0
             ? `<section style="margin:28px 0 0">

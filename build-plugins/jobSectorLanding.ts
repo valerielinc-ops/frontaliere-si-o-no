@@ -234,8 +234,13 @@ export interface SectorCountableJob {
 /** Keyword patterns per sector (case-insensitive, multilingual). */
 export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   infermieri: /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
+  // NOTE: do NOT add 3-letter abbreviations like \bris\b or \blis\b here —
+  // they match high-frequency substrings ("Paris", "Polis", random IT/EN
+  // tokens) and inflate the count by ~10× with false positives. Instead,
+  // require the full Italian institutional acronyms to be followed by a
+  // ticinese town to anchor them ("RIS Lugano", "LIS Pregassona", ...).
   'case-anziani':
-    /casa[ -]anzian|case[ -]anzian|oscam|pregassona|altenpfleg|altersheim|pflegeheim|residenza[ -]per[ -]anzian|residenza[ -]anzian|elderly[ -]care|nursing[ -]home|maison[ -]de[ -]retraite|ehpad|ris\b|lis\b/i,
+    /casa[ -]anzian|case[ -]anzian|oscam|pregassona|altenpfleg|altersheim|pflegeheim|residenza[ -]per[ -]anzian|residenza[ -]anzian|elderly[ -]care|nursing[ -]home|maison[ -]de[ -]retraite|ehpad|\b(?:ris|lis)\b[ -](?:lugano|mendrisio|bellinzona|locarno|chiasso|biasca|airolo|tesserete|pregassona|breganzona|massagno|paradiso|melide|morbio|stabio|capolago|riva[ -]san[ -]vitale|sessa|sonvico|tegna|gordola|maggia|cevio)/i,
   educatori:
     /educator|educatric|educatrice|educatori|erzieher|erzieherin|p[aä]dagog|social[ -]pedagog|[eé]ducateur|[eé]ducatrice|educational[ -]assistant|operatore[ -]socio[ -]educativ/i,
   ingegneri:

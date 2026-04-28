@@ -55,6 +55,11 @@ import {
   clampSiteSuffix,
 } from './shared/seoContentTokens';
 import {
+  renderJobCardListHtml,
+  type JobCardJob,
+  type JobCardListItem,
+} from './shared/jobCardHtml';
+import {
   ORPHAN_LANDING_LOCALES,
   ORPHAN_LANDING_SECTION,
   ORPHAN_LANDING_LOCALE_PREFIX,
@@ -417,21 +422,24 @@ function renderPage(opts: {
   // Similar queries
   const similar = cluster.queries.slice(0, 15);
 
-  // Job cards
-  const jobCards = matchingJobs.slice(0, 15).map((j) => {
-    const title = jobLocalizedTitle(j, locale) || t('orphanLanding.openPosition', 'Posizione aperta');
-    const company = String(j.company || '');
-    const city = String(j.addressLocality || j.location || '');
-    const href = jobLocalizedUrl(j, locale);
-    const posted = String(j.postedDate || j.datePosted || '').slice(0, 10);
-    return `<li style="${CARD_STYLE};margin-bottom:10px;list-style:none">
-  <a href="${esc(href)}" style="color:var(--color-body);text-decoration:none;display:block">
-    <div style="font-weight:700;font-size:16px;line-height:1.35">${esc(title)}</div>
-    <div style="margin-top:4px;color:var(--color-subtle);font-size:14px">${esc(company)}${company && city ? ' · ' : ''}${esc(city)}</div>
-    ${posted ? `<div style="margin-top:4px"><time datetime="${esc(posted)}" style="color:var(--color-subtle);font-size:13px">${esc(posted)}</time></div>` : ''}
-  </a>
-</li>`;
-  }).join('');
+  // Job cards — SPA-matching markup via shared renderer
+  const cardItems: JobCardListItem[] = matchingJobs.slice(0, 15).map((j) => {
+    // Force a localized title onto a shallow copy so the shared renderer
+    // (which prefers titleByLocale[locale] then job.title) picks up the
+    // orphan-landing fallback ("Posizione aperta") when both are empty.
+    const localizedTitle =
+      jobLocalizedTitle(j, locale) || t('orphanLanding.openPosition', 'Posizione aperta');
+    const enrichedJob: JobCardJob = {
+      ...(j as unknown as JobCardJob),
+      title: localizedTitle,
+      titleByLocale: { ...(j as JobCardJob).titleByLocale, [locale]: localizedTitle },
+    };
+    return {
+      job: enrichedJob,
+      href: jobLocalizedUrl(j, locale),
+    };
+  });
+  const jobCards = renderJobCardListHtml(cardItems, { locale });
 
   const similarList = similar.map((q) => `<li style="margin:4px 0"><a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">${esc(q.query)}</a> <span style="color:var(--color-subtle);font-size:12px">(${q.impressions})</span></li>`).join('');
 
@@ -511,7 +519,7 @@ function renderPage(opts: {
     <section style="margin:0 0 28px">
       <h2 style="margin:0 0 12px;font-size:22px">${esc(t('orphanLanding.resultsLabel', 'Openings'))}</h2>
       ${matchingJobs.length > 0
-        ? `<ul style="margin:0;padding:0">${jobCards}</ul>`
+        ? jobCards
         : `<p style="margin:0;padding:16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading)">${esc(t('orphanLanding.noResults', 'No openings.'))}</p>`}
     </section>
     ${similar.length > 1 ? `<section style="margin:0 0 28px">

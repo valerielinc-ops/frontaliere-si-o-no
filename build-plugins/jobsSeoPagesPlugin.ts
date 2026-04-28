@@ -14,6 +14,10 @@ import { buildSimplePage } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
+import {
+ renderJobCardHtml,
+ type JobCardJob,
+} from './shared/jobCardHtml';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
 import {
@@ -2366,105 +2370,24 @@ ${hreflangHtml}
  return [...set];
  };
 
- /** Localized contract labels mirroring the in-app `contractTranslationKey`. */
- const CONTRACT_LABEL: Record<'it' | 'en' | 'de' | 'fr', Record<string, string>> = {
- it: { 'full-time': 'Tempo pieno', 'part-time': 'Part-time', temporary: 'Temporaneo', internship: 'Stage', contract: 'Contratto', other: 'Altro' },
- en: { 'full-time': 'Full-time', 'part-time': 'Part-time', temporary: 'Temporary', internship: 'Internship', contract: 'Contract', other: 'Other' },
- de: { 'full-time': 'Vollzeit', 'part-time': 'Teilzeit', temporary: 'Befristet', internship: 'Praktikum', contract: 'Vertrag', other: 'Sonstige' },
- fr: { 'full-time': 'Temps plein', 'part-time': 'Temps partiel', temporary: 'Temporaire', internship: 'Stage', contract: 'Contrat', other: 'Autre' },
- };
- const localizedContract = (contract: string, locale: 'it' | 'en' | 'de' | 'fr'): string => {
- const key = String(contract || '').toLowerCase();
- return CONTRACT_LABEL[locale][key] || CONTRACT_LABEL[locale].other;
- };
-
- /** "2 days ago" style relative-date label; falls back to ISO date. */
- const relativePostedLabel = (dateStr: string, locale: 'it' | 'en' | 'de' | 'fr'): string => {
- if (!dateStr) return '';
- const d = new Date(dateStr);
- if (Number.isNaN(d.getTime())) return '';
- const diffDays = Math.max(0, Math.floor((Date.now() - d.getTime()) / 86400000));
- const dict = {
- it: { today: 'Oggi', one: '1 giorno fa', many: (n: number) => `${n} giorni fa` },
- en: { today: 'Today', one: '1 day ago', many: (n: number) => `${n} days ago` },
- de: { today: 'Heute', one: 'vor 1 Tag', many: (n: number) => `vor ${n} Tagen` },
- fr: { today: "Aujourd'hui", one: 'il y a 1 jour', many: (n: number) => `il y a ${n} jours` },
- } as const;
- const l = dict[locale];
- if (diffDays <= 0) return l.today;
- if (diffDays === 1) return l.one;
- if (diffDays < 60) return l.many(diffDays);
- return d.toISOString().slice(0, 10);
- };
-
- const isJobNew = (dateStr: string): boolean => {
- if (!dateStr) return false;
- const d = new Date(dateStr);
- if (Number.isNaN(d.getTime())) return false;
- const diffDays = (Date.now() - d.getTime()) / 86400000;
- return diffDays >= 0 && diffDays < 7;
- };
-
- const NEW_BADGE_LABEL: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: 'Nuovo',
- en: 'New',
- de: 'Neu',
- fr: 'Nouveau',
- };
-
- // Tiny inline SVGs matching lucide-react Euro / MapPin / Clock icons.
- const ICON_EURO = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M4 14h9M19 5.4A7 7 0 0 0 7.5 12a7 7 0 0 0 11.5 6.6"/></svg>';
- const ICON_MAPPIN = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
- const ICON_CLOCK = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
- const ICON_STAR = '<svg viewBox="0 0 24 24" width="14" height="14" fill="var(--color-warning)" stroke="var(--color-warning)" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 9.8l6.5-.9L12 3Z"/></svg>';
- const ICON_SPARKLE = '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>';
-
  /**
-  * Render a single open-role `<li>` card mirroring the JobBoard.tsx JobCard
-  * component. Uses inline styles (Tailwind classes from build-plugins are not
-  * scanned by the JIT). Colors match the app's semantic tokens in light mode.
+  * Render a single open-role `<li>` card. Delegates to the SPA-matching
+  * shared renderer (`build-plugins/shared/jobCardHtml.ts`) and injects the
+  * locale-aware city linkifier so Lugano/Mendrisio/Bellinzona become
+  * internal hub links in the company-and-location subtitle.
   */
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
  const renderJobCardLi = (job: any, locale: 'it' | 'en' | 'de' | 'fr'): string => {
  const jSlug = localizedSlug(job, locale);
  const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
  const jHref = `${BASE_URL}${withSlash(jPath)}`;
- const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- const logo = companyLogo(job);
- const rawLocation = String(job.location || '');
- const locationWithLink = linkifyCityInLocation(rawLocation, locale);
- const cantonStr = job.canton ? ` (${esc(String(job.canton))})` : '';
- const salaryMin = Number(job.salaryMin);
- const salaryMax = Number(job.salaryMax);
- const hasSalary = Number.isFinite(salaryMin) && Number.isFinite(salaryMax) && salaryMin > 0 && salaryMax >= salaryMin;
- const salaryStr = hasSalary
- ? `CHF ${Math.round(salaryMin / 1000)}k – ${Math.round(salaryMax / 1000)}k`
- : '';
- const contractLbl = localizedContract(String(job.contract || ''), locale);
- const postedRaw = String(job.postedDate || job.datePosted || '');
- const posted = relativePostedLabel(postedRaw, locale);
- const fresh = isJobNew(postedRaw);
- const featured = Boolean(job.featured);
- const borderColor = featured ? 'var(--color-warning-border)' : 'var(--color-edge)';
- const bgColor = featured ? 'var(--color-warning-subtle)' : 'var(--color-surface)';
- const featuredBadge = featured ? `<span style="display:inline-block;margin-left:6px;vertical-align:-2px">${ICON_STAR}</span>` : '';
- const newBadge = fresh
- ? `<span style="display:inline-flex;align-items:center;gap:3px;margin-left:6px;padding:2px 7px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;border-radius:9999px;background:var(--color-success-subtle);color:var(--color-success);vertical-align:1px">${ICON_SPARKLE}<span>${NEW_BADGE_LABEL[locale]}</span></span>`
- : '';
- const salaryHtml = salaryStr
- ? `<span style="display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-size:13px;font-weight:600;color:var(--color-success)">${ICON_EURO}<span>${esc(salaryStr)}</span></span>`
- : '';
- const contractChip = contractLbl
- ? `<span style="padding:2px 8px;border-radius:6px;background:var(--color-surface-alt);color:var(--color-subtle)">${esc(contractLbl)}</span>`
- : '';
- const postedChip = posted
- ? `<span style="display:inline-flex;align-items:center;gap:4px">${ICON_CLOCK}<span>${esc(posted)}</span></span>`
- : '';
- const locChip = rawLocation
- ? `<span style="display:inline-flex;align-items:center;gap:4px">${ICON_MAPPIN}<span>${esc(rawLocation)}</span></span>`
- : '';
- const logoImg = renderLogoImg(logo, `Logo ${String(job.company || '')}`, 36, 36, 'width:36px;height:36px;object-fit:contain');
- return `<li style="list-style:none;margin:0 0 10px 0"><a href="${jHref}" aria-label="${esc(jTitle)} — ${esc(String(job.company || ''))}" style="display:block;text-decoration:none;color:inherit;border:1px solid ${borderColor};background:${bgColor};border-radius:12px;padding:12px 14px;transition:border-color .15s"><div style="display:flex;align-items:flex-start;gap:12px"><div style="flex:0 0 48px;width:48px;height:48px;border-radius:8px;background:var(--color-surface-alt);border:1px solid var(--color-edge);display:flex;align-items:center;justify-content:center;overflow:hidden">${logoImg}</div><div style="flex:1 1 auto;min-width:0"><h3 style="margin:0;font-size:15px;font-weight:700;color:var(--color-heading);line-height:1.35">${esc(jTitle)}${featuredBadge}${newBadge}</h3><p style="margin:2px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.45">${esc(String(job.company || ''))} · ${locationWithLink}${cantonStr}</p>${salaryHtml}</div></div><div style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;color:var(--color-subtle)">${locChip}${contractChip}${postedChip}</div></a></li>`;
+ const cardHtml = renderJobCardHtml(job as JobCardJob, {
+ href: jHref,
+ locale,
+ linkifyLocation: linkifyCityInLocation,
+ logoUrl: companyLogo(job),
+ });
+ return `<li style="list-style:none;margin:0 0 10px 0">${cardHtml}</li>`;
  };
 
  /** Render a row of sector/city hub link chips for the company. */

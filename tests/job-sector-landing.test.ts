@@ -179,6 +179,39 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Caissier supermarché' }, 'case-anziani')).toBe(false);
   });
 
+  it('rejects three-letter false positives that previously inflated the count', () => {
+    // The regex used to contain bare \bris\b|\blis\b which matched ~1,000+ unrelated
+    // jobs (any English/Italian word containing standalone "ris" or "lis"). After
+    // Apr 2026 fix these acronyms only match when followed by a Ticino town.
+    expect(jobMatchesSector(
+      { title: 'Linen Employee (part-time 50%) (m/w/d)', description: 'English speaking hotel' },
+      'case-anziani',
+    )).toBe(false);
+    expect(jobMatchesSector(
+      { title: 'Electronic Engineer R&D', description: 'English required, R&D team' },
+      'case-anziani',
+    )).toBe(false);
+    expect(jobMatchesSector(
+      { title: 'Wissenschaftliches Volontariat', description: 'Englisch erforderlich' },
+      'case-anziani',
+    )).toBe(false);
+    expect(jobMatchesSector(
+      { title: 'Metrology Technician', description: 'Office in Paris' },
+      'case-anziani',
+    )).toBe(false);
+  });
+
+  it('still matches institutional acronyms when anchored to a Ticino town', () => {
+    expect(jobMatchesSector(
+      { title: 'Operatore RIS Lugano cura anziani' },
+      'case-anziani',
+    )).toBe(true);
+    expect(jobMatchesSector(
+      { title: 'Infermiere LIS Pregassona' },
+      'case-anziani',
+    )).toBe(true);
+  });
+
   it('matches educator keywords across locales', () => {
     expect(jobMatchesSector({ title: 'Educatore scuola infanzia' }, 'educatori')).toBe(true);
     expect(jobMatchesSector({ title: 'Educatrice asilo nido' }, 'educatori')).toBe(true);
