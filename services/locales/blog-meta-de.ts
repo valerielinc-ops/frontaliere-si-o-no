@@ -3457,6 +3457,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.europa-dal-basso-regioni-podcast-bianchi.title': 'Podcast über \'Ein Europa von unten\': Die Rolle der Regionen mit Matteo Bianchi',
     'blog.article.europa-dal-basso-regioni-podcast-bianchi.excerpt': 'Der Vizepräsident des Ausschusses der Regionen diskutiert über Kohäsionspolitik und partizipative Governance in der EU.',
     'blog.article.europa-dal-basso-regioni-podcast-bianchi.imageAlt': 'Podcast-Aufnahmestudio in Lugano mit Blick auf den Luganersee',
+    'blog.article.viggi-bando-giovani-comunit-2026.title': 'In Viggiù 1000 Franken für Jugendprojekte',
+    'blog.article.viggi-bando-giovani-comunit-2026.excerpt': 'Eine Initiative für die Jugendlichen von Viggiù: 1000 Franken für Projekte für die Gemeinschaft. Frist 10. Mai 2026.',
+    'blog.article.viggi-bando-giovani-comunit-2026.imageAlt': 'Gruppe von Jugendlichen präsentiert ein Projekt der Gemeinschaft in Tessin',
 };
 
 export default blogMetaDe;

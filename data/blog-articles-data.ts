@@ -9079,4 +9079,11 @@ export const ARTICLES = [
  image: '/images/blog/europa-dal-basso-regioni-podcast-bianchi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'viggi-bando-giovani-comunit-2026',
+ category: 'novita',
+ date: '2026-04-28T18:43:37.583Z',
+ image: '/images/blog/viggi-bando-giovani-comunit-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

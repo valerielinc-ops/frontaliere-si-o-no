@@ -3457,6 +3457,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.europa-dal-basso-regioni-podcast-bianchi.title': 'Podcast on \'A Europe from below\': Matteo Bianchi on regional roles',
     'blog.article.europa-dal-basso-regioni-podcast-bianchi.excerpt': 'The vice-president of the Committee of the Regions discusses cohesion policies and participatory governance in the EU.',
     'blog.article.europa-dal-basso-regioni-podcast-bianchi.imageAlt': 'Podcast recording studio in Lugano with a view of Lake Lugano',
+    'blog.article.viggi-bando-giovani-comunit-2026.title': 'In Viggiù, a grant for young people: 1000 euros for community projects',
+    'blog.article.viggi-bando-giovani-comunit-2026.excerpt': 'An initiative for the young people of Viggiù: 1000 euros to realize projects for the community. Deadline May 10, 2026.',
+    'blog.article.viggi-bando-giovani-comunit-2026.imageAlt': 'Group of young people presenting a project to the community in Ticino',
 };
 
 export default blogMetaEn;

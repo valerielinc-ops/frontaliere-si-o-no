@@ -3458,6 +3458,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.europa-dal-basso-regioni-podcast-bianchi.title': 'Podcast su \'Un’Europa dal basso\': il ruolo delle regioni con Matteo Bianchi',
     'blog.article.europa-dal-basso-regioni-podcast-bianchi.excerpt': 'Il vicepresidente del Comitato delle Regioni discute di politiche di coesione e governance partecipativa nell\'UE.',
     'blog.article.europa-dal-basso-regioni-podcast-bianchi.imageAlt': 'Studio di registrazione podcast a Lugano con vista sul Lago di Lugano',
+    'blog.article.viggi-bando-giovani-comunit-2026.title': 'A Viggiù un bando per i giovani: mille euro per progetti comunitari',
+    'blog.article.viggi-bando-giovani-comunit-2026.excerpt': 'Un\'iniziativa per i giovani di Viggiù: 1000 euro per realizzare progetti per la comunità. Scadenza 10 maggio 2026.',
+    'blog.article.viggi-bando-giovani-comunit-2026.imageAlt': 'Gruppo di giovani presenta un progetto alla comunità in Ticino',
 };
 
 export default blogMetaIt;

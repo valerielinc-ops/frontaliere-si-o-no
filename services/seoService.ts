@@ -2383,6 +2383,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lugano-cultura-digitale-2024': { name: 'Novità culturale', path: '/articoli-frontaliere/lugano-cultura-digitale-2024', parent: 'blog' },
     'blog-fondazione-xenia-patto-generazionale': { name: 'Fondazione Xenia', path: '/articoli-frontaliere/fondazione-xenia-patto-generazionale', parent: 'blog' },
     'blog-europa-dal-basso-regioni-podcast-bianchi': { name: 'Novità', path: '/articoli-frontaliere/europa-dal-basso-regioni-podcast-bianchi', parent: 'blog' },
+    'blog-viggi-bando-giovani-comunit-2026': { name: 'Bando giovani', path: '/articoli-frontaliere/viggi-bando-giovani-comunit-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

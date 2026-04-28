@@ -20397,6 +20397,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-viggi-bando-giovani-comunit-2026': {
+    title: 'A Viggiù un bando per i giovani: mille euro per progetti comunitari',
+    description: 'Scopri il bando per i giovani di Viggiù: 1000 euro per realizzare progetti per la comunità. Scadenza 10 maggio 2026. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, viggiù, bando, giovani, mille',
+    ogTitle: 'Bando giovani Viggiù 2026: 1000 euro per progetti comunitari',
+    ogDescription: 'Scopri il bando per i giovani di Viggiù: 1000 euro per realizzare progetti per la comunità. Scadenza 10 maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/viggi-bando-giovani-comunit-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bando giovani Viggiù 2026: 1000 euro per progetti comunitari",
+      "description": "Scopri il bando per i giovani di Viggiù: 1000 euro per realizzare progetti per la comunità. Scadenza 10 maggio 2026. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/viggi-bando-giovani-comunit-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di giovani presenta un progetto alla comunità in Ticino"
+      },
+      "datePublished": "2026-04-28T18:43:37+00:00",
+      "dateModified": "2026-04-28T18:43:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/viggi-bando-giovani-comunit-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
