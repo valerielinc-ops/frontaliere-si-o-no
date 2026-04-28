@@ -3250,6 +3250,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sisa-contro-tagli-governo-2024.title': 'SISA criticizes government\'s health insurance plan',
     'blog.article.sisa-contro-tagli-governo-2024.excerpt': 'Cuts to schools and transport: student union denounces unacceptable strategy',
     'blog.article.sisa-contro-tagli-governo-2024.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.pista-ciclopedonale-bodio-giornico-2026.title': 'Bodio-Giornico: slow and sustainable mobility',
+    'blog.article.pista-ciclopedonale-bodio-giornico-2026.excerpt': 'The new cycle and pedestrian path between Bodio and Giornico has been completed, a project for sustainable mobility in the region',
+    'blog.article.pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'Cyclopedestrian path along the Ticino River between Bodio and Giornico',
 };
 
 export default blogMetaEn;

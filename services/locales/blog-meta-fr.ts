@@ -3251,6 +3251,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sisa-contro-tagli-governo-2024.title': 'SISA critique le plan du gouvernement sur les caisses maladie',
     'blog.article.sisa-contro-tagli-governo-2024.excerpt': 'Coupes à l\'école et aux transports : le syndicat étudiant dénonce une stratégie inacceptable',
     'blog.article.sisa-contro-tagli-governo-2024.imageAlt': 'Castelgrande à Bellinzone, Tessin',
+    'blog.article.pista-ciclopedonale-bodio-giornico-2026.title': 'Piste cyclable Bodio-Giornico: mobilité lente et durable',
+    'blog.article.pista-ciclopedonale-bodio-giornico-2026.excerpt': 'La nouvelle piste cyclable entre Bodio et Giornico est achevée, un projet pour une mobilité durable dans la région',
+    'blog.article.pista-ciclopedonale-bodio-giornico-2026.imageAlt': 'Piste cyclable et piétonne le long de la rivière Ticino entre Bodio et Giornico',
 };
 
 export default blogMetaFr;

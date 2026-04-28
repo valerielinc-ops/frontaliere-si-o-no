@@ -18396,6 +18396,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pista-ciclopedonale-bodio-giornico-2026': {
+    title: 'Pista ciclopedonale Bodio-Giornico: mobilità lenta e sostenibile',
+    description: 'Scopri la nuova pista ciclopedonale tra Bodio e Giornico, un progetto per la mobilità sostenibile nella regione del Canton Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pista, ciclopedonale, bodio-giornico, mobilità',
+    ogTitle: 'Pista ciclopedonale Bodio-Giornico: mobilità lenta e sostenibile',
+    ogDescription: 'Scopri la nuova pista ciclopedonale tra Bodio e Giornico, un progetto per la mobilità sostenibile nella regione del Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/pista-ciclopedonale-bodio-giornico-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pista ciclopedonale Bodio-Giornico: mobilità lenta e sostenibile",
+      "description": "Scopri la nuova pista ciclopedonale tra Bodio e Giornico, un progetto per la mobilità sostenibile nella regione del Canton Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pista-ciclopedonale-bodio-giornico-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pista ciclopedonale lungo il fiume Ticino tra Bodio e Giornico"
+      },
+      "datePublished": "2026-04-28T07:18:27+00:00",
+      "dateModified": "2026-04-28T07:18:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pista-ciclopedonale-bodio-giornico-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

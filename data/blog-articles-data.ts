@@ -8596,4 +8596,11 @@ export const ARTICLES = [
  image: '/images/blog/sisa-contro-tagli-governo-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pista-ciclopedonale-bodio-giornico-2026',
+ category: 'novita',
+ date: '2026-04-28T07:18:27.065Z',
+ image: '/images/blog/pista-ciclopedonale-bodio-giornico-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
