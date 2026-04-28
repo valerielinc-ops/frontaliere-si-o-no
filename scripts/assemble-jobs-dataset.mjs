@@ -108,6 +108,39 @@ export function registerCrawlerSummaryGuard(key, label) {
  *
  * Fallback chain: raw URL → slug → title+company+location
  */
+/**
+ * Defensive sanitizer for the `location` / `addressLocality` field.
+ *
+ * Many per-crawler parsers extract the city by stripping the "Location"
+ * label from a node's textContent — but when the source page inlines
+ * "Location: Ticino, Switzerland.Availability to work…" mid-paragraph
+ * (no newline), that strategy returns the entire paragraph tail as the
+ * city. The corrupted value then leaks into the slug, the canton, and
+ * the <title> tag downstream.
+ *
+ * Rules (mirror scripts/lib/alten-job-parser.mjs):
+ *   1. Strip a leading "Location" label, optional `:` / `.`, and whitespace.
+ *   2. Cut at the first sentence boundary (`.`, `;`, newline).
+ *   3. Strip a leading `:` / whitespace left over from `Location:Ticino`.
+ *   4. Trim.
+ *   5. If the value still smells like prose (>60 char OR contains tell-tale
+ *      body-content keywords), fall back to "Ticino" — by-crawler files are
+ *      Ticino-targeted, so the canton label is a safe, audit-friendly default.
+ */
+function sanitizeJobLocationField(rawValue) {
+  if (typeof rawValue !== 'string') return rawValue;
+  const original = rawValue;
+  let s = original
+    .replace(/^.*?Location\s*[:.]?\s*/i, '')
+    .split(/[\n.;]/)[0]
+    .replace(/^[\s:]+/, '')
+    .trim();
+  if (s.length > 60 || /\b(availability|offer you|requirements|inspektionen|home ?office|company address|posizione esclusivamente|ottima conoscenza|befristet)\b/i.test(s)) {
+    return 'Ticino';
+  }
+  return s === '' ? original : s;
+}
+
 function assemblerIdentity(job = {}) {
   const rawUrl = String(job.url || '').trim().toLowerCase().replace(/\/+$/, '');
   if (rawUrl) return `url:${rawUrl}`;
@@ -631,6 +664,31 @@ function assembleJobs() {
 
   if (slugDupeCount > 0) {
     console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
+  }
+
+  // ── Defensive location sanitization ─────────────────────────────────
+  // Per-crawler parsers occasionally leak description-body text into the
+  // `location`/`addressLocality` field when the source page inlines the
+  // "Location: …" label inside a paragraph (no newline before the next
+  // sentence). This shared cleanup catches those records before they
+  // contaminate downstream artifacts (slug, canton, <title> tag, schema).
+  // The first known root-cause fix was alten-job-parser.mjs (2026-04-28);
+  // this layer is the safety net for the other 177 parsers until each one
+  // is hardened.
+  let sanitizedLoc = 0;
+  for (const job of deduped) {
+    const cleanedLoc = sanitizeJobLocationField(job.location);
+    const cleanedAddr = sanitizeJobLocationField(job.addressLocality);
+    if (cleanedLoc !== job.location) {
+      job.location = cleanedLoc;
+      sanitizedLoc++;
+    }
+    if (cleanedAddr !== job.addressLocality) {
+      job.addressLocality = cleanedAddr;
+    }
+  }
+  if (sanitizedLoc > 0) {
+    console.log(`  🧼 Location sanitize: cleaned ${sanitizedLoc} job(s) with leaked body text in location field`);
   }
 
   // ── Filter out foreign jobs ─────────────────────────────────────────
