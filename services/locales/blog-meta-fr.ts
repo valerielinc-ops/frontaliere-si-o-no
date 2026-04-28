@@ -3239,6 +3239,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.momenti-paura-velivolo-swiss-2026.title': 'Moments de peur sur un avion Swiss',
     'blog.article.momenti-paura-velivolo-swiss-2026.excerpt': 'Un incident sur un vol Swiss a causé des moments de tension. Voici ce qui s\'est passé et les implications pour les passagers.',
     'blog.article.momenti-paura-velivolo-swiss-2026.imageAlt': 'Vue aérienne du lac de Lugano avec un avion Swiss en arrière-plan',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.title': 'Alerte météo au Tessin et en Lombardie : pluies et orages',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.excerpt': 'La protection civile lombarde a émis une alerte pour orages et pluies intenses, avec risque de vent fort en Valteline.',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.imageAlt': 'Tempête sur le lac de Lugano avec des nuages sombres et de fortes pluies',
 };
 
 export default blogMetaFr;

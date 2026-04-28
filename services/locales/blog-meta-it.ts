@@ -3239,6 +3239,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.momenti-paura-velivolo-swiss-2026.title': 'Momenti di paura su un velivolo Swiss',
     'blog.article.momenti-paura-velivolo-swiss-2026.excerpt': 'Un incidente su un volo Swiss ha causato momenti di tensione. Ecco cosa è successo e le implicazioni per i passeggeri.',
     'blog.article.momenti-paura-velivolo-swiss-2026.imageAlt': 'Vista aerea del Lago di Lugano con aereo Swiss in volo',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.title': 'Allerta meteo in Ticino e Lombardia: piogge e temporali',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.excerpt': 'La Protezione civile lombarda ha emesso un\'allerta per temporali e piogge intense, con rischio di vento forte in Valtellina.',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.imageAlt': 'Tempesta sul Lago di Lugano con nuvole scure e pioggia intensa',
 };
 
 export default blogMetaIt;

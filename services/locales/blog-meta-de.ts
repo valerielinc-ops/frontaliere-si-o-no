@@ -3238,6 +3238,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.momenti-paura-velivolo-swiss-2026.title': 'Angstmomente an Bord einer Swiss-Maschine',
     'blog.article.momenti-paura-velivolo-swiss-2026.excerpt': 'Ein Zwischenfall an Bord einer Swiss-Maschine hat für Anspannung gesorgt. Hier erfahren Sie, was passiert ist und welche Auswirkungen dies auf die Passagiere hat.',
     'blog.article.momenti-paura-velivolo-swiss-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit einem Swiss-Flugzeug im Hintergrund',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.title': 'Wetterwarnung im Tessin und in der Lombardei: Regen und Gewitter',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.excerpt': 'Die lombardische Schutzbehörde hat eine Warnung vor Gewittern und starken Regenfällen herausgegeben, mit dem Risiko von starkem Wind im Veltlin.',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.imageAlt': 'Sturmwetter über dem Luganersee mit dunklen Wolken und starkem Regen',
 };
 
 export default blogMetaDe;

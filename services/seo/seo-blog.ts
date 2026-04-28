@@ -18280,6 +18280,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-allerta-meteo-ticino-lombardia-2026': {
+    title: 'Allerta meteo in Ticino e Lombardia: piogge e temporali',
+    description: 'La Protezione civile lombarda ha emesso un\'allerta per piogge e temporali in Ticino e nord Lombardia, con rischio di vento forte in Valtellina. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, allerta, meteo, lombardia, piogge',
+    ogTitle: 'Allerta meteo in Ticino e Lombardia: piogge e temporali',
+    ogDescription: 'La Protezione civile lombarda ha emesso un\'allerta per piogge e temporali in Ticino e nord Lombardia, con rischio di vento forte in Valtellina.',
+    canonicalPath: '/articoli-frontaliere/allerta-meteo-ticino-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Allerta meteo in Ticino e Lombardia: piogge e temporali",
+      "description": "La Protezione civile lombarda ha emesso un'allerta per piogge e temporali in Ticino e nord Lombardia, con rischio di vento forte in Valtellina. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/allerta-meteo-ticino-lombardia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tempesta sul Lago di Lugano con nuvole scure e pioggia intensa"
+      },
+      "datePublished": "2026-04-28T06:54:02+00:00",
+      "dateModified": "2026-04-28T06:54:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/allerta-meteo-ticino-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3238,6 +3238,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.momenti-paura-velivolo-swiss-2026.title': 'Tense moments on a Swiss plane',
     'blog.article.momenti-paura-velivolo-swiss-2026.excerpt': 'An incident on a Swiss flight caused moments of tension. Here\'s what happened and the implications for passengers.',
     'blog.article.momenti-paura-velivolo-swiss-2026.imageAlt': 'Aerial view of Lugano Lake with Swiss aircraft in the background',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.title': 'Weather alert in Ticino and Lombardy: rain and storms',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.excerpt': 'The Lombardy Civil Protection has issued an alert for storms and heavy rain, with a risk of strong wind in Valtellina.',
+    'blog.article.allerta-meteo-ticino-lombardia-2026.imageAlt': 'Stormy weather over Lake Lugano with dark clouds and heavy rain',
 };
 
 export default blogMetaEn;

@@ -4746,7 +4746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1129,
+ "numberOfItems": 1130,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5853,7 +5853,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1126, "name": "Svizzera leader in brevetti: 5 curiosità 2026", "url": `${BASE_URL}/articoli-frontaliere/svizzera-brevetti-innovazione-2026` },
           { "@type": "ListItem", "position": 1127, "name": "Intervento Rega sul Boglia: soccorso in montagna", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-rega-boglia-intervento` },
           { "@type": "ListItem", "position": 1128, "name": "Equans licenzia 19 dipendenti a Monteceneri", "url": `${BASE_URL}/articoli-frontaliere/equans-licenziamenti-monteceneri-2026` },
-          { "@type": "ListItem", "position": 1129, "name": "Momenti di paura su un velivolo Swiss", "url": `${BASE_URL}/articoli-frontaliere/momenti-paura-velivolo-swiss-2026` }
+          { "@type": "ListItem", "position": 1129, "name": "Momenti di paura su un velivolo Swiss", "url": `${BASE_URL}/articoli-frontaliere/momenti-paura-velivolo-swiss-2026` },
+          { "@type": "ListItem", "position": 1130, "name": "Allerta meteo in Ticino e Lombardia: piogge e t...", "url": `${BASE_URL}/articoli-frontaliere/allerta-meteo-ticino-lombardia-2026` }
  ]
  },
  {
