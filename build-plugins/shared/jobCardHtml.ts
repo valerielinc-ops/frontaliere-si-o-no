@@ -16,7 +16,10 @@
  *  - orphanQueryLandingPlugin (GSC orphan-query landings)
  */
 
-import { resolveCompanyLogoUrl } from '../../services/jobDataNormalization';
+import {
+  resolveCompanyLogoUrl,
+  resolveCompanyWebsiteHost,
+} from '../../services/jobDataNormalization';
 
 export type JobCardLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -40,6 +43,10 @@ export interface JobCardJob {
   featured?: boolean;
   /** Fallback used when CRAWLED_COMPANY_LOGOS / favicon resolution returns null. */
   logo?: string | null;
+  /** Used by `resolveCompanyLogoUrl` / `resolveCompanyWebsiteHost` for accurate
+   * domain-based favicon lookup — same fields the in-app SPA `JobCard` passes. */
+  companyDomain?: string;
+  url?: string;
 }
 
 export interface JobCardOptions {
@@ -166,19 +173,75 @@ export function isJobNew(
 
 const LOGO_FALLBACK_SRC = '/images/company-logo-fallback.svg';
 
+const INITIALS_PALETTE: ReadonlyArray<{ bg: string; fg: string }> = [
+  { bg: '#dbeafe', fg: '#1e40af' },
+  { bg: '#dcfce7', fg: '#166534' },
+  { bg: '#fef3c7', fg: '#92400e' },
+  { bg: '#fce7f3', fg: '#9d174d' },
+  { bg: '#e0e7ff', fg: '#3730a3' },
+  { bg: '#f3e8ff', fg: '#6b21a8' },
+  { bg: '#fee2e2', fg: '#991b1b' },
+  { bg: '#ccfbf1', fg: '#115e59' },
+];
+
 /**
- * Returns a usable image URL for the company logo, or the local placeholder
- * when no curated/known logo is available. Mirrors the SPA logo lookup.
+ * Build a deterministic per-company "initials" SVG, inlined as a data URI
+ * so static HTML doesn't issue an extra HTTP request and never 404s.
+ * Used when neither a curated brand asset nor a domain-derived favicon is
+ * available — gives every card a coloured visual identity instead of the
+ * neutral grey placeholder.
+ */
+function generateInitialsLogo(company: string): string {
+  const cleaned = company.replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
+  const words = cleaned.split(' ').filter(Boolean);
+  const initials = words.length === 0
+    ? '?'
+    : words.length === 1
+      ? words[0].slice(0, 2).toUpperCase()
+      : (words[0][0] + words[1][0]).toUpperCase();
+  let hash = 0;
+  for (let i = 0; i < cleaned.length; i++) hash = (hash * 31 + cleaned.charCodeAt(i)) >>> 0;
+  const palette = INITIALS_PALETTE[hash % INITIALS_PALETTE.length];
+  const svg =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">` +
+    `<rect width="40" height="40" rx="8" fill="${palette.bg}"/>` +
+    `<text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" ` +
+    `font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="700" fill="${palette.fg}">` +
+    `${initials}</text></svg>`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+}
+
+/**
+ * Returns a usable image URL for the company logo. Resolution order:
+ *   1. Explicit `job.logo` override (passed by caller).
+ *   2. Curated `CRAWLED_COMPANY_LOGOS` / domain-derived favicon
+ *      (`resolveCompanyLogoUrl` from services/jobDataNormalization).
+ *   3. Deterministic coloured-initials SVG (data URI) when we at least
+ *      know the company name.
+ *   4. Generic neutral placeholder SVG (`/images/company-logo-fallback.svg`).
  */
 export function resolveJobCardLogo(job: JobCardJob): string {
   if (job.logo && typeof job.logo === 'string' && job.logo.trim().length > 0) {
     return job.logo;
   }
-  const resolved = resolveCompanyLogoUrl({
+  const lookupShape = {
     company: job.company,
     companyKey: job.companyKey,
-  });
-  return resolved || LOGO_FALLBACK_SRC;
+    companyDomain: job.companyDomain,
+    url: job.url,
+  };
+  const resolved = resolveCompanyLogoUrl(lookupShape);
+  if (resolved && resolved.length > 0) return resolved;
+  // Mirror JobBoard.tsx:companyLogoUrl chain — fall through to host-based
+  // Google favicon when the curated map missed but we know a website host.
+  const host = resolveCompanyWebsiteHost(lookupShape);
+  if (host) {
+    return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=128`;
+  }
+  if (job.company && String(job.company).trim().length > 0) {
+    return generateInitialsLogo(String(job.company));
+  }
+  return LOGO_FALLBACK_SRC;
 }
 
 // ── Inline icons (lucide-react parity) ───────────────────────────────

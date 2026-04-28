@@ -245,8 +245,13 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /educator|educatric|educatrice|educatori|erzieher|erzieherin|p[aä]dagog|social[ -]pedagog|[eé]ducateur|[eé]ducatrice|educational[ -]assistant|operatore[ -]socio[ -]educativ/i,
   ingegneri:
     /ingegner|ingenieur|ingegnere|engineer|civil[ -]engineer|mechanical[ -]engineer|electrical[ -]engineer|ing[eé]nieur|softwareingenieur/i,
+  // NOTE: word-bounded to avoid (a) "autistico/autistica" matching
+  // \bautist[aoie]\b (the [aoie] previously caught the medical adjective);
+  // (b) plain "driver" in unrelated contexts. We only accept the Italian
+  // role nouns autista/autisti/autiste, plus job-title-grade keywords that
+  // unambiguously denote a driving role.
   autisti:
-    /autist[aoie]|autotrasport|camionist|driver|trucker|chauffeur|fahrer|berufsfahrer|conducteur[ -]?routier|cdl[ -]driver|delivery[ -]driver/i,
+    /\bautist[aie]\b|\bautotrasport|\bcamionist|\bdriver\b|\btrucker\b|\bchauffeur\b|\bfahrer\b|\bberufsfahrer\b|\bconducteur[ -]?routier\b|\bcdl[ -]driver\b|\bdelivery[ -]driver\b|\blkw[- ]?fahrer\b|\bbus[- ]?fahrer\b/i,
   sviluppatori:
     /sviluppator|sviluppatore|programmator|programmatore|developer|software[ -]engineer|full[ -]?stack|front[ -]?end|back[ -]?end|devops|softwareentwickl|d[eé]veloppeur|programmeur/i,
   ristorazione:
@@ -277,34 +282,69 @@ function jobIsActive(job: SectorCountableJob, locale: JobBoardLocale): boolean {
 }
 
 /**
+ * Sectors where the keyword can legitimately appear *only* in the body
+ * description (e.g. named elderly-care residenze like "OSCAM", "RIS Lugano"
+ * which are mentioned in prose but never in titles). All other sectors are
+ * title/category/tags-only — descriptions are too noisy and produce false
+ * positives (a hotel concierge desc mentioning "chauffeur service" used to
+ * match `autisti`; a generic admin desc mentioning "Fahrer" once also did).
+ */
+const SECTOR_DESCRIPTION_SCOPE: Record<SectorHubKey, boolean> = {
+  infermieri: false,
+  'case-anziani': true,
+  educatori: false,
+  ingegneri: false,
+  autisti: false,
+  sviluppatori: false,
+  ristorazione: false,
+  oss: false,
+  logistica: false,
+  apprendistato: false,
+};
+
+/**
  * True when a job's text metadata matches the sector keyword pattern.
- * Scans title, description, category, and tags. Case-insensitive.
+ *
+ * For every sector the title (+ titleByLocale) / category / tags are
+ * scanned. The body description is scanned only for sectors flagged in
+ * `SECTOR_DESCRIPTION_SCOPE` — those need named-entity matching.
+ *
+ * Rationale: job titles state the role; descriptions add narrative that
+ * can mention adjacent roles ("chauffeur service available", "Fahrer
+ * coordination") and cause cross-sector false positives.
  */
 export function jobMatchesSector(job: SectorCountableJob, sector: SectorHubKey): boolean {
   const pattern = SECTOR_MATCHERS[sector];
-  const parts: string[] = [];
-  if (job.title) parts.push(String(job.title));
-  if (job.description) parts.push(String(job.description));
-  if (job.category) parts.push(String(job.category));
-  if (job.company) parts.push(String(job.company));
-  if (job.location) parts.push(String(job.location));
-  if (job.addressLocality) parts.push(String(job.addressLocality));
+  const titleOnlyParts: string[] = [];
+  if (job.title) titleOnlyParts.push(String(job.title));
+  if (job.category) titleOnlyParts.push(String(job.category));
   if (job.tags) {
-    if (Array.isArray(job.tags)) parts.push(job.tags.join(' '));
-    else parts.push(String(job.tags));
+    titleOnlyParts.push(Array.isArray(job.tags) ? job.tags.join(' ') : String(job.tags));
   }
   if (job.titleByLocale) {
     for (const v of Object.values(job.titleByLocale)) {
-      if (typeof v === 'string') parts.push(v);
+      if (typeof v === 'string') titleOnlyParts.push(v);
     }
   }
+  if (pattern.test(titleOnlyParts.join(' \n '))) return true;
+
+  if (!SECTOR_DESCRIPTION_SCOPE[sector]) return false;
+
+  // Description-scope sectors: also scan description + addressLocality +
+  // company + location (the named-entity context). Keeps "casa anziani
+  // OSCAM" / "RIS Lugano" / "residenza per anziani Pregassona" matches
+  // working without dragging in noisy verbs from unrelated job descs.
+  const descParts: string[] = [];
+  if (job.description) descParts.push(String(job.description));
+  if (job.company) descParts.push(String(job.company));
+  if (job.location) descParts.push(String(job.location));
+  if (job.addressLocality) descParts.push(String(job.addressLocality));
   if (job.descriptionByLocale) {
     for (const v of Object.values(job.descriptionByLocale)) {
-      if (typeof v === 'string') parts.push(v);
+      if (typeof v === 'string') descParts.push(v);
     }
   }
-  const haystack = parts.join(' \n ');
-  return pattern.test(haystack);
+  return pattern.test(descParts.join(' \n '));
 }
 
 /** Count active jobs by (locale, sector). Returns a 4 × {SECTOR_HUB_KEYS.length} matrix. */

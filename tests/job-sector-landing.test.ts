@@ -238,7 +238,34 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Truck driver Ticino' }, 'autisti')).toBe(true);
     expect(jobMatchesSector({ title: 'Berufsfahrer Kategorie C' }, 'autisti')).toBe(true);
     expect(jobMatchesSector({ title: 'Chauffeur poids lourd' }, 'autisti')).toBe(true);
+    expect(jobMatchesSector({ title: 'LKW-Fahrer Logistik' }, 'autisti')).toBe(true);
     expect(jobMatchesSector({ title: 'Software developer' }, 'autisti')).toBe(false);
+  });
+
+  it('rejects autisti false positives from non-driver titles and description-only mentions', () => {
+    // "autistico" should NOT match (medical adjective, not a driving role).
+    expect(jobMatchesSector(
+      { title: 'Educatore per bambini con disturbo autistico' },
+      'autisti',
+    )).toBe(false);
+    // Hotel concierge desc mentions "chauffeur service" — title is a
+    // receptionist, so the autisti hub must NOT include this job.
+    expect(jobMatchesSector(
+      {
+        title: 'Reception Manager',
+        company: 'Grand Hotel Kronenhof',
+        description: 'Welcome guests at the front desk; chauffeur service available on request.',
+      },
+      'autisti',
+    )).toBe(false);
+    // Generic admin role with "Fahrer" mentioned only in description.
+    expect(jobMatchesSector(
+      {
+        title: 'Sachbearbeiter Verwaltung',
+        description: 'Koordination interner Fahrer-Anfragen.',
+      },
+      'autisti',
+    )).toBe(false);
   });
 
   it('matches software-developer keywords across locales', () => {
