@@ -51,6 +51,7 @@ function makeSignal(): { promise: Promise<void>; resolve: () => void } {
 
 const staticPagesSignal = makeSignal();
 const professionLandingsSignal = makeSignal();
+const salaryHubSignal = makeSignal();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -62,4 +63,19 @@ export function resolveStaticPagesFlushed(): void {
 export const professionLandingsFlushed: Promise<void> = professionLandingsSignal.promise;
 export function resolveProfessionLandingsFlushed(): void {
   professionLandingsSignal.resolve();
+}
+
+/**
+ * Resolves when {@link salaryHubPlugin} has flushed every salary scenario,
+ * evergreen article AND the new browseable scenario index pages
+ * (`/calcola-stipendio/scenari/` + 3 locale twins).
+ *
+ * Consumed by {@link salaryHubIndexLinkPlugin} which patches the calculator
+ * hub HTML produced by {@link staticPagesPlugin} so BFS from `/` can reach
+ * the scenario index (and through it, all 1 732 scenario pages — closing
+ * the `sitemap-salary-hub.xml` orphan gap flagged by Semrush).
+ */
+export const salaryHubFlushed: Promise<void> = salaryHubSignal.promise;
+export function resolveSalaryHubFlushed(): void {
+  salaryHubSignal.resolve();
 }
