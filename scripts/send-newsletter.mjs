@@ -1262,8 +1262,9 @@ function inlineQaCheck(sampleHtml, subject) {
   if (!sampleHtml.includes('CHF') && !sampleHtml.includes('EUR')) fail('exchange_rate', 'Missing exchange rate');
   else pass('exchange_rate');
 
-  // Job links (at least one cerca-lavoro link)
-  if (!sampleHtml.includes('cerca-lavoro-ticino')) fail('job_links', 'No job links found in HTML');
+  // Job links (at least one job board link, any locale)
+  const jobBoardRe = /(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)/;
+  if (!jobBoardRe.test(sampleHtml)) fail('job_links', 'No job links found in HTML');
   else pass('job_links');
 
   // No raw template variables

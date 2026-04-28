@@ -86,3 +86,28 @@ describe('newsletter QA structural check definitions', () => {
     expect(qa).toContain('table-based-layout');
   });
 });
+
+describe('inline QA job_links check is locale-aware', () => {
+  // Regression: run 25040857615 (2026-04-28) aborted because the inline QA
+  // hardcoded the IT-only slug `cerca-lavoro-ticino` while
+  // newsletter-template.mjs localizes URLs per subscriber locale.
+  // emails[0] was non-IT → check failed → 2,420 sends aborted.
+  it('inlineQaCheck accepts all 4 locale variants of the job board slug', () => {
+    const sendScript = fs.readFileSync(
+      path.join(ROOT, 'scripts', 'send-newsletter.mjs'),
+      'utf8',
+    );
+    for (const slug of [
+      'cerca-lavoro-ticino',
+      'find-jobs-ticino',
+      'jobs-im-tessin',
+      'trouver-emploi-tessin',
+    ]) {
+      expect(sendScript).toContain(slug);
+    }
+    // The check itself must not be a literal IT-only includes()
+    expect(sendScript).not.toMatch(
+      /sampleHtml\.includes\(['"]cerca-lavoro-ticino['"]\)/,
+    );
+  });
+});
