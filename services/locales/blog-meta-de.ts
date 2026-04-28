@@ -3511,6 +3511,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.moschea-lugano-pregassona-2026.title': 'Neue Moschee in Lugano: Fragen und Zweifel',
     'blog.article.moschea-lugano-pregassona-2026.excerpt': 'Sieben UDC-Gemeinderäte stellen eine Anfrage an den Stadtrat von Lugano zum Moscheeprojekt in Pregassona',
     'blog.article.moschea-lugano-pregassona-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.fuga-ammoniaca-chiasso-causa-trovata.title': 'Ammoniakleck in Chiasso: Ursache gefunden',
+    'blog.article.fuga-ammoniaca-chiasso-causa-trovata.excerpt': 'Der Ammoniakleck in der Eisdiele von Chiasso wurde durch eine defekte Dichtung verursacht. Drei Mitarbeiter leicht vergiftet.',
+    'blog.article.fuga-ammoniaca-chiasso-causa-trovata.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -9205,4 +9205,11 @@ export const ARTICLES = [
  image: '/images/blog/moschea-lugano-pregassona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fuga-ammoniaca-chiasso-causa-trovata',
+ category: 'novita',
+ date: '2026-04-28T20:32:52.097Z',
+ image: '/images/blog/fuga-ammoniaca-chiasso-causa-trovata.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

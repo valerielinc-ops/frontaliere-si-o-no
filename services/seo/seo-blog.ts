@@ -20919,6 +20919,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fuga-ammoniaca-chiasso-causa-trovata': {
+    title: 'Fuga di ammoniaca a Chiasso: causa individuata | Frontaliere Ticino',
+    description: 'La fuga di ammoniaca alla pista di ghiaccio di Chiasso è stata causata da una guarnizione difettosa. Tre dipendenti leggermente intossicati. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuga, ammoniaca, chiasso, causa',
+    ogTitle: 'Fuga di ammoniaca a Chiasso: causa individuata',
+    ogDescription: 'La fuga di ammoniaca alla pista di ghiaccio di Chiasso è stata causata da una guarnizione difettosa. Tre dipendenti leggermente intossicati.',
+    canonicalPath: '/articoli-frontaliere/fuga-ammoniaca-chiasso-causa-trovata',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Fuga di ammoniaca a Chiasso: causa individuata\",\"description\":\"La fuga di ammoniaca alla pista di ghiaccio di Chiasso è stata causata da una guarnizione difettosa. Tre dipendenti leggermente intossicati.\",\"datePublished\":\"2026-04-28\",\"image\":\"https://frontaliereticino.ch/images/lac-lugano.webp\"}",
+      "description": "La fuga di ammoniaca alla pista di ghiaccio di Chiasso è stata causata da una guarnizione difettosa. Tre dipendenti leggermente intossicati. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fuga-ammoniaca-chiasso-causa-trovata.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-28T20:32:52+00:00",
+      "dateModified": "2026-04-28T20:32:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fuga-ammoniaca-chiasso-causa-trovata`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

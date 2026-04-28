@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1220,
+ "numberOfItems": 1221,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5855,7 +5855,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1217, "name": "Estival Jazz Lugano introduce biglietti a pagam...", "url": `${BASE_URL}/articoli-frontaliere/estival-jazz-lugano-pagamento-2024` },
           { "@type": "ListItem", "position": 1218, "name": "Varese sostenibilità CSR Camera Commercio", "url": `${BASE_URL}/articoli-frontaliere/varese-sostenibilita-csr-camera-commercio` },
           { "@type": "ListItem", "position": 1219, "name": "Lombardia: 30 milioni per il quartiere che rivo...", "url": `${BASE_URL}/articoli-frontaliere/lombardia-30-milioni-quartiere-efficientamento` },
-          { "@type": "ListItem", "position": 1220, "name": "Nuova moschea a Lugano: interrogazioni e dubbi", "url": `${BASE_URL}/articoli-frontaliere/moschea-lugano-pregassona-2026` }
+          { "@type": "ListItem", "position": 1220, "name": "Nuova moschea a Lugano: interrogazioni e dubbi", "url": `${BASE_URL}/articoli-frontaliere/moschea-lugano-pregassona-2026` },
+          { "@type": "ListItem", "position": 1221, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/fuga-ammoniaca-chiasso-causa-trovata` }
  ]
  },
  {

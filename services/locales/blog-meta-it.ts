@@ -3512,6 +3512,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.moschea-lugano-pregassona-2026.title': 'Nuova moschea a Lugano: interrogazioni e dubbi',
     'blog.article.moschea-lugano-pregassona-2026.excerpt': 'Sette consiglieri comunali UDC presentano interrogazione al Municipio di Lugano su progetto moschea a Pregassona',
     'blog.article.moschea-lugano-pregassona-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.fuga-ammoniaca-chiasso-causa-trovata.title': 'Fuga di ammoniaca a Chiasso: causa individuata',
+    'blog.article.fuga-ammoniaca-chiasso-causa-trovata.excerpt': 'La fuga di ammoniaca alla pista di ghiaccio di Chiasso è stata causata da una guarnizione difettosa. Tre dipendenti leggermente intossicati.',
+    'blog.article.fuga-ammoniaca-chiasso-causa-trovata.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
