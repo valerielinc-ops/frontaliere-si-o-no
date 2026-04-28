@@ -3535,6 +3535,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agricoltura-spaziale-svizzera-ricerca.title': 'Space farming: first European center in Switzerland',
     'blog.article.agricoltura-spaziale-svizzera-ricerca.excerpt': 'The first European research center on space agriculture has been inaugurated in Switzerland. Innovation for the future of food.',
     'blog.article.agricoltura-spaziale-svizzera-ricerca.imageAlt': 'Aerial view of a high-tech agricultural research center in Ticino, Switzerland. Advanced greenhouses with space farming technology.',
+    'blog.article.ubs-lobbying-parlamento-ticino-2026.title': 'UBS accused of aggressive lobbying on Swiss Parliament',
+    'blog.article.ubs-lobbying-parlamento-ticino-2026.excerpt': 'UBS is exerting unprecedented pressure on MPs to block a law that would force it to strengthen its capital.',
+    'blog.article.ubs-lobbying-parlamento-ticino-2026.imageAlt': 'Lobbying in Lugano with UBS headquarters in the background',
 };
 
 export default blogMetaEn;

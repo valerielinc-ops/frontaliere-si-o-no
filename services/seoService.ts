@@ -2409,6 +2409,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aeroporti-milano-boom-fatturato-197-milioni': { name: 'Novità', path: '/articoli-frontaliere/aeroporti-milano-boom-fatturato-197-milioni', parent: 'blog' },
     'blog-servizio-clienti-bancario-promossi-bocciati': { name: 'Servizio clienti', path: '/articoli-frontaliere/servizio-clienti-bancario-promossi-bocciati', parent: 'blog' },
     'blog-agricoltura-spaziale-svizzera-ricerca': { name: 'Novità', path: '/articoli-frontaliere/agricoltura-spaziale-svizzera-ricerca', parent: 'blog' },
+    'blog-ubs-lobbying-parlamento-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-lobbying-parlamento-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

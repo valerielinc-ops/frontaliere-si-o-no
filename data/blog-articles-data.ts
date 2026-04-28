@@ -9261,4 +9261,11 @@ export const ARTICLES = [
  image: '/images/blog/agricoltura-spaziale-svizzera-ricerca.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ubs-lobbying-parlamento-ticino-2026',
+ category: 'novita',
+ date: '2026-04-28T21:19:46.952Z',
+ image: '/images/blog/ubs-lobbying-parlamento-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

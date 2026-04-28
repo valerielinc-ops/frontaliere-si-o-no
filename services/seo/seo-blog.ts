@@ -21151,6 +21151,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-lobbying-parlamento-ticino-2026': {
+    title: 'UBS sotto accusa: lobbying aggressivo sul Parlamento svizzero',
+    description: 'La banca UBS esercita pressioni senza precedenti sui parlamentari per ostacolare una legge che la obbligherebbe a rafforzare i capitali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sotto, accusa, lobbying, aggressivo',
+    ogTitle: 'UBS sotto accusa: lobbying aggressivo sul Parlamento svizzero',
+    ogDescription: 'La banca UBS esercita pressioni senza precedenti sui parlamentari per ostacolare una legge che la obbligherebbe a rafforzare i capitali.',
+    canonicalPath: '/articoli-frontaliere/ubs-lobbying-parlamento-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS sotto accusa: lobbying aggressivo sul Parlamento svizzero",
+      "description": "La banca UBS esercita pressioni senza precedenti sui parlamentari per ostacolare una legge che la obbligherebbe a rafforzare i capitali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ubs-lobbying-parlamento-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lobbying a Lugano con sede UBS in sottofondo"
+      },
+      "datePublished": "2026-04-28T21:19:46+00:00",
+      "dateModified": "2026-04-28T21:19:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ubs-lobbying-parlamento-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

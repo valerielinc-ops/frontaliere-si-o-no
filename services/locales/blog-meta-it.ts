@@ -3536,6 +3536,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agricoltura-spaziale-svizzera-ricerca.title': 'Agricoltura spaziale: primo centro europeo in Svizzera',
     'blog.article.agricoltura-spaziale-svizzera-ricerca.excerpt': 'Inaugurato il primo centro europeo di ricerca sull\'agricoltura spaziale in Svizzera. Innovazione per il futuro dell\'alimentazione.',
     'blog.article.agricoltura-spaziale-svizzera-ricerca.imageAlt': 'Vista aerea di un centro di ricerca agricola ad alta tecnologia in Ticino, Svizzera. Serre avanzate con tecnologia di agricoltura spaziale.',
+    'blog.article.ubs-lobbying-parlamento-ticino-2026.title': 'UBS sotto accusa: lobbying aggressivo sul Parlamento svizzero',
+    'blog.article.ubs-lobbying-parlamento-ticino-2026.excerpt': 'La banca UBS esercita pressioni senza precedenti sui parlamentari per ostacolare una legge che la obbligherebbe a rafforzare i capitali.',
+    'blog.article.ubs-lobbying-parlamento-ticino-2026.imageAlt': 'Lobbying a Lugano con sede UBS in sottofondo',
 };
 
 export default blogMetaIt;
