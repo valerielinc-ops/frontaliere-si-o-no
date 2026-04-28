@@ -3370,6 +3370,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lombardia-piano-ciclabile-115-milioni.title': 'Lombardei: 115 Millionen für Radwegeplan',
     'blog.article.lombardia-piano-ciclabile-115-milioni.excerpt': 'Die Region Lombardei investiert 115 Millionen Euro in den Radwegeplan mit 25 großen Routen',
     'blog.article.lombardia-piano-ciclabile-115-milioni.imageAlt': 'Luganer See Radweg',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.title': '25 Jahre Notfälle: Der SAM Mendrisiotto',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.excerpt': 'Seit 1999 ist der Sanitätsdienst Mendrisiotto im Einsatz. Heute erzählt Direktor Carlo Realini über die aktuellen Herausforderungen.',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.imageAlt': 'Luftaufnahme des Luganer Sees mit der Region Mendrisiotto im Tessin',
 };
 
 export default blogMetaDe;

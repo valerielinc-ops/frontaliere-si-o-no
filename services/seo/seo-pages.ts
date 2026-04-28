@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1173,
+ "numberOfItems": 1174,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5808,7 +5808,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1170, "name": "Borse europee in flessione, Zurigo non decolla", "url": `${BASE_URL}/articoli-frontaliere/borse-zurigo-flessione-2026` },
           { "@type": "ListItem", "position": 1171, "name": "Traffico di droga: sei arresti tra Svizzera ed ...", "url": `${BASE_URL}/articoli-frontaliere/traffico-droga-arresti-svizzera-estero-2026` },
           { "@type": "ListItem", "position": 1172, "name": "Caslano chiude 2025 con 311mila franchi di avanzo", "url": `${BASE_URL}/articoli-frontaliere/caslano-2025-bilancio-avanzamento` },
-          { "@type": "ListItem", "position": 1173, "name": "Lombardia: 115 milioni per il piano ciclabile", "url": `${BASE_URL}/articoli-frontaliere/lombardia-piano-ciclabile-115-milioni` }
+          { "@type": "ListItem", "position": 1173, "name": "Lombardia: 115 milioni per il piano ciclabile", "url": `${BASE_URL}/articoli-frontaliere/lombardia-piano-ciclabile-115-milioni` },
+          { "@type": "ListItem", "position": 1174, "name": "25 anni di emergenze sanitarie: il S.A.M. di Me...", "url": `${BASE_URL}/articoli-frontaliere/sam-mendrisiotto-25-anni-emergenze` }
  ]
  },
  {

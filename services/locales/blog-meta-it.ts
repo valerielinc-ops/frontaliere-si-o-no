@@ -3371,6 +3371,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lombardia-piano-ciclabile-115-milioni.title': 'Lombardia: 115 milioni per il piano ciclabile',
     'blog.article.lombardia-piano-ciclabile-115-milioni.excerpt': 'La Regione Lombardia investe 115 milioni di euro nel piano ciclabile con 25 grandi percorsi',
     'blog.article.lombardia-piano-ciclabile-115-milioni.imageAlt': 'Pista ciclabile in riva al lago di Lugano',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.title': '25 anni di emergenze sanitarie: il S.A.M. di Mendrisiotto',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.excerpt': 'Dal 1999 il Servizio Autoambulanze Mendrisiotto risponde alle emergenze. Oggi il direttore Carlo Realini racconta le sfide attuali',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.imageAlt': 'Vista aerea del Lago di Lugano con la regione del Mendrisiotto in Ticino',
 };
 
 export default blogMetaIt;

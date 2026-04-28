@@ -19556,6 +19556,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sam-mendrisiotto-25-anni-emergenze': {
+    title: '25 anni di emergenze sanitarie: il S.A.M. di Mendrisiotto',
+    description: 'Dal 1999 il Servizio Autoambulanze Mendrisiotto risponde alle emergenze. Oggi il direttore Carlo Realini racconta le sfide attuali. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, anni, emergenze, sanitarie, mendrisiotto',
+    ogTitle: '25 anni di emergenze sanitarie: il S.A.M. di Mendrisiotto',
+    ogDescription: 'Dal 1999 il Servizio Autoambulanze Mendrisiotto risponde alle emergenze. Oggi il direttore Carlo Realini racconta le sfide attuali',
+    canonicalPath: '/articoli-frontaliere/sam-mendrisiotto-25-anni-emergenze',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "25 anni di emergenze sanitarie: il S.A.M. di Mendrisiotto",
+      "description": "Dal 1999 il Servizio Autoambulanze Mendrisiotto risponde alle emergenze. Oggi il direttore Carlo Realini racconta le sfide attuali. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sam-mendrisiotto-25-anni-emergenze.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la regione del Mendrisiotto in Ticino"
+      },
+      "datePublished": "2026-04-28T14:58:50+00:00",
+      "dateModified": "2026-04-28T14:58:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sam-mendrisiotto-25-anni-emergenze`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

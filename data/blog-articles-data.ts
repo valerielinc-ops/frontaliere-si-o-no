@@ -8876,4 +8876,11 @@ export const ARTICLES = [
  image: '/images/blog/lombardia-piano-ciclabile-115-milioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sam-mendrisiotto-25-anni-emergenze',
+ category: 'pratico',
+ date: '2026-04-28T14:58:50.765Z',
+ image: '/images/blog/sam-mendrisiotto-25-anni-emergenze.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

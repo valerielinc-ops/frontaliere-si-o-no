@@ -3371,6 +3371,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lombardia-piano-ciclabile-115-milioni.title': 'Lombardie: 115 millions pour le plan cyclable',
     'blog.article.lombardia-piano-ciclabile-115-milioni.excerpt': 'La région Lombardie investit 115 millions d\'euros dans le plan cyclable avec 25 grands parcours',
     'blog.article.lombardia-piano-ciclabile-115-milioni.imageAlt': 'Piste cyclable au lac de Lugano',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.title': '25 ans de services d\'urgence sanitaire: le SAM de Mendrisiotto',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.excerpt': 'Depuis 1999, le Service d\'Autoambulances de Mendrisiotto répond aux urgences. Aujourd\'hui, le directeur Carlo Realini raconte les défis actuels',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.imageAlt': 'Vue aérienne du lac de Lugano avec la région de Mendrisiotto au Tessin',
 };
 
 export default blogMetaFr;

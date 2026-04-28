@@ -3370,6 +3370,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-piano-ciclabile-115-milioni.title': 'Lombardy: 115 million for cycling plan',
     'blog.article.lombardia-piano-ciclabile-115-milioni.excerpt': 'The Lombardy Region is investing 115 million euros in the cycling plan with 25 major routes',
     'blog.article.lombardia-piano-ciclabile-115-milioni.imageAlt': 'Lugano lake bike path',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.title': '25 years of medical emergencies: Mendrisiotto\'s SAM',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.excerpt': 'Since 1999, Mendrisiotto\'s Emergency Ambulance Service has been responding to emergencies. Today, director Carlo Realini talks about current challenges',
+    'blog.article.sam-mendrisiotto-25-anni-emergenze.imageAlt': 'Aerial view of Lake Lugano with the Mendrisiotto region in Ticino',
 };
 
 export default blogMetaEn;
