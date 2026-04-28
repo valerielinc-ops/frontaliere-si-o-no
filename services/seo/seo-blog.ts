@@ -20832,6 +20832,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-sostenibilita-csr-camera-commercio': {
+    title: 'Varese capitale della sostenibilità: il Salone della CSR in Camera di Commercio',
+    description: 'Il Salone della CSR e dell\'Innovazione Sociale approda a Varese con focus su ecosistema circolare e vantaggi competitivi per le imprese. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, capitale, sostenibilità, salone',
+    ogTitle: 'Varese sostenibilità CSR Camera Commercio',
+    ogDescription: 'Il Salone della CSR e dell\'Innovazione Sociale approda a Varese con focus su ecosistema circolare e vantaggi competitivi per le imprese.',
+    canonicalPath: '/articoli-frontaliere/varese-sostenibilita-csr-camera-commercio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese sostenibilità CSR Camera Commercio",
+      "description": "Il Salone della CSR e dell'Innovazione Sociale approda a Varese con focus su ecosistema circolare e vantaggi competitivi per le imprese. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-sostenibilita-csr-camera-commercio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camera di Commercio di Varese, convegno sostenibilità"
+      },
+      "datePublished": "2026-04-28T20:15:06+00:00",
+      "dateModified": "2026-04-28T20:15:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-sostenibilita-csr-camera-commercio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

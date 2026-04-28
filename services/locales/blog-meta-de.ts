@@ -3502,6 +3502,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.estival-jazz-lugano-pagamento-2024.title': 'Estival Jazz Lugano führt Eintrittsgebühren ein',
     'blog.article.estival-jazz-lugano-pagamento-2024.excerpt': 'Ab 2024 werden zwei von drei Abenden des Festivals kostenpflichtig sein, um die Nachhaltigkeit des Events zu gewährleisten',
     'blog.article.estival-jazz-lugano-pagamento-2024.imageAlt': 'Fotografie des Estival Jazz Festivals in Lugano am Ceresio-See',
+    'blog.article.varese-sostenibilita-csr-camera-commercio.title': 'Varese: Hauptstadt der Nachhaltigkeit',
+    'blog.article.varese-sostenibilita-csr-camera-commercio.excerpt': 'Die Messe für CSR und soziale Innovation findet in Varese statt, mit Fokus auf Kreislaufwirtschaft und Wettbewerbsvorteile für Unternehmen.',
+    'blog.article.varese-sostenibilita-csr-camera-commercio.imageAlt': 'Handelskammer Varese, Nachhaltigkeitskonferenz',
 };
 
 export default blogMetaDe;

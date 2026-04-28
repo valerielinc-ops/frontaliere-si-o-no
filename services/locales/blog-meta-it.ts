@@ -3503,6 +3503,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.estival-jazz-lugano-pagamento-2024.title': 'Estival Jazz Lugano introduce biglietti a pagamento',
     'blog.article.estival-jazz-lugano-pagamento-2024.excerpt': 'Dal 2024 due serate su tre del festival saranno a pagamento per garantire la sostenibilità dell\'evento',
     'blog.article.estival-jazz-lugano-pagamento-2024.imageAlt': 'Fotografia del festival Estival Jazz a Lugano sul lago Ceresio',
+    'blog.article.varese-sostenibilita-csr-camera-commercio.title': 'Varese capitale della sostenibilità: il Salone della CSR in Camera di Commercio',
+    'blog.article.varese-sostenibilita-csr-camera-commercio.excerpt': 'Il Salone della CSR e dell\'Innovazione Sociale approda a Varese con focus su ecosistema circolare e vantaggi competitivi per le imprese.',
+    'blog.article.varese-sostenibilita-csr-camera-commercio.imageAlt': 'Camera di Commercio di Varese, convegno sostenibilità',
 };
 
 export default blogMetaIt;

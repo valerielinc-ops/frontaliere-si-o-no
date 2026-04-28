@@ -3502,6 +3502,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.estival-jazz-lugano-pagamento-2024.title': 'Lugano Estival Jazz introduces paid tickets',
     'blog.article.estival-jazz-lugano-pagamento-2024.excerpt': 'From 2024, two out of three festival evenings will be paid to ensure the event\'s sustainability',
     'blog.article.estival-jazz-lugano-pagamento-2024.imageAlt': 'Photograph of the Estival Jazz festival in Lugano by Lake Ceresio',
+    'blog.article.varese-sostenibilita-csr-camera-commercio.title': 'Varese: capital of sustainability and social innovation',
+    'blog.article.varese-sostenibilita-csr-camera-commercio.excerpt': 'The CSR and Social Innovation Fair lands in Varese with a focus on circular ecosystem and competitive advantages for businesses.',
+    'blog.article.varese-sostenibilita-csr-camera-commercio.imageAlt': 'Varese Chamber of Commerce, sustainability conference',
 };
 
 export default blogMetaEn;

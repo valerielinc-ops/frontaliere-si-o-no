@@ -2398,6 +2398,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-estival-pagamento-caduta-stile-lugano': { name: 'Novità', path: '/articoli-frontaliere/estival-pagamento-caduta-stile-lugano', parent: 'blog' },
     'blog-giornata-contro-rumore-lugano-2024': { name: 'Controlli rumore', path: '/articoli-frontaliere/giornata-contro-rumore-lugano-2024', parent: 'blog' },
     'blog-estival-jazz-lugano-pagamento-2024': { name: 'Novità', path: '/articoli-frontaliere/estival-jazz-lugano-pagamento-2024', parent: 'blog' },
+    'blog-varese-sostenibilita-csr-camera-commercio': { name: 'Eventi Varese', path: '/articoli-frontaliere/varese-sostenibilita-csr-camera-commercio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

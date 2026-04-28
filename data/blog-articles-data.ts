@@ -9184,4 +9184,11 @@ export const ARTICLES = [
  image: '/images/blog/estival-jazz-lugano-pagamento-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-sostenibilita-csr-camera-commercio',
+ category: 'novita',
+ date: '2026-04-28T20:15:06.671Z',
+ image: '/images/blog/varese-sostenibilita-csr-camera-commercio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
