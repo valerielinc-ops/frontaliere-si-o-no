@@ -3448,6 +3448,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cina-spostamenti-frontalieri-primo-maggio.title': 'China: Rekord an grenzüberschreitenden Reisen zum 1. Mai',
     'blog.article.cina-spostamenti-frontalieri-primo-maggio.excerpt': 'China bereitet sich auf einen Rekordanstieg der grenzüberschreitenden Reisen während der Feiertage zum 1. Mai vor, mit Spitzenwerten von über 2,4 Millionen Passagieren pro Tag.',
     'blog.article.cina-spostamenti-frontalieri-primo-maggio.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und der Schweizer-Italienischen Grenze',
+    'blog.article.lugano-cultura-digitale-2024.title': 'Lugano Kultur erneuert sich: ein einzigartiger digitaler Raum',
+    'blog.article.lugano-cultura-digitale-2024.excerpt': 'Neue digitale Plattform, um Kultur in Lugano zu entdecken: Anbieter, Veranstaltungen und historisches Erbe an einem Ort',
+    'blog.article.lugano-cultura-digitale-2024.imageAlt': 'Start der digitalen Plattform Lugano Cultura in Lugano',
 };
 
 export default blogMetaDe;

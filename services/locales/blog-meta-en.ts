@@ -3448,6 +3448,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cina-spostamenti-frontalieri-primo-maggio.title': 'China braces for record cross-border travel for May Day',
     'blog.article.cina-spostamenti-frontalieri-primo-maggio.excerpt': 'China is preparing for a record increase in cross-border travel during the May Day holidays, with peaks of over 2.4 million passengers per day.',
     'blog.article.cina-spostamenti-frontalieri-primo-maggio.imageAlt': 'Aerial view of Lake Lugano with mountains and Swiss-Italian border',
+    'blog.article.lugano-cultura-digitale-2024.title': 'Lugano Cultura gets a digital makeover: unique space arrives',
+    'blog.article.lugano-cultura-digitale-2024.excerpt': 'New digital platform to discover culture in Lugano: operators, events, and historical heritage in one space',
+    'blog.article.lugano-cultura-digitale-2024.imageAlt': 'Launch of Lugano Cultura digital platform in Lugano',
 };
 
 export default blogMetaEn;

@@ -2380,6 +2380,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuove-scuole-vernate-neggio-2026': { name: 'Nuove scuole', path: '/articoli-frontaliere/nuove-scuole-vernate-neggio-2026', parent: 'blog' },
     'blog-casse-malati-ticino-divise-2026': { name: 'Casse malati', path: '/articoli-frontaliere/casse-malati-ticino-divise-2026', parent: 'blog' },
     'blog-cina-spostamenti-frontalieri-primo-maggio': { name: 'Novità', path: '/articoli-frontaliere/cina-spostamenti-frontalieri-primo-maggio', parent: 'blog' },
+    'blog-lugano-cultura-digitale-2024': { name: 'Novità culturale', path: '/articoli-frontaliere/lugano-cultura-digitale-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

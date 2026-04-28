@@ -3449,6 +3449,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cina-spostamenti-frontalieri-primo-maggio.title': 'Chine, pic de déplacements frontaliers pour le Premier Mai',
     'blog.article.cina-spostamenti-frontalieri-primo-maggio.excerpt': 'La Chine se prépare à une augmentation record de voyages transfrontaliers pendant les vacances du Premier Mai, avec des pics de plus de 2,4 millions de passagers par jour.',
     'blog.article.cina-spostamenti-frontalieri-primo-maggio.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et la frontière suisse-italienne',
+    'blog.article.lugano-cultura-digitale-2024.title': 'Lugano Culture se renouvelle : un espace numérique unique',
+    'blog.article.lugano-cultura-digitale-2024.excerpt': 'Nouvelle plateforme numérique pour découvrir la culture à Lugano : opérateurs, événements et patrimoine historique en un seul espace',
+    'blog.article.lugano-cultura-digitale-2024.imageAlt': 'Lancement de la plateforme numérique Lugano Cultura à Lugano',
 };
 
 export default blogMetaFr;

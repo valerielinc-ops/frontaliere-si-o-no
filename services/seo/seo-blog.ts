@@ -20310,6 +20310,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-cultura-digitale-2024': {
+    title: 'Lugano Cultura si rinnova: arriva uno spazio digitale unico',
+    description: 'Scopri la nuova piattaforma digitale di Lugano Cultura con eventi, operatori e progetti interdisciplinari. Partecipa alla vita culturale di Lugano.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, cultura, rinnova, arriva',
+    ogTitle: 'Lugano Cultura digitale: nuovo spazio culturale unico',
+    ogDescription: 'Scopri la nuova piattaforma digitale di Lugano Cultura con eventi, operatori e progetti interdisciplinari. Partecipa alla vita culturale di Lugano.',
+    canonicalPath: '/articoli-frontaliere/lugano-cultura-digitale-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano Cultura si rinnova: arriva uno spazio digitale unico",
+      "description": "Scopri la nuova piattaforma digitale di Lugano Cultura con eventi, operatori e progetti interdisciplinari. Partecipa alla vita culturale di Lugano.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-cultura-digitale-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano Cultura digitale: lancio della nuova piattaforma culturale a Lugano"
+      },
+      "datePublished": "2026-04-28T18:29:07+00:00",
+      "dateModified": "2026-04-28T18:29:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-cultura-digitale-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
