@@ -9072,4 +9072,11 @@ export const ARTICLES = [
  image: '/images/blog/fondazione-xenia-patto-generazionale.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'europa-dal-basso-regioni-podcast-bianchi',
+ category: 'novita',
+ date: '2026-04-28T18:38:38.747Z',
+ image: '/images/blog/europa-dal-basso-regioni-podcast-bianchi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3454,6 +3454,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fondazione-xenia-patto-generazionale.title': 'Stiftung Xenia: Generationenpakt für behinderte Kinder',
     'blog.article.fondazione-xenia-patto-generazionale.excerpt': 'Ein innovatives Projekt, um behinderten Kindern eine sorgenfreie Zukunft zu garantieren, inspiriert von der Tradition des Hofhauses.',
     'blog.article.fondazione-xenia-patto-generazionale.imageAlt': 'Idyllische Seegemeinde im Tessin mit modernen Gebäuden und Familien, die Outdoor-Aktivitäten genießen',
+    'blog.article.europa-dal-basso-regioni-podcast-bianchi.title': 'Podcast über \'Ein Europa von unten\': Die Rolle der Regionen mit Matteo Bianchi',
+    'blog.article.europa-dal-basso-regioni-podcast-bianchi.excerpt': 'Der Vizepräsident des Ausschusses der Regionen diskutiert über Kohäsionspolitik und partizipative Governance in der EU.',
+    'blog.article.europa-dal-basso-regioni-podcast-bianchi.imageAlt': 'Podcast-Aufnahmestudio in Lugano mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

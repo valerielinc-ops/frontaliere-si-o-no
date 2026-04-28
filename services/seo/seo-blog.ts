@@ -20368,6 +20368,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-europa-dal-basso-regioni-podcast-bianchi': {
+    title: 'Podcast su \'Un’Europa dal basso\': il ruolo delle regioni con Matteo Bianchi',
+    description: 'Scopri il ruolo delle regioni nelle politiche di coesione dell\'UE nel podcast con Matteo Bianchi, vicepresidente del Comitato delle Regioni. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, podcast, europa, basso, ruolo',
+    ogTitle: 'Podcast su \'Un’Europa dal basso\': il ruolo delle regioni con Matteo Bianchi',
+    ogDescription: 'Scopri il ruolo delle regioni nelle politiche di coesione dell\'UE nel podcast con Matteo Bianchi, vicepresidente del Comitato delle Regioni.',
+    canonicalPath: '/articoli-frontaliere/europa-dal-basso-regioni-podcast-bianchi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Podcast su 'Un’Europa dal basso': il ruolo delle regioni con Matteo Bianchi",
+      "description": "Scopri il ruolo delle regioni nelle politiche di coesione dell'UE nel podcast con Matteo Bianchi, vicepresidente del Comitato delle Regioni. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/europa-dal-basso-regioni-podcast-bianchi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio di registrazione podcast a Lugano con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-28T18:38:38+00:00",
+      "dateModified": "2026-04-28T18:38:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/europa-dal-basso-regioni-podcast-bianchi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

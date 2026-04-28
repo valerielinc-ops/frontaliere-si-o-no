@@ -3455,6 +3455,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fondazione-xenia-patto-generazionale.title': 'Fondazione Xenia: il Patto Generazionale per l\'assistenza ai figli disabili',
     'blog.article.fondazione-xenia-patto-generazionale.excerpt': 'Un progetto innovativo per garantire un futuro sereno ai figli disabili, ispirato alla tradizione della casa di corte.',
     'blog.article.fondazione-xenia-patto-generazionale.imageAlt': 'Comunità serena sul lago in Ticino con edifici moderni e famiglie che godono delle attività all\'aperto',
+    'blog.article.europa-dal-basso-regioni-podcast-bianchi.title': 'Podcast su \'Un’Europa dal basso\': il ruolo delle regioni con Matteo Bianchi',
+    'blog.article.europa-dal-basso-regioni-podcast-bianchi.excerpt': 'Il vicepresidente del Comitato delle Regioni discute di politiche di coesione e governance partecipativa nell\'UE.',
+    'blog.article.europa-dal-basso-regioni-podcast-bianchi.imageAlt': 'Studio di registrazione podcast a Lugano con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

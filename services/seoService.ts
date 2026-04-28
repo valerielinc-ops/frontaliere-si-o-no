@@ -2382,6 +2382,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cina-spostamenti-frontalieri-primo-maggio': { name: 'Novità', path: '/articoli-frontaliere/cina-spostamenti-frontalieri-primo-maggio', parent: 'blog' },
     'blog-lugano-cultura-digitale-2024': { name: 'Novità culturale', path: '/articoli-frontaliere/lugano-cultura-digitale-2024', parent: 'blog' },
     'blog-fondazione-xenia-patto-generazionale': { name: 'Fondazione Xenia', path: '/articoli-frontaliere/fondazione-xenia-patto-generazionale', parent: 'blog' },
+    'blog-europa-dal-basso-regioni-podcast-bianchi': { name: 'Novità', path: '/articoli-frontaliere/europa-dal-basso-regioni-podcast-bianchi', parent: 'blog' },
  };
 
  const info = sectionNames[section];
