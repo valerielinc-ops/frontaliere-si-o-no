@@ -577,12 +577,12 @@
     },
     {
       "id": "tschuggen-ff144d1e3ea7",
-      "slug": "housekeeping-allrounder-m-sommersaison-2026-tschuggen-ch",
+      "slug": "parrucchiere-allrounder-m-stagione-estiva-2026-tschuggen-collection-arosa",
       "slugByLocale": {
         "de": "housekeeping-allrounder-m-sommersaison-2026-tschuggen-ch",
-        "it": "housekeeping-allrounder-m-sommersaison-2026-tschuggen-ch",
+        "it": "parrucchiere-allrounder-m-stagione-estiva-2026-tschuggen-collection-arosa",
         "en": "housekeeping-allrounder-m-sommersaison-2026-tschuggen-ch",
-        "fr": "housekeeping-allrounder-m-sommersaison-2026-tschuggen-ch"
+        "fr": "entretien-menager-m-sommersaison-2026-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -640,7 +640,18 @@
         }
       },
       "firstSeenAt": "2026-04-28T11:46:46.924Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-allrounder-m-sommersaison-2026-tschuggen-ch"
+        ],
+        "fr": [
+          "housekeeping-allrounder-m-sommersaison-2026-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-allrounder-m-sommersaison-2026-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-58b53acabf42",

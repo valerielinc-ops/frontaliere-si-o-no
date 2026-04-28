@@ -3129,12 +3129,12 @@
     },
     {
       "id": "localsearch-c73feddf0ce4",
-      "slug": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20",
+      "slug": "venditore-venditore-nel-campo-localsearch-regensdorf",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "it": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20",
-        "en": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20",
-        "fr": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20"
+        "it": "venditore-venditore-nel-campo-localsearch-regensdorf",
+        "en": "seller-seller-in-the-field-localsearch-regensdorf",
+        "fr": "vendeur-vendeur-dans-le-champ-localsearch-regensdorf"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -3188,7 +3188,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-28T11:14:12.745Z"
+      "firstSeenAt": "2026-04-28T11:14:12.745Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20"
+        ],
+        "en": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-20"
+      ]
     }
   ]
 }
