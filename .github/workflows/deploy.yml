@@ -158,20 +158,12 @@ jobs:
           restore-keys: |
             vite-${{ runner.os }}-
 
-
-      - name: Cache content-hash manifest (incremental builds)
-        # T2.4 — Restores `.build-cache/build-manifest.json` (SHA256 hashes of
-        # last build's emitted HTML). On the next build, WriteCollector inside
-        # the SEO plugins consults this manifest and skips writes for files
-        # whose content is unchanged. The manifest lives outside dist/ so it
-        # survives the dist wipe between builds.
-        uses: actions/cache@v5
-        with:
-          path: .build-cache
-          key: content-hash-${{ github.ref_name }}-${{ github.sha }}
-          restore-keys: |
-            content-hash-${{ github.ref_name }}-
-            content-hash-main-
+      # Cache content-hash manifest step DISABLED 2026-04-28 — paired with the
+      # disabled bootstrap/finalize plugins in vite.config.ts. The repo's
+      # auto-blog/auto-translate churn meant ~80% of deploys had data changes,
+      # so the manifest skip rarely fired while costing +30-60s SHA256 every
+      # build. To re-enable, uncomment this step AND restore the inline
+      # plugins in vite.config.ts.
 
       - name: Build
         run: npm run build:ci

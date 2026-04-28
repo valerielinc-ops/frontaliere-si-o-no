@@ -6,8 +6,8 @@ import react from '@vitejs/plugin-react';
 /* ── Build-time constants ────────────────────────────────────────── */
 import { BUILD_ID, COMMIT_HASH, SHORT_COMMIT_HASH } from './build-plugins/constants';
 
-/* ── Content-hash manifest (incremental build I/O skipper) ──── */
-import { initManifest, saveManifest, getManifest } from './build-plugins/contentHash';
+/* ── Content-hash manifest disabled 2026-04-28 (see plugins block) ──── */
+// import { initManifest, saveManifest, getManifest } from './build-plugins/contentHash';
 
 /* ── Custom build plugins (extracted for clarity) ─────────────── */
 import { buildIdPlugin } from './build-plugins/buildIdPlugin';
@@ -81,15 +81,15 @@ export default defineConfig(({ mode }) => {
  // ── Core plugins (always run, including FAST_BUILD) ──────────
  react(),
  prepareOutDirPlugin(__dirname),
- // ── Content-hash manifest bootstrap (runs FIRST in buildStart) ──
- // Initializes the cross-plugin manifest used by WriteCollector to skip
- // writes for files whose content is unchanged since the last build.
- // The manifest lives in .build-cache/build-manifest.json (outside dist/,
- // which is wiped each build) and is restored from CI cache.
- {
- name: 'content-hash-manifest-bootstrap',
- buildStart() { initManifest(__dirname); },
- } as Plugin,
+ // ── Content-hash manifest DISABLED 2026-04-28 ────────────────
+ // Was bootstrapping a SHA256 manifest used by WriteCollector to skip
+ // writes for unchanged HTML across builds. Net ROI in this repo turned
+ // out negative: ~80% of deploys are auto-blog/auto-translate which
+ // touch data files → manifest skip can't fire. Cost was +30-60s per
+ // build (SHA256 on 220k+ files in WriteCollector). When getManifest()
+ // returns null (no init), WriteCollector falls through to plain writes.
+ // To re-enable: restore the bootstrap+finalize plugins below and the
+ // `Cache content-hash manifest` step in .github/workflows/deploy.yml.
  buildIdPlugin(__dirname),
  asyncCssPlugin(),
  preloadLocalePlugin(__dirname),
@@ -182,30 +182,9 @@ export default defineConfig(({ mode }) => {
  // build-plugins/precompressHtmlPlugin.ts for future revival.
  // precompressHtmlPlugin(__dirname),
  ]),
- // ── Content-hash manifest finalize (runs LAST in closeBundle) ──
- // Saves the manifest of SHA256 hashes for every file the WriteCollector
- // routed through it, so the next build can skip identical writes.
- // Placed OUTSIDE the !isFastBuild spread so the manifest is updated for
- // both FAST_BUILD and full builds. enforce: 'post' + closeBundle order
- // 'post' guarantees this runs after every other plugin's closeBundle.
- {
- name: 'content-hash-manifest-finalize',
- enforce: 'post' as const,
- closeBundle: {
- order: 'post' as const,
- sequential: true,
- handler() {
- const manifest = getManifest();
- if (manifest) {
- console.log(
- `[content-hash] ${manifest.skipped} skipped / ${manifest.written} written ` +
- `(previous manifest: ${manifest.previousSize} entries)`
- );
- }
- saveManifest();
- },
- },
- } as Plugin,
+ // ── Content-hash manifest finalize DISABLED 2026-04-28 ──────
+ // Paired with the disabled bootstrap above. Code retained for future
+ // revival once a use-case (rollback / hotfix-only chains) emerges.
  ],
  define: {
  // No secrets injected at build time — all sensitive keys come from Firebase Remote Config at runtime
