@@ -163,7 +163,16 @@ export function isWithinWindow(jobDate: Date | null, now: Date, windowDays: numb
 }
 
 export function windowDaysForVariant(variant: JobRecencyVariant): number {
-  return variant === 'last-3-days' ? 3 : 1;
+  // `since-yesterday` semantics = "posted yesterday or today" (2 calendar
+  // days). The previous value of 1 only let the same-UTC-day pass the
+  // calendar-diff check, so any job whose postedDate was a date-only
+  // string (e.g. "2026-04-27" parsed as 00:00Z) appeared as "more than
+  // 24 h old" and was excluded — the live page ended up showing only
+  // jobs whose postedDate carried a recent ISO timestamp (Denner's
+  // crawler emits `T21:32+0200` while Lonza/EOC emit date-only). Bumping
+  // to 2 makes the window actually "yesterday → today" as the URL
+  // promises ("/cerca-lavoro-ticino/da-ieri/").
+  return variant === 'last-3-days' ? 3 : 2;
 }
 
 // ── Copy ─────────────────────────────────────────────────────────────
