@@ -9408,4 +9408,11 @@ export const ARTICLES = [
  image: '/images/blog/decreto-lavoro-meloni-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'othermovie-lugano-2026-god-witness',
+ category: 'novita',
+ date: '2026-04-28T23:44:35.390Z',
+ image: '/images/blog/othermovie-lugano-2026-god-witness.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

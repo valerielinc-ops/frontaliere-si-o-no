@@ -3599,6 +3599,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.decreto-lavoro-meloni-frontalieri-ticino.title': 'Decreto lavoro Meloni: salario giusto e stop ai contratti pirata',
     'blog.article.decreto-lavoro-meloni-frontalieri-ticino.excerpt': 'Via libera al decreto lavoro con salario giusto e incentivi per le assunzioni. Meloni: patto con imprese e sindacati.',
     'blog.article.decreto-lavoro-meloni-frontalieri-ticino.imageAlt': 'Panorama di Lugano con il lago e le montagne circostanti',
+    'blog.article.othermovie-lugano-2026-god-witness.title': 'OtherMovie Lugano 2026: trionfa \'God as my Witness\'',
+    'blog.article.othermovie-lugano-2026-god-witness.excerpt': 'Il film vincitore del festival OtherMovie Lugano 2026 affronta il delicato tema degli abusi sessuali con oltre 1.200 presenze e tre sold out',
+    'blog.article.othermovie-lugano-2026-god-witness.imageAlt': 'Veduta aerea del lungolago di Lugano con il LAC in primo piano durante un festival del cinema',
 };
 
 export default blogMetaIt;

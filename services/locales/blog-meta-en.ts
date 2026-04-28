@@ -3598,6 +3598,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.decreto-lavoro-meloni-frontalieri-ticino.title': 'Meloni\'s labour decree: fair wage and end to pirate contracts',
     'blog.article.decreto-lavoro-meloni-frontalieri-ticino.excerpt': 'Green light for the labour decree with fair wage and incentives for hiring. Meloni: pact with businesses and unions.',
     'blog.article.decreto-lavoro-meloni-frontalieri-ticino.imageAlt': 'Panorama of Lugano with the lake and surrounding mountains',
+    'blog.article.othermovie-lugano-2026-god-witness.title': '\'God as my Witness\' wins OtherMovie Lugano 2026',
+    'blog.article.othermovie-lugano-2026-god-witness.excerpt': 'The winning film of the OtherMovie Lugano 2026 festival tackles the delicate issue of sexual abuse with over 1,200 attendees and three sold-out screenings',
+    'blog.article.othermovie-lugano-2026-god-witness.imageAlt': 'Aerial view of Lugano\'s lakefront with the LAC in the foreground during a film festival',
 };
 
 export default blogMetaEn;

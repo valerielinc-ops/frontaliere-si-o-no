@@ -2430,6 +2430,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stop-cinese-acquisizione-manus-implicazioni': { name: 'Novità', path: '/articoli-frontaliere/stop-cinese-acquisizione-manus-implicazioni', parent: 'blog' },
     'blog-gita-cuore-soncino-saronno-point': { name: 'Gita del cuore', path: '/articoli-frontaliere/gita-cuore-soncino-saronno-point', parent: 'blog' },
     'blog-decreto-lavoro-meloni-frontalieri-ticino': { name: 'Decreto lavoro', path: '/articoli-frontaliere/decreto-lavoro-meloni-frontalieri-ticino', parent: 'blog' },
+    'blog-othermovie-lugano-2026-god-witness': { name: 'OtherMovie Lugano', path: '/articoli-frontaliere/othermovie-lugano-2026-god-witness', parent: 'blog' },
  };
 
  const info = sectionNames[section];

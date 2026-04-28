@@ -21760,6 +21760,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-othermovie-lugano-2026-god-witness': {
+    title: 'OtherMovie Lugano 2026: trionfa \'God as my Witness\'',
+    description: 'Scopri il vincitore di OtherMovie Lugano 2026 e le implicazioni per i frontalieri che lavorano in Ticino. Partecipa al festival e approfitta delle opportunità',
+    keywords: 'frontalieri, ticino, svizzera, italia, othermovie, lugano, trionfa, witness',
+    ogTitle: 'OtherMovie Lugano 2026: trionfa \'God as my Witness\'',
+    ogDescription: 'Scopri il vincitore di OtherMovie Lugano 2026 e le implicazioni per i frontalieri che lavorano in Ticino. Partecipa al festival e approfitta delle opportunità',
+    canonicalPath: '/articoli-frontaliere/othermovie-lugano-2026-god-witness',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OtherMovie Lugano 2026: trionfa 'God as my Witness'",
+      "description": "Scopri il vincitore di OtherMovie Lugano 2026 e le implicazioni per i frontalieri che lavorano in Ticino. Partecipa al festival e approfitta delle opportunità",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/othermovie-lugano-2026-god-witness.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del lungolago di Lugano con il LAC in primo piano durante un festival del cinema"
+      },
+      "datePublished": "2026-04-28T23:44:35+00:00",
+      "dateModified": "2026-04-28T23:44:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/othermovie-lugano-2026-god-witness`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
