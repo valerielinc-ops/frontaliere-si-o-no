@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-04-14T05:35:17.056Z",
-    "label": "before",
-    "total": 2952,
-    "needsRetranslation": 24,
-    "incomplete": 6,
-    "complete": 2946,
-    "missingByLocale": {
-      "it": 1,
-      "en": 0,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Tether Operations",
-        "pending": 5
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-14T05:47:55.035Z",
-    "label": "after",
-    "total": 2952,
-    "needsRetranslation": 33,
-    "incomplete": 6,
-    "complete": 2946,
-    "missingByLocale": {
-      "it": 1,
-      "en": 0,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Tether Operations",
-        "pending": 5
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-14T08:14:50.472Z",
     "label": "before",
     "total": 2893,
@@ -7759,6 +7711,118 @@
       },
       {
         "company": "Union Bancaire Privée",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-28T11:54:48.344Z",
+    "label": "before",
+    "total": 2684,
+    "needsRetranslation": 1181,
+    "incomplete": 148,
+    "complete": 2536,
+    "missingByLocale": {
+      "it": 83,
+      "en": 102,
+      "de": 101,
+      "fr": 135
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 49
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Lonza",
+        "pending": 13
+      },
+      {
+        "company": "Denner",
+        "pending": 8
+      },
+      {
+        "company": "Prada Group",
+        "pending": 5
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-28T13:20:13.828Z",
+    "label": "after",
+    "total": 2684,
+    "needsRetranslation": 99,
+    "incomplete": 53,
+    "complete": 2631,
+    "missingByLocale": {
+      "it": 39,
+      "en": 20,
+      "de": 32,
+      "fr": 41
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 2
+      },
+      {
+        "company": "PEMSA",
+        "pending": 2
+      },
+      {
+        "company": "TRUMPF Schweiz AG",
+        "pending": 2
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 2
+      },
+      {
+        "company": "ALDI SUISSE",
         "pending": 1
       }
     ]

@@ -86,7 +86,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -192,7 +191,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -289,7 +287,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -392,7 +389,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -429,7 +425,7 @@
       "descriptionByLocale": {
         "it": "Descrizione - Centro di insegnamento per la cura della persona EFZ, area di infanzia | Gestione delle applicazioni Spital Davos — Spital Davos, Davos",
         "en": "Descrizione - Teaching Centre for the Person Care EFZ, Childcare Area | Application Management Spital Davos — Spital Davos, Davos",
-        "de": "Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
+        "de": "## Descrizione\n- Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
         "fr": "Descrizione - Centre d'enseignement des soins aux personnes EFZ, zone de garde d'enfants"
       },
       "location": "Davos",
@@ -486,7 +482,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "spital-davos-e72119e3765f",
@@ -557,7 +554,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -638,7 +634,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -799,7 +794,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -979,7 +973,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.937Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1059,7 +1052,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1126,15 +1118,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "assistente-di-medicina-interna-100-spital-davos-davos",
         "underassistant-in-internal-medicine-100-spital-davos-davos",
         "unterassistent-in-innere-medizin-100-spital-davos-ch",
-        "assistant-en-medecine-interne-100-spital-davos-davos"
+        "assistant-en-medecine-interne-100-spital-davos-davos",
+        "medecin-specialiste-en-medecine-interne-80-100-spital-davos-davos",
+        "medico-specialista-in-medicina-interna-80-100-spital-davos-davos",
+        "senior-physician-internal-medicine-80-100-spital-davos-davos",
+        "assistente-di-medicina-interna-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "assistente-di-medicina-interna-100-spital-davos-davos"
-        ],
         "en": [
           "underassistant-in-internal-medicine-100-spital-davos-davos"
         ],
@@ -1143,10 +1135,12 @@
         ],
         "fr": [
           "assistant-en-medecine-interne-100-spital-davos-davos"
+        ],
+        "it": [
+          "assistente-di-medicina-interna-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1221,7 +1215,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1313,7 +1306,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1392,7 +1384,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1471,7 +1462,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "spital-davos-e84ba21560a0",
@@ -1534,7 +1526,6 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:18.819Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1615,7 +1606,6 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.960Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1690,7 +1680,6 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.067Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1768,7 +1757,6 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:16.213Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1935,7 +1923,6 @@
         ]
       },
       "firstSeenAt": "2026-04-24T10:53:46.703Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1963,17 +1950,17 @@
       "companyDomain": "spitaldavos.ch",
       "title": "Dipl. Pflegefachperson Dialyse 60-70%",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachperson Dialyse 60-70%",
+        "de": "Dipl. Pflegefachperson Dialyse 60-70 %",
         "en": "Dipl. Pflegefachperson Dialyse 60-70%",
-        "it": "Dipl. Pflegefachperson Dialyse 60-70%",
-        "fr": "Dipl. Pflegefachperson Dialyse 60-70%"
+        "it": "Dialisi Dipl. Pflegefachperson 60-70%",
+        "fr": "Dipl. Pflegefachperson Dialyse 60-70 %"
       },
       "description": "Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Dialysestation suchen wir nach Vereinbarung eine | • Vorbereitung, Durchführung und Auswertung der verschiedenen Tests (z.B. KT/V) zur Sicherstellung der adäquaten Dialyse • Verabreichung von Injektionen aufgrund ärztlicher Anordnung • Information, Beratung und psychosoziale Betreuung von Patientinnen und Patienten sowie deren Angehörigen • Sorgfältige Dokumentation aller pflegerischen Tätigkeiten • Professionelle und enge Zusammenarbeit mit der leitenden Ärztin Nephrologie/Dialyse | • Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung • Berufserfahrung in der Dialyse von Vorteil • Freude an der Arbeit mit dem Patientinnen und Patienten • Gewissenhaftes und selbständiges Arbeiten mit Verantwortungsbewusstsein • Sehr gute Deutschkenntnisse, jede weitere Sprache von Vorteil | • Abwechslungsreiche, verantwortungsvolle Tätigkeit in einem kleinen und engagierten Team • Feste Arbeitstage an Montag, Mittwoch und Freitag • Attraktive Anstellungsbedingungen und Sozialleistungen; spitaleigene Kinderkrippe • Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
       "descriptionByLocale": {
-        "de": "Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Dialysestation suchen wir nach Vereinbarung eine | • Vorbereitung, Durchführung und Auswertung der verschiedenen Tests (z.B. KT/V) zur Sicherstellung der adäquaten Dialyse • Verabreichung von Injektionen aufgrund ärztlicher Anordnung • Information, Beratung und psychosoziale Betreuung von Patientinnen und Patienten sowie deren Angehörigen • Sorgfältige Dokumentation aller pflegerischen Tätigkeiten • Professionelle und enge Zusammenarbeit mit der leitenden Ärztin Nephrologie/Dialyse | • Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung • Berufserfahrung in der Dialyse von Vorteil • Freude an der Arbeit mit dem Patientinnen und Patienten • Gewissenhaftes und selbständiges Arbeiten mit Verantwortungsbewusstsein • Sehr gute Deutschkenntnisse, jede weitere Sprache von Vorteil | • Abwechslungsreiche, verantwortungsvolle Tätigkeit in einem kleinen und engagierten Team • Feste Arbeitstage an Montag, Mittwoch und Freitag • Attraktive Anstellungsbedingungen und Sozialleistungen; spitaleigene Kinderkrippe • Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
-        "it": "Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Dialysestation suchen wir nach Vereinbarung eine | • Vorbereitung, Durchführung und Auswertung der verschiedenen Tests (z.B. KT/V) zur Sicherstellung der adäquaten Dialyse • Verabreichung von Injektionen aufgrund ärztlicher Anordnung • Information, Beratung und psychosoziale Betreuung von Patientinnen und Patienten sowie deren Angehörigen • Sorgfältige Dokumentation aller pflegerischen Tätigkeiten • Professionelle und enge Zusammenarbeit mit der leitenden Ärztin Nephrologie/Dialyse | • Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung • Berufserfahrung in der Dialyse von Vorteil • Freude an der Arbeit mit dem Patientinnen und Patienten • Gewissenhaftes und selbständiges Arbeiten mit Verantwortungsbewusstsein • Sehr gute Deutschkenntnisse, jede weitere Sprache von Vorteil | • Abwechslungsreiche, verantwortungsvolle Tätigkeit in einem kleinen und engagierten Team • Feste Arbeitstage an Montag, Mittwoch und Freitag • Attraktive Anstellungsbedingungen und Sozialleistungen; spitaleigene Kinderkrippe • Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
-        "en": "Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Dialysestation suchen wir nach Vereinbarung eine | • Vorbereitung, Durchführung und Auswertung der verschiedenen Tests (z.B. KT/V) zur Sicherstellung der adäquaten Dialyse • Verabreichung von Injektionen aufgrund ärztlicher Anordnung • Information, Beratung und psychosoziale Betreuung von Patientinnen und Patienten sowie deren Angehörigen • Sorgfältige Dokumentation aller pflegerischen Tätigkeiten • Professionelle und enge Zusammenarbeit mit der leitenden Ärztin Nephrologie/Dialyse | • Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung • Berufserfahrung in der Dialyse von Vorteil • Freude an der Arbeit mit dem Patientinnen und Patienten • Gewissenhaftes und selbständiges Arbeiten mit Verantwortungsbewusstsein • Sehr gute Deutschkenntnisse, jede weitere Sprache von Vorteil | • Abwechslungsreiche, verantwortungsvolle Tätigkeit in einem kleinen und engagierten Team • Feste Arbeitstage an Montag, Mittwoch und Freitag • Attraktive Anstellungsbedingungen und Sozialleistungen; spitaleigene Kinderkrippe • Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
-        "fr": "Ihr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für unsere Dialysestation suchen wir nach Vereinbarung eine | • Vorbereitung, Durchführung und Auswertung der verschiedenen Tests (z.B. KT/V) zur Sicherstellung der adäquaten Dialyse • Verabreichung von Injektionen aufgrund ärztlicher Anordnung • Information, Beratung und psychosoziale Betreuung von Patientinnen und Patienten sowie deren Angehörigen • Sorgfältige Dokumentation aller pflegerischen Tätigkeiten • Professionelle und enge Zusammenarbeit mit der leitenden Ärztin Nephrologie/Dialyse | • Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung • Berufserfahrung in der Dialyse von Vorteil • Freude an der Arbeit mit dem Patientinnen und Patienten • Gewissenhaftes und selbständiges Arbeiten mit Verantwortungsbewusstsein • Sehr gute Deutschkenntnisse, jede weitere Sprache von Vorteil | • Abwechslungsreiche, verantwortungsvolle Tätigkeit in einem kleinen und engagierten Team • Feste Arbeitstage an Montag, Mittwoch und Freitag • Attraktive Anstellungsbedingungen und Sozialleistungen; spitaleigene Kinderkrippe • Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung."
+        "de": "## Descrizione\nIhr pflegerisches Fachwissen, kompetente Betreuung und planerische Mithilfe werden nicht nur von unseren Patientinnen und Patienten, sondern auch von unserem ärztlichen Team geschätzt. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos.\n\nFür unsere Dialysestation suchen wir nach Vereinbarung eine\n\n## Mansioni\n- Vorbereitung, Durchführung und Auswertung der verschiedenen Tests (z.B. KT/V) zur Sicherstellung der adäquaten Dialyse\n- Verabreichung von Injektionen aufgrund ärztlicher Anordnung\n- Information, Beratung und psychosoziale Betreuung von Patientinnen und Patienten sowie deren Angehörigen\n- Sorgfältige Dokumentation aller pflegerischen Tätigkeiten\n- Professionelle und enge Zusammenarbeit mit der leitenden Ärztin Nephrologie/Dialyse\n\n## Requisiti\n- Abgeschlossene Ausbildung als Dipl. Fachperson HF oder gleichwertig anerkannte Ausbildung\n- Berufserfahrung in der Dialyse von Vorteil\n- Freude an der Arbeit mit dem Patientinnen und Patienten\n- Gewissenhaftes und selbständiges Arbeiten mit Verantwortungsbewusstsein\n- Sehr gute Deutschkenntnisse, jede weitere Sprache von Vorteil\n\n## Cosa offriamo\n- Abwechslungsreiche, verantwortungsvolle Tätigkeit in einem kleinen und engagierten Team\n- Feste Arbeitstage an Montag, Mittwoch und Freitag\n- Attraktive Anstellungsbedingungen und Sozialleistungen; spitaleigene Kinderkrippe\n- Interessante Fort- und Weiterbildungsmöglichkeiten\n\n## Contatto\nFür weitere Auskünfte steht Ihnen Frau Bea Heeb, Departementsleitung Pflege, unter +41 81 414 82 50 wie auch unser HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder auch per E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
+        "it": "Descrizione La vostra esperienza di cura, assistenza competente e pianificazione non sono solo apprezzati dai nostri pazienti, ma anche dal nostro team medico. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. Ci preoccupiamo anche del benessere dei nostri dipendenti. Con noi lavoriamo in un'operazione gestibile ma importante per la regione, manteniamo un ambiente di lavoro collegiale e apprezziamo la vicinanza alla natura così come le numerose opportunità sportive e ricreative di Davos. Per la nostra stazione dialisi stiamo cercando un ## Mansioni - preparazione, esecuzione e valutazione dei vari test (ad esempio KT/V) per garantire una adeguata dialisi - somministrazione di iniezioni a causa di arrangiamento medico - informazioni, consigli e cure psicosociali dei pazienti e dei loro parenti - Documentazione attenta di tutte le attività di infermieristica - Professionale e stretta collaborazione con il medico senior Nephrology Expert HF o formazione equivalente riconosciuto - Tedesco esperienza Per ulteriori informazioni, rivolgersi a Mrs. Bea Heeb, Head of Department Care al numero +41 81 414 82 50 e al nostro team di reclutamento HRM al numero +41 81 414 84 12 o via e-mail job@spitaldavos.ch.",
+        "en": "Descrizione Your nursing expertise, competent care and planning assistance are not only appreciated by our patients, but also by our medical team. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but important operation for the region, we maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities of Davos. For our dialysis station we are looking for a ## Mansioni - preparation, execution and evaluation of the various tests (e.g. KT/V) to ensure adequate dialysis - administration of injections due to medical arrangement - information, advice and psychosocial care of patients and their relatives - Careful documentation of all nursing activities - Professional and close cooperation with the senior physician Nephrology Expert HF or equivalently recognized training - Professional experience in dialysis of advantage - joy in working with the patient - Conscientious and independent work with sense of responsibility - Very good German knowledge, every further language of advantage ## Cosa offriamo - Varied, responsible activity in a small and dedicated team - Solid working days on Monday, Wednesday and Friday - Attractive employment conditions and social benefits; For further information, please contact Mrs. Bea Heeb, Head of Department Care at +41 81 414 82 50 and our HRM recruitment team at +41 81 414 84 12 or by e-mail jobs@spitaldavos.ch.",
+        "fr": "Descrizione Votre expertise infirmière, vos soins compétents et votre aide à la planification sont appréciés non seulement par nos patients, mais aussi par notre équipe médicale. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais importante pour la région, nous maintenons un environnement de travail collégial et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sports et de loisirs de Davos. Pour notre station de dialyse, nous recherchons un ## Mansioni - préparation, exécution et évaluation des différents tests (p. ex. KT/V) pour assurer une dialyse adéquate - administration d'injections dues à l'arrangement médical - information, conseils et soins psychosociaux des patients et de leurs proches - Documentation attentive de toutes les activités de soins infirmiers - Collaboration professionnelle et étroite avec le médecin principal Néphrologie Expert HF ou formation reconnue de manière équivalente - Expérience professionnelle en dialyse des avantages - joie de travailler avec le patient - Travail consciencieux et indépendant avec sens des responsabilités - Très bonne connaissance allemande, toute autre langue d'avantage ## Cosa offriamo - Activité variée, responsable dans une petite équipe dédiée - Journées de travail solides les lundi, mercredi et vendredi - Conditions d'emploi attrayantes et prestations sociales; Pour de plus amples informations, veuillez contacter Mme Bea Heeb, chef de service, au +41 81 414 82 50 et notre équipe de recrutement HRM au +41 81 414 84 12 ou par e-mail jobs@spitaldavos.ch."
       },
       "location": "Davos",
       "canton": "GR",
@@ -2003,7 +1990,6 @@
       "pensumMin": 60,
       "pensumMax": 70,
       "pensum": "60 - 70%",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2099,7 +2085,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2205,7 +2190,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2308,7 +2292,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.142Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2398,7 +2381,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
