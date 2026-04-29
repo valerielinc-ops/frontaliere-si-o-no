@@ -2570,6 +2570,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-alluvione-lavizzara-piano-pericoli-approvato': { name: 'Alluvione Lavizzara', path: '/articoli-frontaliere/alluvione-lavizzara-piano-pericoli-approvato', parent: 'blog' },
     'blog-bedretto-lab-microterremoti-ricerca': { name: 'Novità', path: '/articoli-frontaliere/bedretto-lab-microterremoti-ricerca', parent: 'blog' },
     'blog-microterremoto-ticino-successo-test': { name: 'Novità', path: '/articoli-frontaliere/microterremoto-ticino-successo-test', parent: 'blog' },
+    'blog-festa-famiglie-lugano-2026': { name: 'Festa famiglie', path: '/articoli-frontaliere/festa-famiglie-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

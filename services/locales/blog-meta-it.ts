@@ -4019,6 +4019,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.microterremoto-ticino-successo-test.title': 'Micro terremoto controllato in Ticino: un successo per il test',
     'blog.article.microterremoto-ticino-successo-test.excerpt': 'Ricercatori provocano un sisma nel massiccio del Gottardo. Scosse registrate ma non percepibili in superficie.',
     'blog.article.microterremoto-ticino-successo-test.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.festa-famiglie-lugano-2026.title': 'Festa delle famiglie a Lugano: condivisione e inclusione',
+    'blog.article.festa-famiglie-lugano-2026.excerpt': 'Domenica 26 aprile 2026, il Rotary Club Lugano-Lago e l\'Associazione Amélie hanno organizzato una giornata di condivisione e inclusione per famiglie.',
+    'blog.article.festa-famiglie-lugano-2026.imageAlt': 'Famiglie che partecipano alla festa delle famiglie a Lugano',
 };
 
 export default blogMetaIt;

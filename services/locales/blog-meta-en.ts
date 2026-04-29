@@ -4018,6 +4018,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.microterremoto-ticino-successo-test.title': 'Controlled micro-earthquake in Ticino: a successful test',
     'blog.article.microterremoto-ticino-successo-test.excerpt': 'Researchers triggered a quake in the Gottardo massif. Shocks recorded but not felt on the surface.',
     'blog.article.microterremoto-ticino-successo-test.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.festa-famiglie-lugano-2026.title': 'Family Festival in Lugano: sharing and inclusion',
+    'blog.article.festa-famiglie-lugano-2026.excerpt': 'On Sunday, April 26, 2026, the Rotary Club Lugano-Lago and the Amélie Association organized a day of sharing and inclusion for families.',
+    'blog.article.festa-famiglie-lugano-2026.imageAlt': 'Families enjoying the family festival in Lugano',
 };
 
 export default blogMetaEn;

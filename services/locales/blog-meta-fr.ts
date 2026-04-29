@@ -4019,6 +4019,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.microterremoto-ticino-successo-test.title': 'Un micro-tremblement de terre contrôlé dans le massif du Gothard',
     'blog.article.microterremoto-ticino-successo-test.excerpt': 'Des chercheurs provoquent un séisme dans le massif du Gothard. Des secousses enregistrées mais non perceptibles en surface.',
     'blog.article.microterremoto-ticino-successo-test.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.festa-famiglie-lugano-2026.title': 'Fête des familles à Lugano: partage et inclusion',
+    'blog.article.festa-famiglie-lugano-2026.excerpt': 'Dimanche 26 avril 2026, le Rotary Club Lugano-Lago et l\'Association Amélie ont organisé une journée de partage et d\'inclusion pour les familles.',
+    'blog.article.festa-famiglie-lugano-2026.imageAlt': 'Familles profitant de la fête des familles à Lugano',
 };
 
 export default blogMetaFr;

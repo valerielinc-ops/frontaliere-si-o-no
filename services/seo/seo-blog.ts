@@ -25820,6 +25820,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-festa-famiglie-lugano-2026': {
+    title: 'Festa delle famiglie a Lugano: condivisione e inclusione',
+    description: 'Domenica 26 aprile 2026, il Rotary Club Lugano-Lago e l\'Associazione Amélie hanno organizzato una giornata di condivisione e inclusione per famiglie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, festa, famiglie, lugano, condivisione',
+    ogTitle: 'Festa delle famiglie a Lugano: condivisione e inclusione',
+    ogDescription: 'Domenica 26 aprile 2026, il Rotary Club Lugano-Lago e l\'Associazione Amélie hanno organizzato una giornata di condivisione e inclusione per famiglie.',
+    canonicalPath: '/articoli-frontaliere/festa-famiglie-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festa delle famiglie a Lugano: condivisione e inclusione",
+      "description": "Domenica 26 aprile 2026, il Rotary Club Lugano-Lago e l'Associazione Amélie hanno organizzato una giornata di condivisione e inclusione per famiglie.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/festa-famiglie-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglie che partecipano alla festa delle famiglie a Lugano"
+      },
+      "datePublished": "2026-04-29T21:37:50+00:00",
+      "dateModified": "2026-04-29T21:37:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festa-famiglie-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

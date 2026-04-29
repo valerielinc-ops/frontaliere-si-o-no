@@ -4018,6 +4018,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.microterremoto-ticino-successo-test.title': 'Kontrolliertes Mikro-Erdbeben im Kanton Tessin',
     'blog.article.microterremoto-ticino-successo-test.excerpt': 'Forscher lösten ein Beben im Gotthardmassiv aus. Die Erschütterungen wurden registriert, aber an der Oberfläche nicht wahrgenommen.',
     'blog.article.microterremoto-ticino-successo-test.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.festa-famiglie-lugano-2026.title': 'Familienfest in Lugano: Teilen und Inklusion',
+    'blog.article.festa-famiglie-lugano-2026.excerpt': 'Am Sonntag, den 26. April 2026, organisieren der Rotary Club Lugano-Lago und der Verein Amélie einen Tag des Teilens und der Inklusion für Familien.',
+    'blog.article.festa-famiglie-lugano-2026.imageAlt': 'Familien, die das Familienfest in Lugano genießen',
 };
 
 export default blogMetaDe;
