@@ -491,6 +491,52 @@ export const FUEL_DAILY_ROUTES: readonly string[] = listFuelTodayPaths().map((p)
 const FUEL_DAILY_ROUTE_SET: ReadonlySet<string> = new Set(FUEL_DAILY_ROUTES);
 
 /**
+ * Terminal slugs of the fuel-station / fuel-cities browseable INDEX pages
+ * (defined in build-plugins/fuelStationIndexPages.ts → FUEL_INDEX_SLUG).
+ *
+ * Mirrored here as a flat set so isFuelDailyPath() — imported by the SPA
+ * router — can recognise these URLs without pulling in the index plugin
+ * (which depends on Node-only build helpers). Keep in sync with
+ * FUEL_INDEX_SLUG; tests/seo/fuel-station-index-router.test.ts asserts
+ * the two stay aligned.
+ */
+const FUEL_INDEX_TERMINAL_SLUGS: ReadonlySet<string> = new Set([
+  'stazioni-svizzere', 'swiss-stations', 'schweizer-tankstellen', 'stations-suisses',
+  'stazioni-italia', 'italian-stations', 'italienische-tankstellen', 'stations-italiennes',
+  'citta-italiane', 'italian-cities', 'italienische-staedte', 'villes-italiennes',
+]);
+
+/**
+ * Recognise a fuel-station / fuel-cities index path:
+ * `/[locale?]/{section}/{terminal-slug}/`
+ *
+ * Examples:
+ *   /prezzi-benzina/stazioni-italia/
+ *   /en/gasoline-price-switzerland/swiss-stations/
+ */
+export function isFuelStationIndexPath(pathname: string): boolean {
+  if (!pathname) return false;
+  const leading = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  const normalised = leading.endsWith('/') ? leading : `${leading}/`;
+  const parts = normalised.split('/').filter(Boolean);
+  if (parts.length < 2) return false;
+  let idx = 0;
+  if (parts[0] === 'en' || parts[0] === 'de' || parts[0] === 'fr') idx = 1;
+  // Expected shape: [prefix?] section terminal-slug — exactly idx+2 parts.
+  if (parts.length !== idx + 2) return false;
+  const section = parts[idx];
+  const terminal = parts[idx + 1];
+  let sectionMatch = false;
+  for (const locale of FUEL_DAILY_LOCALES) {
+    for (const fuel of FUEL_TYPES) {
+      if (FUEL_SECTION_SLUG[locale][fuel] === section) sectionMatch = true;
+    }
+  }
+  if (!sectionMatch) return false;
+  return FUEL_INDEX_TERMINAL_SLUGS.has(terminal);
+}
+
+/**
  * Return true when `pathname` (with or without trailing slash) matches one of
  * the canonical fuel-daily URLs (in any locale / fuel / zone).
  *
@@ -506,6 +552,7 @@ export function isFuelDailyPath(pathname: string): boolean {
   if (isFuelMonthArchivePath(normalised)) return true;
   if (isFuelStationPath(normalised)) return true;
   if (isFuelItalianCityPath(normalised)) return true;
+  if (isFuelStationIndexPath(normalised)) return true;
   return false;
 }
 
