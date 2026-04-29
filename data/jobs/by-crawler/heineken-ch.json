@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-04-28T22:00:26.095Z",
+  "assembledAt": "2026-04-29T08:38:06.034Z",
   "jobs": [
     {
       "id": "heineken-ch-9dc36eca64a6",
@@ -69,112 +69,6 @@
           "Connaissances d'une brasserie automatisée (par exemple, Brewmaxx)",
           "Gestion des données dans des systèmes d'information modernes tels que Proleit Integrate",
           "Expérience avec des systèmes de contrôle modernes et bonnes compétences en informatique"
-        ]
-      },
-      "firstSeenAt": "2026-04-14T10:03:48.476Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "heineken-ch-6496677b8aad",
-      "slug": "autista-di-camion-heineken-switzerland-content-width-device-width",
-      "slugByLocale": {
-        "it": "autista-di-camion-heineken-switzerland-content-width-device-width",
-        "en": "title-truck-driver-heineken-ch-content-width-device-width",
-        "de": "title-truck-driver-heineken-ch-content-width-device-width",
-        "fr": "chauffeur-de-camion-heineken-switzerland-content-width-device-width"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Title: Truck Driver",
-      "titleByLocale": {
-        "it": "Autista di Camion",
-        "en": "Truck Driver",
-        "de": "Title: Truck Driver",
-        "fr": "Chauffeur de Camion"
-      },
-      "description": "Title: Truck Driver im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
-      "descriptionByLocale": {
-        "it": "Descrizione Titolo: Truck Driver nell'area Supply Chain di Heineken Svizzera (Calanda Brewery) a Canton Graubünden, Svizzera. HEINEKEN La Svizzera gestisce la birreria Calanda a Chur, Grigioni, una delle birrerie più tradizionali della Svizzera, fondata nel 1780. Nell'ambito del gruppo HEINEKEN, il secondo gruppo mondiale di birrerie, HEINEKEN Svizzera impiega circa 800 dipendenti in diverse località della Svizzera. L'azienda produce e vende marchi noti come Calanda, Eichhof, Heineken e Birra Moretti. HEINEKEN La Svizzera offre un ambiente di lavoro internazionale, condizioni di lavoro moderne e diverse opportunità di sviluppo nei settori della produzione, della logistica, delle vendite e dell'amministrazione.",
-        "en": "Descrizione Title: Truck Driver in the Supply Chain area at Heineken Switzerland (Calanda Brewery) in Canton Graubünden, Switzerland. HEINEKEN Switzerland operates the Calanda brewery in Chur, Graubünden — one of the most traditional breweries in Switzerland, founded in 1780. As part of the HEINEKEN Group, the world's second largest brewery group, HEINEKEN Switzerland employs around 800 employees at several locations in Switzerland. The company brews and sells well-known brands like Calanda, Eichhof, Heineken and Birra Moretti. HEINEKEN Switzerland offers an international working environment, modern employment conditions and diverse development opportunities in the fields of production, logistics, sales and administration.",
-        "de": "Title: Truck Driver im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz. HEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
-        "fr": "Descrizione Titre: Conducteur de camion dans la région de la chaîne d'approvisionnement à Heineken Suisse (Calanda Brewery) dans le canton des Grisons, Suisse. HEINEKEN La Suisse exploite la brasserie Calanda à Chur, Graubünden, l'une des brasseries les plus traditionnelles de Suisse, fondée en 1780. Dans le cadre du groupe HEINEKEN, le deuxième groupe de brasserie au monde, HEINEKEN Suisse emploie environ 800 salariés dans plusieurs sites en Suisse. La société brasse et vend des marques bien connues comme Calanda, Eichhof, Heineken et Birra Moretti. HEINEKEN La Suisse offre un environnement de travail international, des conditions d'emploi modernes et diverses possibilités de développement dans les domaines de la production, de la logistique, des ventes et de l'administration."
-      },
-      "location": "\" content=\"width=device-width",
-      "canton": "GR",
-      "addressLocality": "\" content=\"width=device-width",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1026",
-      "streetAddress": "\" content=\"width=device-width, Graubünden",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://careers.theheinekencompany.com/Switzerland/job/Denges-Truck-Driver-1026/1371560033/",
-      "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1371560033/?locale=en_GB",
-      "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:00:21.884Z",
-      "requirementsByLocale": {
-        "it": [
-          "Patente di guida C, idealmente anche cat. E",
-          "Esperienza professionale come autista/consegnatore",
-          "Lavoro autonomo",
-          "Esperienza nella preparazione degli ordini e manipolazione di carrelli elevatori elettrici",
-          "Professionismo e affidabilità",
-          "Conoscenza del francese e base di tedesco",
-          "Resistenza allo stress",
-          "Buona forma fisica e salute"
-        ],
-        "en": [
-          "Driving license C, ideally also cat. E",
-          "Professional experience as a driver/deliverer",
-          "Autonomous work",
-          "Experience in order preparation and manipulation of electric pallet trucks",
-          "Professionalism and reliability",
-          "Fluency in French and basic German",
-          "Excellent stress resistance",
-          "Good physical shape and health"
-        ],
-        "de": [
-          "Führerschein C, idealerweise auch cat. E",
-          "Berufserfahrung als Fahrer/Lieferant",
-          "Autonomes Arbeiten",
-          "Erfahrung in Auftragsvorbereitung und Bedienung von elektrischen Gabelstaplern",
-          "Professionalismus und Zuverlässigkeit",
-          "Fluency in French and basic German",
-          "Hervorragende Stressresistenz",
-          "Gute körperliche Verfassung und Gesundheit"
-        ]
-      },
-      "previousSlugs": [
-        "title-truck-driver-heineken-ch-content-width-device-width",
-        "titre-truck-driver-heineken-switzerland-content-width-device-width",
-        "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "title-truck-driver-heineken-ch-content-width-device-width"
-        ],
-        "fr": [
-          "titre-truck-driver-heineken-switzerland-content-width-device-width"
         ]
       },
       "firstSeenAt": "2026-04-14T10:03:48.476Z",
