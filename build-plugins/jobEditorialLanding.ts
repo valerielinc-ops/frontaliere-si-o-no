@@ -64,6 +64,11 @@ export const JOB_PART_TIME_LANDING_SLUGS: Record<JobLandingLocale, string> = {
 
 export const JOB_TODAY_LANDING_SLUGS = JOB_TODAY_LANDING_SLUGS_BY_CANTON['TI'];
 
+export function getJobTodayLandingSlug(locale: JobLandingLocale, canton: string = 'TI'): string {
+ const slugs = JOB_TODAY_LANDING_SLUGS_BY_CANTON[canton] || JOB_TODAY_LANDING_SLUGS;
+ return slugs[locale];
+}
+
 export const JOB_OFFICIAL_GAZETTE_LANDING_SLUGS: Record<JobLandingLocale, string> = {
  it: 'foglio-ufficiale-offerte-di-lavoro-ticino',
  en: 'official-gazette-ticino-jobs',

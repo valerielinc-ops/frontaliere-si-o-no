@@ -42,6 +42,7 @@ import {
  buildJobOfficialGazetteLandingModel,
  buildJobPartTimeLandingModel,
  buildJobTodayLandingModel,
+ getJobTodayLandingSlug,
  EDITORIAL_CANTONS,
  partitionCareClusters,
  partitionByLocation,
@@ -3373,18 +3374,14 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  // x-default required by audit-hreflang alongside the 4 locale entries.
+ // OPT: hreflang only needs the slug per locale — call the lightweight
+ // getJobTodayLandingSlug() helper instead of running the full
+ // buildJobTodayLandingModel() pipeline (which filters all jobs into 24h/3d/
+ // partTime + computes city leaders). Saves ~4 model builds per emit ×
+ // 12 editorial-jobs-today emits = ~3.7s of build wall.
  const todayHreflangPairs = localeList.map((altLocale) => {
- const altModel = buildJobTodayLandingModel({
- jobs: validJobs,
- locale: altLocale,
- now: new Date().toISOString(),
- localizedSlug,
- baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[altLocale],
- localePrefix: localePrefix[altLocale],
- canton: editorialCanton,
- });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altSlug = getJobTodayLandingSlug(altLocale, editorialCanton);
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const xDefaultToday = todayHreflangPairs.find((p) => p.lang === 'it')?.href ?? todayHreflangPairs[0]?.href ?? '';
