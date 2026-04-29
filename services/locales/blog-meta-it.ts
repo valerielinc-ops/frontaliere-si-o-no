@@ -3869,6 +3869,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chi-finanzia-politica-svizzera-2026.title': 'Chi finanzia la politica svizzera? Oltre 130 milioni in campagne',
     'blog.article.chi-finanzia-politica-svizzera-2026.excerpt': 'Dall\'entrata in vigore delle regole sulla trasparenza, oltre 130 milioni di franchi sono stati investiti nelle campagne politiche svizzere.',
     'blog.article.chi-finanzia-politica-svizzera-2026.imageAlt': 'Castello di Bellinzona con bandiera del Ticino',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.title': 'Lago Maggiore: accordo Italia-Svizzera per più acqua in primavera',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.excerpt': 'Il livello massimo del Lago Maggiore può ora raggiungere 1,40 metri per contrastare la crisi idrica.',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.imageAlt': 'Vista aerea del Lago Maggiore con acque cristalline, circondato da montagne e paesi sulle rive italiane e svizzere.',
 };
 
 export default blogMetaIt;

@@ -3869,6 +3869,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chi-finanzia-politica-svizzera-2026.title': 'Qui finance la politique suisse ? Plus de 130 millions en campagnes',
     'blog.article.chi-finanzia-politica-svizzera-2026.excerpt': 'Depuis l\'entrée en vigueur des règles de transparence, plus de 130 millions de francs ont été investis dans les campagnes politiques suisses.',
     'blog.article.chi-finanzia-politica-svizzera-2026.imageAlt': 'Château de Bellinzona avec le drapeau du Tessin',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.title': 'Lac Majeur: accord Italie-Suisse pour plus d\'eau au printemps',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.excerpt': 'Le niveau maximal du Lac Majeur peut désormais atteindre 1,40 mètre pour contrer la crise de l\'eau.',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.imageAlt': 'Vue aérienne du lac Majeur avec des eaux cristallines, entouré de montagnes et de villes sur les rives italiennes et suisses.',
 };
 
 export default blogMetaFr;

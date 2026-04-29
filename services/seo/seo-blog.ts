@@ -24370,6 +24370,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accordo-lago-maggiore-italia-svizzera-2026': {
+    title: 'Lago Maggiore: accordo Italia-Svizzera per più acqua in primavera',
+    description: 'Il livello massimo del Lago Maggiore può ora raggiungere 1,40 metri per contrastare la crisi idrica. Scopri di più sull\'accordo Italia-Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lago, maggiore, accordo, italia-svizzera',
+    ogTitle: 'Lago Maggiore: accordo Italia-Svizzera per più acqua in primavera',
+    ogDescription: 'Il livello massimo del Lago Maggiore può ora raggiungere 1,40 metri per contrastare la crisi idrica. Scopri di più sull\'accordo Italia-Svizzera.',
+    canonicalPath: '/articoli-frontaliere/accordo-lago-maggiore-italia-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lago Maggiore: accordo Italia-Svizzera per più acqua in primavera",
+      "description": "Il livello massimo del Lago Maggiore può ora raggiungere 1,40 metri per contrastare la crisi idrica. Scopri di più sull'accordo Italia-Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordo-lago-maggiore-italia-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago Maggiore con acque cristalline, circondato da montagne e paesi sulle rive italiane e svizzere."
+      },
+      "datePublished": "2026-04-29T11:37:40+00:00",
+      "dateModified": "2026-04-29T11:37:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-lago-maggiore-italia-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3868,6 +3868,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chi-finanzia-politica-svizzera-2026.title': 'Who funds Swiss politics? Over 130 million in campaigns',
     'blog.article.chi-finanzia-politica-svizzera-2026.excerpt': 'Since transparency rules came into effect, over 130 million francs have been invested in Swiss political campaigns.',
     'blog.article.chi-finanzia-politica-svizzera-2026.imageAlt': 'Bellinzona Castle with Ticino flag',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.title': 'Lake Maggiore: Italy-Switzerland deal for more spring water',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.excerpt': 'The maximum level of Lake Maggiore can now reach 1.40 meters to combat the water crisis.',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.imageAlt': 'Aerial view of Lake Maggiore with clear blue waters, surrounded by mountains and towns on both Italian and Swiss shores.',
 };
 
 export default blogMetaEn;

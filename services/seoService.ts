@@ -2520,6 +2520,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ricerca-italiana-ginevra-2026': { name: 'Novità', path: '/articoli-frontaliere/ricerca-italiana-ginevra-2026', parent: 'blog' },
     'blog-svizzera-serbia-cooperazione-2026': { name: 'Cooperazione Svizzera-Serbia', path: '/articoli-frontaliere/svizzera-serbia-cooperazione-2026', parent: 'blog' },
     'blog-chi-finanzia-politica-svizzera-2026': { name: 'Politica svizzera', path: '/articoli-frontaliere/chi-finanzia-politica-svizzera-2026', parent: 'blog' },
+    'blog-accordo-lago-maggiore-italia-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/accordo-lago-maggiore-italia-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

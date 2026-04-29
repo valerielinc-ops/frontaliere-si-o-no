@@ -3868,6 +3868,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chi-finanzia-politica-svizzera-2026.title': 'Wer finanziert die Schweizer Politik? Über 130 Millionen in Kampagnen',
     'blog.article.chi-finanzia-politica-svizzera-2026.excerpt': 'Seit Inkrafttreten der Transparenzregeln wurden über 130 Millionen Franken in Schweizer Wahlkämpfe investiert.',
     'blog.article.chi-finanzia-politica-svizzera-2026.imageAlt': 'Schloss Bellinzona mit der Flagge des Tessin',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.title': 'Lago Maggiore: Italien-Schweiz-Abkommen für mehr Wasser im Frühling',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.excerpt': 'Der maximale Wasserstand des Lago Maggiore kann nun 1,40 Meter erreichen, um die Wasserknappheit zu bekämpfen.',
+    'blog.article.accordo-lago-maggiore-italia-svizzera-2026.imageAlt': 'Luftaufnahme des Lago Maggiore mit klaren blauen Gewässern, umgeben von Bergen und Städten an den italienischen und schweizerischen Ufern.',
 };
 
 export default blogMetaDe;
