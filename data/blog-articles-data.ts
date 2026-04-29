@@ -10045,4 +10045,11 @@ export const ARTICLES = [
  image: '/images/blog/accordo-lago-maggiore-italia-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'webinar-ai-azienda-strategia-casi-concreti',
+ category: 'novita',
+ date: '2026-04-29T11:42:09.701Z',
+ image: '/images/blog/webinar-ai-azienda-strategia-casi-concreti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -24399,6 +24399,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-webinar-ai-azienda-strategia-casi-concreti': {
+    title: 'Webinar sull\'AI in azienda: strategia e casi concreti',
+    description: 'Il Gruppo Acinque organizza un webinar sull\'uso strategico dell\'AI in azienda, con un focus sui costi di integrazione e sulle opportunità di innovazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, webinar, sull, azienda, strategia',
+    ogTitle: 'Webinar sull\'AI in azienda: strategia e casi concreti',
+    ogDescription: 'Il Gruppo Acinque organizza un webinar sull\'uso strategico dell\'AI in azienda, con un focus sui costi di integrazione e sulle opportunità di innovazione.',
+    canonicalPath: '/articoli-frontaliere/webinar-ai-azienda-strategia-casi-concreti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Webinar sull'AI in azienda: strategia e casi concreti\",\"description\":\"Il Gruppo Acinque organizza un webinar sull'uso strategico dell'AI in azienda, con un focus sui costi di integrazione e sulle opportunità di innovazione.\",\"datePublished\":\"2026-04-29\",\"author\":{\"@type\":\"Organization\",\"name\":\"Frontaliere Ticino\"}}",
+      "description": "Il Gruppo Acinque organizza un webinar sull'uso strategico dell'AI in azienda, con un focus sui costi di integrazione e sulle opportunità di innovazione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/webinar-ai-azienda-strategia-casi-concreti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Webinar sull'intelligenza artificiale in azienda a Lugano"
+      },
+      "datePublished": "2026-04-29T11:42:09+00:00",
+      "dateModified": "2026-04-29T11:42:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/webinar-ai-azienda-strategia-casi-concreti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

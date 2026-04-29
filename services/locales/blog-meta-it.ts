@@ -3872,6 +3872,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.title': 'Lago Maggiore: accordo Italia-Svizzera per più acqua in primavera',
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.excerpt': 'Il livello massimo del Lago Maggiore può ora raggiungere 1,40 metri per contrastare la crisi idrica.',
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.imageAlt': 'Vista aerea del Lago Maggiore con acque cristalline, circondato da montagne e paesi sulle rive italiane e svizzere.',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.title': 'Webinar sull\'AI in azienda: strategia e casi concreti',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.excerpt': 'Il Gruppo Acinque organizza un webinar sull\'uso dell\'intelligenza artificiale come leva strategica per le aziende.',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.imageAlt': 'Webinar sull\'intelligenza artificiale in azienda a Lugano',
 };
 
 export default blogMetaIt;

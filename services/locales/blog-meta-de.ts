@@ -3871,6 +3871,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.title': 'Lago Maggiore: Italien-Schweiz-Abkommen für mehr Wasser im Frühling',
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.excerpt': 'Der maximale Wasserstand des Lago Maggiore kann nun 1,40 Meter erreichen, um die Wasserknappheit zu bekämpfen.',
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.imageAlt': 'Luftaufnahme des Lago Maggiore mit klaren blauen Gewässern, umgeben von Bergen und Städten an den italienischen und schweizerischen Ufern.',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.title': 'Webinar: KI im Unternehmen – Strategie und Praxisbeispiele',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.excerpt': 'Die Acinque Gruppe organisiert ein Webinar über den Einsatz von Künstlicher Intelligenz als strategische Hebel für Unternehmen.',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.imageAlt': 'Webinar über künstliche Intelligenz im Unternehmen in Lugano',
 };
 
 export default blogMetaDe;

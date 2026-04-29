@@ -3871,6 +3871,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.title': 'Lake Maggiore: Italy-Switzerland deal for more spring water',
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.excerpt': 'The maximum level of Lake Maggiore can now reach 1.40 meters to combat the water crisis.',
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.imageAlt': 'Aerial view of Lake Maggiore with clear blue waters, surrounded by mountains and towns on both Italian and Swiss shores.',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.title': 'Webinar on AI in business: strategy and real cases',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.excerpt': 'The Acinque Group is organizing a webinar on the use of artificial intelligence as a strategic lever for companies.',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.imageAlt': 'Webinar on artificial intelligence in business in Lugano',
 };
 
 export default blogMetaEn;

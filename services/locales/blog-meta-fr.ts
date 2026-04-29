@@ -3872,6 +3872,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.title': 'Lac Majeur: accord Italie-Suisse pour plus d\'eau au printemps',
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.excerpt': 'Le niveau maximal du Lac Majeur peut désormais atteindre 1,40 mètre pour contrer la crise de l\'eau.',
     'blog.article.accordo-lago-maggiore-italia-svizzera-2026.imageAlt': 'Vue aérienne du lac Majeur avec des eaux cristallines, entouré de montagnes et de villes sur les rives italiennes et suisses.',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.title': 'Webinaire sur l\'IA en entreprise: stratégie et cas concrets',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.excerpt': 'Le Groupe Acinque organise un webinaire sur l\'utilisation de l\'intelligence artificielle comme levier stratégique pour les entreprises.',
+    'blog.article.webinar-ai-azienda-strategia-casi-concreti.imageAlt': 'Webinaire sur l\'intelligence artificielle en entreprise à Lugano',
 };
 
 export default blogMetaFr;
