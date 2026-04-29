@@ -10262,4 +10262,11 @@ export const ARTICLES = [
  image: '/images/blog/lite-dogana-ponte-chiasso-ferito-contuso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'intesa-sanpaolo-premia-10-imprese-vincenti',
+ category: 'novita',
+ date: '2026-04-29T18:32:36.690Z',
+ image: '/images/blog/intesa-sanpaolo-premia-10-imprese-vincenti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

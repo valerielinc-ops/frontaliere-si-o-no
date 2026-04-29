@@ -3965,6 +3965,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.title': 'Lite alla dogana di Ponte Chiasso: un ferito, un contuso',
     'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.excerpt': 'Un incidente alla dogana di Ponte Chiasso ha coinvolto due persone, lasciando un ferito e un contuso. Ecco cosa è successo.',
     'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.imageAlt': 'Vista della dogana di Ponte Chiasso, al confine tra Svizzera e Italia, con persone e veicoli in transito.',
+    'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.title': 'Intesa Sanpaolo premia 10 imprese vincenti',
+    'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.excerpt': 'Varese prima in Lombardia nel 2025 per crescita di esportazioni. Le due aziende premiate per eccellenza in plastica e moda.',
+    'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.imageAlt': 'FoxTown Factory Stores a Mendrisio, Ticino',
 };
 
 export default blogMetaIt;

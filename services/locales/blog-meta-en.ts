@@ -3964,6 +3964,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.title': 'Clash at Ponte Chiasso customs: one injured, one hurt',
     'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.excerpt': 'An incident at the Ponte Chiasso customs involved two people, leaving one injured and one hurt. Here\'s what happened.',
     'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.imageAlt': 'View of the Ponte Chiasso customs office at the Swiss-Italian border, with people and vehicles in transit.',
+    'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.title': 'Intesa Sanpaolo awards 10 winning companies',
+    'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.excerpt': 'Varese first in Lombardy in 2025 for export growth. Two companies awarded for excellence in plastics and fashion.',
+    'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.imageAlt': 'FoxTown Factory Stores in Mendrisio, Ticino',
 };
 
 export default blogMetaEn;

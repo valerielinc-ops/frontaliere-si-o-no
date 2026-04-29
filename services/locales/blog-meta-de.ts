@@ -3964,6 +3964,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.title': 'Zoff an der Grenze Ponte Chiasso: Ein Verletzter, ein Leichtverletzter',
     'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.excerpt': 'Ein Vorfall an der Grenze Ponte Chiasso hat zwei Personen betroffen, wobei ein Verletzter und ein Leichtverletzter zu verzeichnen sind. Hier ist, was passiert ist.',
     'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.imageAlt': 'Ansicht des Zollgebäudes in Ponte Chiasso an der Schweizer-Italienischen Grenze, mit Menschen und Fahrzeugen im Transit.',
+    'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.title': 'Intesa Sanpaolo ehrt 10 erfolgreiche Unternehmen',
+    'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.excerpt': 'Varese führt in der Lombardei 2025 bei Exportwachstum. Zwei ausgezeichnete Unternehmen in den Bereichen Kunststoff und Mode.',
+    'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.imageAlt': 'FoxTown Factory Stores in Mendrisio, Tessin',
 };
 
 export default blogMetaDe;

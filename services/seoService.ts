@@ -2552,6 +2552,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-conciliabilita-vita-lavoro-bellinzona-2026': { name: 'Conciliabilità vita-lavoro', path: '/articoli-frontaliere/conciliabilita-vita-lavoro-bellinzona-2026', parent: 'blog' },
     'blog-chiasso-assassinio-mancato-15-anni-carcere': { name: 'Novità', path: '/articoli-frontaliere/chiasso-assassinio-mancato-15-anni-carcere', parent: 'blog' },
     'blog-lite-dogana-ponte-chiasso-ferito-contuso': { name: 'Incidente dogana', path: '/articoli-frontaliere/lite-dogana-ponte-chiasso-ferito-contuso', parent: 'blog' },
+    'blog-intesa-sanpaolo-premia-10-imprese-vincenti': { name: 'Novità', path: '/articoli-frontaliere/intesa-sanpaolo-premia-10-imprese-vincenti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -25298,6 +25298,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-intesa-sanpaolo-premia-10-imprese-vincenti': {
+    title: 'Intesa Sanpaolo premia 10 imprese vincenti | Frontaliere Ticino',
+    description: 'Varese prima in Lombardia nel 2025 per crescita di esportazioni. Le due aziende premiate per eccellenza in plastica e moda. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, intesa, sanpaolo, premia, imprese',
+    ogTitle: 'Intesa Sanpaolo premia 10 imprese vincenti: tra queste Lati di Vedano e Pizval di Somma',
+    ogDescription: 'Varese prima in Lombardia nel 2025 per crescita di esportazioni. Le due aziende premiate per eccellenza in plastica e moda.',
+    canonicalPath: '/articoli-frontaliere/intesa-sanpaolo-premia-10-imprese-vincenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Intesa Sanpaolo premia 10 imprese vincenti: tra queste Lati di Vedano e Pizval di Somma",
+      "description": "Varese prima in Lombardia nel 2025 per crescita di esportazioni. Le due aziende premiate per eccellenza in plastica e moda. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/intesa-sanpaolo-premia-10-imprese-vincenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "FoxTown Factory Stores a Mendrisio, Ticino"
+      },
+      "datePublished": "2026-04-29T18:32:36+00:00",
+      "dateModified": "2026-04-29T18:32:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/intesa-sanpaolo-premia-10-imprese-vincenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
