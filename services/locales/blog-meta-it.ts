@@ -3797,6 +3797,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infermieri-orario-lavoro-ticino-2026.title': 'Infermieri, no a riduzione orario massimo settimanale',
     'blog.article.infermieri-orario-lavoro-ticino-2026.excerpt': 'Il Consiglio nazionale ha bocciato la proposta del governo di ridurre l\'orario massimo settimanale per infermieri e infermiere',
     'blog.article.infermieri-orario-lavoro-ticino-2026.imageAlt': 'Un\'infermiera che lavora in un ospedale del Ticino',
+    'blog.article.rumore-traffico-svizzera-500-morti-anno.title': 'Rumore traffico Svizzera: 500 morti l\'anno',
+    'blog.article.rumore-traffico-svizzera-500-morti-anno.excerpt': 'In Svizzera 500 morti l\'anno per il rumore del traffico. Le strategie del Canton Ticino per ridurlo: asfalto fonoassorbente e rumorometro.',
+    'blog.article.rumore-traffico-svizzera-500-morti-anno.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti e edifici, che mostra il paesaggio sereno e le aree urbane del Ticino.',
 };
 
 export default blogMetaIt;

@@ -3797,6 +3797,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infermieri-orario-lavoro-ticino-2026.title': 'Infirmiers, non à la réduction de l\'horaire hebdomadaire maximal',
     'blog.article.infermieri-orario-lavoro-ticino-2026.excerpt': 'Le Conseil national a rejeté la proposition du gouvernement de réduire l\'horaire maximal hebdomadaire pour les infirmiers et infirmières',
     'blog.article.infermieri-orario-lavoro-ticino-2026.imageAlt': 'Une infirmière travaillant dans un hôpital du Tessin',
+    'blog.article.rumore-traffico-svizzera-500-morti-anno.title': 'Bruit routier en Suisse: 500 morts par an',
+    'blog.article.rumore-traffico-svizzera-500-morti-anno.excerpt': 'En Suisse, 500 morts par an à cause du bruit routier. Les stratégies du canton du Tessin pour le réduire: asphalte phonique et sonomètre.',
+    'blog.article.rumore-traffico-svizzera-500-morti-anno.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes et les bâtiments, montrant le paysage serein et les zones urbaines du Tessin.',
 };
 
 export default blogMetaFr;

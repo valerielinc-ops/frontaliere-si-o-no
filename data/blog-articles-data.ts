@@ -9870,4 +9870,11 @@ export const ARTICLES = [
  image: '/images/blog/infermieri-orario-lavoro-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rumore-traffico-svizzera-500-morti-anno',
+ category: 'novita',
+ date: '2026-04-29T09:25:10.054Z',
+ image: '/images/blog/rumore-traffico-svizzera-500-morti-anno.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

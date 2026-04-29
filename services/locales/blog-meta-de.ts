@@ -3796,6 +3796,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infermieri-orario-lavoro-ticino-2026.title': 'Pfleger lehnen Reduzierung der maximalen Wochenarbeitszeit ab',
     'blog.article.infermieri-orario-lavoro-ticino-2026.excerpt': 'Der Nationalrat hat den Vorschlag der Regierung abgelehnt, die maximale Wochenarbeitszeit für Pfleger und Pflegerinnen zu reduzieren',
     'blog.article.infermieri-orario-lavoro-ticino-2026.imageAlt': 'Eine Krankenschwester, die in einem Krankenhaus im Tessin arbeitet',
+    'blog.article.rumore-traffico-svizzera-500-morti-anno.title': 'Verkehrslärm in der Schweiz: 500 Tote pro Jahr',
+    'blog.article.rumore-traffico-svizzera-500-morti-anno.excerpt': 'In der Schweiz sterben jährlich 500 Menschen durch Verkehrslärm. Die Strategien des Kantons Tessin zur Reduzierung: lärmabsorbierender Asphalt und Schallpegelmesser.',
+    'blog.article.rumore-traffico-svizzera-500-morti-anno.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Bergen und Gebäuden, die die ruhige Landschaft und die städtischen Gebiete im Tessin zeigen.',
 };
 
 export default blogMetaDe;

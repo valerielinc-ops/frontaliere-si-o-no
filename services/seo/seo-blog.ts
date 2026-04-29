@@ -23674,6 +23674,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rumore-traffico-svizzera-500-morti-anno': {
+    title: 'Rumore traffico Svizzera: 500 morti l\'anno | Frontaliere Ticino',
+    description: 'In Svizzera 500 morti l\'anno per il rumore del traffico. Le strategie del Canton Ticino per ridurlo: asfalto fonoassorbente e rumorometro. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, rumore, traffico, morti, anno',
+    ogTitle: 'Rumore traffico Svizzera: 500 morti l\'anno',
+    ogDescription: 'In Svizzera 500 morti l\'anno per il rumore del traffico. Le strategie del Canton Ticino per ridurlo: asfalto fonoassorbente e rumorometro.',
+    canonicalPath: '/articoli-frontaliere/rumore-traffico-svizzera-500-morti-anno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rumore traffico Svizzera: 500 morti l'anno",
+      "description": "In Svizzera 500 morti l'anno per il rumore del traffico. Le strategie del Canton Ticino per ridurlo: asfalto fonoassorbente e rumorometro. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rumore-traffico-svizzera-500-morti-anno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne circostanti e edifici, che mostra il paesaggio sereno e le aree urbane del Ticino."
+      },
+      "datePublished": "2026-04-29T09:25:10+00:00",
+      "dateModified": "2026-04-29T09:25:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rumore-traffico-svizzera-500-morti-anno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
