@@ -4021,6 +4021,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.festa-famiglie-lugano-2026.title': 'Familienfest in Lugano: Teilen und Inklusion',
     'blog.article.festa-famiglie-lugano-2026.excerpt': 'Am Sonntag, den 26. April 2026, organisieren der Rotary Club Lugano-Lago und der Verein Amélie einen Tag des Teilens und der Inklusion für Familien.',
     'blog.article.festa-famiglie-lugano-2026.imageAlt': 'Familien, die das Familienfest in Lugano genießen',
+    'blog.article.stop-milioni-casse-malati-club-sportivi.title': 'Keine Millionen mehr für Sport von Krankenkassen',
+    'blog.article.stop-milioni-casse-malati-club-sportivi.excerpt': 'Der Nationalrat genehmigt die Motion von Lorenzo Quadri, um die Sponsoringaktivitäten der Krankenkassen für große Sportvereine zu begrenzen.',
+    'blog.article.stop-milioni-casse-malati-club-sportivi.imageAlt': 'Sportveranstaltung im LAC Lugano mit Publikum und Athleten in Aktion',
 };
 
 export default blogMetaDe;

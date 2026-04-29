@@ -2571,6 +2571,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bedretto-lab-microterremoti-ricerca': { name: 'Novità', path: '/articoli-frontaliere/bedretto-lab-microterremoti-ricerca', parent: 'blog' },
     'blog-microterremoto-ticino-successo-test': { name: 'Novità', path: '/articoli-frontaliere/microterremoto-ticino-successo-test', parent: 'blog' },
     'blog-festa-famiglie-lugano-2026': { name: 'Festa famiglie', path: '/articoli-frontaliere/festa-famiglie-lugano-2026', parent: 'blog' },
+    'blog-stop-milioni-casse-malati-club-sportivi': { name: 'Novità', path: '/articoli-frontaliere/stop-milioni-casse-malati-club-sportivi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

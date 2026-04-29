@@ -25849,6 +25849,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stop-milioni-casse-malati-club-sportivi': {
+    title: 'Stop ai milioni alle casse malati per lo sport | Frontaliere Ticino',
+    description: 'Il Consiglio nazionale approva la mozione di Lorenzo Quadri per limitare le sponsorizzazioni delle casse malati ai grandi club sportivi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, stop, milioni, alle, casse',
+    ogTitle: 'Stop ai milioni delle casse malati ai club sportivi: Il Nazionale approva la mozione di Quadri',
+    ogDescription: 'Il Consiglio nazionale approva la mozione di Lorenzo Quadri per limitare le sponsorizzazioni delle casse malati ai grandi club sportivi.',
+    canonicalPath: '/articoli-frontaliere/stop-milioni-casse-malati-club-sportivi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stop ai milioni delle casse malati ai club sportivi: Il Nazionale approva la mozione di Quadri",
+      "description": "Il Consiglio nazionale approva la mozione di Lorenzo Quadri per limitare le sponsorizzazioni delle casse malati ai grandi club sportivi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stop-milioni-casse-malati-club-sportivi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento sportivo al LAC di Lugano con pubblico e atleti in azione"
+      },
+      "datePublished": "2026-04-29T21:53:24+00:00",
+      "dateModified": "2026-04-29T21:53:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stop-milioni-casse-malati-club-sportivi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

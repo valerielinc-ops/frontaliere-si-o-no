@@ -4021,6 +4021,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.festa-famiglie-lugano-2026.title': 'Family Festival in Lugano: sharing and inclusion',
     'blog.article.festa-famiglie-lugano-2026.excerpt': 'On Sunday, April 26, 2026, the Rotary Club Lugano-Lago and the Amélie Association organized a day of sharing and inclusion for families.',
     'blog.article.festa-famiglie-lugano-2026.imageAlt': 'Families enjoying the family festival in Lugano',
+    'blog.article.stop-milioni-casse-malati-club-sportivi.title': 'End to health insurers\' millions for sports',
+    'blog.article.stop-milioni-casse-malati-club-sportivi.excerpt': 'The National Council approves Lorenzo Quadri\'s motion to limit health insurers\' sponsorships to major sports clubs.',
+    'blog.article.stop-milioni-casse-malati-club-sportivi.imageAlt': 'Sports event at LAC Lugano with audience and athletes in action',
 };
 
 export default blogMetaEn;

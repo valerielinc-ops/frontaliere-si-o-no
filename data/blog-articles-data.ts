@@ -10395,4 +10395,11 @@ export const ARTICLES = [
  image: '/images/blog/festa-famiglie-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'stop-milioni-casse-malati-club-sportivi',
+ category: 'novita',
+ date: '2026-04-29T21:53:24.770Z',
+ image: '/images/blog/stop-milioni-casse-malati-club-sportivi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
