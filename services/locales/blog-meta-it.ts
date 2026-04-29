@@ -3641,6 +3641,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fedpol-arresto-corruzione-2026.title': 'Agente Fedpol arrestato per corruzione e violazione del segreto d\'ufficio',
     'blog.article.fedpol-arresto-corruzione-2026.excerpt': 'Sei persone, tra cui un dipendente di Fedpol, arrestate in un\'operazione contro la criminalità organizzata in Svizzera, Francia e Germania.',
     'blog.article.fedpol-arresto-corruzione-2026.imageAlt': 'Vista aerea del Castello di Bellinzona, Ticino, Svizzera',
+    'blog.article.momoride-benefico-mendrisiotto-2024.title': 'MomòRide: prima sfida benefica per pendolari ticinesi',
+    'blog.article.momoride-benefico-mendrisiotto-2024.excerpt': 'A maggio parte la prima sfida collettiva di MomòRide per promuovere il carpooling e raccogliere fondi per enti benefici del Mendrisiotto.',
+    'blog.article.momoride-benefico-mendrisiotto-2024.imageAlt': 'Gruppo di persone in carpooling con lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

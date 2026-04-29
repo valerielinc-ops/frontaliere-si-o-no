@@ -3641,6 +3641,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fedpol-arresto-corruzione-2026.title': 'Agent de la Fedpol arrêté pour corruption et violation du secret d\'office',
     'blog.article.fedpol-arresto-corruzione-2026.excerpt': 'Six personnes, dont un employé de la Fedpol, arrêtées lors d\'une opération contre la criminalité organisée en Suisse, France et Allemagne.',
     'blog.article.fedpol-arresto-corruzione-2026.imageAlt': 'Vue aérienne du château de Bellinzone, Tessin, Suisse',
+    'blog.article.momoride-benefico-mendrisiotto-2024.title': 'MomòRide: premier défi solidaire pour les frontaliers',
+    'blog.article.momoride-benefico-mendrisiotto-2024.excerpt': 'En mai, le premier défi collectif de MomòRide pour promouvoir le covoiturage et récolter des fonds pour des associations du Mendrisiotto.',
+    'blog.article.momoride-benefico-mendrisiotto-2024.imageAlt': 'Groupe de personnes en covoiturage avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

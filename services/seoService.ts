@@ -2444,6 +2444,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-novartis-calo-utile-2026': { name: 'Novita', path: '/articoli-frontaliere/novartis-calo-utile-2026', parent: 'blog' },
     'blog-taglio-accise-proroga-meloni-2026': { name: 'Novità', path: '/articoli-frontaliere/taglio-accise-proroga-meloni-2026', parent: 'blog' },
     'blog-fedpol-arresto-corruzione-2026': { name: 'Novità', path: '/articoli-frontaliere/fedpol-arresto-corruzione-2026', parent: 'blog' },
+    'blog-momoride-benefico-mendrisiotto-2024': { name: 'MomòRide', path: '/articoli-frontaliere/momoride-benefico-mendrisiotto-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

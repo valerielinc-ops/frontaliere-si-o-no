@@ -3640,6 +3640,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fedpol-arresto-corruzione-2026.title': 'Fedpol officer arrested for corruption and breach of official secrecy',
     'blog.article.fedpol-arresto-corruzione-2026.excerpt': 'Six people, including a Fedpol employee, arrested in an operation against organized crime in Switzerland, France, and Germany.',
     'blog.article.fedpol-arresto-corruzione-2026.imageAlt': 'Aerial view of Bellinzona Castle, Ticino, Switzerland',
+    'blog.article.momoride-benefico-mendrisiotto-2024.title': 'MomòRide: first charity challenge for Ticino commuters',
+    'blog.article.momoride-benefico-mendrisiotto-2024.excerpt': 'In May, the first collective challenge by MomòRide starts to promote carpooling and raise funds for Mendrisiotto charities.',
+    'blog.article.momoride-benefico-mendrisiotto-2024.imageAlt': 'Group of people carpooling with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

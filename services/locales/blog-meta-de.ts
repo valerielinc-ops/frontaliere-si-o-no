@@ -3640,6 +3640,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fedpol-arresto-corruzione-2026.title': 'Fedpol-Mitarbeiter wegen Korruption und Amtsgeheimnisverletzung verhaftet',
     'blog.article.fedpol-arresto-corruzione-2026.excerpt': 'Sechs Personen, darunter ein Mitarbeiter von Fedpol, bei einer Operation gegen die organisierte Kriminalität in der Schweiz, Frankreich und Deutschland festgenommen.',
     'blog.article.fedpol-arresto-corruzione-2026.imageAlt': 'Luftaufnahme des Schlosses Bellinzona, Tessin, Schweiz',
+    'blog.article.momoride-benefico-mendrisiotto-2024.title': 'MomòRide: erste Benefiz-Challenge für Pendler aus dem Tessin',
+    'blog.article.momoride-benefico-mendrisiotto-2024.excerpt': 'Im Mai startet die erste kollektive Challenge von MomòRide, um Carsharing zu fördern und Gelder für gemeinnützige Einrichtungen im Mendrisiotto zu sammeln.',
+    'blog.article.momoride-benefico-mendrisiotto-2024.imageAlt': 'Gruppe von Menschen beim Fahrgemeinschaften mit Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;
