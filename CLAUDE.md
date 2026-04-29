@@ -111,6 +111,8 @@ After any code change, always verify:
 
 Pre-push hook (`.githooks/pre-push`) runs tests then build. Push is blocked if either fails.
 
+**First-time setup:** run `scripts/dev/local-ignore-cron.sh apply` once to hide ~600 cron-generated files from `git status`. After that, use `scripts/dev/local-ignore-cron.sh pull` instead of `git pull` (plain pull breaks against skip-worktree files). Full rationale: [docs/LOCAL-DEV.md](docs/LOCAL-DEV.md).
+
 ---
 
 # Testing
@@ -321,3 +323,4 @@ Key routing rules:
 | SEO rules, structured data, validation | [docs/SEO-RULES.md](docs/SEO-RULES.md) |
 | Job crawlers, slugs, translation cache | [docs/CRAWLERS.md](docs/CRAWLERS.md) |
 | Design context, brand, users, principles | [docs/DESIGN-CONTEXT.md](docs/DESIGN-CONTEXT.md) |
+| Local dev hygiene (hide cron noise from `git status`) | [docs/LOCAL-DEV.md](docs/LOCAL-DEV.md) — `scripts/dev/local-ignore-cron.sh` |
