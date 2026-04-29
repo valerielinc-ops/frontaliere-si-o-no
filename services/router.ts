@@ -108,6 +108,15 @@ const BORDER_WAIT_MAP_PATHS = new Set([
   '/fr/guide-frontalier/carte-live-passages-frontaliers/',
 ]);
 
+// FR-only salary calculator landing emitted by frSalaireNetLandingPlugin.
+// Source of truth: build-plugins/frSalaireNetLandingPlugin.ts URL_PATH.
+// The page is statically generated with `seoContentOutsideRoot: true`;
+// without staticOverlay the SPA falls into the calculator default sub-tab
+// and replaces the bespoke landing body with the generic calculator UI.
+const FR_SALAIRE_NET_PATHS = new Set([
+  '/fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/',
+]);
+
 // 8 evergreen salary-hub articles × 4 locales = 32 URLs.
 // Source of truth: build-plugins/salaryHubArticles.ts EVERGREEN_ARTICLES[].slugs.
 // If the build adds/renames an article, add/rename the path here too — there's
@@ -1856,6 +1865,21 @@ export function parsePath(pathname: string): ParseResult {
    const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
    if (BORDER_WAIT_MAP_PATHS.has(normalized)) {
      return { route: { activeTab: 'guida', guidaSubTab: 'border', staticOverlay: true }, locale };
+   }
+ }
+
+ // FR salary calculator landing — /fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/.
+ // Without staticOverlay the SPA's calculator tab parser treats the trailing
+ // segment as an unknown sub-tab slug, falls back to the default calculator
+ // view and replaces the bespoke landing body. Mirrors the F6 / health-premiums
+ // contract: keep the static HTML visible, route to calculator for back-nav.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (FR_SALAIRE_NET_PATHS.has(normalized)) {
+     return {
+       route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', staticOverlay: true },
+       locale: 'fr',
+     };
    }
  }
 
