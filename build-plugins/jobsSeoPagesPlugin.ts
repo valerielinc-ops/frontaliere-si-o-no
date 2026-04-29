@@ -79,6 +79,7 @@ import {
 } from '../services/seo/meta-descriptions';
 import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
+import { startTimer, recordEmit, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -1473,6 +1474,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  fr: localizedSlug(job, 'fr'),
  };
  for (const locale of localeList) {
+ const __tActiveJob = startTimer();
  const relPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${perLocaleSlug[locale]}`.replace(/\/+/g, '/');
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -2262,6 +2264,7 @@ ${hreflangHtml}
  _md(np.dirname(flatFile));
  _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
+ recordEmit('active-job', __tActiveJob);
 
  // Legacy redirect: if non-IT locale and Italian slug differs
  // generate redirect from Italian-slug-in-non-IT-locale → canonical URL.
@@ -2272,6 +2275,7 @@ ${hreflangHtml}
  // — and Google would otherwise index the legacy slug alongside the
  // canonical one, splitting authority.
  if (locale !== 'it' && perLocaleSlug[locale] !== job.slug) {
+ const __tLegacyRedirect = startTimer();
  const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const legacyHtml = buildCanonicalBridgePage({
  canonicalUrl,
@@ -2293,6 +2297,7 @@ ${hreflangHtml}
  _md(np.dirname(legacyFlat));
  _qw(legacyFlat, legacyHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
+ recordEmit('active-job-legacy', __tLegacyRedirect);
  }
  }
  }
@@ -2492,6 +2497,7 @@ ${hreflangHtml}
  let companyPagesCount = 0;
  for (const [cSlug, { name: companyName, jobs: companyJobs, rawSlugs }] of companyMap) {
  for (const locale of localeList) {
+ const __tCompany = startTimer();
  const prefix = companyRoutePrefix[locale];
  const fullSlug = `${prefix}-${cSlug}`;
  const sectionSlug = sectionByLocale[locale];
@@ -3040,6 +3046,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
  }
  companyPagesCount++;
+ recordEmit('company-landing', __tCompany);
  }
  }
  if (companyPagesCount > 0) {
@@ -4688,6 +4695,7 @@ ${alternates}
  const pgJobs = sortedForPagination.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
  if (pgJobs.length === 0) break;
  for (const locale of localeList) {
+ const __tPaginated = startTimer();
  const pgSlug = `${paginationSlugs[locale]}-${pageNum}`;
  const pgCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${pgSlug}`.replace(/\/+/g, '/'));
  const pgCanonicalUrl = `${BASE_URL}${pgCanonicalPath}`;
@@ -4748,6 +4756,7 @@ ${alternates}
  const pgFlatPath = pgCanonicalPath.replace(/\/+$/, '');
  if (pgFlatPath) { const pgFlatFile = np.join(distDir, pgFlatPath.slice(1) + '.html'); _md(np.dirname(pgFlatFile)); _qw(pgFlatFile, pgHtml); }
  paginationPageCount++;
+ recordEmit('paginated-listing', __tPaginated);
  }
  const pgItSlug = `${paginationSlugs.it}-${pageNum}`;
  const pgItPath = withSlash(`/${sectionByLocale.it}/${pgItSlug}`.replace(/\/+/g, '/'));
@@ -4790,6 +4799,7 @@ ${alternates}
  const catPageJobs = catJobs.slice(catStart, catStart + CAT_PER_PAGE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
+ const __tCategory = startTimer();
  const catSlugL = catSlugsMap[catKey][locale];
  const catPageSuffix = catPage > 1 ? `/${paginationSlugs[locale]}-${catPage}` : '';
  const catFullSlug = `${catPrefix[locale]}-${catSlugL}${catPageSuffix}`;
@@ -4881,6 +4891,7 @@ ${alternates}
  const catFlatPath = catCanonicalPath.replace(/\/+$/, '');
  if (catFlatPath) { const catFlatFile = np.join(distDir, catFlatPath.slice(1) + '.html'); _md(np.dirname(catFlatFile)); _qw(catFlatFile, catHtml); }
  categoryPageCount++;
+ recordEmit('category-listing', __tCategory);
  }
  if (catPage === 1) {
  const catItSlug = `${catPrefix.it}-${catSlugsMap[catKey].it}`;
@@ -4919,6 +4930,7 @@ ${alternates}
  const kwUniqueCompanies = [...new Set(kwJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
  const kwUniqueLocations = [...new Set(kwJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  for (const locale of localeList) {
+ const __tGsc = startTimer();
  const kwFullSlug = `${searchRoutePrefix[locale]}-${kwSlug}`;
  if (editorialSearchSlugsByLocale.get(locale)?.has(kwFullSlug)) continue;
  const kwCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kwFullSlug}`.replace(/\/+/g, '/'));
@@ -5013,6 +5025,7 @@ ${alternates}
  const kwFlatPath = kwCanonicalPath.replace(/\/+$/, '');
  if (kwFlatPath) { const kwFlatFile = np.join(distDir, kwFlatPath.slice(1) + '.html'); _md(np.dirname(kwFlatFile)); _qw(kwFlatFile, kwHtml); }
  keywordPageCount++;
+ recordEmit('gsc-keyword-landing', __tGsc);
  }
  // Sitemap entry (Italian canonical)
  const kwItSlug = `${searchRoutePrefix.it}-${kwSlug}`;
@@ -5062,6 +5075,7 @@ ${alternates}
  ? matchingJobsByLocale[locale]
  : fallbackMatchingJobs;
  if (matchingJobs.length === 0) continue;
+ const __tSearchStats = startTimer();
 
  const fullSlug = `${searchRoutePrefix[locale]}-${key}`;
  if (editorialSearchSlugsByLocale.get(locale)?.has(fullSlug)) continue;
@@ -5165,6 +5179,7 @@ ${alternates}
  _qw(flatFile, searchHtml);
  }
  searchPageCount++;
+ recordEmit('search-stats-landing', __tSearchStats);
  }
 
  // Add indexable search pages (≥3 jobs) to sitemap
@@ -5204,6 +5219,7 @@ ${alternates}
  if (matchingJobs.length === 0) return;
 
  for (const locale of localeList) {
+ const __tSearchCombo = startTimer();
  const fullSlug = `${searchRoutePrefix[locale]}-${comboKey}`;
  if (editorialSearchSlugsByLocale.get(locale)?.has(fullSlug)) continue;
  if (searchLeaderMap.has(comboKey)) continue;
@@ -5307,6 +5323,7 @@ ${alternates}
  _qw(flatFile, comboHtml);
  }
  searchPageCount++;
+ recordEmit('search-combo-landing', __tSearchCombo);
  }
 
  // Add qualifying combo pages to sitemap for discovery
@@ -6547,6 +6564,7 @@ ${hreflangLinks}
  if (!relPath) continue;
  // Skip paths claimed by bridge pages to avoid canonical conflicts
  if (bridgeClaimedPaths.has(relPath)) continue;
+ const __tExpiredSoftLanding = startTimer();
  const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
  const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
  const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
@@ -6956,6 +6974,7 @@ ${hreflangLinks}
  legacyCount++;
  }
  }
+ recordEmit('expired-soft-landing', __tExpiredSoftLanding);
  }
 
  // Only add expired slugs to sitemap when:
@@ -7037,10 +7056,12 @@ ${hreflangLinks}
  const indexFile = np.join(outDir, 'index.html');
  // Skip if any earlier phase (active, bridge, soft-landing) already wrote here.
  if (_writtenPaths.has(indexFile)) continue;
+ const __tCrossLocaleExpired = startTimer();
  _md(outDir);
  _qw(indexFile, bridgeHtml);
  _writtenPaths.add(indexFile);
  crossLocaleExpiredCount++;
+ recordEmit('cross-locale-expired-bridge', __tCrossLocaleExpired);
  }
  }
  }
@@ -7101,6 +7122,7 @@ ${hreflangLinks}
  // Skip if an active job page already occupies this path (buffered writes
  // are invisible to fs.existsSync — use the activeJobDirs set instead).
  if (activeJobDirs.has(oldRelPath.replace(/\/+$/, ''))) continue;
+ const __tPrevSlugBridge = startTimer();
  const outDir = np.join(distDir, oldRelPath);
  const targetFile = np.join(outDir, 'index.html');
  // Always generate bridge pages — they take priority over any compat/legacy
@@ -7120,6 +7142,7 @@ ${hreflangLinks}
  _md(np.dirname(flatFile));
  _qw(flatFile, bridgeHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  bridgeCount++;
+ recordEmit('previous-slug-bridge', __tPrevSlugBridge);
  }
  }
  }
@@ -7187,6 +7210,7 @@ ${hreflangLinks}
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
  if (_writtenPaths.has(indexFile)) continue;
+ const __tCrossLocaleActive = startTimer();
  _md(outDir);
  _qw(indexFile, bridgeHtml);
  _writtenPaths.add(indexFile);
@@ -7194,6 +7218,7 @@ ${hreflangLinks}
  // /dir/index.html for direct URL hits and the flat variant
  // would double disk usage for ~27k bridge pages.
  crossLocaleCount++;
+ recordEmit('cross-locale-active-bridge', __tCrossLocaleActive);
  }
  }
  }
@@ -7213,6 +7238,7 @@ ${hreflangLinks}
  if (!relPath) continue;
  const absFile = np.join(distDir, relPath.replace(/^\//, ''), 'index.html');
  if (_writtenPaths.has(absFile)) continue;
+ const __tSelfHealing = startTimer();
 
  const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/');
  const listingUrl = `${BASE_URL}${withSlash(listingPath)}`;
@@ -7235,6 +7261,7 @@ ${hreflangLinks}
  });
  writeSoftLandingPage(relPath.replace(/^\//, ''), html);
  healedCount++;
+ recordEmit('self-healing', __tSelfHealing);
  }
  }
  if (healedCount > 0) {
@@ -7247,6 +7274,9 @@ ${hreflangLinks}
  const skipped = collector.skippedByHash;
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (skipped > 0 ? ` (${skipped} skipped by content hash)` : ''));
+
+ // Print profiler summary if JOBS_SEO_PROFILE=1 is set; no-op otherwise.
+ printJobsSeoProfile();
  },
  };
 }

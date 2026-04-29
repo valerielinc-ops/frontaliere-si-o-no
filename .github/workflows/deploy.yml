@@ -38,6 +38,11 @@ on:
         required: false
         type: boolean
         default: false
+      profile_jobs_seo:
+        description: 'Enable jobsSeoPagesPlugin per-category profiler (counts + total/avg/p50/p99 timings per emission category). Pair with profile_sequential for clean numbers.'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -213,6 +218,11 @@ jobs:
           # are accurate (parallel execution otherwise overlaps timings).
           # Slower than normal — use only for one-off investigations.
           SEQUENTIAL_PROFILE: ${{ github.event.inputs.profile_sequential == 'true' && '1' || '' }}
+          # Opt-in jobsSeoPagesPlugin per-category profiler. Emits a sorted
+          # table at end of the plugin's closeBundle showing count + total +
+          # avg + p50 + p99 + min + max (ms) for each emission category
+          # (active-job, expired-soft-landing, previous-slug-bridge, etc.).
+          JOBS_SEO_PROFILE: ${{ github.event.inputs.profile_jobs_seo == 'true' && '1' || '' }}
           # POST_WALK_WORKERS rollback removed (commit 4b412bc8a + 36dfd0e9c
           # added explicit `.ts` extensions to the two extension-less local
           # imports the worker tree pulled in — `./blogContextualLinksData`
