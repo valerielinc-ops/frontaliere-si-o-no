@@ -4030,6 +4030,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.separazioni-ticino-famiglie-monoparentali.title': 'Trennung im Tessin: Unterstützung und Leitfaden für Eltern',
     'blog.article.separazioni-ticino-famiglie-monoparentali.excerpt': 'FaMo+ feiert 40 Jahre mit einem neuen Leitfaden für Familien in der Trennungsphase. Netzwerkansatz und Roundtable in Bellinzona.',
     'blog.article.separazioni-ticino-famiglie-monoparentali.imageAlt': 'Familienunterstützungsgruppe in einem Gemeindezentrum im Tessin',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.title': 'Vorgefüllte Steuererklärung 2026 ab heute verfügbar',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.excerpt': 'Ab dem 30. April 2026 ist die vorgefüllte Steuererklärung 2026 für alle italienischen Steuerzahler verfügbar. Hier erfahren Sie, was sich ändert.',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.imageAlt': 'Luganersee mit Laptop und Steuerdokumenten',
 };
 
 export default blogMetaDe;

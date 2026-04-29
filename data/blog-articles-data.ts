@@ -10416,4 +10416,11 @@ export const ARTICLES = [
  image: '/images/blog/separazioni-ticino-famiglie-monoparentali.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dichiarazione-precompilata-2026-disponibile',
+ category: 'fiscale',
+ date: '2026-04-29T22:17:32.536Z',
+ image: '/images/blog/dichiarazione-precompilata-2026-disponibile.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

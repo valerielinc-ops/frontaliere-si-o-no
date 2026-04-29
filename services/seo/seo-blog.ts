@@ -25936,6 +25936,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dichiarazione-precompilata-2026-disponibile': {
+    title: 'Dichiarazione precompilata 2026: disponibile da oggi',
+    description: 'Dal 30 aprile 2026 è disponibile la dichiarazione precompilata 2026 per tutti i contribuenti italiani. Ecco cosa cambia. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, precompilata, disponibile, oggi',
+    ogTitle: 'Dichiarazione precompilata 2026: disponibile da oggi',
+    ogDescription: 'Dal 30 aprile 2026 è disponibile la dichiarazione precompilata 2026 per tutti i contribuenti italiani. Ecco cosa cambia.',
+    canonicalPath: '/articoli-frontaliere/dichiarazione-precompilata-2026-disponibile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dichiarazione precompilata 2026: disponibile da oggi",
+      "description": "Dal 30 aprile 2026 è disponibile la dichiarazione precompilata 2026 per tutti i contribuenti italiani. Ecco cosa cambia. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dichiarazione-precompilata-2026-disponibile.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con laptop e documenti fiscali"
+      },
+      "datePublished": "2026-04-29T22:17:32+00:00",
+      "dateModified": "2026-04-29T22:17:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dichiarazione-precompilata-2026-disponibile`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4031,6 +4031,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.separazioni-ticino-famiglie-monoparentali.title': 'Separazioni in Ticino: rete di supporto e guida per genitori',
     'blog.article.separazioni-ticino-famiglie-monoparentali.excerpt': 'FaMo+ celebra 40 anni con una nuova guida per famiglie in fase di separazione. Approccio di rete e tavola rotonda a Bellinzona.',
     'blog.article.separazioni-ticino-famiglie-monoparentali.imageAlt': 'Gruppo di supporto per famiglie in un centro comunitario ticinese',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.title': 'Dichiarazione precompilata 2026: disponibile da oggi',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.excerpt': 'Dal 30 aprile 2026 è disponibile la dichiarazione precompilata 2026 per tutti i contribuenti italiani. Ecco cosa cambia.',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.imageAlt': 'Lago di Lugano con laptop e documenti fiscali',
 };
 
 export default blogMetaIt;

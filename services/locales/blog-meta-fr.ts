@@ -4031,6 +4031,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.separazioni-ticino-famiglie-monoparentali.title': 'Séparations au Tessin : réseau de soutien et guide pour parents',
     'blog.article.separazioni-ticino-famiglie-monoparentali.excerpt': 'FaMo+ célèbre 40 ans avec un nouveau guide pour familles en phase de séparation. Approche réseau et table ronde à Bellinzone.',
     'blog.article.separazioni-ticino-famiglie-monoparentali.imageAlt': 'Groupe de soutien familial dans un centre communautaire du Tessin',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.title': 'Déclaration préremplie 2026: disponible dès aujourd\'hui',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.excerpt': 'Dès le 30 avril 2026, la déclaration préremplie 2026 est disponible pour tous les contribuables italiens. Voici ce qui change.',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.imageAlt': 'Lac de Lugano avec ordinateur portable et documents fiscaux',
 };
 
 export default blogMetaFr;

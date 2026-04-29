@@ -4030,6 +4030,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.separazioni-ticino-famiglie-monoparentali.title': 'Separations in Ticino: support network for parents',
     'blog.article.separazioni-ticino-famiglie-monoparentali.excerpt': 'FaMo+ celebrates 40 years with a new guide for families going through separation. Network approach and round table in Bellinzona.',
     'blog.article.separazioni-ticino-famiglie-monoparentali.imageAlt': 'Family support group in a Ticino community center',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.title': '2026 Pre-filled Tax Return: Available Now',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.excerpt': 'From April 30, 2026, the 2026 pre-filled tax return is available for all Italian taxpayers. Here\'s what\'s changing.',
+    'blog.article.dichiarazione-precompilata-2026-disponibile.imageAlt': 'Lake Lugano with laptop and tax documents',
 };
 
 export default blogMetaEn;
