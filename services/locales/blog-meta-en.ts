@@ -3643,6 +3643,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.momoride-benefico-mendrisiotto-2024.title': 'MomòRide: first charity challenge for Ticino commuters',
     'blog.article.momoride-benefico-mendrisiotto-2024.excerpt': 'In May, the first collective challenge by MomòRide starts to promote carpooling and raise funds for Mendrisiotto charities.',
     'blog.article.momoride-benefico-mendrisiotto-2024.imageAlt': 'Group of people carpooling with Lake Lugano in the background',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.title': 'Uzbekistan: gas and gold at the heart of the world',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.excerpt': 'Discover how Uzbekistan\'s economic opening affects Ticino and cross-border workers.',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.imageAlt': 'Lake Lugano with view of modern financial district',
 };
 
 export default blogMetaEn;

@@ -9513,4 +9513,11 @@ export const ARTICLES = [
  image: '/images/blog/momoride-benefico-mendrisiotto-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'uzbekistan-oro-gas-ticino-implicazioni',
+ category: 'novita',
+ date: '2026-04-29T02:23:40.969Z',
+ image: '/images/blog/uzbekistan-oro-gas-ticino-implicazioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

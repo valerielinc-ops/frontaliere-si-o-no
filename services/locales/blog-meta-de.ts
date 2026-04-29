@@ -3643,6 +3643,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.momoride-benefico-mendrisiotto-2024.title': 'MomòRide: erste Benefiz-Challenge für Pendler aus dem Tessin',
     'blog.article.momoride-benefico-mendrisiotto-2024.excerpt': 'Im Mai startet die erste kollektive Challenge von MomòRide, um Carsharing zu fördern und Gelder für gemeinnützige Einrichtungen im Mendrisiotto zu sammeln.',
     'blog.article.momoride-benefico-mendrisiotto-2024.imageAlt': 'Gruppe von Menschen beim Fahrgemeinschaften mit Luganersee im Hintergrund',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.title': 'Usbekistan: Gold und Gas im globalen Fokus - Auswirkungen auf den Ticino',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.excerpt': 'Erfahren Sie, wie die wirtschaftliche Öffnung Usbekistans den Ticino und die Grenzgänger beeinflusst.',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.imageAlt': 'Luganersee mit Blick auf das moderne Finanzzentrum',
 };
 
 export default blogMetaDe;

@@ -22195,6 +22195,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-uzbekistan-oro-gas-ticino-implicazioni': {
+    title: 'Uzbekistan, oro e gas al centro del mondo: implicazioni per il Ticino',
+    description: 'Scopri come l\'apertura economica dell\'Uzbekistan influisce sul Ticino e i frontalieri, con focus su oro, gas e processi finanziari. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, uzbekistan, centro, mondo, implicazioni',
+    ogTitle: 'Uzbekistan, oro e gas al centro del mondo: implicazioni per il Ticino',
+    ogDescription: 'Scopri come l\'apertura economica dell\'Uzbekistan influisce sul Ticino e i frontalieri, con focus su oro, gas e processi finanziari.',
+    canonicalPath: '/articoli-frontaliere/uzbekistan-oro-gas-ticino-implicazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Uzbekistan, oro e gas al centro del mondo: implicazioni per il Ticino",
+      "description": "Scopri come l'apertura economica dell'Uzbekistan influisce sul Ticino e i frontalieri, con focus su oro, gas e processi finanziari. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/uzbekistan-oro-gas-ticino-implicazioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sul centro finanziario moderno"
+      },
+      "datePublished": "2026-04-29T02:23:40+00:00",
+      "dateModified": "2026-04-29T02:23:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/uzbekistan-oro-gas-ticino-implicazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3644,6 +3644,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.momoride-benefico-mendrisiotto-2024.title': 'MomòRide: premier défi solidaire pour les frontaliers',
     'blog.article.momoride-benefico-mendrisiotto-2024.excerpt': 'En mai, le premier défi collectif de MomòRide pour promouvoir le covoiturage et récolter des fonds pour des associations du Mendrisiotto.',
     'blog.article.momoride-benefico-mendrisiotto-2024.imageAlt': 'Groupe de personnes en covoiturage avec le lac de Lugano en arrière-plan',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.title': 'Ouzbékistan, or et gaz au centre du monde: implications pour le Ticino',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.excerpt': 'Découvrez comment l\'ouverture économique de l\'Ouzbékistan influence le Ticino et les frontaliers.',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.imageAlt': 'Lac de Lugano avec vue sur le quartier financier moderne',
 };
 
 export default blogMetaFr;

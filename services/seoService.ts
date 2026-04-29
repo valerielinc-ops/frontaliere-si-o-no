@@ -2445,6 +2445,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-taglio-accise-proroga-meloni-2026': { name: 'Novità', path: '/articoli-frontaliere/taglio-accise-proroga-meloni-2026', parent: 'blog' },
     'blog-fedpol-arresto-corruzione-2026': { name: 'Novità', path: '/articoli-frontaliere/fedpol-arresto-corruzione-2026', parent: 'blog' },
     'blog-momoride-benefico-mendrisiotto-2024': { name: 'MomòRide', path: '/articoli-frontaliere/momoride-benefico-mendrisiotto-2024', parent: 'blog' },
+    'blog-uzbekistan-oro-gas-ticino-implicazioni': { name: 'Novità', path: '/articoli-frontaliere/uzbekistan-oro-gas-ticino-implicazioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3644,6 +3644,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.momoride-benefico-mendrisiotto-2024.title': 'MomòRide: prima sfida benefica per pendolari ticinesi',
     'blog.article.momoride-benefico-mendrisiotto-2024.excerpt': 'A maggio parte la prima sfida collettiva di MomòRide per promuovere il carpooling e raccogliere fondi per enti benefici del Mendrisiotto.',
     'blog.article.momoride-benefico-mendrisiotto-2024.imageAlt': 'Gruppo di persone in carpooling con lago di Lugano sullo sfondo',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.title': 'Uzbekistan, oro e gas al centro del mondo: implicazioni per il Ticino',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.excerpt': 'Scopri come l\'apertura economica dell\'Uzbekistan influisce sul Ticino e i frontalieri.',
+    'blog.article.uzbekistan-oro-gas-ticino-implicazioni.imageAlt': 'Lago di Lugano con vista sul centro finanziario moderno',
 };
 
 export default blogMetaIt;
