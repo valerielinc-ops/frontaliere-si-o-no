@@ -10276,4 +10276,11 @@ export const ARTICLES = [
  image: '/images/blog/pillola-giorno-dopo-consulenza-nazionale.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sindaci-verbania-baveno-cannobio-opposizione',
+ category: 'novita',
+ date: '2026-04-29T18:54:56.604Z',
+ image: '/images/blog/sindaci-verbania-baveno-cannobio-opposizione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

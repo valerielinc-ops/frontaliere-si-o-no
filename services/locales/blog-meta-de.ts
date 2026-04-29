@@ -3970,6 +3970,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.title': 'Pille danach ohne Beratung: Nationalrat sagt ja',
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.excerpt': 'Der Nationalrat hat eine Motion zur Entklassifizierung von Notfallverhütungsmitteln angenommen, um den Zugang ohne obligatorisches Beratungsgespräch zu ermöglichen.',
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.imageAlt': 'Apotheke in Lugano mit Anzeige von Verhütungspillen',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.title': 'Italienische Bürgermeister gegen Anstieg des Lago Maggiore',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.excerpt': 'Die Bürgermeister von Verbania, Baveno und Cannobio kritisieren die Entscheidung, den maximalen Wasserstand des Lago Maggiore auf 1,40 Meter anzuheben.',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.imageAlt': 'Lago Maggiore mit italienischer und Schweizer Flagge',
 };
 
 export default blogMetaDe;

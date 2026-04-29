@@ -3971,6 +3971,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.title': 'Pillola del giorno dopo senza consulenza, il Nazionale dice sì',
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.excerpt': 'Il Consiglio nazionale approva una mozione per declassare i contraccettivi d\'emergenza e renderli accessibili senza colloquio obbligatorio.',
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.imageAlt': 'Farmacia a Lugano con esposizione di pillole contraccettive',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.title': 'Sindaci italiani contro l\'innalzamento del lago Maggiore',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.excerpt': 'I sindaci di Verbania, Baveno e Cannobio criticano la decisione di aumentare il livello massimo del lago Maggiore a 1,40 metri.',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.imageAlt': 'Lago Maggiore con bandiere italiana e svizzera',
 };
 
 export default blogMetaIt;

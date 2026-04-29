@@ -25356,6 +25356,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sindaci-verbania-baveno-cannobio-opposizione': {
+    title: 'Sindaci italiani contro l\'innalzamento del lago Maggiore',
+    description: 'I sindaci di Verbania, Baveno e Cannobio criticano la decisione di aumentare il livello massimo del lago Maggiore a 1,40 metri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, sindaci, italiani, contro, innalzamento',
+    ogTitle: 'Sindaci italiani contro l\'innalzamento del lago Maggiore',
+    ogDescription: 'I sindaci di Verbania, Baveno e Cannobio criticano la decisione di aumentare il livello massimo del lago Maggiore a 1,40 metri.',
+    canonicalPath: '/articoli-frontaliere/sindaci-verbania-baveno-cannobio-opposizione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sindaci italiani contro l'innalzamento del lago Maggiore",
+      "description": "I sindaci di Verbania, Baveno e Cannobio criticano la decisione di aumentare il livello massimo del lago Maggiore a 1,40 metri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sindaci-verbania-baveno-cannobio-opposizione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Maggiore con bandiere italiana e svizzera"
+      },
+      "datePublished": "2026-04-29T18:54:56+00:00",
+      "dateModified": "2026-04-29T18:54:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindaci-verbania-baveno-cannobio-opposizione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

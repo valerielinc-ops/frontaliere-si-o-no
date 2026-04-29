@@ -3970,6 +3970,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.title': 'Morning-after pill without consultation, National Council says yes',
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.excerpt': 'The National Council approves a motion to reclassify emergency contraceptives and make them accessible without mandatory consultation.',
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.imageAlt': 'Pharmacy in Lugano with display of contraceptive pills',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.title': 'Italian mayors oppose Lake Maggiore rise',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.excerpt': 'The mayors of Verbania, Baveno, and Cannobio criticize the decision to raise Lake Maggiore\'s maximum level to 1.40 meters.',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.imageAlt': 'Lake Maggiore with Italian and Swiss flags',
 };
 
 export default blogMetaEn;

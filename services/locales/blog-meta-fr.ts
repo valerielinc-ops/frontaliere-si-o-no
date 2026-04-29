@@ -3971,6 +3971,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.title': 'Pilule du lendemain sans conseil, le Conseil national dit oui',
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.excerpt': 'Le Conseil national approuve une motion pour déclasser les contraceptifs d\'urgence et les rendre accessibles sans entretien obligatoire.',
     'blog.article.pillola-giorno-dopo-consulenza-nazionale.imageAlt': 'Pharmacie à Lugano avec exposition de pilules contraceptives',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.title': 'Les maires italiens contre la hausse du lac Majeur',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.excerpt': 'Les maires de Verbania, Baveno et Cannobio critiquent la décision d\'augmenter le niveau maximal du lac Majeur à 1,40 mètre.',
+    'blog.article.sindaci-verbania-baveno-cannobio-opposizione.imageAlt': 'Lac Majeur avec les drapeaux italien et suisse',
 };
 
 export default blogMetaFr;

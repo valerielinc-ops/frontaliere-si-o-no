@@ -2554,6 +2554,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lite-dogana-ponte-chiasso-ferito-contuso': { name: 'Incidente dogana', path: '/articoli-frontaliere/lite-dogana-ponte-chiasso-ferito-contuso', parent: 'blog' },
     'blog-intesa-sanpaolo-premia-10-imprese-vincenti': { name: 'Novità', path: '/articoli-frontaliere/intesa-sanpaolo-premia-10-imprese-vincenti', parent: 'blog' },
     'blog-pillola-giorno-dopo-consulenza-nazionale': { name: 'Novità', path: '/articoli-frontaliere/pillola-giorno-dopo-consulenza-nazionale', parent: 'blog' },
+    'blog-sindaci-verbania-baveno-cannobio-opposizione': { name: 'Novità', path: '/articoli-frontaliere/sindaci-verbania-baveno-cannobio-opposizione', parent: 'blog' },
  };
 
  const info = sectionNames[section];
