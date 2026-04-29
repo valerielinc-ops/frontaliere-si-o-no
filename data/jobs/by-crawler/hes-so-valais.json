@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-04-29T10:53:09.215Z",
+  "assembledAt": "2026-04-29T22:00:57.427Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/specialiste-en-information-documentaire-80-100-***-informations-und-dokumentationsspezialist-oder-spezialistin-80-100--214386",
@@ -14,23 +14,23 @@
       "country": "CH",
       "description": "Afin de compléter l’équipe de sa médiathèque, la Haute Ecole de Santé met au concours le poste deSpécialiste en information documentaire (80-100 %)Votre\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
       "descriptionByLocale": {
-        "fr": "## Descrizione\nAfin de compléter l’équipe de sa médiathèque, la Haute Ecole de Santé met au concours le poste de Spécialiste en information documentaire (80-100 %)\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
-        "de": "Beschreibung Um das Team seiner Medienbibliothek zu vervollständigen, tritt die Haute Ecole de Santé für die Position des Documentary Information Specialist (80-100%). Das HES-SO Wallis-Wallis ist ein hochschulisch spezialisiertes zweisprachiges (französisch-deutsch) im Kanton Wallis, mit Campus in Sion, Sierre, Visp und Saint-Maurice. Sie trainiert über 2.800 Studierende in Ingenieurwesen, Management, Gesundheit, Sozialarbeit und Kunst.",
+        "it": "Descrizione Al fine di completare il team della sua libreria multimediale, l'Haute Ecole de Santé compete per la posizione di Documentary Information Specialist (80-100%). L'HES-SO Valais-Wallis è un bilingue specializzato (francese-tedesco) nel cantone del Vallese, con campus a Sion, Sierre, Visp e Saint-Maurice. Si allena oltre 2.800 studenti in ingegneria, gestione, salute, lavoro sociale e le arti.",
         "en": "Descrizione In order to complete the team of its media library, the Haute Ecole de Santé competes for the position of Documentary Information Specialist (80-100%). The HES-SO Valais-Wallis is a high-school specialized bilingual (French-German) in the canton of Valais, with campuses in Sion, Sierre, Visp and Saint-Maurice. She trains over 2,800 students in engineering, management, health, social work and the arts.",
-        "it": "Descrizione Al fine di completare il team della sua libreria multimediale, l'Haute Ecole de Santé compete per la posizione di Documentary Information Specialist (80-100%). L'HES-SO Valais-Wallis è un bilingue specializzato (francese-tedesco) nel cantone del Vallese, con campus a Sion, Sierre, Visp e Saint-Maurice. Si allena oltre 2.800 studenti in ingegneria, gestione, salute, lavoro sociale e le arti."
+        "de": "Beschreibung Um das Team seiner Medienbibliothek zu vervollständigen, tritt die Haute Ecole de Santé für die Position des Documentary Information Specialist (80-100%). Das HES-SO Wallis-Wallis ist ein hochschulisch spezialisiertes zweisprachiges (französisch-deutsch) im Kanton Wallis, mit Campus in Sion, Sierre, Visp und Saint-Maurice. Sie trainiert über 2.800 Studierende in Ingenieurwesen, Management, Gesundheit, Sozialarbeit und Kunst.",
+        "fr": "## Descrizione Afin de compléter l’équipe de sa médiathèque, la Haute Ecole de Santé met au concours le poste de Spécialiste en information documentaire (80-100 %) La HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
       },
       "titleByLocale": {
-        "fr": "Spécialiste en information documentaire (80-100%) ***",
         "it": "Specialista dell'informazione documentaria (80-100%) ***",
         "en": "Documentary Information Specialist (80-100%) ***",
-        "de": "Sachbearbeiter (80-100%) **"
+        "de": "Sachbearbeiter (80-100%) **",
+        "fr": "Spécialiste en information documentaire (80-100%) ***"
       },
       "slug": "specialista-dell-informazione-documentaria-80-100-hes-so-valais-wallis-sion",
       "slugByLocale": {
-        "fr": "specialiste-en-information-documentaire-80-100-hes-so-valais",
         "it": "specialista-dell-informazione-documentaria-80-100-hes-so-valais-wallis-sion",
         "en": "documentary-information-specialist-80-100-hes-so-valais-wallis-sion",
-        "de": "sachbearbeiter-80-100-hes-so-valais-wallis-sion"
+        "de": "sachbearbeiter-80-100-hes-so-valais-wallis-sion",
+        "fr": "specialiste-en-information-documentaire-80-100-hes-so-valais"
       },
       "category": "it",
       "datePosted": "2026-04-29",
@@ -233,7 +233,8 @@
       },
       "previousSlugs": [
         "research-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-scientifique-hes-80-100-***-academic-associate-uas-80-100-214198",
