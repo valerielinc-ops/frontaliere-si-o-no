@@ -33,7 +33,7 @@ import {
   effectiveMinWords,
   type BlogContextualLinkRule,
   type BlogLinkLocale,
-} from './blogContextualLinksData';
+} from './blogContextualLinksData.ts';
 
 // ── Locale → dist blog-index directory mapping ────────────────────
 
