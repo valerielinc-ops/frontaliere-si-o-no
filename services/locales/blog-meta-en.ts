@@ -3649,6 +3649,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.attentato-washington-trump-2026-analisi.title': 'Trump attack suspect appears in court',
     'blog.article.attentato-washington-trump-2026-analisi.excerpt': 'Cole Allen, a 31-year-old Californian, accused of assaulting a federal agent and using a firearm, will appear before a judge on Monday',
     'blog.article.attentato-washington-trump-2026-analisi.imageAlt': 'Washington Hilton hotel exterior with security personnel during a high-profile event',
+    'blog.article.spese-militari-2025-aumento-2900-miliardi.title': '2025 military spending: +2.9% to };.9 trillion',
+    'blog.article.spese-militari-2025-aumento-2900-miliardi.excerpt': 'The world allocated nearly };.9 trillion to military spending in 2025, marking the eleventh consecutive year of growth',
+    'blog.article.spese-militari-2025-aumento-2900-miliardi.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns',
 };
 
 export default blogMetaEn;

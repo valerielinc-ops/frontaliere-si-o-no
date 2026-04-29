@@ -2447,6 +2447,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-momoride-benefico-mendrisiotto-2024': { name: 'MomòRide', path: '/articoli-frontaliere/momoride-benefico-mendrisiotto-2024', parent: 'blog' },
     'blog-uzbekistan-oro-gas-ticino-implicazioni': { name: 'Novità', path: '/articoli-frontaliere/uzbekistan-oro-gas-ticino-implicazioni', parent: 'blog' },
     'blog-attentato-washington-trump-2026-analisi': { name: 'Attentato a Trump', path: '/articoli-frontaliere/attentato-washington-trump-2026-analisi', parent: 'blog' },
+    'blog-spese-militari-2025-aumento-2900-miliardi': { name: 'Spese militari', path: '/articoli-frontaliere/spese-militari-2025-aumento-2900-miliardi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3649,6 +3649,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.attentato-washington-trump-2026-analisi.title': 'Angriff auf Trump: Angreifer vor Gericht',
     'blog.article.attentato-washington-trump-2026-analisi.excerpt': 'Cole Allen, ein 31-jähriger Kalifornier, wird wegen Angriffs auf einen Bundesbeamten und illegalen Waffengebrauchs am Montag vor Gericht gestellt.',
     'blog.article.attentato-washington-trump-2026-analisi.imageAlt': 'Außenansicht des Washington Hilton Hotels mit Sicherheitskräften während eines hochkarätigen Ereignisses',
+    'blog.article.spese-militari-2025-aumento-2900-miliardi.title': 'Militärausgaben 2025: +2,9% auf 2,9 Billionen',
+    'blog.article.spese-militari-2025-aumento-2900-miliardi.excerpt': 'Die Welt hat 2025 fast 2,9 Billionen US-Dollar für Militärausgaben ausgegeben, ein Wert, der zum elften Mal in Folge gestiegen ist.',
+    'blog.article.spese-militari-2025-aumento-2900-miliardi.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Orten',
 };
 
 export default blogMetaDe;

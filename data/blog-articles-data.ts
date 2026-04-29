@@ -9527,4 +9527,11 @@ export const ARTICLES = [
  image: '/images/blog/attentato-washington-trump-2026-analisi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'spese-militari-2025-aumento-2900-miliardi',
+ category: 'novita',
+ date: '2026-04-29T02:37:20.382Z',
+ image: '/images/blog/spese-militari-2025-aumento-2900-miliardi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

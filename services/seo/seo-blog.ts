@@ -22253,6 +22253,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spese-militari-2025-aumento-2900-miliardi': {
+    title: 'Spese militari 2025: +2.9% a 2.900 miliardi | Frontaliere Ticino',
+    description: 'Il mondo ha destinato quasi 2.900 miliardi di dollari alle spese militari nel 2025, un dato in crescita per l\'undicesimo anno consecutivo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, spese, militari, 2025, miliardi',
+    ogTitle: 'Spese militari 2025: +2.9% a 2.900 miliardi',
+    ogDescription: 'Il mondo ha destinato quasi 2.900 miliardi di dollari alle spese militari nel 2025, un dato in crescita per l\'undicesimo anno consecutivo',
+    canonicalPath: '/articoli-frontaliere/spese-militari-2025-aumento-2900-miliardi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spese militari 2025: +2.9% a 2.900 miliardi",
+      "description": "Il mondo ha destinato quasi 2.900 miliardi di dollari alle spese militari nel 2025, un dato in crescita per l'undicesimo anno consecutivo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spese-militari-2025-aumento-2900-miliardi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e paesi circostanti"
+      },
+      "datePublished": "2026-04-29T02:37:20+00:00",
+      "dateModified": "2026-04-29T02:37:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spese-militari-2025-aumento-2900-miliardi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
