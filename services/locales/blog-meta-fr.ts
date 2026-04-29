@@ -3866,6 +3866,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-serbia-cooperazione-2026.title': 'Nouveau programme de coopération Suisse-Serbie 2026-29',
     'blog.article.svizzera-serbia-cooperazione-2026.excerpt': 'Le président Guy Parmelin présente un nouveau programme de coopération avec la Serbie, axé sur l\'économie et l\'innovation.',
     'blog.article.svizzera-serbia-cooperazione-2026.imageAlt': 'Vue aérienne de Bellinzone avec les châteaux et la frontière suisse-italienne en arrière-plan',
+    'blog.article.chi-finanzia-politica-svizzera-2026.title': 'Qui finance la politique suisse ? Plus de 130 millions en campagnes',
+    'blog.article.chi-finanzia-politica-svizzera-2026.excerpt': 'Depuis l\'entrée en vigueur des règles de transparence, plus de 130 millions de francs ont été investis dans les campagnes politiques suisses.',
+    'blog.article.chi-finanzia-politica-svizzera-2026.imageAlt': 'Château de Bellinzona avec le drapeau du Tessin',
 };
 
 export default blogMetaFr;

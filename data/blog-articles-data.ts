@@ -10031,4 +10031,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-serbia-cooperazione-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chi-finanzia-politica-svizzera-2026',
+ category: 'fiscale',
+ date: '2026-04-29T11:33:53.782Z',
+ image: '/images/blog/chi-finanzia-politica-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

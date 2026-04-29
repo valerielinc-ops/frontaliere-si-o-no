@@ -24341,6 +24341,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chi-finanzia-politica-svizzera-2026': {
+    title: 'Chi finanzia la politica svizzera? Oltre 130 milioni in campagne',
+    description: 'Dall’entrata in vigore delle regole sulla trasparenza, oltre 130 milioni di franchi sono stati investiti nelle campagne politiche svizzere. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanzia, politica, oltre, milioni',
+    ogTitle: 'Chi finanzia la politica svizzera? Oltre 130 milioni in campagne',
+    ogDescription: 'Dall’entrata in vigore delle regole sulla trasparenza, oltre 130 milioni di franchi sono stati investiti nelle campagne politiche svizzere.',
+    canonicalPath: '/articoli-frontaliere/chi-finanzia-politica-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chi finanzia la politica svizzera? Oltre 130 milioni in campagne",
+      "description": "Dall’entrata in vigore delle regole sulla trasparenza, oltre 130 milioni di franchi sono stati investiti nelle campagne politiche svizzere. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chi-finanzia-politica-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castello di Bellinzona con bandiera del Ticino"
+      },
+      "datePublished": "2026-04-29T11:33:53+00:00",
+      "dateModified": "2026-04-29T11:33:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chi-finanzia-politica-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

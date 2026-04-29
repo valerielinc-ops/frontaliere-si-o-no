@@ -3865,6 +3865,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-serbia-cooperazione-2026.title': 'Switzerland-Serbia 2026-29 cooperation program',
     'blog.article.svizzera-serbia-cooperazione-2026.excerpt': 'President Guy Parmelin presents a new cooperation program with Serbia, focusing on economy and innovation.',
     'blog.article.svizzera-serbia-cooperazione-2026.imageAlt': 'Aerial view of Bellinzona with the castles and the Swiss-Italian border in the background',
+    'blog.article.chi-finanzia-politica-svizzera-2026.title': 'Who funds Swiss politics? Over 130 million in campaigns',
+    'blog.article.chi-finanzia-politica-svizzera-2026.excerpt': 'Since transparency rules came into effect, over 130 million francs have been invested in Swiss political campaigns.',
+    'blog.article.chi-finanzia-politica-svizzera-2026.imageAlt': 'Bellinzona Castle with Ticino flag',
 };
 
 export default blogMetaEn;

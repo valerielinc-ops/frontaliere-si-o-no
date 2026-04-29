@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1338,
+ "numberOfItems": 1339,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5973,7 +5973,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1335, "name": "Mercatino di Primavera a Lugano: traffico chius...", "url": `${BASE_URL}/articoli-frontaliere/mercatino-primavera-lugano-2026` },
           { "@type": "ListItem", "position": 1336, "name": "Italia e Svizzera uniscono le forze nella ricerca", "url": `${BASE_URL}/articoli-frontaliere/italia-svizzera-ricerca-2026` },
           { "@type": "ListItem", "position": 1337, "name": "Ricerca italiana in Svizzera: focus su scienze ...", "url": `${BASE_URL}/articoli-frontaliere/ricerca-italiana-ginevra-2026` },
-          { "@type": "ListItem", "position": 1338, "name": "Nuovo programma di cooperazione Svizzera-Serbia...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-serbia-cooperazione-2026` }
+          { "@type": "ListItem", "position": 1338, "name": "Nuovo programma di cooperazione Svizzera-Serbia...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-serbia-cooperazione-2026` },
+          { "@type": "ListItem", "position": 1339, "name": "Chi finanzia la politica svizzera? Oltre 130 mi...", "url": `${BASE_URL}/articoli-frontaliere/chi-finanzia-politica-svizzera-2026` }
  ]
  },
  {
