@@ -3934,6 +3934,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stazioni-sciistiche-ticino-contributi-2026.title': 'Ticino ski resorts: funding review',
     'blog.article.stazioni-sciistiche-ticino-contributi-2026.excerpt': 'Parliamentary inquiry to revise funding for Ticino ski resorts, with 5.6 million for maintenance until 2028.',
     'blog.article.stazioni-sciistiche-ticino-contributi-2026.imageAlt': 'Aerial view of Monte San Salvatore with ski resorts in Ticino',
+    'blog.article.ubs-keller-sutter-lobbismo-2026.title': 'UBS and Karin Keller-Sutter clash over lobbying',
+    'blog.article.ubs-keller-sutter-lobbismo-2026.excerpt': 'UBS bank and Federal Councillor Karin Keller-Sutter clash over lobbying. Ermotti denies pressure, Matter calls it ridiculous.',
+    'blog.article.ubs-keller-sutter-lobbismo-2026.imageAlt': 'Panoramic view of Bellinzona with Bellinzona Castle and the Alps',
 };
 
 export default blogMetaEn;

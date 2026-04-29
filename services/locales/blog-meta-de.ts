@@ -3934,6 +3934,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stazioni-sciistiche-ticino-contributi-2026.title': 'Schweizer Skigebiete: Kritik und Reform der Beiträge',
     'blog.article.stazioni-sciistiche-ticino-contributi-2026.excerpt': 'Parlamentarische Anfrage zur Überprüfung der Finanzierung der Skigebiete im Tessin, mit 5,6 Millionen Franken für die Instandhaltung bis 2028.',
     'blog.article.stazioni-sciistiche-ticino-contributi-2026.imageAlt': 'Luftaufnahme des Monte San Salvatore mit Skigebieten im Tessin',
+    'blog.article.ubs-keller-sutter-lobbismo-2026.title': 'UBS und Karin Keller-Sutter: Streit um Lobbyismus',
+    'blog.article.ubs-keller-sutter-lobbismo-2026.excerpt': 'Die Bank UBS und die Bundesrätin Karin Keller-Sutter streiten sich über Lobbyismus. Ermotti bestreitet Druck, Matter nennt es lächerlich.',
+    'blog.article.ubs-keller-sutter-lobbismo-2026.imageAlt': 'Panoramablick auf Bellinzona mit der Burg Bellinzona und den Alpen',
 };
 
 export default blogMetaDe;

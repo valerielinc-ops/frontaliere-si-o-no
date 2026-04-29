@@ -10192,4 +10192,11 @@ export const ARTICLES = [
  image: '/images/blog/stazioni-sciistiche-ticino-contributi-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ubs-keller-sutter-lobbismo-2026',
+ category: 'novita',
+ date: '2026-04-29T14:56:06.175Z',
+ image: '/images/blog/ubs-keller-sutter-lobbismo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

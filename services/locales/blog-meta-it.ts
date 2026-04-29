@@ -3935,6 +3935,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stazioni-sciistiche-ticino-contributi-2026.title': 'Stazioni sciistiche ticinesi: criticità e riforma contributi',
     'blog.article.stazioni-sciistiche-ticino-contributi-2026.excerpt': 'Interrogazione parlamentare per rivedere i finanziamenti alle stazioni sciistiche ticinesi, con 5,6 milioni per la manutenzione fino al 2028.',
     'blog.article.stazioni-sciistiche-ticino-contributi-2026.imageAlt': 'Vista aerea del Monte San Salvatore con stazioni sciistiche in Ticino',
+    'blog.article.ubs-keller-sutter-lobbismo-2026.title': 'UBS e Karin Keller-Sutter: scontro sul lobbismo',
+    'blog.article.ubs-keller-sutter-lobbismo-2026.excerpt': 'La banca UBS e la consigliera federale Karin Keller-Sutter si scontrano sul lobbismo. Ermotti nega pressioni, Matter lo definisce ridicolo.',
+    'blog.article.ubs-keller-sutter-lobbismo-2026.imageAlt': 'Vista panoramica di Bellinzona con il Castello di Bellinzona e le Alpi',
 };
 
 export default blogMetaIt;

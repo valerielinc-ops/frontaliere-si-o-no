@@ -2542,6 +2542,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mendrisio-conti-positivi-2025': { name: 'Conti Mendrisio', path: '/articoli-frontaliere/mendrisio-conti-positivi-2025', parent: 'blog' },
     'blog-criminalita-organizzata-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/criminalita-organizzata-svizzera-2026', parent: 'blog' },
     'blog-stazioni-sciistiche-ticino-contributi-2026': { name: 'Novità', path: '/articoli-frontaliere/stazioni-sciistiche-ticino-contributi-2026', parent: 'blog' },
+    'blog-ubs-keller-sutter-lobbismo-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-keller-sutter-lobbismo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
