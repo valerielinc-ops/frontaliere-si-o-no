@@ -3992,6 +3992,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vaiolo-delle-scimmie-ticino-2026.title': 'Nuova variante vaiolo scimmie predominante in Svizzera',
     'blog.article.vaiolo-delle-scimmie-ticino-2026.excerpt': 'La nuova variante di vaiolo delle scimmie è diventata predominante in Svizzera con 32 casi segnalati dall\'inizio dell\'anno, di cui 19 di clade Ib.',
     'blog.article.vaiolo-delle-scimmie-ticino-2026.imageAlt': 'Lago di Lugano con vista sulla città',
+    'blog.article.maroggia-postale-domestico-2024.title': 'Maroggia, la Posta a domicilio dal 2024',
+    'blog.article.maroggia-postale-domestico-2024.excerpt': 'Dal settembre 2024, i residenti di Maroggia potranno usufruire del servizio postale a domicilio in attesa della nuova filiale prevista per il 2027.',
+    'blog.article.maroggia-postale-domestico-2024.imageAlt': 'Un furgone della Posta Svizzera parcheggiato davanti a un villaggio del Ticino con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

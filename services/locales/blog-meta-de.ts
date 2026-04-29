@@ -3991,6 +3991,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vaiolo-delle-scimmie-ticino-2026.title': 'Neue Affenpocken-Variante dominiert in der Schweiz',
     'blog.article.vaiolo-delle-scimmie-ticino-2026.excerpt': 'Die neue Variante der Affenpocken ist in der Schweiz dominierend geworden, mit 32 gemeldeten Fällen seit Jahresbeginn, davon 19 der Clade Ib.',
     'blog.article.vaiolo-delle-scimmie-ticino-2026.imageAlt': 'Luganersee mit Blick auf die Stadt',
+    'blog.article.maroggia-postale-domestico-2024.title': 'Maroggia: Postzustellung ab 2024',
+    'blog.article.maroggia-postale-domestico-2024.excerpt': 'Ab September 2024 können die Einwohner von Maroggia den Postzustelldienst zu Hause in Anspruch nehmen, bis die neue Filiale 2027 eröffnet wird.',
+    'blog.article.maroggia-postale-domestico-2024.imageAlt': 'Ein Schweizer Postauto, das vor einem Dorf im Tessin mit dem Luganersee im Hintergrund geparkt ist',
 };
 
 export default blogMetaDe;

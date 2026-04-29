@@ -3991,6 +3991,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vaiolo-delle-scimmie-ticino-2026.title': 'New monkeypox variant dominant in Switzerland',
     'blog.article.vaiolo-delle-scimmie-ticino-2026.excerpt': 'The new monkeypox variant has become dominant in Switzerland with 32 cases reported since the start of the year, 19 of which are clade Ib.',
     'blog.article.vaiolo-delle-scimmie-ticino-2026.imageAlt': 'Lake Lugano with a view of the city',
+    'blog.article.maroggia-postale-domestico-2024.title': 'Maroggia, home mail delivery from 2024',
+    'blog.article.maroggia-postale-domestico-2024.excerpt': 'From September 2024, Maroggia residents will be able to use home mail delivery while waiting for the new branch scheduled for 2027.',
+    'blog.article.maroggia-postale-domestico-2024.imageAlt': 'A Swiss Post van parked in front of a Ticino village with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

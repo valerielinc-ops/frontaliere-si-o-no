@@ -10325,4 +10325,11 @@ export const ARTICLES = [
  image: '/images/blog/vaiolo-delle-scimmie-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'maroggia-postale-domestico-2024',
+ category: 'pratico',
+ date: '2026-04-29T19:52:51.018Z',
+ image: '/images/blog/maroggia-postale-domestico-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

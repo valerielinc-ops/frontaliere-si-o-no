@@ -25559,6 +25559,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maroggia-postale-domestico-2024': {
+    title: 'Maroggia, la Posta a domicilio dal 2024 | Frontaliere Ticino',
+    description: 'Dal settembre 2024, i residenti di Maroggia potranno usufruire del servizio postale a domicilio in attesa della nuova filiale prevista per il 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, maroggia, posta, domicilio, 2024',
+    ogTitle: 'Maroggia, la Posta a domicilio dal 2024',
+    ogDescription: 'Dal settembre 2024, i residenti di Maroggia potranno usufruire del servizio postale a domicilio in attesa della nuova filiale prevista per il 2027.',
+    canonicalPath: '/articoli-frontaliere/maroggia-postale-domestico-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maroggia, la Posta a domicilio dal 2024",
+      "description": "Dal settembre 2024, i residenti di Maroggia potranno usufruire del servizio postale a domicilio in attesa della nuova filiale prevista per il 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maroggia-postale-domestico-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un furgone della Posta Svizzera parcheggiato davanti a un villaggio del Ticino con il Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-29T19:52:51+00:00",
+      "dateModified": "2026-04-29T19:52:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maroggia-postale-domestico-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3992,6 +3992,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vaiolo-delle-scimmie-ticino-2026.title': 'Nouvelle variante de la variole simienne prédominante en Suisse',
     'blog.article.vaiolo-delle-scimmie-ticino-2026.excerpt': 'La nouvelle variante de la variole simienne est devenue prédominante en Suisse avec 32 cas signalés depuis le début de l\'année, dont 19 de clade Ib.',
     'blog.article.vaiolo-delle-scimmie-ticino-2026.imageAlt': 'Lac de Lugano avec vue sur la ville',
+    'blog.article.maroggia-postale-domestico-2024.title': 'Maroggia, la poste à domicile dès 2024',
+    'blog.article.maroggia-postale-domestico-2024.excerpt': 'Dès septembre 2024, les résidents de Maroggia pourront bénéficier du service postal à domicile en attendant la nouvelle succursale prévue pour 2027.',
+    'blog.article.maroggia-postale-domestico-2024.imageAlt': 'Un camion de la Poste suisse garé devant un village du Tessin avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
