@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-04-28T22:47:24.820Z",
-  "total": 5,
+  "generatedAt": "2026-04-29T11:40:09.301Z",
+  "total": 4,
   "newCount": 0,
-  "updatedCount": 5,
-  "removedCount": 0,
+  "updatedCount": 4,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2610,
-  "avgDurationMs": 2610,
+  "durationMs": 2281,
+  "avgDurationMs": 2281,
   "durationHistory": [
-    2610
+    2281
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-28T22:47:22.473Z",
+      "crawledAt": "2026-04-29T11:40:07.311Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154146008?gh_jid=5154146008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-28T22:47:22.459Z",
+      "crawledAt": "2026-04-29T11:40:07.286Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -97,47 +97,6 @@
       }
     },
     {
-      "id": "vaxcyte-5db2cacb1fa5",
-      "slug": "buyer-supply-chain-vaxcyte-ch",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Buyer, Supply Chain",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154144008?gh_jid=5154144008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-28T22:47:22.441Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "1950",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-25",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5154144008?gh_jid=5154144008",
-      "department": "Swiss Manufacturing & Supply Chain",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.135Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "id": "vaxcyte-7041ea0fbe48",
       "slug": "director-business-operations-global-quality-control-vaxcyte-ch",
       "company": "Vaxcyte",
@@ -149,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-28T22:47:22.446Z",
+      "crawledAt": "2026-04-29T11:40:07.272Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -190,7 +149,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5062469008?gh_jid=5062469008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-28T22:47:22.457Z",
+      "crawledAt": "2026-04-29T11:40:07.283Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -220,6 +179,50 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "vaxcyte-5db2cacb1fa5",
+      "slug": "acquirente-catena-di-approvvigionamento-vaxcyte-visp",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Buyer, Supply Chain",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154144008?gh_jid=5154144008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-28T22:47:22.441Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1950",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-25",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5154144008?gh_jid=5154144008",
+      "department": "Swiss Manufacturing & Supply Chain",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "firstSeenAt": "2026-04-13T11:29:03.135Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
