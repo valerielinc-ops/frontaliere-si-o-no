@@ -718,4 +718,28 @@ describe('Router — legacy bare English slugs', () => {
     const { route } = parsePath('/guide');
     expect(route.activeTab).toBe('guida');
   });
+
+  it('parsePath("/lavoro") resolves to job-board tab (IT intuitive alias)', () => {
+    const { route, locale } = parsePath('/lavoro');
+    expect(route.activeTab).toBe('job-board');
+    expect(locale).toBe('it');
+  });
+
+  it('parsePath("/en/jobs") resolves to job-board tab (EN intuitive alias)', () => {
+    const { route, locale } = parsePath('/en/jobs');
+    expect(route.activeTab).toBe('job-board');
+    expect(locale).toBe('en');
+  });
+
+  it('parsePath("/de/jobs") resolves to job-board tab (DE intuitive alias)', () => {
+    const { route, locale } = parsePath('/de/jobs');
+    expect(route.activeTab).toBe('job-board');
+    expect(locale).toBe('de');
+  });
+
+  it('parsePath("/fr/emploi") resolves to job-board tab (FR intuitive alias)', () => {
+    const { route, locale } = parsePath('/fr/emploi');
+    expect(route.activeTab).toBe('job-board');
+    expect(locale).toBe('fr');
+  });
 });

@@ -1664,6 +1664,12 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  if (locale === 'en' && !map['taxes']) map['taxes'] = { tab: 'fisco' };
  if (locale === 'de' && !map['steuern']) map['steuern'] = { tab: 'fisco' };
  if (locale === 'fr' && !map['fiscalite']) map['fiscalite'] = { tab: 'fisco' };
+ // Job-board intuitive aliases: users type the bare word instead of the
+ // full SEO slug (e.g. /lavoro instead of /cerca-lavoro-ticino).
+ if (locale === 'it' && !map['lavoro']) map['lavoro'] = { tab: 'job-board' };
+ if (locale === 'en' && !map['jobs']) map['jobs'] = { tab: 'job-board' };
+ if (locale === 'de' && !map['jobs']) map['jobs'] = { tab: 'job-board' };
+ if (locale === 'fr' && !map['emploi']) map['emploi'] = { tab: 'job-board' };
  return map;
 }
 
