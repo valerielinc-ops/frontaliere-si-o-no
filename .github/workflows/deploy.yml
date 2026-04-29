@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'data/border-wait-current.json'
+      - 'data/border-wait-history/**'
   workflow_dispatch:
     inputs:
       article_id:
