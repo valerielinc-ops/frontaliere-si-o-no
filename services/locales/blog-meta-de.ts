@@ -3925,6 +3925,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-datore-lavoro-conciliabilita.title': 'Bellinzona fördert Work-Life-Balance für Mitarbeiter',
     'blog.article.bellinzona-datore-lavoro-conciliabilita.excerpt': 'Änderung der Verordnung zur Förderung der Work-Life-Balance. Priorität für Wohlbefinden und Attraktivität.',
     'blog.article.bellinzona-datore-lavoro-conciliabilita.imageAlt': 'Ansicht von Bellinzona mit Castelgrande',
+    'blog.article.mendrisio-conti-positivi-2025.title': 'Mendrisio: 4 Jahre mit Überschuss',
+    'blog.article.mendrisio-conti-positivi-2025.excerpt': 'Die Gemeindebilanz 2025 schließt mit einem Überschuss von 0,8 Millionen Franken und übertrifft die negativen Prognosen.',
+    'blog.article.mendrisio-conti-positivi-2025.imageAlt': 'Luftaufnahme von Mendrisio, Schweiz, mit der Architektur der Stadt und der umliegenden Landschaft',
 };
 
 export default blogMetaDe;

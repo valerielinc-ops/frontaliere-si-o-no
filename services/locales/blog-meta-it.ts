@@ -3926,6 +3926,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-datore-lavoro-conciliabilita.title': 'Bellinzona verso conciliabilità vita-lavoro per dipendenti',
     'blog.article.bellinzona-datore-lavoro-conciliabilita.excerpt': 'Modifica al regolamento per promuovere equilibrio tra vita privata e professionale. Priorità per benessere e attrattività.',
     'blog.article.bellinzona-datore-lavoro-conciliabilita.imageAlt': 'Veduta di Bellinzona con il Castelgrande',
+    'blog.article.mendrisio-conti-positivi-2025.title': 'Mendrisio: 4 anni di conti in positivo',
+    'blog.article.mendrisio-conti-positivi-2025.excerpt': 'Il consuntivo comunale 2025 si chiude con un avanzo di 0,8 milioni di franchi, superando le stime negative',
+    'blog.article.mendrisio-conti-positivi-2025.imageAlt': 'Vista aerea di Mendrisio, Svizzera, con l\'architettura della città e il paesaggio circostante',
 };
 
 export default blogMetaIt;

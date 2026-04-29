@@ -24921,6 +24921,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mendrisio-conti-positivi-2025': {
+    title: 'Mendrisio: 4 anni di conti in positivo | Frontaliere Ticino',
+    description: 'Mendrisio chiude il 2025 con un avanzo di 0,8 milioni di franchi, segnando il quarto anno consecutivo di risultati positivi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisio, anni, conti, positivo',
+    ogTitle: 'Mendrisio: 4 anni di conti in positivo',
+    ogDescription: 'Mendrisio chiude il 2025 con un avanzo di 0,8 milioni di franchi, segnando il quarto anno consecutivo di risultati positivi',
+    canonicalPath: '/articoli-frontaliere/mendrisio-conti-positivi-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisio: 4 anni di conti in positivo",
+      "description": "Mendrisio chiude il 2025 con un avanzo di 0,8 milioni di franchi, segnando il quarto anno consecutivo di risultati positivi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mendrisio-conti-positivi-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Svizzera, con l'architettura della città e il paesaggio circostante"
+      },
+      "datePublished": "2026-04-29T14:29:49+00:00",
+      "dateModified": "2026-04-29T14:29:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mendrisio-conti-positivi-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

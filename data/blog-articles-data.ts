@@ -10171,4 +10171,11 @@ export const ARTICLES = [
  image: '/images/blog/bellinzona-datore-lavoro-conciliabilita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mendrisio-conti-positivi-2025',
+ category: 'fiscale',
+ date: '2026-04-29T14:29:49.037Z',
+ image: '/images/blog/mendrisio-conti-positivi-2025.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

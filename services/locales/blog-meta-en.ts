@@ -3925,6 +3925,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzona-datore-lavoro-conciliabilita.title': 'Bellinzona promotes work-life balance for employees',
     'blog.article.bellinzona-datore-lavoro-conciliabilita.excerpt': 'Regulation amendment to foster equilibrium between private and professional life. Priority for well-being and attractiveness.',
     'blog.article.bellinzona-datore-lavoro-conciliabilita.imageAlt': 'View of Bellinzona with Castelgrande',
+    'blog.article.mendrisio-conti-positivi-2025.title': 'Mendrisio: 4 years of positive balances',
+    'blog.article.mendrisio-conti-positivi-2025.excerpt': 'The 2025 municipal account closes with a surplus of 0.8 million francs, exceeding negative estimates',
+    'blog.article.mendrisio-conti-positivi-2025.imageAlt': 'Aerial view of Mendrisio, Switzerland, with the town\'s architecture and surrounding landscape',
 };
 
 export default blogMetaEn;
