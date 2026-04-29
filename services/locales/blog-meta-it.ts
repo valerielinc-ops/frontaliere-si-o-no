@@ -3638,6 +3638,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.taglio-accise-proroga-meloni-2026.title': 'Taglio accise energia: proroga in arrivo, Meloni chiede coraggio all\'UE',
     'blog.article.taglio-accise-proroga-meloni-2026.excerpt': 'Il governo italiano lavora a una proroga più breve per il taglio delle accise sull\'energia. Meloni invoca coraggio dall\'Europa per affrontare la crisi energetica.',
     'blog.article.taglio-accise-proroga-meloni-2026.imageAlt': 'Lago di Lugano con vista sulla città moderna',
+    'blog.article.fedpol-arresto-corruzione-2026.title': 'Agente Fedpol arrestato per corruzione e violazione del segreto d\'ufficio',
+    'blog.article.fedpol-arresto-corruzione-2026.excerpt': 'Sei persone, tra cui un dipendente di Fedpol, arrestate in un\'operazione contro la criminalità organizzata in Svizzera, Francia e Germania.',
+    'blog.article.fedpol-arresto-corruzione-2026.imageAlt': 'Vista aerea del Castello di Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

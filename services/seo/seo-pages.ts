@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1262,
+ "numberOfItems": 1263,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5897,7 +5897,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1259, "name": "Bruno Breguet scomparso: il pretore di Locarno ...", "url": `${BASE_URL}/articoli-frontaliere/bruno-breguet-scomparsa-ufficializzata` },
           { "@type": "ListItem", "position": 1260, "name": "Il profumo di prato tagliato è un grido d’aiuto...", "url": `${BASE_URL}/articoli-frontaliere/profumo-prato-tagliato-grido-aiuto-piante` },
           { "@type": "ListItem", "position": 1261, "name": "Novartis: calo del 13% nell'utile netto nel pri...", "url": `${BASE_URL}/articoli-frontaliere/novartis-calo-utile-2026` },
-          { "@type": "ListItem", "position": 1262, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/taglio-accise-proroga-meloni-2026` }
+          { "@type": "ListItem", "position": 1262, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/taglio-accise-proroga-meloni-2026` },
+          { "@type": "ListItem", "position": 1263, "name": "Agente Fedpol arrestato per corruzione e violaz...", "url": `${BASE_URL}/articoli-frontaliere/fedpol-arresto-corruzione-2026` }
  ]
  },
  {

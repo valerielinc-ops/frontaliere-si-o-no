@@ -22137,6 +22137,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fedpol-arresto-corruzione-2026': {
+    title: 'Agente Fedpol arrestato per corruzione e violazione del segreto d\'ufficio',
+    description: 'Sei persone, tra cui un dipendente di Fedpol, arrestate in un\'operazione contro la criminalità organizzata in Svizzera, Francia e Germania. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, agente, fedpol, arrestato, corruzione',
+    ogTitle: 'Agente Fedpol arrestato per corruzione e violazione del segreto d\'ufficio',
+    ogDescription: 'Sei persone, tra cui un dipendente di Fedpol, arrestate in un\'operazione contro la criminalità organizzata in Svizzera, Francia e Germania.',
+    canonicalPath: '/articoli-frontaliere/fedpol-arresto-corruzione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agente Fedpol arrestato per corruzione e violazione del segreto d'ufficio",
+      "description": "Sei persone, tra cui un dipendente di Fedpol, arrestate in un'operazione contro la criminalità organizzata in Svizzera, Francia e Germania. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fedpol-arresto-corruzione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Castello di Bellinzona, Ticino, Svizzera"
+      },
+      "datePublished": "2026-04-29T02:07:34+00:00",
+      "dateModified": "2026-04-29T02:07:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fedpol-arresto-corruzione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3638,6 +3638,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.taglio-accise-proroga-meloni-2026.title': 'Proroga taglio accise: Meloni chiede coraggio UE',
     'blog.article.taglio-accise-proroga-meloni-2026.excerpt': 'Le gouvernement italien travaille à une prorogation plus courte pour la réduction des accises sur l\'énergie. Meloni invoque du courage de la part de l\'Europe pour faire face à la crise énergétique.',
     'blog.article.taglio-accise-proroga-meloni-2026.imageAlt': 'Lac de Lugano avec vue sur la ville moderne',
+    'blog.article.fedpol-arresto-corruzione-2026.title': 'Agent de la Fedpol arrêté pour corruption et violation du secret d\'office',
+    'blog.article.fedpol-arresto-corruzione-2026.excerpt': 'Six personnes, dont un employé de la Fedpol, arrêtées lors d\'une opération contre la criminalité organisée en Suisse, France et Allemagne.',
+    'blog.article.fedpol-arresto-corruzione-2026.imageAlt': 'Vue aérienne du château de Bellinzone, Tessin, Suisse',
 };
 
 export default blogMetaFr;

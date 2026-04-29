@@ -3637,6 +3637,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.taglio-accise-proroga-meloni-2026.title': 'Energy tax cut: extension coming, Meloni urges EU courage',
     'blog.article.taglio-accise-proroga-meloni-2026.excerpt': 'The Italian government is working on a shorter extension for the energy tax cut. Meloni calls for courage from Europe to tackle the energy crisis.',
     'blog.article.taglio-accise-proroga-meloni-2026.imageAlt': 'Lake Lugano with a view of the modern city',
+    'blog.article.fedpol-arresto-corruzione-2026.title': 'Fedpol officer arrested for corruption and breach of official secrecy',
+    'blog.article.fedpol-arresto-corruzione-2026.excerpt': 'Six people, including a Fedpol employee, arrested in an operation against organized crime in Switzerland, France, and Germany.',
+    'blog.article.fedpol-arresto-corruzione-2026.imageAlt': 'Aerial view of Bellinzona Castle, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

@@ -3637,6 +3637,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.taglio-accise-proroga-meloni-2026.title': 'Meloni fordert von der EU Mut bei Energiekrise',
     'blog.article.taglio-accise-proroga-meloni-2026.excerpt': 'Die italienische Regierung arbeitet an einer kürzeren Verlängerung der Senkung der Energiesteuern. Meloni fordert Mut von Europa, um die Energiekrise zu bewältigen.',
     'blog.article.taglio-accise-proroga-meloni-2026.imageAlt': 'Luganersee mit Blick auf die moderne Stadt',
+    'blog.article.fedpol-arresto-corruzione-2026.title': 'Fedpol-Mitarbeiter wegen Korruption und Amtsgeheimnisverletzung verhaftet',
+    'blog.article.fedpol-arresto-corruzione-2026.excerpt': 'Sechs Personen, darunter ein Mitarbeiter von Fedpol, bei einer Operation gegen die organisierte Kriminalität in der Schweiz, Frankreich und Deutschland festgenommen.',
+    'blog.article.fedpol-arresto-corruzione-2026.imageAlt': 'Luftaufnahme des Schlosses Bellinzona, Tessin, Schweiz',
 };
 
 export default blogMetaDe;
