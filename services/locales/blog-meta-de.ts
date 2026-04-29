@@ -3754,6 +3754,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.friborgogotteron-spareggio-titolo-hockey.title': 'Fribourg-Gottéron kämpft um den Eishockey-Titel',
     'blog.article.friborgogotteron-spareggio-titolo-hockey.excerpt': 'Das Eishockeyteam Fribourg-Gottéron spielt den Titel in einem entscheidenden Spiel. Alle Details zum entscheidenden Spiel.',
     'blog.article.friborgogotteron-spareggio-titolo-hockey.imageAlt': 'Eishockeyspiel in einer Schweizer Arena mit spielenden Spielern',
+    'blog.article.como-verdi-elogio-rapinese-alberi.title': 'Grüne loben Rapinese für Baum-Pflege',
+    'blog.article.como-verdi-elogio-rapinese-alberi.excerpt': 'Die Grünen-Führerin Elisabetta Patelli lobt die Verwaltung von Rapinese für die Baum-Pflege in Como, vor dem Misstrauensvotum gegen den Grün-Beauftragten.',
+    'blog.article.como-verdi-elogio-rapinese-alberi.imageAlt': 'Viale Varese in Como mit neu gepflanzten Bäumen',
 };
 
 export default blogMetaDe;

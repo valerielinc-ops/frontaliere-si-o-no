@@ -3755,6 +3755,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.friborgogotteron-spareggio-titolo-hockey.title': 'Friborg-Gottéron allo spareggio per il titolo di hockey',
     'blog.article.friborgogotteron-spareggio-titolo-hockey.excerpt': 'La squadra di hockey Friborg-Gottéron si gioca il titolo in uno spareggio cruciale. Tutti i dettagli sulla partita decisiva.',
     'blog.article.friborgogotteron-spareggio-titolo-hockey.imageAlt': 'Partita di hockey su ghiaccio in un\'arena svizzera con giocatori in azione',
+    'blog.article.como-verdi-elogio-rapinese-alberi.title': 'Elogio dei Verdi a Rapinese: così si curano gli alberi',
+    'blog.article.como-verdi-elogio-rapinese-alberi.excerpt': 'La leader dei Verdi Elisabetta Patelli elogia l\'amministrazione Rapinese per la cura degli alberi a Como, prima del voto di sfiducia all\'assessore al Verde.',
+    'blog.article.como-verdi-elogio-rapinese-alberi.imageAlt': 'Viale Varese a Como con nuovi alberi piantati',
 };
 
 export default blogMetaIt;

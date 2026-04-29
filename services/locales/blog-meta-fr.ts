@@ -3755,6 +3755,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.friborgogotteron-spareggio-titolo-hockey.title': 'Fribourg-Gottéron en play-off pour le titre de hockey',
     'blog.article.friborgogotteron-spareggio-titolo-hockey.excerpt': 'L\'équipe de hockey Fribourg-Gottéron joue le titre lors d\'un match crucial. Tous les détails sur la rencontre décisive.',
     'blog.article.friborgogotteron-spareggio-titolo-hockey.imageAlt': 'Match de hockey sur glace dans une arène suisse avec des joueurs en action',
+    'blog.article.como-verdi-elogio-rapinese-alberi.title': 'Éloges des Verts à Rapinese: ainsi sont soignés les arbres',
+    'blog.article.como-verdi-elogio-rapinese-alberi.excerpt': 'La dirigeante des Verts Elisabetta Patelli félicite l\'administration Rapinese pour l\'entretien des arbres à Côme, avant le vote de défiance à l\'assesseur aux Espaces verts.',
+    'blog.article.como-verdi-elogio-rapinese-alberi.imageAlt': 'Viale Varese à Côme avec de nouveaux arbres plantés',
 };
 
 export default blogMetaFr;

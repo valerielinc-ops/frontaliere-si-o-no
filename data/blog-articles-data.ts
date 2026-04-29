@@ -9772,4 +9772,11 @@ export const ARTICLES = [
  image: '/images/blog/friborgogotteron-spareggio-titolo-hockey.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-verdi-elogio-rapinese-alberi',
+ category: 'novita',
+ date: '2026-04-29T08:06:37.814Z',
+ image: '/images/blog/como-verdi-elogio-rapinese-alberi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

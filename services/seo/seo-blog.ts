@@ -23268,6 +23268,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-verdi-elogio-rapinese-alberi': {
+    title: 'Elogio dei Verdi a Rapinese: così si curano gli alberi',
+    description: 'Elisabetta Patelli elogia l\'amministrazione Rapinese per la cura degli alberi a Como, prima del voto di sfiducia all\'assessore al Verde. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, elogio, verdi, rapinese, così',
+    ogTitle: 'Elogio dei Verdi a Rapinese: così si curano gli alberi',
+    ogDescription: 'Elisabetta Patelli elogia l\'amministrazione Rapinese per la cura degli alberi a Como, prima del voto di sfiducia all\'assessore al Verde.',
+    canonicalPath: '/articoli-frontaliere/como-verdi-elogio-rapinese-alberi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elogio dei Verdi a Rapinese: così si curano gli alberi",
+      "description": "Elisabetta Patelli elogia l'amministrazione Rapinese per la cura degli alberi a Como, prima del voto di sfiducia all'assessore al Verde. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-verdi-elogio-rapinese-alberi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Viale Varese a Como con nuovi alberi piantati"
+      },
+      "datePublished": "2026-04-29T08:06:37+00:00",
+      "dateModified": "2026-04-29T08:06:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-verdi-elogio-rapinese-alberi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

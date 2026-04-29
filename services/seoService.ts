@@ -2482,6 +2482,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-azienda-comasca-fotovoltaico-25-tonnellate-co2': { name: 'Novità', path: '/articoli-frontaliere/azienda-comasca-fotovoltaico-25-tonnellate-co2', parent: 'blog' },
     'blog-citta-fiore-orticolario-tricolore-2026': { name: 'Novità', path: '/articoli-frontaliere/citta-fiore-orticolario-tricolore-2026', parent: 'blog' },
     'blog-friborgogotteron-spareggio-titolo-hockey': { name: 'Novità Sport', path: '/articoli-frontaliere/friborgogotteron-spareggio-titolo-hockey', parent: 'blog' },
+    'blog-como-verdi-elogio-rapinese-alberi': { name: 'Novità', path: '/articoli-frontaliere/como-verdi-elogio-rapinese-alberi', parent: 'blog' },
  };
 
  const info = sectionNames[section];
