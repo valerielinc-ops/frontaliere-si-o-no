@@ -4001,6 +4001,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gruppo-moncucco-2025-risultati.title': 'Groupe Moncucco: 120\'000 hospitalisations, 187M de CA en 2025',
     'blog.article.gruppo-moncucco-2025-risultati.excerpt': 'Le Groupe Moncucco clôture l\'année 2025 avec 120\'000 hospitalisations et un chiffre d\'affaires de 187 millions, en misant sur la formation du personnel.',
     'blog.article.gruppo-moncucco-2025-risultati.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments hospitaliers modernes et du personnel médical au premier plan',
+    'blog.article.distretto-benessere-campo-fiori-2026.title': 'Dans le district du bien-être à l\'ombre du Campo dei Fiori',
+    'blog.article.distretto-benessere-campo-fiori-2026.excerpt': 'Découvrez comment 2% des contribuables détiennent 15% du revenu dans ces communes de la colline varésane.',
+    'blog.article.distretto-benessere-campo-fiori-2026.imageAlt': 'Vue aérienne de Luvinate, Italie, avec le lac et les montagnes du Campo dei Fiori en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -4000,6 +4000,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gruppo-moncucco-2025-risultati.title': 'Gruppe Moncucco: 2025 mit 120.000 Krankenhausaufenthalten und 187 Mio. Umsatz',
     'blog.article.gruppo-moncucco-2025-risultati.excerpt': 'Die Gruppe Moncucco schließt das Jahr 2025 mit 120.000 Krankenhausaufenthalten und einem Umsatz von 187 Millionen Franken ab, wobei sie auf die Schulung des Personals setzt.',
     'blog.article.gruppo-moncucco-2025-risultati.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Krankenhausgebäuden und medizinischem Personal im Vordergrund',
+    'blog.article.distretto-benessere-campo-fiori-2026.title': 'Wohlstand im Schatten des Campo dei Fiori',
+    'blog.article.distretto-benessere-campo-fiori-2026.excerpt': 'Entdecken Sie, wie 2% der Steuerzahler 15% des Einkommens in diesen Gemeinden der Vareser Hügel besitzen.',
+    'blog.article.distretto-benessere-campo-fiori-2026.imageAlt': 'Luftaufnahme von Luvinate, Italien, mit dem See und den Campo dei Fiori Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

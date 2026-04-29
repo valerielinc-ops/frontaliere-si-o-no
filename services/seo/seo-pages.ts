@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1383,
+ "numberOfItems": 1384,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6018,7 +6018,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1380, "name": "Nuova variante vaiolo scimmie predominante in S...", "url": `${BASE_URL}/articoli-frontaliere/vaiolo-delle-scimmie-ticino-2026` },
           { "@type": "ListItem", "position": 1381, "name": "Maroggia, la Posta a domicilio dal 2024", "url": `${BASE_URL}/articoli-frontaliere/maroggia-postale-domestico-2024` },
           { "@type": "ListItem", "position": 1382, "name": "Convegno a Milano sulla cooperazione Italia-Svi...", "url": `${BASE_URL}/articoli-frontaliere/convegno-milano-mafia-italia-svizzera-2026` },
-          { "@type": "ListItem", "position": 1383, "name": "Gruppo Moncucco: 2025 con 120mila ospedalizzazi...", "url": `${BASE_URL}/articoli-frontaliere/gruppo-moncucco-2025-risultati` }
+          { "@type": "ListItem", "position": 1383, "name": "Gruppo Moncucco: 2025 con 120mila ospedalizzazi...", "url": `${BASE_URL}/articoli-frontaliere/gruppo-moncucco-2025-risultati` },
+          { "@type": "ListItem", "position": 1384, "name": "Distretto del benessere: 2% dei contribuenti ha...", "url": `${BASE_URL}/articoli-frontaliere/distretto-benessere-campo-fiori-2026` }
  ]
  },
  {

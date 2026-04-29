@@ -4000,6 +4000,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gruppo-moncucco-2025-risultati.title': 'Moncucco Group: 120k hospitalizations, 187m revenue in 2025',
     'blog.article.gruppo-moncucco-2025-risultati.excerpt': 'The Moncucco Group closes 2025 with 120,000 hospitalizations and a revenue of 187 million, focusing on staff training.',
     'blog.article.gruppo-moncucco-2025-risultati.imageAlt': 'Aerial view of Lugano Lake with modern hospital buildings and medical staff in the foreground',
+    'blog.article.distretto-benessere-campo-fiori-2026.title': 'Wellness district in the shadow of Campo dei Fiori',
+    'blog.article.distretto-benessere-campo-fiori-2026.excerpt': 'Discover how 2% of taxpayers hold 15% of the income in these hillside communes of Varese.',
+    'blog.article.distretto-benessere-campo-fiori-2026.imageAlt': 'Aerial view of Luvinate, Italy, with the lake and Campo dei Fiori mountains in the background',
 };
 
 export default blogMetaEn;

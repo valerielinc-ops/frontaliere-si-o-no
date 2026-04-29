@@ -4001,6 +4001,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gruppo-moncucco-2025-risultati.title': 'Gruppo Moncucco: 2025 con 120mila ospedalizzazioni e 187 milioni di fatturato',
     'blog.article.gruppo-moncucco-2025-risultati.excerpt': 'Il Gruppo Moncucco chiude il 2025 con 120mila ospedalizzazioni e un fatturato di 187 milioni, puntando sulla formazione del personale.',
     'blog.article.gruppo-moncucco-2025-risultati.imageAlt': 'Vista aerea del Lago di Lugano con edifici ospedalieri moderni e personale medico in primo piano',
+    'blog.article.distretto-benessere-campo-fiori-2026.title': 'Nel distretto del benessere all\'ombra del Campo dei Fiori',
+    'blog.article.distretto-benessere-campo-fiori-2026.excerpt': 'Scopri come il 2% dei contribuenti detiene il 15% del reddito in questi comuni della collina varesina.',
+    'blog.article.distretto-benessere-campo-fiori-2026.imageAlt': 'Vista aerea di Luvinate, Italia, con il lago e le montagne del Campo dei Fiori sullo sfondo',
 };
 
 export default blogMetaIt;

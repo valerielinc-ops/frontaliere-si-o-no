@@ -25646,6 +25646,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-distretto-benessere-campo-fiori-2026': {
+    title: 'Nel distretto del benessere all\'ombra del Campo dei Fiori',
+    description: 'Scopri come il 2% dei contribuenti detiene il 15% del reddito nei comuni della collina varesina. Analisi e implicazioni per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, distretto, benessere, ombra, campo',
+    ogTitle: 'Distretto del benessere: 2% dei contribuenti ha il 15% del reddito',
+    ogDescription: 'Scopri come il 2% dei contribuenti detiene il 15% del reddito nei comuni della collina varesina. Analisi e implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/distretto-benessere-campo-fiori-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Distretto del benessere: 2% dei contribuenti ha il 15% del reddito",
+      "description": "Scopri come il 2% dei contribuenti detiene il 15% del reddito nei comuni della collina varesina. Analisi e implicazioni per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/distretto-benessere-campo-fiori-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Luvinate, Italia, con il lago e le montagne del Campo dei Fiori sullo sfondo"
+      },
+      "datePublished": "2026-04-29T20:28:53+00:00",
+      "dateModified": "2026-04-29T20:28:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/distretto-benessere-campo-fiori-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

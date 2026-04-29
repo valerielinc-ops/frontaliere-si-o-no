@@ -10346,4 +10346,11 @@ export const ARTICLES = [
  image: '/images/blog/gruppo-moncucco-2025-risultati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'distretto-benessere-campo-fiori-2026',
+ category: 'fiscale',
+ date: '2026-04-29T20:28:53.949Z',
+ image: '/images/blog/distretto-benessere-campo-fiori-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
