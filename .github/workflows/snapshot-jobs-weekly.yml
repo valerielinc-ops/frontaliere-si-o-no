@@ -42,12 +42,19 @@ jobs:
       - name: Compute weekly employer delta (report file)
         run: node scripts/compute-weekly-employer-delta.mjs
 
-      - name: Commit snapshot + delta
+      - name: Refresh weekly-employers footer link list
+        # Regenerates data/weekly-employers-top-pairs.json so the SPA footer
+        # only links to (city × company) pages that actually qualify under
+        # MIN_JOBS_PER_COMPANY_IN_CITY. Without this refresh the footer
+        # accumulates stale links over time as the labour market shifts.
+        run: node scripts/refresh-weekly-employers-top-pairs.mjs
+
+      - name: Commit snapshot + delta + footer pairs
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/jobs-snapshots-history/ data/weekly-employers-delta.json
+          git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json
           if git diff --cached --quiet; then
             echo "No changes to snapshot — nothing to commit."
             exit 0
@@ -58,6 +65,6 @@ jobs:
 
           # Centralized rebase-retry helper survives concurrent pushes from
           # other scheduled workflows. On rebase conflict, regenerate the
-          # snapshot + delta on top of the new base.
+          # snapshot + delta + footer pairs on top of the new base.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json"
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json"

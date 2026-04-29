@@ -112,6 +112,13 @@ jobs:
           JOBS_SKIP_URL_VALIDATION: '1'
         run: node scripts/cleanup-jobs.mjs
 
+      - name: Refresh weekly-employers footer link list (F5 link-graph closer)
+        # Regenerates data/weekly-employers-top-pairs.json from current jobs
+        # using the SAME logic the build plugin uses to materialise pages.
+        # Guarantees footer hrefs in WeeklyEmployersTeaser always point at
+        # static pages that exist in dist/, eliminating SPA-shell 404s.
+        run: node scripts/refresh-weekly-employers-top-pairs.mjs
+
       - name: Validate translation completeness (blocking)
         run: node scripts/validate-translation-completeness.mjs
 
