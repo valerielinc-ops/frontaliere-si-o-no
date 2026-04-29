@@ -2495,6 +2495,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-san-gallo-vince-thun-ritardo-festa': { name: 'Novità', path: '/articoli-frontaliere/san-gallo-vince-thun-ritardo-festa', parent: 'blog' },
     'blog-hupac-busto-utile-positivo-collegamenti': { name: 'Novità', path: '/articoli-frontaliere/hupac-busto-utile-positivo-collegamenti', parent: 'blog' },
     'blog-hupac-bilancio-positivo-2025': { name: 'Novità', path: '/articoli-frontaliere/hupac-bilancio-positivo-2025', parent: 'blog' },
+    'blog-infermieri-orario-lavoro-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/infermieri-orario-lavoro-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -23645,6 +23645,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infermieri-orario-lavoro-ticino-2026': {
+    title: 'Infermieri, no a riduzione orario massimo settimanale',
+    description: 'Il Consiglio nazionale ha bocciato la proposta di ridurre l\'orario massimo settimanale per infermieri e infermiere, mantenendolo a 50 ore. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, riduzione, orario, massimo',
+    ogTitle: 'Infermieri, no a riduzione orario massimo settimanale',
+    ogDescription: 'Il Consiglio nazionale ha bocciato la proposta di ridurre l\'orario massimo settimanale per infermieri e infermiere, mantenendolo a 50 ore.',
+    canonicalPath: '/articoli-frontaliere/infermieri-orario-lavoro-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri, no a riduzione orario massimo settimanale",
+      "description": "Il Consiglio nazionale ha bocciato la proposta di ridurre l'orario massimo settimanale per infermieri e infermiere, mantenendolo a 50 ore. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infermieri-orario-lavoro-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un'infermiera che lavora in un ospedale del Ticino"
+      },
+      "datePublished": "2026-04-29T09:21:03+00:00",
+      "dateModified": "2026-04-29T09:21:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-orario-lavoro-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

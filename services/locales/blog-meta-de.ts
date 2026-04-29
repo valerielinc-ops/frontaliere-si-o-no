@@ -3793,6 +3793,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hupac-bilancio-positivo-2025.title': 'Hupac schließt 2025 mit sinkendem Gewinn, aber positivem Ergebnis',
     'blog.article.hupac-bilancio-positivo-2025.excerpt': 'Die Hupac-Gruppe hat das Jahr 2025 mit einem Nettogewinn von 3,5 Millionen Schweizer Franken abgeschlossen, ein Rückgang gegenüber den 9,4 Millionen Franken im Jahr 2024, aber mit einem Umsatzwachstum von 4,3%.',
     'blog.article.hupac-bilancio-positivo-2025.imageAlt': 'Ein Hupac-Logistikhub in der Schweiz mit LKWs und Zügen, digitale Bildschirme, die Echtzeit-Frachtdaten anzeigen, und Arbeiter, die die Operationen koordinieren.',
+    'blog.article.infermieri-orario-lavoro-ticino-2026.title': 'Pfleger lehnen Reduzierung der maximalen Wochenarbeitszeit ab',
+    'blog.article.infermieri-orario-lavoro-ticino-2026.excerpt': 'Der Nationalrat hat den Vorschlag der Regierung abgelehnt, die maximale Wochenarbeitszeit für Pfleger und Pflegerinnen zu reduzieren',
+    'blog.article.infermieri-orario-lavoro-ticino-2026.imageAlt': 'Eine Krankenschwester, die in einem Krankenhaus im Tessin arbeitet',
 };
 
 export default blogMetaDe;

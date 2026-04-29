@@ -3793,6 +3793,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.hupac-bilancio-positivo-2025.title': 'Hupac ends 2025 with lower profit but positive balance',
     'blog.article.hupac-bilancio-positivo-2025.excerpt': 'The Hupac group closed 2025 with a net profit of 3.5 million Swiss francs, down from 9.4 million in 2024, but with volumes up 4.3%.',
     'blog.article.hupac-bilancio-positivo-2025.imageAlt': 'A Hupac logistics hub in Ticino with trucks and trains, digital screens displaying real-time cargo data, and workers coordinating operations.',
+    'blog.article.infermieri-orario-lavoro-ticino-2026.title': 'Nurses reject reduced weekly working hours',
+    'blog.article.infermieri-orario-lavoro-ticino-2026.excerpt': 'The National Council has rejected the government\'s proposal to reduce the maximum weekly working hours for nurses',
+    'blog.article.infermieri-orario-lavoro-ticino-2026.imageAlt': 'A nurse working in a hospital in Ticino',
 };
 
 export default blogMetaEn;

@@ -9863,4 +9863,11 @@ export const ARTICLES = [
  image: '/images/blog/hupac-bilancio-positivo-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'infermieri-orario-lavoro-ticino-2026',
+ category: 'novita',
+ date: '2026-04-29T09:21:03.961Z',
+ image: '/images/blog/infermieri-orario-lavoro-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3794,6 +3794,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.hupac-bilancio-positivo-2025.title': 'Hupac termine 2025 avec un bénéfice en baisse mais un bilan positif',
     'blog.article.hupac-bilancio-positivo-2025.excerpt': 'Le groupe Hupac a clôturé l\'année 2025 avec un bénéfice net de 3,5 millions de francs suisses, en baisse par rapport aux 9,4 millions de 2024, mais avec un volume en hausse de 4,3%.',
     'blog.article.hupac-bilancio-positivo-2025.imageAlt': 'Un hub logistique Hupac dans le Tessin avec des camions et des trains, des écrans numériques affichant des données de fret en temps réel et des travailleurs coordonnant les opérations.',
+    'blog.article.infermieri-orario-lavoro-ticino-2026.title': 'Infirmiers, non à la réduction de l\'horaire hebdomadaire maximal',
+    'blog.article.infermieri-orario-lavoro-ticino-2026.excerpt': 'Le Conseil national a rejeté la proposition du gouvernement de réduire l\'horaire maximal hebdomadaire pour les infirmiers et infirmières',
+    'blog.article.infermieri-orario-lavoro-ticino-2026.imageAlt': 'Une infirmière travaillant dans un hôpital du Tessin',
 };
 
 export default blogMetaFr;
