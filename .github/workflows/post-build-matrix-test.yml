@@ -1,0 +1,235 @@
+name: Post-Build Matrix Test
+
+# Test workflow — splits the 18 post-build validators/audits/SPA/E2E checks
+# across 4 matrix runners (instead of 1) to measure if matrix parallelism
+# beats the current single-runner MAX_PARALLEL=2 cap (~345s baseline).
+#
+# Math: sum=690s sequential, current=345s on 1×2 cores. Matrix=4 runners ×
+# 2 cores = 8 effective slots. With LPT bucket assignment (in
+# scripts/lib/post-build-tasks.sh) the largest bucket sums ~232s →
+# per-shard wall ~116s + 60-90s setup = ~3 min total vs current 5.75 min.
+#
+# Does NOT touch deploy.yml. Manual-only via workflow_dispatch.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # Per-run group so multiple test invocations don't queue. Doesn't share
+  # the pages-deploy lock — this workflow never deploys.
+  group: post-build-matrix-test-${{ github.run_id }}
+  cancel-in-progress: false
+
+env:
+  PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Build
+        run: npm run build:ci
+
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+
+      - name: Upload build output for shards
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          # dist/ is the primary input; assembled data/* files are needed by
+          # validators that read jobs.json / expired-jobs.json directly.
+          # public/data/ is needed by validate:spa-render which fetches the
+          # SPA's data files at runtime.
+          path: |
+            dist/
+            data/jobs.json
+            data/expired-jobs.json
+            data/jobs-stats.json
+            data/jobs-meta.json
+            data/jobs-crawler-summaries.json
+            public/data/
+          retention-days: 1
+          if-no-files-found: error
+          compression-level: 1
+
+  shards:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+
+      # Playwright is only needed by shard 3 (test:e2e:smoke). Skip on the
+      # other 3 shards to save ~30-60s setup overhead.
+      - name: Cache Playwright browsers
+        if: matrix.shard == 3
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers
+        if: matrix.shard == 3 && steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright system deps (cache hit)
+        if: matrix.shard == 3 && steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Run shard tasks
+        id: run
+        shell: bash
+        run: |
+          set -uo pipefail
+          source scripts/lib/post-build-tasks.sh
+
+          MAX_PARALLEL=2
+          : > /tmp/timings.txt
+          : > /tmp/failures.txt
+
+          wait_slot() {
+            while (( $(jobs -rp | wc -l) >= MAX_PARALLEL )); do
+              wait -n 2>/dev/null || true
+            done
+          }
+
+          spawn_capped() {
+            local name=$1
+            local logfile=/tmp/$(echo "$name" | tr ':/' '__').log
+            wait_slot
+            (
+              start=$(date +%s.%N)
+              run_post_build_task "$name" > "$logfile" 2>&1
+              rc=$?
+              end=$(date +%s.%N)
+              awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"$name\", $end-$start, $rc}" \
+                >> /tmp/timings.txt
+              if [ $rc -ne 0 ]; then
+                echo "$name $logfile" >> /tmp/failures.txt
+              fi
+            ) &
+          }
+
+          shard_start=$(date +%s.%N)
+          while IFS= read -r task; do
+            [ -n "$task" ] && spawn_capped "$task"
+          done < <(print_post_build_shard "${{ matrix.shard }}")
+          wait
+          shard_end=$(date +%s.%N)
+
+          shard_wall=$(awk "BEGIN{printf \"%.2f\", $shard_end - $shard_start}")
+          echo "── Shard ${{ matrix.shard }} per-task wall_s (sorted DESC) ──"
+          sort -k2 -gr /tmp/timings.txt
+          echo "──────────────────────────────────────────────────────────"
+          echo "shard_wall_s=$shard_wall"
+          echo "$shard_wall" > /tmp/shard-wall.txt
+
+          if [ -s /tmp/failures.txt ]; then
+            echo ""
+            echo "❌ Shard ${{ matrix.shard }} failures:"
+            while IFS= read -r line; do
+              name=$(echo "$line" | awk '{print $1}')
+              logfile=$(echo "$line" | awk '{print $2}')
+              echo "── $name ──"
+              cat "$logfile" || true
+              echo ""
+            done < /tmp/failures.txt
+            exit 1
+          fi
+
+      - name: Upload shard timings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ matrix.shard }}-timings
+          path: |
+            /tmp/timings.txt
+            /tmp/shard-wall.txt
+          retention-days: 7
+
+  aggregate:
+    needs: [build, shards]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: shard-timings/
+          pattern: shard-*-timings
+
+      - name: Compute matrix wall + summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          MATRIX_MAX=0
+          MATRIX_SUM=0
+          {
+            echo "## Post-build matrix split — measurement"
+            echo ""
+            echo "| Shard | Wall (s) |"
+            echo "|---:|---:|"
+            for d in shard-timings/shard-*-timings; do
+              [ -d "$d" ] || continue
+              n=$(basename "$d" | sed -E 's/shard-([0-9]+)-timings/\1/')
+              w=$(tr -d '[:space:]' < "$d/shard-wall.txt" 2>/dev/null || echo "?")
+              echo "| $n | $w |"
+              if [ "$w" != "?" ]; then
+                MATRIX_SUM=$(awk "BEGIN{printf \"%.2f\", $MATRIX_SUM + $w}")
+                gt=$(awk "BEGIN{print ($w > $MATRIX_MAX) ? 1 : 0}")
+                if [ "$gt" = "1" ]; then MATRIX_MAX=$w; fi
+              fi
+            done
+            echo ""
+            echo "**Matrix wall (max shard) = ${MATRIX_MAX}s**"
+            echo "**Sum across shards = ${MATRIX_SUM}s** (info — not the wall)"
+            echo ""
+            echo "Single-runner baselines for comparison (from deploy.yml):"
+            echo "- MAX_PARALLEL=2 (current default): ~345s"
+            echo "- Uncapped (18-way thrash): ~567s"
+            echo ""
+            echo "### Per-task wall_s, all shards (sorted DESC)"
+            echo ""
+            echo '```'
+            cat shard-timings/shard-*-timings/timings.txt 2>/dev/null \
+              | sort -k2 -gr || true
+            echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"
