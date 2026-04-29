@@ -4067,6 +4067,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ubs-utile-3-miliardi-2026.title': 'UBS, utile oltre i 3 miliardi nel 2026',
     'blog.article.ubs-utile-3-miliardi-2026.excerpt': 'L\'istituto bancario svizzero registra un utile netto di 3,04 miliardi di dollari nel primo trimestre 2026, superando le aspettative',
     'blog.article.ubs-utile-3-miliardi-2026.imageAlt': 'Vista aerea del Lago di Lugano con gli uffici UBS sullo sfondo',
+    'blog.article.borse-europee-zurigo-trimestrali.title': 'Borse europee in calo, timori dalle trimestrali',
+    'blog.article.borse-europee-zurigo-trimestrali.excerpt': 'Zurigo ansima ma poi fa quasi pari. Analisi degli ultimi sviluppi e impatti per i frontalieri.',
+    'blog.article.borse-europee-zurigo-trimestrali.imageAlt': 'Vista del lago di Lugano con la città e le montagne',
 };
 
 export default blogMetaIt;

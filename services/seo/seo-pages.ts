@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1405,
+ "numberOfItems": 1406,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6040,7 +6040,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1402, "name": "GEV Insubria Olona: protezione ambientale in Ti...", "url": `${BASE_URL}/articoli-frontaliere/gev-ticino-ambiente-2026` },
           { "@type": "ListItem", "position": 1403, "name": "Siccità in Lombardia: mancano il 37% delle rise...", "url": `${BASE_URL}/articoli-frontaliere/siccita-lombardia-riserve-idriche-2026` },
           { "@type": "ListItem", "position": 1404, "name": "Fed: l'addio di Powell a tassi invariati", "url": `${BASE_URL}/articoli-frontaliere/fed-powell-addio-tassi-invariati` },
-          { "@type": "ListItem", "position": 1405, "name": "UBS, utile oltre i 3 miliardi nel 2026", "url": `${BASE_URL}/articoli-frontaliere/ubs-utile-3-miliardi-2026` }
+          { "@type": "ListItem", "position": 1405, "name": "UBS, utile oltre i 3 miliardi nel 2026", "url": `${BASE_URL}/articoli-frontaliere/ubs-utile-3-miliardi-2026` },
+          { "@type": "ListItem", "position": 1406, "name": "Borse europee in calo, timori dalle trimestrali", "url": `${BASE_URL}/articoli-frontaliere/borse-europee-zurigo-trimestrali` }
  ]
  },
  {

@@ -4066,6 +4066,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ubs-utile-3-miliardi-2026.title': 'UBS profit tops $3 billion in 2026',
     'blog.article.ubs-utile-3-miliardi-2026.excerpt': 'The Swiss bank records a net profit of $3.04 billion in the first quarter of 2026, exceeding expectations',
     'blog.article.ubs-utile-3-miliardi-2026.imageAlt': 'Aerial view of Lake Lugano with UBS offices in the background',
+    'blog.article.borse-europee-zurigo-trimestrali.title': 'European markets fall amid earnings fears',
+    'blog.article.borse-europee-zurigo-trimestrali.excerpt': 'Zurich struggles but then almost evens out. Analysis of the latest developments and impacts for cross-border workers.',
+    'blog.article.borse-europee-zurigo-trimestrali.imageAlt': 'View of Lake Lugano with the city and mountains',
 };
 
 export default blogMetaEn;

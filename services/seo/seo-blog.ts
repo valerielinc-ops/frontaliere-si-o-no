@@ -26284,6 +26284,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-europee-zurigo-trimestrali': {
+    title: 'Borse europee in calo, timori dalle trimestrali | Frontaliere Ticino',
+    description: 'Analisi delle flessioni delle Borse europee e impatti per i frontalieri. Zurigo ansima ma poi fa quasi pari. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, europee, calo, timori',
+    ogTitle: 'Borse europee in calo, timori dalle trimestrali',
+    ogDescription: 'Analisi delle flessioni delle Borse europee e impatti per i frontalieri. Zurigo ansima ma poi fa quasi pari.',
+    canonicalPath: '/articoli-frontaliere/borse-europee-zurigo-trimestrali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse europee in calo, timori dalle trimestrali",
+      "description": "Analisi delle flessioni delle Borse europee e impatti per i frontalieri. Zurigo ansima ma poi fa quasi pari. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/borse-europee-zurigo-trimestrali.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con la città e le montagne"
+      },
+      "datePublished": "2026-04-29T23:56:09+00:00",
+      "dateModified": "2026-04-29T23:56:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borse-europee-zurigo-trimestrali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

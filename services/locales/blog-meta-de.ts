@@ -4066,6 +4066,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ubs-utile-3-miliardi-2026.title': 'UBS erzielt 2026 über 3 Milliarden Gewinn',
     'blog.article.ubs-utile-3-miliardi-2026.excerpt': 'Die Schweizer Bank verzeichnet einen Nettogewinn von 3,04 Milliarden US-Dollar im ersten Quartal 2026 und übertrifft die Erwartungen',
     'blog.article.ubs-utile-3-miliardi-2026.imageAlt': 'Luftaufnahme des Luganersees mit den UBS-Büros im Hintergrund',
+    'blog.article.borse-europee-zurigo-trimestrali.title': 'Europäische Börsen im Rückgang, Sorge um Quartalszahlen',
+    'blog.article.borse-europee-zurigo-trimestrali.excerpt': 'Zürich keucht, dann fast ausgeglichen. Analyse der letzten Entwicklungen und Auswirkungen auf Grenzgänger.',
+    'blog.article.borse-europee-zurigo-trimestrali.imageAlt': 'Blick auf den Luganersee mit der Stadt und den Bergen',
 };
 
 export default blogMetaDe;

@@ -4067,6 +4067,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ubs-utile-3-miliardi-2026.title': 'UBS, bénéfice dépassant les 3 milliards en 2026',
     'blog.article.ubs-utile-3-miliardi-2026.excerpt': 'L\'institut bancaire suisse enregistre un bénéfice net de 3,04 milliards de dollars au premier trimestre 2026, dépassant les attentes',
     'blog.article.ubs-utile-3-miliardi-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les bureaux d\'UBS en arrière-plan',
+    'blog.article.borse-europee-zurigo-trimestrali.title': 'Bourses européennes en baisse, craintes des résultats trimestriels',
+    'blog.article.borse-europee-zurigo-trimestrali.excerpt': 'Zurich s\'essouffle puis se stabilise. Analyse des derniers développements et impacts pour les frontaliers.',
+    'blog.article.borse-europee-zurigo-trimestrali.imageAlt': 'Vue du lac de Lugano avec la ville et les montagnes',
 };
 
 export default blogMetaFr;

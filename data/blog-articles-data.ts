@@ -10500,4 +10500,11 @@ export const ARTICLES = [
  image: '/images/blog/ubs-utile-3-miliardi-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'borse-europee-zurigo-trimestrali',
+ category: 'novita',
+ date: '2026-04-29T23:56:09.604Z',
+ image: '/images/blog/borse-europee-zurigo-trimestrali.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
