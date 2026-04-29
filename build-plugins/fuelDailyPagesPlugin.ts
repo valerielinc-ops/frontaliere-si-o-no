@@ -2071,7 +2071,7 @@ function titleCase(s: string): string {
 }
 
 /** Group station contexts by zone (for sibling picking). */
-function groupByZone(contexts: StationContext[]): Map<FuelZone, StationContext[]> {
+function groupByZone(contexts: readonly StationContext[]): Map<FuelZone, StationContext[]> {
   const out = new Map<FuelZone, StationContext[]>();
   for (const c of contexts) {
     const arr = out.get(c.zone) ?? [];
@@ -3122,12 +3122,24 @@ function renderItalianCityPage(opts: {
  *
  * Safety cap: MAX_FUEL_STATION_PAGES_PER_BUILD (env var). When exceeded the
  * generator stops emitting and logs a warning.
+ *
+ * Single source of truth (2026-04-29 anti-orphan fix): callers may pass a
+ * pre-collected `contexts` array. The fuel-station browseable index plugin
+ * MUST be fed the same list so the index links every station that has a
+ * detail page — otherwise stations whose detail page is emitted but whose
+ * index link is missing become orphans in `sitemap-fuel-stations.xml`.
  */
 export function generateFuelStationPages(opts: {
   dataset: FuelPricesDataset;
   today?: Date;
   distDir?: string;
   maxPages?: number;
+  /**
+   * Optional pre-collected contexts. When provided, the function skips its
+   * own `collectSwissStationContexts(dataset)` call. Used by the closeBundle
+   * hook so the index plugin and the detail-page generator share one list.
+   */
+  contexts?: readonly StationContext[];
 }): Record<string, string> {
   const dataset = opts.dataset;
   const today = opts.today ?? new Date();
@@ -3135,7 +3147,7 @@ export function generateFuelStationPages(opts: {
   const maxPages = opts.maxPages ?? Number(process.env.MAX_FUEL_STATION_PAGES_PER_BUILD || 1500);
   const pages: Record<string, string> = {};
 
-  const contexts = collectSwissStationContexts(dataset);
+  const contexts = opts.contexts ?? collectSwissStationContexts(dataset);
   if (contexts.length === 0) return pages;
 
   const zoneGroups = groupByZone(contexts);
@@ -3343,7 +3355,7 @@ function collectItalianStationContexts(
 }
 
 function groupItalianContextsByCity(
-  contexts: ItalianStationContext[],
+  contexts: readonly ItalianStationContext[],
 ): Map<string, ItalianStationContext[]> {
   const out = new Map<string, ItalianStationContext[]>();
   for (const c of contexts) {
@@ -3815,6 +3827,12 @@ export function generateFuelItalianStationPages(opts: {
   history?: HistorySnapshot[];
   today?: Date;
   distDir?: string;
+  /**
+   * Optional pre-collected contexts (single-source-of-truth pattern; see
+   * generateFuelStationPages for rationale). When provided, the function
+   * skips its own `collectItalianStationContexts(dataset)` call.
+   */
+  contexts?: readonly ItalianStationContext[];
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
@@ -3822,7 +3840,7 @@ export function generateFuelItalianStationPages(opts: {
   const distDir = opts.distDir;
   const pages: Record<string, string> = {};
 
-  const contexts = collectItalianStationContexts(dataset);
+  const contexts = opts.contexts ?? collectItalianStationContexts(dataset);
   if (contexts.length === 0) return pages;
 
   const cityGroups = groupItalianContextsByCity(contexts);
@@ -4035,16 +4053,38 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       const history = readHistory(rootDir);
       const today = new Date();
 
+      // ── Single source of truth for station contexts (2026-04-29) ─
+      // Compute Swiss + Italian contexts ONCE before any generator runs,
+      // then thread the SAME list through both the per-station page
+      // generators AND the browseable-index generator. This guarantees the
+      // index links every station whose detail page we emit — eliminating
+      // the divergence that was leaking new orphans into
+      // `sitemap-fuel-stations.xml` whenever the index source happened to
+      // disagree with the detail-page source on a fresh dataset.
+      const swissContexts = collectSwissStationContexts(dataset);
+      const italianContexts = collectItalianStationContexts(dataset);
+
       const pages = generateFuelDailyPages({ rootDir, dataset, history, today, distDir });
       const archives = generateFuelArchivePages({ history, today, distDir });
-      const stationPages = generateFuelStationPages({ dataset, today, distDir });
+      const stationPages = generateFuelStationPages({
+        dataset,
+        today,
+        distDir,
+        contexts: swissContexts,
+      });
       const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir });
-      const italianStationPages = generateFuelItalianStationPages({ dataset, history, today, distDir });
+      const italianStationPages = generateFuelItalianStationPages({
+        dataset,
+        history,
+        today,
+        distDir,
+        contexts: italianContexts,
+      });
 
       // ── F6.5: Browseable indexes (anti-orphan-page fix) ────────
-      // Build leaf lists once from the same collectors used for the per-station
-      // pages, so what we link from the index is exactly what we publish.
-      const swissContexts = collectSwissStationContexts(dataset);
+      // Build leaf lists from the SAME contexts used for the per-station
+      // pages above, so what we link from the index is exactly what we
+      // publish. Any divergence here re-introduces orphans.
       const swissLeaves: SwissStationLeaf[] = swissContexts.map((c) => ({
         zone: c.zone,
         slug: c.slug,
@@ -4052,7 +4092,6 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         brand: c.brandDisplay,
         address: c.station.address ?? '',
       }));
-      const italianContexts = collectItalianStationContexts(dataset);
       const italianLeaves: ItalianStationLeaf[] = italianContexts.map((c) => ({
         citySlug: c.cityEntry.slug,
         cityDisplay: c.cityEntry.display,
@@ -4161,8 +4200,16 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       for (const [path, html] of Object.entries(indexPages)) {
         const words = countHtmlBodyWords(html);
         if (words < INDEX_MIN_WORDS) {
+          // Loud failure: skipping a fuel index page silently orphans every
+          // per-station / per-city leaf it would have linked. Emit an error
+          // (not a warning) so CI surfaces it before the orphan-pages gate
+          // catches the downstream regression.
           skipped++;
-          console.warn(`[fuel-daily-pages] index thin content (${words} words) for ${path} — skipping`);
+          console.error(
+            `[fuel-daily-pages] CRITICAL: index thin content (${words} words < ${INDEX_MIN_WORDS}) for ${path} — skipping. ` +
+              `Per-station leaves it should link will be orphaned in sitemap-fuel-stations.xml. ` +
+              `Investigate fuelStationIndexPages.ts copy + station data integrity.`,
+          );
           continue;
         }
         const outDir = np.join(distDir, path.replace(/^\/+/, ''));
