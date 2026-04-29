@@ -20,7 +20,7 @@ import {
  type JobCardJob,
 } from './shared/jobCardHtml';
 import { renderListingPaginationProse } from './shared/jobListingProse';
-import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
+import { renderJobBoardCommuterContext, renderSearchQueryIntro, isKnownTicinoCommuterCity } from './shared/jobBoardCommuterContext';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
 import {
@@ -4955,6 +4955,22 @@ ${alternates}
  return `<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`;
  })();
  const kwOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board \u00f6ffnen' : 'Ouvrir le job board complet';
+ // SEO: text-to-HTML ratio gate. Inject a per-query unique intro (so each
+ // GSC-keyword landing has unique top prose) and the shared commuter
+ // context block (methodology + commute + salary + FAQ + cross-links).
+ const _kwQuery = String(kwQueryDisplay || itCopy.heading || '').trim();
+ const _kwCity = (() => {
+ const segs = String(kwSlug).split('-');
+ for (const s of segs) if (isKnownTicinoCommuterCity(s)) return s;
+ return null;
+ })();
+ const kwQueryIntro = renderSearchQueryIntro(locale, _kwQuery, kwJobs.length, kwUniqueCompanies, kwUniqueLocations);
+ const kwCommuterBlock = renderJobBoardCommuterContext({
+ locale,
+ location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : 'Ticino',
+ sectorOrType: _kwQuery || null,
+ omitCommute: !_kwCity,
+ });
  const kwHtml = buildSimplePage({
  locale,
  title: kwTitle,
@@ -4965,7 +4981,7 @@ ${alternates}
  jsonLdScripts: [kwCollLd],
  entryJs: hasSpaBundle ? entryJs : undefined,
  entryCss: hasSpaBundle ? entryCss : undefined,
- bodyHtml: `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}`,
+ bodyHtml: `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${kwCommuterBlock}`,
  });
  const kwOutDir = np.join(distDir, kwCanonicalPath.slice(1));
  activeJobDirs.add(kwRelDir);
@@ -5071,6 +5087,18 @@ ${alternates}
  searchBodyParts.push(`<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Les secteurs les plus actifs incluent la sant\u00e9, la finance, la technologie, l'ing\u00e9nierie, le commerce et l'administration. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`);
  }
  searchBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(copy.editorial)}</p>`);
+ // SEO: text-to-HTML ratio gate. Append per-query unique intro + the
+ // shared commuter-context block (methodology, FAQ, scenario, cross-links).
+ // For Ticino cities we use the city-aware commuter row; for non-Ticino
+ // queries (Chur, Zurich, etc.) we fall back to general-Ticino prose.
+ const _isTicino = isKnownTicinoCommuterCity(name);
+ searchBodyParts.unshift(renderSearchQueryIntro(locale, name, matchingJobs.length, uniqueCompanies, uniqueLocations));
+ searchBodyParts.push(renderJobBoardCommuterContext({
+ locale,
+ location: _isTicino ? name : 'Ticino',
+ sectorOrType: _isTicino ? null : name,
+ omitCommute: !_isTicino,
+ }));
  }
  const _sHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const _sListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
@@ -5200,6 +5228,24 @@ ${alternates}
  comboBodyParts.push(`<section style="margin-top:20px"><h2>Travailler au Tessin en tant que frontalier</h2><p>Le Canton du Tessin est la principale zone \u00e9conomique de la Suisse italienne. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut. Les principaux centres \u00e9conomiques sont Lugano, Bellinzona, Mendrisio, Locarno et Chiasso. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier et comparer les avantages et inconv\u00e9nients entre r\u00e9sider en Suisse et faire la navette depuis l'Italie.</p></section>`);
  }
  comboBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(searchPageCopy[locale].editorial)}</p>`);
+ // SEO: text-to-HTML ratio gate. Same enrichment as the search-leader
+ // template. The combo heading (e.g. "Lavoro Stage a Lugano",
+ // "Lavoro Sanità in Ticino") is the user-facing query; we feed it as
+ // the unique intro key. For combos starting with a known Ticino city
+ // we use the city-aware commuter row; otherwise general-Ticino prose.
+ const _comboCity = (() => {
+ const segs = String(comboKey).split('-');
+ for (const s of segs) if (isKnownTicinoCommuterCity(s)) return s;
+ return null;
+ })();
+ const _comboQuery = String(copy.heading || '').trim();
+ comboBodyParts.unshift(renderSearchQueryIntro(locale, _comboQuery, matchingJobs.length, cUniqueCompanies, cUniqueLocations));
+ comboBodyParts.push(renderJobBoardCommuterContext({
+ locale,
+ location: _comboCity ? _comboCity.charAt(0).toUpperCase() + _comboCity.slice(1) : 'Ticino',
+ sectorOrType: _comboQuery || null,
+ omitCommute: !_comboCity,
+ }));
  }
  const _cHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const _cListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
