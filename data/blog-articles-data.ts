@@ -9576,4 +9576,11 @@ export const ARTICLES = [
  image: '/images/blog/robot-umanoidi-maratona-fascinazione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'guida-svizzera-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-04-29T03:39:57.685Z',
+ image: '/images/blog/guida-svizzera-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3670,6 +3670,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.robot-umanoidi-maratona-fascinazione.title': 'Humanoid robots win half-marathon: progress or fascination?',
     'blog.article.robot-umanoidi-maratona-fascinazione.excerpt': 'A humanoid robot has broken the world record for the half-marathon in Beijing, sparking debates on the usefulness and ethics of these technologies',
     'blog.article.robot-umanoidi-maratona-fascinazione.imageAlt': 'Humanoid robot running a marathon in Lugano, with Lake Lugano in the background',
+    'blog.article.guida-svizzera-frontalieri-ticino.title': 'Guide to Switzerland for Ticino cross-border workers',
+    'blog.article.guida-svizzera-frontalieri-ticino.excerpt': 'Everything you need to know about living and working in Switzerland, with a focus on the Canton of Ticino',
+    'blog.article.guida-svizzera-frontalieri-ticino.imageAlt': 'Serene view of Lake Lugano with surrounding mountains and a boat on the water',
 };
 
 export default blogMetaEn;

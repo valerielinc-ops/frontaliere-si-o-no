@@ -22456,6 +22456,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-svizzera-frontalieri-ticino': {
+    title: 'Guida alla Svizzera per frontalieri del Ticino | Frontaliere Ticino',
+    description: 'Tutto quello che devi sapere per vivere e lavorare in Svizzera, con focus su Canton Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alla, tutto, quello, devi',
+    ogTitle: 'Guida alla Svizzera per frontalieri del Ticino',
+    ogDescription: 'Tutto quello che devi sapere per vivere e lavorare in Svizzera, con focus su Canton Ticino',
+    canonicalPath: '/articoli-frontaliere/guida-svizzera-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida alla Svizzera per frontalieri del Ticino",
+      "description": "Tutto quello che devi sapere per vivere e lavorare in Svizzera, con focus su Canton Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guida-svizzera-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena del Lago di Lugano con le montagne circostanti e una barca sull'acqua"
+      },
+      "datePublished": "2026-04-29T03:39:57+00:00",
+      "dateModified": "2026-04-29T03:39:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-svizzera-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1273,
+ "numberOfItems": 1274,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5908,7 +5908,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1270, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/esposizione-segughi-malvaglia-2026` },
           { "@type": "ListItem", "position": 1271, "name": "Ragazza 22enne trovata morta in un campo: perqu...", "url": `${BASE_URL}/articoli-frontaliere/ragazza-morta-campo-perquisita-casa-amico` },
           { "@type": "ListItem", "position": 1272, "name": "Violenza domestica: nuove misure urgenti per co...", "url": `${BASE_URL}/articoli-frontaliere/violenza-domestica-misure-urgenti` },
-          { "@type": "ListItem", "position": 1273, "name": "Robot umanoidi vincono maratona: progresso o fa...", "url": `${BASE_URL}/articoli-frontaliere/robot-umanoidi-maratona-fascinazione` }
+          { "@type": "ListItem", "position": 1273, "name": "Robot umanoidi vincono maratona: progresso o fa...", "url": `${BASE_URL}/articoli-frontaliere/robot-umanoidi-maratona-fascinazione` },
+          { "@type": "ListItem", "position": 1274, "name": "Guida alla Svizzera per frontalieri del Ticino", "url": `${BASE_URL}/articoli-frontaliere/guida-svizzera-frontalieri-ticino` }
  ]
  },
  {

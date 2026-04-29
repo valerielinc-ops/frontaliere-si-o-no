@@ -3671,6 +3671,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.robot-umanoidi-maratona-fascinazione.title': 'Des robots humanoïdes remportent la demi-marathon : progrès ou fascination ?',
     'blog.article.robot-umanoidi-maratona-fascinazione.excerpt': 'Un robot humanoïde a battu le record mondial de demi-marathon à Pékin, suscitant des débats sur l\'utilité et l\'éthique de ces technologies',
     'blog.article.robot-umanoidi-maratona-fascinazione.imageAlt': 'Robot humanoïde courant un marathon à Lugano, avec le lac de Lugano en arrière-plan',
+    'blog.article.guida-svizzera-frontalieri-ticino.title': 'Guide de la Suisse pour les frontaliers du Tessin',
+    'blog.article.guida-svizzera-frontalieri-ticino.excerpt': 'Tout ce que vous devez savoir pour vivre et travailler en Suisse, avec un focus sur le canton du Tessin',
+    'blog.article.guida-svizzera-frontalieri-ticino.imageAlt': 'Vue sereine du lac de Lugano avec les montagnes environnantes et un bateau sur l\'eau',
 };
 
 export default blogMetaFr;

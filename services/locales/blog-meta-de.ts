@@ -3670,6 +3670,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.robot-umanoidi-maratona-fascinazione.title': 'Humanoide Roboter gewinnen Halbmarathon: Fortschritt oder Faszination?',
     'blog.article.robot-umanoidi-maratona-fascinazione.excerpt': 'Ein humanoider Roboter hat in Peking den Weltrekord im Halbmarathon gebrochen und damit Debatten über Nutzen und Ethik dieser Technologien ausgelöst.',
     'blog.article.robot-umanoidi-maratona-fascinazione.imageAlt': 'Humanoider Roboter läuft einen Marathon in Lugano, mit dem Luganersee im Hintergrund',
+    'blog.article.guida-svizzera-frontalieri-ticino.title': 'Leitfaden für Grenzgänger im Tessin',
+    'blog.article.guida-svizzera-frontalieri-ticino.excerpt': 'Alles, was Sie wissen müssen, um in der Schweiz zu leben und zu arbeiten, mit Fokus auf den Kanton Tessin',
+    'blog.article.guida-svizzera-frontalieri-ticino.imageAlt': 'Ruhevolle Aussicht auf den Luganersee mit umliegenden Bergen und einem Boot auf dem Wasser',
 };
 
 export default blogMetaDe;

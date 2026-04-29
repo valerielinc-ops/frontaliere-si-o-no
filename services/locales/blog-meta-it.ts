@@ -3671,6 +3671,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.robot-umanoidi-maratona-fascinazione.title': 'Robot umanoidi vincono la mezza maratona: progresso o fascinazione?',
     'blog.article.robot-umanoidi-maratona-fascinazione.excerpt': 'Un robot umanoide ha battuto il record mondiale di mezza maratona a Pechino, suscitando dibattiti sull\'utilità e l\'etica di queste tecnologie',
     'blog.article.robot-umanoidi-maratona-fascinazione.imageAlt': 'Robot umanoide corre una maratona a Lugano, sullo sfondo del Lago di Lugano',
+    'blog.article.guida-svizzera-frontalieri-ticino.title': 'Guida alla Svizzera per frontalieri del Ticino',
+    'blog.article.guida-svizzera-frontalieri-ticino.excerpt': 'Tutto quello che devi sapere per vivere e lavorare in Svizzera, con focus su Canton Ticino',
+    'blog.article.guida-svizzera-frontalieri-ticino.imageAlt': 'Vista serena del Lago di Lugano con le montagne circostanti e una barca sull\'acqua',
 };
 
 export default blogMetaIt;
