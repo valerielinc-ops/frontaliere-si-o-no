@@ -3704,6 +3704,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-affettuosa-separazione-ticino-2026.title': 'Guide affectueuse pour les séparations au Tessin: protéger enfants et parents',
     'blog.article.guida-affettuosa-separazione-ticino-2026.excerpt': 'FaMo+ présente un guide complet pour affronter la séparation avec un soutien juridique, économique et psychologique. Focus sur les besoins des enfants',
     'blog.article.guida-affettuosa-separazione-ticino-2026.imageAlt': 'Un couple discute la séparation dans un bureau de notaire à Lugano, avec le lac de Lugano en arrière-plan',
+    'blog.article.processo-tentato-omicidio-chiasso-2026.title': 'Procès pour tentative de meurtre à Chiasso: agression avec un haltère',
+    'blog.article.processo-tentato-omicidio-chiasso-2026.excerpt': 'S\'ouvre le procès d\'un citoyen érythréen accusé d\'avoir agressé sa compagne avec un haltère de gym à Chiasso.',
+    'blog.article.processo-tentato-omicidio-chiasso-2026.imageAlt': 'Vue aérienne de Chiasso, Suisse, près de la frontière italienne, avec un focus sur l\'architecture de la ville et le paysage environnant.',
 };
 
 export default blogMetaFr;

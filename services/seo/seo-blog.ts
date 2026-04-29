@@ -22775,6 +22775,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-processo-tentato-omicidio-chiasso-2026': {
+    title: 'Processo per tentato omicidio a Chiasso: aggressione con manubrio',
+    description: 'Si apre il processo a carico di un cittadino eritreo accusato di aver aggredito la compagna con un manubrio da palestra a Chiasso. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, tentato, omicidio, chiasso',
+    ogTitle: 'Processo tentato omicidio Chiasso: aggressione con manubrio',
+    ogDescription: 'Si apre il processo a carico di un cittadino eritreo accusato di aver aggredito la compagna con un manubrio da palestra a Chiasso.',
+    canonicalPath: '/articoli-frontaliere/processo-tentato-omicidio-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Processo per tentato omicidio a Chiasso: aggressione con manubrio",
+      "description": "Si apre il processo a carico di un cittadino eritreo accusato di aver aggredito la compagna con un manubrio da palestra a Chiasso. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/processo-tentato-omicidio-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Chiasso, Svizzera, vicino al confine italiano, con focus sull'architettura della città e sul paesaggio circostante."
+      },
+      "datePublished": "2026-04-29T04:43:29+00:00",
+      "dateModified": "2026-04-29T04:43:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/processo-tentato-omicidio-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

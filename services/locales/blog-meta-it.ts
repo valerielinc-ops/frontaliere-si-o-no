@@ -3704,6 +3704,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guida-affettuosa-separazione-ticino-2026.title': 'Guida affettuosa per separazioni in Ticino: come tutelare figli e genitori',
     'blog.article.guida-affettuosa-separazione-ticino-2026.excerpt': 'FaMo+ presenta una guida completa per affrontare la separazione con supporto giuridico, economico e psicologico. Focus sui bisogni dei figli',
     'blog.article.guida-affettuosa-separazione-ticino-2026.imageAlt': 'Una coppia discute la separazione in uno studio notarile a Lugano, con il Lago di Lugano sullo sfondo',
+    'blog.article.processo-tentato-omicidio-chiasso-2026.title': 'Processo per tentato omicidio a Chiasso: aggressione con manubrio',
+    'blog.article.processo-tentato-omicidio-chiasso-2026.excerpt': 'Si apre il processo a carico di un cittadino eritreo accusato di aver aggredito la compagna con un manubrio da palestra a Chiasso.',
+    'blog.article.processo-tentato-omicidio-chiasso-2026.imageAlt': 'Vista aerea di Chiasso, Svizzera, vicino al confine italiano, con focus sull\'architettura della città e sul paesaggio circostante.',
 };
 
 export default blogMetaIt;

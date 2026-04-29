@@ -3703,6 +3703,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guida-affettuosa-separazione-ticino-2026.title': 'Affectionate guide for separations in Ticino: protecting children and parents',
     'blog.article.guida-affettuosa-separazione-ticino-2026.excerpt': 'FaMo+ presents a comprehensive guide to dealing with separation with legal, economic and psychological support. Focus on the needs of the children',
     'blog.article.guida-affettuosa-separazione-ticino-2026.imageAlt': 'A couple discussing separation in a notary office in Lugano, with Lake Lugano in the background',
+    'blog.article.processo-tentato-omicidio-chiasso-2026.title': 'Trial for attempted murder in Chiasso: attack with dumbbell',
+    'blog.article.processo-tentato-omicidio-chiasso-2026.excerpt': 'The trial begins for an Eritrean citizen accused of attacking his partner with a gym dumbbell in Chiasso.',
+    'blog.article.processo-tentato-omicidio-chiasso-2026.imageAlt': 'Aerial view of Chiasso, Switzerland, near the Italian border, focusing on the town\'s architecture and the surrounding landscape.',
 };
 
 export default blogMetaEn;

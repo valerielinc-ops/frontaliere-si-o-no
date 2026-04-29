@@ -9653,4 +9653,11 @@ export const ARTICLES = [
  image: '/images/blog/guida-affettuosa-separazione-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'processo-tentato-omicidio-chiasso-2026',
+ category: 'novita',
+ date: '2026-04-29T04:43:29.788Z',
+ image: '/images/blog/processo-tentato-omicidio-chiasso-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
