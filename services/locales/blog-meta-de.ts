@@ -3913,6 +3913,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.benzina-record-annuale-svizzera-2026.title': 'Benzinpreis in der Schweiz auf Jahresrekord: +13% in 3 Monaten',
     'blog.article.benzina-record-annuale-svizzera-2026.excerpt': 'Der Benzinpreis in der Schweiz hat mit 1,90 Franken pro Liter den Jahreshöchststand erreicht. Der Diesel liegt bei 2,17 Franken pro Liter.',
     'blog.article.benzina-record-annuale-svizzera-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund, klarer blauer Himmel',
+    'blog.article.giovane-gambizzato-como-2026.title': '20-Jähriger in Como mit drei Schüssen verletzt',
+    'blog.article.giovane-gambizzato-como-2026.excerpt': 'Ein 20-Jähriger wurde am Bein mit drei Schüssen am Stadtrand von Como verletzt. Die Ermittler untersuchen die Gründe des Angriffs.',
+    'blog.article.giovane-gambizzato-como-2026.imageAlt': 'Eine Straße im Außenbezirk von Como, Italien, mit einer städtischen Atmosphäre',
 };
 
 export default blogMetaDe;

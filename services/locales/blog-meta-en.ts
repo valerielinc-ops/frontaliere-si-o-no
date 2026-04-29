@@ -3913,6 +3913,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benzina-record-annuale-svizzera-2026.title': 'Swiss fuel prices hit annual high: +13% in 3 months',
     'blog.article.benzina-record-annuale-svizzera-2026.excerpt': 'Fuel prices in Switzerland have reached an annual high of 1.90 CHF per litre. Diesel is at 2.17 CHF per litre.',
     'blog.article.benzina-record-annuale-svizzera-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky',
+    'blog.article.giovane-gambizzato-como-2026.title': 'Young man shot three times in leg in Como',
+    'blog.article.giovane-gambizzato-como-2026.excerpt': 'A 20-year-old was injured in the leg with three gunshots on the outskirts of Como. Investigators are looking into the motive behind the attack.',
+    'blog.article.giovane-gambizzato-como-2026.imageAlt': 'A street in the outskirts of Como, Italy, with an urban atmosphere',
 };
 
 export default blogMetaEn;

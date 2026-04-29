@@ -3914,6 +3914,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.benzina-record-annuale-svizzera-2026.title': 'Essence en Suisse à un record annuel: +13% en 3 mois',
     'blog.article.benzina-record-annuale-svizzera-2026.excerpt': 'Le prix de l\'essence en Suisse a atteint le maximum annuel à 1,90 CHF/litre. Le diesel est à 2,17 CHF/litre.',
     'blog.article.benzina-record-annuale-svizzera-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, ciel bleu clair',
+    'blog.article.giovane-gambizzato-como-2026.title': 'Un jeune homme blessé par balles à Côme',
+    'blog.article.giovane-gambizzato-como-2026.excerpt': 'Un homme de 20 ans a été blessé à la jambe par trois coups de feu en périphérie de Côme. Les enquêteurs cherchent à comprendre les raisons de cet acte.',
+    'blog.article.giovane-gambizzato-como-2026.imageAlt': 'Une rue en périphérie de Côme, Italie, avec une atmosphère urbaine',
 };
 
 export default blogMetaFr;

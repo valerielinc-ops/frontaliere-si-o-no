@@ -3914,6 +3914,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.benzina-record-annuale-svizzera-2026.title': 'Benzina in Svizzera a record annuale: +13% in 3 mesi',
     'blog.article.benzina-record-annuale-svizzera-2026.excerpt': 'Il prezzo della benzina in Svizzera ha raggiunto il massimo annuale a 1,90 CHF/litro. Il diesel è a 2,17 CHF/litro.',
     'blog.article.benzina-record-annuale-svizzera-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido',
+    'blog.article.giovane-gambizzato-como-2026.title': 'Giovane gambizzato con tre colpi d\'arma da fuoco a Como',
+    'blog.article.giovane-gambizzato-como-2026.excerpt': 'Un 20enne è stato ferito alla gamba con tre colpi d\'arma da fuoco alla periferia di Como. Gli inquirenti indagano sui motivi del gesto.',
+    'blog.article.giovane-gambizzato-como-2026.imageAlt': 'Una strada nella periferia di Como, Italia, con un\'atmosfera urbana',
 };
 
 export default blogMetaIt;

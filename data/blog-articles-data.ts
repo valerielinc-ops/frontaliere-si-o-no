@@ -10143,4 +10143,11 @@ export const ARTICLES = [
  image: '/images/blog/benzina-record-annuale-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'giovane-gambizzato-como-2026',
+ category: 'novita',
+ date: '2026-04-29T13:42:04.795Z',
+ image: '/images/blog/giovane-gambizzato-como-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

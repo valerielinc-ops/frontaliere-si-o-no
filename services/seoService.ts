@@ -2535,6 +2535,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-usa-svizzera-frizioni-commerciali-2026': { name: 'Novità', path: '/articoli-frontaliere/usa-svizzera-frizioni-commerciali-2026', parent: 'blog' },
     'blog-terremoto-gottardo-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/terremoto-gottardo-frontalieri', parent: 'blog' },
     'blog-benzina-record-annuale-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/benzina-record-annuale-svizzera-2026', parent: 'blog' },
+    'blog-giovane-gambizzato-como-2026': { name: 'Incidente Como', path: '/articoli-frontaliere/giovane-gambizzato-como-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

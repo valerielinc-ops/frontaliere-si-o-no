@@ -24805,6 +24805,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giovane-gambizzato-como-2026': {
+    title: 'Giovane gambizzato con tre colpi d\'arma da fuoco a Como',
+    description: 'Un 20enne è stato ferito alla gamba con tre colpi d\'arma da fuoco alla periferia di Como. Gli inquirenti indagano sui motivi del gesto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovane, gambizzato, colpi, arma',
+    ogTitle: 'Giovane gambizzato con tre colpi d\'arma da fuoco a Como',
+    ogDescription: 'Un 20enne è stato ferito alla gamba con tre colpi d\'arma da fuoco alla periferia di Como. Gli inquirenti indagano sui motivi del gesto.',
+    canonicalPath: '/articoli-frontaliere/giovane-gambizzato-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giovane gambizzato con tre colpi d'arma da fuoco a Como",
+      "description": "Un 20enne è stato ferito alla gamba con tre colpi d'arma da fuoco alla periferia di Como. Gli inquirenti indagano sui motivi del gesto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giovane-gambizzato-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una strada nella periferia di Como, Italia, con un'atmosfera urbana"
+      },
+      "datePublished": "2026-04-29T13:42:04+00:00",
+      "dateModified": "2026-04-29T13:42:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giovane-gambizzato-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
