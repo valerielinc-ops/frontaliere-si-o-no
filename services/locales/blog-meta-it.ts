@@ -4052,6 +4052,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bonus-sicurezza-2026-frontalieri-ticino.title': 'Bonus sicurezza 2026: come ottenere il 50%',
     'blog.article.bonus-sicurezza-2026-frontalieri-ticino.excerpt': 'Scopri quali spese per la sicurezza domestica sono detraibili nel 2026 e come evitare errori comuni per ottenere fino al 50% di detrazione.',
     'blog.article.bonus-sicurezza-2026-frontalieri-ticino.imageAlt': 'Lago di Lugano con vista sulla città di Lugano, Ticino',
+    'blog.article.palma-muralto-ristrutturazione-strategia-2024.title': 'La Palma di Muralto si rinnova e punta alla destagionalizzazione',
+    'blog.article.palma-muralto-ristrutturazione-strategia-2024.excerpt': 'L\'hotel La Palma di Muralto ha completato un rinnovamento da 12,7 milioni di franchi e cambia strategia, restando aperto tutto l\'anno.',
+    'blog.article.palma-muralto-ristrutturazione-strategia-2024.imageAlt': 'Lago Maggiore Locarno vista La Palma',
 };
 
 export default blogMetaIt;

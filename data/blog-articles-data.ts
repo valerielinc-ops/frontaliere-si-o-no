@@ -10465,4 +10465,11 @@ export const ARTICLES = [
  image: '/images/blog/bonus-sicurezza-2026-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'palma-muralto-ristrutturazione-strategia-2024',
+ category: 'novita',
+ date: '2026-04-29T23:15:43.733Z',
+ image: '/images/blog/palma-muralto-ristrutturazione-strategia-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

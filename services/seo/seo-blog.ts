@@ -26139,6 +26139,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-palma-muralto-ristrutturazione-strategia-2024': {
+    title: 'La Palma di Muralto si rinnova e punta alla destagionalizzazione',
+    description: 'L\'hotel La Palma di Muralto ha completato un rinnovamento da 12,7 milioni di franchi e cambia strategia, restando aperto tutto l\'anno. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, palma, muralto, rinnova, punta',
+    ogTitle: 'La Palma di Muralto rinnovata e aperta tutto l\'anno',
+    ogDescription: 'L\'hotel La Palma di Muralto ha completato un rinnovamento da 12,7 milioni di franchi e cambia strategia, restando aperto tutto l\'anno.',
+    canonicalPath: '/articoli-frontaliere/palma-muralto-ristrutturazione-strategia-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Palma di Muralto rinnovata e aperta tutto l'anno",
+      "description": "L'hotel La Palma di Muralto ha completato un rinnovamento da 12,7 milioni di franchi e cambia strategia, restando aperto tutto l'anno. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/palma-muralto-ristrutturazione-strategia-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Maggiore Locarno vista La Palma"
+      },
+      "datePublished": "2026-04-29T23:15:43+00:00",
+      "dateModified": "2026-04-29T23:15:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/palma-muralto-ristrutturazione-strategia-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

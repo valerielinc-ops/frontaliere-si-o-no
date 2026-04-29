@@ -4051,6 +4051,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bonus-sicurezza-2026-frontalieri-ticino.title': 'Sicherheitsbonus 2026: Wie Sie 50% erhalten',
     'blog.article.bonus-sicurezza-2026-frontalieri-ticino.excerpt': 'Erfahren Sie, welche Haushaltsausgaben für Sicherheit im Jahr 2026 abzugsfähig sind und wie Sie häufige Fehler vermeiden, um bis zu 50% Abzug zu erhalten.',
     'blog.article.bonus-sicurezza-2026-frontalieri-ticino.imageAlt': 'Luganersee mit Blick auf die Stadt Lugano, Tessin',
+    'blog.article.palma-muralto-ristrutturazione-strategia-2024.title': 'Hotel La Palma in Muralto wird renoviert und setzt auf Ganzjahresbetrieb',
+    'blog.article.palma-muralto-ristrutturazione-strategia-2024.excerpt': 'Das Hotel La Palma in Muralto hat eine Renovierung im Wert von 12,7 Millionen Franken abgeschlossen und ändert seine Strategie, indem es das ganze Jahr über geöffnet bleibt.',
+    'blog.article.palma-muralto-ristrutturazione-strategia-2024.imageAlt': 'Lago Maggiore Locarno Blick La Palma',
 };
 
 export default blogMetaDe;
