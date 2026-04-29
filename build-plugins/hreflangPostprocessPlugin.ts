@@ -36,7 +36,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
-import { filterExistingAlternates, type LocaleAlternates } from './shared/hreflangGuard';
+import { filterExistingAlternates, type LocaleAlternates } from './shared/hreflangGuard.ts';
 
 interface HreflangPostprocessOptions {
   readonly baseUrl: string;
