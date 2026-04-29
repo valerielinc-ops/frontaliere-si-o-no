@@ -1,5 +1,5 @@
 /**
- * Post-Walk Coordinator Plugin (perf optimization 2026-04-28).
+ * Post-Walk Coordinator Plugin (perf optimization 2026-04-28, parallelized 2026-04-29).
  *
  * Replaces three sequential post-phase plugins that each walked
  * `dist/**\/*.html` independently:
@@ -38,10 +38,24 @@
  * `hreflangPostprocessPlugin`) remain available for unit tests and any
  * downstream code that imports them. They MUST NOT be registered alongside
  * this coordinator — duplicate work would cancel the perf win.
+ *
+ * Worker pool (added 2026-04-29): the per-file loop is split across N worker
+ * threads (default = availableParallelism()). On the 2-core ubuntu CI runner
+ * the sequential profile measured 121s wall vs 65s CPU — the 56s gap is pure
+ * single-thread I/O wait that a second core can absorb. Each worker reads,
+ * transforms, and writes its assigned slice independently; the inputs
+ * (existingHtmlSet, blogIndexHtmlByPath) are read-only and identical across
+ * workers, so output is byte-equivalent to the single-threaded path.
+ *
+ * Set POST_WALK_WORKERS=1 to force single-threaded execution (useful when
+ * profiling or when running on a constrained runner where worker spawn cost
+ * outweighs parallel gains).
  */
 
 import path from 'node:path';
 import fs from 'node:fs';
+import os from 'node:os';
+import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
 import {
@@ -58,6 +72,18 @@ interface CoordinatorOptions {
   readonly baseUrl: string;
 }
 
+interface WorkerResult {
+  bridgeConverted: number;
+  bridgeSkipped: number;
+  blogArticlesModified: number;
+  blogLinksInjected: number;
+  hreflangFilesRewritten: number;
+  hreflangLinksKept: number;
+  hreflangLinksDropped: number;
+  totalWrites: number;
+  writeFailures: Array<{ filePath: string; msg: string }>;
+}
+
 /**
  * Walk every `.html` file under `dir`, skipping static-asset directories.
  */
@@ -71,6 +97,187 @@ function* walkHtml(dir: string): Iterable<string> {
       yield p;
     }
   }
+}
+
+/**
+ * Decide how many workers to spawn. Default: availableParallelism() so we
+ * use every core the runner gives us. Capped against the file count to
+ * avoid spawning idle workers on tiny dist/ trees.
+ */
+function resolveWorkerCount(fileCount: number): number {
+  const override = process.env.POST_WALK_WORKERS;
+  if (override) {
+    const n = Number.parseInt(override, 10);
+    if (Number.isFinite(n) && n > 0) {
+      return Math.max(1, Math.min(n, fileCount));
+    }
+  }
+  // Node 18.14+ has availableParallelism(); cpus().length is the fallback.
+  const detected =
+    typeof os.availableParallelism === 'function'
+      ? os.availableParallelism()
+      : os.cpus()?.length ?? 1;
+  return Math.max(1, Math.min(detected, fileCount));
+}
+
+/**
+ * Split a file list into N round-robin chunks. Round-robin (vs slicing)
+ * matters because the file list is sorted by directory, and the cost of a
+ * chunk is roughly proportional to the directories it covers — slicing
+ * would give one worker all blog articles (cheap) and another all jobs
+ * (heavy hreflang). Round-robin smooths it out.
+ */
+function chunkRoundRobin<T>(items: readonly T[], n: number): T[][] {
+  const chunks: T[][] = Array.from({ length: n }, () => []);
+  for (let i = 0; i < items.length; i++) {
+    chunks[i % n].push(items[i]);
+  }
+  return chunks;
+}
+
+function runSingleThreaded(
+  allHtmlPaths: readonly string[],
+  existingHtmlSet: ReadonlySet<string>,
+  blogIndexHtmlByPath: ReadonlyMap<string, BlogLinkLocale>,
+  distDir: string,
+  baseUrl: string,
+  trimmedBase: string,
+): WorkerResult {
+  const result: WorkerResult = {
+    bridgeConverted: 0,
+    bridgeSkipped: 0,
+    blogArticlesModified: 0,
+    blogLinksInjected: 0,
+    hreflangFilesRewritten: 0,
+    hreflangLinksKept: 0,
+    hreflangLinksDropped: 0,
+    totalWrites: 0,
+    writeFailures: [],
+  };
+
+  const readSibling = (siblingPath: string): string | null => {
+    if (!existingHtmlSet.has(siblingPath)) return null;
+    try {
+      return fs.readFileSync(siblingPath, 'utf-8');
+    } catch {
+      return null;
+    }
+  };
+
+  for (const filePath of allHtmlPaths) {
+    let html: string;
+    try {
+      html = fs.readFileSync(filePath, 'utf-8');
+    } catch {
+      continue;
+    }
+    const original = html;
+    let mutated = false;
+    let isBridge = false;
+
+    if (path.basename(filePath) !== 'index.html') {
+      const bridge = transformFlatRedirect({
+        filePath,
+        distDir,
+        trimmedBase,
+        readSibling,
+      });
+      if (bridge !== null) {
+        html = bridge;
+        mutated = true;
+        isBridge = true;
+        result.bridgeConverted++;
+      } else {
+        result.bridgeSkipped++;
+      }
+    }
+
+    if (!isBridge) {
+      const locale = blogIndexHtmlByPath.get(filePath);
+      if (locale !== undefined) {
+        const r = injectContextualLinks(html, locale);
+        if (r.injected.length > 0 && r.html !== html) {
+          html = r.html;
+          mutated = true;
+          result.blogArticlesModified++;
+          result.blogLinksInjected += r.injected.length;
+        }
+      }
+    }
+
+    if (!isBridge) {
+      const r = transformHreflang(html, distDir, baseUrl, (absPath) =>
+        existingHtmlSet.has(absPath),
+      );
+      if (r !== null) {
+        html = r.html;
+        mutated = true;
+        result.hreflangFilesRewritten++;
+        result.hreflangLinksKept += r.kept;
+        result.hreflangLinksDropped += r.dropped;
+      }
+    }
+
+    if (mutated && html !== original) {
+      try {
+        fs.writeFileSync(filePath, html, 'utf-8');
+        result.totalWrites++;
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        result.writeFailures.push({ filePath, msg });
+      }
+    }
+  }
+
+  return result;
+}
+
+async function runInWorker(
+  workerUrl: URL,
+  workerData: {
+    distDir: string;
+    baseUrl: string;
+    trimmedBase: string;
+    existingHtmlPaths: readonly string[];
+    blogIndexEntries: ReadonlyArray<readonly [string, BlogLinkLocale]>;
+    assignedFiles: readonly string[];
+  },
+): Promise<WorkerResult> {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker(workerUrl, { workerData });
+    worker.once('message', (msg: WorkerResult) => resolve(msg));
+    worker.once('error', reject);
+    worker.once('exit', (code) => {
+      if (code !== 0) reject(new Error(`postWalkWorker exited with code ${code}`));
+    });
+  });
+}
+
+function mergeResults(results: WorkerResult[]): WorkerResult {
+  return results.reduce<WorkerResult>(
+    (acc, r) => ({
+      bridgeConverted: acc.bridgeConverted + r.bridgeConverted,
+      bridgeSkipped: acc.bridgeSkipped + r.bridgeSkipped,
+      blogArticlesModified: acc.blogArticlesModified + r.blogArticlesModified,
+      blogLinksInjected: acc.blogLinksInjected + r.blogLinksInjected,
+      hreflangFilesRewritten: acc.hreflangFilesRewritten + r.hreflangFilesRewritten,
+      hreflangLinksKept: acc.hreflangLinksKept + r.hreflangLinksKept,
+      hreflangLinksDropped: acc.hreflangLinksDropped + r.hreflangLinksDropped,
+      totalWrites: acc.totalWrites + r.totalWrites,
+      writeFailures: acc.writeFailures.concat(r.writeFailures),
+    }),
+    {
+      bridgeConverted: 0,
+      bridgeSkipped: 0,
+      blogArticlesModified: 0,
+      blogLinksInjected: 0,
+      hreflangFilesRewritten: 0,
+      hreflangLinksKept: 0,
+      hreflangLinksDropped: 0,
+      totalWrites: 0,
+      writeFailures: [],
+    },
+  );
 }
 
 export function postWalkCoordinatorPlugin(
@@ -98,8 +305,6 @@ export function postWalkCoordinatorPlugin(
         const startTotal = Date.now();
 
         // ── Phase A: enumerate every emitted HTML file once ──────────
-        // We collect the absolute paths in an Array (for stable iteration)
-        // and a Set (for O(1) lookup by hreflang transform).
         const allHtmlPaths: string[] = [];
         const existingHtmlSet = new Set<string>();
         for (const file of walkHtml(distDir)) {
@@ -114,12 +319,11 @@ export function postWalkCoordinatorPlugin(
         }
 
         // ── Phase B: load blog-articles target map ONCE ──────────────
-        // Used by step 2 to identify which directory-form HTML files are
-        // blog articles (so we know to run injectContextualLinks).
         const blogIndexSlugs = readBlogIndexSlugs(rootDir);
-        const blogArticles = listBlogArticleHtmlFiles(distDir, blogIndexSlugs);
-        // Keep only the directory-form (`.../index.html`) variants — the
-        // legacy plugin only mutated those; flat siblings are bridges.
+        const blogArticles: readonly BlogArticleHtmlFile[] = listBlogArticleHtmlFiles(
+          distDir,
+          blogIndexSlugs,
+        );
         const blogIndexHtmlByPath = new Map<string, BlogLinkLocale>();
         for (const article of blogArticles) {
           if (article.absPath.endsWith(path.sep + 'index.html')) {
@@ -127,112 +331,51 @@ export function postWalkCoordinatorPlugin(
           }
         }
 
-        // ── Phase C: for each HTML file, apply the 3 transforms in order ──
-        let bridgeConverted = 0;
-        let bridgeSkipped = 0;
-        let blogArticlesModified = 0;
-        let blogLinksInjected = 0;
-        let hreflangFilesRewritten = 0;
-        let hreflangLinksKept = 0;
-        let hreflangLinksDropped = 0;
-        let totalWrites = 0;
+        // ── Phase C: dispatch work ─────────────────────────────────
+        const workerCount = resolveWorkerCount(filesScanned);
+        const merged: WorkerResult =
+          workerCount <= 1
+            ? runSingleThreaded(
+                allHtmlPaths,
+                existingHtmlSet,
+                blogIndexHtmlByPath,
+                distDir,
+                baseUrl,
+                trimmedBase,
+              )
+            : await (async () => {
+                const chunks = chunkRoundRobin(allHtmlPaths, workerCount);
+                const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
+                const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
+                const results = await Promise.all(
+                  chunks.map((assignedFiles) =>
+                    runInWorker(workerUrl, {
+                      distDir,
+                      baseUrl,
+                      trimmedBase,
+                      existingHtmlPaths: allHtmlPaths,
+                      blogIndexEntries,
+                      assignedFiles,
+                    }),
+                  ),
+                );
+                return mergeResults(results);
+              })();
 
-        // Sibling HTML reader — NO IN-MEMORY CACHE. Caching every sibling
-        // would balloon to ~4 GB (145k bridges × ~30 KB sibling each) and
-        // cause OOM on the 14 GB CI heap. Each sibling is read once per
-        // bridge from the OS page cache (already hot since these files were
-        // just written by the parallel cohort). Cost ≈ 145k syscalls,
-        // negligible compared to the I/O the parallel cohort already did.
-        const readSibling = (siblingPath: string): string | null => {
-          if (!existingHtmlSet.has(siblingPath)) return null;
-          try {
-            return fs.readFileSync(siblingPath, 'utf-8');
-          } catch {
-            return null;
-          }
-        };
-
-        for (const filePath of allHtmlPaths) {
-          let html: string;
-          try {
-            html = fs.readFileSync(filePath, 'utf-8');
-          } catch {
-            continue;
-          }
-          const original = html;
-          let mutated = false;
-          let isBridge = false;
-
-          // ── Step 1: flat-html-redirect ────────────────────────────
-          if (path.basename(filePath) !== 'index.html') {
-            const bridge = transformFlatRedirect({
-              filePath,
-              distDir,
-              trimmedBase,
-              readSibling,
-            });
-            if (bridge !== null) {
-              html = bridge;
-              mutated = true;
-              isBridge = true;
-              bridgeConverted++;
-            } else {
-              bridgeSkipped++;
-            }
-          }
-
-          // ── Step 2: blog-contextual-links (directory-form only) ────
-          if (!isBridge) {
-            const locale = blogIndexHtmlByPath.get(filePath);
-            if (locale !== undefined) {
-              const result = injectContextualLinks(html, locale);
-              if (result.injected.length > 0 && result.html !== html) {
-                html = result.html;
-                mutated = true;
-                blogArticlesModified++;
-                blogLinksInjected += result.injected.length;
-              }
-            }
-          }
-
-          // ── Step 3: hreflang-postprocess ──────────────────────────
-          if (!isBridge) {
-            const hreflangResult = transformHreflang(
-              html,
-              distDir,
-              baseUrl,
-              (absPath) => existingHtmlSet.has(absPath),
-            );
-            if (hreflangResult !== null) {
-              html = hreflangResult.html;
-              mutated = true;
-              hreflangFilesRewritten++;
-              hreflangLinksKept += hreflangResult.kept;
-              hreflangLinksDropped += hreflangResult.dropped;
-            }
-          }
-
-          // ── Single write per file ────────────────────────────────
-          if (mutated && html !== original) {
-            try {
-              fs.writeFileSync(filePath, html, 'utf-8');
-              totalWrites++;
-            } catch (err: unknown) {
-              const msg = err instanceof Error ? err.message : String(err);
-              // eslint-disable-next-line no-console
-              console.warn(`[post-walk-coordinator] failed to write ${filePath}: ${msg}`);
-            }
-          }
+        for (const f of merged.writeFailures) {
+          // eslint-disable-next-line no-console
+          console.warn(`[post-walk-coordinator] failed to write ${f.filePath}: ${f.msg}`);
         }
 
         const dur = ((Date.now() - startTotal) / 1000).toFixed(2);
         // eslint-disable-next-line no-console
         console.log(
-          `\x1b[36m[post-walk-coordinator]\x1b[0m scanned ${filesScanned} files in ${dur}s — ` +
-            `bridges: ${bridgeConverted} converted (${bridgeSkipped} non-bridge skipped), ` +
-            `blog: ${blogArticlesModified} modified / ${blogLinksInjected} links injected, ` +
-            `hreflang: ${hreflangFilesRewritten} rewritten / ${hreflangLinksKept} kept / ${hreflangLinksDropped} dropped, ` +
-            `total writes: ${totalWrites}`,
+          `\x1b[36m[post-walk-coordinator]\x1b[0m scanned ${filesScanned} files in ${dur}s ` +
+            `(workers: ${workerCount}) — ` +
+            `bridges: ${merged.bridgeConverted} converted (${merged.bridgeSkipped} non-bridge skipped), ` +
+            `blog: ${merged.blogArticlesModified} modified / ${merged.blogLinksInjected} links injected, ` +
+            `hreflang: ${merged.hreflangFilesRewritten} rewritten / ${merged.hreflangLinksKept} kept / ${merged.hreflangLinksDropped} dropped, ` +
+            `total writes: ${merged.totalWrites}`,
         );
       },
     },
