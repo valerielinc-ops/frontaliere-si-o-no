@@ -360,17 +360,38 @@ jobs:
       #                            data/orphan-pages-baseline.json. Default fix:
       #                            add internal links — never noindex without
       #                            explicit approval (CLAUDE.md non-negotiable #5).
-      - name: Post-build validations + SEO audits + SPA render + E2E (all parallel)
+      - name: Post-build validations + SEO audits + SPA render + E2E (capped parallel)
         run: |
-          # Helper: spawn a task in the background with per-task wall-time
-          # measurement. Each task writes "<name> <duration_s> rc=<code>" to
-          # /tmp/post-build-timings.txt on completion. The wall_s is the
-          # background subshell's wall time, NOT the queue wait — accurate
-          # because every task starts simultaneously here. Returns the
-          # subshell PID so the caller can wait on it for fail-detection.
+          # IMPORTANT: 18 fully-parallel Node processes on the 2-core ubuntu
+          # runner thrashed catastrophically — sum(per-task wall) ≈ step wall
+          # (566 s ≈ 567 s, run #25108605667). The CPU spent more time
+          # context-switching than actually executing audits. Theoretical
+          # 2-core lower bound is sum/2 = 283 s.
+          #
+          # Fix: cap concurrency at 2 (matches available cores). Tasks are
+          # dispatched in LPT (longest-processing-time-first) order so the
+          # tail end never sits with one slow task running alone. Per-task
+          # wall_s is still captured and summarised.
+          MAX_PARALLEL=2
           : > /tmp/post-build-timings.txt
-          spawn_timed() {
+          : > /tmp/post-build-failures.txt
+
+          # Wait until fewer than MAX_PARALLEL background jobs are running.
+          # Bash 4.3+ `wait -n` blocks until ANY child completes — clean
+          # semaphore primitive that needs no external tools.
+          wait_slot() {
+            while (( $(jobs -rp | wc -l) >= MAX_PARALLEL )); do
+              wait -n 2>/dev/null || true
+            done
+          }
+
+          # Spawn one task subject to the concurrency cap. Records timing
+          # to /tmp/post-build-timings.txt and any non-zero rc to
+          # /tmp/post-build-failures.txt. Caller doesn't track PIDs — a
+          # single `wait` at the end drains all in-flight jobs.
+          spawn_capped() {
             local name=$1; local logfile=$2; shift 2
+            wait_slot
             (
               start=$(date +%s.%N)
               "$@" > "$logfile" 2>&1
@@ -378,71 +399,62 @@ jobs:
               end=$(date +%s.%N)
               awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"$name\", $end-$start, $rc}" \
                 >> /tmp/post-build-timings.txt
-              exit $rc
+              if [ $rc -ne 0 ]; then
+                echo "$name $logfile" >> /tmp/post-build-failures.txt
+              fi
             ) &
-            echo $!
           }
 
-          # Group A — 7 file validators
-          PID1=$(spawn_timed validate:jobposting-schema       /tmp/v1.log npm run validate:jobposting-schema)
-          PID2=$(spawn_timed validate:jobs-quality            /tmp/v2.log npm run validate:jobs-quality)
-          PID3=$(spawn_timed validate:sitemap-links           /tmp/v3.log npm run validate:sitemap-links)
-          PID4=$(spawn_timed validate:soft-404                /tmp/v4.log node scripts/validate-soft404.mjs)
-          PID5=$(spawn_timed validate:canonical               /tmp/v5.log node scripts/validate-canonical.mjs)
-          PID6=$(spawn_timed validate:content-quality         /tmp/v6.log node scripts/validate-content-quality.mjs)
-          PID7=$(spawn_timed validate:structured-data         /tmp/v7.log node scripts/validate-structured-data-completeness.mjs)
-
-          # Group B — 9 SEO audit gates
-          PID8=$(spawn_timed  audit:hreflang                  /tmp/g1.log npm run audit:hreflang)
-          PID9=$(spawn_timed  audit:title-uniqueness          /tmp/g2.log npm run audit:title-uniqueness)
-          PID10=$(spawn_timed audit:content-duplicates        /tmp/g3.log npm run audit:content-duplicates)
-          PID11=$(spawn_timed audit:page-weight               /tmp/g4.log npm run audit:page-weight)
-          PID12=$(spawn_timed audit:text-html-ratio           /tmp/g5.log npm run audit:text-html-ratio)
-          PID13=$(spawn_timed audit:h1-title-duplicates       /tmp/g6.log npm run audit:h1-title-duplicates)
-          PID14=$(spawn_timed audit:title-length              /tmp/g7.log npm run audit:title-length)
-          # Gate — sitemap canonical integrity (HARD gate, no baseline; any
-          # mismatch / missing-canonical / missing-html in dist/sitemap-*.xml
-          # fails the deploy). Sitemap entries must always self-canonicalize.
-          PID15=$(spawn_timed audit:sitemap-canonicals        /tmp/g8.log npm run audit:sitemap-canonicals)
-          # Gate — orphaned pages in sitemaps (BFS reachability from homepage;
-          # ratchet baseline in data/orphan-pages-baseline.json). Mirrors the
-          # text-html-ratio gate semantics: improvements accepted silently,
-          # any sitemap whose orphan count goes UP fails the deploy.
-          PID16=$(spawn_timed audit:orphan-sitemap-pages      /tmp/g9.log npm run audit:orphan-sitemap-pages -- --gate=baseline)
-
+          # Tasks dispatched LPT (longest first) per measurements from
+          # run #25108605667. Each line is one task with name + logfile +
+          # command. Slowest 4 are intentionally back-to-back so the tail
+          # is shorter and less expensive tasks fill the gaps.
+          spawn_capped audit:text-html-ratio        /tmp/g5.log npm run audit:text-html-ratio
+          spawn_capped validate:jobposting-schema   /tmp/v1.log npm run validate:jobposting-schema
           # Group C — SPA render validation (5 min internal budget)
-          PID_SPA=$(spawn_timed validate:spa-render           /tmp/spa.log timeout 300 node scripts/validate-spa-render.mjs)
-
+          spawn_capped validate:spa-render          /tmp/spa.log timeout 300 node scripts/validate-spa-render.mjs
+          spawn_capped audit:page-weight            /tmp/g4.log npm run audit:page-weight
+          spawn_capped audit:h1-title-duplicates    /tmp/g6.log npm run audit:h1-title-duplicates
+          spawn_capped audit:title-length           /tmp/g7.log npm run audit:title-length
           # Group D — E2E smoke (3 min internal budget)
-          PID_E2E=$(spawn_timed test:e2e:smoke                /tmp/e2e.log timeout 180 npx playwright test)
+          spawn_capped test:e2e:smoke               /tmp/e2e.log timeout 180 npx playwright test
+          spawn_capped audit:content-duplicates     /tmp/g3.log npm run audit:content-duplicates
+          # Gate — orphaned pages in sitemaps (BFS reachability from homepage;
+          # ratchet baseline in data/orphan-pages-baseline.json). Improvements
+          # accepted silently; any sitemap whose orphan count goes UP fails.
+          spawn_capped audit:orphan-sitemap-pages   /tmp/g9.log npm run audit:orphan-sitemap-pages -- --gate=baseline
+          spawn_capped audit:title-uniqueness       /tmp/g2.log npm run audit:title-uniqueness
+          spawn_capped audit:hreflang               /tmp/g1.log npm run audit:hreflang
+          spawn_capped validate:structured-data     /tmp/v7.log node scripts/validate-structured-data-completeness.mjs
+          spawn_capped validate:soft-404            /tmp/v4.log node scripts/validate-soft404.mjs
+          spawn_capped validate:content-quality     /tmp/v6.log node scripts/validate-content-quality.mjs
+          # Gate — sitemap canonical integrity (HARD gate, no baseline).
+          # Every <loc> in dist/sitemap-*.xml must self-canonicalize.
+          spawn_capped audit:sitemap-canonicals     /tmp/g8.log npm run audit:sitemap-canonicals
+          spawn_capped validate:canonical           /tmp/v5.log node scripts/validate-canonical.mjs
+          spawn_capped validate:jobs-quality        /tmp/v2.log npm run validate:jobs-quality
+          spawn_capped validate:sitemap-links       /tmp/v3.log npm run validate:sitemap-links
 
-          FAIL=0
-          wait $PID1  || { echo "::error::jobposting-schema failed"; cat /tmp/v1.log; FAIL=1; }
-          wait $PID2  || { echo "::error::jobs-quality failed"; cat /tmp/v2.log; FAIL=1; }
-          wait $PID3  || { echo "::error::sitemap-links failed"; cat /tmp/v3.log; FAIL=1; }
-          wait $PID4  || { echo "::error::soft-404 failed"; cat /tmp/v4.log; FAIL=1; }
-          wait $PID5  || { echo "::error::canonical failed"; cat /tmp/v5.log; FAIL=1; }
-          wait $PID6  || { echo "::error::content-quality failed"; cat /tmp/v6.log; FAIL=1; }
-          wait $PID7  || { echo "::error::structured-data failed"; cat /tmp/v7.log; FAIL=1; }
-          wait $PID8  || { echo "::error::audit:hreflang failed"; cat /tmp/g1.log; FAIL=1; }
-          wait $PID9  || { echo "::error::audit:title-uniqueness failed"; cat /tmp/g2.log; FAIL=1; }
-          wait $PID10 || { echo "::error::audit:content-duplicates failed"; cat /tmp/g3.log; FAIL=1; }
-          wait $PID11 || { echo "::error::audit:page-weight failed"; cat /tmp/g4.log; FAIL=1; }
-          wait $PID12 || { echo "::error::audit:text-html-ratio failed"; cat /tmp/g5.log; FAIL=1; }
-          wait $PID13 || { echo "::error::audit:h1-title-duplicates failed"; cat /tmp/g6.log; FAIL=1; }
-          wait $PID14 || { echo "::error::audit:title-length failed"; cat /tmp/g7.log; FAIL=1; }
-          wait $PID15 || { echo "::error::audit:sitemap-canonicals failed (HARD gate)"; cat /tmp/g8.log; FAIL=1; }
-          wait $PID16 || { echo "::error::audit:orphan-sitemap-pages failed"; cat /tmp/g9.log; FAIL=1; }
-          wait $PID_SPA || { echo "::error::validate-spa-render failed"; cat /tmp/spa.log; FAIL=1; }
-          wait $PID_E2E || { echo "::error::E2E smoke tests failed"; cat /tmp/e2e.log; FAIL=1; }
+          # Drain remaining in-flight tasks.
+          wait
 
-          # Per-task wall-time summary (sorted DESC). Surface the slowest
-          # 3-5 audits so we can target them when post-build wall time is
-          # the next bottleneck.
+          # Per-task wall-time summary (sorted DESC).
           echo ""
-          echo "── Post-build per-task wall_s (sorted DESC) ─────────────────"
+          echo "── Post-build per-task wall_s (MAX_PARALLEL=$MAX_PARALLEL, sorted DESC) ──"
           sort -k2 -gr /tmp/post-build-timings.txt
-          echo "─────────────────────────────────────────────────────────────"
+          echo "─────────────────────────────────────────────────────────────────────"
+
+          # Report failures from /tmp/post-build-failures.txt (each line:
+          # "<name> <logfile>"). Cat each failed task's stdout/stderr so the
+          # error context shows up in the workflow log just like before.
+          FAIL=0
+          if [ -s /tmp/post-build-failures.txt ]; then
+            while read -r name logfile; do
+              echo "::error::$name failed"
+              cat "$logfile"
+              FAIL=1
+            done < /tmp/post-build-failures.txt
+          fi
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
           echo "✅ All 18 post-build validators+audits+SPA+E2E passed"
