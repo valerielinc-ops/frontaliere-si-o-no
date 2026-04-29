@@ -24834,6 +24834,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-andre-wyss-nuovo-presidente-ffs': {
+    title: 'André Wyss è il nuovo presidente delle FFS | Frontaliere Ticino',
+    description: 'André Wyss è il nuovo presidente delle FFS. Scopri le implicazioni per i frontalieri e le nuove opportunità offerte dalle Ferrovie federali svizzere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, andré, wyss, nuovo, presidente',
+    ogTitle: 'André Wyss nuovo presidente FFS: innovazione e stabilità',
+    ogDescription: 'André Wyss è il nuovo presidente delle FFS. Scopri le implicazioni per i frontalieri e le nuove opportunità offerte dalle Ferrovie federali svizzere.',
+    canonicalPath: '/articoli-frontaliere/andre-wyss-nuovo-presidente-ffs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "André Wyss è il nuovo presidente delle FFS",
+      "description": "André Wyss è il nuovo presidente delle FFS. Scopri le implicazioni per i frontalieri e le nuove opportunità offerte dalle Ferrovie federali svizzere.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/andre-wyss-nuovo-presidente-ffs.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "André Wyss, nuovo presidente delle FFS, in un ufficio moderno a Berna."
+      },
+      "datePublished": "2026-04-29T13:51:24+00:00",
+      "dateModified": "2026-04-29T13:51:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/andre-wyss-nuovo-presidente-ffs`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

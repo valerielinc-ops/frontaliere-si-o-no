@@ -3916,6 +3916,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giovane-gambizzato-como-2026.title': 'Young man shot three times in leg in Como',
     'blog.article.giovane-gambizzato-como-2026.excerpt': 'A 20-year-old was injured in the leg with three gunshots on the outskirts of Como. Investigators are looking into the motive behind the attack.',
     'blog.article.giovane-gambizzato-como-2026.imageAlt': 'A street in the outskirts of Como, Italy, with an urban atmosphere',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.title': 'André Wyss is the new SBB president',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.excerpt': 'André Wyss succeeds Monika Ribar at the helm of Swiss Federal Railways. Goal: innovation and stability.',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.imageAlt': 'André Wyss, new president of SBB, in a modern office in Bern, with a view of the Swiss Alps.',
 };
 
 export default blogMetaEn;

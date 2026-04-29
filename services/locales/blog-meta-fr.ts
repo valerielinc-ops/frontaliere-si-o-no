@@ -3917,6 +3917,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giovane-gambizzato-como-2026.title': 'Un jeune homme blessé par balles à Côme',
     'blog.article.giovane-gambizzato-como-2026.excerpt': 'Un homme de 20 ans a été blessé à la jambe par trois coups de feu en périphérie de Côme. Les enquêteurs cherchent à comprendre les raisons de cet acte.',
     'blog.article.giovane-gambizzato-como-2026.imageAlt': 'Une rue en périphérie de Côme, Italie, avec une atmosphère urbaine',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.title': 'André Wyss, nouveau président des CFF',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.excerpt': 'André Wyss succède à Monika Ribar à la tête des Chemins de fer fédéraux suisses. Objectif : innovation et stabilité.',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.imageAlt': 'André Wyss, nouveau président des CFF, dans un bureau moderne à Berne, avec vue sur les Alpes suisses.',
 };
 
 export default blogMetaFr;

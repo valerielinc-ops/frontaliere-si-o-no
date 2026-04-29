@@ -10150,4 +10150,11 @@ export const ARTICLES = [
  image: '/images/blog/giovane-gambizzato-como-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'andre-wyss-nuovo-presidente-ffs',
+ category: 'novita',
+ date: '2026-04-29T13:51:23.977Z',
+ image: '/images/blog/andre-wyss-nuovo-presidente-ffs.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

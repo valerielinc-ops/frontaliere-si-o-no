@@ -3917,6 +3917,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giovane-gambizzato-como-2026.title': 'Giovane gambizzato con tre colpi d\'arma da fuoco a Como',
     'blog.article.giovane-gambizzato-como-2026.excerpt': 'Un 20enne è stato ferito alla gamba con tre colpi d\'arma da fuoco alla periferia di Como. Gli inquirenti indagano sui motivi del gesto.',
     'blog.article.giovane-gambizzato-como-2026.imageAlt': 'Una strada nella periferia di Como, Italia, con un\'atmosfera urbana',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.title': 'André Wyss è il nuovo presidente delle FFS',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.excerpt': 'André Wyss succede a Monika Ribar alla guida delle Ferrovie federali svizzere. Obiettivo: innovazione e stabilità.',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.imageAlt': 'André Wyss, nuovo presidente delle FFS, in un ufficio moderno a Berna.',
 };
 
 export default blogMetaIt;

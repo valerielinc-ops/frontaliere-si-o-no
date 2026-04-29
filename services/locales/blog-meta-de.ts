@@ -3916,6 +3916,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giovane-gambizzato-como-2026.title': '20-Jähriger in Como mit drei Schüssen verletzt',
     'blog.article.giovane-gambizzato-como-2026.excerpt': 'Ein 20-Jähriger wurde am Bein mit drei Schüssen am Stadtrand von Como verletzt. Die Ermittler untersuchen die Gründe des Angriffs.',
     'blog.article.giovane-gambizzato-como-2026.imageAlt': 'Eine Straße im Außenbezirk von Como, Italien, mit einer städtischen Atmosphäre',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.title': 'André Wyss ist neuer SBB-Präsident',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.excerpt': 'André Wyss übernimmt von Monika Ribar die Führung der Schweizerischen Bundesbahnen. Ziel: Innovation und Stabilität.',
+    'blog.article.andre-wyss-nuovo-presidente-ffs.imageAlt': 'André Wyss, neuer Präsident der SBB, in einem modernen Büro in Bern, mit Blick auf die Schweizer Alpen.',
 };
 
 export default blogMetaDe;
