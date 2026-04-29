@@ -3989,6 +3989,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.openjobmetis-materia-castronno-2026.title': 'Openjobmetis à Materia : permanence d\'écoute et d\'orientation chaque jeudi',
     'blog.article.openjobmetis-materia-castronno-2026.excerpt': 'Chaque jeudi après-midi, le guichet Openjobmetis à Materia offre un soutien et une orientation pour ceux qui cherchent du travail dans la province de Varèse.',
     'blog.article.openjobmetis-materia-castronno-2026.imageAlt': 'Bureau Openjobmetis à Materia, Castronno, avec des personnes entrant et sortant',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.title': 'Nouvelle variante de la variole simienne prédominante en Suisse',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.excerpt': 'La nouvelle variante de la variole simienne est devenue prédominante en Suisse avec 32 cas signalés depuis le début de l\'année, dont 19 de clade Ib.',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.imageAlt': 'Lac de Lugano avec vue sur la ville',
 };
 
 export default blogMetaFr;

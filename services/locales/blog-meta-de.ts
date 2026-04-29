@@ -3988,6 +3988,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.openjobmetis-materia-castronno-2026.title': 'Openjobmetis in Materia: Beratung jeden Donnerstag',
     'blog.article.openjobmetis-materia-castronno-2026.excerpt': 'Jeden Donnerstag Nachmittag bietet die Openjobmetis-Filiale in Materia Unterstützung und Orientierung für Arbeitssuchende in der Provinz Varese.',
     'blog.article.openjobmetis-materia-castronno-2026.imageAlt': 'Openjobmetis-Büro in Materia, Castronno, mit Menschen, die ein- und ausgehen',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.title': 'Neue Affenpocken-Variante dominiert in der Schweiz',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.excerpt': 'Die neue Variante der Affenpocken ist in der Schweiz dominierend geworden, mit 32 gemeldeten Fällen seit Jahresbeginn, davon 19 der Clade Ib.',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.imageAlt': 'Luganersee mit Blick auf die Stadt',
 };
 
 export default blogMetaDe;

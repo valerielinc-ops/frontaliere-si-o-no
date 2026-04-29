@@ -3988,6 +3988,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.openjobmetis-materia-castronno-2026.title': 'Openjobmetis in Materia: job guidance every Thursday',
     'blog.article.openjobmetis-materia-castronno-2026.excerpt': 'Every Thursday afternoon, the Openjobmetis office in Materia provides support and guidance for those seeking work in the province of Varese.',
     'blog.article.openjobmetis-materia-castronno-2026.imageAlt': 'Openjobmetis office in Materia, Castronno, with people entering and exiting',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.title': 'New monkeypox variant dominant in Switzerland',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.excerpt': 'The new monkeypox variant has become dominant in Switzerland with 32 cases reported since the start of the year, 19 of which are clade Ib.',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.imageAlt': 'Lake Lugano with a view of the city',
 };
 
 export default blogMetaEn;

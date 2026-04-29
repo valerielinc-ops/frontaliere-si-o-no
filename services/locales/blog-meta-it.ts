@@ -3989,6 +3989,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.openjobmetis-materia-castronno-2026.title': 'Openjobmetis a Materia: sportello di ascolto e orientamento ogni giovedì',
     'blog.article.openjobmetis-materia-castronno-2026.excerpt': 'Ogni giovedì pomeriggio, lo sportello Openjobmetis a Materia offre supporto e orientamento per chi cerca lavoro nella provincia di Varese.',
     'blog.article.openjobmetis-materia-castronno-2026.imageAlt': 'Ufficio Openjobmetis a Materia, Castronno, con persone che entrano ed escono',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.title': 'Nuova variante vaiolo scimmie predominante in Svizzera',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.excerpt': 'La nuova variante di vaiolo delle scimmie è diventata predominante in Svizzera con 32 casi segnalati dall\'inizio dell\'anno, di cui 19 di clade Ib.',
+    'blog.article.vaiolo-delle-scimmie-ticino-2026.imageAlt': 'Lago di Lugano con vista sulla città',
 };
 
 export default blogMetaIt;

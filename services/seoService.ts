@@ -2560,6 +2560,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-disoccupazione-stato-lavoro': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-disoccupazione-stato-lavoro', parent: 'blog' },
     'blog-lavoro-openjobmetis-2026-opportunita': { name: 'Lavoro', path: '/articoli-frontaliere/lavoro-openjobmetis-2026-opportunita', parent: 'blog' },
     'blog-openjobmetis-materia-castronno-2026': { name: 'Openjobmetis Materia', path: '/articoli-frontaliere/openjobmetis-materia-castronno-2026', parent: 'blog' },
+    'blog-vaiolo-delle-scimmie-ticino-2026': { name: 'Salute', path: '/articoli-frontaliere/vaiolo-delle-scimmie-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -10318,4 +10318,11 @@ export const ARTICLES = [
  image: '/images/blog/openjobmetis-materia-castronno-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vaiolo-delle-scimmie-ticino-2026',
+ category: 'novita',
+ date: '2026-04-29T19:46:18.404Z',
+ image: '/images/blog/vaiolo-delle-scimmie-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

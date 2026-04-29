@@ -25530,6 +25530,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vaiolo-delle-scimmie-ticino-2026': {
+    title: 'Nuova variante vaiolo scimmie predominante in Svizzera',
+    description: 'La nuova variante di vaiolo delle scimmie è diventata predominante in Svizzera con 32 casi segnalati dall\'inizio dell\'anno, di cui 19 di clade Ib.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, variante, vaiolo, scimmie',
+    ogTitle: 'Nuova variante vaiolo scimmie predominante in Svizzera',
+    ogDescription: 'La nuova variante di vaiolo delle scimmie è diventata predominante in Svizzera con 32 casi segnalati dall\'inizio dell\'anno, di cui 19 di clade Ib.',
+    canonicalPath: '/articoli-frontaliere/vaiolo-delle-scimmie-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova variante vaiolo scimmie predominante in Svizzera",
+      "description": "La nuova variante di vaiolo delle scimmie è diventata predominante in Svizzera con 32 casi segnalati dall'inizio dell'anno, di cui 19 di clade Ib.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vaiolo-delle-scimmie-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulla città"
+      },
+      "datePublished": "2026-04-29T19:46:18+00:00",
+      "dateModified": "2026-04-29T19:46:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vaiolo-delle-scimmie-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
