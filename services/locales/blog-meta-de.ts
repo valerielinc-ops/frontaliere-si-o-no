@@ -3775,6 +3775,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swiss-duty-free-addio-30-settembre.title': 'Swiss stellt ab 30. September 2026 Duty-Free ein',
     'blog.article.swiss-duty-free-addio-30-settembre.excerpt': 'Die Fluggesellschaft Swiss hat beschlossen, den Duty-Free-Verkauf an Bord ab dem 30. September 2026 einzustellen.',
     'blog.article.swiss-duty-free-addio-30-settembre.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.momoride-carpooling-frontalieri-benefici.title': 'Firmen-Mitfahrzentrale: Grenzgänger sparen bis zu 500 Franken',
+    'blog.article.momoride-carpooling-frontalieri-benefici.excerpt': 'Das Projekt MomòRide bietet finanzielle Anreize und Spendenmöglichkeiten für Grenzgänger aus Balerna, Chiasso und Novazzano',
+    'blog.article.momoride-carpooling-frontalieri-benefici.imageAlt': 'Pendler im Fahrgemeinschaft mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

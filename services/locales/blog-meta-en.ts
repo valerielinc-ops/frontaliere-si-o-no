@@ -3775,6 +3775,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-duty-free-addio-30-settembre.title': 'Swiss to end duty-free sales from September 30, 2026',
     'blog.article.swiss-duty-free-addio-30-settembre.excerpt': 'Swiss airline will discontinue its in-flight duty-free sales service starting September 30, 2026.',
     'blog.article.swiss-duty-free-addio-30-settembre.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.momoride-carpooling-frontalieri-benefici.title': 'Company carpooling: cross-border workers earn up to 500 francs',
+    'blog.article.momoride-carpooling-frontalieri-benefici.excerpt': 'The MomòRide project offers cash incentives and charitable opportunities for cross-border workers in Balerna, Chiasso, and Novazzano',
+    'blog.article.momoride-carpooling-frontalieri-benefici.imageAlt': 'Commuters carpooling with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

@@ -2489,6 +2489,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-avs-dati-digitale-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/avs-dati-digitale-frontalieri', parent: 'blog' },
     'blog-scorte-carburante-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/scorte-carburante-svizzera-2026', parent: 'blog' },
     'blog-swiss-duty-free-addio-30-settembre': { name: 'Novità', path: '/articoli-frontaliere/swiss-duty-free-addio-30-settembre', parent: 'blog' },
+    'blog-momoride-carpooling-frontalieri-benefici': { name: 'Carpooling aziendale', path: '/articoli-frontaliere/momoride-carpooling-frontalieri-benefici', parent: 'blog' },
  };
 
  const info = sectionNames[section];

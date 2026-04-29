@@ -3776,6 +3776,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-duty-free-addio-30-settembre.title': 'Swiss elimina il duty free dal 30 settembre 2026',
     'blog.article.swiss-duty-free-addio-30-settembre.excerpt': 'La compagnia aerea Swiss ha deciso di eliminare il servizio di vendita duty free a bordo a partire dal 30 settembre 2026.',
     'blog.article.swiss-duty-free-addio-30-settembre.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.momoride-carpooling-frontalieri-benefici.title': 'Carpooling aziendale: frontalieri guadagnano fino a 500 franchi',
+    'blog.article.momoride-carpooling-frontalieri-benefici.excerpt': 'Il progetto MomòRide offre incentivi in denaro e opportunità di beneficenza per i frontalieri di Balerna, Chiasso e Novazzano',
+    'blog.article.momoride-carpooling-frontalieri-benefici.imageAlt': 'Frontalieri in carpooling con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

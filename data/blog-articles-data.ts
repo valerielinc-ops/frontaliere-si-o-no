@@ -9821,4 +9821,11 @@ export const ARTICLES = [
  image: '/images/blog/swiss-duty-free-addio-30-settembre.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'momoride-carpooling-frontalieri-benefici',
+ category: 'pratico',
+ date: '2026-04-29T08:45:27.095Z',
+ image: '/images/blog/momoride-carpooling-frontalieri-benefici.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
