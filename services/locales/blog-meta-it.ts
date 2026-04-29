@@ -4058,6 +4058,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gev-ticino-ambiente-2026.title': 'GEV Insubria Olona: come proteggere l’ambiente in Ticino',
     'blog.article.gev-ticino-ambiente-2026.excerpt': 'Le Guardie Ecologiche Volontarie Insubria Olona educano al rispetto dell’ambiente e proteggono flora e fauna in Ticino',
     'blog.article.gev-ticino-ambiente-2026.imageAlt': 'Guardie Ecologiche Volontarie impegnate in attività di protezione ambientale in un parco naturale del Ticino',
+    'blog.article.siccita-lombardia-riserve-idriche-2026.title': 'Siccità in Lombardia: mancano il 37% delle riserve idriche',
+    'blog.article.siccita-lombardia-riserve-idriche-2026.excerpt': 'Regione Lombardia chiede un uso contenuto dell\'acqua. Accordo tra Piemonte, Lombardia e Canton Ticino per aumentare la disponibilità del Lago Maggiore.',
+    'blog.article.siccita-lombardia-riserve-idriche-2026.imageAlt': 'Lago Maggiore con livello dell\'acqua basso in estate',
 };
 
 export default blogMetaIt;

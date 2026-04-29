@@ -10479,4 +10479,11 @@ export const ARTICLES = [
  image: '/images/blog/gev-ticino-ambiente-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'siccita-lombardia-riserve-idriche-2026',
+ category: 'novita',
+ date: '2026-04-29T23:28:51.845Z',
+ image: '/images/blog/siccita-lombardia-riserve-idriche-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

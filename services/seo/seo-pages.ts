@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1402,
+ "numberOfItems": 1403,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6037,7 +6037,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1399, "name": "{\"it\":\"Dl Bollette: novità per i consumatori da...", "url": `${BASE_URL}/articoli-frontaliere/dl-bollette-novita-consumatori-2026` },
           { "@type": "ListItem", "position": 1400, "name": "Bonus sicurezza 2026: spese detraibili e come o...", "url": `${BASE_URL}/articoli-frontaliere/bonus-sicurezza-2026-frontalieri-ticino` },
           { "@type": "ListItem", "position": 1401, "name": "La Palma di Muralto rinnovata e aperta tutto l'...", "url": `${BASE_URL}/articoli-frontaliere/palma-muralto-ristrutturazione-strategia-2024` },
-          { "@type": "ListItem", "position": 1402, "name": "GEV Insubria Olona: protezione ambientale in Ti...", "url": `${BASE_URL}/articoli-frontaliere/gev-ticino-ambiente-2026` }
+          { "@type": "ListItem", "position": 1402, "name": "GEV Insubria Olona: protezione ambientale in Ti...", "url": `${BASE_URL}/articoli-frontaliere/gev-ticino-ambiente-2026` },
+          { "@type": "ListItem", "position": 1403, "name": "Siccità in Lombardia: mancano il 37% delle rise...", "url": `${BASE_URL}/articoli-frontaliere/siccita-lombardia-riserve-idriche-2026` }
  ]
  },
  {

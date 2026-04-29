@@ -26197,6 +26197,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-siccita-lombardia-riserve-idriche-2026': {
+    title: 'Siccità in Lombardia: mancano il 37% delle riserve idriche',
+    description: 'Regione Lombardia chiede un uso contenuto dell\'acqua. Accordo tra Piemonte, Lombardia e Canton Ticino per aumentare la disponibilità del Lago Maggiore.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, lombardia, mancano, riserve',
+    ogTitle: 'Siccità in Lombardia: mancano il 37% delle riserve idriche',
+    ogDescription: 'Regione Lombardia chiede un uso contenuto dell\'acqua. Accordo tra Piemonte, Lombardia e Canton Ticino per aumentare la disponibilità del Lago Maggiore.',
+    canonicalPath: '/articoli-frontaliere/siccita-lombardia-riserve-idriche-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità in Lombardia: mancano il 37% delle riserve idriche",
+      "description": "Regione Lombardia chiede un uso contenuto dell'acqua. Accordo tra Piemonte, Lombardia e Canton Ticino per aumentare la disponibilità del Lago Maggiore.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/siccita-lombardia-riserve-idriche-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Maggiore con livello dell'acqua basso in estate"
+      },
+      "datePublished": "2026-04-29T23:28:51+00:00",
+      "dateModified": "2026-04-29T23:28:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/siccita-lombardia-riserve-idriche-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

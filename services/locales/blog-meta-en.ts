@@ -4057,6 +4057,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gev-ticino-ambiente-2026.title': 'GEV Insubria Olona: protecting Ticino\'s environment',
     'blog.article.gev-ticino-ambiente-2026.excerpt': 'The Insubria Olona Volunteer Ecological Guards educate about respecting the environment and protect flora and fauna in Ticino',
     'blog.article.gev-ticino-ambiente-2026.imageAlt': 'Volunteer Ecological Guards engaged in environmental protection activities in a natural park in Ticino',
+    'blog.article.siccita-lombardia-riserve-idriche-2026.title': 'Drought in Lombardy: 37% water reserves missing',
+    'blog.article.siccita-lombardia-riserve-idriche-2026.excerpt': 'Lombardy Region asks for moderate water use. Agreement between Piedmont, Lombardy, and Canton Ticino to increase Lake Maggiore\'s availability.',
+    'blog.article.siccita-lombardia-riserve-idriche-2026.imageAlt': 'Lake Maggiore with low water level in summer',
 };
 
 export default blogMetaEn;

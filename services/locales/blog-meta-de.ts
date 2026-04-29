@@ -4057,6 +4057,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gev-ticino-ambiente-2026.title': 'GEV Insubria Olona: Umweltschutz im Tessin',
     'blog.article.gev-ticino-ambiente-2026.excerpt': 'Die Freiwilligen der Ökologischen Schutzgruppe Insubria Olona lehren den Respekt vor der Umwelt und schützen Flora und Fauna im Tessin',
     'blog.article.gev-ticino-ambiente-2026.imageAlt': 'Freiwillige ökologische Wächter, die in einem Naturpark im Tessin an Umweltschutzaktivitäten beteiligt sind',
+    'blog.article.siccita-lombardia-riserve-idriche-2026.title': 'Dürre in der Lombardei: 37% weniger Wasservorräte',
+    'blog.article.siccita-lombardia-riserve-idriche-2026.excerpt': 'Die Region Lombardei bittet um sparsamen Wasserkonsum. Vereinbarung zwischen Piemont, Lombardei und Kanton Tessin zur Erhöhung des Verfahrens des Lago Maggiore.',
+    'blog.article.siccita-lombardia-riserve-idriche-2026.imageAlt': 'Lago Maggiore mit niedrigem Wasserstand im Sommer',
 };
 
 export default blogMetaDe;
