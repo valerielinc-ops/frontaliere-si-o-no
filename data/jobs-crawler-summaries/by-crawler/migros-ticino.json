@@ -1,21 +1,63 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-04-29T11:11:44.297Z",
-  "total": 25,
+  "generatedAt": "2026-04-29T22:18:51.951Z",
+  "total": 26,
   "newCount": 1,
-  "updatedCount": 21,
+  "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 52719,
-  "avgDurationMs": 52719,
+  "durationMs": 35998,
+  "avgDurationMs": 35998,
   "durationHistory": [
-    52719
+    35998
   ],
   "newJobs": [
     {
+      "id": "company-fa8to6",
+      "slug": "mitarbeiter-in-restaurant-migros-restaurant-chur",
+      "company": "Migros Restaurant",
+      "title": "Mitarbeiter*in Restaurant",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-28",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-restaurant/ca3e0cbd-3df2-444d-b07f-9c174e7968a9",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du präsentierst die Speisen im Salat- und Kuchenbuffet kreativ und passend zur Tageszeit sowie zur Saison, um den Gästen ein optisches und kulinarisches Erlebnis zu bieten",
+        "Du betreust, berätst und bedienst unsere Kunden im Restaurant und an der Kasse mit Professionalität und Herzlichkeit",
+        "Du achtest darauf, dass die Hygienevorschriften gemäss Food Safety eingehalten und konsequent umgesetzt werden und führst diverse Reinigungsarbeiten durch, um einen rundum gepflegten Betrieb zu garantieren"
+      ],
+      "_migrosBenefits": [
+        "Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Versicherungen: Vorteilskonditionen bei diversen Versicherungsgesellschaften",
+        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-04-29T22:18:50.098Z",
+      "firstSeenAt": "2026-04-29T22:18:50.098Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
       "id": "company-djv9rd",
-      "slug": "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt",
+      "slug": "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt-djv9rd",
       "company": "Genossenschaft Migros Wallis",
       "title": "Magaziner*in/Elektromobil-Fahrer*in",
       "location": "Zermatt",
@@ -54,18 +96,24 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-04-29T11:11:41.707Z",
       "firstSeenAt": "2026-04-29T11:11:41.707Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-ktq15t",
       "slug": "cambio-carriera-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t",
