@@ -3952,6 +3952,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credinvest-bank-crescita-2026.title': 'Credinvest Bank wächst: Gewinne steigen und Fokus auf Innovation',
     'blog.article.credinvest-bank-crescita-2026.excerpt': 'Die Schweizer Bank schließt das Jahr 2025 mit einem Umsatz von 22,80 Millionen Franken und einem Bruttogewinn von 4,93 Millionen Franken ab, indem sie in Technologie und Talente investiert.',
     'blog.article.credinvest-bank-crescita-2026.imageAlt': 'Skyline von Lugano mit dem Luganersee im Hintergrund',
+    'blog.article.riforma-frontalieri-costi-svizzera.title': 'Frontierarbeiterreform: Zusätzliche Kosten für die Schweiz?',
+    'blog.article.riforma-frontalieri-costi-svizzera.excerpt': 'Die EU-Reform zur Arbeitslosenversicherung für Grenzgänger wurde verabschiedet. Was ändert sich für die Schweiz?',
+    'blog.article.riforma-frontalieri-costi-svizzera.imageAlt': 'Lugano und Luganersee',
 };
 
 export default blogMetaDe;

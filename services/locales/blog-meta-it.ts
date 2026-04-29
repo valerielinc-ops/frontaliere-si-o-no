@@ -3953,6 +3953,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.credinvest-bank-crescita-2026.title': 'Credinvest Bank cresce: utili in aumento e spinta su innovazione',
     'blog.article.credinvest-bank-crescita-2026.excerpt': 'La banca svizzera chiude il 2025 con ricavi a 22,80 milioni e utile lordo a 4,93 milioni, investendo in tecnologia e talenti.',
     'blog.article.credinvest-bank-crescita-2026.imageAlt': 'Skyline di Lugano con il Lago di Lugano sullo sfondo',
+    'blog.article.riforma-frontalieri-costi-svizzera.title': 'Riforma frontalieri: costi aggiuntivi per la Svizzera?',
+    'blog.article.riforma-frontalieri-costi-svizzera.excerpt': 'Approvata la riforma UE sull\'assicurazione disoccupazione per i frontalieri. Cosa cambia per la Svizzera?',
+    'blog.article.riforma-frontalieri-costi-svizzera.imageAlt': 'Lugano e il lago Ceresio',
 };
 
 export default blogMetaIt;

@@ -3952,6 +3952,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.credinvest-bank-crescita-2026.title': 'Credinvest Bank grows',
     'blog.article.credinvest-bank-crescita-2026.excerpt': 'The Swiss bank closes 2025 with revenues of 22.80 million and a gross profit of 4.93 million, investing in technology and talent.',
     'blog.article.credinvest-bank-crescita-2026.imageAlt': 'Lugano skyline with Lake Lugano in the background',
+    'blog.article.riforma-frontalieri-costi-svizzera.title': 'EU reform: extra costs for Switzerland?',
+    'blog.article.riforma-frontalieri-costi-svizzera.excerpt': 'The EU reform on unemployment insurance for cross-border workers has been approved. What changes for Switzerland?',
+    'blog.article.riforma-frontalieri-costi-svizzera.imageAlt': 'Lugano and Lake Lugano',
 };
 
 export default blogMetaEn;

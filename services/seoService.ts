@@ -2548,6 +2548,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ambulatori-medici-temporanei-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/ambulatori-medici-temporanei-varese-2026', parent: 'blog' },
     'blog-copernicus-clima-2025-europa': { name: 'Novità', path: '/articoli-frontaliere/copernicus-clima-2025-europa', parent: 'blog' },
     'blog-credinvest-bank-crescita-2026': { name: 'Novità', path: '/articoli-frontaliere/credinvest-bank-crescita-2026', parent: 'blog' },
+    'blog-riforma-frontalieri-costi-svizzera': { name: 'Novità', path: '/articoli-frontaliere/riforma-frontalieri-costi-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

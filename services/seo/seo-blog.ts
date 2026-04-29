@@ -25182,6 +25182,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riforma-frontalieri-costi-svizzera': {
+    title: 'Riforma frontalieri: costi aggiuntivi per la Svizzera?',
+    description: 'Approvata la riforma UE sull\'assicurazione disoccupazione per i frontalieri. Cosa cambia per la Svizzera?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, costi, aggiuntivi, approvata',
+    ogTitle: 'Riforma frontalieri: costi aggiuntivi per la Svizzera?',
+    ogDescription: 'Approvata la riforma UE sull\'assicurazione disoccupazione per i frontalieri. Cosa cambia per la Svizzera?',
+    canonicalPath: '/articoli-frontaliere/riforma-frontalieri-costi-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riforma frontalieri: costi aggiuntivi per la Svizzera?",
+      "description": "Approvata la riforma UE sull'assicurazione disoccupazione per i frontalieri. Cosa cambia per la Svizzera?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riforma-frontalieri-costi-svizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano e il lago Ceresio"
+      },
+      "datePublished": "2026-04-29T17:39:37+00:00",
+      "dateModified": "2026-04-29T17:39:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riforma-frontalieri-costi-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

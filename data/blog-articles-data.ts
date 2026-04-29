@@ -10234,4 +10234,11 @@ export const ARTICLES = [
  image: '/images/blog/credinvest-bank-crescita-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'riforma-frontalieri-costi-svizzera',
+ category: 'novita',
+ date: '2026-04-29T17:39:37.887Z',
+ image: '/images/blog/riforma-frontalieri-costi-svizzera.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
