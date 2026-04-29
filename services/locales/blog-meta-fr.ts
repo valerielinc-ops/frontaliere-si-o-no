@@ -3806,6 +3806,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spacchettamento-casse-malati-2026.title': 'Assurances maladie, séparation des deux initiatives',
     'blog.article.spacchettamento-casse-malati-2026.excerpt': 'Fiorenzo Dadò propose de traiter séparément les deux initiatives sur les assurances maladie approuvées en Ticino pour éviter les blocages et offrir des réponses rapides aux citoyens.',
     'blog.article.spacchettamento-casse-malati-2026.imageAlt': 'LAC Lugano Arts Center, Tessin, Suisse',
+    'blog.article.athora-italia-previdenza-complementare-2026.title': 'Athora Italia : 30 % des plus de 55 ans regrettent une adhésion tardive',
+    'blog.article.athora-italia-previdenza-complementare-2026.excerpt': 'L\'étude Athora Italia révèle que 30 % des plus de 55 ans regrettent de ne pas avoir adhéré plus tôt à la prévoyance complémentaire.',
+    'blog.article.athora-italia-previdenza-complementare-2026.imageAlt': 'Vue panoramique du lac de Lugano avec montagnes et centre-ville',
 };
 
 export default blogMetaFr;

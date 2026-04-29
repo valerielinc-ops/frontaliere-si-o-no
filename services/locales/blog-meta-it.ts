@@ -3806,6 +3806,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spacchettamento-casse-malati-2026.title': 'Casse malati, proposto lo spacchettamento delle due iniziative',
     'blog.article.spacchettamento-casse-malati-2026.excerpt': 'Fiorenzo Dadò propone di trattare separatamente le due iniziative sulle casse malati approvate in Ticino per evitare blocchi e offrire risposte rapide ai cittadini.',
     'blog.article.spacchettamento-casse-malati-2026.imageAlt': 'LAC Lugano Arts Center, Ticino, Svizzera',
+    'blog.article.athora-italia-previdenza-complementare-2026.title': 'Athora Italia: 30% over 55 rimpiange adesione tardiva',
+    'blog.article.athora-italia-previdenza-complementare-2026.excerpt': 'Studio Athora Italia rivela che il 30% degli over 55 rimpiange di non aver aderito prima alla previdenza complementare.',
+    'blog.article.athora-italia-previdenza-complementare-2026.imageAlt': 'Veduta panoramica del Lago di Lugano con montagne e centro città',
 };
 
 export default blogMetaIt;

@@ -23761,6 +23761,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-athora-italia-previdenza-complementare-2026': {
+    title: 'Athora Italia: 30% over 55 rimpiange adesione tardiva',
+    description: 'Studio Athora Italia rivela che il 30% degli over 55 rimpiange di non aver aderito prima alla previdenza complementare. Scopri di più. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, athora, over, rimpiange, adesione',
+    ogTitle: 'Athora Italia: 30% over 55 rimpiange adesione tardiva',
+    ogDescription: 'Studio Athora Italia rivela che il 30% degli over 55 rimpiange di non aver aderito prima alla previdenza complementare. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/athora-italia-previdenza-complementare-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Athora Italia: 30% over 55 rimpiange adesione tardiva",
+      "description": "Studio Athora Italia rivela che il 30% degli over 55 rimpiange di non aver aderito prima alla previdenza complementare. Scopri di più. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/athora-italia-previdenza-complementare-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica del Lago di Lugano con montagne e centro città"
+      },
+      "datePublished": "2026-04-29T09:43:18+00:00",
+      "dateModified": "2026-04-29T09:43:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/athora-italia-previdenza-complementare-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

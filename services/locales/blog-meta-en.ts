@@ -3805,6 +3805,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spacchettamento-casse-malati-2026.title': 'Splitting health insurance initiatives proposed',
     'blog.article.spacchettamento-casse-malati-2026.excerpt': 'Fiorenzo Dadò proposes to handle the two health insurance initiatives approved in Ticino separately to avoid blockages and provide quick answers to citizens.',
     'blog.article.spacchettamento-casse-malati-2026.imageAlt': 'LAC Lugano Arts Center, Ticino, Switzerland',
+    'blog.article.athora-italia-previdenza-complementare-2026.title': 'Athora Italia: 30% of over-55s regret late sign-up',
+    'blog.article.athora-italia-previdenza-complementare-2026.excerpt': 'Athora Italia study reveals that 30% of over-55s regret not joining supplementary pension earlier.',
+    'blog.article.athora-italia-previdenza-complementare-2026.imageAlt': 'Panoramic view of Lake Lugano with mountains and city center',
 };
 
 export default blogMetaEn;

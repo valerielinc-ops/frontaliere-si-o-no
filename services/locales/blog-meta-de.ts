@@ -3805,6 +3805,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spacchettamento-casse-malati-2026.title': 'Krankenkassen: Trennung der beiden Initiativen vorgeschlagen',
     'blog.article.spacchettamento-casse-malati-2026.excerpt': 'Fiorenzo Dadò schlägt vor, die beiden in der Schweiz approvierte Initiativen zu den Krankenkassen getrennt zu behandeln, um Blockaden zu vermeiden und den Bürgern schnelle Antworten zu bieten.',
     'blog.article.spacchettamento-casse-malati-2026.imageAlt': 'LAC Lugano Arts Center, Tessin, Schweiz',
+    'blog.article.athora-italia-previdenza-complementare-2026.title': 'Athora Italia: 30% der Über-55-Betroffenen bereut verspäteten Beitritt',
+    'blog.article.athora-italia-previdenza-complementare-2026.excerpt': 'Eine Studie von Athora Italia zeigt, dass 30% der Über-55-Jährigen bedauern, nicht früher der betrieblichen Altersvorsorge beigetreten zu sein.',
+    'blog.article.athora-italia-previdenza-complementare-2026.imageAlt': 'Panoramablick auf den Luganersee mit Bergen und Stadtzentrum',
 };
 
 export default blogMetaDe;
