@@ -420,6 +420,11 @@ jobs:
           # run #25108605667. Each line is one task with name + logfile +
           # command. Slowest 4 are intentionally back-to-back so the tail
           # is shorter and less expensive tasks fill the gaps.
+          # Gate first: dispatched at t=0 so its 40s vitest run completes
+          # while the 4 longest LPT tasks are still in flight, instead of
+          # tail-latency adding ~40s wall (run 25131629748: gate at the end
+          # of spawn order made wall 279s vs expected ~240s).
+          spawn_capped gate:seo-source              /tmp/gate.log npm run gate:seo-source
           spawn_capped audit:text-html-ratio        /tmp/g5.log npm run audit:text-html-ratio
           spawn_capped validate:jobposting-schema   /tmp/v1.log npm run validate:jobposting-schema
           # Group C — SPA render validation (5 min internal budget)
@@ -445,10 +450,6 @@ jobs:
           spawn_capped validate:canonical           /tmp/v5.log node scripts/validate-canonical.mjs
           spawn_capped validate:jobs-quality        /tmp/v2.log npm run validate:jobs-quality
           spawn_capped validate:sitemap-links       /tmp/v3.log npm run validate:sitemap-links
-          # Gate — SEO source-level invariants (vitest run tests/seo/, ~40s).
-          # Moved from a fail-fast pre-build step into the post-build pool —
-          # the source tests run at zero added wall thanks to MAX_PARALLEL=4.
-          spawn_capped gate:seo-source              /tmp/gate.log npm run gate:seo-source
 
           # Drain remaining in-flight tasks.
           wait
