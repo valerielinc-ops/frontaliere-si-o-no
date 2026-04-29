@@ -3968,6 +3968,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.title': 'Intesa Sanpaolo premia 10 imprese vincenti',
     'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.excerpt': 'Varese prima in Lombardia nel 2025 per crescita di esportazioni. Le due aziende premiate per eccellenza in plastica e moda.',
     'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.imageAlt': 'FoxTown Factory Stores a Mendrisio, Ticino',
+    'blog.article.pillola-giorno-dopo-consulenza-nazionale.title': 'Pillola del giorno dopo senza consulenza, il Nazionale dice sì',
+    'blog.article.pillola-giorno-dopo-consulenza-nazionale.excerpt': 'Il Consiglio nazionale approva una mozione per declassare i contraccettivi d\'emergenza e renderli accessibili senza colloquio obbligatorio.',
+    'blog.article.pillola-giorno-dopo-consulenza-nazionale.imageAlt': 'Farmacia a Lugano con esposizione di pillole contraccettive',
 };
 
 export default blogMetaIt;

@@ -10269,4 +10269,11 @@ export const ARTICLES = [
  image: '/images/blog/intesa-sanpaolo-premia-10-imprese-vincenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pillola-giorno-dopo-consulenza-nazionale',
+ category: 'novita',
+ date: '2026-04-29T18:43:17.696Z',
+ image: '/images/blog/pillola-giorno-dopo-consulenza-nazionale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3968,6 +3968,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.title': 'Intesa Sanpaolo récompense 10 entreprises gagnantes',
     'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.excerpt': 'Varèse première en Lombardie en 2025 pour la croissance des exportations. Les deux entreprises primées pour l\'excellence en plastique et mode.',
     'blog.article.intesa-sanpaolo-premia-10-imprese-vincenti.imageAlt': 'FoxTown Factory Stores à Mendrisio, Tessin',
+    'blog.article.pillola-giorno-dopo-consulenza-nazionale.title': 'Pilule du lendemain sans conseil, le Conseil national dit oui',
+    'blog.article.pillola-giorno-dopo-consulenza-nazionale.excerpt': 'Le Conseil national approuve une motion pour déclasser les contraceptifs d\'urgence et les rendre accessibles sans entretien obligatoire.',
+    'blog.article.pillola-giorno-dopo-consulenza-nazionale.imageAlt': 'Pharmacie à Lugano avec exposition de pilules contraceptives',
 };
 
 export default blogMetaFr;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1372,
+ "numberOfItems": 1373,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6007,7 +6007,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1369, "name": "Conciliabilità vita-lavoro Bellinzona 2026", "url": `${BASE_URL}/articoli-frontaliere/conciliabilita-vita-lavoro-bellinzona-2026` },
           { "@type": "ListItem", "position": 1370, "name": "Chiasso: 15 anni di carcere richiesti per tenta...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-assassinio-mancato-15-anni-carcere` },
           { "@type": "ListItem", "position": 1371, "name": "Lite alla dogana di Ponte Chiasso: un ferito, u...", "url": `${BASE_URL}/articoli-frontaliere/lite-dogana-ponte-chiasso-ferito-contuso` },
-          { "@type": "ListItem", "position": 1372, "name": "Intesa Sanpaolo premia 10 imprese vincenti: tra...", "url": `${BASE_URL}/articoli-frontaliere/intesa-sanpaolo-premia-10-imprese-vincenti` }
+          { "@type": "ListItem", "position": 1372, "name": "Intesa Sanpaolo premia 10 imprese vincenti: tra...", "url": `${BASE_URL}/articoli-frontaliere/intesa-sanpaolo-premia-10-imprese-vincenti` },
+          { "@type": "ListItem", "position": 1373, "name": "Pillola giorno dopo senza consulenza, il Nazion...", "url": `${BASE_URL}/articoli-frontaliere/pillola-giorno-dopo-consulenza-nazionale` }
  ]
  },
  {

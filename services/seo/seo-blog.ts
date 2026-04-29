@@ -25327,6 +25327,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pillola-giorno-dopo-consulenza-nazionale': {
+    title: 'Pillola del giorno dopo senza consulenza, il Nazionale dice sì',
+    description: 'Il Consiglio nazionale approva mozione per declassare contraccettivi d\'emergenza, rendendoli accessibili senza colloquio obbligatorio. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pillola, giorno, dopo, senza',
+    ogTitle: 'Pillola giorno dopo senza consulenza, il Nazionale dice sì',
+    ogDescription: 'Il Consiglio nazionale approva mozione per declassare contraccettivi d\'emergenza, rendendoli accessibili senza colloquio obbligatorio.',
+    canonicalPath: '/articoli-frontaliere/pillola-giorno-dopo-consulenza-nazionale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pillola giorno dopo senza consulenza, il Nazionale dice sì",
+      "description": "Il Consiglio nazionale approva mozione per declassare contraccettivi d'emergenza, rendendoli accessibili senza colloquio obbligatorio. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pillola-giorno-dopo-consulenza-nazionale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Farmacia a Lugano con esposizione di pillole contraccettive"
+      },
+      "datePublished": "2026-04-29T18:43:17+00:00",
+      "dateModified": "2026-04-29T18:43:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pillola-giorno-dopo-consulenza-nazionale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
