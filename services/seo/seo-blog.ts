@@ -23964,6 +23964,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-estival-jazz-marti-ritiro-2026': {
+    title: 'Jacky Marti lascia Estival Jazz dopo 47 anni | Frontaliere Ticino',
+    description: 'Jacky Marti, fondatore e direttore artistico di Estival Jazz, si ritira dopo 47 anni. Presentato il programma della 46esima edizione con due serate a pagamento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, jacky, marti, lascia, estival',
+    ogTitle: 'Jacky Marti lascia Estival Jazz dopo 47 anni',
+    ogDescription: 'Jacky Marti, fondatore e direttore artistico di Estival Jazz, si ritira dopo 47 anni. Presentato il programma della 46esima edizione con due serate a pagamento.',
+    canonicalPath: '/articoli-frontaliere/estival-jazz-marti-ritiro-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Jacky Marti lascia Estival Jazz dopo 47 anni",
+      "description": "Jacky Marti, fondatore e direttore artistico di Estival Jazz, si ritira dopo 47 anni. Presentato il programma della 46esima edizione con due serate a pagamento.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/estival-jazz-marti-ritiro-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Lugano durante il festival Estival Jazz, con il pubblico che gode di musica dal vivo sul lago, bandiere colorate e lo skyline della città sullo sfondo."
+      },
+      "datePublished": "2026-04-29T10:27:46+00:00",
+      "dateModified": "2026-04-29T10:27:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/estival-jazz-marti-ritiro-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

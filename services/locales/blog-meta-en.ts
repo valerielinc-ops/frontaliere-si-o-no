@@ -3826,6 +3826,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.canapa-losanna-bilancio-positivo-2026.title': 'Controlled cannabis pilot project in Lausanne: positive balance',
     'blog.article.canapa-losanna-bilancio-positivo-2026.excerpt': 'The pilot project for the controlled sale of cannabis in Lausanne has taken 2 million francs from the black market and created new jobs',
     'blog.article.canapa-losanna-bilancio-positivo-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water, surrounded by mountains and buildings',
+    'blog.article.estival-jazz-marti-ritiro-2026.title': 'Jacky Marti leaves Estival Jazz after 47 years',
+    'blog.article.estival-jazz-marti-ritiro-2026.excerpt': 'The founder and artistic director of the Lugano music festival retires. The program of the 46th edition has been presented with two paid evenings.',
+    'blog.article.estival-jazz-marti-ritiro-2026.imageAlt': 'Aerial view of Lugano during the Estival Jazz festival, with crowds enjoying live music by the lake, colorful banners, and the cityscape in the background.',
 };
 
 export default blogMetaEn;

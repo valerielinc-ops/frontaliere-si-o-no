@@ -3827,6 +3827,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.canapa-losanna-bilancio-positivo-2026.title': 'Canapa controllata a Losanna: bilancio positivo',
     'blog.article.canapa-losanna-bilancio-positivo-2026.excerpt': 'Il progetto pilota per la vendita controllata di cannabis a Losanna ha sottratto 2 milioni di franchi al mercato nero e creato nuovi posti di lavoro',
     'blog.article.canapa-losanna-bilancio-positivo-2026.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici',
+    'blog.article.estival-jazz-marti-ritiro-2026.title': 'Jacky Marti lascia Estival Jazz dopo 47 anni',
+    'blog.article.estival-jazz-marti-ritiro-2026.excerpt': 'Il fondatore e direttore artistico del festival musicale luganese si ritira. Presentato il programma della 46esima edizione con due serate a pagamento.',
+    'blog.article.estival-jazz-marti-ritiro-2026.imageAlt': 'Veduta aerea di Lugano durante il festival Estival Jazz, con il pubblico che gode di musica dal vivo sul lago, bandiere colorate e lo skyline della città sullo sfondo.',
 };
 
 export default blogMetaIt;
