@@ -2532,6 +2532,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tunnel-tonale-viabilita-lombardia': { name: 'Novità', path: '/articoli-frontaliere/tunnel-tonale-viabilita-lombardia', parent: 'blog' },
     'blog-spring-giubiasco-sport-convivialita-2026': { name: 'Spring Giubiasco', path: '/articoli-frontaliere/spring-giubiasco-sport-convivialita-2026', parent: 'blog' },
     'blog-carnago-forza-italia-pendolarismo': { name: 'Carnago', path: '/articoli-frontaliere/carnago-forza-italia-pendolarismo', parent: 'blog' },
+    'blog-usa-svizzera-frizioni-commerciali-2026': { name: 'Novità', path: '/articoli-frontaliere/usa-svizzera-frizioni-commerciali-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

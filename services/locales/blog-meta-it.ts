@@ -3905,6 +3905,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carnago-forza-italia-pendolarismo.title': 'Carnago: Fratelli d\'Italia attacca il pendolarismo di Forza Italia',
     'blog.article.carnago-forza-italia-pendolarismo.excerpt': 'Analisi dei costi del consigliere di minoranza Fausto Benzi: oltre 2.400 euro di previsione di spesa fino a fine mandato',
     'blog.article.carnago-forza-italia-pendolarismo.imageAlt': 'Palazzo comunale di Carnago, sede del consiglio comunale',
+    'blog.article.usa-svizzera-frizioni-commerciali-2026.title': 'USA-Svizzera: nuove tensioni su prodotti biologici e dazi',
+    'blog.article.usa-svizzera-frizioni-commerciali-2026.excerpt': 'Washington critica Berna per le norme agricole e il predominio di Coop e Migros. Nuovi dazi al 10% fino al 2027',
+    'blog.article.usa-svizzera-frizioni-commerciali-2026.imageAlt': 'Vista del lago di Lugano con bandiere svizzere e italiane, edifici moderni e area commerciale',
 };
 
 export default blogMetaIt;

@@ -3904,6 +3904,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carnago-forza-italia-pendolarismo.title': 'Carnago: Fratelli d\'Italia greift Pendler von Forza Italia an',
     'blog.article.carnago-forza-italia-pendolarismo.excerpt': 'Analyse der Kosten durch den Minderheitsrat Fausto Benzi: über 2.400 Franken an Ausgaben bis zum Ende der Amtszeit',
     'blog.article.carnago-forza-italia-pendolarismo.imageAlt': 'Rathaus von Carnago, Sitz des Gemeinderats',
+    'blog.article.usa-svizzera-frizioni-commerciali-2026.title': 'USA-Schweiz: Neue Spannungen um Bio-Produkte und Zölle',
+    'blog.article.usa-svizzera-frizioni-commerciali-2026.excerpt': 'Washington kritisiert Bern für Agrarnormen und die Vorherrschaft von Coop und Migros. Neue Zölle von 10% bis 2027',
+    'blog.article.usa-svizzera-frizioni-commerciali-2026.imageAlt': 'Seeblick von Lugano mit Schweizer und italienischen Flaggen, modernen Gebäuden und Geschäftsgebiet',
 };
 
 export default blogMetaDe;

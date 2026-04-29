@@ -24718,6 +24718,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-usa-svizzera-frizioni-commerciali-2026': {
+    title: 'USA-Svizzera: nuove tensioni su prodotti biologici e dazi',
+    description: 'Washington critica Berna per le norme agricole e il predominio di Coop e Migros. Nuovi dazi al 10% fino al 2027. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, usa-svizzera, nuove, tensioni, prodotti',
+    ogTitle: 'USA-Svizzera: nuove tensioni su prodotti biologici e dazi',
+    ogDescription: 'Washington critica Berna per le norme agricole e il predominio di Coop e Migros. Nuovi dazi al 10% fino al 2027',
+    canonicalPath: '/articoli-frontaliere/usa-svizzera-frizioni-commerciali-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "USA-Svizzera: nuove tensioni su prodotti biologici e dazi",
+      "description": "Washington critica Berna per le norme agricole e il predominio di Coop e Migros. Nuovi dazi al 10% fino al 2027. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/usa-svizzera-frizioni-commerciali-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con bandiere svizzere e italiane, edifici moderni e area commerciale"
+      },
+      "datePublished": "2026-04-29T13:15:55+00:00",
+      "dateModified": "2026-04-29T13:15:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/usa-svizzera-frizioni-commerciali-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

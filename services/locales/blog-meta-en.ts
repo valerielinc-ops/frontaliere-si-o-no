@@ -3904,6 +3904,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carnago-forza-italia-pendolarismo.title': 'Carnago: Fratelli d\'Italia criticizes Forza Italia\'s commuting',
     'blog.article.carnago-forza-italia-pendolarismo.excerpt': 'Analysis by minority councilor Fausto Benzi: over 2,400 euros in expected spending until the end of the term',
     'blog.article.carnago-forza-italia-pendolarismo.imageAlt': 'Town hall of Carnago, seat of the municipal council',
+    'blog.article.usa-svizzera-frizioni-commerciali-2026.title': 'USA-Switzerland tensions over organic products and tariffs',
+    'blog.article.usa-svizzera-frizioni-commerciali-2026.excerpt': 'Washington criticizes Bern for agricultural rules and the dominance of Coop and Migros. New 10% tariffs until 2027',
+    'blog.article.usa-svizzera-frizioni-commerciali-2026.imageAlt': 'Lake Lugano view with Swiss and Italian flags, modern buildings, and commercial area',
 };
 
 export default blogMetaEn;

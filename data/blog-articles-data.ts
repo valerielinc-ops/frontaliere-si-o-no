@@ -10122,4 +10122,11 @@ export const ARTICLES = [
  image: '/images/blog/carnago-forza-italia-pendolarismo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'usa-svizzera-frizioni-commerciali-2026',
+ category: 'novita',
+ date: '2026-04-29T13:15:55.307Z',
+ image: '/images/blog/usa-svizzera-frizioni-commerciali-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
