@@ -88,12 +88,12 @@
     },
     {
       "id": "heineken-ch-4f6eb0ce9007",
-      "slug": "title-truck-driver-heineken-ch-content-width-device-width",
+      "slug": "autista-di-camion-heineken-switzerland-content-width-device-width",
       "slugByLocale": {
         "de": "title-truck-driver-heineken-ch-content-width-device-width",
-        "it": "title-truck-driver-heineken-ch-content-width-device-width",
+        "it": "autista-di-camion-heineken-switzerland-content-width-device-width",
         "en": "title-truck-driver-heineken-ch-content-width-device-width",
-        "fr": "title-truck-driver-heineken-ch-content-width-device-width"
+        "fr": "chauffeur-de-camion-heineken-switzerland-content-width-device-width"
       },
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
@@ -145,7 +145,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-29T10:52:31.126Z"
+      "firstSeenAt": "2026-04-29T10:52:31.126Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "title-truck-driver-heineken-ch-content-width-device-width"
+        ],
+        "fr": [
+          "title-truck-driver-heineken-ch-content-width-device-width"
+        ]
+      },
+      "previousSlugs": [
+        "title-truck-driver-heineken-ch-content-width-device-width"
+      ]
     },
     {
       "id": "heineken-ch-ccfb570d30ed",
@@ -153,7 +164,7 @@
       "slugByLocale": {
         "it": "titolo-consulente-commerciale-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
         "en": "sales-advisor-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
-        "de": "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
+        "de": "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
         "fr": "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-switzerland-content-width-device-width"
       },
       "company": "Heineken Switzerland",
@@ -197,7 +208,7 @@
         "de": [
           "verkaufsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
           "verkaufsberater-in-riviera-chablais-f-m-d-heineken-switzerland-content-width-device-width",
-          "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width"
+          "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt"
         ],
         "it": [
           "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
@@ -208,7 +219,6 @@
         "verkaufsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
         "verkaufsberater-in-riviera-chablais-f-m-d-heineken-switzerland-content-width-device-width",
         "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
-        "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
         "consulente-ore-f-m-d-di-vendita-riviera-chablais-heineken-switzerland-content-width-device-width"
       ],
       "requirementsByLocale": {
