@@ -3706,6 +3706,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.processo-tentato-omicidio-chiasso-2026.title': 'Prozess wegen versuchten Mordes in Chiasso: Angriff mit Hantel',
     'blog.article.processo-tentato-omicidio-chiasso-2026.excerpt': 'Der Prozess gegen einen eritreischen Staatsbürger beginnt, der beschuldigt wird, seine Partnerin in Chiasso mit einer Hantel angegriffen zu haben.',
     'blog.article.processo-tentato-omicidio-chiasso-2026.imageAlt': 'Luftansicht von Chiasso, Schweiz, in der Nähe der italienischen Grenze, mit Fokus auf die Architektur der Stadt und die umliegende Landschaft.',
+    'blog.article.varese-cultura-2030-ecosistema-culturale.title': 'Varese Kultur 2030: Kulturökosystem gestalten',
+    'blog.article.varese-cultura-2030-ecosistema-culturale.excerpt': 'Varese Kultur 2030 ist ein Projekt zur Neugestaltung der kulturellen Zukunft der Provinz Varese, mit einem gemeinsamen strategischen Plan und einer digitalen Plattform zur Kartierung des lokalen Erbes.',
+    'blog.article.varese-cultura-2030-ecosistema-culturale.imageAlt': 'Kulturelles Event in Varese mit Teilnehmern und natürlicher Landschaft',
 };
 
 export default blogMetaDe;

@@ -3707,6 +3707,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.processo-tentato-omicidio-chiasso-2026.title': 'Processo per tentato omicidio a Chiasso: aggressione con manubrio',
     'blog.article.processo-tentato-omicidio-chiasso-2026.excerpt': 'Si apre il processo a carico di un cittadino eritreo accusato di aver aggredito la compagna con un manubrio da palestra a Chiasso.',
     'blog.article.processo-tentato-omicidio-chiasso-2026.imageAlt': 'Vista aerea di Chiasso, Svizzera, vicino al confine italiano, con focus sull\'architettura della città e sul paesaggio circostante.',
+    'blog.article.varese-cultura-2030-ecosistema-culturale.title': 'Varese Cultura 2030: costruire un ecosistema culturale',
+    'blog.article.varese-cultura-2030-ecosistema-culturale.excerpt': 'Varese Cultura 2030 è un progetto per ridisegnare il futuro culturale della provincia di Varese, con un piano strategico condiviso e una piattaforma digitale di mappatura del patrimonio locale.',
+    'blog.article.varese-cultura-2030-ecosistema-culturale.imageAlt': 'Evento culturale a Varese con partecipanti e paesaggio naturale',
 };
 
 export default blogMetaIt;

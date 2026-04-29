@@ -3706,6 +3706,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.processo-tentato-omicidio-chiasso-2026.title': 'Trial for attempted murder in Chiasso: attack with dumbbell',
     'blog.article.processo-tentato-omicidio-chiasso-2026.excerpt': 'The trial begins for an Eritrean citizen accused of attacking his partner with a gym dumbbell in Chiasso.',
     'blog.article.processo-tentato-omicidio-chiasso-2026.imageAlt': 'Aerial view of Chiasso, Switzerland, near the Italian border, focusing on the town\'s architecture and the surrounding landscape.',
+    'blog.article.varese-cultura-2030-ecosistema-culturale.title': 'Varese Culture 2030: building a cultural ecosystem',
+    'blog.article.varese-cultura-2030-ecosistema-culturale.excerpt': 'Varese Culture 2030 is a project to reshape the cultural future of Varese province, with a shared strategic plan and a digital platform for mapping local heritage.',
+    'blog.article.varese-cultura-2030-ecosistema-culturale.imageAlt': 'Cultural event in Varese with participants and natural landscape',
 };
 
 export default blogMetaEn;

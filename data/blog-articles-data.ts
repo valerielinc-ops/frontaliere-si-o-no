@@ -9660,4 +9660,11 @@ export const ARTICLES = [
  image: '/images/blog/processo-tentato-omicidio-chiasso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-cultura-2030-ecosistema-culturale',
+ category: 'novita',
+ date: '2026-04-29T04:49:16.617Z',
+ image: '/images/blog/varese-cultura-2030-ecosistema-culturale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

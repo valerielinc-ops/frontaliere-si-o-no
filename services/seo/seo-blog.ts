@@ -22804,6 +22804,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-cultura-2030-ecosistema-culturale': {
+    title: 'Varese Cultura 2030: costruire un ecosistema culturale',
+    description: 'Varese Cultura 2030 è un progetto per ridisegnare il futuro culturale della provincia di Varese, con un piano strategico condiviso e una piattaforma digitale di',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, cultura, 2030, costruire',
+    ogTitle: 'Varese Cultura 2030: costruire un ecosistema culturale',
+    ogDescription: 'Varese Cultura 2030 è un progetto per ridisegnare il futuro culturale della provincia di Varese, con un piano strategico condiviso e una piattaforma digitale di',
+    canonicalPath: '/articoli-frontaliere/varese-cultura-2030-ecosistema-culturale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese Cultura 2030: costruire un ecosistema culturale",
+      "description": "Varese Cultura 2030 è un progetto per ridisegnare il futuro culturale della provincia di Varese, con un piano strategico condiviso e una piattaforma digitale di",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-cultura-2030-ecosistema-culturale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento culturale a Varese con partecipanti e paesaggio naturale"
+      },
+      "datePublished": "2026-04-29T04:49:16+00:00",
+      "dateModified": "2026-04-29T04:49:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-cultura-2030-ecosistema-culturale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

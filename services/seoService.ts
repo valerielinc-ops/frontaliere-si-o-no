@@ -2466,6 +2466,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-valle-verzasca-2026': { name: 'Incidente Valle Verzasca', path: '/articoli-frontaliere/incidente-valle-verzasca-2026', parent: 'blog' },
     'blog-guida-affettuosa-separazione-ticino-2026': { name: 'Guida separazione', path: '/articoli-frontaliere/guida-affettuosa-separazione-ticino-2026', parent: 'blog' },
     'blog-processo-tentato-omicidio-chiasso-2026': { name: 'Processo Chiasso', path: '/articoli-frontaliere/processo-tentato-omicidio-chiasso-2026', parent: 'blog' },
+    'blog-varese-cultura-2030-ecosistema-culturale': { name: 'Varese Cultura 2030', path: '/articoli-frontaliere/varese-cultura-2030-ecosistema-culturale', parent: 'blog' },
  };
 
  const info = sectionNames[section];
