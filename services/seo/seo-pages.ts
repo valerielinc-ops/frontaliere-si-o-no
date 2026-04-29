@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1398,
+ "numberOfItems": 1399,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6033,7 +6033,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1395, "name": "Gruppo Moncucco: utile raddoppiato e stipendi a...", "url": `${BASE_URL}/articoli-frontaliere/moncucco-utile-raddoppiato-2026` },
           { "@type": "ListItem", "position": 1396, "name": "Una domenica tra natura e spazio al Centro Dida...", "url": `${BASE_URL}/articoli-frontaliere/domenica-natura-spazio-tradate-2026` },
           { "@type": "ListItem", "position": 1397, "name": "Lago Maggiore, via libera all’innalzamento: 20-...", "url": `${BASE_URL}/articoli-frontaliere/lago-maggiore-innalzamento-2026` },
-          { "@type": "ListItem", "position": 1398, "name": "USA criticano Svizzera per regole bio e duopoli...", "url": `${BASE_URL}/articoli-frontaliere/usa-critica-svizzera-bio-duopolio` }
+          { "@type": "ListItem", "position": 1398, "name": "USA criticano Svizzera per regole bio e duopoli...", "url": `${BASE_URL}/articoli-frontaliere/usa-critica-svizzera-bio-duopolio` },
+          { "@type": "ListItem", "position": 1399, "name": "{\"it\":\"Dl Bollette: novità per i consumatori da...", "url": `${BASE_URL}/articoli-frontaliere/dl-bollette-novita-consumatori-2026` }
  ]
  },
  {

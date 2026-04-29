@@ -4045,6 +4045,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.usa-critica-svizzera-bio-duopolio.title': 'USA kritisieren Schweiz wegen Bio-Regeln und Migros-Coop-Duopol',
     'blog.article.usa-critica-svizzera-bio-duopolio.excerpt': 'Landwirtschaftliche Vorschriften und die Vorherrschaft von Coop und Migros stehen im Mittelpunkt der US-Kritik. Handelsbilanzdefizit sinkt, aber Spannungen bleiben bestehen.',
     'blog.article.usa-critica-svizzera-bio-duopolio.imageAlt': 'Luftaufnahme von Mendrisio, Tessin, Schweiz',
+    'blog.article.dl-bollette-novita-consumatori-2026.title': 'Dl Bollette: Neuerungen für Verbraucher ab 19. Juni 2026',
+    'blog.article.dl-bollette-novita-consumatori-2026.excerpt': 'Neuerungen für Verbraucher: Ab dem 19. Juni 2026 gelten neue Regeln zu Telemarketing und Verträgen für Strom und Gas. Hier erfahren Sie, was sich ändert.',
+    'blog.article.dl-bollette-novita-consumatori-2026.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

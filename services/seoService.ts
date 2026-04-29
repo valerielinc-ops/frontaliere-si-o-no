@@ -2579,6 +2579,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-domenica-natura-spazio-tradate-2026': { name: 'Eventi Tradate', path: '/articoli-frontaliere/domenica-natura-spazio-tradate-2026', parent: 'blog' },
     'blog-lago-maggiore-innalzamento-2026': { name: 'Novità', path: '/articoli-frontaliere/lago-maggiore-innalzamento-2026', parent: 'blog' },
     'blog-usa-critica-svizzera-bio-duopolio': { name: 'Novità', path: '/articoli-frontaliere/usa-critica-svizzera-bio-duopolio', parent: 'blog' },
+    'blog-dl-bollette-novita-consumatori-2026': { name: 'Novità consumatori', path: '/articoli-frontaliere/dl-bollette-novita-consumatori-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

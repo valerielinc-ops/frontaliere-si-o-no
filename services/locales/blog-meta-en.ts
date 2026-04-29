@@ -4045,6 +4045,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.usa-critica-svizzera-bio-duopolio.title': 'US criticizes Switzerland over bio rules and Migros-Coop duopoly',
     'blog.article.usa-critica-svizzera-bio-duopolio.excerpt': 'Agricultural regulations and the dominance of Coop and Migros at the center of US criticism. Trade deficit decreasing, but tensions remain.',
     'blog.article.usa-critica-svizzera-bio-duopolio.imageAlt': 'Aerial view of Mendrisio, Ticino, Switzerland',
+    'blog.article.dl-bollette-novita-consumatori-2026.title': 'Bill Decree: new rules for consumers from 19 June 2026',
+    'blog.article.dl-bollette-novita-consumatori-2026.excerpt': 'New rules for consumers: from 19 June 2026, new regulations on telemarketing and electricity-gas contracts. Here\'s what changes',
+    'blog.article.dl-bollette-novita-consumatori-2026.imageAlt': 'View of Lake Lugano with modern buildings and mountains in the background',
 };
 
 export default blogMetaEn;

@@ -10451,4 +10451,11 @@ export const ARTICLES = [
  image: '/images/blog/usa-critica-svizzera-bio-duopolio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dl-bollette-novita-consumatori-2026',
+ category: 'novita',
+ date: '2026-04-29T23:04:17.977Z',
+ image: '/images/blog/dl-bollette-novita-consumatori-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

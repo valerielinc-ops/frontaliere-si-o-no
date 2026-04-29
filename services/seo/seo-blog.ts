@@ -26081,6 +26081,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dl-bollette-novita-consumatori-2026': {
+    title: 'Dl Bollette: novità per i consumatori dal 19 giugno 2026',
+    description: 'Novità per i consumatori: dal 19 giugno 2026 nuove regole su telemarketing e contratti luce-gas. Ecco cosa cambia. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollette, novità, consumatori, giugno',
+    ogTitle: 'Dl Bollette: novità per i consumatori dal 19 giugno 2026',
+    ogDescription: 'Novità per i consumatori: dal 19 giugno 2026 nuove regole su telemarketing e contratti luce-gas. Ecco cosa cambia',
+    canonicalPath: '/articoli-frontaliere/dl-bollette-novita-consumatori-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"it\":\"Dl Bollette: novità per i consumatori dal 19 giugno 2026\",\"en\":\"Dl Bill: News for consumers from June 19, 2026\",\"de\":\"Dl Rechnung: Neuigkeiten für Verbraucher ab dem 19. Juni 2026\",\"fr\":\"Dl Facture: Nouvelles pour les consommateurs à partir du 19 juin 2026\"}",
+      "description": "Novità per i consumatori: dal 19 giugno 2026 nuove regole su telemarketing e contratti luce-gas. Ecco cosa cambia. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dl-bollette-novita-consumatori-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con edifici moderni e montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-29T23:04:18+00:00",
+      "dateModified": "2026-04-29T23:04:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dl-bollette-novita-consumatori-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
