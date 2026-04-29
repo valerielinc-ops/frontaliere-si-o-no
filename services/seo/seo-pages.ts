@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1395,
+ "numberOfItems": 1396,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6030,7 +6030,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1392, "name": "Delusi dalla Svizzera: chi guadagna poco si sen...", "url": `${BASE_URL}/articoli-frontaliere/delusi-svizzera-frontalieri-abbandonati` },
           { "@type": "ListItem", "position": 1393, "name": "Separazioni in Ticino: rete di supporto e guida...", "url": `${BASE_URL}/articoli-frontaliere/separazioni-ticino-famiglie-monoparentali` },
           { "@type": "ListItem", "position": 1394, "name": "Dichiarazione precompilata 2026: disponibile da...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-precompilata-2026-disponibile` },
-          { "@type": "ListItem", "position": 1395, "name": "Gruppo Moncucco: utile raddoppiato e stipendi a...", "url": `${BASE_URL}/articoli-frontaliere/moncucco-utile-raddoppiato-2026` }
+          { "@type": "ListItem", "position": 1395, "name": "Gruppo Moncucco: utile raddoppiato e stipendi a...", "url": `${BASE_URL}/articoli-frontaliere/moncucco-utile-raddoppiato-2026` },
+          { "@type": "ListItem", "position": 1396, "name": "Una domenica tra natura e spazio al Centro Dida...", "url": `${BASE_URL}/articoli-frontaliere/domenica-natura-spazio-tradate-2026` }
  ]
  },
  {

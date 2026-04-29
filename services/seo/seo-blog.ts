@@ -25994,6 +25994,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-domenica-natura-spazio-tradate-2026': {
+    title: 'Una domenica tra natura e spazio al Centro Didattico Scientifico di Tradate',
+    description: 'Domenica 31 maggio 2026, dalle 14.30 alle 18.00, il Centro Didattico Scientifico di Tradate offre attività tra natura e spazio. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, domenica, natura, spazio, centro',
+    ogTitle: 'Una domenica tra natura e spazio al Centro Didattico Scientifico di Tradate',
+    ogDescription: 'Domenica 31 maggio 2026, dalle 14.30 alle 18.00, il Centro Didattico Scientifico di Tradate offre attività tra natura e spazio.',
+    canonicalPath: '/articoli-frontaliere/domenica-natura-spazio-tradate-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Una domenica tra natura e spazio al Centro Didattico Scientifico di Tradate",
+      "description": "Domenica 31 maggio 2026, dalle 14.30 alle 18.00, il Centro Didattico Scientifico di Tradate offre attività tra natura e spazio. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/domenica-natura-spazio-tradate-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia che partecipa a un evento scientifico in un parco vicino a un lago con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-29T22:42:36+00:00",
+      "dateModified": "2026-04-29T22:42:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/domenica-natura-spazio-tradate-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

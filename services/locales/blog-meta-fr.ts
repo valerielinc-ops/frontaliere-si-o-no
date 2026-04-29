@@ -4037,6 +4037,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.moncucco-utile-raddoppiato-2026.title': 'Groupe Moncucco: bénéfices doublés et salaires augmentés',
     'blog.article.moncucco-utile-raddoppiato-2026.excerpt': 'Le groupe hospitalier Moncucco clôt l\'année 2025 avec un bénéfice de 5,3 millions de francs et des ajustements salariaux pour les employés',
     'blog.article.moncucco-utile-raddoppiato-2026.imageAlt': 'Vue panoramique de Lugano avec le Monte Brè en arrière-plan',
+    'blog.article.domenica-natura-spazio-tradate-2026.title': 'Une dimanche entre nature et espace à Tradate',
+    'blog.article.domenica-natura-spazio-tradate-2026.excerpt': 'Dimanche 31 mai 2026, de 14h30 à 18h00, le Centre Didactique Scientifique de Tradate propose des activités entre nature et espace.',
+    'blog.article.domenica-natura-spazio-tradate-2026.imageAlt': 'Une famille profitant d\'une exposition scientifique dans un parc près d\'un lac avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

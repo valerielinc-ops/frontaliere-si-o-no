@@ -4036,6 +4036,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.moncucco-utile-raddoppiato-2026.title': 'Moncucco Group: profits doubled and salaries raised',
     'blog.article.moncucco-utile-raddoppiato-2026.excerpt': 'The Moncucco Hospital Group closed 2025 with a profit of 5.3 million francs and salary adjustments for employees',
     'blog.article.moncucco-utile-raddoppiato-2026.imageAlt': 'Lugano skyline with Monte Brè in the background',
+    'blog.article.domenica-natura-spazio-tradate-2026.title': 'A Sunday between nature and space in Tradate',
+    'blog.article.domenica-natura-spazio-tradate-2026.excerpt': 'On Sunday, May 31, 2026, from 14:30 to 18:00, the Scientific Educational Center of Tradate offers activities between nature and space.',
+    'blog.article.domenica-natura-spazio-tradate-2026.imageAlt': 'A family enjoying a scientific exhibition in a park near a lake with mountains in the background',
 };
 
 export default blogMetaEn;
