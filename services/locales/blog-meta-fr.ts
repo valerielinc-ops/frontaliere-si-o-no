@@ -3722,6 +3722,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casa-montana-nante-voto-validato.title': 'Maison de montagne de Nante, le vote du Conseil communal est valide',
     'blog.article.casa-montana-nante-voto-validato.excerpt': 'Le Conseil d\'État rejette le recours contre la résolution adoptée par le législatif en juin dernier',
     'blog.article.casa-montana-nante-voto-validato.imageAlt': 'Maison de montagne dans le Tessin avec vue sur les sommets enneigés',
+    'blog.article.furti-cantine-luganese-condannato.title': 'Vols dans les caves du Luganais : un frontalier condamné',
+    'blog.article.furti-cantine-luganese-condannato.excerpt': 'Un frontalier de 44 ans a été condamné pour des vols dans les caves du Luganais afin de financer sa dépendance à la cocaïne',
+    'blog.article.furti-cantine-luganese-condannato.imageAlt': 'Vue aérienne du lac de Lugano et de la ville',
 };
 
 export default blogMetaFr;

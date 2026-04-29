@@ -3721,6 +3721,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casa-montana-nante-voto-validato.title': 'Nante mountain house: Monteceneri Council\'s vote stands',
     'blog.article.casa-montana-nante-voto-validato.excerpt': 'The State Council rejects the appeal against the resolution adopted by the Legislature last June',
     'blog.article.casa-montana-nante-voto-validato.imageAlt': 'Mountain house in Ticino with a view of snow-covered peaks',
+    'blog.article.furti-cantine-luganese-condannato.title': '44-year-old Ticinese convicted for Lugano cellar thefts',
+    'blog.article.furti-cantine-luganese-condannato.excerpt': 'A 44-year-old Ticinese man has been convicted of stealing from Lugano cellars to fund his cocaine addiction',
+    'blog.article.furti-cantine-luganese-condannato.imageAlt': 'Aerial view of Lake Lugano and the city',
 };
 
 export default blogMetaEn;

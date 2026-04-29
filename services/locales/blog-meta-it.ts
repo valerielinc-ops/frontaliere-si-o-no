@@ -3722,6 +3722,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casa-montana-nante-voto-validato.title': 'Casa montana di Nante, valido il voto del Cc di Monteceneri',
     'blog.article.casa-montana-nante-voto-validato.excerpt': 'Il Consiglio di Stato respinge il ricorso contro la risoluzione adottata dal Legislativo lo scorso giugno',
     'blog.article.casa-montana-nante-voto-validato.imageAlt': 'Casa montana in Ticino con vista sulle montagne innevate',
+    'blog.article.furti-cantine-luganese-condannato.title': 'Furti nelle cantine del Luganese: condannato 44enne ticinese',
+    'blog.article.furti-cantine-luganese-condannato.excerpt': 'Un 44enne ticinese è stato condannato per furti nelle cantine del Luganese per finanziare la dipendenza da cocaina',
+    'blog.article.furti-cantine-luganese-condannato.imageAlt': 'Vista aerea del lago di Lugano e della città',
 };
 
 export default blogMetaIt;

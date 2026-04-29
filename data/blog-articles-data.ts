@@ -9695,4 +9695,11 @@ export const ARTICLES = [
  image: '/images/blog/casa-montana-nante-voto-validato.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'furti-cantine-luganese-condannato',
+ category: 'novita',
+ date: '2026-04-29T05:26:21.579Z',
+ image: '/images/blog/furti-cantine-luganese-condannato.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

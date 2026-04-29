@@ -3721,6 +3721,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casa-montana-nante-voto-validato.title': 'Bergheim Nante: Beschluss des Gemeinderats Monteceneri gültig',
     'blog.article.casa-montana-nante-voto-validato.excerpt': 'Der Staatsrat weist die Beschwerde gegen die im Juni vom Legislativrat getroffene Resolution ab',
     'blog.article.casa-montana-nante-voto-validato.imageAlt': 'Berghaus in Tessin mit Blick auf schneebedeckte Gipfel',
+    'blog.article.furti-cantine-luganese-condannato.title': 'Einbrüche in Luganer Kellern: 44-jähriger Tessin verurteilt',
+    'blog.article.furti-cantine-luganese-condannato.excerpt': 'Ein 44-jähriger Tessin hat Einbrüche in Luganer Kellern begangen, um seine Kokainabhängigkeit zu finanzieren',
+    'blog.article.furti-cantine-luganese-condannato.imageAlt': 'Luftaufnahme des Luganer Sees und der Stadt',
 };
 
 export default blogMetaDe;

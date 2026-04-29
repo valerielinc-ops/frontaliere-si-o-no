@@ -2471,6 +2471,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-atleti-ticinesi-vittoria-arcegno-ascona': { name: 'Sport Ticino', path: '/articoli-frontaliere/atleti-ticinesi-vittoria-arcegno-ascona', parent: 'blog' },
     'blog-malnate-comitati-quartiere-bilancio-partecipativo': { name: 'Comitati di Quartiere', path: '/articoli-frontaliere/malnate-comitati-quartiere-bilancio-partecipativo', parent: 'blog' },
     'blog-casa-montana-nante-voto-validato': { name: 'Novità', path: '/articoli-frontaliere/casa-montana-nante-voto-validato', parent: 'blog' },
+    'blog-furti-cantine-luganese-condannato': { name: 'Novità', path: '/articoli-frontaliere/furti-cantine-luganese-condannato', parent: 'blog' },
  };
 
  const info = sectionNames[section];
