@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1253,
+ "numberOfItems": 1254,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5888,7 +5888,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1250, "name": "OtherMovie Lugano 2026: trionfa 'God as my Witn...", "url": `${BASE_URL}/articoli-frontaliere/othermovie-lugano-2026-god-witness` },
           { "@type": "ListItem", "position": 1251, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/emporio-solidarieta-olgiate-olona` },
           { "@type": "ListItem", "position": 1252, "name": "Estival Jazz Lugano cambia formula: due serate ...", "url": `${BASE_URL}/articoli-frontaliere/estival-jazz-lugano-cambia-formula-2026` },
-          { "@type": "ListItem", "position": 1253, "name": "Eurovision 2026: le ballad che emozionano", "url": `${BASE_URL}/articoli-frontaliere/eurovision-ballad-ticino-2026` }
+          { "@type": "ListItem", "position": 1253, "name": "Eurovision 2026: le ballad che emozionano", "url": `${BASE_URL}/articoli-frontaliere/eurovision-ballad-ticino-2026` },
+          { "@type": "ListItem", "position": 1254, "name": "Unitas compie 80 anni e guarda al futuro", "url": `${BASE_URL}/articoli-frontaliere/unitas-ottantesimo-futuro-ticino` }
  ]
  },
  {

@@ -3611,6 +3611,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.eurovision-ballad-ticino-2026.title': 'Eurovision 2026: le ballad che emozionano',
     'blog.article.eurovision-ballad-ticino-2026.excerpt': 'Scopri le canzoni che emozionano all\'Eurovision 2026, tra ballad e scelte artistiche d\'impatto.',
     'blog.article.eurovision-ballad-ticino-2026.imageAlt': 'Palco dell\'Eurovision Song Contest a Vienna, Austria',
+    'blog.article.unitas-ottantesimo-futuro-ticino.title': 'Unitas compie 80 anni: bilancio e futuro dell\'associazione',
+    'blog.article.unitas-ottantesimo-futuro-ticino.excerpt': 'L\'Associazione ciechi e ipovedenti della Svizzera italiana festeggia 80 anni tra sfide finanziarie e nuovi progetti inclusivi sul territorio.',
+    'blog.article.unitas-ottantesimo-futuro-ticino.imageAlt': 'Veduta di Lugano in Via Nassa, sede storica di Unitas',
 };
 
 export default blogMetaIt;

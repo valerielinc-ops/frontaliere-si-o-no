@@ -9436,4 +9436,11 @@ export const ARTICLES = [
  image: '/images/blog/eurovision-ballad-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'unitas-ottantesimo-futuro-ticino',
+ category: 'novita',
+ date: '2026-04-29T00:41:13.160Z',
+ image: '/images/blog/unitas-ottantesimo-futuro-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

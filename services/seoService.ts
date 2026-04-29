@@ -2434,6 +2434,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-emporio-solidarieta-olgiate-olona': { name: 'Novità', path: '/articoli-frontaliere/emporio-solidarieta-olgiate-olona', parent: 'blog' },
     'blog-estival-jazz-lugano-cambia-formula-2026': { name: 'Novità', path: '/articoli-frontaliere/estival-jazz-lugano-cambia-formula-2026', parent: 'blog' },
     'blog-eurovision-ballad-ticino-2026': { name: 'Eurovision 2026', path: '/articoli-frontaliere/eurovision-ballad-ticino-2026', parent: 'blog' },
+    'blog-unitas-ottantesimo-futuro-ticino': { name: 'Unitas 80 anni', path: '/articoli-frontaliere/unitas-ottantesimo-futuro-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

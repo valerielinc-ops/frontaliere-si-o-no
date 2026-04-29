@@ -21876,6 +21876,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-unitas-ottantesimo-futuro-ticino': {
+    title: 'Unitas compie 80 anni: bilancio e futuro dell\'associazione',
+    description: 'Unitas compie 80 anni: l\'associazione ciechi e ipovedenti della Svizzera italiana guarda al futuro tra sfide finanziarie e nuovi eventi inclusivi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, unitas, compie, anni, bilancio',
+    ogTitle: 'Unitas compie 80 anni: bilancio e futuro dell\'associazione',
+    ogDescription: 'L\'associazione ciechi e ipovedenti della Svizzera italiana festeggia 80 anni. Scopri le sfide e i progetti futuri presentati a Lugano.',
+    canonicalPath: '/articoli-frontaliere/unitas-ottantesimo-futuro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Unitas compie 80 anni e guarda al futuro",
+      "description": "Unitas compie 80 anni: l'associazione ciechi e ipovedenti della Svizzera italiana guarda al futuro tra sfide finanziarie e nuovi eventi inclusivi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/unitas-ottantesimo-futuro-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano in Via Nassa, sede storica di Unitas"
+      },
+      "datePublished": "2026-04-29T00:41:13+00:00",
+      "dateModified": "2026-04-29T00:41:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/unitas-ottantesimo-futuro-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

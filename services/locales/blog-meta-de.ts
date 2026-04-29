@@ -3610,6 +3610,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.eurovision-ballad-ticino-2026.title': 'Eurovision 2026: berührende Balladen',
     'blog.article.eurovision-ballad-ticino-2026.excerpt': 'Entdecken Sie die Lieder, die beim Eurovision Song Contest 2026 berühren, zwischen Balladen und künstlerischen Entscheidungen mit großer Wirkung.',
     'blog.article.eurovision-ballad-ticino-2026.imageAlt': 'Eurovision Song Contest Bühne in Wien, Österreich',
+    'blog.article.unitas-ottantesimo-futuro-ticino.title': 'Unitas wird 80: Bilanz und Zukunft des Verbandes',
+    'blog.article.unitas-ottantesimo-futuro-ticino.excerpt': 'Der Verband für Blinde und Sehbehinderte der italienischen Schweiz feiert sein 80-jähriges Bestehen zwischen finanziellen Herausforderungen und neuen inklusiven Projekten in der Region.',
+    'blog.article.unitas-ottantesimo-futuro-ticino.imageAlt': 'Blick auf Lugano in der Via Nassa, historischer Sitz von Unitas',
 };
 
 export default blogMetaDe;

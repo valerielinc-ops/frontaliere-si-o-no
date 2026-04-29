@@ -3610,6 +3610,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.eurovision-ballad-ticino-2026.title': 'Eurovision 2026: the ballads that move us',
     'blog.article.eurovision-ballad-ticino-2026.excerpt': 'Discover the songs that move us at Eurovision 2026, from ballads to impactful artistic choices.',
     'blog.article.eurovision-ballad-ticino-2026.imageAlt': 'Eurovision Song Contest stage in Vienna, Austria',
+    'blog.article.unitas-ottantesimo-futuro-ticino.title': 'Unitas turns 80: The association\'s outlook and future',
+    'blog.article.unitas-ottantesimo-futuro-ticino.excerpt': 'The Association for the Blind and Visually Impaired of Italian-speaking Switzerland celebrates 80 years, facing financial challenges and new inclusive projects in the region.',
+    'blog.article.unitas-ottantesimo-futuro-ticino.imageAlt': 'View of Lugano in Via Nassa, historical site of Unitas',
 };
 
 export default blogMetaEn;
