@@ -3718,6 +3718,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.title': 'Malnate: neighborhood committees start work',
     'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.excerpt': 'Malnate\'s new Neighborhood Committees begin their term with participatory budgeting and targeted projects.',
     'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.imageAlt': 'Aerial view of Malnate, Italy, showing the town\'s layout and surrounding areas.',
+    'blog.article.casa-montana-nante-voto-validato.title': 'Nante mountain house: Monteceneri Council\'s vote stands',
+    'blog.article.casa-montana-nante-voto-validato.excerpt': 'The State Council rejects the appeal against the resolution adopted by the Legislature last June',
+    'blog.article.casa-montana-nante-voto-validato.imageAlt': 'Mountain house in Ticino with a view of snow-covered peaks',
 };
 
 export default blogMetaEn;

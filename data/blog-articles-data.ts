@@ -9688,4 +9688,11 @@ export const ARTICLES = [
  image: '/images/blog/malnate-comitati-quartiere-bilancio-partecipativo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'casa-montana-nante-voto-validato',
+ category: 'novita',
+ date: '2026-04-29T05:19:03.558Z',
+ image: '/images/blog/casa-montana-nante-voto-validato.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

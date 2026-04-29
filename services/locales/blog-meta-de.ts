@@ -3718,6 +3718,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.title': 'Malnate: Die Quartierkomitees beginnen ihre Arbeit',
     'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.excerpt': 'Die neuen Quartierkomitees von Malnate starten ihre Amtszeit mit einem partizipativen Budget und gezielten Projekten.',
     'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.imageAlt': 'Luftaufnahme von Malnate, Italien, die die Stadtanlage und die umliegenden Gebiete zeigt.',
+    'blog.article.casa-montana-nante-voto-validato.title': 'Bergheim Nante: Beschluss des Gemeinderats Monteceneri gültig',
+    'blog.article.casa-montana-nante-voto-validato.excerpt': 'Der Staatsrat weist die Beschwerde gegen die im Juni vom Legislativrat getroffene Resolution ab',
+    'blog.article.casa-montana-nante-voto-validato.imageAlt': 'Berghaus in Tessin mit Blick auf schneebedeckte Gipfel',
 };
 
 export default blogMetaDe;

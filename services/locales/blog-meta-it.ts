@@ -3719,6 +3719,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.title': 'Malnate: parte il lavoro dei Comitati di Quartiere',
     'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.excerpt': 'I nuovi Comitati di Quartiere di Malnate iniziano il loro mandato con un bilancio partecipativo e progetti mirati.',
     'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.imageAlt': 'Vista aerea di Malnate, Italia, che mostra la disposizione della città e le aree circostanti.',
+    'blog.article.casa-montana-nante-voto-validato.title': 'Casa montana di Nante, valido il voto del Cc di Monteceneri',
+    'blog.article.casa-montana-nante-voto-validato.excerpt': 'Il Consiglio di Stato respinge il ricorso contro la risoluzione adottata dal Legislativo lo scorso giugno',
+    'blog.article.casa-montana-nante-voto-validato.imageAlt': 'Casa montana in Ticino con vista sulle montagne innevate',
 };
 
 export default blogMetaIt;

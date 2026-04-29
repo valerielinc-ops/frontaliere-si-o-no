@@ -2470,6 +2470,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casa-montana-nante-ricorso-tram': { name: 'Novità', path: '/articoli-frontaliere/casa-montana-nante-ricorso-tram', parent: 'blog' },
     'blog-atleti-ticinesi-vittoria-arcegno-ascona': { name: 'Sport Ticino', path: '/articoli-frontaliere/atleti-ticinesi-vittoria-arcegno-ascona', parent: 'blog' },
     'blog-malnate-comitati-quartiere-bilancio-partecipativo': { name: 'Comitati di Quartiere', path: '/articoli-frontaliere/malnate-comitati-quartiere-bilancio-partecipativo', parent: 'blog' },
+    'blog-casa-montana-nante-voto-validato': { name: 'Novità', path: '/articoli-frontaliere/casa-montana-nante-voto-validato', parent: 'blog' },
  };
 
  const info = sectionNames[section];
