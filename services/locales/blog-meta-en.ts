@@ -3757,6 +3757,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-verdi-elogio-rapinese-alberi.title': 'Greens praise Rapinese for tree care',
     'blog.article.como-verdi-elogio-rapinese-alberi.excerpt': 'Green Party leader Elisabetta Patelli praises Rapinese administration for tree care in Como, ahead of the no-confidence vote against the Green Councillor.',
     'blog.article.como-verdi-elogio-rapinese-alberi.imageAlt': 'Viale Varese in Como with newly planted trees',
+    'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.title': 'Secure energy supply in Switzerland',
+    'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.excerpt': 'The attack on Iran and the retaliation have increased the prices of petrol and diesel in Switzerland too, but the supply is secure.',
+    'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border, clear blue sky, and surrounding mountains',
 };
 
 export default blogMetaEn;

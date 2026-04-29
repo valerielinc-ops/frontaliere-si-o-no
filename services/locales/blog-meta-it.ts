@@ -3758,6 +3758,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-verdi-elogio-rapinese-alberi.title': 'Elogio dei Verdi a Rapinese: così si curano gli alberi',
     'blog.article.como-verdi-elogio-rapinese-alberi.excerpt': 'La leader dei Verdi Elisabetta Patelli elogia l\'amministrazione Rapinese per la cura degli alberi a Como, prima del voto di sfiducia all\'assessore al Verde.',
     'blog.article.como-verdi-elogio-rapinese-alberi.imageAlt': 'Viale Varese a Como con nuovi alberi piantati',
+    'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.title': 'Approvvigionamento energetico sicuro in Svizzera',
+    'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.excerpt': 'L\'attacco all\'Iran e le rappresaglie hanno aumentato i prezzi di benzina e diesel anche in Svizzera, ma l\'approvvigionamento è sicuro.',
+    'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano, cielo azzurro limpido e montagne circostanti',
 };
 
 export default blogMetaIt;

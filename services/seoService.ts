@@ -2483,6 +2483,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-citta-fiore-orticolario-tricolore-2026': { name: 'Novità', path: '/articoli-frontaliere/citta-fiore-orticolario-tricolore-2026', parent: 'blog' },
     'blog-friborgogotteron-spareggio-titolo-hockey': { name: 'Novità Sport', path: '/articoli-frontaliere/friborgogotteron-spareggio-titolo-hockey', parent: 'blog' },
     'blog-como-verdi-elogio-rapinese-alberi': { name: 'Novità', path: '/articoli-frontaliere/como-verdi-elogio-rapinese-alberi', parent: 'blog' },
+    'blog-petrolio-gas-svizzera-approvvigionamento-sicuro': { name: 'Novità', path: '/articoli-frontaliere/petrolio-gas-svizzera-approvvigionamento-sicuro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3757,6 +3757,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-verdi-elogio-rapinese-alberi.title': 'Grüne loben Rapinese für Baum-Pflege',
     'blog.article.como-verdi-elogio-rapinese-alberi.excerpt': 'Die Grünen-Führerin Elisabetta Patelli lobt die Verwaltung von Rapinese für die Baum-Pflege in Como, vor dem Misstrauensvotum gegen den Grün-Beauftragten.',
     'blog.article.como-verdi-elogio-rapinese-alberi.imageAlt': 'Viale Varese in Como mit neu gepflanzten Bäumen',
+    'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.title': 'Sichere Energieversorgung in der Schweiz',
+    'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.excerpt': 'Der Angriff auf den Iran und die Vergeltung haben auch in der Schweiz die Preise für Benzin und Diesel erhöht, aber die Versorgung ist gesichert.',
+    'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.imageAlt': 'Luftaufnahme des Luganer Sees mit der Schweizer-Italienischen Grenze, klarem blauen Himmel und umliegenden Bergen',
 };
 
 export default blogMetaDe;

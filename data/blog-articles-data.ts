@@ -9779,4 +9779,11 @@ export const ARTICLES = [
  image: '/images/blog/como-verdi-elogio-rapinese-alberi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'petrolio-gas-svizzera-approvvigionamento-sicuro',
+ category: 'novita',
+ date: '2026-04-29T08:12:29.743Z',
+ image: '/images/blog/petrolio-gas-svizzera-approvvigionamento-sicuro.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

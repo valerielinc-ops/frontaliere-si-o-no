@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1302,
+ "numberOfItems": 1303,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5937,7 +5937,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1299, "name": "Azienda comasca riduce CO2 con impianto fotovol...", "url": `${BASE_URL}/articoli-frontaliere/azienda-comasca-fotovoltaico-25-tonnellate-co2` },
           { "@type": "ListItem", "position": 1300, "name": "Città in fiore: balconi a Como e Cernobbio omag...", "url": `${BASE_URL}/articoli-frontaliere/citta-fiore-orticolario-tricolore-2026` },
           { "@type": "ListItem", "position": 1301, "name": "Friborg-Gottéron allo spareggio per il titolo d...", "url": `${BASE_URL}/articoli-frontaliere/friborgogotteron-spareggio-titolo-hockey` },
-          { "@type": "ListItem", "position": 1302, "name": "Elogio dei Verdi a Rapinese: così si curano gli...", "url": `${BASE_URL}/articoli-frontaliere/como-verdi-elogio-rapinese-alberi` }
+          { "@type": "ListItem", "position": 1302, "name": "Elogio dei Verdi a Rapinese: così si curano gli...", "url": `${BASE_URL}/articoli-frontaliere/como-verdi-elogio-rapinese-alberi` },
+          { "@type": "ListItem", "position": 1303, "name": "Petrolio e gas in Svizzera, approvvigionamento ...", "url": `${BASE_URL}/articoli-frontaliere/petrolio-gas-svizzera-approvvigionamento-sicuro` }
  ]
  },
  {

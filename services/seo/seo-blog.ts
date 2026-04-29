@@ -23297,6 +23297,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-petrolio-gas-svizzera-approvvigionamento-sicuro': {
+    title: 'Approvvigionamento energetico sicuro in Svizzera | Frontaliere Ticino',
+    description: 'L\'attacco all\'Iran e le rappresaglie hanno aumentato i prezzi di benzina e diesel anche in Svizzera, ma l\'approvvigionamento è sicuro. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, approvvigionamento, energetico, sicuro, attacco',
+    ogTitle: 'Petrolio e gas in Svizzera, approvvigionamento sicuro nonostante il conflitto in Medio Oriente',
+    ogDescription: 'L\'attacco all\'Iran e le rappresaglie hanno aumentato i prezzi di benzina e diesel anche in Svizzera, ma l\'approvvigionamento è sicuro.',
+    canonicalPath: '/articoli-frontaliere/petrolio-gas-svizzera-approvvigionamento-sicuro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petrolio e gas in Svizzera, approvvigionamento sicuro nonostante il conflitto in Medio Oriente",
+      "description": "L'attacco all'Iran e le rappresaglie hanno aumentato i prezzi di benzina e diesel anche in Svizzera, ma l'approvvigionamento è sicuro. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/petrolio-gas-svizzera-approvvigionamento-sicuro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano, cielo azzurro limpido e montagne circostanti"
+      },
+      "datePublished": "2026-04-29T08:12:29+00:00",
+      "dateModified": "2026-04-29T08:12:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/petrolio-gas-svizzera-approvvigionamento-sicuro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
