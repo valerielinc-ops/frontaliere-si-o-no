@@ -1,7 +1,53 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-04-29T10:42:29.558Z",
+  "assembledAt": "2026-04-29T21:50:15.941Z",
   "jobs": [
+    {
+      "title": "HR Business Partner (60-80%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/hr-business-partner-60-80_2026-2191/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "PART_TIME",
+      "category": "technology",
+      "description": "In questo ruolo sei il punto di riferimento per i dirigenti del tuo settore. Fornisci consulenza lungo tutti i processi HR, attui la strategia HR e promuovi lo sviluppo della leadership. Accompagni i processi di cambiamento, supporti il reclutamento dei quadri e contribuisci alla pianificazione strategica del personale e al talent management. Con la tua competenza realizzi concetti HR e contribuisci al futuro della RhB.\n\n Cosa puoi fare \n• Du übernimmst die ganzheitliche und professionelle Beratung deiner Geschäftsbereichsleitung sowie anderer Führungskräfte entlang der HR-Kernprozesse (Gewinnung, Erhaltung, Entwicklung, Trennung) abgestimmt mit der HR-Strategie.\n\n• Du begleitest die Weiterentwicklung der Führungsarbeit im betreuten Bereich.\n\n• Du unterstützt Veränderungsprozesse aktiv als Change Agent auf Bereichs- und Teamebene.\n\n• Du rekrutierst Führungskräfte zusammen mit den Linienverantwortlichen.\n\n• Du wirkst bei der strategischen Personalplanung und im Talentmanagement mit.\n\n• Du bearbeitest konzeptionelle Fragestellungen mit HR-Relevanz selbständig und setzt diese um.\n Ecco perché sei la persona giusta \n• Du verfügst über mehrjährige Berufserfahrung im strategischen und operativen HR.\n\n• Du hast eine abgeschlossene Ausbildung auf Stufe Hochschule (Uni, FH) oder eine fachspezifische Weiterbildung (MAS HR, Eidg. Dipl. HR-Leiter).\n\n• Du zeichnest dich aus durch eine ausgeprägte Beratungskompetenz und ausgesprochen kommunikative Fähigkeiten.\n\n• Du verfügst über analytisches, unternehmerisches sowie vernetztes Denken und Handeln.\n\n• Du bist eine initiative, lösungsorientierte und flexible Persönlichkeit mit hoher Sozialkompetenz sowie der Fähigkeit, Veränderungen mitzugestalten.\n\n• Du hast Erfahrung im Projektmanagement und weist gute konzeptionelle Fähigkeiten auf.\n Cosa ti offriamo \n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
+      "postedDate": "2026-04-29",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "hr-business-partner-60-80-ferrovia-retica-rhb-chur",
+      "slugByLocale": {
+        "it": "hr-business-partner-60-80-ferrovia-retica-rhb-chur",
+        "en": "hr-business-partner-60-80-ferrovia-retica-rhb-chur",
+        "de": "hr-business-partner-60-80-ferrovia-retica-rhb-chur",
+        "fr": "hr-business-partner-60-80-ferrovia-retica-rhb-chur"
+      },
+      "titleByLocale": {
+        "de": "HR Business Partner (60-80%)",
+        "fr": "HR Business Partner (60-80%)"
+      },
+      "percentage": "60-80%",
+      "crawledAt": "",
+      "descriptionByLocale": {},
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-29T21:50:15.941Z"
+    },
     {
       "title": "DevOps Engineer mit Schwerpunkt Service Management (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -26,17 +72,17 @@
         "fr": "devops-engineer-mit-schwerpunkt-service-management-50-100-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
-        "de": "DevOps Engineer mit Schwerpunkt Service Management (50-100 %)",
-        "en": "DevOps Engineer mit Schwerpunkt Service Management (50-100%)",
         "it": "Ingegnere DevOps con gestione dei servizi Schwerpunkt (50-100%)",
+        "en": "DevOps Engineer mit Schwerpunkt Service Management (50-100%)",
+        "de": "DevOps Engineer mit Schwerpunkt Service Management (50-100 %)",
         "fr": "DevOps Engineer mit Schwerpunkt Gestion des services (50-100%)"
       },
       "percentage": "50-100%",
       "crawledAt": "",
       "descriptionByLocale": {
-        "de": "## Descrizione\nVuoi contribuire al progresso digitale della RhB e utilizzare in modo sensato tecnologie innovative? In qualità di analista aziendale nel settore della digitalizzazione e dell'intelligenza artificiale, comprendi i processi aziendali, strutturi i requisiti e traduci argomenti complessi in soluzioni tecniche chiare. Lavori a stretto contatto con il reparto IT e i reparti specializzati e garantisci che i nostri sistemi funzionino in modo stabile, moderno e orientato al futuro.\n\n## Cosa puoi fare\n• Analysieren und Visualisieren von Business-Prozessen und Kundenanforderungen sowie die Implementierung von Lösungen mit Schwerpunkt \"Service Management\"\n\n• Sicherstellung von Betrieb- und Supportleistungen für die Service Management Plattform (TopDesk)\n\n• Weiterentwicklung der Service Management Plattform (TopDesk) inkl. Dokumentation und Change Management sowie allfällige Koordination mit den Stakeholdern\n\n• Mitarbeit bei internen Projekten\n\n## Ecco perché sei la persona giusta\n• Kaufmännische oder technische Grundausbildung\n\n• Ausbildung als Business Analyst/Requirement Engineer\n\n• Programmierungskenntnisse wie JavaScript, PowerShell, Python, Power Automate etc.\n\n• Technische Kenntnisse wie Web- und API Grundlagen bspw. REST, JSON, HTTP, Tokens, etc.)\n\n• Erfahrung mit ITIL Prozessen und Service Management Plattformen\n\n## Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-        "en": "Descrizione Vuoi contribuire al progresso digital della RhB e utilizzare in modo sensato tecnology innovative? In qualità di analista aziendale nel settore della digitalizzazione e dell'intelligenza artificiale, comprendi i processi aziendali, strutturi i requisiti e traduci argomenti complessi in soluzioni tecniche chiare. Lavori a stretto contatto con il reparto IT e i reparti specializzati e garantisci che i nostri sistemi funzionino in modo stable, moderno e orientato al futuro. ## Cosa puoi fare • Analyze and visualize business processes and customer requirements and implement solutions with a focus on \"Service Management\" • Ensure operation and support services for the Service Management Platform (TopDesk) • Development of the Service Management Platform (TopDesk) incl. Documentation and change management as well as possible coordination with stakeholders • Working with internal projects ## Ecco perché be la persona giusta • • Training as a business analyst/requirement engineer • Programming skills such as JavaScript, PowerShell, Python, Power Automate etc. • Technical knowledge such as Web and API basics e.g. REST, JSON, HTTP, Tokens, etc.) • Experience with ITIL processes and service management platforms ## Cosa ti offriamo • 2nd Class general subscription • Free travel Additional purchase of holidays • possibility of internal and external training with financial support by the RhB",
         "it": "Descrizione Vuoi contribuire al progresso digitale della RhB e utilizzare in sensa modoto tecnology innovativo? In qualità di analista aziendale nel settore della digitalizzazione e dell'intelligenza artificiale, comprendi i processi aziendali, struttturi i requisiti e traduci esempi complessi in soluzioni chiare tecniche. Lavori a stretto contatto con il reparto IT e i reparti specializzati e garantisci che i nostri sistemi funzionino in modo stabile, moderno e orientaleto al futuro. ## Cosa puoi fare • Analizzare e visualizzare i processi aziendali e i requisiti dei clienti e implementare soluzioni con un focus su \"Service Management\" • Garantire il funzionamento e i servizi di supporto per la Service Management Platform (TopDesk) • Sviluppo della Service Management Platform (TopDesk) incl. Documentazione e gestione dei cambiamenti, nonché possibile coordinamento con le parti interessate • Lavorare con i progetti interni ## Ecco perché essere la persona giusta • Formazione come analista/ingegnere del requisito aziendale • Capacità di programmazione come JavaScript, PowerShell, Python, Power Automate ecc. • Conoscenze tecniche come le basi Web e API, ad esempio REST, JSON, HTTP, Tokens, ecc.) • Esperienza con processi ITIL e piattaforme di gestione dei servizi ## Cosa ti offriamo • Abbonamento generale di 2a classe • Acquisto gratuito di vacanze • possibilità di formazione interna ed esterna con supporto finanziario da parte del RhB",
+        "en": "Descrizione Vuoi contribuire al progresso digital della RhB e utilizzare in modo sensato tecnology innovative? In qualità di analista aziendale nel settore della digitalizzazione e dell'intelligenza artificiale, comprendi i processi aziendali, strutturi i requisiti e traduci argomenti complessi in soluzioni tecniche chiare. Lavori a stretto contatto con il reparto IT e i reparti specializzati e garantisci che i nostri sistemi funzionino in modo stable, moderno e orientato al futuro. ## Cosa puoi fare • Analyze and visualize business processes and customer requirements and implement solutions with a focus on \"Service Management\" • Ensure operation and support services for the Service Management Platform (TopDesk) • Development of the Service Management Platform (TopDesk) incl. Documentation and change management as well as possible coordination with stakeholders • Working with internal projects ## Ecco perché be la persona giusta • • Training as a business analyst/requirement engineer • Programming skills such as JavaScript, PowerShell, Python, Power Automate etc. • Technical knowledge such as Web and API basics e.g. REST, JSON, HTTP, Tokens, etc.) • Experience with ITIL processes and service management platforms ## Cosa ti offriamo • 2nd Class general subscription • Free travel Additional purchase of holidays • possibility of internal and external training with financial support by the RhB",
+        "de": "## Descrizione Vuoi contribuire al progresso digitale della RhB e utilizzare in modo sensato tecnologie innovative? In qualità di analista aziendale nel settore della digitalizzazione e dell'intelligenza artificiale, comprendi i processi aziendali, strutturi i requisiti e traduci argomenti complessi in soluzioni tecniche chiare. Lavori a stretto contatto con il reparto IT e i reparti specializzati e garantisci che i nostri sistemi funzionino in modo stabile, moderno e orientato al futuro. ## Cosa puoi fare • Analysieren und Visualisieren von Business-Prozessen und Kundenanforderungen sowie die Implementierung von Lösungen mit Schwerpunkt \"Service Management\" • Sicherstellung von Betrieb- und Supportleistungen für die Service Management Plattform (TopDesk) • Weiterentwicklung der Service Management Plattform (TopDesk) inkl. Dokumentation und Change Management sowie allfällige Koordination mit den Stakeholdern • Mitarbeit bei internen Projekten ## Ecco perché sei la persona giusta • Kaufmännische oder technische Grundausbildung • Ausbildung als Business Analyst/Requirement Engineer • Programmierungskenntnisse wie JavaScript, PowerShell, Python, Power Automate etc. • Technische Kenntnisse wie Web- und API Grundlagen bspw. REST, JSON, HTTP, Tokens, etc.) • Erfahrung mit ITIL Prozessen und Service Management Plattformen ## Cosa ti offriamo • 2. Klasse Generalabonnement • Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland • Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung • Flexible Teilzeitmodelle • Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen • Zusätzlicher Kauf von Ferien • Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
         "fr": "Descrizione Vuoi contribue al progresso digital della RhB e usezare in modo sensato tecnology innovative? En qualité di analista aziendale nel setore della digitalizzazione e dell'intelligenza artificielle, comprendi i processi aziendali, strutturi i requisiti e traduci argomenti complessi in soluzioni tecniche chiare. Lavori a stretto contatto con il reparto IT e i reparti specializzati e garantsci che i nostri sistemi funzionino in modo stable, moderno e orientalato al futuro. ## Cosa puoi fare • Analyser et visualiser les processus d'affaires et les besoins des clients et mettre en œuvre des solutions en mettant l'accent sur la \"gestion des services\" • Assurer les services d'exploitation et de soutien pour la plate-forme de gestion des services (TopDesk) • Développement de la plate-forme de gestion des services (TopDesk) incl. Documentation et gestion du changement ainsi que la coordination possible avec les parties prenantes • Travailler avec des projets internes ## Ecco perché be la persona giusta • • Formation en tant qu'analyste d'affaires / ingénieur d'exigences • Compétences en programmation comme JavaScript, PowerShell, Python, Power Automate etc. • Connaissances techniques telles que les bases Web et API, par exemple REST, JSON, HTTP, Tokens, etc.) • Expérience avec les processus ITIL et les plateformes de gestion de service ## Cosa ti offriamo • Abonnement général 2ème Classe • Voyage gratuit Achat supplémentaire de vacances • possibilité de formation interne et externe avec le soutien financier de la RHB"
       },
       "salaryMin": 49500,
@@ -86,7 +132,7 @@
       "descriptionByLocale": {
         "it": "Cos può fare - Revising and repairing axle gears - Esecuzione delle riparazioni ai collettori attuali - Esame e controllo dei componenti di lavoro sulla tua operabilità - Partecipazione all'accumulo di standard di revisione per i componenti della nuova flotta di veicoli ## Ecco perché essere la persona giusta - Completa formazione meccanica (polimeccanica, meccanica di macchine agricole o formazione simile) - Esperienza nella lavorazione degli ingranaggi",
         "en": "Cosa puoi fare - Revising and repairing axle gears - Execution of repairs to current collectors - Examination and control of the worked-up components on your operability - Participation in the build-up of revision standards for components from the new vehicle fleet ## Ecco perché be la persona giusta - Complete mechanical training (polymechanics, agricultural machine mechanics or similar training) - Experience in gear processing Class General Subscription - Benefits on free ticket abroad - Paid mobile phone and subscription for business and private use - Attractive social benefits and pension funds with very good services - Additional purchase of holidays - possibility for internal and external training with financial support by RhB",
-        "de": "## Cosa puoi fare\n- Revidieren und reparieren von Achsgetrieben\n- Ausführung von Reparaturen an Stromabnehmern\n- Prüfung und Kontrolle der aufgearbeiteten Komponenten auf Ihre Funktionsfähigkeit\n- Mitwirkung beim Aufbau von Revisionsstandards bei Komponenten aus der neue Fahrzeugflotte\n\n## Ecco perché sei la persona giusta\n- Abgeschlossene mechanische Ausbildung (Polymechaniker/in, Landmaschinenmechaniker/in oder ähnliche Ausbildung)\n- Erfahrung in der Getriebeaufarbeitung von Vorteil\n- Flexible und eigenständige Persönlichkeit\n- Belastbar und teamorientiert\n- Polyvalent einsetzbar\n\n## Cosa ti offriamo\n- 2. Klasse Generalabonnement\n- Vergünstigungen auf Freifahrscheine im Ausland\n- Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n- Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n- Zusätzlicher Kauf von Ferien\n- Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
+        "de": "## Cosa puoi fare - Revidieren und reparieren von Achsgetrieben - Ausführung von Reparaturen an Stromabnehmern - Prüfung und Kontrolle der aufgearbeiteten Komponenten auf Ihre Funktionsfähigkeit - Mitwirkung beim Aufbau von Revisionsstandards bei Komponenten aus der neue Fahrzeugflotte ## Ecco perché sei la persona giusta - Abgeschlossene mechanische Ausbildung (Polymechaniker/in, Landmaschinenmechaniker/in oder ähnliche Ausbildung) - Erfahrung in der Getriebeaufarbeitung von Vorteil - Flexible und eigenständige Persönlichkeit - Belastbar und teamorientiert - Polyvalent einsetzbar ## Cosa ti offriamo - 2. Klasse Generalabonnement - Vergünstigungen auf Freifahrscheine im Ausland - Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung - Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen - Zusätzlicher Kauf von Ferien - Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
         "fr": "Tarif Cosa puoi - Révision et réparation des engrenages d'essieu - Exécution des réparations aux collecteurs actuels - Examen et contrôle des composants travaillés sur votre fonctionnement - Participation à l'élaboration de normes de révision pour les composants du nouveau parc de véhicules ## Ecco perché be la persona giusta - Formation mécanique complète (polymécanique, mécanique des machines agricoles ou formation similaire) - Expérience dans le traitement des engrenages Classe Général Abonnement - Avantages sur billet gratuit à l'étranger - Téléphone mobile payant et abonnement pour les entreprises et les particuliers - Prestations sociales attrayantes et fonds de pension avec de très bons services - Achat supplémentaire de jours fériés - possibilité de formation interne et externe avec soutien financier par RHB"
       },
       "salaryMin": 49500,
@@ -102,45 +148,39 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-27T10:51:32.993Z"
+      "firstSeenAt": "2026-04-27T10:51:32.993Z",
+      "needsRetranslation": true
     },
     {
-      "title": "Fachspezialist/in Anlagebuchhaltung (50-100%)",
+      "title": "Finanzspezialist/in Anlagebuchhaltung (80-100%)",
       "company": "Ferrovia Retica (RhB)",
       "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/fachspezialist-in-anlagebuchhaltung-50-100_2026-2160/",
+      "url": "https://www.rhb.ch/it/job/finanzspezialist-in-anlagebuchhaltung-80-100_2026-2160/",
       "location": "Chur",
       "canton": "GR",
       "country": "CH",
       "postalCode": "7000",
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "category": "technology",
       "description": "Hai una spiccata attitudine per i numeri, le interrelazioni e la pianificazione finanziaria strategica? In qualità di specialista finanziario presso la RhB analizzerai gli indicatori chiave, svilupperai strategie finanziarie e contribuirai così alla stabilità e allo sviluppo a lungo termine della nostra azienda.\n\n Cosa puoi fare \n• Verantwortung für die Anlagenbuchhaltung der Rhätischen Bahn AG (inkl. Unterstützung weiterer Gruppengesellschaften) nach OR und Swiss GAAP FER mit einem Buchwert von über CHF 3 Milliarden\n\n• Betreuung des gesamten Anlagenlebenszyklus inklusive Stammdaten, Aktivierungen, Spartenzuweisungen, Abschreibungen und Abgängen\n\n• Interne und externe Ansprechperson für Sachanlagen und damit verbundenen Themen (Fördermittel/Abgeltungen, Vorsteuerkürzungen, etc.)\n\n• Mitwirkung im Rechnungswesen bei Monats- und Jahresabschlüssen, Hauptbucharbeiten, Auswertungen, MWST, Abgeltungen, Darlehen, etc.\n\n• Mitarbeit in bereichsübergreifenden Projekten\n Ecco perché sei la persona giusta \n• Kaufmännische Grundausbildung mit Weiterbildung im Rechnungswesen (Fachausweis oder vergleichbare Qualifikation)\n\n• Mehrjährige Berufserfahrung in der Finanz- und Anlagenbuchhaltung, idealerweise in einem öV- oder Industrieunternehmen\n\n• Gute Kenntnisse und praktische Erfahrung mit SAP S/4HNA sowie den üblichen Microsoft-Applikationen\n\n• Ausgeprägte konzeptionelle und selbständige Arbeitsweise mit Eigeninitiative, Durchsetzungsvermögen sowie Teamfähigkeit\n\n• Interesse am öffentlichen Verkehr sowie Freude an einem vielseitigen Arbeitsalltag\n Cosa ti offriamo \n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
       "postedDate": "2026-04-29",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "fachspezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
+      "slug": "finanzspezialist-in-anlagebuchhaltung-80-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
-        "it": "fachspezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
-        "en": "fachspezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
-        "de": "fachspezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
-        "fr": "fachspezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur"
+        "it": "finanzspezialist-in-anlagebuchhaltung-80-100-ferrovia-retica-rhb-chur",
+        "en": "finanzspezialist-in-anlagebuchhaltung-80-100-ferrovia-retica-rhb-chur",
+        "de": "finanzspezialist-in-anlagebuchhaltung-80-100-ferrovia-retica-rhb-chur",
+        "fr": "finanzspezialist-in-anlagebuchhaltung-80-100-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
-        "de": "Fachspezialist/in Anlagebuchhaltung (50-100%)",
-        "en": "Specialist in investment accounting (50-100%)",
-        "it": "Specialista nella contabilità degli investimenti (50-100%)",
-        "fr": "Spécialiste en comptabilité d'investissement (50-100%)"
+        "de": "Finanzspezialist/in Anlagebuchhaltung (80-100%)"
       },
-      "percentage": "50-100%",
+      "percentage": "80-100%",
       "crawledAt": "",
-      "descriptionByLocale": {
-        "de": "## Descrizione\nHai una spiccata attitudine per i numeri, le interrelazioni e la pianificazione finanziaria strategica? In qualità di specialista finanziario presso la RhB analizzerai gli indicatori chiave, svilupperai strategie finanziarie e contribuirai così alla stabilità e allo sviluppo a lungo termine della nostra azienda.\n\n## Cosa puoi fare\n• Verantwortung für die Anlagenbuchhaltung der Rhätischen Bahn AG (inkl. Unterstützung weiterer Gruppengesellschaften) nach OR und Swiss GAAP FER mit einem Buchwert von über CHF 3 Milliarden\n\n• Betreuung des gesamten Anlagenlebenszyklus inklusive Stammdaten, Aktivierungen, Spartenzuweisungen, Abschreibungen und Abgängen\n\n• Interne und externe Ansprechperson für Sachanlagen und damit verbundenen Themen (Fördermittel/Abgeltungen, Vorsteuerkürzungen, etc.)\n\n• Mitwirkung im Rechnungswesen bei Monats- und Jahresabschlüssen, Hauptbucharbeiten, Auswertungen, MWST, Abgeltungen, Darlehen, etc.\n\n• Mitarbeit in bereichsübergreifenden Projekten\n\n## Ecco perché sei la persona giusta\n• Kaufmännische Grundausbildung mit Weiterbildung im Rechnungswesen (Fachausweis oder vergleichbare Qualifikation)\n\n• Mehrjährige Berufserfahrung in der Finanz- und Anlagenbuchhaltung, idealerweise in einem öV- oder Industrieunternehmen\n\n• Gute Kenntnisse und praktische Erfahrung mit SAP S/4HNA sowie den üblichen Microsoft-Applikationen\n\n• Ausgeprägte konzeptionelle und selbständige Arbeitsweise mit Eigeninitiative, Durchsetzungsvermögen sowie Teamfähigkeit\n\n• Interesse am öffentlichen Verkehr sowie Freude an einem vielseitigen Arbeitsalltag\n\n## Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-        "en": "Descrizione Hai una spiccata attitudine per i numeri, le interrelazioni e la pianificazione finanziaria strategica? In qualità di specialista finanziario presso la RhB analizzerai gli indicatori chiave, svilupperai strategy finanziarie e contribuirai così alla stabilità e allo sviluppo a lungo termine della nostra azienda. In the case of Cosa puoi fare • Responsibility for the plant accounting of Rhätische Bahn AG (incl. support of other group companies) according to OR and Swiss GAAP FER with a book value of more than CHF 3 billion • Care of the entire plant life cycle including master data, activations, savings instructions, depreciation and depreciation • Internal and external contact persons for property and related topics Basic vocational training with further training in the accounting sector (identification card or comparable qualification) • • Good knowledge and practical experience with SAP S/4HNA as well as the usual Microsoft applications • Embossed conceptual and independent working methods with self-initiative, enforcement capacity and team skills • Interest in public transport and pleasure in a versatile everyday working life Additional purchase of holidays • possibility of internal and external training with financial support by the RhB",
-        "it": "Descrizione Hai una spiccata attitudine per i numeri, le interrelazioni e la pianificazione finanziaria strategica? In qualità di specialista finanziario presso la RhB analizzerai gli indicatori chiave, svilupperai strategie finanziarie e contribuirai così alla stabilità e allo sviluppo a lungo termine della nostra azienda. ## Cosa puoi fare • Responsabilità per la contabilità immobilizzi di Rhätische Bahn AG (incl. Supporto di altre società del gruppo) secondo CO e Swiss GAAP RPC con un valore contabile di oltre CHF 3 miliardi • Supporto dell'intero ciclo di vita dell'impianto, inclusi dati anagrafici, attivazioni, assegnazioni di rami, ammortamenti e uscite • Referente interno ed esterno per immobilizzazioni materiali e argomenti correlati (sovvenzioni/indennità, riduzioni dell'imposta precedente, ecc.) • Partecipazione alla contabilità per bilanci mensili e annuali, lavori contabili principali, valutazioni, IVA, indennità, prestiti, ecc. • Collaborazione a progetti intersettoriali ## Ecco perché sei la persona giusta • Formazione commerciale di base con perfezionamento in contabilità (attestato professionale o qualifica comparabile) • Esperienza professionale pluriennale nella contabilità finanziaria e patrimoniale, idealmente in una società di trasporti pubblici o industriale • Buona conoscenza ed esperienza pratica con SAP S/4HNA e le consuete applicazioni Microsoft • Forte metodo di lavoro concettuale e indipendente con iniziativa propria, assertività",
-        "fr": "Descrizione Hai una spiccata attitudine per i numeri, le interrelazioni e la pianificazione finanziaria strategica? En qualité di specialista finanziario presso la RhB analizzerai gli indicatori chiave, svilupperai strategy finanziarie e contribuirai così alla stabilità e allo sviluppo a lungo termine della nostra azienda. Dans le cas du tarif Cosa puoi • Responsable de la comptabilité de l'usine de Rhätische Bahn AG (y compris le soutien d'autres sociétés de groupe) selon OR et Swiss GAAP FER d'une valeur comptable supérieure à CHF 3 milliards • Prise en charge de l'ensemble du cycle de vie de l'usine, y compris les données de référence, les activations, les instructions d'épargne, l'amortissement et l'amortissement • Personnes de contact internes et externes pour l'immobilier et les sujets connexes Formation professionnelle de base avec une formation continue dans le secteur de la comptabilité (carte d'identification ou qualification comparable) • • Bonne connaissance et expérience pratique avec SAP S/4HNA ainsi que les applications habituelles de Microsoft • Embossed conceptual and independent working methods with auto-initiative, force exécutoire et compétences en équipe • Intérêt dans les transports publics et le plaisir dans une vie quotidienne polyvalente Achat supplémentaire de vacances • possibilité de formation interne et externe avec le soutien financier du RHB"
-      },
+      "descriptionByLocale": {},
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -154,7 +194,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-29T10:42:29.558Z"
+      "firstSeenAt": "2026-04-29T21:50:15.941Z"
     },
     {
       "title": "Leiter/in Fachsupport Bahnapplikationen (50-60%)",
@@ -206,7 +246,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-22T21:39:28.262Z"
+      "firstSeenAt": "2026-04-22T21:39:28.262Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior IT-Supporter/in (50-80%)",
@@ -258,7 +299,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-23T10:03:25.394Z"
+      "firstSeenAt": "2026-04-23T10:03:25.394Z",
+      "needsRetranslation": true
     },
     {
       "title": "Betriebselektriker/in (50-100%)",
@@ -310,7 +352,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-20T10:35:55.076Z"
+      "firstSeenAt": "2026-04-20T10:35:55.076Z",
+      "needsRetranslation": true
     },
     {
       "title": "Produktmanager/in Sortiment und Preis (80-100%)",
@@ -362,7 +405,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-15T21:34:25.892Z"
+      "firstSeenAt": "2026-04-15T21:34:25.892Z",
+      "needsRetranslation": true
     },
     {
       "title": "Sachbearbeiter/in Planung/Disposition (80-100%)",
@@ -444,7 +488,8 @@
         "technical-buyer-50-100-ferrovia-retica-rhb-chur",
         "technical-inspector-50-100-ferrovia-retica-rhb-chur",
         "specialiste-comptabilite-des-immobilisations-50-100-ferrovia-retica-rhb-chur"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Rangiermitarbeiter/in (50-100%)",
@@ -531,58 +576,6 @@
           "employe-e-de-manutention-50-100-ferrovia-retica-rhb-pontresina"
         ]
       }
-    },
-    {
-      "title": "Senior Projektleiter/in Bauherrenvertretung (70-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/senior-projektleiter-in-bauherrenvertretung-70-100_2026-2184/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "engineering",
-      "description": "Ti piace pensare al futuro e contribuire a plasmare il nostro domani? Da noi potrai pianificare e gestire processi e progetti rilevanti per i nostri prossimi passi.\n\n Cosa puoi fare \n• Eigenverantwortliche Projektleitung sowie aktives Steuern und Kontrollieren von Terminen, Kosten und Gebäudequalitäten komplexer Bauvorhaben für das Transportunternehmen (Unterhaltswerkstätten und Betriebsliegenschaften) sowie für dessen Mandate (RhB Immobilien AG, Pensionskasse RhB)\n\n• Übernahme vielfältiger Aufgaben im Projektmanagement von Neu- und Umbauprojekten\n\n• Sicherstellung einer wirksamen Zusammenarbeit mit Nutzern, Betreibern, Planern, Unternehmern und Fachberatern im Interesse der Bauherrschaft\n\n• Durchführung von Vergabeverfahren sowie Sicherstellung eines wirksamen projektbezogenen Qualitätsmanagements und Controllings\n\n• Unterstützung beim Ausbau der Bauherrenvertretungsleistungen\n Ecco perché sei la persona giusta \n• Abgeschlossenes Studium der Fachrichtung Bauingenieurwesen, Verkehrsplanung, Architektur oder eine vergleichbare Qualifikation\n\n• Mind. 5 Jahre Berufserfahrung als Projektleiter/in / Bauherrenvertreter/in mit Referenzen im Bereich öffentliche Hand, Verkehr und Industrie sowie fundierten Kenntnissen der Schweizer Baunormen und Richtlinien\n\n• Reisebereitschaft im Kanton an 1-2 Arbeitstagen und Italienischkenntnisse von Vorteil \n\n• Freude am eigenverantwortlichen Arbeiten und die Motivation, sich weiterentwickeln zu wollen\n\n• Ausgeprägtes analytisches und vernetztes Denken, kombiniert mit einer gesunden Dosis an Pragmatismus in der Lösungsfindung sowie “hands-on” Mentalität\n Cosa ti offriamo \n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-      "postedDate": "2026-04-29",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "senior-projektleiter-in-bauherrenvertretung-70-100-ferrovia-retica-rhb-chur",
-      "slugByLocale": {
-        "it": "senior-project-manager-per-la-rappresentanza-dei-proprietari-ferrovia-retica-rhb-chur",
-        "en": "senior-project-manager-for-owner-s-representation-ferrovia-retica-rhb-chur",
-        "de": "senior-projektleiter-in-bauherrenvertretung-70-100-ferrovia-retica-rhb-chur",
-        "fr": "chef-de-projet-senior-pour-la-representation-des-proprietaires-ferrovia-retica-rhb-chur"
-      },
-      "titleByLocale": {
-        "it": "Senior Project Manager per la Rappresentanza dei Proprietari",
-        "en": "Senior Project Manager for Owner's Representation",
-        "de": "Senior Projektleiter/in Bauherrenvertretung (70-100%)",
-        "fr": "Chef de Projet Senior pour la Représentation des Propriétaires"
-      },
-      "percentage": "70-100%",
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Descrizione Ti piace pensare al futuro e contribuire a plasmare il nostro domani? Da noi potrai pianificare e gestire processi e progetti rilevanti per i nostri prossimi passi. ## Mansioni - Leadership di progetti e controllo attivo di scadenze, costi e qualità degli edifici per complessi progetti di trasporto (officine di manutenzione e proprietà operative) e per i suoi incarichi (RhB Immobilien AG, Pensionskasse RhB) - Assunzione di varie attività di gestione di progetti per progetti di nuova costruzione e ristrutturazione - Garanzia di una collaborazione efficace con gli utenti, i curatori, i progettisti, i costruttori e i consulenti tecnici per il bene della proprietà - Svolgimento di procedure di affidamento e garanzia di un efficace controllo della qualità e del controllo dei progetti - Supporto nello sviluppo delle prestazioni di rappresentanza dei proprietari ## Requisiti - Laurea in Ingegneria Civile, Pianificazione del Trasporto, Architettura o una qualifica equivalente - Minimo 5 anni di esperienza professionale come Project Manager / Rappresentante dei Proprietari con riferimenti nel settore pubblico, trasporti e industria, con conoscenze approfondite delle norme e delle linee guida svizzere per l'edilizia - Disponibilità a viaggiare nella regione per 1-2 giorni lavorativi e conoscenze di italiano a vantaggio - Apprezzamento per il lavoro autonomo e la motivazione a voler svilupparsi ulteriormente - Pensiero analitico e interconnesso, combinato con una dose sana di pragmatismo nella risoluzione dei problemi e mentalità \"hands-on\" ## Cosa offriamo - Abbonamento di seconda classe - Biglietti gratuiti e sconti per i viaggi in treno all'estero - Telefono e abbonamento mobile pagati per uso commerciale e privato - Modelli di tempo parziale flessibili - Benefici sociali attraenti e pensione con prestazioni molto buone - Acquisto aggiuntivo di ferie - Possibilità di formazione interna ed esterna con supporto finanziario da parte della RhB",
-        "en": "Description Do you enjoy thinking about the future and contributing to shaping our tomorrow? Here, you can plan and manage processes and projects that are crucial for our next steps. ## Responsibilities - Independent project leadership and active control of deadlines, costs, and building qualities for complex construction projects for the transport company (maintenance workshops and operational properties) as well as for its mandates (RhB Immobilien AG, Pensionskasse RhB) - Taking on various tasks in project management for new construction and renovation projects - Ensuring effective collaboration with users, caretakers, planners, contractors, and technical advisors in the interest of the owner - Conducting tender procedures and ensuring effective project-related quality management and controlling - Supporting the expansion of owner's representation services ## Requirements - Completed degree in Civil Engineering, Transport Planning, Architecture, or equivalent qualification - At least 5 years of professional experience as a Project Manager / Owner's Representative with references in the public sector, transport, and industry, as well as in-depth knowledge of Swiss building standards and guidelines - Travel readiness in the canton for 1-2 workdays and Italian language skills advantageous - Enjoyment of independent work and the motivation to further develop oneself - Strong analytical and interconnected thinking, combined with a healthy dose of pragmatism in problem-solving and a \"hands-on\" mentality ## What we offer - 2nd class general subscription - Free travel tickets and discounts on foreign train trips - Paid mobile phone and subscription for business and private use - Flexible part-time models - Attractive social benefits and pension scheme with very good benefits - Additional purchase of holidays - Possibility of internal and external training with financial support by the RhB",
-        "de": "Descrizione Ti piace pensare al futuro e contribuire a plasmare il nostro domani? Da noi potrai pianificare e gestire processi e progetti rilevanti per i nostri prossimi passi. ## Mansioni - Eigenverantwortliche Projektleitung sowie aktives Steuern und Kontrollieren von Terminen, Kosten und Gebäudequalitäten komplexer Bauvorhaben für das Transportunternehmen (Unterhaltswerkstätten und Betriebsliegenschaften) sowie für dessen Mandate (RhB Immobilien AG, Pensionskasse RhB) - Übernahme vielfältiger Aufgaben im Projektmanagement von Neu- und Umbauprojekten - Sicherstellung einer wirksamen Zusammenarbeit mit Nutzern, Betreuern, Planern, Unternehmern und Fachberatern im Interesse der Bauherrschaft - Durchführung von Vergabeverfahren sowie Sicherstellung eines wirksamen projektbezogenen Qualitätsmanagements und Controllings - Unterstützung beim Ausbau der Bauherrenvertretungsleistungen ## Requisiti - Abgeschlossenes Studium der Fachrichtung Bauingenieurwesen, Verkehrsplanung, Architektur oder eine vergleichbare Qualifikation - Mind. 5 Jahre Berufserfahrung als Projektleiter/in / Bauherrenvertreter/in mit Referenzen im Bereich öffentliche Hand, Verkehr und Industrie sowie fundierten Kenntnissen der Schweizer Baunormen und Richtlinien - Reisebereitschaft im Kanton an 1-2 Arbeitstagen und Italienischkenntnisse von Vorteil - Freude am eigenverantwortlichen Arbeiten und die Motivation, sich weiterentwickeln zu wollen - Ausgeprägtes analytisches und vernetztes Denken, kombiniert mit einer gesunden Dosis an Pragmatismus in der Lösungsfindung sowie “hands-on” Mentalität ## Cosa offriamo - 2. Klasse Generalabonnement - Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland - Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung - Flexible Teilzeitmodelle - Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen - Zusätzlicher Kauf von Ferien - Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-        "fr": "Description Vous aimez penser à l'avenir et contribuer à façonner notre demain ? Chez nous, vous pourrez planifier et gérer des processus et des projets essentiels pour nos prochaines étapes. ## Responsabilités - Leadership de projets et contrôle actif des délais, des coûts et des qualités des bâtiments pour des projets de construction complexes pour la société de transport (ateliers de maintenance et propriétés opérationnelles) ainsi que pour ses mandats (RhB Immobilien AG, Pensionskasse RhB) - Assumer diverses tâches de gestion de projets pour des projets de nouvelle construction et de rénovation - Garantir une collaboration efficace avec les utilisateurs, les gardiens, les planificateurs, les entrepreneurs et les conseillers techniques dans l'intérêt du propriétaire - Réaliser des procédures d'attribution et garantir un efficace contrôle de la qualité et du contrôle des projets - Soutenir le développement des services de représentation des propriétaires ## Exigences - Diplôme en Génie Civil, Planification des Transports, Architecture ou qualification équivalente - Au moins 5 ans d'expérience professionnelle en tant que Chef de Projet / Représentant des Propriétaires avec des références dans le secteur public, les transports et l'industrie, ainsi que des connaissances approfondies des normes et des lignes directrices suisses pour la construction - Disponibilité à voyager dans le canton pour 1-2 jours de travail et connaissances en italien avantageuses - Apprécier le travail autonome et la motivation à se développer davantage - Pensée analytique et interconnectée, combinée à une dose saine de pragmatisme dans la résolution de problèmes et mentalité \"hands-on\" ## Ce que nous offrons - Abonnement de 2ème classe - Billets de train gratuits et réductions pour les voyages à l'étranger - Téléphone et abonnement mobile payés pour usage professionnel et privé - Modèles de temps partiel flexibles - Avantages sociaux attractifs et régime de pension avec de très bonnes prestations - Achat supplémentaire de congés - Possibilité de formation interne et externe avec un soutien financier de la part de la RhB"
-      },
-      "salaryMin": 79500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-13T21:40:00.813Z"
     }
   ]
 }
