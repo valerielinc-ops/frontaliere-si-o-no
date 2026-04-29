@@ -48,6 +48,11 @@ on:
         required: false
         type: boolean
         default: false
+      post_build_max_parallel:
+        description: 'Concurrency cap for the 18-task post-build pool. Default 2 matches ubuntu-latest cores. Increase to 3-4 to overlap I/O-bound tasks; decrease to 1 to serialise.'
+        required: false
+        type: string
+        default: '2'
 
 permissions:
   contents: read
@@ -372,7 +377,7 @@ jobs:
           # dispatched in LPT (longest-processing-time-first) order so the
           # tail end never sits with one slow task running alone. Per-task
           # wall_s is still captured and summarised.
-          MAX_PARALLEL=2
+          MAX_PARALLEL=${{ github.event.inputs.post_build_max_parallel || '2' }}
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
