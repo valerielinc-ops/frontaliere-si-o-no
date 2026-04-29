@@ -3842,6 +3842,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.laurent-morel-nominato-direttore-ef-svizzera.title': 'Laurent Morel nouveau Directeur Général d\'EF Suisse',
     'blog.article.laurent-morel-nominato-direttore-ef-svizzera.excerpt': 'EF Education First nomme Laurent Morel comme nouveau Directeur Général pour renforcer sa présence sur le marché suisse.',
     'blog.article.laurent-morel-nominato-direttore-ef-svizzera.imageAlt': 'Panorama de Lugano avec le lac de Lugano et des bâtiments modernes',
+    'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.title': 'San Gottardo: premier diaphragme nord tombé',
+    'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.excerpt': 'Étape importante dans le chantier du deuxième tube du tunnel routier du Saint-Gothard. Le premier diaphragme du côté nord est tombé.',
+    'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.imageAlt': 'Vue aérienne du chantier du tunnel du Saint-Gothard à Göschenen, Suisse. L\'image montre les machines avancées et le paysage alpin environnant.',
 };
 
 export default blogMetaFr;

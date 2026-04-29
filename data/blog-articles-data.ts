@@ -9975,4 +9975,11 @@ export const ARTICLES = [
  image: '/images/blog/laurent-morel-nominato-direttore-ef-svizzera.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'san-gottardo-secondo-tubo-caduto-diaframma',
+ category: 'novita',
+ date: '2026-04-29T10:50:34.297Z',
+ image: '/images/blog/san-gottardo-secondo-tubo-caduto-diaframma.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3841,6 +3841,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.laurent-morel-nominato-direttore-ef-svizzera.title': 'Laurent Morel new EF Switzerland CEO',
     'blog.article.laurent-morel-nominato-direttore-ef-svizzera.excerpt': 'EF Education First appoints Laurent Morel as new CEO to strengthen its presence in the Swiss market.',
     'blog.article.laurent-morel-nominato-direttore-ef-svizzera.imageAlt': 'Lugano cityscape with Lake Ceresio and modern buildings',
+    'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.title': 'San Gottardo: first diaphragm falls on north side',
+    'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.excerpt': 'Important milestone in the construction of the second tube of the San Gottardo road tunnel. The first diaphragm has fallen on the north side.',
+    'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.imageAlt': 'Aerial view of the San Gottardo tunnel construction site in Göschenen, Switzerland. The image shows the advanced machinery and the surrounding alpine landscape.',
 };
 
 export default blogMetaEn;

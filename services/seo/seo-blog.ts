@@ -24109,6 +24109,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-san-gottardo-secondo-tubo-caduto-diaframma': {
+    title: 'San Gottardo: caduto il primo diaframma a nord | Frontaliere Ticino',
+    description: 'Importante traguardo nel cantiere del secondo tubo della galleria stradale del San Gottardo. Caduto il primo diaframma sul lato nord. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gottardo, caduto, primo, diaframma',
+    ogTitle: 'San Gottardo: caduto il primo diaframma a nord',
+    ogDescription: 'Importante traguardo nel cantiere del secondo tubo della galleria stradale del San Gottardo. Caduto il primo diaframma sul lato nord.',
+    canonicalPath: '/articoli-frontaliere/san-gottardo-secondo-tubo-caduto-diaframma',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "San Gottardo: caduto il primo diaframma a nord",
+      "description": "Importante traguardo nel cantiere del secondo tubo della galleria stradale del San Gottardo. Caduto il primo diaframma sul lato nord. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/san-gottardo-secondo-tubo-caduto-diaframma.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del cantiere del tunnel del San Gottardo a Göschenen, Svizzera. L'immagine mostra le macchine avanzate e il paesaggio alpino circostante."
+      },
+      "datePublished": "2026-04-29T10:50:34+00:00",
+      "dateModified": "2026-04-29T10:50:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/san-gottardo-secondo-tubo-caduto-diaframma`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
