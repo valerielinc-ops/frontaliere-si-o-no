@@ -3712,6 +3712,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casa-montana-nante-ricorso-tram.title': 'Nante mountain house, appeal to the Tram',
     'blog.article.casa-montana-nante-ricorso-tram.excerpt': 'The referendum committee highlights the discrepancies of the Municipality on the renovation costs',
     'blog.article.casa-montana-nante-ricorso-tram.imageAlt': 'Aerial view of Monte San Salvatore with Lake Lugano and the city in the background',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.title': 'Ticino athletes triumph in Arcegno and Ascona',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.excerpt': 'Mattia Pezzati and Tobia Pezzati win orienteering races in Ticino',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.imageAlt': 'Ticinese athletes competing in an orienteering race in Locarno',
 };
 
 export default blogMetaEn;

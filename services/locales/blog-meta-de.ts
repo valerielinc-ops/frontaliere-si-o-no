@@ -3712,6 +3712,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casa-montana-nante-ricorso-tram.title': 'Bergheim Nante, Beschwerde beim Tram',
     'blog.article.casa-montana-nante-ricorso-tram.excerpt': 'Der Abstimmungsausschuss hebt die Diskrepanzen des Gemeinderats zu den Sanierungskosten hervor',
     'blog.article.casa-montana-nante-ricorso-tram.imageAlt': 'Luftaufnahme des Monte San Salvatore mit dem Luganersee und der Stadt im Hintergrund',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.title': 'Tessin-Athleten triumphieren in Arcegno und Ascona',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.excerpt': 'Mattia Pezzati und Tobia Pezzati gewinnen die Orientierungslauf-Wettbewerbe im Tessin',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.imageAlt': 'Tessinische Athleten bei einem Orientierungslauf in Locarno',
 };
 
 export default blogMetaDe;

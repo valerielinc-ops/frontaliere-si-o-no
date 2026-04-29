@@ -22862,6 +22862,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-atleti-ticinesi-vittoria-arcegno-ascona': {
+    title: 'Atleti ticinesi trionfano ad Arcegno e Ascona | Frontaliere Ticino',
+    description: 'Mattia e Tobia Pezzati conquistano le prove di corsa d\'orientamento nel Ticino. Scopri di più sulle loro vittorie e le implicazioni per lo sport regionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, atleti, ticinesi, trionfano, arcegno',
+    ogTitle: 'Atleti ticinesi trionfano ad Arcegno e Ascona',
+    ogDescription: 'Mattia e Tobia Pezzati conquistano le prove di corsa d\'orientamento nel Ticino. Scopri di più sulle loro vittorie e le implicazioni per lo sport regionale.',
+    canonicalPath: '/articoli-frontaliere/atleti-ticinesi-vittoria-arcegno-ascona',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Atleti ticinesi trionfano ad Arcegno e Ascona",
+      "description": "Mattia e Tobia Pezzati conquistano le prove di corsa d'orientamento nel Ticino. Scopri di più sulle loro vittorie e le implicazioni per lo sport regionale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/atleti-ticinesi-vittoria-arcegno-ascona.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Atleti ticinesi in gara di corsa d'orientamento a Locarno"
+      },
+      "datePublished": "2026-04-29T05:07:14+00:00",
+      "dateModified": "2026-04-29T05:07:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/atleti-ticinesi-vittoria-arcegno-ascona`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

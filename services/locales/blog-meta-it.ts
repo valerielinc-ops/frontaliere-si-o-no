@@ -3713,6 +3713,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casa-montana-nante-ricorso-tram.title': 'Casa montana Nante, ricorso al Tram',
     'blog.article.casa-montana-nante-ricorso-tram.excerpt': 'Il comitato referendario evidenzia le discrepanze del Municipio sui costi di ristrutturazione',
     'blog.article.casa-montana-nante-ricorso-tram.imageAlt': 'Vista aerea del Monte San Salvatore con il lago e la città di Lugano sullo sfondo',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.title': 'Atleti ticinesi trionfano ad Arcegno e Ascona',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.excerpt': 'Mattia Pezzati e Tobia Pezzati conquistano le prove di corsa d\'orientamento nel Ticino',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.imageAlt': 'Atleti ticinesi in gara di corsa d\'orientamento a Locarno',
 };
 
 export default blogMetaIt;

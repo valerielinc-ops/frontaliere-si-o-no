@@ -9674,4 +9674,11 @@ export const ARTICLES = [
  image: '/images/blog/casa-montana-nante-ricorso-tram.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'atleti-ticinesi-vittoria-arcegno-ascona',
+ category: 'novita',
+ date: '2026-04-29T05:07:14.743Z',
+ image: '/images/blog/atleti-ticinesi-vittoria-arcegno-ascona.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

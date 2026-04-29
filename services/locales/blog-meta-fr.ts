@@ -3713,6 +3713,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casa-montana-nante-ricorso-tram.title': 'Recours contre la maison de montagne Nante',
     'blog.article.casa-montana-nante-ricorso-tram.excerpt': 'Le comité référendaire souligne les divergences du Conseil municipal sur les coûts de rénovation',
     'blog.article.casa-montana-nante-ricorso-tram.imageAlt': 'Vue aérienne du Monte San Salvatore avec le lac et la ville de Lugano à l\'arrière-plan',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.title': 'Des athlètes tessinois triomphent à Arcegno et Ascona',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.excerpt': 'Mattia Pezzati et Tobia Pezzati remportent les épreuves d\'orientation dans le Tessin',
+    'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.imageAlt': 'Athlètes tessinois en compétition de course d\'orientation à Locarno',
 };
 
 export default blogMetaFr;
