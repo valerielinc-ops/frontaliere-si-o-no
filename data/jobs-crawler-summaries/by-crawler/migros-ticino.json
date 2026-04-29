@@ -1,18 +1,70 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-04-28T22:18:55.790Z",
-  "total": 24,
-  "newCount": 0,
+  "generatedAt": "2026-04-29T11:11:44.297Z",
+  "total": 25,
+  "newCount": 1,
   "updatedCount": 21,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 42644,
-  "avgDurationMs": 42644,
+  "durationMs": 52719,
+  "avgDurationMs": 52719,
   "durationHistory": [
-    42644
+    52719
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-djv9rd",
+      "slug": "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt",
+      "company": "Genossenschaft Migros Wallis",
+      "title": "Magaziner*in/Elektromobil-Fahrer*in",
+      "location": "Zermatt",
+      "canton": "VS",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-29",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-wallis/magazinerinelektromobil-fahrerin/ddc552d9-251d-4ed2-9e0c-e217305601d7",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Täglicher Transport mit dem Elektrofahrzeug",
+        "Beladen und Entladen der Waren",
+        "Logistische Aufgaben auf der Laderampe",
+        "Lagerräume Sauber und in Ordnung halten",
+        "Auffüllen der Regale unter Berücksichtigung der Produktrotation",
+        "Allgemeine Mithilfe in den diversen Rayons und Aushelfen an der Kasse",
+        "Einhaltung der Hygienenormen und interner Vorschriften"
+      ],
+      "_migrosBenefits": [
+        "Mutterschaftsurlaub / Vaterschaftsurlaub: Mutterschafts u. Vaterschaftsurlaub über dem gesetzlichen Minumum / Urlaubsanspruch bei Adoption",
+        "Handy-Abo: Handy-Abonnement zum Vorzugspreis",
+        "Berufliche Vorsorge: Möglichkeit des Vorruhestands mit 58 Jahren / Leistungen, die über das Berufliche Vorsorgegesetz hinausgehen",
+        "Sozialleistungen: Überdurchschnittliche Sozialleistungen",
+        "Cumulus-Punkte: Zusätzliche Cumulus-Punkte für eine Vielzahl von Produkten",
+        "Migros Bank: Vorzugskonditionen bei der Migros Bank",
+        "Mitarbeiterangebote: Gutscheinhefte für Einkäufe in den Verkaufspunkten der Migros Wallis",
+        "Ferien: Jugendliche unter 21 und ab 50 Jahren: 6 Wochen / ab 60 Jahren und ab dem 31. Dienstjahr: 7 Wochen",
+        "Klubschule Migros: Kostenerstattung für Kurse bei den Klubschulen Migros",
+        "Freizeit- und Kulturangebote: Rabatte auf zahlreiche Angebote in den Bereichen Kultur, Freizeit und Sport",
+        "Sozial- und Personalberatung: Beratung der Abteilung für soziale Orientierung in Fragen beruflicher oder persönlicher Art"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-04-29T11:11:41.707Z",
+      "firstSeenAt": "2026-04-29T11:11:41.707Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-ktq15t",
