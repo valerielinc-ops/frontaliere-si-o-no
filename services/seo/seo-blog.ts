@@ -25066,6 +25066,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trivella-san-gottardo-zona-faglia': {
+    title: 'Trivella raggiunge zona di faglia al San Gottardo | Frontaliere Ticino',
+    description: 'La fresa meccanica \'Alessandra\' ha completato un traguardo cruciale nella costruzione della seconda galleria del tunnel stradale del San Gottardo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trivella, raggiunge, zona, faglia',
+    ogTitle: 'Trivella raggiunge zona di faglia al San Gottardo',
+    ogDescription: 'La fresa meccanica \'Alessandra\' ha completato un traguardo cruciale nella costruzione della seconda galleria del tunnel stradale del San Gottardo.',
+    canonicalPath: '/articoli-frontaliere/trivella-san-gottardo-zona-faglia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trivella raggiunge zona di faglia al San Gottardo",
+      "description": "La fresa meccanica 'Alessandra' ha completato un traguardo cruciale nella costruzione della seconda galleria del tunnel stradale del San Gottardo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trivella-san-gottardo-zona-faglia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere del San Gottardo con trivella meccanica in azione"
+      },
+      "datePublished": "2026-04-29T15:39:53+00:00",
+      "dateModified": "2026-04-29T15:39:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trivella-san-gottardo-zona-faglia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

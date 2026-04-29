@@ -3940,6 +3940,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.daverio-gazzada-assistenza-medica-2026.title': 'Daverio: patients move to Gazzada, healthcare changes',
     'blog.article.daverio-gazzada-assistenza-medica-2026.excerpt': 'The approximately 400 citizens of Daverio without a general practitioner will be transferred to the Community House of Gazzada for more integrated care.',
     'blog.article.daverio-gazzada-assistenza-medica-2026.imageAlt': 'Aerial view of Lake Lugano with Daverio and Gazzada in the background',
+    'blog.article.trivella-san-gottardo-zona-faglia.title': 'Drill reaches fault zone at Gotthard',
+    'blog.article.trivella-san-gottardo-zona-faglia.excerpt': 'The mechanical cutter \'Alessandra\' has completed a crucial milestone in the construction of the second tunnel of the Gotthard road tunnel.',
+    'blog.article.trivella-san-gottardo-zona-faglia.imageAlt': 'San Gottardo construction site with mechanical drill in action',
 };
 
 export default blogMetaEn;

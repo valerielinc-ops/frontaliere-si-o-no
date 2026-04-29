@@ -3941,6 +3941,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.daverio-gazzada-assistenza-medica-2026.title': 'Daverio: i pazienti si spostano a Gazzada, cambia l\'assistenza sanitaria',
     'blog.article.daverio-gazzada-assistenza-medica-2026.excerpt': 'I circa 400 cittadini di Daverio senza medico di base verranno trasferiti alla Casa di Comunità di Gazzada per un\'assistenza più integrata.',
     'blog.article.daverio-gazzada-assistenza-medica-2026.imageAlt': 'Vista aerea del Lago di Lugano con Daverio e Gazzada in secondo piano',
+    'blog.article.trivella-san-gottardo-zona-faglia.title': 'Trivella raggiunge zona di faglia al San Gottardo',
+    'blog.article.trivella-san-gottardo-zona-faglia.excerpt': 'La fresa meccanica \'Alessandra\' ha completato un traguardo cruciale nella costruzione della seconda galleria del tunnel stradale del San Gottardo.',
+    'blog.article.trivella-san-gottardo-zona-faglia.imageAlt': 'Cantiere del San Gottardo con trivella meccanica in azione',
 };
 
 export default blogMetaIt;

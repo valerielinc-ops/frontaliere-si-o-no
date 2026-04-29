@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1363,
+ "numberOfItems": 1364,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5998,7 +5998,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1360, "name": "Criminalità organizzata in Svizzera: arresto fu...", "url": `${BASE_URL}/articoli-frontaliere/criminalita-organizzata-svizzera-2026` },
           { "@type": "ListItem", "position": 1361, "name": "Stazioni sciistiche ticinesi: criticità e rifor...", "url": `${BASE_URL}/articoli-frontaliere/stazioni-sciistiche-ticino-contributi-2026` },
           { "@type": "ListItem", "position": 1362, "name": "UBS e Karin Keller-Sutter: scontro sul lobbismo", "url": `${BASE_URL}/articoli-frontaliere/ubs-keller-sutter-lobbismo-2026` },
-          { "@type": "ListItem", "position": 1363, "name": "{\"it\":\"Daverio: i pazienti si spostano a Gazzad...", "url": `${BASE_URL}/articoli-frontaliere/daverio-gazzada-assistenza-medica-2026` }
+          { "@type": "ListItem", "position": 1363, "name": "{\"it\":\"Daverio: i pazienti si spostano a Gazzad...", "url": `${BASE_URL}/articoli-frontaliere/daverio-gazzada-assistenza-medica-2026` },
+          { "@type": "ListItem", "position": 1364, "name": "Trivella raggiunge zona di faglia al San Gottardo", "url": `${BASE_URL}/articoli-frontaliere/trivella-san-gottardo-zona-faglia` }
  ]
  },
  {

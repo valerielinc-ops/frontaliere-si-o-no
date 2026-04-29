@@ -10206,4 +10206,11 @@ export const ARTICLES = [
  image: '/images/blog/daverio-gazzada-assistenza-medica-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'trivella-san-gottardo-zona-faglia',
+ category: 'novita',
+ date: '2026-04-29T15:39:53.630Z',
+ image: '/images/blog/trivella-san-gottardo-zona-faglia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

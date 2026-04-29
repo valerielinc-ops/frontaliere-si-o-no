@@ -3940,6 +3940,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.daverio-gazzada-assistenza-medica-2026.title': 'Daverio: Patienten wechseln nach Gazzada, Gesundheitsversorgung ändert sich',
     'blog.article.daverio-gazzada-assistenza-medica-2026.excerpt': 'Die etwa 400 Bürger von Daverio ohne Hausarzt werden in die Casa di Comunità von Gazzada verlegt, um eine integriertere Versorgung zu erhalten.',
     'blog.article.daverio-gazzada-assistenza-medica-2026.imageAlt': 'Luftaufnahme des Luganersees mit Daverio und Gazzada im Hintergrund',
+    'blog.article.trivella-san-gottardo-zona-faglia.title': 'Bohrmaschine erreicht Störungszone am Gotthard',
+    'blog.article.trivella-san-gottardo-zona-faglia.excerpt': 'Die mechanische Fräsmaschine \'Alessandra\' hat ein entscheidendes Etappenziel beim Bau des zweiten Straßentunnels am Gotthard erreicht.',
+    'blog.article.trivella-san-gottardo-zona-faglia.imageAlt': 'Bauplatz San Gottardo mit mechanischem Bohrer in Aktion',
 };
 
 export default blogMetaDe;
