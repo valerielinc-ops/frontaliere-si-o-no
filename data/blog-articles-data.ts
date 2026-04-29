@@ -10486,4 +10486,11 @@ export const ARTICLES = [
  image: '/images/blog/siccita-lombardia-riserve-idriche-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fed-powell-addio-tassi-invariati',
+ category: 'novita',
+ date: '2026-04-29T23:36:13.523Z',
+ image: '/images/blog/fed-powell-addio-tassi-invariati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

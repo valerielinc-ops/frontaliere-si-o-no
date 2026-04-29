@@ -2584,6 +2584,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-palma-muralto-ristrutturazione-strategia-2024': { name: 'Novità', path: '/articoli-frontaliere/palma-muralto-ristrutturazione-strategia-2024', parent: 'blog' },
     'blog-gev-ticino-ambiente-2026': { name: 'Protezione ambientale', path: '/articoli-frontaliere/gev-ticino-ambiente-2026', parent: 'blog' },
     'blog-siccita-lombardia-riserve-idriche-2026': { name: 'Novità', path: '/articoli-frontaliere/siccita-lombardia-riserve-idriche-2026', parent: 'blog' },
+    'blog-fed-powell-addio-tassi-invariati': { name: 'Economia', path: '/articoli-frontaliere/fed-powell-addio-tassi-invariati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

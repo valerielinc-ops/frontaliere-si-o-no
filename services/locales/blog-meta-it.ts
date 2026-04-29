@@ -4061,6 +4061,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.siccita-lombardia-riserve-idriche-2026.title': 'Siccità in Lombardia: mancano il 37% delle riserve idriche',
     'blog.article.siccita-lombardia-riserve-idriche-2026.excerpt': 'Regione Lombardia chiede un uso contenuto dell\'acqua. Accordo tra Piemonte, Lombardia e Canton Ticino per aumentare la disponibilità del Lago Maggiore.',
     'blog.article.siccita-lombardia-riserve-idriche-2026.imageAlt': 'Lago Maggiore con livello dell\'acqua basso in estate',
+    'blog.article.fed-powell-addio-tassi-invariati.title': 'Fed: l\'addio di Powell a tassi invariati',
+    'blog.article.fed-powell-addio-tassi-invariati.excerpt': 'Jerome Powell lascia la Federal Reserve rivendicando l\'indipendenza dell\'istituzione, mentre i tassi restano tra il 3,50% e il 3,75%.',
+    'blog.article.fed-powell-addio-tassi-invariati.imageAlt': 'Jerome Powell durante la conferenza stampa di addio alla Federal Reserve',
 };
 
 export default blogMetaIt;

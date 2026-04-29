@@ -26226,6 +26226,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fed-powell-addio-tassi-invariati': {
+    title: 'Fed: l\'addio di Powell a tassi invariati | Frontaliere Ticino',
+    description: 'Jerome Powell lascia la Federal Reserve rivendicando l\'indipendenza dell\'istituzione, mentre i tassi restano tra il 3,50% e il 3,75%. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, addio, powell, tassi, invariati',
+    ogTitle: 'Fed: l\'addio di Powell a tassi invariati',
+    ogDescription: 'Jerome Powell lascia la Federal Reserve rivendicando l\'indipendenza dell\'istituzione, mentre i tassi restano tra il 3,50% e il 3,75%.',
+    canonicalPath: '/articoli-frontaliere/fed-powell-addio-tassi-invariati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fed: l'addio di Powell a tassi invariati",
+      "description": "Jerome Powell lascia la Federal Reserve rivendicando l'indipendenza dell'istituzione, mentre i tassi restano tra il 3,50% e il 3,75%. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fed-powell-addio-tassi-invariati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Jerome Powell durante la conferenza stampa di addio alla Federal Reserve"
+      },
+      "datePublished": "2026-04-29T23:36:13+00:00",
+      "dateModified": "2026-04-29T23:36:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fed-powell-addio-tassi-invariati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

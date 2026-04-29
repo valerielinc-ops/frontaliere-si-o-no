@@ -4061,6 +4061,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.siccita-lombardia-riserve-idriche-2026.title': 'Sécheresse en Lombardie: 37% de réserves en moins',
     'blog.article.siccita-lombardia-riserve-idriche-2026.excerpt': 'La région Lombardie demande une utilisation modérée de l\'eau. Accord entre le Piémont, la Lombardie et le canton du Tessin pour augmenter la disponibilité du lac Majeur.',
     'blog.article.siccita-lombardia-riserve-idriche-2026.imageAlt': 'Lac Majeur avec un niveau d\'eau bas en été',
+    'blog.article.fed-powell-addio-tassi-invariati.title': 'Fed: Powell quitte avec des taux inchangés',
+    'blog.article.fed-powell-addio-tassi-invariati.excerpt': 'Jerome Powell quitte la Federal Reserve en revendiquant l\'indépendance de l\'institution, tandis que les taux restent entre 3,50% et 3,75%.',
+    'blog.article.fed-powell-addio-tassi-invariati.imageAlt': 'Jerome Powell lors de la conférence de presse d\'adieu à la Federal Reserve',
 };
 
 export default blogMetaFr;

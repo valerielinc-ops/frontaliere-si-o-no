@@ -4060,6 +4060,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.siccita-lombardia-riserve-idriche-2026.title': 'Dürre in der Lombardei: 37% weniger Wasservorräte',
     'blog.article.siccita-lombardia-riserve-idriche-2026.excerpt': 'Die Region Lombardei bittet um sparsamen Wasserkonsum. Vereinbarung zwischen Piemont, Lombardei und Kanton Tessin zur Erhöhung des Verfahrens des Lago Maggiore.',
     'blog.article.siccita-lombardia-riserve-idriche-2026.imageAlt': 'Lago Maggiore mit niedrigem Wasserstand im Sommer',
+    'blog.article.fed-powell-addio-tassi-invariati.title': 'Fed: Powells Abschied bei unveränderten Zinsen',
+    'blog.article.fed-powell-addio-tassi-invariati.excerpt': 'Jerome Powell verlässt die Federal Reserve und betont die Unabhängigkeit der Institution, während die Zinsen zwischen 3,50 % und 3,75 % bleiben.',
+    'blog.article.fed-powell-addio-tassi-invariati.imageAlt': 'Jerome Powell während der Abschiedspressekonferenz bei der Federal Reserve',
 };
 
 export default blogMetaDe;
