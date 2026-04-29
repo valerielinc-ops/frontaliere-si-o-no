@@ -4012,6 +4012,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.title': 'Lavizzara flood: hazard zones plan approved',
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.excerpt': 'The Ticino State Council has approved the hazard zones plan for Lavizzara after the flood on 29-30 June 2024',
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.imageAlt': 'Aerial view of Lavizzara valley after the flood, showing damaged areas and recovery efforts',
+    'blog.article.bedretto-lab-microterremoti-ricerca.title': 'Bedretto Lab: induced micro-earthquakes to study faults',
+    'blog.article.bedretto-lab-microterremoti-ricerca.excerpt': 'Researchers from ETH Zurich induced micro-earthquakes in Val Bedretto to study fault behavior',
+    'blog.article.bedretto-lab-microterremoti-ricerca.imageAlt': 'Aerial view of Bedretto Valley with the underground Bedretto Lab facility',
 };
 
 export default blogMetaEn;

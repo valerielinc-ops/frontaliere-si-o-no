@@ -4013,6 +4013,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.title': 'Inondation à Lavizzara: plan des zones de danger approuvé',
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.excerpt': 'Le Conseil d\'État tessinois a approuvé le plan des zones de danger pour Lavizzara après l\'inondation du 29-30 juin 2024',
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.imageAlt': 'Vue aérienne de la vallée de Lavizzara après l\'inondation, montrant les zones endommagées et les efforts de récupération',
+    'blog.article.bedretto-lab-microterremoti-ricerca.title': 'Bedretto Lab : micro-séismes induits pour étudier les failles',
+    'blog.article.bedretto-lab-microterremoti-ricerca.excerpt': 'Des chercheurs de l\'EPFZ ont induit des micro-séismes dans la vallée de Bedretto pour étudier le comportement des failles.',
+    'blog.article.bedretto-lab-microterremoti-ricerca.imageAlt': 'Vue aérienne de la vallée de Bedretto avec l\'installation souterraine du Bedretto Lab',
 };
 
 export default blogMetaFr;

@@ -10374,4 +10374,11 @@ export const ARTICLES = [
  image: '/images/blog/alluvione-lavizzara-piano-pericoli-approvato.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bedretto-lab-microterremoti-ricerca',
+ category: 'novita',
+ date: '2026-04-29T21:11:01.649Z',
+ image: '/images/blog/bedretto-lab-microterremoti-ricerca.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

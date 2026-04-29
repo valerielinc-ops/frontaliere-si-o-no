@@ -4013,6 +4013,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.title': 'Alluvione Lavizzara: approvato piano per le zone di pericolo',
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.excerpt': 'Il Consiglio di Stato ticinese ha approvato il piano delle zone di pericolo per Lavizzara dopo l\'alluvione del 29-30 giugno 2024',
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.imageAlt': 'Vista aerea della Val Lavizzara dopo l\'alluvione, con aree danneggiate e lavori di recupero',
+    'blog.article.bedretto-lab-microterremoti-ricerca.title': 'Bedretto Lab: microterremoti indotti per studiare le faglie',
+    'blog.article.bedretto-lab-microterremoti-ricerca.excerpt': 'Ricercatori del Politecnico di Zurigo indotti microterremoti in Val Bedretto per studiare il comportamento delle faglie',
+    'blog.article.bedretto-lab-microterremoti-ricerca.imageAlt': 'Vista aerea della Val Bedretto con il laboratorio sotterraneo Bedretto Lab',
 };
 
 export default blogMetaIt;

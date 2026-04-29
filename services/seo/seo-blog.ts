@@ -25762,6 +25762,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bedretto-lab-microterremoti-ricerca': {
+    title: 'Bedretto Lab: microterremoti indotti per studiare le faglie',
+    description: 'Ricercatori del Politecnico di Zurigo indotti microterremoti in Val Bedretto per studiare il comportamento delle faglie. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, bedretto, microterremoti, indotti, studiare',
+    ogTitle: 'Bedretto Lab: microterremoti indotti per studiare le faglie',
+    ogDescription: 'Ricercatori del Politecnico di Zurigo indotti microterremoti in Val Bedretto per studiare il comportamento delle faglie',
+    canonicalPath: '/articoli-frontaliere/bedretto-lab-microterremoti-ricerca',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bedretto Lab: microterremoti indotti per studiare le faglie",
+      "description": "Ricercatori del Politecnico di Zurigo indotti microterremoti in Val Bedretto per studiare il comportamento delle faglie. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bedretto-lab-microterremoti-ricerca.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della Val Bedretto con il laboratorio sotterraneo Bedretto Lab"
+      },
+      "datePublished": "2026-04-29T21:11:01+00:00",
+      "dateModified": "2026-04-29T21:11:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bedretto-lab-microterremoti-ricerca`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4012,6 +4012,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.title': 'Überschwemmung Lavizzara: Gefahrenzonenplan genehmigt',
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.excerpt': 'Der Staatsrat des Tessin hat den Gefahrenzonenplan für Lavizzara nach der Überschwemmung vom 29.-30. Juni 2024 genehmigt',
     'blog.article.alluvione-lavizzara-piano-pericoli-approvato.imageAlt': 'Luftaufnahme des Lavizzara-Tals nach der Überschwemmung, mit beschädigten Gebieten und Wiederaufbaumaßnahmen',
+    'blog.article.bedretto-lab-microterremoti-ricerca.title': 'Bedretto Lab: Induzierte Mikroerdbeben zur Erforschung von Verwerfungen',
+    'blog.article.bedretto-lab-microterremoti-ricerca.excerpt': 'Forscher der ETH Zürich lösten in Val Bedretto Mikroerdbeben aus, um das Verhalten von Verwerfungen zu studieren',
+    'blog.article.bedretto-lab-microterremoti-ricerca.imageAlt': 'Luftaufnahme des Bedrettotals mit der unterirdischen Bedretto-Lab-Einrichtung',
 };
 
 export default blogMetaDe;
