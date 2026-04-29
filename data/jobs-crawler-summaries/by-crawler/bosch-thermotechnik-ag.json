@@ -1,23 +1,24 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-04-28T21:27:30.656Z",
+  "generatedAt": "2026-04-29T10:19:01.985Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 11309,
-  "avgDurationMs": 11309,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 9276,
+  "avgDurationMs": 9276,
   "durationHistory": [
-    11309
+    9276
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Teamleader Production 100% (w/m/div.) - REF284854K",
       "slug": "teamleader-production-100-w-m-div-ref284854k-bosch-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF284854K-teamleader-production-100-w-m-div-ref284854k",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123486889-teamleader-production-100-w-m-div-ref284854k?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123486889-teamleader-production-100-w-m-div-ref284854k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
       "companyKey": "bosch-thermotechnik-ag",
       "companyDomain": "bosch.ch",
@@ -35,45 +36,12 @@
       "sourceLang": "de",
       "postedDate": "2026-04-28",
       "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Groupleader Production 100% (w/m/div.) - REF282899E",
-      "slug": "produzione-groupleader-100-w-m-div-ref282899e-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF282899E-groupleader-production-100-w-m-div-ref282899e",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000119310707-groupleader-production-100-w-m-div-ref282899e?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-08",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-67e1eae2c89a",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
+      "id": "bosch-thermotechnik-ag-5b7190836571",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T21:16:51.371Z",
+      "firstSeenAt": "2026-04-28T21:27:30.656Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,14 +49,12 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Mechaniker (w/m/div.)",
       "slug": "mechaniker-w-m-div-bosch-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF284760B-mechaniker-w-m-div",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123354209-mechaniker-w-m-div-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123354209-mechaniker-w-m-div-?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
       "companyKey": "bosch-thermotechnik-ag",
       "companyDomain": "bosch.ch",
@@ -120,5 +86,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
