@@ -23065,6 +23065,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-730-precompilato-frontalieri-ticino-2026': {
+    title: '730 precompilato online dal 30 aprile: cosa cambia per i frontalieri',
+    description: 'Dal 30 aprile 2026 il 730 precompilato è online. Ecco cosa sapere per non sbagliare, con dati e scadenze aggiornati. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, precompilato, online, aprile, cosa',
+    ogTitle: '730 precompilato online dal 30 aprile: cosa cambia per i frontalieri',
+    ogDescription: 'Dal 30 aprile 2026 il 730 precompilato è online. Ecco cosa sapere per non sbagliare, con dati e scadenze aggiornati.',
+    canonicalPath: '/articoli-frontaliere/730-precompilato-frontalieri-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "730 precompilato online dal 30 aprile: cosa cambia per i frontalieri",
+      "description": "Dal 30 aprile 2026 il 730 precompilato è online. Ecco cosa sapere per non sbagliare, con dati e scadenze aggiornati. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/730-precompilato-frontalieri-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che accede al 730 precompilato online con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-29T07:35:07+00:00",
+      "dateModified": "2026-04-29T07:35:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/730-precompilato-frontalieri-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

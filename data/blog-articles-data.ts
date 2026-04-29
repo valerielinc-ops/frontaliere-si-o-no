@@ -9723,4 +9723,11 @@ export const ARTICLES = [
  image: '/images/blog/lombardia-tassa-sanitaria-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: '730-precompilato-frontalieri-ticino-2026',
+ category: 'fiscale',
+ date: '2026-04-29T07:35:07.514Z',
+ image: '/images/blog/730-precompilato-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

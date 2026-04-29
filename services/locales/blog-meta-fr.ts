@@ -3734,6 +3734,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.title': 'Lombardie confirme la taxe sanitaire pour les frontaliers',
     'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.excerpt': 'La Lombardie a rejeté la motion pour abolir la taxe sanitaire pour les frontaliers, mais promet des réductions. Voici les implications pour ceux qui travaillent en Suisse',
     'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.imageAlt': 'Vue du lac de Lugano avec la ville et les montagnes en arrière-plan',
+    'blog.article.730-precompilato-frontalieri-ticino-2026.title': '730 prérempli en ligne dès le 30 avril : ce qui change pour les frontaliers',
+    'blog.article.730-precompilato-frontalieri-ticino-2026.excerpt': 'Dès le 30 avril 2026, la déclaration 730 préremplie est en ligne. Voici ce qu\'il faut savoir pour ne pas se tromper, avec des données et des délais mis à jour.',
+    'blog.article.730-precompilato-frontalieri-ticino-2026.imageAlt': 'Personne accédant à la déclaration d\'impôt 730 préremplie en ligne avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

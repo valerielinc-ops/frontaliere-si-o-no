@@ -3733,6 +3733,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.title': 'Lombardy confirms healthcare tax for cross-border workers: what changes',
     'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.excerpt': 'Lombardy has rejected the motion to abolish the healthcare tax for cross-border workers, but promises discounts. Here are the implications for those working in Switzerland',
     'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.imageAlt': 'View of Lake Lugano with the city and mountains in the background',
+    'blog.article.730-precompilato-frontalieri-ticino-2026.title': 'Pre-filled 730 online from April 30: changes for cross-border workers',
+    'blog.article.730-precompilato-frontalieri-ticino-2026.excerpt': 'From April 30, 2026, the pre-filled 730 will be online. Here\'s what you need to know to avoid mistakes, with updated data and deadlines.',
+    'blog.article.730-precompilato-frontalieri-ticino-2026.imageAlt': 'Person accessing the 730 precompiled tax form online with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

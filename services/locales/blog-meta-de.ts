@@ -3733,6 +3733,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.title': 'Lombardei bestätigt Gesundheitsabgabe für Grenzgänger: Das ändert sich',
     'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.excerpt': 'Die Lombardei hat den Antrag zur Abschaffung der Gesundheitsabgabe für Grenzgänger abgelehnt, verspricht aber Rabatte. Hier sind die Auswirkungen für diejenigen, die in der Schweiz arbeiten',
     'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt und den Bergen im Hintergrund',
+    'blog.article.730-precompilato-frontalieri-ticino-2026.title': '730-Vorausgefüllt ab 30. April online: Was ändert sich für Grenzgänger?',
+    'blog.article.730-precompilato-frontalieri-ticino-2026.excerpt': 'Ab dem 30. April 2026 ist die 730-Vorausgefüllte online. Hier erfahren Sie, was Sie wissen müssen, um Fehler zu vermeiden, mit aktualisierten Daten und Fristen.',
+    'blog.article.730-precompilato-frontalieri-ticino-2026.imageAlt': 'Person, die auf den 730 vorgefertigten Steuerformular online mit Blick auf den Luganersee zugreift',
 };
 
 export default blogMetaDe;

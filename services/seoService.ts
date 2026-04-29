@@ -2475,6 +2475,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-corsi-parlare-pubblico-2026': { name: 'Public Speaking', path: '/articoli-frontaliere/varese-corsi-parlare-pubblico-2026', parent: 'blog' },
     'blog-svizzera-10-milioni-votazione-ticino': { name: 'Iniziativa UDC', path: '/articoli-frontaliere/svizzera-10-milioni-votazione-ticino', parent: 'blog' },
     'blog-lombardia-tassa-sanitaria-frontalieri-2026': { name: 'Tassa sanitaria', path: '/articoli-frontaliere/lombardia-tassa-sanitaria-frontalieri-2026', parent: 'blog' },
+    'blog-730-precompilato-frontalieri-ticino-2026': { name: 'Fiscale', path: '/articoli-frontaliere/730-precompilato-frontalieri-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
