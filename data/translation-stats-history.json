@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-15T08:14:55.449Z",
-    "label": "before",
-    "total": 2865,
-    "needsRetranslation": 36,
-    "incomplete": 17,
-    "complete": 2848,
-    "missingByLocale": {
-      "it": 13,
-      "en": 0,
-      "de": 13,
-      "fr": 14
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 8
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 5
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 2
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-15T08:27:57.497Z",
-    "label": "after",
-    "total": 2865,
-    "needsRetranslation": 42,
-    "incomplete": 17,
-    "complete": 2848,
-    "missingByLocale": {
-      "it": 13,
-      "en": 0,
-      "de": 13,
-      "fr": 14
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 8
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 5
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 2
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-15T10:57:05.186Z",
     "label": "before",
     "total": 2925,
@@ -7839,6 +7767,102 @@
       },
       {
         "company": "Banca del Sempione",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-29T14:25:42.061Z",
+    "label": "before",
+    "total": 2674,
+    "needsRetranslation": 103,
+    "incomplete": 48,
+    "complete": 2626,
+    "missingByLocale": {
+      "it": 37,
+      "en": 17,
+      "de": 33,
+      "fr": 37
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 2
+      },
+      {
+        "company": "TRUMPF Schweiz AG",
+        "pending": 2
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-29T15:33:29.556Z",
+    "label": "after",
+    "total": 2674,
+    "needsRetranslation": 79,
+    "incomplete": 29,
+    "complete": 2645,
+    "missingByLocale": {
+      "it": 25,
+      "en": 5,
+      "de": 26,
+      "fr": 24
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
         "pending": 1
       }
     ]
