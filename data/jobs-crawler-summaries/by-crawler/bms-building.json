@@ -1,18 +1,19 @@
 {
   "key": "bms-building",
   "label": "BMS Building Materials",
-  "generatedAt": "2026-04-28T21:25:02.852Z",
+  "generatedAt": "2026-04-29T10:16:59.160Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8823,
-  "avgDurationMs": 8823,
+  "durationMs": 7883,
+  "avgDurationMs": 7883,
   "durationHistory": [
-    8823
+    7883
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bms-building-10d1e8489926",
       "slug": "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-m-d-100-bms-",
@@ -20,16 +21,16 @@
       "companyKey": "bms-building",
       "companyDomain": "bmsuisse.ch",
       "title": "Conseiller(ère) de vente revêtements sols et murs et Sanitaire en Exposition (F/M/D) 100%",
-      "location": "Sion",
+      "location": "Conthey",
       "canton": "VS",
       "url": "https://jobs.bmsuisse.ch/jobs/detail/154-conseillerere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:25:00.257Z",
-      "addressLocality": "Sion",
+      "crawledAt": "2026-04-29T10:16:57.134Z",
+      "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1950",
+      "postalCode": "1964",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -39,16 +40,15 @@
       "featured": false,
       "postedDate": "2026-04-28",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/twmh0hty1l7ib8qcux8ks5d5eg1vlo",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-04-28T21:25:00.257Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "bms-building-0a087c6a807c",
       "slug": "conseiller-de-vente-expo-cuisines-a-100-f-h-d-bms-building-ch",
@@ -61,7 +61,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/137-conseiller-de-vente-expo-cuisines-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:24:56.760Z",
+      "crawledAt": "2026-04-29T10:16:53.483Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,7 +96,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/139-representant-agencement-de-cuisines-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:24:57.907Z",
+      "crawledAt": "2026-04-29T10:16:54.680Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -131,7 +131,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/151-conseiller-de-vente-shop-sanitaire-a-50-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:24:59.066Z",
+      "crawledAt": "2026-04-29T10:16:55.882Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
