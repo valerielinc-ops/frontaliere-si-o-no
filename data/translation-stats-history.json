@@ -1,81 +1,5 @@
 [
   {
-    "timestamp": "2026-04-15T03:45:31.758Z",
-    "label": "before",
-    "total": 2921,
-    "needsRetranslation": 50,
-    "incomplete": 18,
-    "complete": 2903,
-    "missingByLocale": {
-      "it": 13,
-      "en": 0,
-      "de": 13,
-      "fr": 14
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 8
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 5
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 2
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-15T04:02:28.860Z",
-    "label": "after",
-    "total": 2921,
-    "needsRetranslation": 31,
-    "incomplete": 17,
-    "complete": 2904,
-    "missingByLocale": {
-      "it": 13,
-      "en": 0,
-      "de": 13,
-      "fr": 14
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 8
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 5
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 2
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-15T05:35:02.765Z",
     "label": "before",
     "total": 2921,
@@ -7778,6 +7702,78 @@
     "needsRetranslation": 62,
     "incomplete": 26,
     "complete": 2652,
+    "missingByLocale": {
+      "it": 25,
+      "en": 5,
+      "de": 23,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-29T08:45:11.774Z",
+    "label": "before",
+    "total": 2614,
+    "needsRetranslation": 61,
+    "incomplete": 26,
+    "complete": 2588,
+    "missingByLocale": {
+      "it": 25,
+      "en": 5,
+      "de": 23,
+      "fr": 23
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-29T09:11:08.270Z",
+    "label": "after",
+    "total": 2614,
+    "needsRetranslation": 50,
+    "incomplete": 26,
+    "complete": 2588,
     "missingByLocale": {
       "it": 25,
       "en": 5,
