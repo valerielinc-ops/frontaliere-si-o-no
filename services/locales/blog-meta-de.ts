@@ -3982,6 +3982,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-stato-lavoro.title': 'Grenzgänger: Arbeitsstaat zahlt Arbeitslosigkeit',
     'blog.article.frontalieri-disoccupazione-stato-lavoro.excerpt': 'EU-Reform beschlossen: Bedeutende Änderungen für Grenzgänger in der Schweiz. Hier erfahren Sie, was sich ändert und was zu tun ist',
     'blog.article.frontalieri-disoccupazione-stato-lavoro.imageAlt': 'Luftaufnahme des Luganersees mit dem schweizerisch-italienischen Grenzgebiet im Vordergrund',
+    'blog.article.lavoro-openjobmetis-2026-opportunita.title': 'Sommer 2026: Openjobmetis bietet über 2000 Arbeitsplätze in Italien',
+    'blog.article.lavoro-openjobmetis-2026-opportunita.excerpt': 'Openjobmetis hat über 2000 offene Stellen in Italien für den Sommer 2026, mit hoher Nachfrage im Tourismus und in der Produktion',
+    'blog.article.lavoro-openjobmetis-2026-opportunita.imageAlt': 'Eine lebhafte Aussicht auf Lugano im Sommer mit Menschen, die arbeiten und Outdoor-Aktivitäten genießen',
 };
 
 export default blogMetaDe;

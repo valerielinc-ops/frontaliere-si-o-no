@@ -3982,6 +3982,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-stato-lavoro.title': 'Cross-border workers: Unemployment paid by the country where they worked',
     'blog.article.frontalieri-disoccupazione-stato-lavoro.excerpt': 'EU reform approved: significant changes for cross-border workers in Switzerland. Here\'s what changes and what to do',
     'blog.article.frontalieri-disoccupazione-stato-lavoro.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
+    'blog.article.lavoro-openjobmetis-2026-opportunita.title': 'Summer 2026: Over 2000 jobs in Italy with Openjobmetis',
+    'blog.article.lavoro-openjobmetis-2026-opportunita.excerpt': 'Openjobmetis has over 2000 open positions in Italy for summer 2026, with high demand in tourism and production',
+    'blog.article.lavoro-openjobmetis-2026-opportunita.imageAlt': 'A lively view of Lugano during summer with people working and enjoying outdoor activities',
 };
 
 export default blogMetaEn;

@@ -25472,6 +25472,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-openjobmetis-2026-opportunita': {
+    title: 'Estate 2026: Openjobmetis offre oltre 2000 opportunità lavorative in Italia',
+    description: 'Openjobmetis registra oltre 2000 posizioni aperte in Italia per l\'estate 2026, con forte domanda nel turismo e nella produzione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, estate, openjobmetis, offre, oltre',
+    ogTitle: 'Estate 2026: Openjobmetis offre oltre 2000 opportunità lavorative in Italia',
+    ogDescription: 'Openjobmetis registra oltre 2000 posizioni aperte in Italia per l\'estate 2026, con forte domanda nel turismo e nella produzione',
+    canonicalPath: '/articoli-frontaliere/lavoro-openjobmetis-2026-opportunita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Estate 2026: Openjobmetis offre oltre 2000 opportunità lavorative in Italia",
+      "description": "Openjobmetis registra oltre 2000 posizioni aperte in Italia per l'estate 2026, con forte domanda nel turismo e nella produzione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoro-openjobmetis-2026-opportunita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista animata di Lugano durante l'estate con persone che lavorano e si godono le attività all'aperto"
+      },
+      "datePublished": "2026-04-29T19:27:19+00:00",
+      "dateModified": "2026-04-29T19:27:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-openjobmetis-2026-opportunita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

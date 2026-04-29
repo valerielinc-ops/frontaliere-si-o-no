@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1377,
+ "numberOfItems": 1378,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6012,7 +6012,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1374, "name": "Sindaci italiani contro l'innalzamento del lago...", "url": `${BASE_URL}/articoli-frontaliere/sindaci-verbania-baveno-cannobio-opposizione` },
           { "@type": "ListItem", "position": 1375, "name": "Mendrisio chiude il 2025 con il quarto bilancio...", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-bilancio-positivo-2025` },
           { "@type": "ListItem", "position": 1376, "name": "Tenero, terzo frigo anti-spreco inaugurato", "url": `${BASE_URL}/articoli-frontaliere/terzo-frigo-tenero-anti-spreco` },
-          { "@type": "ListItem", "position": 1377, "name": "Frontalieri, la disoccupazione la pagherà lo St...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupazione-stato-lavoro` }
+          { "@type": "ListItem", "position": 1377, "name": "Frontalieri, la disoccupazione la pagherà lo St...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupazione-stato-lavoro` },
+          { "@type": "ListItem", "position": 1378, "name": "Estate 2026: Openjobmetis offre oltre 2000 oppo...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-openjobmetis-2026-opportunita` }
  ]
  },
  {

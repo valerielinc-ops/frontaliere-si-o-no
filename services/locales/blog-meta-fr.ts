@@ -3983,6 +3983,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-stato-lavoro.title': 'Frontaliers, le chômage sera payé par l\'État où ils travaillent',
     'blog.article.frontalieri-disoccupazione-stato-lavoro.excerpt': 'Réforme UE approuvée : changements significatifs pour les frontaliers en Suisse. Voici ce qui change et ce qu\'il faut faire',
     'blog.article.frontalieri-disoccupazione-stato-lavoro.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
+    'blog.article.lavoro-openjobmetis-2026-opportunita.title': 'Été 2026 : Openjobmetis propose plus de 2000 offres d\'emploi en Italie',
+    'blog.article.lavoro-openjobmetis-2026-opportunita.excerpt': 'Openjobmetis enregistre plus de 2000 postes ouverts en Italie pour l\'été 2026, avec une forte demande dans le tourisme et la production',
+    'blog.article.lavoro-openjobmetis-2026-opportunita.imageAlt': 'Une vue animée de Lugano en été avec des personnes travaillant et profitant des activités en plein air',
 };
 
 export default blogMetaFr;

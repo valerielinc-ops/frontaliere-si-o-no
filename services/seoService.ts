@@ -2558,6 +2558,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mendrisio-bilancio-positivo-2025': { name: 'Novità', path: '/articoli-frontaliere/mendrisio-bilancio-positivo-2025', parent: 'blog' },
     'blog-terzo-frigo-tenero-anti-spreco': { name: 'Novità', path: '/articoli-frontaliere/terzo-frigo-tenero-anti-spreco', parent: 'blog' },
     'blog-frontalieri-disoccupazione-stato-lavoro': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-disoccupazione-stato-lavoro', parent: 'blog' },
+    'blog-lavoro-openjobmetis-2026-opportunita': { name: 'Lavoro', path: '/articoli-frontaliere/lavoro-openjobmetis-2026-opportunita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

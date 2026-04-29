@@ -10304,4 +10304,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-disoccupazione-stato-lavoro.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavoro-openjobmetis-2026-opportunita',
+ category: 'novita',
+ date: '2026-04-29T19:27:19.503Z',
+ image: '/images/blog/lavoro-openjobmetis-2026-opportunita.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
