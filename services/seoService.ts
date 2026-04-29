@@ -2441,6 +2441,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dehors-como-ricorso-tar-20-maggio': { name: 'Novità', path: '/articoli-frontaliere/dehors-como-ricorso-tar-20-maggio', parent: 'blog' },
     'blog-bruno-breguet-scomparsa-ufficializzata': { name: 'Novità', path: '/articoli-frontaliere/bruno-breguet-scomparsa-ufficializzata', parent: 'blog' },
     'blog-profumo-prato-tagliato-grido-aiuto-piante': { name: 'Novità', path: '/articoli-frontaliere/profumo-prato-tagliato-grido-aiuto-piante', parent: 'blog' },
+    'blog-novartis-calo-utile-2026': { name: 'Novita', path: '/articoli-frontaliere/novartis-calo-utile-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

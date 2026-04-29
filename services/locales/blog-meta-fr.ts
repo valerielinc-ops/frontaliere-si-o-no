@@ -3632,6 +3632,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.title': 'L\'odeur de l\'herbe coupée est un appel à l\'aide des plantes',
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.excerpt': 'Découvrez comment l\'odeur de l\'herbe coupée est un signal d\'alarme pour les plantes et attire des insectes prédateurs utiles.',
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.imageAlt': 'Pelouse fraîchement tondue au Tessin avec des gouttes de rosée',
+    'blog.article.novartis-calo-utile-2026.title': 'Novartis: baisse de 13% du bénéfice net au 1er trimestre 2026',
+    'blog.article.novartis-calo-utile-2026.excerpt': 'Le groupe pharmaceutique Novartis enregistre une baisse de 13% du bénéfice net, avec des ventes d\'Entresto en forte diminution.',
+    'blog.article.novartis-calo-utile-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes en arrière-plan',
 };
 
 export default blogMetaFr;

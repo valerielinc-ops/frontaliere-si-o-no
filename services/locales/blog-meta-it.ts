@@ -3632,6 +3632,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.title': 'Il profumo di prato tagliato è un grido d’aiuto delle piante',
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.excerpt': 'Scopri come il profumo dell\'erba tagliata è un segnale di allarme per le piante e attira insetti predatori utili.',
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.imageAlt': 'Prato appena tagliato in Ticino con gocce di rugiada',
+    'blog.article.novartis-calo-utile-2026.title': 'Novartis: calo del 13% nell\'utile netto nel primo trimestre 2026',
+    'blog.article.novartis-calo-utile-2026.excerpt': 'Il gruppo farmaceutico Novartis registra un calo del 13% nell\'utile netto, con vendite di Entresto in forte diminuzione.',
+    'blog.article.novartis-calo-utile-2026.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni sullo sfondo',
 };
 
 export default blogMetaIt;

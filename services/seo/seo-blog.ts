@@ -22079,6 +22079,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-novartis-calo-utile-2026': {
+    title: 'Novartis: calo del 13% nell\'utile netto nel primo trimestre 2026',
+    description: 'Novartis registra un calo del 13% nell\'utile netto nel primo trimestre 2026, con vendite di Entresto in forte diminuzione. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, novartis, calo, nell, utile',
+    ogTitle: 'Novartis: calo del 13% nell\'utile netto nel primo trimestre 2026',
+    ogDescription: 'Novartis registra un calo del 13% nell\'utile netto nel primo trimestre 2026, con vendite di Entresto in forte diminuzione.',
+    canonicalPath: '/articoli-frontaliere/novartis-calo-utile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Novartis: calo del 13% nell'utile netto nel primo trimestre 2026",
+      "description": "Novartis registra un calo del 13% nell'utile netto nel primo trimestre 2026, con vendite di Entresto in forte diminuzione. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/novartis-calo-utile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con edifici moderni sullo sfondo"
+      },
+      "datePublished": "2026-04-29T01:43:34+00:00",
+      "dateModified": "2026-04-29T01:43:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/novartis-calo-utile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

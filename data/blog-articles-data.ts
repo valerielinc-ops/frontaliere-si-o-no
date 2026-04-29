@@ -9485,4 +9485,11 @@ export const ARTICLES = [
  image: '/images/blog/profumo-prato-tagliato-grido-aiuto-piante.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'novartis-calo-utile-2026',
+ category: 'novita',
+ date: '2026-04-29T01:43:34.557Z',
+ image: '/images/blog/novartis-calo-utile-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

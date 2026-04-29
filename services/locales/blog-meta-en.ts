@@ -3631,6 +3631,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.title': 'The smell of cut grass is a plant\'s cry for help',
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.excerpt': 'Discover how the smell of cut grass is an alarm signal for plants and attracts useful predatory insects.',
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.imageAlt': 'Freshly cut lawn in Ticino with dew drops',
+    'blog.article.novartis-calo-utile-2026.title': 'Novartis: 13% drop in net profit in Q1 2026',
+    'blog.article.novartis-calo-utile-2026.excerpt': 'Pharmaceutical group Novartis reports a 13% drop in net profit, with Entresto sales significantly down.',
+    'blog.article.novartis-calo-utile-2026.imageAlt': 'Aerial view of Lake Lugano with modern office buildings in the background',
 };
 
 export default blogMetaEn;

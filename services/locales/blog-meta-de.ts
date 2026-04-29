@@ -3631,6 +3631,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.title': 'Der Duft von frisch geschnittenem Gras ist ein Hilferuf der Pflanzen',
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.excerpt': 'Entdecken Sie, wie der Duft von frisch geschnittenem Gras ein Alarmsignal für Pflanzen ist und nützliche Raubinsekten anlockt.',
     'blog.article.profumo-prato-tagliato-grido-aiuto-piante.imageAlt': 'Frisch gemähter Rasen in Tessin mit Tau',
+    'blog.article.novartis-calo-utile-2026.title': 'Novartis: 13% weniger Nettogewinn im ersten Quartal 2026',
+    'blog.article.novartis-calo-utile-2026.excerpt': 'Der Pharmakonzern Novartis verzeichnet einen Rückgang des Nettogewinns um 13%, wobei die Verkäufe von Entresto stark zurückgehen.',
+    'blog.article.novartis-calo-utile-2026.imageAlt': 'Luftaufnahme des Luganersees mit modernen Bürogebäuden im Hintergrund',
 };
 
 export default blogMetaDe;
