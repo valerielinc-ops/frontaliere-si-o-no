@@ -3725,6 +3725,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-cantine-luganese-condannato.title': 'Furti nelle cantine del Luganese: condannato 44enne ticinese',
     'blog.article.furti-cantine-luganese-condannato.excerpt': 'Un 44enne ticinese è stato condannato per furti nelle cantine del Luganese per finanziare la dipendenza da cocaina',
     'blog.article.furti-cantine-luganese-condannato.imageAlt': 'Vista aerea del lago di Lugano e della città',
+    'blog.article.varese-corsi-parlare-pubblico-2026.title': 'Varese Corsi: corso intermedio di public speaking dal 18 maggio',
+    'blog.article.varese-corsi-parlare-pubblico-2026.excerpt': 'Varese Corsi propone un corso intermedio di public speaking per affinare le tecniche di comunicazione e coinvolgimento del pubblico',
+    'blog.article.varese-corsi-parlare-pubblico-2026.imageAlt': 'Un\'aula a Varese con persone che praticano il public speaking',
 };
 
 export default blogMetaIt;

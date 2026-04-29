@@ -3725,6 +3725,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-cantine-luganese-condannato.title': 'Vols dans les caves du Luganais : un frontalier condamné',
     'blog.article.furti-cantine-luganese-condannato.excerpt': 'Un frontalier de 44 ans a été condamné pour des vols dans les caves du Luganais afin de financer sa dépendance à la cocaïne',
     'blog.article.furti-cantine-luganese-condannato.imageAlt': 'Vue aérienne du lac de Lugano et de la ville',
+    'blog.article.varese-corsi-parlare-pubblico-2026.title': 'Cours intermédiaire de prise de parole à Varèse',
+    'blog.article.varese-corsi-parlare-pubblico-2026.excerpt': 'Varese Corsi propose un cours intermédiaire de prise de parole pour affiner les techniques de communication et d\'implication du public',
+    'blog.article.varese-corsi-parlare-pubblico-2026.imageAlt': 'Une salle de classe à Varese avec des personnes pratiquant la prise de parole en public',
 };
 
 export default blogMetaFr;

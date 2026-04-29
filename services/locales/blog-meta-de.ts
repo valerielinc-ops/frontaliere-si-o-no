@@ -3724,6 +3724,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-cantine-luganese-condannato.title': 'Einbrüche in Luganer Kellern: 44-jähriger Tessin verurteilt',
     'blog.article.furti-cantine-luganese-condannato.excerpt': 'Ein 44-jähriger Tessin hat Einbrüche in Luganer Kellern begangen, um seine Kokainabhängigkeit zu finanzieren',
     'blog.article.furti-cantine-luganese-condannato.imageAlt': 'Luftaufnahme des Luganer Sees und der Stadt',
+    'blog.article.varese-corsi-parlare-pubblico-2026.title': 'Varese Corsi: Fortgeschrittenenkurs Rhetorik ab 18. Mai',
+    'blog.article.varese-corsi-parlare-pubblico-2026.excerpt': 'Varese Corsi bietet einen Fortgeschrittenenkurs in Rhetorik an, um Kommunikationstechniken und die Einbindung des Publikums zu verfeinern',
+    'blog.article.varese-corsi-parlare-pubblico-2026.imageAlt': 'Ein Klassenzimmer in Varese mit Menschen, die Public Speaking üben',
 };
 
 export default blogMetaDe;

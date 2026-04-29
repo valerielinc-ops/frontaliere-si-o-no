@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1291,
+ "numberOfItems": 1292,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5926,7 +5926,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1288, "name": "Atleti ticinesi trionfano ad Arcegno e Ascona", "url": `${BASE_URL}/articoli-frontaliere/atleti-ticinesi-vittoria-arcegno-ascona` },
           { "@type": "ListItem", "position": 1289, "name": "Malnate: parte il lavoro dei Comitati di Quartiere", "url": `${BASE_URL}/articoli-frontaliere/malnate-comitati-quartiere-bilancio-partecipativo` },
           { "@type": "ListItem", "position": 1290, "name": "Casa montana di Nante, valido il voto del Cc di...", "url": `${BASE_URL}/articoli-frontaliere/casa-montana-nante-voto-validato` },
-          { "@type": "ListItem", "position": 1291, "name": "Furti nelle cantine del Luganese: condannato 44...", "url": `${BASE_URL}/articoli-frontaliere/furti-cantine-luganese-condannato` }
+          { "@type": "ListItem", "position": 1291, "name": "Furti nelle cantine del Luganese: condannato 44...", "url": `${BASE_URL}/articoli-frontaliere/furti-cantine-luganese-condannato` },
+          { "@type": "ListItem", "position": 1292, "name": "Corso intermedio di public speaking a Varese", "url": `${BASE_URL}/articoli-frontaliere/varese-corsi-parlare-pubblico-2026` }
  ]
  },
  {

@@ -22978,6 +22978,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-corsi-parlare-pubblico-2026': {
+    title: 'Varese Corsi: corso intermedio di public speaking dal 18 maggio',
+    description: 'Varese Corsi propone un corso intermedio di public speaking per migliorare le tecniche di comunicazione e coinvolgimento del pubblico. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, corsi, corso, intermedio',
+    ogTitle: 'Corso intermedio di public speaking a Varese',
+    ogDescription: 'Varese Corsi propone un corso intermedio di public speaking per migliorare le tecniche di comunicazione e coinvolgimento del pubblico',
+    canonicalPath: '/articoli-frontaliere/varese-corsi-parlare-pubblico-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Corso intermedio di public speaking a Varese",
+      "description": "Varese Corsi propone un corso intermedio di public speaking per migliorare le tecniche di comunicazione e coinvolgimento del pubblico. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-corsi-parlare-pubblico-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un'aula a Varese con persone che praticano il public speaking"
+      },
+      "datePublished": "2026-04-29T05:33:35+00:00",
+      "dateModified": "2026-04-29T05:33:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-corsi-parlare-pubblico-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

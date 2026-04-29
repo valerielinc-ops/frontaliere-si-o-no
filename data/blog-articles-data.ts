@@ -9702,4 +9702,11 @@ export const ARTICLES = [
  image: '/images/blog/furti-cantine-luganese-condannato.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-corsi-parlare-pubblico-2026',
+ category: 'pratico',
+ date: '2026-04-29T05:33:35.559Z',
+ image: '/images/blog/varese-corsi-parlare-pubblico-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
