@@ -24138,6 +24138,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-venditti-estival-lugano-2026': {
+    title: 'Antonello Venditti a Lugano: prevendita aperta per il concerto del 10 luglio',
+    description: 'Antonello Venditti in concerto a Lugano il 10 luglio 2026 con i brani di \'Cuore\' e \'Notte prima degli esami\'. Posti solo a sedere, prevendita già attiva.',
+    keywords: 'frontalieri, ticino, svizzera, italia, antonello, venditti, lugano, prevendita',
+    ogTitle: 'Antonello Venditti a Lugano: concerto del 10 luglio 2026',
+    ogDescription: 'Antonello Venditti in concerto a Lugano il 10 luglio 2026 con i brani di \'Cuore\' e \'Notte prima degli esami\'. Posti solo a sedere, prevendita già attiva.',
+    canonicalPath: '/articoli-frontaliere/venditti-estival-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Antonello Venditti a Lugano: concerto del 10 luglio 2026",
+      "description": "Antonello Venditti in concerto a Lugano il 10 luglio 2026 con i brani di 'Cuore' e 'Notte prima degli esami'. Posti solo a sedere, prevendita già attiva.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/venditti-estival-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Antonello Venditti sul palco di Estival Jazz a Lugano, pubblico in festa"
+      },
+      "datePublished": "2026-04-29T10:56:29+00:00",
+      "dateModified": "2026-04-29T10:56:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/venditti-estival-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

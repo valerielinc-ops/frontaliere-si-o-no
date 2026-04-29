@@ -9982,4 +9982,11 @@ export const ARTICLES = [
  image: '/images/blog/san-gottardo-secondo-tubo-caduto-diaframma.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'venditti-estival-lugano-2026',
+ category: 'novita',
+ date: '2026-04-29T10:56:29.598Z',
+ image: '/images/blog/venditti-estival-lugano-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

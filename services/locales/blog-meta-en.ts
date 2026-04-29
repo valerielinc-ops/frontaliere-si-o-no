@@ -3844,6 +3844,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.title': 'San Gottardo: first diaphragm falls on north side',
     'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.excerpt': 'Important milestone in the construction of the second tube of the San Gottardo road tunnel. The first diaphragm has fallen on the north side.',
     'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.imageAlt': 'Aerial view of the San Gottardo tunnel construction site in Göschenen, Switzerland. The image shows the advanced machinery and the surrounding alpine landscape.',
+    'blog.article.venditti-estival-lugano-2026.title': 'Antonello Venditti in Lugano: tickets on sale for July 10 concert',
+    'blog.article.venditti-estival-lugano-2026.excerpt': 'The Roman singer-songwriter will bring tracks from \'Cuore\' and \'Notte prima degli esami\' to Estival Jazz. Seated only, presale already active.',
+    'blog.article.venditti-estival-lugano-2026.imageAlt': 'Antonello Venditti performing at Estival Jazz in Lugano, audience enjoying',
 };
 
 export default blogMetaEn;

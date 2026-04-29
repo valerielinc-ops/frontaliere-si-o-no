@@ -3845,6 +3845,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.title': 'San Gottardo: caduto il primo diaframma a nord',
     'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.excerpt': 'Importante traguardo nel cantiere del secondo tubo della galleria stradale del San Gottardo. Caduto il primo diaframma sul lato nord.',
     'blog.article.san-gottardo-secondo-tubo-caduto-diaframma.imageAlt': 'Vista aerea del cantiere del tunnel del San Gottardo a Göschenen, Svizzera. L\'immagine mostra le macchine avanzate e il paesaggio alpino circostante.',
+    'blog.article.venditti-estival-lugano-2026.title': 'Antonello Venditti a Lugano: prevendita aperta per il concerto del 10 luglio',
+    'blog.article.venditti-estival-lugano-2026.excerpt': 'Il cantautore romano porterà a Estival Jazz i brani di \'Cuore\' e \'Notte prima degli esami\'. Posti solo a sedere, prevendita già attiva.',
+    'blog.article.venditti-estival-lugano-2026.imageAlt': 'Antonello Venditti sul palco di Estival Jazz a Lugano, pubblico in festa',
 };
 
 export default blogMetaIt;
