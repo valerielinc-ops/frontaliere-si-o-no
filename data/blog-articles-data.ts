@@ -9926,4 +9926,11 @@ export const ARTICLES = [
  image: '/images/blog/digitalizzazione-avs-ai-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'celti-tradate-parco-pineta-2026',
+ category: 'novita',
+ date: '2026-04-29T10:15:34.459Z',
+ image: '/images/blog/celti-tradate-parco-pineta-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

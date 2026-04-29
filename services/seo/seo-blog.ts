@@ -23906,6 +23906,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-celti-tradate-parco-pineta-2026': {
+    title: 'Una domenica tra i segreti dei Celti al Parco Pineta di Tradate',
+    description: 'Scopri i segreti dei Celti al Parco Pineta di Tradate con l\'associazione Kaitorikes. Un evento gratuito per immergersi nella storia e nelle usanze del V secolo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, domenica, segreti, celti, parco',
+    ogTitle: 'Celti a Tradate: evento gratuito al Parco Pineta',
+    ogDescription: 'Scopri i segreti dei Celti al Parco Pineta di Tradate con l\'associazione Kaitorikes. Un evento gratuito per immergersi nella storia e nelle usanze del V secolo.',
+    canonicalPath: '/articoli-frontaliere/celti-tradate-parco-pineta-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Celti a Tradate: evento gratuito al Parco Pineta",
+      "description": "Scopri i segreti dei Celti al Parco Pineta di Tradate con l'associazione Kaitorikes. Un evento gratuito per immergersi nella storia e nelle usanze del V secolo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/celti-tradate-parco-pineta-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parco Pineta di Tradate, un'area verde con reperti celtici"
+      },
+      "datePublished": "2026-04-29T10:15:34+00:00",
+      "dateModified": "2026-04-29T10:15:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/celti-tradate-parco-pineta-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

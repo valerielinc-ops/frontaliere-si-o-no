@@ -3821,6 +3821,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.digitalizzazione-avs-ai-frontalieri.title': 'Via libera al fascicolo AVS/AI digitale: cosa cambia per i frontalieri',
     'blog.article.digitalizzazione-avs-ai-frontalieri.excerpt': 'Il Consiglio nazionale approva la digitalizzazione dei fascicoli AVS/AI. Dal 2028 accesso online ai dati previdenziali per i frontalieri',
     'blog.article.digitalizzazione-avs-ai-frontalieri.imageAlt': 'Schermo digitale che mostra documenti AVS/AI in un ufficio moderno a Lugano, Ticino',
+    'blog.article.celti-tradate-parco-pineta-2026.title': 'Una domenica tra i segreti dei Celti al Parco Pineta di Tradate',
+    'blog.article.celti-tradate-parco-pineta-2026.excerpt': 'Scopri i segreti dei Celti al Parco Pineta di Tradate con l\'associazione Kaitorikes. Un evento gratuito per immergersi nella storia e nelle usanze del V secolo.',
+    'blog.article.celti-tradate-parco-pineta-2026.imageAlt': 'Parco Pineta di Tradate, un\'area verde con reperti celtici',
 };
 
 export default blogMetaIt;

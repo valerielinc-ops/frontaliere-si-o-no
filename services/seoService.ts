@@ -2504,6 +2504,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-via-francisca-10-anni-turismo-ticino': { name: 'Via Francisca', path: '/articoli-frontaliere/via-francisca-10-anni-turismo-ticino', parent: 'blog' },
     'blog-scuola-viganello-gaza-gemellaggio-2026': { name: 'Gemellaggio scuole', path: '/articoli-frontaliere/scuola-viganello-gaza-gemellaggio-2026', parent: 'blog' },
     'blog-digitalizzazione-avs-ai-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/digitalizzazione-avs-ai-frontalieri', parent: 'blog' },
+    'blog-celti-tradate-parco-pineta-2026': { name: 'Eventi culturali', path: '/articoli-frontaliere/celti-tradate-parco-pineta-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

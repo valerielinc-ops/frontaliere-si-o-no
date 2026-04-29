@@ -3820,6 +3820,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.digitalizzazione-avs-ai-frontalieri.title': 'AVS/AI digital file approved: what changes for cross-border workers',
     'blog.article.digitalizzazione-avs-ai-frontalieri.excerpt': 'The National Council approves the digitalisation of AVS/AI files. From 2028, cross-border workers will have online access to their pension data',
     'blog.article.digitalizzazione-avs-ai-frontalieri.imageAlt': 'Digital screen displaying AVS/AI documents in a modern office in Lugano, Ticino',
+    'blog.article.celti-tradate-parco-pineta-2026.title': 'A Sunday exploring Celtic secrets at Pineta Park, Tradate',
+    'blog.article.celti-tradate-parco-pineta-2026.excerpt': 'Discover the secrets of the Celts at Pineta Park in Tradate with the Kaitorikes association. A free event to immerse yourself in the history and customs of the 5th century.',
+    'blog.article.celti-tradate-parco-pineta-2026.imageAlt': 'Parco Pineta di Tradate, a green area with Celtic relics',
 };
 
 export default blogMetaEn;

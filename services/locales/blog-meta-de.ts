@@ -3820,6 +3820,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.digitalizzazione-avs-ai-frontalieri.title': 'Digitale AHV/IV-Fälle: Änderungen für Grenzgänger',
     'blog.article.digitalizzazione-avs-ai-frontalieri.excerpt': 'Der Nationalrat genehmigt die Digitalisierung der AHV/IV-Fälle. Ab 2028 haben Grenzgänger online Zugang zu ihren Vorsorgedaten.',
     'blog.article.digitalizzazione-avs-ai-frontalieri.imageAlt': 'Digitaler Bildschirm, der AVS/AI-Dokumente in einem modernen Büro in Lugano, Tessin zeigt',
+    'blog.article.celti-tradate-parco-pineta-2026.title': 'Ein Sonntag mit den Geheimnissen der Kelten im Pinienpark von Tradate',
+    'blog.article.celti-tradate-parco-pineta-2026.excerpt': 'Entdecken Sie die Geheimnisse der Kelten im Pinienpark von Tradate mit dem Verein Kaitorikes. Eine kostenlose Veranstaltung, um sich in die Geschichte und Bräuche des 5. Jahrhunderts zu vertiefen.',
+    'blog.article.celti-tradate-parco-pineta-2026.imageAlt': 'Parco Pineta di Tradate, ein grünes Gebiet mit keltischen Relikten',
 };
 
 export default blogMetaDe;

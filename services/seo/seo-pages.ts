@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1323,
+ "numberOfItems": 1324,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5958,7 +5958,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1320, "name": "Annuario 2026 impresari ticinesi: sicurezza e t...", "url": `${BASE_URL}/articoli-frontaliere/annuario-impresari-2026-ticino` },
           { "@type": "ListItem", "position": 1321, "name": "Via Francisca del Lucomagno: 10 anni di turismo...", "url": `${BASE_URL}/articoli-frontaliere/via-francisca-10-anni-turismo-ticino` },
           { "@type": "ListItem", "position": 1322, "name": "Scuola di Viganello e Gaza si gemellano: scambi...", "url": `${BASE_URL}/articoli-frontaliere/scuola-viganello-gaza-gemellaggio-2026` },
-          { "@type": "ListItem", "position": 1323, "name": "Via libera al fascicolo AVS/AI digitale: cosa c...", "url": `${BASE_URL}/articoli-frontaliere/digitalizzazione-avs-ai-frontalieri` }
+          { "@type": "ListItem", "position": 1323, "name": "Via libera al fascicolo AVS/AI digitale: cosa c...", "url": `${BASE_URL}/articoli-frontaliere/digitalizzazione-avs-ai-frontalieri` },
+          { "@type": "ListItem", "position": 1324, "name": "Celti a Tradate: evento gratuito al Parco Pineta", "url": `${BASE_URL}/articoli-frontaliere/celti-tradate-parco-pineta-2026` }
  ]
  },
  {
