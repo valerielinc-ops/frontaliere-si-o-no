@@ -3976,6 +3976,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mendrisio-bilancio-positivo-2025.title': 'Mendrisio schließt 2025 mit positivem vierten Bilanz',
     'blog.article.mendrisio-bilancio-positivo-2025.excerpt': 'Der Gemeinderat von Mendrisio kündigt ein viertes positives Finanzresultat in Folge an, trotz geopolitischer Unsicherheiten.',
     'blog.article.mendrisio-bilancio-positivo-2025.imageAlt': 'Panorama der Stadt Mendrisio mit dem Luganersee im Hintergrund',
+    'blog.article.terzo-frigo-tenero-anti-spreco.title': 'Tenero: Dritter öffentlicher Kühlschrank gegen Lebensmittelverschwendung',
+    'blog.article.terzo-frigo-tenero-anti-spreco.excerpt': 'Am 28. April 2026 wurde in Tenero, im Kanton Tessin, ein dritter öffentlicher Kühlschrank gegen Lebensmittelverschwendung eröffnet, initiiert von der Vereinigung Madame Frigo.',
+    'blog.article.terzo-frigo-tenero-anti-spreco.imageAlt': 'Ein öffentlicher Kühlschrank in Locarno, Tessin, mit Menschen, die interagieren und Lebensmittel hinterlegen.',
 };
 
 export default blogMetaDe;

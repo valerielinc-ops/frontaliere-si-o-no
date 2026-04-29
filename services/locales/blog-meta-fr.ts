@@ -3977,6 +3977,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mendrisio-bilancio-positivo-2025.title': 'Mendrisio clôture 2025 avec un quatrième bilan positif',
     'blog.article.mendrisio-bilancio-positivo-2025.excerpt': 'Le Conseil municipal de Mendrisio annonce un quatrième résultat financier positif consécutif, malgré les incertitudes géopolitiques.',
     'blog.article.mendrisio-bilancio-positivo-2025.imageAlt': 'Panorama de la ville de Mendrisio avec le lac de Lugano en arrière-plan',
+    'blog.article.terzo-frigo-tenero-anti-spreco.title': 'Tenero: un troisième frigo anti-gaspi inauguré',
+    'blog.article.terzo-frigo-tenero-anti-spreco.excerpt': 'Le 28 avril 2026, un troisième frigo public anti-gaspi a été inauguré à Tenero, en Suisse, promu par l\'association Madame Frigo.',
+    'blog.article.terzo-frigo-tenero-anti-spreco.imageAlt': 'Un frigo public à Locarno, Tessin, avec des personnes interagissant et déposant des aliments.',
 };
 
 export default blogMetaFr;

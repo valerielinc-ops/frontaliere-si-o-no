@@ -25414,6 +25414,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terzo-frigo-tenero-anti-spreco': {
+    title: 'Tenero, inaugurato il terzo frigo pubblico anti-spreco alimentare',
+    description: 'Il 28 aprile 2026 è stato inaugurato a Tenero, in Ticino, il terzo frigo pubblico anti-spreco alimentare promosso dall\'associazione Madame Frigo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tenero, inaugurato, terzo, frigo',
+    ogTitle: 'Tenero, terzo frigo anti-spreco inaugurato',
+    ogDescription: 'Il 28 aprile 2026 è stato inaugurato a Tenero, in Ticino, il terzo frigo pubblico anti-spreco alimentare promosso dall\'associazione Madame Frigo.',
+    canonicalPath: '/articoli-frontaliere/terzo-frigo-tenero-anti-spreco',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tenero, terzo frigo anti-spreco inaugurato",
+      "description": "Il 28 aprile 2026 è stato inaugurato a Tenero, in Ticino, il terzo frigo pubblico anti-spreco alimentare promosso dall'associazione Madame Frigo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/terzo-frigo-tenero-anti-spreco.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frigorifero pubblico a Locarno, Ticino, con persone che interagiscono e depositano alimenti."
+      },
+      "datePublished": "2026-04-29T19:17:15+00:00",
+      "dateModified": "2026-04-29T19:17:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/terzo-frigo-tenero-anti-spreco`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

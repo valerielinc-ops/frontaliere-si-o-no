@@ -10290,4 +10290,11 @@ export const ARTICLES = [
  image: '/images/blog/mendrisio-bilancio-positivo-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'terzo-frigo-tenero-anti-spreco',
+ category: 'novita',
+ date: '2026-04-29T19:17:15.558Z',
+ image: '/images/blog/terzo-frigo-tenero-anti-spreco.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

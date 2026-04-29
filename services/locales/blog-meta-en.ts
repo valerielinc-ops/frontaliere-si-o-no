@@ -3976,6 +3976,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mendrisio-bilancio-positivo-2025.title': 'Mendrisio closes 2025 with fourth positive balance',
     'blog.article.mendrisio-bilancio-positivo-2025.excerpt': 'Mendrisio\'s municipal council announces a fourth consecutive positive financial result, despite geopolitical uncertainties.',
     'blog.article.mendrisio-bilancio-positivo-2025.imageAlt': 'Mendrisio cityscape with Lake Lugano in the background',
+    'blog.article.terzo-frigo-tenero-anti-spreco.title': 'Third anti-food waste fridge inaugurated in Tenero',
+    'blog.article.terzo-frigo-tenero-anti-spreco.excerpt': 'On April 28, 2026, a third anti-waste public fridge was inaugurated in Tenero, Ticino, promoted by the Madame Frigo association.',
+    'blog.article.terzo-frigo-tenero-anti-spreco.imageAlt': 'A public fridge in Locarno, Ticino, with people interacting and depositing food items.',
 };
 
 export default blogMetaEn;
