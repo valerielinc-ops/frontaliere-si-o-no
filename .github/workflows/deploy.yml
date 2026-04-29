@@ -387,29 +387,6 @@ jobs:
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
-          # ── PATH 3 optimization: tar dist/ for the Pages artifact in the
-          # background so it overlaps with the 19-task post-build pool. The
-          # tar phase (~30-45s) is the only part of upload-pages-artifact@v5
-          # that's a normal shell command — the HTTP upload phase requires
-          # ACTIONS_RUNTIME_TOKEN env vars only injected for `uses:` steps,
-          # so it stays in the next step. Saves ~30-45s on the critical path.
-          # The pre-tarred file is consumed by `actions/upload-artifact@v4`
-          # below with name=github-pages (same artifact contract that
-          # upload-pages-artifact emits).
-          if [ "${{ github.event.inputs.profile_sequential }}" != "true" ]; then
-            ( tar --dereference --hard-dereference \
-                  --directory dist \
-                  -cf "$RUNNER_TEMP/pages-artifact.tar" \
-                  --exclude=.git --exclude=.github \
-                  $(find dist -mindepth 1 -maxdepth 1 ! -name .git ! -name .github -printf "%P\n") \
-                  > /tmp/pages-tar.log 2>&1
-              echo $? > /tmp/pages-tar.rc ) &
-            PAGES_TAR_PID=$!
-            echo "📦 Pages tar started in background (PID=$PAGES_TAR_PID)"
-          else
-            PAGES_TAR_PID=""
-          fi
-
           # Wait until fewer than MAX_PARALLEL background jobs are running.
           # Bash 4.3+ `wait -n` blocks until ANY child completes — clean
           # semaphore primitive that needs no external tools.
@@ -476,22 +453,6 @@ jobs:
           # Drain remaining in-flight tasks.
           wait
 
-          # PATH 3: wait for the background Pages tar (should already be
-          # done — tar takes ~45s, pool takes ~230s).
-          if [ -n "$PAGES_TAR_PID" ]; then
-            wait "$PAGES_TAR_PID" || true
-            PAGES_TAR_RC=$(cat /tmp/pages-tar.rc 2>/dev/null || echo "1")
-            if [ "$PAGES_TAR_RC" != "0" ]; then
-              echo "::error::Pages tar failed (rc=$PAGES_TAR_RC)"
-              cat /tmp/pages-tar.log
-              exit 1
-            fi
-            tar_size=$(stat -f%z "$RUNNER_TEMP/pages-artifact.tar" 2>/dev/null \
-                    || stat -c%s "$RUNNER_TEMP/pages-artifact.tar" 2>/dev/null \
-                    || echo 0)
-            echo "📦 Pages tar ready: $((tar_size / 1024 / 1024)) MB at $RUNNER_TEMP/pages-artifact.tar"
-          fi
-
           # Per-task wall-time summary (sorted DESC).
           echo ""
           echo "── Post-build per-task wall_s (MAX_PARALLEL=$MAX_PARALLEL, sorted DESC) ──"
@@ -551,19 +512,17 @@ jobs:
         continue-on-error: true
         run: node scripts/capture-deployed-sitemaps.mjs
 
-      - name: Upload artifact for GitHub Pages (pre-tarred in pool step)
-        # PATH 3: the tar phase ran in background during the post-build pool
-        # (saves ~45s wall). This step does only the HTTP upload — same
-        # contract as upload-pages-artifact@v5 (name=github-pages, .tar file
-        # at runner temp), so deploy-pages@v5 consumes it identically.
+      - name: Upload artifact for GitHub Pages
+        # PATH 3 (tar in bg during post-build pool) was tried in commit
+        # 11b65de81 and reverted: tar reading 6.4 GB of dist/ contended
+        # with the 4 heaviest audits (page-weight, h1-title-duplicates,
+        # text-html-ratio, title-length) which also walk dist/. Net
+        # post-build wall went 230s → 328s (+98s), exceeding the 38s
+        # saved on upload. Back to standard sequential upload.
         if: github.event.inputs.profile_sequential != 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
-          name: github-pages
-          path: ${{ runner.temp }}/pages-artifact.tar
-          retention-days: 1
-          if-no-files-found: error
-          include-hidden-files: true
+          path: dist
 
       # GitHub Pages allows only one deployment at a time. When concurrent
       # pushes trigger this workflow, the second run can hit "in progress
