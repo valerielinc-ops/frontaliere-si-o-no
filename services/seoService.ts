@@ -2510,6 +2510,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-licata-lombardia-bulgaria-opportunita': { name: 'Novità', path: '/articoli-frontaliere/licata-lombardia-bulgaria-opportunita', parent: 'blog' },
     'blog-maroggia-servizi-postali-2026': { name: 'Novità', path: '/articoli-frontaliere/maroggia-servizi-postali-2026', parent: 'blog' },
     'blog-gemellaggio-scuole-viganello-gaza-2026': { name: 'Gemellaggio scuole', path: '/articoli-frontaliere/gemellaggio-scuole-viganello-gaza-2026', parent: 'blog' },
+    'blog-laurent-morel-nominato-direttore-ef-svizzera': { name: 'Novità', path: '/articoli-frontaliere/laurent-morel-nominato-direttore-ef-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

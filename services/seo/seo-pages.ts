@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1329,
+ "numberOfItems": 1330,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5964,7 +5964,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1326, "name": "Jacky Marti lascia Estival Jazz dopo 47 anni", "url": `${BASE_URL}/articoli-frontaliere/estival-jazz-marti-ritiro-2026` },
           { "@type": "ListItem", "position": 1327, "name": "Licata: Schengen ed euro aprono nuove opportuni...", "url": `${BASE_URL}/articoli-frontaliere/licata-lombardia-bulgaria-opportunita` },
           { "@type": "ListItem", "position": 1328, "name": "Maroggia, la Posta riorganizza i servizi dal 2026", "url": `${BASE_URL}/articoli-frontaliere/maroggia-servizi-postali-2026` },
-          { "@type": "ListItem", "position": 1329, "name": "Gemellaggio tra scuole di Viganello e Gaza: un ...", "url": `${BASE_URL}/articoli-frontaliere/gemellaggio-scuole-viganello-gaza-2026` }
+          { "@type": "ListItem", "position": 1329, "name": "Gemellaggio tra scuole di Viganello e Gaza: un ...", "url": `${BASE_URL}/articoli-frontaliere/gemellaggio-scuole-viganello-gaza-2026` },
+          { "@type": "ListItem", "position": 1330, "name": "Laurent Morel nominato Direttore Generale di EF...", "url": `${BASE_URL}/articoli-frontaliere/laurent-morel-nominato-direttore-ef-svizzera` }
  ]
  },
  {

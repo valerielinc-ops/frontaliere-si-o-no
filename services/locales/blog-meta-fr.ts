@@ -3839,6 +3839,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gemellaggio-scuole-viganello-gaza-2026.title': 'Jumelage entre écoles de Viganello et Gaza : un pont d\'espoir',
     'blog.article.gemellaggio-scuole-viganello-gaza-2026.excerpt': 'Du 27 avril au 7 mai 2026, une exposition à Viganello raconte le jumelage entre l\'école locale et l\'école en tente Al-Salam de Gaza, soutenue par Future in Peace.',
     'blog.article.gemellaggio-scuole-viganello-gaza-2026.imageAlt': 'Salle de classe de l\'école moyenne de Viganello avec des projets d\'échange international',
+    'blog.article.laurent-morel-nominato-direttore-ef-svizzera.title': 'Laurent Morel nouveau Directeur Général d\'EF Suisse',
+    'blog.article.laurent-morel-nominato-direttore-ef-svizzera.excerpt': 'EF Education First nomme Laurent Morel comme nouveau Directeur Général pour renforcer sa présence sur le marché suisse.',
+    'blog.article.laurent-morel-nominato-direttore-ef-svizzera.imageAlt': 'Panorama de Lugano avec le lac de Lugano et des bâtiments modernes',
 };
 
 export default blogMetaFr;

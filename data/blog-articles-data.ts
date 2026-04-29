@@ -9968,4 +9968,11 @@ export const ARTICLES = [
  image: '/images/blog/gemellaggio-scuole-viganello-gaza-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'laurent-morel-nominato-direttore-ef-svizzera',
+ category: 'novita',
+ date: '2026-04-29T10:46:48.789Z',
+ image: '/images/blog/laurent-morel-nominato-direttore-ef-svizzera.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
