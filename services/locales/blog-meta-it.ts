@@ -3887,6 +3887,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.apprendistato-varese-2-7-ingressi-lavoro.title': 'Apprendistato inespresso a Varese: solo il 2,7% degli ingressi al lavoro',
     'blog.article.apprendistato-varese-2-7-ingressi-lavoro.excerpt': 'Il progetto Tutor Sapiens punta a rafforzare l\'apprendistato di terzo livello in provincia di Varese, con solo il 2,7% degli ingressi al lavoro nel 2025.',
     'blog.article.apprendistato-varese-2-7-ingressi-lavoro.imageAlt': 'Workshop sul progetto Tutor Sapiens al Centro Congressi Ville Ponti di Varese',
+    'blog.article.casa-hockey-lugano-ambri-2026.title': 'Casa dell\'Hockey: aggiornamenti e novità dal mondo dell\'hockey ticinese',
+    'blog.article.casa-hockey-lugano-ambri-2026.excerpt': 'Scopri le ultime notizie e le novità dal mondo dell\'hockey ticinese, con un focus sulle squadre di Lugano e Ambrì Piotta.',
+    'blog.article.casa-hockey-lugano-ambri-2026.imageAlt': 'Partita di hockey alla Cornèr Arena di Lugano',
 };
 
 export default blogMetaIt;

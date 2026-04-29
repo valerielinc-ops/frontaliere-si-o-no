@@ -24544,6 +24544,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-hockey-lugano-ambri-2026': {
+    title: 'Casa dell\'Hockey: aggiornamenti e novità dal mondo dell\'hockey ticinese',
+    description: 'Scopri le ultime novità e aggiornamenti dal mondo dell\'hockey ticinese, con un focus sulle squadre di Lugano e Ambrì Piotta. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, dell, hockey, aggiornamenti',
+    ogTitle: 'Casa dell\'Hockey: novità e aggiornamenti dal Ticino',
+    ogDescription: 'Scopri le ultime novità e aggiornamenti dal mondo dell\'hockey ticinese, con un focus sulle squadre di Lugano e Ambrì Piotta.',
+    canonicalPath: '/articoli-frontaliere/casa-hockey-lugano-ambri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa dell'Hockey: novità e aggiornamenti dal mondo dell'hockey ticinese",
+      "description": "Scopri le ultime novità e aggiornamenti dal mondo dell'hockey ticinese, con un focus sulle squadre di Lugano e Ambrì Piotta. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/casa-hockey-lugano-ambri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di hockey alla Cornèr Arena di Lugano"
+      },
+      "datePublished": "2026-04-29T12:17:28+00:00",
+      "dateModified": "2026-04-29T12:17:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casa-hockey-lugano-ambri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

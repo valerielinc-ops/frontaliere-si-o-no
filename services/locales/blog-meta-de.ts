@@ -3886,6 +3886,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.apprendistato-varese-2-7-ingressi-lavoro.title': 'Lehrstellen in Varese: Nur 2,7% der Neueinstellungen',
     'blog.article.apprendistato-varese-2-7-ingressi-lavoro.excerpt': 'Das Projekt Tutor Sapiens zielt darauf ab, die dritte Stufe der Berufsausbildung in der Provinz Varese zu stärken, mit nur 2,7% der Neueinstellungen im Jahr 2025.',
     'blog.article.apprendistato-varese-2-7-ingressi-lavoro.imageAlt': 'Workshop zum Projekt Tutor Sapiens im Centro Congressi Ville Ponti in Varese',
+    'blog.article.casa-hockey-lugano-ambri-2026.title': 'Hockeyhaus: Updates und Neuigkeiten aus dem Ticino-Hockey',
+    'blog.article.casa-hockey-lugano-ambri-2026.excerpt': 'Entdecken Sie die neuesten Nachrichten und Neuigkeiten aus der Welt des Ticino-Hockeys, mit einem Fokus auf die Teams von Lugano und Ambrì Piotta.',
+    'blog.article.casa-hockey-lugano-ambri-2026.imageAlt': 'Eishockeyspiel in der Cornèr Arena in Lugano',
 };
 
 export default blogMetaDe;

@@ -10080,4 +10080,11 @@ export const ARTICLES = [
  image: '/images/blog/apprendistato-varese-2-7-ingressi-lavoro.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'casa-hockey-lugano-ambri-2026',
+ category: 'novita',
+ date: '2026-04-29T12:17:28.056Z',
+ image: '/images/blog/casa-hockey-lugano-ambri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
