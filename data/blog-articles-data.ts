@@ -10220,4 +10220,11 @@ export const ARTICLES = [
  image: '/images/blog/ambulatori-medici-temporanei-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'copernicus-clima-2025-europa',
+ category: 'novita',
+ date: '2026-04-29T16:02:01.646Z',
+ image: '/images/blog/copernicus-clima-2025-europa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3946,6 +3946,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ambulatori-medici-temporanei-varese-2026.title': 'Varese: temporary medical clinics for over 5,000 citizens',
     'blog.article.ambulatori-medici-temporanei-varese-2026.excerpt': 'From 1st May 2026, four temporary medical clinics in Varese serve over 5,000 citizens without a family doctor.',
     'blog.article.ambulatori-medici-temporanei-varese-2026.imageAlt': 'Temporary medical clinic in a small town near Lake Lugano',
+    'blog.article.copernicus-clima-2025-europa.title': 'Copernicus: 95% of Europe with above-average temperatures in 2025',
+    'blog.article.copernicus-clima-2025-europa.excerpt': 'Record heatwaves in Scandinavia, shrinking glaciers, and extensive forest fires. Here are the key data points from the 2025 Copernicus report.',
+    'blog.article.copernicus-clima-2025-europa.imageAlt': 'Lake Lugano with snow-capped mountains and sailboats',
 };
 
 export default blogMetaEn;

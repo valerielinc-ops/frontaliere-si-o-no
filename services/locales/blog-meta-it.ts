@@ -3947,6 +3947,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ambulatori-medici-temporanei-varese-2026.title': 'Varese: ambulatori medici temporanei per oltre 5000 cittadini',
     'blog.article.ambulatori-medici-temporanei-varese-2026.excerpt': 'Dal 1° maggio 2026, quattro ambulatori medici temporanei in Varese servono oltre 5000 cittadini senza medico curante.',
     'blog.article.ambulatori-medici-temporanei-varese-2026.imageAlt': 'Ambulatorio medico temporaneo in un piccolo comune vicino al Lago di Lugano',
+    'blog.article.copernicus-clima-2025-europa.title': 'Copernicus: 95% Europa con temperature sopra media nel 2025',
+    'blog.article.copernicus-clima-2025-europa.excerpt': 'Ondate di calore record in Scandinavia, ghiacciai in calo e incendi boschivi estesi. Ecco i dati chiave del rapporto Copernicus 2025.',
+    'blog.article.copernicus-clima-2025-europa.imageAlt': 'Lago di Lugano con montagne innevate e barche a vela',
 };
 
 export default blogMetaIt;

@@ -25124,6 +25124,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-copernicus-clima-2025-europa': {
+    title: 'Copernicus: 95% Europa con temperature sopra media nel 2025',
+    description: 'Ondate di calore record in Scandinavia, ghiacciai in calo e incendi boschivi estesi. Ecco i dati chiave del rapporto Copernicus 2025. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, copernicus, europa, temperature, sopra',
+    ogTitle: 'Copernicus: 95% Europa con temperature sopra media nel 2025',
+    ogDescription: 'Ondate di calore record in Scandinavia, ghiacciai in calo e incendi boschivi estesi. Ecco i dati chiave del rapporto Copernicus 2025.',
+    canonicalPath: '/articoli-frontaliere/copernicus-clima-2025-europa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Copernicus: 95% Europa con temperature sopra media nel 2025",
+      "description": "Ondate di calore record in Scandinavia, ghiacciai in calo e incendi boschivi estesi. Ecco i dati chiave del rapporto Copernicus 2025. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/copernicus-clima-2025-europa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne innevate e barche a vela"
+      },
+      "datePublished": "2026-04-29T16:02:01+00:00",
+      "dateModified": "2026-04-29T16:02:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/copernicus-clima-2025-europa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

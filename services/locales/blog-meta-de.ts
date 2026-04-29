@@ -3946,6 +3946,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ambulatori-medici-temporanei-varese-2026.title': 'Varese: vorübergehende Arztpraxen für über 5000 Bürger',
     'blog.article.ambulatori-medici-temporanei-varese-2026.excerpt': 'Ab dem 1. Mai 2026 versorgen vier vorübergehende Arztpraxen in Varese über 5000 Bürger ohne Hausarzt.',
     'blog.article.ambulatori-medici-temporanei-varese-2026.imageAlt': 'Vorübergehende Arztpraxis in einem kleinen Ort in der Nähe des Luganersees',
+    'blog.article.copernicus-clima-2025-europa.title': 'Copernicus: 95% Europas mit überdurchschnittlichen Temperaturen 2025',
+    'blog.article.copernicus-clima-2025-europa.excerpt': 'Rekordhitzewellen in Skandinavien, schrumpfende Gletscher und ausgedehnte Waldbrände. Hier sind die wichtigsten Daten aus dem Copernicus-Bericht 2025.',
+    'blog.article.copernicus-clima-2025-europa.imageAlt': 'Luganersee mit schneebedeckten Bergen und Segelbooten',
 };
 
 export default blogMetaDe;

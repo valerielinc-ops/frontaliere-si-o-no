@@ -3947,6 +3947,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ambulatori-medici-temporanei-varese-2026.title': 'Varese: cabinets médicaux temporaires pour plus de 5000 citoyens',
     'blog.article.ambulatori-medici-temporanei-varese-2026.excerpt': 'À partir du 1er mai 2026, quatre cabinets médicaux temporaires à Varese desservent plus de 5000 citoyens sans médecin traitant.',
     'blog.article.ambulatori-medici-temporanei-varese-2026.imageAlt': 'Clinique médicale temporaire dans une petite ville près du lac de Lugano',
+    'blog.article.copernicus-clima-2025-europa.title': 'Copernicus: 95% Europe température 2025',
+    'blog.article.copernicus-clima-2025-europa.excerpt': 'Vagues de chaleur record en Scandinavie, recul des glaciers et incendies de forêt étendus. Voici les données clés du rapport Copernicus 2025.',
+    'blog.article.copernicus-clima-2025-europa.imageAlt': 'Lac de Lugano avec montagnes enneigées et voiliers',
 };
 
 export default blogMetaFr;
