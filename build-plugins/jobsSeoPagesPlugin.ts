@@ -3332,6 +3332,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
 
  for (const editorialCanton of EDITORIAL_CANTONS) {
  for (const locale of localeList) {
+ const __tEdJobsToday = startTimer();
  const model = buildJobTodayLandingModel({
  jobs: validJobs,
  locale,
@@ -3466,6 +3467,7 @@ ${alternates}
  _md(np.dirname(flatFile));
  _qw(flatFile, editorialHtml);
  }
+ recordEmit('editorial-jobs-today', __tEdJobsToday);
  }
 
  pushEditorialSitemapEntry((locale) => buildJobTodayLandingModel({
@@ -3481,6 +3483,7 @@ ${alternates}
  }
 
  for (const locale of localeList) {
+ const __tEdGazette = startTimer();
  const model = buildJobOfficialGazetteLandingModel({
  jobs: validJobs,
  locale,
@@ -3620,6 +3623,7 @@ ${alternates}
  _md(np.dirname(flatFile));
  _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
+ recordEmit('editorial-gazette', __tEdGazette);
  }
 
  pushEditorialSitemapEntry((locale) => buildJobOfficialGazetteLandingModel({
@@ -3634,6 +3638,7 @@ ${alternates}
 
  for (const editorialCanton of EDITORIAL_CANTONS) {
  for (const locale of localeList) {
+ const __tEdNurses = startTimer();
  const model = buildJobNursesHubLandingModel({
  jobs: validJobs,
  locale,
@@ -3779,6 +3784,7 @@ ${alternates}
  _md(np.dirname(flatFile));
  _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
+ recordEmit('editorial-nurses', __tEdNurses);
  }
 
  pushEditorialSitemapEntry((locale) => buildJobNursesHubLandingModel({
@@ -3796,6 +3802,7 @@ ${alternates}
  /* ── Editorial landing: global part-time ───────────────────── */
  for (const editorialCanton of EDITORIAL_CANTONS) {
  for (const locale of localeList) {
+ const __tEdPartTimeCanton = startTimer();
  const model = buildJobPartTimeLandingModel({
  jobs: validJobs,
  locale,
@@ -3938,6 +3945,7 @@ ${alternates}
  _md(np.dirname(flatFile));
  _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
+ recordEmit('editorial-parttime-canton', __tEdPartTimeCanton);
  }
 
  pushEditorialSitemapEntry((locale) => buildJobPartTimeLandingModel({
@@ -3968,6 +3976,7 @@ ${alternates}
  if (italianCareModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ const __tEdCareVariant = startTimer();
  const model = buildJobCareVariantLandingModel({
  jobs: validJobs,
  locale,
@@ -4095,6 +4104,7 @@ ${alternates}
  _md(np.dirname(flatFile));
  _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
+ recordEmit('editorial-care-variant', __tEdCareVariant);
  }
 
  pushEditorialSitemapEntry((locale) => buildJobCareVariantLandingModel({
@@ -4125,6 +4135,7 @@ ${alternates}
  if (italianLocationModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ const __tEdLocation = startTimer();
  const model = buildJobLocationLandingModel({
  jobs: validJobs,
  locale,
@@ -4311,6 +4322,7 @@ ${alternates}
  const legacyHtml = html.replace(`${alternates}\n`, '');
  writeCityOrLegacy(legacyPath, legacyHtml);
  }
+ recordEmit('editorial-location', __tEdLocation);
  }
 
  // SEO: skip — page self-canonicalizes elsewhere (Semrush gate).
@@ -4367,6 +4379,7 @@ ${alternates}
  if (italianTypeModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ const __tEdContractType = startTimer();
  const model = buildJobLocationTypeLandingModel({
  jobs: validJobs,
  locale,
@@ -4494,6 +4507,7 @@ ${alternates}
  _md(np.dirname(flatFile));
  _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
+ recordEmit('editorial-contract-type', __tEdContractType);
  }
 
  pushEditorialSitemapEntry((locale) => buildJobLocationTypeLandingModel({
@@ -4524,6 +4538,7 @@ ${alternates}
  if (italianSectorModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ const __tEdSector = startTimer();
  const model = buildJobLocationSectorLandingModel({
  jobs: validJobs,
  locale,
@@ -4651,6 +4666,7 @@ ${alternates}
  _md(np.dirname(flatFile));
  _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
+ recordEmit('editorial-sector', __tEdSector);
  }
 
  pushEditorialSitemapEntry((locale) => buildJobLocationSectorLandingModel({
