@@ -3749,6 +3749,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.title': 'Entreprise comasque réduit le CO2 avec un panneau solaire: 25 tonnes en moins',
     'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.excerpt': 'Un panneau solaire sur un toit industriel à Cucciago réduit les émissions de 25,71 tonnes de CO2 par an, avec des avantages pour la communauté locale.',
     'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.imageAlt': 'Panneaux solaires sur le toit d\'un bâtiment industriel en Tessin avec vue sur le lac de Lugano',
+    'blog.article.citta-fiore-orticolario-tricolore-2026.title': 'Villes en fleurs : balcons à Côme et Cernobbio rendent hommage au Tricolore',
+    'blog.article.citta-fiore-orticolario-tricolore-2026.excerpt': 'Orticolario lance l\'initiative \'Villes en fleurs\' pour célébrer les 80 ans de la République italienne, transformant les balcons et les vitrines en œuvres d\'art sur le thème du Tricolore.',
+    'blog.article.citta-fiore-orticolario-tricolore-2026.imageAlt': 'Balcons fleuris à Côme et Cernobbio pour célébrer les 80 ans de la République italienne',
 };
 
 export default blogMetaFr;

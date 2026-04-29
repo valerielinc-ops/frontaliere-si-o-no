@@ -2480,6 +2480,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-geopolitica-sindacato-nuovi-equilibri-varese': { name: 'Geopolitica e sindacato', path: '/articoli-frontaliere/geopolitica-sindacato-nuovi-equilibri-varese', parent: 'blog' },
     'blog-ferrara-m5s-beko-cassinetta-verifica': { name: 'Novità', path: '/articoli-frontaliere/ferrara-m5s-beko-cassinetta-verifica', parent: 'blog' },
     'blog-azienda-comasca-fotovoltaico-25-tonnellate-co2': { name: 'Novità', path: '/articoli-frontaliere/azienda-comasca-fotovoltaico-25-tonnellate-co2', parent: 'blog' },
+    'blog-citta-fiore-orticolario-tricolore-2026': { name: 'Novità', path: '/articoli-frontaliere/citta-fiore-orticolario-tricolore-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

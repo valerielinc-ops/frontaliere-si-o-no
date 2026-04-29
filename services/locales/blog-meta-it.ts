@@ -3749,6 +3749,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.title': 'Azienda comasca riduce CO2 con impianto fotovoltaico: 25 tonnellate in meno',
     'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.excerpt': 'Un impianto fotovoltaico su un tetto industriale a Cucciago riduce le emissioni di 25,71 tonnellate di CO2 all\'anno, con benefici per la comunità locale.',
     'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.imageAlt': 'Pannelli solari sul tetto di uno stabilimento in Ticino con vista sul Lago di Lugano',
+    'blog.article.citta-fiore-orticolario-tricolore-2026.title': 'Città in fiore: balconi a Como e Cernobbio omaggiano il Tricolore',
+    'blog.article.citta-fiore-orticolario-tricolore-2026.excerpt': 'Orticolario lancia l\'iniziativa \'Città in fiore\' per celebrare gli 80 anni della Repubblica Italiana, trasformando balconi e vetrine in opere d\'arte a tema Tricolore.',
+    'blog.article.citta-fiore-orticolario-tricolore-2026.imageAlt': 'Balconi fioriti a Como e Cernobbio per celebrare gli 80 anni della Repubblica Italiana',
 };
 
 export default blogMetaIt;

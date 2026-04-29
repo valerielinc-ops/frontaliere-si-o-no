@@ -3748,6 +3748,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.title': 'Como company cuts CO2 with solar panels: 25 tons less',
     'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.excerpt': 'A photovoltaic system on an industrial roof in Cucciago reduces CO2 emissions by 25.71 tons per year, benefiting the local community.',
     'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.imageAlt': 'Solar panels on the roof of an industrial building in Ticino overlooking Lake Lugano',
+    'blog.article.citta-fiore-orticolario-tricolore-2026.title': 'Blooming cities: balconies in Como and Cernobbio honor the Tricolor',
+    'blog.article.citta-fiore-orticolario-tricolore-2026.excerpt': 'Orticolario launches the \'Cities in Bloom\' initiative to celebrate the 80th anniversary of the Italian Republic, transforming balconies and shop windows into Tricolor-themed artworks.',
+    'blog.article.citta-fiore-orticolario-tricolore-2026.imageAlt': 'Flower-adorned balconies in Como and Cernobbio celebrating 80 years of the Italian Republic',
 };
 
 export default blogMetaEn;

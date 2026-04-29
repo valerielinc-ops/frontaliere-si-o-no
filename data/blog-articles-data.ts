@@ -9758,4 +9758,11 @@ export const ARTICLES = [
  image: '/images/blog/azienda-comasca-fotovoltaico-25-tonnellate-co2.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'citta-fiore-orticolario-tricolore-2026',
+ category: 'novita',
+ date: '2026-04-29T07:58:07.448Z',
+ image: '/images/blog/citta-fiore-orticolario-tricolore-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -23210,6 +23210,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-citta-fiore-orticolario-tricolore-2026': {
+    title: 'Città in fiore: balconi a Como e Cernobbio omaggiano il Tricolore',
+    description: 'Orticolario lancia l\'iniziativa \'Città in fiore\' per celebrare gli 80 anni della Repubblica Italiana, trasformando balconi e vetrine in opere d\'arte a tema',
+    keywords: 'frontalieri, ticino, svizzera, italia, città, fiore, balconi, como',
+    ogTitle: 'Città in fiore: balconi a Como e Cernobbio omaggiano il Tricolore',
+    ogDescription: 'Orticolario lancia l\'iniziativa \'Città in fiore\' per celebrare gli 80 anni della Repubblica Italiana, trasformando balconi e vetrine in opere d\'arte a tema',
+    canonicalPath: '/articoli-frontaliere/citta-fiore-orticolario-tricolore-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Città in fiore: balconi a Como e Cernobbio omaggiano il Tricolore",
+      "description": "Orticolario lancia l'iniziativa 'Città in fiore' per celebrare gli 80 anni della Repubblica Italiana, trasformando balconi e vetrine in opere d'arte a tema",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/citta-fiore-orticolario-tricolore-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Balconi fioriti a Como e Cernobbio per celebrare gli 80 anni della Repubblica Italiana"
+      },
+      "datePublished": "2026-04-29T07:58:07+00:00",
+      "dateModified": "2026-04-29T07:58:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/citta-fiore-orticolario-tricolore-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
