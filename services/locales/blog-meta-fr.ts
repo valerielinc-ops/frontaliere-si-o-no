@@ -3629,6 +3629,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bruno-breguet-scomparsa-ufficializzata.title': 'Bruno Breguet disparu : le juge de Locarno clôt le dossier',
     'blog.article.bruno-breguet-scomparsa-ufficializzata.excerpt': 'La justice civile tessinoise a officialisé la disparition de Bruno Breguet, ancien terroriste lié à Carlos et peut-être agent de la CIA',
     'blog.article.bruno-breguet-scomparsa-ufficializzata.imageAlt': 'Vue de la promenade du lac de Locarno avec des palmiers et des montagnes',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.title': 'L\'odeur de l\'herbe coupée est un appel à l\'aide des plantes',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.excerpt': 'Découvrez comment l\'odeur de l\'herbe coupée est un signal d\'alarme pour les plantes et attire des insectes prédateurs utiles.',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.imageAlt': 'Pelouse fraîchement tondue au Tessin avec des gouttes de rosée',
 };
 
 export default blogMetaFr;

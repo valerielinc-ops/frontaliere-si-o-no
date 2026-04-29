@@ -3628,6 +3628,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bruno-breguet-scomparsa-ufficializzata.title': 'Bruno Breguet verschwunden: Fall in Locarno abgeschlossen',
     'blog.article.bruno-breguet-scomparsa-ufficializzata.excerpt': 'Die zivile Justiz des Tessin hat das Verschwinden von Bruno Breguet, einem ehemaligen Terroristen mit Verbindungen zu Carlos und möglicherweise ein CIA-Agent, offiziell bestätigt.',
     'blog.article.bruno-breguet-scomparsa-ufficializzata.imageAlt': 'Blick auf den Locarno-Seeufer mit Palmen und Bergen',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.title': 'Der Duft von frisch geschnittenem Gras ist ein Hilferuf der Pflanzen',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.excerpt': 'Entdecken Sie, wie der Duft von frisch geschnittenem Gras ein Alarmsignal für Pflanzen ist und nützliche Raubinsekten anlockt.',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.imageAlt': 'Frisch gemähter Rasen in Tessin mit Tau',
 };
 
 export default blogMetaDe;

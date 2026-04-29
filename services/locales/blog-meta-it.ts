@@ -3629,6 +3629,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bruno-breguet-scomparsa-ufficializzata.title': 'Bruno Breguet scomparso: il pretore di Locarno chiude il caso',
     'blog.article.bruno-breguet-scomparsa-ufficializzata.excerpt': 'La giustizia civile ticinese ha ufficializzato la scomparsa di Bruno Breguet, ex terrorista legato a Carlos e forse agente CIA',
     'blog.article.bruno-breguet-scomparsa-ufficializzata.imageAlt': 'Veduta del lungolago di Locarno con palme e montagne',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.title': 'Il profumo di prato tagliato è un grido d’aiuto delle piante',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.excerpt': 'Scopri come il profumo dell\'erba tagliata è un segnale di allarme per le piante e attira insetti predatori utili.',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.imageAlt': 'Prato appena tagliato in Ticino con gocce di rugiada',
 };
 
 export default blogMetaIt;

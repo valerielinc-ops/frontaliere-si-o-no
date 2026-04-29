@@ -9478,4 +9478,11 @@ export const ARTICLES = [
  image: '/images/blog/bruno-breguet-scomparsa-ufficializzata.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'profumo-prato-tagliato-grido-aiuto-piante',
+ category: 'novita',
+ date: '2026-04-29T01:34:45.329Z',
+ image: '/images/blog/profumo-prato-tagliato-grido-aiuto-piante.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

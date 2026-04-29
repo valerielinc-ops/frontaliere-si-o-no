@@ -22050,6 +22050,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-profumo-prato-tagliato-grido-aiuto-piante': {
+    title: 'Il profumo di prato tagliato è un grido d’aiuto delle piante',
+    description: 'Scopri come il profumo dell\'erba tagliata è un segnale di allarme per le piante e attira insetti predatori utili. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, profumo, prato, tagliato, grido',
+    ogTitle: 'Il profumo di prato tagliato è un grido d’aiuto delle piante',
+    ogDescription: 'Scopri come il profumo dell\'erba tagliata è un segnale di allarme per le piante e attira insetti predatori utili.',
+    canonicalPath: '/articoli-frontaliere/profumo-prato-tagliato-grido-aiuto-piante',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il profumo di prato tagliato è un grido d’aiuto delle piante",
+      "description": "Scopri come il profumo dell'erba tagliata è un segnale di allarme per le piante e attira insetti predatori utili. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/profumo-prato-tagliato-grido-aiuto-piante.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Prato appena tagliato in Ticino con gocce di rugiada"
+      },
+      "datePublished": "2026-04-29T01:34:45+00:00",
+      "dateModified": "2026-04-29T01:34:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/profumo-prato-tagliato-grido-aiuto-piante`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

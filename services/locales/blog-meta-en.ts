@@ -3628,6 +3628,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bruno-breguet-scomparsa-ufficializzata.title': 'Bruno Breguet declared missing: Locarno magistrate closes case',
     'blog.article.bruno-breguet-scomparsa-ufficializzata.excerpt': 'Ticino civil justice has officially declared the disappearance of Bruno Breguet, former terrorist linked to Carlos and possibly a CIA agent',
     'blog.article.bruno-breguet-scomparsa-ufficializzata.imageAlt': 'View of Locarno waterfront with palm trees and mountains',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.title': 'The smell of cut grass is a plant\'s cry for help',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.excerpt': 'Discover how the smell of cut grass is an alarm signal for plants and attracts useful predatory insects.',
+    'blog.article.profumo-prato-tagliato-grido-aiuto-piante.imageAlt': 'Freshly cut lawn in Ticino with dew drops',
 };
 
 export default blogMetaEn;
