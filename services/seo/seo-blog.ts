@@ -25733,6 +25733,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-alluvione-lavizzara-piano-pericoli-approvato': {
+    title: 'Alluvione Lavizzara: approvato piano per le zone di pericolo',
+    description: 'Il Consiglio di Stato ticinese ha approvato il piano delle zone di pericolo per Lavizzara dopo l\'alluvione del 29-30 giugno 2024. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, alluvione, lavizzara, approvato, piano',
+    ogTitle: 'Alluvione Lavizzara: piano zone pericolo approvato',
+    ogDescription: 'Il Consiglio di Stato ticinese ha approvato il piano delle zone di pericolo per Lavizzara dopo l\'alluvione del 29-30 giugno 2024',
+    canonicalPath: '/articoli-frontaliere/alluvione-lavizzara-piano-pericoli-approvato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alluvione Lavizzara: piano zone pericolo approvato",
+      "description": "Il Consiglio di Stato ticinese ha approvato il piano delle zone di pericolo per Lavizzara dopo l'alluvione del 29-30 giugno 2024. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/alluvione-lavizzara-piano-pericoli-approvato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della Val Lavizzara dopo l'alluvione, con aree danneggiate e lavori di recupero"
+      },
+      "datePublished": "2026-04-29T20:59:31+00:00",
+      "dateModified": "2026-04-29T20:59:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/alluvione-lavizzara-piano-pericoli-approvato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

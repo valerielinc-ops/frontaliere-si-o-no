@@ -4010,6 +4010,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-overtourism-lucerna-grindelwald.title': 'Overtourism in Svizzera: Lucerna e Grindelwald al collasso',
     'blog.article.svizzera-overtourism-lucerna-grindelwald.excerpt': 'Lucerna supera Venezia in pernottamenti turistici. Iniziativa per bloccare nuovi hotel e restrizioni su Airbnb.',
     'blog.article.svizzera-overtourism-lucerna-grindelwald.imageAlt': 'Vista aerea di Lucerna, Svizzera, con il Ponte della Cappella e il Monte Pilatus sullo sfondo. Turisti che camminano lungo il fiume Reuss, barche sul lago e l\'architettura storica della città visibili.',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.title': 'Alluvione Lavizzara: approvato piano per le zone di pericolo',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.excerpt': 'Il Consiglio di Stato ticinese ha approvato il piano delle zone di pericolo per Lavizzara dopo l\'alluvione del 29-30 giugno 2024',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.imageAlt': 'Vista aerea della Val Lavizzara dopo l\'alluvione, con aree danneggiate e lavori di recupero',
 };
 
 export default blogMetaIt;

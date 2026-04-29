@@ -2567,6 +2567,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-distretto-benessere-campo-fiori-2026': { name: 'Distretto benessere', path: '/articoli-frontaliere/distretto-benessere-campo-fiori-2026', parent: 'blog' },
     'blog-chiusure-ospedale-circolo-varese-2026': { name: 'Chiusure Ospedale', path: '/articoli-frontaliere/chiusure-ospedale-circolo-varese-2026', parent: 'blog' },
     'blog-svizzera-overtourism-lucerna-grindelwald': { name: 'Novità', path: '/articoli-frontaliere/svizzera-overtourism-lucerna-grindelwald', parent: 'blog' },
+    'blog-alluvione-lavizzara-piano-pericoli-approvato': { name: 'Alluvione Lavizzara', path: '/articoli-frontaliere/alluvione-lavizzara-piano-pericoli-approvato', parent: 'blog' },
  };
 
  const info = sectionNames[section];

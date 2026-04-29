@@ -4010,6 +4010,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-overtourism-lucerna-grindelwald.title': 'Surfréquentation en Suisse: Lucerne et Grindelwald saturés',
     'blog.article.svizzera-overtourism-lucerna-grindelwald.excerpt': 'Lucerne dépasse Venise en nuitées touristiques. Initiative pour bloquer les nouveaux hôtels et restrictions sur Airbnb.',
     'blog.article.svizzera-overtourism-lucerna-grindelwald.imageAlt': 'Vue aérienne de Lucerne, Suisse, avec le pont de la Chapelle et le Mont Pilatus en arrière-plan. Des touristes marchent le long de la rivière Reuss, des bateaux sur le lac et l\'architecture historique de la ville visibles.',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.title': 'Inondation à Lavizzara: plan des zones de danger approuvé',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.excerpt': 'Le Conseil d\'État tessinois a approuvé le plan des zones de danger pour Lavizzara après l\'inondation du 29-30 juin 2024',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.imageAlt': 'Vue aérienne de la vallée de Lavizzara après l\'inondation, montrant les zones endommagées et les efforts de récupération',
 };
 
 export default blogMetaFr;

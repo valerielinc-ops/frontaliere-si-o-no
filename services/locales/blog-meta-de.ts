@@ -4009,6 +4009,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-overtourism-lucerna-grindelwald.title': 'Overtourism in der Schweiz: Luzern und Grindelwald am Limit',
     'blog.article.svizzera-overtourism-lucerna-grindelwald.excerpt': 'Luzern überholt Venedig bei Übernachtungen. Initiative gegen neue Hotels und Airbnb-Beschränkungen.',
     'blog.article.svizzera-overtourism-lucerna-grindelwald.imageAlt': 'Luftaufnahme von Luzern, Schweiz, mit der Kapellbrücke und dem Pilatus im Hintergrund. Touristen, die entlang des Reuss-Flusses spazieren, Boote auf dem See und die historische Architektur der Stadt sichtbar.',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.title': 'Überschwemmung Lavizzara: Gefahrenzonenplan genehmigt',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.excerpt': 'Der Staatsrat des Tessin hat den Gefahrenzonenplan für Lavizzara nach der Überschwemmung vom 29.-30. Juni 2024 genehmigt',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.imageAlt': 'Luftaufnahme des Lavizzara-Tals nach der Überschwemmung, mit beschädigten Gebieten und Wiederaufbaumaßnahmen',
 };
 
 export default blogMetaDe;

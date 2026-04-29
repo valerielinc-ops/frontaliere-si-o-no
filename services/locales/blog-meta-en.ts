@@ -4009,6 +4009,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-overtourism-lucerna-grindelwald.title': 'Overtourism in Switzerland: Lucerne and Grindelwald collapsing',
     'blog.article.svizzera-overtourism-lucerna-grindelwald.excerpt': 'Lucerne surpasses Venice in tourist overnight stays. Initiative to block new hotels and Airbnb restrictions.',
     'blog.article.svizzera-overtourism-lucerna-grindelwald.imageAlt': 'Aerial view of Lucerne, Switzerland, with the Chapel Bridge and Mount Pilatus in the background. Tourists walking along the Reuss River, boats on the lake, and the city\'s historic architecture visible.',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.title': 'Lavizzara flood: hazard zones plan approved',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.excerpt': 'The Ticino State Council has approved the hazard zones plan for Lavizzara after the flood on 29-30 June 2024',
+    'blog.article.alluvione-lavizzara-piano-pericoli-approvato.imageAlt': 'Aerial view of Lavizzara valley after the flood, showing damaged areas and recovery efforts',
 };
 
 export default blogMetaEn;

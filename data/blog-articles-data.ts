@@ -10367,4 +10367,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-overtourism-lucerna-grindelwald.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'alluvione-lavizzara-piano-pericoli-approvato',
+ category: 'novita',
+ date: '2026-04-29T20:59:31.223Z',
+ image: '/images/blog/alluvione-lavizzara-piano-pericoli-approvato.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
