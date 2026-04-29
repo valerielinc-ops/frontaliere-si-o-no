@@ -705,7 +705,14 @@
     "blocco-droga-confine-brogeda-2026",
     "best-cross-border-worker-calculator-switzerland",
     "guida-completa-frontaliere",
-    "ricarica-auto-elettriche-campione-2026"
+    "ricarica-auto-elettriche-campione-2026",
+    "borse-zurigo-flessione-2026",
+    "casse-malati-dado-scissione-dossier",
+    "commesse-pubbliche-servizi-essenziali-2026",
+    "infermieri-lavoro-ore-settimanali",
+    "maria-timofeeva-trionfa-chiasso-2026",
+    "pro-velo-ticino-cambiamento-presidenza-2026",
+    "viabilita-varese-racordo-chiuso-2026"
   ],
   "failed": [
     {
@@ -6392,8 +6399,23 @@
       "id": "ricarica-auto-elettriche-campione-2026",
       "error": "Only 1 pairs (need ≥3)",
       "at": "2026-04-24T03:57:44.329Z"
+    },
+    {
+      "id": "attentato-washington-trump-2026-analisi",
+      "error": "Unterminated string in JSON at position 962 (line 8 column 381)",
+      "at": "2026-04-29T04:09:38.187Z"
+    },
+    {
+      "id": "banca-ditalia-varese-10-anni-dopo",
+      "error": "Unterminated string in JSON at position 786 (line 8 column 296)",
+      "at": "2026-04-29T04:09:58.083Z"
+    },
+    {
+      "id": "estival-pagamento-caduta-stile-lugano",
+      "error": "Unterminated string in JSON at position 2121 (line 20 column 28)",
+      "at": "2026-04-29T04:11:28.754Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-04-25T03:39:02.879Z"
+  "updatedAt": "2026-04-29T04:12:17.547Z"
 }
