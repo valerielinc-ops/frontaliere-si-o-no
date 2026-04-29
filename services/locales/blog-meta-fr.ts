@@ -3701,6 +3701,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-valle-verzasca-2026.title': 'Accident grave dans la vallée de Verzasca',
     'blog.article.incidente-valle-verzasca-2026.excerpt': 'Un Suisse de 23 ans a subi de graves blessures dans un accident dans la vallée de Verzasca. La route a été temporairement fermée.',
     'blog.article.incidente-valle-verzasca-2026.imageAlt': 'Accident de la route dans la vallée de Verzasca avec des véhicules de secours',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.title': 'Guide affectueuse pour les séparations au Tessin: protéger enfants et parents',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.excerpt': 'FaMo+ présente un guide complet pour affronter la séparation avec un soutien juridique, économique et psychologique. Focus sur les besoins des enfants',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.imageAlt': 'Un couple discute la séparation dans un bureau de notaire à Lugano, avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

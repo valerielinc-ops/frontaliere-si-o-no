@@ -22746,6 +22746,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-affettuosa-separazione-ticino-2026': {
+    title: 'Guida affettuosa per separazioni in Ticino: come tutelare figli e genitori',
+    description: 'FaMo+ presenta una guida completa per affrontare la separazione con supporto multidisciplinare. Focus su bisogni giuridici, economici e psicologici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affettuosa, separazioni, tutelare, figli',
+    ogTitle: 'Guida affettuosa per separazioni in Ticino: supporto giuridico ed economico',
+    ogDescription: 'FaMo+ presenta una guida completa per affrontare la separazione con supporto multidisciplinare. Focus su bisogni giuridici, economici e psicologici.',
+    canonicalPath: '/articoli-frontaliere/guida-affettuosa-separazione-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida affettuosa per separazioni in Ticino: supporto giuridico ed economico",
+      "description": "FaMo+ presenta una guida completa per affrontare la separazione con supporto multidisciplinare. Focus su bisogni giuridici, economici e psicologici.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guida-affettuosa-separazione-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una coppia discute la separazione in uno studio notarile a Lugano, con il Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-29T04:38:23+00:00",
+      "dateModified": "2026-04-29T04:38:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-affettuosa-separazione-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

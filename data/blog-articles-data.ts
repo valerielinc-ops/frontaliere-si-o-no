@@ -9646,4 +9646,11 @@ export const ARTICLES = [
  image: '/images/blog/incidente-valle-verzasca-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'guida-affettuosa-separazione-ticino-2026',
+ category: 'pratico',
+ date: '2026-04-29T04:38:23.055Z',
+ image: '/images/blog/guida-affettuosa-separazione-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

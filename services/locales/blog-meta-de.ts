@@ -3700,6 +3700,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-valle-verzasca-2026.title': 'Schwerer Motorradunfall in Valle Verzasca',
     'blog.article.incidente-valle-verzasca-2026.excerpt': 'Ein 23-jähriger Schweizer hat bei einem Unfall in Valle Verzasca schwere Verletzungen erlitten. Die Straße wurde vorübergehend gesperrt.',
     'blog.article.incidente-valle-verzasca-2026.imageAlt': 'Unfall auf der Straße im Verzasca-Tal mit Rettungsfahrzeugen',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.title': 'Fürsorgliche Anleitung für Trennungen im Tessin: Kinder und Eltern schützen',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.excerpt': 'FaMo+ stellt eine umfassende Anleitung vor, um die Trennung mit rechtlicher, wirtschaftlicher und psychologischer Unterstützung zu bewältigen. Fokus auf die Bedürfnisse der Kinder',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.imageAlt': 'Ein Paar bespricht die Trennung in einem Notarbüro in Lugano, mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

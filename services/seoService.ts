@@ -2464,6 +2464,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-centrosinistra-varese-patto-2027': { name: 'Centrosinistra Varese', path: '/articoli-frontaliere/centrosinistra-varese-patto-2027', parent: 'blog' },
     'blog-magadino-parco-giochi-nuova-area-ludica': { name: 'Novità', path: '/articoli-frontaliere/magadino-parco-giochi-nuova-area-ludica', parent: 'blog' },
     'blog-incidente-valle-verzasca-2026': { name: 'Incidente Valle Verzasca', path: '/articoli-frontaliere/incidente-valle-verzasca-2026', parent: 'blog' },
+    'blog-guida-affettuosa-separazione-ticino-2026': { name: 'Guida separazione', path: '/articoli-frontaliere/guida-affettuosa-separazione-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -3700,6 +3700,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-valle-verzasca-2026.title': 'Serious accident in Valle Verzasca: motorcyclist injured',
     'blog.article.incidente-valle-verzasca-2026.excerpt': 'A 23-year-old Swiss man sustained serious injuries in an accident in Valle Verzasca. The road was temporarily closed.',
     'blog.article.incidente-valle-verzasca-2026.imageAlt': 'Road accident in Valle Verzasca with rescue vehicles',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.title': 'Affectionate guide for separations in Ticino: protecting children and parents',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.excerpt': 'FaMo+ presents a comprehensive guide to dealing with separation with legal, economic and psychological support. Focus on the needs of the children',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.imageAlt': 'A couple discussing separation in a notary office in Lugano, with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

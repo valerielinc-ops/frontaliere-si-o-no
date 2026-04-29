@@ -3701,6 +3701,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-valle-verzasca-2026.title': 'Incidente in Valle Verzasca: motociclista grave',
     'blog.article.incidente-valle-verzasca-2026.excerpt': 'Un 23enne svizzero ha riportato serie ferite in un incidente in Valle Verzasca. La strada è stata temporaneamente chiusa.',
     'blog.article.incidente-valle-verzasca-2026.imageAlt': 'Incidente stradale in Valle Verzasca con mezzi di soccorso',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.title': 'Guida affettuosa per separazioni in Ticino: come tutelare figli e genitori',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.excerpt': 'FaMo+ presenta una guida completa per affrontare la separazione con supporto giuridico, economico e psicologico. Focus sui bisogni dei figli',
+    'blog.article.guida-affettuosa-separazione-ticino-2026.imageAlt': 'Una coppia discute la separazione in uno studio notarile a Lugano, con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

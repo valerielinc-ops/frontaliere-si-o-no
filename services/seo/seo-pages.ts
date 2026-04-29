@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1283,
+ "numberOfItems": 1284,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5918,7 +5918,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1280, "name": "Incontro SEM-Cantone-Comuni annullato: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/incontro-sem-cantone-comuni-annullato` },
           { "@type": "ListItem", "position": 1281, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/centrosinistra-varese-patto-2027` },
           { "@type": "ListItem", "position": 1282, "name": "Magadino: nuovo parco giochi in riva al lago", "url": `${BASE_URL}/articoli-frontaliere/magadino-parco-giochi-nuova-area-ludica` },
-          { "@type": "ListItem", "position": 1283, "name": "Incidente in Valle Verzasca: motociclista grave", "url": `${BASE_URL}/articoli-frontaliere/incidente-valle-verzasca-2026` }
+          { "@type": "ListItem", "position": 1283, "name": "Incidente in Valle Verzasca: motociclista grave", "url": `${BASE_URL}/articoli-frontaliere/incidente-valle-verzasca-2026` },
+          { "@type": "ListItem", "position": 1284, "name": "Guida affettuosa per separazioni in Ticino: sup...", "url": `${BASE_URL}/articoli-frontaliere/guida-affettuosa-separazione-ticino-2026` }
  ]
  },
  {
