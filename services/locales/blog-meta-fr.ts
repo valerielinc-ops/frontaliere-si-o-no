@@ -4028,6 +4028,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.delusi-svizzera-frontalieri-abbandonati.title': 'Déçus par la Suisse: les petits salaires se sentent abandonnés',
     'blog.article.delusi-svizzera-frontalieri-abbandonati.excerpt': 'Un sondage révèle que plus de la moitié de la population suisse considère le système injuste, avec les petits salaires qui se sentent traités pire',
     'blog.article.delusi-svizzera-frontalieri-abbandonati.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les villes environnantes',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.title': 'Séparations au Tessin : réseau de soutien et guide pour parents',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.excerpt': 'FaMo+ célèbre 40 ans avec un nouveau guide pour familles en phase de séparation. Approche réseau et table ronde à Bellinzone.',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.imageAlt': 'Groupe de soutien familial dans un centre communautaire du Tessin',
 };
 
 export default blogMetaFr;

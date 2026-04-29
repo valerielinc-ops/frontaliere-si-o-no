@@ -2573,6 +2573,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-festa-famiglie-lugano-2026': { name: 'Festa famiglie', path: '/articoli-frontaliere/festa-famiglie-lugano-2026', parent: 'blog' },
     'blog-stop-milioni-casse-malati-club-sportivi': { name: 'Novità', path: '/articoli-frontaliere/stop-milioni-casse-malati-club-sportivi', parent: 'blog' },
     'blog-delusi-svizzera-frontalieri-abbandonati': { name: 'Novità', path: '/articoli-frontaliere/delusi-svizzera-frontalieri-abbandonati', parent: 'blog' },
+    'blog-separazioni-ticino-famiglie-monoparentali': { name: 'Separazioni Ticino', path: '/articoli-frontaliere/separazioni-ticino-famiglie-monoparentali', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4027,6 +4027,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.delusi-svizzera-frontalieri-abbandonati.title': 'Disappointed by Switzerland: low earners feel abandoned',
     'blog.article.delusi-svizzera-frontalieri-abbandonati.excerpt': 'A survey reveals that over half of the Swiss population considers the system unfair, with low earners feeling treated worse',
     'blog.article.delusi-svizzera-frontalieri-abbandonati.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.title': 'Separations in Ticino: support network for parents',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.excerpt': 'FaMo+ celebrates 40 years with a new guide for families going through separation. Network approach and round table in Bellinzona.',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.imageAlt': 'Family support group in a Ticino community center',
 };
 
 export default blogMetaEn;

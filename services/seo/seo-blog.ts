@@ -25907,6 +25907,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-separazioni-ticino-famiglie-monoparentali': {
+    title: 'Separazioni in Ticino: rete di supporto e guida per genitori',
+    description: 'FaMo+ celebra 40 anni con una nuova guida per famiglie in fase di separazione. Approccio di rete e tavola rotonda a Bellinzona. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, separazioni, rete, supporto, genitori',
+    ogTitle: 'Separazioni in Ticino: rete di supporto e guida per genitori',
+    ogDescription: 'FaMo+ celebra 40 anni con una nuova guida per famiglie in fase di separazione. Approccio di rete e tavola rotonda a Bellinzona.',
+    canonicalPath: '/articoli-frontaliere/separazioni-ticino-famiglie-monoparentali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Separazioni in Ticino: rete di supporto e guida per genitori",
+      "description": "FaMo+ celebra 40 anni con una nuova guida per famiglie in fase di separazione. Approccio di rete e tavola rotonda a Bellinzona. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/separazioni-ticino-famiglie-monoparentali.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di supporto per famiglie in un centro comunitario ticinese"
+      },
+      "datePublished": "2026-04-29T22:11:28+00:00",
+      "dateModified": "2026-04-29T22:11:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/separazioni-ticino-famiglie-monoparentali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

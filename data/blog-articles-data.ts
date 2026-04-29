@@ -10409,4 +10409,11 @@ export const ARTICLES = [
  image: '/images/blog/delusi-svizzera-frontalieri-abbandonati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'separazioni-ticino-famiglie-monoparentali',
+ category: 'pratico',
+ date: '2026-04-29T22:11:28.626Z',
+ image: '/images/blog/separazioni-ticino-famiglie-monoparentali.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4028,6 +4028,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.delusi-svizzera-frontalieri-abbandonati.title': 'Delusi dalla Svizzera: chi guadagna poco si sente abbandonato',
     'blog.article.delusi-svizzera-frontalieri-abbandonati.excerpt': 'Un sondaggio rivela che oltre la metà della popolazione svizzera considera il sistema ingiusto, con chi guadagna meno che si sente trattato peggio',
     'blog.article.delusi-svizzera-frontalieri-abbandonati.imageAlt': 'Vista aerea del Lago di Lugano con montagne e città circostanti',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.title': 'Separazioni in Ticino: rete di supporto e guida per genitori',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.excerpt': 'FaMo+ celebra 40 anni con una nuova guida per famiglie in fase di separazione. Approccio di rete e tavola rotonda a Bellinzona.',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.imageAlt': 'Gruppo di supporto per famiglie in un centro comunitario ticinese',
 };
 
 export default blogMetaIt;

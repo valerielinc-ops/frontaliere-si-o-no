@@ -4027,6 +4027,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.delusi-svizzera-frontalieri-abbandonati.title': 'Enttäuscht von der Schweiz: Geringverdiener fühlen sich im Stich gelassen',
     'blog.article.delusi-svizzera-frontalieri-abbandonati.excerpt': 'Eine Umfrage zeigt, dass mehr als die Hälfte der Schweizer Bevölkerung das System für ungerecht hält, wobei Geringverdiener sich schlechter behandelt fühlen',
     'blog.article.delusi-svizzera-frontalieri-abbandonati.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Bergen und Städten',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.title': 'Trennung im Tessin: Unterstützung und Leitfaden für Eltern',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.excerpt': 'FaMo+ feiert 40 Jahre mit einem neuen Leitfaden für Familien in der Trennungsphase. Netzwerkansatz und Roundtable in Bellinzona.',
+    'blog.article.separazioni-ticino-famiglie-monoparentali.imageAlt': 'Familienunterstützungsgruppe in einem Gemeindezentrum im Tessin',
 };
 
 export default blogMetaDe;
