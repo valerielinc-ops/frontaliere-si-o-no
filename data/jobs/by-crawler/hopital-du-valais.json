@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-04-28T22:02:36.045Z",
+  "assembledAt": "2026-04-29T10:55:02.859Z",
   "jobs": [
     {
       "id": "hopital-du-valais-797cf717f9ca",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/314398ac97577d50e7ce346e2153afd4/ATSANN0003364/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:33.707Z",
+      "crawledAt": "2026-04-29T10:55:00.598Z",
       "_hvsMeta": {
         "number": "ATSANN0003364",
         "sysId": "314398ac97577d50e7ce346e2153afd4",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -123,7 +124,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:33.383Z",
+      "crawledAt": "2026-04-29T10:55:00.271Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -172,16 +173,16 @@
       "title": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE",
       "titleByLocale": {
         "it": "CONTATTO DEL TEAM PERSONALE DI RICERCA",
-        "en": "CONTACT THE RESERVE PERSONNEL TEAM",
+        "en": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE",
         "de": "TRETE DER RESERVEPERSONAL-MITGLIEDER BEI",
         "fr": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE"
       },
       "description": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE\n\n ... et aide-nous à surmonter la prochaine crise!\n\nMission:\nEn cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises.\n\n Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand.\n\nProfil:\n• Infirmier/ère instrumentiste ou TSO\n\n • Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n\n • Au moins 2 ans d'expérience professionnelle\n\n • Capacité à fixer des priorités et conscience de ses responsabilités\n\n • Personnalité flexible et résistante au stress\n\n • Prêt/e à s'engager en cas de situation extraordinaire\n\n • Volonté de maintenir ses compétences via la formation\n\n • Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins.\n\nOffre:\n• 2 jours de formation continue par an\n\n • 4 jours de formation théorique et pratique initiale\n\n • 1 indemnité annuelle de disponibilité\n\n • 1 indemnité par jour de formation\n\n • Possibilité de suivre le cours ALS",
       "descriptionByLocale": {
         "it": "Descrizione CONTATTA IL TEAM PERSONNEL RISERVATO ... e aiutaci a superare la prossima crisi! Missione: In caso di pandemia, terremoto,..., il team \"Reserve Personnel\" del Centro ospedaliero romano Vallese sarà un aiuto molto importante per superare le crisi future. Anche tu puoi far parte del \"personale di riserva\" e dare un importante contributo alla popolazione del Vallese Romand. ## Profilo: • Infermiera strumentale o OSI • HES/ES Infermiera specializzata in assistenza di emergenza, assistenza intensiva e anestesia • Almeno 2 anni di esperienza professionale • Capacità di fissare le priorità e la consapevolezza delle responsabilità • Personalità flessibile e resistente allo stress • Pronta ad impegnarsi in situazioni straordinarie • Volontà di mantenere le proprie competenze attraverso la formazione • Se lavori in-house, la tua applicazione sarà idonea solo se non sei impegnato nell'area di cura. • 2 giorni di formazione continua all'anno • 4 giorni di formazione teorica e pratica iniziale • 1 indennità di disponibilità annuale • 1 indennità al giorno di formazione • Possibilità di seguire il corso ALS",
-        "en": "Descrizione CONTACT THE RESERVE PERSONNEL TEAM ... and help us overcome the next crisis! Mission: In the event of a pandemic, earthquake,..., the \"Reserve Personnel\" team at the Valais Romand Hospital Center will be a very important help to overcome future crises. You too can be part of the \"reserve staff\" and make an important contribution to the population of Valais Romand. ## Profile: • Instrumental Nurse or OSI • HES/ES Nurse specializing in emergency care, intensive care and anaesthesia • At least 2 years of professional experience • Ability to set priorities and awareness of responsibilities • Flexible and stress-resistant personality • Ready to engage in extraordinary situations • Willingness to maintain its skills through training • If you work in-house, your application will only be eligible if you are not engaged in the care area. ## Offer: • 2 days of continuing training per year • 4 days of initial theoretical and practical training • 1 annual availability allowance • 1 allowance per day of training • Possibility of taking the ALS course",
+        "en": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE ... et aide-nous à surmonter la prochaine crise! Mission: En cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises. Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand. Profil: • Infirmier/ère instrumentiste ou TSO • Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie • Au moins 2 ans d'expérience professionnelle • Capacité à fixer des priorités et conscience de ses responsabilités • Personnalité flexible et résistante au stress • Prêt/e à s'engager en cas de situation extraordinaire • Volonté de maintenir ses compétences via la formation • Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins. Offre: • 2 jours de formation continue par an • 4 jours de formation théorique et pratique initiale • 1 indemnité annuelle de disponibilité • 1 indemnité par jour de formation • Possibilité de suivre le cours ALS",
         "de": "Beschreiben Sie KONTAKT DER RESERVE PERSONNEL TEAM ... und helfen Sie uns, die nächste Krise zu überwinden! Mission: Im Falle einer Pandemie, Erdbeben,... wird das \"Reserve Personal\" Team im Wallis Romand Hospital Center eine sehr wichtige Hilfe zur Bewältigung zukünftiger Krisen sein. Auch Sie können Teil des \"Reservenpersonals\" sein und einen wichtigen Beitrag zur Bevölkerung von Wallis Romand leisten. Â Profil: • Instrumentale Krankenschwester oder OSI • HES/ES Krankenschwester spezialisiert auf Notfallpflege, Intensivpflege und Anästhesie • Mindestens 2 Jahre Berufserfahrung • Fähigkeit, Prioritäten und Verantwortungsbewusstsein festzulegen • Flexible und stressfeste Persönlichkeit • Bereit, sich in außergewöhnlichen Situationen zu engagieren • Bereitschaft, seine Fähigkeiten durch Ausbildung zu erhalten • Wenn Sie im eigenen Haus arbeiten, wird Ihre Bewerbung nur dann in Anspruch genommen, wenn Sie nicht im Pflegebereich tätig sind. Angebot: • 2 Tage Weiterbildung pro Jahr • 4 Tage theoretische und praktische Ausbildung • 1 jährliche Verfügbarkeitszulage • 1 Zulage pro Ausbildungstag • Möglichkeit der ALS-Kurse",
-        "fr": "## Descrizione\n\nREJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE\n\n... et aide-nous à surmonter la prochaine crise!\n\nMission:\nEn cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises.\n\nVous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand.\n\n## Profil:\n• Infirmier/ère instrumentiste ou TSO\n\n• Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n\n• Au moins 2 ans d'expérience professionnelle\n\n• Capacité à fixer des priorités et conscience de ses responsabilités\n\n• Personnalité flexible et résistante au stress\n\n• Prêt/e à s'engager en cas de situation extraordinaire\n\n• Volonté de maintenir ses compétences via la formation\n\n• Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins.\n\n## Offre:\n• 2 jours de formation continue par an\n\n• 4 jours de formation théorique et pratique initiale\n\n• 1 indemnité annuelle de disponibilité\n\n• 1 indemnité par jour de formation\n\n• Possibilité de suivre le cours ALS"
+        "fr": "## Descrizione REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE ... et aide-nous à surmonter la prochaine crise! Mission: En cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises. Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand. ## Profil: • Infirmier/ère instrumentiste ou TSO • Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie • Au moins 2 ans d'expérience professionnelle • Capacité à fixer des priorités et conscience de ses responsabilités • Personnalité flexible et résistante au stress • Prêt/e à s'engager en cas de situation extraordinaire • Volonté de maintenir ses compétences via la formation • Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins. ## Offre: • 2 jours de formation continue par an • 4 jours de formation théorique et pratique initiale • 1 indemnité annuelle de disponibilité • 1 indemnité par jour de formation • Possibilité de suivre le cours ALS"
       },
       "location": "Sion",
       "canton": "VS",
@@ -199,7 +200,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c64b8d797c30290316bb0b71153af06/ATSANN0003642/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:33.061Z",
+      "crawledAt": "2026-04-29T10:54:59.943Z",
       "_hvsMeta": {
         "number": "ATSANN0003642",
         "sysId": "5c64b8d797c30290316bb0b71153af06",
@@ -225,6 +226,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -281,7 +283,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7955bb15976e32501b87322f2153afba/ATSANN0004493/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:32.731Z",
+      "crawledAt": "2026-04-29T10:54:59.618Z",
       "_hvsMeta": {
         "number": "ATSANN0004493",
         "sysId": "7955bb15976e32501b87322f2153afba",
@@ -360,7 +362,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1c12d59597145290316bb0b71153af70/ATSANN0003701/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:32.404Z",
+      "crawledAt": "2026-04-29T10:54:59.290Z",
       "_hvsMeta": {
         "number": "ATSANN0003701",
         "sysId": "1c12d59597145290316bb0b71153af70",
@@ -377,6 +379,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T21:46:02.683Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -407,14 +410,14 @@
       "titleByLocale": {
         "it": "Infermiere specializzato 80-100%, Chirurgia / Urologia 5 Ovest",
         "en": "Pflegefachperson 80-100%, Chirurgie / Urologie 5 West",
-        "de": "Pflegefachperson 80-100 %, Chirurgie / Urologie 5 West",
+        "de": "Pflegefachperson 80-100%, Chirurgie / Urologie 5 West",
         "fr": "Infirmier spécialisé 80-100%, Chirurgie / Urologie 5 Ouest"
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Abteilung Chirurgie / Urologie 5 West eine/n:\n\n \n\n Pflegefachperson 80-100%\n\nMission:\n• Umsetzung einer fachkompetenten, individuellen Betreuung und Pflege der Patientinnen und Patienten nach dem Pflegeleitbild des SZO\n\n• Mitarbeit im interdisziplinären und multiprofessionellen Behandlungs- und Betreuungsprozess\n\n• Übernahme von administrativen, logistischen und medizinisch-technischen Aufgaben\n\n• Aktives Mitwirken bei der interprofessionellen Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung als Pflegefachperson HF/FH\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
       "descriptionByLocale": {
         "it": "Descrizione L'Ospedale Vallese cerca per il Centro Ospedaliero dell'Alto Vallese nel reparto di Chirurgia / Urologia 5 Ovest una/o: - Infermiere specializzato 80-100% ## Missione - Implementazione di una cura e assistenza individuali e competenti per i pazienti secondo le linee guida di assistenza del COA - Collaborazione nel processo interdisciplinare e multiprofessionale di trattamento e assistenza - Assunzione di compiti amministrativi, logistici e medico-tecnici - Partecipazione attiva alla collaborazione interprofessionale - Autonomia e pensiero attivo - Supporto e accompagnamento degli studenti durante la formazione ## Profilo - Formazione completata come infermiere specializzato HF/FH - Metodico e preciso - Buone conoscenze informatiche - Personalità comunicativa, proattiva e flessibile ## Offerta - Lavoro vario, responsabile e autonomo - Supporto da un team motivato e impegnato - Possibilità di formazione - Condizioni contrattuali attractive",
-        "en": "##STR1##\nThe hospital Wallis is looking for the hospital center Oberwallis in the Department of Surgery / Urology 5 West one/n:\n\n# Mansioni\n- Implementation of an expertly-competent, individual care and care of patients according to the SZO care guide\n- Interdisciplinary and multi-professional treatment and care processes\n- Acquisition of administrative, logistical and medical technical tasks\n- Active participation in interprofessional cooperation\n- Own responsibility and active participation\n- Accompanying and supporting learners during training\n\n##\n- Completed training as nursing specialist HF/FH\n- Speditive and exact operation\n- Good computer skills\n- Communicative, initiative and flexible personality\n\n## Cosa offriamo\n- Varied, responsible and independent activities\n- Support by a motivated and committed team\n- Possibility of continuing training\n- Attractive employment conditions\n\n# Contatto\n(nessun testo disponibile)",
-        "de": "## Descrizione\nDas Spital Wallis sucht für das Spitalzentrum Oberwallis in der Abteilung Chirurgie / Urologie 5 West eine/n:\n\n## Mansioni\n- Umsetzung einer fachkompetenten, individuellen Betreuung und Pflege der Patientinnen und Patienten nach dem Pflegeleitbild des SZO\n- Mitarbeit im interdisziplinären und multiprofessionellen Behandlungs- und Betreuungsprozess\n- Übernahme von administrativen, logistischen und medizinisch-technischen Aufgaben\n- Aktives Mitwirken bei der interprofessionellen Zusammenarbeit\n- Eigenverantwortung und aktives Mitdenken\n- Begleitung und Unterstützung der Lernenden während der Ausbildung\n\n## Requisiti\n- Abgeschlossene Ausbildung als Pflegefachperson HF/FH\n- Speditive und exakte Arbeitsweise\n- Gute EDV-Kenntnisse\n- Kommunikative, initiative und flexible Persönlichkeit\n\n## Cosa offriamo\n- Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n- Unterstützung durch ein motiviertes und engagiertes Team\n- Möglichkeit zur Weiterbildung\n- Attraktive Anstellungsbedingungen\n\n## Contatto\n(nessun testo disponibile)",
+        "en": "##STR1## The hospital Wallis is looking for the hospital center Oberwallis in the Department of Surgery / Urology 5 West one/n: # Mansioni - Implementation of an expertly-competent, individual care and care of patients according to the SZO care guide - Interdisciplinary and multi-professional treatment and care processes - Acquisition of administrative, logistical and medical technical tasks - Active participation in interprofessional cooperation - Own responsibility and active participation - Accompanying and supporting learners during training ## - Completed training as nursing specialist HF/FH - Speditive and exact operation - Good computer skills - Communicative, initiative and flexible personality ## Cosa offriamo - Varied, responsible and independent activities - Support by a motivated and committed team - Possibility of continuing training - Attractive employment conditions # Contatto (nessun testo disponibile)",
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Abteilung Chirurgie / Urologie 5 West eine/n: Pflegefachperson 80-100% Mission: • Umsetzung einer fachkompetenten, individuellen Betreuung und Pflege der Patientinnen und Patienten nach dem Pflegeleitbild des SZO • Mitarbeit im interdisziplinären und multiprofessionellen Behandlungs- und Betreuungsprozess • Übernahme von administrativen, logistischen und medizinisch-technischen Aufgaben • Aktives Mitwirken bei der interprofessionellen Zusammenarbeit • Eigenverantwortung und aktives Mitdenken • Begleitung und Unterstützung der Lernenden während der Ausbildung Profil: • Abgeschlossene Ausbildung als Pflegefachperson HF/FH • Speditive und exakte Arbeitsweise • Gute EDV-Kenntnisse • Kommunikative, initiative und flexible Persönlichkeit Offre: • Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit • Unterstützung durch ein motiviertes und engagiertes Team • Möglichkeit zur Weiterbildung • Attraktive Anstellungsbedingungen",
         "fr": "Description L'Hôpital du Valais recherche pour le Centre Hospitalier de l'Oberwallis dans le service de Chirurgie / Urologie 5 Ouest une personne: - Infirmier spécialisé 80-100% ## Mission - Mise en œuvre d'une assistance et soins individuels et compétents pour les patients selon les lignes directrices de soins du CHO - Participation au processus de traitement et d'assistance interdisciplinaire et multiprofessionnel - Assumption de tâches administratives, logistiques et médico-techniques - Participation active à la collaboration interprofessionnelle - Autonomie et réflexion active - Soutien et accompagnement des stagiaires pendant la formation ## Profil - Formation achevée en tant qu'infirmier spécialisé HF/FH - Travail ponctuel et précis - Bonnes connaissances en informatique - Personnalité communicative, proactive et flexible ## Offre - Travail varié, responsable et autonome - Soutien d'une équipe motivée et engagée - Possibilité de formation - Conditions d'emploi attractives"
       },
       "location": "Visp",
@@ -433,7 +436,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:32.083Z",
+      "crawledAt": "2026-04-29T10:54:58.965Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -453,6 +456,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -509,7 +513,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47d5b443973f76901b87322f2153af24/ATSANN0004590/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:31.751Z",
+      "crawledAt": "2026-04-29T10:54:58.640Z",
       "_hvsMeta": {
         "number": "ATSANN0004590",
         "sysId": "47d5b443973f76901b87322f2153af24",
@@ -532,6 +536,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -562,14 +567,14 @@
       "titleByLocale": {
         "it": "Fachpsychologe/in Ambulatorium 80-100%",
         "en": "Clinical Psychologist Ambulatory 80-100%",
-        "de": "Fachpsychologe/im Ambulatorium 80-100 %",
+        "de": "Fachpsychologe/in Ambulatorium 80-100%",
         "fr": "Psychologue clinicien Ambulatoire 80-100%"
       },
       "description": "Mitwirken bei der psychiatrisch-psychotherapeutischen Grundversorgung im Oberwallis - Umsetzen moderner Behandlungskonzepte - Arbeiten umgeben von einer grandiosen Bergwelt. \n\n Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Ambulatorium des Psychiatriezentrum Oberwallis (PZO) eine/n:\n\n Fachpsychologe/in 80-100%\n\nMission:\n• Fallführende psychotherapeutische Behandlung von Menschen mit Störungen aus dem gesamten psychiatrischen Spektrum\n\n• Vernetztes Arbeiten im interdisziplinären Team innerhalb der Klinik wie auch mit externen Netzwerkpartnern\n\n• Fachliche Unterstützung und Begleitung von Psychologinnen und Psychologen in Psychotherapieweiterbildung\n\n• Mitwirken in der klinikinternen Fort- und Weiterbildung\n\n• Möglichkeit der Mitarbeit im psychiatrischen Notfalldienst und beim notfallpsychologischen Angebot des Spitalzentrums Oberwallis\n\nProfil:\n• Sie verfügen über einen Fachtitel in Psychotherapie und Berufserfahrung im psychiatrischen Umfeld\n\n• Sie legen grossen Wert auf systemisch vernetzte, interprofessionelle Zusammenarbeit \n\n• Sie arbeiten eigenverantwortlich, strukturiert und zeichnen sich durch ein hohes Mass an Einfühlungsvermögen, Flexibilität, Selbstständigkeit sowie Belastbarkeit aus\n\n• Sie schätzen die Zusammenarbeit im Team und sind interessiert, die Weiterentwicklung der Behandlungs­kon­zepte mitzugestalten\n\nOffre:\n• Attraktive Anstellungsbedingungen\n\n• Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Bereich der psychiatrischen Grundversorgung\n\n• Berufliche Entwicklungsmöglichkeiten\n\n• Supervision und Intervision",
       "descriptionByLocale": {
         "it": "Descrizione Partecipare alla cura psicoterapeutica di base nel Vallese - Implementare concetti moderni di trattamento - Lavorare circondati da un grandioso paesaggio montano. L'Ospedale Vallese cerca per il Centro Ospedaliero Vallese nell'Ambulatorio del Centro Psichiatrico Vallese (CPO) una/o: Psicologo clinico 80-100% ## Missione • Trattamento psicoterapeutico guidato di persone con disturbi appartenenti a tutto lo spettro psichiatrico • Lavoro interconnesso nel team multidisciplinare all'interno della clinica e con partner esterni del network • Supporto e accompagnamento tecnico per psicologhe e psicologi in formazione in psicoterapia • Partecipazione alla formazione e al perfezionamento interni alla clinica • Possibilità di partecipare al servizio di emergenza psichiatrica e all'offerta psichologica di emergenza del Centro Ospedaliero Vallese ## Profilo • Disporre di un titolo di specializzazione in psicoterapia e esperienza professionale in ambito psichiatrico • Dare grande importanza alla collaborazione interprofessionale e interconnessa • Lavorare in modo autonomo, strutturato e caratterizzarsi per un alto grado di empatia, flessibilità, autonomia e resistenza allo stress • Apprezzare il lavoro di squadra e essere interessati a contribuire allo sviluppo dei concetti di trattamento ## Offerta • Condizioni di lavoro attraenti • Attività varia e responsabile in un'area innovativa della cura di base psichiatrica • Opportunità di sviluppo professionale • Supervisione e intervisione",
         "en": "Description Contribute to psychiatric-psychotherapeutic basic care in the Upper Valais - Implement modern treatment concepts - Work surrounded by a grand mountain landscape. The Wallis Hospital is looking for the Wallis Hospital Center in the Ambulatory of the Psychiatry Center Wallis (PZO) a: Clinical Psychologist 80-100% ## Mission • Case-leading psychotherapeutic treatment of people with disorders from the entire psychiatric spectrum • Networked working in the interdisciplinary team within the clinic as well as with external network partners • Professional support and guidance of psychologists and psychologists in psychotherapeutic further training • Participation in the clinic's internal further and continuing education • Possibility of participation in the psychiatric emergency service and the emergency psychological offer of the Wallis Hospital Center ## Profile • You have a specialist title in psychotherapy and professional experience in the psychiatric environment • You place great value on systemically networked, interprofessional collaboration • You work independently, structured and are characterized by a high degree of empathy, flexibility, self-reliance and resilience • You appreciate teamwork and are interested in contributing to the further development of treatment concepts ## Offer • Attractive employment conditions • Diverse and responsible work in an innovative area of psychiatric basic care • Professional development opportunities • Supervision and intervision",
-        "de": "Descrizione Mitwirken bei der psychiatrisch-psychotherapeutischen Grundversorgung im Oberwallis - Umsetzen moderner Behandlungskonzepte - Arbeiten umgeben von einer grandiosen Bergwelt. Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Ambulatorium des Psychiatriezentrum Oberwallis (PZO) eine/n: Fachpsychologe/in 80-100% ## Mission • Fallführende psychotherapeutische Behandlung von Menschen mit Störungen aus dem gesamten psychiatrischen Spektrum • Vernetztes Arbeiten im interdisziplinären Team innerhalb der Klinik wie auch mit externen Netzwerkpartnern • Fachliche Unterstützung und Begleitung von Psychologinnen und Psychologen in Psychotherapieweiterbildung • Mitwirken in der klinikinternen Fort- und Weiterbildung • Möglichkeit der Mitarbeit im psychiatrischen Notfalldienst und beim notfallpsychologischen Angebot des Spitalzentrums Oberwallis ## Profil • Sie verfügen über einen Fachtitel in Psychotherapie und Berufserfahrung im psychiatrischen Umfeld • Sie legen grossen Wert auf systemisch vernetzte, interprofessionelle Zusammenarbeit • Sie arbeiten eigenverantwortlich, strukturiert und zeichnen sich durch ein hohes Mass an Einfühlungsvermögen, Flexibilität, Selbstständigkeit sowie Belastbarkeit aus • Sie schätzen die Zusammenarbeit im Team und sind interessiert, die Weiterentwicklung der Behandlungs­kon­zepte mitzugestalten ## Offre • Attraktive Anstellungsbedingungen • Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Bereich der psychiatrischen Grundversorgung • Berufliche Entwicklungsmöglichkeiten • Supervision und Intervision",
+        "de": "Mitwirken bei der psychiatrisch-psychotherapeutischen Grundversorgung im Oberwallis - Umsetzen moderner Behandlungskonzepte - Arbeiten umgeben von einer grandiosen Bergwelt. Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Ambulatorium des Psychiatriezentrum Oberwallis (PZO) eine/n: Fachpsychologe/in 80-100% Mission: • Fallführende psychotherapeutische Behandlung von Menschen mit Störungen aus dem gesamten psychiatrischen Spektrum • Vernetztes Arbeiten im interdisziplinären Team innerhalb der Klinik wie auch mit externen Netzwerkpartnern • Fachliche Unterstützung und Begleitung von Psychologinnen und Psychologen in Psychotherapieweiterbildung • Mitwirken in der klinikinternen Fort- und Weiterbildung • Möglichkeit der Mitarbeit im psychiatrischen Notfalldienst und beim notfallpsychologischen Angebot des Spitalzentrums Oberwallis Profil: • Sie verfügen über einen Fachtitel in Psychotherapie und Berufserfahrung im psychiatrischen Umfeld • Sie legen grossen Wert auf systemisch vernetzte, interprofessionelle Zusammenarbeit • Sie arbeiten eigenverantwortlich, strukturiert und zeichnen sich durch ein hohes Mass an Einfühlungsvermögen, Flexibilität, Selbstständigkeit sowie Belastbarkeit aus • Sie schätzen die Zusammenarbeit im Team und sind interessiert, die Weiterentwicklung der Behandlungs­kon­zepte mitzugestalten Offre: • Attraktive Anstellungsbedingungen • Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Bereich der psychiatrischen Grundversorgung • Berufliche Entwicklungsmöglichkeiten • Supervision und Intervision",
         "fr": "Description Participer à la prise en charge psychothérapeutique de base dans le Haut-Valais - Mettre en œuvre des concepts modernes de traitement - Travailler entouré d'un paysage montagneux grandiose. L'Hôpital du Valais recherche pour le Centre Hospitalier du Valais dans l'Ambulatorium du Centre Psychiatrique du Valais (CPV) un/e: Psychologue clinicien 80-100% ## Mission • Traitement psychothérapeutique guidé de personnes souffrant de troubles du spectre psychiatrique entier • Travail en réseau dans l'équipe pluridisciplinaire au sein de la clinique ainsi qu'avec des partenaires externes du réseau • Soutien et accompagnement technique des psychologues et psychologues en formation en psychothérapie • Participation à la formation et au perfectionnement internes de la clinique • Possibilité de participer au service d'urgence psychiatrique et à l'offre psychologique d'urgence du Centre Hospitalier du Valais ## Profil • Vous disposez d'un titre de spécialisation en psychothérapie et d'une expérience professionnelle dans le milieu psychiatrique • Vous accordez une grande importance à la collaboration interprofessionnelle et en réseau • Vous travaillez de manière autonome, structurée et vous caractérisez par un haut degré d'empathie, de flexibilité, d'autonomie et de résilience • Vous appréciez le travail d'équipe et êtes intéressé(e) à contribuer au développement des concepts de traitement ## Offre • Conditions de travail attractives • Travail varié et responsable dans un domaine innovant de la prise en charge psychiatrique de base • Opportunités de développement professionnel • Supervision et intervision"
       },
       "location": "Brig",
@@ -588,7 +593,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:31.426Z",
+      "crawledAt": "2026-04-29T10:54:58.315Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -597,6 +602,7 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -653,7 +659,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:31.101Z",
+      "crawledAt": "2026-04-29T10:54:57.984Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -732,7 +738,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:30.754Z",
+      "crawledAt": "2026-04-29T10:54:57.660Z",
       "_hvsMeta": {
         "number": "ATSANN0003762",
         "sysId": "94b27b0597c11a90316bb0b71153af92",
@@ -813,7 +819,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a9a1d5c047253a54339c9146736d43b9/ATSANN0004424/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:30.418Z",
+      "crawledAt": "2026-04-29T10:54:57.334Z",
       "_hvsMeta": {
         "number": "ATSANN0004424",
         "sysId": "a9a1d5c047253a54339c9146736d43b9",
@@ -892,7 +898,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/ATSANN0003761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:30.096Z",
+      "crawledAt": "2026-04-29T10:54:57.009Z",
       "_hvsMeta": {
         "number": "ATSANN0003761",
         "sysId": "32ce638d97411a90316bb0b71153af77",
@@ -970,7 +976,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:29.775Z",
+      "crawledAt": "2026-04-29T10:54:56.685Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -994,6 +1000,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1050,7 +1057,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8931be8b9735b25012f9322f2153af59/ATSANN0004456/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:29.449Z",
+      "crawledAt": "2026-04-29T10:54:56.360Z",
       "_hvsMeta": {
         "number": "ATSANN0004456",
         "sysId": "8931be8b9735b25012f9322f2153af59",
@@ -1129,7 +1136,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:29.125Z",
+      "crawledAt": "2026-04-29T10:54:56.033Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -1210,7 +1217,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f4b9150847a53a54339c9146736d43a4/ATSANN0004425/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:28.798Z",
+      "crawledAt": "2026-04-29T10:54:55.710Z",
       "_hvsMeta": {
         "number": "ATSANN0004425",
         "sysId": "f4b9150847a53a54339c9146736d43a4",
@@ -1289,7 +1296,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5666185247bb9a10339c9146736d4364/ATSANN0003999/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:28.473Z",
+      "crawledAt": "2026-04-29T10:54:55.385Z",
       "_hvsMeta": {
         "number": "ATSANN0003999",
         "sysId": "5666185247bb9a10339c9146736d4364",
@@ -1370,7 +1377,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6c4165297e41654316bb0b71153afc3/ATSANN0003725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:28.151Z",
+      "crawledAt": "2026-04-29T10:54:55.054Z",
       "_hvsMeta": {
         "number": "ATSANN0003725",
         "sysId": "c6c4165297e41654316bb0b71153afc3",
@@ -1451,7 +1458,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:27.824Z",
+      "crawledAt": "2026-04-29T10:54:54.729Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -1530,7 +1537,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:27.502Z",
+      "crawledAt": "2026-04-29T10:54:54.401Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -1569,9 +1576,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
+      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
+        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -1581,17 +1588,17 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Médecin adjoint-e spécialiste en radiologie à 100%",
       "titleByLocale": {
-        "it": "100% Assistant X-ray Specialist",
+        "it": "Médecin adjoint-e spécialiste en radiologie à 100%",
         "en": "Associate Physician Specialist in Radiology at 100%",
         "de": "Oberarzt/Oberärztin für Radiologie zu 100%",
         "fr": "Médecin adjoint-e spécialiste en radiologie à 100%"
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\n \n \n\n \n\n L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\n \n\n Médecin adjoint-e spécialiste en radiologie à 100% \n\n Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny.\n\nMission:\nAssurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM.\n\n Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies.\n\n Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire.\n\n Encadrer, former et superviser les médecins en formation\n\n Participer aux réunions multidisciplinaires.\n\n Participer aux gardes du service de radiologie.\n\nProfil:\nTitre de spécialiste fédéral en radiologie ou formation jugée équivalente.\n\n Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels.\n\n Expérience comme chef de clinique dans un hôpital universitaire.\n\n Sens de la coopération, engagement et disponibilité.\n\n Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie.\n\n \n\n Seules les offres répondant au profil seront traitées.",
       "descriptionByLocale": {
-        "it": "Descrizione, il primo datore di lavoro del cantone, ha 6.200 dipendenti. L'Ospedale Vallese è alla ricerca di uno specialista medico al 100% in radiologia per il Centro ospedaliero Vallese Romand Il servizio di imaging diagnostico e di intervento opera a Sion, Sierre e Martigny. ## Mission - Attività clinica nella radiologia osteoarticolare: radiografia standard, ultrasuoni, scanner e risonanza magnetica. - Mantenere il riconoscimento dell'Ospedale Vallese come centro di formazione in radiologia e contribuire allo sviluppo della radiologia osteoarticolare. - No. Per supervisionare, formare e supervisionare i medici in formazione - Partecipare a incontri multidisciplinari. - Partecipate alle guardie radiologiche. ## Profilo - Specialista federale in radiologia o formazione equivalente. - Esperienza confermata nella radiologia osteoarticolare, compresi i gesti interventistici. - Esperienza come capo della clinica in un ospedale universitario. - Senso di cooperazione, impegno e disponibilità. - Interessi di qualità, sicurezza dei pazienti, protezione dalle radiazioni e sviluppo di nuove tecniche di imaging. Verranno elaborate solo offerte che rispondono al profilo.",
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin adjoint-e spécialiste en radiologie à 100% Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny. Mission: Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM. Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies. Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire. Encadrer, former et superviser les médecins en formation Participer aux réunions multidisciplinaires. Participer aux gardes du service de radiologie. Profil: Titre de spécialiste fédéral en radiologie ou formation jugée équivalente. Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels. Expérience comme chef de clinique dans un hôpital universitaire. Sens de la coopération, engagement et disponibilité. Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie. Seules les offres répondant au profil seront traitées.",
         "en": "Descrizione, the canton's first employer, has 6,200 employees. The Valais Hospital is looking for a 100% assistant medical specialist in radiology for the Valais Romand Hospital Centre The diagnostic and intervention imaging service operates in Sion, Sierre and Martigny. ## Mission - Clinical activity in osteoarticular radiology: standard radiography, ultrasound, scanner and MRI. - Take care of the interventional acts: infiltration, arthrography, biopsies. - Maintain the recognition of the Valais Hospital as a training centre in radiology and contribute to the development of osteoarticular radiology. - To supervise, train and supervise doctors in training - Participate in multidisciplinary meetings. - Participate in the radiology wardens. ## Profile - Federal specialist in radiology or equivalent training. - Confirmed expertise in osteoarticular radiology, including interventional gestures. - Experience as head of clinic in a university hospital. - Sense of cooperation, commitment and availability. - Interest in quality, patient safety, radiation protection and the development of new imaging techniques. Only offers responding to the profile will be processed.",
         "de": "Beschreibung, der erste Arbeitgeber des Kantons, hat 6.200 Mitarbeiter. Das Wallis-Krankenhaus ist auf der Suche nach einem 100-prozentigen medizinischen Facharzt für Radiologie für das Römische Krankenhauszentrum Wallis Der diagnostische und interventionsbildende Dienst arbeitet in Sion, Sierre und Martigny. Mission - Klinische Aktivität in der osteoartikulären Radiologie: Standard-Radiographie, Ultraschall, Scanner und MRT. - Achten Sie auf die Eingriffe: Infiltration, Arthrographie, Biopsien. - Bewahren Sie die Anerkennung des Walliser Krankenhauses als Ausbildungszentrum in der Radiologie und tragen zur Entwicklung der osteoartikulären Radiologie bei. - Ja. Um die Ärzte in der Ausbildung zu betreuen, zu trainieren und zu überwachen - Nehmen Sie an multidisziplinären Treffen teil. - Nehmen Sie an den Radiologie-Warden teil. Profil - Föderaler Spezialist für Radiologie oder gleichwertige Ausbildung. - Bestätigte Expertise in der osteoartikulären Radiologie, einschließlich interventioneller Gesten. - Erleben Sie als Klinikleiter in einem Universitätsklinikum. - Sinn für Zusammenarbeit, Engagement und Verfügbarkeit. - Interesse an Qualität, Patientensicherheit, Strahlenschutz und Entwicklung neuer Bildgebungsverfahren. Nur Angebote, die auf das Profil reagieren, werden bearbeitet.",
-        "fr": "## Descrizione\n\n1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin adjoint-e spécialiste en radiologie à 100%\n\nLe service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny.\n\n## Mission\n\n- Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM.\n- Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies.\n- Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire.\n- Encadrer, former et superviser les médecins en formation\n- Participer aux réunions multidisciplinaires.\n- Participer aux gardes du service de radiologie.\n\n## Profil\n\n- Titre de spécialiste fédéral en radiologie ou formation jugée équivalente.\n- Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels.\n- Expérience comme chef de clinique dans un hôpital universitaire.\n- Sens de la coopération, engagement et disponibilité.\n- Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie.\n\nSeules les offres répondant au profil seront traitées."
+        "fr": "## Descrizione 1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin adjoint-e spécialiste en radiologie à 100% Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny. ## Mission - Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM. - Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies. - Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire. - Encadrer, former et superviser les médecins en formation - Participer aux réunions multidisciplinaires. - Participer aux gardes du service de radiologie. ## Profil - Titre de spécialiste fédéral en radiologie ou formation jugée équivalente. - Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels. - Expérience comme chef de clinique dans un hôpital universitaire. - Sens de la coopération, engagement et disponibilité. - Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie. Seules les offres répondant au profil seront traitées."
       },
       "location": "Sion",
       "canton": "VS",
@@ -1609,7 +1616,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/07c0eee447c0c754ff8065f8736d4369/ATSANN0004598/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:27.176Z",
+      "crawledAt": "2026-04-29T10:54:54.069Z",
       "_hvsMeta": {
         "number": "ATSANN0004598",
         "sysId": "07c0eee447c0c754ff8065f8736d4369",
@@ -1620,14 +1627,15 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1684,7 +1692,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ac09d094c3044754a043be4c05013161/ATSANN0004596/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:26.853Z",
+      "crawledAt": "2026-04-29T10:54:53.738Z",
       "_hvsMeta": {
         "number": "ATSANN0004596",
         "sysId": "ac09d094c3044754a043be4c05013161",
@@ -1763,7 +1771,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6424f99247aaf210296bd1eb736d43bc/ATSANN0004498/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:26.531Z",
+      "crawledAt": "2026-04-29T10:54:53.412Z",
       "_hvsMeta": {
         "number": "ATSANN0004498",
         "sysId": "6424f99247aaf210296bd1eb736d43bc",
@@ -1842,7 +1850,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0b286d6c97cc43d01b87322f2153af9a/ATSANN0004597/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:26.207Z",
+      "crawledAt": "2026-04-29T10:54:53.083Z",
       "_hvsMeta": {
         "number": "ATSANN0004597",
         "sysId": "0b286d6c97cc43d01b87322f2153af9a",
@@ -1921,7 +1929,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/501a033c478c4310ff8065f8736d435f/ATSANN0004599/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:25.883Z",
+      "crawledAt": "2026-04-29T10:54:52.743Z",
       "_hvsMeta": {
         "number": "ATSANN0004599",
         "sysId": "501a033c478c4310ff8065f8736d435f",
@@ -2003,7 +2011,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9dfd00d997c047101b87322f2153af63/ATSANN0004603/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:25.561Z",
+      "crawledAt": "2026-04-29T10:54:52.416Z",
       "_hvsMeta": {
         "number": "ATSANN0004603",
         "sysId": "9dfd00d997c047101b87322f2153af63",
@@ -2082,7 +2090,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/93a311e29700035012f9322f2153afef/ATSANN0004604/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:25.241Z",
+      "crawledAt": "2026-04-29T10:54:52.092Z",
       "_hvsMeta": {
         "number": "ATSANN0004604",
         "sysId": "93a311e29700035012f9322f2153afef",
@@ -2124,7 +2132,7 @@
       "slug": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
-        "en": "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-in-central-valais-hopital-du-valais-m",
+        "en": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
         "de": "50-stelle-als-psychologe-psychotherapeut-in-fur-den-dienst-fur-erwachsenenpsychiatrie-und-psychotherapie-im-zentralwalli",
         "fr": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
       },
@@ -2134,16 +2142,16 @@
       "title": "Psychologue- psychothérapeute à 50% pour le service de psychiatrie et psychothérapie adulte du Valais central",
       "titleByLocale": {
         "it": "Psicologo-psicoterapeuta al 50% per il servizio di psichiatria e psicoterapia adulti del Vallese centrale",
-        "en": "Psychologist-psychotherapist 50% for the psychiatry and adult psychotherapy service in central Valais",
+        "en": "Psychologue- psychothérapeute à 50% pour le service de psychiatrie et psychothérapie adulte du Valais central",
         "de": "50%-Stelle als Psychologe/Psychotherapeut:in für den Dienst für Erwachsenenpsychiatrie und -psychotherapie im Zentralwallis",
         "fr": "Psychologue- psychothérapeute à 50% pour le service de psychiatrie et psychothérapie adulte du Valais central"
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. \n\n \n \n\n \n\n L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie un-e\n\n \n\n Psychologue - psychothérapeute à 50% pour le service de psychiatrie et psychothérapie adulte du Valais central\n\nMission:\nEncadrement clinique et formation \n\n Assurer la supervision clinique de psychologues-assistants et de stagiaires psychologues\n\n Soutenir le développement des compétences psychothérapeutiques des psychologues en formation\n\n Participer au recrutement et à l’intégration des psychologues-assistants\n\n Encadrer et animer des colloques cliniques pluridisciplinaires\n\n Soutenir la formation et le développement des compétences cliniques au sein de l’équipe\n\n Contribuer à l’analyse et à la discussion de situations cliniques complexes au sein de l’équipe\n\n Activité clinique \n\n Réaliser des évaluations cliniques et diagnostiques\n\n Assurer des prises en charge psychothérapeutiques individuelles dans un contexte de soins psychiatriques aigus et de suivi ambulatoire à court ou moyen terme\n\n Concevoir et animer des groupes thérapeutiques\n\n Participer à l’élaboration des projets thérapeutiques en collaboration avec l’équipe pluridisciplinaire\n\n Contribution au fonctionnement du service \n\n Participation aux activités de développement du service, aux réflexions cliniques et au développement des pratiques thérapeutiques du service\n\n Collaborer étroitement avec les équipes pluridisciplinaires du service ainsi que les partenaires du réseau socio-sanitaire régional\n\n Contribuer aux activités de formation continue du service\n\n Activité administrative \n\n Assurer la tenue des dossiers patients\n\n Rédiger les rapports médicaux et assécurologiques\n\n Participer aux tâches administratives liées à l’activité clinique\n\nProfil:\nTitre de psychologue spécialiste en psychothérapie, psychothérapeute reconnu-e au niveau fédéral.\n\n Conditions remplies pour pratiquer à charge de l’AOS\n\n Expérience clinique confirmée en psychiatrie adulte\n\n Intérêt marqué pour la supervision clinique et la transmission des compétences psychothérapeutiques\n\n Solides compétences en évaluation psychopathologique et en conceptualisation clinique\n\n Capacité à soutenir l’équipe dans la gestion de situations cliniques complexes\n\n Sens de l’organisation et capacité à travailler dans un environnement clinique exigeant\n\n Intérêt pour le travail institutionnel et interdisciplinaire\n\n Aisance rédactionnelle et communicationnelle\n\n \n\n Seules les offres répondant au profil seront traitées.",
       "descriptionByLocale": {
         "it": "Descrizione Il principale datore di lavoro del cantone, l'Ospedale Vallese, conta 6'200 collaboratori. L'Ospedale vallesano ricerca per il Centro ospedaliero Valais Romand e il suo Centro di psichiatria e psicoterapia uno psicologo - psicoterapeuta al 50% per il dipartimento di psichiatria e psicoterapia degli adulti del Vallese centrale ## Missione - Supervisione clinica e formazione - Garantire la supervisione clinica degli assistenti psicologi e degli psicologi tirocinanti - Sostenere lo sviluppo delle competenze psicoterapeutiche degli psicologi in formazione - Partecipare al reclutamento e all'integrazione degli psicologi assistenti psicologi - Supervisionare e dirigere la clinica multidisciplinare convegni - Supportare la formazione e lo sviluppo delle competenze cliniche all'interno dell'équipe - Contribuire all'analisi e alla discussione di situazioni cliniche complesse all'interno dell'équipe - Attività clinica - Effettuare valutazioni cliniche e diagnostiche - Fornire assistenza psicoterapeutica individuale in un contesto di assistenza psichiatrica acuta e di follow-up ambulatoriale a breve o medio termine - Progettare e condurre gruppi terapeutici - Partecipare allo sviluppo di progetti terapeutici in collaborazione con l'équipe multidisciplinare - Contributo al funzionamento del servizio - Partecipazione alle attività di sviluppo del servizio, in riflessioni cliniche e nello sviluppo delle pratiche terapeutiche del servizio - Collaborare strettamente con le équipe multidisciplinari del servizio nonché con i partner della rete socio-sanitaria regionale - Contribuire alle attività di formazione continua del servizio - Attività amministrativa - Garantire la tenuta della cartella clinica - Redigere relazioni mediche e assicurative - Partecipare a compiti amministrativi legati all'attività clinica ## Profilo - Titolo di psicologo specializzato in psicoterapia, psicoterapeuta riconosciuto a livello federale. - Condizioni soddisfatte per esercitare la carica di responsabile dell'AOS - Confermata esperienza clinica in psichiatria dell'adulto - Forte interesse per la supervisione clinica e la trasmissione delle competenze psicoterapeutiche - Forti competenze nella valutazione psicopatologica e nella concettualizzazione clinica - Capacità di supportare l'équipe nella gestione di situazioni cliniche complesse - Capacità organizzative e capacità di lavorare in un ambiente clinico esigente - Interesse per il lavoro istituzionale e interdisciplinare - Capacità di scrittura e comunicazione Verranno elaborate solo le offerte corrispondenti al profilo.",
-        "en": "Descrizione, the canton's first employer, has 6,200 employees. The Valais Hospital is looking for the Valais Romand Hospital Centre and its Pôle de psychiatrie et psychothérapie un-e Psychologist - psychotherapist 50% for the service of psychiatry and adult psychotherapy of the Central Valais ## Mission - Clinical supervision and training - Clinical supervision of psychologists-assistants and psychologist trainees - Support the development of psychotherapeutic skills of psychologists in training - Participate in the recruitment and integration of psychologists and assistants - Lead and lead multidisciplinary clinical seminars - Support training and development of clinical skills within the team - Contribute to the analysis and discussion of complex clinical situations within the team - Clinical activity - Conduct clinical and diagnostic assessments - Provide individual psychotherapeutic care in the context of acute psychiatric care and outpatient follow-up in the short to medium term - Design and animate therapeutic groups - Participate in the development of therapeutic projects in collaboration with the multidisciplinary team - Contribution to the functioning of the service - Participation in service development activities, clinical reflections and development of service therapeutic practices - Work closely with the multidisciplinary teams of the service as well as the partners of the regional social health network - Contribute to the continuing training activities of the service - Administrative activity - Maintain patient records - Write medical and surgical reports - Participate in administrative tasks related to clinical activity ## Profile - Title of psychologist specialist in psychotherapy, recognized psychotherapist at the federal level. - Conditions met for AOS-dependent practice - Clinical experience confirmed in adult psychiatry - High interest in clinical supervision and transmission of psychotherapeutic skills - Strong psychopathological assessment and clinical conceptualization skills - Ability to support the team in managing complex clinical situations - Organizational sense and ability to work in a demanding clinical environment - Interest in institutional and interdisciplinary work - Writing and communication skills Only offers responding to the profile will be processed.",
+        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie un-e Psychologue - psychothérapeute à 50% pour le service de psychiatrie et psychothérapie adulte du Valais central Mission: Encadrement clinique et formation Assurer la supervision clinique de psychologues-assistants et de stagiaires psychologues Soutenir le développement des compétences psychothérapeutiques des psychologues en formation Participer au recrutement et à l’intégration des psychologues-assistants Encadrer et animer des colloques cliniques pluridisciplinaires Soutenir la formation et le développement des compétences cliniques au sein de l’équipe Contribuer à l’analyse et à la discussion de situations cliniques complexes au sein de l’équipe Activité clinique Réaliser des évaluations cliniques et diagnostiques Assurer des prises en charge psychothérapeutiques individuelles dans un contexte de soins psychiatriques aigus et de suivi ambulatoire à court ou moyen terme Concevoir et animer des groupes thérapeutiques Participer à l’élaboration des projets thérapeutiques en collaboration avec l’équipe pluridisciplinaire Contribution au fonctionnement du service Participation aux activités de développement du service, aux réflexions cliniques et au développement des pratiques thérapeutiques du service Collaborer étroitement avec les équipes pluridisciplinaires du service ainsi que les partenaires du réseau socio-sanitaire régional Contribuer aux activités de formation continue du service Activité administrative Assurer la tenue des dossiers patients Rédiger les rapports médicaux et assécurologiques Participer aux tâches administratives liées à l’activité clinique Profil: Titre de psychologue spécialiste en psychothérapie, psychothérapeute reconnu-e au niveau fédéral. Conditions remplies pour pratiquer à charge de l’AOS Expérience clinique confirmée en psychiatrie adulte Intérêt marqué pour la supervision clinique et la transmission des compétences psychothérapeutiques Solides compétences en évaluation psychopathologique et en conceptualisation clinique Capacité à soutenir l’équipe dans la gestion de situations cliniques complexes Sens de l’organisation et capacité à travailler dans un environnement clinique exigeant Intérêt pour le travail institutionnel et interdisciplinaire Aisance rédactionnelle et communicationnelle Seules les offres répondant au profil seront traitées.",
         "de": "Beschreibung Der führende Arbeitgeber des Kantons, das Walliser Spital, beschäftigt 6.200 Mitarbeitende. Das Walliser Krankenhaus sucht für das Krankenhauszentrum Wallis Romand und sein Zentrum für Psychiatrie und Psychotherapie einen Psychologen – Psychotherapeuten zu 50 % für die Abteilung für Erwachsenenpsychiatrie und -psychotherapie im Zentralwallis und Leitung multidisziplinärer klinischer Konferenzen - Unterstützen Sie die Schulung und Entwicklung klinischer Fähigkeiten innerhalb des Teams - Tragen Sie zur Analyse und Diskussion komplexer klinischer Situationen innerhalb des Teams bei - Klinische Tätigkeit - Führen Sie klinische und diagnostische Bewertungen durch - Bieten Sie individuelle psychotherapeutische Betreuung im Kontext der akuten psychiatrischen Versorgung und der kurz- oder mittelfristigen ambulanten Nachsorge - Entwerfen und leiten Sie therapeutische Gruppen - Beteiligen Sie sich an der Entwicklung therapeutischer Projekte in Zusammenarbeit mit dem multidisziplinären Team - Beitrag zum Betrieb des Dienstes - Teilnahme an den Entwicklungsaktivitäten des Dienstes, an klinischen Überlegungen und an der Entwicklung der therapeutischen Praktiken des Dienstes - Enge Zusammenarbeit mit den multidisziplinären Teams des Dienstes sowie den Partnern des regionalen Sozial- und Gesundheitsnetzwerks - Beitrag zu den Weiterbildungsaktivitäten des Dienstes - Verwaltungstätigkeit - Sicherstellung der Pflege von Patientenakten - Verfassen von Kranken- und Versicherungsberichten - Mitwirkung bei Verwaltungsaufgaben im Zusammenhang mit der klinischen Tätigkeit ## Profil - Titel eines auf Psychotherapie spezialisierten Psychologen, eidgenössisch anerkannten Psychotherapeuten. - Voraussetzungen für eine Tätigkeit als Leiter der AOS erfüllt - Nachgewiesene klinische Erfahrung in der Erwachsenenpsychiatrie - Starkes Interesse an klinischer Supervision und der Vermittlung psychotherapeutischer Kompetenzen - Starke Fähigkeiten in psychopathologischer Diagnostik und klinischer Konzeptualisierung - Fähigkeit, das Team bei der Bewältigung komplexer klinischer Situationen zu unterstützen - Organisatorische Fähigkeiten und Fähigkeit, in einem anspruchsvollen klinischen Umfeld zu arbeiten - Interesse an institutioneller und interdisziplinärer Arbeit - Schreib- und Kommunikationsfähigkeiten Es werden nur Angebote bearbeitet, die dem Profil entsprechen.",
-        "fr": "## Descrizione\n1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie un-e\n\nPsychologue - psychothérapeute à 50% pour le service de psychiatrie et psychothérapie adulte du Valais central\n\n## Mission\n- Encadrement clinique et formation\n- Assurer la supervision clinique de psychologues-assistants et de stagiaires psychologues\n- Soutenir le développement des compétences psychothérapeutiques des psychologues en formation\n- Participer au recrutement et à l’intégration des psychologues-assistants\n- Encadrer et animer des colloques cliniques pluridisciplinaires\n- Soutenir la formation et le développement des compétences cliniques au sein de l’équipe\n- Contribuer à l’analyse et à la discussion de situations cliniques complexes au sein de l’équipe\n- Activité clinique\n- Réaliser des évaluations cliniques et diagnostiques\n- Assurer des prises en charge psychothérapeutiques individuelles dans un contexte de soins psychiatriques aigus et de suivi ambulatoire à court ou moyen terme\n- Concevoir et animer des groupes thérapeutiques\n- Participer à l’élaboration des projets thérapeutiques en collaboration avec l’équipe pluridisciplinaire\n- Contribution au fonctionnement du service\n- Participation aux activités de développement du service, aux réflexions cliniques et au développement des pratiques thérapeutiques du service\n- Collaborer étroitement avec les équipes pluridisciplinaires du service ainsi que les partenaires du réseau socio-sanitaire régional\n- Contribuer aux activités de formation continue du service\n- Activité administrative\n- Assurer la tenue des dossiers patients\n- Rédiger les rapports médicaux et assécurologiques\n- Participer aux tâches administratives liées à l’activité clinique\n\n## Profil\n- Titre de psychologue spécialiste en psychothérapie, psychothérapeute reconnu-e au niveau fédéral.\n- Conditions remplies pour pratiquer à charge de l’AOS\n- Expérience clinique confirmée en psychiatrie adulte\n- Intérêt marqué pour la supervision clinique et la transmission des compétences psychothérapeutiques\n- Solides compétences en évaluation psychopathologique et en conceptualisation clinique\n- Capacité à soutenir l’équipe dans la gestion de situations cliniques complexes\n- Sens de l’organisation et capacité à travailler dans un environnement clinique exigeant\n- Intérêt pour le travail institutionnel et interdisciplinaire\n- Aisance rédactionnelle et communicationnelle\n\nSeules les offres répondant au profil seront traitées."
+        "fr": "## Descrizione 1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand et son Pôle de psychiatrie et psychothérapie un-e Psychologue - psychothérapeute à 50% pour le service de psychiatrie et psychothérapie adulte du Valais central ## Mission - Encadrement clinique et formation - Assurer la supervision clinique de psychologues-assistants et de stagiaires psychologues - Soutenir le développement des compétences psychothérapeutiques des psychologues en formation - Participer au recrutement et à l’intégration des psychologues-assistants - Encadrer et animer des colloques cliniques pluridisciplinaires - Soutenir la formation et le développement des compétences cliniques au sein de l’équipe - Contribuer à l’analyse et à la discussion de situations cliniques complexes au sein de l’équipe - Activité clinique - Réaliser des évaluations cliniques et diagnostiques - Assurer des prises en charge psychothérapeutiques individuelles dans un contexte de soins psychiatriques aigus et de suivi ambulatoire à court ou moyen terme - Concevoir et animer des groupes thérapeutiques - Participer à l’élaboration des projets thérapeutiques en collaboration avec l’équipe pluridisciplinaire - Contribution au fonctionnement du service - Participation aux activités de développement du service, aux réflexions cliniques et au développement des pratiques thérapeutiques du service - Collaborer étroitement avec les équipes pluridisciplinaires du service ainsi que les partenaires du réseau socio-sanitaire régional - Contribuer aux activités de formation continue du service - Activité administrative - Assurer la tenue des dossiers patients - Rédiger les rapports médicaux et assécurologiques - Participer aux tâches administratives liées à l’activité clinique ## Profil - Titre de psychologue spécialiste en psychothérapie, psychothérapeute reconnu-e au niveau fédéral. - Conditions remplies pour pratiquer à charge de l’AOS - Expérience clinique confirmée en psychiatrie adulte - Intérêt marqué pour la supervision clinique et la transmission des compétences psychothérapeutiques - Solides compétences en évaluation psychopathologique et en conceptualisation clinique - Capacité à soutenir l’équipe dans la gestion de situations cliniques complexes - Sens de l’organisation et capacité à travailler dans un environnement clinique exigeant - Intérêt pour le travail institutionnel et interdisciplinaire - Aisance rédactionnelle et communicationnelle Seules les offres répondant au profil seront traitées."
       },
       "location": "Martigny",
       "canton": "VS",
@@ -2161,7 +2169,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7f9f593e970083101b87322f2153af39/ATSANN0004605/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:24.913Z",
+      "crawledAt": "2026-04-29T10:54:51.757Z",
       "_hvsMeta": {
         "number": "ATSANN0004605",
         "sysId": "7f9f593e970083101b87322f2153af39",
@@ -2174,7 +2182,7 @@
           "50-psychologist-psychotherapist-for-adult-psychiatry-and-psychotherapy-service-in-central-valais-hopital-du-valais-marti",
           "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-of-the-central-valais-hopital-du-vala",
           "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai",
-          "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
+          "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-in-central-valais-hopital-du-valais-m"
         ],
         "it": [
           "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
@@ -2187,9 +2195,11 @@
         "50-psychologist-psychotherapist-for-adult-psychiatry-and-psychotherapy-service-in-central-valais-hopital-du-valais-marti",
         "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-of-the-central-valais-hopital-du-vala",
         "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai",
-        "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
+        "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
+        "psychologist-psychotherapist-50-for-the-psychiatry-and-adult-psychotherapy-service-in-central-valais-hopital-du-valais-m"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2246,7 +2256,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d8c1293a978083101b87322f2153afc4/ATSANN0004606/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:24.587Z",
+      "crawledAt": "2026-04-29T10:54:51.432Z",
       "_hvsMeta": {
         "number": "ATSANN0004606",
         "sysId": "d8c1293a978083101b87322f2153afc4",
@@ -2325,7 +2335,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:24.264Z",
+      "crawledAt": "2026-04-29T10:54:51.108Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -2407,7 +2417,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ca7f50acc31883d0a043be4c050131d2/ATSANN0004613/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:23.938Z",
+      "crawledAt": "2026-04-29T10:54:50.778Z",
       "_hvsMeta": {
         "number": "ATSANN0004613",
         "sysId": "ca7f50acc31883d0a043be4c050131d2",
@@ -2486,7 +2496,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/abef3e989754035012f9322f2153af34/ATSANN0004611/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:23.611Z",
+      "crawledAt": "2026-04-29T10:54:50.451Z",
       "_hvsMeta": {
         "number": "ATSANN0004611",
         "sysId": "abef3e989754035012f9322f2153af34",
@@ -2506,6 +2516,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2522,29 +2533,29 @@
     },
     {
       "id": "hopital-du-valais-c90c924cc37c",
-      "slug": "application-owner-100-hopital-du-valais-sion",
+      "slug": "titolare-del-trattamento-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "fr": "application-owner-100-hopital-du-valais-sion",
-        "it": "application-owner-100-hopital-du-valais-sion",
+        "it": "titolare-del-trattamento-100-hopital-du-valais-sion",
         "en": "application-owner-100-hopital-du-valais-sion",
-        "de": "application-owner-100-hopital-du-valais-sion"
+        "de": "anwendungsinhaber-100-hopital-du-valais-sion",
+        "fr": "application-owner-100-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Application Owner 100%",
       "titleByLocale": {
-        "fr": "Propriétaire de la demande 100 %",
-        "en": "Application Owner 100%",
         "it": "Titolare del trattamento 100%",
-        "de": "Anwendungsinhaber 100%"
+        "en": "Application Owner 100%",
+        "de": "Anwendungsinhaber 100%",
+        "fr": "Application Owner 100%"
       },
       "description": "L’Hôpital du Valais cherche un-e :\n\n \n\n Application Owner 100% \n\n Pour le service Informatique, unité Administratives Applications IT \n\n \n \n\n Acteur clé entre les métiers et l’IT, vous garantissez la performance et l’évolution de nos applications HR stratégiques.\n\n Vous aspirez à rejoindre une équipe motivée et dynamique ? Cette opportunité est peut-être pour vous, postulez sans attendre !\n\nMission:\n• Assurer l’exploitation des applications HR & Portail HR en collaboration avec les différentes parties prenantes ;\n\n• assurer l’intégration des applications dans l’architecture SI, le cycle de vie des applications et veiller au maintien de la documentation y relative ;\n\n• endosser le rôle de spécialiste fonctionnel / expert sur des questions spécifiques et techniques en lien avec les applications jugées critiques ;\n\n• conseiller et proposer des solutions en lien avec des problématiques d’intégrations et/ou d’interfaçages ;\n\n• participer à des projets d’amélioration et d’intégration de nouveaux systèmes complexes ;\n\n• collaborer étroitement avec les services Salaires et Data Management & Analytics ;\n\n• garantir la planification et la mise en œuvre de nouvelles fonctionnalités ;\n\n• organiser, planifier les tests et modifications de nouvelles versions, coordonner les mises en service.\n\nProfil:\n• Diplôme en informatique ou Bachelor en Computer Science ou formation jugée équivalente ;\n\n• 3 à 5 ans d'expérience dans le domaine de gestion d’applications et de systèmes complexes ;\n\n• excellentes connaissances des ERP et de leur structure ; \n\n• très bonnes connaissances des logiciels de bureautiques et informatiques ;\n\n• connaissance d'ITIL v3, Atlassian Confluence ;\n\n• connaissance du produit Abacus et compréhension des processus métier HR ;\n\n• bonne capacité de communication et d’écoute ;\n\n• sens de la collaboration marqué et force-vive ;\n\n• sens de l’innovation et de l’organisation ;\n\n• proactivité et sens des responsabilités ;\n\n• de langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
       "descriptionByLocale": {
-        "fr": "## Descrizione\nL’Hôpital du Valais cherche un-e :\n\n**Application Owner 100%**\n\nPer il servizio Informatique, unità Administratives Applications IT\n\n## Missioni\n- Assicurare l’esercizio delle applicazioni HR & Portale HR in collaborazione con le diverse parti interessate\n- Assicurare l’integrazione delle applicazioni nell’architettura SI, il ciclo di vita delle applicazioni e vegliare al mantenimento della documentazione relativa\n- Assumere il ruolo di specialista funzionale / esperto su questioni specifiche e tecniche in relazione alle applicazioni giudicate critiche\n- Consigliare e proporre soluzioni in relazione a problematiche di integrazioni e/o interfacciamenti\n- Partecipare a progetti di miglioramento e integrazione di nuovi sistemi complessi\n- Collaborare strettamente con i servizi Salari e Data Management & Analytics\n- Garantire la pianificazione e la realizzazione di nuove funzionalità\n- Organizzare, pianificare i test e le modifiche di nuove versioni, coordinare le implementazioni\n\n## Profilo\n- Diploma in informatica o Bachelor in Computer Science o formazione giudicata equivalente\n- 3 a 5 anni di esperienza nel campo della gestione di applicazioni e sistemi complessi\n- Eccellenti conoscenze degli ERP e della loro struttura\n- Molte buone conoscenze dei software di ufficio e informatici\n- Conoscenza di ITIL v3, Atlassian Confluence\n- Conoscenza del prodotto Abacus e comprensione dei processi aziendali HR\n- Buona capacità di comunicazione ed ascolto\n- Sensibilità alla collaborazione e forza-vive\n- Sensibilità all’innovazione e all’organizzazione\n- Proattività e senso delle responsabilità\n- Lingua madre francese o tedesca con eccellenti conoscenze della seconda lingua e dell’inglese\n\n## Cosa offriamo\n- Un ambiente stimolante e diversificato con la possibilità di mettere a frutto le proprie conoscenze e l’esperienza\n- Condizioni di lavoro attraenti\n- Possibilità di formazione continua e perfezionamento\n- Tutti gli altri vantaggi per i nostri collaboratori-trici",
         "it": "Descrizione L'Ospedale di Valais è alla ricerca di un: Application Owner 100% Per il servizio Informatique, unità complessi Administration Applications IT ## Missioni - Assicurare l'esercizio delle applizioni HR & Portale HR in collaborazioneazione con le diverse parti interessate - Assicurare l'integrazione delle applicazioni nelle relazioni SI, il ciclo di vita delle applicazionini e vegliazioni nel mantenimento della documentazione relativa - Asume il ruolo di specialista funzionale / esperti su questioni specifiche Abacus e comprensione dei processi aziendali HR - Buona capacità di comunicazione ed ascolto - Sensibilità alla collaborazione e forza-vive - Sensibilità a all-innovazione e all-organizzazione - Proattività e sensori delle responsabilità - Lingua madere francese o tedesca con eccellenti conoscenze della seconda lingua e dell - An ambiente stimolante e diversificato con la possibilità di mise a frutto le conoscenze e l ́esperienza - Condizioni di lavoro aggiunto - Possibilità di formazione continua e perfezionamento - Tutti gli altri vantaggi per i nostri colaboratori-trici",
         "en": "Descrizione The Hospital of Valais is looking for a: Application Owner 100% Per il servizio Informatique, unità Administrative Applications IT ## Missioni - Assicurare l ́esercizio delle applizioni HR & Portale HR in collaborationazione con le diverse parti interessate - Assicurare l'integrazione delle applicazioneni nell-architettura SI, il ciclo di vita delle applicazioneni e vegliare al mantenimento della documentazione relativa - Asume il ruolo di specialista funzionale / esperto su questioni speciche e tecniche in relazione alle appliczioni giudicate critiche - Consigliare e proporre soluzioni in relazione a problemiche di integrazioni e/o interfaccimenti - Partecipare a progetti di miglioramento e integrazione di nuovi sistemi complessi - Collaborare strettamente con i servisi Salari e Data Management & Analytics - Guarantee the pianificazione e la realizzazione di nuove funzionalità - Organizzare, pianificare i test e le modiche di nuove versioni, coordinare le implementazione ## Profilo - Diploma in informationica o Bachelor in Computer Science o formazione giudicata equivalente - 3 to 5 anni di esperienza nel campo della gestione di appliczioni e sistemi complessi - Eccellenti conoscenze degli ERP e della loro struttura - Molte buone conoscenze dei software di ufficio e informatici - Conoscenza di ITIL v3, Atlassian Confluence - Conoscenza del prodotto Abacus e comprensione dei processi aziendali HR - Buona capacità di comunicazione ed ascolto - Sensitivity to alla collaborazione e forza-vive - Sensitivity to all-innovazione e all-organizzazione - Proattività e senso delle responsabilità - Lingua madere francese o tedesca con eccellenti conoscenze della seconda lingua e dell - An ambiente stimolante e diversificato con la possibilità di mise a frutto le proprie conoscenze e l ́esperienza - Condizioni di lavoro attraenti - Possibilità di formazione continua e perfezionamento - Tutti gli altri vantaggi per i nostri colaboratori-trici",
-        "de": "Descrizione Das Spital Wallis sucht eine/n: Application Owner 100% Per il servizio Informatique, unità Administratives Applications IT ## Missioni - Assicurare l 'esercizio delle applicazioni HR & Portale HR in collaborazione con le diverse parti interessate - Assicurare l' integrazione delle applicazioni nell 'architettura SI, il ciclo di vita delle applicazioni e vegliare al mantenimento della documentazione relativa - Assumere il ruolo di specialista funzionale /esperto su questioni specifiche e tecniche in relazione alle applicazioni giudicate critiche - Consigliare e proporre soluzioni in relazione a problematiche di integrazioni e/o interfacciamenti - Partcipare a progetti di miglioramento e integrazione di nuovi sistemi complessi - Collaborare strettamente con i servizi Salari e Data Management & Analytics - Garantie la pianificazione e la realizzazione di nuove funzionalità - Organizzare, pianificare i test e le modifiche di nuove versioni, coordinare le implementazioni ## Profilo - Diploma in informatica o formazione giudicata equivalente - 3 a 5 anni di esperienza nel campo della gestione di applicazioni e sistemi complessi - Eccellenti conoscenze degli ERP e della loro struttura - Molte buone conoscenze dei software di ufficio e informatici - Conoscenza di ITIL v3, Atlassian Confluence - Conoscenza del prodotto Abacus e comprensione dei processi aziendali HR - Buona capacità di comunicazione ed ascolto - Sensibilità"
+        "de": "Descrizione Das Spital Wallis sucht eine/n: Application Owner 100% Per il servizio Informatique, unità Administratives Applications IT ## Missioni - Assicurare l 'esercizio delle applicazioni HR & Portale HR in collaborazione con le diverse parti interessate - Assicurare l' integrazione delle applicazioni nell 'architettura SI, il ciclo di vita delle applicazioni e vegliare al mantenimento della documentazione relativa - Assumere il ruolo di specialista funzionale /esperto su questioni specifiche e tecniche in relazione alle applicazioni giudicate critiche - Consigliare e proporre soluzioni in relazione a problematiche di integrazioni e/o interfacciamenti - Partcipare a progetti di miglioramento e integrazione di nuovi sistemi complessi - Collaborare strettamente con i servizi Salari e Data Management & Analytics - Garantie la pianificazione e la realizzazione di nuove funzionalità - Organizzare, pianificare i test e le modifiche di nuove versioni, coordinare le implementazioni ## Profilo - Diploma in informatica o formazione giudicata equivalente - 3 a 5 anni di esperienza nel campo della gestione di applicazioni e sistemi complessi - Eccellenti conoscenze degli ERP e della loro struttura - Molte buone conoscenze dei software di ufficio e informatici - Conoscenza di ITIL v3, Atlassian Confluence - Conoscenza del prodotto Abacus e comprensione dei processi aziendali HR - Buona capacità di comunicazione ed ascolto - Sensibilità",
+        "fr": "L’Hôpital du Valais cherche un-e : Application Owner 100% Pour le service Informatique, unité Administratives Applications IT Acteur clé entre les métiers et l’IT, vous garantissez la performance et l’évolution de nos applications HR stratégiques. Vous aspirez à rejoindre une équipe motivée et dynamique ? Cette opportunité est peut-être pour vous, postulez sans attendre ! Mission: • Assurer l’exploitation des applications HR & Portail HR en collaboration avec les différentes parties prenantes ; • assurer l’intégration des applications dans l’architecture SI, le cycle de vie des applications et veiller au maintien de la documentation y relative ; • endosser le rôle de spécialiste fonctionnel / expert sur des questions spécifiques et techniques en lien avec les applications jugées critiques ; • conseiller et proposer des solutions en lien avec des problématiques d’intégrations et/ou d’interfaçages ; • participer à des projets d’amélioration et d’intégration de nouveaux systèmes complexes ; • collaborer étroitement avec les services Salaires et Data Management & Analytics ; • garantir la planification et la mise en œuvre de nouvelles fonctionnalités ; • organiser, planifier les tests et modifications de nouvelles versions, coordonner les mises en service. Profil: • Diplôme en informatique ou Bachelor en Computer Science ou formation jugée équivalente ; • 3 à 5 ans d'expérience dans le domaine de gestion d’applications et de systèmes complexes ; • excellentes connaissances des ERP et de leur structure ; • très bonnes connaissances des logiciels de bureautiques et informatiques ; • connaissance d'ITIL v3, Atlassian Confluence ; • connaissance du produit Abacus et compréhension des processus métier HR ; • bonne capacité de communication et d’écoute ; • sens de la collaboration marqué et force-vive ; • sens de l’innovation et de l’organisation ; • proactivité et sens des responsabilités ; • de langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue et de l’anglais. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "Sion",
       "canton": "VS",
@@ -2562,7 +2573,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ebb710f847d08710296bd1eb736d43ca/ATSANN0004614/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:23.288Z",
+      "crawledAt": "2026-04-29T10:54:50.123Z",
       "_hvsMeta": {
         "number": "ATSANN0004614",
         "sysId": "ebb710f847d08710296bd1eb736d43ca",
@@ -2570,6 +2581,19 @@
         "famille": "Informatique",
         "site": "SION"
       },
+      "firstSeenAt": "2026-04-28T22:02:23.288Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "application-owner-100-hopital-du-valais-sion"
+        ],
+        "de": [
+          "application-owner-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "application-owner-100-hopital-du-valais-sion"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2582,8 +2606,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-28T22:02:23.288Z"
+      }
     },
     {
       "id": "hopital-du-valais-51b02650c089",
@@ -2627,7 +2650,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/177b49b49718075012f9322f2153af44/ATSANN0004618/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:22.961Z",
+      "crawledAt": "2026-04-29T10:54:49.795Z",
       "_hvsMeta": {
         "number": "ATSANN0004618",
         "sysId": "177b49b49718075012f9322f2153af44",
@@ -2706,7 +2729,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c7f1cd749794075012f9322f2153af89/ATSANN0004617/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:22.640Z",
+      "crawledAt": "2026-04-29T10:54:49.472Z",
       "_hvsMeta": {
         "number": "ATSANN0004617",
         "sysId": "c7f1cd749794075012f9322f2153af89",
@@ -2785,7 +2808,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d57004ed975ccb5012f9322f2153afc0/ATSANN0004621/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:21.991Z",
+      "crawledAt": "2026-04-29T10:54:48.819Z",
       "_hvsMeta": {
         "number": "ATSANN0004621",
         "sysId": "d57004ed975ccb5012f9322f2153afc0",
@@ -2864,7 +2887,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/12d272159790c7901b87322f2153af70/ATSANN0004619/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:21.663Z",
+      "crawledAt": "2026-04-29T10:54:48.495Z",
       "_hvsMeta": {
         "number": "ATSANN0004619",
         "sysId": "12d272159790c7901b87322f2153af70",
@@ -2887,6 +2910,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T21:45:48.472Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2943,7 +2967,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/74b2d3a547984f90ff8065f8736d435d/ATSANN0004623/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:21.340Z",
+      "crawledAt": "2026-04-29T10:54:48.167Z",
       "_hvsMeta": {
         "number": "ATSANN0004623",
         "sysId": "74b2d3a547984f90ff8065f8736d435d",
@@ -3022,7 +3046,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c805fa947584f90ff8065f8736d43b2/ATSANN0004622/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:21.017Z",
+      "crawledAt": "2026-04-29T10:54:47.839Z",
       "_hvsMeta": {
         "number": "ATSANN0004622",
         "sysId": "3c805fa947584f90ff8065f8736d43b2",
@@ -3101,7 +3125,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7264d3e547d84f90ff8065f8736d4398/ATSANN0004624/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:20.694Z",
+      "crawledAt": "2026-04-29T10:54:47.515Z",
       "_hvsMeta": {
         "number": "ATSANN0004624",
         "sysId": "7264d3e547d84f90ff8065f8736d4398",
@@ -3160,8 +3184,8 @@
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine:\n\n Pflegefachperson 60-80%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Wertschätzung im täglichen Umgang mit Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
       "descriptionByLocale": {
         "it": "• Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato • Personale altamente qualificato",
-        "en": "• Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff • Highly qualified staff Attractive employment conditions",
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine:\n\n Pflegefachperson 60-80%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Wertschätzung im täglichen Umgang mit Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
+        "en": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine: Pflegefachperson 60-80% Mission: • Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern • Eigenverantwortung und aktives Mitdenken • Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess • Mitarbeit in Arbeits- und Projektgruppen • Begleitung und Unterstützung der Lernenden während der Ausbildung Profil: • Abgeschlossene Ausbildung in Pflege (FH, HF) • Wertschätzung im täglichen Umgang mit Patienten • Kommunikative, initiative und flexible Persönlichkeit • Speditive und exakte Arbeitsweise • Gute EDV-Kenntnisse Offre: • Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit • Unterstützung durch ein motiviertes und engagiertes Team • Möglichkeit zur Weiterbildung • Attraktive Anstellungsbedingungen",
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine: Pflegefachperson 60-80% Mission: • Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern • Eigenverantwortung und aktives Mitdenken • Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess • Mitarbeit in Arbeits- und Projektgruppen • Begleitung und Unterstützung der Lernenden während der Ausbildung Profil: • Abgeschlossene Ausbildung in Pflege (FH, HF) • Wertschätzung im täglichen Umgang mit Patienten • Kommunikative, initiative und flexible Persönlichkeit • Speditive und exakte Arbeitsweise • Gute EDV-Kenntnisse Offre: • Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit • Unterstützung durch ein motiviertes und engagiertes Team • Möglichkeit zur Weiterbildung • Attraktive Anstellungsbedingungen",
         "fr": "• Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié • Personnel hautement qualifié"
       },
       "location": "Brig",
@@ -3180,7 +3204,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c054fae47d407d0ff8065f8736d43b1/ATSANN0004625/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:20.369Z",
+      "crawledAt": "2026-04-29T10:54:47.189Z",
       "_hvsMeta": {
         "number": "ATSANN0004625",
         "sysId": "5c054fae47d407d0ff8065f8736d43b1",
@@ -3199,6 +3223,7 @@
           "pflegefachperson-60-80-rehabilitation-2-west-hopital-du-valais-brig"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-20T10:47:50.886Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3212,9 +3237,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-fef5619b1990",
@@ -3258,7 +3281,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4a5dc472979c879012f9322f2153af1c/ATSANN0004626/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:20.048Z",
+      "crawledAt": "2026-04-29T10:54:46.855Z",
       "_hvsMeta": {
         "number": "ATSANN0004626",
         "sysId": "4a5dc472979c879012f9322f2153af1c",
@@ -3281,6 +3304,7 @@
         ]
       },
       "firstSeenAt": "2026-04-21T10:13:38.034Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3337,7 +3361,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/88f5fffe97d84b9012f9322f2153af62/ATSANN0004627/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:19.720Z",
+      "crawledAt": "2026-04-29T10:54:46.530Z",
       "_hvsMeta": {
         "number": "ATSANN0004627",
         "sysId": "88f5fffe97d84b9012f9322f2153af62",
@@ -3419,7 +3443,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2d670ae747540390296bd1eb736d4339/ATSANN0004628/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:19.394Z",
+      "crawledAt": "2026-04-29T10:54:46.203Z",
       "_hvsMeta": {
         "number": "ATSANN0004628",
         "sysId": "2d670ae747540390296bd1eb736d4339",
@@ -3498,7 +3522,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ea57e7efc3540754a043be4c0501314a/ATSANN0004631/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:19.069Z",
+      "crawledAt": "2026-04-29T10:54:45.878Z",
       "_hvsMeta": {
         "number": "ATSANN0004631",
         "sysId": "ea57e7efc3540754a043be4c0501314a",
@@ -3577,7 +3601,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/028b2a6bc314c354a043be4c0501313d/ATSANN0004629/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:18.737Z",
+      "crawledAt": "2026-04-29T10:54:45.552Z",
       "_hvsMeta": {
         "number": "ATSANN0004629",
         "sysId": "028b2a6bc314c354a043be4c0501313d",
@@ -3656,7 +3680,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/afecf9ba837abe1017a39d20ceaad302/ATSANN0004521/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:18.413Z",
+      "crawledAt": "2026-04-29T10:54:45.228Z",
       "_hvsMeta": {
         "number": "ATSANN0004521",
         "sysId": "afecf9ba837abe1017a39d20ceaad302",
@@ -3735,7 +3759,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6bc188c197a807141b87322f2153af81/ATSANN0004633/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:18.089Z",
+      "crawledAt": "2026-04-29T10:54:44.899Z",
       "_hvsMeta": {
         "number": "ATSANN0004633",
         "sysId": "6bc188c197a807141b87322f2153af81",
@@ -3811,7 +3835,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0cbd33b8972807141b87322f2153aff4/ATSANN0004632/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:17.759Z",
+      "crawledAt": "2026-04-29T10:54:44.572Z",
       "_hvsMeta": {
         "number": "ATSANN0004632",
         "sysId": "0cbd33b8972807141b87322f2153aff4",
@@ -3893,7 +3917,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/76c6bc59c3a04b10a043be4c05013107/ATSANN0004641/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:17.434Z",
+      "crawledAt": "2026-04-29T10:54:44.245Z",
       "_hvsMeta": {
         "number": "ATSANN0004641",
         "sysId": "76c6bc59c3a04b10a043be4c05013107",
@@ -3934,9 +3958,9 @@
       "id": "hopital-du-valais-bedb3edb0e24",
       "slug": "gestore-ospite-50-70-hopital-du-valais-visp",
       "slugByLocale": {
-        "de": "guest-manager-50-70-hopital-du-valais-visp",
         "it": "gestore-ospite-50-70-hopital-du-valais-visp",
         "en": "guest-manager-50-70-hopital-du-valais-visp",
+        "de": "guest-manager-50-70-hopital-du-valais-visp",
         "fr": "gestionnaire-invite-50-70-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
@@ -3944,16 +3968,16 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Guest Manager 50%-70%",
       "titleByLocale": {
-        "de": "Gastleiter 50%-70%",
-        "en": "Guest Manager 50%-70%",
         "it": "Gestore ospite 50%-70%",
+        "en": "Guest Manager 50%-70%",
+        "de": "Guest Manager 50%-70%",
         "fr": "Gestionnaire invité 50%-70%"
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Abteilung Gastronomie, Bereich Patienten-Hotellerie, für die Implementierung einer Station der Inneren Medizin:\n\n Guest Manager 50%-70%\n\nMission:\n• Verantwortlich für die verschiedenen Hotellerie-Dienstleistungen auf den Bettenstationen\n\n• Verwöhnung der Patienten mit professionellen Mahlzeiten- und Getränkeservices (inkl. Bestellwesen)\n\n• Mithilfe beim Ein- und Austrittsprozess\n\n• Übernahme von hauswirtschaftlichen und administrativen Tätigkeiten sowie Botengänge\n\n• Zusammenarbeit im Nahtstellenbereich\n\n• Sie arbeiten von 7.00 bis 16.30 Uhr und gewöhnlich jedes zweite Wochenende sowie teilweise an Feiertagen\n\nProfil:\n• Motivierte und freundliche Persönlichkeit mit gepflegten Umgangsformen sowie hohem Dienstleistungsverständnis\n\n• Erfahrung im Bereich Gastronomie / Hotellerie\n\n• Kontaktfreudige, selbstständige und stressresistente Persönlichkeit\n\n• Deutschkenntnisse in Wort und Schrift\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Attraktive Anstellungs- und Arbeitsbedingungen\n\n• Vielseitige und interessante Gastronomie",
       "descriptionByLocale": {
-        "de": "Descrizione Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Abteilung Gastronomie, Bereich Patienten-Hotellerie, für die Implementierung einer Station der Inneren Medizin: Guest Manager 50%-70% ### Mission: - Verantwortlich für die verschiedenen Hotellerie-Dienstleistungen auf den Bettenstationen - Verwöhnung der Patienten mit professionellen Mahlzeiten- und Getränkeservices (inkl. Bestellwesen) - Mithilfe beim Ein- und Austrittsprozess - Übernahme von hauswirtschaftlichen und administrativen Tätigkeiten sowie Botengänge - Zusammenarbeit im Nahtstellenbereich - Sie arbeiten von 7.00 bis 16.30 Uhr und gewöhnlich jedes zweite Wochenende sowie teilweise an Feiertagen ### Profil: - Motivierte und freundliche Persönlichkeit mit gepflegten Umgangsformen sowie hohem Dienstleistungsverständnis - Erfahrung im Bereich Gastronomie / Hotellerie - Kontaktfreudige, selbstständige und stressresistente Persönlichkeit - Deutschkenntnisse in Wort und Schrift - Gute EDV-Kenntnisse ### Offre: - Attraktive Anstellungs- und Arbeitsbedingungen - Vielseitige und interessante Gastronomie",
         "it": "Descrizione Il Spital Wallis cerca il centro ospedaliero di Oberwallis nel dipartimento di gastronomia, area di commercio alberghiero paziente, per l'implementazione di una stazione di medicina interna: Guest Manager 50%-70% ## Mission: - Responsabile per i vari servizi di commercio alberghiero sui letti - coccole di pazienti con pasti professionali e servizi di bevande (compreso l'ordine) - assistenza nel processo di entrata e uscita",
         "en": "Descrizione The Spital Wallis searches for the hospital centre of Oberwallis in the department of gastronomy, area of patient hotel commerce, for the implementation of a station of internal medicine: Guest Manager 50%-70% ### Mission: - Responsible for the various hotel commerce services on the beds - pampering of patients with professional meals and beverage services (including ordering) - assistance in the process of entry and exit",
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Abteilung Gastronomie, Bereich Patienten-Hotellerie, für die Implementierung einer Station der Inneren Medizin: Guest Manager 50%-70% Mission: • Verantwortlich für die verschiedenen Hotellerie-Dienstleistungen auf den Bettenstationen • Verwöhnung der Patienten mit professionellen Mahlzeiten- und Getränkeservices (inkl. Bestellwesen) • Mithilfe beim Ein- und Austrittsprozess • Übernahme von hauswirtschaftlichen und administrativen Tätigkeiten sowie Botengänge • Zusammenarbeit im Nahtstellenbereich • Sie arbeiten von 7.00 bis 16.30 Uhr und gewöhnlich jedes zweite Wochenende sowie teilweise an Feiertagen Profil: • Motivierte und freundliche Persönlichkeit mit gepflegten Umgangsformen sowie hohem Dienstleistungsverständnis • Erfahrung im Bereich Gastronomie / Hotellerie • Kontaktfreudige, selbstständige und stressresistente Persönlichkeit • Deutschkenntnisse in Wort und Schrift • Gute EDV-Kenntnisse Offre: • Attraktive Anstellungs- und Arbeitsbedingungen • Vielseitige und interessante Gastronomie",
         "fr": "Descrizione Le Spital Wallis recherche le centre hospitalier d'Oberwallis dans le département de la gastronomie, domaine du commerce hôtelier patient, pour la mise en place d'une station de médecine interne: Guest Manager 50%-70% ### Mission: - Responsable des différents services de commerce hôtelier sur les lits - choyage des patients avec des services professionnels de repas et boissons (y compris la commande) - assistance en cours d'entrée et sortie"
       },
       "location": "Visp",
@@ -3972,7 +3996,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e7099891c3e40b10a043be4c050131e8/ATSANN0004637/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:17.108Z",
+      "crawledAt": "2026-04-29T10:54:43.920Z",
       "_hvsMeta": {
         "number": "ATSANN0004637",
         "sysId": "e7099891c3e40b10a043be4c050131e8",
@@ -3980,6 +4004,19 @@
         "famille": "Hôtellerie / Restauration",
         "site": "VISP"
       },
+      "previousSlugs": [
+        "guest-manager-50-70-hopital-du-valais-visp"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-manager-50-70-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "guest-manager-50-70-hopital-du-valais-visp"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-28T22:02:17.108Z",
       "salaryMin": 72000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -3992,21 +4029,7 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-28T22:02:17.108Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "guest-manager-50-70-hopital-du-valais-visp"
-        ],
-        "fr": [
-          "guest-manager-50-70-hopital-du-valais-visp"
-        ]
-      },
-      "previousSlugs": [
-        "guest-manager-50-70-hopital-du-valais-visp"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-4d6e8ba507e8",
@@ -4032,7 +4055,7 @@
         "it": "Descrizione, il primo datore di lavoro del cantone, ha 6.260 dipendenti. Ogni anno vengono trattati 418.800 pazienti e sono previste circa 670.300 visite ambulatoriale. L'Ospedale Vallese è alla ricerca di un 50% di segretariato medico per il Centro di Memoria presso la Clinica St-Amé a St-Maurice e l'Ospedale Sierre ## Mission - Accoglienza, informazione e guida dei pazienti - Gestire le consultazioni mediche - Seguire i registri medici - Digitare i vari documenti medici - Assicurare il corretto funzionamento della consultazione a livello amministrativo ## Profilo - SWC di dipendente commerciale (o formazione ritenuto equivalente), o diploma ## Offer - Un ambiente stimolante e diversificato con la possibilità di utilizzare la vostra conoscenza e la vostra esperienza - Condizioni di lavoro attraenti - Opportunità per ulteriori formazione e formazione - Trova qui tutti i vantaggi per i nostri dipendenti",
         "en": "Descrizione, the canton's first employer, has 6,260 employees. Each year, 418,800 patients are treated and nearly 670,300 outpatient visits are provided. The Valais Hospital is looking for a 50% medical secretary for the Memory Center Secretariat at the St-Amé Clinic in St-Maurice and the Sierre Hospital ## Mission - Welcoming, informing and guiding patients - Manage medical consultations - Follow up medical records - Type the various medical documents - Ensure the proper functioning of the consultation at administrative level ## Profile - SWC of commercial employee (or training deemed equivalent), or diploma of medical secretary or medical assistant - 3 years experience in the field - Sense of welcome and ease in contact with patients - Organizational sense and initiative - Ability to manage priorities and unforeseen events - Ability to work as a team while being autonomous - Good stress management - Flexibility and versatility - Discretion and respect for medical secrecy - Professional rigor and conscience - Meaning of interdisciplinary collaboration - Computer mastery (office) - Mastery of French Only full offers and applications will be processed. ## Offer - A stimulating and diverse environment with the possibility to use your knowledge and experience - Attractive employment conditions - Opportunities for further training and further training - Find here all the advantages for our employees",
         "de": "Beschreibung, der erste Arbeitgeber des Kantons, hat 6.260 Mitarbeiter. Jedes Jahr werden 418.800 Patienten behandelt und fast 670.300 ambulante Besuche angeboten. Das Wallis-Krankenhaus sucht eine 50% medizinische Sekretärin für das Memory Center-Sekretariat in der St-Amé-Klinik in St-Maurice und das Sierre-Krankenhaus - Welcoming, informieren und leiten Patienten - Verwalten medizinische Beratung - Geben Sie die verschiedenen medizinischen Dokumente - Stellen Sie sicher, das ordnungsgemäße Funktionieren der Beratung auf administrativer Ebene Angebot - Eine anregende und vielfältige Umgebung mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen - Attraktive Beschäftigungsbedingungen - Möglichkeiten für Weiterbildung und Weiterbildung - Finden Sie hier alle Vorteile für unsere Mitarbeiter",
-        "fr": "## Descrizione\n1er employeur du canton, l’Hôpital du Valais compte 6'260 collaboratrices. Chaque année, 41’800 patientes sont prises en charge et près de 670'300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nSecrétaire médicale à 50 % pour le Secrétariat de consultations du centre de la mémoire\nà la clinique St-Amé à St-Maurice et à l’Hôpital de Sierre\n\n## Mission\n- Accueillir, informer et orienter les patients\n- Gérer les consultations médicales\n- Effectuer le suivi des dossiers médicaux\n- Dactylographier les différents documents médicaux\n- Assurer le bon fonctionnement de la consultation au niveau administratif\n\n## Profil\n- CFC d’employé de commerce (ou formation jugée équivalente), ou diplôme de secrétaire médicale ou d’assistante médicale\n- Expérience de 3 ans dans le domaine\n- Sens de l’accueil et aisance dans le contact avec les patients\n- Sens de l’organisation et esprit d’initiative\n- Capacité à gérer les priorités et les imprévus\n- Capacité à travailler en équipe tout en étant autonome\n- Bonne gestion du stress\n- Flexibilité et polyvalence\n- Discrétion et respect du secret médical\n- Rigueur et conscience professionnelles\n- Sens de la collaboration interdisciplinaire\n- Maîtrise de l’informatique (bureautique)\n- Maîtrise du français\n\nSeules les offres et les dossiers de candidatures complets répondant au profil seront traités.\n\n## Offre\n- Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience\n- Des conditions d’emploi attrayantes\n- Des possibilités de formation continue et de perfectionnement\n- Retrouvez ici tous les avantages pour nos collaboratrices"
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670'300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Secrétaire médical-e à 50 % pour le Secrétariat de consultations du centre de la mémoire à la clinique St-Amé à St-Maurice et à l’Hôpital de Sierre Mission: • Accueillir, informer et orienter les patients. • Gérer les consultations médicales • Effectuer le suivi des dossiers médicaux. • Dactylographier les différents documents médicaux. • Assurer le bon fonctionnement de la consultation au niveau administratif. Profil: • CFC d’employé de commerce (ou formation jugée équivalente), ou diplôme de secrétaire médicale ou d’assistante médicale • Expérience de 3 ans dans le domaine • Sens de l’accueil et aisance dans le contact avec les patients • Sens de l’organisation et esprit d’initiative • Capacité à gérer les priorités et les imprévus • Capacité à travailler en équipe tout en étant autonome • Bonne gestion du stress • Flexibilité et polyvalence • Discrétion et respect du secret médical • Rigueur et conscience professionnelles • Sens de la collaboration interdisciplinaire • Maîtrise de l’informatique (bureautique) • Maîtrise du français Seules les offres et les dossiers de candidatures complets répondant au profil seront traitées. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "St-maurice",
       "canton": "VS",
@@ -4050,7 +4073,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9de4b411c3a04b10a043be4c05013191/ATSANN0004640/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T22:02:16.779Z",
+      "crawledAt": "2026-04-29T10:54:43.594Z",
       "_hvsMeta": {
         "number": "ATSANN0004640",
         "sysId": "9de4b411c3a04b10a043be4c05013191",
@@ -4072,6 +4095,7 @@
           "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-28T11:03:21.611Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4085,9 +4109,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "hopital-du-valais-598720b7d8ca",
@@ -4131,7 +4153,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2ff90c91c3e8c710a043be4c05013155/ATSANN0004636/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T22:02:16.451Z",
+      "crawledAt": "2026-04-29T10:54:43.264Z",
       "_hvsMeta": {
         "number": "ATSANN0004636",
         "sysId": "2ff90c91c3e8c710a043be4c05013155",
@@ -4154,6 +4176,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T11:03:22.014Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
