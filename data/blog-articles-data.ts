@@ -9800,4 +9800,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-cashless-bns-sistema-equo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'avs-dati-digitale-frontalieri',
+ category: 'novita',
+ date: '2026-04-29T08:25:36.342Z',
+ image: '/images/blog/avs-dati-digitale-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

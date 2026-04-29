@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1305,
+ "numberOfItems": 1306,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5940,7 +5940,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1302, "name": "Elogio dei Verdi a Rapinese: così si curano gli...", "url": `${BASE_URL}/articoli-frontaliere/como-verdi-elogio-rapinese-alberi` },
           { "@type": "ListItem", "position": 1303, "name": "Petrolio e gas in Svizzera, approvvigionamento ...", "url": `${BASE_URL}/articoli-frontaliere/petrolio-gas-svizzera-approvvigionamento-sicuro` },
           { "@type": "ListItem", "position": 1304, "name": "Von der Leyen: \"Guerra in Iran costa all'Ue 500...", "url": `${BASE_URL}/articoli-frontaliere/von-der-leyen-ue-energia-500-milioni-giorno` },
-          { "@type": "ListItem", "position": 1305, "name": "Svizzera sempre più cashless, BNS vuole sistema...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-cashless-bns-sistema-equo` }
+          { "@type": "ListItem", "position": 1305, "name": "Svizzera sempre più cashless, BNS vuole sistema...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-cashless-bns-sistema-equo` },
+          { "@type": "ListItem", "position": 1306, "name": "AVS/AI: dati consultabili in digitale dal 2028 ...", "url": `${BASE_URL}/articoli-frontaliere/avs-dati-digitale-frontalieri` }
  ]
  },
  {

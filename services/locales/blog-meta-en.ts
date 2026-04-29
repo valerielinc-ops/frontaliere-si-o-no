@@ -3766,6 +3766,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-cashless-bns-sistema-equo.title': 'Switzerland increasingly cashless, SNB seeks fairer system',
     'blog.article.svizzera-cashless-bns-sistema-equo.excerpt': 'Cash payments drop to 30% of transactions, payment apps reach 20%. The SNB warns about concentration risks.',
     'blog.article.svizzera-cashless-bns-sistema-equo.imageAlt': 'A bustling street in Lugano with people using digital payment methods, set against the backdrop of Lake Lugano and the surrounding mountains.',
+    'blog.article.avs-dati-digitale-frontalieri.title': 'AHV/IV: digital data available from 2028',
+    'blog.article.avs-dati-digitale-frontalieri.excerpt': 'The National Council has approved the new law on information systems for social insurances. Savings of 35 million francs',
+    'blog.article.avs-dati-digitale-frontalieri.imageAlt': 'Digital AVS platform with insurance data and Ticino landscape',
 };
 
 export default blogMetaEn;

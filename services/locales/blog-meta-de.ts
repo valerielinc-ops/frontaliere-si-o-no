@@ -3766,6 +3766,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-cashless-bns-sistema-equo.title': 'Schweiz wird immer bargeldloser, SNB will faireres System',
     'blog.article.svizzera-cashless-bns-sistema-equo.excerpt': 'Bargeld macht nur noch 30% der Transaktionen aus, Zahlungs-Apps erreichen 20%. Die SNB warnt vor Konzentrationsrisiken.',
     'blog.article.svizzera-cashless-bns-sistema-equo.imageAlt': 'Eine belebte Straße in Lugano mit Menschen, die digitale Zahlungsmethoden nutzen, vor der Kulisse des Luganer Sees und der umliegenden Berge.',
+    'blog.article.avs-dati-digitale-frontalieri.title': 'AHV/IV: Daten digital ab 2028 abrufbar',
+    'blog.article.avs-dati-digitale-frontalieri.excerpt': 'Der Nationalrat hat der neuen Gesetzgebung zu den Informationssystemen der Sozialversicherungen zugestimmt. Einsparungen von 35 Millionen Franken',
+    'blog.article.avs-dati-digitale-frontalieri.imageAlt': 'Digitale AVS-Plattform mit Versicherungsdaten und Tessin-Landschaft',
 };
 
 export default blogMetaDe;

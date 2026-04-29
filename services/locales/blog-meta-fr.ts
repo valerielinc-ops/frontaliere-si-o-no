@@ -3767,6 +3767,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-cashless-bns-sistema-equo.title': 'Suisse de plus en plus sans cash, BNS veut un système plus équitable',
     'blog.article.svizzera-cashless-bns-sistema-equo.excerpt': 'Le cash représente désormais 30% des transactions, les applications de paiement atteignent 20%. La BNS alerte sur les risques de concentration.',
     'blog.article.svizzera-cashless-bns-sistema-equo.imageAlt': 'Une rue animée à Lugano avec des personnes utilisant des méthodes de paiement numériques, sur fond de lac de Lugano et des montagnes environnantes.',
+    'blog.article.avs-dati-digitale-frontalieri.title': 'AVS/AI: données consultables en ligne dès 2028',
+    'blog.article.avs-dati-digitale-frontalieri.excerpt': 'Feu vert du Conseil national à la nouvelle loi sur les systèmes d\'information des assurances sociales. Économies de 35 millions de francs',
+    'blog.article.avs-dati-digitale-frontalieri.imageAlt': 'Plateforme numérique AVS avec données d\'assurance et paysage tessinois',
 };
 
 export default blogMetaFr;

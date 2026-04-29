@@ -3767,6 +3767,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-cashless-bns-sistema-equo.title': 'Svizzera sempre più cashless, BNS vuole sistema più equo',
     'blog.article.svizzera-cashless-bns-sistema-equo.excerpt': 'Il contante scende al 30% delle transazioni, le app di pagamento raggiungono il 20%. La BNS avverte sui rischi di concentrazione.',
     'blog.article.svizzera-cashless-bns-sistema-equo.imageAlt': 'Una strada affollata a Lugano con persone che utilizzano metodi di pagamento digitali, sullo sfondo del Lago di Lugano e delle montagne circostanti.',
+    'blog.article.avs-dati-digitale-frontalieri.title': 'AVS/AI: dati consultabili in digitale dal 2028',
+    'blog.article.avs-dati-digitale-frontalieri.excerpt': 'Via libera del Consiglio nazionale alla nuova legge sui sistemi d\'informazione delle assicurazioni sociali. Risparmi di 35 milioni di franchi',
+    'blog.article.avs-dati-digitale-frontalieri.imageAlt': 'Piattaforma digitale AVS con dati assicurativi e paesaggio ticinese',
 };
 
 export default blogMetaIt;

@@ -23384,6 +23384,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-dati-digitale-frontalieri': {
+    title: 'AVS/AI: dati consultabili in digitale dal 2028 | Frontaliere Ticino',
+    description: 'Via libera del Consiglio nazionale alla nuova legge sui sistemi d\'informazione delle assicurazioni sociali. Risparmi di 35 milioni di franchi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, dati, consultabili, digitale, 2028',
+    ogTitle: 'AVS/AI: dati consultabili in digitale dal 2028',
+    ogDescription: 'Via libera del Consiglio nazionale alla nuova legge sui sistemi d\'informazione delle assicurazioni sociali. Risparmi di 35 milioni di franchi',
+    canonicalPath: '/articoli-frontaliere/avs-dati-digitale-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS/AI: dati consultabili in digitale dal 2028 | Frontaliere Ticino",
+      "description": "Via libera del Consiglio nazionale alla nuova legge sui sistemi d'informazione delle assicurazioni sociali. Risparmi di 35 milioni di franchi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/avs-dati-digitale-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piattaforma digitale AVS con dati assicurativi e paesaggio ticinese"
+      },
+      "datePublished": "2026-04-29T08:25:36+00:00",
+      "dateModified": "2026-04-29T08:25:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-dati-digitale-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
