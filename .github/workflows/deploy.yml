@@ -213,15 +213,11 @@ jobs:
           # are accurate (parallel execution otherwise overlaps timings).
           # Slower than normal — use only for one-off investigations.
           SEQUENTIAL_PROFILE: ${{ github.event.inputs.profile_sequential == 'true' && '1' || '' }}
-          # Tactical rollback (2026-04-29): post-walk-coordinator worker pool
-          # crashes under tsx 4.x `--import` mode because extension-less TS
-          # imports inside worker dynamic imports cannot resolve
-          # (ERR_MODULE_NOT_FOUND on './blogContextualLinksData' from
-          # blogContextualLinksPlugin.ts). Force single-threaded path until
-          # tsx 4.x worker resolution is fixed properly. Trade-off: ~85s
-          # extra build wall (~120s vs ~35s) — acceptable until the underlying
-          # extension-resolution regression is addressed.
-          POST_WALK_WORKERS: '1'
+          # POST_WALK_WORKERS rollback removed (commit 4b412bc8a + 36dfd0e9c
+          # added explicit `.ts` extensions to the two extension-less local
+          # imports the worker tree pulled in — `./blogContextualLinksData`
+          # and `./shared/hreflangGuard`). Workers now resolve cleanly under
+          # tsx 4.x `--import`. Default = max(availableParallelism, cpus.length).
         shell: bash
         run: |
           set -o pipefail
