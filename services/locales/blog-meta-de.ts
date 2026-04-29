@@ -3685,6 +3685,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-corsi-net-opportunita-rete-sinergie-2026.title': 'Varese Corsi Net: Netzwerken und Synergien entwickeln',
     'blog.article.varese-corsi-net-opportunita-rete-sinergie-2026.excerpt': 'Ein geselliges Treffen in Castronno, um Verbindungen zu knüpfen und Ideen mit dem Netzwerk Varese Corsi zu teilen.',
     'blog.article.varese-corsi-net-opportunita-rete-sinergie-2026.imageAlt': 'Ein Networking-Event in einem gemütlichen, modernen Raum in der Schweiz mit Fachleuten, die diskutieren und Ideen austauschen.',
+    'blog.article.centri-responsabilita-frontalieri-ticino.title': 'Verantwortungszentren: Das Leiden der Asylsuchenden',
+    'blog.article.centri-responsabilita-frontalieri-ticino.excerpt': 'Analyse der Bedingungen in den Bundesasylzentren im Tessin und die politischen Entscheidungen hinter der Migrationspolitik.',
+    'blog.article.centri-responsabilita-frontalieri-ticino.imageAlt': 'Luganersee mit Blick auf Gebäude und Küste',
 };
 
 export default blogMetaDe;

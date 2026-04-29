@@ -22601,6 +22601,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centri-responsabilita-frontalieri-ticino': {
+    title: 'Centri di responsabilità: la sofferenza dei richiedenti asilo',
+    description: 'Analisi delle condizioni nei centri federali d\'asilo in Ticino e le scelte politiche dietro la gestione delle politiche migratorie. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, centri, responsabilità, sofferenza, richiedenti',
+    ogTitle: 'Centri di responsabilità: la sofferenza dei richiedenti asilo',
+    ogDescription: 'Analisi delle condizioni nei centri federali d\'asilo in Ticino e le scelte politiche dietro la gestione delle politiche migratorie.',
+    canonicalPath: '/articoli-frontaliere/centri-responsabilita-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Centri di responsabilità: la sofferenza dei richiedenti asilo",
+      "description": "Analisi delle condizioni nei centri federali d'asilo in Ticino e le scelte politiche dietro la gestione delle politiche migratorie. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/centri-responsabilita-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista su edifici e costa"
+      },
+      "datePublished": "2026-04-29T04:08:18+00:00",
+      "dateModified": "2026-04-29T04:08:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centri-responsabilita-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

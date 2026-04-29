@@ -2459,6 +2459,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-sentono-criminali': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-ticino-sentono-criminali', parent: 'blog' },
     'blog-esubero-leventina-zone-edificabili-2026': { name: 'Novità', path: '/articoli-frontaliere/esubero-leventina-zone-edificabili-2026', parent: 'blog' },
     'blog-varese-corsi-net-opportunita-rete-sinergie-2026': { name: 'Varese Corsi Net', path: '/articoli-frontaliere/varese-corsi-net-opportunita-rete-sinergie-2026', parent: 'blog' },
+    'blog-centri-responsabilita-frontalieri-ticino': { name: 'Novità', path: '/articoli-frontaliere/centri-responsabilita-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -9611,4 +9611,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-corsi-net-opportunita-rete-sinergie-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'centri-responsabilita-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-04-29T04:08:18.131Z',
+ image: '/images/blog/centri-responsabilita-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
