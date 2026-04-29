@@ -3893,6 +3893,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.swiss-duty-free-cambia-vendite-2026.title': 'Swiss: fin des ventes duty-free à bord des avions',
     'blog.article.swiss-duty-free-cambia-vendite-2026.excerpt': 'À partir de fin septembre 2026, Swiss met fin à la vente de produits duty-free à bord. L\'offre est déplacée en ligne.',
     'blog.article.swiss-duty-free-cambia-vendite-2026.imageAlt': 'Vue aérienne du lac de Lugano avec drapeau suisse et enseigne de shopping duty-free',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.title': 'Tutor Sapiens : outils pour l\'apprentissage de niveau tertiaire',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.excerpt': 'La Chambre de Commerce et la Province de Varèse présentent les résultats du parcours de formation Tutor Sapiens pour favoriser l\'insertion des jeunes talents.',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.imageAlt': 'Un atelier moderne à Lugano, Suisse, avec des professionnels discutant de documents et utilisant des outils numériques.',
 };
 
 export default blogMetaFr;

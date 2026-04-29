@@ -3892,6 +3892,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-duty-free-cambia-vendite-2026.title': 'Swiss to end in-flight duty-free sales',
     'blog.article.swiss-duty-free-cambia-vendite-2026.excerpt': 'From late September 2026, Swiss will stop selling duty-free products on board. The offer will move online.',
     'blog.article.swiss-duty-free-cambia-vendite-2026.imageAlt': 'Aerial view of Lake Lugano with Swiss flag and duty-free shopping sign',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.title': 'Tutor Sapiens: tools for third-level apprenticeships',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.excerpt': 'Chamber of Commerce and Province of Varese present the results of the Tutor Sapiens training path to promote the integration of young talents.',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.imageAlt': 'A modern workshop in Lugano, Switzerland, with professionals discussing documents and using digital tools.',
 };
 
 export default blogMetaEn;

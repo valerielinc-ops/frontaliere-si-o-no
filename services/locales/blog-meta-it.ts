@@ -3893,6 +3893,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-duty-free-cambia-vendite-2026.title': 'Swiss: stop vendita duty-free a bordo aerei',
     'blog.article.swiss-duty-free-cambia-vendite-2026.excerpt': 'Da fine settembre 2026 Swiss interrompe la vendita di prodotti duty-free a bordo. Offerta spostata online.',
     'blog.article.swiss-duty-free-cambia-vendite-2026.imageAlt': 'Vista aerea del Lago di Lugano con bandiera svizzera e insegna shopping duty-free',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.title': 'Tutor Sapiens: strumenti per l’apprendistato di terzo livello',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.excerpt': 'Camera di Commercio e Provincia di Varese presentano i risultati del percorso formativo Tutor Sapiens per favorire l’inserimento dei giovani talenti.',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.imageAlt': 'Un workshop moderno a Lugano, Svizzera, con professionisti che discutono documenti e utilizzano strumenti digitali.',
 };
 
 export default blogMetaIt;

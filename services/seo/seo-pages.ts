@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1347,
+ "numberOfItems": 1348,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5982,7 +5982,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1344, "name": "28 nuove guardie svizzere giureranno al Vaticano", "url": `${BASE_URL}/articoli-frontaliere/guardie-svizzere-giuramento-vaticano-2026` },
           { "@type": "ListItem", "position": 1345, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/apprendistato-varese-2-7-ingressi-lavoro` },
           { "@type": "ListItem", "position": 1346, "name": "Casa dell'Hockey: novità e aggiornamenti dal mo...", "url": `${BASE_URL}/articoli-frontaliere/casa-hockey-lugano-ambri-2026` },
-          { "@type": "ListItem", "position": 1347, "name": "Swiss: stop vendita duty-free a bordo aerei", "url": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-cambia-vendite-2026` }
+          { "@type": "ListItem", "position": 1347, "name": "Swiss: stop vendita duty-free a bordo aerei", "url": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-cambia-vendite-2026` },
+          { "@type": "ListItem", "position": 1348, "name": "Tutor Sapiens: strumenti per l’apprendistato di...", "url": `${BASE_URL}/articoli-frontaliere/tutor-sapiens-apprendistato-terzo-livello` }
  ]
  },
  {

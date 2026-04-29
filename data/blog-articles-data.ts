@@ -10094,4 +10094,11 @@ export const ARTICLES = [
  image: '/images/blog/swiss-duty-free-cambia-vendite-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tutor-sapiens-apprendistato-terzo-livello',
+ category: 'novita',
+ date: '2026-04-29T12:37:43.307Z',
+ image: '/images/blog/tutor-sapiens-apprendistato-terzo-livello.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

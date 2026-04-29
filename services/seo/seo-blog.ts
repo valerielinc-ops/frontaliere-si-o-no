@@ -24602,6 +24602,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tutor-sapiens-apprendistato-terzo-livello': {
+    title: 'Tutor Sapiens: strumenti per l’apprendistato di terzo livello',
+    description: 'Camera di Commercio e Provincia di Varese presentano i risultati del percorso formativo Tutor Sapiens per favorire l’inserimento dei giovani talenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tutor, sapiens, strumenti, apprendistato',
+    ogTitle: 'Tutor Sapiens: strumenti per l’apprendistato di terzo livello',
+    ogDescription: 'Camera di Commercio e Provincia di Varese presentano i risultati del percorso formativo Tutor Sapiens per favorire l’inserimento dei giovani talenti.',
+    canonicalPath: '/articoli-frontaliere/tutor-sapiens-apprendistato-terzo-livello',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tutor Sapiens: strumenti per l’apprendistato di terzo livello",
+      "description": "Camera di Commercio e Provincia di Varese presentano i risultati del percorso formativo Tutor Sapiens per favorire l’inserimento dei giovani talenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tutor-sapiens-apprendistato-terzo-livello.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un workshop moderno a Lugano, Svizzera, con professionisti che discutono documenti e utilizzano strumenti digitali."
+      },
+      "datePublished": "2026-04-29T12:37:43+00:00",
+      "dateModified": "2026-04-29T12:37:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tutor-sapiens-apprendistato-terzo-livello`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

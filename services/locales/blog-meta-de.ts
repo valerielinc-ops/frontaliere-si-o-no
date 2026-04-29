@@ -3892,6 +3892,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.swiss-duty-free-cambia-vendite-2026.title': 'Swiss: Verkauf von Duty-Free an Bord wird eingestellt',
     'blog.article.swiss-duty-free-cambia-vendite-2026.excerpt': 'Ab Ende September 2026 stellt Swiss den Verkauf von Duty-Free-Produkten an Bord ein. Das Angebot wird online verlagert.',
     'blog.article.swiss-duty-free-cambia-vendite-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Schweizer Flagge und Duty-Free-Einkaufsschild',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.title': 'Tutor Sapiens: Werkzeuge für die dritte Berufsausbildung',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.excerpt': 'Handelskammer und Provinz Varese präsentieren die Ergebnisse des Ausbildungswegs Tutor Sapiens zur Förderung der Integration junger Talente.',
+    'blog.article.tutor-sapiens-apprendistato-terzo-livello.imageAlt': 'Ein modernes Workshop in Lugano, Schweiz, mit Fachleuten, die Dokumente besprechen und digitale Tools nutzen.',
 };
 
 export default blogMetaDe;

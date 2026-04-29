@@ -2528,6 +2528,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-apprendistato-varese-2-7-ingressi-lavoro': { name: 'Apprendistato Varese', path: '/articoli-frontaliere/apprendistato-varese-2-7-ingressi-lavoro', parent: 'blog' },
     'blog-casa-hockey-lugano-ambri-2026': { name: 'Novità Hockey', path: '/articoli-frontaliere/casa-hockey-lugano-ambri-2026', parent: 'blog' },
     'blog-swiss-duty-free-cambia-vendite-2026': { name: 'Novità', path: '/articoli-frontaliere/swiss-duty-free-cambia-vendite-2026', parent: 'blog' },
+    'blog-tutor-sapiens-apprendistato-terzo-livello': { name: 'Novità', path: '/articoli-frontaliere/tutor-sapiens-apprendistato-terzo-livello', parent: 'blog' },
  };
 
  const info = sectionNames[section];
