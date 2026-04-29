@@ -1,59 +1,19 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-04-28T22:03:02.222Z",
+  "generatedAt": "2026-04-29T10:55:10.806Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 2,
-  "durationMs": 12831,
-  "avgDurationMs": 12831,
+  "updatedCount": 2,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 12437,
+  "avgDurationMs": 12437,
   "durationHistory": [
-    12831
+    12437
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Consulente tecnico interno di vendita (m/f/d)",
-      "slug": "consulente-tecnico-interno-di-vendita-m-f-d-hoval-mezzovico",
-      "url": "https://www.hoval.it/it_IT/job/3741",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3741/Application/New/4?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Mezzovico",
-      "addressLocality": "Mezzovico",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Amministrazione",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
-      "id": "hoval-72a73da64922",
-      "firstSeenAt": "2026-04-13T21:52:29.364Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -72,7 +32,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-28",
+      "postedDate": "2026-04-29",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -109,7 +69,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-28",
+      "postedDate": "2026-04-29",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -128,5 +88,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
