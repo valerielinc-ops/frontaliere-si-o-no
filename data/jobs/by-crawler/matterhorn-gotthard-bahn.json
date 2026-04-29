@@ -211,10 +211,10 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-2dd686606581",
-      "slug": "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c",
+      "slug": "co-team-leader-locomotive-personnel-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-andermatt",
       "slugByLocale": {
         "de": "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c",
-        "it": "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c",
+        "it": "co-team-leader-locomotive-personnel-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-andermatt",
         "en": "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c",
         "fr": "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c"
       },
@@ -289,16 +289,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-29T11:08:58.251Z"
+      "firstSeenAt": "2026-04-29T11:08:58.251Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c"
+        ]
+      },
+      "previousSlugs": [
+        "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-cd4fda75df4c",
-      "slug": "collaboratore-trice-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-zermatt",
+      "slug": "impiegato-servizio-clienti-m-w-d-matterhorn-gotthard-bahn-zermatt",
       "slugByLocale": {
         "de": "mitarbeiter-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "collaboratore-trice-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-zermatt",
-        "en": "mitarbeiter-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "mitarbeiter-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "impiegato-servizio-clienti-m-w-d-matterhorn-gotthard-bahn-zermatt",
+        "en": "customer-service-employee-m-w-d-matterhorn-gotthard-bahn-zermatt",
+        "fr": "employe-service-client-m-w-d-matterhorn-gotthard-bahn-zermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -361,11 +369,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-ch",
+          "collaboratore-trice-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-zermatt"
+        ],
+        "en": [
+          "mitarbeiter-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "mitarbeiter-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-ch"
+        "mitarbeiter-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-ch",
+        "collaboratore-trice-kundenlenkung-m-w-d-matterhorn-gotthard-bahn-zermatt"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

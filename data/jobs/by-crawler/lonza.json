@@ -2338,12 +2338,12 @@
     },
     {
       "id": "lonza-9c6a8ec2e132",
-      "slug": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch",
+      "slug": "ingegnere-per-l-automazione-e-i-sistemi-di-controllo-80-100-lonza-ch",
       "slugByLocale": {
         "de": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch",
-        "it": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch",
+        "it": "ingegnere-per-l-automazione-e-i-sistemi-di-controllo-80-100-lonza-ch",
         "en": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch",
-        "fr": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch"
+        "fr": "ingenieur-en-automatisation-et-systemes-de-controle-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2397,7 +2397,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-29T11:06:27.987Z"
+      "firstSeenAt": "2026-04-29T11:06:27.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-control-systems-engineer-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "automation-control-systems-engineer-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automation-control-systems-engineer-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-3e53489abc68",
@@ -2604,12 +2615,12 @@
     },
     {
       "id": "lonza-fe15e68a52c1",
-      "slug": "energiemanager-80-100-m-w-d-lonza-ch",
+      "slug": "gestore-energetico-80-100-lonza-ch",
       "slugByLocale": {
         "de": "energiemanager-80-100-m-w-d-lonza-ch",
-        "it": "energiemanager-80-100-m-w-d-lonza-ch",
-        "en": "energiemanager-80-100-m-w-d-lonza-ch",
-        "fr": "energiemanager-80-100-m-w-d-lonza-ch"
+        "it": "gestore-energetico-80-100-lonza-ch",
+        "en": "energy-manager-80-100-lonza-ch",
+        "fr": "responsable-energie-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2663,16 +2674,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-29T11:06:24.763Z"
+      "firstSeenAt": "2026-04-29T11:06:24.763Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "energiemanager-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "energiemanager-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "energiemanager-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "energiemanager-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-a4a42d4bf527",
-      "slug": "senior-qa-expert-manufacturing-oversight-80-100-excellent-opportunity-to-foster-qa-experie",
+      "slug": "senior-esperto-qa-sorveglianza-produzione-80-100-eccellente-opportunita-per-sviluppare-esperienza-qa-lonza-ch",
       "slugByLocale": {
         "en": "senior-qa-expert-manufacturing-oversight-80-100-excellent-opportunity-to-foster-qa-experience-lonza-ch",
-        "it": "senior-qa-expert-manufacturing-oversight-80-100-excellent-opportunity-to-foster-qa-experie",
-        "de": "senior-qa-expert-manufacturing-oversight-80-100-excellent-opportunity-to-foster-qa-experie",
-        "fr": "senior-qa-expert-manufacturing-oversight-80-100-excellent-opportunity-to-foster-qa-experie"
+        "it": "senior-esperto-qa-sorveglianza-produzione-80-100-eccellente-opportunita-per-sviluppare-esperienza-qa-lonza-ch",
+        "de": "senior-qa-experte-fur-fertigungsuberwachung-80-100-tolle-chance-qa-erfahrung-zu-fordern-lonza-ch",
+        "fr": "senior-expert-qa-surveillance-de-la-production-80-100-excellente-opportunite-de-developper-l-experience-qa-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2726,7 +2751,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-29T11:06:23.967Z"
+      "firstSeenAt": "2026-04-29T11:06:23.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-qa-expert-manufacturing-oversight-80-100-excellent-opportunity-to-foster-qa-experie"
+        ],
+        "de": [
+          "senior-qa-expert-manufacturing-oversight-80-100-excellent-opportunity-to-foster-qa-experie"
+        ],
+        "fr": [
+          "senior-qa-expert-manufacturing-oversight-80-100-excellent-opportunity-to-foster-qa-experie"
+        ]
+      },
+      "previousSlugs": [
+        "senior-qa-expert-manufacturing-oversight-80-100-excellent-opportunity-to-foster-qa-experie"
+      ]
     }
   ]
 }

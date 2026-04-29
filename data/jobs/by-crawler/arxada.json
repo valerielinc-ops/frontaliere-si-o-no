@@ -1637,12 +1637,12 @@
     },
     {
       "id": "arxada-e2d77915cd15",
-      "slug": "import-logistics-specialist-arxada-ch",
+      "slug": "importazione-specialista-arxada-basel",
       "slugByLocale": {
         "en": "import-logistics-specialist-arxada-ch",
-        "it": "import-logistics-specialist-arxada-ch",
-        "de": "import-logistics-specialist-arxada-ch",
-        "fr": "import-logistics-specialist-arxada-ch"
+        "it": "importazione-specialista-arxada-basel",
+        "de": "import-logistik-spezialist-arxada-basel",
+        "fr": "import-logistique-specialiste-arxada-basel"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -1697,7 +1697,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-04-29T10:09:59.059Z"
+      "firstSeenAt": "2026-04-29T10:09:59.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "import-logistics-specialist-arxada-ch"
+        ],
+        "de": [
+          "import-logistics-specialist-arxada-ch"
+        ],
+        "fr": [
+          "import-logistics-specialist-arxada-ch"
+        ]
+      },
+      "previousSlugs": [
+        "import-logistics-specialist-arxada-ch"
+      ]
     }
   ]
 }

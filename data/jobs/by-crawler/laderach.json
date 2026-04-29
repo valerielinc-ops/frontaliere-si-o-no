@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-assembling-80-100-befristet-august-bis-dezember-2026-w-m-d-laderach-glarus",
         "it": "collaboratore-trice-assembling-80-100-befristet-august-bis-dezember-2026-m-w-d-laderach-schweiz-ag-glarus",
-        "en": "mitarbeiter-assembling-80-100-befristet-august-bis-dezember-2026-w-m-d-laderach-glarus",
-        "fr": "mitarbeiter-assembling-80-100-befristet-august-bis-dezember-2026-w-m-d-laderach-glarus"
+        "en": "staff-assembling-80-100-limited-august-to-december-2026-w-m-d-laderach-schweiz-ag-glarus",
+        "fr": "assemblage-du-personnel-de-80-a-100-limite-d-aout-a-decembre-2026-m-j-laderach-schweiz-ag-glarus"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -49,6 +49,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-assembling-80-100-befristet-august-bis-dezember-2026-w-m-d-laderach-glarus"
+        ],
+        "en": [
+          "mitarbeiter-assembling-80-100-befristet-august-bis-dezember-2026-w-m-d-laderach-glarus"
+        ],
+        "fr": [
+          "mitarbeiter-assembling-80-100-befristet-august-bis-dezember-2026-w-m-d-laderach-glarus"
         ]
       },
       "previousSlugs": [
@@ -71,10 +77,10 @@
     },
     {
       "id": "laderach-56e907046075",
-      "slug": "director-of-human-resources-laderach-dallas",
+      "slug": "direttore-delle-risorse-umane-laderach-schweiz-ag-dallas",
       "slugByLocale": {
-        "de": "director-of-human-resources-laderach-dallas",
-        "it": "director-of-human-resources-laderach-dallas",
+        "de": "direktor-of-personalwesen-laderach-schweiz-ag-dallas",
+        "it": "direttore-delle-risorse-umane-laderach-schweiz-ag-dallas",
         "en": "director-of-human-resources-laderach-dallas",
         "fr": "director-of-human-resources-laderach-dallas"
       },
@@ -126,7 +132,18 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-29T11:03:25.183Z"
+      "firstSeenAt": "2026-04-29T11:03:25.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-of-human-resources-laderach-dallas"
+        ],
+        "de": [
+          "director-of-human-resources-laderach-dallas"
+        ]
+      },
+      "previousSlugs": [
+        "director-of-human-resources-laderach-dallas"
+      ]
     },
     {
       "id": "laderach-d658950ecc4a",

@@ -245,11 +245,11 @@
     },
     {
       "id": "davos-klosters-bergbahnen-905031e06da3",
-      "slug": "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
+      "slug": "personale-nei-sistemi-ferroviari-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
-        "it": "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
-        "en": "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
+        "it": "personale-nei-sistemi-ferroviari-davos-klosters-bergbahnen-ag-davos",
+        "en": "staff-in-railway-systems-davos-klosters-bergbahnen-ag-davos",
         "fr": "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
@@ -290,11 +290,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
+          "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos"
+        ],
+        "en": [
           "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos"
+        "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
+        "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

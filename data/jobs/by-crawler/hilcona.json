@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-3dcc23c54c50",
-      "slug": "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach",
+      "slug": "specialista-contabilita-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
       "slugByLocale": {
         "de": "fachspezialist-rechnungswesen-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
-        "it": "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach",
-        "en": "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach",
-        "fr": "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach"
+        "it": "specialista-contabilita-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
+        "en": "accounting-specialist-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
+        "fr": "specialiste-comptabilite-80-100-m-w-d-hugli-nahrmittel-ag-steinach"
       },
       "company": "Hügli Nährmittel AG",
       "companyKey": "hilcona",
@@ -59,14 +59,28 @@
         }
       },
       "postalCode": "9000",
-      "firstSeenAt": "2026-04-29T10:59:02.441Z"
+      "firstSeenAt": "2026-04-29T10:59:02.441Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach"
+        ],
+        "en": [
+          "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach"
+        ],
+        "fr": [
+          "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach"
+      ]
     },
     {
       "id": "hilcona-6cb4fe707991",
-      "slug": "it-admin-client-management-m-w-d-hilcona-radolfzell",
+      "slug": "admin-gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
         "de": "it-admin-client-management-m-w-d-hilcona-radolfzell",
-        "it": "it-admin-client-management-m-w-d-hilcona-radolfzell",
+        "it": "admin-gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "it-admin-client-management-m-w-d-hilcona-radolfzell",
         "fr": "it-admin-client-management-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       },
@@ -118,7 +132,15 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-29T10:59:02.200Z"
+      "firstSeenAt": "2026-04-29T10:59:02.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-admin-client-management-m-w-d-hilcona-radolfzell"
+        ]
+      },
+      "previousSlugs": [
+        "it-admin-client-management-m-w-d-hilcona-radolfzell"
+      ]
     },
     {
       "id": "hilcona-2d2c23291f9f",
@@ -8249,12 +8271,12 @@
     },
     {
       "id": "hilcona-302fa023898e",
-      "slug": "elektriker-m-w-d-hilcona-marchtrenk",
+      "slug": "elettricista-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
         "de": "elektriker-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "it": "elektriker-m-w-d-hilcona-marchtrenk",
-        "en": "elektriker-m-w-d-hilcona-marchtrenk",
-        "fr": "elektriker-m-w-d-hilcona-marchtrenk"
+        "it": "elettricista-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "en": "electrician-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "fr": "electricien-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       },
       "company": "Eisberg Österreich GmbH",
       "companyKey": "hilcona",
@@ -8304,7 +8326,21 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-29T10:58:35.597Z"
+      "firstSeenAt": "2026-04-29T10:58:35.597Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "elektriker-m-w-d-hilcona-marchtrenk"
+        ],
+        "en": [
+          "elektriker-m-w-d-hilcona-marchtrenk"
+        ],
+        "fr": [
+          "elektriker-m-w-d-hilcona-marchtrenk"
+        ]
+      },
+      "previousSlugs": [
+        "elektriker-m-w-d-hilcona-marchtrenk"
+      ]
     },
     {
       "id": "hilcona-97f97e1b151e",
