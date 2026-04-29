@@ -24892,6 +24892,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzona-datore-lavoro-conciliabilita': {
+    title: 'Bellinzona verso conciliabilità vita-lavoro per dipendenti',
+    description: 'Modifica al regolamento per promuovere equilibrio tra vita privata e professionale. Priorità per benessere e attrattività come datore di lavoro. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, verso, conciliabilità, vita-lavoro',
+    ogTitle: 'Bellinzona verso conciliabilità vita-lavoro per dipendenti',
+    ogDescription: 'Modifica al regolamento per promuovere equilibrio tra vita privata e professionale. Priorità per benessere e attrattività come datore di lavoro.',
+    canonicalPath: '/articoli-frontaliere/bellinzona-datore-lavoro-conciliabilita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona verso conciliabilità vita-lavoro per dipendenti",
+      "description": "Modifica al regolamento per promuovere equilibrio tra vita privata e professionale. Priorità per benessere e attrattività come datore di lavoro. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bellinzona-datore-lavoro-conciliabilita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Bellinzona con il Castelgrande"
+      },
+      "datePublished": "2026-04-29T14:18:50+00:00",
+      "dateModified": "2026-04-29T14:18:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-datore-lavoro-conciliabilita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

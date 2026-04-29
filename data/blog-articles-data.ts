@@ -10164,4 +10164,11 @@ export const ARTICLES = [
  image: '/images/blog/moncucco-risultati-positivi-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bellinzona-datore-lavoro-conciliabilita',
+ category: 'novita',
+ date: '2026-04-29T14:18:50.060Z',
+ image: '/images/blog/bellinzona-datore-lavoro-conciliabilita.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

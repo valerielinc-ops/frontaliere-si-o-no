@@ -3922,6 +3922,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.moncucco-risultati-positivi-2025.title': 'Moncucco: positive results in 2025',
     'blog.article.moncucco-risultati-positivi-2025.excerpt': 'Increase in patients, turnover and profit for the Moncucco hospital group. Concerns about demographic aging.',
     'blog.article.moncucco-risultati-positivi-2025.imageAlt': 'Aerial view of Locarno and Lake Maggiore, Switzerland. Clear day, autumn colors, detailed architecture.',
+    'blog.article.bellinzona-datore-lavoro-conciliabilita.title': 'Bellinzona promotes work-life balance for employees',
+    'blog.article.bellinzona-datore-lavoro-conciliabilita.excerpt': 'Regulation amendment to foster equilibrium between private and professional life. Priority for well-being and attractiveness.',
+    'blog.article.bellinzona-datore-lavoro-conciliabilita.imageAlt': 'View of Bellinzona with Castelgrande',
 };
 
 export default blogMetaEn;
