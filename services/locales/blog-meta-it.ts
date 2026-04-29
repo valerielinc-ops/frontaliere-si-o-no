@@ -3764,6 +3764,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.title': 'Von der Leyen: "Guerra in Iran costa all\'Ue 500 milioni al giorno per l\'energia"',
     'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.excerpt': 'La presidente della Commissione europea avverte che il conflitto in Medio Oriente sta causando gravi ripercussioni economiche.',
     'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.imageAlt': 'Lago di Lugano con impianto energetico moderno sullo sfondo',
+    'blog.article.svizzera-cashless-bns-sistema-equo.title': 'Svizzera sempre più cashless, BNS vuole sistema più equo',
+    'blog.article.svizzera-cashless-bns-sistema-equo.excerpt': 'Il contante scende al 30% delle transazioni, le app di pagamento raggiungono il 20%. La BNS avverte sui rischi di concentrazione.',
+    'blog.article.svizzera-cashless-bns-sistema-equo.imageAlt': 'Una strada affollata a Lugano con persone che utilizzano metodi di pagamento digitali, sullo sfondo del Lago di Lugano e delle montagne circostanti.',
 };
 
 export default blogMetaIt;

@@ -23355,6 +23355,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-cashless-bns-sistema-equo': {
+    title: 'Svizzera sempre più cashless, BNS vuole sistema più equo',
+    description: 'Il contante scende al 30% delle transazioni, le app di pagamento raggiungono il 20%. La BNS avverte sui rischi di concentrazione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, sempre, cashless, vuole, sistema',
+    ogTitle: 'Svizzera sempre più cashless, BNS vuole sistema più equo',
+    ogDescription: 'Il contante scende al 30% delle transazioni, le app di pagamento raggiungono il 20%. La BNS avverte sui rischi di concentrazione.',
+    canonicalPath: '/articoli-frontaliere/svizzera-cashless-bns-sistema-equo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera sempre più cashless, BNS vuole sistema più equo",
+      "description": "Il contante scende al 30% delle transazioni, le app di pagamento raggiungono il 20%. La BNS avverte sui rischi di concentrazione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-cashless-bns-sistema-equo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una strada affollata a Lugano con persone che utilizzano metodi di pagamento digitali, sullo sfondo del Lago di Lugano e delle montagne circostanti."
+      },
+      "datePublished": "2026-04-29T08:21:20+00:00",
+      "dateModified": "2026-04-29T08:21:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-cashless-bns-sistema-equo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

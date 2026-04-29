@@ -9793,4 +9793,11 @@ export const ARTICLES = [
  image: '/images/blog/von-der-leyen-ue-energia-500-milioni-giorno.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-cashless-bns-sistema-equo',
+ category: 'novita',
+ date: '2026-04-29T08:21:20.677Z',
+ image: '/images/blog/svizzera-cashless-bns-sistema-equo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

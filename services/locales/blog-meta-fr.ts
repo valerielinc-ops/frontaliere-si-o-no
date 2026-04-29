@@ -3764,6 +3764,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.title': 'Von der Leyen: La guerre en Iran coûte 500 millions par jour à l\'UE en énergie',
     'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.excerpt': 'La présidente de la Commission européenne avertit que le conflit au Moyen-Orient a de graves répercussions économiques.',
     'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.imageAlt': 'Lac de Lugano avec une centrale énergétique moderne en arrière-plan',
+    'blog.article.svizzera-cashless-bns-sistema-equo.title': 'Suisse de plus en plus sans cash, BNS veut un système plus équitable',
+    'blog.article.svizzera-cashless-bns-sistema-equo.excerpt': 'Le cash représente désormais 30% des transactions, les applications de paiement atteignent 20%. La BNS alerte sur les risques de concentration.',
+    'blog.article.svizzera-cashless-bns-sistema-equo.imageAlt': 'Une rue animée à Lugano avec des personnes utilisant des méthodes de paiement numériques, sur fond de lac de Lugano et des montagnes environnantes.',
 };
 
 export default blogMetaFr;
