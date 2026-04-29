@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1366,
+ "numberOfItems": 1367,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6001,7 +6001,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1363, "name": "{\"it\":\"Daverio: i pazienti si spostano a Gazzad...", "url": `${BASE_URL}/articoli-frontaliere/daverio-gazzada-assistenza-medica-2026` },
           { "@type": "ListItem", "position": 1364, "name": "Trivella raggiunge zona di faglia al San Gottardo", "url": `${BASE_URL}/articoli-frontaliere/trivella-san-gottardo-zona-faglia` },
           { "@type": "ListItem", "position": 1365, "name": "Varese: ambulatori medici temporanei per oltre ...", "url": `${BASE_URL}/articoli-frontaliere/ambulatori-medici-temporanei-varese-2026` },
-          { "@type": "ListItem", "position": 1366, "name": "Copernicus: 95% Europa con temperature sopra me...", "url": `${BASE_URL}/articoli-frontaliere/copernicus-clima-2025-europa` }
+          { "@type": "ListItem", "position": 1366, "name": "Copernicus: 95% Europa con temperature sopra me...", "url": `${BASE_URL}/articoli-frontaliere/copernicus-clima-2025-europa` },
+          { "@type": "ListItem", "position": 1367, "name": "Credinvest Bank cresce: utili in aumento e spin...", "url": `${BASE_URL}/articoli-frontaliere/credinvest-bank-crescita-2026` }
  ]
  },
  {

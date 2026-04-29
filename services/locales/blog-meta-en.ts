@@ -3949,6 +3949,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.copernicus-clima-2025-europa.title': 'Copernicus: 95% of Europe with above-average temperatures in 2025',
     'blog.article.copernicus-clima-2025-europa.excerpt': 'Record heatwaves in Scandinavia, shrinking glaciers, and extensive forest fires. Here are the key data points from the 2025 Copernicus report.',
     'blog.article.copernicus-clima-2025-europa.imageAlt': 'Lake Lugano with snow-capped mountains and sailboats',
+    'blog.article.credinvest-bank-crescita-2026.title': 'Credinvest Bank grows',
+    'blog.article.credinvest-bank-crescita-2026.excerpt': 'The Swiss bank closes 2025 with revenues of 22.80 million and a gross profit of 4.93 million, investing in technology and talent.',
+    'blog.article.credinvest-bank-crescita-2026.imageAlt': 'Lugano skyline with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

@@ -25153,6 +25153,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credinvest-bank-crescita-2026': {
+    title: 'Credinvest Bank cresce: utili in aumento e spinta su innovazione',
+    description: 'Credinvest Bank chiude il 2025 con ricavi a 22,80 milioni e utile lordo a 4,93 milioni, investendo in tecnologia e talenti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, credinvest, bank, cresce, utili',
+    ogTitle: 'Credinvest Bank cresce: utili in aumento e spinta su innovazione',
+    ogDescription: 'Credinvest Bank chiude il 2025 con ricavi a 22,80 milioni e utile lordo a 4,93 milioni, investendo in tecnologia e talenti.',
+    canonicalPath: '/articoli-frontaliere/credinvest-bank-crescita-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Credinvest Bank cresce: utili in aumento e spinta su innovazione",
+      "description": "Credinvest Bank chiude il 2025 con ricavi a 22,80 milioni e utile lordo a 4,93 milioni, investendo in tecnologia e talenti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/credinvest-bank-crescita-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Skyline di Lugano con il Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-29T16:24:32+00:00",
+      "dateModified": "2026-04-29T16:24:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credinvest-bank-crescita-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
