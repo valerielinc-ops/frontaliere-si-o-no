@@ -3614,6 +3614,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.unitas-ottantesimo-futuro-ticino.title': 'Unitas a 80 ans : bilan et avenir de l\'association',
     'blog.article.unitas-ottantesimo-futuro-ticino.excerpt': 'L\'Association des aveugles et malvoyants de la Suisse italienne fête ses 80 ans entre défis financiers et nouveaux projets inclusifs sur le territoire.',
     'blog.article.unitas-ottantesimo-futuro-ticino.imageAlt': 'Vue de Lugano sur la Via Nassa, siège historique d\'Unitas',
+    'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.title': 'Escalier indécent : la commune ne veut pas savoir',
+    'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.excerpt': 'Signalement d\'une habitante auprès de la commune de Côme : l\'escalier de la via Spartaco Cappelletti à la via Bellinzona se trouve dans une situation indécente.',
+    'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaFr;

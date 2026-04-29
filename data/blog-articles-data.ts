@@ -9443,4 +9443,11 @@ export const ARTICLES = [
  image: '/images/blog/unitas-ottantesimo-futuro-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere',
+ category: 'novita',
+ date: '2026-04-29T00:50:47.806Z',
+ image: '/images/blog/como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

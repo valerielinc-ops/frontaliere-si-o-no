@@ -21905,6 +21905,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere': {
+    title: 'Scaletta indecente: Comune non vuole sapere | Frontaliere Ticino',
+    description: 'Segnalazione di una cittadina sul Comune di Como: la scaletta da via Spartaco Cappelletti a via Bellinzona è in una situazione indecente. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, scaletta, indecente, comune, vuole',
+    ogTitle: 'Como, io ho segnalato ma il Comune non ne vuole sapere. Indecente la scaletta che usiamo tutti i giorni',
+    ogDescription: 'Segnalazione di una cittadina sul Comune di Como: la scaletta da via Spartaco Cappelletti a via Bellinzona è in una situazione indecente.',
+    canonicalPath: '/articoli-frontaliere/como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://frontaliereticino.ch/como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere\"},\"headline\":\"Como, io ho segnalato ma il Comune non ne vuole sapere. Indecente la scaletta che usiamo tutti i giorni\",\"image\":\"https://frontaliereticino.ch/bellinzona.webp\",\"datePublished\":\"2026-04-28\",\"dateModified\":\"2026-04-28\",\"author\":{\"@type\":\"Person\",\"name\":\"Davide Cantoni\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"Frontaliere Ticino\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://frontaliereticino.ch/logo.png\",\"width\":600,\"height\":60}},\"description\":\"Segnalazione di una cittadina sul Comune di Como: la scaletta da via Spartaco Cappelletti a via Bellinzona è in una situazione indecente.\"}",
+      "description": "Segnalazione di una cittadina sul Comune di Como: la scaletta da via Spartaco Cappelletti a via Bellinzona è in una situazione indecente. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-29T00:50:47+00:00",
+      "dateModified": "2026-04-29T00:50:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

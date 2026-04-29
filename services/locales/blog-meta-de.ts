@@ -3613,6 +3613,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.unitas-ottantesimo-futuro-ticino.title': 'Unitas wird 80: Bilanz und Zukunft des Verbandes',
     'blog.article.unitas-ottantesimo-futuro-ticino.excerpt': 'Der Verband für Blinde und Sehbehinderte der italienischen Schweiz feiert sein 80-jähriges Bestehen zwischen finanziellen Herausforderungen und neuen inklusiven Projekten in der Region.',
     'blog.article.unitas-ottantesimo-futuro-ticino.imageAlt': 'Blick auf Lugano in der Via Nassa, historischer Sitz von Unitas',
+    'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.title': 'Unanständige Treppe: Gemeinde will nichts wissen',
+    'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.excerpt': 'Eine Meldung einer Bürgerin an die Gemeinde Como: Die Treppe von der Via Spartaco Cappelletti zur Via Bellinzona ist in einem unanständigen Zustand.',
+    'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaDe;

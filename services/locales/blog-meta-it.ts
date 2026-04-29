@@ -3614,6 +3614,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.unitas-ottantesimo-futuro-ticino.title': 'Unitas compie 80 anni: bilancio e futuro dell\'associazione',
     'blog.article.unitas-ottantesimo-futuro-ticino.excerpt': 'L\'Associazione ciechi e ipovedenti della Svizzera italiana festeggia 80 anni tra sfide finanziarie e nuovi progetti inclusivi sul territorio.',
     'blog.article.unitas-ottantesimo-futuro-ticino.imageAlt': 'Veduta di Lugano in Via Nassa, sede storica di Unitas',
+    'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.title': 'Scaletta indecente: Comune non vuole sapere',
+    'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.excerpt': 'Segnalazione di una cittadina sul Comune di Como: la scaletta da via Spartaco Cappelletti a via Bellinzona è in una situazione indecente.',
+    'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaIt;
