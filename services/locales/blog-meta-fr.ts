@@ -3920,6 +3920,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.andre-wyss-nuovo-presidente-ffs.title': 'André Wyss, nouveau président des CFF',
     'blog.article.andre-wyss-nuovo-presidente-ffs.excerpt': 'André Wyss succède à Monika Ribar à la tête des Chemins de fer fédéraux suisses. Objectif : innovation et stabilité.',
     'blog.article.andre-wyss-nuovo-presidente-ffs.imageAlt': 'André Wyss, nouveau président des CFF, dans un bureau moderne à Berne, avec vue sur les Alpes suisses.',
+    'blog.article.moncucco-risultati-positivi-2025.title': 'Moncucco: résultats positifs en 2025',
+    'blog.article.moncucco-risultati-positivi-2025.excerpt': 'Augmentation des patients, du chiffre d\'affaires et des bénéfices pour le groupe hospitalier Moncucco. Inquiétudes concernant le vieillissement démographique.',
+    'blog.article.moncucco-risultati-positivi-2025.imageAlt': 'Vue aérienne de Locarno et du Lac Majeur, Suisse. Jour clair, couleurs automnales, architecture détaillée.',
 };
 
 export default blogMetaFr;

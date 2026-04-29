@@ -2537,6 +2537,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-benzina-record-annuale-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/benzina-record-annuale-svizzera-2026', parent: 'blog' },
     'blog-giovane-gambizzato-como-2026': { name: 'Incidente Como', path: '/articoli-frontaliere/giovane-gambizzato-como-2026', parent: 'blog' },
     'blog-andre-wyss-nuovo-presidente-ffs': { name: 'Novità', path: '/articoli-frontaliere/andre-wyss-nuovo-presidente-ffs', parent: 'blog' },
+    'blog-moncucco-risultati-positivi-2025': { name: 'Novità', path: '/articoli-frontaliere/moncucco-risultati-positivi-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

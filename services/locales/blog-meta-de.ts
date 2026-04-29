@@ -3919,6 +3919,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.andre-wyss-nuovo-presidente-ffs.title': 'André Wyss ist neuer SBB-Präsident',
     'blog.article.andre-wyss-nuovo-presidente-ffs.excerpt': 'André Wyss übernimmt von Monika Ribar die Führung der Schweizerischen Bundesbahnen. Ziel: Innovation und Stabilität.',
     'blog.article.andre-wyss-nuovo-presidente-ffs.imageAlt': 'André Wyss, neuer Präsident der SBB, in einem modernen Büro in Bern, mit Blick auf die Schweizer Alpen.',
+    'blog.article.moncucco-risultati-positivi-2025.title': 'Moncucco: Positive Ergebnisse im 2025',
+    'blog.article.moncucco-risultati-positivi-2025.excerpt': 'Steigerung der Patienten, Umsatz und Gewinn für die Moncucco-Klinikgruppe. Bedenken wegen der demografischen Alterung.',
+    'blog.article.moncucco-risultati-positivi-2025.imageAlt': 'Luftaufnahme von Locarno und dem Lago Maggiore, Schweiz. Klarer Tag, Herbstfarben, detaillierte Architektur.',
 };
 
 export default blogMetaDe;

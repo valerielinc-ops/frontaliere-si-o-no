@@ -10157,4 +10157,11 @@ export const ARTICLES = [
  image: '/images/blog/andre-wyss-nuovo-presidente-ffs.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'moncucco-risultati-positivi-2025',
+ category: 'novita',
+ date: '2026-04-29T14:04:37.784Z',
+ image: '/images/blog/moncucco-risultati-positivi-2025.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -24863,6 +24863,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-moncucco-risultati-positivi-2025': {
+    title: 'Moncucco: risultati positivi nel 2025 | Frontaliere Ticino',
+    description: 'Aumento pazienti, fatturato e utile per il gruppo ospedaliero Moncucco. Preoccupazioni per l\'invecchiamento demografico. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, moncucco, risultati, positivi, 2025',
+    ogTitle: 'Moncucco: risultati positivi nel 2025',
+    ogDescription: 'Aumento pazienti, fatturato e utile per il gruppo ospedaliero Moncucco. Preoccupazioni per l\'invecchiamento demografico.',
+    canonicalPath: '/articoli-frontaliere/moncucco-risultati-positivi-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Moncucco: risultati positivi nel 2025",
+      "description": "Aumento pazienti, fatturato e utile per il gruppo ospedaliero Moncucco. Preoccupazioni per l'invecchiamento demografico. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/moncucco-risultati-positivi-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Locarno e del Lago Maggiore, in Svizzera. Giornata limpida, colori autunnali, architettura dettagliata."
+      },
+      "datePublished": "2026-04-29T14:04:37+00:00",
+      "dateModified": "2026-04-29T14:04:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/moncucco-risultati-positivi-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

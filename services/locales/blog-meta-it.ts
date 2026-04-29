@@ -3920,6 +3920,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.andre-wyss-nuovo-presidente-ffs.title': 'André Wyss è il nuovo presidente delle FFS',
     'blog.article.andre-wyss-nuovo-presidente-ffs.excerpt': 'André Wyss succede a Monika Ribar alla guida delle Ferrovie federali svizzere. Obiettivo: innovazione e stabilità.',
     'blog.article.andre-wyss-nuovo-presidente-ffs.imageAlt': 'André Wyss, nuovo presidente delle FFS, in un ufficio moderno a Berna.',
+    'blog.article.moncucco-risultati-positivi-2025.title': 'Moncucco: risultati positivi nel 2025',
+    'blog.article.moncucco-risultati-positivi-2025.excerpt': 'Aumento pazienti, fatturato e utile per il gruppo ospedaliero Moncucco. Preoccupazioni per l\'invecchiamento demografico.',
+    'blog.article.moncucco-risultati-positivi-2025.imageAlt': 'Vista aerea di Locarno e del Lago Maggiore, in Svizzera. Giornata limpida, colori autunnali, architettura dettagliata.',
 };
 
 export default blogMetaIt;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1356,
+ "numberOfItems": 1357,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5991,7 +5991,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1353, "name": "Terremoto controllato nel Gottardo: implicazion...", "url": `${BASE_URL}/articoli-frontaliere/terremoto-gottardo-frontalieri` },
           { "@type": "ListItem", "position": 1354, "name": "Benzina in Svizzera a record annuale: +13% in 3...", "url": `${BASE_URL}/articoli-frontaliere/benzina-record-annuale-svizzera-2026` },
           { "@type": "ListItem", "position": 1355, "name": "Giovane gambizzato con tre colpi d'arma da fuoc...", "url": `${BASE_URL}/articoli-frontaliere/giovane-gambizzato-como-2026` },
-          { "@type": "ListItem", "position": 1356, "name": "André Wyss è il nuovo presidente delle FFS", "url": `${BASE_URL}/articoli-frontaliere/andre-wyss-nuovo-presidente-ffs` }
+          { "@type": "ListItem", "position": 1356, "name": "André Wyss è il nuovo presidente delle FFS", "url": `${BASE_URL}/articoli-frontaliere/andre-wyss-nuovo-presidente-ffs` },
+          { "@type": "ListItem", "position": 1357, "name": "Moncucco: risultati positivi nel 2025", "url": `${BASE_URL}/articoli-frontaliere/moncucco-risultati-positivi-2025` }
  ]
  },
  {
