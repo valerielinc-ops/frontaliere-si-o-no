@@ -1,16 +1,16 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-04-29T10:01:51.737Z",
+  "generatedAt": "2026-04-29T21:09:16.565Z",
   "total": 15,
   "newCount": 0,
   "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 38317,
-  "avgDurationMs": 38317,
+  "durationMs": 32979,
+  "avgDurationMs": 32979,
   "durationHistory": [
-    38317
+    32979
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -228,8 +228,8 @@
       "streetAddress": "Via Besso 23",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-20T20:51:58.093Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 2,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
