@@ -2518,6 +2518,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mercatino-primavera-lugano-2026': { name: 'Mercatino Primavera', path: '/articoli-frontaliere/mercatino-primavera-lugano-2026', parent: 'blog' },
     'blog-italia-svizzera-ricerca-2026': { name: 'Novità', path: '/articoli-frontaliere/italia-svizzera-ricerca-2026', parent: 'blog' },
     'blog-ricerca-italiana-ginevra-2026': { name: 'Novità', path: '/articoli-frontaliere/ricerca-italiana-ginevra-2026', parent: 'blog' },
+    'blog-svizzera-serbia-cooperazione-2026': { name: 'Cooperazione Svizzera-Serbia', path: '/articoli-frontaliere/svizzera-serbia-cooperazione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

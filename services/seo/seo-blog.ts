@@ -24312,6 +24312,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-serbia-cooperazione-2026': {
+    title: 'Nuovo programma di cooperazione Svizzera-Serbia 2026-29',
+    description: 'Il presidente Guy Parmelin presenta un nuovo programma di cooperazione con la Serbia, con focus su economia e innovazione. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, programma, cooperazione, svizzera-serbia',
+    ogTitle: 'Nuovo programma di cooperazione Svizzera-Serbia 2026-29',
+    ogDescription: 'Il presidente Guy Parmelin presenta un nuovo programma di cooperazione con la Serbia, con focus su economia e innovazione.',
+    canonicalPath: '/articoli-frontaliere/svizzera-serbia-cooperazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo programma di cooperazione Svizzera-Serbia 2026-29",
+      "description": "Il presidente Guy Parmelin presenta un nuovo programma di cooperazione con la Serbia, con focus su economia e innovazione. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-serbia-cooperazione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona con i castelli e il confine svizzero-italiano sullo sfondo"
+      },
+      "datePublished": "2026-04-29T11:28:31+00:00",
+      "dateModified": "2026-04-29T11:28:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-serbia-cooperazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

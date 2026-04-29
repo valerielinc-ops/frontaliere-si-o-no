@@ -3863,6 +3863,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ricerca-italiana-ginevra-2026.title': 'Ricerca italiana in Svizzera: focus su scienze della vita',
     'blog.article.ricerca-italiana-ginevra-2026.excerpt': 'Ginevra ospita la Giornata della ricerca italiana nel mondo, con focus su cooperazione scientifica italo-svizzera',
     'blog.article.ricerca-italiana-ginevra-2026.imageAlt': 'Ricercatori italiani e svizzeri discutono in una sala conferenze a Ginevra',
+    'blog.article.svizzera-serbia-cooperazione-2026.title': 'Nuovo programma di cooperazione Svizzera-Serbia 2026-29',
+    'blog.article.svizzera-serbia-cooperazione-2026.excerpt': 'Il presidente Guy Parmelin presenta un nuovo programma di cooperazione con la Serbia, con focus su economia e innovazione.',
+    'blog.article.svizzera-serbia-cooperazione-2026.imageAlt': 'Vista aerea di Bellinzona con i castelli e il confine svizzero-italiano sullo sfondo',
 };
 
 export default blogMetaIt;

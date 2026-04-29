@@ -3862,6 +3862,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ricerca-italiana-ginevra-2026.title': 'Italienische Forschung in der Schweiz: Fokus auf Lebenswissenschaften',
     'blog.article.ricerca-italiana-ginevra-2026.excerpt': 'Genf beherbergt den Tag der italienischen Forschung in der Welt, mit Fokus auf die wissenschaftliche Zusammenarbeit zwischen Italien und der Schweiz',
     'blog.article.ricerca-italiana-ginevra-2026.imageAlt': 'Italienische und Schweizer Forscher diskutieren in einem Konferenzraum in Genf',
+    'blog.article.svizzera-serbia-cooperazione-2026.title': 'Neues Kooperationsprogramm Schweiz-Serbien 2026-29',
+    'blog.article.svizzera-serbia-cooperazione-2026.excerpt': 'Präsident Guy Parmelin stellt ein neues Kooperationsprogramm mit Serbien vor, mit Fokus auf Wirtschaft und Innovation.',
+    'blog.article.svizzera-serbia-cooperazione-2026.imageAlt': 'Luftaufnahme von Bellinzona mit den Burgen und der Schweizer-Italienischen Grenze im Hintergrund',
 };
 
 export default blogMetaDe;
