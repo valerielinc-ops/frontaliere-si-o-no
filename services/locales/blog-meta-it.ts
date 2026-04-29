@@ -4004,6 +4004,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.distretto-benessere-campo-fiori-2026.title': 'Nel distretto del benessere all\'ombra del Campo dei Fiori',
     'blog.article.distretto-benessere-campo-fiori-2026.excerpt': 'Scopri come il 2% dei contribuenti detiene il 15% del reddito in questi comuni della collina varesina.',
     'blog.article.distretto-benessere-campo-fiori-2026.imageAlt': 'Vista aerea di Luvinate, Italia, con il lago e le montagne del Campo dei Fiori sullo sfondo',
+    'blog.article.chiusure-ospedale-circolo-varese-2026.title': 'Ospedale di Circolo Varese: chiusure per il ponte del 1° maggio e San Vittore',
+    'blog.article.chiusure-ospedale-circolo-varese-2026.excerpt': 'Modifiche agli orari dei servizi sanitari per il ponte del 1° maggio e la festività patronale di San Vittore a Varese.',
+    'blog.article.chiusure-ospedale-circolo-varese-2026.imageAlt': 'Ospedale di Circolo di Varese, padiglione Santa Maria, ingresso principale',
 };
 
 export default blogMetaIt;

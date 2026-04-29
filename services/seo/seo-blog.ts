@@ -25675,6 +25675,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusure-ospedale-circolo-varese-2026': {
+    title: 'Ospedale di Circolo Varese: chiusure per il ponte del 1° maggio e San Vittore',
+    description: 'Modifiche agli orari dei servizi sanitari per il ponte del 1° maggio e la festività di San Vittore a Varese. Scopri cosa cambia e come organizzarti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedale, circolo, varese, chiusure',
+    ogTitle: 'Chiusure Ospedale Circolo Varese 1° maggio e San Vittore 2026',
+    ogDescription: 'Modifiche agli orari dei servizi sanitari per il ponte del 1° maggio e la festività di San Vittore a Varese. Scopri cosa cambia e come organizzarti.',
+    canonicalPath: '/articoli-frontaliere/chiusure-ospedale-circolo-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure Ospedale Circolo Varese 1° maggio e San Vittore 2026",
+      "description": "Modifiche agli orari dei servizi sanitari per il ponte del 1° maggio e la festività di San Vittore a Varese. Scopri cosa cambia e come organizzarti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiusure-ospedale-circolo-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale di Circolo di Varese, padiglione Santa Maria, ingresso principale"
+      },
+      "datePublished": "2026-04-29T20:42:49+00:00",
+      "dateModified": "2026-04-29T20:42:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-ospedale-circolo-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
