@@ -25704,6 +25704,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-overtourism-lucerna-grindelwald': {
+    title: 'Overtourism in Svizzera: Lucerna e Grindelwald al collasso',
+    description: 'Lucerna supera Venezia in pernottamenti turistici. Iniziativa per bloccare nuovi hotel e restrizioni su Airbnb in Ticino, Zurigo, Lucerna e Ginevra.',
+    keywords: 'frontalieri, ticino, svizzera, italia, overtourism, lucerna, grindelwald, collasso',
+    ogTitle: 'Overtourism in Svizzera: Lucerna e Grindelwald al collasso',
+    ogDescription: 'Lucerna supera Venezia in pernottamenti turistici. Iniziativa per bloccare nuovi hotel e restrizioni su Airbnb in Ticino, Zurigo, Lucerna e Ginevra.',
+    canonicalPath: '/articoli-frontaliere/svizzera-overtourism-lucerna-grindelwald',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Overtourism in Svizzera: Lucerna e Grindelwald al collasso",
+      "description": "Lucerna supera Venezia in pernottamenti turistici. Iniziativa per bloccare nuovi hotel e restrizioni su Airbnb in Ticino, Zurigo, Lucerna e Ginevra.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-overtourism-lucerna-grindelwald.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lucerna, Svizzera, con il Ponte della Cappella e il Monte Pilatus sullo sfondo. Turisti che camminano lungo il fiume Reuss, barche sul lago e l'architettura storica della città visibili."
+      },
+      "datePublished": "2026-04-29T20:53:37+00:00",
+      "dateModified": "2026-04-29T20:53:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-overtourism-lucerna-grindelwald`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

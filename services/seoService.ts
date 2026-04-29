@@ -2566,6 +2566,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gruppo-moncucco-2025-risultati': { name: 'Novità', path: '/articoli-frontaliere/gruppo-moncucco-2025-risultati', parent: 'blog' },
     'blog-distretto-benessere-campo-fiori-2026': { name: 'Distretto benessere', path: '/articoli-frontaliere/distretto-benessere-campo-fiori-2026', parent: 'blog' },
     'blog-chiusure-ospedale-circolo-varese-2026': { name: 'Chiusure Ospedale', path: '/articoli-frontaliere/chiusure-ospedale-circolo-varese-2026', parent: 'blog' },
+    'blog-svizzera-overtourism-lucerna-grindelwald': { name: 'Novità', path: '/articoli-frontaliere/svizzera-overtourism-lucerna-grindelwald', parent: 'blog' },
  };
 
  const info = sectionNames[section];

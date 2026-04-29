@@ -4007,6 +4007,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusure-ospedale-circolo-varese-2026.title': 'Ospedale di Circolo Varese: chiusure per il ponte del 1° maggio e San Vittore',
     'blog.article.chiusure-ospedale-circolo-varese-2026.excerpt': 'Modifiche agli orari dei servizi sanitari per il ponte del 1° maggio e la festività patronale di San Vittore a Varese.',
     'blog.article.chiusure-ospedale-circolo-varese-2026.imageAlt': 'Ospedale di Circolo di Varese, padiglione Santa Maria, ingresso principale',
+    'blog.article.svizzera-overtourism-lucerna-grindelwald.title': 'Overtourism in Svizzera: Lucerna e Grindelwald al collasso',
+    'blog.article.svizzera-overtourism-lucerna-grindelwald.excerpt': 'Lucerna supera Venezia in pernottamenti turistici. Iniziativa per bloccare nuovi hotel e restrizioni su Airbnb.',
+    'blog.article.svizzera-overtourism-lucerna-grindelwald.imageAlt': 'Vista aerea di Lucerna, Svizzera, con il Ponte della Cappella e il Monte Pilatus sullo sfondo. Turisti che camminano lungo il fiume Reuss, barche sul lago e l\'architettura storica della città visibili.',
 };
 
 export default blogMetaIt;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1385,
+ "numberOfItems": 1386,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6020,7 +6020,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1382, "name": "Convegno a Milano sulla cooperazione Italia-Svi...", "url": `${BASE_URL}/articoli-frontaliere/convegno-milano-mafia-italia-svizzera-2026` },
           { "@type": "ListItem", "position": 1383, "name": "Gruppo Moncucco: 2025 con 120mila ospedalizzazi...", "url": `${BASE_URL}/articoli-frontaliere/gruppo-moncucco-2025-risultati` },
           { "@type": "ListItem", "position": 1384, "name": "Distretto del benessere: 2% dei contribuenti ha...", "url": `${BASE_URL}/articoli-frontaliere/distretto-benessere-campo-fiori-2026` },
-          { "@type": "ListItem", "position": 1385, "name": "Chiusure Ospedale Circolo Varese 1° maggio e Sa...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-ospedale-circolo-varese-2026` }
+          { "@type": "ListItem", "position": 1385, "name": "Chiusure Ospedale Circolo Varese 1° maggio e Sa...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-ospedale-circolo-varese-2026` },
+          { "@type": "ListItem", "position": 1386, "name": "Overtourism in Svizzera: Lucerna e Grindelwald ...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-overtourism-lucerna-grindelwald` }
  ]
  },
  {

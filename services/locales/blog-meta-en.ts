@@ -4006,6 +4006,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusure-ospedale-circolo-varese-2026.title': 'Varese Hospital: Closures for May 1st and San Vittore',
     'blog.article.chiusure-ospedale-circolo-varese-2026.excerpt': 'Changes to healthcare service hours for the May 1st bank holiday and San Vittore\'s patronal feast in Varese.',
     'blog.article.chiusure-ospedale-circolo-varese-2026.imageAlt': 'Varese Circolo Hospital, Santa Maria wing, main entrance',
+    'blog.article.svizzera-overtourism-lucerna-grindelwald.title': 'Overtourism in Switzerland: Lucerne and Grindelwald collapsing',
+    'blog.article.svizzera-overtourism-lucerna-grindelwald.excerpt': 'Lucerne surpasses Venice in tourist overnight stays. Initiative to block new hotels and Airbnb restrictions.',
+    'blog.article.svizzera-overtourism-lucerna-grindelwald.imageAlt': 'Aerial view of Lucerne, Switzerland, with the Chapel Bridge and Mount Pilatus in the background. Tourists walking along the Reuss River, boats on the lake, and the city\'s historic architecture visible.',
 };
 
 export default blogMetaEn;

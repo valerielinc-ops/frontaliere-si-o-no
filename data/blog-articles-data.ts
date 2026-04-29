@@ -10360,4 +10360,11 @@ export const ARTICLES = [
  image: '/images/blog/chiusure-ospedale-circolo-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-overtourism-lucerna-grindelwald',
+ category: 'novita',
+ date: '2026-04-29T20:53:37.337Z',
+ image: '/images/blog/svizzera-overtourism-lucerna-grindelwald.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

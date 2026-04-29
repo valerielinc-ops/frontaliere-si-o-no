@@ -4006,6 +4006,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusure-ospedale-circolo-varese-2026.title': 'Spital Kreisspital Varese: Schließungen am 1. Mai und San Vittore',
     'blog.article.chiusure-ospedale-circolo-varese-2026.excerpt': 'Änderungen der Öffnungszeiten der Gesundheitseinrichtungen am Brückentag zum 1. Mai und am Patronatsfest San Vittore in Varese.',
     'blog.article.chiusure-ospedale-circolo-varese-2026.imageAlt': 'Krankenhaus Varese Circolo, Flügel Santa Maria, Haupteingang',
+    'blog.article.svizzera-overtourism-lucerna-grindelwald.title': 'Overtourism in der Schweiz: Luzern und Grindelwald am Limit',
+    'blog.article.svizzera-overtourism-lucerna-grindelwald.excerpt': 'Luzern überholt Venedig bei Übernachtungen. Initiative gegen neue Hotels und Airbnb-Beschränkungen.',
+    'blog.article.svizzera-overtourism-lucerna-grindelwald.imageAlt': 'Luftaufnahme von Luzern, Schweiz, mit der Kapellbrücke und dem Pilatus im Hintergrund. Touristen, die entlang des Reuss-Flusses spazieren, Boote auf dem See und die historische Architektur der Stadt sichtbar.',
 };
 
 export default blogMetaDe;
