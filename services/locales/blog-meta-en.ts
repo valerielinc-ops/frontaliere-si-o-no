@@ -3799,6 +3799,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rumore-traffico-svizzera-500-morti-anno.title': 'Switzerland traffic noise: 500 deaths a year',
     'blog.article.rumore-traffico-svizzera-500-morti-anno.excerpt': 'In Switzerland, 500 people die each year due to traffic noise. The strategies of the Canton of Ticino to reduce it: sound-absorbing asphalt and noise meter.',
     'blog.article.rumore-traffico-svizzera-500-morti-anno.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings, showcasing the serene landscape and urban areas in Ticino.',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.title': 'Vandalized parks in Ticino: those who break don\'t pay',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.excerpt': 'Broken bottles in the playgrounds of Azzate, Buguggiate, and Daverio. The mayors denounce the incivility and ask for respect of public spaces.',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.imageAlt': 'Vandalized children\'s playground in Ticino with broken bottles and litter',
 };
 
 export default blogMetaEn;

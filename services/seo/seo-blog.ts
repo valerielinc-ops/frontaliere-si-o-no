@@ -23703,6 +23703,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-parchi-vandalismo-2026': {
+    title: 'Parchi vandalizzati in Ticino: chi rompe non paga | Frontaliere Ticino',
+    description: 'Bottiglie rotte nei parchi giochi di Azzate, Buguggiate e Daverio. I sindaci denunciano l\'inciviltà e chiedono il rispetto degli spazi pubblici. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, parchi, vandalizzati, rompe, paga',
+    ogTitle: 'Parchi vandalizzati in Ticino: chi rompe non paga',
+    ogDescription: 'Bottiglie rotte nei parchi giochi di Azzate, Buguggiate e Daverio. I sindaci denunciano l\'inciviltà e chiedono il rispetto degli spazi pubblici.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-parchi-vandalismo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parchi vandalizzati in Ticino: chi rompe non paga",
+      "description": "Bottiglie rotte nei parchi giochi di Azzate, Buguggiate e Daverio. I sindaci denunciano l'inciviltà e chiedono il rispetto degli spazi pubblici. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-parchi-vandalismo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parco giochi vandalizzato in Ticino con bottiglie rotte e rifiuti"
+      },
+      "datePublished": "2026-04-29T09:31:58+00:00",
+      "dateModified": "2026-04-29T09:31:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-parchi-vandalismo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

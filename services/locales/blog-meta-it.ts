@@ -3800,6 +3800,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rumore-traffico-svizzera-500-morti-anno.title': 'Rumore traffico Svizzera: 500 morti l\'anno',
     'blog.article.rumore-traffico-svizzera-500-morti-anno.excerpt': 'In Svizzera 500 morti l\'anno per il rumore del traffico. Le strategie del Canton Ticino per ridurlo: asfalto fonoassorbente e rumorometro.',
     'blog.article.rumore-traffico-svizzera-500-morti-anno.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti e edifici, che mostra il paesaggio sereno e le aree urbane del Ticino.',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.title': 'Parchi vandalizzati in Ticino: chi rompe non paga',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.excerpt': 'Bottiglie rotte nei parchi giochi di Azzate, Buguggiate e Daverio. I sindaci denunciano l\'inciviltà e chiedono il rispetto degli spazi pubblici.',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.imageAlt': 'Parco giochi vandalizzato in Ticino con bottiglie rotte e rifiuti',
 };
 
 export default blogMetaIt;

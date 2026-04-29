@@ -3799,6 +3799,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rumore-traffico-svizzera-500-morti-anno.title': 'Verkehrslärm in der Schweiz: 500 Tote pro Jahr',
     'blog.article.rumore-traffico-svizzera-500-morti-anno.excerpt': 'In der Schweiz sterben jährlich 500 Menschen durch Verkehrslärm. Die Strategien des Kantons Tessin zur Reduzierung: lärmabsorbierender Asphalt und Schallpegelmesser.',
     'blog.article.rumore-traffico-svizzera-500-morti-anno.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Bergen und Gebäuden, die die ruhige Landschaft und die städtischen Gebiete im Tessin zeigen.',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.title': 'Spielsplätze in Ticino verwüstet: Wer zerstört, zahlt nicht',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.excerpt': 'Zerbrochene Flaschen in den Spielplätzen von Azzate, Buguggiate und Daverio. Die Bürgermeister verurteilen die Unhöflichkeit und fordern den Respekt vor öffentlichen Räumen.',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.imageAlt': 'Vandalisierter Kinderspielplatz in Tessin mit zerbrochenen Flaschen und Müll',
 };
 
 export default blogMetaDe;

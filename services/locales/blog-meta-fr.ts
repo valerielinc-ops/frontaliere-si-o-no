@@ -3800,6 +3800,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rumore-traffico-svizzera-500-morti-anno.title': 'Bruit routier en Suisse: 500 morts par an',
     'blog.article.rumore-traffico-svizzera-500-morti-anno.excerpt': 'En Suisse, 500 morts par an à cause du bruit routier. Les stratégies du canton du Tessin pour le réduire: asphalte phonique et sonomètre.',
     'blog.article.rumore-traffico-svizzera-500-morti-anno.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes et les bâtiments, montrant le paysage serein et les zones urbaines du Tessin.',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.title': 'Parcs vandalisés au Tessin: les coupables ne paient pas',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.excerpt': 'Des bouteilles brisées dans les aires de jeux d\'Azzate, Buguggiate et Daverio. Les maires dénoncent l\'incivilité et demandent le respect des espaces publics.',
+    'blog.article.frontalieri-ticino-parchi-vandalismo-2026.imageAlt': 'Aire de jeux vandalisée au Tessin avec des bouteilles cassées et des déchets',
 };
 
 export default blogMetaFr;

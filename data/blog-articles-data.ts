@@ -9877,4 +9877,11 @@ export const ARTICLES = [
  image: '/images/blog/rumore-traffico-svizzera-500-morti-anno.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-ticino-parchi-vandalismo-2026',
+ category: 'pratico',
+ date: '2026-04-29T09:31:58.838Z',
+ image: '/images/blog/frontalieri-ticino-parchi-vandalismo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
