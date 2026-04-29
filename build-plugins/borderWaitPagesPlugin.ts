@@ -67,6 +67,7 @@ import {
   type BorderWaitLocale,
 } from './borderWaitData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { BORDER_WAIT_HYDRATION_SCRIPT_TAG } from './borderWaitHydrationScript';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { adSlotHtml } from './lib/adSlotHtml';
@@ -1060,13 +1061,26 @@ function renderLeafPage(inp: LeafInputs): string {
     ? `<div style="margin:0 0 18px;padding:14px 18px;border-radius:12px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-warning);font-size:14px;line-height:1.5">${esc(copy.staticFallbackBanner)}</div>`
     : '';
 
-  const currentCardHtml = `<section aria-labelledby="currentStatus" style="margin:0 0 24px">
-    <h2 id="currentStatus" style="${H2_STYLE}">${esc(copy.currentStatusLabel)}</h2>
+  // Live-badge pre-rendered text: defaults to "snapshot di {date}" so SEO/bot
+  // visitors and zero-JS users see an honest indicator that the value is the
+  // build-time snapshot. The hydration IIFE swaps it in-place to
+  // "live (Firestore, agg. HH:MM)" once the REST request resolves.
+  const snapshotBadgeText =
+    locale === 'it'
+      ? `snapshot di ${dateStamp}`
+      : locale === 'de'
+        ? `Snapshot vom ${dateStamp}`
+        : locale === 'fr'
+          ? `instantané du ${dateStamp}`
+          : `snapshot of ${dateStamp}`;
+
+  const currentCardHtml = `<section aria-labelledby="currentStatus" style="margin:0 0 24px" data-bw-crossing="${esc(crossing)}">
+    <h2 id="currentStatus" style="${H2_STYLE}">${esc(copy.currentStatusLabel)} <span data-bw-live-badge style="display:inline-block;margin-left:8px;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;background:var(--color-surface-alt);color:var(--color-subtle);border:1px solid var(--color-edge);vertical-align:middle">${esc(snapshotBadgeText)}</span></h2>
     ${staticBannerHtml}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px">
       <div style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
         <div style="font-size:12px;color:${status.text};font-weight:700;text-transform:uppercase">${esc(copy.waitMinutesLabel)}</div>
-        <div style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
+        <div data-bw-field="waitTimeMinutes" style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
       </div>
       <div style="padding:18px;border-radius:18px;background:var(--color-surface-alt);border:1px solid var(--color-edge)">
         <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase">${esc(copy.sourceLabel)}</div>
@@ -1074,7 +1088,7 @@ function renderLeafPage(inp: LeafInputs): string {
       </div>
       <div style="padding:18px;border-radius:18px;background:var(--color-surface-alt);border:1px solid var(--color-edge)">
         <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase">${esc(copy.updatedLabel)}</div>
-        <div style="margin-top:8px;font-size:14px;color:var(--color-heading);font-weight:700">${esc(dateStamp)}</div>
+        <div data-bw-field="lastUpdate" style="margin-top:8px;font-size:14px;color:var(--color-heading);font-weight:700">${esc(dateStamp)}</div>
       </div>
     </div>
   </section>`;
@@ -1358,6 +1372,9 @@ function renderLeafPage(inp: LeafInputs): string {
   // bodyHtml (after the closing </main>) so it loads on the static shell
   // without bypassing buildSeoPageHtml's templating.
   const webcamRefreshScript = webcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
+  // Border-wait hydration: replaces pre-rendered numbers with fresh
+  // Firestore values once the page is interactive. Vanilla JS, ~2.8 KB.
+  const hydrationScript = `\n  ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
@@ -1390,7 +1407,7 @@ function renderLeafPage(inp: LeafInputs): string {
   <section style="margin-top:32px" aria-label="advertisement">
     ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
   </section>
-</article>${webcamRefreshScript}`;
+</article>${webcamRefreshScript}${hydrationScript}`;
 
   // Per-page OG image: when the build-time webcam snapshot is available, use
   // the 640×360 JPEG so social shares show the REAL traffic state at the
@@ -1474,19 +1491,21 @@ function renderHubPage(inp: HubInputs): string {
     ? copy.regionalIntro(regionDisplay, crossingsInScope.length)
     : copy.rootIntro;
 
-  // Build live table of all crossings in scope
+  // Build live table of all crossings in scope. Each <tr> carries the
+  // data-bw-crossing attribute so the inline hydration IIFE can swap the
+  // pre-rendered minute count with the fresh Firestore value at runtime.
   const rows = crossingsInScope.map((c) => {
     const snap = current.perCrossing[c];
     const wait = snap?.waitTimeMinutes ?? null;
     const src: WaitSource = snap?.source ?? 'static';
     const sc = statusColor(wait);
     const waitFmt = wait === null ? '—' : `${wait} min`;
-    return `<tr>
+    return `<tr data-bw-crossing="${esc(c)}">
       <td style="${TABLE_CELL_STYLE}">
         <a href="${BASE_URL}${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
       <td style="${TABLE_CELL_STYLE};text-align:right">
-        <span style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
+        <span data-bw-field="waitTimeMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
       <td style="${TABLE_CELL_STYLE};font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
     </tr>`;
@@ -1628,6 +1647,16 @@ function renderHubPage(inp: HubInputs): string {
       })()
     : '';
 
+  // Live-badge pre-rendered text (see leaf page for rationale).
+  const hubSnapshotBadgeText =
+    locale === 'it'
+      ? `snapshot di ${dateStamp}`
+      : locale === 'de'
+        ? `Snapshot vom ${dateStamp}`
+        : locale === 'fr'
+          ? `instantané du ${dateStamp}`
+          : `snapshot of ${dateStamp}`;
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -1635,7 +1664,7 @@ function renderHubPage(inp: HubInputs): string {
     ${region ? `<a href="${BASE_URL}${buildRootHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
   </nav>
   <header style="margin-bottom:22px">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp} <span data-bw-live-badge style="display:inline-block;margin-left:8px;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;background:var(--color-surface-alt);color:var(--color-subtle);border:1px solid var(--color-edge);vertical-align:middle">${esc(hubSnapshotBadgeText)}</span></p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(introParagraph)}</p>
   </header>
@@ -1663,7 +1692,8 @@ function renderHubPage(inp: HubInputs): string {
   <section style="margin-top:32px" aria-label="advertisement">
     ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
   </section>
-</article>`;
+</article>
+  ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
