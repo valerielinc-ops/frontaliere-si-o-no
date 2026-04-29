@@ -107,6 +107,39 @@ npm test             # npx vitest run (single run)
 After any code change, always verify:
 1. `npx tsc --noEmit` — TypeScript check
 2. `npx vite build` — must exit 0
+
+## ⚠️ FAST_BUILD trap when verifying SEO landing pages
+
+Agent sessions inherit `FAST_BUILD=1` from `.claude/settings.json`. With that flag,
+**vite.config.ts skips every SEO plugin** in the `if (!isFastBuild)` block at
+line 112 — including `nursingLandingsPlugin`, `careerLandingsPlugin`,
+`professionLandingsPlugin`, `costOfLivingLandingsPlugin`, `comparisonsHubPlugin`,
+`faqHubPlugin`, `frSalaireNetLandingPlugin`, `staticPagesPlugin`, etc.
+
+**Symptom:** you edit a build plugin, run `npx vite build`, the build exits 0,
+but the generated HTML in `dist/` still has the old content (no log line for
+the plugin appears either). It looks like the file write is being cached or
+your edit didn't take — but the plugin literally never ran.
+
+**Fix when you need to verify SEO pages locally:** run with `FAST_BUILD=` (empty)
+explicitly to override the inherited flag:
+
+```bash
+FAST_BUILD= npx vite build
+```
+
+Combine with the per-feature `SKIP_*` env gates documented above to keep the
+build fast while still exercising the specific plugin you're testing
+(e.g. nursing landings):
+
+```bash
+FAST_BUILD= SKIP_FUEL_DAILY=1 SKIP_WEEKLY_EMPLOYERS=1 SKIP_JOB_MARKET_SNAPSHOT=1 \
+SKIP_HEALTH_PREMIUMS=1 SKIP_ORPHAN_LANDINGS=1 SKIP_BORDER_WAIT=1 \
+npx vite build
+```
+
+CI runs the full pipeline (`build:ci`) without FAST_BUILD, so production output
+is always correct — this is only a local-verification footgun.
 3. `npx vitest run` — all tests must pass
 
 Pre-push hook (`.githooks/pre-push`) runs tests then build. Push is blocked if either fails.

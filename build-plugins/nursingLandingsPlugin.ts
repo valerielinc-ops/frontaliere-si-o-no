@@ -54,6 +54,17 @@ import {
   type NursingLandingId,
 } from './nursingLandingsData';
 import { NURSING_LANDING_COPY, type NursingLandingCopy } from './nursingLandingsCopy';
+import { buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
+
+// CTA target sector for each landing id — null means "fall back to the
+// unfiltered job-board hub" (used by `healthcare-ticino`, whose CTA copy
+// explicitly says "all openings"). The other two landings target a
+// concrete sector so the CTA lands on a filtered list, not the hub.
+const CTA_SECTOR: Record<NursingLandingId, SectorHubKey | null> = {
+  nurses: 'infermieri',
+  oss: 'case-anziani',
+  'healthcare-ticino': null,
+};
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -83,8 +94,8 @@ const OG_LOCALE: Record<NursingLocale, string> = {
  */
 const RELATED_LINKS: Record<NursingLocale, Array<{ href: string; label: string }>> = {
   it: [
-    { href: '/cerca-lavoro-ticino/infermieri/', label: 'Offerte infermieri in Ticino' },
-    { href: '/cerca-lavoro-ticino/case-anziani/', label: 'Lavoro nelle case anziani' },
+    { href: buildSectorHubPath('it', 'infermieri'), label: 'Offerte infermieri in Ticino' },
+    { href: buildSectorHubPath('it', 'case-anziani'), label: 'Lavoro nelle case anziani' },
     { href: '/concorsi-pubblici-lugano/', label: 'Concorsi pubblici OSC e EOC aperti' },
     { href: '/contratti-lavoro-frontalieri/', label: 'Contratti lavoro frontalieri: CCL e accordo fiscale' },
     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio frontaliero' },
@@ -92,8 +103,8 @@ const RELATED_LINKS: Record<NursingLocale, Array<{ href: string; label: string }
     { href: '/cerca-lavoro-ticino/', label: 'Tutte le offerte lavoro in Ticino' },
   ],
   en: [
-    { href: '/en/find-jobs-ticino/nurses/', label: 'Nursing jobs in Ticino' },
-    { href: '/en/find-jobs-ticino/elderly-care/', label: 'Elderly-care jobs' },
+    { href: buildSectorHubPath('en', 'infermieri'), label: 'Nursing jobs in Ticino' },
+    { href: buildSectorHubPath('en', 'case-anziani'), label: 'Elderly-care jobs' },
     { href: '/en/public-sector-jobs-lugano/', label: 'Open public-sector jobs (OSC, EOC)' },
     { href: '/en/cross-border-work-contracts/', label: 'Cross-border employment contracts' },
     { href: '/en/calculate-salary/', label: 'Cross-border salary calculator' },
@@ -101,8 +112,8 @@ const RELATED_LINKS: Record<NursingLocale, Array<{ href: string; label: string }
     { href: '/en/find-jobs-ticino/', label: 'All Ticino job openings' },
   ],
   de: [
-    { href: '/de/jobs-im-tessin/nurses/', label: 'Pflegestellen im Tessin' },
-    { href: '/de/jobs-im-tessin/case-anziani/', label: 'Altenpflegestellen' },
+    { href: buildSectorHubPath('de', 'infermieri'), label: 'Pflegestellen im Tessin' },
+    { href: buildSectorHubPath('de', 'case-anziani'), label: 'Altenpflegestellen' },
     { href: '/de/oeffentliche-stellen-lugano/', label: 'Offene öffentliche Stellen (OSC, EOC)' },
     { href: '/de/grenzgaenger-arbeitsvertraege/', label: 'Grenzgänger-Arbeitsverträge' },
     { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Gehaltsrechner' },
@@ -110,8 +121,8 @@ const RELATED_LINKS: Record<NursingLocale, Array<{ href: string; label: string }
     { href: '/de/jobs-im-tessin/', label: 'Alle Tessin-Stellenangebote' },
   ],
   fr: [
-    { href: '/fr/trouver-emploi-tessin/nurses/', label: 'Emplois infirmiers au Tessin' },
-    { href: '/fr/trouver-emploi-tessin/case-anziani/', label: 'Emplois en EMS' },
+    { href: buildSectorHubPath('fr', 'infermieri'), label: 'Emplois infirmiers au Tessin' },
+    { href: buildSectorHubPath('fr', 'case-anziani'), label: 'Emplois en EMS' },
     { href: '/fr/concours-publics-lugano/', label: 'Concours publics ouverts (OSC, EOC)' },
     { href: '/fr/contrats-travail-frontaliers/', label: 'Contrats de travail frontaliers' },
     { href: '/fr/calculer-salaire/', label: 'Calculateur salaire frontalier' },
@@ -187,6 +198,12 @@ function renderPage(opts: {
   // Breadcrumbs
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
   const jobBoardUrl = `${BASE_URL}${locale === 'it' ? '/cerca-lavoro-ticino/' : locale === 'en' ? '/en/find-jobs-ticino/' : locale === 'de' ? '/de/jobs-im-tessin/' : '/fr/trouver-emploi-tessin/'}`;
+  // CTA must land on the filtered sector hub when the copy promises a
+  // specific filter (e.g. "Vedi offerte infermieri" → /cerca-lavoro-ticino/infermieri/).
+  const ctaSector = CTA_SECTOR[id];
+  const ctaJobsUrl = ctaSector
+    ? `${BASE_URL}${buildSectorHubPath(locale, ctaSector)}`
+    : jobBoardUrl;
 
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -262,7 +279,7 @@ function renderPage(opts: {
     </section>
     ${relatedHtml}
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
-      <a href="${esc(jobBoardUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
+      <a href="${esc(ctaJobsUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
       <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
     </section>`;
 
