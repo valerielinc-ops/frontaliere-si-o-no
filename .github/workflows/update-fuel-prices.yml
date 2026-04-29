@@ -45,8 +45,12 @@ jobs:
 
       - name: Detect daily run
         id: schedule
+        # Identify the daily run by the cron expression that triggered it,
+        # not by the wall-clock hour. GitHub Actions routinely delays scheduled
+        # runs past the next hour boundary; checking `date -u +%H` would then
+        # mis-classify the daily run as hourly and skip the snapshot step.
         run: |
-          if [ "$(date -u +%H)" = "06" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ github.event.schedule }}" = "37 6 * * *" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "daily=true" >> "$GITHUB_OUTPUT"
           else
             echo "daily=false" >> "$GITHUB_OUTPUT"
