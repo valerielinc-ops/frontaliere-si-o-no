@@ -10311,4 +10311,11 @@ export const ARTICLES = [
  image: '/images/blog/lavoro-openjobmetis-2026-opportunita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'openjobmetis-materia-castronno-2026',
+ category: 'pratico',
+ date: '2026-04-29T19:35:30.967Z',
+ image: '/images/blog/openjobmetis-materia-castronno-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3986,6 +3986,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-openjobmetis-2026-opportunita.title': 'Estate 2026: Openjobmetis offre oltre 2000 opportunità lavorative in Italia',
     'blog.article.lavoro-openjobmetis-2026-opportunita.excerpt': 'Openjobmetis registra oltre 2000 posizioni aperte in Italia per l\'estate 2026, con forte domanda nel turismo e nella produzione',
     'blog.article.lavoro-openjobmetis-2026-opportunita.imageAlt': 'Una vista animata di Lugano durante l\'estate con persone che lavorano e si godono le attività all\'aperto',
+    'blog.article.openjobmetis-materia-castronno-2026.title': 'Openjobmetis a Materia: sportello di ascolto e orientamento ogni giovedì',
+    'blog.article.openjobmetis-materia-castronno-2026.excerpt': 'Ogni giovedì pomeriggio, lo sportello Openjobmetis a Materia offre supporto e orientamento per chi cerca lavoro nella provincia di Varese.',
+    'blog.article.openjobmetis-materia-castronno-2026.imageAlt': 'Ufficio Openjobmetis a Materia, Castronno, con persone che entrano ed escono',
 };
 
 export default blogMetaIt;
