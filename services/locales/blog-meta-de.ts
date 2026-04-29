@@ -3709,6 +3709,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-cultura-2030-ecosistema-culturale.title': 'Varese Kultur 2030: Kulturökosystem gestalten',
     'blog.article.varese-cultura-2030-ecosistema-culturale.excerpt': 'Varese Kultur 2030 ist ein Projekt zur Neugestaltung der kulturellen Zukunft der Provinz Varese, mit einem gemeinsamen strategischen Plan und einer digitalen Plattform zur Kartierung des lokalen Erbes.',
     'blog.article.varese-cultura-2030-ecosistema-culturale.imageAlt': 'Kulturelles Event in Varese mit Teilnehmern und natürlicher Landschaft',
+    'blog.article.casa-montana-nante-ricorso-tram.title': 'Bergheim Nante, Beschwerde beim Tram',
+    'blog.article.casa-montana-nante-ricorso-tram.excerpt': 'Der Abstimmungsausschuss hebt die Diskrepanzen des Gemeinderats zu den Sanierungskosten hervor',
+    'blog.article.casa-montana-nante-ricorso-tram.imageAlt': 'Luftaufnahme des Monte San Salvatore mit dem Luganersee und der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

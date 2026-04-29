@@ -9667,4 +9667,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-cultura-2030-ecosistema-culturale.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'casa-montana-nante-ricorso-tram',
+ category: 'novita',
+ date: '2026-04-29T04:56:26.056Z',
+ image: '/images/blog/casa-montana-nante-ricorso-tram.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3710,6 +3710,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-cultura-2030-ecosistema-culturale.title': 'Varese Cultura 2030: costruire un ecosistema culturale',
     'blog.article.varese-cultura-2030-ecosistema-culturale.excerpt': 'Varese Cultura 2030 è un progetto per ridisegnare il futuro culturale della provincia di Varese, con un piano strategico condiviso e una piattaforma digitale di mappatura del patrimonio locale.',
     'blog.article.varese-cultura-2030-ecosistema-culturale.imageAlt': 'Evento culturale a Varese con partecipanti e paesaggio naturale',
+    'blog.article.casa-montana-nante-ricorso-tram.title': 'Casa montana Nante, ricorso al Tram',
+    'blog.article.casa-montana-nante-ricorso-tram.excerpt': 'Il comitato referendario evidenzia le discrepanze del Municipio sui costi di ristrutturazione',
+    'blog.article.casa-montana-nante-ricorso-tram.imageAlt': 'Vista aerea del Monte San Salvatore con il lago e la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

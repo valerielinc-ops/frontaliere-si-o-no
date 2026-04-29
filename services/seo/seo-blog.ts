@@ -22833,6 +22833,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-montana-nante-ricorso-tram': {
+    title: 'Casa montana Nante, ricorso al Tram | Frontaliere Ticino',
+    description: 'Il comitato referendario evidenzia le discrepanze del Municipio sui costi di ristrutturazione della casa montana Nante-Airolo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, montana, nante, ricorso',
+    ogTitle: 'Casa montana Nante, ricorso al Tram | Frontaliere Ticino',
+    ogDescription: 'Il comitato referendario evidenzia le discrepanze del Municipio sui costi di ristrutturazione della casa montana Nante-Airolo',
+    canonicalPath: '/articoli-frontaliere/casa-montana-nante-ricorso-tram',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa montana Nante, ricorso al Tram",
+      "description": "Il comitato referendario evidenzia le discrepanze del Municipio sui costi di ristrutturazione della casa montana Nante-Airolo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/casa-montana-nante-ricorso-tram.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Monte San Salvatore con il lago e la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-29T04:56:26+00:00",
+      "dateModified": "2026-04-29T04:56:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casa-montana-nante-ricorso-tram`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
