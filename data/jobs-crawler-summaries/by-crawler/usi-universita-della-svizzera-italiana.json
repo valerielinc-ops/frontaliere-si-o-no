@@ -1,18 +1,50 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-29T11:40:12.114Z",
-  "total": 18,
-  "newCount": 0,
+  "generatedAt": "2026-04-29T22:47:38.316Z",
+  "total": 19,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 17,
-  "durationMs": 25276,
-  "avgDurationMs": 25276,
+  "durationMs": 36315,
+  "avgDurationMs": 36315,
   "durationHistory": [
-    25276
+    36315
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-phd-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-phd-2026.pdf",
+      "title": "Dottorato di Ricerca in Architettura e Studi Ambientali",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "dottorato-di-ricerca-in-architettura-e-studi-ambientali-usi-mendrisio",
+      "department": "Academy of Architecture – Institute of Urban and Landscape Studies (ISUP)",
+      "category": "phd",
+      "datePosted": "2026-04-29",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "id": "usi-universita-della-svizzera-italiana-0c041bfbbfc0",
+      "sourceLang": "en",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
