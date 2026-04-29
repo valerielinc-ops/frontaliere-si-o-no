@@ -3779,6 +3779,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.momoride-carpooling-frontalieri-benefici.title': 'Carpooling aziendale: frontalieri guadagnano fino a 500 franchi',
     'blog.article.momoride-carpooling-frontalieri-benefici.excerpt': 'Il progetto MomòRide offre incentivi in denaro e opportunità di beneficenza per i frontalieri di Balerna, Chiasso e Novazzano',
     'blog.article.momoride-carpooling-frontalieri-benefici.imageAlt': 'Frontalieri in carpooling con vista sul Lago di Lugano',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.title': 'Swiss interrompe vendite duty-free a bordo',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.excerpt': 'Dal 30 settembre 2026, i prodotti duty-free saranno disponibili solo online. Sconti fino al 50% da giugno.',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.imageAlt': 'Vista aerea del Lago di Lugano con aereo Swiss in atterraggio all\'aeroporto di Lugano, Ticino, Svizzera.',
 };
 
 export default blogMetaIt;

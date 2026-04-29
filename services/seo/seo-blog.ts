@@ -23500,6 +23500,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-duty-free-fine-vendite-bordo': {
+    title: 'Swiss interrompe vendite duty-free a bordo | Frontaliere Ticino',
+    description: 'Dal 30 settembre 2026, i prodotti duty-free saranno disponibili solo online. Sconti fino al 50% da giugno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, interrompe, vendite, duty-free',
+    ogTitle: 'Swiss interrompe vendite duty-free a bordo',
+    ogDescription: 'Dal 30 settembre 2026, i prodotti duty-free saranno disponibili solo online. Sconti fino al 50% da giugno.',
+    canonicalPath: '/articoli-frontaliere/swiss-duty-free-fine-vendite-bordo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss interrompe vendite duty-free a bordo",
+      "description": "Dal 30 settembre 2026, i prodotti duty-free saranno disponibili solo online. Sconti fino al 50% da giugno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/swiss-duty-free-fine-vendite-bordo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con aereo Swiss in atterraggio all'aeroporto di Lugano, Ticino, Svizzera."
+      },
+      "datePublished": "2026-04-29T08:50:10+00:00",
+      "dateModified": "2026-04-29T08:50:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-fine-vendite-bordo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

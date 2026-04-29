@@ -3778,6 +3778,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.momoride-carpooling-frontalieri-benefici.title': 'Company carpooling: cross-border workers earn up to 500 francs',
     'blog.article.momoride-carpooling-frontalieri-benefici.excerpt': 'The MomòRide project offers cash incentives and charitable opportunities for cross-border workers in Balerna, Chiasso, and Novazzano',
     'blog.article.momoride-carpooling-frontalieri-benefici.imageAlt': 'Commuters carpooling with Lake Lugano in the background',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.title': 'Swiss stops in-flight duty-free sales',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.excerpt': 'From 30 September 2026, duty-free products will only be available online. Up to 50% off from June.',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.imageAlt': 'Aerial view of Lake Lugano with Swiss aircraft landing at Lugano Airport, Ticino, Switzerland.',
 };
 
 export default blogMetaEn;

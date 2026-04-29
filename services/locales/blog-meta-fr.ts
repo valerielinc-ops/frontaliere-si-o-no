@@ -3779,6 +3779,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.momoride-carpooling-frontalieri-benefici.title': 'Covoiturage d\'entreprise: les frontaliers gagnent jusqu\'à 500 francs',
     'blog.article.momoride-carpooling-frontalieri-benefici.excerpt': 'Le projet MomòRide offre des incitations financières et des opportunités de bénévolat pour les frontaliers de Balerna, Chiasso et Novazzano',
     'blog.article.momoride-carpooling-frontalieri-benefici.imageAlt': 'Frontaliers en covoiturage avec vue sur le lac de Lugano',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.title': 'Swiss met fin aux ventes duty-free à bord',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.excerpt': 'À partir du 30 septembre 2026, les produits duty-free ne seront disponibles qu\'en ligne. Des réductions allant jusqu\'à 50% dès juin.',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.imageAlt': 'Vue aérienne du lac de Lugano avec un avion Swiss en train d\'atterrir à l\'aéroport de Lugano, Tessin, Suisse.',
 };
 
 export default blogMetaFr;

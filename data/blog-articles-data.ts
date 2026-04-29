@@ -9828,4 +9828,11 @@ export const ARTICLES = [
  image: '/images/blog/momoride-carpooling-frontalieri-benefici.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'swiss-duty-free-fine-vendite-bordo',
+ category: 'novita',
+ date: '2026-04-29T08:50:10.475Z',
+ image: '/images/blog/swiss-duty-free-fine-vendite-bordo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3778,6 +3778,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.momoride-carpooling-frontalieri-benefici.title': 'Firmen-Mitfahrzentrale: Grenzgänger sparen bis zu 500 Franken',
     'blog.article.momoride-carpooling-frontalieri-benefici.excerpt': 'Das Projekt MomòRide bietet finanzielle Anreize und Spendenmöglichkeiten für Grenzgänger aus Balerna, Chiasso und Novazzano',
     'blog.article.momoride-carpooling-frontalieri-benefici.imageAlt': 'Pendler im Fahrgemeinschaft mit Blick auf den Luganersee',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.title': 'Swiss stoppt Bordverkauf von Duty-Free-Artikeln',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.excerpt': 'Ab dem 30. September 2026 sind Duty-Free-Produkte nur noch online erhältlich. Ab Juni bis zu 50% Rabatt.',
+    'blog.article.swiss-duty-free-fine-vendite-bordo.imageAlt': 'Luftaufnahme des Luganersees mit einer Swiss-Maschine, die auf dem Flughafen Lugano, Tessin, Schweiz, landet.',
 };
 
 export default blogMetaDe;
