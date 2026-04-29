@@ -3668,6 +3668,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.violenza-domestica-misure-urgenti.title': 'Violence domestique: nouvelles mesures urgentes',
     'blog.article.violenza-domestica-misure-urgenti.excerpt': 'Le conseiller fédéral Beat Jans annonce le numéro national 142 et d\'autres initiatives pour lutter contre la violence domestique en Suisse.',
     'blog.article.violenza-domestica-misure-urgenti.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.robot-umanoidi-maratona-fascinazione.title': 'Des robots humanoïdes remportent la demi-marathon : progrès ou fascination ?',
+    'blog.article.robot-umanoidi-maratona-fascinazione.excerpt': 'Un robot humanoïde a battu le record mondial de demi-marathon à Pékin, suscitant des débats sur l\'utilité et l\'éthique de ces technologies',
+    'blog.article.robot-umanoidi-maratona-fascinazione.imageAlt': 'Robot humanoïde courant un marathon à Lugano, avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

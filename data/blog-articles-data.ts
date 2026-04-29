@@ -9569,4 +9569,11 @@ export const ARTICLES = [
  image: '/images/blog/violenza-domestica-misure-urgenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'robot-umanoidi-maratona-fascinazione',
+ category: 'novita',
+ date: '2026-04-29T03:26:04.678Z',
+ image: '/images/blog/robot-umanoidi-maratona-fascinazione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

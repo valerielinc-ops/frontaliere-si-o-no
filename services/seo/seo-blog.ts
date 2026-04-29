@@ -22427,6 +22427,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-robot-umanoidi-maratona-fascinazione': {
+    title: 'Robot umanoidi vincono la mezza maratona: progresso o fascinazione?',
+    description: 'Un robot umanoide ha battuto il record mondiale di mezza maratona a Pechino, suscitando dibattiti sull\'utilità e l\'etica di queste tecnologie. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, robot, umanoidi, vincono, mezza',
+    ogTitle: 'Robot umanoidi vincono maratona: progresso o fascinazione?',
+    ogDescription: 'Un robot umanoide ha battuto il record mondiale di mezza maratona a Pechino, suscitando dibattiti sull\'utilità e l\'etica di queste tecnologie',
+    canonicalPath: '/articoli-frontaliere/robot-umanoidi-maratona-fascinazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Robot umanoidi vincono maratona: progresso o fascinazione?",
+      "description": "Un robot umanoide ha battuto il record mondiale di mezza maratona a Pechino, suscitando dibattiti sull'utilità e l'etica di queste tecnologie. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/robot-umanoidi-maratona-fascinazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Robot umanoide corre una maratona a Lugano, sullo sfondo del Lago di Lugano"
+      },
+      "datePublished": "2026-04-29T03:26:04+00:00",
+      "dateModified": "2026-04-29T03:26:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/robot-umanoidi-maratona-fascinazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

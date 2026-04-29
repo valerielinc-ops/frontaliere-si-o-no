@@ -3667,6 +3667,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.violenza-domestica-misure-urgenti.title': 'Domestic violence: new urgent measures to combat the phenomenon',
     'blog.article.violenza-domestica-misure-urgenti.excerpt': 'Federal Councillor Beat Jans announces the national number 142 and other initiatives to fight domestic violence in Switzerland.',
     'blog.article.violenza-domestica-misure-urgenti.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.robot-umanoidi-maratona-fascinazione.title': 'Humanoid robots win half-marathon: progress or fascination?',
+    'blog.article.robot-umanoidi-maratona-fascinazione.excerpt': 'A humanoid robot has broken the world record for the half-marathon in Beijing, sparking debates on the usefulness and ethics of these technologies',
+    'blog.article.robot-umanoidi-maratona-fascinazione.imageAlt': 'Humanoid robot running a marathon in Lugano, with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

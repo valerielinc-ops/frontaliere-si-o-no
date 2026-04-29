@@ -3667,6 +3667,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.violenza-domestica-misure-urgenti.title': 'Häusliche Gewalt: Neue dringende Maßnahmen gegen das Phänomen',
     'blog.article.violenza-domestica-misure-urgenti.excerpt': 'Der Bundesrat Beat Jans kündigt die nationale Nummer 142 und weitere Initiativen zur Bekämpfung häuslicher Gewalt in der Schweiz an.',
     'blog.article.violenza-domestica-misure-urgenti.imageAlt': 'Luganersee mit Bergen im Hintergrund',
+    'blog.article.robot-umanoidi-maratona-fascinazione.title': 'Humanoide Roboter gewinnen Halbmarathon: Fortschritt oder Faszination?',
+    'blog.article.robot-umanoidi-maratona-fascinazione.excerpt': 'Ein humanoider Roboter hat in Peking den Weltrekord im Halbmarathon gebrochen und damit Debatten über Nutzen und Ethik dieser Technologien ausgelöst.',
+    'blog.article.robot-umanoidi-maratona-fascinazione.imageAlt': 'Humanoider Roboter läuft einen Marathon in Lugano, mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;
