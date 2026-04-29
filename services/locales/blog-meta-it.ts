@@ -3878,6 +3878,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.title': 'Incontri su cambiamenti climatici a Rancio Valcuvia',
     'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.excerpt': 'La Comunità Montana Valli del Verbano organizza un ciclo di incontri su biodiversità e cambiamenti climatici.',
     'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.imageAlt': 'Vista serena del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.innalzamento-lago-maggiore-140-metri.title': 'Via libera all\'innalzamento del Lago Maggiore fino a 1,40 metri',
+    'blog.article.innalzamento-lago-maggiore-140-metri.excerpt': 'Decisivo accordo per aumentare la capacità idrica del lago di 20-30 milioni di metri cubi',
+    'blog.article.innalzamento-lago-maggiore-140-metri.imageAlt': 'Lago di Lugano con montagne circostanti',
 };
 
 export default blogMetaIt;

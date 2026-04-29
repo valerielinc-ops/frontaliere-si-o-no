@@ -10059,4 +10059,11 @@ export const ARTICLES = [
  image: '/images/blog/comunita-montana-valli-verbano-incontri-natura-cambia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'innalzamento-lago-maggiore-140-metri',
+ category: 'novita',
+ date: '2026-04-29T11:52:42.968Z',
+ image: '/images/blog/innalzamento-lago-maggiore-140-metri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

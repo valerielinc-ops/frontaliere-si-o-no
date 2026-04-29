@@ -24457,6 +24457,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-innalzamento-lago-maggiore-140-metri': {
+    title: 'Via libera all\'innalzamento del Lago Maggiore fino a 1,40 metri',
+    description: 'Decisivo accordo per aumentare la capacità idrica del lago di 20-30 milioni di metri cubi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, libera, innalzamento, lago, maggiore',
+    ogTitle: 'Via libera all\'innalzamento del Lago Maggiore fino a 1,40 metri',
+    ogDescription: 'Decisivo accordo per aumentare la capacità idrica del lago di 20-30 milioni di metri cubi',
+    canonicalPath: '/articoli-frontaliere/innalzamento-lago-maggiore-140-metri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Via libera all'innalzamento del Lago Maggiore fino a 1,40 metri",
+      "description": "Decisivo accordo per aumentare la capacità idrica del lago di 20-30 milioni di metri cubi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/innalzamento-lago-maggiore-140-metri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne circostanti"
+      },
+      "datePublished": "2026-04-29T11:52:43+00:00",
+      "dateModified": "2026-04-29T11:52:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/innalzamento-lago-maggiore-140-metri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

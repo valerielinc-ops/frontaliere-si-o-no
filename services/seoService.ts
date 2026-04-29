@@ -2523,6 +2523,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-accordo-lago-maggiore-italia-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/accordo-lago-maggiore-italia-svizzera-2026', parent: 'blog' },
     'blog-webinar-ai-azienda-strategia-casi-concreti': { name: 'Webinar AI', path: '/articoli-frontaliere/webinar-ai-azienda-strategia-casi-concreti', parent: 'blog' },
     'blog-comunita-montana-valli-verbano-incontri-natura-cambia': { name: 'Incontri natura', path: '/articoli-frontaliere/comunita-montana-valli-verbano-incontri-natura-cambia', parent: 'blog' },
+    'blog-innalzamento-lago-maggiore-140-metri': { name: 'Novità', path: '/articoli-frontaliere/innalzamento-lago-maggiore-140-metri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

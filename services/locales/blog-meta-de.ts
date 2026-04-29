@@ -3877,6 +3877,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.title': 'Treffen zu Klimawandel in Rancio Valcuvia',
     'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.excerpt': 'Die Berggemeinschaft Verbano-Täler organisiert eine Reihe von Treffen zu Biodiversität und Klimawandel.',
     'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.imageAlt': 'Ruhige Aussicht auf den Luganersee mit Bergen im Hintergrund',
+    'blog.article.innalzamento-lago-maggiore-140-metri.title': 'Lago Maggiore darf um 1,40 Meter steigen',
+    'blog.article.innalzamento-lago-maggiore-140-metri.excerpt': 'Entscheidender Beschluss zur Erhöhung der Wasserkapazität des Sees um 20-30 Millionen Kubikmeter',
+    'blog.article.innalzamento-lago-maggiore-140-metri.imageAlt': 'Luganersee mit umliegenden Bergen',
 };
 
 export default blogMetaDe;
