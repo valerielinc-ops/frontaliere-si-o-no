@@ -3760,6 +3760,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.title': 'Secure energy supply in Switzerland',
     'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.excerpt': 'The attack on Iran and the retaliation have increased the prices of petrol and diesel in Switzerland too, but the supply is secure.',
     'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border, clear blue sky, and surrounding mountains',
+    'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.title': 'Von der Leyen: Iran war costs EU 500 million daily for energy',
+    'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.excerpt': 'The European Commission president warns that the Middle East conflict is causing severe economic repercussions.',
+    'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.imageAlt': 'Lake Lugano with a modern energy plant in the background',
 };
 
 export default blogMetaEn;

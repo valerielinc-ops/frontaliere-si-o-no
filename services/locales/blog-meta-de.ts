@@ -3760,6 +3760,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.title': 'Sichere Energieversorgung in der Schweiz',
     'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.excerpt': 'Der Angriff auf den Iran und die Vergeltung haben auch in der Schweiz die Preise für Benzin und Diesel erhöht, aber die Versorgung ist gesichert.',
     'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.imageAlt': 'Luftaufnahme des Luganer Sees mit der Schweizer-Italienischen Grenze, klarem blauen Himmel und umliegenden Bergen',
+    'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.title': 'Von der Leyen: Iran-Krieg kostet EU 500 Mio. täglich für Energie',
+    'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.excerpt': 'Die Präsidentin der EU-Kommission warnt, dass der Konflikt im Nahen Osten schwere wirtschaftliche Folgen hat.',
+    'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.imageAlt': 'Luganersee mit einem modernen Kraftwerk im Hintergrund',
 };
 
 export default blogMetaDe;

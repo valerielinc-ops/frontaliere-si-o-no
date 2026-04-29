@@ -3761,6 +3761,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.title': 'Approvisionnement énergétique sûr en Suisse',
     'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.excerpt': 'L\'attaque contre l\'Iran et les représailles ont fait augmenter les prix de l\'essence et du diesel en Suisse, mais l\'approvisionnement est sûr.',
     'blog.article.petrolio-gas-svizzera-approvvigionamento-sicuro.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne, ciel bleu clair et montagnes environnantes',
+    'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.title': 'Von der Leyen: La guerre en Iran coûte 500 millions par jour à l\'UE en énergie',
+    'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.excerpt': 'La présidente de la Commission européenne avertit que le conflit au Moyen-Orient a de graves répercussions économiques.',
+    'blog.article.von-der-leyen-ue-energia-500-milioni-giorno.imageAlt': 'Lac de Lugano avec une centrale énergétique moderne en arrière-plan',
 };
 
 export default blogMetaFr;

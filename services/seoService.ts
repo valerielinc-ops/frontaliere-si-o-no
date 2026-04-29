@@ -2484,6 +2484,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-friborgogotteron-spareggio-titolo-hockey': { name: 'Novità Sport', path: '/articoli-frontaliere/friborgogotteron-spareggio-titolo-hockey', parent: 'blog' },
     'blog-como-verdi-elogio-rapinese-alberi': { name: 'Novità', path: '/articoli-frontaliere/como-verdi-elogio-rapinese-alberi', parent: 'blog' },
     'blog-petrolio-gas-svizzera-approvvigionamento-sicuro': { name: 'Novità', path: '/articoli-frontaliere/petrolio-gas-svizzera-approvvigionamento-sicuro', parent: 'blog' },
+    'blog-von-der-leyen-ue-energia-500-milioni-giorno': { name: 'Novità', path: '/articoli-frontaliere/von-der-leyen-ue-energia-500-milioni-giorno', parent: 'blog' },
  };
 
  const info = sectionNames[section];

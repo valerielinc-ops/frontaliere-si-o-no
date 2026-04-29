@@ -9786,4 +9786,11 @@ export const ARTICLES = [
  image: '/images/blog/petrolio-gas-svizzera-approvvigionamento-sicuro.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'von-der-leyen-ue-energia-500-milioni-giorno',
+ category: 'novita',
+ date: '2026-04-29T08:16:25.295Z',
+ image: '/images/blog/von-der-leyen-ue-energia-500-milioni-giorno.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

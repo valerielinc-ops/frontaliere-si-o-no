@@ -23326,6 +23326,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-von-der-leyen-ue-energia-500-milioni-giorno': {
+    title: 'Von der Leyen: "Guerra in Iran costa all\'Ue 500 milioni al giorno per l\'energia"',
+    description: 'La presidente della Commissione europea avverte che il conflitto in Medio Oriente sta causando gravi ripercussioni economiche, con un costo di 500 milioni al',
+    keywords: 'frontalieri, ticino, svizzera, italia, leyen, guerra, iran, costa',
+    ogTitle: 'Von der Leyen: "Guerra in Iran costa all\'Ue 500 milioni al giorno per l\'energia"',
+    ogDescription: 'La presidente della Commissione europea avverte che il conflitto in Medio Oriente sta causando gravi ripercussioni economiche, con un costo di 500 milioni al',
+    canonicalPath: '/articoli-frontaliere/von-der-leyen-ue-energia-500-milioni-giorno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Von der Leyen: \"Guerra in Iran costa all'Ue 500 milioni al giorno per l'energia\"",
+      "description": "La presidente della Commissione europea avverte che il conflitto in Medio Oriente sta causando gravi ripercussioni economiche, con un costo di 500 milioni al",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/von-der-leyen-ue-energia-500-milioni-giorno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con impianto energetico moderno sullo sfondo"
+      },
+      "datePublished": "2026-04-29T08:16:25+00:00",
+      "dateModified": "2026-04-29T08:16:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/von-der-leyen-ue-energia-500-milioni-giorno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
