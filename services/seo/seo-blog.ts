@@ -24486,6 +24486,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guardie-svizzere-giuramento-vaticano-2026': {
+    title: '28 nuove guardie svizzere giureranno al Vaticano | Frontaliere Ticino',
+    description: 'La cerimonia si terrà il 6 maggio nel Cortile di S. Damaso del Palazzo Apostolico alla presenza del Papa e del presidente della Confederazione Guy Parmelin.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, guardie, svizzere, giureranno',
+    ogTitle: '28 nuove guardie svizzere giureranno al Vaticano',
+    ogDescription: 'La cerimonia si terrà il 6 maggio nel Cortile di S. Damaso del Palazzo Apostolico alla presenza del Papa e del presidente della Confederazione Guy Parmelin.',
+    canonicalPath: '/articoli-frontaliere/guardie-svizzere-giuramento-vaticano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "28 nuove guardie svizzere giureranno al Vaticano",
+      "description": "La cerimonia si terrà il 6 maggio nel Cortile di S. Damaso del Palazzo Apostolico alla presenza del Papa e del presidente della Confederazione Guy Parmelin.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guardie-svizzere-giuramento-vaticano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guardie svizzere in uniforme cerimoniale nel Cortile di S. Damaso del Palazzo Apostolico"
+      },
+      "datePublished": "2026-04-29T12:04:47+00:00",
+      "dateModified": "2026-04-29T12:04:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guardie-svizzere-giuramento-vaticano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3880,6 +3880,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.innalzamento-lago-maggiore-140-metri.title': 'Lake Maggiore to rise up to 1.40 meters',
     'blog.article.innalzamento-lago-maggiore-140-metri.excerpt': 'Decisive agreement to increase the lake\'s water capacity by 20-30 million cubic meters',
     'blog.article.innalzamento-lago-maggiore-140-metri.imageAlt': 'Lake Lugano with surrounding mountains',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.title': '28 new Swiss Guards to swear oath at the Vatican',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.excerpt': 'The ceremony will take place on May 6 in the Courtyard of St. Damasus of the Apostolic Palace in the presence of the Pope.',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.imageAlt': 'Swiss Guards in ceremonial uniform in the Courtyard of St. Damasus of the Apostolic Palace',
 };
 
 export default blogMetaEn;

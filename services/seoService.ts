@@ -2524,6 +2524,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-webinar-ai-azienda-strategia-casi-concreti': { name: 'Webinar AI', path: '/articoli-frontaliere/webinar-ai-azienda-strategia-casi-concreti', parent: 'blog' },
     'blog-comunita-montana-valli-verbano-incontri-natura-cambia': { name: 'Incontri natura', path: '/articoli-frontaliere/comunita-montana-valli-verbano-incontri-natura-cambia', parent: 'blog' },
     'blog-innalzamento-lago-maggiore-140-metri': { name: 'Novità', path: '/articoli-frontaliere/innalzamento-lago-maggiore-140-metri', parent: 'blog' },
+    'blog-guardie-svizzere-giuramento-vaticano-2026': { name: 'Novità', path: '/articoli-frontaliere/guardie-svizzere-giuramento-vaticano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

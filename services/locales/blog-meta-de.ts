@@ -3880,6 +3880,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.innalzamento-lago-maggiore-140-metri.title': 'Lago Maggiore darf um 1,40 Meter steigen',
     'blog.article.innalzamento-lago-maggiore-140-metri.excerpt': 'Entscheidender Beschluss zur Erhöhung der Wasserkapazität des Sees um 20-30 Millionen Kubikmeter',
     'blog.article.innalzamento-lago-maggiore-140-metri.imageAlt': 'Luganersee mit umliegenden Bergen',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.title': '28 neue Schweizer Wachen schwören im Vatikan',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.excerpt': 'Die Zeremonie findet am 6. Mai im Hof von S. Damaso des Apostolischen Palastes in Gegenwart des Papstes statt.',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.imageAlt': 'Schweizer Gardisten in der Paradeuniform im Hof des Heiligen Damasus des Apostolischen Palastes',
 };
 
 export default blogMetaDe;

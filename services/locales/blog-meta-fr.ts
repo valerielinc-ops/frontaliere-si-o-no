@@ -3881,6 +3881,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.innalzamento-lago-maggiore-140-metri.title': 'Feu vert pour l\'élévation du lac Majeur jusqu\'à 1,40 mètre',
     'blog.article.innalzamento-lago-maggiore-140-metri.excerpt': 'Accord décisif pour augmenter la capacité hydrique du lac de 20 à 30 millions de mètres cubes',
     'blog.article.innalzamento-lago-maggiore-140-metri.imageAlt': 'Lac de Lugano avec les montagnes environnantes',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.title': '28 nouvelles gardes suisses prêteront serment au Vatican',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.excerpt': 'La cérémonie aura lieu le 6 mai dans la Cour de Saint-Damas du Palais Apostolique en présence du Pape.',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.imageAlt': 'Gardes suisses en uniforme de cérémonie dans la cour de Saint-Damas du Palais Apostolique',
 };
 
 export default blogMetaFr;

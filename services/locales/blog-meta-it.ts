@@ -3881,6 +3881,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.innalzamento-lago-maggiore-140-metri.title': 'Via libera all\'innalzamento del Lago Maggiore fino a 1,40 metri',
     'blog.article.innalzamento-lago-maggiore-140-metri.excerpt': 'Decisivo accordo per aumentare la capacità idrica del lago di 20-30 milioni di metri cubi',
     'blog.article.innalzamento-lago-maggiore-140-metri.imageAlt': 'Lago di Lugano con montagne circostanti',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.title': '28 nuove guardie svizzere giureranno al Vaticano',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.excerpt': 'La cerimonia si terrà il 6 maggio nel Cortile di S. Damaso del Palazzo Apostolico alla presenza del Papa.',
+    'blog.article.guardie-svizzere-giuramento-vaticano-2026.imageAlt': 'Guardie svizzere in uniforme cerimoniale nel Cortile di S. Damaso del Palazzo Apostolico',
 };
 
 export default blogMetaIt;
