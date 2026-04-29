@@ -3727,6 +3727,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-corsi-parlare-pubblico-2026.title': 'Varese Corsi: Fortgeschrittenenkurs Rhetorik ab 18. Mai',
     'blog.article.varese-corsi-parlare-pubblico-2026.excerpt': 'Varese Corsi bietet einen Fortgeschrittenenkurs in Rhetorik an, um Kommunikationstechniken und die Einbindung des Publikums zu verfeinern',
     'blog.article.varese-corsi-parlare-pubblico-2026.imageAlt': 'Ein Klassenzimmer in Varese mit Menschen, die Public Speaking üben',
+    'blog.article.svizzera-10-milioni-votazione-ticino.title': 'UDC-Initiative: Tamedia-Umfrage zur demografischen Zukunft der Schweiz',
+    'blog.article.svizzera-10-milioni-votazione-ticino.excerpt': '52% der Befragten unterstützen die UDC-Initiative \'Nein zu einer Schweiz mit 10 Millionen\' laut Tamedia-Umfrage vom 22.-23. April 2026',
+    'blog.article.svizzera-10-milioni-votazione-ticino.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze im Fokus',
 };
 
 export default blogMetaDe;

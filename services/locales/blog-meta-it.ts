@@ -3728,6 +3728,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-corsi-parlare-pubblico-2026.title': 'Varese Corsi: corso intermedio di public speaking dal 18 maggio',
     'blog.article.varese-corsi-parlare-pubblico-2026.excerpt': 'Varese Corsi propone un corso intermedio di public speaking per affinare le tecniche di comunicazione e coinvolgimento del pubblico',
     'blog.article.varese-corsi-parlare-pubblico-2026.imageAlt': 'Un\'aula a Varese con persone che praticano il public speaking',
+    'blog.article.svizzera-10-milioni-votazione-ticino.title': 'Iniziativa UDC: sondaggio Tamedia sul futuro demografico della Svizzera',
+    'blog.article.svizzera-10-milioni-votazione-ticino.excerpt': 'Il 52% degli intervistati sostiene l\'iniziativa UDC \'No a una Svizzera da 10 milioni\' secondo il sondaggio Tamedia del 22-23 aprile 2026',
+    'blog.article.svizzera-10-milioni-votazione-ticino.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
 };
 
 export default blogMetaIt;

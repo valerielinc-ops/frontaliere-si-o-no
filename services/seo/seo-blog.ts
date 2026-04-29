@@ -23007,6 +23007,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-10-milioni-votazione-ticino': {
+    title: 'Iniziativa UDC: sondaggio Tamedia sul futuro demografico della Svizzera',
+    description: 'Il 52% degli intervistati sostiene l\'iniziativa UDC \'No a una Svizzera da 10 milioni\' secondo il sondaggio Tamedia del 22-23 aprile 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, sondaggio, tamedia, futuro',
+    ogTitle: 'Iniziativa UDC: sondaggio Tamedia sul futuro demografico della Svizzera',
+    ogDescription: 'Il 52% degli intervistati sostiene l\'iniziativa UDC \'No a una Svizzera da 10 milioni\' secondo il sondaggio Tamedia del 22-23 aprile 2026',
+    canonicalPath: '/articoli-frontaliere/svizzera-10-milioni-votazione-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa UDC: sondaggio Tamedia sul futuro demografico della Svizzera",
+      "description": "Il 52% degli intervistati sostiene l'iniziativa UDC 'No a una Svizzera da 10 milioni' secondo il sondaggio Tamedia del 22-23 aprile 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-10-milioni-votazione-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano"
+      },
+      "datePublished": "2026-04-29T05:37:36+00:00",
+      "dateModified": "2026-04-29T05:37:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-10-milioni-votazione-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

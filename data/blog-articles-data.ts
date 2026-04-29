@@ -9709,4 +9709,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-corsi-parlare-pubblico-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-10-milioni-votazione-ticino',
+ category: 'novita',
+ date: '2026-04-29T05:37:36.064Z',
+ image: '/images/blog/svizzera-10-milioni-votazione-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

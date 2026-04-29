@@ -3727,6 +3727,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-corsi-parlare-pubblico-2026.title': 'Varese Corsi: intermediate public speaking course from May 18th',
     'blog.article.varese-corsi-parlare-pubblico-2026.excerpt': 'Varese Corsi offers an intermediate public speaking course to refine communication techniques and audience engagement',
     'blog.article.varese-corsi-parlare-pubblico-2026.imageAlt': 'A classroom in Varese with people practicing public speaking',
+    'blog.article.svizzera-10-milioni-votazione-ticino.title': 'UDC initiative: Tamedia poll on Switzerland\'s demographic future',
+    'blog.article.svizzera-10-milioni-votazione-ticino.excerpt': '52% of respondents support the UDC initiative \'No to a 10 million Switzerland\' according to the Tamedia poll of April 22-23, 2026',
+    'blog.article.svizzera-10-milioni-votazione-ticino.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
 };
 
 export default blogMetaEn;
