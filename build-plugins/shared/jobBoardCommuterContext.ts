@@ -437,6 +437,103 @@ export function renderJobBoardCommuterContext(
 }
 
 /**
+ * Public lookup: does the helper recognise this location as a Ticino city
+ * with commute data? Used by callers that want to choose between the
+ * city-aware path (`location: <City>`) and the general-Ticino fallback
+ * (`location: 'Ticino', omitCommute: true`).
+ */
+export function isKnownTicinoCommuterCity(location: string): boolean {
+  return resolveCommuteRow(location) !== null;
+}
+
+/**
+ * Per-query opening paragraph for free-text search / keyword / combo job
+ * landings (`/cerca-lavoro-ticino/ricerca-{slug}/` and equivalents in EN,
+ * DE, FR). The paragraph references the actual user query verbatim so
+ * each emitted page has a unique top section, avoiding the template-wide
+ * duplication penalty Google applies to thin search-results pages.
+ *
+ * The helper is pure; identical inputs always produce identical output
+ * (no Date.now, no Math.random) so determinism tests in the gate suite
+ * still pass.
+ *
+ * @param locale     Output locale.
+ * @param query      Display form of the user query (e.g. "Educatori Vallese",
+ *                   "Chur", "Lugano stage", "medico"). Whatever the page
+ *                   heading shows the user.
+ * @param matchCount Number of jobs surfaced for this query in the locale.
+ * @param companies  Up to 3-5 unique company names visible on the page.
+ * @param locations  Up to 3-5 unique location names visible on the page.
+ */
+export function renderSearchQueryIntro(
+  locale: CommuterLocale,
+  query: string,
+  matchCount: number,
+  companies: string[],
+  locations: string[],
+): string {
+  const q = (query || '').trim();
+  const safeQ = q.length > 0 ? q : (locale === 'it' ? 'questa ricerca' : locale === 'en' ? 'this search' : locale === 'de' ? 'diese Suche' : 'cette recherche');
+  const topCompanies = companies.slice(0, 4).map((c) => escAttr(c)).join(', ');
+  const topLocations = locations.slice(0, 4).map((l) => escAttr(l)).join(', ');
+  const hasCompanies = topCompanies.length > 0;
+  const hasLocations = topLocations.length > 0;
+
+  // Pick three rotating angles using a stable hash of the query so each
+  // query gets a slightly different framing. No randomness — pure function.
+  const angle = stableHash(`${q}|${locale}`) % 3;
+
+  if (locale === 'it') {
+    const intro = angle === 0
+      ? `Questa pagina raccoglie le offerte attive in Ticino legate alla ricerca <strong>"${escAttr(safeQ)}"</strong>: i ${matchCount} annunci qui sotto sono filtrati dal nostro indice di posizioni aperte e ordinati per data di pubblicazione, dalla più recente alla più vecchia.`
+      : angle === 1
+      ? `Stai cercando <strong>"${escAttr(safeQ)}"</strong> in Ticino. Abbiamo indicizzato ${matchCount} posizioni aperte che corrispondono a questa query, raccolte dai portali carriera delle aziende ticinesi e dai principali ATS svizzeri attivi nel cantone.`
+      : `Le ${matchCount} offerte raggruppate in questa pagina rispondono alla ricerca <strong>"${escAttr(safeQ)}"</strong>: sono filtrate dal nostro feed proprietario aggiornato ogni 6 ore e mostrano solo posizioni la cui scadenza non è ancora trascorsa.`;
+    const context = `${hasCompanies ? `Tra i datori di lavoro che assumono per "${escAttr(safeQ)}" trovi ${topCompanies}. ` : ''}${hasLocations ? `Le località ricorrenti negli annunci sono ${topLocations}: tieni conto di tempi di pendolarismo e tipologia di valico (Brogeda, Stabio, Ponte Tresa) prima di scegliere un\'opportunità rispetto a un\'altra. ` : ''}Per chi è frontaliere italiano, ogni ruolo richiede il Permesso G richiesto dal datore svizzero — è gratuito e di norma rilasciato in 2-6 settimane dopo la firma del contratto.`;
+    const valueProp = `Sotto ogni annuncio trovi un link diretto alla pagina ufficiale di candidatura: non chiediamo registrazione, non intermediamo CV. Se vuoi confrontare il lordo CHF con il netto reale per la tua situazione (zona di frontiera vs Permesso B, vecchio vs nuovo accordo fiscale Italia-Svizzera 2024, presenza di figli a carico, telelavoro fino al 25 %), apri il calcolatore Frontaliere Ticino dal menu in alto: in 30 secondi ottieni la cifra netta mensile in CHF e in EUR.`;
+    return `<p style="margin:0 0 14px">${intro}</p>\n<p style="margin:0 0 14px">${context}</p>\n<p style="margin:0 0 14px">${valueProp}</p>`;
+  }
+  if (locale === 'en') {
+    const intro = angle === 0
+      ? `This page lists active Ticino openings tied to the search <strong>"${escAttr(safeQ)}"</strong>: the ${matchCount} listings below are filtered from our open-position index and sorted from newest to oldest.`
+      : angle === 1
+      ? `You are looking for <strong>"${escAttr(safeQ)}"</strong> in Ticino. We indexed ${matchCount} active positions matching this query, collected from Ticino employers\' career portals and the main Swiss ATS active in the canton.`
+      : `The ${matchCount} listings grouped on this page answer the search <strong>"${escAttr(safeQ)}"</strong>: filtered from our proprietary feed refreshed every 6 hours, showing only positions whose deadline has not passed.`;
+    const context = `${hasCompanies ? `Employers hiring for "${escAttr(safeQ)}" include ${topCompanies}. ` : ''}${hasLocations ? `Recurring locations are ${topLocations}: factor in commute time and crossing type (Brogeda, Stabio, Ponte Tresa) before picking one opportunity over another. ` : ''}For Italian cross-border applicants, every role requires the G permit filed by the Swiss employer — it is free of charge and typically issued in 2-6 weeks after contract signature.`;
+    const valueProp = `Each listing links directly to the official application page: we never require registration and never intermediate CVs. To compare the CHF gross with real take-home for your specific situation (border zone vs Permit B, old vs new 2024 Italy-Switzerland fiscal agreement, dependent children, teleworking up to 25 %), open the Frontaliere Ticino calculator from the top menu: in 30 seconds you get the monthly net in CHF and EUR.`;
+    return `<p style="margin:0 0 14px">${intro}</p>\n<p style="margin:0 0 14px">${context}</p>\n<p style="margin:0 0 14px">${valueProp}</p>`;
+  }
+  if (locale === 'de') {
+    const intro = angle === 0
+      ? `Diese Seite sammelt aktive Stellen im Tessin zur Suche <strong>"${escAttr(safeQ)}"</strong>: die ${matchCount} Anzeigen unten stammen aus unserem Index offener Positionen, sortiert nach Veröffentlichungsdatum von neu nach alt.`
+      : angle === 1
+      ? `Sie suchen <strong>"${escAttr(safeQ)}"</strong> im Tessin. Wir haben ${matchCount} aktive Stellen indexiert, die auf diese Anfrage passen — gesammelt aus den Karriereportalen der Tessiner Arbeitgeber und den wichtigsten Schweizer ATS im Kanton.`
+      : `Die ${matchCount} Inserate auf dieser Seite beantworten die Suche <strong>"${escAttr(safeQ)}"</strong>: gefiltert aus unserem eigenen Feed, alle 6 Stunden aktualisiert, mit ausschliesslich noch offenen Bewerbungsfristen.`;
+    const context = `${hasCompanies ? `Zu den Arbeitgebern, die für "${escAttr(safeQ)}" rekrutieren, gehören ${topCompanies}. ` : ''}${hasLocations ? `Häufige Standorte sind ${topLocations}: Pendelzeit und Grenzübergang (Brogeda, Stabio, Ponte Tresa) sollten in die Wahl einer Stelle gegenüber einer anderen einfliessen. ` : ''}Für italienische Grenzgänger erfordert jede Rolle die G-Bewilligung, die der Schweizer Arbeitgeber kostenlos beantragt — die Ausstellung dauert in der Regel 2-6 Wochen nach Vertragsunterzeichnung.`;
+    const valueProp = `Jedes Inserat führt direkt zur offiziellen Bewerbungsseite: wir verlangen keine Registrierung und vermitteln keine Lebensläufe. Um den CHF-Bruttolohn mit dem realen Netto für Ihre Situation zu vergleichen (Grenzzone vs. B-Bewilligung, altes vs. neues Steuerabkommen 2024, Kinderzulagen, Homeoffice bis 25 %), öffnen Sie den Frontaliere-Ticino-Rechner über das obere Menü: in 30 Sekunden erhalten Sie das Monatsnetto in CHF und EUR.`;
+    return `<p style="margin:0 0 14px">${intro}</p>\n<p style="margin:0 0 14px">${context}</p>\n<p style="margin:0 0 14px">${valueProp}</p>`;
+  }
+  const intro = angle === 0
+    ? `Cette page rassemble les offres actives au Tessin liées à la recherche <strong>"${escAttr(safeQ)}"</strong> : les ${matchCount} annonces ci-dessous sont filtrées depuis notre index de postes ouverts et triées par date de publication, des plus récentes aux plus anciennes.`
+    : angle === 1
+    ? `Vous cherchez <strong>"${escAttr(safeQ)}"</strong> au Tessin. Nous avons indexé ${matchCount} postes actifs correspondant à cette requête, collectés depuis les portails carrière des employeurs tessinois et les principaux ATS suisses présents dans le canton.`
+    : `Les ${matchCount} annonces regroupées sur cette page répondent à la recherche <strong>"${escAttr(safeQ)}"</strong> : filtrées depuis notre flux propriétaire actualisé toutes les 6 heures, ne montrant que les postes dont l\'échéance n\'est pas encore passée.`;
+  const context = `${hasCompanies ? `Les employeurs qui recrutent pour "${escAttr(safeQ)}" incluent ${topCompanies}. ` : ''}${hasLocations ? `Les localités récurrentes sont ${topLocations} : prenez en compte le temps de trajet et le type de passage frontalier (Brogeda, Stabio, Ponte Tresa) avant de choisir une opportunité plutôt qu\'une autre. ` : ''}Pour les frontaliers italiens, chaque poste requiert le permis G demandé par l\'employeur suisse — il est gratuit et délivré en 2-6 semaines après la signature du contrat.`;
+  const valueProp = `Chaque annonce renvoie directement à la page de candidature officielle : nous ne demandons aucune inscription et n\'intermédions aucun CV. Pour comparer le brut CHF avec le net réel pour votre situation (zone frontalière vs permis B, ancien vs nouvel accord fiscal 2024, enfants à charge, télétravail jusqu\'à 25 %), ouvrez le calculateur Frontaliere Ticino depuis le menu supérieur : en 30 secondes vous obtenez le net mensuel en CHF et en EUR.`;
+  return `<p style="margin:0 0 14px">${intro}</p>\n<p style="margin:0 0 14px">${context}</p>\n<p style="margin:0 0 14px">${valueProp}</p>`;
+}
+
+/**
+ * Stable, fast non-cryptographic hash. Used to vary the opening-angle
+ * choice across queries without introducing nondeterminism. djb2.
+ */
+function stableHash(s: string): number {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h) ^ s.charCodeAt(i);
+  return Math.abs(h | 0);
+}
+
+/**
  * Generate FAQPage JSON-LD for the same FAQ block emitted by
  * `renderJobBoardCommuterContext`. Returns an empty string if the host
  * page already emits FAQ structured data (avoid duplicate).
