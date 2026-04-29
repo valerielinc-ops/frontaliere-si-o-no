@@ -10241,4 +10241,11 @@ export const ARTICLES = [
  image: '/images/blog/riforma-frontalieri-costi-svizzera.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'conciliabilita-vita-lavoro-bellinzona-2026',
+ category: 'pratico',
+ date: '2026-04-29T17:56:03.570Z',
+ image: '/images/blog/conciliabilita-vita-lavoro-bellinzona-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

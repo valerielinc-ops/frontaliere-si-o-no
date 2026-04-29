@@ -3955,6 +3955,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-frontalieri-costi-svizzera.title': 'EU reform: extra costs for Switzerland?',
     'blog.article.riforma-frontalieri-costi-svizzera.excerpt': 'The EU reform on unemployment insurance for cross-border workers has been approved. What changes for Switzerland?',
     'blog.article.riforma-frontalieri-costi-svizzera.imageAlt': 'Lugano and Lake Lugano',
+    'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.title': 'Bellinzona: work-life balance in Rod',
+    'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.excerpt': 'The motion by Unità di sinistra to include the principle of work-life balance in Bellinzona\'s Rod',
+    'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.imageAlt': 'Bellinzona with Castle Grande and the Ticino River',
 };
 
 export default blogMetaEn;

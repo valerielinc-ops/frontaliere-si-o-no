@@ -2549,6 +2549,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-copernicus-clima-2025-europa': { name: 'Novità', path: '/articoli-frontaliere/copernicus-clima-2025-europa', parent: 'blog' },
     'blog-credinvest-bank-crescita-2026': { name: 'Novità', path: '/articoli-frontaliere/credinvest-bank-crescita-2026', parent: 'blog' },
     'blog-riforma-frontalieri-costi-svizzera': { name: 'Novità', path: '/articoli-frontaliere/riforma-frontalieri-costi-svizzera', parent: 'blog' },
+    'blog-conciliabilita-vita-lavoro-bellinzona-2026': { name: 'Conciliabilità vita-lavoro', path: '/articoli-frontaliere/conciliabilita-vita-lavoro-bellinzona-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

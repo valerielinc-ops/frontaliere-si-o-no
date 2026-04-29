@@ -25211,6 +25211,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-conciliabilita-vita-lavoro-bellinzona-2026': {
+    title: 'Bellinzona: conciliabilità vita-lavoro nel Rod | Frontaliere Ticino',
+    description: 'La mozione per inserire il principio di conciliabilità vita-lavoro nel Rod di Bellinzona e le implicazioni per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, conciliabilità, vita-lavoro, mozione',
+    ogTitle: 'Conciliabilità vita-lavoro Bellinzona 2026',
+    ogDescription: 'La mozione per inserire il principio di conciliabilità vita-lavoro nel Rod di Bellinzona e le implicazioni per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/conciliabilita-vita-lavoro-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conciliabilità vita-lavoro Bellinzona 2026",
+      "description": "La mozione per inserire il principio di conciliabilità vita-lavoro nel Rod di Bellinzona e le implicazioni per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/conciliabilita-vita-lavoro-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona con il Castello Grande e il fiume Ticino"
+      },
+      "datePublished": "2026-04-29T17:56:03+00:00",
+      "dateModified": "2026-04-29T17:56:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/conciliabilita-vita-lavoro-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3956,6 +3956,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riforma-frontalieri-costi-svizzera.title': 'Riforma frontalieri: costi aggiuntivi per la Svizzera?',
     'blog.article.riforma-frontalieri-costi-svizzera.excerpt': 'Approvata la riforma UE sull\'assicurazione disoccupazione per i frontalieri. Cosa cambia per la Svizzera?',
     'blog.article.riforma-frontalieri-costi-svizzera.imageAlt': 'Lugano e il lago Ceresio',
+    'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.title': 'Bellinzona: conciliabilità vita-lavoro nel Rod',
+    'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.excerpt': 'La mozione dell\'Unità di sinistra per inserire il principio di conciliabilità vita-lavoro nel Rod della città di Bellinzona',
+    'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.imageAlt': 'Bellinzona con il Castello Grande e il fiume Ticino',
 };
 
 export default blogMetaIt;
