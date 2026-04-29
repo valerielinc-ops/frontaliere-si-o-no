@@ -3742,6 +3742,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.title': 'Geopolitik und Gewerkschaften: neue globale Gleichgewichte',
     'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.excerpt': 'Der Generalkongress der Fnp Cisl dei Laghi in Varese analysiert die Auswirkungen internationaler Spannungen auf Arbeit, Renten und Wohlfahrt.',
     'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.imageAlt': 'Ein Konferenzraum in Varese mit Teilnehmern, die über geopolitische Fragen diskutieren, mit Fokus auf die Auswirkungen auf das tägliche Leben und die Arbeitsrechte.',
+    'blog.article.ferrara-m5s-beko-cassinetta-verifica.title': 'Ferrara (M5S): Beko in Cassinetta braucht konkrete Ergebnisse',
+    'blog.article.ferrara-m5s-beko-cassinetta-verifica.excerpt': 'Nach einem Jahr fordert die Fünf-Sterne-Bewegung eine Überprüfung der Beko-Anlage in Cassinetta di Biandronno.',
+    'blog.article.ferrara-m5s-beko-cassinetta-verifica.imageAlt': 'Luftaufnahme von Cassinetta di Biandronno, Italien, in der Nähe der Schweizer Grenze, mit der Landschaft des Tessin im Hintergrund.',
 };
 
 export default blogMetaDe;

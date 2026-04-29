@@ -9744,4 +9744,11 @@ export const ARTICLES = [
  image: '/images/blog/geopolitica-sindacato-nuovi-equilibri-varese.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ferrara-m5s-beko-cassinetta-verifica',
+ category: 'novita',
+ date: '2026-04-29T07:49:56.464Z',
+ image: '/images/blog/ferrara-m5s-beko-cassinetta-verifica.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

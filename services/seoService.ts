@@ -2478,6 +2478,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-730-precompilato-frontalieri-ticino-2026': { name: 'Fiscale', path: '/articoli-frontaliere/730-precompilato-frontalieri-ticino-2026', parent: 'blog' },
     'blog-tosatura-pecore-riparazione-vestiti-bellinzona-2026': { name: 'Evento Bellinzona', path: '/articoli-frontaliere/tosatura-pecore-riparazione-vestiti-bellinzona-2026', parent: 'blog' },
     'blog-geopolitica-sindacato-nuovi-equilibri-varese': { name: 'Geopolitica e sindacato', path: '/articoli-frontaliere/geopolitica-sindacato-nuovi-equilibri-varese', parent: 'blog' },
+    'blog-ferrara-m5s-beko-cassinetta-verifica': { name: 'Novità', path: '/articoli-frontaliere/ferrara-m5s-beko-cassinetta-verifica', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -23152,6 +23152,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ferrara-m5s-beko-cassinetta-verifica': {
+    title: 'Ferrara (M5S): Beko a Cassinetta, servono risultati concreti',
+    description: 'Dopo un anno, il Movimento 5 Stelle chiede una verifica sull\'impianto Beko a Cassinetta di Biandronno per valutare l\'impatto sull\'occupazione e lo sviluppo',
+    keywords: 'frontalieri, ticino, svizzera, italia, ferrara, beko, cassinetta, servono',
+    ogTitle: 'Ferrara (M5S): Beko a Cassinetta, servono risultati concreti',
+    ogDescription: 'Dopo un anno, il Movimento 5 Stelle chiede una verifica sull\'impianto Beko a Cassinetta di Biandronno per valutare l\'impatto sull\'occupazione e lo sviluppo',
+    canonicalPath: '/articoli-frontaliere/ferrara-m5s-beko-cassinetta-verifica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ferrara (M5S): Beko a Cassinetta, servono risultati concreti",
+      "description": "Dopo un anno, il Movimento 5 Stelle chiede una verifica sull'impianto Beko a Cassinetta di Biandronno per valutare l'impatto sull'occupazione e lo sviluppo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ferrara-m5s-beko-cassinetta-verifica.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Cassinetta di Biandronno, Italia, vicino al confine svizzero, con il paesaggio del Ticino sullo sfondo."
+      },
+      "datePublished": "2026-04-29T07:49:56+00:00",
+      "dateModified": "2026-04-29T07:49:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ferrara-m5s-beko-cassinetta-verifica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
