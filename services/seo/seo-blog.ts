@@ -24167,6 +24167,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accordo-syndicom-vsm-2026': {
+    title: 'Syndicom approva accordo con editori VSM per Ticino e Svizzera tedesca',
+    description: 'Dopo 20 anni senza intesa, operatori media Ticino e Svizzera tedesca verso regolamentazione condizioni minime lavoro stampa. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, syndicom, approva, accordo, editori',
+    ogTitle: 'Syndicom approva accordo con editori VSM per Ticino e Svizzera tedesca',
+    ogDescription: 'Dopo 20 anni senza intesa, operatori media Ticino e Svizzera tedesca verso regolamentazione condizioni minime lavoro stampa',
+    canonicalPath: '/articoli-frontaliere/accordo-syndicom-vsm-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Syndicom approva accordo con editori VSM per Ticino e Svizzera tedesca",
+      "description": "Dopo 20 anni senza intesa, operatori media Ticino e Svizzera tedesca verso regolamentazione condizioni minime lavoro stampa. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordo-syndicom-vsm-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un edificio moderno sullo sfondo"
+      },
+      "datePublished": "2026-04-29T11:02:04+00:00",
+      "dateModified": "2026-04-29T11:02:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordo-syndicom-vsm-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

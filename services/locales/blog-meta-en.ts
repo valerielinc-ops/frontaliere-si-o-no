@@ -3847,6 +3847,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.venditti-estival-lugano-2026.title': 'Antonello Venditti in Lugano: tickets on sale for July 10 concert',
     'blog.article.venditti-estival-lugano-2026.excerpt': 'The Roman singer-songwriter will bring tracks from \'Cuore\' and \'Notte prima degli esami\' to Estival Jazz. Seated only, presale already active.',
     'blog.article.venditti-estival-lugano-2026.imageAlt': 'Antonello Venditti performing at Estival Jazz in Lugano, audience enjoying',
+    'blog.article.accordo-syndicom-vsm-2026.title': 'Syndicom approves VSM publishers\' deal for Ticino',
+    'blog.article.accordo-syndicom-vsm-2026.excerpt': 'After 20 years without an agreement, media operators in Ticino and German-speaking Switzerland move towards regulating minimum working conditions in the press',
+    'blog.article.accordo-syndicom-vsm-2026.imageAlt': 'Lake Lugano with a modern building in the background',
 };
 
 export default blogMetaEn;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1332,
+ "numberOfItems": 1333,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5967,7 +5967,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1329, "name": "Gemellaggio tra scuole di Viganello e Gaza: un ...", "url": `${BASE_URL}/articoli-frontaliere/gemellaggio-scuole-viganello-gaza-2026` },
           { "@type": "ListItem", "position": 1330, "name": "Laurent Morel nominato Direttore Generale di EF...", "url": `${BASE_URL}/articoli-frontaliere/laurent-morel-nominato-direttore-ef-svizzera` },
           { "@type": "ListItem", "position": 1331, "name": "San Gottardo: caduto il primo diaframma a nord", "url": `${BASE_URL}/articoli-frontaliere/san-gottardo-secondo-tubo-caduto-diaframma` },
-          { "@type": "ListItem", "position": 1332, "name": "Antonello Venditti a Lugano: concerto del 10 lu...", "url": `${BASE_URL}/articoli-frontaliere/venditti-estival-lugano-2026` }
+          { "@type": "ListItem", "position": 1332, "name": "Antonello Venditti a Lugano: concerto del 10 lu...", "url": `${BASE_URL}/articoli-frontaliere/venditti-estival-lugano-2026` },
+          { "@type": "ListItem", "position": 1333, "name": "Syndicom approva accordo con editori VSM per Ti...", "url": `${BASE_URL}/articoli-frontaliere/accordo-syndicom-vsm-2026` }
  ]
  },
  {

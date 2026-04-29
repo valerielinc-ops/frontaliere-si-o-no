@@ -3848,6 +3848,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.venditti-estival-lugano-2026.title': 'Antonello Venditti a Lugano: prevendita aperta per il concerto del 10 luglio',
     'blog.article.venditti-estival-lugano-2026.excerpt': 'Il cantautore romano porterà a Estival Jazz i brani di \'Cuore\' e \'Notte prima degli esami\'. Posti solo a sedere, prevendita già attiva.',
     'blog.article.venditti-estival-lugano-2026.imageAlt': 'Antonello Venditti sul palco di Estival Jazz a Lugano, pubblico in festa',
+    'blog.article.accordo-syndicom-vsm-2026.title': 'Syndicom approva accordo con editori VSM per Ticino e Svizzera tedesca',
+    'blog.article.accordo-syndicom-vsm-2026.excerpt': 'Dopo 20 anni senza intesa, operatori media Ticino e Svizzera tedesca verso regolamentazione condizioni minime lavoro stampa',
+    'blog.article.accordo-syndicom-vsm-2026.imageAlt': 'Lago di Lugano con un edificio moderno sullo sfondo',
 };
 
 export default blogMetaIt;
