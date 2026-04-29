@@ -2578,6 +2578,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-moncucco-utile-raddoppiato-2026': { name: 'Novità', path: '/articoli-frontaliere/moncucco-utile-raddoppiato-2026', parent: 'blog' },
     'blog-domenica-natura-spazio-tradate-2026': { name: 'Eventi Tradate', path: '/articoli-frontaliere/domenica-natura-spazio-tradate-2026', parent: 'blog' },
     'blog-lago-maggiore-innalzamento-2026': { name: 'Novità', path: '/articoli-frontaliere/lago-maggiore-innalzamento-2026', parent: 'blog' },
+    'blog-usa-critica-svizzera-bio-duopolio': { name: 'Novità', path: '/articoli-frontaliere/usa-critica-svizzera-bio-duopolio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

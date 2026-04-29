@@ -26052,6 +26052,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-usa-critica-svizzera-bio-duopolio': {
+    title: 'USA criticano Svizzera per regole bio e duopolio Migros-Coop',
+    description: 'Norme agricole e predominio di Coop e Migros al centro delle critiche statunitensi. Deficit commerciale in calo, ma tensioni persistono. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, criticano, regole, duopolio, migros-coop',
+    ogTitle: 'USA criticano Svizzera per regole bio e duopolio Migros-Coop',
+    ogDescription: 'Norme agricole e predominio di Coop e Migros al centro delle critiche statunitensi. Deficit commerciale in calo, ma tensioni persistono.',
+    canonicalPath: '/articoli-frontaliere/usa-critica-svizzera-bio-duopolio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "USA criticano Svizzera per regole bio e duopolio Migros-Coop",
+      "description": "Norme agricole e predominio di Coop e Migros al centro delle critiche statunitensi. Deficit commerciale in calo, ma tensioni persistono. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/usa-critica-svizzera-bio-duopolio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Ticino, Svizzera"
+      },
+      "datePublished": "2026-04-29T22:59:24+00:00",
+      "dateModified": "2026-04-29T22:59:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/usa-critica-svizzera-bio-duopolio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

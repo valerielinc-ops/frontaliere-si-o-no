@@ -10444,4 +10444,11 @@ export const ARTICLES = [
  image: '/images/blog/lago-maggiore-innalzamento-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'usa-critica-svizzera-bio-duopolio',
+ category: 'novita',
+ date: '2026-04-29T22:59:24.778Z',
+ image: '/images/blog/usa-critica-svizzera-bio-duopolio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

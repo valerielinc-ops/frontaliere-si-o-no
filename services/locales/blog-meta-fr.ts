@@ -4043,6 +4043,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lago-maggiore-innalzamento-2026.title': 'Lac Majeur, feu vert pour l\'élévation: 20-30 millions de m³ en plus',
     'blog.article.lago-maggiore-innalzamento-2026.excerpt': 'La décision augmentera la disponibilité d\'eau de 20-30 millions de mètres cubes. Accord entre l\'Italie et la Suisse pour une élévation de 15 cm.',
     'blog.article.lago-maggiore-innalzamento-2026.imageAlt': 'Vue aérienne du Lac Majeur avec des eaux cristallines et les montagnes environnantes',
+    'blog.article.usa-critica-svizzera-bio-duopolio.title': 'Les USA critiquent la Suisse pour ses règles bio et le duopole Migros-Coop',
+    'blog.article.usa-critica-svizzera-bio-duopolio.excerpt': 'Les normes agricoles et la domination de Coop et Migros au centre des critiques américaines. Le déficit commercial diminue, mais les tensions persistent.',
+    'blog.article.usa-critica-svizzera-bio-duopolio.imageAlt': 'Vue aérienne de Mendrisio, Tessin, Suisse',
 };
 
 export default blogMetaFr;

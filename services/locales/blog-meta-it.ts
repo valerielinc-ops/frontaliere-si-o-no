@@ -4043,6 +4043,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lago-maggiore-innalzamento-2026.title': 'Lago Maggiore, via libera all’innalzamento: 20-30 milioni di metri cubi in più',
     'blog.article.lago-maggiore-innalzamento-2026.excerpt': 'La decisione aumenterà la disponibilità di acqua di 20-30 milioni di metri cubi. Accordo tra Italia e Svizzera per l’innalzamento di 15 cm.',
     'blog.article.lago-maggiore-innalzamento-2026.imageAlt': 'Vista aerea del Lago Maggiore con acque cristalline e montagne circostanti',
+    'blog.article.usa-critica-svizzera-bio-duopolio.title': 'USA criticano Svizzera per regole bio e duopolio Migros-Coop',
+    'blog.article.usa-critica-svizzera-bio-duopolio.excerpt': 'Norme agricole e predominio di Coop e Migros al centro delle critiche statunitensi. Deficit commerciale in calo, ma tensioni persistono.',
+    'blog.article.usa-critica-svizzera-bio-duopolio.imageAlt': 'Vista aerea di Mendrisio, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

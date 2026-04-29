@@ -4042,6 +4042,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lago-maggiore-innalzamento-2026.title': 'Lago Maggiore: Erhöhung um 15 cm genehmigt',
     'blog.article.lago-maggiore-innalzamento-2026.excerpt': 'Die Entscheidung erhöht die Wasserversorgung um 20-30 Millionen Kubikmeter. Einigung zwischen Italien und der Schweiz zur Erhöhung um 15 cm.',
     'blog.article.lago-maggiore-innalzamento-2026.imageAlt': 'Luftaufnahme des Lago Maggiore mit klaren blauem Wasser und umliegenden Bergen',
+    'blog.article.usa-critica-svizzera-bio-duopolio.title': 'USA kritisieren Schweiz wegen Bio-Regeln und Migros-Coop-Duopol',
+    'blog.article.usa-critica-svizzera-bio-duopolio.excerpt': 'Landwirtschaftliche Vorschriften und die Vorherrschaft von Coop und Migros stehen im Mittelpunkt der US-Kritik. Handelsbilanzdefizit sinkt, aber Spannungen bleiben bestehen.',
+    'blog.article.usa-critica-svizzera-bio-duopolio.imageAlt': 'Luftaufnahme von Mendrisio, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

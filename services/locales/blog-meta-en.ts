@@ -4042,6 +4042,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lago-maggiore-innalzamento-2026.title': 'Lake Maggiore: 20-30 million cubic meters more water',
     'blog.article.lago-maggiore-innalzamento-2026.excerpt': 'The decision will increase water availability by 20-30 million cubic meters. Agreement between Italy and Switzerland for a 15 cm rise.',
     'blog.article.lago-maggiore-innalzamento-2026.imageAlt': 'Aerial view of Lake Maggiore with clear blue waters and surrounding mountains',
+    'blog.article.usa-critica-svizzera-bio-duopolio.title': 'US criticizes Switzerland over bio rules and Migros-Coop duopoly',
+    'blog.article.usa-critica-svizzera-bio-duopolio.excerpt': 'Agricultural regulations and the dominance of Coop and Migros at the center of US criticism. Trade deficit decreasing, but tensions remain.',
+    'blog.article.usa-critica-svizzera-bio-duopolio.imageAlt': 'Aerial view of Mendrisio, Ticino, Switzerland',
 };
 
 export default blogMetaEn;
