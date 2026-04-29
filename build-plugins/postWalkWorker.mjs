@@ -13,10 +13,10 @@
  * ~35-40s wall by overlapping I/O across cores AND splitting CPU.
  *
  * tsx loader: this file is plain ESM JS (.mjs) so Node can boot it without
- * a TS loader at the entry point. We register tsx/esm before importing the
- * transform implementations, which live in their original `.ts` files. The
- * coordinator does NOT pass execArgv — registration happens in this entry
- * module so the worker spawn signature stays simple.
+ * a TS loader at the entry point. The coordinator spawns the worker with
+ * `execArgv: ['--import', 'tsx']` so dynamic imports of the `.ts` transform
+ * files resolve correctly. The older `register('tsx/esm', ...)` API was
+ * removed by tsx 4.x ("tsx must be loaded with --import instead of --loader").
  *
  * Byte-identical output: this worker MUST produce the same dist/ HTML as
  * the single-threaded coordinator. The 3 transforms are pure functions
@@ -25,13 +25,6 @@
  * does not affect the final on-disk content because each file is written
  * by exactly one worker.
  */
-import { register } from 'node:module';
-
-// Register the TypeScript loader BEFORE importing any .ts module. This must
-// happen at top-level of the worker entry — workers boot fresh Node isolates
-// without inheriting the parent's loader hooks.
-register('tsx/esm', import.meta.url);
-
 import fs from 'node:fs';
 import path from 'node:path';
 import { parentPort, workerData } from 'node:worker_threads';

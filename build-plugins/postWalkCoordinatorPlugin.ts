@@ -244,7 +244,16 @@ async function runInWorker(
   },
 ): Promise<WorkerResult> {
   return new Promise((resolve, reject) => {
-    const worker = new Worker(workerUrl, { workerData });
+    // execArgv: pass --import tsx so the worker's dynamic imports of the
+    // `.ts` transform implementations resolve through tsx's loader. tsx 4.x
+    // removed the `--loader` / `register('tsx/esm', ...)` API in favor of
+    // `--import` (Node 22+ pattern). Without this flag the worker boots and
+    // crashes on the first `import('./flatHtmlRedirectPlugin.ts')` with
+    // "tsx must be loaded with --import instead of --loader".
+    const worker = new Worker(workerUrl, {
+      workerData,
+      execArgv: ['--import', 'tsx'],
+    });
     worker.once('message', (msg: WorkerResult) => resolve(msg));
     worker.once('error', reject);
     worker.once('exit', (code) => {
