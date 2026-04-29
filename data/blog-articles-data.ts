@@ -10381,4 +10381,11 @@ export const ARTICLES = [
  image: '/images/blog/bedretto-lab-microterremoti-ricerca.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'microterremoto-ticino-successo-test',
+ category: 'novita',
+ date: '2026-04-29T21:22:19.285Z',
+ image: '/images/blog/microterremoto-ticino-successo-test.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4015,6 +4015,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bedretto-lab-microterremoti-ricerca.title': 'Bedretto Lab: Induzierte Mikroerdbeben zur Erforschung von Verwerfungen',
     'blog.article.bedretto-lab-microterremoti-ricerca.excerpt': 'Forscher der ETH Zürich lösten in Val Bedretto Mikroerdbeben aus, um das Verhalten von Verwerfungen zu studieren',
     'blog.article.bedretto-lab-microterremoti-ricerca.imageAlt': 'Luftaufnahme des Bedrettotals mit der unterirdischen Bedretto-Lab-Einrichtung',
+    'blog.article.microterremoto-ticino-successo-test.title': 'Kontrolliertes Mikro-Erdbeben im Kanton Tessin',
+    'blog.article.microterremoto-ticino-successo-test.excerpt': 'Forscher lösten ein Beben im Gotthardmassiv aus. Die Erschütterungen wurden registriert, aber an der Oberfläche nicht wahrgenommen.',
+    'blog.article.microterremoto-ticino-successo-test.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

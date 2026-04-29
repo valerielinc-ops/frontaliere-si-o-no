@@ -4015,6 +4015,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bedretto-lab-microterremoti-ricerca.title': 'Bedretto Lab: induced micro-earthquakes to study faults',
     'blog.article.bedretto-lab-microterremoti-ricerca.excerpt': 'Researchers from ETH Zurich induced micro-earthquakes in Val Bedretto to study fault behavior',
     'blog.article.bedretto-lab-microterremoti-ricerca.imageAlt': 'Aerial view of Bedretto Valley with the underground Bedretto Lab facility',
+    'blog.article.microterremoto-ticino-successo-test.title': 'Controlled micro-earthquake in Ticino: a successful test',
+    'blog.article.microterremoto-ticino-successo-test.excerpt': 'Researchers triggered a quake in the Gottardo massif. Shocks recorded but not felt on the surface.',
+    'blog.article.microterremoto-ticino-successo-test.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

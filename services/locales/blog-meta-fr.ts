@@ -4016,6 +4016,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bedretto-lab-microterremoti-ricerca.title': 'Bedretto Lab : micro-séismes induits pour étudier les failles',
     'blog.article.bedretto-lab-microterremoti-ricerca.excerpt': 'Des chercheurs de l\'EPFZ ont induit des micro-séismes dans la vallée de Bedretto pour étudier le comportement des failles.',
     'blog.article.bedretto-lab-microterremoti-ricerca.imageAlt': 'Vue aérienne de la vallée de Bedretto avec l\'installation souterraine du Bedretto Lab',
+    'blog.article.microterremoto-ticino-successo-test.title': 'Un micro-tremblement de terre contrôlé dans le massif du Gothard',
+    'blog.article.microterremoto-ticino-successo-test.excerpt': 'Des chercheurs provoquent un séisme dans le massif du Gothard. Des secousses enregistrées mais non perceptibles en surface.',
+    'blog.article.microterremoto-ticino-successo-test.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

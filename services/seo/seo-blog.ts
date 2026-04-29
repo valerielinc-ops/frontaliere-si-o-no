@@ -25791,6 +25791,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-microterremoto-ticino-successo-test': {
+    title: 'Micro terremoto controllato in Ticino: un successo per il test',
+    description: 'Ricercatori provocano un sisma nel massiccio del Gottardo. Scosse registrate ma non percepibili in superficie. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, micro, terremoto, controllato, successo',
+    ogTitle: 'Micro terremoto controllato in Ticino: un successo per il test',
+    ogDescription: 'Ricercatori provocano un sisma nel massiccio del Gottardo. Scosse registrate ma non percepibili in superficie.',
+    canonicalPath: '/articoli-frontaliere/microterremoto-ticino-successo-test',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Micro terremoto controllato in Ticino: un successo per il test",
+      "description": "Ricercatori provocano un sisma nel massiccio del Gottardo. Scosse registrate ma non percepibili in superficie. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/microterremoto-ticino-successo-test.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-29T21:22:19+00:00",
+      "dateModified": "2026-04-29T21:22:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/microterremoto-ticino-successo-test`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

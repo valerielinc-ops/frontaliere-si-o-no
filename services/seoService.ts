@@ -2569,6 +2569,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-overtourism-lucerna-grindelwald': { name: 'Novità', path: '/articoli-frontaliere/svizzera-overtourism-lucerna-grindelwald', parent: 'blog' },
     'blog-alluvione-lavizzara-piano-pericoli-approvato': { name: 'Alluvione Lavizzara', path: '/articoli-frontaliere/alluvione-lavizzara-piano-pericoli-approvato', parent: 'blog' },
     'blog-bedretto-lab-microterremoti-ricerca': { name: 'Novità', path: '/articoli-frontaliere/bedretto-lab-microterremoti-ricerca', parent: 'blog' },
+    'blog-microterremoto-ticino-successo-test': { name: 'Novità', path: '/articoli-frontaliere/microterremoto-ticino-successo-test', parent: 'blog' },
  };
 
  const info = sectionNames[section];

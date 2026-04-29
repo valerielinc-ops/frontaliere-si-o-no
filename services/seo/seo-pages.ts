@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1388,
+ "numberOfItems": 1389,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6023,7 +6023,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1385, "name": "Chiusure Ospedale Circolo Varese 1° maggio e Sa...", "url": `${BASE_URL}/articoli-frontaliere/chiusure-ospedale-circolo-varese-2026` },
           { "@type": "ListItem", "position": 1386, "name": "Overtourism in Svizzera: Lucerna e Grindelwald ...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-overtourism-lucerna-grindelwald` },
           { "@type": "ListItem", "position": 1387, "name": "Alluvione Lavizzara: piano zone pericolo approvato", "url": `${BASE_URL}/articoli-frontaliere/alluvione-lavizzara-piano-pericoli-approvato` },
-          { "@type": "ListItem", "position": 1388, "name": "Bedretto Lab: microterremoti indotti per studia...", "url": `${BASE_URL}/articoli-frontaliere/bedretto-lab-microterremoti-ricerca` }
+          { "@type": "ListItem", "position": 1388, "name": "Bedretto Lab: microterremoti indotti per studia...", "url": `${BASE_URL}/articoli-frontaliere/bedretto-lab-microterremoti-ricerca` },
+          { "@type": "ListItem", "position": 1389, "name": "Micro terremoto controllato in Ticino: un succe...", "url": `${BASE_URL}/articoli-frontaliere/microterremoto-ticino-successo-test` }
  ]
  },
  {
