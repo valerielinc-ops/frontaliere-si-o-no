@@ -3694,6 +3694,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.centrosinistra-varese-patto-2027.title': 'Varese Left-Wing: Pact for the City 2027-2032',
     'blog.article.centrosinistra-varese-patto-2027.excerpt': 'Varese\'s left-wing coalition launches the \'Pact for Varese\', an open coalition with a mayoral candidate by year-end.',
     'blog.article.centrosinistra-varese-patto-2027.imageAlt': 'Political meeting in Varese with citizens discussing city development plans',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.title': 'Magadino: new lakeside playground',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.excerpt': 'The municipality of Magadino is replacing the Bolle playground with a new lakeside area, investing 70,000 francs.',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.imageAlt': 'New playground in Magadino with wooden and stainless steel equipment',
 };
 
 export default blogMetaEn;

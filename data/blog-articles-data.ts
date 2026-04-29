@@ -9632,4 +9632,11 @@ export const ARTICLES = [
  image: '/images/blog/centrosinistra-varese-patto-2027.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'magadino-parco-giochi-nuova-area-ludica',
+ category: 'novita',
+ date: '2026-04-29T04:28:44.489Z',
+ image: '/images/blog/magadino-parco-giochi-nuova-area-ludica.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

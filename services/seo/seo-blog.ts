@@ -22688,6 +22688,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-magadino-parco-giochi-nuova-area-ludica': {
+    title: 'Magadino: nuovo parco giochi in riva al lago | Frontaliere Ticino',
+    description: 'Il Comune di Magadino sostituisce il parco giochi alle Bolle con una nuova area attrezzata in riva al lago, con un investimento di 70mila franchi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, magadino, nuovo, parco, giochi',
+    ogTitle: 'Magadino: nuovo parco giochi in riva al lago',
+    ogDescription: 'Il Comune di Magadino sostituisce il parco giochi alle Bolle con una nuova area attrezzata in riva al lago, con un investimento di 70mila franchi.',
+    canonicalPath: '/articoli-frontaliere/magadino-parco-giochi-nuova-area-ludica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Magadino: nuovo parco giochi in riva al lago",
+      "description": "Il Comune di Magadino sostituisce il parco giochi alle Bolle con una nuova area attrezzata in riva al lago, con un investimento di 70mila franchi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/magadino-parco-giochi-nuova-area-ludica.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuovo parco giochi a Magadino con attrezzature in legno e acciaio inossidabile"
+      },
+      "datePublished": "2026-04-29T04:28:44+00:00",
+      "dateModified": "2026-04-29T04:28:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/magadino-parco-giochi-nuova-area-ludica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3695,6 +3695,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.centrosinistra-varese-patto-2027.title': 'Centre-gauche Varèse : Pacte pour la ville 2027-2032',
     'blog.article.centrosinistra-varese-patto-2027.excerpt': 'Le centre-gauche de Varèse lance le \'Pacte pour Varèse\', une coalition ouverte avec un candidat maire d\'ici la fin de l\'année.',
     'blog.article.centrosinistra-varese-patto-2027.imageAlt': 'Réunion politique à Varese avec des citoyens discutant des plans de développement de la ville',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.title': 'Magadino: nouveau parc de jeux au bord du lac',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.excerpt': 'La commune de Magadino remplace l\'aire de jeux aux Bolle par une nouvelle zone aménagée au bord du lac, avec un investissement de 70 mille francs.',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.imageAlt': 'Nouveau parc de jeux à Magadino avec des équipements en bois et en acier inoxydable',
 };
 
 export default blogMetaFr;

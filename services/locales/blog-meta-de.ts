@@ -3694,6 +3694,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.centrosinistra-varese-patto-2027.title': 'Varese Links: Bündnis für 2027-2032',
     'blog.article.centrosinistra-varese-patto-2027.excerpt': 'Die Linke in Varese startet das \'Bündnis für Varese\', eine offene Koalition mit einem Kandidaten für das Bürgermeisteramt noch in diesem Jahr.',
     'blog.article.centrosinistra-varese-patto-2027.imageAlt': 'Politische Versammlung in Varese mit Bürgern, die Stadtentwicklungspläne diskutieren',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.title': 'Magadino: Neuer Spielplatz am Seeufer',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.excerpt': 'Die Gemeinde Magadino ersetzt den Spielplatz Bolle durch eine neue Anlage am Seeufer, mit einer Investition von 70\'000 Franken.',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.imageAlt': 'Neuer Spielplatz in Magadino mit Holz- und Edelstahlausrüstung',
 };
 
 export default blogMetaDe;

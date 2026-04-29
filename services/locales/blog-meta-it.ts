@@ -3695,6 +3695,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.centrosinistra-varese-patto-2027.title': 'Centrosinistra Varese: Patto per la città 2027-2032',
     'blog.article.centrosinistra-varese-patto-2027.excerpt': 'Il centrosinistra di Varese lancia il \'Patto per Varese\', una coalizione aperta con candidato sindaco entro fine anno.',
     'blog.article.centrosinistra-varese-patto-2027.imageAlt': 'Riunione politica a Varese con cittadini che discutono piani per la città',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.title': 'Magadino: nuovo parco giochi in riva al lago',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.excerpt': 'Il Comune di Magadino sostituisce il parco giochi alle Bolle con una nuova area attrezzata in riva al lago, con un investimento di 70mila franchi.',
+    'blog.article.magadino-parco-giochi-nuova-area-ludica.imageAlt': 'Nuovo parco giochi a Magadino con attrezzature in legno e acciaio inossidabile',
 };
 
 export default blogMetaIt;
