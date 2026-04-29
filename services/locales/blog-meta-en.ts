@@ -3658,6 +3658,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.truffe-sentimentali-zurigo-2026.title': 'Romance scams in Switzerland: 10 arrests for millions in francs',
     'blog.article.truffe-sentimentali-zurigo-2026.excerpt': 'Large-scale operation in 6 Swiss cantons dismantles network of romance scams linked to the Nigerian criminal group Black Axe.',
     'blog.article.truffe-sentimentali-zurigo-2026.imageAlt': 'Lake Lugano with promenade and boats',
+    'blog.article.esposizione-segughi-malvaglia-2026.title': 'Swiss Hound National Show in Malvaglia: Tradition and Competition',
+    'blog.article.esposizione-segughi-malvaglia-2026.excerpt': 'On Sunday, May 3, 2026, the National Show of Swiss Hounds will take place in Malvaglia, featuring competitions and celebrations of native breeds.',
+    'blog.article.esposizione-segughi-malvaglia-2026.imageAlt': 'Landscape of Malvaglia with dogs during the National Exhibition of Swiss Hounds',
 };
 
 export default blogMetaEn;

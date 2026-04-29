@@ -2450,6 +2450,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-spese-militari-2025-aumento-2900-miliardi': { name: 'Spese militari', path: '/articoli-frontaliere/spese-militari-2025-aumento-2900-miliardi', parent: 'blog' },
     'blog-karimova-processo-bellinzona-2026': { name: 'Processo Karimova', path: '/articoli-frontaliere/karimova-processo-bellinzona-2026', parent: 'blog' },
     'blog-truffe-sentimentali-zurigo-2026': { name: 'Truffe sentimentali', path: '/articoli-frontaliere/truffe-sentimentali-zurigo-2026', parent: 'blog' },
+    'blog-esposizione-segughi-malvaglia-2026': { name: 'Esposizione Segugi', path: '/articoli-frontaliere/esposizione-segughi-malvaglia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

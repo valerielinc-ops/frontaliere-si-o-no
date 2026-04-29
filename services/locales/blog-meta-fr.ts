@@ -3659,6 +3659,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.truffe-sentimentali-zurigo-2026.title': 'Arnaques sentimentales en Suisse: 10 arrestations pour des millions de francs',
     'blog.article.truffe-sentimentali-zurigo-2026.excerpt': 'Opération à grande échelle dans 6 cantons suisses démantèle un réseau d\'arnaques sentimentales liées au groupe criminel nigérian Black Axe.',
     'blog.article.truffe-sentimentali-zurigo-2026.imageAlt': 'Lac de Lugano avec promenade et bateaux',
+    'blog.article.esposizione-segughi-malvaglia-2026.title': 'Exposition Nationale des Chiens de Chasse à Malvaglia',
+    'blog.article.esposizione-segughi-malvaglia-2026.excerpt': 'Dimanche 3 mai 2026 à Malvaglia se tiendra l\'Exposition Nationale des Chiens de Chasse Suisses, avec compétitions et célébration des races autochtones.',
+    'blog.article.esposizione-segughi-malvaglia-2026.imageAlt': 'Paysage de Malvaglia avec des chiens lors de l\'Exposition Nationale des Chiens Courants Suisses',
 };
 
 export default blogMetaFr;

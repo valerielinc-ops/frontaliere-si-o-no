@@ -3658,6 +3658,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.truffe-sentimentali-zurigo-2026.title': 'Romance-Betrug in der Schweiz: 10 Festnahmen für Millionen Franken',
     'blog.article.truffe-sentimentali-zurigo-2026.excerpt': 'Großangelegte Operation in 6 Schweizer Kantonen zerschlägt ein Netzwerk von romantischen Betrügereien im Zusammenhang mit der nigerianischen kriminellen Gruppe Black Axe.',
     'blog.article.truffe-sentimentali-zurigo-2026.imageAlt': 'Luganersee mit Promenade und Booten',
+    'blog.article.esposizione-segughi-malvaglia-2026.title': 'Schweizer Laufhunde-Ausstellung in Malvaglia: Tradition und Wettbewerb',
+    'blog.article.esposizione-segughi-malvaglia-2026.excerpt': 'Am Sonntag, 3. Mai 2026, findet in Malvaglia die Nationale Ausstellung der Schweizer Laufhunde mit Wettbewerben und der Feier der einheimischen Rassen statt.',
+    'blog.article.esposizione-segughi-malvaglia-2026.imageAlt': 'Landschaft von Malvaglia mit Hunden während der Nationalausstellung der Schweizer Laufhunde',
 };
 
 export default blogMetaDe;

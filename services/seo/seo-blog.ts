@@ -22340,6 +22340,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esposizione-segughi-malvaglia-2026': {
+    title: 'Esposizione Nazionale dei Segugi Svizzeri a Malvaglia: tradizione e competizione',
+    description: 'Domenica 3 maggio 2026 a Malvaglia si terrà l\'Esposizione Nazionale dei Segugi Svizzeri, con competizioni e celebrazione delle razze autoctone. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, esposizione, nazionale, segugi, svizzeri',
+    ogTitle: 'Esposizione Nazionale Segugi Svizzeri Malvaglia 2026',
+    ogDescription: 'Domenica 3 maggio 2026 a Malvaglia si terrà l\'Esposizione Nazionale dei Segugi Svizzeri, con competizioni e celebrazione delle razze autoctone.',
+    canonicalPath: '/articoli-frontaliere/esposizione-segughi-malvaglia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Esposizione Nazionale Segugi Svizzeri Malvaglia 2026\",\"description\":\"Domenica 3 maggio 2026 a Malvaglia si terrà l'Esposizione Nazionale dei Segugi Svizzeri, con competizioni e celebrazione delle razze autoctone.\",\"datePublished\":\"2026-04-28\",\"image\":\"https://www.frontaliere-ticino.ch/images/malvaglia.webp\"}",
+      "description": "Domenica 3 maggio 2026 a Malvaglia si terrà l'Esposizione Nazionale dei Segugi Svizzeri, con competizioni e celebrazione delle razze autoctone. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/esposizione-segughi-malvaglia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio di Malvaglia con cani durante l'Esposizione Nazionale dei Segugi Svizzeri"
+      },
+      "datePublished": "2026-04-29T03:02:19+00:00",
+      "dateModified": "2026-04-29T03:02:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/esposizione-segughi-malvaglia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

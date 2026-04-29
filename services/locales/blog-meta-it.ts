@@ -3659,6 +3659,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.truffe-sentimentali-zurigo-2026.title': 'Truffe sentimentali in Svizzera: 10 arresti per milioni di franchi',
     'blog.article.truffe-sentimentali-zurigo-2026.excerpt': 'Operazione su larga scala in 6 cantoni svizzeri smantella rete di truffe sentimentali legate al gruppo criminale nigeriano Black Axe.',
     'blog.article.truffe-sentimentali-zurigo-2026.imageAlt': 'Lago di Lugano con passeggiata e barche',
+    'blog.article.esposizione-segughi-malvaglia-2026.title': 'Esposizione Nazionale dei Segugi Svizzeri a Malvaglia: tradizione e competizione',
+    'blog.article.esposizione-segughi-malvaglia-2026.excerpt': 'Domenica 3 maggio 2026 a Malvaglia si terrà l\'Esposizione Nazionale dei Segugi Svizzeri, con competizioni e celebrazione delle razze autoctone.',
+    'blog.article.esposizione-segughi-malvaglia-2026.imageAlt': 'Paesaggio di Malvaglia con cani durante l\'Esposizione Nazionale dei Segugi Svizzeri',
 };
 
 export default blogMetaIt;
