@@ -4024,6 +4024,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stop-milioni-casse-malati-club-sportivi.title': 'End to health insurers\' millions for sports',
     'blog.article.stop-milioni-casse-malati-club-sportivi.excerpt': 'The National Council approves Lorenzo Quadri\'s motion to limit health insurers\' sponsorships to major sports clubs.',
     'blog.article.stop-milioni-casse-malati-club-sportivi.imageAlt': 'Sports event at LAC Lugano with audience and athletes in action',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.title': 'Disappointed by Switzerland: low earners feel abandoned',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.excerpt': 'A survey reveals that over half of the Swiss population considers the system unfair, with low earners feeling treated worse',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns',
 };
 
 export default blogMetaEn;

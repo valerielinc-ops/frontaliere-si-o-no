@@ -10402,4 +10402,11 @@ export const ARTICLES = [
  image: '/images/blog/stop-milioni-casse-malati-club-sportivi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'delusi-svizzera-frontalieri-abbandonati',
+ category: 'novita',
+ date: '2026-04-29T21:58:11.943Z',
+ image: '/images/blog/delusi-svizzera-frontalieri-abbandonati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

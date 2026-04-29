@@ -4024,6 +4024,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stop-milioni-casse-malati-club-sportivi.title': 'Keine Millionen mehr für Sport von Krankenkassen',
     'blog.article.stop-milioni-casse-malati-club-sportivi.excerpt': 'Der Nationalrat genehmigt die Motion von Lorenzo Quadri, um die Sponsoringaktivitäten der Krankenkassen für große Sportvereine zu begrenzen.',
     'blog.article.stop-milioni-casse-malati-club-sportivi.imageAlt': 'Sportveranstaltung im LAC Lugano mit Publikum und Athleten in Aktion',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.title': 'Enttäuscht von der Schweiz: Geringverdiener fühlen sich im Stich gelassen',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.excerpt': 'Eine Umfrage zeigt, dass mehr als die Hälfte der Schweizer Bevölkerung das System für ungerecht hält, wobei Geringverdiener sich schlechter behandelt fühlen',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Bergen und Städten',
 };
 
 export default blogMetaDe;

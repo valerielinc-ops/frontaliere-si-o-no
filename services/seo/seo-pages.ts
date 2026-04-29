@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1391,
+ "numberOfItems": 1392,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6026,7 +6026,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1388, "name": "Bedretto Lab: microterremoti indotti per studia...", "url": `${BASE_URL}/articoli-frontaliere/bedretto-lab-microterremoti-ricerca` },
           { "@type": "ListItem", "position": 1389, "name": "Micro terremoto controllato in Ticino: un succe...", "url": `${BASE_URL}/articoli-frontaliere/microterremoto-ticino-successo-test` },
           { "@type": "ListItem", "position": 1390, "name": "Festa delle famiglie a Lugano: condivisione e i...", "url": `${BASE_URL}/articoli-frontaliere/festa-famiglie-lugano-2026` },
-          { "@type": "ListItem", "position": 1391, "name": "Stop ai milioni delle casse malati ai club spor...", "url": `${BASE_URL}/articoli-frontaliere/stop-milioni-casse-malati-club-sportivi` }
+          { "@type": "ListItem", "position": 1391, "name": "Stop ai milioni delle casse malati ai club spor...", "url": `${BASE_URL}/articoli-frontaliere/stop-milioni-casse-malati-club-sportivi` },
+          { "@type": "ListItem", "position": 1392, "name": "Delusi dalla Svizzera: chi guadagna poco si sen...", "url": `${BASE_URL}/articoli-frontaliere/delusi-svizzera-frontalieri-abbandonati` }
  ]
  },
  {

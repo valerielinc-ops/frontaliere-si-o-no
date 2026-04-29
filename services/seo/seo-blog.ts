@@ -25878,6 +25878,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-delusi-svizzera-frontalieri-abbandonati': {
+    title: 'Delusi dalla Svizzera: chi guadagna poco si sente abbandonato',
+    description: 'Un sondaggio rivela che oltre la metà della popolazione svizzera considera il sistema ingiusto, con chi guadagna meno che si sente trattato peggio',
+    keywords: 'frontalieri, ticino, svizzera, italia, delusi, dalla, guadagna, poco',
+    ogTitle: 'Delusi dalla Svizzera: chi guadagna poco si sente abbandonato',
+    ogDescription: 'Un sondaggio rivela che oltre la metà della popolazione svizzera considera il sistema ingiusto, con chi guadagna meno che si sente trattato peggio',
+    canonicalPath: '/articoli-frontaliere/delusi-svizzera-frontalieri-abbandonati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Delusi dalla Svizzera: chi guadagna poco si sente abbandonato",
+      "description": "Un sondaggio rivela che oltre la metà della popolazione svizzera considera il sistema ingiusto, con chi guadagna meno che si sente trattato peggio",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/delusi-svizzera-frontalieri-abbandonati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e città circostanti"
+      },
+      "datePublished": "2026-04-29T21:58:11+00:00",
+      "dateModified": "2026-04-29T21:58:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/delusi-svizzera-frontalieri-abbandonati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

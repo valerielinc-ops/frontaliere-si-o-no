@@ -4025,6 +4025,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stop-milioni-casse-malati-club-sportivi.title': 'Financement des caisses maladies pour le sport limité',
     'blog.article.stop-milioni-casse-malati-club-sportivi.excerpt': 'Le Conseil national approuve la motion de Lorenzo Quadri pour limiter les sponsoring des caisses maladies aux grands clubs sportifs.',
     'blog.article.stop-milioni-casse-malati-club-sportivi.imageAlt': 'Événement sportif au LAC de Lugano avec public et athlètes en action',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.title': 'Déçus par la Suisse: les petits salaires se sentent abandonnés',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.excerpt': 'Un sondage révèle que plus de la moitié de la population suisse considère le système injuste, avec les petits salaires qui se sentent traités pire',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les villes environnantes',
 };
 
 export default blogMetaFr;

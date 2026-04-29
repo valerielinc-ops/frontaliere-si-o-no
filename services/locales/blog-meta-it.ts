@@ -4025,6 +4025,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stop-milioni-casse-malati-club-sportivi.title': 'Stop ai milioni alle casse malati per lo sport',
     'blog.article.stop-milioni-casse-malati-club-sportivi.excerpt': 'Il Consiglio nazionale approva la mozione di Lorenzo Quadri per limitare le sponsorizzazioni delle casse malati ai grandi club sportivi.',
     'blog.article.stop-milioni-casse-malati-club-sportivi.imageAlt': 'Evento sportivo al LAC di Lugano con pubblico e atleti in azione',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.title': 'Delusi dalla Svizzera: chi guadagna poco si sente abbandonato',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.excerpt': 'Un sondaggio rivela che oltre la metà della popolazione svizzera considera il sistema ingiusto, con chi guadagna meno che si sente trattato peggio',
+    'blog.article.delusi-svizzera-frontalieri-abbandonati.imageAlt': 'Vista aerea del Lago di Lugano con montagne e città circostanti',
 };
 
 export default blogMetaIt;
