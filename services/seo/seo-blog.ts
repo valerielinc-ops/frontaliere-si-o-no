@@ -25269,6 +25269,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lite-dogana-ponte-chiasso-ferito-contuso': {
+    title: 'Lite alla dogana di Ponte Chiasso: un ferito, un contuso',
+    description: 'Un incidente alla dogana di Ponte Chiasso ha coinvolto due persone, lasciando un ferito e un contuso. Ecco cosa è successo e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lite, alla, dogana, ponte',
+    ogTitle: 'Lite alla dogana di Ponte Chiasso: un ferito, un contuso',
+    ogDescription: 'Un incidente alla dogana di Ponte Chiasso ha coinvolto due persone, lasciando un ferito e un contuso. Ecco cosa è successo e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/lite-dogana-ponte-chiasso-ferito-contuso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lite alla dogana di Ponte Chiasso: un ferito, un contuso",
+      "description": "Un incidente alla dogana di Ponte Chiasso ha coinvolto due persone, lasciando un ferito e un contuso. Ecco cosa è successo e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lite-dogana-ponte-chiasso-ferito-contuso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista della dogana di Ponte Chiasso, al confine tra Svizzera e Italia, con persone e veicoli in transito."
+      },
+      "datePublished": "2026-04-29T18:21:35+00:00",
+      "dateModified": "2026-04-29T18:21:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lite-dogana-ponte-chiasso-ferito-contuso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1370,
+ "numberOfItems": 1371,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6005,7 +6005,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1367, "name": "Credinvest Bank cresce: utili in aumento e spin...", "url": `${BASE_URL}/articoli-frontaliere/credinvest-bank-crescita-2026` },
           { "@type": "ListItem", "position": 1368, "name": "Riforma frontalieri: costi aggiuntivi per la Sv...", "url": `${BASE_URL}/articoli-frontaliere/riforma-frontalieri-costi-svizzera` },
           { "@type": "ListItem", "position": 1369, "name": "Conciliabilità vita-lavoro Bellinzona 2026", "url": `${BASE_URL}/articoli-frontaliere/conciliabilita-vita-lavoro-bellinzona-2026` },
-          { "@type": "ListItem", "position": 1370, "name": "Chiasso: 15 anni di carcere richiesti per tenta...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-assassinio-mancato-15-anni-carcere` }
+          { "@type": "ListItem", "position": 1370, "name": "Chiasso: 15 anni di carcere richiesti per tenta...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-assassinio-mancato-15-anni-carcere` },
+          { "@type": "ListItem", "position": 1371, "name": "Lite alla dogana di Ponte Chiasso: un ferito, u...", "url": `${BASE_URL}/articoli-frontaliere/lite-dogana-ponte-chiasso-ferito-contuso` }
  ]
  },
  {

@@ -3961,6 +3961,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-assassinio-mancato-15-anni-carcere.title': 'Chiasso: 15 years sought for attempted murder',
     'blog.article.chiasso-assassinio-mancato-15-anni-carcere.excerpt': 'Trial of a 34-year-old for attacking his partner with gym equipment on January 20, 2024',
     'blog.article.chiasso-assassinio-mancato-15-anni-carcere.imageAlt': 'Dramatic scene in Chiasso, Ticino, with police presence and forensic investigators in a residential area',
+    'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.title': 'Clash at Ponte Chiasso customs: one injured, one hurt',
+    'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.excerpt': 'An incident at the Ponte Chiasso customs involved two people, leaving one injured and one hurt. Here\'s what happened.',
+    'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.imageAlt': 'View of the Ponte Chiasso customs office at the Swiss-Italian border, with people and vehicles in transit.',
 };
 
 export default blogMetaEn;

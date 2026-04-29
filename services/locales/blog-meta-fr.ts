@@ -3962,6 +3962,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-assassinio-mancato-15-anni-carcere.title': 'Chiasso : 15 ans de prison demandés pour tentative de meurtre',
     'blog.article.chiasso-assassinio-mancato-15-anni-carcere.excerpt': 'Le procès d\'un homme de 34 ans pour avoir agressé sa compagne avec des outils de gym le 20 janvier 2024',
     'blog.article.chiasso-assassinio-mancato-15-anni-carcere.imageAlt': 'Scène dramatique à Chiasso, Tessin, avec présence de la police et d\'enquêtes forensiques dans un quartier résidentiel',
+    'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.title': 'Altercation à la douane de Ponte Chiasso : un blessé, un contusionné',
+    'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.excerpt': 'Un incident à la douane de Ponte Chiasso a impliqué deux personnes, laissant un blessé et un contusionné. Voici ce qui s\'est passé.',
+    'blog.article.lite-dogana-ponte-chiasso-ferito-contuso.imageAlt': 'Vue du bureau de douane de Ponte Chiasso à la frontière suisse-italienne, avec des personnes et des véhicules en transit.',
 };
 
 export default blogMetaFr;

@@ -10255,4 +10255,11 @@ export const ARTICLES = [
  image: '/images/blog/chiasso-assassinio-mancato-15-anni-carcere.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lite-dogana-ponte-chiasso-ferito-contuso',
+ category: 'novita',
+ date: '2026-04-29T18:21:35.713Z',
+ image: '/images/blog/lite-dogana-ponte-chiasso-ferito-contuso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
