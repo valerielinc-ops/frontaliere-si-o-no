@@ -3890,6 +3890,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casa-hockey-lugano-ambri-2026.title': 'Casa dell\'Hockey: aggiornamenti e novità dal mondo dell\'hockey ticinese',
     'blog.article.casa-hockey-lugano-ambri-2026.excerpt': 'Scopri le ultime notizie e le novità dal mondo dell\'hockey ticinese, con un focus sulle squadre di Lugano e Ambrì Piotta.',
     'blog.article.casa-hockey-lugano-ambri-2026.imageAlt': 'Partita di hockey alla Cornèr Arena di Lugano',
+    'blog.article.swiss-duty-free-cambia-vendite-2026.title': 'Swiss: stop vendita duty-free a bordo aerei',
+    'blog.article.swiss-duty-free-cambia-vendite-2026.excerpt': 'Da fine settembre 2026 Swiss interrompe la vendita di prodotti duty-free a bordo. Offerta spostata online.',
+    'blog.article.swiss-duty-free-cambia-vendite-2026.imageAlt': 'Vista aerea del Lago di Lugano con bandiera svizzera e insegna shopping duty-free',
 };
 
 export default blogMetaIt;

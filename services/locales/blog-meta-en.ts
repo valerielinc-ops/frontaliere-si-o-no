@@ -3889,6 +3889,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casa-hockey-lugano-ambri-2026.title': 'Hockey House: updates and news from Ticino hockey',
     'blog.article.casa-hockey-lugano-ambri-2026.excerpt': 'Discover the latest news and updates from the world of Ticino hockey, with a focus on the teams from Lugano and Ambrì Piotta.',
     'blog.article.casa-hockey-lugano-ambri-2026.imageAlt': 'Hockey game at Cornèr Arena in Lugano',
+    'blog.article.swiss-duty-free-cambia-vendite-2026.title': 'Swiss to end in-flight duty-free sales',
+    'blog.article.swiss-duty-free-cambia-vendite-2026.excerpt': 'From late September 2026, Swiss will stop selling duty-free products on board. The offer will move online.',
+    'blog.article.swiss-duty-free-cambia-vendite-2026.imageAlt': 'Aerial view of Lake Lugano with Swiss flag and duty-free shopping sign',
 };
 
 export default blogMetaEn;

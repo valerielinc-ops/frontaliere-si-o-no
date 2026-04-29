@@ -24573,6 +24573,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-duty-free-cambia-vendite-2026': {
+    title: 'Swiss: stop vendita duty-free a bordo aerei | Frontaliere Ticino',
+    description: 'Swiss interrompe la vendita di prodotti duty-free a bordo degli aerei da fine settembre 2026. L\'offerta sarà disponibile solo online sul negozio Worldshop di',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, stop, vendita, duty-free',
+    ogTitle: 'Swiss: stop vendita duty-free a bordo aerei',
+    ogDescription: 'Swiss interrompe la vendita di prodotti duty-free a bordo degli aerei da fine settembre 2026. L\'offerta sarà disponibile solo online sul negozio Worldshop di',
+    canonicalPath: '/articoli-frontaliere/swiss-duty-free-cambia-vendite-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss: stop vendita duty-free a bordo aerei",
+      "description": "Swiss interrompe la vendita di prodotti duty-free a bordo degli aerei da fine settembre 2026. L'offerta sarà disponibile solo online sul negozio Worldshop di",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/swiss-duty-free-cambia-vendite-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con bandiera svizzera e insegna shopping duty-free"
+      },
+      "datePublished": "2026-04-29T12:27:13+00:00",
+      "dateModified": "2026-04-29T12:27:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-cambia-vendite-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

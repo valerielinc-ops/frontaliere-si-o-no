@@ -3889,6 +3889,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casa-hockey-lugano-ambri-2026.title': 'Hockeyhaus: Updates und Neuigkeiten aus dem Ticino-Hockey',
     'blog.article.casa-hockey-lugano-ambri-2026.excerpt': 'Entdecken Sie die neuesten Nachrichten und Neuigkeiten aus der Welt des Ticino-Hockeys, mit einem Fokus auf die Teams von Lugano und Ambrì Piotta.',
     'blog.article.casa-hockey-lugano-ambri-2026.imageAlt': 'Eishockeyspiel in der Cornèr Arena in Lugano',
+    'blog.article.swiss-duty-free-cambia-vendite-2026.title': 'Swiss: Verkauf von Duty-Free an Bord wird eingestellt',
+    'blog.article.swiss-duty-free-cambia-vendite-2026.excerpt': 'Ab Ende September 2026 stellt Swiss den Verkauf von Duty-Free-Produkten an Bord ein. Das Angebot wird online verlagert.',
+    'blog.article.swiss-duty-free-cambia-vendite-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Schweizer Flagge und Duty-Free-Einkaufsschild',
 };
 
 export default blogMetaDe;
