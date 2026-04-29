@@ -9947,4 +9947,11 @@ export const ARTICLES = [
  image: '/images/blog/estival-jazz-marti-ritiro-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'licata-lombardia-bulgaria-opportunita',
+ category: 'novita',
+ date: '2026-04-29T10:32:17.858Z',
+ image: '/images/blog/licata-lombardia-bulgaria-opportunita.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

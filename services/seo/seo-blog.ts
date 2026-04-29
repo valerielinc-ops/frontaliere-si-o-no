@@ -23993,6 +23993,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-licata-lombardia-bulgaria-opportunita': {
+    title: 'Licata: Schengen ed euro aprono nuove opportunità per Lombardia e Bulgaria',
+    description: 'Giuseppe Licata, consigliere regionale di Forza Italia, sottolinea l\'importanza di rafforzare l\'asse Lombardia-Bulgaria dopo l\'ingresso del Paese in Schengen ed',
+    keywords: 'frontalieri, ticino, svizzera, italia, licata, schengen, euro, aprono',
+    ogTitle: 'Licata: Schengen ed euro aprono nuove opportunità per Lombardia e Bulgaria',
+    ogDescription: 'Giuseppe Licata, consigliere regionale di Forza Italia, sottolinea l\'importanza di rafforzare l\'asse Lombardia-Bulgaria dopo l\'ingresso del Paese in Schengen ed',
+    canonicalPath: '/articoli-frontaliere/licata-lombardia-bulgaria-opportunita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licata: Schengen ed euro aprono nuove opportunità per Lombardia e Bulgaria",
+      "description": "Giuseppe Licata, consigliere regionale di Forza Italia, sottolinea l'importanza di rafforzare l'asse Lombardia-Bulgaria dopo l'ingresso del Paese in Schengen ed",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/licata-lombardia-bulgaria-opportunita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il paesaggio del Ticino"
+      },
+      "datePublished": "2026-04-29T10:32:17+00:00",
+      "dateModified": "2026-04-29T10:32:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/licata-lombardia-bulgaria-opportunita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

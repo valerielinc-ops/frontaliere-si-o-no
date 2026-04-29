@@ -3830,6 +3830,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.estival-jazz-marti-ritiro-2026.title': 'Jacky Marti lascia Estival Jazz dopo 47 anni',
     'blog.article.estival-jazz-marti-ritiro-2026.excerpt': 'Il fondatore e direttore artistico del festival musicale luganese si ritira. Presentato il programma della 46esima edizione con due serate a pagamento.',
     'blog.article.estival-jazz-marti-ritiro-2026.imageAlt': 'Veduta aerea di Lugano durante il festival Estival Jazz, con il pubblico che gode di musica dal vivo sul lago, bandiere colorate e lo skyline della città sullo sfondo.',
+    'blog.article.licata-lombardia-bulgaria-opportunita.title': 'Licata: Schengen ed euro aprono nuove opportunità per Lombardia e Bulgaria',
+    'blog.article.licata-lombardia-bulgaria-opportunita.excerpt': 'Giuseppe Licata, consigliere regionale di Forza Italia, sottolinea l\'importanza di rafforzare l\'asse Lombardia-Bulgaria dopo l\'ingresso del Paese in Schengen ed Euro.',
+    'blog.article.licata-lombardia-bulgaria-opportunita.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
 };
 
 export default blogMetaIt;
