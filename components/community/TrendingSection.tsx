@@ -17,6 +17,13 @@ interface TrendingJob {
  addressLocality?: string;
  logoUrl?: string | null;
  category: string;
+ /**
+  * Locale-aware canonical URL for this job (e.g. /cerca-lavoro-ticino/<slug>/ in IT,
+  * /en/find-jobs-ticino/<slug>/ in EN). Computed by the parent via buildPath() so
+  * Cmd-click / middle-click / crawler-visible href resolves correctly. Falls back
+  * to '#' when slug is missing.
+  */
+ href?: string;
 }
 
 interface TrendingSectionProps {
@@ -61,7 +68,7 @@ function TrendingSection({ trendingJobs, popularity, onJobClick }: TrendingSecti
  return (
  <a
  key={job.slug || job.title}
- href={job.slug ? `/cerca-lavoro/${job.slug}` : '#'}
+ href={job.href || '#'}
  onClick={(e) => {
  e.preventDefault();
  if (job.slug) onJobClick(job.slug);
