@@ -9856,4 +9856,11 @@ export const ARTICLES = [
  image: '/images/blog/hupac-busto-utile-positivo-collegamenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'hupac-bilancio-positivo-2025',
+ category: 'novita',
+ date: '2026-04-29T09:14:52.381Z',
+ image: '/images/blog/hupac-bilancio-positivo-2025.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

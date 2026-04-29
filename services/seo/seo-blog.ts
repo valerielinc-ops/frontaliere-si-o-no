@@ -23616,6 +23616,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hupac-bilancio-positivo-2025': {
+    title: 'Hupac chiude 2025 con utile in calo ma bilancio positivo',
+    description: 'Hupac chiude il 2025 con un utile netto di 3,5 milioni di franchi svizzeri, in calo rispetto ai 9,4 milioni del 2024, ma con volumi in crescita del 4,3%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, hupac, chiude, 2025, utile',
+    ogTitle: 'Hupac chiude 2025 con utile in calo ma bilancio positivo',
+    ogDescription: 'Hupac chiude il 2025 con un utile netto di 3,5 milioni di franchi svizzeri, in calo rispetto ai 9,4 milioni del 2024, ma con volumi in crescita del 4,3%.',
+    canonicalPath: '/articoli-frontaliere/hupac-bilancio-positivo-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hupac chiude 2025 con utile in calo ma bilancio positivo",
+      "description": "Hupac chiude il 2025 con un utile netto di 3,5 milioni di franchi svizzeri, in calo rispetto ai 9,4 milioni del 2024, ma con volumi in crescita del 4,3%.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/hupac-bilancio-positivo-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un hub logistico Hupac nel Ticino con camion e treni, schermi digitali che mostrano dati in tempo reale sulle merci e lavoratori che coordinano le operazioni."
+      },
+      "datePublished": "2026-04-29T09:14:52+00:00",
+      "dateModified": "2026-04-29T09:14:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hupac-bilancio-positivo-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

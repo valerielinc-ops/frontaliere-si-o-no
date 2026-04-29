@@ -3791,6 +3791,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.hupac-busto-utile-positivo-collegamenti.title': 'Hupac se développe et renforce Busto: bénéfice positif et nouveaux trajets',
     'blog.article.hupac-busto-utile-positivo-collegamenti.excerpt': 'Hupac clôture l\'année 2025 avec un bénéfice de 3,5 millions de francs et des volumes en hausse, malgré les difficultés du réseau ferroviaire.',
     'blog.article.hupac-busto-utile-positivo-collegamenti.imageAlt': 'Terminal Hupac à Busto Arsizio avec des trains et des conteneurs',
+    'blog.article.hupac-bilancio-positivo-2025.title': 'Hupac termine 2025 avec un bénéfice en baisse mais un bilan positif',
+    'blog.article.hupac-bilancio-positivo-2025.excerpt': 'Le groupe Hupac a clôturé l\'année 2025 avec un bénéfice net de 3,5 millions de francs suisses, en baisse par rapport aux 9,4 millions de 2024, mais avec un volume en hausse de 4,3%.',
+    'blog.article.hupac-bilancio-positivo-2025.imageAlt': 'Un hub logistique Hupac dans le Tessin avec des camions et des trains, des écrans numériques affichant des données de fret en temps réel et des travailleurs coordonnant les opérations.',
 };
 
 export default blogMetaFr;

@@ -3791,6 +3791,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.hupac-busto-utile-positivo-collegamenti.title': 'Hupac cresce e rafforza Busto: utile positivo e nuovi collegamenti',
     'blog.article.hupac-busto-utile-positivo-collegamenti.excerpt': 'Hupac chiude il 2025 con un utile di 3,5 milioni di franchi e volumi in aumento, nonostante le criticità della rete ferroviaria.',
     'blog.article.hupac-busto-utile-positivo-collegamenti.imageAlt': 'Terminale Hupac a Busto Arsizio con treni e container',
+    'blog.article.hupac-bilancio-positivo-2025.title': 'Hupac chiude 2025 con utile in calo ma bilancio positivo',
+    'blog.article.hupac-bilancio-positivo-2025.excerpt': 'Il gruppo Hupac ha chiuso il 2025 con un utile netto di 3,5 milioni di franchi svizzeri, in calo rispetto ai 9,4 milioni del 2024, ma con volumi in crescita del 4,3%.',
+    'blog.article.hupac-bilancio-positivo-2025.imageAlt': 'Un hub logistico Hupac nel Ticino con camion e treni, schermi digitali che mostrano dati in tempo reale sulle merci e lavoratori che coordinano le operazioni.',
 };
 
 export default blogMetaIt;

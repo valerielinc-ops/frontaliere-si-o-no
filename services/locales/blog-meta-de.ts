@@ -3790,6 +3790,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hupac-busto-utile-positivo-collegamenti.title': 'Hupac wächst und stärkt Busto: Gewinn und neue Verbindungen',
     'blog.article.hupac-busto-utile-positivo-collegamenti.excerpt': 'Hupac schließt das Jahr 2025 mit einem Gewinn von 3,5 Millionen Franken und steigenden Volumina ab, trotz der Herausforderungen im Eisenbahnnetz.',
     'blog.article.hupac-busto-utile-positivo-collegamenti.imageAlt': 'Hupac-Terminal in Busto Arsizio mit Zügen und Containern',
+    'blog.article.hupac-bilancio-positivo-2025.title': 'Hupac schließt 2025 mit sinkendem Gewinn, aber positivem Ergebnis',
+    'blog.article.hupac-bilancio-positivo-2025.excerpt': 'Die Hupac-Gruppe hat das Jahr 2025 mit einem Nettogewinn von 3,5 Millionen Schweizer Franken abgeschlossen, ein Rückgang gegenüber den 9,4 Millionen Franken im Jahr 2024, aber mit einem Umsatzwachstum von 4,3%.',
+    'blog.article.hupac-bilancio-positivo-2025.imageAlt': 'Ein Hupac-Logistikhub in der Schweiz mit LKWs und Zügen, digitale Bildschirme, die Echtzeit-Frachtdaten anzeigen, und Arbeiter, die die Operationen koordinieren.',
 };
 
 export default blogMetaDe;

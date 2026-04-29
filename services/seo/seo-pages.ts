@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1313,
+ "numberOfItems": 1314,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5948,7 +5948,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1310, "name": "Swiss interrompe vendite duty-free a bordo", "url": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-fine-vendite-bordo` },
           { "@type": "ListItem", "position": 1311, "name": "Incidente ad Aarau: 18enne frontaliero ubriaco ...", "url": `${BASE_URL}/articoli-frontaliere/incidente-aarau-18enne-frontaliere` },
           { "@type": "ListItem", "position": 1312, "name": "San Gallo vince all'ultimo minuto, festa rinvia...", "url": `${BASE_URL}/articoli-frontaliere/san-gallo-vince-thun-ritardo-festa` },
-          { "@type": "ListItem", "position": 1313, "name": "Hupac cresce e rafforza Busto: utile positivo e...", "url": `${BASE_URL}/articoli-frontaliere/hupac-busto-utile-positivo-collegamenti` }
+          { "@type": "ListItem", "position": 1313, "name": "Hupac cresce e rafforza Busto: utile positivo e...", "url": `${BASE_URL}/articoli-frontaliere/hupac-busto-utile-positivo-collegamenti` },
+          { "@type": "ListItem", "position": 1314, "name": "Hupac chiude 2025 con utile in calo ma bilancio...", "url": `${BASE_URL}/articoli-frontaliere/hupac-bilancio-positivo-2025` }
  ]
  },
  {
