@@ -14,7 +14,6 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-// @ts-expect-error — JS ESM module without types
 import { snapshotBorderWaitFiles } from '../scripts/snapshot-border-wait-history.mjs';
 
 interface CurrentDocData {
@@ -36,10 +35,11 @@ interface HistorySnapshotData {
  * `snapshotBorderWaitFiles` uses. Only the methods/fields actually exercised
  * by the helper are implemented.
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function buildMockDb(opts: {
   current: Record<string, CurrentDocData>;
   history: Record<string, Record<string, HistorySnapshotData>>;
-}) {
+}): any {
   const collection = (name: string) => {
     if (name === 'trafficCurrent') {
       return {

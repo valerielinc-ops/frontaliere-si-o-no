@@ -78,23 +78,33 @@ describe('border-wait hydration IIFE — payload integrity', () => {
     expect(bytes).toBeLessThan(3 * 1024);
   });
 
-  it('exports the script tag wrapper ready to inline', () => {
-    expect(BORDER_WAIT_HYDRATION_SCRIPT_TAG.startsWith('<script>')).toBe(true);
-    expect(BORDER_WAIT_HYDRATION_SCRIPT_TAG.endsWith('</script>')).toBe(true);
-    expect(BORDER_WAIT_HYDRATION_SCRIPT_TAG).toContain(BORDER_WAIT_HYDRATION_JS);
+  it('exports an external <script src> tag (NOT inline) for the SEO gate', () => {
+    // The IIFE is emitted as a static asset to dist/border-wait-hydrate.js
+    // by the plugin's writeBundle hook; the HTML reference is just the
+    // <script src defer> tag — keeps inline payload off-page so the
+    // text-to-HTML ratio gate stays green.
+    expect(BORDER_WAIT_HYDRATION_SCRIPT_TAG).toBe(
+      '<script src="/border-wait-hydrate.js" defer></script>',
+    );
+    // The IIFE itself MUST NOT be inlined into the tag.
+    expect(BORDER_WAIT_HYDRATION_SCRIPT_TAG).not.toContain(BORDER_WAIT_HYDRATION_JS);
   });
 });
 
 describe('border-wait pages — hydration injection', () => {
   const pages = generateBorderWaitPages({ current: FIXTURE_CURRENT });
 
-  it('injects the hydration script on per-crossing leaf pages', () => {
+  it('injects the external hydration <script src> on per-crossing leaf pages', () => {
     const path = buildOggiPath('it', 'chiasso-brogeda');
     const html = pages[path];
     expect(html).toBeDefined();
-    expect(html).toContain('<script>');
-    expect(html).toContain('firestore.googleapis.com');
-    expect(html).toContain('trafficCurrent');
+    // External tag — keeps the inline payload off-page so the text-to-HTML
+    // ratio gate stays green. The IIFE itself is asserted separately above.
+    expect(html).toContain('<script src="/border-wait-hydrate.js"');
+    expect(html).toContain('defer');
+    // Inline Firestore endpoint MUST NOT appear in the HTML — it lives in
+    // the external asset file emitted by the plugin's writeBundle.
+    expect(html).not.toContain('firestore.googleapis.com');
   });
 
   it('marks the leaf page status card with `data-bw-crossing` for the slug', () => {
@@ -114,14 +124,14 @@ describe('border-wait pages — hydration injection', () => {
     expect(html).toContain('data-bw-field="waitTimeMinutes"');
     // Hub also gets the snapshot/live badge in the header.
     expect(html).toContain('data-bw-live-badge');
-    // And the inline hydration script.
-    expect(html).toContain('firestore.googleapis.com');
+    // External hydration tag (NOT the inline IIFE — keeps text-to-HTML gate green).
+    expect(html).toContain('<script src="/border-wait-hydrate.js"');
   });
 
-  it('also injects the hydration script on regional hubs', () => {
+  it('also injects the hydration <script src> on regional hubs', () => {
     const html = pages[buildRegionalHubPath('en', 'ticino-como')];
     expect(html).toBeDefined();
-    expect(html).toContain('firestore.googleapis.com');
+    expect(html).toContain('<script src="/border-wait-hydrate.js"');
     expect(html).toContain('data-bw-crossing="chiasso-brogeda"');
   });
 

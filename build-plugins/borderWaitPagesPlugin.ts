@@ -67,7 +67,11 @@ import {
   type BorderWaitLocale,
 } from './borderWaitData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
-import { BORDER_WAIT_HYDRATION_SCRIPT_TAG } from './borderWaitHydrationScript';
+import {
+  BORDER_WAIT_HYDRATION_JS,
+  BORDER_WAIT_HYDRATION_ASSET_PATH,
+  BORDER_WAIT_HYDRATION_SCRIPT_TAG,
+} from './borderWaitHydrationScript';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { adSlotHtml } from './lib/adSlotHtml';
@@ -2136,6 +2140,19 @@ ${urlEntries}
           );
         } catch (err) {
           console.warn('[border-wait-pages] failed to write sitemap-border-wait.xml', err);
+        }
+
+        // Emit the hydration JS as an external asset (not inline) so the
+        // ~2.8 KB IIFE doesn't count against the text-to-HTML ratio gate
+        // on every F8 page. One file is cached across the entire family.
+        try {
+          const assetPath = np.join(distDir, BORDER_WAIT_HYDRATION_ASSET_PATH.replace(/^\//, ''));
+          fs.writeFileSync(assetPath, BORDER_WAIT_HYDRATION_JS, 'utf-8');
+          console.log(
+            `\x1b[36m[border-wait-pages]\x1b[0m Wrote ${BORDER_WAIT_HYDRATION_ASSET_PATH} (${BORDER_WAIT_HYDRATION_JS.length} bytes, hydration script)`,
+          );
+        } catch (err) {
+          console.warn(`[border-wait-pages] failed to write ${BORDER_WAIT_HYDRATION_ASSET_PATH}`, err);
         }
       }
 

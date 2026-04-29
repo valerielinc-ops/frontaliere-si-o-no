@@ -154,6 +154,18 @@ function minify(src: string): string {
  */
 export const BORDER_WAIT_HYDRATION_JS: string = minify(RAW_HYDRATION_JS);
 
-/** Wraps the IIFE in a `<script>` tag ready to be appended to body HTML. */
+/**
+ * External-asset filename. The plugin emits the IIFE as a static file at this
+ * path under `dist/` and references it via `<script src defer>` so the inline
+ * payload doesn't count against the per-page text-to-HTML ratio gate.
+ */
+export const BORDER_WAIT_HYDRATION_ASSET_PATH = '/border-wait-hydrate.js';
+
+/**
+ * `<script src=... defer>` tag (~70 bytes) that loads the external hydration
+ * script. Use this — NOT the inline `<script>${...}</script>` form — to keep
+ * the SEO text-to-HTML ratio gate happy (CLAUDE.md hard rule). Pages share
+ * one cached JS file across the whole F8 page family.
+ */
 export const BORDER_WAIT_HYDRATION_SCRIPT_TAG: string =
-  `<script>${BORDER_WAIT_HYDRATION_JS}</script>`;
+  `<script src="${BORDER_WAIT_HYDRATION_ASSET_PATH}" defer></script>`;
