@@ -3731,6 +3731,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-10-milioni-votazione-ticino.title': 'Iniziativa UDC: sondaggio Tamedia sul futuro demografico della Svizzera',
     'blog.article.svizzera-10-milioni-votazione-ticino.excerpt': 'Il 52% degli intervistati sostiene l\'iniziativa UDC \'No a una Svizzera da 10 milioni\' secondo il sondaggio Tamedia del 22-23 aprile 2026',
     'blog.article.svizzera-10-milioni-votazione-ticino.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.title': 'Lombardia conferma tassa sanitaria per frontalieri: ecco cosa cambia',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.excerpt': 'La Lombardia ha respinto la mozione per abolire la tassa sanitaria per i frontalieri, ma promette sconti. Ecco le implicazioni per chi lavora in Svizzera',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.imageAlt': 'Vista del lago di Lugano con la città e le montagne sullo sfondo',
 };
 
 export default blogMetaIt;

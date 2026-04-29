@@ -3731,6 +3731,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-10-milioni-votazione-ticino.title': 'Initiative UDC: sondage Tamedia sur l\'avenir démographique de la Suisse',
     'blog.article.svizzera-10-milioni-votazione-ticino.excerpt': '52% des personnes interrogées soutiennent l\'initiative UDC \'Non à une Suisse de 10 millions\' selon le sondage Tamedia du 22-23 avril 2026',
     'blog.article.svizzera-10-milioni-votazione-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.title': 'Lombardie confirme la taxe sanitaire pour les frontaliers',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.excerpt': 'La Lombardie a rejeté la motion pour abolir la taxe sanitaire pour les frontaliers, mais promet des réductions. Voici les implications pour ceux qui travaillent en Suisse',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.imageAlt': 'Vue du lac de Lugano avec la ville et les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

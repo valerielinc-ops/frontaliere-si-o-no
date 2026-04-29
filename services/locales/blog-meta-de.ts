@@ -3730,6 +3730,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-10-milioni-votazione-ticino.title': 'UDC-Initiative: Tamedia-Umfrage zur demografischen Zukunft der Schweiz',
     'blog.article.svizzera-10-milioni-votazione-ticino.excerpt': '52% der Befragten unterstützen die UDC-Initiative \'Nein zu einer Schweiz mit 10 Millionen\' laut Tamedia-Umfrage vom 22.-23. April 2026',
     'blog.article.svizzera-10-milioni-votazione-ticino.imageAlt': 'Luftaufnahme des Luganersees mit der Schweizer-Italienischen Grenze im Fokus',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.title': 'Lombardei bestätigt Gesundheitsabgabe für Grenzgänger: Das ändert sich',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.excerpt': 'Die Lombardei hat den Antrag zur Abschaffung der Gesundheitsabgabe für Grenzgänger abgelehnt, verspricht aber Rabatte. Hier sind die Auswirkungen für diejenigen, die in der Schweiz arbeiten',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt und den Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

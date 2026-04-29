@@ -9716,4 +9716,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-10-milioni-votazione-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lombardia-tassa-sanitaria-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-04-29T07:30:39.794Z',
+ image: '/images/blog/lombardia-tassa-sanitaria-frontalieri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

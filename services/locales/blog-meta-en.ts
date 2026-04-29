@@ -3730,6 +3730,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-10-milioni-votazione-ticino.title': 'UDC initiative: Tamedia poll on Switzerland\'s demographic future',
     'blog.article.svizzera-10-milioni-votazione-ticino.excerpt': '52% of respondents support the UDC initiative \'No to a 10 million Switzerland\' according to the Tamedia poll of April 22-23, 2026',
     'blog.article.svizzera-10-milioni-votazione-ticino.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.title': 'Lombardy confirms healthcare tax for cross-border workers: what changes',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.excerpt': 'Lombardy has rejected the motion to abolish the healthcare tax for cross-border workers, but promises discounts. Here are the implications for those working in Switzerland',
+    'blog.article.lombardia-tassa-sanitaria-frontalieri-2026.imageAlt': 'View of Lake Lugano with the city and mountains in the background',
 };
 
 export default blogMetaEn;

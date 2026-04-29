@@ -23036,6 +23036,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombardia-tassa-sanitaria-frontalieri-2026': {
+    title: 'Lombardia conferma tassa sanitaria per frontalieri: ecco cosa cambia',
+    description: 'La Lombardia ha respinto la mozione per abolire la tassa sanitaria per i frontalieri, ma promette sconti. Ecco le implicazioni per chi lavora in Svizzera',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, conferma, tassa, sanitaria',
+    ogTitle: 'Lombardia conferma tassa sanitaria per frontalieri',
+    ogDescription: 'La Lombardia ha respinto la mozione per abolire la tassa sanitaria per i frontalieri, ma promette sconti. Ecco le implicazioni per chi lavora in Svizzera',
+    canonicalPath: '/articoli-frontaliere/lombardia-tassa-sanitaria-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lombardia conferma tassa sanitaria per frontalieri",
+      "description": "La Lombardia ha respinto la mozione per abolire la tassa sanitaria per i frontalieri, ma promette sconti. Ecco le implicazioni per chi lavora in Svizzera",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lombardia-tassa-sanitaria-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con la città e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-29T07:30:39+00:00",
+      "dateModified": "2026-04-29T07:30:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-tassa-sanitaria-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
