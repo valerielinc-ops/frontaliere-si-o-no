@@ -3994,6 +3994,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.maroggia-postale-domestico-2024.title': 'Maroggia: Postzustellung ab 2024',
     'blog.article.maroggia-postale-domestico-2024.excerpt': 'Ab September 2024 können die Einwohner von Maroggia den Postzustelldienst zu Hause in Anspruch nehmen, bis die neue Filiale 2027 eröffnet wird.',
     'blog.article.maroggia-postale-domestico-2024.imageAlt': 'Ein Schweizer Postauto, das vor einem Dorf im Tessin mit dem Luganersee im Hintergrund geparkt ist',
+    'blog.article.convegno-milano-mafia-italia-svizzera-2026.title': 'Konferenz in Mailand zur Italien-Schweiz-Zusammenarbeit gegen die Mafia',
+    'blog.article.convegno-milano-mafia-italia-svizzera-2026.excerpt': 'Fiorenza Bergomi, Richterin am Bundesstrafgericht, ist eine der Referentinnen der Konferenz am 11. Mai 2026 an der Universität Mailand',
+    'blog.article.convegno-milano-mafia-italia-svizzera-2026.imageAlt': 'Konferenz an der Universität Mailand zur Zusammenarbeit zwischen Italien und der Schweiz gegen die Mafia',
 };
 
 export default blogMetaDe;

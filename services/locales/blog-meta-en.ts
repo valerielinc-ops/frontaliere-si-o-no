@@ -3994,6 +3994,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.maroggia-postale-domestico-2024.title': 'Maroggia, home mail delivery from 2024',
     'blog.article.maroggia-postale-domestico-2024.excerpt': 'From September 2024, Maroggia residents will be able to use home mail delivery while waiting for the new branch scheduled for 2027.',
     'blog.article.maroggia-postale-domestico-2024.imageAlt': 'A Swiss Post van parked in front of a Ticino village with Lake Lugano in the background',
+    'blog.article.convegno-milano-mafia-italia-svizzera-2026.title': 'Conference in Milan on Italy-Switzerland anti-mafia cooperation',
+    'blog.article.convegno-milano-mafia-italia-svizzera-2026.excerpt': 'Fiorenza Bergomi, judge of the Federal Criminal Court, among the speakers at the conference on May 11, 2026 at the University of Milan',
+    'blog.article.convegno-milano-mafia-italia-svizzera-2026.imageAlt': 'Conference at the University of Milan on Italy-Switzerland cooperation against the mafia',
 };
 
 export default blogMetaEn;

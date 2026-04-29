@@ -25588,6 +25588,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-convegno-milano-mafia-italia-svizzera-2026': {
+    title: 'Convegno a Milano sulla cooperazione Italia-Svizzera contro la mafia',
+    description: 'Convegno a Milano sulla cooperazione Italia-Svizzera contro la mafia con Fiorenza Bergomi, giudice del Tribunale penale federale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, convegno, milano, sulla, cooperazione',
+    ogTitle: 'Convegno Milano mafia Italia Svizzera 2026',
+    ogDescription: 'Convegno a Milano sulla cooperazione Italia-Svizzera contro la mafia con Fiorenza Bergomi, giudice del Tribunale penale federale',
+    canonicalPath: '/articoli-frontaliere/convegno-milano-mafia-italia-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Convegno a Milano sulla cooperazione Italia-Svizzera contro la mafia",
+      "description": "Convegno a Milano sulla cooperazione Italia-Svizzera contro la mafia con Fiorenza Bergomi, giudice del Tribunale penale federale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/convegno-milano-mafia-italia-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Convegno all'Università di Milano sulla cooperazione Italia-Svizzera contro la mafia"
+      },
+      "datePublished": "2026-04-29T20:03:56+00:00",
+      "dateModified": "2026-04-29T20:03:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/convegno-milano-mafia-italia-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

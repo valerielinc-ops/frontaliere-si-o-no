@@ -10332,4 +10332,11 @@ export const ARTICLES = [
  image: '/images/blog/maroggia-postale-domestico-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'convegno-milano-mafia-italia-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-29T20:03:56.022Z',
+ image: '/images/blog/convegno-milano-mafia-italia-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
