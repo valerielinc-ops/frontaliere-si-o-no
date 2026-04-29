@@ -3883,6 +3883,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guardie-svizzere-giuramento-vaticano-2026.title': '28 new Swiss Guards to swear oath at the Vatican',
     'blog.article.guardie-svizzere-giuramento-vaticano-2026.excerpt': 'The ceremony will take place on May 6 in the Courtyard of St. Damasus of the Apostolic Palace in the presence of the Pope.',
     'blog.article.guardie-svizzere-giuramento-vaticano-2026.imageAlt': 'Swiss Guards in ceremonial uniform in the Courtyard of St. Damasus of the Apostolic Palace',
+    'blog.article.apprendistato-varese-2-7-ingressi-lavoro.title': 'Low apprenticeship rate in Varese: just 2.7% of job entries',
+    'blog.article.apprendistato-varese-2-7-ingressi-lavoro.excerpt': 'The Tutor Sapiens project aims to strengthen third-level apprenticeships in Varese province, with only 2.7% of job entries in 2025.',
+    'blog.article.apprendistato-varese-2-7-ingressi-lavoro.imageAlt': 'Workshop on the Tutor Sapiens project at the Centro Congressi Ville Ponti in Varese',
 };
 
 export default blogMetaEn;

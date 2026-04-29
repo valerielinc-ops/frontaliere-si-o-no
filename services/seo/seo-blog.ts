@@ -24515,6 +24515,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-varese-2-7-ingressi-lavoro': {
+    title: 'Apprendistato inespresso a Varese: solo il 2,7% degli ingressi al lavoro',
+    description: 'Il progetto Tutor Sapiens punta a rafforzare l\'apprendistato di terzo livello in provincia di Varese, con solo il 2,7% degli ingressi al lavoro nel 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, inespresso, varese, solo',
+    ogTitle: 'Apprendistato inespresso a Varese: solo il 2,7% degli ingressi al lavoro',
+    ogDescription: 'Il progetto Tutor Sapiens punta a rafforzare l\'apprendistato di terzo livello in provincia di Varese, con solo il 2,7% degli ingressi al lavoro nel 2025.',
+    canonicalPath: '/articoli-frontaliere/apprendistato-varese-2-7-ingressi-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Apprendistato inespresso a Varese: solo il 2,7% degli ingressi al lavoro\",\"description\":\"Il progetto Tutor Sapiens punta a rafforzare l'apprendistato di terzo livello in provincia di Varese, con solo il 2,7% degli ingressi al lavoro nel 2025.\",\"datePublished\":\"2026-04-01\",\"image\":\"https://frontaliereticino.ch/foroglio.webp\"}",
+      "description": "Il progetto Tutor Sapiens punta a rafforzare l'apprendistato di terzo livello in provincia di Varese, con solo il 2,7% degli ingressi al lavoro nel 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/apprendistato-varese-2-7-ingressi-lavoro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Workshop sul progetto Tutor Sapiens al Centro Congressi Ville Ponti di Varese"
+      },
+      "datePublished": "2026-04-29T12:09:31+00:00",
+      "dateModified": "2026-04-29T12:09:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/apprendistato-varese-2-7-ingressi-lavoro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3884,6 +3884,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guardie-svizzere-giuramento-vaticano-2026.title': '28 nouvelles gardes suisses prêteront serment au Vatican',
     'blog.article.guardie-svizzere-giuramento-vaticano-2026.excerpt': 'La cérémonie aura lieu le 6 mai dans la Cour de Saint-Damas du Palais Apostolique en présence du Pape.',
     'blog.article.guardie-svizzere-giuramento-vaticano-2026.imageAlt': 'Gardes suisses en uniforme de cérémonie dans la cour de Saint-Damas du Palais Apostolique',
+    'blog.article.apprendistato-varese-2-7-ingressi-lavoro.title': 'Apprentissage sous-exploité à Varèse : seulement 2,7% des entrées en 2025',
+    'blog.article.apprendistato-varese-2-7-ingressi-lavoro.excerpt': 'Le projet Tutor Sapiens vise à renforcer l\'apprentissage de troisième niveau dans la province de Varèse, avec seulement 2,7% des entrées en 2025.',
+    'blog.article.apprendistato-varese-2-7-ingressi-lavoro.imageAlt': 'Atelier sur le projet Tutor Sapiens au Centro Congressi Ville Ponti à Varese',
 };
 
 export default blogMetaFr;

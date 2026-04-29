@@ -10073,4 +10073,11 @@ export const ARTICLES = [
  image: '/images/blog/guardie-svizzere-giuramento-vaticano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'apprendistato-varese-2-7-ingressi-lavoro',
+ category: 'novita',
+ date: '2026-04-29T12:09:31.540Z',
+ image: '/images/blog/apprendistato-varese-2-7-ingressi-lavoro.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

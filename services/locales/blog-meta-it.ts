@@ -3884,6 +3884,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guardie-svizzere-giuramento-vaticano-2026.title': '28 nuove guardie svizzere giureranno al Vaticano',
     'blog.article.guardie-svizzere-giuramento-vaticano-2026.excerpt': 'La cerimonia si terrà il 6 maggio nel Cortile di S. Damaso del Palazzo Apostolico alla presenza del Papa.',
     'blog.article.guardie-svizzere-giuramento-vaticano-2026.imageAlt': 'Guardie svizzere in uniforme cerimoniale nel Cortile di S. Damaso del Palazzo Apostolico',
+    'blog.article.apprendistato-varese-2-7-ingressi-lavoro.title': 'Apprendistato inespresso a Varese: solo il 2,7% degli ingressi al lavoro',
+    'blog.article.apprendistato-varese-2-7-ingressi-lavoro.excerpt': 'Il progetto Tutor Sapiens punta a rafforzare l\'apprendistato di terzo livello in provincia di Varese, con solo il 2,7% degli ingressi al lavoro nel 2025.',
+    'blog.article.apprendistato-varese-2-7-ingressi-lavoro.imageAlt': 'Workshop sul progetto Tutor Sapiens al Centro Congressi Ville Ponti di Varese',
 };
 
 export default blogMetaIt;
