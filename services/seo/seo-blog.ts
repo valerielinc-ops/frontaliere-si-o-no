@@ -23558,6 +23558,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-san-gallo-vince-thun-ritardo-festa': {
+    title: 'San Gallo vince all\'ultimo minuto, festa rinviata per il Thun',
+    description: 'Il San Gallo segna al 92° minuto e vince contro il Thun, mentre la festa del Thun viene rinviata per la seconda volta. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallo, vince, ultimo, minuto',
+    ogTitle: 'San Gallo vince all\'ultimo minuto, festa rinviata per il Thun',
+    ogDescription: 'Il San Gallo segna al 92° minuto e vince contro il Thun, mentre la festa del Thun viene rinviata per la seconda volta',
+    canonicalPath: '/articoli-frontaliere/san-gallo-vince-thun-ritardo-festa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "San Gallo vince all'ultimo minuto, festa rinviata per il Thun",
+      "description": "Il San Gallo segna al 92° minuto e vince contro il Thun, mentre la festa del Thun viene rinviata per la seconda volta. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/san-gallo-vince-thun-ritardo-festa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di calcio in Ticino di notte con tifosi"
+      },
+      "datePublished": "2026-04-29T09:02:26+00:00",
+      "dateModified": "2026-04-29T09:02:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/san-gallo-vince-thun-ritardo-festa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

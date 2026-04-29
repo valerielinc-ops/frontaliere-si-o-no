@@ -3784,6 +3784,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-aarau-18enne-frontaliere.title': 'Aarau crash: drunk 18-year-old cross-border worker totals car',
     'blog.article.incidente-aarau-18enne-frontaliere.excerpt': 'An 18-year-old apprentice from Ticino caused a road accident in Aarau, resulting in total damage to the car.',
     'blog.article.incidente-aarau-18enne-frontaliere.imageAlt': 'Car crash in Aarau with young driver involved',
+    'blog.article.san-gallo-vince-thun-ritardo-festa.title': 'St. Gallen wins in the last minute, Thun\'s celebration postponed',
+    'blog.article.san-gallo-vince-thun-ritardo-festa.excerpt': 'St. Gallen scores in the 92nd minute and wins, while Thun\'s celebration is postponed for the second time',
+    'blog.article.san-gallo-vince-thun-ritardo-festa.imageAlt': 'Soccer stadium in Ticino at night with fans',
 };
 
 export default blogMetaEn;

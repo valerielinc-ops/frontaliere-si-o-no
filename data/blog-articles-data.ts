@@ -9842,4 +9842,11 @@ export const ARTICLES = [
  image: '/images/blog/incidente-aarau-18enne-frontaliere.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'san-gallo-vince-thun-ritardo-festa',
+ category: 'novita',
+ date: '2026-04-29T09:02:26.540Z',
+ image: '/images/blog/san-gallo-vince-thun-ritardo-festa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3784,6 +3784,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-aarau-18enne-frontaliere.title': 'Unfall in Aarau: Betrunkener Grenzgänger verursacht Totalschaden',
     'blog.article.incidente-aarau-18enne-frontaliere.excerpt': 'Ein 18-jähriger Lehrling aus dem Tessin verursachte in Aarau einen Verkehrsunfall und richtete Totalschaden am Auto an.',
     'blog.article.incidente-aarau-18enne-frontaliere.imageAlt': 'Autounfall in Aarau mit jungem Fahrer beteiligt',
+    'blog.article.san-gallo-vince-thun-ritardo-festa.title': 'St. Gallen siegt in letzter Minute, Thun feiert nicht',
+    'blog.article.san-gallo-vince-thun-ritardo-festa.excerpt': 'St. Gallen trifft in der 92. Minute und gewinnt, während Thun zum zweiten Mal auf die Feier verzichten muss',
+    'blog.article.san-gallo-vince-thun-ritardo-festa.imageAlt': 'Fußballstadion in Tessin nachts mit Fans',
 };
 
 export default blogMetaDe;

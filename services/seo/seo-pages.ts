@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1311,
+ "numberOfItems": 1312,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5946,7 +5946,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1308, "name": "Swiss elimina il duty free dal 30 settembre 2026", "url": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-addio-30-settembre` },
           { "@type": "ListItem", "position": 1309, "name": "Carpooling aziendale: frontalieri guadagnano fi...", "url": `${BASE_URL}/articoli-frontaliere/momoride-carpooling-frontalieri-benefici` },
           { "@type": "ListItem", "position": 1310, "name": "Swiss interrompe vendite duty-free a bordo", "url": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-fine-vendite-bordo` },
-          { "@type": "ListItem", "position": 1311, "name": "Incidente ad Aarau: 18enne frontaliero ubriaco ...", "url": `${BASE_URL}/articoli-frontaliere/incidente-aarau-18enne-frontaliere` }
+          { "@type": "ListItem", "position": 1311, "name": "Incidente ad Aarau: 18enne frontaliero ubriaco ...", "url": `${BASE_URL}/articoli-frontaliere/incidente-aarau-18enne-frontaliere` },
+          { "@type": "ListItem", "position": 1312, "name": "San Gallo vince all'ultimo minuto, festa rinvia...", "url": `${BASE_URL}/articoli-frontaliere/san-gallo-vince-thun-ritardo-festa` }
  ]
  },
  {

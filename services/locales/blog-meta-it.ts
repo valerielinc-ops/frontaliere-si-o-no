@@ -3785,6 +3785,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-aarau-18enne-frontaliere.title': 'Incidente ad Aarau: 18enne frontaliero ubriaco causa danni totali',
     'blog.article.incidente-aarau-18enne-frontaliere.excerpt': 'Un giovane apprendista di 18 anni, residente in Ticino, ha causato un incidente stradale ad Aarau, provocando danni totali all\'auto.',
     'blog.article.incidente-aarau-18enne-frontaliere.imageAlt': 'Incidente stradale ad Aarau con giovane autista coinvolto',
+    'blog.article.san-gallo-vince-thun-ritardo-festa.title': 'San Gallo vince all\'ultimo minuto, festa rinviata per il Thun',
+    'blog.article.san-gallo-vince-thun-ritardo-festa.excerpt': 'Il San Gallo segna al 92° minuto e vince, mentre la festa del Thun viene rinviata per la seconda volta',
+    'blog.article.san-gallo-vince-thun-ritardo-festa.imageAlt': 'Stadio di calcio in Ticino di notte con tifosi',
 };
 
 export default blogMetaIt;
