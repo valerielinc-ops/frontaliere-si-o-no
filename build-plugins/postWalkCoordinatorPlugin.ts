@@ -100,9 +100,12 @@ function* walkHtml(dir: string): Iterable<string> {
 }
 
 /**
- * Decide how many workers to spawn. Default: availableParallelism() so we
- * use every core the runner gives us. Capped against the file count to
- * avoid spawning idle workers on tiny dist/ trees.
+ * Decide how many workers to spawn. Default: max of `availableParallelism()`
+ * and `cpus().length` so we use every core the runner gives us. GitHub
+ * Actions runners can report `availableParallelism()=1` (cgroup quota) even
+ * when 4 vCPUs are physically available — `cpus().length` reflects the
+ * physical count and is the safer floor for parallelism on CI. Capped
+ * against the file count so tiny dist/ trees don't spawn idle workers.
  */
 function resolveWorkerCount(fileCount: number): number {
   const override = process.env.POST_WALK_WORKERS;
@@ -112,11 +115,14 @@ function resolveWorkerCount(fileCount: number): number {
       return Math.max(1, Math.min(n, fileCount));
     }
   }
-  // Node 18.14+ has availableParallelism(); cpus().length is the fallback.
-  const detected =
-    typeof os.availableParallelism === 'function'
-      ? os.availableParallelism()
-      : os.cpus()?.length ?? 1;
+  const fromAP =
+    typeof os.availableParallelism === 'function' ? os.availableParallelism() : 0;
+  const fromCpus = os.cpus()?.length ?? 0;
+  const detected = Math.max(fromAP, fromCpus, 1);
+  // eslint-disable-next-line no-console
+  console.log(
+    `[post-walk-coordinator] worker count detection: availableParallelism=${fromAP} cpus=${fromCpus} → ${Math.min(detected, fileCount)}`,
+  );
   return Math.max(1, Math.min(detected, fileCount));
 }
 
