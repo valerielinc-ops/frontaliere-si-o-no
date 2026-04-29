@@ -1,0 +1,226 @@
+name: Deploy Split Test (3-job topology)
+
+# Test workflow — measures the actual wall time of a 3-job split:
+#   build → test → deploy
+#
+# Goal: validate or refute the hypothesis that multi-job split with
+# pages-artifact handoff between jobs is FASTER than the current
+# single-job deploy.yml. The matrix test (run 25115078156) suggested
+# job-overhead would defeat parallelism, but it tested a 4-shard fan-out,
+# not the simpler 3-job pipeline. This test gives real numbers.
+#
+# What it measures:
+#   - Build job total wall (incl. upload-pages-artifact)
+#   - Test job: download-artifact name=github-pages → tar -xf → run post-build
+#   - Whether download-artifact@v4 can fetch upload-pages-artifact@v5 output
+#
+# What it does NOT do:
+#   - Deploy. We skip actions/deploy-pages — running it would push the test
+#     dist/ to production. Just measures pre-deploy phases.
+#
+# Manual-only via workflow_dispatch.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-split-test-${{ github.run_id }}
+  cancel-in-progress: false
+
+env:
+  PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Build
+        run: npm run build:ci
+
+      - name: SPA fallback
+        run: cp dist/index.html dist/404.html
+
+      - name: Upload pages-artifact (the dist/ tarball deploy-pages would consume)
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+      - name: Upload data/jobs.json for test job
+        # validate:jobs-quality reads data/jobs.json which is gitignored.
+        # Tiny artifact (~36 MB) — quick to upload + download.
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-data-jobs
+          path: |
+            data/jobs.json
+            data/expired-jobs.json
+            data/jobs-meta.json
+            data/jobs-stats.json
+            data/jobs-crawler-summaries.json
+          retention-days: 1
+          if-no-files-found: error
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout (scripts + package.json + baselines)
+        uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download pages-artifact
+        id: dl-pages
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: /tmp/pages
+
+      - name: Extract dist/ from pages-artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          start=$(date +%s)
+          ls -la /tmp/pages/
+          mkdir -p dist
+          tar -xf /tmp/pages/artifact.tar -C dist
+          end=$(date +%s)
+          echo "extract_wall_s=$((end - start))"
+          echo "dist size: $(du -sh dist | awk '{print $1}')"
+
+      - name: Download data/jobs.json
+        uses: actions/download-artifact@v4
+        with:
+          name: test-data-jobs
+          path: data/
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright system deps (cache hit)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Post-build (capped parallel, MAX_PARALLEL=4)
+        shell: bash
+        run: |
+          set -uo pipefail
+          source scripts/lib/post-build-tasks.sh
+
+          MAX_PARALLEL=4
+          : > /tmp/timings.txt
+          : > /tmp/failures.txt
+
+          wait_slot() {
+            while (( $(jobs -rp | wc -l) >= MAX_PARALLEL )); do
+              wait -n 2>/dev/null || true
+            done
+          }
+
+          spawn_capped() {
+            local name=$1
+            local logfile=/tmp/$(echo "$name" | tr ':/' '__').log
+            wait_slot
+            (
+              start=$(date +%s.%N)
+              run_post_build_task "$name" > "$logfile" 2>&1
+              rc=$?
+              end=$(date +%s.%N)
+              awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"$name\", $end-$start, $rc}" \
+                >> /tmp/timings.txt
+              if [ $rc -ne 0 ]; then
+                echo "$name $logfile" >> /tmp/failures.txt
+              fi
+            ) &
+          }
+
+          shard_start=$(date +%s.%N)
+          for task in "${ALL_POST_BUILD_TASKS[@]}"; do
+            spawn_capped "$task"
+          done
+          wait
+          shard_end=$(date +%s.%N)
+          shard_wall=$(awk "BEGIN{printf \"%.2f\", $shard_end - $shard_start}")
+
+          echo "── Post-build per-task wall_s ──"
+          sort -k2 -gr /tmp/timings.txt
+          echo "post_build_wall_s=$shard_wall"
+
+          if [ -s /tmp/failures.txt ]; then
+            echo "❌ Failures:"
+            while IFS= read -r line; do
+              name=$(echo "$line" | awk '{print $1}')
+              logfile=$(echo "$line" | awk '{print $2}')
+              echo "── $name ──"
+              cat "$logfile" || true
+            done < /tmp/failures.txt
+            exit 1
+          fi
+
+  # Deploy job is INTENTIONALLY OMITTED — we don't want to deploy a test
+  # build to production. Once we have build + test timings, we add the
+  # known deploy time (~162s from prior measurements) to compute the
+  # full multi-job wall.
+
+  summary:
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Print run summary
+        run: |
+          echo "## Deploy split test — measurement ${{ github.run_id }}"
+          echo ""
+          echo "Compare against current single-job deploy.yml:"
+          echo "  - Build (assemble + build): 339s"
+          echo "  - Post-build (MAX_PARALLEL=4): 230s"
+          echo "  - Upload pages-artifact: 123s"
+          echo "  - Deploy: 162s"
+          echo "  - Total critical path: ~898s = ~15min"
+          echo ""
+          echo "Multi-job split critical path =  build_wall + test_wall + 162 (deploy)"
+          echo "(see job timings panel for actual numbers)"
