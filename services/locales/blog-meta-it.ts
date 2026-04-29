@@ -3740,6 +3740,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.title': 'Tosatura pecore e riparazione vestiti: evento a Bellinzona il 9 maggio 2026',
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.excerpt': 'L\'evento di Bellinzona promuove la sostenibilità e la lotta alla fast fashion con laboratori di upcycling e tosatura delle pecore.',
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.imageAlt': 'Evento di tosatura pecore e riparazione vestiti a Bellinzona',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.title': 'Geopolitica e sindacati: nuovi equilibri globali',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.excerpt': 'Il consiglio generale della Fnp Cisl dei Laghi a Varese analizza l\'impatto delle tensioni internazionali su lavoro, pensioni e welfare.',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.imageAlt': 'Una sala conferenze a Varese con partecipanti che discutono di questioni geopolitiche, concentrandosi sull\'impatto sulla vita quotidiana e i diritti del lavoro.',
 };
 
 export default blogMetaIt;

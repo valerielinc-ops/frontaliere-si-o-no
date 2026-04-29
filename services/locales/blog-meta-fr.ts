@@ -3740,6 +3740,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.title': 'Tonte de moutons et réparation de vêtements à Bellinzona le 9 mai 2026',
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.excerpt': 'L\'événement de Bellinzona promeut la durabilité et la lutte contre la fast fashion avec des ateliers d\'upcycling et la tonte des moutons.',
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.imageAlt': 'Événement de tonte de moutons et de réparation de vêtements à Bellinzona',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.title': 'Géopolitique et syndicats : nouveaux équilibres mondiaux',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.excerpt': 'Le conseil général de la Fnp Cisl des Lacs à Varèse analyse l\'impact des tensions internationales sur le travail, les pensions et le bien-être.',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.imageAlt': 'Une salle de conférence à Varese avec des participants discutant des questions géopolitiques, en se concentrant sur l\'impact sur la vie quotidienne et les droits du travail.',
 };
 
 export default blogMetaFr;

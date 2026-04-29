@@ -3739,6 +3739,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.title': 'Sheep shearing and clothing repair event in Bellinzona on May 9, 2026',
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.excerpt': 'The Bellinzona event promotes sustainability and fights fast fashion with upcycling workshops and sheep shearing.',
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.imageAlt': 'Sheep shearing and clothing repair event in Bellinzona',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.title': 'Geopolitics and unions: new global balances',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.excerpt': 'The general council of Fnp Cisl dei Laghi in Varese analyzes the impact of international tensions on work, pensions, and welfare.',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.imageAlt': 'A conference room in Varese with attendees discussing geopolitical issues, focusing on the impact on daily life and labor rights.',
 };
 
 export default blogMetaEn;

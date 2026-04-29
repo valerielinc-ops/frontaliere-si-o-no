@@ -9737,4 +9737,11 @@ export const ARTICLES = [
  image: '/images/blog/tosatura-pecore-riparazione-vestiti-bellinzona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'geopolitica-sindacato-nuovi-equilibri-varese',
+ category: 'pratico',
+ date: '2026-04-29T07:44:37.705Z',
+ image: '/images/blog/geopolitica-sindacato-nuovi-equilibri-varese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

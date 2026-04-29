@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1296,
+ "numberOfItems": 1297,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5931,7 +5931,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1293, "name": "Iniziativa UDC: sondaggio Tamedia sul futuro de...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-10-milioni-votazione-ticino` },
           { "@type": "ListItem", "position": 1294, "name": "Lombardia conferma tassa sanitaria per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/lombardia-tassa-sanitaria-frontalieri-2026` },
           { "@type": "ListItem", "position": 1295, "name": "730 precompilato online dal 30 aprile: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/730-precompilato-frontalieri-ticino-2026` },
-          { "@type": "ListItem", "position": 1296, "name": "Evento di tosatura pecore e riparazione vestiti...", "url": `${BASE_URL}/articoli-frontaliere/tosatura-pecore-riparazione-vestiti-bellinzona-2026` }
+          { "@type": "ListItem", "position": 1296, "name": "Evento di tosatura pecore e riparazione vestiti...", "url": `${BASE_URL}/articoli-frontaliere/tosatura-pecore-riparazione-vestiti-bellinzona-2026` },
+          { "@type": "ListItem", "position": 1297, "name": "Geopolitica e vita quotidiana: il sindacato all...", "url": `${BASE_URL}/articoli-frontaliere/geopolitica-sindacato-nuovi-equilibri-varese` }
  ]
  },
  {

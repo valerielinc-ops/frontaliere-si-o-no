@@ -3739,6 +3739,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.title': 'Schafschur und Kleiderreparatur: Event in Bellinzona am 9. Mai 2026',
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.excerpt': 'Das Event in Bellinzona fördert Nachhaltigkeit und den Kampf gegen Fast Fashion mit Upcycling-Workshops und Schafschur.',
     'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.imageAlt': 'Schafschur- und Kleidungsreparaturveranstaltung in Bellinzona',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.title': 'Geopolitik und Gewerkschaften: neue globale Gleichgewichte',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.excerpt': 'Der Generalkongress der Fnp Cisl dei Laghi in Varese analysiert die Auswirkungen internationaler Spannungen auf Arbeit, Renten und Wohlfahrt.',
+    'blog.article.geopolitica-sindacato-nuovi-equilibri-varese.imageAlt': 'Ein Konferenzraum in Varese mit Teilnehmern, die über geopolitische Fragen diskutieren, mit Fokus auf die Auswirkungen auf das tägliche Leben und die Arbeitsrechte.',
 };
 
 export default blogMetaDe;

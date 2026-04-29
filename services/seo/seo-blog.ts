@@ -23123,6 +23123,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-geopolitica-sindacato-nuovi-equilibri-varese': {
+    title: 'Geopolitica e sindacati: nuovi equilibri globali | Frontaliere Ticino',
+    description: 'Il consiglio generale della Fnp Cisl dei Laghi a Varese analizza l\'impatto delle tensioni internazionali su lavoro, pensioni e welfare. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, geopolitica, sindacati, nuovi, equilibri',
+    ogTitle: 'Geopolitica e vita quotidiana: il sindacato alla prova dei nuovi equilibri globali',
+    ogDescription: 'Il consiglio generale della Fnp Cisl dei Laghi a Varese analizza l\'impatto delle tensioni internazionali su lavoro, pensioni e welfare.',
+    canonicalPath: '/articoli-frontaliere/geopolitica-sindacato-nuovi-equilibri-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Geopolitica e vita quotidiana: il sindacato alla prova dei nuovi equilibri globali",
+      "description": "Il consiglio generale della Fnp Cisl dei Laghi a Varese analizza l'impatto delle tensioni internazionali su lavoro, pensioni e welfare. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/geopolitica-sindacato-nuovi-equilibri-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una sala conferenze a Varese con partecipanti che discutono di questioni geopolitiche, concentrandosi sull'impatto sulla vita quotidiana e i diritti del lavoro."
+      },
+      "datePublished": "2026-04-29T07:44:37+00:00",
+      "dateModified": "2026-04-29T07:44:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/geopolitica-sindacato-nuovi-equilibri-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
