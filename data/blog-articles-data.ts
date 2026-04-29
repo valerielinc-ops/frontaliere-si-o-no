@@ -9597,4 +9597,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-ticino-sentono-criminali.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'esubero-leventina-zone-edificabili-2026',
+ category: 'novita',
+ date: '2026-04-29T03:58:01.418Z',
+ image: '/images/blog/esubero-leventina-zone-edificabili-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

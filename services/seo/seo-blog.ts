@@ -22543,6 +22543,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esubero-leventina-zone-edificabili-2026': {
+    title: 'Esubero zone edificabili in Leventina: il Cantone risponda',
+    description: 'Corrado Nastasi, presidente Acl, chiede chiarimenti sul sovradimensionamento delle zone edificabili in Leventina. Implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, esubero, zone, edificabili, leventina',
+    ogTitle: 'Esubero zone edificabili in Leventina: il Cantone risponda',
+    ogDescription: 'Corrado Nastasi, presidente Acl, chiede chiarimenti sul sovradimensionamento delle zone edificabili in Leventina. Implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/esubero-leventina-zone-edificabili-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esubero zone edificabili in Leventina: il Cantone risponda",
+      "description": "Corrado Nastasi, presidente Acl, chiede chiarimenti sul sovradimensionamento delle zone edificabili in Leventina. Implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/esubero-leventina-zone-edificabili-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della valle di Leventina in Ticino, Svizzera, con montagne e edifici"
+      },
+      "datePublished": "2026-04-29T03:58:01+00:00",
+      "dateModified": "2026-04-29T03:58:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/esubero-leventina-zone-edificabili-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3679,6 +3679,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-sentono-criminali.title': 'Cross-border workers in Ticino: \'We feel like criminals\'',
     'blog.article.frontalieri-ticino-sentono-criminali.excerpt': 'Anthropologist Lederrey denounces federal asylum centers in Ticino. The SEM responds.',
     'blog.article.frontalieri-ticino-sentono-criminali.imageAlt': 'Group of people in front of a federal asylum center in Ticino',
+    'blog.article.esubero-leventina-zone-edificabili-2026.title': 'Excess building zones in Leventina: Canton must respond',
+    'blog.article.esubero-leventina-zone-edificabili-2026.excerpt': 'Corrado Nastasi, president of the Acl, asks for clarification on the oversizing of building zones in Leventina',
+    'blog.article.esubero-leventina-zone-edificabili-2026.imageAlt': 'Aerial view of Leventina valley in Ticino, Switzerland, with mountains and buildings',
 };
 
 export default blogMetaEn;

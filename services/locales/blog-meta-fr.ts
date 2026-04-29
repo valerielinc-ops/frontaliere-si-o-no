@@ -3680,6 +3680,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-sentono-criminali.title': 'Frontaliers au Tessin : \'On se sent comme des criminels\'',
     'blog.article.frontalieri-ticino-sentono-criminali.excerpt': 'Dénonciation de l\'anthropologue Lederrey sur les Centres fédéraux d\'asile en Tessin. La réponse de la SEM.',
     'blog.article.frontalieri-ticino-sentono-criminali.imageAlt': 'Groupe de personnes devant un centre fédéral d\'asile au Tessin',
+    'blog.article.esubero-leventina-zone-edificabili-2026.title': 'Excédent de zones à bâtir en Leventina: le Canton réponde',
+    'blog.article.esubero-leventina-zone-edificabili-2026.excerpt': 'Corrado Nastasi, président de l\'Acl, demande des éclaircissements sur le surdimensionnement des zones à bâtir en Leventina',
+    'blog.article.esubero-leventina-zone-edificabili-2026.imageAlt': 'Vue aérienne de la vallée de Leventina dans le Tessin, Suisse, avec des montagnes et des bâtiments',
 };
 
 export default blogMetaFr;

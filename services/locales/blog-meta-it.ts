@@ -3680,6 +3680,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-sentono-criminali.title': 'Frontalieri in Ticino: \'Ci si sente come criminali\'',
     'blog.article.frontalieri-ticino-sentono-criminali.excerpt': 'Denuncia dell\'antropologa Lederrey sui Centri federali d\'asilo in Ticino. La replica della SEM.',
     'blog.article.frontalieri-ticino-sentono-criminali.imageAlt': 'Gruppo di persone davanti al centro federale d\'asilo in Ticino',
+    'blog.article.esubero-leventina-zone-edificabili-2026.title': 'Esubero zone edificabili in Leventina: il Cantone risponda',
+    'blog.article.esubero-leventina-zone-edificabili-2026.excerpt': 'Corrado Nastasi, presidente dell\'Acl, chiede chiarimenti sul sovradimensionamento delle zone edificabili in Leventina',
+    'blog.article.esubero-leventina-zone-edificabili-2026.imageAlt': 'Vista aerea della valle di Leventina in Ticino, Svizzera, con montagne e edifici',
 };
 
 export default blogMetaIt;

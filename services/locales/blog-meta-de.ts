@@ -3679,6 +3679,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-sentono-criminali.title': 'Grenzgänger im Tessin: \'Man fühlt sich wie Kriminelle\'',
     'blog.article.frontalieri-ticino-sentono-criminali.excerpt': 'Anklage der Anthropologin Lederrey gegen die Bundesasylzentren im Tessin. Die Antwort des SEM.',
     'blog.article.frontalieri-ticino-sentono-criminali.imageAlt': 'Gruppe von Menschen vor einem Bundesasylzentrum im Tessin',
+    'blog.article.esubero-leventina-zone-edificabili-2026.title': 'Überdimensionierte Bauzonen in Leventina: Kanton soll antworten',
+    'blog.article.esubero-leventina-zone-edificabili-2026.excerpt': 'Corrado Nastasi, Präsident des Acl, fordert Aufklärung über die Überdimensionierung der Bauzonen in Leventina',
+    'blog.article.esubero-leventina-zone-edificabili-2026.imageAlt': 'Luftaufnahme des Leventina-Tals in Tessin, Schweiz, mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;
