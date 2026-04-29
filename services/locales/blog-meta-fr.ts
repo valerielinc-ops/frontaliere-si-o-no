@@ -3623,6 +3623,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.play-suisse-novita-streaming-2026.title': 'Nouvelles séries et documentaires sur Play Suisse',
     'blog.article.play-suisse-novita-streaming-2026.excerpt': 'Découvrez les nouvelles séries et documentaires disponibles sur Play Suisse, la plateforme de streaming de la SSR.',
     'blog.article.play-suisse-novita-streaming-2026.imageAlt': 'Une personne regardant un documentaire suisse sur une plateforme de streaming moderne dans un appartement confortable du Tessin avec vue sur les Alpes.',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.title': 'Terrasse à Côme: recours du bar et décision du tribunal',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.excerpt': 'Le retrait de la terrasse du bar La Quinta à Côme est suspendu. Audience au fond le 20 mai 2026.',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.imageAlt': 'Un bar avec une terrasse en plein air dans la Via Ballarini à Côme, objet d\'un litige juridique',
 };
 
 export default blogMetaFr;

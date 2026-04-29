@@ -21992,6 +21992,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dehors-como-ricorso-tar-20-maggio': {
+    title: 'Dehors a Como: ricorso del bar e decisione del Tar',
+    description: 'La rimozione del dehors del bar La Quinta a Como è sospesa. Udienza di merito il 20 maggio 2026. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, dehors, como, ricorso, decisione',
+    ogTitle: 'Dehors a Como: ricorso del bar e decisione del Tar',
+    ogDescription: 'La rimozione del dehors del bar La Quinta a Como è sospesa. Udienza di merito il 20 maggio 2026. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/dehors-como-ricorso-tar-20-maggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dehors a Como: ricorso del bar e decisione del Tar",
+      "description": "La rimozione del dehors del bar La Quinta a Como è sospesa. Udienza di merito il 20 maggio 2026. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dehors-como-ricorso-tar-20-maggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un bar con un dehors in via Ballarini a Como, oggetto di una disputa legale"
+      },
+      "datePublished": "2026-04-29T01:12:48+00:00",
+      "dateModified": "2026-04-29T01:12:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dehors-como-ricorso-tar-20-maggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

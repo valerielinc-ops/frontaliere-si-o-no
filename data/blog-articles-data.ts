@@ -9464,4 +9464,11 @@ export const ARTICLES = [
  image: '/images/blog/play-suisse-novita-streaming-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dehors-como-ricorso-tar-20-maggio',
+ category: 'novita',
+ date: '2026-04-29T01:12:48.975Z',
+ image: '/images/blog/dehors-como-ricorso-tar-20-maggio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

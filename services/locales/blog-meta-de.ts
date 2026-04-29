@@ -3622,6 +3622,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.play-suisse-novita-streaming-2026.title': 'Neue Serien und Dokumentationen auf Play Suisse',
     'blog.article.play-suisse-novita-streaming-2026.excerpt': 'Entdecken Sie die neuen Serien und Dokumentationen, die auf Play Suisse, der Streaming-Plattform der SSR, verfügbar sind.',
     'blog.article.play-suisse-novita-streaming-2026.imageAlt': 'Eine Person, die einen Schweizer Dokumentarfilm auf einer modernen Streaming-Plattform in einer gemütlichen Wohnung im Tessin mit Blick auf die Alpen ansieht.',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.title': 'Aussenbereich in Como: Klage des Bars und Entscheidung des TAR',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.excerpt': 'Die Entfernung des Aussenbereichs des Bars La Quinta in Como ist ausgesetzt. Hauptverhandlung am 20. Mai 2026.',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.imageAlt': 'Ein Bar mit einer Außenterrasse in der Via Ballarini in Como, Gegenstand eines Rechtsstreits',
 };
 
 export default blogMetaDe;

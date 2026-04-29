@@ -3622,6 +3622,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.play-suisse-novita-streaming-2026.title': 'New series and documentaries on Play Suisse',
     'blog.article.play-suisse-novita-streaming-2026.excerpt': 'Discover the new series and documentaries available on Play Suisse, the SSR streaming platform.',
     'blog.article.play-suisse-novita-streaming-2026.imageAlt': 'Person watching a Swiss documentary on a modern streaming platform in a cozy Ticino apartment with a view of the Alps.',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.title': 'Outdoor seating in Como: bar\'s appeal and court decision',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.excerpt': 'The removal of the outdoor seating at the La Quinta bar in Como is suspended. The merits hearing is scheduled for May 20, 2026.',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.imageAlt': 'A bar with an outdoor seating area in via Ballarini, Como, subject to a legal dispute',
 };
 
 export default blogMetaEn;

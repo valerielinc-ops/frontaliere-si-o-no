@@ -3623,6 +3623,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.play-suisse-novita-streaming-2026.title': 'Nuove serie e documentari su Play Suisse',
     'blog.article.play-suisse-novita-streaming-2026.excerpt': 'Scopri le nuove serie e documentari disponibili su Play Suisse, la piattaforma streaming della SSR.',
     'blog.article.play-suisse-novita-streaming-2026.imageAlt': 'Persona che guarda un documentario svizzero su una piattaforma di streaming moderna, in un accogliente appartamento ticinese con vista sulle Alpi.',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.title': 'Dehors a Como: ricorso del bar e decisione del Tar',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.excerpt': 'La rimozione del dehors del bar La Quinta a Como è sospesa. Udienza di merito il 20 maggio 2026.',
+    'blog.article.dehors-como-ricorso-tar-20-maggio.imageAlt': 'Un bar con un dehors in via Ballarini a Como, oggetto di una disputa legale',
 };
 
 export default blogMetaIt;
