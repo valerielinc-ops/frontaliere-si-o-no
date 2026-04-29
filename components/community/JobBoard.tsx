@@ -323,7 +323,7 @@ function getRelatedArticlesForJob(
  const jobWords = new Set(jobTitle.split(/[\s\-/,()]+/).filter(w => w.length > 2 && !ARTICLE_STOP_WORDS.has(w)));
  const jobKeywords = (job.canonicalContent?.byLocale?.[locale]?.keywords ?? []).map(k => k.toLowerCase());
 
- const scored = articles.map(article => {
+ const scoreArticle = (article: Article): number => {
  let score = 0;
  const articleWords = slugTopicWordsJob(article.id);
 
@@ -332,7 +332,6 @@ function getRelatedArticlesForJob(
  if (jobKeywords.some(k => k.includes(w))) score += 2;
  }
 
- // Also match article i18n title words against job words
  const articleTitle = t(`blog.article.${article.id}.title`).toLowerCase();
  if (!articleTitle.startsWith('blog.article.')) {
  const titleWords = articleTitle.split(/[\s\-/,()]+/).filter(w => w.length > 2 && !ARTICLE_STOP_WORDS.has(w));
@@ -341,11 +340,30 @@ function getRelatedArticlesForJob(
  }
  }
 
- return { article, score };
- }).filter(x => x.score >= 4);
+ return score;
+ };
 
- scored.sort((a, b) => b.score - a.score);
- return scored.slice(0, count).map(x => x.article);
+ // Newest articles first — recency is preferred when scores tie or thresholds are met.
+ const byDate = [...articles].sort((a, b) => b.date.localeCompare(a.date));
+
+ // Stage 1: try the 5 most recent and return matches by score.
+ const recentMatches = byDate.slice(0, 5)
+ .map(article => ({ article, score: scoreArticle(article) }))
+ .filter(x => x.score >= 4)
+ .sort((a, b) => b.score - a.score)
+ .slice(0, count)
+ .map(x => x.article);
+ if (recentMatches.length > 0) return recentMatches;
+
+ // Stage 2: extend to the full archive in date order, take the first `count` that hit the threshold.
+ const archiveMatches: Article[] = [];
+ for (const article of byDate.slice(5)) {
+ if (scoreArticle(article) >= 4) {
+ archiveMatches.push(article);
+ if (archiveMatches.length >= count) break;
+ }
+ }
+ return archiveMatches;
 }
 
 /** Filter params that can be passed from SiteSearch to pre-apply filters on mount */
