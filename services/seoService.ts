@@ -2508,6 +2508,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-canapa-losanna-bilancio-positivo-2026': { name: 'Novità', path: '/articoli-frontaliere/canapa-losanna-bilancio-positivo-2026', parent: 'blog' },
     'blog-estival-jazz-marti-ritiro-2026': { name: 'Novità', path: '/articoli-frontaliere/estival-jazz-marti-ritiro-2026', parent: 'blog' },
     'blog-licata-lombardia-bulgaria-opportunita': { name: 'Novità', path: '/articoli-frontaliere/licata-lombardia-bulgaria-opportunita', parent: 'blog' },
+    'blog-maroggia-servizi-postali-2026': { name: 'Novità', path: '/articoli-frontaliere/maroggia-servizi-postali-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

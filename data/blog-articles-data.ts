@@ -9954,4 +9954,11 @@ export const ARTICLES = [
  image: '/images/blog/licata-lombardia-bulgaria-opportunita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'maroggia-servizi-postali-2026',
+ category: 'novita',
+ date: '2026-04-29T10:36:57.714Z',
+ image: '/images/blog/maroggia-servizi-postali-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

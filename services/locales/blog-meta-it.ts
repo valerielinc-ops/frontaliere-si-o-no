@@ -3833,6 +3833,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.licata-lombardia-bulgaria-opportunita.title': 'Licata: Schengen ed euro aprono nuove opportunità per Lombardia e Bulgaria',
     'blog.article.licata-lombardia-bulgaria-opportunita.excerpt': 'Giuseppe Licata, consigliere regionale di Forza Italia, sottolinea l\'importanza di rafforzare l\'asse Lombardia-Bulgaria dopo l\'ingresso del Paese in Schengen ed Euro.',
     'blog.article.licata-lombardia-bulgaria-opportunita.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino',
+    'blog.article.maroggia-servizi-postali-2026.title': 'Maroggia, la Posta riorganizza i servizi dal 2026',
+    'blog.article.maroggia-servizi-postali-2026.excerpt': 'Dal settembre 2026, Maroggia avrà un nuovo servizio postale a domicilio in attesa di una collaborazione con un commercio locale.',
+    'blog.article.maroggia-servizi-postali-2026.imageAlt': 'Ufficio postale a Maroggia, Ticino',
 };
 
 export default blogMetaIt;

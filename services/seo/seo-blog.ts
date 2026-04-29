@@ -24022,6 +24022,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maroggia-servizi-postali-2026': {
+    title: 'Maroggia, la Posta riorganizza i servizi dal 2026 | Frontaliere Ticino',
+    description: 'Dal settembre 2026, Maroggia avrà un nuovo servizio postale a domicilio in attesa di una collaborazione con un commercio locale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, maroggia, posta, riorganizza, servizi',
+    ogTitle: 'Maroggia, la Posta riorganizza i servizi dal 2026',
+    ogDescription: 'Dal settembre 2026, Maroggia avrà un nuovo servizio postale a domicilio in attesa di una collaborazione con un commercio locale.',
+    canonicalPath: '/articoli-frontaliere/maroggia-servizi-postali-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maroggia, la Posta riorganizza i servizi dal 2026",
+      "description": "Dal settembre 2026, Maroggia avrà un nuovo servizio postale a domicilio in attesa di una collaborazione con un commercio locale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maroggia-servizi-postali-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio postale a Maroggia, Ticino"
+      },
+      "datePublished": "2026-04-29T10:36:57+00:00",
+      "dateModified": "2026-04-29T10:36:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maroggia-servizi-postali-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

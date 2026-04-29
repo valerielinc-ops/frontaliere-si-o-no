@@ -3832,6 +3832,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.licata-lombardia-bulgaria-opportunita.title': 'Licata: Schengen and euro open new opportunities for Lombardy and Bulgaria',
     'blog.article.licata-lombardia-bulgaria-opportunita.excerpt': 'Giuseppe Licata, a regional councillor from Forza Italia, underlines the importance of strengthening the Lombardy-Bulgaria axis after the country\'s entry into Schengen and the Euro.',
     'blog.article.licata-lombardia-bulgaria-opportunita.imageAlt': 'Aerial view of Lake Lugano with Ticino landscape',
+    'blog.article.maroggia-servizi-postali-2026.title': 'Maroggia, Posta to reorganize services from 2026',
+    'blog.article.maroggia-servizi-postali-2026.excerpt': 'From September 2026, Maroggia will have a new home postal service while awaiting collaboration with a local business.',
+    'blog.article.maroggia-servizi-postali-2026.imageAlt': 'Post office in Maroggia, Ticino',
 };
 
 export default blogMetaEn;
