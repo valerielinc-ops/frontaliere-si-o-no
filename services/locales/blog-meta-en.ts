@@ -3958,6 +3958,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.title': 'Bellinzona: work-life balance in Rod',
     'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.excerpt': 'The motion by Unità di sinistra to include the principle of work-life balance in Bellinzona\'s Rod',
     'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.imageAlt': 'Bellinzona with Castle Grande and the Ticino River',
+    'blog.article.chiasso-assassinio-mancato-15-anni-carcere.title': 'Chiasso: 15 years sought for attempted murder',
+    'blog.article.chiasso-assassinio-mancato-15-anni-carcere.excerpt': 'Trial of a 34-year-old for attacking his partner with gym equipment on January 20, 2024',
+    'blog.article.chiasso-assassinio-mancato-15-anni-carcere.imageAlt': 'Dramatic scene in Chiasso, Ticino, with police presence and forensic investigators in a residential area',
 };
 
 export default blogMetaEn;

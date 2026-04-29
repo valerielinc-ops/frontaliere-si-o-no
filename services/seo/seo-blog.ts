@@ -25240,6 +25240,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-assassinio-mancato-15-anni-carcere': {
+    title: 'Chiasso: 15 anni di carcere richiesti per tentativo di omicidio',
+    description: 'Il processo a un 34enne per aver aggredito la compagna con attrezzi ginnici il 20 gennaio 2024. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, anni, carcere, richiesti',
+    ogTitle: 'Chiasso: 15 anni di carcere richiesti per tentativo di omicidio',
+    ogDescription: 'Il processo a un 34enne per aver aggredito la compagna con attrezzi ginnici il 20 gennaio 2024',
+    canonicalPath: '/articoli-frontaliere/chiasso-assassinio-mancato-15-anni-carcere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso: 15 anni di carcere richiesti per tentativo di omicidio",
+      "description": "Il processo a un 34enne per aver aggredito la compagna con attrezzi ginnici il 20 gennaio 2024. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiasso-assassinio-mancato-15-anni-carcere.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena drammatica a Chiasso, Ticino, con presenza di polizia e investigatori forensi in una zona residenziale"
+      },
+      "datePublished": "2026-04-29T18:07:58+00:00",
+      "dateModified": "2026-04-29T18:07:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-assassinio-mancato-15-anni-carcere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

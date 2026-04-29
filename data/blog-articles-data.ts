@@ -10248,4 +10248,11 @@ export const ARTICLES = [
  image: '/images/blog/conciliabilita-vita-lavoro-bellinzona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiasso-assassinio-mancato-15-anni-carcere',
+ category: 'novita',
+ date: '2026-04-29T18:07:58.186Z',
+ image: '/images/blog/chiasso-assassinio-mancato-15-anni-carcere.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

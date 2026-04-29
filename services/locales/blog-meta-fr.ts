@@ -3959,6 +3959,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.title': 'Bellinzona: vie professionnelle et personnelle conciliables dans le Rod',
     'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.excerpt': 'La motion de l\'Unité de gauche pour intégrer le principe de conciliation entre vie professionnelle et personnelle dans le Rod de la ville de Bellinzona',
     'blog.article.conciliabilita-vita-lavoro-bellinzona-2026.imageAlt': 'Bellinzone avec le Château Grande et la rivière du Tessin',
+    'blog.article.chiasso-assassinio-mancato-15-anni-carcere.title': 'Chiasso : 15 ans de prison demandés pour tentative de meurtre',
+    'blog.article.chiasso-assassinio-mancato-15-anni-carcere.excerpt': 'Le procès d\'un homme de 34 ans pour avoir agressé sa compagne avec des outils de gym le 20 janvier 2024',
+    'blog.article.chiasso-assassinio-mancato-15-anni-carcere.imageAlt': 'Scène dramatique à Chiasso, Tessin, avec présence de la police et d\'enquêtes forensiques dans un quartier résidentiel',
 };
 
 export default blogMetaFr;
