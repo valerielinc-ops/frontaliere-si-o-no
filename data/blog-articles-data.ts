@@ -9933,4 +9933,11 @@ export const ARTICLES = [
  image: '/images/blog/celti-tradate-parco-pineta-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'canapa-losanna-bilancio-positivo-2026',
+ category: 'novita',
+ date: '2026-04-29T10:23:05.072Z',
+ image: '/images/blog/canapa-losanna-bilancio-positivo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

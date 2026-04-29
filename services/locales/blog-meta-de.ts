@@ -3823,6 +3823,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.celti-tradate-parco-pineta-2026.title': 'Ein Sonntag mit den Geheimnissen der Kelten im Pinienpark von Tradate',
     'blog.article.celti-tradate-parco-pineta-2026.excerpt': 'Entdecken Sie die Geheimnisse der Kelten im Pinienpark von Tradate mit dem Verein Kaitorikes. Eine kostenlose Veranstaltung, um sich in die Geschichte und Bräuche des 5. Jahrhunderts zu vertiefen.',
     'blog.article.celti-tradate-parco-pineta-2026.imageAlt': 'Parco Pineta di Tradate, ein grünes Gebiet mit keltischen Relikten',
+    'blog.article.canapa-losanna-bilancio-positivo-2026.title': 'Kontrollierter Hanfanbau in Lausanne: positives Fazit',
+    'blog.article.canapa-losanna-bilancio-positivo-2026.excerpt': 'Das Pilotprojekt für den kontrollierten Verkauf von Cannabis in Lausanne hat dem Schwarzmarkt 2 Millionen Franken entzogen und neue Arbeitsplätze geschaffen',
+    'blog.article.canapa-losanna-bilancio-positivo-2026.imageAlt': 'Luftaufnahme des Luganersees mit klarem blauem Wasser, umgeben von Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

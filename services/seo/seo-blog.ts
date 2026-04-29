@@ -23935,6 +23935,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-canapa-losanna-bilancio-positivo-2026': {
+    title: 'Canapa controllata a Losanna: bilancio positivo | Frontaliere Ticino',
+    description: 'Il progetto pilota per la vendita controllata di cannabis a Losanna ha sottratto 2 milioni di franchi al mercato nero e creato nuovi posti di lavoro',
+    keywords: 'frontalieri, ticino, svizzera, italia, canapa, controllata, losanna, bilancio',
+    ogTitle: 'Canapa controllata a Losanna: bilancio positivo',
+    ogDescription: 'Il progetto pilota per la vendita controllata di cannabis a Losanna ha sottratto 2 milioni di franchi al mercato nero e creato nuovi posti di lavoro',
+    canonicalPath: '/articoli-frontaliere/canapa-losanna-bilancio-positivo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canapa controllata a Losanna: bilancio positivo",
+      "description": "Il progetto pilota per la vendita controllata di cannabis a Losanna ha sottratto 2 milioni di franchi al mercato nero e creato nuovi posti di lavoro",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/canapa-losanna-bilancio-positivo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici"
+      },
+      "datePublished": "2026-04-29T10:23:05+00:00",
+      "dateModified": "2026-04-29T10:23:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/canapa-losanna-bilancio-positivo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

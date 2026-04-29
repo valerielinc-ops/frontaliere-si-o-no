@@ -3824,6 +3824,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.celti-tradate-parco-pineta-2026.title': 'Una domenica tra i segreti dei Celti al Parco Pineta di Tradate',
     'blog.article.celti-tradate-parco-pineta-2026.excerpt': 'Scopri i segreti dei Celti al Parco Pineta di Tradate con l\'associazione Kaitorikes. Un evento gratuito per immergersi nella storia e nelle usanze del V secolo.',
     'blog.article.celti-tradate-parco-pineta-2026.imageAlt': 'Parco Pineta di Tradate, un\'area verde con reperti celtici',
+    'blog.article.canapa-losanna-bilancio-positivo-2026.title': 'Canapa controllata a Losanna: bilancio positivo',
+    'blog.article.canapa-losanna-bilancio-positivo-2026.excerpt': 'Il progetto pilota per la vendita controllata di cannabis a Losanna ha sottratto 2 milioni di franchi al mercato nero e creato nuovi posti di lavoro',
+    'blog.article.canapa-losanna-bilancio-positivo-2026.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici',
 };
 
 export default blogMetaIt;

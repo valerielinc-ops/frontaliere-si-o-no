@@ -3823,6 +3823,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.celti-tradate-parco-pineta-2026.title': 'A Sunday exploring Celtic secrets at Pineta Park, Tradate',
     'blog.article.celti-tradate-parco-pineta-2026.excerpt': 'Discover the secrets of the Celts at Pineta Park in Tradate with the Kaitorikes association. A free event to immerse yourself in the history and customs of the 5th century.',
     'blog.article.celti-tradate-parco-pineta-2026.imageAlt': 'Parco Pineta di Tradate, a green area with Celtic relics',
+    'blog.article.canapa-losanna-bilancio-positivo-2026.title': 'Controlled cannabis pilot project in Lausanne: positive balance',
+    'blog.article.canapa-losanna-bilancio-positivo-2026.excerpt': 'The pilot project for the controlled sale of cannabis in Lausanne has taken 2 million francs from the black market and created new jobs',
+    'blog.article.canapa-losanna-bilancio-positivo-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water, surrounded by mountains and buildings',
 };
 
 export default blogMetaEn;
