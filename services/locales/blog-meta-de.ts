@@ -3808,6 +3808,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.athora-italia-previdenza-complementare-2026.title': 'Athora Italia: 30% der Über-55-Betroffenen bereut verspäteten Beitritt',
     'blog.article.athora-italia-previdenza-complementare-2026.excerpt': 'Eine Studie von Athora Italia zeigt, dass 30% der Über-55-Jährigen bedauern, nicht früher der betrieblichen Altersvorsorge beigetreten zu sein.',
     'blog.article.athora-italia-previdenza-complementare-2026.imageAlt': 'Panoramablick auf den Luganersee mit Bergen und Stadtzentrum',
+    'blog.article.annuario-impresari-2026-ticino.title': 'Jahrbuch 2026: Sicherheit und Transparenz für Bauunternehmer',
+    'blog.article.annuario-impresari-2026-ticino.excerpt': 'Das Jahrbuch 2026 der Bauunternehmer im Tessin ist ein unverzichtbares Werkzeug für Auftraggeber und Planer. Entdecken Sie, wie Sie sich unter den qualifizierten Bauunternehmen orientieren können.',
+    'blog.article.annuario-impresari-2026-ticino.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

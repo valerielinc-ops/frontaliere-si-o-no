@@ -3809,6 +3809,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.athora-italia-previdenza-complementare-2026.title': 'Athora Italia : 30 % des plus de 55 ans regrettent une adhésion tardive',
     'blog.article.athora-italia-previdenza-complementare-2026.excerpt': 'L\'étude Athora Italia révèle que 30 % des plus de 55 ans regrettent de ne pas avoir adhéré plus tôt à la prévoyance complémentaire.',
     'blog.article.athora-italia-previdenza-complementare-2026.imageAlt': 'Vue panoramique du lac de Lugano avec montagnes et centre-ville',
+    'blog.article.annuario-impresari-2026-ticino.title': 'Annuaire 2026 des entrepreneurs tessinois: sécurité et transparence',
+    'blog.article.annuario-impresari-2026-ticino.excerpt': 'Publié l\'Annuaire 2026 des entrepreneurs tessinois, outil essentiel pour les maîtres d\'ouvrage et les concepteurs. Découvrez comment vous orienter parmi les entreprises de construction qualifiées.',
+    'blog.article.annuario-impresari-2026-ticino.imageAlt': 'Vue aérienne de Castelgrande à Bellinzone, Tessin, Suisse',
 };
 
 export default blogMetaFr;

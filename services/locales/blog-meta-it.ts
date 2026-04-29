@@ -3809,6 +3809,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.athora-italia-previdenza-complementare-2026.title': 'Athora Italia: 30% over 55 rimpiange adesione tardiva',
     'blog.article.athora-italia-previdenza-complementare-2026.excerpt': 'Studio Athora Italia rivela che il 30% degli over 55 rimpiange di non aver aderito prima alla previdenza complementare.',
     'blog.article.athora-italia-previdenza-complementare-2026.imageAlt': 'Veduta panoramica del Lago di Lugano con montagne e centro città',
+    'blog.article.annuario-impresari-2026-ticino.title': 'Annuario 2026 impresari ticinesi: sicurezza e trasparenza',
+    'blog.article.annuario-impresari-2026-ticino.excerpt': 'Pubblicato l\'Annuario 2026 degli impresari ticinesi, strumento essenziale per committenti e progettisti. Scopri come orientarti tra le imprese edili qualificate.',
+    'blog.article.annuario-impresari-2026-ticino.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

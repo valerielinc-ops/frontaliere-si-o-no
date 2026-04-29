@@ -2500,6 +2500,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-parchi-vandalismo-2026': { name: 'Parchi vandalizzati', path: '/articoli-frontaliere/frontalieri-ticino-parchi-vandalismo-2026', parent: 'blog' },
     'blog-spacchettamento-casse-malati-2026': { name: 'Novità', path: '/articoli-frontaliere/spacchettamento-casse-malati-2026', parent: 'blog' },
     'blog-athora-italia-previdenza-complementare-2026': { name: 'Previdenza complementare', path: '/articoli-frontaliere/athora-italia-previdenza-complementare-2026', parent: 'blog' },
+    'blog-annuario-impresari-2026-ticino': { name: 'Annuario 2026', path: '/articoli-frontaliere/annuario-impresari-2026-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

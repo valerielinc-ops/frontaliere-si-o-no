@@ -3808,6 +3808,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.athora-italia-previdenza-complementare-2026.title': 'Athora Italia: 30% of over-55s regret late sign-up',
     'blog.article.athora-italia-previdenza-complementare-2026.excerpt': 'Athora Italia study reveals that 30% of over-55s regret not joining supplementary pension earlier.',
     'blog.article.athora-italia-previdenza-complementare-2026.imageAlt': 'Panoramic view of Lake Lugano with mountains and city center',
+    'blog.article.annuario-impresari-2026-ticino.title': '2026 Ticino contractors\' directory: safety & transparency',
+    'blog.article.annuario-impresari-2026-ticino.excerpt': 'The 2026 directory of Ticino contractors has been published, an essential tool for clients and designers. Find out how to navigate among qualified construction companies.',
+    'blog.article.annuario-impresari-2026-ticino.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

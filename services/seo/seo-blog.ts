@@ -23790,6 +23790,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-annuario-impresari-2026-ticino': {
+    title: 'Annuario 2026 impresari ticinesi: sicurezza e trasparenza',
+    description: 'Pubblicato l\'Annuario 2026 degli impresari ticinesi, strumento essenziale per committenti e progettisti. Scopri come orientarti tra le imprese edili',
+    keywords: 'frontalieri, ticino, svizzera, italia, annuario, impresari, ticinesi, sicurezza',
+    ogTitle: 'Annuario 2026 impresari ticinesi: sicurezza e trasparenza',
+    ogDescription: 'Pubblicato l\'Annuario 2026 degli impresari ticinesi, strumento essenziale per committenti e progettisti. Scopri come orientarti tra le imprese edili',
+    canonicalPath: '/articoli-frontaliere/annuario-impresari-2026-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Annuario 2026 impresari ticinesi: sicurezza e trasparenza",
+      "description": "Pubblicato l'Annuario 2026 degli impresari ticinesi, strumento essenziale per committenti e progettisti. Scopri come orientarti tra le imprese edili",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/annuario-impresari-2026-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera"
+      },
+      "datePublished": "2026-04-29T09:51:40+00:00",
+      "dateModified": "2026-04-29T09:51:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/annuario-impresari-2026-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

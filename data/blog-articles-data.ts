@@ -9898,4 +9898,11 @@ export const ARTICLES = [
  image: '/images/blog/athora-italia-previdenza-complementare-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'annuario-impresari-2026-ticino',
+ category: 'novita',
+ date: '2026-04-29T09:51:40.884Z',
+ image: '/images/blog/annuario-impresari-2026-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
