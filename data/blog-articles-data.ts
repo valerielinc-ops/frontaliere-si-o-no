@@ -9884,4 +9884,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-ticino-parchi-vandalismo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'spacchettamento-casse-malati-2026',
+ category: 'novita',
+ date: '2026-04-29T09:38:16.620Z',
+ image: '/images/blog/spacchettamento-casse-malati-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

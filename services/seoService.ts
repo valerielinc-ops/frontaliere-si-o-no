@@ -2498,6 +2498,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-infermieri-orario-lavoro-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/infermieri-orario-lavoro-ticino-2026', parent: 'blog' },
     'blog-rumore-traffico-svizzera-500-morti-anno': { name: 'Novità', path: '/articoli-frontaliere/rumore-traffico-svizzera-500-morti-anno', parent: 'blog' },
     'blog-frontalieri-ticino-parchi-vandalismo-2026': { name: 'Parchi vandalizzati', path: '/articoli-frontaliere/frontalieri-ticino-parchi-vandalismo-2026', parent: 'blog' },
+    'blog-spacchettamento-casse-malati-2026': { name: 'Novità', path: '/articoli-frontaliere/spacchettamento-casse-malati-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

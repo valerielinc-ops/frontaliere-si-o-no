@@ -3802,6 +3802,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.title': 'Vandalized parks in Ticino: those who break don\'t pay',
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.excerpt': 'Broken bottles in the playgrounds of Azzate, Buguggiate, and Daverio. The mayors denounce the incivility and ask for respect of public spaces.',
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.imageAlt': 'Vandalized children\'s playground in Ticino with broken bottles and litter',
+    'blog.article.spacchettamento-casse-malati-2026.title': 'Splitting health insurance initiatives proposed',
+    'blog.article.spacchettamento-casse-malati-2026.excerpt': 'Fiorenzo Dadò proposes to handle the two health insurance initiatives approved in Ticino separately to avoid blockages and provide quick answers to citizens.',
+    'blog.article.spacchettamento-casse-malati-2026.imageAlt': 'LAC Lugano Arts Center, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

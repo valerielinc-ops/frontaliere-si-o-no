@@ -3802,6 +3802,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.title': 'Spielsplätze in Ticino verwüstet: Wer zerstört, zahlt nicht',
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.excerpt': 'Zerbrochene Flaschen in den Spielplätzen von Azzate, Buguggiate und Daverio. Die Bürgermeister verurteilen die Unhöflichkeit und fordern den Respekt vor öffentlichen Räumen.',
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.imageAlt': 'Vandalisierter Kinderspielplatz in Tessin mit zerbrochenen Flaschen und Müll',
+    'blog.article.spacchettamento-casse-malati-2026.title': 'Krankenkassen: Trennung der beiden Initiativen vorgeschlagen',
+    'blog.article.spacchettamento-casse-malati-2026.excerpt': 'Fiorenzo Dadò schlägt vor, die beiden in der Schweiz approvierte Initiativen zu den Krankenkassen getrennt zu behandeln, um Blockaden zu vermeiden und den Bürgern schnelle Antworten zu bieten.',
+    'blog.article.spacchettamento-casse-malati-2026.imageAlt': 'LAC Lugano Arts Center, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

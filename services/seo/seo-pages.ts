@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1317,
+ "numberOfItems": 1318,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5952,7 +5952,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1314, "name": "Hupac chiude 2025 con utile in calo ma bilancio...", "url": `${BASE_URL}/articoli-frontaliere/hupac-bilancio-positivo-2025` },
           { "@type": "ListItem", "position": 1315, "name": "Infermieri, no a riduzione orario massimo setti...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-orario-lavoro-ticino-2026` },
           { "@type": "ListItem", "position": 1316, "name": "Rumore traffico Svizzera: 500 morti l'anno", "url": `${BASE_URL}/articoli-frontaliere/rumore-traffico-svizzera-500-morti-anno` },
-          { "@type": "ListItem", "position": 1317, "name": "Parchi vandalizzati in Ticino: chi rompe non paga", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-parchi-vandalismo-2026` }
+          { "@type": "ListItem", "position": 1317, "name": "Parchi vandalizzati in Ticino: chi rompe non paga", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-parchi-vandalismo-2026` },
+          { "@type": "ListItem", "position": 1318, "name": "Casse malati, proposto lo spacchettamento delle...", "url": `${BASE_URL}/articoli-frontaliere/spacchettamento-casse-malati-2026` }
  ]
  },
  {

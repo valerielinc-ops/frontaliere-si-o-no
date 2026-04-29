@@ -3803,6 +3803,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.title': 'Parcs vandalisés au Tessin: les coupables ne paient pas',
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.excerpt': 'Des bouteilles brisées dans les aires de jeux d\'Azzate, Buguggiate et Daverio. Les maires dénoncent l\'incivilité et demandent le respect des espaces publics.',
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.imageAlt': 'Aire de jeux vandalisée au Tessin avec des bouteilles cassées et des déchets',
+    'blog.article.spacchettamento-casse-malati-2026.title': 'Assurances maladie, séparation des deux initiatives',
+    'blog.article.spacchettamento-casse-malati-2026.excerpt': 'Fiorenzo Dadò propose de traiter séparément les deux initiatives sur les assurances maladie approuvées en Ticino pour éviter les blocages et offrir des réponses rapides aux citoyens.',
+    'blog.article.spacchettamento-casse-malati-2026.imageAlt': 'LAC Lugano Arts Center, Tessin, Suisse',
 };
 
 export default blogMetaFr;

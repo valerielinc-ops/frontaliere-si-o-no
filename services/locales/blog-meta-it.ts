@@ -3803,6 +3803,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.title': 'Parchi vandalizzati in Ticino: chi rompe non paga',
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.excerpt': 'Bottiglie rotte nei parchi giochi di Azzate, Buguggiate e Daverio. I sindaci denunciano l\'inciviltà e chiedono il rispetto degli spazi pubblici.',
     'blog.article.frontalieri-ticino-parchi-vandalismo-2026.imageAlt': 'Parco giochi vandalizzato in Ticino con bottiglie rotte e rifiuti',
+    'blog.article.spacchettamento-casse-malati-2026.title': 'Casse malati, proposto lo spacchettamento delle due iniziative',
+    'blog.article.spacchettamento-casse-malati-2026.excerpt': 'Fiorenzo Dadò propone di trattare separatamente le due iniziative sulle casse malati approvate in Ticino per evitare blocchi e offrire risposte rapide ai cittadini.',
+    'blog.article.spacchettamento-casse-malati-2026.imageAlt': 'LAC Lugano Arts Center, Ticino, Svizzera',
 };
 
 export default blogMetaIt;
