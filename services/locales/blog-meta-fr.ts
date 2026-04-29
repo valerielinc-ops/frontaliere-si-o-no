@@ -3836,6 +3836,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.maroggia-servizi-postali-2026.title': 'Maroggia, la Poste réorganise ses services dès 2026',
     'blog.article.maroggia-servizi-postali-2026.excerpt': 'Dès septembre 2026, Maroggia disposera d\'un nouveau service postal à domicile en attendant une collaboration avec un commerce local.',
     'blog.article.maroggia-servizi-postali-2026.imageAlt': 'Bureau de poste à Maroggia, Tessin',
+    'blog.article.gemellaggio-scuole-viganello-gaza-2026.title': 'Jumelage entre écoles de Viganello et Gaza : un pont d\'espoir',
+    'blog.article.gemellaggio-scuole-viganello-gaza-2026.excerpt': 'Du 27 avril au 7 mai 2026, une exposition à Viganello raconte le jumelage entre l\'école locale et l\'école en tente Al-Salam de Gaza, soutenue par Future in Peace.',
+    'blog.article.gemellaggio-scuole-viganello-gaza-2026.imageAlt': 'Salle de classe de l\'école moyenne de Viganello avec des projets d\'échange international',
 };
 
 export default blogMetaFr;

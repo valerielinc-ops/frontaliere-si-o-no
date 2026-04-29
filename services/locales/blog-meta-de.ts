@@ -3835,6 +3835,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.maroggia-servizi-postali-2026.title': 'Maroggia: Postdienst wird ab 2026 umorganisiert',
     'blog.article.maroggia-servizi-postali-2026.excerpt': 'Ab September 2026 wird Maroggia einen neuen Postdienst zu Hause haben, in Erwartung einer Zusammenarbeit mit einem lokalen Geschäft.',
     'blog.article.maroggia-servizi-postali-2026.imageAlt': 'Postamt in Maroggia, Tessin',
+    'blog.article.gemellaggio-scuole-viganello-gaza-2026.title': 'Schulpartnerschaft Viganello-Gaza: Hoffnungsschimmer',
+    'blog.article.gemellaggio-scuole-viganello-gaza-2026.excerpt': 'Vom 27. April bis 7. Mai 2026 zeigt Viganello eine Ausstellung über die Partnerschaft zwischen der lokalen Mittelschule und der Zelt-Schule Al-Salam in Gaza, unterstützt von Future in Peace.',
+    'blog.article.gemellaggio-scuole-viganello-gaza-2026.imageAlt': 'Klassenzimmer der Mittelschule Viganello mit internationalen Austauschprojekten',
 };
 
 export default blogMetaDe;

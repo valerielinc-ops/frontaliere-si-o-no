@@ -24051,6 +24051,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gemellaggio-scuole-viganello-gaza-2026': {
+    title: 'Gemellaggio tra scuole di Viganello e Gaza: un ponte di speranza',
+    description: 'Scopri il gemellaggio tra la scuola di Viganello e la scuola Al-Salam di Gaza, sostenuta da Future in Peace. Mostra dal 27 aprile al 7 maggio 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gemellaggio, scuole, viganello, gaza',
+    ogTitle: 'Gemellaggio scuole Viganello Gaza 2026',
+    ogDescription: 'Scopri il gemellaggio tra la scuola di Viganello e la scuola Al-Salam di Gaza, sostenuta da Future in Peace. Mostra dal 27 aprile al 7 maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/gemellaggio-scuole-viganello-gaza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gemellaggio tra scuole di Viganello e Gaza: un ponte di speranza",
+      "description": "Scopri il gemellaggio tra la scuola di Viganello e la scuola Al-Salam di Gaza, sostenuta da Future in Peace. Mostra dal 27 aprile al 7 maggio 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gemellaggio-scuole-viganello-gaza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Classe della scuola media di Viganello con progetti di gemellaggio internazionale"
+      },
+      "datePublished": "2026-04-29T10:42:09+00:00",
+      "dateModified": "2026-04-29T10:42:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gemellaggio-scuole-viganello-gaza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3836,6 +3836,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maroggia-servizi-postali-2026.title': 'Maroggia, la Posta riorganizza i servizi dal 2026',
     'blog.article.maroggia-servizi-postali-2026.excerpt': 'Dal settembre 2026, Maroggia avrà un nuovo servizio postale a domicilio in attesa di una collaborazione con un commercio locale.',
     'blog.article.maroggia-servizi-postali-2026.imageAlt': 'Ufficio postale a Maroggia, Ticino',
+    'blog.article.gemellaggio-scuole-viganello-gaza-2026.title': 'Gemellaggio tra scuole di Viganello e Gaza: un ponte di speranza',
+    'blog.article.gemellaggio-scuole-viganello-gaza-2026.excerpt': 'Dal 27 aprile al 7 maggio 2026, una mostra a Viganello racconta il gemellaggio tra la scuola media locale e la scuola in tenda Al-Salam di Gaza, sostenuta da Future in Peace.',
+    'blog.article.gemellaggio-scuole-viganello-gaza-2026.imageAlt': 'Classe della scuola media di Viganello con progetti di gemellaggio internazionale',
 };
 
 export default blogMetaIt;
