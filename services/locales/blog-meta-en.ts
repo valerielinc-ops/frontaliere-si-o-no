@@ -3607,6 +3607,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.estival-jazz-lugano-cambia-formula-2026.title': 'Estival Jazz Lugano changes format: two paid evenings',
     'blog.article.estival-jazz-lugano-cambia-formula-2026.excerpt': 'From 2026, Estival Jazz offers two paid evenings with Ernia and Antonello Venditti. The era of free concerts is over.',
     'blog.article.estival-jazz-lugano-cambia-formula-2026.imageAlt': 'Summer concert in Lugano with lake view',
+    'blog.article.eurovision-ballad-ticino-2026.title': 'Eurovision 2026: the ballads that move us',
+    'blog.article.eurovision-ballad-ticino-2026.excerpt': 'Discover the songs that move us at Eurovision 2026, from ballads to impactful artistic choices.',
+    'blog.article.eurovision-ballad-ticino-2026.imageAlt': 'Eurovision Song Contest stage in Vienna, Austria',
 };
 
 export default blogMetaEn;

@@ -21847,6 +21847,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eurovision-ballad-ticino-2026': {
+    title: 'Eurovision 2026: le ballad che emozionano | Frontaliere Ticino',
+    description: 'Scopri le canzoni che emozionano all\'Eurovision 2026, tra ballad e scelte artistiche d\'impatto. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, eurovision, ballad, emozionano, scopri',
+    ogTitle: 'Eurovision 2026: le ballad che emozionano',
+    ogDescription: 'Scopri le canzoni che emozionano all\'Eurovision 2026, tra ballad e scelte artistiche d\'impatto.',
+    canonicalPath: '/articoli-frontaliere/eurovision-ballad-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eurovision 2026: le ballad che emozionano",
+      "description": "Scopri le canzoni che emozionano all'Eurovision 2026, tra ballad e scelte artistiche d'impatto. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/eurovision-ballad-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palco dell'Eurovision Song Contest a Vienna, Austria"
+      },
+      "datePublished": "2026-04-29T00:05:37+00:00",
+      "dateModified": "2026-04-29T00:05:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eurovision-ballad-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

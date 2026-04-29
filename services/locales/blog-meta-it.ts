@@ -3608,6 +3608,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.estival-jazz-lugano-cambia-formula-2026.title': 'Estival Jazz Lugano cambia formula: due serate a pagamento',
     'blog.article.estival-jazz-lugano-cambia-formula-2026.excerpt': 'Dal 2026 Estival Jazz propone due serate a pagamento con Ernia e Antonello Venditti. Fine dell\'era dei concerti gratuiti.',
     'blog.article.estival-jazz-lugano-cambia-formula-2026.imageAlt': 'Concerto estivo a Lugano con vista sul lago',
+    'blog.article.eurovision-ballad-ticino-2026.title': 'Eurovision 2026: le ballad che emozionano',
+    'blog.article.eurovision-ballad-ticino-2026.excerpt': 'Scopri le canzoni che emozionano all\'Eurovision 2026, tra ballad e scelte artistiche d\'impatto.',
+    'blog.article.eurovision-ballad-ticino-2026.imageAlt': 'Palco dell\'Eurovision Song Contest a Vienna, Austria',
 };
 
 export default blogMetaIt;

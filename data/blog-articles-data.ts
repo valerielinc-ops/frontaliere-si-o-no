@@ -9429,4 +9429,11 @@ export const ARTICLES = [
  image: '/images/blog/estival-jazz-lugano-cambia-formula-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'eurovision-ballad-ticino-2026',
+ category: 'novita',
+ date: '2026-04-29T00:05:37.510Z',
+ image: '/images/blog/eurovision-ballad-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
