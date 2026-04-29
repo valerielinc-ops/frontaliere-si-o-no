@@ -3850,6 +3850,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accordo-syndicom-vsm-2026.title': 'Syndicom approves VSM publishers\' deal for Ticino',
     'blog.article.accordo-syndicom-vsm-2026.excerpt': 'After 20 years without an agreement, media operators in Ticino and German-speaking Switzerland move towards regulating minimum working conditions in the press',
     'blog.article.accordo-syndicom-vsm-2026.imageAlt': 'Lake Lugano with a modern building in the background',
+    'blog.article.philipp-plein-mendrisio-interrogazione.title': 'Philipp Plein in Mendrisio: controversial style questioned',
+    'blog.article.philipp-plein-mendrisio-interrogazione.excerpt': 'The Philipp Plein brand moves its legal headquarters to Mendrisio. Questions raised about its controversial style.',
+    'blog.article.philipp-plein-mendrisio-interrogazione.imageAlt': 'Philipp Plein store in Mendrisio, Ticino',
 };
 
 export default blogMetaEn;

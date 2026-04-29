@@ -24196,6 +24196,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-philipp-plein-mendrisio-interrogazione': {
+    title: 'Philipp Plein a Mendrisio: interrogazione sullo stile controverso',
+    description: 'Il marchio Philipp Plein trasferisce la sede legale a Mendrisio. Interrogazione sul suo stile controverso e impatto sulla città. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, philipp, plein, mendrisio, interrogazione',
+    ogTitle: 'Philipp Plein a Mendrisio: interrogazione sullo stile controverso',
+    ogDescription: 'Il marchio Philipp Plein trasferisce la sede legale a Mendrisio. Interrogazione sul suo stile controverso e impatto sulla città.',
+    canonicalPath: '/articoli-frontaliere/philipp-plein-mendrisio-interrogazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Philipp Plein a Mendrisio: interrogazione sullo stile controverso",
+      "description": "Il marchio Philipp Plein trasferisce la sede legale a Mendrisio. Interrogazione sul suo stile controverso e impatto sulla città. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/philipp-plein-mendrisio-interrogazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Negozio Philipp Plein a Mendrisio, Ticino"
+      },
+      "datePublished": "2026-04-29T11:05:57+00:00",
+      "dateModified": "2026-04-29T11:05:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/philipp-plein-mendrisio-interrogazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3850,6 +3850,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordo-syndicom-vsm-2026.title': 'Syndicom vereinbart Vertrag mit VSM für Tessin und Deutschschweiz',
     'blog.article.accordo-syndicom-vsm-2026.excerpt': 'Nach 20 Jahren ohne Vereinbarung: Medienbetreiber aus Tessin und Deutschschweiz regeln Mindestarbeitsbedingungen in der Presse',
     'blog.article.accordo-syndicom-vsm-2026.imageAlt': 'Luganersee mit einem modernen Gebäude im Hintergrund',
+    'blog.article.philipp-plein-mendrisio-interrogazione.title': 'Philipp Plein in Mendrisio: Umstrittene Stilfrage',
+    'blog.article.philipp-plein-mendrisio-interrogazione.excerpt': 'Die Marke Philipp Plein verlegt ihren Sitz nach Mendrisio. Eine Anfrage zu seinem umstrittenen Stil',
+    'blog.article.philipp-plein-mendrisio-interrogazione.imageAlt': 'Philipp Plein Geschäft in Mendrisio, Tessin',
 };
 
 export default blogMetaDe;

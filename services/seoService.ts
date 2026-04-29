@@ -2514,6 +2514,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-san-gottardo-secondo-tubo-caduto-diaframma': { name: 'San Gottardo', path: '/articoli-frontaliere/san-gottardo-secondo-tubo-caduto-diaframma', parent: 'blog' },
     'blog-venditti-estival-lugano-2026': { name: 'Eventi Lugano', path: '/articoli-frontaliere/venditti-estival-lugano-2026', parent: 'blog' },
     'blog-accordo-syndicom-vsm-2026': { name: 'Novità', path: '/articoli-frontaliere/accordo-syndicom-vsm-2026', parent: 'blog' },
+    'blog-philipp-plein-mendrisio-interrogazione': { name: 'Novità', path: '/articoli-frontaliere/philipp-plein-mendrisio-interrogazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -9996,4 +9996,11 @@ export const ARTICLES = [
  image: '/images/blog/accordo-syndicom-vsm-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'philipp-plein-mendrisio-interrogazione',
+ category: 'novita',
+ date: '2026-04-29T11:05:57.713Z',
+ image: '/images/blog/philipp-plein-mendrisio-interrogazione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
