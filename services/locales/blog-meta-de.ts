@@ -3673,6 +3673,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guida-svizzera-frontalieri-ticino.title': 'Leitfaden für Grenzgänger im Tessin',
     'blog.article.guida-svizzera-frontalieri-ticino.excerpt': 'Alles, was Sie wissen müssen, um in der Schweiz zu leben und zu arbeiten, mit Fokus auf den Kanton Tessin',
     'blog.article.guida-svizzera-frontalieri-ticino.imageAlt': 'Ruhevolle Aussicht auf den Luganersee mit umliegenden Bergen und einem Boot auf dem Wasser',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.title': 'Öffentliche Aufträge und Dienstleistungen: Verfahren vereinfachen',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.excerpt': 'Der Kanton Tessin strebt an, die Verfahren für öffentliche Aufträge und wesentliche Dienstleistungen zu vereinfachen, mit dem Ziel, Verzögerungen zu reduzieren und die Effizienz zu verbessern.',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.imageAlt': 'Ansicht des historischen Zentrums von Bellinzona mit Verwaltungsgebäuden',
 };
 
 export default blogMetaDe;

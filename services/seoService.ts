@@ -2455,6 +2455,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-violenza-domestica-misure-urgenti': { name: 'Novità', path: '/articoli-frontaliere/violenza-domestica-misure-urgenti', parent: 'blog' },
     'blog-robot-umanoidi-maratona-fascinazione': { name: 'Tecnologia e frontalieri', path: '/articoli-frontaliere/robot-umanoidi-maratona-fascinazione', parent: 'blog' },
     'blog-guida-svizzera-frontalieri-ticino': { name: 'Guida pratica', path: '/articoli-frontaliere/guida-svizzera-frontalieri-ticino', parent: 'blog' },
+    'blog-commesse-pubbliche-servizi-essenziali-2026': { name: 'Novità', path: '/articoli-frontaliere/commesse-pubbliche-servizi-essenziali-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

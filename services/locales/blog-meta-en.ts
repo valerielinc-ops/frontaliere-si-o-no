@@ -3673,6 +3673,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guida-svizzera-frontalieri-ticino.title': 'Guide to Switzerland for Ticino cross-border workers',
     'blog.article.guida-svizzera-frontalieri-ticino.excerpt': 'Everything you need to know about living and working in Switzerland, with a focus on the Canton of Ticino',
     'blog.article.guida-svizzera-frontalieri-ticino.imageAlt': 'Serene view of Lake Lugano with surrounding mountains and a boat on the water',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.title': 'Streamlining public contracts and essential services',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.excerpt': 'The Canton of Ticino aims to simplify procedures for public contracts and essential services, with the goal of reducing delays and improving efficiency.',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.imageAlt': 'View of Bellinzona\'s historic center with administrative buildings',
 };
 
 export default blogMetaEn;

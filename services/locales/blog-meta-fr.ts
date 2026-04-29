@@ -3674,6 +3674,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-svizzera-frontalieri-ticino.title': 'Guide de la Suisse pour les frontaliers du Tessin',
     'blog.article.guida-svizzera-frontalieri-ticino.excerpt': 'Tout ce que vous devez savoir pour vivre et travailler en Suisse, avec un focus sur le canton du Tessin',
     'blog.article.guida-svizzera-frontalieri-ticino.imageAlt': 'Vue sereine du lac de Lugano avec les montagnes environnantes et un bateau sur l\'eau',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.title': 'Marchés publics et services essentiels: simplifier les procédures',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.excerpt': 'Le canton du Tessin vise à simplifier les procédures pour les marchés publics et les services essentiels, dans le but de réduire les retards et d\'améliorer l\'efficacité.',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.imageAlt': 'Vue du centre historique de Bellinzone avec des bâtiments administratifs',
 };
 
 export default blogMetaFr;

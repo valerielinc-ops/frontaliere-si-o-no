@@ -3674,6 +3674,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guida-svizzera-frontalieri-ticino.title': 'Guida alla Svizzera per frontalieri del Ticino',
     'blog.article.guida-svizzera-frontalieri-ticino.excerpt': 'Tutto quello che devi sapere per vivere e lavorare in Svizzera, con focus su Canton Ticino',
     'blog.article.guida-svizzera-frontalieri-ticino.imageAlt': 'Vista serena del Lago di Lugano con le montagne circostanti e una barca sull\'acqua',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.title': 'Commesse pubbliche e servizi essenziali: procedure da snellire',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.excerpt': 'Il Cantone Ticino punta a semplificare le procedure per le commesse pubbliche e i servizi essenziali, con l\'obiettivo di ridurre i ritardi e migliorare l\'efficienza.',
+    'blog.article.commesse-pubbliche-servizi-essenziali-2026.imageAlt': 'Veduta del centro storico di Bellinzona con edifici amministrativi',
 };
 
 export default blogMetaIt;

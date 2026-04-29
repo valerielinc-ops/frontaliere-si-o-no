@@ -22485,6 +22485,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commesse-pubbliche-servizi-essenziali-2026': {
+    title: 'Commesse pubbliche e servizi essenziali: procedure da snellire',
+    description: 'Il Cantone Ticino punta a semplificare le procedure per le commesse pubbliche e i servizi essenziali, con l\'obiettivo di ridurre i ritardi e migliorare',
+    keywords: 'frontalieri, ticino, svizzera, italia, commesse, pubbliche, servizi, essenziali',
+    ogTitle: 'Commesse pubbliche e servizi essenziali: procedure da snellire',
+    ogDescription: 'Il Cantone Ticino punta a semplificare le procedure per le commesse pubbliche e i servizi essenziali, con l\'obiettivo di ridurre i ritardi e migliorare',
+    canonicalPath: '/articoli-frontaliere/commesse-pubbliche-servizi-essenziali-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commesse pubbliche e servizi essenziali: procedure da snellire",
+      "description": "Il Cantone Ticino punta a semplificare le procedure per le commesse pubbliche e i servizi essenziali, con l'obiettivo di ridurre i ritardi e migliorare",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/commesse-pubbliche-servizi-essenziali-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del centro storico di Bellinzona con edifici amministrativi"
+      },
+      "datePublished": "2026-04-29T03:45:48+00:00",
+      "dateModified": "2026-04-29T03:45:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/commesse-pubbliche-servizi-essenziali-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

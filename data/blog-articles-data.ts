@@ -9583,4 +9583,11 @@ export const ARTICLES = [
  image: '/images/blog/guida-svizzera-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'commesse-pubbliche-servizi-essenziali-2026',
+ category: 'novita',
+ date: '2026-04-29T03:45:48.643Z',
+ image: '/images/blog/commesse-pubbliche-servizi-essenziali-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
