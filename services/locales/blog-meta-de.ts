@@ -3652,6 +3652,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spese-militari-2025-aumento-2900-miliardi.title': 'Militärausgaben 2025: +2,9% auf 2,9 Billionen',
     'blog.article.spese-militari-2025-aumento-2900-miliardi.excerpt': 'Die Welt hat 2025 fast 2,9 Billionen US-Dollar für Militärausgaben ausgegeben, ein Wert, der zum elften Mal in Folge gestiegen ist.',
     'blog.article.spese-militari-2025-aumento-2900-miliardi.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Orten',
+    'blog.article.karimova-processo-bellinzona-2026.title': 'Prozess gegen Karimova in Bellinzona: Vorwürfe des Geldwäsche und Korruption',
+    'blog.article.karimova-processo-bellinzona-2026.excerpt': 'Gulnara Karimova, Tochter des ehemaligen usbekischen Präsidenten, wird wegen Finanzverbrechen angeklagt. Der Prozess findet in Bellinzona statt.',
+    'blog.article.karimova-processo-bellinzona-2026.imageAlt': 'Gerichtsgebäude in Bellinzona, Sitz des Bundesstrafgerichts',
 };
 
 export default blogMetaDe;

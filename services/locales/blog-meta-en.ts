@@ -3652,6 +3652,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spese-militari-2025-aumento-2900-miliardi.title': '2025 military spending: +2.9% to };.9 trillion',
     'blog.article.spese-militari-2025-aumento-2900-miliardi.excerpt': 'The world allocated nearly };.9 trillion to military spending in 2025, marking the eleventh consecutive year of growth',
     'blog.article.spese-militari-2025-aumento-2900-miliardi.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns',
+    'blog.article.karimova-processo-bellinzona-2026.title': 'Karimova trial in Bellinzona: money laundering and corruption charges',
+    'blog.article.karimova-processo-bellinzona-2026.excerpt': 'Gulnara Karimova, daughter of the former Uzbek president, is accused of financial crimes. The trial is held in Bellinzona.',
+    'blog.article.karimova-processo-bellinzona-2026.imageAlt': 'Courthouse in Bellinzona, seat of the Federal Criminal Court',
 };
 
 export default blogMetaEn;

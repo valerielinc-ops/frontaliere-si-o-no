@@ -3653,6 +3653,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.spese-militari-2025-aumento-2900-miliardi.title': 'Spese militari 2025: +2.9% a 2.900 miliardi',
     'blog.article.spese-militari-2025-aumento-2900-miliardi.excerpt': 'Il mondo ha destinato quasi 2.900 miliardi di dollari alle spese militari nel 2025, un dato in crescita per l\'undicesimo anno consecutivo',
     'blog.article.spese-militari-2025-aumento-2900-miliardi.imageAlt': 'Vista aerea del Lago di Lugano con montagne e paesi circostanti',
+    'blog.article.karimova-processo-bellinzona-2026.title': 'Processo a Karimova a Bellinzona: accuse di riciclaggio e corruzione',
+    'blog.article.karimova-processo-bellinzona-2026.excerpt': 'Gulnara Karimova, figlia dell\'ex presidente uzbeko, è accusata di reati finanziari. Il processo si tiene a Bellinzona.',
+    'blog.article.karimova-processo-bellinzona-2026.imageAlt': 'Palazzo di giustizia di Bellinzona, sede del Tribunale Penale Federale',
 };
 
 export default blogMetaIt;
