@@ -2540,6 +2540,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-moncucco-risultati-positivi-2025': { name: 'Novità', path: '/articoli-frontaliere/moncucco-risultati-positivi-2025', parent: 'blog' },
     'blog-bellinzona-datore-lavoro-conciliabilita': { name: 'Novità', path: '/articoli-frontaliere/bellinzona-datore-lavoro-conciliabilita', parent: 'blog' },
     'blog-mendrisio-conti-positivi-2025': { name: 'Conti Mendrisio', path: '/articoli-frontaliere/mendrisio-conti-positivi-2025', parent: 'blog' },
+    'blog-criminalita-organizzata-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/criminalita-organizzata-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

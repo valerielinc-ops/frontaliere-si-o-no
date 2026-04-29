@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1359,
+ "numberOfItems": 1360,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5994,7 +5994,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1356, "name": "André Wyss è il nuovo presidente delle FFS", "url": `${BASE_URL}/articoli-frontaliere/andre-wyss-nuovo-presidente-ffs` },
           { "@type": "ListItem", "position": 1357, "name": "Moncucco: risultati positivi nel 2025", "url": `${BASE_URL}/articoli-frontaliere/moncucco-risultati-positivi-2025` },
           { "@type": "ListItem", "position": 1358, "name": "Bellinzona verso conciliabilità vita-lavoro per...", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-datore-lavoro-conciliabilita` },
-          { "@type": "ListItem", "position": 1359, "name": "Mendrisio: 4 anni di conti in positivo", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-conti-positivi-2025` }
+          { "@type": "ListItem", "position": 1359, "name": "Mendrisio: 4 anni di conti in positivo", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-conti-positivi-2025` },
+          { "@type": "ListItem", "position": 1360, "name": "Criminalità organizzata in Svizzera: arresto fu...", "url": `${BASE_URL}/articoli-frontaliere/criminalita-organizzata-svizzera-2026` }
  ]
  },
  {

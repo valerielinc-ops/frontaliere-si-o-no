@@ -3928,6 +3928,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mendrisio-conti-positivi-2025.title': 'Mendrisio: 4 years of positive balances',
     'blog.article.mendrisio-conti-positivi-2025.excerpt': 'The 2025 municipal account closes with a surplus of 0.8 million francs, exceeding negative estimates',
     'blog.article.mendrisio-conti-positivi-2025.imageAlt': 'Aerial view of Mendrisio, Switzerland, with the town\'s architecture and surrounding landscape',
+    'blog.article.criminalita-organizzata-svizzera-2026.title': 'Organized crime in Switzerland: fedpol officer arrested',
+    'blog.article.criminalita-organizzata-svizzera-2026.excerpt': 'A hard blow for fedpol: an officer arrested for suspected corruption. Organized crime is well-established in Switzerland.',
+    'blog.article.criminalita-organizzata-svizzera-2026.imageAlt': 'View of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

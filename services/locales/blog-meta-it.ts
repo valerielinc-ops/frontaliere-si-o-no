@@ -3929,6 +3929,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mendrisio-conti-positivi-2025.title': 'Mendrisio: 4 anni di conti in positivo',
     'blog.article.mendrisio-conti-positivi-2025.excerpt': 'Il consuntivo comunale 2025 si chiude con un avanzo di 0,8 milioni di franchi, superando le stime negative',
     'blog.article.mendrisio-conti-positivi-2025.imageAlt': 'Vista aerea di Mendrisio, Svizzera, con l\'architettura della città e il paesaggio circostante',
+    'blog.article.criminalita-organizzata-svizzera-2026.title': 'Criminalità organizzata in Svizzera: arresto funzionario fedpol',
+    'blog.article.criminalita-organizzata-svizzera-2026.excerpt': 'Un duro colpo per fedpol: arrestato un funzionario per sospetta corruzione. La criminalità organizzata è ben radicata in Svizzera.',
+    'blog.article.criminalita-organizzata-svizzera-2026.imageAlt': 'Vista del Lago di Lugano con montagne circostanti',
 };
 
 export default blogMetaIt;

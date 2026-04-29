@@ -24950,6 +24950,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-criminalita-organizzata-svizzera-2026': {
+    title: 'Criminalità organizzata in Svizzera: arresto funzionario fedpol',
+    description: 'Un duro colpo per fedpol: arrestato un funzionario per sospetta corruzione. La criminalità organizzata è ben radicata in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, criminalità, organizzata, arresto, funzionario',
+    ogTitle: 'Criminalità organizzata in Svizzera: arresto funzionario fedpol',
+    ogDescription: 'Un duro colpo per fedpol: arrestato un funzionario per sospetta corruzione. La criminalità organizzata è ben radicata in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/criminalita-organizzata-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Criminalità organizzata in Svizzera: arresto funzionario fedpol",
+      "description": "Un duro colpo per fedpol: arrestato un funzionario per sospetta corruzione. La criminalità organizzata è ben radicata in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/criminalita-organizzata-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con montagne circostanti"
+      },
+      "datePublished": "2026-04-29T14:37:51+00:00",
+      "dateModified": "2026-04-29T14:37:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/criminalita-organizzata-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

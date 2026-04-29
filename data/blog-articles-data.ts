@@ -10178,4 +10178,11 @@ export const ARTICLES = [
  image: '/images/blog/mendrisio-conti-positivi-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'criminalita-organizzata-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-29T14:37:51.421Z',
+ image: '/images/blog/criminalita-organizzata-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
