@@ -4064,6 +4064,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fed-powell-addio-tassi-invariati.title': 'Fed: Powell quitte avec des taux inchangés',
     'blog.article.fed-powell-addio-tassi-invariati.excerpt': 'Jerome Powell quitte la Federal Reserve en revendiquant l\'indépendance de l\'institution, tandis que les taux restent entre 3,50% et 3,75%.',
     'blog.article.fed-powell-addio-tassi-invariati.imageAlt': 'Jerome Powell lors de la conférence de presse d\'adieu à la Federal Reserve',
+    'blog.article.ubs-utile-3-miliardi-2026.title': 'UBS, bénéfice dépassant les 3 milliards en 2026',
+    'blog.article.ubs-utile-3-miliardi-2026.excerpt': 'L\'institut bancaire suisse enregistre un bénéfice net de 3,04 milliards de dollars au premier trimestre 2026, dépassant les attentes',
+    'blog.article.ubs-utile-3-miliardi-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les bureaux d\'UBS en arrière-plan',
 };
 
 export default blogMetaFr;

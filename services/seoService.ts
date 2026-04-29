@@ -2585,6 +2585,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gev-ticino-ambiente-2026': { name: 'Protezione ambientale', path: '/articoli-frontaliere/gev-ticino-ambiente-2026', parent: 'blog' },
     'blog-siccita-lombardia-riserve-idriche-2026': { name: 'Novità', path: '/articoli-frontaliere/siccita-lombardia-riserve-idriche-2026', parent: 'blog' },
     'blog-fed-powell-addio-tassi-invariati': { name: 'Economia', path: '/articoli-frontaliere/fed-powell-addio-tassi-invariati', parent: 'blog' },
+    'blog-ubs-utile-3-miliardi-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-utile-3-miliardi-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

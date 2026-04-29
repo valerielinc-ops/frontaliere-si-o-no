@@ -26255,6 +26255,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-utile-3-miliardi-2026': {
+    title: 'UBS, utile oltre i 3 miliardi nel 2026 | Frontaliere Ticino',
+    description: 'UBS registra un utile netto di 3,04 miliardi di dollari nel primo trimestre 2026, superando le aspettative e confermando la propria leadership nel settore',
+    keywords: 'frontalieri, ticino, svizzera, italia, utile, oltre, miliardi, istituto',
+    ogTitle: 'UBS, utile oltre i 3 miliardi nel 2026',
+    ogDescription: 'UBS registra un utile netto di 3,04 miliardi di dollari nel primo trimestre 2026, superando le aspettative e confermando la propria leadership nel settore',
+    canonicalPath: '/articoli-frontaliere/ubs-utile-3-miliardi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS, utile oltre i 3 miliardi nel 2026",
+      "description": "UBS registra un utile netto di 3,04 miliardi di dollari nel primo trimestre 2026, superando le aspettative e confermando la propria leadership nel settore",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ubs-utile-3-miliardi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con gli uffici UBS sullo sfondo"
+      },
+      "datePublished": "2026-04-29T23:47:42+00:00",
+      "dateModified": "2026-04-29T23:47:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ubs-utile-3-miliardi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

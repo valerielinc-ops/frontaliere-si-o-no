@@ -4064,6 +4064,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fed-powell-addio-tassi-invariati.title': 'Fed: l\'addio di Powell a tassi invariati',
     'blog.article.fed-powell-addio-tassi-invariati.excerpt': 'Jerome Powell lascia la Federal Reserve rivendicando l\'indipendenza dell\'istituzione, mentre i tassi restano tra il 3,50% e il 3,75%.',
     'blog.article.fed-powell-addio-tassi-invariati.imageAlt': 'Jerome Powell durante la conferenza stampa di addio alla Federal Reserve',
+    'blog.article.ubs-utile-3-miliardi-2026.title': 'UBS, utile oltre i 3 miliardi nel 2026',
+    'blog.article.ubs-utile-3-miliardi-2026.excerpt': 'L\'istituto bancario svizzero registra un utile netto di 3,04 miliardi di dollari nel primo trimestre 2026, superando le aspettative',
+    'blog.article.ubs-utile-3-miliardi-2026.imageAlt': 'Vista aerea del Lago di Lugano con gli uffici UBS sullo sfondo',
 };
 
 export default blogMetaIt;
