@@ -49,10 +49,10 @@ on:
         type: boolean
         default: false
       post_build_max_parallel:
-        description: 'Concurrency cap for the 18-task post-build pool. Default 3 — best balance between I/O overlap and CPU thrashing on 2-core ubuntu-latest. Override with 1/2/4 for one-off measurements.'
+        description: 'Concurrency cap for the 18-task post-build pool. Default 4 — measured -33% wall vs =2 baseline (230s vs 345s) and -16% vs =3 (274s). The 4-way overlap masks I/O wait time; 2-core thrashing penalty is small because most tasks are I/O-bound (reading dist/). Override with 1/2/3 for one-off measurements.'
         required: false
         type: string
-        default: '3'
+        default: '4'
 
 permissions:
   contents: read
@@ -377,7 +377,7 @@ jobs:
           # dispatched in LPT (longest-processing-time-first) order so the
           # tail end never sits with one slow task running alone. Per-task
           # wall_s is still captured and summarised.
-          MAX_PARALLEL=${{ github.event.inputs.post_build_max_parallel || '3' }}
+          MAX_PARALLEL=${{ github.event.inputs.post_build_max_parallel || '4' }}
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
