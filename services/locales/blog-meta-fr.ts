@@ -3860,6 +3860,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.italia-svizzera-ricerca-2026.title': 'Italie et Suisse unissent leurs forces dans la recherche',
     'blog.article.italia-svizzera-ricerca-2026.excerpt': 'La neuvième Journée de la recherche italienne dans le monde célébrée à Plan-les-Ouates avec un focus sur les sciences de la santé',
     'blog.article.italia-svizzera-ricerca-2026.imageAlt': 'Lac de Lugano avec centre de recherche en arrière-plan',
+    'blog.article.ricerca-italiana-ginevra-2026.title': 'Recherche italienne en Suisse : focus sur les sciences de la vie',
+    'blog.article.ricerca-italiana-ginevra-2026.excerpt': 'Genève accueille la Journée de la recherche italienne dans le monde, avec un focus sur la coopération scientifique italo-suisse',
+    'blog.article.ricerca-italiana-ginevra-2026.imageAlt': 'Des chercheurs italiens et suisses discutent dans une salle de conférence à Genève',
 };
 
 export default blogMetaFr;

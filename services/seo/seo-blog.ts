@@ -24283,6 +24283,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricerca-italiana-ginevra-2026': {
+    title: 'Ricerca italiana in Svizzera: focus su scienze della vita',
+    description: 'Ginevra ospita la Giornata della ricerca italiana nel mondo, con focus su cooperazione scientifica italo-svizzera e opportunità per frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricerca, italiana, focus, scienze',
+    ogTitle: 'Ricerca italiana in Svizzera: focus su scienze della vita',
+    ogDescription: 'Ginevra ospita la Giornata della ricerca italiana nel mondo, con focus su cooperazione scientifica italo-svizzera e opportunità per frontalieri',
+    canonicalPath: '/articoli-frontaliere/ricerca-italiana-ginevra-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricerca italiana in Svizzera: focus su scienze della vita",
+      "description": "Ginevra ospita la Giornata della ricerca italiana nel mondo, con focus su cooperazione scientifica italo-svizzera e opportunità per frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ricerca-italiana-ginevra-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ricercatori italiani e svizzeri discutono in una sala conferenze a Ginevra"
+      },
+      "datePublished": "2026-04-29T11:23:46+00:00",
+      "dateModified": "2026-04-29T11:23:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ricerca-italiana-ginevra-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3859,6 +3859,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.italia-svizzera-ricerca-2026.title': 'Italien und Schweiz verbünden sich in der Forschung',
     'blog.article.italia-svizzera-ricerca-2026.excerpt': 'Der neunte italienische Forschungstag in der Welt wurde in Plan-les-Ouates mit Fokus auf Gesundheitswissenschaften gefeiert',
     'blog.article.italia-svizzera-ricerca-2026.imageAlt': 'Luganersee mit Forschungszentrum im Hintergrund',
+    'blog.article.ricerca-italiana-ginevra-2026.title': 'Italienische Forschung in der Schweiz: Fokus auf Lebenswissenschaften',
+    'blog.article.ricerca-italiana-ginevra-2026.excerpt': 'Genf beherbergt den Tag der italienischen Forschung in der Welt, mit Fokus auf die wissenschaftliche Zusammenarbeit zwischen Italien und der Schweiz',
+    'blog.article.ricerca-italiana-ginevra-2026.imageAlt': 'Italienische und Schweizer Forscher diskutieren in einem Konferenzraum in Genf',
 };
 
 export default blogMetaDe;

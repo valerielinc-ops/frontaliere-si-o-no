@@ -3859,6 +3859,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.italia-svizzera-ricerca-2026.title': 'Italy and Switzerland join forces in research',
     'blog.article.italia-svizzera-ricerca-2026.excerpt': 'The ninth Italian Research Day in the world celebrated in Plan-les-Ouates with a focus on health sciences',
     'blog.article.italia-svizzera-ricerca-2026.imageAlt': 'Lake Lugano with research center in the background',
+    'blog.article.ricerca-italiana-ginevra-2026.title': 'Italian research in Switzerland: focus on life sciences',
+    'blog.article.ricerca-italiana-ginevra-2026.excerpt': 'Geneva hosts the Italian Research Day in the World, with a focus on Italo-Swiss scientific cooperation',
+    'blog.article.ricerca-italiana-ginevra-2026.imageAlt': 'Italian and Swiss researchers discussing in a conference room in Geneva',
 };
 
 export default blogMetaEn;

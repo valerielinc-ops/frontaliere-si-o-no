@@ -10017,4 +10017,11 @@ export const ARTICLES = [
  image: '/images/blog/italia-svizzera-ricerca-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ricerca-italiana-ginevra-2026',
+ category: 'novita',
+ date: '2026-04-29T11:23:46.915Z',
+ image: '/images/blog/ricerca-italiana-ginevra-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
