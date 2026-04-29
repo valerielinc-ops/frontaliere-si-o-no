@@ -3683,6 +3683,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.esubero-leventina-zone-edificabili-2026.title': 'Excédent de zones à bâtir en Leventina: le Canton réponde',
     'blog.article.esubero-leventina-zone-edificabili-2026.excerpt': 'Corrado Nastasi, président de l\'Acl, demande des éclaircissements sur le surdimensionnement des zones à bâtir en Leventina',
     'blog.article.esubero-leventina-zone-edificabili-2026.imageAlt': 'Vue aérienne de la vallée de Leventina dans le Tessin, Suisse, avec des montagnes et des bâtiments',
+    'blog.article.varese-corsi-net-opportunita-rete-sinergie-2026.title': 'Varese Corsi Net : un réseau pour des synergies',
+    'blog.article.varese-corsi-net-opportunita-rete-sinergie-2026.excerpt': 'Une rencontre conviviale à Castronno pour créer des connexions et partager des idées avec le réseau Varese Corsi.',
+    'blog.article.varese-corsi-net-opportunita-rete-sinergie-2026.imageAlt': 'Un événement de réseautage dans un espace moderne et accueillant en Suisse, avec des professionnels discutant et partageant des idées.',
 };
 
 export default blogMetaFr;

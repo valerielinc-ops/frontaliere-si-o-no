@@ -22572,6 +22572,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-corsi-net-opportunita-rete-sinergie-2026': {
+    title: 'Varese Corsi Net: un’occasione per fare rete e sviluppare sinergie',
+    description: 'Un incontro conviviale a Castronno per creare connessioni e sviluppare sinergie con la rete Varese Corsi. Conferma presenza entro il 29 aprile 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, corsi, occasione, fare',
+    ogTitle: 'Varese Corsi Net: opportunità per fare rete e sviluppare sinergie',
+    ogDescription: 'Un incontro conviviale a Castronno per creare connessioni e sviluppare sinergie con la rete Varese Corsi. Conferma presenza entro il 29 aprile 2026.',
+    canonicalPath: '/articoli-frontaliere/varese-corsi-net-opportunita-rete-sinergie-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese Corsi Net: opportunità per fare rete e sviluppare sinergie",
+      "description": "Un incontro conviviale a Castronno per creare connessioni e sviluppare sinergie con la rete Varese Corsi. Conferma presenza entro il 29 aprile 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-corsi-net-opportunita-rete-sinergie-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un evento di networking in uno spazio moderno e accogliente in Ticino, con professionisti che discutono e condividono idee."
+      },
+      "datePublished": "2026-04-29T04:03:13+00:00",
+      "dateModified": "2026-04-29T04:03:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-corsi-net-opportunita-rete-sinergie-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
