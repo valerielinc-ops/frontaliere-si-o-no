@@ -786,7 +786,7 @@ function localizeArticle(articleId, locale) {
   return {
     title: meta.title,
     excerpt: meta.excerpt,
-    url: `${prefix}/${blogPath}/${slug}`,
+    url: `${prefix}/${blogPath}/${slug}/`,
     badge: true,
   };
 }
