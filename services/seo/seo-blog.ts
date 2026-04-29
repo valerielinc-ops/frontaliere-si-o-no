@@ -24747,6 +24747,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-terremoto-gottardo-frontalieri': {
+    title: 'Terremoto controllato nel Gottardo: cosa cambia per i frontalieri',
+    description: 'Ricercatori provocano terremoto controllato nel massiccio del Gottardo. Cosa sappiamo e quali sono le implicazioni per i frontalieri in Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, terremoto, controllato, gottardo, cosa',
+    ogTitle: 'Terremoto controllato nel Gottardo: implicazioni per i frontalieri',
+    ogDescription: 'Ricercatori provocano terremoto controllato nel massiccio del Gottardo. Cosa sappiamo e quali sono le implicazioni per i frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/terremoto-gottardo-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terremoto controllato nel Gottardo: implicazioni per i frontalieri",
+      "description": "Ricercatori provocano terremoto controllato nel massiccio del Gottardo. Cosa sappiamo e quali sono le implicazioni per i frontalieri in Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/terremoto-gottardo-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ricercatori al lavoro nel laboratorio sotterraneo del Gottardo"
+      },
+      "datePublished": "2026-04-29T13:26:38+00:00",
+      "dateModified": "2026-04-29T13:26:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/terremoto-gottardo-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

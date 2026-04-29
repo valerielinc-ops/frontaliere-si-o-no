@@ -3908,6 +3908,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.usa-svizzera-frizioni-commerciali-2026.title': 'USA-Svizzera: nuove tensioni su prodotti biologici e dazi',
     'blog.article.usa-svizzera-frizioni-commerciali-2026.excerpt': 'Washington critica Berna per le norme agricole e il predominio di Coop e Migros. Nuovi dazi al 10% fino al 2027',
     'blog.article.usa-svizzera-frizioni-commerciali-2026.imageAlt': 'Vista del lago di Lugano con bandiere svizzere e italiane, edifici moderni e area commerciale',
+    'blog.article.terremoto-gottardo-frontalieri.title': 'Terremoto controllato nel Gottardo: cosa cambia per i frontalieri',
+    'blog.article.terremoto-gottardo-frontalieri.excerpt': 'Ricercatori provocano microsismi nel massiccio del Gottardo. Cosa sappiamo e quali sono le implicazioni per i frontalieri in Ticino.',
+    'blog.article.terremoto-gottardo-frontalieri.imageAlt': 'Ricercatori al lavoro nel laboratorio sotterraneo del Gottardo',
 };
 
 export default blogMetaIt;

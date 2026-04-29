@@ -3907,6 +3907,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.usa-svizzera-frizioni-commerciali-2026.title': 'USA-Schweiz: Neue Spannungen um Bio-Produkte und Zölle',
     'blog.article.usa-svizzera-frizioni-commerciali-2026.excerpt': 'Washington kritisiert Bern für Agrarnormen und die Vorherrschaft von Coop und Migros. Neue Zölle von 10% bis 2027',
     'blog.article.usa-svizzera-frizioni-commerciali-2026.imageAlt': 'Seeblick von Lugano mit Schweizer und italienischen Flaggen, modernen Gebäuden und Geschäftsgebiet',
+    'blog.article.terremoto-gottardo-frontalieri.title': 'Kontrolliertes Erdbeben im Gotthard: Was ändert sich für Grenzgänger?',
+    'blog.article.terremoto-gottardo-frontalieri.excerpt': 'Forscher lösen Mikroerdbeben im Gotthardmassiv aus. Was wissen wir und welche Auswirkungen hat das für die Grenzgänger im Tessin?',
+    'blog.article.terremoto-gottardo-frontalieri.imageAlt': 'Forscher arbeiten im unterirdischen Labor des Gotthard',
 };
 
 export default blogMetaDe;

@@ -3907,6 +3907,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.usa-svizzera-frizioni-commerciali-2026.title': 'USA-Switzerland tensions over organic products and tariffs',
     'blog.article.usa-svizzera-frizioni-commerciali-2026.excerpt': 'Washington criticizes Bern for agricultural rules and the dominance of Coop and Migros. New 10% tariffs until 2027',
     'blog.article.usa-svizzera-frizioni-commerciali-2026.imageAlt': 'Lake Lugano view with Swiss and Italian flags, modern buildings, and commercial area',
+    'blog.article.terremoto-gottardo-frontalieri.title': 'Controlled earthquake in the Gotthard: what changes for cross-border workers',
+    'blog.article.terremoto-gottardo-frontalieri.excerpt': 'Researchers trigger microseisms in the Gotthard massif. What we know and the implications for cross-border workers in Ticino.',
+    'blog.article.terremoto-gottardo-frontalieri.imageAlt': 'Researchers working in the underground laboratory of the Gottardo',
 };
 
 export default blogMetaEn;

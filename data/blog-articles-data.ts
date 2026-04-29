@@ -10129,4 +10129,11 @@ export const ARTICLES = [
  image: '/images/blog/usa-svizzera-frizioni-commerciali-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'terremoto-gottardo-frontalieri',
+ category: 'novita',
+ date: '2026-04-29T13:26:38.902Z',
+ image: '/images/blog/terremoto-gottardo-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

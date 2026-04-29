@@ -3908,6 +3908,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.usa-svizzera-frizioni-commerciali-2026.title': 'USA-Suisse: tensions sur bio et droits de douane',
     'blog.article.usa-svizzera-frizioni-commerciali-2026.excerpt': 'Washington critique Berne pour les normes agricoles et la domination de Coop et Migros. Nouveaux droits de douane de 10% jusqu\'en 2027',
     'blog.article.usa-svizzera-frizioni-commerciali-2026.imageAlt': 'Vue du lac de Lugano avec drapeaux suisses et italiens, bâtiments modernes et zone commerciale',
+    'blog.article.terremoto-gottardo-frontalieri.title': 'Séisme contrôlé dans le Gothard : ce qui change pour les frontaliers',
+    'blog.article.terremoto-gottardo-frontalieri.excerpt': 'Des chercheurs provoquent des microséismes dans le massif du Gothard. Ce que nous savons et quelles sont les implications pour les frontaliers du Tessin.',
+    'blog.article.terremoto-gottardo-frontalieri.imageAlt': 'Chercheurs travaillant dans le laboratoire souterrain du Gothard',
 };
 
 export default blogMetaFr;
