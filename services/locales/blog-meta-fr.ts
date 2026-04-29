@@ -3902,6 +3902,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spring-giubiasco-sport-convivialita-2026.title': 'Retour de la Spring Giubiasco : sport et convivialité du 13 au 17 mai 2026',
     'blog.article.spring-giubiasco-sport-convivialita-2026.excerpt': 'Du 13 au 17 mai 2026, Giubiasco se transforme en un village dédié au sport et à la convivialité avec des compétitions, de la musique et de la gastronomie.',
     'blog.article.spring-giubiasco-sport-convivialita-2026.imageAlt': 'Événement sportif à Giubiasco, Tessin, avec des participants de tous âges',
+    'blog.article.carnago-forza-italia-pendolarismo.title': 'Carnago: Fratelli d\'Italia critique le pendolarisme de Forza Italia',
+    'blog.article.carnago-forza-italia-pendolarismo.excerpt': 'Analyse des coûts du conseiller minoritaire Fausto Benzi: plus de 2.400 euros de dépenses prévues jusqu\'à la fin du mandat',
+    'blog.article.carnago-forza-italia-pendolarismo.imageAlt': 'Mairie de Carnago, siège du conseil municipal',
 };
 
 export default blogMetaFr;

@@ -24689,6 +24689,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carnago-forza-italia-pendolarismo': {
+    title: 'Carnago: Fratelli d\'Italia attacca il pendolarismo di Forza Italia',
+    description: 'Analisi dei costi del consigliere di minoranza Fausto Benzi: oltre 2.400 euro di previsione di spesa fino a fine mandato. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, carnago, fratelli, attacca, pendolarismo',
+    ogTitle: 'Carnago: Fratelli d\'Italia attacca il pendolarismo di Forza Italia',
+    ogDescription: 'Analisi dei costi del consigliere di minoranza Fausto Benzi: oltre 2.400 euro di previsione di spesa fino a fine mandato',
+    canonicalPath: '/articoli-frontaliere/carnago-forza-italia-pendolarismo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carnago: Fratelli d'Italia attacca il pendolarismo di Forza Italia",
+      "description": "Analisi dei costi del consigliere di minoranza Fausto Benzi: oltre 2.400 euro di previsione di spesa fino a fine mandato. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carnago-forza-italia-pendolarismo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo comunale di Carnago, sede del consiglio comunale"
+      },
+      "datePublished": "2026-04-29T13:08:16+00:00",
+      "dateModified": "2026-04-29T13:08:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carnago-forza-italia-pendolarismo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

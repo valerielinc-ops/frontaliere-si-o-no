@@ -3901,6 +3901,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spring-giubiasco-sport-convivialita-2026.title': 'Spring Giubiasco returns: sport and fun from 13 to 17 May 2026',
     'blog.article.spring-giubiasco-sport-convivialita-2026.excerpt': 'From 13 to 17 May 2026, Giubiasco becomes a village dedicated to sport and conviviality with races, music and gastronomy.',
     'blog.article.spring-giubiasco-sport-convivialita-2026.imageAlt': 'Sports event in Giubiasco, Ticino, with participants of all ages',
+    'blog.article.carnago-forza-italia-pendolarismo.title': 'Carnago: Fratelli d\'Italia criticizes Forza Italia\'s commuting',
+    'blog.article.carnago-forza-italia-pendolarismo.excerpt': 'Analysis by minority councilor Fausto Benzi: over 2,400 euros in expected spending until the end of the term',
+    'blog.article.carnago-forza-italia-pendolarismo.imageAlt': 'Town hall of Carnago, seat of the municipal council',
 };
 
 export default blogMetaEn;

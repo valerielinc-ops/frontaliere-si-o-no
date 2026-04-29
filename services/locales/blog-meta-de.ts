@@ -3901,6 +3901,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spring-giubiasco-sport-convivialita-2026.title': 'Spring Giubiasco: Sport und Geselligkeit vom 13. bis 17. Mai 2026',
     'blog.article.spring-giubiasco-sport-convivialita-2026.excerpt': 'Vom 13. bis 17. Mai 2026 verwandelt sich Giubiasco in ein Dorf, das dem Sport und der Geselligkeit gewidmet ist, mit Wettbewerben, Musik und Gastronomie.',
     'blog.article.spring-giubiasco-sport-convivialita-2026.imageAlt': 'Sportveranstaltung in Giubiasco, Tessin, mit Teilnehmern jeden Alters',
+    'blog.article.carnago-forza-italia-pendolarismo.title': 'Carnago: Fratelli d\'Italia greift Pendler von Forza Italia an',
+    'blog.article.carnago-forza-italia-pendolarismo.excerpt': 'Analyse der Kosten durch den Minderheitsrat Fausto Benzi: über 2.400 Franken an Ausgaben bis zum Ende der Amtszeit',
+    'blog.article.carnago-forza-italia-pendolarismo.imageAlt': 'Rathaus von Carnago, Sitz des Gemeinderats',
 };
 
 export default blogMetaDe;

@@ -10115,4 +10115,11 @@ export const ARTICLES = [
  image: '/images/blog/spring-giubiasco-sport-convivialita-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'carnago-forza-italia-pendolarismo',
+ category: 'novita',
+ date: '2026-04-29T13:08:16.354Z',
+ image: '/images/blog/carnago-forza-italia-pendolarismo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

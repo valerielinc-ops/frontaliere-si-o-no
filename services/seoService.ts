@@ -2531,6 +2531,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tutor-sapiens-apprendistato-terzo-livello': { name: 'Novità', path: '/articoli-frontaliere/tutor-sapiens-apprendistato-terzo-livello', parent: 'blog' },
     'blog-tunnel-tonale-viabilita-lombardia': { name: 'Novità', path: '/articoli-frontaliere/tunnel-tonale-viabilita-lombardia', parent: 'blog' },
     'blog-spring-giubiasco-sport-convivialita-2026': { name: 'Spring Giubiasco', path: '/articoli-frontaliere/spring-giubiasco-sport-convivialita-2026', parent: 'blog' },
+    'blog-carnago-forza-italia-pendolarismo': { name: 'Carnago', path: '/articoli-frontaliere/carnago-forza-italia-pendolarismo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1350,
+ "numberOfItems": 1351,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5985,7 +5985,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1347, "name": "Swiss: stop vendita duty-free a bordo aerei", "url": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-cambia-vendite-2026` },
           { "@type": "ListItem", "position": 1348, "name": "Tutor Sapiens: strumenti per l’apprendistato di...", "url": `${BASE_URL}/articoli-frontaliere/tutor-sapiens-apprendistato-terzo-livello` },
           { "@type": "ListItem", "position": 1349, "name": "Nuovo tunnel da 16,5 milioni al Passo del Tonal...", "url": `${BASE_URL}/articoli-frontaliere/tunnel-tonale-viabilita-lombardia` },
-          { "@type": "ListItem", "position": 1350, "name": "Spring Giubiasco 2026: sport e convivialità dal...", "url": `${BASE_URL}/articoli-frontaliere/spring-giubiasco-sport-convivialita-2026` }
+          { "@type": "ListItem", "position": 1350, "name": "Spring Giubiasco 2026: sport e convivialità dal...", "url": `${BASE_URL}/articoli-frontaliere/spring-giubiasco-sport-convivialita-2026` },
+          { "@type": "ListItem", "position": 1351, "name": "Carnago: Fratelli d'Italia attacca il pendolari...", "url": `${BASE_URL}/articoli-frontaliere/carnago-forza-italia-pendolarismo` }
  ]
  },
  {
