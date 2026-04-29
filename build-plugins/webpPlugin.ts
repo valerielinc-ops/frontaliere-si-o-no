@@ -1,28 +1,29 @@
 /**
  * WebP Conversion Build Plugin
  *
- * During build, converts all PNG/JPG/JPEG images in dist/ to WebP format
- * using sharp. Places WebP versions alongside the originals so both formats
- * are available (originals kept as fallback for older browsers, structured
- * data, and OG meta tags that require PNG/JPG).
+ * Opt-in only: runs solely when `BUILD_WEBP=1` is set in the environment.
+ * The default deploy pipeline relies on .webp sidecars committed alongside
+ * each source image — generated at article-creation time by
+ * `scripts/create-article.mjs` (sharp, quality 82) and backfilled in bulk by
+ * `scripts/backfill-blog-webp.mjs`. Skipping this plugin on the hot path
+ * removes ~41s per CI build (5% of the build phase) without changing
+ * dist/ output.
  *
- * Icon files (public/icons/) are excluded because iOS/Android manifests
- * require PNG.
+ * Re-enable for one-off rebuilds when:
+ *   - sharp's webp encoder version changes and we want to re-encode at parity
+ *   - the global QUALITY constant changes
+ *   - a backfill audit reveals missing .webp sidecars
  *
- * Quality: 82 (visually lossless for photographs, good compression).
- *
- * Skip-if-fresh (perf optimization 2026-04-28): each source image is only
- * re-converted when:
- *   1. the corresponding `.webp` does not exist, OR
- *   2. the existing `.webp` mtime is older than the source file mtime.
- *
- * Combined with the GitHub Actions cache step (`actions/cache@v5` keyed on
- * the hash of `public/images/**\/*.{jpg,png,jpeg}`), this drops a 500s
- * conversion cost down to a few seconds on cache-hit builds. When source
- * images change, the cache key rotates and conversion runs in full.
+ * Behavior when enabled:
+ *   - Walks dist/ for PNG/JPG/JPEG, skipping `icons/` (PWA manifests require PNG).
+ *   - Quality 82 (visually lossless for photographs).
+ *   - Skip-if-fresh: each .webp is only re-encoded when missing or older
+ *     than its raster source.
  */
 
 import type { Plugin } from 'vite';
+
+const ENABLED = process.env.BUILD_WEBP === '1';
 
 export function webpPlugin(rootDir: string): Plugin {
  return {
@@ -31,6 +32,12 @@ export function webpPlugin(rootDir: string): Plugin {
  enforce: 'post',
 
  async closeBundle() {
+ if (!ENABLED) {
+ // Opt-in via BUILD_WEBP=1. Default builds rely on .webp sidecars
+ // committed at article-creation time (create-article.mjs) and the
+ // backfill script (scripts/backfill-blog-webp.mjs).
+ return;
+ }
  const fs = await import('node:fs');
  const path = await import('node:path');
 

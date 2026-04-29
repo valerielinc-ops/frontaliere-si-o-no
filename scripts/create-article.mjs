@@ -786,6 +786,21 @@ async function optimizeImageToJpeg(inputPath, outputPath) {
     }
 
     writeFileSync(outputPath, outBuffer);
+
+    // Generate the WebP sidecar from the final jpg buffer using sharp at
+    // quality 82 — matching what webpPlugin would have emitted at build
+    // time. Committing the .webp alongside the .jpg lets every subsequent
+    // deploy skip the build-time webp-conversion pass entirely.
+    try {
+      const webpPath = outputPath.replace(/\.jpg$/i, '.webp');
+      const webpBuffer = await sharp(outBuffer).webp({ quality: 82 }).toBuffer();
+      writeFileSync(webpPath, webpBuffer);
+    } catch (webpErr) {
+      // Don't fail article creation if webp encoding hiccups — webpPlugin
+      // (opt-in via BUILD_WEBP=1) can still backfill it later.
+      console.warn(`  ⚠️ webp sidecar skipped: ${webpErr?.message || webpErr}`);
+    }
+
     const after = outBuffer.length;
     return { ok: true, before, after };
   } catch {
@@ -4891,9 +4906,16 @@ function gitAddAll(data) {
     files.push(SOURCE_URLS_FILE);
   }
   // Include generated blog image if it exists (web path → filesystem path under public/)
+  // Also stage the .webp sidecar emitted by optimizeImageToJpeg so the build
+  // can skip the closeBundle webp-conversion step on subsequent deploys.
   if (data?._generatedImagePath) {
     const webPath = data._generatedImagePath.replace(/^\//, '');
-    files.push(`public/${webPath}`);
+    const jpgFsPath = `public/${webPath}`;
+    files.push(jpgFsPath);
+    const webpFsPath = jpgFsPath.replace(/\.jpg$/i, '.webp');
+    if (existsSync(resolve(webpFsPath))) {
+      files.push(webpFsPath);
+    }
   }
   execSync(`git add ${files.join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });
   console.error('  ✅ Tutti i file modificati aggiunti a git');
