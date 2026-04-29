@@ -94,6 +94,11 @@ import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema'
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
+import {
+  startTimer as __weProfStart,
+  recordEmit as __weProfRecord,
+  printSummary as __weProfPrint,
+} from './shared/weeklyEmployersProfiler';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F5 weekly-employers feature.
@@ -246,6 +251,109 @@ function normEmployerKey(company: string, companyKey?: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Pre-computed job partitions shared across `buildCityWeeklyStats`,
+ * `buildCompanyCityStats`, and `enumerateCompanyCityPairs`, so the per
+ * (locale × city) and per (city × employerKey) lookups don't have to
+ * re-scan the full `jobs` array on every call.
+ *
+ * Hot loops (per build, ~2487 jobs):
+ *   - `buildCityWeeklyStats` runs 4 locales × 7 cities (28 invocations) and
+ *     each invocation does `jobs.filter(jobIsActive(locale) && jobMatchesCity)`.
+ *   - `enumerateCompanyCityPairs` runs an inner loop of 6 cities × all jobs
+ *     with `jobIsActive('it') && jobMatchesCity`.
+ *   - `buildCompanyCityStats` runs 4 locales × ~40 pairs = 160 invocations,
+ *     each doing `jobs.filter(jobIsActive('it') && jobMatchesCity && key===)`.
+ *
+ * The partition pre-computes both groupings ONCE so each per-iteration body
+ * becomes a Map lookup. Output (paths, counts, ordering) is byte-identical
+ * because the underlying predicates and input order are unchanged — the
+ * partition only memoises the filter result, it does not change WHAT
+ * matches.
+ */
+export interface WeeklyEmployersJobPartition {
+  /**
+   * `locale → city → jobs[]` where each entry already passed
+   * `jobIsActive(job, locale) && jobMatchesCity(job, city)`. Mirrors the
+   * filter inside `buildCityWeeklyStats`.
+   */
+  readonly byLocaleCity: ReadonlyMap<
+    WeeklyEmployersLocale,
+    ReadonlyMap<WeeklyEmployersCity, readonly WeeklyCountableJob[]>
+  >;
+  /**
+   * `city → employerKey → jobs[]` for IT-active jobs (the "oracle" locale
+   * used by `enumerateCompanyCityPairs` and `buildCompanyCityStats`). Only
+   * non-empty companies are keyed. The "ticino" regional city is not
+   * included because per-company × per-city pages skip it.
+   */
+  readonly byCityEmployerIt: ReadonlyMap<
+    WeeklyEmployersCompanyCity,
+    ReadonlyMap<string, readonly WeeklyCountableJob[]>
+  >;
+}
+
+/**
+ * Build the partition. Iterates `jobs` once per (locale × city) and once
+ * more for the company-city map; the input order is preserved so any
+ * downstream iteration produces the same ordering as the original
+ * `.filter(...)` chain.
+ */
+export function partitionWeeklyEmployerJobs(
+  jobs: readonly WeeklyCountableJob[],
+): WeeklyEmployersJobPartition {
+  const byLocaleCity = new Map<
+    WeeklyEmployersLocale,
+    Map<WeeklyEmployersCity, WeeklyCountableJob[]>
+  >();
+  for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+    const cityMap = new Map<WeeklyEmployersCity, WeeklyCountableJob[]>();
+    for (const city of WEEKLY_EMPLOYERS_CITIES) {
+      cityMap.set(city, []);
+    }
+    byLocaleCity.set(locale, cityMap);
+  }
+
+  const byCityEmployerIt = new Map<
+    WeeklyEmployersCompanyCity,
+    Map<string, WeeklyCountableJob[]>
+  >();
+  for (const city of WEEKLY_EMPLOYERS_COMPANY_CITY_LIST) {
+    byCityEmployerIt.set(city, new Map());
+  }
+
+  for (const job of jobs) {
+    // Per-locale × per-city active-job buckets.
+    for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+      if (!jobIsActive(job, locale)) continue;
+      const cityMap = byLocaleCity.get(locale)!;
+      for (const city of WEEKLY_EMPLOYERS_CITIES) {
+        if (!jobMatchesCity(job, city)) continue;
+        cityMap.get(city)!.push(job);
+      }
+    }
+    // Per-city × per-employerKey IT-active buckets (skip "ticino" — the
+    // company-city pages are excluded for the regional hub).
+    if (jobIsActive(job, 'it')) {
+      const company = String(job.company || '').trim();
+      if (company) {
+        const key = normEmployerKey(company, job.companyKey);
+        if (key) {
+          for (const city of WEEKLY_EMPLOYERS_COMPANY_CITY_LIST) {
+            if (!jobMatchesCity(job, city)) continue;
+            const employerMap = byCityEmployerIt.get(city)!;
+            const list = employerMap.get(key);
+            if (list) list.push(job);
+            else employerMap.set(key, [job]);
+          }
+        }
+      }
+    }
+  }
+
+  return { byLocaleCity, byCityEmployerIt };
+}
+
 /** Build a per-city aggregation from current jobs + optional previous snapshot. */
 export function buildCityWeeklyStats(opts: {
   city: WeeklyEmployersCity;
@@ -255,6 +363,13 @@ export function buildCityWeeklyStats(opts: {
   /** Older snapshots used to decide "first appearance". */
   historicalSnapshots?: readonly JobsSnapshot[];
   limitCompanies?: number;
+  /**
+   * Optional pre-computed partition (see {@link partitionWeeklyEmployerJobs}).
+   * When supplied, the per (locale × city) active-job lookup becomes a Map
+   * read instead of a full-array `.filter(...)`. Behaviour is identical
+   * when omitted.
+   */
+  partition?: WeeklyEmployersJobPartition;
 }): CityWeeklyStats {
   const {
     city,
@@ -263,12 +378,14 @@ export function buildCityWeeklyStats(opts: {
     previousSnapshot,
     historicalSnapshots = [],
     limitCompanies = 20,
+    partition,
   } = opts;
 
   // Active jobs matching this city in this locale
-  const cityJobs = jobs.filter(
-    (j) => jobIsActive(j, locale) && jobMatchesCity(j, city),
-  );
+  const partitionedCityJobs = partition?.byLocaleCity.get(locale)?.get(city);
+  const cityJobs = partitionedCityJobs
+    ? (partitionedCityJobs as readonly WeeklyCountableJob[])
+    : jobs.filter((j) => jobIsActive(j, locale) && jobMatchesCity(j, city));
 
   // Count per employer (active)
   const activeCounts = new Map<
@@ -551,6 +668,13 @@ export function buildCompanyCityStats(opts: {
   jobs: readonly WeeklyCountableJob[];
   previousSnapshot?: JobsSnapshot | null;
   limitJobs?: number;
+  /**
+   * Optional pre-computed partition (see {@link partitionWeeklyEmployerJobs}).
+   * When supplied, the (city × employerKey) IT-active lookup is a Map read
+   * instead of a full-array `.filter(...)`. Behaviour is identical when
+   * omitted.
+   */
+  partition?: WeeklyEmployersJobPartition;
 }): CompanyCityStats | null {
   const {
     city,
@@ -560,20 +684,26 @@ export function buildCompanyCityStats(opts: {
     jobs,
     previousSnapshot,
     limitJobs = 10,
+    partition,
   } = opts;
 
   // IMPORTANT: for a listing page we use the IT-locale activity oracle so a
   // job present only in IT still shows up on EN/DE/FR hubs (the detail page
   // URL falls back to the IT slug when the locale slug is missing — same
   // policy as existing F5 city-level hubs).
-  const matching = jobs.filter((j) => {
-    if (!jobIsActive(j, 'it')) return false;
-    if (!jobMatchesCity(j, city)) return false;
-    const company = String(j.company || '').trim();
-    if (!company) return false;
-    const jobKey = normEmployerKey(company, j.companyKey);
-    return jobKey === employerKey;
-  });
+  const partitionedMatching = partition?.byCityEmployerIt
+    .get(city)
+    ?.get(employerKey);
+  const matching: readonly WeeklyCountableJob[] = partitionedMatching
+    ? partitionedMatching
+    : jobs.filter((j) => {
+        if (!jobIsActive(j, 'it')) return false;
+        if (!jobMatchesCity(j, city)) return false;
+        const company = String(j.company || '').trim();
+        if (!company) return false;
+        const jobKey = normEmployerKey(company, j.companyKey);
+        return jobKey === employerKey;
+      });
 
   if (!companyCityMeetsThreshold({ active: matching.length })) return null;
 
@@ -706,6 +836,7 @@ export function buildCompanyCityStats(opts: {
  */
 export function enumerateCompanyCityPairs(
   jobs: readonly WeeklyCountableJob[],
+  partition?: WeeklyEmployersJobPartition,
 ): Array<CompanyCityPair & { employerKey: string; employer: string; active: number }> {
   const pairs = new Map<
     string,
@@ -723,16 +854,26 @@ export function enumerateCompanyCityPairs(
       string,
       { employer: string; employerKey: string; active: number }
     >();
-    for (const j of jobs) {
-      if (!jobIsActive(j, 'it')) continue;
-      if (!jobMatchesCity(j, city)) continue;
-      const company = String(j.company || '').trim();
-      if (!company) continue;
-      const key = normEmployerKey(company, j.companyKey);
-      if (!key) continue;
-      const rec = counts.get(key);
-      if (rec) rec.active++;
-      else counts.set(key, { employer: company, employerKey: key, active: 1 });
+    const partitionedEmployerMap = partition?.byCityEmployerIt.get(city);
+    if (partitionedEmployerMap) {
+      for (const [key, list] of partitionedEmployerMap.entries()) {
+        if (list.length === 0) continue;
+        const employer = String(list[0].company || '').trim();
+        if (!employer) continue;
+        counts.set(key, { employer, employerKey: key, active: list.length });
+      }
+    } else {
+      for (const j of jobs) {
+        if (!jobIsActive(j, 'it')) continue;
+        if (!jobMatchesCity(j, city)) continue;
+        const company = String(j.company || '').trim();
+        if (!company) continue;
+        const key = normEmployerKey(company, j.companyKey);
+        if (!key) continue;
+        const rec = counts.get(key);
+        if (rec) rec.active++;
+        else counts.set(key, { employer: company, employerKey: key, active: 1 });
+      }
     }
     for (const [employerKey, rec] of counts.entries()) {
       if (!companyCityMeetsThreshold(rec)) continue;
@@ -2863,7 +3004,9 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   const { week: currentWeek, year: currentYear } = getIsoWeekAndYear(today);
 
   // Load company slug registry once for the entire generation run.
+  const __tKnownSlugs = __weProfStart();
   const knownSlugs = loadKnownCompanySlugs(opts.rootDir);
+  __weProfRecord('gen-known-slugs', __tKnownSlugs);
 
   const latestSnapshot: JobsSnapshot | null =
     opts.snapshots.length > 0 ? opts.snapshots[opts.snapshots.length - 1] : null;
@@ -2875,10 +3018,20 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
 
   const pages: GeneratedPage[] = [];
 
+  // Pre-compute per (locale × city) and per (city × employerKey) job
+  // partitions ONCE. Without this, `buildCityWeeklyStats` (28 calls) and
+  // `buildCompanyCityStats` (~160 calls) each re-scan the full ~2.5k job
+  // array running `jobIsActive` + `jobMatchesCity` on every entry.
+  const __tPartition = __weProfStart();
+  const jobPartition = partitionWeeklyEmployerJobs(opts.jobs);
+  __weProfRecord('gen-partition', __tPartition);
+
   // Pre-enumerate qualifying (city × company) pairs once so the city-hub
   // renderer can list every per-employer leaf URL it owns. The same pair
   // list is reused below for per-leaf page generation.
-  const qualifyingPairs = enumerateCompanyCityPairs(opts.jobs);
+  const __tPairs = __weProfStart();
+  const qualifyingPairs = enumerateCompanyCityPairs(opts.jobs, jobPartition);
+  __weProfRecord('gen-pairs', __tPairs);
   const leavesByCity = new Map<
     WeeklyEmployersCompanyCity,
     Array<{ companySlug: string; employer: string }>
@@ -2901,6 +3054,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
       .filter((k) => k.length > 0),
   ).size;
   for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+    const __tTop = __weProfStart();
     const html = renderTopHubPage({
       locale,
       today,
@@ -2909,17 +3063,20 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
       distDir,
     });
     pages.push({ path: topHubPath(locale), html, indexable: true });
+    __weProfRecord('render-top-hub', __tTop);
   }
 
   // Current week (always emit regardless of snapshot history — degraded mode)
   for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
     for (const city of WEEKLY_EMPLOYERS_CITIES) {
+      const __tCur = __weProfStart();
       const stats = buildCityWeeklyStats({
         city,
         locale,
         jobs: opts.jobs,
         previousSnapshot,
         historicalSnapshots: olderSnapshots,
+        partition: jobPartition,
       });
       const canonicalPath = buildCurrentWeekPath(locale, city);
       const cityLeaves =
@@ -2942,6 +3099,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         cityLeaves,
       });
       pages.push({ path: canonicalPath, html, indexable: true });
+      __weProfRecord('render-current-week', __tCur);
     }
   }
 
@@ -2990,6 +3148,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
 
       for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
         for (const city of WEEKLY_EMPLOYERS_CITIES) {
+          const __tArc = __weProfStart();
           const stats = buildCityWeeklyStats({
             city,
             locale,
@@ -3015,6 +3174,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
             rootDir: opts.rootDir,
           });
           pages.push({ path: canonicalPath, html, indexable });
+          __weProfRecord('render-archive-week', __tArc);
         }
       }
     }
@@ -3038,6 +3198,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
     `${companySlug}::${city}::${locale}`;
   for (const pair of pairs) {
     for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
+      const __tP1 = __weProfStart();
       const stats = buildCompanyCityStats({
         city: pair.city,
         companySlug: pair.companySlug,
@@ -3045,8 +3206,10 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         locale,
         jobs: opts.jobs,
         previousSnapshot,
+        partition: jobPartition,
       });
       pairLocaleStats.set(pairLocaleKey(pair.companySlug, pair.city, locale), stats);
+      __weProfRecord('companycity-pass1-stats', __tP1);
     }
   }
 
@@ -3071,6 +3234,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
     for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
       const stats = pairLocaleStats.get(pairLocaleKey(pair.companySlug, pair.city, locale));
       if (!stats) continue;
+      const __tP2 = __weProfStart();
       const canonicalPath = buildCompanyCityCurrentPath(
         locale,
         pair.city,
@@ -3104,6 +3268,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         stats.employer,
       );
       pages.push({ path: canonicalPath, html, indexable: true });
+      __weProfRecord('render-company-city-page', __tP2);
     }
   }
 
@@ -3139,6 +3304,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       // build's company×city pages don't linger after employer drops out
       // of the pairs list (the thin-content guard used to leave empty
       // directories behind — see PLAN-SPRINT-1-TECH-FIXES-EXTENSION-3 §3).
+      const __tCleanup = __weProfStart();
       cleanNamespaces(distDir, [
         'aziende-che-assumono',
         'en/companies-hiring',
@@ -3146,9 +3312,14 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
         'fr/entreprises-recrutent',
       ]);
       cleanSitemapFiles(distDir, ['sitemap-weekly-employers.xml']);
+      __weProfRecord('cleanup', __tCleanup);
 
+      const __tLoadJobs = __weProfStart();
       const jobs = loadAllJobs(rootDir);
+      __weProfRecord('load-jobs', __tLoadJobs);
+      const __tLoadSnap = __weProfStart();
       const snapshots = readSnapshotHistory(rootDir);
+      __weProfRecord('load-snapshots', __tLoadSnap);
       const degraded = snapshots.length < 2;
 
       if (degraded) {
@@ -3158,6 +3329,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       }
 
       const enableAutoStubs = process.env.ENABLE_AUTO_EMPLOYER_STUBS === '1';
+      const __tGen = __weProfStart();
       const pages = generateWeeklyEmployerPages({
         rootDir,
         jobs,
@@ -3166,6 +3338,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
         enableAutoStubs,
         distDir,
       });
+      __weProfRecord('generate-pages', __tGen);
 
       const collector = new WriteCollector({ distDir, skipExisting: false });
 
@@ -3183,12 +3356,14 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       const archiveRe = /\/(?:settimana|week|woche|semaine)-\d{2}-\d{4}\/?$/;
 
       for (const page of pages) {
+        const __tPage = __weProfStart();
         const words = countHtmlBodyWords(page.html);
         if (words < MIN_INDEXABLE_WORDS) {
           skipped++;
           console.warn(
             `[weekly-employers] thin content (${words} words) for ${page.path} — skipping`,
           );
+          __weProfRecord('process-page', __tPage);
           continue;
         }
         const outDir = np.join(distDir, page.path.replace(/^\/+/, ''));
@@ -3201,13 +3376,17 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
         else if (archiveRe.test(page.path)) archiveCount++;
         else currentWeekCount++;
         if (page.indexable) indexableSitemapPaths.push(page.path);
+        __weProfRecord('process-page', __tPage);
       }
 
+      const __tFlush = __weProfStart();
       const written = await collector.flush();
+      __weProfRecord('flush', __tFlush);
 
       // ── Emit sitemap-weekly-employers.xml ───────────────────────
       // Auto-discovered by sitemapAliasPlugin into dist/sitemap.xml.
       if (indexableSitemapPaths.length > 0) {
+        const __tSitemap = __weProfStart();
         try {
           const dateStamp = today.toISOString().slice(0, 10);
           const urlEntries = indexableSitemapPaths
@@ -3238,6 +3417,7 @@ ${urlEntries}
             err,
           );
         }
+        __weProfRecord('sitemap-write', __tSitemap);
       }
 
       const result: PluginResult = {
@@ -3252,6 +3432,9 @@ ${urlEntries}
       console.log(
         `\x1b[36m[weekly-employers]\x1b[0m Generated ${result.currentWeekPages} current-week + ${result.archivePages} archive + ${result.companyCityPages} company×city pages (skipped ${result.skippedForWordCount}) — degraded=${result.degradedMode}`,
       );
+
+      // Per-category profile summary (no-op unless WEEKLY_EMPLOYERS_PROFILE=1)
+      __weProfPrint();
     },
   };
 }

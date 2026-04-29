@@ -43,6 +43,11 @@ on:
         required: false
         type: boolean
         default: false
+      profile_weekly_employers:
+        description: 'Enable weeklyEmployersPlugin per-category profiler (counts + total/avg/p50/p99 timings per phase: cleanup, load-jobs, render-current-week, render-company-city-page, flush, etc.). Pair with profile_sequential for clean numbers.'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -230,6 +235,13 @@ jobs:
           # avg + p50 + p99 + min + max (ms) for each emission category
           # (active-job, expired-soft-landing, previous-slug-bridge, etc.).
           JOBS_SEO_PROFILE: ${{ github.event.inputs.profile_jobs_seo == 'true' && '1' || '' }}
+          # Opt-in weeklyEmployersPlugin per-category profiler. Emits a sorted
+          # table at end of the plugin's closeBundle showing count + total +
+          # avg + p50 + p99 + min + max (ms) for each phase (cleanup,
+          # load-jobs, load-snapshots, generate-pages, render-current-week,
+          # render-archive-week, companycity-pass1-stats,
+          # render-company-city-page, process-page, flush, sitemap-write).
+          WEEKLY_EMPLOYERS_PROFILE: ${{ github.event.inputs.profile_weekly_employers == 'true' && '1' || '' }}
           # POST_WALK_WORKERS rollback removed (commit 4b412bc8a + 36dfd0e9c
           # added explicit `.ts` extensions to the two extension-less local
           # imports the worker tree pulled in — `./blogContextualLinksData`
