@@ -343,38 +343,59 @@ jobs:
       #                            explicit approval (CLAUDE.md non-negotiable #5).
       - name: Post-build validations + SEO audits + SPA render + E2E (all parallel)
         run: |
-          # Group A — 7 file validators
-          npm run validate:jobposting-schema > /tmp/v1.log 2>&1 & PID1=$!
-          npm run validate:jobs-quality > /tmp/v2.log 2>&1 & PID2=$!
-          npm run validate:sitemap-links > /tmp/v3.log 2>&1 & PID3=$!
-          node scripts/validate-soft404.mjs > /tmp/v4.log 2>&1 & PID4=$!
-          node scripts/validate-canonical.mjs > /tmp/v5.log 2>&1 & PID5=$!
-          node scripts/validate-content-quality.mjs > /tmp/v6.log 2>&1 & PID6=$!
-          node scripts/validate-structured-data-completeness.mjs > /tmp/v7.log 2>&1 & PID7=$!
+          # Helper: spawn a task in the background with per-task wall-time
+          # measurement. Each task writes "<name> <duration_s> rc=<code>" to
+          # /tmp/post-build-timings.txt on completion. The wall_s is the
+          # background subshell's wall time, NOT the queue wait — accurate
+          # because every task starts simultaneously here. Returns the
+          # subshell PID so the caller can wait on it for fail-detection.
+          : > /tmp/post-build-timings.txt
+          spawn_timed() {
+            local name=$1; local logfile=$2; shift 2
+            (
+              start=$(date +%s.%N)
+              "$@" > "$logfile" 2>&1
+              rc=$?
+              end=$(date +%s.%N)
+              awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"$name\", $end-$start, $rc}" \
+                >> /tmp/post-build-timings.txt
+              exit $rc
+            ) &
+            echo $!
+          }
 
-          # Group B — 7 SEO audit gates
-          npm run audit:hreflang             > /tmp/g1.log 2>&1 & PID8=$!
-          npm run audit:title-uniqueness     > /tmp/g2.log 2>&1 & PID9=$!
-          npm run audit:content-duplicates   > /tmp/g3.log 2>&1 & PID10=$!
-          npm run audit:page-weight          > /tmp/g4.log 2>&1 & PID11=$!
-          npm run audit:text-html-ratio      > /tmp/g5.log 2>&1 & PID12=$!
-          npm run audit:h1-title-duplicates  > /tmp/g6.log 2>&1 & PID13=$!
-          npm run audit:title-length         > /tmp/g7.log 2>&1 & PID14=$!
+          # Group A — 7 file validators
+          PID1=$(spawn_timed validate:jobposting-schema       /tmp/v1.log npm run validate:jobposting-schema)
+          PID2=$(spawn_timed validate:jobs-quality            /tmp/v2.log npm run validate:jobs-quality)
+          PID3=$(spawn_timed validate:sitemap-links           /tmp/v3.log npm run validate:sitemap-links)
+          PID4=$(spawn_timed validate:soft-404                /tmp/v4.log node scripts/validate-soft404.mjs)
+          PID5=$(spawn_timed validate:canonical               /tmp/v5.log node scripts/validate-canonical.mjs)
+          PID6=$(spawn_timed validate:content-quality         /tmp/v6.log node scripts/validate-content-quality.mjs)
+          PID7=$(spawn_timed validate:structured-data         /tmp/v7.log node scripts/validate-structured-data-completeness.mjs)
+
+          # Group B — 9 SEO audit gates
+          PID8=$(spawn_timed  audit:hreflang                  /tmp/g1.log npm run audit:hreflang)
+          PID9=$(spawn_timed  audit:title-uniqueness          /tmp/g2.log npm run audit:title-uniqueness)
+          PID10=$(spawn_timed audit:content-duplicates        /tmp/g3.log npm run audit:content-duplicates)
+          PID11=$(spawn_timed audit:page-weight               /tmp/g4.log npm run audit:page-weight)
+          PID12=$(spawn_timed audit:text-html-ratio           /tmp/g5.log npm run audit:text-html-ratio)
+          PID13=$(spawn_timed audit:h1-title-duplicates       /tmp/g6.log npm run audit:h1-title-duplicates)
+          PID14=$(spawn_timed audit:title-length              /tmp/g7.log npm run audit:title-length)
           # Gate — sitemap canonical integrity (HARD gate, no baseline; any
           # mismatch / missing-canonical / missing-html in dist/sitemap-*.xml
           # fails the deploy). Sitemap entries must always self-canonicalize.
-          npm run audit:sitemap-canonicals   > /tmp/g8.log 2>&1 & PID15=$!
+          PID15=$(spawn_timed audit:sitemap-canonicals        /tmp/g8.log npm run audit:sitemap-canonicals)
           # Gate — orphaned pages in sitemaps (BFS reachability from homepage;
           # ratchet baseline in data/orphan-pages-baseline.json). Mirrors the
           # text-html-ratio gate semantics: improvements accepted silently,
           # any sitemap whose orphan count goes UP fails the deploy.
-          npm run audit:orphan-sitemap-pages -- --gate=baseline > /tmp/g9.log 2>&1 & PID16=$!
+          PID16=$(spawn_timed audit:orphan-sitemap-pages      /tmp/g9.log npm run audit:orphan-sitemap-pages -- --gate=baseline)
 
           # Group C — SPA render validation (5 min internal budget)
-          timeout 300 node scripts/validate-spa-render.mjs > /tmp/spa.log 2>&1 & PID_SPA=$!
+          PID_SPA=$(spawn_timed validate:spa-render           /tmp/spa.log timeout 300 node scripts/validate-spa-render.mjs)
 
           # Group D — E2E smoke (3 min internal budget)
-          timeout 180 npx playwright test > /tmp/e2e.log 2>&1 & PID_E2E=$!
+          PID_E2E=$(spawn_timed test:e2e:smoke                /tmp/e2e.log timeout 180 npx playwright test)
 
           FAIL=0
           wait $PID1  || { echo "::error::jobposting-schema failed"; cat /tmp/v1.log; FAIL=1; }
@@ -395,6 +416,14 @@ jobs:
           wait $PID16 || { echo "::error::audit:orphan-sitemap-pages failed"; cat /tmp/g9.log; FAIL=1; }
           wait $PID_SPA || { echo "::error::validate-spa-render failed"; cat /tmp/spa.log; FAIL=1; }
           wait $PID_E2E || { echo "::error::E2E smoke tests failed"; cat /tmp/e2e.log; FAIL=1; }
+
+          # Per-task wall-time summary (sorted DESC). Surface the slowest
+          # 3-5 audits so we can target them when post-build wall time is
+          # the next bottleneck.
+          echo ""
+          echo "── Post-build per-task wall_s (sorted DESC) ─────────────────"
+          sort -k2 -gr /tmp/post-build-timings.txt
+          echo "─────────────────────────────────────────────────────────────"
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
           echo "✅ All 18 post-build validators+audits+SPA+E2E passed"

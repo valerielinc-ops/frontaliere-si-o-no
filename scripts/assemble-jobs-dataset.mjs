@@ -32,9 +32,11 @@
  */
 
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { Worker } from 'node:worker_threads';
 import {
   createEmptyCrawlerSummaryStore,
   readCrawlerSummaryStore,
@@ -187,6 +189,88 @@ function listSliceFiles(dir) {
     .filter((f) => f.endsWith('.json') && f !== '.gitkeep' && !f.includes('-cache'))
     .map((f) => path.join(dir, f))
     .sort(); // lexicographic — deterministic order
+}
+
+/* ── Parallel slice parsing (worker pool) ─────────────────────────────────
+ *
+ * The assembler reads ~178 per-crawler slice files (~43 MB total) before it
+ * can dedup. Sequential `readFileSync + JSON.parse` is single-threaded and
+ * blocks ~10-15s of the 64s CI step. We farm the read+parse out to N workers
+ * (N = max(availableParallelism(), cpus().length)) and reassemble the results
+ * in the original input order on the main thread, so dedup iteration order
+ * is byte-identical to the sequential path.
+ *
+ * Set ASSEMBLE_PARSE_WORKERS=1 to force single-threaded execution (useful when
+ * profiling, or on a single-core runner where worker spawn cost would dominate).
+ * ──────────────────────────────────────────────────────────────────────── */
+
+function resolveParseWorkerCount(fileCount) {
+  const override = process.env.ASSEMBLE_PARSE_WORKERS;
+  if (override) {
+    const n = Number.parseInt(override, 10);
+    if (Number.isFinite(n) && n > 0) {
+      return Math.max(1, Math.min(n, fileCount));
+    }
+  }
+  const fromAP =
+    typeof os.availableParallelism === 'function' ? os.availableParallelism() : 0;
+  const fromCpus = os.cpus()?.length ?? 0;
+  const detected = Math.max(fromAP, fromCpus, 1);
+  return Math.max(1, Math.min(detected, fileCount));
+}
+
+function chunkRoundRobin(items, n) {
+  const chunks = Array.from({ length: n }, () => []);
+  for (let i = 0; i < items.length; i++) {
+    chunks[i % n].push(items[i]);
+  }
+  return chunks;
+}
+
+function runParseWorker(workerUrl, paths) {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker(workerUrl, { workerData: { paths } });
+    worker.once('message', (msg) => resolve(msg.results));
+    worker.once('error', reject);
+    worker.once('exit', (code) => {
+      if (code !== 0) reject(new Error(`parse-job-slices-worker exited with code ${code}`));
+    });
+  });
+}
+
+/**
+ * Read + JSON.parse a list of slice paths in parallel using worker threads.
+ *
+ * Returns `{ path, parsed }[]` in the SAME order as the input `paths` array.
+ * Failed paths are returned with `parsed: null` and a warning is printed —
+ * mirroring the legacy `readJson(filePath, null)` "skip malformed" behavior
+ * on the main thread.
+ */
+async function parseSlicesInParallel(paths) {
+  if (paths.length === 0) return [];
+  const workerCount = resolveParseWorkerCount(paths.length);
+  if (workerCount <= 1) {
+    // Single-threaded fallback — mirrors the original readJson(..., null) path.
+    return paths.map((p) => {
+      try {
+        const text = fs.readFileSync(p, 'utf8');
+        return { path: p, parsed: JSON.parse(text) };
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        return { path: p, parsed: null, error: msg };
+      }
+    });
+  }
+  const chunks = chunkRoundRobin(paths, workerCount);
+  const workerUrl = new URL('./lib/parse-job-slices-worker.mjs', import.meta.url);
+  const chunkResults = await Promise.all(chunks.map((chunk) => runParseWorker(workerUrl, chunk)));
+  // Reassemble in original `paths` order. Workers preserve order within their
+  // chunk, but we round-robin'd them out — index back into a path→result map.
+  const byPath = new Map();
+  for (const chunk of chunkResults) {
+    for (const r of chunk) byPath.set(r.path, r);
+  }
+  return paths.map((p) => byPath.get(p) || { path: p, parsed: null, error: 'missing-from-worker' });
 }
 
 /* ── Per-crawler slice readers/writers (used by migrated crawlers) ────── */
@@ -566,7 +650,7 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
  *
  * Returns the assembled jobs array, or null if no slices exist.
  */
-function assembleJobs() {
+async function assembleJobs() {
   const sliceFiles = listSliceFiles(JOBS_SLICES_DIR);
 
   if (sliceFiles.length === 0) {
@@ -574,12 +658,15 @@ function assembleJobs() {
     return null;
   }
 
-  // Load all slices
+  // Parse all slices in parallel (read+JSON.parse only — dedup stays sequential
+  // below, in the same alphabetical input order, so output is byte-identical
+  // to the legacy single-threaded path).
+  const parsed = await parseSlicesInParallel(sliceFiles);
   const slices = [];
-  for (const slicePath of sliceFiles) {
-    const slice = readJson(slicePath, null);
+  for (const { path: slicePath, parsed: slice, error } of parsed) {
     if (!slice || !Array.isArray(slice.jobs)) {
-      console.warn(`⚠️  Skipping malformed slice: ${path.basename(slicePath)}`);
+      const reason = error ? ` (${error})` : '';
+      console.warn(`⚠️  Skipping malformed slice: ${path.basename(slicePath)}${reason}`);
       continue;
     }
     slices.push(slice);
@@ -1088,7 +1175,7 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
   console.log('🔧 Assembling jobs dataset from per-crawler slices...');
 
   // --- Jobs ---
-  const assembled = assembleJobs();
+  const assembled = await assembleJobs();
   if (assembled !== null) {
     writeJson(DATA_JOBS, assembled);
     fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
