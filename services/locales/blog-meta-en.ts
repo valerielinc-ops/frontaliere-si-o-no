@@ -3688,6 +3688,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.centri-responsabilita-frontalieri-ticino.title': 'Asylum centers: the suffering of asylum seekers',
     'blog.article.centri-responsabilita-frontalieri-ticino.excerpt': 'Analysis of the conditions in federal asylum centers in Ticino and the political choices behind the management of migration policies.',
     'blog.article.centri-responsabilita-frontalieri-ticino.imageAlt': 'Lake Lugano with a view of buildings and the shoreline',
+    'blog.article.incontro-sem-cantone-comuni-annullato.title': 'SEM-Canton meeting canceled: cross-border workers impact',
+    'blog.article.incontro-sem-cantone-comuni-annullato.excerpt': 'The meeting between the SEM and representatives of the Canton and municipalities of Mendrisiotto has been canceled. Berna prefers to wait for the outcome of other experiments.',
+    'blog.article.incontro-sem-cantone-comuni-annullato.imageAlt': 'View of Mendrisio, Ticino, with the Swiss-Italian border in the background',
 };
 
 export default blogMetaEn;

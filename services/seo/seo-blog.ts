@@ -22630,6 +22630,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incontro-sem-cantone-comuni-annullato': {
+    title: 'Incontro SEM-Cantone-Comuni annullato: cosa cambia per i frontalieri',
+    description: 'L\'incontro tra la SEM e i rappresentanti del Cantone Ticino e dei Comuni di Mendrisiotto è stato annullato. Berna attende i risultati di una sperimentazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incontro, sem-cantone-comuni, annullato, cosa',
+    ogTitle: 'Incontro SEM-Cantone-Comuni annullato: cosa cambia per i frontalieri',
+    ogDescription: 'L\'incontro tra la SEM e i rappresentanti del Cantone Ticino e dei Comuni di Mendrisiotto è stato annullato. Berna attende i risultati di una sperimentazione.',
+    canonicalPath: '/articoli-frontaliere/incontro-sem-cantone-comuni-annullato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incontro SEM-Cantone-Comuni annullato: cosa cambia per i frontalieri",
+      "description": "L'incontro tra la SEM e i rappresentanti del Cantone Ticino e dei Comuni di Mendrisiotto è stato annullato. Berna attende i risultati di una sperimentazione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incontro-sem-cantone-comuni-annullato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Mendrisio, Ticino, con il confine svizzero-italiano sullo sfondo"
+      },
+      "datePublished": "2026-04-29T04:15:09+00:00",
+      "dateModified": "2026-04-29T04:15:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incontro-sem-cantone-comuni-annullato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

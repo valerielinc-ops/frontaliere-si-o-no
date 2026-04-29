@@ -9618,4 +9618,11 @@ export const ARTICLES = [
  image: '/images/blog/centri-responsabilita-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incontro-sem-cantone-comuni-annullato',
+ category: 'novita',
+ date: '2026-04-29T04:15:09.514Z',
+ image: '/images/blog/incontro-sem-cantone-comuni-annullato.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

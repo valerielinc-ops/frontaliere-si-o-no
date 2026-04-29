@@ -3688,6 +3688,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.centri-responsabilita-frontalieri-ticino.title': 'Verantwortungszentren: Das Leiden der Asylsuchenden',
     'blog.article.centri-responsabilita-frontalieri-ticino.excerpt': 'Analyse der Bedingungen in den Bundesasylzentren im Tessin und die politischen Entscheidungen hinter der Migrationspolitik.',
     'blog.article.centri-responsabilita-frontalieri-ticino.imageAlt': 'Luganersee mit Blick auf Gebäude und Küste',
+    'blog.article.incontro-sem-cantone-comuni-annullato.title': 'SEM-Kanton-Gemeinde-Treffen abgesagt: Was ändert sich für Grenzgänger?',
+    'blog.article.incontro-sem-cantone-comuni-annullato.excerpt': 'Das Treffen zwischen der SEM und den Vertretern des Kantons und der Gemeinden von Mendrisiotto wurde abgesagt. Bern bevorzugt, die Ergebnisse anderer Experimente abzuwarten.',
+    'blog.article.incontro-sem-cantone-comuni-annullato.imageAlt': 'Ansicht von Mendrisio, Tessin, mit der Schweizer-Italienischen Grenze im Hintergrund',
 };
 
 export default blogMetaDe;

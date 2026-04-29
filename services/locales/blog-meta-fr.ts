@@ -3689,6 +3689,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.centri-responsabilita-frontalieri-ticino.title': 'Centres de responsabilité : la souffrance des demandeurs d\'asile',
     'blog.article.centri-responsabilita-frontalieri-ticino.excerpt': 'Analyse des conditions dans les centres fédéraux d\'asile en Ticino et les choix politiques derrière la gestion des politiques migratoires.',
     'blog.article.centri-responsabilita-frontalieri-ticino.imageAlt': 'Lac de Lugano avec vue sur les bâtiments et la côte',
+    'blog.article.incontro-sem-cantone-comuni-annullato.title': 'Rencontre SEM-Canton-Communes annulée: qu\'est-ce qui change pour les frontaliers',
+    'blog.article.incontro-sem-cantone-comuni-annullato.excerpt': 'La rencontre entre la SEM et les représentants du Canton et des communes du Mendrisiotto a été annulée. Berne préfère attendre les résultats d\'autres expérimentations.',
+    'blog.article.incontro-sem-cantone-comuni-annullato.imageAlt': 'Vue de Mendrisio, Tessin, avec la frontière suisse-italienne en arrière-plan',
 };
 
 export default blogMetaFr;
