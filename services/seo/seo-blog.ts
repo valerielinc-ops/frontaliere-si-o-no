@@ -23877,6 +23877,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-digitalizzazione-avs-ai-frontalieri': {
+    title: 'Via libera al fascicolo AVS/AI digitale: cosa cambia per i frontalieri',
+    description: 'Il Consiglio nazionale approva la digitalizzazione dei fascicoli AVS/AI. Dal 2028 accesso online ai dati previdenziali per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, libera, fascicolo, digitale, cosa',
+    ogTitle: 'Via libera al fascicolo AVS/AI digitale: cosa cambia per i frontalieri',
+    ogDescription: 'Il Consiglio nazionale approva la digitalizzazione dei fascicoli AVS/AI. Dal 2028 accesso online ai dati previdenziali per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/digitalizzazione-avs-ai-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Via libera al fascicolo AVS/AI digitale: cosa cambia per i frontalieri",
+      "description": "Il Consiglio nazionale approva la digitalizzazione dei fascicoli AVS/AI. Dal 2028 accesso online ai dati previdenziali per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/digitalizzazione-avs-ai-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Schermo digitale che mostra documenti AVS/AI in un ufficio moderno a Lugano, Ticino"
+      },
+      "datePublished": "2026-04-29T10:06:34+00:00",
+      "dateModified": "2026-04-29T10:06:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/digitalizzazione-avs-ai-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

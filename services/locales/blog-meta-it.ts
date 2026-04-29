@@ -3818,6 +3818,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scuola-viganello-gaza-gemellaggio-2026.title': 'Scuola di Viganello e Gaza si gemellano: scambi culturali e mostre',
     'blog.article.scuola-viganello-gaza-gemellaggio-2026.excerpt': 'Dal 27 aprile al 7 maggio, la scuola media di Viganello ospita una mostra dedicata al gemellaggio con la scuola Al-Salam di Gaza, con scambi di lettere e disegni.',
     'blog.article.scuola-viganello-gaza-gemellaggio-2026.imageAlt': 'Scuola media di Viganello, studenti che scambiano lettere e disegni con una scuola di Gaza',
+    'blog.article.digitalizzazione-avs-ai-frontalieri.title': 'Via libera al fascicolo AVS/AI digitale: cosa cambia per i frontalieri',
+    'blog.article.digitalizzazione-avs-ai-frontalieri.excerpt': 'Il Consiglio nazionale approva la digitalizzazione dei fascicoli AVS/AI. Dal 2028 accesso online ai dati previdenziali per i frontalieri',
+    'blog.article.digitalizzazione-avs-ai-frontalieri.imageAlt': 'Schermo digitale che mostra documenti AVS/AI in un ufficio moderno a Lugano, Ticino',
 };
 
 export default blogMetaIt;

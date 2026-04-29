@@ -3817,6 +3817,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scuola-viganello-gaza-gemellaggio-2026.title': 'Viganello and Gaza schools twin: cultural exchanges and exhibitions',
     'blog.article.scuola-viganello-gaza-gemellaggio-2026.excerpt': 'From 27 April to 7 May, Viganello middle school hosts an exhibition dedicated to the twinning with Al-Salam school in Gaza, with exchanges of letters and drawings.',
     'blog.article.scuola-viganello-gaza-gemellaggio-2026.imageAlt': 'Viganello Middle School, students exchanging letters and drawings with a school in Gaza',
+    'blog.article.digitalizzazione-avs-ai-frontalieri.title': 'AVS/AI digital file approved: what changes for cross-border workers',
+    'blog.article.digitalizzazione-avs-ai-frontalieri.excerpt': 'The National Council approves the digitalisation of AVS/AI files. From 2028, cross-border workers will have online access to their pension data',
+    'blog.article.digitalizzazione-avs-ai-frontalieri.imageAlt': 'Digital screen displaying AVS/AI documents in a modern office in Lugano, Ticino',
 };
 
 export default blogMetaEn;

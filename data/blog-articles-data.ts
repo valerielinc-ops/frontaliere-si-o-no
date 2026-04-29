@@ -9919,4 +9919,11 @@ export const ARTICLES = [
  image: '/images/blog/scuola-viganello-gaza-gemellaggio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'digitalizzazione-avs-ai-frontalieri',
+ category: 'novita',
+ date: '2026-04-29T10:06:34.949Z',
+ image: '/images/blog/digitalizzazione-avs-ai-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

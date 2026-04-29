@@ -3818,6 +3818,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scuola-viganello-gaza-gemellaggio-2026.title': 'École de Viganello et Gaza jumelées: échanges culturels et expositions',
     'blog.article.scuola-viganello-gaza-gemellaggio-2026.excerpt': 'Du 27 avril au 7 mai, l\'école de Viganello accueille une exposition dédiée au jumelage avec l\'école Al-Salam de Gaza, avec échanges de lettres et de dessins.',
     'blog.article.scuola-viganello-gaza-gemellaggio-2026.imageAlt': 'École moyenne de Viganello, élèves échangeant des lettres et des dessins avec une école à Gaza',
+    'blog.article.digitalizzazione-avs-ai-frontalieri.title': 'Feu vert pour le dossier AVS/AI numérique : ce qui change pour les frontaliers',
+    'blog.article.digitalizzazione-avs-ai-frontalieri.excerpt': 'Le Conseil national approuve la numérisation des dossiers AVS/AI. À partir de 2028, accès en ligne aux données prévoyantes pour les frontaliers',
+    'blog.article.digitalizzazione-avs-ai-frontalieri.imageAlt': 'Écran numérique affichant des documents AVS/AI dans un bureau moderne à Lugano, Tessin',
 };
 
 export default blogMetaFr;
