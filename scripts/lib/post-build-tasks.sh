@@ -34,6 +34,7 @@ run_post_build_task() {
     validate:content-quality)     node scripts/validate-content-quality.mjs ;;
     validate:canonical)           node scripts/validate-canonical.mjs ;;
     test:e2e:smoke)               timeout 180 npx playwright test ;;
+    gate:seo-source)              npm run gate:seo-source ;;
     *) echo "❌ Unknown post-build task: $name" >&2; return 2 ;;
   esac
 }
@@ -58,6 +59,7 @@ ALL_POST_BUILD_TASKS=(
   validate:sitemap-links
   audit:sitemap-canonicals
   validate:canonical
+  gate:seo-source
 )
 
 # LPT-balanced 4-shard assignment based on prior wall_s measurements
@@ -89,6 +91,7 @@ POST_BUILD_SHARD_4=(
   validate:jobposting-schema
   audit:orphan-sitemap-pages
   audit:hreflang
+  gate:seo-source
 )
 
 # Print the task list for a given shard number (1-4) one per line.

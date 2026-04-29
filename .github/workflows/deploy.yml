@@ -49,7 +49,7 @@ on:
         type: boolean
         default: false
       post_build_max_parallel:
-        description: 'Concurrency cap for the 18-task post-build pool. Default 4 — measured -33% wall vs =2 baseline (230s vs 345s) and -16% vs =3 (274s). The 4-way overlap masks I/O wait time; 2-core thrashing penalty is small because most tasks are I/O-bound (reading dist/). Override with 1/2/3 for one-off measurements.'
+        description: 'Concurrency cap for the 19-task post-build pool. Default 4 — measured -33% wall vs =2 baseline (230s vs 345s) and -16% vs =3 (274s). The 4-way overlap masks I/O wait time; 2-core thrashing penalty is small because most tasks are I/O-bound (reading dist/). Override with 1/2/3 for one-off measurements.'
         required: false
         type: string
         default: '4'
@@ -95,8 +95,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Gate — fast SEO source checks
-        run: npm run gate:seo-source
+      # Gate — fast SEO source checks moved into post-build pool (run 25120909716
+      # showed 40s wall here; now runs as a 19th task in the capped-parallel pool
+      # below, where it overlaps with the other 18 tasks at zero added wall.
+      # Trade-off: a source-level SEO regression is now caught AFTER the build
+      # completes (~6 min later) instead of fail-fast before. Acceptable because
+      # the 29 tests in tests/seo/ only fail on human PRs that touch hreflang/
+      # brand-dedup/sitemap source — automated deploys (cron blog/translate)
+      # never trip them.
 
       - name: Prepare Firebase credentials
         env:
@@ -367,7 +373,7 @@ jobs:
       #                            explicit approval (CLAUDE.md non-negotiable #5).
       - name: Post-build validations + SEO audits + SPA render + E2E (capped parallel)
         run: |
-          # IMPORTANT: 18 fully-parallel Node processes on the 2-core ubuntu
+          # IMPORTANT: 19 fully-parallel Node processes on the 2-core ubuntu
           # runner thrashed catastrophically — sum(per-task wall) ≈ step wall
           # (566 s ≈ 567 s, run #25108605667). The CPU spent more time
           # context-switching than actually executing audits. Theoretical
@@ -439,6 +445,10 @@ jobs:
           spawn_capped validate:canonical           /tmp/v5.log node scripts/validate-canonical.mjs
           spawn_capped validate:jobs-quality        /tmp/v2.log npm run validate:jobs-quality
           spawn_capped validate:sitemap-links       /tmp/v3.log npm run validate:sitemap-links
+          # Gate — SEO source-level invariants (vitest run tests/seo/, ~40s).
+          # Moved from a fail-fast pre-build step into the post-build pool —
+          # the source tests run at zero added wall thanks to MAX_PARALLEL=4.
+          spawn_capped gate:seo-source              /tmp/gate.log npm run gate:seo-source
 
           # Drain remaining in-flight tasks.
           wait
@@ -462,7 +472,7 @@ jobs:
           fi
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 18 post-build validators+audits+SPA+E2E passed"
+          echo "✅ All 19 post-build validators+audits+SPA+E2E+gate passed"
 
       # Visual regression baselines are OS-sensitive (darwin vs linux pixel
       # diffs). We run them only when a linux-specific baseline has been
