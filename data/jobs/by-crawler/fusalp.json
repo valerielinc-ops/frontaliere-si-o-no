@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-04-29T08:37:32.460Z",
+  "assembledAt": "2026-04-29T10:46:11.073Z",
   "jobs": [
     {
       "id": "fusalp-e906ae37d0cd",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f-saint-germain-de-pres_paris",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:53:45.647Z",
+      "crawledAt": "2026-04-29T10:46:08.254Z",
       "addressLocality": "Paris",
       "addressCountry": "FR",
       "country": "FR",
@@ -90,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:54.263Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -134,7 +135,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_luxembourg",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:53:44.744Z",
+      "crawledAt": "2026-04-29T10:46:07.238Z",
       "addressLocality": "Luxembourg",
       "addressCountry": "LU",
       "country": "LU",
@@ -192,6 +193,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:53.391Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -236,7 +238,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_marseille_FUSAL_qDRbjwg",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:53:43.824Z",
+      "crawledAt": "2026-04-29T10:46:06.123Z",
       "addressLocality": "Marseille",
       "addressCountry": "FR",
       "country": "FR",
@@ -305,7 +307,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:53:42.898Z",
+      "crawledAt": "2026-04-29T10:46:04.679Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,6 +364,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:51.057Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -406,7 +409,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-store-manager-m-w_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-28T21:53:41.997Z",
+      "crawledAt": "2026-04-29T10:46:01.599Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -466,6 +469,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:50.149Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -510,7 +514,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_nice_FUSAL_2e7q88z",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:53:41.083Z",
+      "crawledAt": "2026-04-29T10:46:00.406Z",
       "addressLocality": "Nice",
       "addressCountry": "FR",
       "country": "FR",
@@ -568,6 +572,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:49.275Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -612,7 +617,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-developpement-tissus-h-f-stage_annecy_FUSAL_wJOd8Po",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:53:39.969Z",
+      "crawledAt": "2026-04-29T10:45:59.348Z",
       "addressLocality": "Annecy",
       "addressCountry": "FR",
       "country": "FR",
@@ -668,6 +673,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:48.120Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -712,7 +718,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/stagiaire-assistant-styliste-h-f-stage_paris",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:53:39.038Z",
+      "crawledAt": "2026-04-29T10:45:58.080Z",
       "addressLocality": "Paris",
       "addressCountry": "FR",
       "country": "FR",
@@ -774,7 +780,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/collection-merchandiser-junior-h-f_paris",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:53:38.138Z",
+      "crawledAt": "2026-04-29T10:45:55.220Z",
       "addressLocality": "Paris",
       "addressCountry": "FR",
       "country": "FR",
@@ -836,7 +842,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/stagiaire-presse-influence-social-media_paris",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-28T21:53:37.256Z",
+      "crawledAt": "2026-04-29T10:45:54.130Z",
       "addressLocality": "Paris",
       "addressCountry": "FR",
       "country": "FR",
