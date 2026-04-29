@@ -25617,6 +25617,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gruppo-moncucco-2025-risultati': {
+    title: 'Gruppo Moncucco: 2025 con 120mila ospedalizzazioni e 187 milioni di fatturato',
+    description: 'Il Gruppo Moncucco chiude il 2025 con 120mila ospedalizzazioni e un fatturato di 187 milioni, puntando sulla formazione del personale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gruppo, moncucco, 2025, 120mila',
+    ogTitle: 'Gruppo Moncucco: 2025 con 120mila ospedalizzazioni e 187 milioni di fatturato',
+    ogDescription: 'Il Gruppo Moncucco chiude il 2025 con 120mila ospedalizzazioni e un fatturato di 187 milioni, puntando sulla formazione del personale.',
+    canonicalPath: '/articoli-frontaliere/gruppo-moncucco-2025-risultati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gruppo Moncucco: 2025 con 120mila ospedalizzazioni e 187 milioni di fatturato",
+      "description": "Il Gruppo Moncucco chiude il 2025 con 120mila ospedalizzazioni e un fatturato di 187 milioni, puntando sulla formazione del personale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gruppo-moncucco-2025-risultati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con edifici ospedalieri moderni e personale medico in primo piano"
+      },
+      "datePublished": "2026-04-29T20:15:18+00:00",
+      "dateModified": "2026-04-29T20:15:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gruppo-moncucco-2025-risultati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

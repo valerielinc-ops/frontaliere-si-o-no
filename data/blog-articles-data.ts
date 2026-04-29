@@ -10339,4 +10339,11 @@ export const ARTICLES = [
  image: '/images/blog/convegno-milano-mafia-italia-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gruppo-moncucco-2025-risultati',
+ category: 'novita',
+ date: '2026-04-29T20:15:18.726Z',
+ image: '/images/blog/gruppo-moncucco-2025-risultati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

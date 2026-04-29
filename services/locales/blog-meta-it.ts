@@ -3998,6 +3998,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.convegno-milano-mafia-italia-svizzera-2026.title': 'Convegno a Milano sulla cooperazione Italia-Svizzera contro la mafia',
     'blog.article.convegno-milano-mafia-italia-svizzera-2026.excerpt': 'Fiorenza Bergomi, giudice del Tribunale penale federale, tra i relatori del convegno dell\'11 maggio 2026 all\'Università di Milano',
     'blog.article.convegno-milano-mafia-italia-svizzera-2026.imageAlt': 'Convegno all\'Università di Milano sulla cooperazione Italia-Svizzera contro la mafia',
+    'blog.article.gruppo-moncucco-2025-risultati.title': 'Gruppo Moncucco: 2025 con 120mila ospedalizzazioni e 187 milioni di fatturato',
+    'blog.article.gruppo-moncucco-2025-risultati.excerpt': 'Il Gruppo Moncucco chiude il 2025 con 120mila ospedalizzazioni e un fatturato di 187 milioni, puntando sulla formazione del personale.',
+    'blog.article.gruppo-moncucco-2025-risultati.imageAlt': 'Vista aerea del Lago di Lugano con edifici ospedalieri moderni e personale medico in primo piano',
 };
 
 export default blogMetaIt;

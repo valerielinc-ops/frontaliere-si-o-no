@@ -3998,6 +3998,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.convegno-milano-mafia-italia-svizzera-2026.title': 'Conférence à Milan sur la coopération Italie-Suisse contre la mafia',
     'blog.article.convegno-milano-mafia-italia-svizzera-2026.excerpt': 'Fiorenza Bergomi, juge du Tribunal pénal fédéral, parmi les intervenants de la conférence du 11 mai 2026 à l\'Université de Milan',
     'blog.article.convegno-milano-mafia-italia-svizzera-2026.imageAlt': 'Conférence à l\'Université de Milan sur la coopération entre l\'Italie et la Suisse contre la mafia',
+    'blog.article.gruppo-moncucco-2025-risultati.title': 'Groupe Moncucco: 120\'000 hospitalisations, 187M de CA en 2025',
+    'blog.article.gruppo-moncucco-2025-risultati.excerpt': 'Le Groupe Moncucco clôture l\'année 2025 avec 120\'000 hospitalisations et un chiffre d\'affaires de 187 millions, en misant sur la formation du personnel.',
+    'blog.article.gruppo-moncucco-2025-risultati.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments hospitaliers modernes et du personnel médical au premier plan',
 };
 
 export default blogMetaFr;

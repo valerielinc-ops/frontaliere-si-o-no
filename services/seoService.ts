@@ -2563,6 +2563,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vaiolo-delle-scimmie-ticino-2026': { name: 'Salute', path: '/articoli-frontaliere/vaiolo-delle-scimmie-ticino-2026', parent: 'blog' },
     'blog-maroggia-postale-domestico-2024': { name: 'Servizi postali', path: '/articoli-frontaliere/maroggia-postale-domestico-2024', parent: 'blog' },
     'blog-convegno-milano-mafia-italia-svizzera-2026': { name: 'Convegno Milano', path: '/articoli-frontaliere/convegno-milano-mafia-italia-svizzera-2026', parent: 'blog' },
+    'blog-gruppo-moncucco-2025-risultati': { name: 'Novità', path: '/articoli-frontaliere/gruppo-moncucco-2025-risultati', parent: 'blog' },
  };
 
  const info = sectionNames[section];
