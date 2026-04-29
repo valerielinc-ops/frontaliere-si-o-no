@@ -2515,6 +2515,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-venditti-estival-lugano-2026': { name: 'Eventi Lugano', path: '/articoli-frontaliere/venditti-estival-lugano-2026', parent: 'blog' },
     'blog-accordo-syndicom-vsm-2026': { name: 'Novità', path: '/articoli-frontaliere/accordo-syndicom-vsm-2026', parent: 'blog' },
     'blog-philipp-plein-mendrisio-interrogazione': { name: 'Novità', path: '/articoli-frontaliere/philipp-plein-mendrisio-interrogazione', parent: 'blog' },
+    'blog-mercatino-primavera-lugano-2026': { name: 'Mercatino Primavera', path: '/articoli-frontaliere/mercatino-primavera-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

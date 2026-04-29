@@ -10003,4 +10003,11 @@ export const ARTICLES = [
  image: '/images/blog/philipp-plein-mendrisio-interrogazione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mercatino-primavera-lugano-2026',
+ category: 'novita',
+ date: '2026-04-29T11:12:26.887Z',
+ image: '/images/blog/mercatino-primavera-lugano-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

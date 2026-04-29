@@ -3854,6 +3854,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.philipp-plein-mendrisio-interrogazione.title': 'Philipp Plein à Mendrisio : interrogation sur son style controversé',
     'blog.article.philipp-plein-mendrisio-interrogazione.excerpt': 'La marque Philipp Plein transfère son siège légal à Mendrisio. Interrogation sur son style controversé',
     'blog.article.philipp-plein-mendrisio-interrogazione.imageAlt': 'Magasin Philipp Plein à Mendrisio, Tessin',
+    'blog.article.mercatino-primavera-lugano-2026.title': 'Marché de Printemps à Lugano: circulation fermée sur le lac',
+    'blog.article.mercatino-primavera-lugano-2026.excerpt': 'Vendredi 1er mai, le lac de Lugano se transforme en une île piétonne avec des stands d\'artisanat et des produits locaux.',
+    'blog.article.mercatino-primavera-lugano-2026.imageAlt': 'Quai du lac de Lugano avec des stands d\'artisanat et des produits locaux pendant le Marché de Printemps',
 };
 
 export default blogMetaFr;

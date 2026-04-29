@@ -3854,6 +3854,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.philipp-plein-mendrisio-interrogazione.title': 'Philipp Plein a Mendrisio: interrogazione sullo stile controverso',
     'blog.article.philipp-plein-mendrisio-interrogazione.excerpt': 'Il marchio Philipp Plein trasferisce la sede legale a Mendrisio. Interrogazione sul suo stile controverso',
     'blog.article.philipp-plein-mendrisio-interrogazione.imageAlt': 'Negozio Philipp Plein a Mendrisio, Ticino',
+    'blog.article.mercatino-primavera-lugano-2026.title': 'Mercatino di Primavera a Lugano: traffico chiuso sul lungolago',
+    'blog.article.mercatino-primavera-lugano-2026.excerpt': 'Venerdì 1 maggio il lungolago di Lugano si trasforma in un\'isola pedonale con bancarelle di artigianato e prodotti locali.',
+    'blog.article.mercatino-primavera-lugano-2026.imageAlt': 'Lungolago di Lugano con bancarelle di artigianato e prodotti locali durante il Mercatino di Primavera',
 };
 
 export default blogMetaIt;

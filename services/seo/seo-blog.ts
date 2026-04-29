@@ -24225,6 +24225,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercatino-primavera-lugano-2026': {
+    title: 'Mercatino di Primavera a Lugano: traffico chiuso sul lungolago',
+    description: 'Venerdì 1 maggio il lungolago di Lugano si trasforma in un\'isola pedonale con bancarelle di artigianato e prodotti locali. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercatino, primavera, lugano, traffico',
+    ogTitle: 'Mercatino di Primavera a Lugano: traffico chiuso sul lungolago',
+    ogDescription: 'Venerdì 1 maggio il lungolago di Lugano si trasforma in un\'isola pedonale con bancarelle di artigianato e prodotti locali.',
+    canonicalPath: '/articoli-frontaliere/mercatino-primavera-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercatino di Primavera a Lugano: traffico chiuso sul lungolago",
+      "description": "Venerdì 1 maggio il lungolago di Lugano si trasforma in un'isola pedonale con bancarelle di artigianato e prodotti locali. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mercatino-primavera-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lungolago di Lugano con bancarelle di artigianato e prodotti locali durante il Mercatino di Primavera"
+      },
+      "datePublished": "2026-04-29T11:12:26+00:00",
+      "dateModified": "2026-04-29T11:12:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercatino-primavera-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
