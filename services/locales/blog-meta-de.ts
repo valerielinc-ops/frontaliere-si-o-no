@@ -3811,6 +3811,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.annuario-impresari-2026-ticino.title': 'Jahrbuch 2026: Sicherheit und Transparenz für Bauunternehmer',
     'blog.article.annuario-impresari-2026-ticino.excerpt': 'Das Jahrbuch 2026 der Bauunternehmer im Tessin ist ein unverzichtbares Werkzeug für Auftraggeber und Planer. Entdecken Sie, wie Sie sich unter den qualifizierten Bauunternehmen orientieren können.',
     'blog.article.annuario-impresari-2026-ticino.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin, Schweiz',
+    'blog.article.via-francisca-10-anni-turismo-ticino.title': 'Via Francisca del Lucomagno: 10 Jahre Tourismus und Verbindungen',
+    'blog.article.via-francisca-10-anni-turismo-ticino.excerpt': 'Die Via Francisca del Lucomagno feiert ihr zehnjähriges Bestehen, verbindet Castiglione mit Rom und feiert den Tourismus und die Beziehungen zwischen den Gebieten',
+    'blog.article.via-francisca-10-anni-turismo-ticino.imageAlt': 'Gruppe von Wanderern entlang der Via Francisca del Lucomagno, umgeben von den Landschaften des Tessin',
 };
 
 export default blogMetaDe;

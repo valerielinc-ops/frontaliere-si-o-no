@@ -9905,4 +9905,11 @@ export const ARTICLES = [
  image: '/images/blog/annuario-impresari-2026-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'via-francisca-10-anni-turismo-ticino',
+ category: 'novita',
+ date: '2026-04-29T09:55:36.988Z',
+ image: '/images/blog/via-francisca-10-anni-turismo-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

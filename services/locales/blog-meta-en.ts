@@ -3811,6 +3811,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.annuario-impresari-2026-ticino.title': '2026 Ticino contractors\' directory: safety & transparency',
     'blog.article.annuario-impresari-2026-ticino.excerpt': 'The 2026 directory of Ticino contractors has been published, an essential tool for clients and designers. Find out how to navigate among qualified construction companies.',
     'blog.article.annuario-impresari-2026-ticino.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland',
+    'blog.article.via-francisca-10-anni-turismo-ticino.title': 'Via Francisca del Lucomagno: 10 years of tourism and connections',
+    'blog.article.via-francisca-10-anni-turismo-ticino.excerpt': 'The Via Francisca del Lucomagno turns ten, connecting Castiglione to Rome and celebrating tourism and relations between territories',
+    'blog.article.via-francisca-10-anni-turismo-ticino.imageAlt': 'Group of hikers along the Via Francisca del Lucomagno, surrounded by the landscapes of Ticino',
 };
 
 export default blogMetaEn;

@@ -23819,6 +23819,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-via-francisca-10-anni-turismo-ticino': {
+    title: 'Via Francisca del Lucomagno: 10 anni di turismo e connessioni',
+    description: 'La Via Francisca del Lucomagno compie dieci anni, unendo Castiglione a Roma e celebrando il turismo e le relazioni tra territori. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, francisca, lucomagno, anni, turismo',
+    ogTitle: 'Via Francisca del Lucomagno: 10 anni di turismo e connessioni',
+    ogDescription: 'La Via Francisca del Lucomagno compie dieci anni, unendo Castiglione a Roma e celebrando il turismo e le relazioni tra territori',
+    canonicalPath: '/articoli-frontaliere/via-francisca-10-anni-turismo-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Via Francisca del Lucomagno: 10 anni di turismo e connessioni",
+      "description": "La Via Francisca del Lucomagno compie dieci anni, unendo Castiglione a Roma e celebrando il turismo e le relazioni tra territori. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/via-francisca-10-anni-turismo-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di escursionisti lungo la Via Francisca del Lucomagno, immersi nei paesaggi del Ticino"
+      },
+      "datePublished": "2026-04-29T09:55:37+00:00",
+      "dateModified": "2026-04-29T09:55:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/via-francisca-10-anni-turismo-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

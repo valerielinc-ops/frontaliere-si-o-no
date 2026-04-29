@@ -3812,6 +3812,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.annuario-impresari-2026-ticino.title': 'Annuaire 2026 des entrepreneurs tessinois: sécurité et transparence',
     'blog.article.annuario-impresari-2026-ticino.excerpt': 'Publié l\'Annuaire 2026 des entrepreneurs tessinois, outil essentiel pour les maîtres d\'ouvrage et les concepteurs. Découvrez comment vous orienter parmi les entreprises de construction qualifiées.',
     'blog.article.annuario-impresari-2026-ticino.imageAlt': 'Vue aérienne de Castelgrande à Bellinzone, Tessin, Suisse',
+    'blog.article.via-francisca-10-anni-turismo-ticino.title': 'Via Francisca del Lucomagno : 10 ans de tourisme et de connexions',
+    'blog.article.via-francisca-10-anni-turismo-ticino.excerpt': 'La Via Francisca del Lucomagno fête ses dix ans, reliant Castiglione à Rome et célébrant le tourisme et les relations entre les territoires',
+    'blog.article.via-francisca-10-anni-turismo-ticino.imageAlt': 'Groupe de randonneurs le long de la Via Francisca del Lucomagno, entourés des paysages du Tessin',
 };
 
 export default blogMetaFr;

@@ -3812,6 +3812,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.annuario-impresari-2026-ticino.title': 'Annuario 2026 impresari ticinesi: sicurezza e trasparenza',
     'blog.article.annuario-impresari-2026-ticino.excerpt': 'Pubblicato l\'Annuario 2026 degli impresari ticinesi, strumento essenziale per committenti e progettisti. Scopri come orientarti tra le imprese edili qualificate.',
     'blog.article.annuario-impresari-2026-ticino.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera',
+    'blog.article.via-francisca-10-anni-turismo-ticino.title': 'Via Francisca del Lucomagno: 10 anni di turismo e connessioni',
+    'blog.article.via-francisca-10-anni-turismo-ticino.excerpt': 'La Via Francisca del Lucomagno compie dieci anni, unendo Castiglione a Roma e celebrando il turismo e le relazioni tra territori',
+    'blog.article.via-francisca-10-anni-turismo-ticino.imageAlt': 'Gruppo di escursionisti lungo la Via Francisca del Lucomagno, immersi nei paesaggi del Ticino',
 };
 
 export default blogMetaIt;
