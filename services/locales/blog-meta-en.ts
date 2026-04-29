@@ -3772,6 +3772,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scorte-carburante-svizzera-2026.title': 'Swiss fuel reserves secured until May 2026',
     'blog.article.scorte-carburante-svizzera-2026.excerpt': 'Swiss fuel stocks are exclusively for national needs. We explore the current situation and implications for cross-border workers.',
     'blog.article.scorte-carburante-svizzera-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background, clear blue sky, calm waters reflecting the landscape.',
+    'blog.article.swiss-duty-free-addio-30-settembre.title': 'Swiss to end duty-free sales from September 30, 2026',
+    'blog.article.swiss-duty-free-addio-30-settembre.excerpt': 'Swiss airline will discontinue its in-flight duty-free sales service starting September 30, 2026.',
+    'blog.article.swiss-duty-free-addio-30-settembre.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

@@ -9814,4 +9814,11 @@ export const ARTICLES = [
  image: '/images/blog/scorte-carburante-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'swiss-duty-free-addio-30-settembre',
+ category: 'novita',
+ date: '2026-04-29T08:40:20.296Z',
+ image: '/images/blog/swiss-duty-free-addio-30-settembre.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

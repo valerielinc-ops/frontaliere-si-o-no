@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1307,
+ "numberOfItems": 1308,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5942,7 +5942,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1304, "name": "Von der Leyen: \"Guerra in Iran costa all'Ue 500...", "url": `${BASE_URL}/articoli-frontaliere/von-der-leyen-ue-energia-500-milioni-giorno` },
           { "@type": "ListItem", "position": 1305, "name": "Svizzera sempre più cashless, BNS vuole sistema...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-cashless-bns-sistema-equo` },
           { "@type": "ListItem", "position": 1306, "name": "AVS/AI: dati consultabili in digitale dal 2028 ...", "url": `${BASE_URL}/articoli-frontaliere/avs-dati-digitale-frontalieri` },
-          { "@type": "ListItem", "position": 1307, "name": "Scorte carburante Svizzera: approvvigionamento ...", "url": `${BASE_URL}/articoli-frontaliere/scorte-carburante-svizzera-2026` }
+          { "@type": "ListItem", "position": 1307, "name": "Scorte carburante Svizzera: approvvigionamento ...", "url": `${BASE_URL}/articoli-frontaliere/scorte-carburante-svizzera-2026` },
+          { "@type": "ListItem", "position": 1308, "name": "Swiss elimina il duty free dal 30 settembre 2026", "url": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-addio-30-settembre` }
  ]
  },
  {

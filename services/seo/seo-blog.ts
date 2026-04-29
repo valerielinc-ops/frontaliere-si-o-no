@@ -23442,6 +23442,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-duty-free-addio-30-settembre': {
+    title: 'Swiss elimina il duty free dal 30 settembre 2026 | Frontaliere Ticino',
+    description: 'Swiss International Air Lines ha annunciato l\'eliminazione del servizio duty free a bordo a partire dal 30 settembre 2026. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, elimina, duty, free',
+    ogTitle: 'Swiss elimina il duty free dal 30 settembre 2026',
+    ogDescription: 'Swiss International Air Lines ha annunciato l\'eliminazione del servizio duty free a bordo a partire dal 30 settembre 2026.',
+    canonicalPath: '/articoli-frontaliere/swiss-duty-free-addio-30-settembre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss elimina il duty free dal 30 settembre 2026",
+      "description": "Swiss International Air Lines ha annunciato l'eliminazione del servizio duty free a bordo a partire dal 30 settembre 2026. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/swiss-duty-free-addio-30-settembre.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-04-29T08:40:20+00:00",
+      "dateModified": "2026-04-29T08:40:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swiss-duty-free-addio-30-settembre`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

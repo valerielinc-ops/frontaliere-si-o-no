@@ -3773,6 +3773,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scorte-carburante-svizzera-2026.title': 'Stocks de carburant en Suisse: approvisionnement garanti jusqu\'en mai 2026',
     'blog.article.scorte-carburante-svizzera-2026.excerpt': 'Les stocks suisses de carburant sont destinés exclusivement aux besoins nationaux. Nous approfondissons la situation actuelle et les implications pour les frontaliers.',
     'blog.article.scorte-carburante-svizzera-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan, ciel bleu clair, eaux calmes reflétant le paysage.',
+    'blog.article.swiss-duty-free-addio-30-settembre.title': 'Swiss supprime le duty free à partir du 30 septembre 2026',
+    'blog.article.swiss-duty-free-addio-30-settembre.excerpt': 'La compagnie aérienne Swiss a décidé de supprimer le service de vente duty free à bord à partir du 30 septembre 2026.',
+    'blog.article.swiss-duty-free-addio-30-settembre.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

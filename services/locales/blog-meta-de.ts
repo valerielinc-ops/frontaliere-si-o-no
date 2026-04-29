@@ -3772,6 +3772,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scorte-carburante-svizzera-2026.title': 'Kraftstoffvorräte Schweiz: Versorgung bis Mai 2026 gesichert',
     'blog.article.scorte-carburante-svizzera-2026.excerpt': 'Die Schweizer Kraftstoffvorräte sind ausschließlich für den nationalen Bedarf bestimmt. Wir vertiefen die aktuelle Situation und die Auswirkungen auf die Grenzgänger.',
     'blog.article.scorte-carburante-svizzera-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit den Bergen des Tessin im Hintergrund, klarer blauer Himmel, ruhiges Wasser, das die Landschaft widerspiegelt.',
+    'blog.article.swiss-duty-free-addio-30-settembre.title': 'Swiss stellt ab 30. September 2026 Duty-Free ein',
+    'blog.article.swiss-duty-free-addio-30-settembre.excerpt': 'Die Fluggesellschaft Swiss hat beschlossen, den Duty-Free-Verkauf an Bord ab dem 30. September 2026 einzustellen.',
+    'blog.article.swiss-duty-free-addio-30-settembre.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;
