@@ -43,6 +43,8 @@ import {
  buildJobPartTimeLandingModel,
  buildJobTodayLandingModel,
  EDITORIAL_CANTONS,
+ partitionCareClusters,
+ type CareClusterPartition,
 } from './jobEditorialLanding';
 import {
  CITY_HUB_KEYS,
@@ -3078,6 +3080,17 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  );
 
  /* ── Editorial landing: jobs today + location hubs ─────────── */
+ // Pre-compute the care-cluster partition once for the entire editorial
+ // section. Without this, `buildJob{Nurses,CareVariant}LandingModel` (and
+ // their `buildCareVariantLinks` helper) ran 4 heavy regex matchers on
+ // the (title + description ≈ 3 KB) of every one of ~2 500 jobs, twice
+ // per call, ~60 calls per build → ~85 s of redundant regex evaluation
+ // (run #25100009540: editorial-care-variant 180.6 s + editorial-nurses
+ // 44.5 s of the 542 s plugin total). Computing the partition once and
+ // threading it through the builders keeps output byte-identical
+ // (same predicates, same input order) but cuts that cost to a single
+ // ~700 ms scan.
+ const careClusterPartition: CareClusterPartition = partitionCareClusters(validJobs);
  let editorialEntries = '';
  {
  const editorialSitemapEntries: string[] = [];
@@ -3648,6 +3661,7 @@ ${alternates}
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
+ partition: careClusterPartition,
  });
  editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
@@ -3663,6 +3677,7 @@ ${alternates}
  sectionSlug: sectionByLocale[altLocale],
  localePrefix: localePrefix[altLocale],
  canton: editorialCanton,
+ partition: careClusterPartition,
  });
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
@@ -3796,6 +3811,7 @@ ${alternates}
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
+ partition: careClusterPartition,
  }), '0.77');
  }
 
@@ -3972,6 +3988,7 @@ ${alternates}
  sectionSlug: sectionByLocale.it,
  localePrefix: localePrefix.it,
  canton: editorialCanton,
+ partition: careClusterPartition,
  });
  if (italianCareModel.totalJobs === 0) continue;
 
@@ -3987,6 +4004,7 @@ ${alternates}
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
+ partition: careClusterPartition,
  });
  editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
@@ -4003,6 +4021,7 @@ ${alternates}
  sectionSlug: sectionByLocale[altLocale],
  localePrefix: localePrefix[altLocale],
  canton: editorialCanton,
+ partition: careClusterPartition,
  });
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
@@ -4117,6 +4136,7 @@ ${alternates}
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
+ partition: careClusterPartition,
  }), '0.71');
  }
  }

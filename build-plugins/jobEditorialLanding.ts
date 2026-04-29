@@ -1404,6 +1404,44 @@ function isNursingHubJob(job: JobLike): boolean {
  return (Object.values(CARE_CLUSTER_DEFS) as Array<{ matcher: (job: JobLike) => boolean }>).some((cluster) => cluster.matcher(job));
 }
 
+/**
+ * Pre-computed care-cluster job sets, shared across all
+ * `buildJob{Nurses,CareVariant}LandingModel` calls in a single build to
+ * avoid running the heavy `isNursingHubJob` regex matchers on the full job
+ * array on every call.
+ *
+ * Without this, each builder ran 4 regex tests on the (title +
+ * description ≈ 3 KB) of every one of ~2 500 jobs twice per call, and was
+ * called ~60 times per build → ~85 s of pure regex evaluation. Computing
+ * the partition once cuts that to a single ~700 ms scan.
+ */
+export interface CareClusterPartition {
+ /** Every job whose title/description matches at least one care cluster. */
+ readonly nursing: readonly JobLike[];
+ /** Per-cluster narrowed subsets of `nursing`. */
+ readonly byCluster: Readonly<Record<JobCareClusterKey, readonly JobLike[]>>;
+}
+
+/**
+ * Run every care-cluster matcher on the input array exactly once and
+ * return the resulting partition. Builders that accept an optional
+ * `partition` parameter reuse this result and skip their internal filter
+ * passes entirely.
+ */
+export function partitionCareClusters(jobs: readonly JobLike[]): CareClusterPartition {
+ const nursing = jobs.filter((job) => isNursingHubJob(job));
+ const clusterKeys = Object.keys(CARE_CLUSTER_DEFS) as JobCareClusterKey[];
+ const byCluster = clusterKeys.reduce(
+ (acc, key) => {
+ const def = getCareClusterDef(key);
+ acc[key] = nursing.filter((job) => def.matcher(job));
+ return acc;
+ },
+ {} as Record<JobCareClusterKey, JobLike[]>,
+ );
+ return { nursing, byCluster };
+}
+
 function buildCareVariantLinks(options: {
  jobs: JobLike[];
  locale: JobLandingLocale;
@@ -1411,12 +1449,18 @@ function buildCareVariantLinks(options: {
  baseUrl: string;
  localePrefix: string;
  sectionSlug: string;
+ partition?: CareClusterPartition;
 }): CareVariantLink[] {
- const jobs = options.jobs.filter((job) => isNursingHubJob(job));
+ const partition = options.partition;
+ const nursing: readonly JobLike[] = partition
+ ? partition.nursing
+ : options.jobs.filter((job) => isNursingHubJob(job));
  return (Object.keys(CARE_CLUSTER_DEFS) as JobCareClusterKey[])
  .map((key) => {
  const def = getCareClusterDef(key);
- const count = jobs.filter((job) => def.matcher(job)).length;
+ const count = partition
+ ? partition.byCluster[key].length
+ : nursing.filter((job) => def.matcher(job)).length;
  return {
  key,
  label: def.label[options.locale],
@@ -1437,13 +1481,21 @@ export function buildJobNursesHubLandingModel(options: {
  sectionSlug: string;
  localePrefix: string;
  canton?: string;
+ /**
+  * Optional pre-computed care-cluster partition (see `partitionCareClusters`).
+  * When provided, skips the per-call full-array regex filter; builds with
+  * identical input → byte-equivalent output.
+  */
+ partition?: CareClusterPartition;
 }): JobNursesHubLandingModel {
  const locale = options.locale;
  const cantonCode = options.canton || 'TI';
  const copy = makeNursesHubCopy(cantonCode)[locale];
  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
- const matches = options.jobs.filter((job) => isNursingHubJob(job));
+ const matches: JobLike[] = options.partition
+ ? [...options.partition.nursing]
+ : options.jobs.filter((job) => isNursingHubJob(job));
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  return {
  kind: 'nurses-hub',
@@ -1459,7 +1511,7 @@ export function buildJobNursesHubLandingModel(options: {
  latestLabel: copy.latestLabel,
  latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
  variantTitle: copy.variantTitle,
- variants: buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug }),
+ variants: buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug, partition: options.partition }),
  explainerCards: copy.explainerCards,
  faq: copy.faq,
  openAllLabel: copy.openAll,
@@ -1476,6 +1528,12 @@ export function buildJobCareVariantLandingModel(options: {
  sectionSlug: string;
  localePrefix: string;
  canton?: string;
+ /**
+  * Optional pre-computed care-cluster partition (see `partitionCareClusters`).
+  * When provided, skips the per-call full-array regex filter; builds with
+  * identical input → byte-equivalent output.
+  */
+ partition?: CareClusterPartition;
 }): JobCareVariantLandingModel {
  const locale = options.locale;
  const clusterKey = options.clusterKey;
@@ -1483,7 +1541,9 @@ export function buildJobCareVariantLandingModel(options: {
  const def = getCareClusterDef(clusterKey);
  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
- const matches = options.jobs.filter((job) => isNursingHubJob(job) && def.matcher(job));
+ const matches: JobLike[] = options.partition
+ ? [...options.partition.byCluster[clusterKey]]
+ : options.jobs.filter((job) => isNursingHubJob(job) && def.matcher(job));
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  const label = careClusterLabel(clusterKey, cantonCode, locale);
  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
@@ -1513,7 +1573,7 @@ export function buildJobCareVariantLandingModel(options: {
  : locale === 'de'
  ? `Diese Seite fokussiert den Gesundheits-Hub auf ${label.toLowerCase()}, damit Sie die relevantesten Stellen schneller sehen.`
  : `Cette page resserre le hub sante sur les roles ${label.toLowerCase()} pour aller directement aux offres les plus pertinentes.`;
- const siblingLinks = buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug }).filter((entry) => entry.key !== clusterKey);
+ const siblingLinks = buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug, partition: options.partition }).filter((entry) => entry.key !== clusterKey);
  return {
  kind: 'care-variant',
  slug: careClusterSlug(clusterKey, cantonCode, locale),
