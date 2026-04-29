@@ -3698,6 +3698,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.magadino-parco-giochi-nuova-area-ludica.title': 'Magadino: nuovo parco giochi in riva al lago',
     'blog.article.magadino-parco-giochi-nuova-area-ludica.excerpt': 'Il Comune di Magadino sostituisce il parco giochi alle Bolle con una nuova area attrezzata in riva al lago, con un investimento di 70mila franchi.',
     'blog.article.magadino-parco-giochi-nuova-area-ludica.imageAlt': 'Nuovo parco giochi a Magadino con attrezzature in legno e acciaio inossidabile',
+    'blog.article.incidente-valle-verzasca-2026.title': 'Incidente in Valle Verzasca: motociclista grave',
+    'blog.article.incidente-valle-verzasca-2026.excerpt': 'Un 23enne svizzero ha riportato serie ferite in un incidente in Valle Verzasca. La strada è stata temporaneamente chiusa.',
+    'blog.article.incidente-valle-verzasca-2026.imageAlt': 'Incidente stradale in Valle Verzasca con mezzi di soccorso',
 };
 
 export default blogMetaIt;

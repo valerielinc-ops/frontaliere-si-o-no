@@ -9639,4 +9639,11 @@ export const ARTICLES = [
  image: '/images/blog/magadino-parco-giochi-nuova-area-ludica.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incidente-valle-verzasca-2026',
+ category: 'novita',
+ date: '2026-04-29T04:33:12.949Z',
+ image: '/images/blog/incidente-valle-verzasca-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

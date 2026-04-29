@@ -3698,6 +3698,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.magadino-parco-giochi-nuova-area-ludica.title': 'Magadino: nouveau parc de jeux au bord du lac',
     'blog.article.magadino-parco-giochi-nuova-area-ludica.excerpt': 'La commune de Magadino remplace l\'aire de jeux aux Bolle par une nouvelle zone aménagée au bord du lac, avec un investissement de 70 mille francs.',
     'blog.article.magadino-parco-giochi-nuova-area-ludica.imageAlt': 'Nouveau parc de jeux à Magadino avec des équipements en bois et en acier inoxydable',
+    'blog.article.incidente-valle-verzasca-2026.title': 'Accident grave dans la vallée de Verzasca',
+    'blog.article.incidente-valle-verzasca-2026.excerpt': 'Un Suisse de 23 ans a subi de graves blessures dans un accident dans la vallée de Verzasca. La route a été temporairement fermée.',
+    'blog.article.incidente-valle-verzasca-2026.imageAlt': 'Accident de la route dans la vallée de Verzasca avec des véhicules de secours',
 };
 
 export default blogMetaFr;

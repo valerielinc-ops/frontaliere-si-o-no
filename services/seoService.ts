@@ -2463,6 +2463,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incontro-sem-cantone-comuni-annullato': { name: 'Novità', path: '/articoli-frontaliere/incontro-sem-cantone-comuni-annullato', parent: 'blog' },
     'blog-centrosinistra-varese-patto-2027': { name: 'Centrosinistra Varese', path: '/articoli-frontaliere/centrosinistra-varese-patto-2027', parent: 'blog' },
     'blog-magadino-parco-giochi-nuova-area-ludica': { name: 'Novità', path: '/articoli-frontaliere/magadino-parco-giochi-nuova-area-ludica', parent: 'blog' },
+    'blog-incidente-valle-verzasca-2026': { name: 'Incidente Valle Verzasca', path: '/articoli-frontaliere/incidente-valle-verzasca-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

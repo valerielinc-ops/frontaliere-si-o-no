@@ -3697,6 +3697,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.magadino-parco-giochi-nuova-area-ludica.title': 'Magadino: Neuer Spielplatz am Seeufer',
     'blog.article.magadino-parco-giochi-nuova-area-ludica.excerpt': 'Die Gemeinde Magadino ersetzt den Spielplatz Bolle durch eine neue Anlage am Seeufer, mit einer Investition von 70\'000 Franken.',
     'blog.article.magadino-parco-giochi-nuova-area-ludica.imageAlt': 'Neuer Spielplatz in Magadino mit Holz- und Edelstahlausrüstung',
+    'blog.article.incidente-valle-verzasca-2026.title': 'Schwerer Motorradunfall in Valle Verzasca',
+    'blog.article.incidente-valle-verzasca-2026.excerpt': 'Ein 23-jähriger Schweizer hat bei einem Unfall in Valle Verzasca schwere Verletzungen erlitten. Die Straße wurde vorübergehend gesperrt.',
+    'blog.article.incidente-valle-verzasca-2026.imageAlt': 'Unfall auf der Straße im Verzasca-Tal mit Rettungsfahrzeugen',
 };
 
 export default blogMetaDe;

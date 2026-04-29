@@ -3697,6 +3697,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.magadino-parco-giochi-nuova-area-ludica.title': 'Magadino: new lakeside playground',
     'blog.article.magadino-parco-giochi-nuova-area-ludica.excerpt': 'The municipality of Magadino is replacing the Bolle playground with a new lakeside area, investing 70,000 francs.',
     'blog.article.magadino-parco-giochi-nuova-area-ludica.imageAlt': 'New playground in Magadino with wooden and stainless steel equipment',
+    'blog.article.incidente-valle-verzasca-2026.title': 'Serious accident in Valle Verzasca: motorcyclist injured',
+    'blog.article.incidente-valle-verzasca-2026.excerpt': 'A 23-year-old Swiss man sustained serious injuries in an accident in Valle Verzasca. The road was temporarily closed.',
+    'blog.article.incidente-valle-verzasca-2026.imageAlt': 'Road accident in Valle Verzasca with rescue vehicles',
 };
 
 export default blogMetaEn;

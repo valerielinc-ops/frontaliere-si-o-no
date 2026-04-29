@@ -22717,6 +22717,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-valle-verzasca-2026': {
+    title: 'Incidente in Valle Verzasca: motociclista grave | Frontaliere Ticino',
+    description: 'Un 23enne svizzero ha riportato serie ferite in un incidente in Valle Verzasca. La strada è stata temporaneamente chiusa. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, valle, verzasca, motociclista',
+    ogTitle: 'Incidente in Valle Verzasca: motociclista grave',
+    ogDescription: 'Un 23enne svizzero ha riportato serie ferite in un incidente in Valle Verzasca. La strada è stata temporaneamente chiusa.',
+    canonicalPath: '/articoli-frontaliere/incidente-valle-verzasca-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente in Valle Verzasca: motociclista grave",
+      "description": "Un 23enne svizzero ha riportato serie ferite in un incidente in Valle Verzasca. La strada è stata temporaneamente chiusa. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-valle-verzasca-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale in Valle Verzasca con mezzi di soccorso"
+      },
+      "datePublished": "2026-04-29T04:33:12+00:00",
+      "dateModified": "2026-04-29T04:33:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-valle-verzasca-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
