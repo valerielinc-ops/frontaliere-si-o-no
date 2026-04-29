@@ -3716,6 +3716,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.title': 'Des athlètes tessinois triomphent à Arcegno et Ascona',
     'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.excerpt': 'Mattia Pezzati et Tobia Pezzati remportent les épreuves d\'orientation dans le Tessin',
     'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.imageAlt': 'Athlètes tessinois en compétition de course d\'orientation à Locarno',
+    'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.title': 'Malnate: les Comités de Quartier commencent leur travail',
+    'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.excerpt': 'Les nouveaux Comités de Quartier de Malnate commencent leur mandat avec un budget participatif et des projets ciblés.',
+    'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.imageAlt': 'Vue aérienne de Malnate, Italie, montrant la disposition de la ville et les zones environnantes.',
 };
 
 export default blogMetaFr;

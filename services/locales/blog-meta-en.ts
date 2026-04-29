@@ -3715,6 +3715,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.title': 'Ticino athletes triumph in Arcegno and Ascona',
     'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.excerpt': 'Mattia Pezzati and Tobia Pezzati win orienteering races in Ticino',
     'blog.article.atleti-ticinesi-vittoria-arcegno-ascona.imageAlt': 'Ticinese athletes competing in an orienteering race in Locarno',
+    'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.title': 'Malnate: neighborhood committees start work',
+    'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.excerpt': 'Malnate\'s new Neighborhood Committees begin their term with participatory budgeting and targeted projects.',
+    'blog.article.malnate-comitati-quartiere-bilancio-partecipativo.imageAlt': 'Aerial view of Malnate, Italy, showing the town\'s layout and surrounding areas.',
 };
 
 export default blogMetaEn;

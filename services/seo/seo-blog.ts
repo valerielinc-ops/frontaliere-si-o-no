@@ -22891,6 +22891,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-malnate-comitati-quartiere-bilancio-partecipativo': {
+    title: 'Malnate: parte il lavoro dei Comitati di Quartiere',
+    description: 'I nuovi Comitati di Quartiere di Malnate iniziano il loro mandato con un bilancio partecipativo e progetti mirati per il miglioramento delle aree locali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, malnate, parte, lavoro, comitati',
+    ogTitle: 'Malnate: parte il lavoro dei Comitati di Quartiere',
+    ogDescription: 'I nuovi Comitati di Quartiere di Malnate iniziano il loro mandato con un bilancio partecipativo e progetti mirati per il miglioramento delle aree locali.',
+    canonicalPath: '/articoli-frontaliere/malnate-comitati-quartiere-bilancio-partecipativo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malnate: parte il lavoro dei Comitati di Quartiere",
+      "description": "I nuovi Comitati di Quartiere di Malnate iniziano il loro mandato con un bilancio partecipativo e progetti mirati per il miglioramento delle aree locali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/malnate-comitati-quartiere-bilancio-partecipativo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Malnate, Italia, che mostra la disposizione della città e le aree circostanti."
+      },
+      "datePublished": "2026-04-29T05:13:24+00:00",
+      "dateModified": "2026-04-29T05:13:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malnate-comitati-quartiere-bilancio-partecipativo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

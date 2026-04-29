@@ -9681,4 +9681,11 @@ export const ARTICLES = [
  image: '/images/blog/atleti-ticinesi-vittoria-arcegno-ascona.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'malnate-comitati-quartiere-bilancio-partecipativo',
+ category: 'novita',
+ date: '2026-04-29T05:13:24.023Z',
+ image: '/images/blog/malnate-comitati-quartiere-bilancio-partecipativo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
