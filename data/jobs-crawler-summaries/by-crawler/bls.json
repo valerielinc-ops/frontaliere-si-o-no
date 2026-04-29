@@ -1,59 +1,16 @@
 {
   "key": "bls",
   "label": "BLS AG",
-  "generatedAt": "2026-04-28T21:24:36.679Z",
-  "total": 1,
+  "generatedAt": "2026-04-29T10:16:31.281Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4811,
-  "avgDurationMs": 4811,
-  "durationHistory": [
-    4811
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "bls-11fa0b1a921e",
-      "slug": "lokomotiven-instandhalter-in-bls-ch",
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Lokomotiven-Instandhalter:in",
-      "location": "Spiez",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-28T21:24:34.301Z",
-      "addressLocality": "Spiez",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3700",
-      "streetAddress": "Krattigstrasse 1A",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-24",
-      "validThrough": "2036-01-30",
-      "pensum": "80-100%",
-      "salary": "88242",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/53e51727-64ed-4a52-9d94-ca5b435e8848",
-      "firstSeenAt": "2026-04-21T21:11:27.567Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
