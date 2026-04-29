@@ -4055,6 +4055,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.palma-muralto-ristrutturazione-strategia-2024.title': 'La Palma di Muralto si rinnova e punta alla destagionalizzazione',
     'blog.article.palma-muralto-ristrutturazione-strategia-2024.excerpt': 'L\'hotel La Palma di Muralto ha completato un rinnovamento da 12,7 milioni di franchi e cambia strategia, restando aperto tutto l\'anno.',
     'blog.article.palma-muralto-ristrutturazione-strategia-2024.imageAlt': 'Lago Maggiore Locarno vista La Palma',
+    'blog.article.gev-ticino-ambiente-2026.title': 'GEV Insubria Olona: come proteggere l’ambiente in Ticino',
+    'blog.article.gev-ticino-ambiente-2026.excerpt': 'Le Guardie Ecologiche Volontarie Insubria Olona educano al rispetto dell’ambiente e proteggono flora e fauna in Ticino',
+    'blog.article.gev-ticino-ambiente-2026.imageAlt': 'Guardie Ecologiche Volontarie impegnate in attività di protezione ambientale in un parco naturale del Ticino',
 };
 
 export default blogMetaIt;

@@ -26168,6 +26168,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gev-ticino-ambiente-2026': {
+    title: 'GEV Insubria Olona: come proteggere l’ambiente in Ticino',
+    description: 'Scopri come le Guardie Ecologiche Volontarie Insubria Olona proteggono l’ambiente in Ticino e offrono opportunità di volontariato. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, insubria, olona, proteggere, ambiente',
+    ogTitle: 'GEV Insubria Olona: protezione ambientale in Ticino',
+    ogDescription: 'Scopri come le Guardie Ecologiche Volontarie Insubria Olona proteggono l’ambiente in Ticino e offrono opportunità di volontariato',
+    canonicalPath: '/articoli-frontaliere/gev-ticino-ambiente-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "GEV Insubria Olona: protezione ambientale in Ticino",
+      "description": "Scopri come le Guardie Ecologiche Volontarie Insubria Olona proteggono l’ambiente in Ticino e offrono opportunità di volontariato. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gev-ticino-ambiente-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guardie Ecologiche Volontarie impegnate in attività di protezione ambientale in un parco naturale del Ticino"
+      },
+      "datePublished": "2026-04-29T23:20:52+00:00",
+      "dateModified": "2026-04-29T23:20:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gev-ticino-ambiente-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

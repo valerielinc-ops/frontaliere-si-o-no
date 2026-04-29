@@ -2582,6 +2582,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dl-bollette-novita-consumatori-2026': { name: 'Novità consumatori', path: '/articoli-frontaliere/dl-bollette-novita-consumatori-2026', parent: 'blog' },
     'blog-bonus-sicurezza-2026-frontalieri-ticino': { name: 'Bonus sicurezza 2026', path: '/articoli-frontaliere/bonus-sicurezza-2026-frontalieri-ticino', parent: 'blog' },
     'blog-palma-muralto-ristrutturazione-strategia-2024': { name: 'Novità', path: '/articoli-frontaliere/palma-muralto-ristrutturazione-strategia-2024', parent: 'blog' },
+    'blog-gev-ticino-ambiente-2026': { name: 'Protezione ambientale', path: '/articoli-frontaliere/gev-ticino-ambiente-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

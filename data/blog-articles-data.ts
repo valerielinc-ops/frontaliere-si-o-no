@@ -10472,4 +10472,11 @@ export const ARTICLES = [
  image: '/images/blog/palma-muralto-ristrutturazione-strategia-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gev-ticino-ambiente-2026',
+ category: 'pratico',
+ date: '2026-04-29T23:20:52.100Z',
+ image: '/images/blog/gev-ticino-ambiente-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
