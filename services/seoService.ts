@@ -2491,6 +2491,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-swiss-duty-free-addio-30-settembre': { name: 'Novità', path: '/articoli-frontaliere/swiss-duty-free-addio-30-settembre', parent: 'blog' },
     'blog-momoride-carpooling-frontalieri-benefici': { name: 'Carpooling aziendale', path: '/articoli-frontaliere/momoride-carpooling-frontalieri-benefici', parent: 'blog' },
     'blog-swiss-duty-free-fine-vendite-bordo': { name: 'Novità', path: '/articoli-frontaliere/swiss-duty-free-fine-vendite-bordo', parent: 'blog' },
+    'blog-incidente-aarau-18enne-frontaliere': { name: 'Incidente Aarau', path: '/articoli-frontaliere/incidente-aarau-18enne-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];

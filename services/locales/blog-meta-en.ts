@@ -3781,6 +3781,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-duty-free-fine-vendite-bordo.title': 'Swiss stops in-flight duty-free sales',
     'blog.article.swiss-duty-free-fine-vendite-bordo.excerpt': 'From 30 September 2026, duty-free products will only be available online. Up to 50% off from June.',
     'blog.article.swiss-duty-free-fine-vendite-bordo.imageAlt': 'Aerial view of Lake Lugano with Swiss aircraft landing at Lugano Airport, Ticino, Switzerland.',
+    'blog.article.incidente-aarau-18enne-frontaliere.title': 'Aarau crash: drunk 18-year-old cross-border worker totals car',
+    'blog.article.incidente-aarau-18enne-frontaliere.excerpt': 'An 18-year-old apprentice from Ticino caused a road accident in Aarau, resulting in total damage to the car.',
+    'blog.article.incidente-aarau-18enne-frontaliere.imageAlt': 'Car crash in Aarau with young driver involved',
 };
 
 export default blogMetaEn;

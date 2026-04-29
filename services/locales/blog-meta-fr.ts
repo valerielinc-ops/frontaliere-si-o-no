@@ -3782,6 +3782,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.swiss-duty-free-fine-vendite-bordo.title': 'Swiss met fin aux ventes duty-free à bord',
     'blog.article.swiss-duty-free-fine-vendite-bordo.excerpt': 'À partir du 30 septembre 2026, les produits duty-free ne seront disponibles qu\'en ligne. Des réductions allant jusqu\'à 50% dès juin.',
     'blog.article.swiss-duty-free-fine-vendite-bordo.imageAlt': 'Vue aérienne du lac de Lugano avec un avion Swiss en train d\'atterrir à l\'aéroport de Lugano, Tessin, Suisse.',
+    'blog.article.incidente-aarau-18enne-frontaliere.title': 'Accident à Aarau: un frontalier ivre cause des dégâts totaux',
+    'blog.article.incidente-aarau-18enne-frontaliere.excerpt': 'Un jeune apprenti de 18 ans, résidant au Tessin, a causé un accident de la route à Aarau, provoquant des dégâts totaux à la voiture.',
+    'blog.article.incidente-aarau-18enne-frontaliere.imageAlt': 'Accident de voiture à Aarau avec jeune conducteur impliqué',
 };
 
 export default blogMetaFr;

@@ -9835,4 +9835,11 @@ export const ARTICLES = [
  image: '/images/blog/swiss-duty-free-fine-vendite-bordo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incidente-aarau-18enne-frontaliere',
+ category: 'novita',
+ date: '2026-04-29T08:55:31.413Z',
+ image: '/images/blog/incidente-aarau-18enne-frontaliere.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

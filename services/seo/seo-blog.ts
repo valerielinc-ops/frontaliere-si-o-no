@@ -23529,6 +23529,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-aarau-18enne-frontaliere': {
+    title: 'Incidente ad Aarau: 18enne frontaliero ubriaco causa danni totali',
+    description: 'Un giovane apprendista di 18 anni, residente in Ticino, ha causato un incidente stradale ad Aarau, provocando danni totali all\'auto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, aarau, 18enne, frontaliero',
+    ogTitle: 'Incidente ad Aarau: 18enne frontaliero ubriaco causa danni totali',
+    ogDescription: 'Un giovane apprendista di 18 anni, residente in Ticino, ha causato un incidente stradale ad Aarau, provocando danni totali all\'auto.',
+    canonicalPath: '/articoli-frontaliere/incidente-aarau-18enne-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente ad Aarau: 18enne frontaliero ubriaco causa danni totali",
+      "description": "Un giovane apprendista di 18 anni, residente in Ticino, ha causato un incidente stradale ad Aarau, provocando danni totali all'auto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-aarau-18enne-frontaliere.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale ad Aarau con giovane autista coinvolto"
+      },
+      "datePublished": "2026-04-29T08:55:31+00:00",
+      "dateModified": "2026-04-29T08:55:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-aarau-18enne-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
