@@ -2577,6 +2577,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dichiarazione-precompilata-2026-disponibile': { name: 'Fiscale', path: '/articoli-frontaliere/dichiarazione-precompilata-2026-disponibile', parent: 'blog' },
     'blog-moncucco-utile-raddoppiato-2026': { name: 'Novità', path: '/articoli-frontaliere/moncucco-utile-raddoppiato-2026', parent: 'blog' },
     'blog-domenica-natura-spazio-tradate-2026': { name: 'Eventi Tradate', path: '/articoli-frontaliere/domenica-natura-spazio-tradate-2026', parent: 'blog' },
+    'blog-lago-maggiore-innalzamento-2026': { name: 'Novità', path: '/articoli-frontaliere/lago-maggiore-innalzamento-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

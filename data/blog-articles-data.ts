@@ -10437,4 +10437,11 @@ export const ARTICLES = [
  image: '/images/blog/domenica-natura-spazio-tradate-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lago-maggiore-innalzamento-2026',
+ category: 'novita',
+ date: '2026-04-29T22:52:15.123Z',
+ image: '/images/blog/lago-maggiore-innalzamento-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

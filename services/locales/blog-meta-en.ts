@@ -4039,6 +4039,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.domenica-natura-spazio-tradate-2026.title': 'A Sunday between nature and space in Tradate',
     'blog.article.domenica-natura-spazio-tradate-2026.excerpt': 'On Sunday, May 31, 2026, from 14:30 to 18:00, the Scientific Educational Center of Tradate offers activities between nature and space.',
     'blog.article.domenica-natura-spazio-tradate-2026.imageAlt': 'A family enjoying a scientific exhibition in a park near a lake with mountains in the background',
+    'blog.article.lago-maggiore-innalzamento-2026.title': 'Lake Maggiore: 20-30 million cubic meters more water',
+    'blog.article.lago-maggiore-innalzamento-2026.excerpt': 'The decision will increase water availability by 20-30 million cubic meters. Agreement between Italy and Switzerland for a 15 cm rise.',
+    'blog.article.lago-maggiore-innalzamento-2026.imageAlt': 'Aerial view of Lake Maggiore with clear blue waters and surrounding mountains',
 };
 
 export default blogMetaEn;

@@ -4039,6 +4039,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.domenica-natura-spazio-tradate-2026.title': 'Ein Sonntag zwischen Natur und Weltraum im Wissenschaftszentrum Tradate',
     'blog.article.domenica-natura-spazio-tradate-2026.excerpt': 'Sonntag, 31. Mai 2026, von 14.30 bis 18.00 Uhr bietet das Wissenschaftszentrum Tradate Aktivitäten zwischen Natur und Weltraum.',
     'blog.article.domenica-natura-spazio-tradate-2026.imageAlt': 'Eine Familie genießt eine wissenschaftliche Ausstellung in einem Park in der Nähe eines Sees mit Bergen im Hintergrund',
+    'blog.article.lago-maggiore-innalzamento-2026.title': 'Lago Maggiore: Erhöhung um 15 cm genehmigt',
+    'blog.article.lago-maggiore-innalzamento-2026.excerpt': 'Die Entscheidung erhöht die Wasserversorgung um 20-30 Millionen Kubikmeter. Einigung zwischen Italien und der Schweiz zur Erhöhung um 15 cm.',
+    'blog.article.lago-maggiore-innalzamento-2026.imageAlt': 'Luftaufnahme des Lago Maggiore mit klaren blauem Wasser und umliegenden Bergen',
 };
 
 export default blogMetaDe;

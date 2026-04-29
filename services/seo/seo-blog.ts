@@ -26023,6 +26023,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lago-maggiore-innalzamento-2026': {
+    title: 'Lago Maggiore, via libera all’innalzamento: 20-30 milioni di metri cubi in più',
+    description: 'La decisione aumenterà la disponibilità di acqua di 20-30 milioni di metri cubi. Accordo Italia-Svizzera per l’innalzamento di 15 cm. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lago, maggiore, libera, innalzamento',
+    ogTitle: 'Lago Maggiore, via libera all’innalzamento: 20-30 milioni di metri cubi in più',
+    ogDescription: 'La decisione aumenterà la disponibilità di acqua di 20-30 milioni di metri cubi. Accordo Italia-Svizzera per l’innalzamento di 15 cm.',
+    canonicalPath: '/articoli-frontaliere/lago-maggiore-innalzamento-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lago Maggiore, via libera all’innalzamento: 20-30 milioni di metri cubi in più",
+      "description": "La decisione aumenterà la disponibilità di acqua di 20-30 milioni di metri cubi. Accordo Italia-Svizzera per l’innalzamento di 15 cm. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lago-maggiore-innalzamento-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago Maggiore con acque cristalline e montagne circostanti"
+      },
+      "datePublished": "2026-04-29T22:52:15+00:00",
+      "dateModified": "2026-04-29T22:52:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lago-maggiore-innalzamento-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
