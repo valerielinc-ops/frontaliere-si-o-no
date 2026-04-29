@@ -44,7 +44,9 @@ import {
  buildJobTodayLandingModel,
  EDITORIAL_CANTONS,
  partitionCareClusters,
+ partitionByLocation,
  type CareClusterPartition,
+ type LocationPartition,
 } from './jobEditorialLanding';
 import {
  CITY_HUB_KEYS,
@@ -3091,6 +3093,17 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // (same predicates, same input order) but cuts that cost to a single
  // ~700 ms scan.
  const careClusterPartition: CareClusterPartition = partitionCareClusters(validJobs);
+ // Pre-compute the per-location partition (Lugano / Bellinzona / Mendrisio
+ // / Locarno / Chiasso) so buildJobLocation{Landing,Type,Sector}Model and
+ // their sibling-link helpers don't re-run `matchesLocation` (and the
+ // 3-7 type/sector filters that follow) on the full job array on every
+ // call. Run #25102007442 measured editorial-sector at 167 ms/call ×
+ // 140 calls = 22 s; with the partition each call drops to a Map lookup.
+ const editorialLocationsForPartition = ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'];
+ const locationPartition: LocationPartition = partitionByLocation(
+ validJobs,
+ editorialLocationsForPartition,
+ );
  let editorialEntries = '';
  {
  const editorialSitemapEntries: string[] = [];
@@ -4151,6 +4164,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale.it,
  localePrefix: localePrefix.it,
+ partition: locationPartition,
  });
  if (italianLocationModel.totalJobs === 0) continue;
 
@@ -4165,6 +4179,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
+ partition: locationPartition,
  });
  editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
  // Detect if this location is a canonical geo-hub city — those pages are
@@ -4196,6 +4211,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[altLocale],
  localePrefix: localePrefix[altLocale],
+ partition: locationPartition,
  });
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
@@ -4363,6 +4379,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
+ partition: locationPartition,
  }), '0.75');
  }
 
@@ -4395,6 +4412,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale.it,
  localePrefix: localePrefix.it,
+ partition: locationPartition,
  });
  if (italianTypeModel.totalJobs === 0) continue;
 
@@ -4410,6 +4428,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
+ partition: locationPartition,
  });
  editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
@@ -4426,6 +4445,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[altLocale],
  localePrefix: localePrefix[altLocale],
+ partition: locationPartition,
  });
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
@@ -4540,6 +4560,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
+ partition: locationPartition,
  }), '0.68');
  }
 
@@ -4554,6 +4575,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale.it,
  localePrefix: localePrefix.it,
+ partition: locationPartition,
  });
  if (italianSectorModel.totalJobs === 0) continue;
 
@@ -4569,6 +4591,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
+ partition: locationPartition,
  });
  editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
@@ -4585,6 +4608,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[altLocale],
  localePrefix: localePrefix[altLocale],
+ partition: locationPartition,
  });
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
@@ -4699,6 +4723,7 @@ ${alternates}
  baseUrl: BASE_URL,
  sectionSlug: sectionByLocale[locale],
  localePrefix: localePrefix[locale],
+ partition: locationPartition,
  }), '0.67');
  }
  }

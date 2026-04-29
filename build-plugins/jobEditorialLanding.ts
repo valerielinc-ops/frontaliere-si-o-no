@@ -1222,6 +1222,63 @@ function buildLocationSectorSlug(locale: JobLandingLocale, location: string, sec
  return `${buildLocationSlug(locale, location)}-${getSectorDef(sectorKey).slug[locale]}`;
 }
 
+/**
+ * Pre-computed per-location job partitions, shared across the editorial
+ * location/type/sector builders to avoid running `matchesLocation` (and its
+ * `normalizeSpace().toLowerCase()` per job) on the full job array on every
+ * call.
+ *
+ * Without this, each call to `buildLocation{Type,Sector}Links` ran a
+ * full-array `matchesLocation` pass plus 3-7 nested type/sector filters,
+ * and `buildJobLocation{Landing,Type,Sector}Model` repeated the same
+ * `matchesLocation` filter once more — ~3 redundant full passes per
+ * (location × locale) call.
+ */
+export interface LocationPartition {
+ /** Canonical-location → all jobs that match `matchesLocation(job, location)`. */
+ readonly byLocation: ReadonlyMap<string, readonly JobLike[]>;
+ /** Canonical-location → typeKey → narrower subset matched by `typeDef.matcher`. */
+ readonly byLocationType: ReadonlyMap<string, ReadonlyMap<JobLandingTypeKey, readonly JobLike[]>>;
+ /** Canonical-location → sectorKey → narrower subset matched by `sectorDef.matcher`. */
+ readonly byLocationSector: ReadonlyMap<string, ReadonlyMap<JobLandingSectorKey, readonly JobLike[]>>;
+}
+
+/**
+ * Compute the per-location partition for the editorial section. Pass the
+ * exact list of `locations` the editorial loops will use (typically the 5
+ * editorial cities `editorialLocations`). Locations are normalized to the
+ * canonical form via `normalizeLocation` before keying.
+ */
+export function partitionByLocation(
+ jobs: readonly JobLike[],
+ locations: readonly string[],
+): LocationPartition {
+ const byLocation = new Map<string, JobLike[]>();
+ const byLocationType = new Map<string, Map<JobLandingTypeKey, JobLike[]>>();
+ const byLocationSector = new Map<string, Map<JobLandingSectorKey, JobLike[]>>();
+ const typeKeys = Object.keys(JOB_TYPE_DEFS) as JobLandingTypeKey[];
+ const sectorKeys = Object.keys(JOB_SECTOR_DEFS) as JobLandingSectorKey[];
+ for (const rawLocation of locations) {
+ const location = normalizeLocation(rawLocation);
+ if (byLocation.has(location)) continue;
+ const locationJobs = jobs.filter((job) => matchesLocation(job, location));
+ byLocation.set(location, locationJobs);
+ const typeMap = new Map<JobLandingTypeKey, JobLike[]>();
+ for (const typeKey of typeKeys) {
+ const typeDef = getTypeDef(typeKey);
+ typeMap.set(typeKey, locationJobs.filter((job) => typeDef.matcher(job)));
+ }
+ byLocationType.set(location, typeMap);
+ const sectorMap = new Map<JobLandingSectorKey, JobLike[]>();
+ for (const sectorKey of sectorKeys) {
+ const sectorDef = getSectorDef(sectorKey);
+ sectorMap.set(sectorKey, locationJobs.filter((job) => sectorDef.matcher(job)));
+ }
+ byLocationSector.set(location, sectorMap);
+ }
+ return { byLocation, byLocationType, byLocationSector };
+}
+
 function buildLocationTypeLinks(options: {
  jobs: JobLike[];
  locale: JobLandingLocale;
@@ -1231,12 +1288,19 @@ function buildLocationTypeLinks(options: {
  localePrefix: string;
  sectionSlug: string;
  localizedSlug: (job: JobLike, locale: JobLandingLocale) => string;
+ partition?: LocationPartition;
 }): TypeLink[] {
- const locationJobs = options.jobs.filter((job) => matchesLocation(job, options.location));
+ const partition = options.partition;
+ const partitionMap = partition?.byLocationType.get(options.location);
+ const locationJobs = partitionMap
+ ? null
+ : options.jobs.filter((job) => matchesLocation(job, options.location));
  return (Object.keys(JOB_TYPE_DEFS) as JobLandingTypeKey[])
  .map((typeKey) => {
  const typeDef = getTypeDef(typeKey);
- const count = locationJobs.filter((job) => typeDef.matcher(job)).length;
+ const count = partitionMap
+ ? (partitionMap.get(typeKey)?.length ?? 0)
+ : locationJobs!.filter((job) => typeDef.matcher(job)).length;
  return {
  key: typeKey,
  label: `${typeDef.label[options.locale]} a ${options.location}`,
@@ -1257,12 +1321,19 @@ function buildLocationSectorLinks(options: {
  localePrefix: string;
  sectionSlug: string;
  localizedSlug: (job: JobLike, locale: JobLandingLocale) => string;
+ partition?: LocationPartition;
 }): SectorLink[] {
- const locationJobs = options.jobs.filter((job) => matchesLocation(job, options.location));
+ const partition = options.partition;
+ const partitionMap = partition?.byLocationSector.get(options.location);
+ const locationJobs = partitionMap
+ ? null
+ : options.jobs.filter((job) => matchesLocation(job, options.location));
  return (Object.keys(JOB_SECTOR_DEFS) as JobLandingSectorKey[])
  .map((sectorKey) => {
  const sectorDef = getSectorDef(sectorKey);
- const count = locationJobs.filter((job) => sectorDef.matcher(job)).length;
+ const count = partitionMap
+ ? (partitionMap.get(sectorKey)?.length ?? 0)
+ : locationJobs!.filter((job) => sectorDef.matcher(job)).length;
  return {
  key: sectorKey,
  label: `${sectorDef.label[options.locale]} a ${options.location}`,
@@ -1676,13 +1747,22 @@ export function buildJobLocationLandingModel(options: {
  baseUrl: string;
  sectionSlug: string;
  localePrefix: string;
+ /**
+  * Optional pre-computed location partition (see `partitionByLocation`).
+  * When provided, skips per-call `matchesLocation` full-array filters in
+  * both this builder and its sibling helpers. Output unchanged.
+  */
+ partition?: LocationPartition;
 }): JobLocationLandingModel {
  const locale = options.locale;
  const location = normalizeLocation(options.location);
  const copy = LOCATION_COPY[locale];
  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
- const locationJobs = options.jobs.filter((job) => matchesLocation(job, location));
+ const partitionLocationJobs = options.partition?.byLocation.get(location);
+ const locationJobs: JobLike[] = partitionLocationJobs
+ ? [...partitionLocationJobs]
+ : options.jobs.filter((job) => matchesLocation(job, location));
  const latestJobs = locationJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  return {
  kind: 'location',
@@ -1707,8 +1787,8 @@ export function buildJobLocationLandingModel(options: {
  feed: { label: copy.feedLabel(location), jobs: toLinkedJobs(locationJobs, now, locale, { ...options, baseUrl }, 25) },
  latestLabel: copy.latestLabel(location),
  latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
- relatedTypeLinks: buildLocationTypeLinks({ ...options, location, now, baseUrl }),
- relatedSectorLinks: buildLocationSectorLinks({ ...options, location, now, baseUrl }),
+ relatedTypeLinks: buildLocationTypeLinks({ ...options, location, now, baseUrl, partition: options.partition }),
+ relatedSectorLinks: buildLocationSectorLinks({ ...options, location, now, baseUrl, partition: options.partition }),
  openAllLabel: copy.openAll,
  };
 }
@@ -1723,6 +1803,7 @@ export function buildJobLocationTypeLandingModel(options: {
  baseUrl: string;
  sectionSlug: string;
  localePrefix: string;
+ partition?: LocationPartition;
 }): JobLocationTypeLandingModel {
  const locale = options.locale;
  const location = normalizeLocation(options.location);
@@ -1732,9 +1813,12 @@ export function buildJobLocationTypeLandingModel(options: {
  const copy = LOCATION_TYPE_COPY[locale];
  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
- const matches = options.jobs.filter((job) => matchesLocation(job, location) && typeDef.matcher(job));
+ const partitionMatches = options.partition?.byLocationType.get(location)?.get(typeKey);
+ const matches: JobLike[] = partitionMatches
+ ? [...partitionMatches]
+ : options.jobs.filter((job) => matchesLocation(job, location) && typeDef.matcher(job));
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
- const siblingTypeLinks = buildLocationTypeLinks({ ...options, location, now, baseUrl }).filter((link) => link.key !== typeKey);
+ const siblingTypeLinks = buildLocationTypeLinks({ ...options, location, now, baseUrl, partition: options.partition }).filter((link) => link.key !== typeKey);
  return {
  kind: 'location-type',
  slug: buildLocationTypeSlug(locale, location, typeKey),
@@ -1768,6 +1852,7 @@ export function buildJobLocationSectorLandingModel(options: {
  baseUrl: string;
  sectionSlug: string;
  localePrefix: string;
+ partition?: LocationPartition;
 }): JobLocationSectorLandingModel {
  const locale = options.locale;
  const location = normalizeLocation(options.location);
@@ -1777,9 +1862,12 @@ export function buildJobLocationSectorLandingModel(options: {
  const copy = LOCATION_SECTOR_COPY[locale];
  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
- const matches = options.jobs.filter((job) => matchesLocation(job, location) && sectorDef.matcher(job));
+ const partitionMatches = options.partition?.byLocationSector.get(location)?.get(sectorKey);
+ const matches: JobLike[] = partitionMatches
+ ? [...partitionMatches]
+ : options.jobs.filter((job) => matchesLocation(job, location) && sectorDef.matcher(job));
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
- const siblingSectorLinks = buildLocationSectorLinks({ ...options, location, now, baseUrl }).filter((link) => link.key !== sectorKey);
+ const siblingSectorLinks = buildLocationSectorLinks({ ...options, location, now, baseUrl, partition: options.partition }).filter((link) => link.key !== sectorKey);
  return {
  kind: 'location-sector',
  slug: buildLocationSectorSlug(locale, location, sectorKey),
