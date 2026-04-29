@@ -4049,6 +4049,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dl-bollette-novita-consumatori-2026.title': 'Dl Bollette: novità per i consumatori dal 19 giugno 2026',
     'blog.article.dl-bollette-novita-consumatori-2026.excerpt': 'Novità per i consumatori: dal 19 giugno 2026 nuove regole su telemarketing e contratti luce-gas. Ecco cosa cambia',
     'blog.article.dl-bollette-novita-consumatori-2026.imageAlt': 'Vista del lago di Lugano con edifici moderni e montagne sullo sfondo',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.title': 'Bonus sicurezza 2026: come ottenere il 50%',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.excerpt': 'Scopri quali spese per la sicurezza domestica sono detraibili nel 2026 e come evitare errori comuni per ottenere fino al 50% di detrazione.',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.imageAlt': 'Lago di Lugano con vista sulla città di Lugano, Ticino',
 };
 
 export default blogMetaIt;

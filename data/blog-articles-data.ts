@@ -10458,4 +10458,11 @@ export const ARTICLES = [
  image: '/images/blog/dl-bollette-novita-consumatori-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bonus-sicurezza-2026-frontalieri-ticino',
+ category: 'fiscale',
+ date: '2026-04-29T23:10:14.769Z',
+ image: '/images/blog/bonus-sicurezza-2026-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

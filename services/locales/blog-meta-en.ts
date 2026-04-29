@@ -4048,6 +4048,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dl-bollette-novita-consumatori-2026.title': 'Bill Decree: new rules for consumers from 19 June 2026',
     'blog.article.dl-bollette-novita-consumatori-2026.excerpt': 'New rules for consumers: from 19 June 2026, new regulations on telemarketing and electricity-gas contracts. Here\'s what changes',
     'blog.article.dl-bollette-novita-consumatori-2026.imageAlt': 'View of Lake Lugano with modern buildings and mountains in the background',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.title': '2026 Safety Bonus: How to Get 50%',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.excerpt': 'Find out which home security expenses are tax-deductible in 2026 and how to avoid common mistakes to get up to 50% deduction.',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.imageAlt': 'Lake Lugano with a view of the city of Lugano, Ticino',
 };
 
 export default blogMetaEn;

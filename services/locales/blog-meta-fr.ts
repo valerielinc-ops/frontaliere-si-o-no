@@ -4049,6 +4049,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dl-bollette-novita-consumatori-2026.title': 'Dl Factures: nouvelles règles pour les consommateurs dès le 19 juin 2026',
     'blog.article.dl-bollette-novita-consumatori-2026.excerpt': 'Nouvelles pour les consommateurs: à partir du 19 juin 2026, nouvelles règles sur le télémarketing et les contrats d\'électricité-gaz. Voici ce qui change',
     'blog.article.dl-bollette-novita-consumatori-2026.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.title': 'Bonus sécurité 2026: comment obtenir 50%',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.excerpt': 'Découvrez quelles dépenses de sécurité domestique sont déductibles en 2026 et comment éviter les erreurs courantes pour obtenir jusqu\'à 50% de déduction.',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.imageAlt': 'Lac de Lugano avec vue sur la ville de Lugano, Tessin',
 };
 
 export default blogMetaFr;

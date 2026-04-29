@@ -4048,6 +4048,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dl-bollette-novita-consumatori-2026.title': 'Dl Bollette: Neuerungen für Verbraucher ab 19. Juni 2026',
     'blog.article.dl-bollette-novita-consumatori-2026.excerpt': 'Neuerungen für Verbraucher: Ab dem 19. Juni 2026 gelten neue Regeln zu Telemarketing und Verträgen für Strom und Gas. Hier erfahren Sie, was sich ändert.',
     'blog.article.dl-bollette-novita-consumatori-2026.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und Bergen im Hintergrund',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.title': 'Sicherheitsbonus 2026: Wie Sie 50% erhalten',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.excerpt': 'Erfahren Sie, welche Haushaltsausgaben für Sicherheit im Jahr 2026 abzugsfähig sind und wie Sie häufige Fehler vermeiden, um bis zu 50% Abzug zu erhalten.',
+    'blog.article.bonus-sicurezza-2026-frontalieri-ticino.imageAlt': 'Luganersee mit Blick auf die Stadt Lugano, Tessin',
 };
 
 export default blogMetaDe;
