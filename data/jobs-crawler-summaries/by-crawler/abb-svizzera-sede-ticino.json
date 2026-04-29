@@ -1,18 +1,53 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-04-28T21:09:34.351Z",
-  "total": 15,
-  "newCount": 0,
+  "generatedAt": "2026-04-29T10:01:34.049Z",
+  "total": 16,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 36309,
-  "avgDurationMs": 36309,
+  "durationMs": 43382,
+  "avgDurationMs": 43382,
   "durationHistory": [
-    36309
+    43382
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-ouqirv",
+      "slug": "production-engineering-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Production Engineering Specialist (80-100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-29",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00030926EXTERNALENGLOBAL/Production-Engineering-Specialist--80-100--_JR00030926-1",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-04-29T10:01:33.307Z",
+      "firstSeenAt": "2026-04-29T10:01:33.307Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-2jc587",
