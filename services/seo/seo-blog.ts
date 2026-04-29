@@ -24660,6 +24660,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spring-giubiasco-sport-convivialita-2026': {
+    title: 'Torna la Spring Giubiasco: sport e convivialità dal 13 al 17 maggio 2026',
+    description: 'Dal 13 al 17 maggio 2026, Giubiasco ospita la Spring Giubiasco con gare di corsa, ciclismo, musica e gastronomia per tutte le età. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, torna, spring, giubiasco, sport',
+    ogTitle: 'Spring Giubiasco 2026: sport e convivialità dal 13 al 17 maggio',
+    ogDescription: 'Dal 13 al 17 maggio 2026, Giubiasco ospita la Spring Giubiasco con gare di corsa, ciclismo, musica e gastronomia per tutte le età.',
+    canonicalPath: '/articoli-frontaliere/spring-giubiasco-sport-convivialita-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Spring Giubiasco 2026: sport e convivialità dal 13 al 17 maggio",
+      "description": "Dal 13 al 17 maggio 2026, Giubiasco ospita la Spring Giubiasco con gare di corsa, ciclismo, musica e gastronomia per tutte le età. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spring-giubiasco-sport-convivialita-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione sportiva a Giubiasco, Ticino, con partecipanti di tutte le età"
+      },
+      "datePublished": "2026-04-29T12:59:55+00:00",
+      "dateModified": "2026-04-29T12:59:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spring-giubiasco-sport-convivialita-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

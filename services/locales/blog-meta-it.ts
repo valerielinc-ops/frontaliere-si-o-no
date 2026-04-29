@@ -3899,6 +3899,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tunnel-tonale-viabilita-lombardia.title': 'Tunnel da 16 milioni per la viabilità in Lombardia: pronto in 2 anni',
     'blog.article.tunnel-tonale-viabilita-lombardia.excerpt': 'Un tunnel da 16,5 milioni di euro trasformerà il Passo del Tonale. Scopri i dettagli del progetto e le implicazioni per la viabilità.',
     'blog.article.tunnel-tonale-viabilita-lombardia.imageAlt': 'Vista aerea del Passo del Tonale con il cantiere del nuovo tunnel e le montagne innevate',
+    'blog.article.spring-giubiasco-sport-convivialita-2026.title': 'Torna la Spring Giubiasco: sport e convivialità dal 13 al 17 maggio 2026',
+    'blog.article.spring-giubiasco-sport-convivialita-2026.excerpt': 'Dal 13 al 17 maggio 2026, Giubiasco si trasforma in un villaggio dedicato allo sport e alla convivialità con gare, musica e gastronomia.',
+    'blog.article.spring-giubiasco-sport-convivialita-2026.imageAlt': 'Manifestazione sportiva a Giubiasco, Ticino, con partecipanti di tutte le età',
 };
 
 export default blogMetaIt;

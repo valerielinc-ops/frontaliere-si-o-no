@@ -3898,6 +3898,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tunnel-tonale-viabilita-lombardia.title': '16,5 Mio. Euro-Tunnel für Lombardei-Verkehr: Fertig in 2 Jahren',
     'blog.article.tunnel-tonale-viabilita-lombardia.excerpt': 'Ein 16,5 Millionen Euro teurer Tunnel wird den Tonale-Pass umgestalten. Erfahren Sie mehr über das Projekt und die Auswirkungen auf den Verkehr.',
     'blog.article.tunnel-tonale-viabilita-lombardia.imageAlt': 'Luftaufnahme des Tonale-Passes mit dem neuen Tunnelbau und schneebedeckten Bergen',
+    'blog.article.spring-giubiasco-sport-convivialita-2026.title': 'Spring Giubiasco: Sport und Geselligkeit vom 13. bis 17. Mai 2026',
+    'blog.article.spring-giubiasco-sport-convivialita-2026.excerpt': 'Vom 13. bis 17. Mai 2026 verwandelt sich Giubiasco in ein Dorf, das dem Sport und der Geselligkeit gewidmet ist, mit Wettbewerben, Musik und Gastronomie.',
+    'blog.article.spring-giubiasco-sport-convivialita-2026.imageAlt': 'Sportveranstaltung in Giubiasco, Tessin, mit Teilnehmern jeden Alters',
 };
 
 export default blogMetaDe;

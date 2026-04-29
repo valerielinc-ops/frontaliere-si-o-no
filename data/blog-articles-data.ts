@@ -10108,4 +10108,11 @@ export const ARTICLES = [
  image: '/images/blog/tunnel-tonale-viabilita-lombardia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'spring-giubiasco-sport-convivialita-2026',
+ category: 'novita',
+ date: '2026-04-29T12:59:54.979Z',
+ image: '/images/blog/spring-giubiasco-sport-convivialita-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

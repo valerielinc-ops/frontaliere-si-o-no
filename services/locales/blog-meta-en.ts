@@ -3898,6 +3898,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tunnel-tonale-viabilita-lombardia.title': '16.5m tunnel to transform Lombardy\'s Passo del Tonale',
     'blog.article.tunnel-tonale-viabilita-lombardia.excerpt': 'A 16.5 million euro tunnel will transform the Passo del Tonale. Discover the project details and its implications for traffic.',
     'blog.article.tunnel-tonale-viabilita-lombardia.imageAlt': 'Aerial view of Tonale Pass with the new tunnel construction site and snowy mountains',
+    'blog.article.spring-giubiasco-sport-convivialita-2026.title': 'Spring Giubiasco returns: sport and fun from 13 to 17 May 2026',
+    'blog.article.spring-giubiasco-sport-convivialita-2026.excerpt': 'From 13 to 17 May 2026, Giubiasco becomes a village dedicated to sport and conviviality with races, music and gastronomy.',
+    'blog.article.spring-giubiasco-sport-convivialita-2026.imageAlt': 'Sports event in Giubiasco, Ticino, with participants of all ages',
 };
 
 export default blogMetaEn;

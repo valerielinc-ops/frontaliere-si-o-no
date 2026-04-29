@@ -2530,6 +2530,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-swiss-duty-free-cambia-vendite-2026': { name: 'Novità', path: '/articoli-frontaliere/swiss-duty-free-cambia-vendite-2026', parent: 'blog' },
     'blog-tutor-sapiens-apprendistato-terzo-livello': { name: 'Novità', path: '/articoli-frontaliere/tutor-sapiens-apprendistato-terzo-livello', parent: 'blog' },
     'blog-tunnel-tonale-viabilita-lombardia': { name: 'Novità', path: '/articoli-frontaliere/tunnel-tonale-viabilita-lombardia', parent: 'blog' },
+    'blog-spring-giubiasco-sport-convivialita-2026': { name: 'Spring Giubiasco', path: '/articoli-frontaliere/spring-giubiasco-sport-convivialita-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
