@@ -3662,6 +3662,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.esposizione-segughi-malvaglia-2026.title': 'Exposition Nationale des Chiens de Chasse à Malvaglia',
     'blog.article.esposizione-segughi-malvaglia-2026.excerpt': 'Dimanche 3 mai 2026 à Malvaglia se tiendra l\'Exposition Nationale des Chiens de Chasse Suisses, avec compétitions et célébration des races autochtones.',
     'blog.article.esposizione-segughi-malvaglia-2026.imageAlt': 'Paysage de Malvaglia avec des chiens lors de l\'Exposition Nationale des Chiens Courants Suisses',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.title': 'Jeune femme de 22 ans retrouvée morte dans un champ',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.excerpt': 'Le cadavre d\'une jeune femme de 22 ans a été retrouvé dans un champ à Cecima, en Oltrepò Pavese. L\'enquête est en cours.',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.imageAlt': 'Paysage serein du lac de Lugano avec les montagnes environnantes, capturé avec un appareil photo DSLR.',
 };
 
 export default blogMetaFr;

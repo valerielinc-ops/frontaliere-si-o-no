@@ -22369,6 +22369,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ragazza-morta-campo-perquisita-casa-amico': {
+    title: 'Ragazza 22enne trovata morta in un campo: perquisita la casa di un amico',
+    description: 'Il cadavere di una giovane di 22 anni è stato ritrovato in un campo a Cecima, in Oltrepò Pavese. Le indagini sono in corso. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, ragazza, 22enne, trovata, morta',
+    ogTitle: 'Ragazza 22enne trovata morta in un campo: perquisita la casa di un amico',
+    ogDescription: 'Il cadavere di una giovane di 22 anni è stato ritrovato in un campo a Cecima, in Oltrepò Pavese. Le indagini sono in corso.',
+    canonicalPath: '/articoli-frontaliere/ragazza-morta-campo-perquisita-casa-amico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ragazza 22enne trovata morta in un campo: perquisita la casa di un amico",
+      "description": "Il cadavere di una giovane di 22 anni è stato ritrovato in un campo a Cecima, in Oltrepò Pavese. Le indagini sono in corso. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ragazza-morta-campo-perquisita-casa-amico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio sereno del Lago di Lugano con le montagne circostanti, ripreso con una fotocamera DSLR."
+      },
+      "datePublished": "2026-04-29T03:11:08+00:00",
+      "dateModified": "2026-04-29T03:11:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ragazza-morta-campo-perquisita-casa-amico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

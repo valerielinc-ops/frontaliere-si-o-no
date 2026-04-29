@@ -3661,6 +3661,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.esposizione-segughi-malvaglia-2026.title': 'Swiss Hound National Show in Malvaglia: Tradition and Competition',
     'blog.article.esposizione-segughi-malvaglia-2026.excerpt': 'On Sunday, May 3, 2026, the National Show of Swiss Hounds will take place in Malvaglia, featuring competitions and celebrations of native breeds.',
     'blog.article.esposizione-segughi-malvaglia-2026.imageAlt': 'Landscape of Malvaglia with dogs during the National Exhibition of Swiss Hounds',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.title': '22-year-old girl found dead in a field: friend\'s house searched',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.excerpt': 'The body of a 22-year-old girl was found in a field in Cecima, Oltrepò Pavese. Investigations are ongoing.',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.imageAlt': 'Serene landscape of Lago di Lugano with the surrounding mountains, captured with a DSLR camera.',
 };
 
 export default blogMetaEn;

@@ -3662,6 +3662,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.esposizione-segughi-malvaglia-2026.title': 'Esposizione Nazionale dei Segugi Svizzeri a Malvaglia: tradizione e competizione',
     'blog.article.esposizione-segughi-malvaglia-2026.excerpt': 'Domenica 3 maggio 2026 a Malvaglia si terrà l\'Esposizione Nazionale dei Segugi Svizzeri, con competizioni e celebrazione delle razze autoctone.',
     'blog.article.esposizione-segughi-malvaglia-2026.imageAlt': 'Paesaggio di Malvaglia con cani durante l\'Esposizione Nazionale dei Segugi Svizzeri',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.title': 'Ragazza 22enne trovata morta in un campo: perquisita la casa di un amico',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.excerpt': 'Il cadavere di una giovane di 22 anni è stato ritrovato in un campo a Cecima, in Oltrepò Pavese. Le indagini sono in corso.',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.imageAlt': 'Paesaggio sereno del Lago di Lugano con le montagne circostanti, ripreso con una fotocamera DSLR.',
 };
 
 export default blogMetaIt;

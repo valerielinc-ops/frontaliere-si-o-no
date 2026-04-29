@@ -9555,4 +9555,11 @@ export const ARTICLES = [
  image: '/images/blog/esposizione-segughi-malvaglia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ragazza-morta-campo-perquisita-casa-amico',
+ category: 'novita',
+ date: '2026-04-29T03:11:08.670Z',
+ image: '/images/blog/ragazza-morta-campo-perquisita-casa-amico.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3661,6 +3661,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.esposizione-segughi-malvaglia-2026.title': 'Schweizer Laufhunde-Ausstellung in Malvaglia: Tradition und Wettbewerb',
     'blog.article.esposizione-segughi-malvaglia-2026.excerpt': 'Am Sonntag, 3. Mai 2026, findet in Malvaglia die Nationale Ausstellung der Schweizer Laufhunde mit Wettbewerben und der Feier der einheimischen Rassen statt.',
     'blog.article.esposizione-segughi-malvaglia-2026.imageAlt': 'Landschaft von Malvaglia mit Hunden während der Nationalausstellung der Schweizer Laufhunde',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.title': '22-Jährige in Feld tot aufgefunden: Freundeshaus durchsucht',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.excerpt': 'Die Leiche einer 22-jährigen Frau wurde in einem Feld in Cecima, Oltrepò Pavese, gefunden. Die Ermittlungen laufen.',
+    'blog.article.ragazza-morta-campo-perquisita-casa-amico.imageAlt': 'Ruhevolle Landschaft des Luganer Sees mit den umliegenden Bergen, aufgenommen mit einer DSLR-Kamera.',
 };
 
 export default blogMetaDe;
