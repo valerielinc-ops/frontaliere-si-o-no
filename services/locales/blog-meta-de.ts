@@ -3910,6 +3910,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.terremoto-gottardo-frontalieri.title': 'Kontrolliertes Erdbeben im Gotthard: Was ändert sich für Grenzgänger?',
     'blog.article.terremoto-gottardo-frontalieri.excerpt': 'Forscher lösen Mikroerdbeben im Gotthardmassiv aus. Was wissen wir und welche Auswirkungen hat das für die Grenzgänger im Tessin?',
     'blog.article.terremoto-gottardo-frontalieri.imageAlt': 'Forscher arbeiten im unterirdischen Labor des Gotthard',
+    'blog.article.benzina-record-annuale-svizzera-2026.title': 'Benzinpreis in der Schweiz auf Jahresrekord: +13% in 3 Monaten',
+    'blog.article.benzina-record-annuale-svizzera-2026.excerpt': 'Der Benzinpreis in der Schweiz hat mit 1,90 Franken pro Liter den Jahreshöchststand erreicht. Der Diesel liegt bei 2,17 Franken pro Liter.',
+    'blog.article.benzina-record-annuale-svizzera-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund, klarer blauer Himmel',
 };
 
 export default blogMetaDe;

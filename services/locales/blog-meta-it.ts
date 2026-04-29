@@ -3911,6 +3911,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.terremoto-gottardo-frontalieri.title': 'Terremoto controllato nel Gottardo: cosa cambia per i frontalieri',
     'blog.article.terremoto-gottardo-frontalieri.excerpt': 'Ricercatori provocano microsismi nel massiccio del Gottardo. Cosa sappiamo e quali sono le implicazioni per i frontalieri in Ticino.',
     'blog.article.terremoto-gottardo-frontalieri.imageAlt': 'Ricercatori al lavoro nel laboratorio sotterraneo del Gottardo',
+    'blog.article.benzina-record-annuale-svizzera-2026.title': 'Benzina in Svizzera a record annuale: +13% in 3 mesi',
+    'blog.article.benzina-record-annuale-svizzera-2026.excerpt': 'Il prezzo della benzina in Svizzera ha raggiunto il massimo annuale a 1,90 CHF/litro. Il diesel è a 2,17 CHF/litro.',
+    'blog.article.benzina-record-annuale-svizzera-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido',
 };
 
 export default blogMetaIt;

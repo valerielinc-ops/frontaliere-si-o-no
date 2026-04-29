@@ -24776,6 +24776,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-record-annuale-svizzera-2026': {
+    title: 'Benzina in Svizzera a record annuale: +13% in 3 mesi',
+    description: 'Il prezzo della benzina in Svizzera ha raggiunto il record annuale a 1,90 CHF/litro. Il diesel è a 2,17 CHF/litro. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, record, annuale, mesi',
+    ogTitle: 'Benzina in Svizzera a record annuale: +13% in 3 mesi',
+    ogDescription: 'Il prezzo della benzina in Svizzera ha raggiunto il record annuale a 1,90 CHF/litro. Il diesel è a 2,17 CHF/litro.',
+    canonicalPath: '/articoli-frontaliere/benzina-record-annuale-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina in Svizzera a record annuale: +13% in 3 mesi",
+      "description": "Il prezzo della benzina in Svizzera ha raggiunto il record annuale a 1,90 CHF/litro. Il diesel è a 2,17 CHF/litro. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/benzina-record-annuale-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo, cielo azzurro limpido"
+      },
+      "datePublished": "2026-04-29T13:32:00+00:00",
+      "dateModified": "2026-04-29T13:32:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-record-annuale-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

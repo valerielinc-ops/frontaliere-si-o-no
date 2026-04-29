@@ -3910,6 +3910,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.terremoto-gottardo-frontalieri.title': 'Controlled earthquake in the Gotthard: what changes for cross-border workers',
     'blog.article.terremoto-gottardo-frontalieri.excerpt': 'Researchers trigger microseisms in the Gotthard massif. What we know and the implications for cross-border workers in Ticino.',
     'blog.article.terremoto-gottardo-frontalieri.imageAlt': 'Researchers working in the underground laboratory of the Gottardo',
+    'blog.article.benzina-record-annuale-svizzera-2026.title': 'Swiss fuel prices hit annual high: +13% in 3 months',
+    'blog.article.benzina-record-annuale-svizzera-2026.excerpt': 'Fuel prices in Switzerland have reached an annual high of 1.90 CHF per litre. Diesel is at 2.17 CHF per litre.',
+    'blog.article.benzina-record-annuale-svizzera-2026.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, clear blue sky',
 };
 
 export default blogMetaEn;

@@ -3911,6 +3911,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.terremoto-gottardo-frontalieri.title': 'Séisme contrôlé dans le Gothard : ce qui change pour les frontaliers',
     'blog.article.terremoto-gottardo-frontalieri.excerpt': 'Des chercheurs provoquent des microséismes dans le massif du Gothard. Ce que nous savons et quelles sont les implications pour les frontaliers du Tessin.',
     'blog.article.terremoto-gottardo-frontalieri.imageAlt': 'Chercheurs travaillant dans le laboratoire souterrain du Gothard',
+    'blog.article.benzina-record-annuale-svizzera-2026.title': 'Essence en Suisse à un record annuel: +13% en 3 mois',
+    'blog.article.benzina-record-annuale-svizzera-2026.excerpt': 'Le prix de l\'essence en Suisse a atteint le maximum annuel à 1,90 CHF/litre. Le diesel est à 2,17 CHF/litre.',
+    'blog.article.benzina-record-annuale-svizzera-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, ciel bleu clair',
 };
 
 export default blogMetaFr;
