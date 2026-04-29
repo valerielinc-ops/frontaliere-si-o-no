@@ -3973,6 +3973,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.title': 'Italian mayors oppose Lake Maggiore rise',
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.excerpt': 'The mayors of Verbania, Baveno, and Cannobio criticize the decision to raise Lake Maggiore\'s maximum level to 1.40 meters.',
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.imageAlt': 'Lake Maggiore with Italian and Swiss flags',
+    'blog.article.mendrisio-bilancio-positivo-2025.title': 'Mendrisio closes 2025 with fourth positive balance',
+    'blog.article.mendrisio-bilancio-positivo-2025.excerpt': 'Mendrisio\'s municipal council announces a fourth consecutive positive financial result, despite geopolitical uncertainties.',
+    'blog.article.mendrisio-bilancio-positivo-2025.imageAlt': 'Mendrisio cityscape with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

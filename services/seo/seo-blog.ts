@@ -25385,6 +25385,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mendrisio-bilancio-positivo-2025': {
+    title: 'Mendrisio chiude il 2025 con il quarto bilancio positivo',
+    description: 'Mendrisio annuncia un quarto risultato finanziario positivo consecutivo nel 2025, nonostante le incertezze geopolitiche. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisio, chiude, 2025, quarto',
+    ogTitle: 'Mendrisio chiude il 2025 con il quarto bilancio positivo',
+    ogDescription: 'Mendrisio annuncia un quarto risultato finanziario positivo consecutivo nel 2025, nonostante le incertezze geopolitiche.',
+    canonicalPath: '/articoli-frontaliere/mendrisio-bilancio-positivo-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisio chiude il 2025 con il quarto bilancio positivo",
+      "description": "Mendrisio annuncia un quarto risultato finanziario positivo consecutivo nel 2025, nonostante le incertezze geopolitiche. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mendrisio-bilancio-positivo-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama della città di Mendrisio con il Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-29T19:03:30+00:00",
+      "dateModified": "2026-04-29T19:03:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mendrisio-bilancio-positivo-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

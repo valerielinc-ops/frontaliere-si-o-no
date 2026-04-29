@@ -10283,4 +10283,11 @@ export const ARTICLES = [
  image: '/images/blog/sindaci-verbania-baveno-cannobio-opposizione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mendrisio-bilancio-positivo-2025',
+ category: 'novita',
+ date: '2026-04-29T19:03:30.592Z',
+ image: '/images/blog/mendrisio-bilancio-positivo-2025.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

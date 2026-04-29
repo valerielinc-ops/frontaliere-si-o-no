@@ -3974,6 +3974,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.title': 'Les maires italiens contre la hausse du lac Majeur',
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.excerpt': 'Les maires de Verbania, Baveno et Cannobio critiquent la décision d\'augmenter le niveau maximal du lac Majeur à 1,40 mètre.',
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.imageAlt': 'Lac Majeur avec les drapeaux italien et suisse',
+    'blog.article.mendrisio-bilancio-positivo-2025.title': 'Mendrisio clôture 2025 avec un quatrième bilan positif',
+    'blog.article.mendrisio-bilancio-positivo-2025.excerpt': 'Le Conseil municipal de Mendrisio annonce un quatrième résultat financier positif consécutif, malgré les incertitudes géopolitiques.',
+    'blog.article.mendrisio-bilancio-positivo-2025.imageAlt': 'Panorama de la ville de Mendrisio avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

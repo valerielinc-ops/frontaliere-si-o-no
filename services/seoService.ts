@@ -2555,6 +2555,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-intesa-sanpaolo-premia-10-imprese-vincenti': { name: 'Novità', path: '/articoli-frontaliere/intesa-sanpaolo-premia-10-imprese-vincenti', parent: 'blog' },
     'blog-pillola-giorno-dopo-consulenza-nazionale': { name: 'Novità', path: '/articoli-frontaliere/pillola-giorno-dopo-consulenza-nazionale', parent: 'blog' },
     'blog-sindaci-verbania-baveno-cannobio-opposizione': { name: 'Novità', path: '/articoli-frontaliere/sindaci-verbania-baveno-cannobio-opposizione', parent: 'blog' },
+    'blog-mendrisio-bilancio-positivo-2025': { name: 'Novità', path: '/articoli-frontaliere/mendrisio-bilancio-positivo-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

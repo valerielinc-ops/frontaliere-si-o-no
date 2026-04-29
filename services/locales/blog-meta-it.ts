@@ -3974,6 +3974,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.title': 'Sindaci italiani contro l\'innalzamento del lago Maggiore',
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.excerpt': 'I sindaci di Verbania, Baveno e Cannobio criticano la decisione di aumentare il livello massimo del lago Maggiore a 1,40 metri.',
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.imageAlt': 'Lago Maggiore con bandiere italiana e svizzera',
+    'blog.article.mendrisio-bilancio-positivo-2025.title': 'Mendrisio chiude il 2025 con il quarto bilancio positivo',
+    'blog.article.mendrisio-bilancio-positivo-2025.excerpt': 'Il Municipio di Mendrisio annuncia un quarto risultato finanziario positivo consecutivo, nonostante le incertezze geopolitiche.',
+    'blog.article.mendrisio-bilancio-positivo-2025.imageAlt': 'Panorama della città di Mendrisio con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -3973,6 +3973,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.title': 'Italienische Bürgermeister gegen Anstieg des Lago Maggiore',
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.excerpt': 'Die Bürgermeister von Verbania, Baveno und Cannobio kritisieren die Entscheidung, den maximalen Wasserstand des Lago Maggiore auf 1,40 Meter anzuheben.',
     'blog.article.sindaci-verbania-baveno-cannobio-opposizione.imageAlt': 'Lago Maggiore mit italienischer und Schweizer Flagge',
+    'blog.article.mendrisio-bilancio-positivo-2025.title': 'Mendrisio schließt 2025 mit positivem vierten Bilanz',
+    'blog.article.mendrisio-bilancio-positivo-2025.excerpt': 'Der Gemeinderat von Mendrisio kündigt ein viertes positives Finanzresultat in Folge an, trotz geopolitischer Unsicherheiten.',
+    'blog.article.mendrisio-bilancio-positivo-2025.imageAlt': 'Panorama der Stadt Mendrisio mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;
