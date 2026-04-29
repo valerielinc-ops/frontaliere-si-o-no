@@ -3620,6 +3620,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ucraina-russia-droni-2026.title': 'Ucraina supera Russia negli attacchi con droni',
     'blog.article.ucraina-russia-droni-2026.excerpt': 'Per la prima volta dall\'inizio del conflitto, l\'Ucraina ha lanciato più droni della Russia a marzo 2026',
     'blog.article.ucraina-russia-droni-2026.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera, con cielo azzurro e montagne circostanti',
+    'blog.article.play-suisse-novita-streaming-2026.title': 'Nuove serie e documentari su Play Suisse',
+    'blog.article.play-suisse-novita-streaming-2026.excerpt': 'Scopri le nuove serie e documentari disponibili su Play Suisse, la piattaforma streaming della SSR.',
+    'blog.article.play-suisse-novita-streaming-2026.imageAlt': 'Persona che guarda un documentario svizzero su una piattaforma di streaming moderna, in un accogliente appartamento ticinese con vista sulle Alpi.',
 };
 
 export default blogMetaIt;

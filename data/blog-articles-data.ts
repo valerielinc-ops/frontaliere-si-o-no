@@ -9457,4 +9457,11 @@ export const ARTICLES = [
  image: '/images/blog/ucraina-russia-droni-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'play-suisse-novita-streaming-2026',
+ category: 'novita',
+ date: '2026-04-29T01:04:38.590Z',
+ image: '/images/blog/play-suisse-novita-streaming-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

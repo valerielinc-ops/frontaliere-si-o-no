@@ -3619,6 +3619,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ucraina-russia-droni-2026.title': 'Ukraine overtakes Russia in drone attacks',
     'blog.article.ucraina-russia-droni-2026.excerpt': 'For the first time since the conflict began, Ukraine launched more drones than Russia in March 2026',
     'blog.article.ucraina-russia-droni-2026.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland, with clear blue sky and surrounding mountains',
+    'blog.article.play-suisse-novita-streaming-2026.title': 'New series and documentaries on Play Suisse',
+    'blog.article.play-suisse-novita-streaming-2026.excerpt': 'Discover the new series and documentaries available on Play Suisse, the SSR streaming platform.',
+    'blog.article.play-suisse-novita-streaming-2026.imageAlt': 'Person watching a Swiss documentary on a modern streaming platform in a cozy Ticino apartment with a view of the Alps.',
 };
 
 export default blogMetaEn;

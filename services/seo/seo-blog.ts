@@ -21963,6 +21963,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-play-suisse-novita-streaming-2026': {
+    title: 'Nuove serie e documentari su Play Suisse | Frontaliere Ticino',
+    description: 'Scopri le nuove serie e documentari disponibili su Play Suisse, la piattaforma streaming della SSR. Registrati gratuitamente e inizia a guardare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, serie, documentari, play',
+    ogTitle: 'Nuove serie e documentari su Play Suisse',
+    ogDescription: 'Scopri le nuove serie e documentari disponibili su Play Suisse, la piattaforma streaming della SSR. Registrati gratuitamente e inizia a guardare.',
+    canonicalPath: '/articoli-frontaliere/play-suisse-novita-streaming-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove serie e documentari su Play Suisse",
+      "description": "Scopri le nuove serie e documentari disponibili su Play Suisse, la piattaforma streaming della SSR. Registrati gratuitamente e inizia a guardare.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/play-suisse-novita-streaming-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che guarda un documentario svizzero su una piattaforma di streaming moderna, in un accogliente appartamento ticinese con vista sulle Alpi."
+      },
+      "datePublished": "2026-04-29T01:04:38+00:00",
+      "dateModified": "2026-04-29T01:04:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/play-suisse-novita-streaming-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

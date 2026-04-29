@@ -3619,6 +3619,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ucraina-russia-droni-2026.title': 'Ukraine übertrifft Russland bei Drohnenangriffen',
     'blog.article.ucraina-russia-droni-2026.excerpt': 'Erstmals seit Kriegsbeginn hat die Ukraine im März 2026 mehr Drohnen als Russland eingesetzt.',
     'blog.article.ucraina-russia-droni-2026.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin, Schweiz, mit klarem blauen Himmel und umliegenden Bergen',
+    'blog.article.play-suisse-novita-streaming-2026.title': 'Neue Serien und Dokumentationen auf Play Suisse',
+    'blog.article.play-suisse-novita-streaming-2026.excerpt': 'Entdecken Sie die neuen Serien und Dokumentationen, die auf Play Suisse, der Streaming-Plattform der SSR, verfügbar sind.',
+    'blog.article.play-suisse-novita-streaming-2026.imageAlt': 'Eine Person, die einen Schweizer Dokumentarfilm auf einer modernen Streaming-Plattform in einer gemütlichen Wohnung im Tessin mit Blick auf die Alpen ansieht.',
 };
 
 export default blogMetaDe;

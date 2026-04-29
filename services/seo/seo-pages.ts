@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1256,
+ "numberOfItems": 1257,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5891,7 +5891,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1253, "name": "Eurovision 2026: le ballad che emozionano", "url": `${BASE_URL}/articoli-frontaliere/eurovision-ballad-ticino-2026` },
           { "@type": "ListItem", "position": 1254, "name": "Unitas compie 80 anni e guarda al futuro", "url": `${BASE_URL}/articoli-frontaliere/unitas-ottantesimo-futuro-ticino` },
           { "@type": "ListItem", "position": 1255, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere` },
-          { "@type": "ListItem", "position": 1256, "name": "Ucraina supera Russia negli attacchi con droni", "url": `${BASE_URL}/articoli-frontaliere/ucraina-russia-droni-2026` }
+          { "@type": "ListItem", "position": 1256, "name": "Ucraina supera Russia negli attacchi con droni", "url": `${BASE_URL}/articoli-frontaliere/ucraina-russia-droni-2026` },
+          { "@type": "ListItem", "position": 1257, "name": "Nuove serie e documentari su Play Suisse", "url": `${BASE_URL}/articoli-frontaliere/play-suisse-novita-streaming-2026` }
  ]
  },
  {
