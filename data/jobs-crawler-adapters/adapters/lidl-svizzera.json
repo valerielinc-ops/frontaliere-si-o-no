@@ -15,7 +15,6 @@
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-673001",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-657113",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-st-moritz-659738",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-604777",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lugano-588267",
@@ -23,17 +22,8 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch) using Ticino and Grigioni italiano geo queries.",
-  "updatedAt": "2026-04-29T11:04:21.069Z",
+  "updatedAt": "2026-04-29T22:11:43.903Z",
   "seedMetaByUrl": {
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-st-moritz-659738": {
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
-      "canton": "GR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-657113": {
       "location": "St. Moritz",
       "addressLocality": "St. Moritz",
