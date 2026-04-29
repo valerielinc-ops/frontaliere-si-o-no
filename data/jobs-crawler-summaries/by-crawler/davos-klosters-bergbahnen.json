@@ -1,18 +1,19 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-04-29T10:35:19.208Z",
+  "generatedAt": "2026-04-29T21:43:04.432Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4859,
-  "avgDurationMs": 4859,
+  "durationMs": 6845,
+  "avgDurationMs": 6845,
   "durationHistory": [
-    4859
+    6845
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "davos-klosters-bergbahnen-905031e06da3",
       "slug": "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
@@ -33,17 +34,17 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bahnanlagen_j_3022544",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:16.604Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-04-29T21:43:00.939Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-29T10:35:16.604Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "davos-klosters-bergbahnen-76fd4fc4bd14",
       "slug": "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
@@ -64,7 +65,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3004218",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:15.625Z",
+      "crawledAt": "2026-04-29T21:42:59.665Z",
       "firstSeenAt": "2026-04-13T21:32:55.604Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -94,7 +95,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:15.875Z",
+      "crawledAt": "2026-04-29T21:42:59.979Z",
       "firstSeenAt": "2026-04-13T10:24:17.912Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -124,7 +125,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3024838",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:16.115Z",
+      "crawledAt": "2026-04-29T21:43:00.290Z",
       "firstSeenAt": "2026-04-13T21:32:55.604Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -154,7 +155,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-in-Gebaeudeunterhalt-Infrastruktur_j_2938831",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:16.359Z",
+      "crawledAt": "2026-04-29T21:43:00.620Z",
       "firstSeenAt": "2026-04-13T10:24:18.731Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -184,7 +185,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office_j_2808482",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:16.857Z",
+      "crawledAt": "2026-04-29T21:43:01.256Z",
       "firstSeenAt": "2026-04-13T10:24:19.013Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -214,7 +215,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-IT_j_3809206",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:17.106Z",
+      "crawledAt": "2026-04-29T21:43:01.571Z",
       "firstSeenAt": "2026-04-13T10:24:19.548Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -244,7 +245,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Technischer-Leiter-in_j_3851984",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:17.349Z",
+      "crawledAt": "2026-04-29T21:43:01.882Z",
       "firstSeenAt": "2026-04-21T09:54:32.190Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -277,7 +278,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Technischer-Leiter-in_j_3851984",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:17.349Z",
+      "crawledAt": "2026-04-29T21:43:01.882Z",
       "firstSeenAt": "2026-04-21T09:54:32.190Z",
       "needsRetranslation": true,
       "salaryMin": 68000,
@@ -311,7 +312,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-IT_j_3809206",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:17.106Z",
+      "crawledAt": "2026-04-29T21:43:01.571Z",
       "firstSeenAt": "2026-04-13T10:24:19.548Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -344,7 +345,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office_j_2808482",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:16.857Z",
+      "crawledAt": "2026-04-29T21:43:01.256Z",
       "firstSeenAt": "2026-04-13T10:24:19.013Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -359,7 +360,7 @@
     },
     {
       "id": "davos-klosters-bergbahnen-905031e06da3",
-      "slug": "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
+      "slug": "personale-nei-sistemi-ferroviari-davos-klosters-bergbahnen-ag-davos",
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
       "companyDomain": "davosklosters.ch",
@@ -377,16 +378,17 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bahnanlagen_j_3022544",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:16.604Z",
+      "crawledAt": "2026-04-29T21:43:00.939Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-29T10:35:16.604Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "7270",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -410,7 +412,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-in-Gebaeudeunterhalt-Infrastruktur_j_2938831",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:16.359Z",
+      "crawledAt": "2026-04-29T21:43:00.620Z",
       "firstSeenAt": "2026-04-13T10:24:18.731Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -443,7 +445,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3024838",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:16.115Z",
+      "crawledAt": "2026-04-29T21:43:00.290Z",
       "firstSeenAt": "2026-04-13T21:32:55.604Z",
       "needsRetranslation": true,
       "salaryMin": 68000,
@@ -477,7 +479,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:15.875Z",
+      "crawledAt": "2026-04-29T21:42:59.979Z",
       "firstSeenAt": "2026-04-13T10:24:17.912Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -510,7 +512,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3004218",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T10:35:15.625Z",
+      "crawledAt": "2026-04-29T21:42:59.665Z",
       "firstSeenAt": "2026-04-13T21:32:55.604Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
