@@ -3634,6 +3634,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.novartis-calo-utile-2026.title': 'Novartis: 13% drop in net profit in Q1 2026',
     'blog.article.novartis-calo-utile-2026.excerpt': 'Pharmaceutical group Novartis reports a 13% drop in net profit, with Entresto sales significantly down.',
     'blog.article.novartis-calo-utile-2026.imageAlt': 'Aerial view of Lake Lugano with modern office buildings in the background',
+    'blog.article.taglio-accise-proroga-meloni-2026.title': 'Energy tax cut: extension coming, Meloni urges EU courage',
+    'blog.article.taglio-accise-proroga-meloni-2026.excerpt': 'The Italian government is working on a shorter extension for the energy tax cut. Meloni calls for courage from Europe to tackle the energy crisis.',
+    'blog.article.taglio-accise-proroga-meloni-2026.imageAlt': 'Lake Lugano with a view of the modern city',
 };
 
 export default blogMetaEn;

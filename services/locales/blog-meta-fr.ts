@@ -3635,6 +3635,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.novartis-calo-utile-2026.title': 'Novartis: baisse de 13% du bénéfice net au 1er trimestre 2026',
     'blog.article.novartis-calo-utile-2026.excerpt': 'Le groupe pharmaceutique Novartis enregistre une baisse de 13% du bénéfice net, avec des ventes d\'Entresto en forte diminution.',
     'blog.article.novartis-calo-utile-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes en arrière-plan',
+    'blog.article.taglio-accise-proroga-meloni-2026.title': 'Proroga taglio accise: Meloni chiede coraggio UE',
+    'blog.article.taglio-accise-proroga-meloni-2026.excerpt': 'Le gouvernement italien travaille à une prorogation plus courte pour la réduction des accises sur l\'énergie. Meloni invoque du courage de la part de l\'Europe pour faire face à la crise énergétique.',
+    'blog.article.taglio-accise-proroga-meloni-2026.imageAlt': 'Lac de Lugano avec vue sur la ville moderne',
 };
 
 export default blogMetaFr;

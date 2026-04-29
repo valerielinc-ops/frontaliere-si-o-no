@@ -22108,6 +22108,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-taglio-accise-proroga-meloni-2026': {
+    title: 'Taglio accise energia: proroga in arrivo, Meloni chiede coraggio all\'UE',
+    description: 'Il governo italiano lavora a una proroga più breve per il taglio delle accise sull\'energia. Meloni invoca coraggio dall\'Europa per affrontare la crisi',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglio, accise, energia, proroga',
+    ogTitle: 'Taglio accise energia: proroga in arrivo, Meloni chiede coraggio all\'UE',
+    ogDescription: 'Il governo italiano lavora a una proroga più breve per il taglio delle accise sull\'energia. Meloni invoca coraggio dall\'Europa per affrontare la crisi',
+    canonicalPath: '/articoli-frontaliere/taglio-accise-proroga-meloni-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Taglio accise energia: proroga in arrivo, Meloni chiede coraggio all'UE\",\"description\":\"Il governo italiano lavora a una proroga più breve per il taglio delle accise sull'energia. Meloni invoca coraggio dall'Europa per affrontare la crisi energetica.\",\"datePublished\":\"2026-04-29\",\"image\":\"https://frontaliereticino.ch/images/lac-lugano.webp\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Frontaliere Ticino\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://frontaliereticino.ch/images/logo.webp\",\"width\":200,\"height\":60}}}",
+      "description": "Il governo italiano lavora a una proroga più breve per il taglio delle accise sull'energia. Meloni invoca coraggio dall'Europa per affrontare la crisi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/taglio-accise-proroga-meloni-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulla città moderna"
+      },
+      "datePublished": "2026-04-29T01:54:07+00:00",
+      "dateModified": "2026-04-29T01:54:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/taglio-accise-proroga-meloni-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

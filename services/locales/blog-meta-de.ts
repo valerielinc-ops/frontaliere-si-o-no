@@ -3634,6 +3634,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.novartis-calo-utile-2026.title': 'Novartis: 13% weniger Nettogewinn im ersten Quartal 2026',
     'blog.article.novartis-calo-utile-2026.excerpt': 'Der Pharmakonzern Novartis verzeichnet einen Rückgang des Nettogewinns um 13%, wobei die Verkäufe von Entresto stark zurückgehen.',
     'blog.article.novartis-calo-utile-2026.imageAlt': 'Luftaufnahme des Luganersees mit modernen Bürogebäuden im Hintergrund',
+    'blog.article.taglio-accise-proroga-meloni-2026.title': 'Meloni fordert von der EU Mut bei Energiekrise',
+    'blog.article.taglio-accise-proroga-meloni-2026.excerpt': 'Die italienische Regierung arbeitet an einer kürzeren Verlängerung der Senkung der Energiesteuern. Meloni fordert Mut von Europa, um die Energiekrise zu bewältigen.',
+    'blog.article.taglio-accise-proroga-meloni-2026.imageAlt': 'Luganersee mit Blick auf die moderne Stadt',
 };
 
 export default blogMetaDe;
