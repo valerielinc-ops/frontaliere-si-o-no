@@ -49,10 +49,10 @@ on:
         type: boolean
         default: false
       post_build_max_parallel:
-        description: 'Concurrency cap for the 18-task post-build pool. Default 2 matches ubuntu-latest cores. Increase to 3-4 to overlap I/O-bound tasks; decrease to 1 to serialise.'
+        description: 'Concurrency cap for the 18-task post-build pool. Default 3 — best balance between I/O overlap and CPU thrashing on 2-core ubuntu-latest. Override with 1/2/4 for one-off measurements.'
         required: false
         type: string
-        default: '2'
+        default: '3'
 
 permissions:
   contents: read
