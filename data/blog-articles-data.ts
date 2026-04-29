@@ -9912,4 +9912,11 @@ export const ARTICLES = [
  image: '/images/blog/via-francisca-10-anni-turismo-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'scuola-viganello-gaza-gemellaggio-2026',
+ category: 'novita',
+ date: '2026-04-29T10:02:08.959Z',
+ image: '/images/blog/scuola-viganello-gaza-gemellaggio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

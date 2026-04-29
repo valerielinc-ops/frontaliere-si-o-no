@@ -23848,6 +23848,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scuola-viganello-gaza-gemellaggio-2026': {
+    title: 'Scuola di Viganello e Gaza si gemellano: scambi culturali e mostre',
+    description: 'Dal 27 aprile al 7 maggio, la scuola media di Viganello ospita una mostra dedicata al gemellaggio con la scuola Al-Salam di Gaza, con scambi di lettere e',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, viganello, gaza, gemellano',
+    ogTitle: 'Scuola di Viganello e Gaza si gemellano: scambi culturali e mostre',
+    ogDescription: 'Dal 27 aprile al 7 maggio, la scuola media di Viganello ospita una mostra dedicata al gemellaggio con la scuola Al-Salam di Gaza, con scambi di lettere e',
+    canonicalPath: '/articoli-frontaliere/scuola-viganello-gaza-gemellaggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola di Viganello e Gaza si gemellano: scambi culturali e mostre",
+      "description": "Dal 27 aprile al 7 maggio, la scuola media di Viganello ospita una mostra dedicata al gemellaggio con la scuola Al-Salam di Gaza, con scambi di lettere e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scuola-viganello-gaza-gemellaggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola media di Viganello, studenti che scambiano lettere e disegni con una scuola di Gaza"
+      },
+      "datePublished": "2026-04-29T10:02:08+00:00",
+      "dateModified": "2026-04-29T10:02:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scuola-viganello-gaza-gemellaggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

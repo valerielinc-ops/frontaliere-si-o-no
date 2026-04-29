@@ -3815,6 +3815,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.via-francisca-10-anni-turismo-ticino.title': 'Via Francisca del Lucomagno: 10 anni di turismo e connessioni',
     'blog.article.via-francisca-10-anni-turismo-ticino.excerpt': 'La Via Francisca del Lucomagno compie dieci anni, unendo Castiglione a Roma e celebrando il turismo e le relazioni tra territori',
     'blog.article.via-francisca-10-anni-turismo-ticino.imageAlt': 'Gruppo di escursionisti lungo la Via Francisca del Lucomagno, immersi nei paesaggi del Ticino',
+    'blog.article.scuola-viganello-gaza-gemellaggio-2026.title': 'Scuola di Viganello e Gaza si gemellano: scambi culturali e mostre',
+    'blog.article.scuola-viganello-gaza-gemellaggio-2026.excerpt': 'Dal 27 aprile al 7 maggio, la scuola media di Viganello ospita una mostra dedicata al gemellaggio con la scuola Al-Salam di Gaza, con scambi di lettere e disegni.',
+    'blog.article.scuola-viganello-gaza-gemellaggio-2026.imageAlt': 'Scuola media di Viganello, studenti che scambiano lettere e disegni con una scuola di Gaza',
 };
 
 export default blogMetaIt;
