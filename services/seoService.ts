@@ -2436,6 +2436,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-eurovision-ballad-ticino-2026': { name: 'Eurovision 2026', path: '/articoli-frontaliere/eurovision-ballad-ticino-2026', parent: 'blog' },
     'blog-unitas-ottantesimo-futuro-ticino': { name: 'Unitas 80 anni', path: '/articoli-frontaliere/unitas-ottantesimo-futuro-ticino', parent: 'blog' },
     'blog-como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere': { name: 'Como, io ho segnalato ma il Comune non ne', path: '/articoli-frontaliere/como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere', parent: 'blog' },
+    'blog-ucraina-russia-droni-2026': { name: 'Novità', path: '/articoli-frontaliere/ucraina-russia-droni-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

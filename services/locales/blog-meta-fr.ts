@@ -3617,6 +3617,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.title': 'Escalier indécent : la commune ne veut pas savoir',
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.excerpt': 'Signalement d\'une habitante auprès de la commune de Côme : l\'escalier de la via Spartaco Cappelletti à la via Bellinzona se trouve dans une situation indécente.',
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.ucraina-russia-droni-2026.title': 'L\'Ukraine dépasse la Russie dans les attaques de drones',
+    'blog.article.ucraina-russia-droni-2026.excerpt': 'Pour la première fois depuis le début du conflit, l\'Ukraine a lancé plus de drones que la Russie en mars 2026',
+    'blog.article.ucraina-russia-droni-2026.imageAlt': 'Vue aérienne de Castelgrande à Bellinzone, Tessin, Suisse, avec ciel bleu clair et montagnes environnantes',
 };
 
 export default blogMetaFr;

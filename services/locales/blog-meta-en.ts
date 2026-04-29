@@ -3616,6 +3616,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.title': 'Indecent Scaletta: Como City Council Ignores',
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.excerpt': 'Report from a citizen to Como City Council: the escalator from Via Spartaco Cappelletti to Via Bellinzona is in an indecent state.',
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.ucraina-russia-droni-2026.title': 'Ukraine overtakes Russia in drone attacks',
+    'blog.article.ucraina-russia-droni-2026.excerpt': 'For the first time since the conflict began, Ukraine launched more drones than Russia in March 2026',
+    'blog.article.ucraina-russia-droni-2026.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino, Switzerland, with clear blue sky and surrounding mountains',
 };
 
 export default blogMetaEn;

@@ -3617,6 +3617,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.title': 'Scaletta indecente: Comune non vuole sapere',
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.excerpt': 'Segnalazione di una cittadina sul Comune di Como: la scaletta da via Spartaco Cappelletti a via Bellinzona è in una situazione indecente.',
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.ucraina-russia-droni-2026.title': 'Ucraina supera Russia negli attacchi con droni',
+    'blog.article.ucraina-russia-droni-2026.excerpt': 'Per la prima volta dall\'inizio del conflitto, l\'Ucraina ha lanciato più droni della Russia a marzo 2026',
+    'blog.article.ucraina-russia-droni-2026.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera, con cielo azzurro e montagne circostanti',
 };
 
 export default blogMetaIt;

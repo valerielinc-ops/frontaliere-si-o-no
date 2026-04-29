@@ -3616,6 +3616,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.title': 'Unanständige Treppe: Gemeinde will nichts wissen',
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.excerpt': 'Eine Meldung einer Bürgerin an die Gemeinde Como: Die Treppe von der Via Spartaco Cappelletti zur Via Bellinzona ist in einem unanständigen Zustand.',
     'blog.article.como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.ucraina-russia-droni-2026.title': 'Ukraine übertrifft Russland bei Drohnenangriffen',
+    'blog.article.ucraina-russia-droni-2026.excerpt': 'Erstmals seit Kriegsbeginn hat die Ukraine im März 2026 mehr Drohnen als Russland eingesetzt.',
+    'blog.article.ucraina-russia-droni-2026.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin, Schweiz, mit klarem blauen Himmel und umliegenden Bergen',
 };
 
 export default blogMetaDe;

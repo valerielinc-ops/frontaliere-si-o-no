@@ -9450,4 +9450,11 @@ export const ARTICLES = [
  image: '/images/blog/como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ucraina-russia-droni-2026',
+ category: 'novita',
+ date: '2026-04-29T00:58:26.446Z',
+ image: '/images/blog/ucraina-russia-droni-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

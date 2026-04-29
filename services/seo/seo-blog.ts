@@ -21934,6 +21934,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ucraina-russia-droni-2026': {
+    title: 'Ucraina supera Russia negli attacchi con droni | Frontaliere Ticino',
+    description: 'Per la prima volta dall\'inizio del conflitto, l\'Ucraina ha lanciato più droni della Russia a marzo 2026, secondo i dati militari analizzati da ABC News.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ucraina, supera, russia, negli',
+    ogTitle: 'Ucraina supera Russia negli attacchi con droni',
+    ogDescription: 'Per la prima volta dall\'inizio del conflitto, l\'Ucraina ha lanciato più droni della Russia a marzo 2026, secondo i dati militari analizzati da ABC News.',
+    canonicalPath: '/articoli-frontaliere/ucraina-russia-droni-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ucraina supera Russia negli attacchi con droni",
+      "description": "Per la prima volta dall'inizio del conflitto, l'Ucraina ha lanciato più droni della Russia a marzo 2026, secondo i dati militari analizzati da ABC News.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ucraina-russia-droni-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Castelgrande a Bellinzona, Ticino, Svizzera, con cielo azzurro e montagne circostanti"
+      },
+      "datePublished": "2026-04-29T00:58:26+00:00",
+      "dateModified": "2026-04-29T00:58:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ucraina-russia-droni-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
