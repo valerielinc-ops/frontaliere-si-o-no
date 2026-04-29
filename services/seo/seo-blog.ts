@@ -25095,6 +25095,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ambulatori-medici-temporanei-varese-2026': {
+    title: 'Varese: ambulatori medici temporanei per oltre 5000 cittadini',
+    description: 'Dal 1° maggio 2026, quattro ambulatori medici temporanei in Varese servono oltre 5000 cittadini senza medico curante. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, ambulatori, medici, temporanei',
+    ogTitle: 'Varese: ambulatori medici temporanei per oltre 5000 cittadini',
+    ogDescription: 'Dal 1° maggio 2026, quattro ambulatori medici temporanei in Varese servono oltre 5000 cittadini senza medico curante.',
+    canonicalPath: '/articoli-frontaliere/ambulatori-medici-temporanei-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: ambulatori medici temporanei per oltre 5000 cittadini",
+      "description": "Dal 1° maggio 2026, quattro ambulatori medici temporanei in Varese servono oltre 5000 cittadini senza medico curante. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ambulatori-medici-temporanei-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambulatorio medico temporaneo in un piccolo comune vicino al Lago di Lugano"
+      },
+      "datePublished": "2026-04-29T15:51:47+00:00",
+      "dateModified": "2026-04-29T15:51:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ambulatori-medici-temporanei-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

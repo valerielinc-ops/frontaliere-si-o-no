@@ -3943,6 +3943,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trivella-san-gottardo-zona-faglia.title': 'Drill reaches fault zone at Gotthard',
     'blog.article.trivella-san-gottardo-zona-faglia.excerpt': 'The mechanical cutter \'Alessandra\' has completed a crucial milestone in the construction of the second tunnel of the Gotthard road tunnel.',
     'blog.article.trivella-san-gottardo-zona-faglia.imageAlt': 'San Gottardo construction site with mechanical drill in action',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.title': 'Varese: temporary medical clinics for over 5,000 citizens',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.excerpt': 'From 1st May 2026, four temporary medical clinics in Varese serve over 5,000 citizens without a family doctor.',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.imageAlt': 'Temporary medical clinic in a small town near Lake Lugano',
 };
 
 export default blogMetaEn;

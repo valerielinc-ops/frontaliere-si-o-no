@@ -3944,6 +3944,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trivella-san-gottardo-zona-faglia.title': 'Forage atteint une zone de faille au Gothard',
     'blog.article.trivella-san-gottardo-zona-faglia.excerpt': 'La fraiseuse mécanique \'Alessandra\' a atteint un jalon crucial dans la construction de la deuxième galerie du tunnel routier du Gothard.',
     'blog.article.trivella-san-gottardo-zona-faglia.imageAlt': 'Chantier du Saint-Gothard avec une foreuse mécanique en action',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.title': 'Varese: cabinets médicaux temporaires pour plus de 5000 citoyens',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.excerpt': 'À partir du 1er mai 2026, quatre cabinets médicaux temporaires à Varese desservent plus de 5000 citoyens sans médecin traitant.',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.imageAlt': 'Clinique médicale temporaire dans une petite ville près du lac de Lugano',
 };
 
 export default blogMetaFr;

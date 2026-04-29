@@ -3943,6 +3943,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trivella-san-gottardo-zona-faglia.title': 'Bohrmaschine erreicht Störungszone am Gotthard',
     'blog.article.trivella-san-gottardo-zona-faglia.excerpt': 'Die mechanische Fräsmaschine \'Alessandra\' hat ein entscheidendes Etappenziel beim Bau des zweiten Straßentunnels am Gotthard erreicht.',
     'blog.article.trivella-san-gottardo-zona-faglia.imageAlt': 'Bauplatz San Gottardo mit mechanischem Bohrer in Aktion',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.title': 'Varese: vorübergehende Arztpraxen für über 5000 Bürger',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.excerpt': 'Ab dem 1. Mai 2026 versorgen vier vorübergehende Arztpraxen in Varese über 5000 Bürger ohne Hausarzt.',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.imageAlt': 'Vorübergehende Arztpraxis in einem kleinen Ort in der Nähe des Luganersees',
 };
 
 export default blogMetaDe;

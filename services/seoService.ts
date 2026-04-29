@@ -2545,6 +2545,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ubs-keller-sutter-lobbismo-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-keller-sutter-lobbismo-2026', parent: 'blog' },
     'blog-daverio-gazzada-assistenza-medica-2026': { name: 'Novità', path: '/articoli-frontaliere/daverio-gazzada-assistenza-medica-2026', parent: 'blog' },
     'blog-trivella-san-gottardo-zona-faglia': { name: 'Novità', path: '/articoli-frontaliere/trivella-san-gottardo-zona-faglia', parent: 'blog' },
+    'blog-ambulatori-medici-temporanei-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/ambulatori-medici-temporanei-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

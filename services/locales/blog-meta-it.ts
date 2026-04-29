@@ -3944,6 +3944,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trivella-san-gottardo-zona-faglia.title': 'Trivella raggiunge zona di faglia al San Gottardo',
     'blog.article.trivella-san-gottardo-zona-faglia.excerpt': 'La fresa meccanica \'Alessandra\' ha completato un traguardo cruciale nella costruzione della seconda galleria del tunnel stradale del San Gottardo.',
     'blog.article.trivella-san-gottardo-zona-faglia.imageAlt': 'Cantiere del San Gottardo con trivella meccanica in azione',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.title': 'Varese: ambulatori medici temporanei per oltre 5000 cittadini',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.excerpt': 'Dal 1° maggio 2026, quattro ambulatori medici temporanei in Varese servono oltre 5000 cittadini senza medico curante.',
+    'blog.article.ambulatori-medici-temporanei-varese-2026.imageAlt': 'Ambulatorio medico temporaneo in un piccolo comune vicino al Lago di Lugano',
 };
 
 export default blogMetaIt;

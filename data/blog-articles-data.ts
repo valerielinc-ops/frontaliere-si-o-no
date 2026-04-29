@@ -10213,4 +10213,11 @@ export const ARTICLES = [
  image: '/images/blog/trivella-san-gottardo-zona-faglia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ambulatori-medici-temporanei-varese-2026',
+ category: 'novita',
+ date: '2026-04-29T15:51:47.927Z',
+ image: '/images/blog/ambulatori-medici-temporanei-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
