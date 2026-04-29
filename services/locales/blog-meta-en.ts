@@ -3646,6 +3646,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.uzbekistan-oro-gas-ticino-implicazioni.title': 'Uzbekistan: gas and gold at the heart of the world',
     'blog.article.uzbekistan-oro-gas-ticino-implicazioni.excerpt': 'Discover how Uzbekistan\'s economic opening affects Ticino and cross-border workers.',
     'blog.article.uzbekistan-oro-gas-ticino-implicazioni.imageAlt': 'Lake Lugano with view of modern financial district',
+    'blog.article.attentato-washington-trump-2026-analisi.title': 'Trump attack suspect appears in court',
+    'blog.article.attentato-washington-trump-2026-analisi.excerpt': 'Cole Allen, a 31-year-old Californian, accused of assaulting a federal agent and using a firearm, will appear before a judge on Monday',
+    'blog.article.attentato-washington-trump-2026-analisi.imageAlt': 'Washington Hilton hotel exterior with security personnel during a high-profile event',
 };
 
 export default blogMetaEn;

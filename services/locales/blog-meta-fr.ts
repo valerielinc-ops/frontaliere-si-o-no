@@ -3647,6 +3647,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.uzbekistan-oro-gas-ticino-implicazioni.title': 'Ouzbékistan, or et gaz au centre du monde: implications pour le Ticino',
     'blog.article.uzbekistan-oro-gas-ticino-implicazioni.excerpt': 'Découvrez comment l\'ouverture économique de l\'Ouzbékistan influence le Ticino et les frontaliers.',
     'blog.article.uzbekistan-oro-gas-ticino-implicazioni.imageAlt': 'Lac de Lugano avec vue sur le quartier financier moderne',
+    'blog.article.attentato-washington-trump-2026-analisi.title': 'Attaque contre Trump : l\'agresseur devant le juge',
+    'blog.article.attentato-washington-trump-2026-analisi.excerpt': 'Cole Allen, un Californien de 31 ans, accusé d\'agression contre un agent fédéral et d\'usage d\'arme à feu, comparaîtra devant un juge lundi.',
+    'blog.article.attentato-washington-trump-2026-analisi.imageAlt': 'Extérieur de l\'hôtel Hilton à Washington avec des agents de sécurité lors d\'un événement de haut niveau',
 };
 
 export default blogMetaFr;

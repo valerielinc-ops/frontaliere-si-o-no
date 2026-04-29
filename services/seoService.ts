@@ -2446,6 +2446,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fedpol-arresto-corruzione-2026': { name: 'Novità', path: '/articoli-frontaliere/fedpol-arresto-corruzione-2026', parent: 'blog' },
     'blog-momoride-benefico-mendrisiotto-2024': { name: 'MomòRide', path: '/articoli-frontaliere/momoride-benefico-mendrisiotto-2024', parent: 'blog' },
     'blog-uzbekistan-oro-gas-ticino-implicazioni': { name: 'Novità', path: '/articoli-frontaliere/uzbekistan-oro-gas-ticino-implicazioni', parent: 'blog' },
+    'blog-attentato-washington-trump-2026-analisi': { name: 'Attentato a Trump', path: '/articoli-frontaliere/attentato-washington-trump-2026-analisi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

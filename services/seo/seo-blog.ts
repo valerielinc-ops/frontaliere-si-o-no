@@ -22224,6 +22224,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attentato-washington-trump-2026-analisi': {
+    title: 'Attentato a Trump: l\'aggressore davanti al giudice',
+    description: 'Cole Allen, 31enne californiano, accusato di aggressione a un agente federale e uso di arma da fuoco, comparirà davanti a un giudice lunedì. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, attentato, trump, aggressore, davanti',
+    ogTitle: 'Attentato a Trump: l\'aggressore davanti al giudice',
+    ogDescription: 'Cole Allen, 31enne californiano, accusato di aggressione a un agente federale e uso di arma da fuoco, comparirà davanti a un giudice lunedì',
+    canonicalPath: '/articoli-frontaliere/attentato-washington-trump-2026-analisi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attentato a Trump: l'aggressore davanti al giudice",
+      "description": "Cole Allen, 31enne californiano, accusato di aggressione a un agente federale e uso di arma da fuoco, comparirà davanti a un giudice lunedì. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/attentato-washington-trump-2026-analisi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esterno dell'Hotel Hilton a Washington con forze di sicurezza durante un evento di alto profilo"
+      },
+      "datePublished": "2026-04-29T02:30:01+00:00",
+      "dateModified": "2026-04-29T02:30:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/attentato-washington-trump-2026-analisi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

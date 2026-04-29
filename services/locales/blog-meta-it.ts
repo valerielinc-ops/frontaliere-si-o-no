@@ -3647,6 +3647,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.uzbekistan-oro-gas-ticino-implicazioni.title': 'Uzbekistan, oro e gas al centro del mondo: implicazioni per il Ticino',
     'blog.article.uzbekistan-oro-gas-ticino-implicazioni.excerpt': 'Scopri come l\'apertura economica dell\'Uzbekistan influisce sul Ticino e i frontalieri.',
     'blog.article.uzbekistan-oro-gas-ticino-implicazioni.imageAlt': 'Lago di Lugano con vista sul centro finanziario moderno',
+    'blog.article.attentato-washington-trump-2026-analisi.title': 'Attentato a Trump: l\'aggressore davanti al giudice',
+    'blog.article.attentato-washington-trump-2026-analisi.excerpt': 'Cole Allen, 31enne californiano, accusato di aggressione a un agente federale e uso di arma da fuoco, comparirà davanti a un giudice lunedì',
+    'blog.article.attentato-washington-trump-2026-analisi.imageAlt': 'Esterno dell\'Hotel Hilton a Washington con forze di sicurezza durante un evento di alto profilo',
 };
 
 export default blogMetaIt;

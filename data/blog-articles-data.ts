@@ -9520,4 +9520,11 @@ export const ARTICLES = [
  image: '/images/blog/uzbekistan-oro-gas-ticino-implicazioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'attentato-washington-trump-2026-analisi',
+ category: 'novita',
+ date: '2026-04-29T02:30:01.424Z',
+ image: '/images/blog/attentato-washington-trump-2026-analisi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
