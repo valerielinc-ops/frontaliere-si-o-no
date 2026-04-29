@@ -3737,6 +3737,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.730-precompilato-frontalieri-ticino-2026.title': '730 precompilato online dal 30 aprile: cosa cambia per i frontalieri',
     'blog.article.730-precompilato-frontalieri-ticino-2026.excerpt': 'Dal 30 aprile 2026 il 730 precompilato è online. Ecco cosa sapere per non sbagliare, con dati e scadenze aggiornati.',
     'blog.article.730-precompilato-frontalieri-ticino-2026.imageAlt': 'Persona che accede al 730 precompilato online con vista sul Lago di Lugano',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.title': 'Tosatura pecore e riparazione vestiti: evento a Bellinzona il 9 maggio 2026',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.excerpt': 'L\'evento di Bellinzona promuove la sostenibilità e la lotta alla fast fashion con laboratori di upcycling e tosatura delle pecore.',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.imageAlt': 'Evento di tosatura pecore e riparazione vestiti a Bellinzona',
 };
 
 export default blogMetaIt;

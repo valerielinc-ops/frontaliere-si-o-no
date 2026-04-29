@@ -3736,6 +3736,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.730-precompilato-frontalieri-ticino-2026.title': '730-Vorausgefüllt ab 30. April online: Was ändert sich für Grenzgänger?',
     'blog.article.730-precompilato-frontalieri-ticino-2026.excerpt': 'Ab dem 30. April 2026 ist die 730-Vorausgefüllte online. Hier erfahren Sie, was Sie wissen müssen, um Fehler zu vermeiden, mit aktualisierten Daten und Fristen.',
     'blog.article.730-precompilato-frontalieri-ticino-2026.imageAlt': 'Person, die auf den 730 vorgefertigten Steuerformular online mit Blick auf den Luganersee zugreift',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.title': 'Schafschur und Kleiderreparatur: Event in Bellinzona am 9. Mai 2026',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.excerpt': 'Das Event in Bellinzona fördert Nachhaltigkeit und den Kampf gegen Fast Fashion mit Upcycling-Workshops und Schafschur.',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.imageAlt': 'Schafschur- und Kleidungsreparaturveranstaltung in Bellinzona',
 };
 
 export default blogMetaDe;

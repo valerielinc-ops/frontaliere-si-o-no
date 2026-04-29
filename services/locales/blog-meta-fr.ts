@@ -3737,6 +3737,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.730-precompilato-frontalieri-ticino-2026.title': '730 prérempli en ligne dès le 30 avril : ce qui change pour les frontaliers',
     'blog.article.730-precompilato-frontalieri-ticino-2026.excerpt': 'Dès le 30 avril 2026, la déclaration 730 préremplie est en ligne. Voici ce qu\'il faut savoir pour ne pas se tromper, avec des données et des délais mis à jour.',
     'blog.article.730-precompilato-frontalieri-ticino-2026.imageAlt': 'Personne accédant à la déclaration d\'impôt 730 préremplie en ligne avec vue sur le lac de Lugano',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.title': 'Tonte de moutons et réparation de vêtements à Bellinzona le 9 mai 2026',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.excerpt': 'L\'événement de Bellinzona promeut la durabilité et la lutte contre la fast fashion avec des ateliers d\'upcycling et la tonte des moutons.',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.imageAlt': 'Événement de tonte de moutons et de réparation de vêtements à Bellinzona',
 };
 
 export default blogMetaFr;

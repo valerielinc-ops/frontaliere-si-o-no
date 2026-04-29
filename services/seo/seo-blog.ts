@@ -23094,6 +23094,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tosatura-pecore-riparazione-vestiti-bellinzona-2026': {
+    title: 'Tosatura pecore e riparazione vestiti: evento a Bellinzona il 9 maggio 2026',
+    description: 'Evento di sostenibilità a Bellinzona il 9 maggio 2026 con laboratori di upcycling e tosatura pecore. Partecipa e scopri come ridurre l\'impatto ambientale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tosatura, pecore, riparazione, vestiti',
+    ogTitle: 'Tosatura pecore e riparazione vestiti a Bellinzona',
+    ogDescription: 'Evento di sostenibilità a Bellinzona il 9 maggio 2026 con laboratori di upcycling e tosatura pecore. Partecipa e scopri come ridurre l\'impatto ambientale.',
+    canonicalPath: '/articoli-frontaliere/tosatura-pecore-riparazione-vestiti-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Evento di tosatura pecore e riparazione vestiti a Bellinzona il 9 maggio 2026",
+      "description": "Evento di sostenibilità a Bellinzona il 9 maggio 2026 con laboratori di upcycling e tosatura pecore. Partecipa e scopri come ridurre l'impatto ambientale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tosatura-pecore-riparazione-vestiti-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento di tosatura pecore e riparazione vestiti a Bellinzona"
+      },
+      "datePublished": "2026-04-29T07:39:13+00:00",
+      "dateModified": "2026-04-29T07:39:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tosatura-pecore-riparazione-vestiti-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3736,6 +3736,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.730-precompilato-frontalieri-ticino-2026.title': 'Pre-filled 730 online from April 30: changes for cross-border workers',
     'blog.article.730-precompilato-frontalieri-ticino-2026.excerpt': 'From April 30, 2026, the pre-filled 730 will be online. Here\'s what you need to know to avoid mistakes, with updated data and deadlines.',
     'blog.article.730-precompilato-frontalieri-ticino-2026.imageAlt': 'Person accessing the 730 precompiled tax form online with a view of Lake Lugano',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.title': 'Sheep shearing and clothing repair event in Bellinzona on May 9, 2026',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.excerpt': 'The Bellinzona event promotes sustainability and fights fast fashion with upcycling workshops and sheep shearing.',
+    'blog.article.tosatura-pecore-riparazione-vestiti-bellinzona-2026.imageAlt': 'Sheep shearing and clothing repair event in Bellinzona',
 };
 
 export default blogMetaEn;

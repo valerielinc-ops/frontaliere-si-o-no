@@ -9730,4 +9730,11 @@ export const ARTICLES = [
  image: '/images/blog/730-precompilato-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tosatura-pecore-riparazione-vestiti-bellinzona-2026',
+ category: 'novita',
+ date: '2026-04-29T07:39:13.262Z',
+ image: '/images/blog/tosatura-pecore-riparazione-vestiti-bellinzona-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
