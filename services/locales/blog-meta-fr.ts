@@ -3665,6 +3665,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.title': 'Jeune femme de 22 ans retrouvée morte dans un champ',
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.excerpt': 'Le cadavre d\'une jeune femme de 22 ans a été retrouvé dans un champ à Cecima, en Oltrepò Pavese. L\'enquête est en cours.',
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.imageAlt': 'Paysage serein du lac de Lugano avec les montagnes environnantes, capturé avec un appareil photo DSLR.',
+    'blog.article.violenza-domestica-misure-urgenti.title': 'Violence domestique: nouvelles mesures urgentes',
+    'blog.article.violenza-domestica-misure-urgenti.excerpt': 'Le conseiller fédéral Beat Jans annonce le numéro national 142 et d\'autres initiatives pour lutter contre la violence domestique en Suisse.',
+    'blog.article.violenza-domestica-misure-urgenti.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

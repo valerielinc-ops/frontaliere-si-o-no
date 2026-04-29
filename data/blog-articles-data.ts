@@ -9562,4 +9562,11 @@ export const ARTICLES = [
  image: '/images/blog/ragazza-morta-campo-perquisita-casa-amico.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'violenza-domestica-misure-urgenti',
+ category: 'novita',
+ date: '2026-04-29T03:17:15.871Z',
+ image: '/images/blog/violenza-domestica-misure-urgenti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -22398,6 +22398,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-violenza-domestica-misure-urgenti': {
+    title: 'Violenza domestica: nuove misure urgenti per contrastare il fenomeno',
+    description: 'Il consigliere federale Beat Jans annuncia il numero nazionale 142 e altre iniziative per combattere la violenza domestica in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, violenza, domestica, nuove, misure',
+    ogTitle: 'Violenza domestica: nuove misure urgenti per contrastare il fenomeno',
+    ogDescription: 'Il consigliere federale Beat Jans annuncia il numero nazionale 142 e altre iniziative per combattere la violenza domestica in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/violenza-domestica-misure-urgenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Violenza domestica: nuove misure urgenti per contrastare il fenomeno",
+      "description": "Il consigliere federale Beat Jans annuncia il numero nazionale 142 e altre iniziative per combattere la violenza domestica in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/violenza-domestica-misure-urgenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-29T03:17:15+00:00",
+      "dateModified": "2026-04-29T03:17:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/violenza-domestica-misure-urgenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

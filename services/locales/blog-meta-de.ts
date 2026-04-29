@@ -3664,6 +3664,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.title': '22-Jährige in Feld tot aufgefunden: Freundeshaus durchsucht',
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.excerpt': 'Die Leiche einer 22-jährigen Frau wurde in einem Feld in Cecima, Oltrepò Pavese, gefunden. Die Ermittlungen laufen.',
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.imageAlt': 'Ruhevolle Landschaft des Luganer Sees mit den umliegenden Bergen, aufgenommen mit einer DSLR-Kamera.',
+    'blog.article.violenza-domestica-misure-urgenti.title': 'Häusliche Gewalt: Neue dringende Maßnahmen gegen das Phänomen',
+    'blog.article.violenza-domestica-misure-urgenti.excerpt': 'Der Bundesrat Beat Jans kündigt die nationale Nummer 142 und weitere Initiativen zur Bekämpfung häuslicher Gewalt in der Schweiz an.',
+    'blog.article.violenza-domestica-misure-urgenti.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

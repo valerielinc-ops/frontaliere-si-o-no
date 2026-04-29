@@ -2452,6 +2452,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-truffe-sentimentali-zurigo-2026': { name: 'Truffe sentimentali', path: '/articoli-frontaliere/truffe-sentimentali-zurigo-2026', parent: 'blog' },
     'blog-esposizione-segughi-malvaglia-2026': { name: 'Esposizione Segugi', path: '/articoli-frontaliere/esposizione-segughi-malvaglia-2026', parent: 'blog' },
     'blog-ragazza-morta-campo-perquisita-casa-amico': { name: 'Novità', path: '/articoli-frontaliere/ragazza-morta-campo-perquisita-casa-amico', parent: 'blog' },
+    'blog-violenza-domestica-misure-urgenti': { name: 'Novità', path: '/articoli-frontaliere/violenza-domestica-misure-urgenti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

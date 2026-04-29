@@ -3665,6 +3665,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.title': 'Ragazza 22enne trovata morta in un campo: perquisita la casa di un amico',
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.excerpt': 'Il cadavere di una giovane di 22 anni è stato ritrovato in un campo a Cecima, in Oltrepò Pavese. Le indagini sono in corso.',
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.imageAlt': 'Paesaggio sereno del Lago di Lugano con le montagne circostanti, ripreso con una fotocamera DSLR.',
+    'blog.article.violenza-domestica-misure-urgenti.title': 'Violenza domestica: nuove misure urgenti per contrastare il fenomeno',
+    'blog.article.violenza-domestica-misure-urgenti.excerpt': 'Il consigliere federale Beat Jans annuncia il numero nazionale 142 e altre iniziative per combattere la violenza domestica in Svizzera.',
+    'blog.article.violenza-domestica-misure-urgenti.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

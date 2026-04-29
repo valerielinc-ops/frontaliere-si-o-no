@@ -3664,6 +3664,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.title': '22-year-old girl found dead in a field: friend\'s house searched',
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.excerpt': 'The body of a 22-year-old girl was found in a field in Cecima, Oltrepò Pavese. Investigations are ongoing.',
     'blog.article.ragazza-morta-campo-perquisita-casa-amico.imageAlt': 'Serene landscape of Lago di Lugano with the surrounding mountains, captured with a DSLR camera.',
+    'blog.article.violenza-domestica-misure-urgenti.title': 'Domestic violence: new urgent measures to combat the phenomenon',
+    'blog.article.violenza-domestica-misure-urgenti.excerpt': 'Federal Councillor Beat Jans announces the national number 142 and other initiatives to fight domestic violence in Switzerland.',
+    'blog.article.violenza-domestica-misure-urgenti.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;
