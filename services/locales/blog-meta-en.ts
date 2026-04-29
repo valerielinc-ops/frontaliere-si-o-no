@@ -3895,6 +3895,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.title': 'Tutor Sapiens: tools for third-level apprenticeships',
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.excerpt': 'Chamber of Commerce and Province of Varese present the results of the Tutor Sapiens training path to promote the integration of young talents.',
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.imageAlt': 'A modern workshop in Lugano, Switzerland, with professionals discussing documents and using digital tools.',
+    'blog.article.tunnel-tonale-viabilita-lombardia.title': '16.5m tunnel to transform Lombardy\'s Passo del Tonale',
+    'blog.article.tunnel-tonale-viabilita-lombardia.excerpt': 'A 16.5 million euro tunnel will transform the Passo del Tonale. Discover the project details and its implications for traffic.',
+    'blog.article.tunnel-tonale-viabilita-lombardia.imageAlt': 'Aerial view of Tonale Pass with the new tunnel construction site and snowy mountains',
 };
 
 export default blogMetaEn;

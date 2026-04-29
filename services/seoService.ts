@@ -2529,6 +2529,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casa-hockey-lugano-ambri-2026': { name: 'Novità Hockey', path: '/articoli-frontaliere/casa-hockey-lugano-ambri-2026', parent: 'blog' },
     'blog-swiss-duty-free-cambia-vendite-2026': { name: 'Novità', path: '/articoli-frontaliere/swiss-duty-free-cambia-vendite-2026', parent: 'blog' },
     'blog-tutor-sapiens-apprendistato-terzo-livello': { name: 'Novità', path: '/articoli-frontaliere/tutor-sapiens-apprendistato-terzo-livello', parent: 'blog' },
+    'blog-tunnel-tonale-viabilita-lombardia': { name: 'Novità', path: '/articoli-frontaliere/tunnel-tonale-viabilita-lombardia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

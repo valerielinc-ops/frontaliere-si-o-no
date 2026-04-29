@@ -3896,6 +3896,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.title': 'Tutor Sapiens: strumenti per l’apprendistato di terzo livello',
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.excerpt': 'Camera di Commercio e Provincia di Varese presentano i risultati del percorso formativo Tutor Sapiens per favorire l’inserimento dei giovani talenti.',
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.imageAlt': 'Un workshop moderno a Lugano, Svizzera, con professionisti che discutono documenti e utilizzano strumenti digitali.',
+    'blog.article.tunnel-tonale-viabilita-lombardia.title': 'Tunnel da 16 milioni per la viabilità in Lombardia: pronto in 2 anni',
+    'blog.article.tunnel-tonale-viabilita-lombardia.excerpt': 'Un tunnel da 16,5 milioni di euro trasformerà il Passo del Tonale. Scopri i dettagli del progetto e le implicazioni per la viabilità.',
+    'blog.article.tunnel-tonale-viabilita-lombardia.imageAlt': 'Vista aerea del Passo del Tonale con il cantiere del nuovo tunnel e le montagne innevate',
 };
 
 export default blogMetaIt;

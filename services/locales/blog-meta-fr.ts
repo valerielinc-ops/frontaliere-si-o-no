@@ -3896,6 +3896,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.title': 'Tutor Sapiens : outils pour l\'apprentissage de niveau tertiaire',
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.excerpt': 'La Chambre de Commerce et la Province de Varèse présentent les résultats du parcours de formation Tutor Sapiens pour favoriser l\'insertion des jeunes talents.',
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.imageAlt': 'Un atelier moderne à Lugano, Suisse, avec des professionnels discutant de documents et utilisant des outils numériques.',
+    'blog.article.tunnel-tonale-viabilita-lombardia.title': 'Tunnel de 16 millions pour la circulation en Lombardie: prêt en 2 ans',
+    'blog.article.tunnel-tonale-viabilita-lombardia.excerpt': 'Un tunnel de 16,5 millions d\'euros transformera le col du Tonale. Découvrez les détails du projet et les implications pour la circulation.',
+    'blog.article.tunnel-tonale-viabilita-lombardia.imageAlt': 'Vue aérienne du col du Tonale avec le chantier du nouveau tunnel et les montagnes enneigées',
 };
 
 export default blogMetaFr;

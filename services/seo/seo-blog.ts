@@ -24631,6 +24631,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tunnel-tonale-viabilita-lombardia': {
+    title: 'Tunnel da 16 milioni per la viabilità in Lombardia: pronto in 2 anni',
+    description: 'Scopri il nuovo tunnel da 16,5 milioni al Passo del Tonale: dettagli, tempi e impatto sulla viabilità in Lombardia. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, tunnel, milioni, viabilità, lombardia',
+    ogTitle: 'Tunnel Tonale: 16,5 milioni per la viabilità in Lombardia',
+    ogDescription: 'Scopri il nuovo tunnel da 16,5 milioni al Passo del Tonale: dettagli, tempi e impatto sulla viabilità in Lombardia.',
+    canonicalPath: '/articoli-frontaliere/tunnel-tonale-viabilita-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo tunnel da 16,5 milioni al Passo del Tonale per migliorare la viabilità in Lombardia",
+      "description": "Scopri il nuovo tunnel da 16,5 milioni al Passo del Tonale: dettagli, tempi e impatto sulla viabilità in Lombardia. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tunnel-tonale-viabilita-lombardia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Passo del Tonale con il cantiere del nuovo tunnel e le montagne innevate"
+      },
+      "datePublished": "2026-04-29T12:47:08+00:00",
+      "dateModified": "2026-04-29T12:47:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tunnel-tonale-viabilita-lombardia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

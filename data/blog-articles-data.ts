@@ -10101,4 +10101,11 @@ export const ARTICLES = [
  image: '/images/blog/tutor-sapiens-apprendistato-terzo-livello.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tunnel-tonale-viabilita-lombardia',
+ category: 'novita',
+ date: '2026-04-29T12:47:08.861Z',
+ image: '/images/blog/tunnel-tonale-viabilita-lombardia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3895,6 +3895,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.title': 'Tutor Sapiens: Werkzeuge für die dritte Berufsausbildung',
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.excerpt': 'Handelskammer und Provinz Varese präsentieren die Ergebnisse des Ausbildungswegs Tutor Sapiens zur Förderung der Integration junger Talente.',
     'blog.article.tutor-sapiens-apprendistato-terzo-livello.imageAlt': 'Ein modernes Workshop in Lugano, Schweiz, mit Fachleuten, die Dokumente besprechen und digitale Tools nutzen.',
+    'blog.article.tunnel-tonale-viabilita-lombardia.title': '16,5 Mio. Euro-Tunnel für Lombardei-Verkehr: Fertig in 2 Jahren',
+    'blog.article.tunnel-tonale-viabilita-lombardia.excerpt': 'Ein 16,5 Millionen Euro teurer Tunnel wird den Tonale-Pass umgestalten. Erfahren Sie mehr über das Projekt und die Auswirkungen auf den Verkehr.',
+    'blog.article.tunnel-tonale-viabilita-lombardia.imageAlt': 'Luftaufnahme des Tonale-Passes mit dem neuen Tunnelbau und schneebedeckten Bergen',
 };
 
 export default blogMetaDe;
