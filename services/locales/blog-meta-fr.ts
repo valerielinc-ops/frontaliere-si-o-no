@@ -3788,6 +3788,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.san-gallo-vince-thun-ritardo-festa.title': 'Saint-Gall gagne à la dernière minute, la fête est reportée pour Thun',
     'blog.article.san-gallo-vince-thun-ritardo-festa.excerpt': 'Saint-Gall marque à la 92e minute et gagne, tandis que la fête de Thun est reportée pour la deuxième fois',
     'blog.article.san-gallo-vince-thun-ritardo-festa.imageAlt': 'Stade de football dans le Tessin de nuit avec des supporters',
+    'blog.article.hupac-busto-utile-positivo-collegamenti.title': 'Hupac se développe et renforce Busto: bénéfice positif et nouveaux trajets',
+    'blog.article.hupac-busto-utile-positivo-collegamenti.excerpt': 'Hupac clôture l\'année 2025 avec un bénéfice de 3,5 millions de francs et des volumes en hausse, malgré les difficultés du réseau ferroviaire.',
+    'blog.article.hupac-busto-utile-positivo-collegamenti.imageAlt': 'Terminal Hupac à Busto Arsizio avec des trains et des conteneurs',
 };
 
 export default blogMetaFr;

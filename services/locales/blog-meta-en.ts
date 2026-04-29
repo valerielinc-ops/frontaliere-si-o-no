@@ -3787,6 +3787,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.san-gallo-vince-thun-ritardo-festa.title': 'St. Gallen wins in the last minute, Thun\'s celebration postponed',
     'blog.article.san-gallo-vince-thun-ritardo-festa.excerpt': 'St. Gallen scores in the 92nd minute and wins, while Thun\'s celebration is postponed for the second time',
     'blog.article.san-gallo-vince-thun-ritardo-festa.imageAlt': 'Soccer stadium in Ticino at night with fans',
+    'blog.article.hupac-busto-utile-positivo-collegamenti.title': 'Hupac grows and strengthens Busto: positive profit and new connections',
+    'blog.article.hupac-busto-utile-positivo-collegamenti.excerpt': 'Hupac closes 2025 with a profit of 3.5 million francs and increasing volumes, despite the criticalities of the railway network.',
+    'blog.article.hupac-busto-utile-positivo-collegamenti.imageAlt': 'Hupac terminal in Busto Arsizio with trains and containers',
 };
 
 export default blogMetaEn;

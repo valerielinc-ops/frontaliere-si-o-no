@@ -2493,6 +2493,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-swiss-duty-free-fine-vendite-bordo': { name: 'Novità', path: '/articoli-frontaliere/swiss-duty-free-fine-vendite-bordo', parent: 'blog' },
     'blog-incidente-aarau-18enne-frontaliere': { name: 'Incidente Aarau', path: '/articoli-frontaliere/incidente-aarau-18enne-frontaliere', parent: 'blog' },
     'blog-san-gallo-vince-thun-ritardo-festa': { name: 'Novità', path: '/articoli-frontaliere/san-gallo-vince-thun-ritardo-festa', parent: 'blog' },
+    'blog-hupac-busto-utile-positivo-collegamenti': { name: 'Novità', path: '/articoli-frontaliere/hupac-busto-utile-positivo-collegamenti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

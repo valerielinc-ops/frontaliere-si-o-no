@@ -9849,4 +9849,11 @@ export const ARTICLES = [
  image: '/images/blog/san-gallo-vince-thun-ritardo-festa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'hupac-busto-utile-positivo-collegamenti',
+ category: 'novita',
+ date: '2026-04-29T09:08:33.778Z',
+ image: '/images/blog/hupac-busto-utile-positivo-collegamenti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
