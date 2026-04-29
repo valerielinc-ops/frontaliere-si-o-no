@@ -3677,6 +3677,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.title': 'Commesse pubbliche e servizi essenziali: procedure da snellire',
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.excerpt': 'Il Cantone Ticino punta a semplificare le procedure per le commesse pubbliche e i servizi essenziali, con l\'obiettivo di ridurre i ritardi e migliorare l\'efficienza.',
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.imageAlt': 'Veduta del centro storico di Bellinzona con edifici amministrativi',
+    'blog.article.frontalieri-ticino-sentono-criminali.title': 'Frontalieri in Ticino: \'Ci si sente come criminali\'',
+    'blog.article.frontalieri-ticino-sentono-criminali.excerpt': 'Denuncia dell\'antropologa Lederrey sui Centri federali d\'asilo in Ticino. La replica della SEM.',
+    'blog.article.frontalieri-ticino-sentono-criminali.imageAlt': 'Gruppo di persone davanti al centro federale d\'asilo in Ticino',
 };
 
 export default blogMetaIt;

@@ -3676,6 +3676,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.title': 'Streamlining public contracts and essential services',
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.excerpt': 'The Canton of Ticino aims to simplify procedures for public contracts and essential services, with the goal of reducing delays and improving efficiency.',
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.imageAlt': 'View of Bellinzona\'s historic center with administrative buildings',
+    'blog.article.frontalieri-ticino-sentono-criminali.title': 'Cross-border workers in Ticino: \'We feel like criminals\'',
+    'blog.article.frontalieri-ticino-sentono-criminali.excerpt': 'Anthropologist Lederrey denounces federal asylum centers in Ticino. The SEM responds.',
+    'blog.article.frontalieri-ticino-sentono-criminali.imageAlt': 'Group of people in front of a federal asylum center in Ticino',
 };
 
 export default blogMetaEn;

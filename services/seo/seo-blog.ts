@@ -22514,6 +22514,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-sentono-criminali': {
+    title: 'Frontalieri in Ticino: \'Ci si sente come criminali\'',
+    description: 'Denuncia dell\'antropologa Lederrey sui Centri federali d\'asilo in Ticino. La replica della SEM. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sente, criminali, denuncia, dell',
+    ogTitle: 'Frontalieri in Ticino: \'Ci si sente come criminali\'',
+    ogDescription: 'Denuncia dell\'antropologa Lederrey sui Centri federali d\'asilo in Ticino. La replica della SEM.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-sentono-criminali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Denuncia sui Centri federali d'asilo in Ticino: 'Ci si sente come criminali'",
+      "description": "Denuncia dell'antropologa Lederrey sui Centri federali d'asilo in Ticino. La replica della SEM. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-sentono-criminali.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone davanti al centro federale d'asilo in Ticino"
+      },
+      "datePublished": "2026-04-29T03:52:25+00:00",
+      "dateModified": "2026-04-29T03:52:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-sentono-criminali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

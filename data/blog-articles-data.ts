@@ -9590,4 +9590,11 @@ export const ARTICLES = [
  image: '/images/blog/commesse-pubbliche-servizi-essenziali-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-ticino-sentono-criminali',
+ category: 'novita',
+ date: '2026-04-29T03:52:25.176Z',
+ image: '/images/blog/frontalieri-ticino-sentono-criminali.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

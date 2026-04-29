@@ -3676,6 +3676,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.title': 'Öffentliche Aufträge und Dienstleistungen: Verfahren vereinfachen',
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.excerpt': 'Der Kanton Tessin strebt an, die Verfahren für öffentliche Aufträge und wesentliche Dienstleistungen zu vereinfachen, mit dem Ziel, Verzögerungen zu reduzieren und die Effizienz zu verbessern.',
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.imageAlt': 'Ansicht des historischen Zentrums von Bellinzona mit Verwaltungsgebäuden',
+    'blog.article.frontalieri-ticino-sentono-criminali.title': 'Grenzgänger im Tessin: \'Man fühlt sich wie Kriminelle\'',
+    'blog.article.frontalieri-ticino-sentono-criminali.excerpt': 'Anklage der Anthropologin Lederrey gegen die Bundesasylzentren im Tessin. Die Antwort des SEM.',
+    'blog.article.frontalieri-ticino-sentono-criminali.imageAlt': 'Gruppe von Menschen vor einem Bundesasylzentrum im Tessin',
 };
 
 export default blogMetaDe;

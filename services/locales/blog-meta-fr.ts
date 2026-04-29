@@ -3677,6 +3677,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.title': 'Marchés publics et services essentiels: simplifier les procédures',
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.excerpt': 'Le canton du Tessin vise à simplifier les procédures pour les marchés publics et les services essentiels, dans le but de réduire les retards et d\'améliorer l\'efficacité.',
     'blog.article.commesse-pubbliche-servizi-essenziali-2026.imageAlt': 'Vue du centre historique de Bellinzone avec des bâtiments administratifs',
+    'blog.article.frontalieri-ticino-sentono-criminali.title': 'Frontaliers au Tessin : \'On se sent comme des criminels\'',
+    'blog.article.frontalieri-ticino-sentono-criminali.excerpt': 'Dénonciation de l\'anthropologue Lederrey sur les Centres fédéraux d\'asile en Tessin. La réponse de la SEM.',
+    'blog.article.frontalieri-ticino-sentono-criminali.imageAlt': 'Groupe de personnes devant un centre fédéral d\'asile au Tessin',
 };
 
 export default blogMetaFr;
