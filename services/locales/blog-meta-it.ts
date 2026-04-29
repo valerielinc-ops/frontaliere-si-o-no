@@ -3938,6 +3938,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ubs-keller-sutter-lobbismo-2026.title': 'UBS e Karin Keller-Sutter: scontro sul lobbismo',
     'blog.article.ubs-keller-sutter-lobbismo-2026.excerpt': 'La banca UBS e la consigliera federale Karin Keller-Sutter si scontrano sul lobbismo. Ermotti nega pressioni, Matter lo definisce ridicolo.',
     'blog.article.ubs-keller-sutter-lobbismo-2026.imageAlt': 'Vista panoramica di Bellinzona con il Castello di Bellinzona e le Alpi',
+    'blog.article.daverio-gazzada-assistenza-medica-2026.title': 'Daverio: i pazienti si spostano a Gazzada, cambia l\'assistenza sanitaria',
+    'blog.article.daverio-gazzada-assistenza-medica-2026.excerpt': 'I circa 400 cittadini di Daverio senza medico di base verranno trasferiti alla Casa di Comunità di Gazzada per un\'assistenza più integrata.',
+    'blog.article.daverio-gazzada-assistenza-medica-2026.imageAlt': 'Vista aerea del Lago di Lugano con Daverio e Gazzada in secondo piano',
 };
 
 export default blogMetaIt;

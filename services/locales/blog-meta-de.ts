@@ -3937,6 +3937,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ubs-keller-sutter-lobbismo-2026.title': 'UBS und Karin Keller-Sutter: Streit um Lobbyismus',
     'blog.article.ubs-keller-sutter-lobbismo-2026.excerpt': 'Die Bank UBS und die Bundesrätin Karin Keller-Sutter streiten sich über Lobbyismus. Ermotti bestreitet Druck, Matter nennt es lächerlich.',
     'blog.article.ubs-keller-sutter-lobbismo-2026.imageAlt': 'Panoramablick auf Bellinzona mit der Burg Bellinzona und den Alpen',
+    'blog.article.daverio-gazzada-assistenza-medica-2026.title': 'Daverio: Patienten wechseln nach Gazzada, Gesundheitsversorgung ändert sich',
+    'blog.article.daverio-gazzada-assistenza-medica-2026.excerpt': 'Die etwa 400 Bürger von Daverio ohne Hausarzt werden in die Casa di Comunità von Gazzada verlegt, um eine integriertere Versorgung zu erhalten.',
+    'blog.article.daverio-gazzada-assistenza-medica-2026.imageAlt': 'Luftaufnahme des Luganersees mit Daverio und Gazzada im Hintergrund',
 };
 
 export default blogMetaDe;

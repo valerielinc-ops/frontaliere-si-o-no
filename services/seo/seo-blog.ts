@@ -25037,6 +25037,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-daverio-gazzada-assistenza-medica-2026': {
+    title: 'Daverio: i pazienti si spostano a Gazzada, cambia l\'assistenza sanitaria',
+    description: 'I circa 400 cittadini di Daverio senza medico di base verranno trasferiti alla Casa di Comunità di Gazzada per un\'assistenza più integrata. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, daverio, pazienti, spostano, gazzada',
+    ogTitle: 'Daverio: i pazienti si spostano a Gazzada, cambia l\'assistenza sanitaria',
+    ogDescription: 'I circa 400 cittadini di Daverio senza medico di base verranno trasferiti alla Casa di Comunità di Gazzada per un\'assistenza più integrata.',
+    canonicalPath: '/articoli-frontaliere/daverio-gazzada-assistenza-medica-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"it\":\"Daverio: i pazienti si spostano a Gazzada, cambia l'assistenza sanitaria\",\"en\":\"Daverio: patients move to Gazzada, healthcare assistance changes\",\"de\":\"Daverio: Patienten ziehen nach Gazzada, Gesundheitsversorgung ändert sich\",\"fr\":\"Daverio: les patients déménagent à Gazzada, les soins de santé changent\"}",
+      "description": "I circa 400 cittadini di Daverio senza medico di base verranno trasferiti alla Casa di Comunità di Gazzada per un'assistenza più integrata. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/daverio-gazzada-assistenza-medica-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con Daverio e Gazzada in secondo piano"
+      },
+      "datePublished": "2026-04-29T15:12:50+00:00",
+      "dateModified": "2026-04-29T15:12:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/daverio-gazzada-assistenza-medica-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
