@@ -3931,6 +3931,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.criminalita-organizzata-svizzera-2026.title': 'Organisierte Kriminalität in der Schweiz: Festnahme eines Fedpol-Beamten',
     'blog.article.criminalita-organizzata-svizzera-2026.excerpt': 'Ein harter Schlag für Fedpol: Ein Beamter wurde wegen mutmaßlicher Korruption festgenommen. Die organisierte Kriminalität ist in der Schweiz tief verwurzelt.',
     'blog.article.criminalita-organizzata-svizzera-2026.imageAlt': 'Blick auf den Luganersee mit umliegenden Bergen',
+    'blog.article.stazioni-sciistiche-ticino-contributi-2026.title': 'Schweizer Skigebiete: Kritik und Reform der Beiträge',
+    'blog.article.stazioni-sciistiche-ticino-contributi-2026.excerpt': 'Parlamentarische Anfrage zur Überprüfung der Finanzierung der Skigebiete im Tessin, mit 5,6 Millionen Franken für die Instandhaltung bis 2028.',
+    'blog.article.stazioni-sciistiche-ticino-contributi-2026.imageAlt': 'Luftaufnahme des Monte San Salvatore mit Skigebieten im Tessin',
 };
 
 export default blogMetaDe;

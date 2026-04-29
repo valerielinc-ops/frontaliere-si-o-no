@@ -3932,6 +3932,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.criminalita-organizzata-svizzera-2026.title': 'Criminalità organizzata in Svizzera: arresto funzionario fedpol',
     'blog.article.criminalita-organizzata-svizzera-2026.excerpt': 'Un duro colpo per fedpol: arrestato un funzionario per sospetta corruzione. La criminalità organizzata è ben radicata in Svizzera.',
     'blog.article.criminalita-organizzata-svizzera-2026.imageAlt': 'Vista del Lago di Lugano con montagne circostanti',
+    'blog.article.stazioni-sciistiche-ticino-contributi-2026.title': 'Stazioni sciistiche ticinesi: criticità e riforma contributi',
+    'blog.article.stazioni-sciistiche-ticino-contributi-2026.excerpt': 'Interrogazione parlamentare per rivedere i finanziamenti alle stazioni sciistiche ticinesi, con 5,6 milioni per la manutenzione fino al 2028.',
+    'blog.article.stazioni-sciistiche-ticino-contributi-2026.imageAlt': 'Vista aerea del Monte San Salvatore con stazioni sciistiche in Ticino',
 };
 
 export default blogMetaIt;

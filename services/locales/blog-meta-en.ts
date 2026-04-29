@@ -3931,6 +3931,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.criminalita-organizzata-svizzera-2026.title': 'Organized crime in Switzerland: fedpol officer arrested',
     'blog.article.criminalita-organizzata-svizzera-2026.excerpt': 'A hard blow for fedpol: an officer arrested for suspected corruption. Organized crime is well-established in Switzerland.',
     'blog.article.criminalita-organizzata-svizzera-2026.imageAlt': 'View of Lake Lugano with surrounding mountains',
+    'blog.article.stazioni-sciistiche-ticino-contributi-2026.title': 'Ticino ski resorts: funding review',
+    'blog.article.stazioni-sciistiche-ticino-contributi-2026.excerpt': 'Parliamentary inquiry to revise funding for Ticino ski resorts, with 5.6 million for maintenance until 2028.',
+    'blog.article.stazioni-sciistiche-ticino-contributi-2026.imageAlt': 'Aerial view of Monte San Salvatore with ski resorts in Ticino',
 };
 
 export default blogMetaEn;

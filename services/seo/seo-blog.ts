@@ -24979,6 +24979,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stazioni-sciistiche-ticino-contributi-2026': {
+    title: 'Stazioni sciistiche ticinesi: criticità e riforma contributi',
+    description: 'Interrogazione parlamentare per rivedere i finanziamenti alle stazioni sciistiche ticinesi, con 5,6 milioni per la manutenzione fino al 2028. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, stazioni, sciistiche, ticinesi, criticità',
+    ogTitle: 'Stazioni sciistiche ticinesi: criticità e riforma contributi',
+    ogDescription: 'Interrogazione parlamentare per rivedere i finanziamenti alle stazioni sciistiche ticinesi, con 5,6 milioni per la manutenzione fino al 2028.',
+    canonicalPath: '/articoli-frontaliere/stazioni-sciistiche-ticino-contributi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stazioni sciistiche ticinesi: criticità e riforma contributi",
+      "description": "Interrogazione parlamentare per rivedere i finanziamenti alle stazioni sciistiche ticinesi, con 5,6 milioni per la manutenzione fino al 2028. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stazioni-sciistiche-ticino-contributi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Monte San Salvatore con stazioni sciistiche in Ticino"
+      },
+      "datePublished": "2026-04-29T14:48:14+00:00",
+      "dateModified": "2026-04-29T14:48:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stazioni-sciistiche-ticino-contributi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

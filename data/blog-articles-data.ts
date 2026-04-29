@@ -10185,4 +10185,11 @@ export const ARTICLES = [
  image: '/images/blog/criminalita-organizzata-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'stazioni-sciistiche-ticino-contributi-2026',
+ category: 'novita',
+ date: '2026-04-29T14:48:14.413Z',
+ image: '/images/blog/stazioni-sciistiche-ticino-contributi-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
