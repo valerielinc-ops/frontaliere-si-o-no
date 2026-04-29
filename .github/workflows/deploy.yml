@@ -377,7 +377,7 @@ jobs:
           # dispatched in LPT (longest-processing-time-first) order so the
           # tail end never sits with one slow task running alone. Per-task
           # wall_s is still captured and summarised.
-          MAX_PARALLEL=${{ github.event.inputs.post_build_max_parallel || '2' }}
+          MAX_PARALLEL=${{ github.event.inputs.post_build_max_parallel || '3' }}
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
