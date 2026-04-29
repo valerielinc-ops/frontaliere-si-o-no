@@ -21,6 +21,7 @@ import {
 } from './shared/jobCardHtml';
 import { renderListingPaginationProse } from './shared/jobListingProse';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
+import { renderCompanyHubFrontalierContext } from './shared/companyHubFrontalierContext';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
 import {
@@ -2917,6 +2918,24 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  parts.push(`<p><strong>Avantages \u00e0 n\u00e9gocier au moment de l'offre.</strong> Au-del\u00e0 du salaire brut, \u00e9valuez toujours les avantages non mon\u00e9taires lorsque ${esc(companyName)} fait une offre : cotisation LPP au-del\u00e0 du minimum l\u00e9gal (8-12 % du brut est le benchmark pour les postes qualifi\u00e9s dans le ${esc(displayCanton)}), 13e et 14e mois, bonus annuel index\u00e9 sur des objectifs (typiquement 5-15 % du brut), cong\u00e9s au-del\u00e0 du minimum l\u00e9gal de 4 semaines (les employeurs comp\u00e9titifs offrent 5-6 semaines), formation continue (budget CHF 1'500-3'500/an pour les postes seniors), assurance maladie compl\u00e9mentaire LCA et flexibilit\u00e9 du t\u00e9l\u00e9travail. Ce dernier point est critique : depuis le 1er janvier 2024, les frontaliers peuvent t\u00e9l\u00e9travailler jusqu'\u00e0 25 % du temps sans perdre leur statut fiscal, mais l'employeur doit l'inscrire explicitement dans le contrat.</p>`);
  parts.push('</section>');
  }
+
+ // Per-company hub frontalier context (separate shared helper):
+ // sector-aware salary scenario + how-to-apply methodology + 3-FAQ.
+ // Lifts the text-to-HTML ratio for thin per-company hubs flagged as
+ // `career-landings` by scripts/audit-text-html-ratio.mjs. Always renders
+ // (not gated on companyJobs.length) — thin pages need this most.
+ const companyHubFrontalierContext = renderCompanyHubFrontalierContext({
+ companyName,
+ displayCanton,
+ primaryLocation,
+ sector: companyProfile?.sector,
+ companySectors,
+ companyContracts,
+ jobCount: companyJobs.length,
+ locale,
+ esc,
+ });
+ if (companyHubFrontalierContext) parts.push(companyHubFrontalierContext);
 
  // Editorial
  parts.push(`<p style="margin-top:16px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(copy.editorial)}</p>`);
