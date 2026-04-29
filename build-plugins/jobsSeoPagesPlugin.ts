@@ -6592,6 +6592,35 @@ ${hreflangLinks}
  }
  }
 
+ // Memoized FAQ HTML per (locale, escDisplayCanton). The 5-Q&A block
+ // depends only on the locale and the displayCanton — the same job's
+ // company, location, slug, etc. don't change the rendered FAQ at all.
+ // Cache key combines both. With 4 locales × ~7 distinct cantons ≈ 28
+ // unique strings built lazily, vs. the previous ~58 866 inline 4-way
+ // ternary evaluations (~150 µs/iter of pure template-literal work).
+ const expiredFaqCache = new Map<string, string>();
+ const getExpiredFaqHtml = (
+ locale: 'it' | 'en' | 'de' | 'fr',
+ escDisplayCantonArg: string,
+ lamalHrefArg: string,
+ ): string => {
+ const key = `${locale}\x00${escDisplayCantonArg}\x00${lamalHrefArg}`;
+ const cached = expiredFaqCache.get(key);
+ if (cached !== undefined) return cached;
+ let html: string;
+ if (locale === 'it') {
+ html = `<section><h2>Domande frequenti</h2><dl><dt><strong>Qual \u00e8 lo stipendio netto per un frontaliere in ${escDisplayCantonArg}?</strong></dt><dd>Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${escDisplayCantonArg} l'imposta alla fonte varia dal 2% al 15% circa. Sommando AVS-AI-IPG (5,3%), assicurazione disoccupazione (1,1% fino a CHF 148.200/anno) e LPP (7-18% in base all'et\u00e0), la differenza fra lordo e netto \u00e8 tipicamente del 18-28%. Usa il nostro simulatore per un calcolo personalizzato sui dati di questa offerta.</dd><dt><strong>Serve la cassa malati svizzera LAMal come frontaliere?</strong></dt><dd>I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro, salvo esercizio del diritto d'opzione per restare nel SSN italiano. I premi variano per cantone, modello assicurativo (standard, medico di famiglia, telmed, HMO) e franchigia (CHF 300 minima fino a 2.500 massima): <a href="${lamalHrefArg}">confronta i premi LAMal</a>.</dd><dt><strong>Come si ottiene il Permesso G per lavorare in Canton ${escDisplayCantonArg}?</strong></dt><dd>Il Permesso G \u00e8 richiesto dal datore di lavoro all'Ufficio della migrazione cantonale dopo la firma del contratto. La prima emissione richiede 2-6 settimane; il rinnovo \u00e8 annuale fino al limite contrattuale. Devi risiedere in un comune italiano entro la fascia di 20 km dal confine svizzero (Lombardia o Piemonte) e rientrare al domicilio almeno una volta a settimana. Il telelavoro a tempo pieno dall'Italia non \u00e8 compatibile con lo status.</dd><dt><strong>Tredicesima, ferie e straordinari: cosa prevede la legge svizzera?</strong></dt><dd>La tredicesima non \u00e8 obbligatoria per legge ma \u00e8 prassi consolidata in Ticino e quasi sempre menzionata nel contratto: viene pagata in dicembre o ripartita in due tranche (giugno + novembre). Le ferie minime di legge sono 4 settimane (5 sotto i 20 anni o sopra i 50 con anzianit\u00e0). Gli straordinari oltre le 40-45 ore settimanali, secondo la Legge sul lavoro (LL), sono compensati con un supplemento del 25% o con tempo libero equivalente entro 14 settimane.</dd><dt><strong>Quali documenti servono per candidarsi a un'offerta in Svizzera?</strong></dt><dd>Per la candidatura iniziale bastano CV (formato europeo o svizzero, una lingua del cantone), lettera di motivazione e un certificato di lavoro recente. Dopo la firma del contratto servono carta d'identit\u00e0 valida (passaporto consigliato), certificato di residenza italiano, atto di nascita per la richiesta di Permesso G e — per i settori regolamentati (sanit\u00e0, scuole, sicurezza) — il riconoscimento del titolo italiano da parte di SBFI/SEFRI o dell'autorit\u00e0 cantonale competente, processo che richiede 3-6 mesi.</dd></dl></section>`;
+ } else if (locale === 'en') {
+ html = `<section><h2>Frequently asked questions</h2><dl><dt><strong>What is the net salary for a cross-border worker in ${escDisplayCantonArg}?</strong></dt><dd>Net salary depends on gross income, marital status and number of children. In the Canton of ${escDisplayCantonArg}, withholding tax ranges from about 2% to 15%. Together with AVS-AI-IPG (5.3%), unemployment insurance (1.1% up to CHF 148,200/year) and LPP (7-18% by age), the typical gross-to-net gap is 18-28%. Use our simulator for a personalised calculation against this listing.</dd><dt><strong>Do cross-border workers need Swiss LAMal health insurance?</strong></dt><dd>New cross-border workers since 2024 must enrol in Swiss LAMal within 3 months of starting work, unless they exercise the right of option to stay in the Italian SSN. Premiums vary by canton, insurance model (standard, family doctor, telmed, HMO) and deductible (CHF 300 minimum up to 2,500 maximum): <a href="${lamalHrefArg}">compare LAMal premiums</a>.</dd><dt><strong>How do I get a G permit to work in the Canton of ${escDisplayCantonArg}?</strong></dt><dd>The G permit is filed by the employer at the cantonal migration office after the contract is signed. First issuance takes 2-6 weeks; the permit is renewed yearly up to the contractual limit. You must reside in an Italian municipality within the 20 km border zone (Lombardy or Piedmont) and return home at least once a week. Full-time remote work from Italy is not compatible with the status.</dd><dt><strong>13th-month salary, vacation and overtime: what does Swiss law say?</strong></dt><dd>The 13th salary is not statutory but is standard practice in Ticino and almost always specified in the contract: paid in December or split into two tranches (June + November). Minimum statutory holiday is 4 weeks (5 weeks for under-20s and over-50s with seniority). Overtime above 40-45 weekly hours, under the Labour Act (LL), is compensated with a 25% premium or equivalent time off within 14 weeks.</dd><dt><strong>What documents do I need to apply for a Swiss job?</strong></dt><dd>For the initial application: CV (European or Swiss format, in a cantonal language), cover letter, and a recent work certificate. After the contract is signed: valid ID card (passport recommended), Italian residence certificate, birth certificate for the G-permit filing, and — for regulated sectors (healthcare, schools, security) — recognition of the Italian degree by SBFI/SEFRI or the relevant cantonal authority, a process that takes 3-6 months.</dd></dl></section>`;
+ } else if (locale === 'de') {
+ html = `<section><h2>H\u00e4ufig gestellte Fragen</h2><dl><dt><strong>Wie hoch ist das Nettogehalt f\u00fcr Grenzg\u00e4nger im ${escDisplayCantonArg}?</strong></dt><dd>Das Nettogehalt h\u00e4ngt vom Bruttoeinkommen, Familienstand und der Kinderzahl ab. Im Kanton ${escDisplayCantonArg} liegt die Quellensteuer zwischen ca. 2% und 15%. Zusammen mit AHV-IV-EO (5,3%), Arbeitslosenversicherung (1,1% bis CHF 148'200/Jahr) und BVG (7-18% je nach Alter) betr\u00e4gt der typische Brutto-Netto-Abstand 18-28%. Nutzen Sie unseren Simulator f\u00fcr eine personalisierte Berechnung zu diesem Inserat.</dd><dt><strong>Brauchen Grenzg\u00e4nger eine Schweizer KVG-Versicherung?</strong></dt><dd>Neue Grenzg\u00e4nger seit 2024 m\u00fcssen sich innerhalb von 3 Monaten nach Arbeitsbeginn bei der KVG anmelden, ausser sie nutzen das Optionsrecht zugunsten des italienischen SSN. Die Pr\u00e4mien variieren je nach Kanton, Versicherungsmodell (Standard, Hausarzt, Telmed, HMO) und Franchise (CHF 300 Minimum bis 2.500 Maximum): <a href="${lamalHrefArg}">KVG-Pr\u00e4mien vergleichen</a>.</dd><dt><strong>Wie erhalte ich die G-Bewilligung f\u00fcr eine Anstellung im Kanton ${escDisplayCantonArg}?</strong></dt><dd>Die G-Bewilligung wird vom Arbeitgeber nach Vertragsunterzeichnung beim kantonalen Migrationsamt eingereicht. Die erste Ausstellung dauert 2-6 Wochen; die Verl\u00e4ngerung erfolgt j\u00e4hrlich bis zur vertraglichen Befristung. Sie m\u00fcssen in einer italienischen Gemeinde innerhalb der 20-km-Grenzzone (Lombardei oder Piemont) wohnen und mindestens einmal pro Woche nach Hause zur\u00fcckkehren. Vollst\u00e4ndige Heimarbeit aus Italien ist mit dem Status nicht vereinbar.</dd><dt><strong>13. Monatslohn, Ferien und \u00dcberzeit: was schreibt das Schweizer Recht vor?</strong></dt><dd>Der 13. Monatslohn ist nicht gesetzlich vorgeschrieben, aber im Tessin Standardpraxis und fast immer im Vertrag spezifiziert: ausgezahlt im Dezember oder in zwei Tranchen (Juni + November) aufgeteilt. Der gesetzliche Ferienanspruch betr\u00e4gt mindestens 4 Wochen (5 Wochen f\u00fcr Unter-20-J\u00e4hrige und \u00dcber-50-J\u00e4hrige mit Anstellungsdauer). \u00dcberzeit \u00fcber die 40-45 Wochenstunden hinaus wird gem\u00e4ss Arbeitsgesetz (ArG) mit 25% Zuschlag oder Freizeitausgleich innerhalb von 14 Wochen kompensiert.</dd><dt><strong>Welche Unterlagen brauche ich f\u00fcr eine Bewerbung in der Schweiz?</strong></dt><dd>F\u00fcr die Erstbewerbung: Lebenslauf (europ\u00e4isches oder Schweizer Format, in einer Kantonssprache), Motivationsschreiben und ein aktuelles Arbeitszeugnis. Nach Vertragsunterzeichnung: g\u00fcltige Identit\u00e4tskarte (Pass empfohlen), italienische Wohnsitzbescheinigung, Geburtsurkunde f\u00fcr die G-Bewilligung und — bei regulierten Branchen (Gesundheit, Schulen, Sicherheit) — die Anerkennung des italienischen Titels durch SBFI/SEFRI oder die zust\u00e4ndige kantonale Beh\u00f6rde, ein Verfahren von 3-6 Monaten.</dd></dl></section>`;
+ } else {
+ html = `<section><h2>Questions fr\u00e9quentes</h2><dl><dt><strong>Quel est le salaire net pour un frontalier au ${escDisplayCantonArg} ?</strong></dt><dd>Le salaire net d\u00e9pend du revenu brut, de l'\u00e9tat civil et du nombre d'enfants. Dans le Canton du ${escDisplayCantonArg}, l'imp\u00f4t \u00e0 la source varie d'environ 2% \u00e0 15%. En ajoutant l'AVS-AI-APG (5,3%), l'assurance ch\u00f4mage (1,1% jusqu'\u00e0 CHF 148'200/an) et la LPP (7-18% selon l'\u00e2ge), l'\u00e9cart brut-net typique est de 18-28%. Utilisez notre simulateur pour un calcul personnalis\u00e9 sur cette offre.</dd><dt><strong>Les frontaliers doivent-ils souscrire \u00e0 la LAMal suisse ?</strong></dt><dd>Les nouveaux frontaliers depuis 2024 doivent s'inscrire \u00e0 la LAMal dans les 3 mois suivant le d\u00e9but du travail, sauf s'ils exercent le droit d'option pour rester au SSN italien. Les primes varient selon le canton, le mod\u00e8le d'assurance (standard, m\u00e9decin de famille, telmed, HMO) et la franchise (CHF 300 minimum jusqu'\u00e0 2'500 maximum) : <a href="${lamalHrefArg}">comparer les primes LAMal</a>.</dd><dt><strong>Comment obtenir le permis G pour travailler au Canton du ${escDisplayCantonArg} ?</strong></dt><dd>Le permis G est demand\u00e9 par l'employeur \u00e0 l'office cantonal des migrations apr\u00e8s la signature du contrat. La premi\u00e8re d\u00e9livrance prend 2 \u00e0 6 semaines ; le renouvellement est annuel jusqu'\u00e0 la limite contractuelle. Vous devez r\u00e9sider dans une commune italienne situ\u00e9e dans la zone fronti\u00e8re des 20 km (Lombardie ou Pi\u00e9mont) et rentrer chez vous au moins une fois par semaine. Le t\u00e9l\u00e9travail \u00e0 plein temps depuis l'Italie n'est pas compatible avec le statut.</dd><dt><strong>13e mois, vacances et heures suppl\u00e9mentaires : que pr\u00e9voit le droit suisse ?</strong></dt><dd>Le 13e mois n'est pas obligatoire mais c'est une pratique courante au Tessin et presque toujours mentionn\u00e9e dans le contrat : il est pay\u00e9 en d\u00e9cembre ou r\u00e9parti en deux tranches (juin + novembre). Les vacances l\u00e9gales minimales sont de 4 semaines (5 pour les moins de 20 ans et plus de 50 ans avec anciennet\u00e9). Les heures suppl\u00e9mentaires au-del\u00e0 de 40-45 heures hebdomadaires, selon la loi sur le travail (LTr), sont compens\u00e9es par une majoration de 25% ou par du temps libre \u00e9quivalent dans les 14 semaines.</dd><dt><strong>Quels documents pour postuler \u00e0 un emploi en Suisse ?</strong></dt><dd>Pour la candidature initiale : CV (format europ\u00e9en ou suisse, dans une langue cantonale), lettre de motivation et un certificat de travail r\u00e9cent. Apr\u00e8s la signature du contrat : carte d'identit\u00e9 valable (passeport recommand\u00e9), certificat de r\u00e9sidence italien, acte de naissance pour le d\u00e9p\u00f4t du permis G, et — pour les secteurs r\u00e9glement\u00e9s (sant\u00e9, \u00e9coles, s\u00e9curit\u00e9) — la reconnaissance du titre italien par le SBFI/SEFRI ou l'autorit\u00e9 cantonale comp\u00e9tente, une proc\u00e9dure de 3-6 mois.</dd></dl></section>`;
+ }
+ expiredFaqCache.set(key, html);
+ return html;
+ };
+
  for (const slug of expiredSlugs) {
  const paths = tracking[slug];
  const ejData = expiredBySlug.get(slug);
@@ -6620,6 +6649,37 @@ ${hreflangLinks}
  // Track IT page word count for sitemap inclusion decision
  let itBodyWordCount = 0;
 
+ // ── Per-slug invariants (hoisted out of the per-locale loop) ──
+ // These values depend only on the slug, not on the locale. Computing
+ // them once per slug instead of 4× saves ~50μs/iter × 58k = ~2-3 s
+ // of redundant work across the expired-soft-landing build phase.
+ const gscInfo = orphanGscData.get(slug);
+ const jobCompany = String(ejData?.company || gscInfo?.company || slugInfo?.company || '');
+ const jobLocation = String(ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '');
+ const jobCanton = String(ejData?.canton || DEFAULT_CANTON);
+ const jobSector = String(ejData?.sector || '');
+ const jobContract = String(ejData?.contract || '');
+ const jobDatePosted = String(ejData?.datePosted || '');
+ const jobExpiredAt = String(ejData?.expiredAt || '');
+ const displayCanton = CANTON_DISPLAY[jobCanton] || jobCanton;
+ const expiredDisambiguator = buildTitleDisambiguator(slug);
+ const sameCompanyActiveJobs = jobCompany
+ ? (companyActiveJobsMap.get(jobCompany.toLowerCase()) || [])
+ : [];
+ // Slug-derived disambiguator parts (used in the per-locale section).
+ const _slugTokens = slug.split('-').filter(Boolean);
+ const _tailCount = Math.min(3, _slugTokens.length);
+ const _tailTokens = _slugTokens.slice(-_tailCount).map(t =>
+ t.replace(/\b\w/g, c => c.toUpperCase()),
+ );
+ const tailPretty = _tailTokens.join(' ');
+ const cityForSignal = jobLocation || (slugInfo?.location ?? '');
+ const cantonForSignal = jobCanton && cityForSignal ? displayCanton : '';
+ const countryHint = cityForSignal && !jobCanton ? cityForSignal : '';
+ const hasRealTitle = !!(ejData?.title || gscInfo?.title || slugInfo?.title);
+ // Pre-escaped canton (used in many template literals across all locales).
+ const escDisplayCanton = esc(displayCanton);
+
  for (const locale of localeList) {
  const relPath = paths[locale];
  if (!relPath) continue;
@@ -6631,24 +6691,10 @@ ${hreflangLinks}
  const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
 
  // Rich content fallback chain: expired-jobs.json → orphan enriched data → slug extraction
- const gscInfo = orphanGscData.get(slug);
+ // jobCompany/jobLocation/jobCanton/displayCanton/expiredDisambiguator/etc.
+ // are hoisted above the for-locale loop (per-slug invariants).
  const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title);
- const jobCompany = String(ejData?.company || gscInfo?.company || slugInfo?.company || '');
- const jobLocation = String(ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '');
  const jobDescription = String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || '');
-
- // Title for <title> tag: use job title if available (including slug-extracted).
- // Orphan slugs often share an extractInfoFromSlug title (different slugs,
- // same stripped tokens → same readable title). Inject the resolved location
- // (or a short slug-tail disambiguator when location extraction failed) so
- // sibling orphan pages never collapse to one <title>.
- const hasRealTitle = !!(ejData?.title || gscInfo?.title || slugInfo?.title);
- // Expired jobs from different source slugs (e.g. afc vs cfp variants of the
- // same role+city) produce identical titles — Semrush flags as a uniqueness
- // violation. Append a stable slug-hash so every expired soft-landing page
- // gets a unique <title>. Shared with the active-job builder via
- // buildTitleDisambiguator so format and length budget match.
- const expiredDisambiguator = buildTitleDisambiguator(slug);
  // Total <title> budget: 80 char (Google SERP-display ceiling). Layout:
  //   [headline] + [disambiguator " (#abcdef12)" = 12] + [" | Frontaliere Ticino" = 22]
  // Headline budget = 80 - 12 - 22 = 46 char, used for
@@ -6704,18 +6750,8 @@ ${hreflangLinks}
 
  // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
  // Enriched template ensures >100 words per page for every expired job.
+ // (jobCanton, displayCanton, sameCompanyActiveJobs, etc. are hoisted above.)
  const staticBodyParts: string[] = [];
- const jobCanton = String(ejData?.canton || DEFAULT_CANTON);
- const jobSector = String(ejData?.sector || '');
- const jobContract = String(ejData?.contract || '');
- const jobDatePosted = String(ejData?.datePosted || '');
- const jobExpiredAt = String(ejData?.expiredAt || '');
- const displayCanton = CANTON_DISPLAY[jobCanton] || jobCanton;
-
- // Find active jobs from the same company for cross-linking (O(1) map lookup)
- const sameCompanyActiveJobs = jobCompany
- ? (companyActiveJobsMap.get(jobCompany.toLowerCase()) || [])
- : [];
 
  // --- H1 + expired notice ---
  staticBodyParts.push(`<h1>${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}</h1>`);
@@ -6732,15 +6768,8 @@ ${hreflangLinks}
  // This adds 20-30 words per page — enough to defeat the SHA-256
  // collapse even when `location` extraction failed.
  {
-  const slugTokens = slug.split('-').filter(Boolean);
-  const tailCount = Math.min(3, slugTokens.length);
-  const tailTokens = slugTokens.slice(-tailCount).map(t =>
-   t.replace(/\b\w/g, c => c.toUpperCase()),
-  );
-  const tailPretty = tailTokens.join(' ');
-  const cityForSignal = jobLocation || (slugInfo?.location ?? '');
-  const cantonForSignal = jobCanton && cityForSignal ? displayCanton : '';
-  const countryHint = cityForSignal && !jobCanton ? cityForSignal : '';
+  // tailPretty / cityForSignal / cantonForSignal / countryHint are
+  // per-slug invariants hoisted above the for-locale loop.
 
   const disambiguationHeading: Record<string, string> = {
    it: 'Dettaglio geografico',
@@ -6851,15 +6880,7 @@ ${hreflangLinks}
  // mechanics, statutory pay (13th + holidays + overtime) and required
  // documentation. ~1.5 KB additional visible text per page on top of the
  // previous 2-Q&A block.
- if (locale === 'it') {
- staticBodyParts.push(`<section><h2>Domande frequenti</h2><dl><dt><strong>Qual \u00e8 lo stipendio netto per un frontaliere in ${esc(displayCanton)}?</strong></dt><dd>Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${esc(displayCanton)} l'imposta alla fonte varia dal 2% al 15% circa. Sommando AVS-AI-IPG (5,3%), assicurazione disoccupazione (1,1% fino a CHF 148.200/anno) e LPP (7-18% in base all'et\u00e0), la differenza fra lordo e netto \u00e8 tipicamente del 18-28%. Usa il nostro simulatore per un calcolo personalizzato sui dati di questa offerta.</dd><dt><strong>Serve la cassa malati svizzera LAMal come frontaliere?</strong></dt><dd>I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro, salvo esercizio del diritto d'opzione per restare nel SSN italiano. I premi variano per cantone, modello assicurativo (standard, medico di famiglia, telmed, HMO) e franchigia (CHF 300 minima fino a 2.500 massima): <a href="${lamalUrl.it}">confronta i premi LAMal</a>.</dd><dt><strong>Come si ottiene il Permesso G per lavorare in Canton ${esc(displayCanton)}?</strong></dt><dd>Il Permesso G \u00e8 richiesto dal datore di lavoro all'Ufficio della migrazione cantonale dopo la firma del contratto. La prima emissione richiede 2-6 settimane; il rinnovo \u00e8 annuale fino al limite contrattuale. Devi risiedere in un comune italiano entro la fascia di 20 km dal confine svizzero (Lombardia o Piemonte) e rientrare al domicilio almeno una volta a settimana. Il telelavoro a tempo pieno dall'Italia non \u00e8 compatibile con lo status.</dd><dt><strong>Tredicesima, ferie e straordinari: cosa prevede la legge svizzera?</strong></dt><dd>La tredicesima non \u00e8 obbligatoria per legge ma \u00e8 prassi consolidata in Ticino e quasi sempre menzionata nel contratto: viene pagata in dicembre o ripartita in due tranche (giugno + novembre). Le ferie minime di legge sono 4 settimane (5 sotto i 20 anni o sopra i 50 con anzianit\u00e0). Gli straordinari oltre le 40-45 ore settimanali, secondo la Legge sul lavoro (LL), sono compensati con un supplemento del 25% o con tempo libero equivalente entro 14 settimane.</dd><dt><strong>Quali documenti servono per candidarsi a un'offerta in Svizzera?</strong></dt><dd>Per la candidatura iniziale bastano CV (formato europeo o svizzero, una lingua del cantone), lettera di motivazione e un certificato di lavoro recente. Dopo la firma del contratto servono carta d'identit\u00e0 valida (passaporto consigliato), certificato di residenza italiano, atto di nascita per la richiesta di Permesso G e — per i settori regolamentati (sanit\u00e0, scuole, sicurezza) — il riconoscimento del titolo italiano da parte di SBFI/SEFRI o dell'autorit\u00e0 cantonale competente, processo che richiede 3-6 mesi.</dd></dl></section>`);
- } else if (locale === 'en') {
- staticBodyParts.push(`<section><h2>Frequently asked questions</h2><dl><dt><strong>What is the net salary for a cross-border worker in ${esc(displayCanton)}?</strong></dt><dd>Net salary depends on gross income, marital status and number of children. In the Canton of ${esc(displayCanton)}, withholding tax ranges from about 2% to 15%. Together with AVS-AI-IPG (5.3%), unemployment insurance (1.1% up to CHF 148,200/year) and LPP (7-18% by age), the typical gross-to-net gap is 18-28%. Use our simulator for a personalised calculation against this listing.</dd><dt><strong>Do cross-border workers need Swiss LAMal health insurance?</strong></dt><dd>New cross-border workers since 2024 must enrol in Swiss LAMal within 3 months of starting work, unless they exercise the right of option to stay in the Italian SSN. Premiums vary by canton, insurance model (standard, family doctor, telmed, HMO) and deductible (CHF 300 minimum up to 2,500 maximum): <a href="${lamalUrl.en}">compare LAMal premiums</a>.</dd><dt><strong>How do I get a G permit to work in the Canton of ${esc(displayCanton)}?</strong></dt><dd>The G permit is filed by the employer at the cantonal migration office after the contract is signed. First issuance takes 2-6 weeks; the permit is renewed yearly up to the contractual limit. You must reside in an Italian municipality within the 20 km border zone (Lombardy or Piedmont) and return home at least once a week. Full-time remote work from Italy is not compatible with the status.</dd><dt><strong>13th-month salary, vacation and overtime: what does Swiss law say?</strong></dt><dd>The 13th salary is not statutory but is standard practice in Ticino and almost always specified in the contract: paid in December or split into two tranches (June + November). Minimum statutory holiday is 4 weeks (5 weeks for under-20s and over-50s with seniority). Overtime above 40-45 weekly hours, under the Labour Act (LL), is compensated with a 25% premium or equivalent time off within 14 weeks.</dd><dt><strong>What documents do I need to apply for a Swiss job?</strong></dt><dd>For the initial application: CV (European or Swiss format, in a cantonal language), cover letter, and a recent work certificate. After the contract is signed: valid ID card (passport recommended), Italian residence certificate, birth certificate for the G-permit filing, and — for regulated sectors (healthcare, schools, security) — recognition of the Italian degree by SBFI/SEFRI or the relevant cantonal authority, a process that takes 3-6 months.</dd></dl></section>`);
- } else if (locale === 'de') {
- staticBodyParts.push(`<section><h2>H\u00e4ufig gestellte Fragen</h2><dl><dt><strong>Wie hoch ist das Nettogehalt f\u00fcr Grenzg\u00e4nger im ${esc(displayCanton)}?</strong></dt><dd>Das Nettogehalt h\u00e4ngt vom Bruttoeinkommen, Familienstand und der Kinderzahl ab. Im Kanton ${esc(displayCanton)} liegt die Quellensteuer zwischen ca. 2% und 15%. Zusammen mit AHV-IV-EO (5,3%), Arbeitslosenversicherung (1,1% bis CHF 148'200/Jahr) und BVG (7-18% je nach Alter) betr\u00e4gt der typische Brutto-Netto-Abstand 18-28%. Nutzen Sie unseren Simulator f\u00fcr eine personalisierte Berechnung zu diesem Inserat.</dd><dt><strong>Brauchen Grenzg\u00e4nger eine Schweizer KVG-Versicherung?</strong></dt><dd>Neue Grenzg\u00e4nger seit 2024 m\u00fcssen sich innerhalb von 3 Monaten nach Arbeitsbeginn bei der KVG anmelden, ausser sie nutzen das Optionsrecht zugunsten des italienischen SSN. Die Pr\u00e4mien variieren je nach Kanton, Versicherungsmodell (Standard, Hausarzt, Telmed, HMO) und Franchise (CHF 300 Minimum bis 2.500 Maximum): <a href="${lamalUrl.de}">KVG-Pr\u00e4mien vergleichen</a>.</dd><dt><strong>Wie erhalte ich die G-Bewilligung f\u00fcr eine Anstellung im Kanton ${esc(displayCanton)}?</strong></dt><dd>Die G-Bewilligung wird vom Arbeitgeber nach Vertragsunterzeichnung beim kantonalen Migrationsamt eingereicht. Die erste Ausstellung dauert 2-6 Wochen; die Verl\u00e4ngerung erfolgt j\u00e4hrlich bis zur vertraglichen Befristung. Sie m\u00fcssen in einer italienischen Gemeinde innerhalb der 20-km-Grenzzone (Lombardei oder Piemont) wohnen und mindestens einmal pro Woche nach Hause zur\u00fcckkehren. Vollst\u00e4ndige Heimarbeit aus Italien ist mit dem Status nicht vereinbar.</dd><dt><strong>13. Monatslohn, Ferien und \u00dcberzeit: was schreibt das Schweizer Recht vor?</strong></dt><dd>Der 13. Monatslohn ist nicht gesetzlich vorgeschrieben, aber im Tessin Standardpraxis und fast immer im Vertrag spezifiziert: ausgezahlt im Dezember oder in zwei Tranchen (Juni + November) aufgeteilt. Der gesetzliche Ferienanspruch betr\u00e4gt mindestens 4 Wochen (5 Wochen f\u00fcr Unter-20-J\u00e4hrige und \u00dcber-50-J\u00e4hrige mit Anstellungsdauer). \u00dcberzeit \u00fcber die 40-45 Wochenstunden hinaus wird gem\u00e4ss Arbeitsgesetz (ArG) mit 25% Zuschlag oder Freizeitausgleich innerhalb von 14 Wochen kompensiert.</dd><dt><strong>Welche Unterlagen brauche ich f\u00fcr eine Bewerbung in der Schweiz?</strong></dt><dd>F\u00fcr die Erstbewerbung: Lebenslauf (europ\u00e4isches oder Schweizer Format, in einer Kantonssprache), Motivationsschreiben und ein aktuelles Arbeitszeugnis. Nach Vertragsunterzeichnung: g\u00fcltige Identit\u00e4tskarte (Pass empfohlen), italienische Wohnsitzbescheinigung, Geburtsurkunde f\u00fcr die G-Bewilligung und — bei regulierten Branchen (Gesundheit, Schulen, Sicherheit) — die Anerkennung des italienischen Titels durch SBFI/SEFRI oder die zust\u00e4ndige kantonale Beh\u00f6rde, ein Verfahren von 3-6 Monaten.</dd></dl></section>`);
- } else {
- staticBodyParts.push(`<section><h2>Questions fr\u00e9quentes</h2><dl><dt><strong>Quel est le salaire net pour un frontalier au ${esc(displayCanton)} ?</strong></dt><dd>Le salaire net d\u00e9pend du revenu brut, de l'\u00e9tat civil et du nombre d'enfants. Dans le Canton du ${esc(displayCanton)}, l'imp\u00f4t \u00e0 la source varie d'environ 2% \u00e0 15%. En ajoutant l'AVS-AI-APG (5,3%), l'assurance ch\u00f4mage (1,1% jusqu'\u00e0 CHF 148'200/an) et la LPP (7-18% selon l'\u00e2ge), l'\u00e9cart brut-net typique est de 18-28%. Utilisez notre simulateur pour un calcul personnalis\u00e9 sur cette offre.</dd><dt><strong>Les frontaliers doivent-ils souscrire \u00e0 la LAMal suisse ?</strong></dt><dd>Les nouveaux frontaliers depuis 2024 doivent s'inscrire \u00e0 la LAMal dans les 3 mois suivant le d\u00e9but du travail, sauf s'ils exercent le droit d'option pour rester au SSN italien. Les primes varient selon le canton, le mod\u00e8le d'assurance (standard, m\u00e9decin de famille, telmed, HMO) et la franchise (CHF 300 minimum jusqu'\u00e0 2'500 maximum) : <a href="${lamalUrl.fr}">comparer les primes LAMal</a>.</dd><dt><strong>Comment obtenir le permis G pour travailler au Canton du ${esc(displayCanton)} ?</strong></dt><dd>Le permis G est demand\u00e9 par l'employeur \u00e0 l'office cantonal des migrations apr\u00e8s la signature du contrat. La premi\u00e8re d\u00e9livrance prend 2 \u00e0 6 semaines ; le renouvellement est annuel jusqu'\u00e0 la limite contractuelle. Vous devez r\u00e9sider dans une commune italienne situ\u00e9e dans la zone fronti\u00e8re des 20 km (Lombardie ou Pi\u00e9mont) et rentrer chez vous au moins une fois par semaine. Le t\u00e9l\u00e9travail \u00e0 plein temps depuis l'Italie n'est pas compatible avec le statut.</dd><dt><strong>13e mois, vacances et heures suppl\u00e9mentaires : que pr\u00e9voit le droit suisse ?</strong></dt><dd>Le 13e mois n'est pas obligatoire mais c'est une pratique courante au Tessin et presque toujours mentionn\u00e9e dans le contrat : il est pay\u00e9 en d\u00e9cembre ou r\u00e9parti en deux tranches (juin + novembre). Les vacances l\u00e9gales minimales sont de 4 semaines (5 pour les moins de 20 ans et plus de 50 ans avec anciennet\u00e9). Les heures suppl\u00e9mentaires au-del\u00e0 de 40-45 heures hebdomadaires, selon la loi sur le travail (LTr), sont compens\u00e9es par une majoration de 25% ou par du temps libre \u00e9quivalent dans les 14 semaines.</dd><dt><strong>Quels documents pour postuler \u00e0 un emploi en Suisse ?</strong></dt><dd>Pour la candidature initiale : CV (format europ\u00e9en ou suisse, dans une langue cantonale), lettre de motivation et un certificat de travail r\u00e9cent. Apr\u00e8s la signature du contrat : carte d'identit\u00e9 valable (passeport recommand\u00e9), certificat de r\u00e9sidence italien, acte de naissance pour le d\u00e9p\u00f4t du permis G, et — pour les secteurs r\u00e9glement\u00e9s (sant\u00e9, \u00e9coles, s\u00e9curit\u00e9) — la reconnaissance du titre italien par le SBFI/SEFRI ou l'autorit\u00e9 cantonale comp\u00e9tente, une proc\u00e9dure de 3-6 mois.</dd></dl></section>`);
- }
+ staticBodyParts.push(getExpiredFaqHtml(locale, escDisplayCanton, lamalUrl[locale] || lamalUrl.it));
 
  // --- Fallback: recent active jobs when no same-company jobs were shown ---
  // This ensures even pages without ejData have cross-links to active listings,
@@ -7169,6 +7190,21 @@ ${hreflangLinks}
  ]),
  ];
 
+ // Hoist per (currentSlug, locale): bridgeScript + the two .replace()
+ // passes over the ~30-50 KB cachedHtml don't depend on `oldSlug`. Lazy
+ // (computed only on the first oldSlug that actually emits a bridge) so
+ // the case where every prevSlug is filtered out below stays a no-op.
+ let bridgeIndexHtml: string | null = null;
+ let bridgeFlatHtml: string | null = null;
+ const ensureBridgeHtml = (): { indexHtml: string; flatHtml: string } => {
+ if (bridgeIndexHtml === null || bridgeFlatHtml === null) {
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(currentSlug)};</script>`;
+ bridgeIndexHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
+ bridgeFlatHtml = bridgeIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
+ }
+ return { indexHtml: bridgeIndexHtml, flatHtml: bridgeFlatHtml };
+ };
+
  for (const oldSlug of prevSlugsForLocale) {
  if (oldSlug === currentSlug) continue;
  // Skip bridge generation when the previousSlug is a reserved sector/city
@@ -7185,23 +7221,21 @@ ${hreflangLinks}
  if (activeJobDirs.has(oldRelPath.replace(/\/+$/, ''))) continue;
  const __tPrevSlugBridge = startTimer();
  const outDir = np.join(distDir, oldRelPath);
- const targetFile = np.join(outDir, 'index.html');
  // Always generate bridge pages — they take priority over any compat/legacy
  // page that another plugin (e.g. legacyRedirectsPlugin) may have written
  // at the same path via fs.writeFileSync during concurrent closeBundle.
-
+ //
  // Reuse the full active page HTML — canonical already points to the
  // current slug URL. Inject __BRIDGE_TARGET_SLUG__ so the SPA knows to
  // use the current slug for data lookup instead of parsing the old URL.
- const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(currentSlug)};</script>`;
- const bridgeHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
+ const { indexHtml, flatHtml } = ensureBridgeHtml();
 
  _md(outDir);
- _qw(np.join(outDir, 'index.html'), bridgeHtml);
+ _qw(np.join(outDir, 'index.html'), indexHtml);
 
  const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
  _md(np.dirname(flatFile));
- _qw(flatFile, bridgeHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qw(flatFile, flatHtml);
  bridgeCount++;
  recordEmit('previous-slug-bridge', __tPrevSlugBridge);
  }
