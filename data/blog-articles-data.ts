@@ -9751,4 +9751,11 @@ export const ARTICLES = [
  image: '/images/blog/ferrara-m5s-beko-cassinetta-verifica.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'azienda-comasca-fotovoltaico-25-tonnellate-co2',
+ category: 'novita',
+ date: '2026-04-29T07:54:04.778Z',
+ image: '/images/blog/azienda-comasca-fotovoltaico-25-tonnellate-co2.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

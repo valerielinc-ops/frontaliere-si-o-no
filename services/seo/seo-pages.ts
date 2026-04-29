@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1298,
+ "numberOfItems": 1299,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5933,7 +5933,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1295, "name": "730 precompilato online dal 30 aprile: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/730-precompilato-frontalieri-ticino-2026` },
           { "@type": "ListItem", "position": 1296, "name": "Evento di tosatura pecore e riparazione vestiti...", "url": `${BASE_URL}/articoli-frontaliere/tosatura-pecore-riparazione-vestiti-bellinzona-2026` },
           { "@type": "ListItem", "position": 1297, "name": "Geopolitica e vita quotidiana: il sindacato all...", "url": `${BASE_URL}/articoli-frontaliere/geopolitica-sindacato-nuovi-equilibri-varese` },
-          { "@type": "ListItem", "position": 1298, "name": "Ferrara (M5S): Beko a Cassinetta, servono risul...", "url": `${BASE_URL}/articoli-frontaliere/ferrara-m5s-beko-cassinetta-verifica` }
+          { "@type": "ListItem", "position": 1298, "name": "Ferrara (M5S): Beko a Cassinetta, servono risul...", "url": `${BASE_URL}/articoli-frontaliere/ferrara-m5s-beko-cassinetta-verifica` },
+          { "@type": "ListItem", "position": 1299, "name": "Azienda comasca riduce CO2 con impianto fotovol...", "url": `${BASE_URL}/articoli-frontaliere/azienda-comasca-fotovoltaico-25-tonnellate-co2` }
  ]
  },
  {

@@ -3745,6 +3745,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ferrara-m5s-beko-cassinetta-verifica.title': 'Ferrara (M5S): Beko in Cassinetta braucht konkrete Ergebnisse',
     'blog.article.ferrara-m5s-beko-cassinetta-verifica.excerpt': 'Nach einem Jahr fordert die Fünf-Sterne-Bewegung eine Überprüfung der Beko-Anlage in Cassinetta di Biandronno.',
     'blog.article.ferrara-m5s-beko-cassinetta-verifica.imageAlt': 'Luftaufnahme von Cassinetta di Biandronno, Italien, in der Nähe der Schweizer Grenze, mit der Landschaft des Tessin im Hintergrund.',
+    'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.title': 'Comascher Unternehmen reduziert CO2 mit Solaranlage: 25 Tonnen weniger',
+    'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.excerpt': 'Eine Solaranlage auf einem Industriedach in Cucciago reduziert die Emissionen um 25,71 Tonnen CO2 pro Jahr, mit Vorteilen für die lokale Gemeinschaft.',
+    'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.imageAlt': 'Solarpanels auf dem Dach eines Industriebaus in Tessin mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

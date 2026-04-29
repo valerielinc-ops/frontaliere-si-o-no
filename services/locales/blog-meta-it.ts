@@ -3746,6 +3746,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ferrara-m5s-beko-cassinetta-verifica.title': 'Ferrara (M5S): Beko a Cassinetta, servono risultati concreti',
     'blog.article.ferrara-m5s-beko-cassinetta-verifica.excerpt': 'Dopo un anno, il Movimento 5 Stelle chiede una verifica sull\'impianto Beko a Cassinetta di Biandronno.',
     'blog.article.ferrara-m5s-beko-cassinetta-verifica.imageAlt': 'Vista aerea di Cassinetta di Biandronno, Italia, vicino al confine svizzero, con il paesaggio del Ticino sullo sfondo.',
+    'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.title': 'Azienda comasca riduce CO2 con impianto fotovoltaico: 25 tonnellate in meno',
+    'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.excerpt': 'Un impianto fotovoltaico su un tetto industriale a Cucciago riduce le emissioni di 25,71 tonnellate di CO2 all\'anno, con benefici per la comunità locale.',
+    'blog.article.azienda-comasca-fotovoltaico-25-tonnellate-co2.imageAlt': 'Pannelli solari sul tetto di uno stabilimento in Ticino con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

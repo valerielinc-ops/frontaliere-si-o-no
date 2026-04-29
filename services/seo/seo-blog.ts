@@ -23181,6 +23181,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-azienda-comasca-fotovoltaico-25-tonnellate-co2': {
+    title: 'Azienda comasca riduce CO2 con impianto fotovoltaico: 25 tonnellate in meno',
+    description: 'Un impianto fotovoltaico su un tetto industriale a Cucciago riduce le emissioni di 25,71 tonnellate di CO2 all\'anno, con benefici per la comunità locale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, azienda, comasca, riduce, impianto',
+    ogTitle: 'Azienda comasca riduce CO2 con impianto fotovoltaico: 25 tonnellate in meno',
+    ogDescription: 'Un impianto fotovoltaico su un tetto industriale a Cucciago riduce le emissioni di 25,71 tonnellate di CO2 all\'anno, con benefici per la comunità locale.',
+    canonicalPath: '/articoli-frontaliere/azienda-comasca-fotovoltaico-25-tonnellate-co2',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Azienda comasca riduce CO2 con impianto fotovoltaico: 25 tonnellate in meno",
+      "description": "Un impianto fotovoltaico su un tetto industriale a Cucciago riduce le emissioni di 25,71 tonnellate di CO2 all'anno, con benefici per la comunità locale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/azienda-comasca-fotovoltaico-25-tonnellate-co2.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pannelli solari sul tetto di uno stabilimento in Ticino con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-29T07:54:04+00:00",
+      "dateModified": "2026-04-29T07:54:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/azienda-comasca-fotovoltaico-25-tonnellate-co2`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
