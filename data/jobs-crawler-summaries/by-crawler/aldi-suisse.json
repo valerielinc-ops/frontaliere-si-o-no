@@ -1,22 +1,21 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-04-28T21:11:39.043Z",
+  "generatedAt": "2026-04-29T10:03:42.427Z",
   "total": 3,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3497,
-  "avgDurationMs": 3497,
+  "durationMs": 4185,
+  "avgDurationMs": 4185,
   "durationHistory": [
-    3497
+    4185
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "aldi-suisse-2b7849368ea3",
-      "slug": "impiegato-vendita-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
       "companyDomain": "aldi.ch",
@@ -34,62 +33,25 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-28",
+      "postedDate": "2026-04-29",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T21:11:37.014Z",
-      "firstSeenAt": "2026-04-28T10:12:27.598Z",
+      "crawledAt": "2026-04-29T10:03:40.231Z",
       "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
-      "_qualityScore": 96,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 25,
+        "translation": 21,
         "completeness": 25
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "aldi-suisse-c84740c470c4",
-      "slug": "vice-direttore-di-filiale-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Stellvertretender Filialleiter (m/w/d)",
-      "location": "en in elf Ländern weltweit. Seit dem",
-      "postalCode": "6928",
-      "canton": "TI",
-      "addressLocality": "en in elf Ländern weltweit. Seit dem",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "streetAddress": "Centro Monda 8",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "url": "https://www.jobs.aldi.ch/job/1287177101",
-      "source": "ALDI Suisse Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-28T10:12:28.823Z",
-      "firstSeenAt": "2026-04-13T09:52:48.221Z",
-      "salaryMin": 82500,
-      "salaryMax": 127000,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "aldi-suisse-75eae9a09a65",
@@ -115,7 +77,7 @@
       "url": "https://www.jobs.aldi.ch/job/1266137901",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T21:11:37.019Z",
+      "crawledAt": "2026-04-29T10:03:40.236Z",
       "firstSeenAt": "2026-04-13T09:52:47.610Z",
       "needsRetranslation": true,
       "salaryMin": 59000,
@@ -152,7 +114,7 @@
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-28T21:11:37.008Z",
+      "crawledAt": "2026-04-29T10:03:40.226Z",
       "firstSeenAt": "2026-04-13T09:52:47.605Z",
       "needsRetranslation": true,
       "salaryMin": 46500,
