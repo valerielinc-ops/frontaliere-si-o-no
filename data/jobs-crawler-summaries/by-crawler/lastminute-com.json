@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-04-28T22:11:39.335Z",
+  "generatedAt": "2026-04-29T11:04:08.654Z",
   "total": 5,
   "newCount": 5,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14827,
-  "avgDurationMs": 14827,
+  "durationMs": 18398,
+  "avgDurationMs": 18398,
   "durationHistory": [
-    14827
+    18398
   ],
   "newJobs": [
     {
@@ -89,6 +89,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
