@@ -172,9 +172,26 @@ function sitemapNameFromUrl(url) {
 }
 
 async function fetchAllSitemaps() {
-  const indexUrl = `${HOST}/sitemap.xml`;
-  process.stderr.write(`[audit] Fetching index ${indexUrl}\n`);
-  const indexXml = await fetchText(indexUrl);
+  // Prefer LOCAL dist/sitemap*.xml when available — fetching live sitemaps
+  // creates an apples-to-oranges comparison: BFS walks just-built dist/
+  // while the sitemap reflects the LAST DEPLOY's data. When data refreshes
+  // between deploys add/drop pages, the live sitemap names URLs the local
+  // dist no longer emits, surfacing as phantom orphans (deploy-blocking
+  // false positives). Only fall back to fetching live when dist/ is empty
+  // (e.g. running this audit against the deployed site directly).
+  const localIndexPath = join(DIST, 'sitemap.xml');
+  let indexXml;
+  let isLocal = false;
+  try {
+    await access(localIndexPath);
+    indexXml = await readFile(localIndexPath, 'utf-8');
+    isLocal = true;
+    process.stderr.write(`[audit] Reading local sitemap index ${localIndexPath}\n`);
+  } catch {
+    const indexUrl = `${HOST}/sitemap.xml`;
+    process.stderr.write(`[audit] Fetching index ${indexUrl}\n`);
+    indexXml = await fetchText(indexUrl);
+  }
   const childUrls = extractLocs(indexXml).filter((u) => /\.xml(\?|$)/i.test(u));
 
   if (childUrls.length === 0) {
@@ -191,12 +208,26 @@ async function fetchAllSitemaps() {
   // Sequential to be polite to the host.
   for (const childUrl of childUrls) {
     const name = sitemapNameFromUrl(childUrl);
-    process.stderr.write(`[audit]   Fetching ${name} ...\n`);
     let xml;
-    try {
-      xml = await fetchText(childUrl);
-    } catch (e) {
-      throw new Error(`Failed to fetch child sitemap ${childUrl}: ${e.message}`);
+    if (isLocal) {
+      const localChildPath = join(DIST, name);
+      try {
+        await access(localChildPath);
+        xml = await readFile(localChildPath, 'utf-8');
+        process.stderr.write(`[audit]   Reading local ${name} ...\n`);
+      } catch {
+        // Child not on disk — skip rather than fall back to live (mixing
+        // local + live sitemaps would re-introduce the staleness gap).
+        process.stderr.write(`[audit]   Skipping ${name} (not in local dist)\n`);
+        continue;
+      }
+    } else {
+      process.stderr.write(`[audit]   Fetching ${name} ...\n`);
+      try {
+        xml = await fetchText(childUrl);
+      } catch (e) {
+        throw new Error(`Failed to fetch child sitemap ${childUrl}: ${e.message}`);
+      }
     }
     const locs = extractLocs(xml).filter((u) => !/\.xml(\?|$)/i.test(u)); // exclude nested sitemap entries
     const set = new Set();
