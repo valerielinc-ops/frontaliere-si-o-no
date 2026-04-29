@@ -2481,6 +2481,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ferrara-m5s-beko-cassinetta-verifica': { name: 'Novità', path: '/articoli-frontaliere/ferrara-m5s-beko-cassinetta-verifica', parent: 'blog' },
     'blog-azienda-comasca-fotovoltaico-25-tonnellate-co2': { name: 'Novità', path: '/articoli-frontaliere/azienda-comasca-fotovoltaico-25-tonnellate-co2', parent: 'blog' },
     'blog-citta-fiore-orticolario-tricolore-2026': { name: 'Novità', path: '/articoli-frontaliere/citta-fiore-orticolario-tricolore-2026', parent: 'blog' },
+    'blog-friborgogotteron-spareggio-titolo-hockey': { name: 'Novità Sport', path: '/articoli-frontaliere/friborgogotteron-spareggio-titolo-hockey', parent: 'blog' },
  };
 
  const info = sectionNames[section];

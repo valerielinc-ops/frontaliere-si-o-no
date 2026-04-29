@@ -23239,6 +23239,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-friborgogotteron-spareggio-titolo-hockey': {
+    title: 'Friborg-Gottéron allo spareggio per il titolo di hockey',
+    description: 'La squadra di hockey Friborg-Gottéron si gioca il titolo in uno spareggio cruciale. Tutti i dettagli sulla partita decisiva. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, friborg-gottéron, allo, spareggio, titolo',
+    ogTitle: 'Friborg-Gottéron allo spareggio per il titolo di hockey',
+    ogDescription: 'La squadra di hockey Friborg-Gottéron si gioca il titolo in uno spareggio cruciale. Tutti i dettagli sulla partita decisiva.',
+    canonicalPath: '/articoli-frontaliere/friborgogotteron-spareggio-titolo-hockey',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Friborg-Gottéron allo spareggio per il titolo di hockey",
+      "description": "La squadra di hockey Friborg-Gottéron si gioca il titolo in uno spareggio cruciale. Tutti i dettagli sulla partita decisiva. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/friborgogotteron-spareggio-titolo-hockey.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di hockey su ghiaccio in un'arena svizzera con giocatori in azione"
+      },
+      "datePublished": "2026-04-29T08:02:11+00:00",
+      "dateModified": "2026-04-29T08:02:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/friborgogotteron-spareggio-titolo-hockey`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

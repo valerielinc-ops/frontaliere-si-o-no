@@ -9765,4 +9765,11 @@ export const ARTICLES = [
  image: '/images/blog/citta-fiore-orticolario-tricolore-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'friborgogotteron-spareggio-titolo-hockey',
+ category: 'novita',
+ date: '2026-04-29T08:02:11.964Z',
+ image: '/images/blog/friborgogotteron-spareggio-titolo-hockey.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

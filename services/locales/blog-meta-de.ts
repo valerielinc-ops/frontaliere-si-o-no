@@ -3751,6 +3751,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.citta-fiore-orticolario-tricolore-2026.title': 'Blühende Städte: Balkone in Como und Cernobbio huldigen der Trikolore',
     'blog.article.citta-fiore-orticolario-tricolore-2026.excerpt': 'Orticolario startet die Initiative \'Blühende Städte\', um die 80 Jahre der Italienischen Republik zu feiern, indem Balkone und Schaufenster in Kunstwerke mit Trikolore-Thema verwandelt werden.',
     'blog.article.citta-fiore-orticolario-tricolore-2026.imageAlt': 'Blumengeschmückte Balkone in Como und Cernobbio zur Feier des 80. Jahrestages der Italienischen Republik',
+    'blog.article.friborgogotteron-spareggio-titolo-hockey.title': 'Fribourg-Gottéron kämpft um den Eishockey-Titel',
+    'blog.article.friborgogotteron-spareggio-titolo-hockey.excerpt': 'Das Eishockeyteam Fribourg-Gottéron spielt den Titel in einem entscheidenden Spiel. Alle Details zum entscheidenden Spiel.',
+    'blog.article.friborgogotteron-spareggio-titolo-hockey.imageAlt': 'Eishockeyspiel in einer Schweizer Arena mit spielenden Spielern',
 };
 
 export default blogMetaDe;

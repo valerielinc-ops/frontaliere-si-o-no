@@ -3752,6 +3752,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.citta-fiore-orticolario-tricolore-2026.title': 'Città in fiore: balconi a Como e Cernobbio omaggiano il Tricolore',
     'blog.article.citta-fiore-orticolario-tricolore-2026.excerpt': 'Orticolario lancia l\'iniziativa \'Città in fiore\' per celebrare gli 80 anni della Repubblica Italiana, trasformando balconi e vetrine in opere d\'arte a tema Tricolore.',
     'blog.article.citta-fiore-orticolario-tricolore-2026.imageAlt': 'Balconi fioriti a Como e Cernobbio per celebrare gli 80 anni della Repubblica Italiana',
+    'blog.article.friborgogotteron-spareggio-titolo-hockey.title': 'Friborg-Gottéron allo spareggio per il titolo di hockey',
+    'blog.article.friborgogotteron-spareggio-titolo-hockey.excerpt': 'La squadra di hockey Friborg-Gottéron si gioca il titolo in uno spareggio cruciale. Tutti i dettagli sulla partita decisiva.',
+    'blog.article.friborgogotteron-spareggio-titolo-hockey.imageAlt': 'Partita di hockey su ghiaccio in un\'arena svizzera con giocatori in azione',
 };
 
 export default blogMetaIt;
