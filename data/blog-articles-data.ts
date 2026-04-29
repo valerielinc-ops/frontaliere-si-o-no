@@ -10052,4 +10052,11 @@ export const ARTICLES = [
  image: '/images/blog/webinar-ai-azienda-strategia-casi-concreti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'comunita-montana-valli-verbano-incontri-natura-cambia',
+ category: 'novita',
+ date: '2026-04-29T11:47:00.256Z',
+ image: '/images/blog/comunita-montana-valli-verbano-incontri-natura-cambia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -3874,6 +3874,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.webinar-ai-azienda-strategia-casi-concreti.title': 'Webinar: KI im Unternehmen – Strategie und Praxisbeispiele',
     'blog.article.webinar-ai-azienda-strategia-casi-concreti.excerpt': 'Die Acinque Gruppe organisiert ein Webinar über den Einsatz von Künstlicher Intelligenz als strategische Hebel für Unternehmen.',
     'blog.article.webinar-ai-azienda-strategia-casi-concreti.imageAlt': 'Webinar über künstliche Intelligenz im Unternehmen in Lugano',
+    'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.title': 'Treffen zu Klimawandel in Rancio Valcuvia',
+    'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.excerpt': 'Die Berggemeinschaft Verbano-Täler organisiert eine Reihe von Treffen zu Biodiversität und Klimawandel.',
+    'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.imageAlt': 'Ruhige Aussicht auf den Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

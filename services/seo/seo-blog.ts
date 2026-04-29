@@ -24428,6 +24428,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comunita-montana-valli-verbano-incontri-natura-cambia': {
+    title: 'Incontri su cambiamenti climatici a Rancio Valcuvia',
+    description: 'La Comunità Montana Valli del Verbano organizza un ciclo di incontri su biodiversità e cambiamenti climatici da aprile a novembre 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incontri, cambiamenti, climatici, rancio',
+    ogTitle: 'Incontri su cambiamenti climatici a Rancio Valcuvia',
+    ogDescription: 'La Comunità Montana Valli del Verbano organizza un ciclo di incontri su biodiversità e cambiamenti climatici da aprile a novembre 2026.',
+    canonicalPath: '/articoli-frontaliere/comunita-montana-valli-verbano-incontri-natura-cambia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incontri su cambiamenti climatici a Rancio Valcuvia",
+      "description": "La Comunità Montana Valli del Verbano organizza un ciclo di incontri su biodiversità e cambiamenti climatici da aprile a novembre 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comunita-montana-valli-verbano-incontri-natura-cambia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena del Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-29T11:47:00+00:00",
+      "dateModified": "2026-04-29T11:47:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comunita-montana-valli-verbano-incontri-natura-cambia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

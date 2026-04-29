@@ -3874,6 +3874,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.webinar-ai-azienda-strategia-casi-concreti.title': 'Webinar on AI in business: strategy and real cases',
     'blog.article.webinar-ai-azienda-strategia-casi-concreti.excerpt': 'The Acinque Group is organizing a webinar on the use of artificial intelligence as a strategic lever for companies.',
     'blog.article.webinar-ai-azienda-strategia-casi-concreti.imageAlt': 'Webinar on artificial intelligence in business in Lugano',
+    'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.title': 'Climate change meetings in Rancio Valcuvia',
+    'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.excerpt': 'The Comunità Montana Valli del Verbano organizes a series of meetings on biodiversity and climate change.',
+    'blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.imageAlt': 'Serene view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

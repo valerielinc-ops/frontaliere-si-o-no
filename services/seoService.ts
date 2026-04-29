@@ -2522,6 +2522,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chi-finanzia-politica-svizzera-2026': { name: 'Politica svizzera', path: '/articoli-frontaliere/chi-finanzia-politica-svizzera-2026', parent: 'blog' },
     'blog-accordo-lago-maggiore-italia-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/accordo-lago-maggiore-italia-svizzera-2026', parent: 'blog' },
     'blog-webinar-ai-azienda-strategia-casi-concreti': { name: 'Webinar AI', path: '/articoli-frontaliere/webinar-ai-azienda-strategia-casi-concreti', parent: 'blog' },
+    'blog-comunita-montana-valli-verbano-incontri-natura-cambia': { name: 'Incontri natura', path: '/articoli-frontaliere/comunita-montana-valli-verbano-incontri-natura-cambia', parent: 'blog' },
  };
 
  const info = sectionNames[section];
