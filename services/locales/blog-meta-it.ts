@@ -3857,6 +3857,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercatino-primavera-lugano-2026.title': 'Mercatino di Primavera a Lugano: traffico chiuso sul lungolago',
     'blog.article.mercatino-primavera-lugano-2026.excerpt': 'Venerdì 1 maggio il lungolago di Lugano si trasforma in un\'isola pedonale con bancarelle di artigianato e prodotti locali.',
     'blog.article.mercatino-primavera-lugano-2026.imageAlt': 'Lungolago di Lugano con bancarelle di artigianato e prodotti locali durante il Mercatino di Primavera',
+    'blog.article.italia-svizzera-ricerca-2026.title': 'Italia e Svizzera uniscono le forze nella ricerca',
+    'blog.article.italia-svizzera-ricerca-2026.excerpt': 'La nona Giornata della ricerca italiana nel mondo celebrata a Plan-les-Ouates con focus su scienze della salute',
+    'blog.article.italia-svizzera-ricerca-2026.imageAlt': 'Lago di Lugano con centro di ricerca in secondo piano',
 };
 
 export default blogMetaIt;

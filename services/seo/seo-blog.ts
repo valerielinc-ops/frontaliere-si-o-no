@@ -24254,6 +24254,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-italia-svizzera-ricerca-2026': {
+    title: 'Italia e Svizzera uniscono le forze nella ricerca | Frontaliere Ticino',
+    description: 'La nona Giornata della ricerca italiana nel mondo celebrata a Plan-les-Ouates con focus su scienze della salute e innovazione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, uniscono, forze, nella, ricerca',
+    ogTitle: 'Italia e Svizzera uniscono le forze nella ricerca',
+    ogDescription: 'La nona Giornata della ricerca italiana nel mondo celebrata a Plan-les-Ouates con focus su scienze della salute e innovazione',
+    canonicalPath: '/articoli-frontaliere/italia-svizzera-ricerca-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Italia e Svizzera uniscono le forze nella ricerca",
+      "description": "La nona Giornata della ricerca italiana nel mondo celebrata a Plan-les-Ouates con focus su scienze della salute e innovazione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/italia-svizzera-ricerca-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con centro di ricerca in secondo piano"
+      },
+      "datePublished": "2026-04-29T11:19:22+00:00",
+      "dateModified": "2026-04-29T11:19:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/italia-svizzera-ricerca-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

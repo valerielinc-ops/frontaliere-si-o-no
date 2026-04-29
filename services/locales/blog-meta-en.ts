@@ -3856,6 +3856,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercatino-primavera-lugano-2026.title': 'Spring Market in Lugano: lakefront closed to traffic',
     'blog.article.mercatino-primavera-lugano-2026.excerpt': 'On Friday, May 1st, Lugano\'s lakefront transforms into a pedestrian island with craft stalls and local products.',
     'blog.article.mercatino-primavera-lugano-2026.imageAlt': 'Lugano lakeside with artisan stalls and local products during the Spring Market',
+    'blog.article.italia-svizzera-ricerca-2026.title': 'Italy and Switzerland join forces in research',
+    'blog.article.italia-svizzera-ricerca-2026.excerpt': 'The ninth Italian Research Day in the world celebrated in Plan-les-Ouates with a focus on health sciences',
+    'blog.article.italia-svizzera-ricerca-2026.imageAlt': 'Lake Lugano with research center in the background',
 };
 
 export default blogMetaEn;

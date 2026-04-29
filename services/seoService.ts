@@ -2516,6 +2516,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-accordo-syndicom-vsm-2026': { name: 'Novità', path: '/articoli-frontaliere/accordo-syndicom-vsm-2026', parent: 'blog' },
     'blog-philipp-plein-mendrisio-interrogazione': { name: 'Novità', path: '/articoli-frontaliere/philipp-plein-mendrisio-interrogazione', parent: 'blog' },
     'blog-mercatino-primavera-lugano-2026': { name: 'Mercatino Primavera', path: '/articoli-frontaliere/mercatino-primavera-lugano-2026', parent: 'blog' },
+    'blog-italia-svizzera-ricerca-2026': { name: 'Novità', path: '/articoli-frontaliere/italia-svizzera-ricerca-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

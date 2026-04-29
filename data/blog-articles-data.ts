@@ -10010,4 +10010,11 @@ export const ARTICLES = [
  image: '/images/blog/mercatino-primavera-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'italia-svizzera-ricerca-2026',
+ category: 'novita',
+ date: '2026-04-29T11:19:22.840Z',
+ image: '/images/blog/italia-svizzera-ricerca-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

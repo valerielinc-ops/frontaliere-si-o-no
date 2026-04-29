@@ -3856,6 +3856,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercatino-primavera-lugano-2026.title': 'Frühlingsmarkt in Lugano: Sperrung am Seeufer',
     'blog.article.mercatino-primavera-lugano-2026.excerpt': 'Am Freitag, dem 1. Mai, wird das Seeufer von Lugano zur Fußgängerzone mit Ständen für Handwerk und lokale Produkte.',
     'blog.article.mercatino-primavera-lugano-2026.imageAlt': 'Luganer Seepromenade mit Kunsthandwerksständen und lokalen Produkten während des Frühlingsmarkts',
+    'blog.article.italia-svizzera-ricerca-2026.title': 'Italien und Schweiz verbünden sich in der Forschung',
+    'blog.article.italia-svizzera-ricerca-2026.excerpt': 'Der neunte italienische Forschungstag in der Welt wurde in Plan-les-Ouates mit Fokus auf Gesundheitswissenschaften gefeiert',
+    'blog.article.italia-svizzera-ricerca-2026.imageAlt': 'Luganersee mit Forschungszentrum im Hintergrund',
 };
 
 export default blogMetaDe;
