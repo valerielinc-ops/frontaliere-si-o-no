@@ -2487,6 +2487,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-von-der-leyen-ue-energia-500-milioni-giorno': { name: 'Novità', path: '/articoli-frontaliere/von-der-leyen-ue-energia-500-milioni-giorno', parent: 'blog' },
     'blog-svizzera-cashless-bns-sistema-equo': { name: 'Novità', path: '/articoli-frontaliere/svizzera-cashless-bns-sistema-equo', parent: 'blog' },
     'blog-avs-dati-digitale-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/avs-dati-digitale-frontalieri', parent: 'blog' },
+    'blog-scorte-carburante-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/scorte-carburante-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

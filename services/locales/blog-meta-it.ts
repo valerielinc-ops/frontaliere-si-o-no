@@ -3770,6 +3770,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avs-dati-digitale-frontalieri.title': 'AVS/AI: dati consultabili in digitale dal 2028',
     'blog.article.avs-dati-digitale-frontalieri.excerpt': 'Via libera del Consiglio nazionale alla nuova legge sui sistemi d\'informazione delle assicurazioni sociali. Risparmi di 35 milioni di franchi',
     'blog.article.avs-dati-digitale-frontalieri.imageAlt': 'Piattaforma digitale AVS con dati assicurativi e paesaggio ticinese',
+    'blog.article.scorte-carburante-svizzera-2026.title': 'Scorte carburante Svizzera: approvvigionamento garantito fino a maggio 2026',
+    'blog.article.scorte-carburante-svizzera-2026.excerpt': 'Le scorte svizzere di carburante sono destinate esclusivamente al fabbisogno nazionale. Approfondiamo la situazione attuale e le implicazioni per i frontalieri.',
+    'blog.article.scorte-carburante-svizzera-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo, cielo blu limpido, acque calme che riflettono il paesaggio.',
 };
 
 export default blogMetaIt;

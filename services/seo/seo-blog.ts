@@ -23413,6 +23413,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scorte-carburante-svizzera-2026': {
+    title: 'Scorte carburante Svizzera: approvvigionamento garantito fino a maggio 2026',
+    description: 'Le scorte svizzere di carburante sono destinate esclusivamente al fabbisogno nazionale. Approfondiamo la situazione attuale e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scorte, carburante, approvvigionamento, garantito',
+    ogTitle: 'Scorte carburante Svizzera: approvvigionamento garantito fino a maggio 2026',
+    ogDescription: 'Le scorte svizzere di carburante sono destinate esclusivamente al fabbisogno nazionale. Approfondiamo la situazione attuale e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/scorte-carburante-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scorte carburante Svizzera: approvvigionamento garantito fino a maggio 2026",
+      "description": "Le scorte svizzere di carburante sono destinate esclusivamente al fabbisogno nazionale. Approfondiamo la situazione attuale e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scorte-carburante-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo, cielo blu limpido, acque calme che riflettono il paesaggio."
+      },
+      "datePublished": "2026-04-29T08:33:21+00:00",
+      "dateModified": "2026-04-29T08:33:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scorte-carburante-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

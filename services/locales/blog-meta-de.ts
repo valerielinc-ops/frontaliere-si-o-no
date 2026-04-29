@@ -3769,6 +3769,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avs-dati-digitale-frontalieri.title': 'AHV/IV: Daten digital ab 2028 abrufbar',
     'blog.article.avs-dati-digitale-frontalieri.excerpt': 'Der Nationalrat hat der neuen Gesetzgebung zu den Informationssystemen der Sozialversicherungen zugestimmt. Einsparungen von 35 Millionen Franken',
     'blog.article.avs-dati-digitale-frontalieri.imageAlt': 'Digitale AVS-Plattform mit Versicherungsdaten und Tessin-Landschaft',
+    'blog.article.scorte-carburante-svizzera-2026.title': 'Kraftstoffvorräte Schweiz: Versorgung bis Mai 2026 gesichert',
+    'blog.article.scorte-carburante-svizzera-2026.excerpt': 'Die Schweizer Kraftstoffvorräte sind ausschließlich für den nationalen Bedarf bestimmt. Wir vertiefen die aktuelle Situation und die Auswirkungen auf die Grenzgänger.',
+    'blog.article.scorte-carburante-svizzera-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit den Bergen des Tessin im Hintergrund, klarer blauer Himmel, ruhiges Wasser, das die Landschaft widerspiegelt.',
 };
 
 export default blogMetaDe;

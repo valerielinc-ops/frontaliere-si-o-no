@@ -3769,6 +3769,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avs-dati-digitale-frontalieri.title': 'AHV/IV: digital data available from 2028',
     'blog.article.avs-dati-digitale-frontalieri.excerpt': 'The National Council has approved the new law on information systems for social insurances. Savings of 35 million francs',
     'blog.article.avs-dati-digitale-frontalieri.imageAlt': 'Digital AVS platform with insurance data and Ticino landscape',
+    'blog.article.scorte-carburante-svizzera-2026.title': 'Swiss fuel reserves secured until May 2026',
+    'blog.article.scorte-carburante-svizzera-2026.excerpt': 'Swiss fuel stocks are exclusively for national needs. We explore the current situation and implications for cross-border workers.',
+    'blog.article.scorte-carburante-svizzera-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background, clear blue sky, calm waters reflecting the landscape.',
 };
 
 export default blogMetaEn;
