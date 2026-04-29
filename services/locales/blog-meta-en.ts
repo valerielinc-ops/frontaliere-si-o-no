@@ -3655,6 +3655,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.karimova-processo-bellinzona-2026.title': 'Karimova trial in Bellinzona: money laundering and corruption charges',
     'blog.article.karimova-processo-bellinzona-2026.excerpt': 'Gulnara Karimova, daughter of the former Uzbek president, is accused of financial crimes. The trial is held in Bellinzona.',
     'blog.article.karimova-processo-bellinzona-2026.imageAlt': 'Courthouse in Bellinzona, seat of the Federal Criminal Court',
+    'blog.article.truffe-sentimentali-zurigo-2026.title': 'Romance scams in Switzerland: 10 arrests for millions in francs',
+    'blog.article.truffe-sentimentali-zurigo-2026.excerpt': 'Large-scale operation in 6 Swiss cantons dismantles network of romance scams linked to the Nigerian criminal group Black Axe.',
+    'blog.article.truffe-sentimentali-zurigo-2026.imageAlt': 'Lake Lugano with promenade and boats',
 };
 
 export default blogMetaEn;

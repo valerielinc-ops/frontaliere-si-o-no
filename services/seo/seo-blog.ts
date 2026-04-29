@@ -22311,6 +22311,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-truffe-sentimentali-zurigo-2026': {
+    title: 'Truffe sentimentali in Svizzera: 10 arresti per milioni di franchi',
+    description: 'Operazione su larga scala in 6 cantoni svizzeri smantella rete di truffe sentimentali legate al gruppo criminale nigeriano Black Axe. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, truffe, sentimentali, arresti, milioni',
+    ogTitle: 'Truffe sentimentali in Svizzera: 10 arresti per milioni di franchi',
+    ogDescription: 'Operazione su larga scala in 6 cantoni svizzeri smantella rete di truffe sentimentali legate al gruppo criminale nigeriano Black Axe.',
+    canonicalPath: '/articoli-frontaliere/truffe-sentimentali-zurigo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Truffe sentimentali in Svizzera: 10 arresti per milioni di franchi",
+      "description": "Operazione su larga scala in 6 cantoni svizzeri smantella rete di truffe sentimentali legate al gruppo criminale nigeriano Black Axe. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/truffe-sentimentali-zurigo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con passeggiata e barche"
+      },
+      "datePublished": "2026-04-29T02:53:45+00:00",
+      "dateModified": "2026-04-29T02:53:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/truffe-sentimentali-zurigo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3656,6 +3656,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.karimova-processo-bellinzona-2026.title': 'Procès de Karimova à Bellinzone : blanchiment et corruption',
     'blog.article.karimova-processo-bellinzona-2026.excerpt': 'Gulnara Karimova, fille de l\'ex-président ouzbek, est accusée de crimes financiers. Le procès a lieu à Bellinzone.',
     'blog.article.karimova-processo-bellinzona-2026.imageAlt': 'Palais de justice de Bellinzona, siège du Tribunal pénal fédéral',
+    'blog.article.truffe-sentimentali-zurigo-2026.title': 'Arnaques sentimentales en Suisse: 10 arrestations pour des millions de francs',
+    'blog.article.truffe-sentimentali-zurigo-2026.excerpt': 'Opération à grande échelle dans 6 cantons suisses démantèle un réseau d\'arnaques sentimentales liées au groupe criminel nigérian Black Axe.',
+    'blog.article.truffe-sentimentali-zurigo-2026.imageAlt': 'Lac de Lugano avec promenade et bateaux',
 };
 
 export default blogMetaFr;

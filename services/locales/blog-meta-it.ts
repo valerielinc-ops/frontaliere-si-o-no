@@ -3656,6 +3656,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.karimova-processo-bellinzona-2026.title': 'Processo a Karimova a Bellinzona: accuse di riciclaggio e corruzione',
     'blog.article.karimova-processo-bellinzona-2026.excerpt': 'Gulnara Karimova, figlia dell\'ex presidente uzbeko, è accusata di reati finanziari. Il processo si tiene a Bellinzona.',
     'blog.article.karimova-processo-bellinzona-2026.imageAlt': 'Palazzo di giustizia di Bellinzona, sede del Tribunale Penale Federale',
+    'blog.article.truffe-sentimentali-zurigo-2026.title': 'Truffe sentimentali in Svizzera: 10 arresti per milioni di franchi',
+    'blog.article.truffe-sentimentali-zurigo-2026.excerpt': 'Operazione su larga scala in 6 cantoni svizzeri smantella rete di truffe sentimentali legate al gruppo criminale nigeriano Black Axe.',
+    'blog.article.truffe-sentimentali-zurigo-2026.imageAlt': 'Lago di Lugano con passeggiata e barche',
 };
 
 export default blogMetaIt;

@@ -9541,4 +9541,11 @@ export const ARTICLES = [
  image: '/images/blog/karimova-processo-bellinzona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'truffe-sentimentali-zurigo-2026',
+ category: 'novita',
+ date: '2026-04-29T02:53:45.344Z',
+ image: '/images/blog/truffe-sentimentali-zurigo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2449,6 +2449,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-attentato-washington-trump-2026-analisi': { name: 'Attentato a Trump', path: '/articoli-frontaliere/attentato-washington-trump-2026-analisi', parent: 'blog' },
     'blog-spese-militari-2025-aumento-2900-miliardi': { name: 'Spese militari', path: '/articoli-frontaliere/spese-militari-2025-aumento-2900-miliardi', parent: 'blog' },
     'blog-karimova-processo-bellinzona-2026': { name: 'Processo Karimova', path: '/articoli-frontaliere/karimova-processo-bellinzona-2026', parent: 'blog' },
+    'blog-truffe-sentimentali-zurigo-2026': { name: 'Truffe sentimentali', path: '/articoli-frontaliere/truffe-sentimentali-zurigo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
