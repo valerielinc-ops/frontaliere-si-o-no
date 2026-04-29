@@ -3626,6 +3626,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dehors-como-ricorso-tar-20-maggio.title': 'Dehors a Como: ricorso del bar e decisione del Tar',
     'blog.article.dehors-como-ricorso-tar-20-maggio.excerpt': 'La rimozione del dehors del bar La Quinta a Como è sospesa. Udienza di merito il 20 maggio 2026.',
     'blog.article.dehors-como-ricorso-tar-20-maggio.imageAlt': 'Un bar con un dehors in via Ballarini a Como, oggetto di una disputa legale',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.title': 'Bruno Breguet scomparso: il pretore di Locarno chiude il caso',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.excerpt': 'La giustizia civile ticinese ha ufficializzato la scomparsa di Bruno Breguet, ex terrorista legato a Carlos e forse agente CIA',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.imageAlt': 'Veduta del lungolago di Locarno con palme e montagne',
 };
 
 export default blogMetaIt;

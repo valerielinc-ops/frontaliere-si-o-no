@@ -3625,6 +3625,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dehors-como-ricorso-tar-20-maggio.title': 'Outdoor seating in Como: bar\'s appeal and court decision',
     'blog.article.dehors-como-ricorso-tar-20-maggio.excerpt': 'The removal of the outdoor seating at the La Quinta bar in Como is suspended. The merits hearing is scheduled for May 20, 2026.',
     'blog.article.dehors-como-ricorso-tar-20-maggio.imageAlt': 'A bar with an outdoor seating area in via Ballarini, Como, subject to a legal dispute',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.title': 'Bruno Breguet declared missing: Locarno magistrate closes case',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.excerpt': 'Ticino civil justice has officially declared the disappearance of Bruno Breguet, former terrorist linked to Carlos and possibly a CIA agent',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.imageAlt': 'View of Locarno waterfront with palm trees and mountains',
 };
 
 export default blogMetaEn;

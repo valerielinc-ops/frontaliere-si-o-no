@@ -22021,6 +22021,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bruno-breguet-scomparsa-ufficializzata': {
+    title: 'Bruno Breguet scomparso: il pretore di Locarno chiude il caso',
+    description: 'La giustizia civile ticinese ha ufficializzato la scomparsa di Bruno Breguet, ex terrorista legato a Carlos e forse agente CIA. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, bruno, breguet, scomparso, pretore',
+    ogTitle: 'Bruno Breguet scomparso: il pretore di Locarno chiude il caso',
+    ogDescription: 'La giustizia civile ticinese ha ufficializzato la scomparsa di Bruno Breguet, ex terrorista legato a Carlos e forse agente CIA',
+    canonicalPath: '/articoli-frontaliere/bruno-breguet-scomparsa-ufficializzata',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bruno Breguet scomparso: il pretore di Locarno chiude il caso",
+      "description": "La giustizia civile ticinese ha ufficializzato la scomparsa di Bruno Breguet, ex terrorista legato a Carlos e forse agente CIA. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bruno-breguet-scomparsa-ufficializzata.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del lungolago di Locarno con palme e montagne"
+      },
+      "datePublished": "2026-04-29T01:22:42+00:00",
+      "dateModified": "2026-04-29T01:22:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bruno-breguet-scomparsa-ufficializzata`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3626,6 +3626,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dehors-como-ricorso-tar-20-maggio.title': 'Terrasse à Côme: recours du bar et décision du tribunal',
     'blog.article.dehors-como-ricorso-tar-20-maggio.excerpt': 'Le retrait de la terrasse du bar La Quinta à Côme est suspendu. Audience au fond le 20 mai 2026.',
     'blog.article.dehors-como-ricorso-tar-20-maggio.imageAlt': 'Un bar avec une terrasse en plein air dans la Via Ballarini à Côme, objet d\'un litige juridique',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.title': 'Bruno Breguet disparu : le juge de Locarno clôt le dossier',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.excerpt': 'La justice civile tessinoise a officialisé la disparition de Bruno Breguet, ancien terroriste lié à Carlos et peut-être agent de la CIA',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.imageAlt': 'Vue de la promenade du lac de Locarno avec des palmiers et des montagnes',
 };
 
 export default blogMetaFr;

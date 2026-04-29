@@ -3625,6 +3625,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dehors-como-ricorso-tar-20-maggio.title': 'Aussenbereich in Como: Klage des Bars und Entscheidung des TAR',
     'blog.article.dehors-como-ricorso-tar-20-maggio.excerpt': 'Die Entfernung des Aussenbereichs des Bars La Quinta in Como ist ausgesetzt. Hauptverhandlung am 20. Mai 2026.',
     'blog.article.dehors-como-ricorso-tar-20-maggio.imageAlt': 'Ein Bar mit einer Außenterrasse in der Via Ballarini in Como, Gegenstand eines Rechtsstreits',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.title': 'Bruno Breguet verschwunden: Fall in Locarno abgeschlossen',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.excerpt': 'Die zivile Justiz des Tessin hat das Verschwinden von Bruno Breguet, einem ehemaligen Terroristen mit Verbindungen zu Carlos und möglicherweise ein CIA-Agent, offiziell bestätigt.',
+    'blog.article.bruno-breguet-scomparsa-ufficializzata.imageAlt': 'Blick auf den Locarno-Seeufer mit Palmen und Bergen',
 };
 
 export default blogMetaDe;

@@ -9471,4 +9471,11 @@ export const ARTICLES = [
  image: '/images/blog/dehors-como-ricorso-tar-20-maggio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bruno-breguet-scomparsa-ufficializzata',
+ category: 'novita',
+ date: '2026-04-29T01:22:42.827Z',
+ image: '/images/blog/bruno-breguet-scomparsa-ufficializzata.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
