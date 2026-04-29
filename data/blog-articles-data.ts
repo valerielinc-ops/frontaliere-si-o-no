@@ -9625,4 +9625,11 @@ export const ARTICLES = [
  image: '/images/blog/incontro-sem-cantone-comuni-annullato.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'centrosinistra-varese-patto-2027',
+ category: 'novita',
+ date: '2026-04-29T04:23:19.156Z',
+ image: '/images/blog/centrosinistra-varese-patto-2027.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

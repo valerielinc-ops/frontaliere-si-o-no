@@ -3691,6 +3691,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incontro-sem-cantone-comuni-annullato.title': 'SEM-Kanton-Gemeinde-Treffen abgesagt: Was ändert sich für Grenzgänger?',
     'blog.article.incontro-sem-cantone-comuni-annullato.excerpt': 'Das Treffen zwischen der SEM und den Vertretern des Kantons und der Gemeinden von Mendrisiotto wurde abgesagt. Bern bevorzugt, die Ergebnisse anderer Experimente abzuwarten.',
     'blog.article.incontro-sem-cantone-comuni-annullato.imageAlt': 'Ansicht von Mendrisio, Tessin, mit der Schweizer-Italienischen Grenze im Hintergrund',
+    'blog.article.centrosinistra-varese-patto-2027.title': 'Varese Links: Bündnis für 2027-2032',
+    'blog.article.centrosinistra-varese-patto-2027.excerpt': 'Die Linke in Varese startet das \'Bündnis für Varese\', eine offene Koalition mit einem Kandidaten für das Bürgermeisteramt noch in diesem Jahr.',
+    'blog.article.centrosinistra-varese-patto-2027.imageAlt': 'Politische Versammlung in Varese mit Bürgern, die Stadtentwicklungspläne diskutieren',
 };
 
 export default blogMetaDe;

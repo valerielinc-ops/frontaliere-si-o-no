@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1280,
+ "numberOfItems": 1281,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -5915,7 +5915,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1277, "name": "Esubero zone edificabili in Leventina: il Canto...", "url": `${BASE_URL}/articoli-frontaliere/esubero-leventina-zone-edificabili-2026` },
           { "@type": "ListItem", "position": 1278, "name": "Varese Corsi Net: opportunità per fare rete e s...", "url": `${BASE_URL}/articoli-frontaliere/varese-corsi-net-opportunita-rete-sinergie-2026` },
           { "@type": "ListItem", "position": 1279, "name": "Centri di responsabilità: la sofferenza dei ric...", "url": `${BASE_URL}/articoli-frontaliere/centri-responsabilita-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 1280, "name": "Incontro SEM-Cantone-Comuni annullato: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/incontro-sem-cantone-comuni-annullato` }
+          { "@type": "ListItem", "position": 1280, "name": "Incontro SEM-Cantone-Comuni annullato: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/incontro-sem-cantone-comuni-annullato` },
+          { "@type": "ListItem", "position": 1281, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/centrosinistra-varese-patto-2027` }
  ]
  },
  {

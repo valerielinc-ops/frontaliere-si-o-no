@@ -2461,6 +2461,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-corsi-net-opportunita-rete-sinergie-2026': { name: 'Varese Corsi Net', path: '/articoli-frontaliere/varese-corsi-net-opportunita-rete-sinergie-2026', parent: 'blog' },
     'blog-centri-responsabilita-frontalieri-ticino': { name: 'Novità', path: '/articoli-frontaliere/centri-responsabilita-frontalieri-ticino', parent: 'blog' },
     'blog-incontro-sem-cantone-comuni-annullato': { name: 'Novità', path: '/articoli-frontaliere/incontro-sem-cantone-comuni-annullato', parent: 'blog' },
+    'blog-centrosinistra-varese-patto-2027': { name: 'Centrosinistra Varese', path: '/articoli-frontaliere/centrosinistra-varese-patto-2027', parent: 'blog' },
  };
 
  const info = sectionNames[section];

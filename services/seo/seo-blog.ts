@@ -22659,6 +22659,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centrosinistra-varese-patto-2027': {
+    title: 'Centrosinistra Varese: Patto per la città 2027-2032',
+    description: 'Il centrosinistra di Varese lancia il \'Patto per Varese\', una coalizione aperta con candidato sindaco entro fine anno per le elezioni amministrative del 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, centrosinistra, varese, patto, città',
+    ogTitle: 'Centrosinistra Varese: Patto per la città 2027-2032',
+    ogDescription: 'Il centrosinistra di Varese lancia il \'Patto per Varese\', una coalizione aperta con candidato sindaco entro fine anno per le elezioni amministrative del 2027.',
+    canonicalPath: '/articoli-frontaliere/centrosinistra-varese-patto-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Centrosinistra Varese: Patto per la città 2027-2032\",\"description\":\"Il centrosinistra di Varese lancia il 'Patto per Varese', una coalizione aperta con candidato sindaco entro fine anno per le elezioni amministrative del 2027.\",\"datePublished\":\"2026-04-01\",\"image\":\"https://www.frontaliere.ch/images/varese.webp\"}",
+      "description": "Il centrosinistra di Varese lancia il 'Patto per Varese', una coalizione aperta con candidato sindaco entro fine anno per le elezioni amministrative del 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/centrosinistra-varese-patto-2027.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Riunione politica a Varese con cittadini che discutono piani per la città"
+      },
+      "datePublished": "2026-04-29T04:23:19+00:00",
+      "dateModified": "2026-04-29T04:23:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centrosinistra-varese-patto-2027`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

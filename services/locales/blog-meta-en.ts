@@ -3691,6 +3691,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incontro-sem-cantone-comuni-annullato.title': 'SEM-Canton meeting canceled: cross-border workers impact',
     'blog.article.incontro-sem-cantone-comuni-annullato.excerpt': 'The meeting between the SEM and representatives of the Canton and municipalities of Mendrisiotto has been canceled. Berna prefers to wait for the outcome of other experiments.',
     'blog.article.incontro-sem-cantone-comuni-annullato.imageAlt': 'View of Mendrisio, Ticino, with the Swiss-Italian border in the background',
+    'blog.article.centrosinistra-varese-patto-2027.title': 'Varese Left-Wing: Pact for the City 2027-2032',
+    'blog.article.centrosinistra-varese-patto-2027.excerpt': 'Varese\'s left-wing coalition launches the \'Pact for Varese\', an open coalition with a mayoral candidate by year-end.',
+    'blog.article.centrosinistra-varese-patto-2027.imageAlt': 'Political meeting in Varese with citizens discussing city development plans',
 };
 
 export default blogMetaEn;

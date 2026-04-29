@@ -3692,6 +3692,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incontro-sem-cantone-comuni-annullato.title': 'Incontro SEM-Cantone-Comuni annullato: cosa cambia per i frontalieri',
     'blog.article.incontro-sem-cantone-comuni-annullato.excerpt': 'L\'incontro fra la SEM e i rappresentanti di Cantone e Comuni di Mendrisiotto è stato annullato. Berna preferisce attendere l\'esito di altre sperimentazioni.',
     'blog.article.incontro-sem-cantone-comuni-annullato.imageAlt': 'Vista di Mendrisio, Ticino, con il confine svizzero-italiano sullo sfondo',
+    'blog.article.centrosinistra-varese-patto-2027.title': 'Centrosinistra Varese: Patto per la città 2027-2032',
+    'blog.article.centrosinistra-varese-patto-2027.excerpt': 'Il centrosinistra di Varese lancia il \'Patto per Varese\', una coalizione aperta con candidato sindaco entro fine anno.',
+    'blog.article.centrosinistra-varese-patto-2027.imageAlt': 'Riunione politica a Varese con cittadini che discutono piani per la città',
 };
 
 export default blogMetaIt;
