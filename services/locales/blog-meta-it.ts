@@ -3980,6 +3980,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.terzo-frigo-tenero-anti-spreco.title': 'Tenero, inaugurato il terzo frigo pubblico anti-spreco alimentare',
     'blog.article.terzo-frigo-tenero-anti-spreco.excerpt': 'Il 28 aprile 2026 è stato inaugurato un terzo frigo pubblico anti-spreco a Tenero, in Ticino, promosso dall\'associazione Madame Frigo.',
     'blog.article.terzo-frigo-tenero-anti-spreco.imageAlt': 'Un frigorifero pubblico a Locarno, Ticino, con persone che interagiscono e depositano alimenti.',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.title': 'Frontalieri, la disoccupazione la pagherà lo Stato dove lavoravano',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.excerpt': 'Riforma UE approvata: cambiamenti significativi per i frontalieri in Svizzera. Ecco cosa cambia e cosa fare',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
 };
 
 export default blogMetaIt;

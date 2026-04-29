@@ -3980,6 +3980,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.terzo-frigo-tenero-anti-spreco.title': 'Tenero: un troisième frigo anti-gaspi inauguré',
     'blog.article.terzo-frigo-tenero-anti-spreco.excerpt': 'Le 28 avril 2026, un troisième frigo public anti-gaspi a été inauguré à Tenero, en Suisse, promu par l\'association Madame Frigo.',
     'blog.article.terzo-frigo-tenero-anti-spreco.imageAlt': 'Un frigo public à Locarno, Tessin, avec des personnes interagissant et déposant des aliments.',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.title': 'Frontaliers, le chômage sera payé par l\'État où ils travaillent',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.excerpt': 'Réforme UE approuvée : changements significatifs pour les frontaliers en Suisse. Voici ce qui change et ce qu\'il faut faire',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne en premier plan',
 };
 
 export default blogMetaFr;

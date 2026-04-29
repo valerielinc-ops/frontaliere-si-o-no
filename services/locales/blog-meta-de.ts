@@ -3979,6 +3979,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.terzo-frigo-tenero-anti-spreco.title': 'Tenero: Dritter öffentlicher Kühlschrank gegen Lebensmittelverschwendung',
     'blog.article.terzo-frigo-tenero-anti-spreco.excerpt': 'Am 28. April 2026 wurde in Tenero, im Kanton Tessin, ein dritter öffentlicher Kühlschrank gegen Lebensmittelverschwendung eröffnet, initiiert von der Vereinigung Madame Frigo.',
     'blog.article.terzo-frigo-tenero-anti-spreco.imageAlt': 'Ein öffentlicher Kühlschrank in Locarno, Tessin, mit Menschen, die interagieren und Lebensmittel hinterlegen.',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.title': 'Grenzgänger: Arbeitsstaat zahlt Arbeitslosigkeit',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.excerpt': 'EU-Reform beschlossen: Bedeutende Änderungen für Grenzgänger in der Schweiz. Hier erfahren Sie, was sich ändert und was zu tun ist',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.imageAlt': 'Luftaufnahme des Luganersees mit dem schweizerisch-italienischen Grenzgebiet im Vordergrund',
 };
 
 export default blogMetaDe;

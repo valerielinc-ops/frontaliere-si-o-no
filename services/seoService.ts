@@ -2557,6 +2557,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sindaci-verbania-baveno-cannobio-opposizione': { name: 'Novità', path: '/articoli-frontaliere/sindaci-verbania-baveno-cannobio-opposizione', parent: 'blog' },
     'blog-mendrisio-bilancio-positivo-2025': { name: 'Novità', path: '/articoli-frontaliere/mendrisio-bilancio-positivo-2025', parent: 'blog' },
     'blog-terzo-frigo-tenero-anti-spreco': { name: 'Novità', path: '/articoli-frontaliere/terzo-frigo-tenero-anti-spreco', parent: 'blog' },
+    'blog-frontalieri-disoccupazione-stato-lavoro': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-disoccupazione-stato-lavoro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

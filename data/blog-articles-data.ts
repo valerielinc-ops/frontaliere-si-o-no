@@ -10297,4 +10297,11 @@ export const ARTICLES = [
  image: '/images/blog/terzo-frigo-tenero-anti-spreco.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-disoccupazione-stato-lavoro',
+ category: 'novita',
+ date: '2026-04-29T19:22:05.412Z',
+ image: '/images/blog/frontalieri-disoccupazione-stato-lavoro.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

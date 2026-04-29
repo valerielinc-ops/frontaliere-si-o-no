@@ -3979,6 +3979,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.terzo-frigo-tenero-anti-spreco.title': 'Third anti-food waste fridge inaugurated in Tenero',
     'blog.article.terzo-frigo-tenero-anti-spreco.excerpt': 'On April 28, 2026, a third anti-waste public fridge was inaugurated in Tenero, Ticino, promoted by the Madame Frigo association.',
     'blog.article.terzo-frigo-tenero-anti-spreco.imageAlt': 'A public fridge in Locarno, Ticino, with people interacting and depositing food items.',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.title': 'Cross-border workers: Unemployment paid by the country where they worked',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.excerpt': 'EU reform approved: significant changes for cross-border workers in Switzerland. Here\'s what changes and what to do',
+    'blog.article.frontalieri-disoccupazione-stato-lavoro.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
 };
 
 export default blogMetaEn;
