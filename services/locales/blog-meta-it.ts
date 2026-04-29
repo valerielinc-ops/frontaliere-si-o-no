@@ -4034,6 +4034,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dichiarazione-precompilata-2026-disponibile.title': 'Dichiarazione precompilata 2026: disponibile da oggi',
     'blog.article.dichiarazione-precompilata-2026-disponibile.excerpt': 'Dal 30 aprile 2026 è disponibile la dichiarazione precompilata 2026 per tutti i contribuenti italiani. Ecco cosa cambia.',
     'blog.article.dichiarazione-precompilata-2026-disponibile.imageAlt': 'Lago di Lugano con laptop e documenti fiscali',
+    'blog.article.moncucco-utile-raddoppiato-2026.title': 'Gruppo Moncucco: utile raddoppiato e stipendi aumentati',
+    'blog.article.moncucco-utile-raddoppiato-2026.excerpt': 'Il Gruppo ospedaliero Moncucco chiude il 2025 con un utile di 5,3 milioni di franchi e adeguamenti salariali per i dipendenti',
+    'blog.article.moncucco-utile-raddoppiato-2026.imageAlt': 'Panorama di Lugano con il Monte Brè sullo sfondo',
 };
 
 export default blogMetaIt;

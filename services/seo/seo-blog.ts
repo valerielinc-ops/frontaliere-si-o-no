@@ -25965,6 +25965,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-moncucco-utile-raddoppiato-2026': {
+    title: 'Gruppo Moncucco: utile raddoppiato e stipendi aumentati',
+    description: 'Il Gruppo ospedaliero Moncucco chiude il 2025 con un utile di 5,3 milioni di franchi e adeguamenti salariali per i dipendenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gruppo, moncucco, utile, raddoppiato',
+    ogTitle: 'Gruppo Moncucco: utile raddoppiato e stipendi aumentati',
+    ogDescription: 'Il Gruppo ospedaliero Moncucco chiude il 2025 con un utile di 5,3 milioni di franchi e adeguamenti salariali per i dipendenti',
+    canonicalPath: '/articoli-frontaliere/moncucco-utile-raddoppiato-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gruppo Moncucco: utile raddoppiato e stipendi aumentati",
+      "description": "Il Gruppo ospedaliero Moncucco chiude il 2025 con un utile di 5,3 milioni di franchi e adeguamenti salariali per i dipendenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/moncucco-utile-raddoppiato-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il Monte Brè sullo sfondo"
+      },
+      "datePublished": "2026-04-29T22:30:13+00:00",
+      "dateModified": "2026-04-29T22:30:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/moncucco-utile-raddoppiato-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

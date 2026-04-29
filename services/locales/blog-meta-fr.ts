@@ -4034,6 +4034,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dichiarazione-precompilata-2026-disponibile.title': 'Déclaration préremplie 2026: disponible dès aujourd\'hui',
     'blog.article.dichiarazione-precompilata-2026-disponibile.excerpt': 'Dès le 30 avril 2026, la déclaration préremplie 2026 est disponible pour tous les contribuables italiens. Voici ce qui change.',
     'blog.article.dichiarazione-precompilata-2026-disponibile.imageAlt': 'Lac de Lugano avec ordinateur portable et documents fiscaux',
+    'blog.article.moncucco-utile-raddoppiato-2026.title': 'Groupe Moncucco: bénéfices doublés et salaires augmentés',
+    'blog.article.moncucco-utile-raddoppiato-2026.excerpt': 'Le groupe hospitalier Moncucco clôt l\'année 2025 avec un bénéfice de 5,3 millions de francs et des ajustements salariaux pour les employés',
+    'blog.article.moncucco-utile-raddoppiato-2026.imageAlt': 'Vue panoramique de Lugano avec le Monte Brè en arrière-plan',
 };
 
 export default blogMetaFr;

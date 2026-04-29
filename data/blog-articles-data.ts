@@ -10423,4 +10423,11 @@ export const ARTICLES = [
  image: '/images/blog/dichiarazione-precompilata-2026-disponibile.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'moncucco-utile-raddoppiato-2026',
+ category: 'novita',
+ date: '2026-04-29T22:30:13.105Z',
+ image: '/images/blog/moncucco-utile-raddoppiato-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

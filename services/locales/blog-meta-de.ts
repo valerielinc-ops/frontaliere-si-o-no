@@ -4033,6 +4033,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dichiarazione-precompilata-2026-disponibile.title': 'Vorgefüllte Steuererklärung 2026 ab heute verfügbar',
     'blog.article.dichiarazione-precompilata-2026-disponibile.excerpt': 'Ab dem 30. April 2026 ist die vorgefüllte Steuererklärung 2026 für alle italienischen Steuerzahler verfügbar. Hier erfahren Sie, was sich ändert.',
     'blog.article.dichiarazione-precompilata-2026-disponibile.imageAlt': 'Luganersee mit Laptop und Steuerdokumenten',
+    'blog.article.moncucco-utile-raddoppiato-2026.title': 'Moncucco-Gruppe: Gewinn verdoppelt, Löhne erhöht',
+    'blog.article.moncucco-utile-raddoppiato-2026.excerpt': 'Die Moncucco-Klinikgruppe schließt das Jahr 2025 mit einem Gewinn von 5,3 Millionen Franken und Lohnerhöhungen für die Mitarbeiter ab',
+    'blog.article.moncucco-utile-raddoppiato-2026.imageAlt': 'Lugano Skyline mit Monte Brè im Hintergrund',
 };
 
 export default blogMetaDe;

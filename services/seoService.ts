@@ -2575,6 +2575,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-delusi-svizzera-frontalieri-abbandonati': { name: 'Novità', path: '/articoli-frontaliere/delusi-svizzera-frontalieri-abbandonati', parent: 'blog' },
     'blog-separazioni-ticino-famiglie-monoparentali': { name: 'Separazioni Ticino', path: '/articoli-frontaliere/separazioni-ticino-famiglie-monoparentali', parent: 'blog' },
     'blog-dichiarazione-precompilata-2026-disponibile': { name: 'Fiscale', path: '/articoli-frontaliere/dichiarazione-precompilata-2026-disponibile', parent: 'blog' },
+    'blog-moncucco-utile-raddoppiato-2026': { name: 'Novità', path: '/articoli-frontaliere/moncucco-utile-raddoppiato-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

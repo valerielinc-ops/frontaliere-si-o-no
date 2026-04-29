@@ -4033,6 +4033,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dichiarazione-precompilata-2026-disponibile.title': '2026 Pre-filled Tax Return: Available Now',
     'blog.article.dichiarazione-precompilata-2026-disponibile.excerpt': 'From April 30, 2026, the 2026 pre-filled tax return is available for all Italian taxpayers. Here\'s what\'s changing.',
     'blog.article.dichiarazione-precompilata-2026-disponibile.imageAlt': 'Lake Lugano with laptop and tax documents',
+    'blog.article.moncucco-utile-raddoppiato-2026.title': 'Moncucco Group: profits doubled and salaries raised',
+    'blog.article.moncucco-utile-raddoppiato-2026.excerpt': 'The Moncucco Hospital Group closed 2025 with a profit of 5.3 million francs and salary adjustments for employees',
+    'blog.article.moncucco-utile-raddoppiato-2026.imageAlt': 'Lugano skyline with Monte Brè in the background',
 };
 
 export default blogMetaEn;
