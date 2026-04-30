@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1547,
+ "numberOfItems": 1548,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6182,7 +6182,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1544, "name": "Pillola del giorno dopo senza consulenza: cosa ...", "url": `${BASE_URL}/articoli-frontaliere/pillola-giorno-dopo-vendita-libera-2026` },
           { "@type": "ListItem", "position": 1545, "name": "L’Isolino Virginia riapre: viaggio nel tempo tr...", "url": `${BASE_URL}/articoli-frontaliere/isolino-virginia-riapre-2026` },
           { "@type": "ListItem", "position": 1546, "name": "Salone CSR Varese 2026: sostenibilità e innovaz...", "url": `${BASE_URL}/articoli-frontaliere/sostenibilita-salone-csr-varese-2026` },
-          { "@type": "ListItem", "position": 1547, "name": "Varese: Film 'The Sea' e dibattito con collegam...", "url": `${BASE_URL}/articoli-frontaliere/film-the-sea-varese-gaza-2026` }
+          { "@type": "ListItem", "position": 1547, "name": "Varese: Film 'The Sea' e dibattito con collegam...", "url": `${BASE_URL}/articoli-frontaliere/film-the-sea-varese-gaza-2026` },
+          { "@type": "ListItem", "position": 1548, "name": "Crans-Montana, nuovo solco Italia-Svizzera", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-nuovo-solco-italia-svizzera-2026` }
  ]
  },
  {

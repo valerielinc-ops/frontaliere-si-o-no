@@ -11495,4 +11495,11 @@ export const ARTICLES = [
  image: '/images/blog/film-the-sea-varese-gaza-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-nuovo-solco-italia-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-30T23:01:56.627Z',
+ image: '/images/blog/crans-montana-nuovo-solco-italia-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

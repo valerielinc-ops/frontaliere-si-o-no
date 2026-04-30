@@ -30402,6 +30402,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-nuovo-solco-italia-svizzera-2026': {
+    title: 'Crans-Montana, si apre un nuovo solco tra Italia e Svizzera',
+    description: 'L\'Italia si costituisce parte civile per l\'incendio di Capodagna a Crans-Montana. Incontro tra Parmelin, Meloni e Mattarella la prossima settimana.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, apre, nuovo, solco',
+    ogTitle: 'Crans-Montana, nuovo solco Italia-Svizzera',
+    ogDescription: 'L\'Italia si costituisce parte civile per l\'incendio di Capodagna a Crans-Montana. Incontro tra Parmelin, Meloni e Mattarella la prossima settimana.',
+    canonicalPath: '/articoli-frontaliere/crans-montana-nuovo-solco-italia-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana, nuovo solco Italia-Svizzera",
+      "description": "L'Italia si costituisce parte civile per l'incendio di Capodagna a Crans-Montana. Incontro tra Parmelin, Meloni e Mattarella la prossima settimana.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-nuovo-solco-italia-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Crans-Montana in inverno"
+      },
+      "datePublished": "2026-04-30T23:01:56+00:00",
+      "dateModified": "2026-04-30T23:01:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-nuovo-solco-italia-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4492,6 +4492,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.film-the-sea-varese-gaza-2026.title': 'Varese: \'The Sea\' film and live Gaza debate',
     'blog.article.film-the-sea-varese-gaza-2026.excerpt': 'Varese\'s Cineclub Filmstudio 90 screens \'The Sea\' with a debate and live link to the Global Sumud Flotilla to Gaza.',
     'blog.article.film-the-sea-varese-gaza-2026.imageAlt': 'Cinematic event in Varese with live stream to Gaza',
+    'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.title': 'Crans-Montana: new rift between Italy and Switzerland',
+    'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.excerpt': 'Italy joins fire case as civil party, but chances of success are slim. Swiss President Parmelin to meet Meloni and Mattarella.',
+    'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.imageAlt': 'Panoramic view of Crans-Montana in winter',
 };
 
 export default blogMetaEn;

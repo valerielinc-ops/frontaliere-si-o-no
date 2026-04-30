@@ -4492,6 +4492,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.film-the-sea-varese-gaza-2026.title': 'Varese: Film \'The Sea\' und Diskussion mit Live-Anschluss nach Gaza',
     'blog.article.film-the-sea-varese-gaza-2026.excerpt': 'Der Cineclub Filmstudio 90 in Varese zeigt \'The Sea\' mit Diskussion und Live-Anschluss zur Global Sumud Flotilla nach Gaza.',
     'blog.article.film-the-sea-varese-gaza-2026.imageAlt': 'Kinoveranstaltung in Varese mit Live-Stream nach Gaza',
+    'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.title': 'Crans-Montana: Neue Spannungen zwischen Italien und der Schweiz',
+    'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.excerpt': 'Italien tritt als Nebenkläger im Silvesterbrandfall auf, doch die Erfolgsaussichten sind gering. Der Schweizer Präsident Parmelin wird Meloni und Mattarella treffen.',
+    'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.imageAlt': 'Panoramablick auf Crans-Montana im Winter',
 };
 
 export default blogMetaDe;

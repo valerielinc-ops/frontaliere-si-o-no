@@ -2728,6 +2728,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-isolino-virginia-riapre-2026': { name: 'Novità', path: '/articoli-frontaliere/isolino-virginia-riapre-2026', parent: 'blog' },
     'blog-sostenibilita-salone-csr-varese-2026': { name: 'Salone CSR Varese', path: '/articoli-frontaliere/sostenibilita-salone-csr-varese-2026', parent: 'blog' },
     'blog-film-the-sea-varese-gaza-2026': { name: 'Eventi culturali', path: '/articoli-frontaliere/film-the-sea-varese-gaza-2026', parent: 'blog' },
+    'blog-crans-montana-nuovo-solco-italia-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-nuovo-solco-italia-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

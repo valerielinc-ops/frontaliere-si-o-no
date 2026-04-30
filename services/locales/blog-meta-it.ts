@@ -4493,6 +4493,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.film-the-sea-varese-gaza-2026.title': 'Varese: Film \'The Sea\' e dibattito con collegamento live a Gaza',
     'blog.article.film-the-sea-varese-gaza-2026.excerpt': 'Il Cineclub Filmstudio 90 di Varese proietta \'The Sea\' con dibattito e collegamento live alla Global Sumud Flotilla verso Gaza.',
     'blog.article.film-the-sea-varese-gaza-2026.imageAlt': 'Evento cinematografico a Varese con collegamento live verso Gaza',
+    'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.title': 'Crans-Montana, si apre un nuovo solco tra Italia e Svizzera',
+    'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.excerpt': 'L\'Italia si costituisce parte civile per l\'incendio di Capodanno, ma le chance di successo sono scarse. Il presidente svizzero Parmelin incontrerà Meloni e Mattarella.',
+    'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.imageAlt': 'Vista panoramica di Crans-Montana in inverno',
 };
 
 export default blogMetaIt;
