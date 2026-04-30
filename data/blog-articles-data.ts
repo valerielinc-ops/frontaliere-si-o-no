@@ -10977,4 +10977,11 @@ export const ARTICLES = [
  image: '/images/blog/disoccupazione-ticino-usi-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cessione-bper-bcc-varese-2026',
+ category: 'novita',
+ date: '2026-04-30T10:39:22.003Z',
+ image: '/images/blog/cessione-bper-bcc-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

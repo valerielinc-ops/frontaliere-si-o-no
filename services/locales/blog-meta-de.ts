@@ -4270,6 +4270,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-ticino-usi-2026.title': 'Arbeitslosigkeit im Tessin sinkt: USI-Prognosen',
     'blog.article.disoccupazione-ticino-usi-2026.excerpt': 'Das Wirtschaftsforschungsinstitut der USI prognostiziert einen Rückgang der Arbeitslosenquote im Tessin in den kommenden Quartalen.',
     'blog.article.disoccupazione-ticino-usi-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.cessione-bper-bcc-varese-2026.title': 'BPER-BCC-Filialenübergabe in der Provinz Varese',
+    'blog.article.cessione-bper-bcc-varese-2026.excerpt': 'BPER Banca übergibt sechs Filialen an die BCC Iccrea Gruppe in den Provinzen Varese und Como. Hier erfahren Sie, was sich für Kunden und Mitarbeiter ändert.',
+    'blog.article.cessione-bper-bcc-varese-2026.imageAlt': 'Panoramablick auf Lugano mit Wolkenkratzern und Finanzaktivitäten',
 };
 
 export default blogMetaDe;

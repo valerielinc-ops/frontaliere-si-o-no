@@ -4271,6 +4271,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-ticino-usi-2026.title': 'Disoccupazione in calo in Ticino: le previsioni dell\'USI',
     'blog.article.disoccupazione-ticino-usi-2026.excerpt': 'L\'Istituto di ricerche economiche dell\'USI prevede un ribasso del tasso di disoccupazione in Ticino nei prossimi trimestri.',
     'blog.article.disoccupazione-ticino-usi-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.cessione-bper-bcc-varese-2026.title': 'Cessione Bper-BCC: le sei filiali interessate in provincia di Varese',
+    'blog.article.cessione-bper-bcc-varese-2026.excerpt': 'BPER Banca cede sei filiali al Gruppo BCC Iccrea nelle province di Varese e Como. Ecco cosa cambia per i clienti e i dipendenti.',
+    'blog.article.cessione-bper-bcc-varese-2026.imageAlt': 'Vista panoramica di Lugano con grattacieli e attività finanziaria',
 };
 
 export default blogMetaIt;

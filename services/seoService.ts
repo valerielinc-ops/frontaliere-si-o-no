@@ -2654,6 +2654,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-conti-bellinzona-2025-balzo-11-milioni': { name: 'Conti Bellinzona', path: '/articoli-frontaliere/conti-bellinzona-2025-balzo-11-milioni', parent: 'blog' },
     'blog-contibellinzona2025risultati': { name: 'Conti Bellinzona', path: '/articoli-frontaliere/contibellinzona2025risultati', parent: 'blog' },
     'blog-disoccupazione-ticino-usi-2026': { name: 'Novità', path: '/articoli-frontaliere/disoccupazione-ticino-usi-2026', parent: 'blog' },
+    'blog-cessione-bper-bcc-varese-2026': { name: 'Cessione Bper-BCC', path: '/articoli-frontaliere/cessione-bper-bcc-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -28256,6 +28256,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cessione-bper-bcc-varese-2026': {
+    title: 'Cessione Bper-BCC: le sei filiali interessate in provincia di Varese',
+    description: 'BPER Banca cede sei filiali al Gruppo BCC Iccrea nelle province di Varese e Como. Ecco cosa cambia per i clienti e i dipendenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cessione, bper-bcc, filiali, interessate',
+    ogTitle: 'Cessione Bper-BCC: le sei filiali interessate in provincia di Varese',
+    ogDescription: 'BPER Banca cede sei filiali al Gruppo BCC Iccrea nelle province di Varese e Como. Ecco cosa cambia per i clienti e i dipendenti.',
+    canonicalPath: '/articoli-frontaliere/cessione-bper-bcc-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cessione Bper-BCC: le sei filiali interessate in provincia di Varese",
+      "description": "BPER Banca cede sei filiali al Gruppo BCC Iccrea nelle province di Varese e Como. Ecco cosa cambia per i clienti e i dipendenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cessione-bper-bcc-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con grattacieli e attività finanziaria"
+      },
+      "datePublished": "2026-04-30T10:39:22+00:00",
+      "dateModified": "2026-04-30T10:39:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cessione-bper-bcc-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

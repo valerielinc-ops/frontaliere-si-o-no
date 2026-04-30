@@ -4270,6 +4270,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-ticino-usi-2026.title': 'Unemployment rate set to fall in Ticino: USI forecast',
     'blog.article.disoccupazione-ticino-usi-2026.excerpt': 'The University of Lugano\'s Institute of Economic Research predicts a drop in the unemployment rate in Ticino in the coming quarters.',
     'blog.article.disoccupazione-ticino-usi-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.cessione-bper-bcc-varese-2026.title': 'BPER-BCC branch transfer in Varese province',
+    'blog.article.cessione-bper-bcc-varese-2026.excerpt': 'BPER Banca is transferring six branches to the BCC Iccrea Group in the provinces of Varese and Como. Here\'s what changes for customers and employees.',
+    'blog.article.cessione-bper-bcc-varese-2026.imageAlt': 'Panoramic view of Lugano with skyscrapers and financial activity',
 };
 
 export default blogMetaEn;
