@@ -61,7 +61,8 @@ export const ARTICLES = [
  {
  id: 'comuni-migliori-frontalieri',
  category: 'pratico',
- date: '2025-12-05',
+ date: '2026-03-01',
+ updatedAt: '2026-04-30',
  image: '/images/places/gandria.webp',
  hasCalculator: true,
  },
