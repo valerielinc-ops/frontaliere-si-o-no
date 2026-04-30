@@ -565,12 +565,16 @@ jobs:
           # also stashes dist/, which is gitignored but still confuses
           # rebase if any file inside it is somehow tracked.
           git stash push --keep-index --include-untracked -m "deploy-build-tree" || true
-          # The registry is owned exclusively by jobsSeoPagesPlugin's
-          # closeBundle. No other workflow writes data/previous-slug-winners.json,
-          # so a rebase onto a newer main is always safe (no conflict possible
-          # on this file). The retry helper covers the case where main moved
-          # for unrelated reasons during the build.
-          bash scripts/lib/git-push-with-retry.sh
+          # Two concurrent deploys can both queue under the `pages-deploy`
+          # group; whichever pushes its winners commit second hits a JSON
+          # conflict on `data/previous-slug-winners.json` during rebase
+          # (run 25159195858 was exactly this). Provide an in-place resolver
+          # that unions both versions (ours wins on key collision, since our
+          # build's entries are the freshest computation). Same pattern as
+          # generate-article.yml's resolve_append_conflicts → keep the local
+          # commit, resolve inline, `rebase --continue`.
+          bash scripts/lib/git-push-with-retry.sh \
+            --in-place-resolver-cmd "node scripts/lib/resolve-winners-conflict.mjs && git add -A"
           # Restore the stash so subsequent deploy steps see dist/.
           git stash pop || true
 
