@@ -27154,6 +27154,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-restringimento-a2-ritardi-2026': {
+    title: 'A2: traffico intenso e ritardi oltre l\'ora | Frontaliere Ticino',
+    description: 'Restringimento a una corsia sulla A2 causa ritardi fino a 100 minuti tra Chiasso e Grancia. Polizia presente per controlli. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, intenso, ritardi, oltre',
+    ogTitle: 'A2: traffico intenso e ritardi oltre l\'ora',
+    ogDescription: 'Restringimento a una corsia sulla A2 causa ritardi fino a 100 minuti tra Chiasso e Grancia. Polizia presente per controlli.',
+    canonicalPath: '/articoli-frontaliere/restringimento-a2-ritardi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A2: traffico intenso e ritardi oltre l'ora",
+      "description": "Restringimento a una corsia sulla A2 causa ritardi fino a 100 minuti tra Chiasso e Grancia. Polizia presente per controlli. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/restringimento-a2-ritardi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A2 con traffico intenso vicino a Mendrisio"
+      },
+      "datePublished": "2026-04-30T05:19:41+00:00",
+      "dateModified": "2026-04-30T05:19:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/restringimento-a2-ritardi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

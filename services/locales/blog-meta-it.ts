@@ -4157,6 +4157,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grigioni-stretta-permessi-mafia-roveredo.title': 'Grigioni, stretta sui permessi dopo infiltrazione mafiosa',
     'blog.article.grigioni-stretta-permessi-mafia-roveredo.excerpt': 'Nuove regole per i permessi di dimora in Grigioni dopo arresti legati alla camorra e \'ndrangheta a Roveredo',
     'blog.article.grigioni-stretta-permessi-mafia-roveredo.imageAlt': 'Castelgrande a Bellinzona, Ticino, Svizzera',
+    'blog.article.restringimento-a2-ritardi-2026.title': 'A2: traffico intenso e ritardi oltre l\'ora',
+    'blog.article.restringimento-a2-ritardi-2026.excerpt': 'Restringimento a una corsia causa ritardi fino a 100 minuti tra Chiasso e Grancia. Polizia presente per controlli.',
+    'blog.article.restringimento-a2-ritardi-2026.imageAlt': 'Autostrada A2 con traffico intenso vicino a Mendrisio',
 };
 
 export default blogMetaIt;

@@ -4156,6 +4156,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grigioni-stretta-permessi-mafia-roveredo.title': 'Grigioni, restrizioni su permessi dopo infiltrazione mafiosa',
     'blog.article.grigioni-stretta-permessi-mafia-roveredo.excerpt': 'Nuove regole per i permessi di dimora in Grigioni dopo arresti legati alla camorra e \'ndrangheta a Roveredo',
     'blog.article.grigioni-stretta-permessi-mafia-roveredo.imageAlt': 'Castelgrande in Bellinzona, Tessin, Schweiz',
+    'blog.article.restringimento-a2-ritardi-2026.title': 'A2: Starker Verkehr und Verspätungen über eine Stunde',
+    'blog.article.restringimento-a2-ritardi-2026.excerpt': 'Verengung auf eine Spur verursacht Verzögerungen von bis zu 100 Minuten zwischen Chiasso und Grancia. Polizei anwesend für Kontrollen.',
+    'blog.article.restringimento-a2-ritardi-2026.imageAlt': 'Autobahn A2 mit Stau in der Nähe von Mendrisio',
 };
 
 export default blogMetaDe;

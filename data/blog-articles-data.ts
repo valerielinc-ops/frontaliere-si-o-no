@@ -10710,4 +10710,11 @@ export const ARTICLES = [
  image: '/images/blog/grigioni-stretta-permessi-mafia-roveredo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'restringimento-a2-ritardi-2026',
+ category: 'novita',
+ date: '2026-04-30T05:19:41.471Z',
+ image: '/images/blog/restringimento-a2-ritardi-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
