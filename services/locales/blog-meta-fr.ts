@@ -4484,6 +4484,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.title': 'Pilule du lendemain sans consultation : les changements',
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.excerpt': 'Le Conseil national suisse approuve la vente de la pilule du lendemain sans entretien obligatoire. Voici ce qui change pour les femmes en Suisse et au Tessin.',
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.imageAlt': 'Pharmacie à Lugano avec panneau pour contraception d\'urgence',
+    'blog.article.isolino-virginia-riapre-2026.title': 'L\'Isolino Virginia rouvre : voyage dans le temps entre palafittes et nature',
+    'blog.article.isolino-virginia-riapre-2026.excerpt': 'Après trois ans de fermeture, l\'Isolino Virginia rouvre au public avec une nouvelle exposition muséale et des services de restauration.',
+    'blog.article.isolino-virginia-riapre-2026.imageAlt': 'Vue aérienne de l\'Isolino Virginia sur le lac de Varèse',
 };
 
 export default blogMetaFr;

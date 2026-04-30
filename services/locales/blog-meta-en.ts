@@ -4483,6 +4483,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.title': 'Morning-after pill without mandatory consultation: what changes',
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.excerpt': 'The Swiss National Council approves the sale of the morning-after pill without mandatory consultation. Here\'s what changes for women in Ticino and Switzerland.',
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.imageAlt': 'Pharmacy in Lugano with sign for emergency contraception',
+    'blog.article.isolino-virginia-riapre-2026.title': 'Isolino Virginia reopens: a journey through time among stilt houses and nature',
+    'blog.article.isolino-virginia-riapre-2026.excerpt': 'After three years of closure, Isolino Virginia reopens to the public with a new museum setup and dining services.',
+    'blog.article.isolino-virginia-riapre-2026.imageAlt': 'Aerial view of Isolino Virginia on Lake Varese',
 };
 
 export default blogMetaEn;

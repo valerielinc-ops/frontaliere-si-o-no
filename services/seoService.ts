@@ -2725,6 +2725,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-summer-camp-malnate-tenuta-novella': { name: 'Summer camp', path: '/articoli-frontaliere/summer-camp-malnate-tenuta-novella', parent: 'blog' },
     'blog-liuc-golf-frontalieri-accordo-2026': { name: 'Novità', path: '/articoli-frontaliere/liuc-golf-frontalieri-accordo-2026', parent: 'blog' },
     'blog-pillola-giorno-dopo-vendita-libera-2026': { name: 'Novità', path: '/articoli-frontaliere/pillola-giorno-dopo-vendita-libera-2026', parent: 'blog' },
+    'blog-isolino-virginia-riapre-2026': { name: 'Novità', path: '/articoli-frontaliere/isolino-virginia-riapre-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

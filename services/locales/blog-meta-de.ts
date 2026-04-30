@@ -4483,6 +4483,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.title': 'Pille danach ohne Beratung: Was sich ändert',
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.excerpt': 'Der Schweizer Nationalrat genehmigt den Verkauf der Pille danach ohne obligatorisches Beratungsgespräch. Hier erfahren Sie, was sich für Frauen im Tessin und in der Schweiz ändert.',
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.imageAlt': 'Apotheke in Lugano mit Schild für Notfallverhütung',
+    'blog.article.isolino-virginia-riapre-2026.title': 'Isolino Virginia wieder geöffnet: Zeitreise zu Pfahlbauten und Natur',
+    'blog.article.isolino-virginia-riapre-2026.excerpt': 'Nach drei Jahren Schließung öffnet das Isolino Virginia mit einer neuen Museumsausstellung und Gastronomieeinrichtungen wieder für die Öffentlichkeit.',
+    'blog.article.isolino-virginia-riapre-2026.imageAlt': 'Luftaufnahme von Isolino Virginia am Varese-See',
 };
 
 export default blogMetaDe;

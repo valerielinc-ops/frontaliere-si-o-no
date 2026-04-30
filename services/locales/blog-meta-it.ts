@@ -4484,6 +4484,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.title': 'Pillola del giorno dopo senza consulenza: cosa cambia',
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.excerpt': 'Il Consiglio nazionale svizzero approva la vendita della pillola del giorno dopo senza colloquio obbligatorio. Ecco cosa cambia per le donne in Ticino e in Svizzera.',
     'blog.article.pillola-giorno-dopo-vendita-libera-2026.imageAlt': 'Farmacia a Lugano con segnale per contraccettivi d\'emergenza',
+    'blog.article.isolino-virginia-riapre-2026.title': 'L’Isolino Virginia riapre: viaggio nel tempo tra palafitte e natura',
+    'blog.article.isolino-virginia-riapre-2026.excerpt': 'Dopo tre anni di chiusura, l’Isolino Virginia riapre al pubblico con un nuovo allestimento museale e servizi di ristorazione.',
+    'blog.article.isolino-virginia-riapre-2026.imageAlt': 'Vista aerea dell\'Isolino Virginia sul Lago di Varese',
 };
 
 export default blogMetaIt;

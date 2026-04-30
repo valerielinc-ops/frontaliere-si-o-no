@@ -30315,6 +30315,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-isolino-virginia-riapre-2026': {
+    title: 'L’Isolino Virginia riapre: viaggio nel tempo tra palafitte e natura',
+    description: 'L’Isolino Virginia riapre al pubblico il 2 maggio 2026 con un nuovo allestimento museale e servizi di ristorazione. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, isolino, virginia, riapre, viaggio',
+    ogTitle: 'L’Isolino Virginia riapre: viaggio nel tempo tra palafitte e natura',
+    ogDescription: 'L’Isolino Virginia riapre al pubblico il 2 maggio 2026 con un nuovo allestimento museale e servizi di ristorazione.',
+    canonicalPath: '/articoli-frontaliere/isolino-virginia-riapre-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L’Isolino Virginia riapre: viaggio nel tempo tra palafitte e natura",
+      "description": "L’Isolino Virginia riapre al pubblico il 2 maggio 2026 con un nuovo allestimento museale e servizi di ristorazione. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/isolino-virginia-riapre-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'Isolino Virginia sul Lago di Varese"
+      },
+      "datePublished": "2026-04-30T22:31:45+00:00",
+      "dateModified": "2026-04-30T22:31:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/isolino-virginia-riapre-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
