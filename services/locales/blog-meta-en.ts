@@ -4429,6 +4429,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.piano-pandemico-2025-2029-approvato.title': '2025-2029 Pandemic Plan Approved: What Changes',
     'blog.article.piano-pandemico-2025-2029-approvato.excerpt': 'The State-Regions Conference has approved the new 2025-2029 Pandemic Plan with an investment of 1.1 billion euros',
     'blog.article.piano-pandemico-2025-2029-approvato.imageAlt': 'Aerial view of Lake Lugano with modern healthcare facilities in the background',
+    'blog.article.polizia-ticino-progetto-zali-comuni.title': 'Ticino Police: Zali confirms, project not shelved',
+    'blog.article.polizia-ticino-progetto-zali-comuni.excerpt': 'State Councillor Claudio Zali clarifies that the Ticino Police project has not been discarded, but remains one of the possible solutions.',
+    'blog.article.polizia-ticino-progetto-zali-comuni.imageAlt': 'Aerial view of Lugano with lake and mountains',
 };
 
 export default blogMetaEn;

@@ -4430,6 +4430,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.piano-pandemico-2025-2029-approvato.title': 'Piano Pandemico 2025-2029 approvato: cosa cambia',
     'blog.article.piano-pandemico-2025-2029-approvato.excerpt': 'La Conferenza Stato-Regioni ha approvato il nuovo Piano Pandemico 2025-2029 con un investimento di 1,1 miliardi di euro',
     'blog.article.piano-pandemico-2025-2029-approvato.imageAlt': 'Vista aerea del Lago di Lugano con strutture sanitarie moderne sullo sfondo',
+    'blog.article.polizia-ticino-progetto-zali-comuni.title': 'Polizia Ticino: Zali conferma, progetto non accantonato',
+    'blog.article.polizia-ticino-progetto-zali-comuni.excerpt': 'Il consigliere di Stato Claudio Zali chiarisce che il progetto Polizia ticinese non è stato scartato, ma resta una delle soluzioni possibili.',
+    'blog.article.polizia-ticino-progetto-zali-comuni.imageAlt': 'Vista aerea di Lugano con lago e montagne',
 };
 
 export default blogMetaIt;

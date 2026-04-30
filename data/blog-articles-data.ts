@@ -11348,4 +11348,11 @@ export const ARTICLES = [
  image: '/images/blog/piano-pandemico-2025-2029-approvato.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'polizia-ticino-progetto-zali-comuni',
+ category: 'novita',
+ date: '2026-04-30T19:05:21.653Z',
+ image: '/images/blog/polizia-ticino-progetto-zali-comuni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

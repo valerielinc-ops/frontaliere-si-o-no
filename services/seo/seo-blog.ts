@@ -29793,6 +29793,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-polizia-ticino-progetto-zali-comuni': {
+    title: 'Polizia Ticino: Zali conferma, progetto non accantonato',
+    description: 'Il consigliere di Stato Claudio Zali chiarisce che il progetto Polizia ticinese non è stato scartato, ma resta una delle soluzioni possibili. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, zali, conferma, progetto',
+    ogTitle: 'Polizia Ticino: Zali conferma, progetto non accantonato',
+    ogDescription: 'Il consigliere di Stato Claudio Zali chiarisce che il progetto Polizia ticinese non è stato scartato, ma resta una delle soluzioni possibili.',
+    canonicalPath: '/articoli-frontaliere/polizia-ticino-progetto-zali-comuni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Polizia Ticino: Zali conferma, progetto non accantonato",
+      "description": "Il consigliere di Stato Claudio Zali chiarisce che il progetto Polizia ticinese non è stato scartato, ma resta una delle soluzioni possibili. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/polizia-ticino-progetto-zali-comuni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con lago e montagne"
+      },
+      "datePublished": "2026-04-30T19:05:21+00:00",
+      "dateModified": "2026-04-30T19:05:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-ticino-progetto-zali-comuni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
