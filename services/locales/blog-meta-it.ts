@@ -4274,6 +4274,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cessione-bper-bcc-varese-2026.title': 'Cessione Bper-BCC: le sei filiali interessate in provincia di Varese',
     'blog.article.cessione-bper-bcc-varese-2026.excerpt': 'BPER Banca cede sei filiali al Gruppo BCC Iccrea nelle province di Varese e Como. Ecco cosa cambia per i clienti e i dipendenti.',
     'blog.article.cessione-bper-bcc-varese-2026.imageAlt': 'Vista panoramica di Lugano con grattacieli e attività finanziaria',
+    'blog.article.innalzamento-livello-verbano-impatti-economici.title': 'Innalzamento Lago Maggiore: impatti economici e ambientali',
+    'blog.article.innalzamento-livello-verbano-impatti-economici.excerpt': 'L\'Autorità di Bacino del Po fissa il livello massimo a 140 cm, ma il territorio teme danni irreversibili all\'economia e alla biodiversità.',
+    'blog.article.innalzamento-livello-verbano-impatti-economici.imageAlt': 'Lago Maggiore con sponde e habitat naturali, vista aerea, luce del mattino.',
 };
 
 export default blogMetaIt;

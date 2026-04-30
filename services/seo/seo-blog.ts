@@ -28285,6 +28285,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-innalzamento-livello-verbano-impatti-economici': {
+    title: 'Innalzamento Lago Maggiore: impatti economici e ambientali',
+    description: 'L\'Autorità di Bacino del Po fissa il livello massimo a 140 cm, ma il territorio teme danni irreversibili all\'economia e alla biodiversità. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, innalzamento, lago, maggiore, impatti',
+    ogTitle: 'Innalzamento Lago Maggiore: impatti economici e ambientali',
+    ogDescription: 'L\'Autorità di Bacino del Po fissa il livello massimo a 140 cm, ma il territorio teme danni irreversibili all\'economia e alla biodiversità.',
+    canonicalPath: '/articoli-frontaliere/innalzamento-livello-verbano-impatti-economici',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Innalzamento Lago Maggiore: impatti economici e ambientali",
+      "description": "L'Autorità di Bacino del Po fissa il livello massimo a 140 cm, ma il territorio teme danni irreversibili all'economia e alla biodiversità. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/innalzamento-livello-verbano-impatti-economici.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Maggiore con sponde e habitat naturali, vista aerea, luce del mattino."
+      },
+      "datePublished": "2026-04-30T10:48:22+00:00",
+      "dateModified": "2026-04-30T10:48:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/innalzamento-livello-verbano-impatti-economici`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

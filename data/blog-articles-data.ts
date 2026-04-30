@@ -10984,4 +10984,11 @@ export const ARTICLES = [
  image: '/images/blog/cessione-bper-bcc-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'innalzamento-livello-verbano-impatti-economici',
+ category: 'novita',
+ date: '2026-04-30T10:48:22.333Z',
+ image: '/images/blog/innalzamento-livello-verbano-impatti-economici.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

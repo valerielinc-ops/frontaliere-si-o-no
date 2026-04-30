@@ -4273,6 +4273,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cessione-bper-bcc-varese-2026.title': 'BPER-BCC-Filialenübergabe in der Provinz Varese',
     'blog.article.cessione-bper-bcc-varese-2026.excerpt': 'BPER Banca übergibt sechs Filialen an die BCC Iccrea Gruppe in den Provinzen Varese und Como. Hier erfahren Sie, was sich für Kunden und Mitarbeiter ändert.',
     'blog.article.cessione-bper-bcc-varese-2026.imageAlt': 'Panoramablick auf Lugano mit Wolkenkratzern und Finanzaktivitäten',
+    'blog.article.innalzamento-livello-verbano-impatti-economici.title': 'Anstieg des Lago Maggiore: wirtschaftliche und ökologische Folgen',
+    'blog.article.innalzamento-livello-verbano-impatti-economici.excerpt': 'Die Po-Einzugsgebietsbehörde setzt den Höchststand auf 140 cm fest, doch die Region befürchtet unwiderrufliche Schäden für die Wirtschaft und die Biodiversität.',
+    'blog.article.innalzamento-livello-verbano-impatti-economici.imageAlt': 'Lago Maggiore mit Ufern und natürlichen Lebensräumen, Luftaufnahme, Morgenlicht.',
 };
 
 export default blogMetaDe;
