@@ -4234,6 +4234,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-lavoro-specializzato-paradosso-2026.title': 'Varese: jobs available but skilled workers are missing',
     'blog.article.varese-lavoro-specializzato-paradosso-2026.excerpt': 'Employment is growing but there are difficulties in finding technical and scientific profiles. Here are the 2025 data',
     'blog.article.varese-lavoro-specializzato-paradosso-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino and Lombardy shores, clear day',
+    'blog.article.varese-competenze-lavoro-2026.title': 'Varese: high demand but skilled workers hard to find',
+    'blog.article.varese-competenze-lavoro-2026.excerpt': 'Varese\'s job market shows a paradox: high demand but increasing difficulty in finding specialized skills, with a 70% employment rate and 3% unemployment.',
+    'blog.article.varese-competenze-lavoro-2026.imageAlt': 'Foxtown outlet in Mendrisio, with cross-border workers in the foreground',
 };
 
 export default blogMetaEn;

@@ -4234,6 +4234,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-lavoro-specializzato-paradosso-2026.title': 'Varese: Jobs verfügbar, aber Fachkräfte fehlen',
     'blog.article.varese-lavoro-specializzato-paradosso-2026.excerpt': 'Die Beschäftigung wächst, doch es gibt Schwierigkeiten, technische und wissenschaftliche Profile zu finden. Hier sind die Daten für 2025',
     'blog.article.varese-lavoro-specializzato-paradosso-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Ufern des Tessin und der Lombardei, klarer Tag',
+    'blog.article.varese-competenze-lavoro-2026.title': 'Varese: Hohe Nachfrage, aber Fachkräfte schwer zu finden',
+    'blog.article.varese-competenze-lavoro-2026.excerpt': 'Der Arbeitsmarkt in Varese zeigt ein Paradoxon: Hohe Nachfrage, aber wachsende Schwierigkeiten, spezialisierte Fähigkeiten zu finden, mit einer Beschäftigungsquote von 70 % und einer Arbeitslosenquote von 3 %.',
+    'blog.article.varese-competenze-lavoro-2026.imageAlt': 'Foxtown Outlet in Mendrisio, mit Grenzgängern im Vordergrund',
 };
 
 export default blogMetaDe;

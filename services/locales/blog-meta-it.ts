@@ -4235,6 +4235,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-lavoro-specializzato-paradosso-2026.title': 'Varese: lavoro disponibile ma mancano i lavoratori specializzati',
     'blog.article.varese-lavoro-specializzato-paradosso-2026.excerpt': 'Occupazione in crescita ma difficoltà a trovare profili tecnici e scientifici. Ecco i dati del 2025',
     'blog.article.varese-lavoro-specializzato-paradosso-2026.imageAlt': 'Vista aerea del Lago di Lugano con le sponde del Ticino e della Lombardia, giornata limpida',
+    'blog.article.varese-competenze-lavoro-2026.title': 'Varese: domanda di lavoro alta ma competenze sempre più difficili da trovare',
+    'blog.article.varese-competenze-lavoro-2026.excerpt': 'Il mercato del lavoro di Varese mostra un paradosso: alta domanda ma crescente difficoltà nel reperire competenze specializzate, con tassi di occupazione al 70% e disoccupazione al 3%.',
+    'blog.article.varese-competenze-lavoro-2026.imageAlt': 'Foxtown outlet a Mendrisio, con frontalieri e lavoratori in primo piano',
 };
 
 export default blogMetaIt;

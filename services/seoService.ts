@@ -2642,6 +2642,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-a2-melide-chiusure-notturne-lavori': { name: 'Novità', path: '/articoli-frontaliere/a2-melide-chiusure-notturne-lavori', parent: 'blog' },
     'blog-sanzioni-ue-imprese-italiane-2026': { name: 'Novità', path: '/articoli-frontaliere/sanzioni-ue-imprese-italiane-2026', parent: 'blog' },
     'blog-varese-lavoro-specializzato-paradosso-2026': { name: 'Novità', path: '/articoli-frontaliere/varese-lavoro-specializzato-paradosso-2026', parent: 'blog' },
+    'blog-varese-competenze-lavoro-2026': { name: 'Mercato del lavoro', path: '/articoli-frontaliere/varese-competenze-lavoro-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

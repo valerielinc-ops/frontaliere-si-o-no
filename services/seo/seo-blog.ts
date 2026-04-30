@@ -27908,6 +27908,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-competenze-lavoro-2026': {
+    title: 'Varese: domanda di lavoro alta ma competenze sempre più difficili da trovare',
+    description: 'Il mercato del lavoro di Varese mostra un paradosso: alta domanda ma crescente difficoltà nel reperire competenze specializzate, con tassi di occupazione al 70%',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, domanda, lavoro, alta',
+    ogTitle: 'Varese: domanda di lavoro alta ma competenze sempre più difficili da trovare',
+    ogDescription: 'Il mercato del lavoro di Varese mostra un paradosso: alta domanda ma crescente difficoltà nel reperire competenze specializzate, con tassi di occupazione al 70%',
+    canonicalPath: '/articoli-frontaliere/varese-competenze-lavoro-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: domanda di lavoro alta ma competenze sempre più difficili da trovare",
+      "description": "Il mercato del lavoro di Varese mostra un paradosso: alta domanda ma crescente difficoltà nel reperire competenze specializzate, con tassi di occupazione al 70%",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-competenze-lavoro-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foxtown outlet a Mendrisio, con frontalieri e lavoratori in primo piano"
+      },
+      "datePublished": "2026-04-30T08:56:02+00:00",
+      "dateModified": "2026-04-30T08:56:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-competenze-lavoro-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

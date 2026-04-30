@@ -10893,4 +10893,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-lavoro-specializzato-paradosso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-competenze-lavoro-2026',
+ category: 'novita',
+ date: '2026-04-30T08:56:02.350Z',
+ image: '/images/blog/varese-competenze-lavoro-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
