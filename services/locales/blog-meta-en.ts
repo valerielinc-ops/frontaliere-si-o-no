@@ -4450,6 +4450,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controllo-finanze-ticino-2026.title': 'New director sought for Canton Ticino\'s financial control',
     'blog.article.controllo-finanze-ticino-2026.excerpt': 'Canton Ticino is looking for a new director for the cantonal financial control following Giovanni Cavallero\'s retirement announcement.',
     'blog.article.controllo-finanze-ticino-2026.imageAlt': 'Castelgrande in Bellinzona with a view of the Swiss-Italian border',
+    'blog.article.swiss-market-index-verde-2026.title': 'Swiss Market Index up: tips for cross-border workers',
+    'blog.article.swiss-market-index-verde-2026.excerpt': 'The Swiss Market Index closes in positive territory, with implications for investments and pensions of cross-border workers',
+    'blog.article.swiss-market-index-verde-2026.imageAlt': 'Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;

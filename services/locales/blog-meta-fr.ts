@@ -4451,6 +4451,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controllo-finanze-ticino-2026.title': 'Recherche d\'un directeur pour le Contrôle cantonal des finances',
     'blog.article.controllo-finanze-ticino-2026.excerpt': 'Le canton du Tessin recherche un nouveau directeur pour le Contrôle cantonal des finances après l\'annonce de la retraite de Giovanni Cavallero.',
     'blog.article.controllo-finanze-ticino-2026.imageAlt': 'Castelgrande à Bellinzona avec vue sur la frontière suisse-italienne',
+    'blog.article.swiss-market-index-verde-2026.title': 'L\'indice Swiss Market Index en vert: opportunités pour les frontaliers',
+    'blog.article.swiss-market-index-verde-2026.excerpt': 'L\'indice Swiss Market Index clôture en positif, avec des implications pour les investissements et les pensions des frontaliers',
+    'blog.article.swiss-market-index-verde-2026.imageAlt': 'Lac de Lugano avec montagnes et bâtiments environnants',
 };
 
 export default blogMetaFr;
