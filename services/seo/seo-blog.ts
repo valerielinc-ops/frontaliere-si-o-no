@@ -26951,6 +26951,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scuola-austriaca-bitcoin-lugano-2026': {
+    title: 'Scuola austriaca protagonista al Plan ₿ Forum di Lugano',
+    description: 'Saifedean Ammous, Rahim Taghizadegan e Knut Svanholm hanno discusso le radici intellettuali di Bitcoin al Plan ₿ Forum di Lugano. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, austriaca, protagonista, plan',
+    ogTitle: 'Scuola austriaca protagonista al Plan ₿ Forum di Lugano',
+    ogDescription: 'Saifedean Ammous, Rahim Taghizadegan e Knut Svanholm hanno discusso le radici intellettuali di Bitcoin al Plan ₿ Forum di Lugano.',
+    canonicalPath: '/articoli-frontaliere/scuola-austriaca-bitcoin-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola austriaca protagonista al Plan ₿ Forum di Lugano",
+      "description": "Saifedean Ammous, Rahim Taghizadegan e Knut Svanholm hanno discusso le radici intellettuali di Bitcoin al Plan ₿ Forum di Lugano. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scuola-austriaca-bitcoin-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza sul Bitcoin a Lugano con relatori e pubblico"
+      },
+      "datePublished": "2026-04-30T04:17:28+00:00",
+      "dateModified": "2026-04-30T04:17:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scuola-austriaca-bitcoin-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

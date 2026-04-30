@@ -10661,4 +10661,11 @@ export const ARTICLES = [
  image: '/images/blog/elmec-innovation-summit-brunello-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'scuola-austriaca-bitcoin-lugano-2026',
+ category: 'novita',
+ date: '2026-04-30T04:17:28.089Z',
+ image: '/images/blog/scuola-austriaca-bitcoin-lugano-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

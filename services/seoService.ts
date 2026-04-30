@@ -2609,6 +2609,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-camion-incastrato-grantola-2026': { name: 'Novità', path: '/articoli-frontaliere/camion-incastrato-grantola-2026', parent: 'blog' },
     'blog-vedano-olona-medici-servizio-instabile': { name: 'Servizio medici', path: '/articoli-frontaliere/vedano-olona-medici-servizio-instabile', parent: 'blog' },
     'blog-elmec-innovation-summit-brunello-2026': { name: 'Elmec Innovation Summit', path: '/articoli-frontaliere/elmec-innovation-summit-brunello-2026', parent: 'blog' },
+    'blog-scuola-austriaca-bitcoin-lugano-2026': { name: 'Scuola austriaca Lugano', path: '/articoli-frontaliere/scuola-austriaca-bitcoin-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

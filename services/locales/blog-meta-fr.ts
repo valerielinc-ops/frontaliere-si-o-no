@@ -4136,6 +4136,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.elmec-innovation-summit-brunello-2026.title': 'Elmec Innovation Summit 2026: IA, cybersécurité et IT à Brunello',
     'blog.article.elmec-innovation-summit-brunello-2026.excerpt': 'Le 14 mai 2026, l\'Elmec Innovation Summit revient à Brunello, un événement dédié à l\'innovation IT avec des ateliers, des expériences technologiques et des échanges sur l\'IA, la cybersécurité et les infrastructures IT.',
     'blog.article.elmec-innovation-summit-brunello-2026.imageAlt': 'Conférence technologique au campus Elmec de Brunello, avec des participants engagés dans des ateliers et des démonstrations technologiques.',
+    'blog.article.scuola-austriaca-bitcoin-lugano-2026.title': 'L\'école autrichienne au Plan ₿ Forum de Lugano',
+    'blog.article.scuola-austriaca-bitcoin-lugano-2026.excerpt': 'Saifedean Ammous, Rahim Taghizadegan et Knut Svanholm ont discuté des racines intellectuelles de Bitcoin au Plan ₿ Forum de Lugano.',
+    'blog.article.scuola-austriaca-bitcoin-lugano-2026.imageAlt': 'Conférence sur le Bitcoin à Lugano avec des orateurs et un public',
 };
 
 export default blogMetaFr;
