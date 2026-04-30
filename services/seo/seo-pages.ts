@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1475,
+ "numberOfItems": 1476,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6110,7 +6110,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1472, "name": "Bellinzona 2025: conti migliori del previsto, d...", "url": `${BASE_URL}/articoli-frontaliere/contibellinzona2025risultati` },
           { "@type": "ListItem", "position": 1473, "name": "Disoccupazione in calo in Ticino: le previsioni...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-ticino-usi-2026` },
           { "@type": "ListItem", "position": 1474, "name": "Cessione Bper-BCC: le sei filiali interessate i...", "url": `${BASE_URL}/articoli-frontaliere/cessione-bper-bcc-varese-2026` },
-          { "@type": "ListItem", "position": 1475, "name": "Innalzamento Lago Maggiore: impatti economici e...", "url": `${BASE_URL}/articoli-frontaliere/innalzamento-livello-verbano-impatti-economici` }
+          { "@type": "ListItem", "position": 1475, "name": "Innalzamento Lago Maggiore: impatti economici e...", "url": `${BASE_URL}/articoli-frontaliere/innalzamento-livello-verbano-impatti-economici` },
+          { "@type": "ListItem", "position": 1476, "name": "Barometro KOF: ripresa modesta per l'economia s...", "url": `${BASE_URL}/articoli-frontaliere/barometro-kof-ripresa-modesta-2026` }
  ]
  },
  {

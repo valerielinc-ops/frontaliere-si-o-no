@@ -4276,6 +4276,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.innalzamento-livello-verbano-impatti-economici.title': 'Anstieg des Lago Maggiore: wirtschaftliche und ökologische Folgen',
     'blog.article.innalzamento-livello-verbano-impatti-economici.excerpt': 'Die Po-Einzugsgebietsbehörde setzt den Höchststand auf 140 cm fest, doch die Region befürchtet unwiderrufliche Schäden für die Wirtschaft und die Biodiversität.',
     'blog.article.innalzamento-livello-verbano-impatti-economici.imageAlt': 'Lago Maggiore mit Ufern und natürlichen Lebensräumen, Luftaufnahme, Morgenlicht.',
+    'blog.article.barometro-kof-ripresa-modesta-2026.title': 'KOF-Barometer: Schweizer Wirtschaft erholt sich leicht',
+    'blog.article.barometro-kof-ripresa-modesta-2026.excerpt': 'Das KOF-Barometer zeigt im April eine leichte Verbesserung, doch die Aussichten bleiben unterdurchschnittlich.',
+    'blog.article.barometro-kof-ripresa-modesta-2026.imageAlt': 'Luganersee mit Spiegelungen der umliegenden Berge',
 };
 
 export default blogMetaDe;

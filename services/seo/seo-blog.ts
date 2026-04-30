@@ -28314,6 +28314,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-barometro-kof-ripresa-modesta-2026': {
+    title: 'Barometro KOF: ripresa modesta per l\'economia svizzera',
+    description: 'Il barometro del KOF segnala un leggero miglioramento in aprile, ma le prospettive economiche restano modeste sotto la media pluriennale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, barometro, ripresa, modesta, economia',
+    ogTitle: 'Barometro KOF: ripresa modesta per l\'economia svizzera',
+    ogDescription: 'Il barometro del KOF segnala un leggero miglioramento in aprile, ma le prospettive economiche restano modeste sotto la media pluriennale.',
+    canonicalPath: '/articoli-frontaliere/barometro-kof-ripresa-modesta-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Barometro KOF: ripresa modesta per l'economia svizzera",
+      "description": "Il barometro del KOF segnala un leggero miglioramento in aprile, ma le prospettive economiche restano modeste sotto la media pluriennale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/barometro-kof-ripresa-modesta-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con riflessi delle montagne circostanti"
+      },
+      "datePublished": "2026-04-30T10:56:05+00:00",
+      "dateModified": "2026-04-30T10:56:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/barometro-kof-ripresa-modesta-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

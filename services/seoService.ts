@@ -2656,6 +2656,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disoccupazione-ticino-usi-2026': { name: 'Novità', path: '/articoli-frontaliere/disoccupazione-ticino-usi-2026', parent: 'blog' },
     'blog-cessione-bper-bcc-varese-2026': { name: 'Cessione Bper-BCC', path: '/articoli-frontaliere/cessione-bper-bcc-varese-2026', parent: 'blog' },
     'blog-innalzamento-livello-verbano-impatti-economici': { name: 'Novità', path: '/articoli-frontaliere/innalzamento-livello-verbano-impatti-economici', parent: 'blog' },
+    'blog-barometro-kof-ripresa-modesta-2026': { name: 'Economia Svizzera', path: '/articoli-frontaliere/barometro-kof-ripresa-modesta-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

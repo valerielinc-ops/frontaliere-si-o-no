@@ -4277,6 +4277,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.innalzamento-livello-verbano-impatti-economici.title': 'Innalzamento Lago Maggiore: impatti economici e ambientali',
     'blog.article.innalzamento-livello-verbano-impatti-economici.excerpt': 'L\'Autorità di Bacino del Po fissa il livello massimo a 140 cm, ma il territorio teme danni irreversibili all\'economia e alla biodiversità.',
     'blog.article.innalzamento-livello-verbano-impatti-economici.imageAlt': 'Lago Maggiore con sponde e habitat naturali, vista aerea, luce del mattino.',
+    'blog.article.barometro-kof-ripresa-modesta-2026.title': 'Barometro KOF: ripresa modesta per l\'economia svizzera',
+    'blog.article.barometro-kof-ripresa-modesta-2026.excerpt': 'Il barometro del KOF segnala un leggero miglioramento in aprile, ma le prospettive restano modeste sotto la media pluriennale.',
+    'blog.article.barometro-kof-ripresa-modesta-2026.imageAlt': 'Lago di Lugano con riflessi delle montagne circostanti',
 };
 
 export default blogMetaIt;

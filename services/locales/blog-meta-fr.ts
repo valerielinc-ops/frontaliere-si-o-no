@@ -4277,6 +4277,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.innalzamento-livello-verbano-impatti-economici.title': 'Montée du Lac Majeur: impacts économiques et environnementaux',
     'blog.article.innalzamento-livello-verbano-impatti-economici.excerpt': 'L\'Autorité du Bassin du Pô fixe le niveau maximum à 140 cm, mais le territoire craint des dommages irréversibles à l\'économie et à la biodiversité.',
     'blog.article.innalzamento-livello-verbano-impatti-economici.imageAlt': 'Lac Majeur avec rives et habitats naturels, vue aérienne, lumière du matin.',
+    'blog.article.barometro-kof-ripresa-modesta-2026.title': 'Baromètre KOF: reprise modeste pour l\'économie suisse',
+    'blog.article.barometro-kof-ripresa-modesta-2026.excerpt': 'Le baromètre du KOF signale une légère amélioration en avril, mais les perspectives restent modestes en dessous de la moyenne pluriannuelle.',
+    'blog.article.barometro-kof-ripresa-modesta-2026.imageAlt': 'Lac de Lugano avec les reflets des montagnes environnantes',
 };
 
 export default blogMetaFr;

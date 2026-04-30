@@ -4276,6 +4276,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.innalzamento-livello-verbano-impatti-economici.title': 'Lake Maggiore rise: economic and environmental impacts',
     'blog.article.innalzamento-livello-verbano-impatti-economici.excerpt': 'The Po River Basin Authority sets the maximum level at 140 cm, but the area fears irreversible damage to the economy and biodiversity.',
     'blog.article.innalzamento-livello-verbano-impatti-economici.imageAlt': 'Lake Maggiore with shores and natural habitats, aerial view, morning light.',
+    'blog.article.barometro-kof-ripresa-modesta-2026.title': 'KOF Barometer: modest recovery for Swiss economy',
+    'blog.article.barometro-kof-ripresa-modesta-2026.excerpt': 'The KOF barometer signals a slight improvement in April, but prospects remain modest below the multi-year average.',
+    'blog.article.barometro-kof-ripresa-modesta-2026.imageAlt': 'Lake Lugano with reflections of the surrounding mountains',
 };
 
 export default blogMetaEn;
