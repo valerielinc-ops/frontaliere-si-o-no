@@ -28778,6 +28778,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-settore-ict-ticino-riconoscimento-istituzioni': {
+    title: 'ICT Ticino: 18mila lavoratori cercano riconoscimento',
+    description: 'Il settore ICT in Ticino, con 18mila addetti, chiede di essere rappresentato nella Commissione Tripartita. Il Consiglio di Stato riconosce l\'importanza',
+    keywords: 'frontalieri, ticino, svizzera, italia, 18mila, lavoratori, cercano, riconoscimento',
+    ogTitle: 'ICT Ticino: 18mila lavoratori cercano riconoscimento',
+    ogDescription: 'Il settore ICT in Ticino, con 18mila addetti, chiede di essere rappresentato nella Commissione Tripartita. Il Consiglio di Stato riconosce l\'importanza',
+    canonicalPath: '/articoli-frontaliere/settore-ict-ticino-riconoscimento-istituzioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ICT Ticino: 18mila lavoratori cercano riconoscimento",
+      "description": "Il settore ICT in Ticino, con 18mila addetti, chiede di essere rappresentato nella Commissione Tripartita. Il Consiglio di Stato riconosce l'importanza",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/settore-ict-ticino-riconoscimento-istituzioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un hub digitale affollato a Lugano, Ticino, con edifici per uffici moderni e professionisti del settore tech al lavoro sui loro laptop."
+      },
+      "datePublished": "2026-04-30T13:32:09+00:00",
+      "dateModified": "2026-04-30T13:32:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/settore-ict-ticino-riconoscimento-istituzioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

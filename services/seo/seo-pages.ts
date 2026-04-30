@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1491,
+ "numberOfItems": 1492,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6126,7 +6126,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1488, "name": "Record di passeggeri sui treni svizzeri nel 2026", "url": `${BASE_URL}/articoli-frontaliere/record-passeggeri-treni-svizzera-2026` },
           { "@type": "ListItem", "position": 1489, "name": "Ferrovia: passi avanti nell'estensione dell'inf...", "url": `${BASE_URL}/articoli-frontaliere/ferrovia-svizzera-300-progetti-2026` },
           { "@type": "ListItem", "position": 1490, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/bce-tassi-invariati-30-aprile-2026` },
-          { "@type": "ListItem", "position": 1491, "name": "Aumenti tariffe Sunrise 2026: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/aumenti-tariffe-sunrise-2026` }
+          { "@type": "ListItem", "position": 1491, "name": "Aumenti tariffe Sunrise 2026: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/aumenti-tariffe-sunrise-2026` },
+          { "@type": "ListItem", "position": 1492, "name": "ICT Ticino: 18mila lavoratori cercano riconosci...", "url": `${BASE_URL}/articoli-frontaliere/settore-ict-ticino-riconoscimento-istituzioni` }
  ]
  },
  {

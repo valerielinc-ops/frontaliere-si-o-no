@@ -4324,6 +4324,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumenti-tariffe-sunrise-2026.title': 'Ab 2026 mehr für Telefonieren und Surfen',
     'blog.article.aumenti-tariffe-sunrise-2026.excerpt': 'Sunrise erhöht die Tarife für Mobilfunk und Internet ab August 2026. Das ändert sich für Grenzgänger im Tessin.',
     'blog.article.aumenti-tariffe-sunrise-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Gebäuden und Smartphones, die über dem Wasser schweben, Symbol für mobile Kommunikation.',
+    'blog.article.settore-ict-ticino-riconoscimento-istituzioni.title': 'ICT Ticino: 18.000 Arbeitnehmer fordern Anerkennung',
+    'blog.article.settore-ict-ticino-riconoscimento-istituzioni.excerpt': 'Der ICT-Sektor in Ticino, mit 18.000 Beschäftigten, fordert eine Vertretung in der Dreiparteienkommission. Der Staatsrat erkennt die strategische Bedeutung an.',
+    'blog.article.settore-ict-ticino-riconoscimento-istituzioni.imageAlt': 'Ein belebter digitaler Hub in Lugano, Tessin, mit modernen Bürogebäuden und Tech-Profis, die an ihren Laptops arbeiten.',
 };
 
 export default blogMetaDe;

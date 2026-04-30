@@ -4325,6 +4325,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumenti-tariffe-sunrise-2026.title': 'Telefonare e navigare costerà un po’ di più dal 2026',
     'blog.article.aumenti-tariffe-sunrise-2026.excerpt': 'Sunrise aumenta le tariffe per telefonia mobile e Internet a partire da agosto 2026. Ecco cosa cambia per i frontalieri in Ticino.',
     'blog.article.aumenti-tariffe-sunrise-2026.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e smartphone che galleggiano sopra l\'acqua, simbolo della comunicazione mobile.',
+    'blog.article.settore-ict-ticino-riconoscimento-istituzioni.title': 'ICT Ticino: 18mila lavoratori cercano riconoscimento',
+    'blog.article.settore-ict-ticino-riconoscimento-istituzioni.excerpt': 'Il settore ICT in Ticino, con 18mila addetti, chiede di essere rappresentato nella Commissione Tripartita. Il Consiglio di Stato riconosce l\'importanza strategica.',
+    'blog.article.settore-ict-ticino-riconoscimento-istituzioni.imageAlt': 'Un hub digitale affollato a Lugano, Ticino, con edifici per uffici moderni e professionisti del settore tech al lavoro sui loro laptop.',
 };
 
 export default blogMetaIt;

@@ -11103,4 +11103,11 @@ export const ARTICLES = [
  image: '/images/blog/aumenti-tariffe-sunrise-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'settore-ict-ticino-riconoscimento-istituzioni',
+ category: 'novita',
+ date: '2026-04-30T13:32:09.594Z',
+ image: '/images/blog/settore-ict-ticino-riconoscimento-istituzioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4324,6 +4324,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumenti-tariffe-sunrise-2026.title': 'Mobile and internet costs rise from 2026',
     'blog.article.aumenti-tariffe-sunrise-2026.excerpt': 'Sunrise increases mobile and internet rates starting August 2026. Here\'s what changes for cross-border workers in Ticino.',
     'blog.article.aumenti-tariffe-sunrise-2026.imageAlt': 'Aerial view of Lake Lugano with modern buildings and smartphones floating above the water, symbolizing mobile communication.',
+    'blog.article.settore-ict-ticino-riconoscimento-istituzioni.title': 'ICT Ticino: 18,000 workers seek recognition',
+    'blog.article.settore-ict-ticino-riconoscimento-istituzioni.excerpt': 'Ticino\'s ICT sector, with 18,000 employees, asks for representation in the Tripartite Commission. The State Council acknowledges its strategic importance.',
+    'blog.article.settore-ict-ticino-riconoscimento-istituzioni.imageAlt': 'A bustling digital hub in Lugano, Ticino, with modern office buildings and tech professionals working on laptops.',
 };
 
 export default blogMetaEn;
