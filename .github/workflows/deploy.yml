@@ -320,12 +320,6 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Merge previous CSS/JS assets for Clarity recordings
-        continue-on-error: true
-        run: |
-          node scripts/preserve-clarity-assets.mjs --merge
-          node scripts/preserve-clarity-assets.mjs --snapshot
-
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
         run: cp dist/index.html dist/404.html
 
@@ -608,6 +602,27 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
           include-hidden-files: true
+
+      - name: Merge previous CSS/JS assets for Clarity recordings
+        # Runs as the LAST mutation of dist/ before upload, on purpose.
+        # Earlier in the pipeline this step ran right after the build, but
+        # that meant every downstream audit/walker (Audit SPA bundle,
+        # write-collisions analysis, the parallel post-build pool) ran on
+        # a dist/ that contained both fresh hashed bundles AND old hashed
+        # bundles merged from the previous deploy's Clarity cache. Audits
+        # were forced to whitelist the older filename patterns, and any
+        # future audit that touches dist/assets/ has to repeat that
+        # whitelisting. Moving the merge here keeps `dist/` byte-identical
+        # to this build's output through every gate, then injects the
+        # Clarity preservation overlay only into the artifact bytes that
+        # actually ship to GitHub Pages.
+        # The --snapshot pass updates .clarity-asset-cache/ with whatever
+        # is in dist/assets/ at this point (= fresh build + merged old
+        # generations), so the next run starts from a complete picture.
+        continue-on-error: true
+        run: |
+          node scripts/preserve-clarity-assets.mjs --merge
+          node scripts/preserve-clarity-assets.mjs --snapshot
 
       - name: Upload artifact for GitHub Pages
         # PATH 3 (tar in bg during post-build pool) was tried in commit
