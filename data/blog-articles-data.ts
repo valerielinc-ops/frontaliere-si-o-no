@@ -10668,4 +10668,11 @@ export const ARTICLES = [
  image: '/images/blog/scuola-austriaca-bitcoin-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'domus-san-donato-autonomia-terza-eta',
+ category: 'novita',
+ date: '2026-04-30T04:24:38.236Z',
+ image: '/images/blog/domus-san-donato-autonomia-terza-eta.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

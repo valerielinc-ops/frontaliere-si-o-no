@@ -26980,6 +26980,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-domus-san-donato-autonomia-terza-eta': {
+    title: 'Domus San Donato: autonomia sicura per la terza età',
+    description: 'Nuovi appartamenti protetti per anziani a Domus San Donato, realizzati nell\'ex stabile delle Suore. Libertà e servizi assistiti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, domus, donato, autonomia, sicura',
+    ogTitle: 'Domus San Donato: autonomia sicura per la terza età',
+    ogDescription: 'Nuovi appartamenti protetti per anziani a Domus San Donato, realizzati nell\'ex stabile delle Suore. Libertà e servizi assistiti',
+    canonicalPath: '/articoli-frontaliere/domus-san-donato-autonomia-terza-eta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Domus San Donato: autonomia sicura per la terza età",
+      "description": "Nuovi appartamenti protetti per anziani a Domus San Donato, realizzati nell'ex stabile delle Suore. Libertà e servizi assistiti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/domus-san-donato-autonomia-terza-eta.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Residenza per anziani Domus San Donato in Ticino"
+      },
+      "datePublished": "2026-04-30T04:24:38+00:00",
+      "dateModified": "2026-04-30T04:24:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/domus-san-donato-autonomia-terza-eta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

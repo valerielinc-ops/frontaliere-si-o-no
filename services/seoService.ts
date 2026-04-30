@@ -2610,6 +2610,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vedano-olona-medici-servizio-instabile': { name: 'Servizio medici', path: '/articoli-frontaliere/vedano-olona-medici-servizio-instabile', parent: 'blog' },
     'blog-elmec-innovation-summit-brunello-2026': { name: 'Elmec Innovation Summit', path: '/articoli-frontaliere/elmec-innovation-summit-brunello-2026', parent: 'blog' },
     'blog-scuola-austriaca-bitcoin-lugano-2026': { name: 'Scuola austriaca Lugano', path: '/articoli-frontaliere/scuola-austriaca-bitcoin-lugano-2026', parent: 'blog' },
+    'blog-domus-san-donato-autonomia-terza-eta': { name: 'Novità', path: '/articoli-frontaliere/domus-san-donato-autonomia-terza-eta', parent: 'blog' },
  };
 
  const info = sectionNames[section];

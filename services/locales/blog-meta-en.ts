@@ -4138,6 +4138,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scuola-austriaca-bitcoin-lugano-2026.title': 'Austrian School Shines at Lugano\'s Plan ₿ Forum',
     'blog.article.scuola-austriaca-bitcoin-lugano-2026.excerpt': 'Saifedean Ammous, Rahim Taghizadegan, and Knut Svanholm discussed Bitcoin\'s intellectual roots at the Plan ₿ Forum in Lugano.',
     'blog.article.scuola-austriaca-bitcoin-lugano-2026.imageAlt': 'Bitcoin conference in Lugano with speakers and audience',
+    'blog.article.domus-san-donato-autonomia-terza-eta.title': 'Domus San Donato: safe autonomy for the elderly',
+    'blog.article.domus-san-donato-autonomia-terza-eta.excerpt': 'New protected apartments for the elderly at Domus San Donato, built in the former convent. Freedom and assisted services',
+    'blog.article.domus-san-donato-autonomia-terza-eta.imageAlt': 'Domus San Donato senior living facility in Ticino',
 };
 
 export default blogMetaEn;
