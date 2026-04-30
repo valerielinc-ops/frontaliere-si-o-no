@@ -4333,6 +4333,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.microterremoto-artificiale-ticino-2026.title': 'Künstliches Mikroerdbeben im Gotthardmassiv',
     'blog.article.microterremoto-artificiale-ticino-2026.excerpt': 'Schweizer, italienische und deutsche Forscher lösen ein kontrolliertes Erdbeben im Gotthardmassiv aus, um die Vorhersagbarkeit von Beben zu untersuchen',
     'blog.article.microterremoto-artificiale-ticino-2026.imageAlt': 'Forscher im BedrettoLab im Tessin beobachten ein seismisches Experiment',
+    'blog.article.flotilla-svizzera-gaza-2026.title': 'Schweizer Flottille nach Gaza: Acht Schweizer wohlbehalten',
+    'blog.article.flotilla-svizzera-gaza-2026.excerpt': 'Die acht Schweizer, die mit der Global Sumud Flottille aufgebrochen sind, sind nach dem Eingreifen der israelischen Marine wohlbehalten.',
+    'blog.article.flotilla-svizzera-gaza-2026.imageAlt': 'Eine Gruppe von Aktivisten auf einem Boot im Mittelmeer, mit der Schweizer Flagge sichtbar, während einer humanitären Mission.',
 };
 
 export default blogMetaDe;

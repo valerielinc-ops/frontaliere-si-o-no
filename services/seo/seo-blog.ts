@@ -28865,6 +28865,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-flotilla-svizzera-gaza-2026': {
+    title: 'Flottila Svizzera a Gaza: Otto Svizzeri Sani e Salvi',
+    description: 'Gli otto svizzeri partiti con la Global Sumud Flotilla sono sani e salvi dopo l\'intervento della marina israeliana. Greenpeace chiede protezione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, flottila, gaza, otto, svizzeri',
+    ogTitle: 'Flottila Svizzera a Gaza: Otto Svizzeri Sani e Salvi',
+    ogDescription: 'Gli otto svizzeri partiti con la Global Sumud Flotilla sono sani e salvi dopo l\'intervento della marina israeliana. Greenpeace chiede protezione.',
+    canonicalPath: '/articoli-frontaliere/flotilla-svizzera-gaza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Flottila Svizzera a Gaza: Otto Svizzeri Sani e Salvi",
+      "description": "Gli otto svizzeri partiti con la Global Sumud Flotilla sono sani e salvi dopo l'intervento della marina israeliana. Greenpeace chiede protezione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/flotilla-svizzera-gaza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di attivisti su una barca nel Mar Mediterraneo, con la bandiera svizzera visibile, durante una missione umanitaria."
+      },
+      "datePublished": "2026-04-30T14:08:33+00:00",
+      "dateModified": "2026-04-30T14:08:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/flotilla-svizzera-gaza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

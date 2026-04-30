@@ -4334,6 +4334,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.microterremoto-artificiale-ticino-2026.title': 'Microterremoto artificiale in Ticino: esperimento storico nel San Gottardo',
     'blog.article.microterremoto-artificiale-ticino-2026.excerpt': 'Ricercatori svizzeri, italiani e tedeschi innescano un terremoto controllato nel massiccio del San Gottardo per studiare la prevedibilità dei sismi',
     'blog.article.microterremoto-artificiale-ticino-2026.imageAlt': 'Gruppo di ricercatori nel BedrettoLab in Ticino monitora un esperimento sismico',
+    'blog.article.flotilla-svizzera-gaza-2026.title': 'Flottila Svizzera a Gaza: Otto Svizzeri Sani e Salvi',
+    'blog.article.flotilla-svizzera-gaza-2026.excerpt': 'Gli otto svizzeri partiti con la Global Sumud Flotilla sono sani e salvi dopo l\'intervento della marina israeliana.',
+    'blog.article.flotilla-svizzera-gaza-2026.imageAlt': 'Un gruppo di attivisti su una barca nel Mar Mediterraneo, con la bandiera svizzera visibile, durante una missione umanitaria.',
 };
 
 export default blogMetaIt;

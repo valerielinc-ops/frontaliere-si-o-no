@@ -11124,4 +11124,11 @@ export const ARTICLES = [
  image: '/images/blog/microterremoto-artificiale-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'flotilla-svizzera-gaza-2026',
+ category: 'novita',
+ date: '2026-04-30T14:08:33.618Z',
+ image: '/images/blog/flotilla-svizzera-gaza-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

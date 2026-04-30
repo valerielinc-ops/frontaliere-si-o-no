@@ -4333,6 +4333,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.microterremoto-artificiale-ticino-2026.title': 'Artificial micro-earthquake in Ticino: historic experiment in San Gottardo',
     'blog.article.microterremoto-artificiale-ticino-2026.excerpt': 'Swiss, Italian and German researchers trigger a controlled earthquake in the San Gottardo massif to study the predictability of seismic events',
     'blog.article.microterremoto-artificiale-ticino-2026.imageAlt': 'Researchers in BedrettoLab Ticino monitoring a seismic experiment',
+    'blog.article.flotilla-svizzera-gaza-2026.title': 'Swiss Gaza Flotilla: Eight Safe and Sound',
+    'blog.article.flotilla-svizzera-gaza-2026.excerpt': 'The eight Swiss who departed with the Global Sumud Flotilla are safe and sound after the Israeli navy\'s intervention.',
+    'blog.article.flotilla-svizzera-gaza-2026.imageAlt': 'A group of activists on a boat in the Mediterranean Sea, with the Swiss flag visible, during a humanitarian mission.',
 };
 
 export default blogMetaEn;

@@ -4334,6 +4334,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.microterremoto-artificiale-ticino-2026.title': 'Micro-séisme artificiel au Tessin: expérience historique dans le Gothard',
     'blog.article.microterremoto-artificiale-ticino-2026.excerpt': 'Des chercheurs suisses, italiens et allemands provoquent un tremblement de terre contrôlé dans le massif du Gothard pour étudier la prévisibilité des séismes',
     'blog.article.microterremoto-artificiale-ticino-2026.imageAlt': 'Des chercheurs dans le BedrettoLab au Tessin surveillent une expérience sismique',
+    'blog.article.flotilla-svizzera-gaza-2026.title': 'Flottille suisse à Gaza: huit Suisses sains et saufs',
+    'blog.article.flotilla-svizzera-gaza-2026.excerpt': 'Les huit Suisses partis avec la Global Sumud Flotilla sont sains et saufs après l\'intervention de la marine israélienne.',
+    'blog.article.flotilla-svizzera-gaza-2026.imageAlt': 'Un groupe d\'activistes sur un bateau en Méditerranée, avec le drapeau suisse visible, lors d\'une mission humanitaire.',
 };
 
 export default blogMetaFr;
