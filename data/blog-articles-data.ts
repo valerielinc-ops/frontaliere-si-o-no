@@ -10836,4 +10836,11 @@ export const ARTICLES = [
  image: '/images/blog/birdwatching-monteviasco-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gallarate-bilancio-cassani-2026',
+ category: 'fiscale',
+ date: '2026-04-30T07:47:19.593Z',
+ image: '/images/blog/gallarate-bilancio-cassani-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

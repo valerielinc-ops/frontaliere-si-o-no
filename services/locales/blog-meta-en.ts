@@ -4210,6 +4210,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.birdwatching-monteviasco-2026.title': 'Birdwatching in Monteviasco: a nature discovery hike',
     'blog.article.birdwatching-monteviasco-2026.excerpt': 'Sunday hike through trails and woods to discover local birdlife. Colombo (LIPU): \'An experience to observe, listen and learn to protect the environment\'.',
     'blog.article.birdwatching-monteviasco-2026.imageAlt': 'Birdwatching excursion in Monteviasco, with participants observing birds in the surrounding forests and valleys.',
+    'blog.article.gallarate-bilancio-cassani-2026.title': 'Gallarate: Cassani\'s 2026 budget approved, debt dispute',
+    'blog.article.gallarate-bilancio-cassani-2026.excerpt': 'The tenth budget of the Cassani era in Gallarate was approved, with 92 million in revenue and a 16 million cash surplus.',
+    'blog.article.gallarate-bilancio-cassani-2026.imageAlt': 'Aerial view of Lake Lugano with Gallarate in the background, clear blue sky, detailed landscape, DSLR photography.',
 };
 
 export default blogMetaEn;

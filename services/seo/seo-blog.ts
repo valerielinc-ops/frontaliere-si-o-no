@@ -27676,6 +27676,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gallarate-bilancio-cassani-2026': {
+    title: 'Gallarate: Bilancio Cassani 2026, opere ma scontro sul debito',
+    description: 'Approvato il decimo bilancio dell\'era Cassani a Gallarate con 92 milioni di entrate e 16 milioni di saldo di cassa. Scopri i dettagli. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate, bilancio, cassani, opere',
+    ogTitle: 'Gallarate: Bilancio Cassani 2026, opere ma scontro sul debito',
+    ogDescription: 'Approvato il decimo bilancio dell\'era Cassani a Gallarate con 92 milioni di entrate e 16 milioni di saldo di cassa. Scopri i dettagli.',
+    canonicalPath: '/articoli-frontaliere/gallarate-bilancio-cassani-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gallarate: Bilancio Cassani 2026, opere ma scontro sul debito",
+      "description": "Approvato il decimo bilancio dell'era Cassani a Gallarate con 92 milioni di entrate e 16 milioni di saldo di cassa. Scopri i dettagli. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gallarate-bilancio-cassani-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con Gallarate sullo sfondo, cielo azzurro limpido, paesaggio dettagliato, fotografia DSLR."
+      },
+      "datePublished": "2026-04-30T07:47:19+00:00",
+      "dateModified": "2026-04-30T07:47:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gallarate-bilancio-cassani-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

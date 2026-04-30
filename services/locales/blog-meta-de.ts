@@ -4210,6 +4210,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.birdwatching-monteviasco-2026.title': 'Vogelbeobachtung in Monteviasco: Natur entdecken',
     'blog.article.birdwatching-monteviasco-2026.excerpt': 'Sonntag Wanderung zwischen Pfaden und Wäldern zur Entdeckung der lokalen Vogelwelt. Colombo (LIPU): „Ein Erlebnis, um zu beobachten, zuzuhören und zu lernen, die Umwelt zu schützen“.',
     'blog.article.birdwatching-monteviasco-2026.imageAlt': 'Vogelbeobachtungsexkursion in Monteviasco, bei der Teilnehmer Vögel in den umliegenden Wäldern und Tälern beobachten.',
+    'blog.article.gallarate-bilancio-cassani-2026.title': 'Gallarate: Bilanz Cassani 2026, Projekte aber Streit über Schulden',
+    'blog.article.gallarate-bilancio-cassani-2026.excerpt': 'Der zehnte Haushalt der Ära Cassani in Gallarate wurde mit 92 Millionen Einnahmen und 16 Millionen Cashflow-Saldo genehmigt.',
+    'blog.article.gallarate-bilancio-cassani-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Gallarate im Hintergrund, klarer blauer Himmel, detaillierte Landschaft, DSLR-Fotografie.',
 };
 
 export default blogMetaDe;
