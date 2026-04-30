@@ -28198,6 +28198,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contibellinzona2025risultati': {
+    title: 'Bellinzona 2025: conti migliori del previsto, disavanzo ridotto',
+    description: 'Il consuntivo 2025 di Bellinzona chiude con un disavanzo di 2,7 milioni, migliorando di 10,7 milioni rispetto al preventivo. Investimenti per 25 milioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, 2025, conti, migliori',
+    ogTitle: 'Bellinzona 2025: conti migliori del previsto, disavanzo ridotto',
+    ogDescription: 'Il consuntivo 2025 di Bellinzona chiude con un disavanzo di 2,7 milioni, migliorando di 10,7 milioni rispetto al preventivo. Investimenti per 25 milioni.',
+    canonicalPath: '/articoli-frontaliere/contibellinzona2025risultati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona 2025: conti migliori del previsto, disavanzo ridotto",
+      "description": "Il consuntivo 2025 di Bellinzona chiude con un disavanzo di 2,7 milioni, migliorando di 10,7 milioni rispetto al preventivo. Investimenti per 25 milioni.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/contibellinzona2025risultati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Bellinzona con il Castelgrande"
+      },
+      "datePublished": "2026-04-30T10:28:35+00:00",
+      "dateModified": "2026-04-30T10:28:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contibellinzona2025risultati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

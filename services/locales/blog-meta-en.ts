@@ -4264,6 +4264,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.conti-bellinzona-2025-balzo-11-milioni.title': 'Bellinzona 2025: 11 million leap forward',
     'blog.article.conti-bellinzona-2025-balzo-11-milioni.excerpt': 'Bellinzona\'s 2025 accounts close with a deficit of 2.7 million, improving by 10.7 million compared to the budget',
     'blog.article.conti-bellinzona-2025-balzo-11-milioni.imageAlt': 'Panoramic view of Bellinzona with Castelgrande',
+    'blog.article.contibellinzona2025risultati.title': 'Bellinzona 2025: better than expected, deficit reduced',
+    'blog.article.contibellinzona2025risultati.excerpt': 'Bellinzona\'s 2025 account closes with a deficit of 2.7 million francs, better than expected. Investments for 25 million.',
+    'blog.article.contibellinzona2025risultati.imageAlt': 'Bellinzona cityscape with Castelgrande castle',
 };
 
 export default blogMetaEn;

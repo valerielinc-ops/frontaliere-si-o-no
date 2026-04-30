@@ -4264,6 +4264,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.conti-bellinzona-2025-balzo-11-milioni.title': 'Bellinzona 2025: Plus von 11 Millionen',
     'blog.article.conti-bellinzona-2025-balzo-11-milioni.excerpt': 'Die Bilanz 2025 von Bellinzona schließt mit einem Minus von 2,7 Millionen, eine Verbesserung von 10,7 Millionen gegenüber dem Budget.',
     'blog.article.conti-bellinzona-2025-balzo-11-milioni.imageAlt': 'Panoramablick auf Bellinzona mit Castelgrande',
+    'blog.article.contibellinzona2025risultati.title': 'Bellinzona 2025: Bessere Bilanz als erwartet, geringeres Defizit',
+    'blog.article.contibellinzona2025risultati.excerpt': 'Die Jahresrechnung 2025 von Bellinzona schließt mit einem Defizit von 2,7 Millionen Franken, besser als erwartet. Investitionen in Höhe von 25 Millionen.',
+    'blog.article.contibellinzona2025risultati.imageAlt': 'Bellinzona-Panorama mit der Burg Castelgrande',
 };
 
 export default blogMetaDe;

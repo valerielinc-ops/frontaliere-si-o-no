@@ -4265,6 +4265,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.conti-bellinzona-2025-balzo-11-milioni.title': 'Conti Bellinzona 2025: balzo in avanti di 11 milioni',
     'blog.article.conti-bellinzona-2025-balzo-11-milioni.excerpt': 'I conti 2025 di Bellinzona chiudono con un rosso di 2,7 milioni, migliorando di 10,7 milioni rispetto al preventivo',
     'blog.article.conti-bellinzona-2025-balzo-11-milioni.imageAlt': 'Vista panoramica di Bellinzona con il Castelgrande',
+    'blog.article.contibellinzona2025risultati.title': 'Bellinzona 2025: conti migliori del previsto, disavanzo ridotto',
+    'blog.article.contibellinzona2025risultati.excerpt': 'Il consuntivo 2025 di Bellinzona chiude con un disavanzo di 2,7 milioni, migliore del previsto. Investimenti per 25 milioni.',
+    'blog.article.contibellinzona2025risultati.imageAlt': 'Panorama di Bellinzona con il Castelgrande',
 };
 
 export default blogMetaIt;

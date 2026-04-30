@@ -10963,4 +10963,11 @@ export const ARTICLES = [
  image: '/images/blog/conti-bellinzona-2025-balzo-11-milioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'contibellinzona2025risultati',
+ category: 'fiscale',
+ date: '2026-04-30T10:28:35.933Z',
+ image: '/images/blog/contibellinzona2025risultati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

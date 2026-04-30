@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1471,
+ "numberOfItems": 1472,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6106,7 +6106,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1468, "name": "Italia inadempiente sui crediti sanitari: Quadr...", "url": `${BASE_URL}/articoli-frontaliere/italia-inadempiente-crediti-sanitari` },
           { "@type": "ListItem", "position": 1469, "name": "Ricavi alberghieri in crescita: +3,9% nel 2025", "url": `${BASE_URL}/articoli-frontaliere/settore-alberghiero-ricavi-2025` },
           { "@type": "ListItem", "position": 1470, "name": "Berna e Skopje rafforzano scambi economici e co...", "url": `${BASE_URL}/articoli-frontaliere/berna-skopje-scambi-economici-2026` },
-          { "@type": "ListItem", "position": 1471, "name": "Conti Bellinzona 2025: balzo in avanti di 11 mi...", "url": `${BASE_URL}/articoli-frontaliere/conti-bellinzona-2025-balzo-11-milioni` }
+          { "@type": "ListItem", "position": 1471, "name": "Conti Bellinzona 2025: balzo in avanti di 11 mi...", "url": `${BASE_URL}/articoli-frontaliere/conti-bellinzona-2025-balzo-11-milioni` },
+          { "@type": "ListItem", "position": 1472, "name": "Bellinzona 2025: conti migliori del previsto, d...", "url": `${BASE_URL}/articoli-frontaliere/contibellinzona2025risultati` }
  ]
  },
  {
