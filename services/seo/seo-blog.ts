@@ -26429,6 +26429,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-credit-suisse-integrazione-risultati-2026': {
+    title: 'UBS: utile record grazie all\'integrazione di Credit Suisse',
+    description: 'UBS chiude il primo trimestre 2026 con un utile netto di 3,04 miliardi di dollari, grazie all\'integrazione di Credit Suisse. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, utile, record, grazie, integrazione',
+    ogTitle: 'UBS: utile record grazie all\'integrazione di Credit Suisse',
+    ogDescription: 'UBS chiude il primo trimestre 2026 con un utile netto di 3,04 miliardi di dollari, grazie all\'integrazione di Credit Suisse',
+    canonicalPath: '/articoli-frontaliere/ubs-credit-suisse-integrazione-risultati-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS: utile record grazie all'integrazione di Credit Suisse",
+      "description": "UBS chiude il primo trimestre 2026 con un utile netto di 3,04 miliardi di dollari, grazie all'integrazione di Credit Suisse. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ubs-credit-suisse-integrazione-risultati-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con gli edifici di UBS e Credit Suisse sullo sfondo"
+      },
+      "datePublished": "2026-04-30T00:59:25+00:00",
+      "dateModified": "2026-04-30T00:59:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ubs-credit-suisse-integrazione-risultati-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

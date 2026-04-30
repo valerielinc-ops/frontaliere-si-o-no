@@ -4082,6 +4082,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mendrisio-bilancio-positivo-2025-analisi.title': 'Mendrisio clôture 2025 avec un excédent de 800\'000 francs',
     'blog.article.mendrisio-bilancio-positivo-2025-analisi.excerpt': 'Pour la quatrième année consécutive, Mendrisio présente un bilan positif avec un excédent de 800\'000 francs, malgré un budget en déficit.',
     'blog.article.mendrisio-bilancio-positivo-2025-analisi.imageAlt': 'Vue aérienne de Mendrisio, Suisse, avec son centre historique et les bâtiments modernes, mettant en évidence le quartier financier et le paysage environnant.',
+    'blog.article.ubs-credit-suisse-integrazione-risultati-2026.title': 'UBS: bénéfice record grâce à l\'intégration de Credit Suisse',
+    'blog.article.ubs-credit-suisse-integrazione-risultati-2026.excerpt': 'UBS clôture le premier trimestre 2026 avec un bénéfice net de 3,04 milliards de dollars, grâce à l\'intégration de Credit Suisse',
+    'blog.article.ubs-credit-suisse-integrazione-risultati-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les bâtiments de UBS et Credit Suisse en arrière-plan',
 };
 
 export default blogMetaFr;

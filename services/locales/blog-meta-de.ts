@@ -4081,6 +4081,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mendrisio-bilancio-positivo-2025-analisi.title': 'Mendrisio schließt 2025 mit einem Überschuss von 800.000 Franken',
     'blog.article.mendrisio-bilancio-positivo-2025-analisi.excerpt': 'Zum vierten Mal in Folge präsentiert Mendrisio einen positiven Haushalt mit einem Überschuss von 800.000 Franken, trotz eines negativen Budgets.',
     'blog.article.mendrisio-bilancio-positivo-2025-analisi.imageAlt': 'Luftaufnahme von Mendrisio, Schweiz, mit dem historischen Zentrum und modernen Gebäuden, die den Finanzbezirk und die umliegende Landschaft zeigen.',
+    'blog.article.ubs-credit-suisse-integrazione-risultati-2026.title': 'UBS: Rekordgewinn dank Credit Suisse-Übernahme',
+    'blog.article.ubs-credit-suisse-integrazione-risultati-2026.excerpt': 'UBS schließt das erste Quartal 2026 mit einem Nettogewinn von 3,04 Milliarden Dollar ab, dank der Integration der Credit Suisse',
+    'blog.article.ubs-credit-suisse-integrazione-risultati-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Gebäuden von UBS und Credit Suisse im Hintergrund',
 };
 
 export default blogMetaDe;

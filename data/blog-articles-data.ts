@@ -10535,4 +10535,11 @@ export const ARTICLES = [
  image: '/images/blog/mendrisio-bilancio-positivo-2025-analisi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ubs-credit-suisse-integrazione-risultati-2026',
+ category: 'novita',
+ date: '2026-04-30T00:59:25.271Z',
+ image: '/images/blog/ubs-credit-suisse-integrazione-risultati-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

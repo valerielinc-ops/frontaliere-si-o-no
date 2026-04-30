@@ -4082,6 +4082,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mendrisio-bilancio-positivo-2025-analisi.title': 'Mendrisio chiude 2025 con avanzo di 800mila franchi',
     'blog.article.mendrisio-bilancio-positivo-2025-analisi.excerpt': 'Per il quarto anno consecutivo, Mendrisio presenta un bilancio positivo con un avanzo di 800mila franchi, nonostante un preventivo in rosso.',
     'blog.article.mendrisio-bilancio-positivo-2025-analisi.imageAlt': 'Vista aerea di Mendrisio, Svizzera, con il centro storico e gli edifici moderni, che mostra il distretto finanziario e il paesaggio circostante.',
+    'blog.article.ubs-credit-suisse-integrazione-risultati-2026.title': 'UBS: utile record grazie all\'integrazione di Credit Suisse',
+    'blog.article.ubs-credit-suisse-integrazione-risultati-2026.excerpt': 'UBS chiude il primo trimestre 2026 con un utile netto di 3,04 miliardi di dollari, grazie all\'integrazione di Credit Suisse',
+    'blog.article.ubs-credit-suisse-integrazione-risultati-2026.imageAlt': 'Vista aerea del Lago di Lugano con gli edifici di UBS e Credit Suisse sullo sfondo',
 };
 
 export default blogMetaIt;
