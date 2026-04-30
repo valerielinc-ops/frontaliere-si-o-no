@@ -11075,4 +11075,11 @@ export const ARTICLES = [
  image: '/images/blog/comco-indaga-pubblicita-motori-ricerca.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'record-passeggeri-treni-svizzera-2026',
+ category: 'novita',
+ date: '2026-04-30T12:50:07.101Z',
+ image: '/images/blog/record-passeggeri-treni-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

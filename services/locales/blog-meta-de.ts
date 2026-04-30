@@ -4312,6 +4312,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comco-indaga-pubblicita-motori-ricerca.title': 'COMCO untersucht Werbung über Suchmaschinen: Reisen und Online-Casinos',
     'blog.article.comco-indaga-pubblicita-motori-ricerca.excerpt': 'Die Schweizer Wettbewerbsbehörde COMCO eröffnet zwei Untersuchungen zu illegalen Absprachen zwischen Unternehmen der Reise- und Online-Casino-Branche.',
     'blog.article.comco-indaga-pubblicita-motori-ricerca.imageAlt': 'Luftansicht des Luganersees mit einem Laptop, der Suchmaschinen-Ergebnisse anzeigt',
+    'blog.article.record-passeggeri-treni-svizzera-2026.title': 'Rekord bei Passagierzahlen der Schweizer Bahnen 2026',
+    'blog.article.record-passeggeri-treni-svizzera-2026.excerpt': 'Die wichtigsten Schweizer Bahngesellschaften verzeichnen im ersten Quartal 2026 einen Anstieg von 5 %, während der Güterverkehr um 4 % sinkt.',
+    'blog.article.record-passeggeri-treni-svizzera-2026.imageAlt': 'Luganersee mit modernen Zügen im Hintergrund',
 };
 
 export default blogMetaDe;

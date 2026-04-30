@@ -4312,6 +4312,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comco-indaga-pubblicita-motori-ricerca.title': 'Swiss Competition Commission probes search engine ads: travel and online casinos',
     'blog.article.comco-indaga-pubblicita-motori-ricerca.excerpt': 'The Swiss Competition Commission opens two investigations into illegal agreements between travel sector companies and online casinos',
     'blog.article.comco-indaga-pubblicita-motori-ricerca.imageAlt': 'Aerial view of Lake Lugano with a laptop displaying search engine results',
+    'blog.article.record-passeggeri-treni-svizzera-2026.title': 'Record passenger numbers on Swiss trains in 2026',
+    'blog.article.record-passeggeri-treni-svizzera-2026.excerpt': 'Major Swiss rail companies report a 5% increase in the first quarter of 2026, while freight transport drops by 4%.',
+    'blog.article.record-passeggeri-treni-svizzera-2026.imageAlt': 'Lake Lugano with modern trains in the background',
 };
 
 export default blogMetaEn;

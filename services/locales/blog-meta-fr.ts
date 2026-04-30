@@ -4313,6 +4313,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comco-indaga-pubblicita-motori-ricerca.title': 'COMCO enquête sur la publicité en ligne: voyages et casinos',
     'blog.article.comco-indaga-pubblicita-motori-ricerca.excerpt': 'La Commission de la Concurrence suisse ouvre deux enquêtes sur des accords illicites entre entreprises du secteur des voyages et des casinos en ligne',
     'blog.article.comco-indaga-pubblicita-motori-ricerca.imageAlt': 'Vue aérienne du lac de Lugano avec un ordinateur portable affichant des résultats de moteur de recherche',
+    'blog.article.record-passeggeri-treni-svizzera-2026.title': 'Record de passagers dans les trains suisses en 2026',
+    'blog.article.record-passeggeri-treni-svizzera-2026.excerpt': 'Les principales compagnies ferroviaires suisses enregistrent une augmentation de 5% au premier trimestre 2026, tandis que le transport de marchandises chute de 4%.',
+    'blog.article.record-passeggeri-treni-svizzera-2026.imageAlt': 'Lac de Lugano avec des trains modernes en arrière-plan',
 };
 
 export default blogMetaFr;

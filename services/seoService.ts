@@ -2668,6 +2668,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ffs-siemens-nuovi-treni-ticino': { name: 'Nuovi treni FFS', path: '/articoli-frontaliere/ffs-siemens-nuovi-treni-ticino', parent: 'blog' },
     'blog-passaporto-poste-italiane-uffici': { name: 'Novità', path: '/articoli-frontaliere/passaporto-poste-italiane-uffici', parent: 'blog' },
     'blog-comco-indaga-pubblicita-motori-ricerca': { name: 'Novità', path: '/articoli-frontaliere/comco-indaga-pubblicita-motori-ricerca', parent: 'blog' },
+    'blog-record-passeggeri-treni-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/record-passeggeri-treni-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

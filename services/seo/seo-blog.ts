@@ -28662,6 +28662,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-record-passeggeri-treni-svizzera-2026': {
+    title: 'Record di passeggeri sui treni svizzeri nel 2026 | Frontaliere Ticino',
+    description: 'Le principali compagnie ferroviarie svizzere registrano un aumento del 5% nel primo trimestre 2026, mentre il trasporto merci cala del 4%. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, record, passeggeri, treni, svizzeri',
+    ogTitle: 'Record di passeggeri sui treni svizzeri nel 2026',
+    ogDescription: 'Le principali compagnie ferroviarie svizzere registrano un aumento del 5% nel primo trimestre 2026, mentre il trasporto merci cala del 4%.',
+    canonicalPath: '/articoli-frontaliere/record-passeggeri-treni-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Record di passeggeri sui treni svizzeri nel 2026",
+      "description": "Le principali compagnie ferroviarie svizzere registrano un aumento del 5% nel primo trimestre 2026, mentre il trasporto merci cala del 4%. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/record-passeggeri-treni-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con treni moderni in secondo piano"
+      },
+      "datePublished": "2026-04-30T12:50:07+00:00",
+      "dateModified": "2026-04-30T12:50:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/record-passeggeri-treni-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
