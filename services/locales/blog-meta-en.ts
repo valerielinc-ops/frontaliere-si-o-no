@@ -4360,6 +4360,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trenord-ritardi-frontalieri-2026.title': 'Trenord: 17 lines insufficient by February 2026',
     'blog.article.trenord-ritardi-frontalieri-2026.excerpt': 'In February 2026, 17 out of 42 Trenord lines are eligible for delay compensation. Astuti (Pd): \'Assessor Lucente, please explain\'',
     'blog.article.trenord-ritardi-frontalieri-2026.imageAlt': 'Crowded train station in Ticino with passengers waiting for delayed trains',
+    'blog.article.polizia-ticinese-progetto-concluso.title': 'Ticino police project ends without progress',
+    'blog.article.polizia-ticinese-progetto-concluso.excerpt': 'The State Council decided not to continue with the \'Ticino Police\' project after the planning phase.',
+    'blog.article.polizia-ticinese-progetto-concluso.imageAlt': 'Castelgrande castle in Bellinzona with view of the Ticino Alps',
 };
 
 export default blogMetaEn;

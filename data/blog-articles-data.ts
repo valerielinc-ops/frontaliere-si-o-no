@@ -11187,4 +11187,11 @@ export const ARTICLES = [
  image: '/images/blog/trenord-ritardi-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'polizia-ticinese-progetto-concluso',
+ category: 'novita',
+ date: '2026-04-30T15:51:25.573Z',
+ image: '/images/blog/polizia-ticinese-progetto-concluso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4360,6 +4360,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trenord-ritardi-frontalieri-2026.title': 'Trenord: 17 Linien im Februar 2026 unzureichend. Astuti fordert Erklärungen',
     'blog.article.trenord-ritardi-frontalieri-2026.excerpt': 'Im Februar 2026 haben 17 von 42 Trenord-Linien Anspruch auf Entschädigung für Verspätungen. Astuti (Pd): \'Assessor Lucente soll erklären\'',
     'blog.article.trenord-ritardi-frontalieri-2026.imageAlt': 'Überfüllte Bahnhof in Tessin mit Passagieren, die auf verspätete Züge warten',
+    'blog.article.polizia-ticinese-progetto-concluso.title': 'Tessinische Polizei: Projekt abgeschlossen, keine Fortschritte',
+    'blog.article.polizia-ticinese-progetto-concluso.excerpt': 'Der Staatsrat hat beschlossen, das Projekt \'Tessinische Polizei\' nach der Planungsphase nicht weiterzuführen.',
+    'blog.article.polizia-ticinese-progetto-concluso.imageAlt': 'Castelgrande in Bellinzona mit Blick auf die Alpen des Tessin',
 };
 
 export default blogMetaDe;

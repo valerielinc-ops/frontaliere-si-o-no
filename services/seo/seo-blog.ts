@@ -29126,6 +29126,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-polizia-ticinese-progetto-concluso': {
+    title: 'Polizia ticinese: progetto concluso, nessun sviluppo',
+    description: 'Il Consiglio di Stato ha deciso di non proseguire con il progetto \'Polizia ticinese\' dopo la fase progettuale. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, ticinese, progetto, concluso',
+    ogTitle: 'Polizia ticinese: progetto concluso, nessun sviluppo',
+    ogDescription: 'Il Consiglio di Stato ha deciso di non proseguire con il progetto \'Polizia ticinese\' dopo la fase progettuale. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/polizia-ticinese-progetto-concluso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Polizia ticinese: progetto concluso, nessun sviluppo\",\"description\":\"Il Consiglio di Stato ha deciso di non proseguire con il progetto 'Polizia ticinese' dopo la fase progettuale. Scopri le implicazioni per i frontalieri.\",\"datePublished\":\"2026-04-30\",\"image\":\"https://frontaliereticino.ch/images/castelgrande.webp\"}",
+      "description": "Il Consiglio di Stato ha deciso di non proseguire con il progetto 'Polizia ticinese' dopo la fase progettuale. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/polizia-ticinese-progetto-concluso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona con vista sulle Alpi Ticinesi"
+      },
+      "datePublished": "2026-04-30T15:51:25+00:00",
+      "dateModified": "2026-04-30T15:51:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-ticinese-progetto-concluso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

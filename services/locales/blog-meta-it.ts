@@ -4361,6 +4361,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trenord-ritardi-frontalieri-2026.title': 'Trenord: 17 linee insufficienti a febbraio 2026. Astuti chiede spiegazioni',
     'blog.article.trenord-ritardi-frontalieri-2026.excerpt': 'A febbraio 2026, 17 linee Trenord su 42 hanno diritto all\'indennizzo per ritardi. Astuti (Pd): \'Assessore Lucente spieghi\'',
     'blog.article.trenord-ritardi-frontalieri-2026.imageAlt': 'Stazione ferroviaria affollata in Ticino con passeggeri in attesa di treni in ritardo',
+    'blog.article.polizia-ticinese-progetto-concluso.title': 'Polizia ticinese: progetto concluso, nessun sviluppo',
+    'blog.article.polizia-ticinese-progetto-concluso.excerpt': 'Il Consiglio di Stato ha deciso di non proseguire con il progetto \'Polizia ticinese\' dopo la fase progettuale.',
+    'blog.article.polizia-ticinese-progetto-concluso.imageAlt': 'Castelgrande a Bellinzona con vista sulle Alpi Ticinesi',
 };
 
 export default blogMetaIt;

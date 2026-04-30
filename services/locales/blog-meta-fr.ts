@@ -4361,6 +4361,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trenord-ritardi-frontalieri-2026.title': 'Trenord : 17 lignes insuffisantes en 2026',
     'blog.article.trenord-ritardi-frontalieri-2026.excerpt': 'En février 2026, 17 lignes Trenord sur 42 ont droit à une indemnisation pour retards. Astuti (Pd) : \'Le conseiller Lucente doit s\'expliquer\'',
     'blog.article.trenord-ritardi-frontalieri-2026.imageAlt': 'Gare bondée au Tessin avec des passagers attendant des trains en retard',
+    'blog.article.polizia-ticinese-progetto-concluso.title': 'Police tessinoise : projet terminé, pas de suite',
+    'blog.article.polizia-ticinese-progetto-concluso.excerpt': 'Le Conseil d\'État a décidé de ne pas poursuivre avec le projet \'Police tessinoise\' après la phase de projet.',
+    'blog.article.polizia-ticinese-progetto-concluso.imageAlt': 'Château de Castelgrande à Bellinzone avec vue sur les Alpes tessin',
 };
 
 export default blogMetaFr;
