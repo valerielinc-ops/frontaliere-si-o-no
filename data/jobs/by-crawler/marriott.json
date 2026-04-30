@@ -411,11 +411,11 @@
     },
     {
       "id": "marriott-ff0d7ee52edf",
-      "slug": "internship-universitario-europa-marriott-international-zurich",
+      "slug": "cameriere-ristorante-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "waiter-tress-restaurant-w-verbier-marriott-verbier",
-        "it": "internship-universitario-europa-marriott-international-zurich",
-        "de": "universitatsinternship-europa-marriott-international-zurich",
+        "it": "cameriere-ristorante-w-verbier-marriott-international-verbier",
+        "de": "kellner-spannungsrestaurant-w-verbier-marriott-international-verbier",
         "fr": "waiter-tress-restaurant-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -471,10 +471,18 @@
       "previousSlugsByLocale": {
         "fr": [
           "stage-universitaire-europe-marriott-international-zurich"
+        ],
+        "it": [
+          "internship-universitario-europa-marriott-international-zurich"
+        ],
+        "de": [
+          "universitatsinternship-europa-marriott-international-zurich"
         ]
       },
       "previousSlugs": [
-        "stage-universitaire-europe-marriott-international-zurich"
+        "stage-universitaire-europe-marriott-international-zurich",
+        "internship-universitario-europa-marriott-international-zurich",
+        "universitatsinternship-europa-marriott-international-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2915,12 +2923,12 @@
     },
     {
       "id": "marriott-3c27d85a28b1",
-      "slug": "direttore-della-gestione-del-ricavo-marriott-international-geneva",
+      "slug": "maitre-d-venue-supervisor-lungo-termine-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "maitre-d-venue-supervisor-long-term-w-verbier-marriott-verbier",
-        "it": "direttore-della-gestione-del-ricavo-marriott-international-geneva",
+        "it": "maitre-d-venue-supervisor-lungo-termine-w-verbier-marriott-international-verbier",
         "de": "maitre-d-venue-supervisor-long-term-w-verbier-marriott-international-verbier",
-        "fr": "director-of-revenue-management-marriott-geneva"
+        "fr": "maitre-d-superviseur-en-salle-long-terme-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2975,10 +2983,18 @@
       "previousSlugsByLocale": {
         "de": [
           "direktor-revenue-management-marriott-international-geneva"
+        ],
+        "it": [
+          "direttore-della-gestione-del-ricavo-marriott-international-geneva"
+        ],
+        "fr": [
+          "director-of-revenue-management-marriott-geneva"
         ]
       },
       "previousSlugs": [
-        "direktor-revenue-management-marriott-international-geneva"
+        "direktor-revenue-management-marriott-international-geneva",
+        "direttore-della-gestione-del-ricavo-marriott-international-geneva",
+        "director-of-revenue-management-marriott-geneva"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

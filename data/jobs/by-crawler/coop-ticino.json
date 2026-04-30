@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-4whh8x",
-      "slug": "mitarbeiter-in-inventuren-coop-grigioni",
+      "slug": "personale-in-inventario-coop-genossenschaft-basel",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Inventuren",
       "location": "Basel",
@@ -50,10 +50,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-inventuren-coop-grigioni-4whh8x",
-        "en": "associate-inventuren-coop-grigioni-4whh8x",
+        "it": "personale-in-inventario-coop-genossenschaft-basel",
+        "en": "staff-in-inventory-coop-genossenschaft-basel",
         "de": "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "fr": "collaborateur-trice-inventuren-coop-grigioni-4whh8x"
+        "fr": "personnel-en-inventaire-coop-genossenschaft-basel"
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
@@ -68,7 +68,25 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-trice-inventuren-coop-grigioni-4whh8x",
+          "mitarbeiter-in-inventuren-coop-grigioni"
+        ],
+        "en": [
+          "associate-inventuren-coop-grigioni-4whh8x"
+        ],
+        "fr": [
+          "collaborateur-trice-inventuren-coop-grigioni-4whh8x"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratore-trice-inventuren-coop-grigioni-4whh8x",
+        "mitarbeiter-in-inventuren-coop-grigioni",
+        "associate-inventuren-coop-grigioni-4whh8x",
+        "collaborateur-trice-inventuren-coop-grigioni-4whh8x"
+      ]
     },
     {
       "id": "company-hy7w7d",

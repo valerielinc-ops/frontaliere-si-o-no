@@ -1478,12 +1478,12 @@
     },
     {
       "id": "siegfried-d4ba56ece93e",
-      "slug": "sito-hr-head-siegfried-evionnaz",
+      "slug": "site-risorse-umane-head-siegfried-evionnaz",
       "slugByLocale": {
-        "it": "sito-hr-head-siegfried-evionnaz",
+        "it": "site-risorse-umane-head-siegfried-evionnaz",
         "en": "site-hr-head-siegfried-evionnaz",
         "de": "standort-hr-head-siegfried-evionnaz",
-        "fr": "site-hr-chef-siegfried-evionnaz"
+        "fr": "site-ressources-humaines-head-siegfried-evionnaz"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1529,17 +1529,21 @@
           "site-hr-head-siegfried-ch"
         ],
         "it": [
-          "site-hr-head-siegfried-ch"
+          "site-hr-head-siegfried-ch",
+          "sito-hr-head-siegfried-evionnaz"
         ],
         "de": [
           "site-hr-head-siegfried-ch"
         ],
         "fr": [
-          "site-hr-head-siegfried-ch"
+          "site-hr-head-siegfried-ch",
+          "site-hr-chef-siegfried-evionnaz"
         ]
       },
       "previousSlugs": [
-        "site-hr-head-siegfried-ch"
+        "site-hr-head-siegfried-ch",
+        "sito-hr-head-siegfried-evionnaz",
+        "site-hr-chef-siegfried-evionnaz"
       ],
       "firstSeenAt": "2026-04-30T11:26:45.280Z",
       "salaryMin": 68000,

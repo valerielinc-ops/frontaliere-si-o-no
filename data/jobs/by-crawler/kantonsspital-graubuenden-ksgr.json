@@ -23,9 +23,12 @@
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-04-30T22:04:51.124Z",
-      "slug": "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur",
+      "slug": "specialista-lavoratore-specializzato-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur"
+        "de": "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur",
+        "it": "specialista-lavoratore-specializzato-kantonsspital-graubunden-chur",
+        "en": "specialist-skilled-worker-kantonsspital-graubunden-chur",
+        "fr": "specialiste-travailleur-qualifie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Fachfrau / Fachmann Betriebsunterhalt",
@@ -54,7 +57,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-30T22:04:51.124Z"
+      "firstSeenAt": "2026-04-30T22:04:51.124Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10018292",
@@ -4814,8 +4825,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",

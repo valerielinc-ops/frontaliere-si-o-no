@@ -103,12 +103,12 @@
     },
     {
       "id": "denner-b7690f760cac",
-      "slug": "verkaufer-in-im-stundenlohn-denner-konolfingen",
+      "slug": "venditore-in-salario-orario-denner-konolfingen",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-konolfingen",
-        "en": "verkaufer-in-im-stundenlohn-denner-konolfingen",
+        "it": "venditore-in-salario-orario-denner-konolfingen",
+        "en": "seller-in-in-hourly-wage-denner-konolfingen",
         "de": "verkaufer-in-im-stundenlohn-denner-konolfingen",
-        "fr": "verkaufer-in-im-stundenlohn-denner-konolfingen"
+        "fr": "vendeur-en-salaire-horaire-denner-konolfingen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -167,20 +167,24 @@
       "crawledAt": "2026-04-30T21:39:43.304Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-konolfingen"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-konolfingen"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-konolfingen"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-konolfingen",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -387,12 +391,12 @@
     },
     {
       "id": "denner-efe1bd294835",
-      "slug": "filialleiter-in-in-ausbildung-denner-lyssach",
+      "slug": "capofila-dell-istruzione-denner-lyssach",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-lyssach",
-        "en": "filialleiter-in-in-ausbildung-denner-lyssach",
+        "it": "capofila-dell-istruzione-denner-lyssach",
+        "en": "head-of-branch-in-education-denner-lyssach",
         "de": "filialleiter-in-in-ausbildung-denner-lyssach",
-        "fr": "filialleiter-in-in-ausbildung-denner-lyssach"
+        "fr": "chef-de-division-en-education-denner-lyssach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -451,20 +455,24 @@
       "crawledAt": "2026-04-30T21:39:42.355Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-lyssach"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-lyssach"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-lyssach"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-lyssach",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,

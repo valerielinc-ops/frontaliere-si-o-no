@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-e3fc89250808",
-      "slug": "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-bell-deutschland-gmbh-co-kg-seevetal",
+      "slug": "responsabile-marketing-m-w-d-membro-del-direttivo-bell-deutschland-gmbh-co-kg-seevetal",
       "slugByLocale": {
         "de": "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-hilcona-seevetal",
-        "it": "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-bell-deutschland-gmbh-co-kg-seevetal",
+        "it": "responsabile-marketing-m-w-d-membro-del-direttivo-bell-deutschland-gmbh-co-kg-seevetal",
         "en": "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-bell-deutschland-gmbh-co-kg-seevetal",
-        "fr": "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-bell-deutschland-gmbh-co-kg-seevetal"
+        "fr": "responsable-marketing-m-w-d-membre-de-la-direction-bell-deutschland-gmbh-co-kg-seevetal"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -48,11 +48,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-hilcona-seevetal"
+          "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-hilcona-seevetal",
+          "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-bell-deutschland-gmbh-co-kg-seevetal"
+        ],
+        "fr": [
+          "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-bell-deutschland-gmbh-co-kg-seevetal"
         ]
       },
       "previousSlugs": [
-        "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-hilcona-seevetal"
+        "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-hilcona-seevetal",
+        "bereichsleitung-marketing-m-w-d-mitglied-der-divisionsleitung-bell-deutschland-gmbh-co-kg-seevetal"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -71,12 +76,12 @@
     },
     {
       "id": "hilcona-839e42264078",
-      "slug": "it-collaboratore-trice-m-w-d-con-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "collaboratore-it-m-w-d-con-focus-su-implementazione-software-e-digitalizzazione-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "de": "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt",
-        "it": "it-collaboratore-trice-m-w-d-con-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt"
+        "it": "collaboratore-it-m-w-d-con-focus-su-implementazione-software-e-digitalizzazione-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "it-employee-m-w-d-with-focus-on-software-implementation-and-digitization-hubers-landhendl-gmbh-pfaffstatt",
+        "fr": "employe-it-m-w-d-avec-focus-sur-l-implementation-logicielle-et-la-digitalisation-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -115,14 +120,23 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hilcona-pfaffstatt"
+          "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hilcona-pfaffstatt",
+          "it-collaboratore-trice-m-w-d-con-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt"
         ],
         "de": [
           "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hilcona-pfaffstatt"
+        "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hilcona-pfaffstatt",
+        "it-collaboratore-trice-m-w-d-con-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt",
+        "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

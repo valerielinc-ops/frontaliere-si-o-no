@@ -4014,12 +4014,12 @@
     },
     {
       "id": "pdgr-931f5642c1d2",
-      "slug": "oberarztin-oberarzt-pdgr-ch",
+      "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "it": "oberarztin-oberarzt-pdgr-ch",
-        "en": "oberarztin-oberarzt-pdgr-ch",
-        "fr": "oberarztin-oberarzt-pdgr-ch"
+        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
+        "en": "senior-doctor-psychiatrische-dienste-graubunden-ilanz",
+        "fr": "medecin-principal-psychiatrische-dienste-graubunden-ilanz"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -4081,24 +4081,25 @@
       "firstSeenAt": "2026-04-30T22:19:15.434Z",
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis"
         ],
         "it": [
-          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
+          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "en": [
-          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "fr": [
-          "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
+          "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis",
+          "oberarztin-oberarzt-pdgr-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
+        "oberarztin-oberarzt-pdgr-ch",
         "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       ]

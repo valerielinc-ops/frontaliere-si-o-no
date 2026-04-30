@@ -635,12 +635,12 @@
     },
     {
       "id": "kanton-gr-1a938226e507",
-      "slug": "regionalforstingenieur-in-e-spezialist-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz",
+      "slug": "ingegnere-forestale-regionale-e-specialista-in-pericoli-naturali-kantonale-verwaltung-graubunden-zuoz",
       "slugByLocale": {
         "de": "regionalforstingenieur-in-und-spezialist-in-naturgefahren-kanton-gr-ch",
-        "it": "regionalforstingenieur-in-e-spezialist-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz",
+        "it": "ingegnere-forestale-regionale-e-specialista-in-pericoli-naturali-kantonale-verwaltung-graubunden-zuoz",
         "en": "regionalforstingenieur-in-und-spezialist-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz",
-        "fr": "regionalforstingenieur-in-und-spezialist-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz"
+        "fr": "ingenieur-forestier-regional-et-specialiste-en-risques-naturels-kantonale-verwaltung-graubunden-zuoz"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -689,11 +689,17 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
-          "regionalforstingenieur-in-und-spezialist-in-naturgefahren-kanton-gr-ch"
+          "regionalforstingenieur-in-und-spezialist-in-naturgefahren-kanton-gr-ch",
+          "regionalforstingenieur-in-e-spezialist-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz"
+        ],
+        "fr": [
+          "regionalforstingenieur-in-und-spezialist-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz"
         ]
       },
       "previousSlugs": [
-        "regionalforstingenieur-in-und-spezialist-in-naturgefahren-kanton-gr-ch"
+        "regionalforstingenieur-in-und-spezialist-in-naturgefahren-kanton-gr-ch",
+        "regionalforstingenieur-in-e-spezialist-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz",
+        "regionalforstingenieur-in-und-spezialist-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -711,12 +717,12 @@
     },
     {
       "id": "kanton-gr-08bdd5a2043f",
-      "slug": "technische-r-sachbearbeiter-in-kantonale-verwaltung-graubunden-landquart",
+      "slug": "responsabile-tecnico-forestale-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
         "de": "technische-r-sachbearbeiter-in-kantonale-verwaltung-graubunden-landquart",
-        "it": "technische-r-sachbearbeiter-in-kantonale-verwaltung-graubunden-landquart",
-        "en": "technische-r-sachbearbeiter-in-kantonale-verwaltung-graubunden-landquart",
-        "fr": "technische-r-sachbearbeiter-in-kantonale-verwaltung-graubunden-landquart"
+        "it": "responsabile-tecnico-forestale-kantonale-verwaltung-graubunden-landquart",
+        "en": "technical-forestry-specialist-kantonale-verwaltung-graubunden-landquart",
+        "fr": "responsable-technique-forestier-kantonale-verwaltung-graubunden-landquart"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -765,14 +771,22 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-sachbearbeiter-in-kanton-gr-ch"
+          "technische-r-sachbearbeiter-in-kanton-gr-ch",
+          "technische-r-sachbearbeiter-in-kantonale-verwaltung-graubunden-landquart"
         ],
         "de": [
           "technische-r-sachbearbeiter-in-kanton-gr-ch"
+        ],
+        "en": [
+          "technische-r-sachbearbeiter-in-kantonale-verwaltung-graubunden-landquart"
+        ],
+        "fr": [
+          "technische-r-sachbearbeiter-in-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "previousSlugs": [
-        "technische-r-sachbearbeiter-in-kanton-gr-ch"
+        "technische-r-sachbearbeiter-in-kanton-gr-ch",
+        "technische-r-sachbearbeiter-in-kantonale-verwaltung-graubunden-landquart"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -790,12 +804,12 @@
     },
     {
       "id": "kanton-gr-d47b1b5b6b58",
-      "slug": "technische-r-sachbearbeiter-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz",
+      "slug": "tecnico-a-per-le-emergenze-naturali-kantonale-verwaltung-graubunden-zuoz",
       "slugByLocale": {
         "de": "technische-r-sachbearbeiter-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz",
-        "it": "technische-r-sachbearbeiter-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz",
-        "en": "technische-r-sachbearbeiter-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz",
-        "fr": "technische-r-sachbearbeiter-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz"
+        "it": "tecnico-a-per-le-emergenze-naturali-kantonale-verwaltung-graubunden-zuoz",
+        "en": "technical-officer-for-natural-hazards-kantonale-verwaltung-graubunden-zuoz",
+        "fr": "technicien-ne-en-risques-naturels-kantonale-verwaltung-graubunden-zuoz"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -845,14 +859,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-sachbearbeiter-in-naturgefahren-kanton-gr-ch"
+          "technische-r-sachbearbeiter-in-naturgefahren-kanton-gr-ch",
+          "technische-r-sachbearbeiter-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz"
         ],
         "de": [
           "technische-r-sachbearbeiter-in-naturgefahren-kanton-gr-ch"
+        ],
+        "en": [
+          "technische-r-sachbearbeiter-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz"
+        ],
+        "fr": [
+          "technische-r-sachbearbeiter-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz"
         ]
       },
       "previousSlugs": [
-        "technische-r-sachbearbeiter-in-naturgefahren-kanton-gr-ch"
+        "technische-r-sachbearbeiter-in-naturgefahren-kanton-gr-ch",
+        "technische-r-sachbearbeiter-in-naturgefahren-kantonale-verwaltung-graubunden-zuoz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
