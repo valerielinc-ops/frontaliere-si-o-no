@@ -11159,4 +11159,11 @@ export const ARTICLES = [
  image: '/images/blog/trenord-disservizi-frontalieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pulmino-elettrico-granello-cislago-2026',
+ category: 'novita',
+ date: '2026-04-30T15:05:42.252Z',
+ image: '/images/blog/pulmino-elettrico-granello-cislago-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

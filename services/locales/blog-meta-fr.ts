@@ -4349,6 +4349,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trenord-disservizi-frontalieri-2026.title': 'Trenord : 25 lignes avec indemnisation, début 2026 désastreux',
     'blog.article.trenord-disservizi-frontalieri-2026.excerpt': 'Données alarmantes pour Trenord : 25 lignes avec indemnisation en janvier 2026, 17 en février. Le Pd demande des éclaircissements.',
     'blog.article.trenord-disservizi-frontalieri-2026.imageAlt': 'Gare ferroviaire bondée à Mendrisio, avec des voyageurs attendant les trains Trenord.',
+    'blog.article.pulmino-elettrico-granello-cislago-2026.title': 'Minibus électrique pour Il Granello à Cislago: des trajets plus durables',
+    'blog.article.pulmino-elettrico-granello-cislago-2026.excerpt': 'Un minibus électrique mis à disposition gratuitement pendant quelques mois par un concessionnaire de Gallarate soutient les activités quotidiennes et les déplacements des jeunes de la coopérative Il Granello à Cislago.',
+    'blog.article.pulmino-elettrico-granello-cislago-2026.imageAlt': 'Un minibus électrique dans une rue de Cislago avec des garçons qui montent à bord',
 };
 
 export default blogMetaFr;

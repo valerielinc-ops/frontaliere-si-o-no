@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1499,
+ "numberOfItems": 1500,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6134,7 +6134,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1496, "name": "Vittoria consumatori: illegittime le clausole S...", "url": `${BASE_URL}/articoli-frontaliere/clausole-sunrise-illegittime-2026` },
           { "@type": "ListItem", "position": 1497, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/lidl-formazione-duale-gdo-ticino` },
           { "@type": "ListItem", "position": 1498, "name": "Lugano rafforza l'attrattiva per grandi contrib...", "url": `${BASE_URL}/articoli-frontaliere/lugano-red-carpet-contribuenti-2026` },
-          { "@type": "ListItem", "position": 1499, "name": "Trenord: 25 linee con indennizzo, inizio 2026 d...", "url": `${BASE_URL}/articoli-frontaliere/trenord-disservizi-frontalieri-2026` }
+          { "@type": "ListItem", "position": 1499, "name": "Trenord: 25 linee con indennizzo, inizio 2026 d...", "url": `${BASE_URL}/articoli-frontaliere/trenord-disservizi-frontalieri-2026` },
+          { "@type": "ListItem", "position": 1500, "name": "Pulmino elettrico per Il Granello di Cislago: v...", "url": `${BASE_URL}/articoli-frontaliere/pulmino-elettrico-granello-cislago-2026` }
  ]
  },
  {

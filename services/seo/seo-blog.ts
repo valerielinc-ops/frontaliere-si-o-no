@@ -29010,6 +29010,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pulmino-elettrico-granello-cislago-2026': {
+    title: 'Pulmino elettrico per Il Granello di Cislago: viaggi più sostenibili',
+    description: 'Un pulmino elettrico messo a disposizione gratuitamente per alcuni mesi da un concessionario di Gallarate supporta le attività quotidiane e gli spostamenti dei',
+    keywords: 'frontalieri, ticino, svizzera, italia, pulmino, elettrico, granello, cislago',
+    ogTitle: 'Pulmino elettrico per Il Granello di Cislago: viaggi più sostenibili',
+    ogDescription: 'Un pulmino elettrico messo a disposizione gratuitamente per alcuni mesi da un concessionario di Gallarate supporta le attività quotidiane e gli spostamenti dei',
+    canonicalPath: '/articoli-frontaliere/pulmino-elettrico-granello-cislago-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pulmino elettrico per Il Granello di Cislago: viaggi più sostenibili",
+      "description": "Un pulmino elettrico messo a disposizione gratuitamente per alcuni mesi da un concessionario di Gallarate supporta le attività quotidiane e gli spostamenti dei",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pulmino-elettrico-granello-cislago-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un pulmino elettrico in una strada di Cislago con ragazzi che salgono a bordo"
+      },
+      "datePublished": "2026-04-30T15:05:42+00:00",
+      "dateModified": "2026-04-30T15:05:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pulmino-elettrico-granello-cislago-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

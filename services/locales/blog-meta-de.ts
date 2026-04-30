@@ -4348,6 +4348,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trenord-disservizi-frontalieri-2026.title': 'Trenord: 25 Linien mit Entschädigung, Anfang 2026 katastrophal',
     'blog.article.trenord-disservizi-frontalieri-2026.excerpt': 'Alarmierende Daten für Trenord: 25 Linien mit Entschädigung im Januar 2026, 17 im Februar. Die PD verlangt Klarheit.',
     'blog.article.trenord-disservizi-frontalieri-2026.imageAlt': 'Belebter Bahnhof in Mendrisio, mit Pendlern, die auf die Trenord-Züge warten.',
+    'blog.article.pulmino-elettrico-granello-cislago-2026.title': 'Elektrobus für Il Granello in Cislago: nachhaltige Fahrten',
+    'blog.article.pulmino-elettrico-granello-cislago-2026.excerpt': 'Ein Elektrobus, der von einem Gallarate-Händler für einige Monate kostenlos zur Verfügung gestellt wurde, unterstützt die täglichen Aktivitäten und Fahrten der Jugendlichen der Genossenschaft Il Granello in Cislago.',
+    'blog.article.pulmino-elettrico-granello-cislago-2026.imageAlt': 'Ein Elektrobus auf einer Straße in Cislago mit Jungen, die einsteigen',
 };
 
 export default blogMetaDe;

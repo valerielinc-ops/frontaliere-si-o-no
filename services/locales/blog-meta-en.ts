@@ -4348,6 +4348,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trenord-disservizi-frontalieri-2026.title': 'Trenord: 25 lines with compensation, disastrous start to 2026',
     'blog.article.trenord-disservizi-frontalieri-2026.excerpt': 'Alarm bells for Trenord: 25 lines with compensation in January 2026, 17 in February. The Pd demands clarity.',
     'blog.article.trenord-disservizi-frontalieri-2026.imageAlt': 'Crowded train station in Mendrisio, with commuters waiting for Trenord trains.',
+    'blog.article.pulmino-elettrico-granello-cislago-2026.title': 'Electric minibus for Il Granello di Cislago: more sustainable trips',
+    'blog.article.pulmino-elettrico-granello-cislago-2026.excerpt': 'An electric minibus provided for free for a few months by a Gallarate dealership supports the daily activities and movements of the young people at the Il Granello di Cislago cooperative.',
+    'blog.article.pulmino-elettrico-granello-cislago-2026.imageAlt': 'An electric minibus on a street in Cislago with boys boarding it',
 };
 
 export default blogMetaEn;
