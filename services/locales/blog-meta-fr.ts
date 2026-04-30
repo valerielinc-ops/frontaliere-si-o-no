@@ -4073,6 +4073,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.supsi-20-nuovi-professori-2026.title': 'La SUPSI nomme 20 nouveaux professeurs',
     'blog.article.supsi-20-nuovi-professori-2026.excerpt': 'La cérémonie de nomination a eu lieu à Mendrisio le 28 avril 2026. 12 nominations senior également attribuées.',
     'blog.article.supsi-20-nuovi-professori-2026.imageAlt': 'Vue aérienne du campus SUPSI à Mendrisio, Tessin',
+    'blog.article.italian-e-bike-tragedy-bern.title': 'Italien décédé dans un accident d\'e-bike dans le canton de Berne',
+    'blog.article.italian-e-bike-tragedy-bern.excerpt': 'Un homme de 60 ans, Italien résidant dans le canton de Berne, est décédé après un accident avec son e-bike à Bätterkinden, dans le canton de Berne, le 28 avril 2026.',
+    'blog.article.italian-e-bike-tragedy-bern.imageAlt': 'Scène réaliste d\'un e-bike italienais impliqué dans un accident dans le canton de Berne',
 };
 
 export default blogMetaFr;

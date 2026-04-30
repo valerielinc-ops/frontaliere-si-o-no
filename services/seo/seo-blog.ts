@@ -26342,6 +26342,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-italian-e-bike-tragedy-bern': {
+    title: 'Morto italiano in incidente di e-bike nel Canton Bern',
+    description: 'Un uomo di 60 anni residente in Svizzera è deceduto in un incidente con e-bike a Bätterkinden, nel Canton Bern, il 28 aprile 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, morto, italiano, incidente, e-bike',
+    ogTitle: 'Incidente e-bike nel Canton Bern: morto italiano',
+    ogDescription: 'Tragico incidente a Bätterkinden, nel Canton Bern, il 28 aprile 2026: un uomo di 60 anni ha perso la vita in seguito a una caduta dalla bici elettrica.',
+    canonicalPath: '/articoli-frontaliere/italian-e-bike-tragedy-bern',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente e-bike Bern",
+      "description": "Un uomo di 60 anni residente in Svizzera è deceduto in un incidente con e-bike a Bätterkinden, nel Canton Bern, il 28 aprile 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/italian-e-bike-tragedy-bern.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "E-bike italiana coinvolta in un incidente nel Canton Bern, scena realistica in Ticino"
+      },
+      "datePublished": "2026-04-30T00:19:03+00:00",
+      "dateModified": "2026-04-30T00:19:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/italian-e-bike-tragedy-bern`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

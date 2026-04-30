@@ -2588,6 +2588,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ubs-utile-3-miliardi-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-utile-3-miliardi-2026', parent: 'blog' },
     'blog-borse-europee-zurigo-trimestrali': { name: 'Novità', path: '/articoli-frontaliere/borse-europee-zurigo-trimestrali', parent: 'blog' },
     'blog-supsi-20-nuovi-professori-2026': { name: 'Novità', path: '/articoli-frontaliere/supsi-20-nuovi-professori-2026', parent: 'blog' },
+    'blog-italian-e-bike-tragedy-bern': { name: 'Morto italiano in incidente di e-bike nel', path: '/articoli-frontaliere/italian-e-bike-tragedy-bern', parent: 'blog' },
  };
 
  const info = sectionNames[section];
