@@ -31,8 +31,7 @@
 const PROVIDERS = [
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000  },
   { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000  },
-  // mailjet: disabled until account is activated (401 Unauthorized). Re-enable when unblocked.
-  // { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
+  { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   // unosend: disabled — re-enable when needed.
   // { id: 'unosend',  dailyLimit: 200, monthlyLimit: 6000  },
