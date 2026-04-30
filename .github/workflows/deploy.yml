@@ -49,7 +49,7 @@ on:
         type: boolean
         default: false
       post_build_max_parallel:
-        description: 'Concurrency cap for the 19-task post-build pool. Default 4 — measured -33% wall vs =2 baseline (230s vs 345s) and -16% vs =3 (274s). The 4-way overlap masks I/O wait time; 2-core thrashing penalty is small because most tasks are I/O-bound (reading dist/). Override with 1/2/3 for one-off measurements.'
+        description: 'Concurrency cap for the 11-task post-build pool. Default 4 — measured -33% wall vs =2 baseline (230s vs 345s) and -16% vs =3 (274s). The 4-way overlap masks I/O wait time; 2-core thrashing penalty is small because most tasks are I/O-bound (reading dist/). Override with 1/2/3 for one-off measurements.'
         required: false
         type: string
         default: '4'
@@ -439,26 +439,22 @@ jobs:
           # of spawn order made wall 279s vs expected ~240s).
           spawn_capped gate:seo-source              /tmp/gate.log npm run gate:seo-source
           # Consolidated dist-walker: one walk + one read per HTML page runs
-          # text-html-ratio + title-length + h1-title-duplicates +
-          # content-duplicates in pipeline. Replaces 4 separate spawn_capped
-          # calls (g5/g6/g7/g3) that each re-read all of dist/ end-to-end
-          # (~6.7 GB, ~374K files). Output is semantically identical to the
-          # 4 originals; baselines in data/{text-html-ratio,title-length,
-          # h1-title-duplicates}-baseline.json are unchanged.
+          # NINE audits in pipeline: text-html-ratio + title-length +
+          # h1-title-duplicates + content-duplicates + page-weight + hreflang +
+          # title-uniqueness + jobposting-schema + structured-data-completeness.
+          # Replaces 9 separate spawn_capped calls that each re-read all of
+          # dist/ end-to-end (~6.7 GB, ~374K files). Output is semantically
+          # identical to the 9 originals; baselines in data/{text-html-ratio,
+          # title-length,h1-title-duplicates}-baseline.json are unchanged.
           spawn_capped audit:dist-multi             /tmp/g5.log npm run audit:dist-multi
-          spawn_capped validate:jobposting-schema   /tmp/v1.log npm run validate:jobposting-schema
           # Group C — SPA render validation (5 min internal budget)
           spawn_capped validate:spa-render          /tmp/spa.log timeout 300 node scripts/validate-spa-render.mjs
-          spawn_capped audit:page-weight            /tmp/g4.log npm run audit:page-weight
           # Group D — E2E smoke (3 min internal budget)
           spawn_capped test:e2e:smoke               /tmp/e2e.log timeout 180 npx playwright test
           # Gate — orphaned pages in sitemaps (BFS reachability from homepage;
           # ratchet baseline in data/orphan-pages-baseline.json). Improvements
           # accepted silently; any sitemap whose orphan count goes UP fails.
           spawn_capped audit:orphan-sitemap-pages   /tmp/g9.log npm run audit:orphan-sitemap-pages -- --gate=baseline
-          spawn_capped audit:title-uniqueness       /tmp/g2.log npm run audit:title-uniqueness
-          spawn_capped audit:hreflang               /tmp/g1.log npm run audit:hreflang
-          spawn_capped validate:structured-data     /tmp/v7.log node scripts/validate-structured-data-completeness.mjs
           spawn_capped validate:soft-404            /tmp/v4.log node scripts/validate-soft404.mjs
           spawn_capped validate:content-quality     /tmp/v6.log node scripts/validate-content-quality.mjs
           # Gate — sitemap canonical integrity (HARD gate, no baseline).
@@ -490,7 +486,7 @@ jobs:
           fi
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 16 post-build validators+audits+SPA+E2E+gate passed"
+          echo "✅ All 11 post-build validators+audits+SPA+E2E+gate passed"
 
       # Visual regression baselines are OS-sensitive (darwin vs linux pixel
       # diffs). We run them only when a linux-specific baseline has been

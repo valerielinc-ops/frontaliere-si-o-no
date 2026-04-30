@@ -237,6 +237,7 @@
     "jobs:update:davos-klosters-bergbahnen": "node scripts/update-davos-klosters-bergbahnen-jobs.mjs",
     "validate:thin-pages": "node scripts/find-thin-pages.mjs --min-words=100 --fail-on-any",
     "audit:content-duplicates": "node scripts/audit-content-duplicates.mjs dist",
+    "audit:dist-multi": "node scripts/audit-dist-multi.mjs",
     "audit:page-weight": "node scripts/audit-page-weight.mjs",
     "audit:text-html-ratio": "node scripts/audit-text-html-ratio.mjs --baseline=data/text-html-ratio-baseline.json",
     "audit:text-html-ratio:rebaseline": "node scripts/audit-text-html-ratio.mjs --write-baseline=data/text-html-ratio-baseline.json",
