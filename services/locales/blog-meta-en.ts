@@ -4192,6 +4192,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a2-traffico-ritardi-lugano-2026.title': 'A2 traffic chaos: over an hour delays between Chiasso and Lugano',
     'blog.article.a2-traffico-ritardi-lugano-2026.excerpt': 'Nightmare morning on the A2 northbound with delays up to one hour and forty minutes. Accidents and police checks complicate traffic',
     'blog.article.a2-traffico-ritardi-lugano-2026.imageAlt': 'Aerial view of A2 highway near Lugano with traffic congestion and police presence',
+    'blog.article.roberto-grassi-nuovo-presidente-liuc-castellanza.title': 'Roberto Grassi is the new president of LIUC University',
+    'blog.article.roberto-grassi-nuovo-presidente-liuc-castellanza.excerpt': 'The Board of Directors of LIUC has appointed Roberto Grassi as the new president of the university in Castellanza.',
+    'blog.article.roberto-grassi-nuovo-presidente-liuc-castellanza.imageAlt': 'LIUC University campus in Castellanza',
 };
 
 export default blogMetaEn;

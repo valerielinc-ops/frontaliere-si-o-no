@@ -10794,4 +10794,11 @@ export const ARTICLES = [
  image: '/images/blog/a2-traffico-ritardi-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'roberto-grassi-nuovo-presidente-liuc-castellanza',
+ category: 'novita',
+ date: '2026-04-30T06:54:24.925Z',
+ image: '/images/blog/roberto-grassi-nuovo-presidente-liuc-castellanza.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

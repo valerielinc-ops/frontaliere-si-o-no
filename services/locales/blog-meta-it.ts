@@ -4193,6 +4193,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a2-traffico-ritardi-lugano-2026.title': 'A2 in tilt: ritardi oltre l\'ora tra Chiasso e Lugano',
     'blog.article.a2-traffico-ritardi-lugano-2026.excerpt': 'Mattinata da incubo sulla A2 in direzione nord con ritardi fino a un\'ora e quaranta minuti. Incidenti e controlli della polizia complicano il traffico',
     'blog.article.a2-traffico-ritardi-lugano-2026.imageAlt': 'Vista aerea dell\'autostrada A2 vicino a Lugano con traffico congestionato e presenza della polizia',
+    'blog.article.roberto-grassi-nuovo-presidente-liuc-castellanza.title': 'Roberto Grassi è il nuovo presidente dell\'università LIUC di Castellanza',
+    'blog.article.roberto-grassi-nuovo-presidente-liuc-castellanza.excerpt': 'Il Consiglio di amministrazione della LIUC ha nominato Roberto Grassi nuovo presidente dell\'ateneo di Castellanza.',
+    'blog.article.roberto-grassi-nuovo-presidente-liuc-castellanza.imageAlt': 'Campus dell\'Università LIUC a Castellanza',
 };
 
 export default blogMetaIt;

@@ -27502,6 +27502,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-roberto-grassi-nuovo-presidente-liuc-castellanza': {
+    title: 'Roberto Grassi è il nuovo presidente dell\'università LIUC di Castellanza',
+    description: 'Roberto Grassi è il nuovo presidente della LIUC di Castellanza. Scopri le implicazioni per i frontalieri e le nuove opportunità formative. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, roberto, grassi, nuovo, presidente',
+    ogTitle: 'Roberto Grassi nuovo presidente LIUC Castellanza',
+    ogDescription: 'Roberto Grassi è il nuovo presidente della LIUC di Castellanza. Scopri le implicazioni per i frontalieri e le nuove opportunità formative.',
+    canonicalPath: '/articoli-frontaliere/roberto-grassi-nuovo-presidente-liuc-castellanza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roberto Grassi nuovo presidente LIUC Castellanza",
+      "description": "Roberto Grassi è il nuovo presidente della LIUC di Castellanza. Scopri le implicazioni per i frontalieri e le nuove opportunità formative. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/roberto-grassi-nuovo-presidente-liuc-castellanza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus dell'Università LIUC a Castellanza"
+      },
+      "datePublished": "2026-04-30T06:54:24+00:00",
+      "dateModified": "2026-04-30T06:54:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/roberto-grassi-nuovo-presidente-liuc-castellanza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
