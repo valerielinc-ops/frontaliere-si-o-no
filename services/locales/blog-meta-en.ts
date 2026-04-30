@@ -4207,6 +4207,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.samantha-bourgoin-apisuisse-2026.title': 'Samantha Bourgoin is the new president of Apisuisse',
     'blog.article.samantha-bourgoin-apisuisse-2026.excerpt': 'The Green Party deputy was elected on April 18. Apisuisse represents around 18,000 beekeepers in Switzerland.',
     'blog.article.samantha-bourgoin-apisuisse-2026.imageAlt': 'A beekeeper in Ticino checking beehives in a rural landscape',
+    'blog.article.birdwatching-monteviasco-2026.title': 'Birdwatching in Monteviasco: a nature discovery hike',
+    'blog.article.birdwatching-monteviasco-2026.excerpt': 'Sunday hike through trails and woods to discover local birdlife. Colombo (LIPU): \'An experience to observe, listen and learn to protect the environment\'.',
+    'blog.article.birdwatching-monteviasco-2026.imageAlt': 'Birdwatching excursion in Monteviasco, with participants observing birds in the surrounding forests and valleys.',
 };
 
 export default blogMetaEn;

@@ -4207,6 +4207,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.samantha-bourgoin-apisuisse-2026.title': 'Samantha Bourgoin ist die neue Präsidentin von Apisuisse',
     'blog.article.samantha-bourgoin-apisuisse-2026.excerpt': 'Die Grünen-Abgeordnete wurde am 18. April gewählt. Apisuisse vertritt etwa 18\'000 Imker in der Schweiz.',
     'blog.article.samantha-bourgoin-apisuisse-2026.imageAlt': 'Ein Imker in der Schweiz kontrolliert Bienenstöcke in einer ländlichen Landschaft',
+    'blog.article.birdwatching-monteviasco-2026.title': 'Vogelbeobachtung in Monteviasco: Natur entdecken',
+    'blog.article.birdwatching-monteviasco-2026.excerpt': 'Sonntag Wanderung zwischen Pfaden und Wäldern zur Entdeckung der lokalen Vogelwelt. Colombo (LIPU): „Ein Erlebnis, um zu beobachten, zuzuhören und zu lernen, die Umwelt zu schützen“.',
+    'blog.article.birdwatching-monteviasco-2026.imageAlt': 'Vogelbeobachtungsexkursion in Monteviasco, bei der Teilnehmer Vögel in den umliegenden Wäldern und Tälern beobachten.',
 };
 
 export default blogMetaDe;

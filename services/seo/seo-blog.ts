@@ -27647,6 +27647,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-birdwatching-monteviasco-2026': {
+    title: 'Birdwatching a Monteviasco: escursione per riscoprire la natura',
+    description: 'Domenica escursione tra sentieri e boschi alla scoperta dell’avifauna locale. Colombo (LIPU): “Un’esperienza per osservare, ascoltare e imparare a proteggere',
+    keywords: 'frontalieri, ticino, svizzera, italia, birdwatching, monteviasco, escursione, riscoprire',
+    ogTitle: 'Birdwatching a Monteviasco: escursione per riscoprire la natura',
+    ogDescription: 'Domenica escursione tra sentieri e boschi alla scoperta dell’avifauna locale. Colombo (LIPU): “Un’esperienza per osservare, ascoltare e imparare a proteggere',
+    canonicalPath: '/articoli-frontaliere/birdwatching-monteviasco-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Birdwatching a Monteviasco: escursione per riscoprire la natura",
+      "description": "Domenica escursione tra sentieri e boschi alla scoperta dell’avifauna locale. Colombo (LIPU): “Un’esperienza per osservare, ascoltare e imparare a proteggere",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/birdwatching-monteviasco-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Escursione di birdwatching a Monteviasco, con partecipanti che osservano gli uccelli nei boschi e nelle valli circostanti."
+      },
+      "datePublished": "2026-04-30T07:38:07+00:00",
+      "dateModified": "2026-04-30T07:38:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/birdwatching-monteviasco-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -10829,4 +10829,11 @@ export const ARTICLES = [
  image: '/images/blog/samantha-bourgoin-apisuisse-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'birdwatching-monteviasco-2026',
+ category: 'novita',
+ date: '2026-04-30T07:38:07.471Z',
+ image: '/images/blog/birdwatching-monteviasco-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
