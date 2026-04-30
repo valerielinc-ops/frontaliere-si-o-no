@@ -4391,6 +4391,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casa-comunita-luino-punto-unico-accesso.title': 'Luino: apre la Casa di Comunità con punto unico di accesso',
     'blog.article.casa-comunita-luino-punto-unico-accesso.excerpt': 'Da venerdì 1° maggio è operativo il Punto Unico di Accesso nella nuova Casa di Comunità di Luino, finanziata con fondi PNRR.',
     'blog.article.casa-comunita-luino-punto-unico-accesso.imageAlt': 'Casa di Comunità di Luino, ingresso ospedale',
+    'blog.article.bellinzona-2025-consuntivo-risultati.title': 'Bellinzona: disavanzo 2025 ridotto a -2,7 milioni',
+    'blog.article.bellinzona-2025-consuntivo-risultati.excerpt': 'Il consuntivo 2025 della Città di Bellinzona chiude con un disavanzo ridotto a -2,7 milioni, grazie a un aumento del gettito fiscale e al contenimento delle spese.',
+    'blog.article.bellinzona-2025-consuntivo-risultati.imageAlt': 'Vista aerea di Bellinzona con il Castelgrande e le Alpi in lontananza',
 };
 
 export default blogMetaIt;

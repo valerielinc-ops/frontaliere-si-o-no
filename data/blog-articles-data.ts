@@ -11257,4 +11257,11 @@ export const ARTICLES = [
  image: '/images/blog/casa-comunita-luino-punto-unico-accesso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bellinzona-2025-consuntivo-risultati',
+ category: 'fiscale',
+ date: '2026-04-30T17:25:43.252Z',
+ image: '/images/blog/bellinzona-2025-consuntivo-risultati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

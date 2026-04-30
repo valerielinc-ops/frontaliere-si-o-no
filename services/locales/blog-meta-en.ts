@@ -4390,6 +4390,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casa-comunita-luino-punto-unico-accesso.title': 'Luino: Community House opens with single access point',
     'blog.article.casa-comunita-luino-punto-unico-accesso.excerpt': 'As of Friday, May 1st, the Single Access Point is operational in the new Community House of Luino, funded with PNRR resources.',
     'blog.article.casa-comunita-luino-punto-unico-accesso.imageAlt': 'Luino Community House, hospital entrance',
+    'blog.article.bellinzona-2025-consuntivo-risultati.title': 'Bellinzona: 2025 deficit reduced to -2.7 million',
+    'blog.article.bellinzona-2025-consuntivo-risultati.excerpt': 'The 2025 financial statement of the City of Bellinzona closes with a deficit reduced to -2.7 million, thanks to an increase in tax revenue and controlled expenses.',
+    'blog.article.bellinzona-2025-consuntivo-risultati.imageAlt': 'Aerial view of Bellinzona with Castelgrande and the Alps in the background',
 };
 
 export default blogMetaEn;

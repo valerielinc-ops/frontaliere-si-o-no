@@ -4391,6 +4391,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casa-comunita-luino-punto-unico-accesso.title': 'Luino: ouverture de la Maison de la Communauté avec un point d\'accès unique',
     'blog.article.casa-comunita-luino-punto-unico-accesso.excerpt': 'Depuis vendredi 1er mai, le Point d\'Accès Unique est opérationnel dans la nouvelle Maison de la Communauté de Luino, financée avec des fonds du PNRR.',
     'blog.article.casa-comunita-luino-punto-unico-accesso.imageAlt': 'Maison de la Communauté de Luino, entrée de l\'hôpital',
+    'blog.article.bellinzona-2025-consuntivo-risultati.title': 'Bellinzone: déficit 2025 réduit à -2,7 millions',
+    'blog.article.bellinzona-2025-consuntivo-risultati.excerpt': 'Le bilan 2025 de la Ville de Bellinzone se clôture avec un déficit réduit à -2,7 millions, grâce à une augmentation des recettes fiscales et au contrôle des dépenses.',
+    'blog.article.bellinzona-2025-consuntivo-risultati.imageAlt': 'Vue aérienne de Bellinzona avec le Castelgrande et les Alpes en arrière-plan',
 };
 
 export default blogMetaFr;

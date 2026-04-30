@@ -29416,6 +29416,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzona-2025-consuntivo-risultati': {
+    title: 'Bellinzona: disavanzo 2025 ridotto a -2,7 milioni | Frontaliere Ticino',
+    description: 'Il consuntivo 2025 della Città di Bellinzona chiude con un disavanzo ridotto a -2,7 milioni, grazie a un aumento del gettito fiscale e al contenimento delle',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, disavanzo, 2025, ridotto',
+    ogTitle: 'Bellinzona: disavanzo 2025 ridotto a -2,7 milioni',
+    ogDescription: 'Il consuntivo 2025 della Città di Bellinzona chiude con un disavanzo ridotto a -2,7 milioni, grazie a un aumento del gettito fiscale e al contenimento delle',
+    canonicalPath: '/articoli-frontaliere/bellinzona-2025-consuntivo-risultati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona: disavanzo 2025 ridotto a -2,7 milioni",
+      "description": "Il consuntivo 2025 della Città di Bellinzona chiude con un disavanzo ridotto a -2,7 milioni, grazie a un aumento del gettito fiscale e al contenimento delle",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bellinzona-2025-consuntivo-risultati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona con il Castelgrande e le Alpi in lontananza"
+      },
+      "datePublished": "2026-04-30T17:25:43+00:00",
+      "dateModified": "2026-04-30T17:25:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-2025-consuntivo-risultati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

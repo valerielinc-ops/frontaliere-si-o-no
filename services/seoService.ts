@@ -2694,6 +2694,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-perequazione-ticino-frontalieri-2026': { name: 'Perequazione finanziaria', path: '/articoli-frontaliere/perequazione-ticino-frontalieri-2026', parent: 'blog' },
     'blog-viabilita-camion-travedona-2026': { name: 'Novità', path: '/articoli-frontaliere/viabilita-camion-travedona-2026', parent: 'blog' },
     'blog-casa-comunita-luino-punto-unico-accesso': { name: 'Novità', path: '/articoli-frontaliere/casa-comunita-luino-punto-unico-accesso', parent: 'blog' },
+    'blog-bellinzona-2025-consuntivo-risultati': { name: 'Bellinzona 2025', path: '/articoli-frontaliere/bellinzona-2025-consuntivo-risultati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

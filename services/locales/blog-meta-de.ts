@@ -4390,6 +4390,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casa-comunita-luino-punto-unico-accesso.title': 'Luino: Eröffnung des Gemeindehauses mit Einheitszugang',
     'blog.article.casa-comunita-luino-punto-unico-accesso.excerpt': 'Seit Freitag, dem 1. Mai, ist der Einheitszugang im neuen Gemeindehaus von Luino, finanziert mit Mitteln des PNRR, in Betrieb.',
     'blog.article.casa-comunita-luino-punto-unico-accesso.imageAlt': 'Gemeinschaftshaus Luino, Krankenhaus-Eingang',
+    'blog.article.bellinzona-2025-consuntivo-risultati.title': 'Bellinzona: Defizit 2025 auf -2,7 Millionen reduziert',
+    'blog.article.bellinzona-2025-consuntivo-risultati.excerpt': 'Die Rechnung 2025 der Stadt Bellinzona schließt mit einem auf -2,7 Millionen reduzierten Defizit, dank einer Steigerung der Steuereinnahmen und der Kontrolle der Ausgaben.',
+    'blog.article.bellinzona-2025-consuntivo-risultati.imageAlt': 'Luftaufnahme von Bellinzona mit Castelgrande und den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

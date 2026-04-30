@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1513,
+ "numberOfItems": 1514,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6148,7 +6148,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1510, "name": "Crans-Montana: consultori al lavoro su 700 dossier", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-700-dossier-consultori` },
           { "@type": "ListItem", "position": 1511, "name": "Perequazione finanziaria: Ticino svantaggiato p...", "url": `${BASE_URL}/articoli-frontaliere/perequazione-ticino-frontalieri-2026` },
           { "@type": "ListItem", "position": 1512, "name": "Viabilità sperimentale per camion intorno a Tra...", "url": `${BASE_URL}/articoli-frontaliere/viabilita-camion-travedona-2026` },
-          { "@type": "ListItem", "position": 1513, "name": "Luino: apre la Casa di Comunità con punto unico...", "url": `${BASE_URL}/articoli-frontaliere/casa-comunita-luino-punto-unico-accesso` }
+          { "@type": "ListItem", "position": 1513, "name": "Luino: apre la Casa di Comunità con punto unico...", "url": `${BASE_URL}/articoli-frontaliere/casa-comunita-luino-punto-unico-accesso` },
+          { "@type": "ListItem", "position": 1514, "name": "Bellinzona: disavanzo 2025 ridotto a -2,7 milioni", "url": `${BASE_URL}/articoli-frontaliere/bellinzona-2025-consuntivo-risultati` }
  ]
  },
  {
