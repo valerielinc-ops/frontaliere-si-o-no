@@ -106,10 +106,26 @@ export interface WriteCollectorOptions {
  * - errors during background flush are stored and re-thrown by flush()
  */
 export class WriteCollector {
- private writes: PendingWrite[] = [];
+ // Map<filePath → PendingWrite>. Last add() per filePath wins, eliminating
+ // intra-plugin write races deterministically (Phase 4 case 4): when two
+ // emit categories within the same plugin target the same path (e.g.
+ // jobsSeoPagesPlugin's legacy-redirect emits a stub at line 2293, then a
+ // richer cross-locale-active-bridge emits at the same path at line 7420),
+ // the array-based collector flushed both via Promise.all and the OS
+ // resolved the race non-deterministically. With Map dedup, only ONE
+ // write reaches the disk per path: the LAST `add()` call. The plugin's
+ // emit code order then determines the winner — and in jobsSeoPagesPlugin
+ // the order is intentional (canonical first, then bridges by content
+ // richness, with stub-style emits late) so the rich bridge wins.
+ //
+ // For cross-plugin races (different plugins, different collectors,
+ // same path), the existing sharedWriteRegistry + declareSharedPath
+ // covers the case. Map dedup here is purely intra-plugin.
+ private writes: Map<string, PendingWrite> = new Map();
  private skipExisting: boolean;
  private _skippedByHash = 0;
  private _skippedByCollision = 0;
+ private _overwrittenInPlugin = 0;
  private _distDir: string;
  private _pluginName: string;
  private _pendingFlushes: Promise<number>[] = [];
@@ -149,14 +165,20 @@ export class WriteCollector {
  this._skippedByCollision++;
  return;
  }
- this.writes.push({ filePath, content });
+ // Map.set semantics: if this filePath was already queued by an earlier
+ // add() in the same build, this call REPLACES the queued content. The
+ // earlier write is silently discarded — the disk only ever sees ONE
+ // version of any path within a single plugin's flush. Track overwrite
+ // count for diagnostics.
+ if (this.writes.has(filePath)) this._overwrittenInPlugin += 1;
+ this.writes.set(filePath, { filePath, content });
 
  // Auto-flush in background once we cross the threshold. add() must stay
  // synchronous for callers, so we kick off the flush without awaiting.
  // Errors are captured on the collector and re-thrown by flush().
- if (this.writes.length >= this._autoFlushThreshold) {
- const batch = this.writes;
- this.writes = [];
+ if (this.writes.size >= this._autoFlushThreshold) {
+ const batch = Array.from(this.writes.values());
+ this.writes = new Map();
  const flushPromise = flushWrites(batch, this._concurrency).catch((err: unknown) => {
   if (!this._firstError) {
   this._firstError = err instanceof Error ? err : new Error(String(err));
@@ -178,11 +200,15 @@ export class WriteCollector {
  }
 
  /** Pending in-memory writes not yet flushed (legacy semantic — same as before). */
- get count() { return this.writes.length; }
+ get count() { return this.writes.size; }
  get skippedByHash() { return this._skippedByHash; }
  /** Number of add() calls skipped because the path was already claimed
   * (idempotent re-write or declared-shared loser). */
  get skippedByCollision() { return this._skippedByCollision; }
+ /** Number of add() calls that overwrote a previously queued same-path
+  * write within this collector. Diagnostic only — counts intra-plugin
+  * last-add-wins resolutions. */
+ get overwrittenInPlugin() { return this._overwrittenInPlugin; }
 
  /**
   * Flush all queued writes in parallel batches (see {@link flushWrites}).
@@ -191,8 +217,8 @@ export class WriteCollector {
   */
  async flush(concurrency = 500): Promise<number> {
  // Drain any writes still in the in-memory buffer.
- const remaining = this.writes;
- this.writes = [];
+ const remaining = Array.from(this.writes.values());
+ this.writes = new Map();
  if (remaining.length > 0) {
  this._pendingFlushes.push(flushWrites(remaining, concurrency));
  }
