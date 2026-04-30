@@ -4330,6 +4330,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bce-tassi-inflazione-ticino-2026.title': 'ECB holds rates but inflation risks rise',
     'blog.article.bce-tassi-inflazione-ticino-2026.excerpt': 'The ECB keeps rates unchanged but warns of inflation risks due to Middle East conflict. Impacts for cross-border workers in Ticino.',
     'blog.article.bce-tassi-inflazione-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano and city center',
+    'blog.article.microterremoto-artificiale-ticino-2026.title': 'Artificial micro-earthquake in Ticino: historic experiment in San Gottardo',
+    'blog.article.microterremoto-artificiale-ticino-2026.excerpt': 'Swiss, Italian and German researchers trigger a controlled earthquake in the San Gottardo massif to study the predictability of seismic events',
+    'blog.article.microterremoto-artificiale-ticino-2026.imageAlt': 'Researchers in BedrettoLab Ticino monitoring a seismic experiment',
 };
 
 export default blogMetaEn;

@@ -4331,6 +4331,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bce-tassi-inflazione-ticino-2026.title': 'Bce tassi fermi ma rischi inflazione aumentati',
     'blog.article.bce-tassi-inflazione-ticino-2026.excerpt': 'La Bce mantiene i tassi invariati ma avverte su rischi inflazione per conflitto Medio Oriente. Impatti per frontalieri Ticino.',
     'blog.article.bce-tassi-inflazione-ticino-2026.imageAlt': 'Vista panoramica del Lago di Lugano e centro città',
+    'blog.article.microterremoto-artificiale-ticino-2026.title': 'Microterremoto artificiale in Ticino: esperimento storico nel San Gottardo',
+    'blog.article.microterremoto-artificiale-ticino-2026.excerpt': 'Ricercatori svizzeri, italiani e tedeschi innescano un terremoto controllato nel massiccio del San Gottardo per studiare la prevedibilità dei sismi',
+    'blog.article.microterremoto-artificiale-ticino-2026.imageAlt': 'Gruppo di ricercatori nel BedrettoLab in Ticino monitora un esperimento sismico',
 };
 
 export default blogMetaIt;

@@ -4331,6 +4331,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bce-tassi-inflazione-ticino-2026.title': 'BCE: taux stables mais risques inflation accrus',
     'blog.article.bce-tassi-inflazione-ticino-2026.excerpt': 'La BCE maintient les taux inchangés mais alerte sur les risques d\'inflation dus au conflit au Moyen-Orient. Impacts pour les frontaliers du Tessin.',
     'blog.article.bce-tassi-inflazione-ticino-2026.imageAlt': 'Vue panoramique du lac de Lugano et du centre-ville',
+    'blog.article.microterremoto-artificiale-ticino-2026.title': 'Micro-séisme artificiel au Tessin: expérience historique dans le Gothard',
+    'blog.article.microterremoto-artificiale-ticino-2026.excerpt': 'Des chercheurs suisses, italiens et allemands provoquent un tremblement de terre contrôlé dans le massif du Gothard pour étudier la prévisibilité des séismes',
+    'blog.article.microterremoto-artificiale-ticino-2026.imageAlt': 'Des chercheurs dans le BedrettoLab au Tessin surveillent une expérience sismique',
 };
 
 export default blogMetaFr;

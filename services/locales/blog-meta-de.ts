@@ -4330,6 +4330,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bce-tassi-inflazione-ticino-2026.title': 'EZB hält Zinsen stabil, aber Inflationsrisiken steigen',
     'blog.article.bce-tassi-inflazione-ticino-2026.excerpt': 'Die EZB hält die Zinsen unverändert, warnt aber vor Inflationsrisiken durch den Nahost-Konflikt. Auswirkungen für Grenzgänger im Tessin.',
     'blog.article.bce-tassi-inflazione-ticino-2026.imageAlt': 'Panoramablick auf den Luganersee und die Innenstadt',
+    'blog.article.microterremoto-artificiale-ticino-2026.title': 'Künstliches Mikroerdbeben im Gotthardmassiv',
+    'blog.article.microterremoto-artificiale-ticino-2026.excerpt': 'Schweizer, italienische und deutsche Forscher lösen ein kontrolliertes Erdbeben im Gotthardmassiv aus, um die Vorhersagbarkeit von Beben zu untersuchen',
+    'blog.article.microterremoto-artificiale-ticino-2026.imageAlt': 'Forscher im BedrettoLab im Tessin beobachten ein seismisches Experiment',
 };
 
 export default blogMetaDe;

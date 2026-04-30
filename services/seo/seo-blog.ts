@@ -28836,6 +28836,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-microterremoto-artificiale-ticino-2026': {
+    title: 'Microterremoto artificiale in Ticino: esperimento storico nel San Gottardo',
+    description: 'Ricercatori svizzeri, italiani e tedeschi innescano un terremoto controllato nel massiccio del San Gottardo per studiare la prevedibilità dei sismi',
+    keywords: 'frontalieri, ticino, svizzera, italia, microterremoto, artificiale, esperimento, storico',
+    ogTitle: 'Microterremoto artificiale in Ticino: esperimento storico nel San Gottardo',
+    ogDescription: 'Ricercatori svizzeri, italiani e tedeschi innescano un terremoto controllato nel massiccio del San Gottardo per studiare la prevedibilità dei sismi',
+    canonicalPath: '/articoli-frontaliere/microterremoto-artificiale-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Microterremoto artificiale in Ticino: esperimento storico nel San Gottardo",
+      "description": "Ricercatori svizzeri, italiani e tedeschi innescano un terremoto controllato nel massiccio del San Gottardo per studiare la prevedibilità dei sismi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/microterremoto-artificiale-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di ricercatori nel BedrettoLab in Ticino monitora un esperimento sismico"
+      },
+      "datePublished": "2026-04-30T13:58:29+00:00",
+      "dateModified": "2026-04-30T13:58:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/microterremoto-artificiale-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

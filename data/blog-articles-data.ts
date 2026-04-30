@@ -11117,4 +11117,11 @@ export const ARTICLES = [
  image: '/images/blog/bce-tassi-inflazione-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'microterremoto-artificiale-ticino-2026',
+ category: 'novita',
+ date: '2026-04-30T13:58:29.710Z',
+ image: '/images/blog/microterremoto-artificiale-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
