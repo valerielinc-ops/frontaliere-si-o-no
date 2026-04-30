@@ -27067,6 +27067,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ispra-pranzo-solidale-oratorio-2026': {
+    title: 'Ispra: successo al secondo pranzo solidale in oratorio',
+    description: 'Grande partecipazione a Ispra per il pranzo solidale organizzato dalla Comunità pastorale e dall\'Associazione Volontari ispresi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ispra, successo, secondo, pranzo',
+    ogTitle: 'Ispra: successo al secondo pranzo solidale in oratorio',
+    ogDescription: 'Grande partecipazione a Ispra per il pranzo solidale organizzato dalla Comunità pastorale e dall\'Associazione Volontari ispresi.',
+    canonicalPath: '/articoli-frontaliere/ispra-pranzo-solidale-oratorio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ispra: successo al secondo pranzo solidale in oratorio",
+      "description": "Grande partecipazione a Ispra per il pranzo solidale organizzato dalla Comunità pastorale e dall'Associazione Volontari ispresi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ispra-pranzo-solidale-oratorio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di persone gode di un pasto comunitario in una sala oratorio accogliente a Ispra, Italia."
+      },
+      "datePublished": "2026-04-30T04:57:05+00:00",
+      "dateModified": "2026-04-30T04:57:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ispra-pranzo-solidale-oratorio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4147,6 +4147,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sciopero-fame-timoc-terreno-conteso.title': 'Hunger strike in Varese: Timoc\'s fight for contested land',
     'blog.article.sciopero-fame-timoc-terreno-conteso.excerpt': 'Timoc, 70, protests outside the Carabinieri barracks to access documents blocked in his home.',
     'blog.article.sciopero-fame-timoc-terreno-conteso.imageAlt': 'Man on hunger strike in front of the Carabinieri station in Varese',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.title': 'Ispra: success at the second solidarity lunch in the oratory',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.excerpt': 'Great turnout in Ispra for the solidarity lunch organized by the Pastoral Community and the Association of Ispra Volunteers.',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.imageAlt': 'A group of people enjoying a communal meal in a warm, inviting oratory hall in Ispra, Italy.',
 };
 
 export default blogMetaEn;

@@ -4147,6 +4147,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sciopero-fame-timoc-terreno-conteso.title': 'Hungerstreik in Varese: Timocs Kampf um ein umstrittenes Grundstück',
     'blog.article.sciopero-fame-timoc-terreno-conteso.excerpt': 'Timoc, 70 Jahre alt, protestiert vor der Kaserne der Carabinieri, um an Dokumente zu gelangen, die in seiner Wohnung blockiert sind.',
     'blog.article.sciopero-fame-timoc-terreno-conteso.imageAlt': 'Mann im Hungerstreik vor der Carabinieri-Wache in Varese',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.title': 'Ispra: Erfolg beim zweiten solidarischen Mittagessen im Pfarrhaus',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.excerpt': 'Große Beteiligung in Ispra beim solidarischen Mittagessen, organisiert von der Pfarrgemeinde und dem Verein der Freiwilligen aus Ispra.',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.imageAlt': 'Eine Gruppe von Menschen genießt ein gemeinsames Essen in einer warmen, einladenden Oratoriumshalle in Ispra, Italien.',
 };
 
 export default blogMetaDe;

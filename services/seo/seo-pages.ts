@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1432,
+ "numberOfItems": 1433,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6067,7 +6067,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1429, "name": "Scuola austriaca protagonista al Plan ₿ Forum d...", "url": `${BASE_URL}/articoli-frontaliere/scuola-austriaca-bitcoin-lugano-2026` },
           { "@type": "ListItem", "position": 1430, "name": "Domus San Donato: autonomia sicura per la terza...", "url": `${BASE_URL}/articoli-frontaliere/domus-san-donato-autonomia-terza-eta` },
           { "@type": "ListItem", "position": 1431, "name": "Moda sostenibile e storie di rinascita a Varese", "url": `${BASE_URL}/articoli-frontaliere/moda-sostenibile-varese-2026` },
-          { "@type": "ListItem", "position": 1432, "name": "Sciopero della fame a Varese: la battaglia di T...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-fame-timoc-terreno-conteso` }
+          { "@type": "ListItem", "position": 1432, "name": "Sciopero della fame a Varese: la battaglia di T...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-fame-timoc-terreno-conteso` },
+          { "@type": "ListItem", "position": 1433, "name": "Ispra: successo al secondo pranzo solidale in o...", "url": `${BASE_URL}/articoli-frontaliere/ispra-pranzo-solidale-oratorio-2026` }
  ]
  },
  {

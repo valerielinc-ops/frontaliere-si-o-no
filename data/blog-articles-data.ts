@@ -10689,4 +10689,11 @@ export const ARTICLES = [
  image: '/images/blog/sciopero-fame-timoc-terreno-conteso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ispra-pranzo-solidale-oratorio-2026',
+ category: 'novita',
+ date: '2026-04-30T04:57:05.272Z',
+ image: '/images/blog/ispra-pranzo-solidale-oratorio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

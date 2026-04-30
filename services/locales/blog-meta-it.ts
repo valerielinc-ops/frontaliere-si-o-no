@@ -4148,6 +4148,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sciopero-fame-timoc-terreno-conteso.title': 'Sciopero della fame a Varese: la battaglia di Timoc per un terreno conteso',
     'blog.article.sciopero-fame-timoc-terreno-conteso.excerpt': 'Timoc, 70 anni, protesta davanti alla caserma dei Carabinieri per accedere a documenti bloccati nella sua abitazione.',
     'blog.article.sciopero-fame-timoc-terreno-conteso.imageAlt': 'Uomo in sciopero della fame davanti alla caserma dei Carabinieri a Varese',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.title': 'Ispra: successo al secondo pranzo solidale in oratorio',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.excerpt': 'Grande partecipazione a Ispra per il pranzo solidale organizzato dalla Comunità pastorale e dall\'Associazione Volontari ispresi.',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.imageAlt': 'Un gruppo di persone gode di un pasto comunitario in una sala oratorio accogliente a Ispra, Italia.',
 };
 
 export default blogMetaIt;

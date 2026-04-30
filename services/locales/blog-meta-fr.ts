@@ -4148,6 +4148,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sciopero-fame-timoc-terreno-conteso.title': 'Grève de la faim à Varèse : le combat de Timoc pour un terrain contesté',
     'blog.article.sciopero-fame-timoc-terreno-conteso.excerpt': 'Timoc, 70 ans, proteste devant la caserne des Carabiniers pour accéder à des documents bloqués dans sa résidence.',
     'blog.article.sciopero-fame-timoc-terreno-conteso.imageAlt': 'Homme en grève de la faim devant la caserne des Carabiniers à Varese',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.title': 'Ispra: succès au deuxième déjeuner solidaire en oratoire',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.excerpt': 'Grande participation à Ispra pour le déjeuner solidaire organisé par la Communauté pastorale et l\'Association des Volontaires ispresi.',
+    'blog.article.ispra-pranzo-solidale-oratorio-2026.imageAlt': 'Un groupe de personnes profite d\'un repas communautaire dans une salle d\'oratoire chaleureuse et accueillante à Ispra, en Italie.',
 };
 
 export default blogMetaFr;
