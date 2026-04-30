@@ -11019,4 +11019,11 @@ export const ARTICLES = [
  image: '/images/blog/divario-irpef-pensionati-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'comco-inchieste-keyword-bidding-2026',
+ category: 'novita',
+ date: '2026-04-30T11:28:33.869Z',
+ image: '/images/blog/comco-inchieste-keyword-bidding-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

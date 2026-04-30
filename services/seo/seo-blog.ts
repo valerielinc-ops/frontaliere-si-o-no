@@ -28430,6 +28430,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comco-inchieste-keyword-bidding-2026': {
+    title: 'COMCO indaga su accordi illeciti nel keyword bidding',
+    description: 'Due inchieste aperte dalla COMCO nel settore dei viaggi e dei casinò online per presunti accordi illeciti nel keyword bidding. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, comco, indaga, accordi, illeciti',
+    ogTitle: 'COMCO indaga su accordi illeciti nel keyword bidding',
+    ogDescription: 'Due inchieste aperte dalla COMCO nel settore dei viaggi e dei casinò online per presunti accordi illeciti nel keyword bidding.',
+    canonicalPath: '/articoli-frontaliere/comco-inchieste-keyword-bidding-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "COMCO indaga su accordi illeciti nel keyword bidding",
+      "description": "Due inchieste aperte dalla COMCO nel settore dei viaggi e dei casinò online per presunti accordi illeciti nel keyword bidding. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comco-inchieste-keyword-bidding-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici."
+      },
+      "datePublished": "2026-04-30T11:28:33+00:00",
+      "dateModified": "2026-04-30T11:28:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comco-inchieste-keyword-bidding-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4288,6 +4288,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divario-irpef-pensionati-2026.title': 'Retirees penalized: up to €2,400 more in IRPEF',
     'blog.article.divario-irpef-pensionati-2026.excerpt': 'A simulation by Caf Cgil highlights a tax gap between employees and retirees earning under €50,000 annually',
     'blog.article.divario-irpef-pensionati-2026.imageAlt': 'Detailed view of Bellinzona\'s castles with the Ticino landscape in the background',
+    'blog.article.comco-inchieste-keyword-bidding-2026.title': 'COMCO investigates illegal keyword bidding agreements',
+    'blog.article.comco-inchieste-keyword-bidding-2026.excerpt': 'Two investigations opened by COMCO in the travel and online casino sector for alleged illegal keyword bidding agreements.',
+    'blog.article.comco-inchieste-keyword-bidding-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water, surrounded by mountains and buildings.',
 };
 
 export default blogMetaEn;

@@ -4289,6 +4289,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divario-irpef-pensionati-2026.title': 'Pensionati penalizzati: fino a 2.400 euro in più di Irpef',
     'blog.article.divario-irpef-pensionati-2026.excerpt': 'Una simulazione del Caf Cgil evidenzia un divario fiscale tra lavoratori dipendenti e pensionati sotto i 50mila euro annui',
     'blog.article.divario-irpef-pensionati-2026.imageAlt': 'Veduta dettagliata dei castelli di Bellinzona con il paesaggio del Ticino sullo sfondo',
+    'blog.article.comco-inchieste-keyword-bidding-2026.title': 'COMCO indaga su accordi illeciti nel keyword bidding',
+    'blog.article.comco-inchieste-keyword-bidding-2026.excerpt': 'Due inchieste aperte dalla COMCO nel settore dei viaggi e dei casinò online per presunti accordi illeciti nel keyword bidding.',
+    'blog.article.comco-inchieste-keyword-bidding-2026.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici.',
 };
 
 export default blogMetaIt;

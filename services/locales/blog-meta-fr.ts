@@ -4289,6 +4289,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.divario-irpef-pensionati-2026.title': 'Retraités pénalisés: jusqu\'à 2.400 euros d\'Irpef en plus',
     'blog.article.divario-irpef-pensionati-2026.excerpt': 'Une simulation du Caf Cgil révèle un écart fiscal entre les travailleurs salariés et les retraités gagnant moins de 50.000 euros par an',
     'blog.article.divario-irpef-pensionati-2026.imageAlt': 'Vue détaillée des châteaux de Bellinzone avec le paysage du Tessin en arrière-plan',
+    'blog.article.comco-inchieste-keyword-bidding-2026.title': 'COMCO enquête sur des accords illicites dans le keyword bidding',
+    'blog.article.comco-inchieste-keyword-bidding-2026.excerpt': 'Deux enquêtes ouvertes par la COMCO dans le secteur des voyages et des casinos en ligne pour des accords illicites présumés dans le keyword bidding.',
+    'blog.article.comco-inchieste-keyword-bidding-2026.imageAlt': 'Vue aérienne du lac de Lugano avec une eau bleue claire, entourée de montagnes et de bâtiments.',
 };
 
 export default blogMetaFr;

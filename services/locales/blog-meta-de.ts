@@ -4288,6 +4288,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divario-irpef-pensionati-2026.title': 'Rentner werden benachteiligt: bis zu 2.400 Euro mehr Einkommensteuer',
     'blog.article.divario-irpef-pensionati-2026.excerpt': 'Eine Simulation des Caf Cgil zeigt eine Steuerlücke zwischen Angestellten und Rentnern unter 50.000 Euro pro Jahr',
     'blog.article.divario-irpef-pensionati-2026.imageAlt': 'Detaillierte Ansicht der Burgen von Bellinzona mit der Landschaft des Tessin im Hintergrund',
+    'blog.article.comco-inchieste-keyword-bidding-2026.title': 'COMCO untersucht illegale Vereinbarungen beim Keyword Bidding',
+    'blog.article.comco-inchieste-keyword-bidding-2026.excerpt': 'Zwei Untersuchungen der COMCO im Reise- und Online-Casino-Sektor wegen mutmaßlicher illegaler Vereinbarungen beim Keyword Bidding.',
+    'blog.article.comco-inchieste-keyword-bidding-2026.imageAlt': 'Luftaufnahme des Luganersees mit klarem blauem Wasser, umgeben von Bergen und Gebäuden.',
 };
 
 export default blogMetaDe;
