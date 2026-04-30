@@ -4826,19 +4826,37 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  const authPendingNoticeJsx = authNotice?.kind === 'pending' ? (
- <div className="rounded-2xl border border-warning-border bg-warning-subtle px-4 py-3 text-left shadow-sm">
- <div className="flex items-start gap-3">
+ // Mobile-collapsed by design: the user is at the top of a job-detail page
+ // and the auth-pending banner pushed the actual content below the fold on
+ // small viewports (~3 short lines = ~140px of vertical real estate). The
+ // <details> pattern keeps title + email visible (the essential signal —
+ // "we sent you a link to this address") and tucks the description +
+ // spam hint behind a 1-tap toggle on mobile. On `sm:` and up the banner
+ // opens by default and stays open (open:hidden on the marker hides the
+ // chevron once expanded). Native <details> needs no extra JS and remains
+ // accessible to screen readers and keyboard users.
+ <details
+ className="group rounded-2xl border border-warning-border bg-warning-subtle px-4 py-3 text-left shadow-sm [&[open]]:py-4"
+ open={typeof window !== 'undefined' ? window.matchMedia('(min-width: 640px)').matches : false}
+ >
+ <summary className="flex cursor-pointer list-none items-start gap-3 [&::-webkit-details-marker]:hidden">
  <div className="mt-0.5 rounded-full bg-warning-subtle p-2 text-warning">
  <Mail className="h-4 w-4" />
  </div>
- <div className="min-w-0">
+ <div className="min-w-0 flex-1">
  <p className="text-sm font-bold text-warning">{t('newsletter.doubleOptIn.title')}</p>
- <p className="mt-1 text-sm text-warning">{t('newsletter.doubleOptIn.description')}</p>
- <p className="mt-1 text-sm text-warning">{t('newsletter.doubleOptIn.spamHint')}</p>
- <p className="mt-2 text-xs font-medium text-warning">{authNotice.email}</p>
+ <p className="mt-1 truncate text-xs font-medium text-warning">{authNotice.email}</p>
  </div>
+ <ChevronDown
+ className="mt-1 h-4 w-4 shrink-0 text-warning transition-transform group-open:rotate-180 sm:hidden"
+ aria-hidden="true"
+ />
+ </summary>
+ <div className="mt-2 space-y-1 pl-9">
+ <p className="text-sm text-warning">{t('newsletter.doubleOptIn.description')}</p>
+ <p className="text-sm text-warning">{t('newsletter.doubleOptIn.spamHint')}</p>
  </div>
- </div>
+ </details>
  ) : null;
 
  if (editorialJobTodayLanding) {
