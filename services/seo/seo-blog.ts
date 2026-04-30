@@ -26487,6 +26487,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varesotto-paperoni-lago-maggiore-2026': {
+    title: 'Varese: il 2% detiene il 15% della ricchezza | Frontaliere Ticino',
+    description: 'Scoperte sulla concentrazione di ricchezza nel Varesotto e decisioni su Lago Maggiore per l\'estate 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, detiene, ricchezza, scoperte',
+    ogTitle: 'Varese: il 2% detiene il 15% della ricchezza',
+    ogDescription: 'Scoperte sulla concentrazione di ricchezza nel Varesotto e decisioni su Lago Maggiore per l\'estate 2026',
+    canonicalPath: '/articoli-frontaliere/varesotto-paperoni-lago-maggiore-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: il 2% detiene il 15% della ricchezza",
+      "description": "Scoperte sulla concentrazione di ricchezza nel Varesotto e decisioni su Lago Maggiore per l'estate 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varesotto-paperoni-lago-maggiore-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago Maggiore con i paesi circostanti e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-30T01:28:30+00:00",
+      "dateModified": "2026-04-30T01:28:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varesotto-paperoni-lago-maggiore-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

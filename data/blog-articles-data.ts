@@ -10549,4 +10549,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-digitale-3d-visita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varesotto-paperoni-lago-maggiore-2026',
+ category: 'fiscale',
+ date: '2026-04-30T01:28:30.713Z',
+ image: '/images/blog/varesotto-paperoni-lago-maggiore-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4087,6 +4087,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-digitale-3d-visita.title': 'Varese goes digital: explore the city in 3D with a click',
     'blog.article.varese-digitale-3d-visita.excerpt': 'You can explore Varese in 3D thanks to the new portal Varesedigitale.it. Find out how to visit the city virtually.',
     'blog.article.varese-digitale-3d-visita.imageAlt': 'Aerial view of Varese city center with modern buildings and historic landmarks',
+    'blog.article.varesotto-paperoni-lago-maggiore-2026.title': 'Varese: 2% hold 15% of wealth',
+    'blog.article.varesotto-paperoni-lago-maggiore-2026.excerpt': 'Findings on wealth concentration in Varesotto and decisions for Lake Maggiore in summer 2026',
+    'blog.article.varesotto-paperoni-lago-maggiore-2026.imageAlt': 'Aerial view of Lake Maggiore with surrounding towns and mountains in the background',
 };
 
 export default blogMetaEn;

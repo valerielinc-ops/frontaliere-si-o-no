@@ -4088,6 +4088,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-digitale-3d-visita.title': 'Varèse devient numérique : visitez la ville en 3D en un clic',
     'blog.article.varese-digitale-3d-visita.excerpt': 'Découvrez Varèse en 3D grâce au nouveau portail Varesedigitale.it. Apprenez à visiter la ville virtuellement.',
     'blog.article.varese-digitale-3d-visita.imageAlt': 'Vue aérienne du centre-ville de Varese avec des bâtiments modernes et des monuments historiques',
+    'blog.article.varesotto-paperoni-lago-maggiore-2026.title': 'Varèse : 2% détient 15% de la richesse',
+    'blog.article.varesotto-paperoni-lago-maggiore-2026.excerpt': 'Découvertes sur la concentration de richesse dans le Varesotto et décisions pour le lac Majeur pour l\'été 2026',
+    'blog.article.varesotto-paperoni-lago-maggiore-2026.imageAlt': 'Vue aérienne du lac Majeur avec les villes environnantes et les montagnes à l\'arrière-plan',
 };
 
 export default blogMetaFr;
