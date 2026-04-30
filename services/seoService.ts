@@ -2651,6 +2651,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-italia-inadempiente-crediti-sanitari': { name: 'Novità', path: '/articoli-frontaliere/italia-inadempiente-crediti-sanitari', parent: 'blog' },
     'blog-settore-alberghiero-ricavi-2025': { name: 'Novità', path: '/articoli-frontaliere/settore-alberghiero-ricavi-2025', parent: 'blog' },
     'blog-berna-skopje-scambi-economici-2026': { name: 'Novità', path: '/articoli-frontaliere/berna-skopje-scambi-economici-2026', parent: 'blog' },
+    'blog-conti-bellinzona-2025-balzo-11-milioni': { name: 'Conti Bellinzona', path: '/articoli-frontaliere/conti-bellinzona-2025-balzo-11-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

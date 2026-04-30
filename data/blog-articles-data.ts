@@ -10956,4 +10956,11 @@ export const ARTICLES = [
  image: '/images/blog/berna-skopje-scambi-economici-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'conti-bellinzona-2025-balzo-11-milioni',
+ category: 'fiscale',
+ date: '2026-04-30T10:21:55.691Z',
+ image: '/images/blog/conti-bellinzona-2025-balzo-11-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

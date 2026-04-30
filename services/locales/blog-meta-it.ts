@@ -4262,6 +4262,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.berna-skopje-scambi-economici-2026.title': 'Berna e Skopje rafforzano scambi economici e cooperazione',
     'blog.article.berna-skopje-scambi-economici-2026.excerpt': 'Il presidente della Confederazione Guy Parmelin visita la Macedonia del Nord per rafforzare le relazioni economiche.',
     'blog.article.berna-skopje-scambi-economici-2026.imageAlt': 'Panorama di Bellinzona con il Castello di Bellinzona e le Alpi',
+    'blog.article.conti-bellinzona-2025-balzo-11-milioni.title': 'Conti Bellinzona 2025: balzo in avanti di 11 milioni',
+    'blog.article.conti-bellinzona-2025-balzo-11-milioni.excerpt': 'I conti 2025 di Bellinzona chiudono con un rosso di 2,7 milioni, migliorando di 10,7 milioni rispetto al preventivo',
+    'blog.article.conti-bellinzona-2025-balzo-11-milioni.imageAlt': 'Vista panoramica di Bellinzona con il Castelgrande',
 };
 
 export default blogMetaIt;

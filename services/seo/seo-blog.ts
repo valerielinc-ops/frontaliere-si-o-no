@@ -28169,6 +28169,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-conti-bellinzona-2025-balzo-11-milioni': {
+    title: 'Conti Bellinzona 2025: balzo in avanti di 11 milioni',
+    description: 'I conti 2025 di Bellinzona chiudono con un rosso di 2,7 milioni, migliorando di 10,7 milioni rispetto al preventivo. Analisi e implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, conti, bellinzona, 2025, balzo',
+    ogTitle: 'Conti Bellinzona 2025: balzo in avanti di 11 milioni',
+    ogDescription: 'I conti 2025 di Bellinzona chiudono con un rosso di 2,7 milioni, migliorando di 10,7 milioni rispetto al preventivo. Analisi e implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/conti-bellinzona-2025-balzo-11-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conti Bellinzona 2025: balzo in avanti di 11 milioni",
+      "description": "I conti 2025 di Bellinzona chiudono con un rosso di 2,7 milioni, migliorando di 10,7 milioni rispetto al preventivo. Analisi e implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/conti-bellinzona-2025-balzo-11-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Bellinzona con il Castelgrande"
+      },
+      "datePublished": "2026-04-30T10:21:55+00:00",
+      "dateModified": "2026-04-30T10:21:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/conti-bellinzona-2025-balzo-11-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
