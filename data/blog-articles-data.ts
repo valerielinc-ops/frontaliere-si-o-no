@@ -10801,4 +10801,11 @@ export const ARTICLES = [
  image: '/images/blog/roberto-grassi-nuovo-presidente-liuc-castellanza.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ia-selezione-personale-rischi-ticino',
+ category: 'novita',
+ date: '2026-04-30T07:00:33.235Z',
+ image: '/images/blog/ia-selezione-personale-rischi-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

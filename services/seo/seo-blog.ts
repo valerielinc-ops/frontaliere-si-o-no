@@ -27531,6 +27531,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ia-selezione-personale-rischi-ticino': {
+    title: 'IA e assunzioni: le nuove sfide per il mercato ticinese',
+    description: 'L\'uso dell\'IA nella selezione del personale solleva dubbi su discriminazioni e bias. Analisi dei rischi per i candidati e le aziende in Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, assunzioni, nuove, sfide, mercato',
+    ogTitle: 'IA e assunzioni: le nuove sfide per il mercato ticinese',
+    ogDescription: 'L\'uso dell\'IA nella selezione del personale solleva dubbi su discriminazioni e bias. Analisi dei rischi per i candidati e le aziende in Ticino.',
+    canonicalPath: '/articoli-frontaliere/ia-selezione-personale-rischi-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IA e assunzioni: le nuove sfide per il mercato ticinese",
+      "description": "L'uso dell'IA nella selezione del personale solleva dubbi su discriminazioni e bias. Analisi dei rischi per i candidati e le aziende in Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ia-selezione-personale-rischi-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Selezione personale con intelligenza artificiale in ufficio a Lugano"
+      },
+      "datePublished": "2026-04-30T07:00:33+00:00",
+      "dateModified": "2026-04-30T07:00:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ia-selezione-personale-rischi-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

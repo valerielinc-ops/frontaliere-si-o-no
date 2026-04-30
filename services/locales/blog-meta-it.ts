@@ -4196,6 +4196,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.roberto-grassi-nuovo-presidente-liuc-castellanza.title': 'Roberto Grassi è il nuovo presidente dell\'università LIUC di Castellanza',
     'blog.article.roberto-grassi-nuovo-presidente-liuc-castellanza.excerpt': 'Il Consiglio di amministrazione della LIUC ha nominato Roberto Grassi nuovo presidente dell\'ateneo di Castellanza.',
     'blog.article.roberto-grassi-nuovo-presidente-liuc-castellanza.imageAlt': 'Campus dell\'Università LIUC a Castellanza',
+    'blog.article.ia-selezione-personale-rischi-ticino.title': 'IA e assunzioni: le nuove sfide per il mercato ticinese',
+    'blog.article.ia-selezione-personale-rischi-ticino.excerpt': 'L\'uso dell\'IA nella selezione del personale solleva dubbi su discriminazioni e bias. Analisi dei rischi per i candidati e le aziende in Ticino.',
+    'blog.article.ia-selezione-personale-rischi-ticino.imageAlt': 'Selezione personale con intelligenza artificiale in ufficio a Lugano',
 };
 
 export default blogMetaIt;

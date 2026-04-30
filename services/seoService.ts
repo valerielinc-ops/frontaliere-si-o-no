@@ -2629,6 +2629,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-glaciazione-demografica-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/glaciazione-demografica-ticino-2026', parent: 'blog' },
     'blog-a2-traffico-ritardi-lugano-2026': { name: 'Traffico A2', path: '/articoli-frontaliere/a2-traffico-ritardi-lugano-2026', parent: 'blog' },
     'blog-roberto-grassi-nuovo-presidente-liuc-castellanza': { name: 'Novità LIUC', path: '/articoli-frontaliere/roberto-grassi-nuovo-presidente-liuc-castellanza', parent: 'blog' },
+    'blog-ia-selezione-personale-rischi-ticino': { name: 'IA nel lavoro', path: '/articoli-frontaliere/ia-selezione-personale-rischi-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
