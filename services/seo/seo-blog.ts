@@ -29474,6 +29474,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-varese-2026-storia-e-trasformazioni': {
+    title: 'Primo Maggio 2026: storia, infortuni e trasformazioni del lavoro',
+    description: 'Stefania Filetti, segretaria generale della CGIL di Varese, ripercorre la storia del Primo Maggio e analizza i dati sugli infortuni sul lavoro in provincia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, storia, infortuni',
+    ogTitle: 'Primo Maggio 2026: storia, infortuni e trasformazioni del lavoro',
+    ogDescription: 'Stefania Filetti, segretaria generale della CGIL di Varese, ripercorre la storia del Primo Maggio e analizza i dati sugli infortuni sul lavoro in provincia.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-varese-2026-storia-e-trasformazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio 2026: storia, infortuni e trasformazioni del lavoro",
+      "description": "Stefania Filetti, segretaria generale della CGIL di Varese, ripercorre la storia del Primo Maggio e analizza i dati sugli infortuni sul lavoro in provincia.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-varese-2026-storia-e-trasformazioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza storica a Varese durante una manifestazione dei lavoratori il 1° maggio"
+      },
+      "datePublished": "2026-04-30T17:37:02+00:00",
+      "dateModified": "2026-04-30T17:37:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-varese-2026-storia-e-trasformazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

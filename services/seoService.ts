@@ -2696,6 +2696,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casa-comunita-luino-punto-unico-accesso': { name: 'Novità', path: '/articoli-frontaliere/casa-comunita-luino-punto-unico-accesso', parent: 'blog' },
     'blog-bellinzona-2025-consuntivo-risultati': { name: 'Bellinzona 2025', path: '/articoli-frontaliere/bellinzona-2025-consuntivo-risultati', parent: 'blog' },
     'blog-iniziativa-democrazia-respinta-2026': { name: 'Iniziativa democrazia', path: '/articoli-frontaliere/iniziativa-democrazia-respinta-2026', parent: 'blog' },
+    'blog-primo-maggio-varese-2026-storia-e-trasformazioni': { name: 'Primo Maggio', path: '/articoli-frontaliere/primo-maggio-varese-2026-storia-e-trasformazioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

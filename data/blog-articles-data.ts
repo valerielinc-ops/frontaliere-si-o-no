@@ -11271,4 +11271,11 @@ export const ARTICLES = [
  image: '/images/blog/iniziativa-democrazia-respinta-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-varese-2026-storia-e-trasformazioni',
+ category: 'novita',
+ date: '2026-04-30T17:37:02.770Z',
+ image: '/images/blog/primo-maggio-varese-2026-storia-e-trasformazioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

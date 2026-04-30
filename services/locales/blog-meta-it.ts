@@ -4397,6 +4397,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziativa-democrazia-respinta-2026.title': 'Iniziativa per la democrazia respinta dal Consiglio nazionale',
     'blog.article.iniziativa-democrazia-respinta-2026.excerpt': 'Il Consiglio nazionale raccomanda la bocciatura dell\'iniziativa per la democrazia con 130 voti a 62.',
     'blog.article.iniziativa-democrazia-respinta-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
+    'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.title': 'Primo Maggio 2026: storia, infortuni e trasformazioni del lavoro',
+    'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.excerpt': 'Stefania Filetti, segretaria generale della CGIL di Varese, ripercorre la storia del Primo Maggio e analizza i dati sugli infortuni sul lavoro in provincia.',
+    'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.imageAlt': 'Piazza storica a Varese durante una manifestazione dei lavoratori il 1° maggio',
 };
 
 export default blogMetaIt;

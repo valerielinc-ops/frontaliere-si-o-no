@@ -4397,6 +4397,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.iniziativa-democrazia-respinta-2026.title': 'Initiative pour la démocratie rejetée par le Conseil national',
     'blog.article.iniziativa-democrazia-respinta-2026.excerpt': 'Le Conseil national recommande le rejet de l\'initiative pour la démocratie par 130 voix contre 62.',
     'blog.article.iniziativa-democrazia-respinta-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.title': '1er mai 2026 : histoire, accidents et transformations du travail',
+    'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.excerpt': 'Stefania Filetti, secrétaire générale de la CGIL de Varèse, retrace l\'histoire du 1er mai et analyse les données sur les accidents du travail dans la province.',
+    'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.imageAlt': 'Place historique à Varese pendant une manifestation des travailleurs le 1er mai',
 };
 
 export default blogMetaFr;
