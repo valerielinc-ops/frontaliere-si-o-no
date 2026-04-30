@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/betriebscontroller-w-m-d/7bb02107-18b1-4476-bb3f-e701a695d6c9",
     "https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern/c13ff538-c5e7-4577-a24a-c5ee17676a50",
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d/f3b55ce6-6393-4493-9cad-35b98333b58c",
     "https://jobs.ems-group.com/offene-stellen/key-account-manager-m-w-d-homeoffice/4bfe8b7c-7af8-4e5e-bc73-526bc0b35c13",
@@ -16,10 +17,13 @@
     "https://jobs.ems-group.com/offene-stellen/laborant-materialpruefung-m-w-d/f667a8dc-fb1e-4b62-aa97-d2bdbe6fcbad",
     "https://jobs.ems-group.com/offene-stellen/projektleiter-materialpruefung-m-w-d/99bcbd0d-916c-4de8-ad43-12c5976e8b6c",
     "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/a482c4be-1216-4d40-a334-a412aeb60f55",
-    "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae",
-    "https://jobs.ems-group.com/offene-stellen/key-account-manager-deutschland-segment-industrie-und-konsumgueter-m-w-d/b772609a-b608-444f-b469-1a2d4f485ec0"
+    "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/betriebscontroller-w-m-d/7bb02107-18b1-4476-bb3f-e701a695d6c9": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern/c13ff538-c5e7-4577-a24a-c5ee17676a50": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -55,12 +59,8 @@
     "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
-    },
-    "https://jobs.ems-group.com/offene-stellen/key-account-manager-deutschland-segment-industrie-und-konsumgueter-m-w-d/b772609a-b608-444f-b469-1a2d4f485ec0": {
-      "company": "EMS-Chemie AG",
-      "companyDomain": "ems-group.com"
     }
   },
   "notes": "Specialty chemicals company HQ in Domat/Ems (GR). Career page HTML crawler.",
-  "updatedAt": "2026-04-29T21:47:07.765Z"
+  "updatedAt": "2026-04-30T10:40:48.412Z"
 }
