@@ -28,10 +28,16 @@
         "de": "berufsbildner-in-pflege-neurochirugie-und-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Berufsbildner:in Pflege Neurochirugie und Hals-Nasen-Ohrenklinik"
+        "de": "Berufsbildner:in Pflege Neurochirugie und Hals-Nasen-Ohrenklinik",
+        "it": "Professione: in allattamento Neurochirugie e Hals-Nasen-Ohrenklinik",
+        "en": "Profession:in nursing Neurochirugie and Hals-Nasen-Ohrenklinik",
+        "fr": "Profession: en soins infirmiers neurochirugie et Hals-Nasen-Ohrenklinik"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. August 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du begleitest, förderst und forderst unsere Auszubildenden und unterstützt sie auf ihrem Weg zu einer kompetenten Pflegefachperson\n \n• Du arbeitest eng mit dem Pflegeteam und der Berufsbildung zusammen, gestaltest Lernsettings aktiv mit und bringst neue Ideen ein\n \n• Du bist für die Einführung sowie den Support der Tagesbezugspersonen auf der Station verantwortlich und stärkst damit die Qualität der Lernbegleitung\n\nAnforderungen:\n• Du bist Dipl. Pflegefachfrau / Pflegefachmann und hast bereits Erfahrung im Akutbereich gesammelt, idealerweise auf einer chirurgischen Station\n \n• Pädagogische Arbeit begeistert dich und du gehst mit echtem Teamspirit voran\n \n• Du trittst selbstbewusst auf, reflektierst dein Handeln und nutzt beides, um Lernende wie Kolleginnen / Kollegen zu stärken\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "## Descrizione\nStarte am 1. August 2026 oder nach Vereinbarung als\n\n## Aufgaben:\n- Du begleitest, förderst und forderst unsere Auszubildenden und unterstützt sie auf ihrem Weg zu einer kompetenten Pflegefachperson\n- Du arbeitest eng mit dem Pflegeteam und der Berufsbildung zusammen, gestaltest Lernsettings aktiv mit und bringst neue Ideen ein\n- Du bist für die Einführung sowie den Support der Tagesbezugspersonen auf der Station verantwortlich und stärkst damit die Qualität der Lernbegleitung\n\n## Anforderungen:\n- Du bist Dipl. Pflegefachfrau / Pflegefachmann und hast bereits Erfahrung im Akutbereich gesammelt, idealerweise auf einer chirurgischen Station\n- Pädagogische Arbeit begeistert dich und du gehst mit echtem Teamspirit voran\n- Du trittst selbstbewusst auf, reflektierst dein Handeln und nutzt beides, um Lernende wie Kolleginnen / Kollegen zu stärken\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Descrizione Avviare su 1. Agosto 2026 o secondo accordo come ## Compiti: - Accompagnate, sostenete e incoraggiate i nostri tirocinanti e li sostenete sulla loro strada verso un'infermiera competente - Lavorate a stretto contatto con il team di cura e la formazione professionale, formando attivamente le impostazioni di apprendimento e introducendo nuove idee - Siete responsabili per l'introduzione e il sostegno di soggetti di giorno per giorno alla stazione e rafforzando così la qualità dei requisiti di apprendimento. Infermiera / Infermiera e hanno già acquisito esperienza nell'area acuta, idealmente su una stazione chirurgica - lavoro pedagogico ti enthuses e si va avanti con vero spirito di squadra - si sale fiduciosamente, riflettere le vostre azioni e utilizzare sia per rafforzare gli studenti e colleghi Puoi fare qualcosa che gli altri non possono fare? Fai la differenza? Allora appartieni a noi!",
+        "en": "Descrizione Start on 1. August 2026 or according to agreement as ## Tasks: - You accompany, support and encourage our trainees and support them on their way to a competent nurse - You work closely with the nursing team and vocational training, actively shape learning settings and introduce new ideas - You are responsible for the introduction and support of day-to-day subjects at the station and thus strengthen the quality of learning requirements. Nurse / Nurse and have already gained experience in the acute area, ideally on a surgical station - pedagogical work enthuses you and you go ahead with real team spirit - you step up confidently, reflect your actions and use both to strengthen learners and colleagues You can do something that others can't? You make the difference? Then you belong to us!",
+        "fr": "Descrizione Commencez sur 1. Août 2026 ou selon accord comme ## Tâches: - Vous accompagnez, soutenez et encouragez nos stagiaires et les accompagnez sur leur chemin vers une infirmière compétente - Vous travaillez en étroite collaboration avec l'équipe infirmière et la formation professionnelle, façonnez activement les cadres d'apprentissage et introduisez de nouvelles idées - Vous êtes responsable de l'introduction et du soutien des matières quotidiennes à la station et ainsi renforcer la qualité des exigences d'apprentissage. Infirmière / Infirmière et ont déjà acquis de l'expérience dans le domaine aigu, idéalement sur un poste chirurgical - le travail pédagogique vous enchante et vous allez de l'avant avec un véritable esprit d'équipe - vous montez en confiance, reflètez vos actions et utilisez à la fois pour renforcer les apprenants et les collègues Tu peux faire quelque chose que les autres ne peuvent pas faire ? Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,7 +50,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -637,7 +642,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -2098,7 +2102,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-interdisziplinares-ambulatorium-kantonsspital-graubunden-walenstadt"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -2359,7 +2362,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -4746,7 +4748,8 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
@@ -4814,7 +4817,6 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5139,7 +5141,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-o-fachexpertin-fachexperte-onkologiepflege-ambulant-kantonsspital-graubunden-chur"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5529,7 +5530,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6119,7 +6119,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
