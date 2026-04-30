@@ -10970,4 +10970,11 @@ export const ARTICLES = [
  image: '/images/blog/contibellinzona2025risultati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'disoccupazione-ticino-usi-2026',
+ category: 'novita',
+ date: '2026-04-30T10:34:25.577Z',
+ image: '/images/blog/disoccupazione-ticino-usi-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

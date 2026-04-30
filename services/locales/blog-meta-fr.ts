@@ -4268,6 +4268,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.contibellinzona2025risultati.title': 'Bellinzone 2025: déficit réduit, comptes meilleurs que prévu',
     'blog.article.contibellinzona2025risultati.excerpt': 'Le bilan 2025 de Bellinzone se clôture avec un déficit de 2,7 millions, meilleur que prévu. Investissements de 25 millions.',
     'blog.article.contibellinzona2025risultati.imageAlt': 'Panorama de Bellinzone avec le château de Castelgrande',
+    'blog.article.disoccupazione-ticino-usi-2026.title': 'Baisse du chômage au Tessin: les prévisions de l\'USI',
+    'blog.article.disoccupazione-ticino-usi-2026.excerpt': 'L\'Institut de recherches économiques de l\'USI prévoit une baisse du taux de chômage au Tessin dans les prochains trimestres.',
+    'blog.article.disoccupazione-ticino-usi-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

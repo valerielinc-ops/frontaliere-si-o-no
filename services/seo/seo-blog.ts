@@ -28227,6 +28227,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-ticino-usi-2026': {
+    title: 'Disoccupazione in calo in Ticino: le previsioni dell\'USI',
+    description: 'L\'Istituto di ricerche economiche dell\'USI prevede un ribasso del tasso di disoccupazione in Ticino nei prossimi trimestri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, calo, previsioni, dell',
+    ogTitle: 'Disoccupazione in calo in Ticino: le previsioni dell\'USI',
+    ogDescription: 'L\'Istituto di ricerche economiche dell\'USI prevede un ribasso del tasso di disoccupazione in Ticino nei prossimi trimestri.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-ticino-usi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione in calo in Ticino: le previsioni dell'USI",
+      "description": "L'Istituto di ricerche economiche dell'USI prevede un ribasso del tasso di disoccupazione in Ticino nei prossimi trimestri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disoccupazione-ticino-usi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-04-30T10:34:25+00:00",
+      "dateModified": "2026-04-30T10:34:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-ticino-usi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

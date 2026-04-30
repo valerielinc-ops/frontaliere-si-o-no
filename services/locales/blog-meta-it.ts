@@ -4268,6 +4268,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contibellinzona2025risultati.title': 'Bellinzona 2025: conti migliori del previsto, disavanzo ridotto',
     'blog.article.contibellinzona2025risultati.excerpt': 'Il consuntivo 2025 di Bellinzona chiude con un disavanzo di 2,7 milioni, migliore del previsto. Investimenti per 25 milioni.',
     'blog.article.contibellinzona2025risultati.imageAlt': 'Panorama di Bellinzona con il Castelgrande',
+    'blog.article.disoccupazione-ticino-usi-2026.title': 'Disoccupazione in calo in Ticino: le previsioni dell\'USI',
+    'blog.article.disoccupazione-ticino-usi-2026.excerpt': 'L\'Istituto di ricerche economiche dell\'USI prevede un ribasso del tasso di disoccupazione in Ticino nei prossimi trimestri.',
+    'blog.article.disoccupazione-ticino-usi-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

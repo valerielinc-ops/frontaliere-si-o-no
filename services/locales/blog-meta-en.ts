@@ -4267,6 +4267,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contibellinzona2025risultati.title': 'Bellinzona 2025: better than expected, deficit reduced',
     'blog.article.contibellinzona2025risultati.excerpt': 'Bellinzona\'s 2025 account closes with a deficit of 2.7 million francs, better than expected. Investments for 25 million.',
     'blog.article.contibellinzona2025risultati.imageAlt': 'Bellinzona cityscape with Castelgrande castle',
+    'blog.article.disoccupazione-ticino-usi-2026.title': 'Unemployment rate set to fall in Ticino: USI forecast',
+    'blog.article.disoccupazione-ticino-usi-2026.excerpt': 'The University of Lugano\'s Institute of Economic Research predicts a drop in the unemployment rate in Ticino in the coming quarters.',
+    'blog.article.disoccupazione-ticino-usi-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;
