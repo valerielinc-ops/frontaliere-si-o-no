@@ -64,7 +64,13 @@ until git push origin "HEAD:${BRANCH}"; do
   if ! git rebase "origin/${BRANCH}"; then
     if [ -n "$IN_PLACE_RESOLVER_CMD" ]; then
       echo "Rebase conflict; resolving in place via: $IN_PLACE_RESOLVER_CMD"
-      if eval "$IN_PLACE_RESOLVER_CMD" && git rebase --continue; then
+      # GIT_EDITOR=: stops `git rebase --continue` from spawning an editor
+      # for the conflict-resolution commit message — CI runs with EDITOR
+      # unset on a dumb terminal and would otherwise fail with
+      # "Terminal is dumb, but EDITOR unset" (run 25166528796).
+      # `:` is the POSIX no-op shell builtin; rebase reuses the existing
+      # commit message verbatim, which is exactly what we want.
+      if eval "$IN_PLACE_RESOLVER_CMD" && GIT_EDITOR=: git rebase --continue; then
         : # success — fall through to retry push
       else
         echo "::error::In-place conflict resolver failed"
