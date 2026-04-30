@@ -10942,4 +10942,11 @@ export const ARTICLES = [
  image: '/images/blog/italia-inadempiente-crediti-sanitari.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'settore-alberghiero-ricavi-2025',
+ category: 'novita',
+ date: '2026-04-30T10:04:13.656Z',
+ image: '/images/blog/settore-alberghiero-ricavi-2025.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

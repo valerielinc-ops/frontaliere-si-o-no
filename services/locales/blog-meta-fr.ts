@@ -4256,6 +4256,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.italia-inadempiente-crediti-sanitari.title': 'Italie: retards crédits sanitaires, Quadri demande éclaircissements',
     'blog.article.italia-inadempiente-crediti-sanitari.excerpt': 'Le conseiller national Lorenzo Quadri interroge le Conseil fédéral sur les retards italiens dans les remboursements sanitaires',
     'blog.article.italia-inadempiente-crediti-sanitari.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan, ciel bleu clair',
+    'blog.article.settore-alberghiero-ricavi-2025.title': 'Chiffre d\'affaires hôtelier en hausse: +3,9% en 2025',
+    'blog.article.settore-alberghiero-ricavi-2025.excerpt': 'Le secteur hôtelier suisse enregistre une augmentation de 3,9% du chiffre d\'affaires en 2025, avec des pics estivaux et des différences entre catégories et zones touristiques.',
+    'blog.article.settore-alberghiero-ricavi-2025.imageAlt': 'Hôtel sur le lac de Lugano avec vue panoramique',
 };
 
 export default blogMetaFr;

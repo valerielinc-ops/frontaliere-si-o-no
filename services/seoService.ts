@@ -2649,6 +2649,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-commercio-dettaglio-ricavi-ticino-2026': { name: 'Commercio dettaglio', path: '/articoli-frontaliere/commercio-dettaglio-ricavi-ticino-2026', parent: 'blog' },
     'blog-contibellinzona-2025-risultati': { name: 'Finanze comunali', path: '/articoli-frontaliere/contibellinzona-2025-risultati', parent: 'blog' },
     'blog-italia-inadempiente-crediti-sanitari': { name: 'Novità', path: '/articoli-frontaliere/italia-inadempiente-crediti-sanitari', parent: 'blog' },
+    'blog-settore-alberghiero-ricavi-2025': { name: 'Novità', path: '/articoli-frontaliere/settore-alberghiero-ricavi-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

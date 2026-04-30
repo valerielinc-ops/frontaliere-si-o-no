@@ -4255,6 +4255,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.italia-inadempiente-crediti-sanitari.title': 'Italy delays health credit reimbursements: Quadri asks for clarity',
     'blog.article.italia-inadempiente-crediti-sanitari.excerpt': 'National Councillor Lorenzo Quadri questions the Federal Council about Italy\'s delays in health reimbursements',
     'blog.article.italia-inadempiente-crediti-sanitari.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, clear blue sky',
+    'blog.article.settore-alberghiero-ricavi-2025.title': 'Swiss hotel revenues up 3.9% in 2025',
+    'blog.article.settore-alberghiero-ricavi-2025.excerpt': 'Switzerland\'s hotel sector sees a 3.9% increase in 2025 revenue, with summer peaks and differences between categories and tourist areas.',
+    'blog.article.settore-alberghiero-ricavi-2025.imageAlt': 'Hotel on Lake Lugano with panoramic view',
 };
 
 export default blogMetaEn;

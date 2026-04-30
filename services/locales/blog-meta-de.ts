@@ -4255,6 +4255,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.italia-inadempiente-crediti-sanitari.title': 'Italien lässt Gesundheitskosten offen: Quadri fordert Klarheit',
     'blog.article.italia-inadempiente-crediti-sanitari.excerpt': 'Nationalrat Lorenzo Quadri befragt den Bundesrat zu den Verzögerungen Italiens bei der Rückerstattung der Gesundheitskosten',
     'blog.article.italia-inadempiente-crediti-sanitari.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund, klarer blauer Himmel',
+    'blog.article.settore-alberghiero-ricavi-2025.title': 'Umsatz im Hotelgewerbe steigt: +3,9% im 2025',
+    'blog.article.settore-alberghiero-ricavi-2025.excerpt': 'Die Schweizer Hotellerie verzeichnet im Jahr 2025 einen Umsatzanstieg von 3,9%, mit Spitzen im Sommer und Unterschieden zwischen Kategorien und touristischen Regionen.',
+    'blog.article.settore-alberghiero-ricavi-2025.imageAlt': 'Hotel am Luganersee mit Panoramablick',
 };
 
 export default blogMetaDe;

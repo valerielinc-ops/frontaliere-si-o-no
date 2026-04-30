@@ -4256,6 +4256,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.italia-inadempiente-crediti-sanitari.title': 'Italia inadempiente sui crediti sanitari: Quadri chiede chiarezza',
     'blog.article.italia-inadempiente-crediti-sanitari.excerpt': 'Il consigliere nazionale Lorenzo Quadri interroga il Consiglio federale sui ritardi italiani nei rimborsi sanitari',
     'blog.article.italia-inadempiente-crediti-sanitari.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido',
+    'blog.article.settore-alberghiero-ricavi-2025.title': 'Ricavi alberghieri in crescita: +3,9% nel 2025',
+    'blog.article.settore-alberghiero-ricavi-2025.excerpt': 'Il settore alberghiero svizzero registra un aumento del 3,9% nel fatturato 2025, con picchi estivi e differenze tra categorie e zone turistiche.',
+    'blog.article.settore-alberghiero-ricavi-2025.imageAlt': 'Hotel sul lago di Lugano con vista panoramica',
 };
 
 export default blogMetaIt;

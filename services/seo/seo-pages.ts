@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1468,
+ "numberOfItems": 1469,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6103,7 +6103,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1465, "name": "Presunti maltrattamenti in asilo nido a Chiasso", "url": `${BASE_URL}/articoli-frontaliere/presunti-maltrattamenti-asilo-chiasso` },
           { "@type": "ListItem", "position": 1466, "name": "Commercio al dettaglio in Ticino: +2,7% nel pri...", "url": `${BASE_URL}/articoli-frontaliere/commercio-dettaglio-ricavi-ticino-2026` },
           { "@type": "ListItem", "position": 1467, "name": "Bellinzona chiude 2025 con un rosso più contenuto", "url": `${BASE_URL}/articoli-frontaliere/contibellinzona-2025-risultati` },
-          { "@type": "ListItem", "position": 1468, "name": "Italia inadempiente sui crediti sanitari: Quadr...", "url": `${BASE_URL}/articoli-frontaliere/italia-inadempiente-crediti-sanitari` }
+          { "@type": "ListItem", "position": 1468, "name": "Italia inadempiente sui crediti sanitari: Quadr...", "url": `${BASE_URL}/articoli-frontaliere/italia-inadempiente-crediti-sanitari` },
+          { "@type": "ListItem", "position": 1469, "name": "Ricavi alberghieri in crescita: +3,9% nel 2025", "url": `${BASE_URL}/articoli-frontaliere/settore-alberghiero-ricavi-2025` }
  ]
  },
  {
