@@ -4421,6 +4421,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.emergenza-acqua-lombardia-2026.title': 'Pénurie d\'eau en Lombardie: déficit de 37%, que se passe-t-il maintenant?',
     'blog.article.emergenza-acqua-lombardia-2026.excerpt': 'Situation critique en Lombardie: déficit hydrique de 37%, absence de neige et mesures urgentes pour l\'été',
     'blog.article.emergenza-acqua-lombardia-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes et les villes, eau bleue claire, journée ensoleillée',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.title': 'Un enfant de deux ans se noie à Morcote',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.excerpt': 'Tragédie à Vico Morcote : un enfant de deux ans s\'est noyé dans une piscine privée. L\'alerte a été donnée en début d\'après-midi du jeudi 30 avril.',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.imageAlt': 'Vue de Morcote sur le lac Ceresio avec une piscine privée au premier plan',
 };
 
 export default blogMetaFr;

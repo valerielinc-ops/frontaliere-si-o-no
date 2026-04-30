@@ -4420,6 +4420,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.emergenza-acqua-lombardia-2026.title': 'Wassernotstand in der Lombardei: 37% Defizit, was passiert jetzt?',
     'blog.article.emergenza-acqua-lombardia-2026.excerpt': 'Kritische Situation in der Lombardei: 37% Wassermangel, kein Schnee und dringende Maßnahmen für den Sommer',
     'blog.article.emergenza-acqua-lombardia-2026.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Städten, klares blaues Wasser, sonniger Tag',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.title': 'Zwei Jahre alter Junge ertrinkt in Morcote',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.excerpt': 'Tragödie in Vico Morcote: Ein zweijähriges Kind ist in einem privaten Schwimmbad ertrunken. Der Alarm ging am frühen Nachmittag von Donnerstag, dem 30. April, los.',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.imageAlt': 'Ansicht von Morcote am Ceresio-See mit einem privaten Pool im Vordergrund',
 };
 
 export default blogMetaDe;

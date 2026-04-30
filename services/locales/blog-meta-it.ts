@@ -4421,6 +4421,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.emergenza-acqua-lombardia-2026.title': 'Emergenza acqua in Lombardia: deficit del 37%, cosa succede ora',
     'blog.article.emergenza-acqua-lombardia-2026.excerpt': 'Situazione critica in Lombardia: deficit idrico del 37%, assenza di neve e misure urgenti per l\'estate',
     'blog.article.emergenza-acqua-lombardia-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti e paesi, acqua blu cristallina, giornata di sole',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.title': 'Bambino di due anni muore annegato a Morcote',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.excerpt': 'Tragedia a Vico Morcote: un bambino di due anni è morto annegato in una piscina privata. L\'allarme è scattato nel primo pomeriggio di giovedì 30 aprile.',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.imageAlt': 'Vista di Morcote sul lago Ceresio con una piscina privata in primo piano',
 };
 
 export default blogMetaIt;

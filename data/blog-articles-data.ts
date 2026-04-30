@@ -11327,4 +11327,11 @@ export const ARTICLES = [
  image: '/images/blog/emergenza-acqua-lombardia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bambino-annegato-morcote-30-aprile-2026',
+ category: 'novita',
+ date: '2026-04-30T18:40:55.665Z',
+ image: '/images/blog/bambino-annegato-morcote-30-aprile-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

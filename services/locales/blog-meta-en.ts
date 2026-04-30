@@ -4420,6 +4420,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.emergenza-acqua-lombardia-2026.title': 'Water emergency in Lombardy: 37% deficit, what\'s next',
     'blog.article.emergenza-acqua-lombardia-2026.excerpt': 'Critical situation in Lombardy: 37% water deficit, lack of snow and urgent measures for summer',
     'blog.article.emergenza-acqua-lombardia-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns, clear blue water, sunny day',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.title': 'Two-year-old drowns in Morcote',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.excerpt': 'Tragedy in Vico Morcote: a two-year-old child drowned in a private pool. The alarm was raised in the early afternoon of Thursday, April 30th.',
+    'blog.article.bambino-annegato-morcote-30-aprile-2026.imageAlt': 'View of Morcote on Lake Ceresio with a private pool in the foreground',
 };
 
 export default blogMetaEn;

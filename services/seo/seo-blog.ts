@@ -29706,6 +29706,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bambino-annegato-morcote-30-aprile-2026': {
+    title: 'Bambino di due anni muore annegato a Morcote | Frontaliere Ticino',
+    description: 'Tragedia a Vico Morcote: un bambino di due anni è morto annegato in una piscina privata. L\'allarme è scattato nel primo pomeriggio di giovedì 30 aprile.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bambino, anni, muore, annegato',
+    ogTitle: 'Bambino di due anni muore annegato a Morcote',
+    ogDescription: 'Tragedia a Vico Morcote: un bambino di due anni è morto annegato in una piscina privata. L\'allarme è scattato nel primo pomeriggio di giovedì 30 aprile.',
+    canonicalPath: '/articoli-frontaliere/bambino-annegato-morcote-30-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bambino di due anni muore annegato a Morcote",
+      "description": "Tragedia a Vico Morcote: un bambino di due anni è morto annegato in una piscina privata. L'allarme è scattato nel primo pomeriggio di giovedì 30 aprile.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bambino-annegato-morcote-30-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Morcote sul lago Ceresio con una piscina privata in primo piano"
+      },
+      "datePublished": "2026-04-30T18:40:55+00:00",
+      "dateModified": "2026-04-30T18:40:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bambino-annegato-morcote-30-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
