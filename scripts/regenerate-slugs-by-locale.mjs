@@ -20,6 +20,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -49,6 +50,32 @@ function slugify(text) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, MAX_SLUG_LENGTH);
+}
+
+/**
+ * Derive a 6-char hex tail from a job identifier \u2014 used as a deterministic
+ * disambiguating suffix when a generated slug already belongs to another job.
+ *
+ * Why 6 chars: 16^6 \u2248 16 M slots \u2192 birthday-paradox collision probability
+ * with the ~3000 active jobs in the feed is well below 0.001 %, while
+ * keeping URLs short. The hash is stable for a given `job.id` (which is
+ * itself content-addressed by the crawler), so the suffix doesn't churn
+ * across builds \u2014 Google's link equity stays glued to one URL per job.
+ */
+function shortJobHash(jobId) {
+  return crypto.createHash('sha1').update(String(jobId || '')).digest('hex').slice(0, 6);
+}
+
+/**
+ * Append a hex disambiguator tail to a slug, respecting MAX_SLUG_LENGTH.
+ * Returns the original slug if it's empty (no point disambiguating nothing).
+ */
+function appendDisambiguatorTail(slug, tail) {
+  const t = String(tail || '').trim();
+  if (!t) return slug;
+  const maxBase = Math.max(0, MAX_SLUG_LENGTH - t.length - 1);
+  const trimmed = String(slug || '').slice(0, maxBase).replace(/-+$/, '');
+  return trimmed ? `${trimmed}-${t}` : t;
 }
 
 /**
@@ -120,8 +147,49 @@ async function main() {
   const files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json')).sort();
   console.log(`🔗 Regenerating slugByLocale across ${files.length} per-crawler slices...\n`);
 
+  // ── Pre-pass: cross-job slug uniqueness map ────────────────────────────
+  // Walks every slice and records the CURRENT mapping `slug → owning jobId`
+  // per locale. The generation pass below uses this map to detect when a
+  // newly-derived slug would steal another job's slug (Phase 4 case 5 —
+  // prevent "shared slugs" that cause downstream emit collisions like
+  // Projektleiter/Projektingenieur sharing `project-manager-...-chur`).
+  // When a collision is detected, the new job gets `-${shortJobHash(id)}`
+  // appended so the slug stays stable across builds (job.id is
+  // content-addressed by the crawler) without flipping who owns the bare
+  // form.
+  const usedSlugs = new Map(); // locale → Map<slug, jobId>
+  for (const locale of LOCALES) usedSlugs.set(locale, new Map());
+  let preScanJobs = 0;
+  let preScanMappings = 0;
+  for (const file of files) {
+    const slicePath = path.join(BY_CRAWLER_DIR, file);
+    const sliceData = readJson(slicePath);
+    const jobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : [];
+    for (const job of jobs) {
+      preScanJobs++;
+      if (!job?.id) continue;
+      const sbl = job.slugByLocale || {};
+      for (const locale of LOCALES) {
+        const slug = (sbl[locale] || '').trim();
+        if (!slug) continue;
+        const slugMap = usedSlugs.get(locale);
+        // First-write wins for the pre-scan: if two jobs in CURRENT data
+        // already share a slug (legacy collision), the first one we see
+        // owns it from this build's perspective. The second one will
+        // detect the conflict during the generation pass and acquire a
+        // disambiguator on its next regen.
+        if (!slugMap.has(slug)) {
+          slugMap.set(slug, job.id);
+          preScanMappings++;
+        }
+      }
+    }
+  }
+  console.log(`🗺️  Pre-scan: ${preScanJobs} jobs, ${preScanMappings} unique (locale, slug) mappings indexed`);
+
   let totalFixed = 0;
   let totalJobs = 0;
+  let totalDisambiguated = 0;
   let slicesChanged = 0;
 
   for (const file of files) {
@@ -164,7 +232,7 @@ async function main() {
         if (currentSlug && slugMatchesTitle(currentSlug, title, company, location, disambiguator)) continue;
 
         // Generate new slug from locale title, re-appending disambiguator
-        const newSlug = buildSlug(title, company, location, disambiguator);
+        let newSlug = buildSlug(title, company, location, disambiguator);
         if (!newSlug || newSlug === currentSlug) continue;
 
         // Don't replace if slug is the same as another locale's slug (avoid collisions)
@@ -173,10 +241,50 @@ async function main() {
         );
         if (otherSlugs.has(newSlug)) continue;
 
+        // Cross-job uniqueness check (Phase 4 case 5).
+        // If another active job already owns `newSlug` for this locale,
+        // append a deterministic short hash of THIS job's id so the slug
+        // is unique across the feed. The hash is stable for a given
+        // job.id (content-addressed by the crawler), so once a job
+        // acquires a disambiguator it keeps it across rebuilds — Google's
+        // link equity stays glued to one URL per job. This prevents the
+        // downstream emit collisions documented in Phase 4 cases 1 and 4
+        // (Convit, Projektleiter/Projektingenieur, etc).
+        if (job.id) {
+          const slugMap = usedSlugs.get(locale);
+          const owner = slugMap.get(newSlug);
+          if (owner && owner !== job.id) {
+            const tail = shortJobHash(job.id);
+            const disambig = appendDisambiguatorTail(newSlug, tail);
+            // Pathological: even the disambiguated form is taken (extremely
+            // unlikely with a 6-hex tail, but possible if two jobs share
+            // the bare slug AND collide on hash). Skip rather than
+            // overwrite a wrong owner.
+            const ownerAfter = slugMap.get(disambig);
+            if (ownerAfter && ownerAfter !== job.id) {
+              console.warn(`[slug-uniqueness] could not derive unique ${locale} slug for ${job.id}: ${newSlug} taken by ${owner}, ${disambig} taken by ${ownerAfter} — keeping current`);
+              continue;
+            }
+            newSlug = disambig;
+            totalDisambiguated++;
+          }
+        }
+
         // Preserve old slug in previousSlugsByLocale for SEO bridge pages
         // Uses locale-aware storage so bridge page is generated under correct locale prefix
         if (currentSlug && currentSlug !== newSlug) {
           addPreviousSlugForLocale(job, locale, currentSlug, 20);
+        }
+
+        // Update the cross-job uniqueness map: this job now owns newSlug
+        // for this locale, and (if changing from currentSlug) releases
+        // currentSlug back to the pool.
+        if (job.id) {
+          const slugMap = usedSlugs.get(locale);
+          if (currentSlug && slugMap.get(currentSlug) === job.id) {
+            slugMap.delete(currentSlug);
+          }
+          slugMap.set(newSlug, job.id);
         }
 
         sbl[locale] = newSlug;
@@ -212,6 +320,9 @@ async function main() {
   }
 
   console.log(`\n📊 Slug regeneration complete: ${totalFixed} locale slugs fixed across ${slicesChanged} slices (${totalJobs} total jobs)`);
+  if (totalDisambiguated > 0) {
+    console.log(`🔠 Cross-job uniqueness: ${totalDisambiguated} slug(s) acquired a -<hash> tail to avoid colliding with another job's slug for the same locale`);
+  }
 }
 
 main().catch(err => {
