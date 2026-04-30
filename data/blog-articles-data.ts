@@ -10619,4 +10619,11 @@ export const ARTICLES = [
  image: '/images/blog/lavoro-etico-convegno-liuc-ucid.jpg',
  hasCalculator: true,
  },
+ {
+ id: '1maggio-eremo-monastero-legge-varese',
+ category: 'novita',
+ date: '2026-04-30T03:11:51.458Z',
+ image: '/images/blog/1maggio-eremo-monastero-legge-varese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

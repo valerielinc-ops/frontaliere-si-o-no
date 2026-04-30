@@ -26777,6 +26777,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-1maggio-eremo-monastero-legge-varese': {
+    title: '1° maggio tra Eremo e Monastero sul Lago Maggiore e in Valle Olona',
+    description: 'Visite guidate e picnic per la Festa dei Lavoratori all\'Eremo di Santa Caterina del Sasso e al Monastero di Torba il 1° maggio 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggio, eremo, monastero, lago',
+    ogTitle: '1° maggio tra Eremo e Monastero sul Lago Maggiore e in Valle Olona',
+    ogDescription: 'Visite guidate e picnic per la Festa dei Lavoratori all\'Eremo di Santa Caterina del Sasso e al Monastero di Torba il 1° maggio 2026',
+    canonicalPath: '/articoli-frontaliere/1maggio-eremo-monastero-legge-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "1° maggio tra Eremo e Monastero sul Lago Maggiore e in Valle Olona",
+      "description": "Visite guidate e picnic per la Festa dei Lavoratori all'Eremo di Santa Caterina del Sasso e al Monastero di Torba il 1° maggio 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/1maggio-eremo-monastero-legge-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea dell'Eremo di Santa Caterina del Sasso sul Lago Maggiore"
+      },
+      "datePublished": "2026-04-30T03:11:51+00:00",
+      "dateModified": "2026-04-30T03:11:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/1maggio-eremo-monastero-legge-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4117,6 +4117,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-etico-convegno-liuc-ucid.title': 'LIUC-Konferenz: Ethik und Verantwortung am Arbeitsplatz',
     'blog.article.lavoro-etico-convegno-liuc-ucid.excerpt': 'Am Freitag, den 8. Mai, findet an der LIUC eine Konferenz über Ethik und Verantwortung am Arbeitsplatz mit der UCID statt. Unter den Rednern sind der Kardinal Angelo Bagnasco und der Bischof von Lodi.',
     'blog.article.lavoro-etico-convegno-liuc-ucid.imageAlt': 'Konferenz an der LIUC über Ethik und Arbeit, Castronno',
+    'blog.article.1maggio-eremo-monastero-legge-varese.title': '1. Mai zwischen Eremo und Kloster am Lago Maggiore und im Valle Olona',
+    'blog.article.1maggio-eremo-monastero-legge-varese.excerpt': 'Führungen und Picknick zum Tag der Arbeit im Eremo di Santa Caterina del Sasso und im Kloster Torba',
+    'blog.article.1maggio-eremo-monastero-legge-varese.imageAlt': 'Luftaufnahme des Eremo di Santa Caterina del Sasso am Lago Maggiore',
 };
 
 export default blogMetaDe;
