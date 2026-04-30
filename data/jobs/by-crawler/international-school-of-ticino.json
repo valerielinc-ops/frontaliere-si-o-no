@@ -24,12 +24,12 @@
         "de": "Deutscher Lehrer",
         "fr": "Professeur d'allemand"
       },
-      "slug": "german-teacher-ist",
+      "slug": "insegnante-tedesco-international-school-of-ticino-lugano",
       "slugByLocale": {
         "en": "german-teacher-international-school-of-ticino-lugano",
-        "it": "german-teacher-ist",
-        "de": "german-teacher-ist",
-        "fr": "german-teacher-ist"
+        "it": "insegnante-tedesco-international-school-of-ticino-lugano",
+        "de": "deutscher-lehrer-international-school-of-ticino-lugano",
+        "fr": "professeur-d-allemand-international-school-of-ticino-lugano"
       },
       "category": "education",
       "datePosted": "2026-04-29",
@@ -65,10 +65,21 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-04-29T22:06:07.848Z",
       "previousSlugs": [
+        "german-teacher-ist",
         "history-teacher-ist",
-        "history-teacher-international-school-of-ticino-lugano-jzfueu",
-        "history-teacher-ist"
-      ]
+        "history-teacher-international-school-of-ticino-lugano-jzfueu"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "german-teacher-ist"
+        ],
+        "de": [
+          "german-teacher-ist"
+        ],
+        "fr": [
+          "german-teacher-ist"
+        ]
+      }
     },
     {
       "url": "https://jobs.inspirededu.com/job/Lugano-Biology-&-Chemistry-Teacher/1359421357/",
@@ -96,8 +107,8 @@
       "slugByLocale": {
         "en": "biology-chemistry-teacher-ist",
         "it": "biology-chemistry-teacher-international-school-of-ticino-lugano",
-        "de": "biology-chemistry-teacher-ist",
-        "fr": "biology-chemistry-teacher-ist"
+        "de": "biologie-und-chemie-international-school-of-ticino-lugano",
+        "fr": "professeur-de-biologie-et-de-chimie-international-school-of-ticino-lugano"
       },
       "category": "education",
       "datePosted": "2026-04-29",
@@ -115,6 +126,12 @@
       "id": "international-school-of-ticino-7f225f589c22",
       "previousSlugsByLocale": {
         "it": [
+          "biology-chemistry-teacher-ist"
+        ],
+        "de": [
+          "biology-chemistry-teacher-ist"
+        ],
+        "fr": [
           "biology-chemistry-teacher-ist"
         ]
       },

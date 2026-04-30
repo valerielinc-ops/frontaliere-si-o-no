@@ -24,12 +24,12 @@
         "de": "SAP-Servicemanager für Geschäftskontinuität",
         "fr": "Gestionnaire de services de continuité des activités SAP"
       },
-      "slug": "sap-business-continuity-service-manager-zegna",
+      "slug": "responsabile-del-servizio-di-business-continuity-sap-ermenegildo-zegna-group-stabio",
       "slugByLocale": {
         "en": "sap-business-continuity-service-manager-zegna",
-        "it": "sap-business-continuity-service-manager-zegna",
-        "de": "sap-business-continuity-service-manager-zegna",
-        "fr": "sap-business-continuity-service-manager-zegna"
+        "it": "responsabile-del-servizio-di-business-continuity-sap-ermenegildo-zegna-group-stabio",
+        "de": "sap-servicemanager-fur-geschaftskontinuitat-ermenegildo-zegna-group-stabio",
+        "fr": "gestionnaire-de-services-de-continuite-des-activites-sap-ermenegildo-zegna-group-stabio"
       },
       "department": "Corporate and Staff Functions/Information Technology",
       "category": "Corporate and Staff Functions/Information Technology",
@@ -65,7 +65,21 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-04-29T22:51:07.278Z"
+      "firstSeenAt": "2026-04-29T22:51:07.278Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-business-continuity-service-manager-zegna"
+        ],
+        "de": [
+          "sap-business-continuity-service-manager-zegna"
+        ],
+        "fr": [
+          "sap-business-continuity-service-manager-zegna"
+        ]
+      },
+      "previousSlugs": [
+        "sap-business-continuity-service-manager-zegna"
+      ]
     },
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=266304035&Team=231361275",
