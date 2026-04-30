@@ -4175,6 +4175,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aquanexa-visita-acquedotto-alfa-laveno.title': 'Aquanexa visite l\'aqueduc Alfa à Laveno Mombello',
     'blog.article.aquanexa-visita-acquedotto-alfa-laveno.excerpt': 'Une délégation d\'Aquanexa a visité l\'aqueduc IX Fontane de Laveno Mombello, géré par Alfa, pour le projet Aquamind.',
     'blog.article.aquanexa-visita-acquedotto-alfa-laveno.imageAlt': 'Délégation d\'Aquanexa visite l\'usine de traitement de l\'eau Alfa à Laveno Mombello',
+    'blog.article.bollino-rosso-a2-chiasso-lugano-2026.title': 'Bouchon rouge sur l\'A2 entre Chiasso et Lugano',
+    'blog.article.bollino-rosso-a2-chiasso-lugano-2026.excerpt': 'Retards jusqu\'à une heure et quarante minutes entre Chiasso et Lugano nord en raison d\'un véhicule en panne. Ralentissements également sur les routes cantonales.',
+    'blog.article.bollino-rosso-a2-chiasso-lugano-2026.imageAlt': 'Embouteillage sur l\'autoroute A2 entre Chiasso et Lugano',
 };
 
 export default blogMetaFr;

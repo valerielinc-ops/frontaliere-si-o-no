@@ -27328,6 +27328,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollino-rosso-a2-chiasso-lugano-2026': {
+    title: 'Bollino rosso sull\'A2 tra Chiasso e Lugano | Frontaliere Ticino',
+    description: 'Ritardi fino a un\'ora e quaranta minuti sull\'A2 in direzione nord tra Chiasso e Lugano nord a causa di un veicolo in avaria. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollino, rosso, sull, chiasso',
+    ogTitle: 'Bollino rosso sull\'A2 tra Chiasso e Lugano',
+    ogDescription: 'Ritardi fino a un\'ora e quaranta minuti sull\'A2 in direzione nord tra Chiasso e Lugano nord a causa di un veicolo in avaria.',
+    canonicalPath: '/articoli-frontaliere/bollino-rosso-a2-chiasso-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollino rosso sull'A2 tra Chiasso e Lugano",
+      "description": "Ritardi fino a un'ora e quaranta minuti sull'A2 in direzione nord tra Chiasso e Lugano nord a causa di un veicolo in avaria. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bollino-rosso-a2-chiasso-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingorgo autostradale A2 tra Chiasso e Lugano"
+      },
+      "datePublished": "2026-04-30T06:05:20+00:00",
+      "dateModified": "2026-04-30T06:05:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollino-rosso-a2-chiasso-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2622,6 +2622,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ritardi-a2-tra-chiasso-lugano': { name: 'Traffico A2', path: '/articoli-frontaliere/ritardi-a2-tra-chiasso-lugano', parent: 'blog' },
     'blog-a2-corsia-ritardi-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/a2-corsia-ritardi-lugano-2026', parent: 'blog' },
     'blog-aquanexa-visita-acquedotto-alfa-laveno': { name: 'Novità', path: '/articoli-frontaliere/aquanexa-visita-acquedotto-alfa-laveno', parent: 'blog' },
+    'blog-bollino-rosso-a2-chiasso-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/bollino-rosso-a2-chiasso-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

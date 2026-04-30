@@ -10752,4 +10752,11 @@ export const ARTICLES = [
  image: '/images/blog/aquanexa-visita-acquedotto-alfa-laveno.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bollino-rosso-a2-chiasso-lugano-2026',
+ category: 'novita',
+ date: '2026-04-30T06:05:20.158Z',
+ image: '/images/blog/bollino-rosso-a2-chiasso-lugano-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
