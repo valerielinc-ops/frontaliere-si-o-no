@@ -11313,4 +11313,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-citta-piu-verde-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'denuncia-strisce-pedonali-como-2026',
+ category: 'novita',
+ date: '2026-04-30T18:21:39.844Z',
+ image: '/images/blog/denuncia-strisce-pedonali-como-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

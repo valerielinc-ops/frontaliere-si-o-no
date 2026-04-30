@@ -29648,6 +29648,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-denuncia-strisce-pedonali-como-2026': {
+    title: 'Denuncia a Como: strisce pedonali pericolose | Frontaliere Ticino',
+    description: 'Una lettrice segnala lo stato critico delle strisce pedonali in quasi tutta la città di Como, rendendo pericoloso l\'attraversamento delle strade.',
+    keywords: 'frontalieri, ticino, svizzera, italia, denuncia, como, strisce, pedonali',
+    ogTitle: 'Denuncia a Como: strisce pedonali pericolose',
+    ogDescription: 'Una lettrice segnala lo stato critico delle strisce pedonali in quasi tutta la città di Como, rendendo pericoloso l\'attraversamento delle strade.',
+    canonicalPath: '/articoli-frontaliere/denuncia-strisce-pedonali-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Denuncia a Como: strisce pedonali pericolose",
+      "description": "Una lettrice segnala lo stato critico delle strisce pedonali in quasi tutta la città di Como, rendendo pericoloso l'attraversamento delle strade.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/denuncia-strisce-pedonali-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strisce pedonali consumate a Como, pericolose per i pedoni"
+      },
+      "datePublished": "2026-04-30T18:21:39+00:00",
+      "dateModified": "2026-04-30T18:21:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/denuncia-strisce-pedonali-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4415,6 +4415,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-citta-piu-verde-2026.title': 'Varèse parmi les villes les plus vertes d\'Europe',
     'blog.article.varese-citta-piu-verde-2026.excerpt': 'Varèse est l\'une des deux seules villes européennes où plus de 50 % de la population vit selon la règle du 3-30-300.',
     'blog.article.varese-citta-piu-verde-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des parcs verts',
+    'blog.article.denuncia-strisce-pedonali-como-2026.title': 'Dénonciation à Côme: passages piétons dangereux',
+    'blog.article.denuncia-strisce-pedonali-como-2026.excerpt': 'Une lectrice signale l\'état critique des passages piétons dans presque toute la ville de Côme, rendant dangereux le traversement des rues.',
+    'blog.article.denuncia-strisce-pedonali-como-2026.imageAlt': 'Passages piétons usés à Côme, dangereux pour les piétons',
 };
 
 export default blogMetaFr;

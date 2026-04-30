@@ -4414,6 +4414,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-citta-piu-verde-2026.title': 'Varese among Europe\'s greenest cities',
     'blog.article.varese-citta-piu-verde-2026.excerpt': 'Varese is one of only two European cities where over 50% of the population lives by the 3-30-300 rule.',
     'blog.article.varese-citta-piu-verde-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and green parks',
+    'blog.article.denuncia-strisce-pedonali-como-2026.title': 'Report: dangerous pedestrian crossings in Como',
+    'blog.article.denuncia-strisce-pedonali-como-2026.excerpt': 'A reader reports the critical condition of pedestrian crossings across almost the entire city of Como, making street crossings dangerous.',
+    'blog.article.denuncia-strisce-pedonali-como-2026.imageAlt': 'Worn-out pedestrian crossings in Como, dangerous for pedestrians',
 };
 
 export default blogMetaEn;

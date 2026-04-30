@@ -4414,6 +4414,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-citta-piu-verde-2026.title': 'Varese gehört zu den grünsten Städten Europas',
     'blog.article.varese-citta-piu-verde-2026.excerpt': 'Varese ist eine der beiden europäischen Städte, in denen über 50 % der Bevölkerung nach der 3-30-300-Regel leben.',
     'blog.article.varese-citta-piu-verde-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und grünen Parks',
+    'blog.article.denuncia-strisce-pedonali-como-2026.title': 'Fußgängerüberwege in Como gefährlich',
+    'blog.article.denuncia-strisce-pedonali-como-2026.excerpt': 'Eine Leserin weist auf den kritischen Zustand der Fußgängerüberwege in fast der gesamten Stadt Como hin, was das Überqueren der Straßen gefährlich macht.',
+    'blog.article.denuncia-strisce-pedonali-como-2026.imageAlt': 'Abgenutzte Fußgängerüberwege in Como, gefährlich für Fußgänger',
 };
 
 export default blogMetaDe;

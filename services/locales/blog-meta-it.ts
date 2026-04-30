@@ -4415,6 +4415,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-citta-piu-verde-2026.title': 'Varese tra le città più verdi d\'Europa',
     'blog.article.varese-citta-piu-verde-2026.excerpt': 'Varese è tra le sole due città europee dove oltre il 50% della popolazione vive secondo la regola del 3-30-300.',
     'blog.article.varese-citta-piu-verde-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e parchi verdi',
+    'blog.article.denuncia-strisce-pedonali-como-2026.title': 'Denuncia a Como: strisce pedonali pericolose',
+    'blog.article.denuncia-strisce-pedonali-como-2026.excerpt': 'Una lettrice segnala lo stato critico delle strisce pedonali in quasi tutta la città di Como, rendendo pericoloso l\'attraversamento delle strade.',
+    'blog.article.denuncia-strisce-pedonali-como-2026.imageAlt': 'Strisce pedonali consumate a Como, pericolose per i pedoni',
 };
 
 export default blogMetaIt;
