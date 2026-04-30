@@ -11453,4 +11453,11 @@ export const ARTICLES = [
  image: '/images/blog/polizia-ticinese-progetto-abbandonato-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'summer-camp-malnate-tenuta-novella',
+ category: 'novita',
+ date: '2026-04-30T22:00:25.444Z',
+ image: '/images/blog/summer-camp-malnate-tenuta-novella.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4475,6 +4475,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.polizia-ticinese-progetto-abbandonato-2026.title': 'Police tessinoise : projet abandonné par le Conseil d\'État',
     'blog.article.polizia-ticinese-progetto-abbandonato-2026.excerpt': 'Le Conseil d\'État a décidé de ne pas poursuivre avec le projet Police tessinoise, lancé en 2016 pour améliorer la collaboration entre la police cantonale et les polices communales.',
     'blog.article.polizia-ticinese-progetto-abbandonato-2026.imageAlt': 'Vue aérienne du Castelgrande à Bellinzona, en Suisse, avec les montagnes environnantes et la rivière Ticino. L\'image capture le château historique et le paysage urbain moderne en arrière-plan.',
+    'blog.article.summer-camp-malnate-tenuta-novella.title': 'Camping d\'été à Malnate: nature, ferme et anglais pour enfants',
+    'blog.article.summer-camp-malnate-tenuta-novella.excerpt': 'À la Tenuta La Novella de Malnate, un été entre animaux, activités en plein air et anglais pour enfants de 6 à 10 ans.',
+    'blog.article.summer-camp-malnate-tenuta-novella.imageAlt': 'Enfants dans un camp d\'été à la Tenuta La Novella à Malnate, parmi les animaux et la nature',
 };
 
 export default blogMetaFr;

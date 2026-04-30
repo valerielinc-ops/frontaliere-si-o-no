@@ -30228,6 +30228,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-summer-camp-malnate-tenuta-novella': {
+    title: 'Summer camp a Malnate: natura, fattoria e inglese per bambini',
+    description: 'Alla Tenuta La Novella di Malnate, un\'estate tra animali, attività all\'aperto e inglese per bambini dai 6 ai 10 anni. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, summer, camp, malnate, natura',
+    ogTitle: 'Summer camp a Malnate: natura, fattoria e inglese per bambini',
+    ogDescription: 'Alla Tenuta La Novella di Malnate, un\'estate tra animali, attività all\'aperto e inglese per bambini dai 6 ai 10 anni.',
+    canonicalPath: '/articoli-frontaliere/summer-camp-malnate-tenuta-novella',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Summer camp a Malnate: natura, fattoria e inglese per bambini",
+      "description": "Alla Tenuta La Novella di Malnate, un'estate tra animali, attività all'aperto e inglese per bambini dai 6 ai 10 anni. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/summer-camp-malnate-tenuta-novella.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bambini in un campo estivo alla Tenuta La Novella di Malnate, tra animali e natura"
+      },
+      "datePublished": "2026-04-30T22:00:25+00:00",
+      "dateModified": "2026-04-30T22:00:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/summer-camp-malnate-tenuta-novella`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

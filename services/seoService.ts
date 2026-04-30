@@ -2722,6 +2722,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sunrise-pratiche-abusive-fermate-2026': { name: 'Novità', path: '/articoli-frontaliere/sunrise-pratiche-abusive-fermate-2026', parent: 'blog' },
     'blog-proroga-accise-carburanti-2026': { name: 'Novità', path: '/articoli-frontaliere/proroga-accise-carburanti-2026', parent: 'blog' },
     'blog-polizia-ticinese-progetto-abbandonato-2026': { name: 'Novità', path: '/articoli-frontaliere/polizia-ticinese-progetto-abbandonato-2026', parent: 'blog' },
+    'blog-summer-camp-malnate-tenuta-novella': { name: 'Summer camp', path: '/articoli-frontaliere/summer-camp-malnate-tenuta-novella', parent: 'blog' },
  };
 
  const info = sectionNames[section];

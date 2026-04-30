@@ -4475,6 +4475,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.polizia-ticinese-progetto-abbandonato-2026.title': 'Polizia ticinese: progetto abbandonato dal Consiglio di Stato',
     'blog.article.polizia-ticinese-progetto-abbandonato-2026.excerpt': 'Il Consiglio di Stato ha deciso di non proseguire con il progetto Polizia ticinese, avviato nel 2016 per migliorare la collaborazione tra polizia cantonale e comunali.',
     'blog.article.polizia-ticinese-progetto-abbandonato-2026.imageAlt': 'Veduta aerea del Castelgrande a Bellinzona, Svizzera, con le montagne circostanti e il fiume Ticino. L\'immagine cattura il castello storico e il paesaggio urbano moderno sullo sfondo.',
+    'blog.article.summer-camp-malnate-tenuta-novella.title': 'Summer camp a Malnate: natura, fattoria e inglese per bambini',
+    'blog.article.summer-camp-malnate-tenuta-novella.excerpt': 'Alla Tenuta La Novella di Malnate, un\'estate tra animali, attività all\'aperto e inglese per bambini dai 6 ai 10 anni.',
+    'blog.article.summer-camp-malnate-tenuta-novella.imageAlt': 'Bambini in un campo estivo alla Tenuta La Novella di Malnate, tra animali e natura',
 };
 
 export default blogMetaIt;
