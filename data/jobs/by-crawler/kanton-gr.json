@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-04-29T22:07:46.579Z",
+  "assembledAt": "2026-04-30T11:01:26.095Z",
   "jobs": [
     {
       "id": "kanton-gr-cb30f2200bf1",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2677/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:44.187Z",
+      "crawledAt": "2026-04-30T11:01:23.590Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://apply.refline.ch/514915/2620/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:43.535Z",
+      "crawledAt": "2026-04-30T11:01:22.911Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -178,6 +178,7 @@
         "stagiaire-comme-dessinateur-ice-efz-batiment-civil-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:49:03.502Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -222,7 +223,7 @@
       "url": "https://apply.refline.ch/514915/2595/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:42.883Z",
+      "crawledAt": "2026-04-30T11:01:22.233Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -298,7 +299,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:42.231Z",
+      "crawledAt": "2026-04-30T11:01:21.556Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -362,6 +363,7 @@
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:49:01.647Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -406,7 +408,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:41.583Z",
+      "crawledAt": "2026-04-30T11:01:20.879Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -449,6 +451,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:49:00.412Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -493,7 +496,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:40.932Z",
+      "crawledAt": "2026-04-30T11:01:20.202Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -536,6 +539,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:59.793Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -580,7 +584,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:40.280Z",
+      "crawledAt": "2026-04-30T11:01:19.524Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -620,6 +624,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:58.993Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -632,6 +637,533 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kanton-gr-46c273edd005",
+      "slug": "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "de": "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
+        "it": "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
+        "en": "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
+        "fr": "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Mitglied Kindes- und Erwachsenenschutzbehörde",
+      "titleByLocale": {
+        "de": "Mitglied Kindes- und Erwachsenenschutzbehörde",
+        "it": "Mitglied Kindes- e Erwachsenenschutzbehörde",
+        "en": "Mitglied Kindes- und Erwachsenenschutzbehörde",
+        "fr": "Mitglied Kindes- und Erwachsenenschutzbehörde"
+      },
+      "description": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Zur Verstärkung unseres Teams suchen wir für die KESB Graubünden, Zweigstelle Nordbünden, per 1. September 2026 oder nach Vereinbarung ein Mitglied KESB . | Aufgaben: • Entscheidfindung innerhalb des interdisziplinären Spruchkörpers und Mitverantwortung für die Anordnung und Anpassung von Kindes- und Erwachsenenschutzmassnahmen • Verfahrensleitung der zugewiesenen Verfahren sowie Verfassen und Bearbeiten zugehöriger Entscheide • Juristische Beurteilung von verfahrens- und materiellrechtlichen Fragestellungen und Sicherstellung der korrekten Rechtsanwendung • Durchführen von eigenen Abklärungen und Erteilung von Abklärungsaufträgen • Persönliche Anhörung von schutzbedürftigen und weiteren beteiligten Personen • Beratung und Begleitung von Beistandspersonen • Zusammenarbeit mit Gemeinden und mit externen Fachstellen und Institutionen • Mitarbeit bei der Weiterentwicklung der bestehenden Organisation und der fachlichen Standards | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Mehrjährige Berufserfahrung in der gesetzlichen Sozialarbeit, vorzugsweise im Kindes- und Erwachsenenschutzbereich einer KESB oder Berufsbeistandschaft, einem Gericht oder einer Jugendanwaltschaft • Sehr gute Deutschkenntnisse in Wort und Schrift • Ausgesprochene Freude an der Arbeit im Team • Hohe Kommunikations- und Sozialkompetenz sowie Empathie gegenüber Menschen in schwierigen Lebenssituationen • Flexibilität, hohe Belastbarkeit und Entscheidungskraft auch in schwierigen Situationen • Exakte und selbstständige Arbeitsweise und ausgeprägtes Verantwortungsbewusstsein • Sehr gutes sprachliches Ausdrucksvermögen sowie gute Office-Anwenderkenntnisse • Bereitschaft Pikettdienst zu leisten • Führerausweis der Kategorie B",
+      "descriptionByLocale": {
+        "de": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Zur Verstärkung unseres Teams suchen wir für die KESB Graubünden, Zweigstelle Nordbünden, per 1. September 2026 oder nach Vereinbarung ein Mitglied KESB . | Aufgaben: • Entscheidfindung innerhalb des interdisziplinären Spruchkörpers und Mitverantwortung für die Anordnung und Anpassung von Kindes- und Erwachsenenschutzmassnahmen • Verfahrensleitung der zugewiesenen Verfahren sowie Verfassen und Bearbeiten zugehöriger Entscheide • Juristische Beurteilung von verfahrens- und materiellrechtlichen Fragestellungen und Sicherstellung der korrekten Rechtsanwendung • Durchführen von eigenen Abklärungen und Erteilung von Abklärungsaufträgen • Persönliche Anhörung von schutzbedürftigen und weiteren beteiligten Personen • Beratung und Begleitung von Beistandspersonen • Zusammenarbeit mit Gemeinden und mit externen Fachstellen und Institutionen • Mitarbeit bei der Weiterentwicklung der bestehenden Organisation und der fachlichen Standards | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Mehrjährige Berufserfahrung in der gesetzlichen Sozialarbeit, vorzugsweise im Kindes- und Erwachsenenschutzbereich einer KESB oder Berufsbeistandschaft, einem Gericht oder einer Jugendanwaltschaft • Sehr gute Deutschkenntnisse in Wort und Schrift • Ausgesprochene Freude an der Arbeit im Team • Hohe Kommunikations- und Sozialkompetenz sowie Empathie gegenüber Menschen in schwierigen Lebenssituationen • Flexibilität, hohe Belastbarkeit und Entscheidungskraft auch in schwierigen Situationen • Exakte und selbstständige Arbeitsweise und ausgeprägtes Verantwortungsbewusstsein • Sehr gutes sprachliches Ausdrucksvermögen sowie gute Office-Anwenderkenntnisse • Bereitschaft Pikettdienst zu leisten • Führerausweis der Kategorie B",
+        "it": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Zur Verstärkung unseres Teams suchen wir für die KESB Graubünden, Zweigstelle Nordbünden, per 1. September 2026 oder nach Vereinbarung ein Mitglied KESB . | Aufgaben: • Entscheidfindung innerhalb des interdisziplinären Spruchkörpers und Mitverantwortung für die Anordnung und Anpassung von Kindes- und Erwachsenenschutzmassnahmen • Verfahrensleitung der zugewiesenen Verfahren sowie Verfassen und Bearbeiten zugehöriger Entscheide • Juristische Beurteilung von verfahrens- und materiellrechtlichen Fragestellungen und Sicherstellung der korrekten Rechtsanwendung • Durchführen von eigenen Abklärungen und Erteilung von Abklärungsaufträgen • Persönliche Anhörung von schutzbedürftigen und weiteren beteiligten Personen • Beratung und Begleitung von Beistandspersonen • Zusammenarbeit mit Gemeinden und mit externen Fachstellen und Institutionen • Mitarbeit bei der Weiterentwicklung der bestehenden Organisation und der fachlichen Standards | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Mehrjährige Berufserfahrung in der gesetzlichen Sozialarbeit, vorzugsweise im Kindes- und Erwachsenenschutzbereich einer KESB oder Berufsbeistandschaft, einem Gericht oder einer Jugendanwaltschaft • Sehr gute Deutschkenntnisse in Wort und Schrift • Ausgesprochene Freude an der Arbeit im Team • Hohe Kommunikations- und Sozialkompetenz sowie Empathie gegenüber Menschen in schwierigen Lebenssituationen • Flexibilität, hohe Belastbarkeit und Entscheidungskraft auch in schwierigen Situationen • Exakte und selbstständige Arbeitsweise und ausgeprägtes Verantwortungsbewusstsein • Sehr gutes sprachliches Ausdrucksvermögen sowie gute Office-Anwenderkenntnisse • Bereitschaft Pikettdienst zu leisten • Führerausweis der Kategorie B",
+        "en": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Zur Verstärkung unseres Teams suchen wir für die KESB Graubünden, Zweigstelle Nordbünden, per 1. September 2026 oder nach Vereinbarung ein Mitglied KESB . | Aufgaben: • Entscheidfindung innerhalb des interdisziplinären Spruchkörpers und Mitverantwortung für die Anordnung und Anpassung von Kindes- und Erwachsenenschutzmassnahmen • Verfahrensleitung der zugewiesenen Verfahren sowie Verfassen und Bearbeiten zugehöriger Entscheide • Juristische Beurteilung von verfahrens- und materiellrechtlichen Fragestellungen und Sicherstellung der korrekten Rechtsanwendung • Durchführen von eigenen Abklärungen und Erteilung von Abklärungsaufträgen • Persönliche Anhörung von schutzbedürftigen und weiteren beteiligten Personen • Beratung und Begleitung von Beistandspersonen • Zusammenarbeit mit Gemeinden und mit externen Fachstellen und Institutionen • Mitarbeit bei der Weiterentwicklung der bestehenden Organisation und der fachlichen Standards | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Mehrjährige Berufserfahrung in der gesetzlichen Sozialarbeit, vorzugsweise im Kindes- und Erwachsenenschutzbereich einer KESB oder Berufsbeistandschaft, einem Gericht oder einer Jugendanwaltschaft • Sehr gute Deutschkenntnisse in Wort und Schrift • Ausgesprochene Freude an der Arbeit im Team • Hohe Kommunikations- und Sozialkompetenz sowie Empathie gegenüber Menschen in schwierigen Lebenssituationen • Flexibilität, hohe Belastbarkeit und Entscheidungskraft auch in schwierigen Situationen • Exakte und selbstständige Arbeitsweise und ausgeprägtes Verantwortungsbewusstsein • Sehr gutes sprachliches Ausdrucksvermögen sowie gute Office-Anwenderkenntnisse • Bereitschaft Pikettdienst zu leisten • Führerausweis der Kategorie B",
+        "fr": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Zur Verstärkung unseres Teams suchen wir für die KESB Graubünden, Zweigstelle Nordbünden, per 1. September 2026 oder nach Vereinbarung ein Mitglied KESB . | Aufgaben: • Entscheidfindung innerhalb des interdisziplinären Spruchkörpers und Mitverantwortung für die Anordnung und Anpassung von Kindes- und Erwachsenenschutzmassnahmen • Verfahrensleitung der zugewiesenen Verfahren sowie Verfassen und Bearbeiten zugehöriger Entscheide • Juristische Beurteilung von verfahrens- und materiellrechtlichen Fragestellungen und Sicherstellung der korrekten Rechtsanwendung • Durchführen von eigenen Abklärungen und Erteilung von Abklärungsaufträgen • Persönliche Anhörung von schutzbedürftigen und weiteren beteiligten Personen • Beratung und Begleitung von Beistandspersonen • Zusammenarbeit mit Gemeinden und mit externen Fachstellen und Institutionen • Mitarbeit bei der Weiterentwicklung der bestehenden Organisation und der fachlichen Standards | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Mehrjährige Berufserfahrung in der gesetzlichen Sozialarbeit, vorzugsweise im Kindes- und Erwachsenenschutzbereich einer KESB oder Berufsbeistandschaft, einem Gericht oder einer Jugendanwaltschaft • Sehr gute Deutschkenntnisse in Wort und Schrift • Ausgesprochene Freude an der Arbeit im Team • Hohe Kommunikations- und Sozialkompetenz sowie Empathie gegenüber Menschen in schwierigen Lebenssituationen • Flexibilität, hohe Belastbarkeit und Entscheidungskraft auch in schwierigen Situationen • Exakte und selbstständige Arbeitsweise und ausgeprägtes Verantwortungsbewusstsein • Sehr gutes sprachliches Ausdrucksvermögen sowie gute Office-Anwenderkenntnisse • Bereitschaft Pikettdienst zu leisten • Führerausweis der Kategorie B"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2685/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-30T11:01:18.843Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://apply.refline.ch/514915/2685/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "KESB Zweigstelle Nordbünden",
+      "applicationDeadline": "2026-05-17",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
+        ],
+        "de": [
+          "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-30T11:01:18.843Z"
+    },
+    {
+      "id": "kanton-gr-28db030389a1",
+      "slug": "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "jurist-in-rechtsdienst-aktuariat-kantonale-verwaltung-graubunden-chur",
+        "it": "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch",
+        "en": "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch",
+        "fr": "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Jurist/-in Rechtsdienst/Aktuariat",
+      "titleByLocale": {
+        "de": "Jurist/-in Rechtsdienst/Aktuariat",
+        "it": "Jurist/-in Rechtsdienst/Aktuariat",
+        "en": "Jurist/-in Rechtsdienst/Aktuariat",
+        "fr": "Jurist/-in Rechtsdienst/Aktuariat"
+      },
+      "description": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Wir suchen für die KESB Graubünden, Zweigstelle Nordbünden, per 1. Juli 2026 oder nach Vereinbarung eine Juristin oder einen Juristen. | Aufgaben: • Unterstützung und Beratung der Behördemitglieder sowie Beistandspersonen bei materiellen und formellen rechtlichen Fragestellungen (Kindes- und Erwachsenenschutzrecht, Ehe- und Erbrecht, Grundstückgeschäfte, Versicherungsrecht, internationales Privatrecht) • Selbstständige Bearbeitung zugeteilter Verfahren, unter anderem zustimmungsbedürftige Geschäfte (Art. 416 ZGB) • Erstellen von Entscheidentwürfen in den zugeteilten Verfahren • Aktuariatstätigkeit zuhanden der Behörde • Aktive Mitarbeit in verschiedenen Projektgruppen (z.B. Praxisfindung, Gesetzesrevisionen) • Protokollführung bei Anhörungen | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Berufserfahrung, vorzugsweise in der Advokatur oder bei Gericht und solide Kenntnisse im Privatrecht • Selbstständige, belastbare, flexible und vernetzt denkende Persönlichkeit • Sehr gutes mündliches und schriftliches Ausdrucksvermögen in Deutsch, Fremdsprachenkenntnisse sind von Vorteil • Umsichtige, effiziente und präzise Arbeitsweise • Hohe Dienstleistungsbereitschaft und Teamfähigkeit im interdisziplinären Dienst • Ausgewiesene Sozialkompetenz und Empathie gegenüber Menschen in schwierigen Lebenssituationen",
+      "descriptionByLocale": {
+        "de": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Wir suchen für die KESB Graubünden, Zweigstelle Nordbünden, per 1. Juli 2026 oder nach Vereinbarung eine Juristin oder einen Juristen. | Aufgaben: • Unterstützung und Beratung der Behördemitglieder sowie Beistandspersonen bei materiellen und formellen rechtlichen Fragestellungen (Kindes- und Erwachsenenschutzrecht, Ehe- und Erbrecht, Grundstückgeschäfte, Versicherungsrecht, internationales Privatrecht) • Selbstständige Bearbeitung zugeteilter Verfahren, unter anderem zustimmungsbedürftige Geschäfte (Art. 416 ZGB) • Erstellen von Entscheidentwürfen in den zugeteilten Verfahren • Aktuariatstätigkeit zuhanden der Behörde • Aktive Mitarbeit in verschiedenen Projektgruppen (z.B. Praxisfindung, Gesetzesrevisionen) • Protokollführung bei Anhörungen | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Berufserfahrung, vorzugsweise in der Advokatur oder bei Gericht und solide Kenntnisse im Privatrecht • Selbstständige, belastbare, flexible und vernetzt denkende Persönlichkeit • Sehr gutes mündliches und schriftliches Ausdrucksvermögen in Deutsch, Fremdsprachenkenntnisse sind von Vorteil • Umsichtige, effiziente und präzise Arbeitsweise • Hohe Dienstleistungsbereitschaft und Teamfähigkeit im interdisziplinären Dienst • Ausgewiesene Sozialkompetenz und Empathie gegenüber Menschen in schwierigen Lebenssituationen",
+        "it": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Wir suchen für die KESB Graubünden, Zweigstelle Nordbünden, per 1. Juli 2026 oder nach Vereinbarung eine Juristin oder einen Juristen. | Aufgaben: • Unterstützung und Beratung der Behördemitglieder sowie Beistandspersonen bei materiellen und formellen rechtlichen Fragestellungen (Kindes- und Erwachsenenschutzrecht, Ehe- und Erbrecht, Grundstückgeschäfte, Versicherungsrecht, internationales Privatrecht) • Selbstständige Bearbeitung zugeteilter Verfahren, unter anderem zustimmungsbedürftige Geschäfte (Art. 416 ZGB) • Erstellen von Entscheidentwürfen in den zugeteilten Verfahren • Aktuariatstätigkeit zuhanden der Behörde • Aktive Mitarbeit in verschiedenen Projektgruppen (z.B. Praxisfindung, Gesetzesrevisionen) • Protokollführung bei Anhörungen | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Berufserfahrung, vorzugsweise in der Advokatur oder bei Gericht und solide Kenntnisse im Privatrecht • Selbstständige, belastbare, flexible und vernetzt denkende Persönlichkeit • Sehr gutes mündliches und schriftliches Ausdrucksvermögen in Deutsch, Fremdsprachenkenntnisse sind von Vorteil • Umsichtige, effiziente und präzise Arbeitsweise • Hohe Dienstleistungsbereitschaft und Teamfähigkeit im interdisziplinären Dienst • Ausgewiesene Sozialkompetenz und Empathie gegenüber Menschen in schwierigen Lebenssituationen",
+        "en": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Wir suchen für die KESB Graubünden, Zweigstelle Nordbünden, per 1. Juli 2026 oder nach Vereinbarung eine Juristin oder einen Juristen. | Aufgaben: • Unterstützung und Beratung der Behördemitglieder sowie Beistandspersonen bei materiellen und formellen rechtlichen Fragestellungen (Kindes- und Erwachsenenschutzrecht, Ehe- und Erbrecht, Grundstückgeschäfte, Versicherungsrecht, internationales Privatrecht) • Selbstständige Bearbeitung zugeteilter Verfahren, unter anderem zustimmungsbedürftige Geschäfte (Art. 416 ZGB) • Erstellen von Entscheidentwürfen in den zugeteilten Verfahren • Aktuariatstätigkeit zuhanden der Behörde • Aktive Mitarbeit in verschiedenen Projektgruppen (z.B. Praxisfindung, Gesetzesrevisionen) • Protokollführung bei Anhörungen | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Berufserfahrung, vorzugsweise in der Advokatur oder bei Gericht und solide Kenntnisse im Privatrecht • Selbstständige, belastbare, flexible und vernetzt denkende Persönlichkeit • Sehr gutes mündliches und schriftliches Ausdrucksvermögen in Deutsch, Fremdsprachenkenntnisse sind von Vorteil • Umsichtige, effiziente und präzise Arbeitsweise • Hohe Dienstleistungsbereitschaft und Teamfähigkeit im interdisziplinären Dienst • Ausgewiesene Sozialkompetenz und Empathie gegenüber Menschen in schwierigen Lebenssituationen",
+        "fr": "Die Kindes- und Erwachsenenschutzbehörde KESB ist für Menschen in Not da. Wer Hilfe und Unterstützung braucht, kann auf die KESB zählen. Bei uns ist kein Tag wie der andere. Im interdisziplinären Team gestalten wir aktiv eine sichere Zukunft für schutzbedürftige Erwachsene, Familien, Kinder und Jugendliche. Wir suchen für die KESB Graubünden, Zweigstelle Nordbünden, per 1. Juli 2026 oder nach Vereinbarung eine Juristin oder einen Juristen. | Aufgaben: • Unterstützung und Beratung der Behördemitglieder sowie Beistandspersonen bei materiellen und formellen rechtlichen Fragestellungen (Kindes- und Erwachsenenschutzrecht, Ehe- und Erbrecht, Grundstückgeschäfte, Versicherungsrecht, internationales Privatrecht) • Selbstständige Bearbeitung zugeteilter Verfahren, unter anderem zustimmungsbedürftige Geschäfte (Art. 416 ZGB) • Erstellen von Entscheidentwürfen in den zugeteilten Verfahren • Aktuariatstätigkeit zuhanden der Behörde • Aktive Mitarbeit in verschiedenen Projektgruppen (z.B. Praxisfindung, Gesetzesrevisionen) • Protokollführung bei Anhörungen | Anforderungen: • Universitärer Abschluss in Rechtswissenschaft • Berufserfahrung, vorzugsweise in der Advokatur oder bei Gericht und solide Kenntnisse im Privatrecht • Selbstständige, belastbare, flexible und vernetzt denkende Persönlichkeit • Sehr gutes mündliches und schriftliches Ausdrucksvermögen in Deutsch, Fremdsprachenkenntnisse sind von Vorteil • Umsichtige, effiziente und präzise Arbeitsweise • Hohe Dienstleistungsbereitschaft und Teamfähigkeit im interdisziplinären Dienst • Ausgewiesene Sozialkompetenz und Empathie gegenüber Menschen in schwierigen Lebenssituationen"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2686/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-30T11:01:18.166Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://apply.refline.ch/514915/2686/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "KESB Zweigstelle Nordbünden",
+      "applicationDeadline": "2026-05-17",
+      "pensumMin": 60,
+      "pensumMax": 80,
+      "pensum": "60-80%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-30T11:01:18.166Z"
+    },
+    {
+      "id": "kanton-gr-8e05f7137c3f",
+      "slug": "responsabile-administration-e-sachbearbeitung-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "de": "leiter-in-administration-und-sachbearbeitung-kantonale-verwaltung-graubunden-chur",
+        "it": "responsabile-administration-e-sachbearbeitung-kantonale-verwaltung-graubunden-chur",
+        "en": "leiter-in-administration-und-sachbearbeitung-kantonale-verwaltung-graubunden-chur",
+        "fr": "leiter-in-administration-und-sachbearbeitung-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Leiter/-in Administration und Sachbearbeitung",
+      "titleByLocale": {
+        "de": "Leiter/-in Administration und Sachbearbeitung",
+        "it": "Responsabile Administration e Sachbearbeitung",
+        "en": "Leiter/-in Administration und Sachbearbeitung",
+        "fr": "Leiter/-in Administration und Sachbearbeitung"
+      },
+      "description": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit. Wir suchen für die Abteilung Arbeitsmarktliche Massnahmen per 1. Oktober 2026 oder nach Vereinbarung eine/-n Leiter/-in Sachbearbeitung und Assistent/-in der Abteilungsleiterin (80-100%). | Aufgaben: • Fachliche und personelle Führung von rund 5 Mitarbeitenden • Koordination der Arbeiten und bei Bedarf Mitarbeit im Bereich Sachbearbeitung • Sicherstellung einer engen Zusammenarbeit innerhalb der Abteilung sowie mit zuweisenden Stellen • Unterstützung der Abteilungsleitung für die Koordination und Planung der arbeitsmarktlichen Massnahmen • Beratung von RAV-Mitarbeitenden und stellensuchenden Personen zu arbeitsmarktlichen Massnahmen • Gewährleistung der Datenqualität in der Gesuchsbearbeitung und in den Anwenderapplikationen • Erstellung von Berichten und Präsentationen für interne und externe Gremien | Anforderungen: • Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation • Fähigkeit, ein Team motiviert zu leiten, idealerweise mehrjährige Führungserfahrung auf Stufe Teamleitung • Selbstständige Arbeitsweise, Belastbarkeit und Gelassenheit auch in herausfordernden Situationen • Teamfähigkeit und Bereitschaft zur interdisziplinären Zusammenarbeit • Hohe Sozialkompetenz und Einfühlungsvermögen im Umgang mit verschiedenen Zielgruppen • Sehr gute mündliche und schriftliche Deutschkenntnisse sowie sehr gute Italienischkenntnisse • Sehr gute IT-Kenntnisse, insbesondere in der Nutzung von MS Office • Bereitschaft zu Einsätzen an weiteren Standorten im Kanton Graubünden",
+      "descriptionByLocale": {
+        "de": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit. Wir suchen für die Abteilung Arbeitsmarktliche Massnahmen per 1. Oktober 2026 oder nach Vereinbarung eine/-n Leiter/-in Sachbearbeitung und Assistent/-in der Abteilungsleiterin (80-100%). | Aufgaben: • Fachliche und personelle Führung von rund 5 Mitarbeitenden • Koordination der Arbeiten und bei Bedarf Mitarbeit im Bereich Sachbearbeitung • Sicherstellung einer engen Zusammenarbeit innerhalb der Abteilung sowie mit zuweisenden Stellen • Unterstützung der Abteilungsleitung für die Koordination und Planung der arbeitsmarktlichen Massnahmen • Beratung von RAV-Mitarbeitenden und stellensuchenden Personen zu arbeitsmarktlichen Massnahmen • Gewährleistung der Datenqualität in der Gesuchsbearbeitung und in den Anwenderapplikationen • Erstellung von Berichten und Präsentationen für interne und externe Gremien | Anforderungen: • Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation • Fähigkeit, ein Team motiviert zu leiten, idealerweise mehrjährige Führungserfahrung auf Stufe Teamleitung • Selbstständige Arbeitsweise, Belastbarkeit und Gelassenheit auch in herausfordernden Situationen • Teamfähigkeit und Bereitschaft zur interdisziplinären Zusammenarbeit • Hohe Sozialkompetenz und Einfühlungsvermögen im Umgang mit verschiedenen Zielgruppen • Sehr gute mündliche und schriftliche Deutschkenntnisse sowie sehr gute Italienischkenntnisse • Sehr gute IT-Kenntnisse, insbesondere in der Nutzung von MS Office • Bereitschaft zu Einsätzen an weiteren Standorten im Kanton Graubünden",
+        "it": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit. Wir suchen für die Abteilung Arbeitsmarktliche Massnahmen per 1. Oktober 2026 oder nach Vereinbarung eine/-n Leiter/-in Sachbearbeitung und Assistent/-in der Abteilungsleiterin (80-100%). | Aufgaben: • Fachliche und personelle Führung von rund 5 Mitarbeitenden • Koordination der Arbeiten und bei Bedarf Mitarbeit im Bereich Sachbearbeitung • Sicherstellung einer engen Zusammenarbeit innerhalb der Abteilung sowie mit zuweisenden Stellen • Unterstützung der Abteilungsleitung für die Koordination und Planung der arbeitsmarktlichen Massnahmen • Beratung von RAV-Mitarbeitenden und stellensuchenden Personen zu arbeitsmarktlichen Massnahmen • Gewährleistung der Datenqualität in der Gesuchsbearbeitung und in den Anwenderapplikationen • Erstellung von Berichten und Präsentationen für interne und externe Gremien | Anforderungen: • Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation • Fähigkeit, ein Team motiviert zu leiten, idealerweise mehrjährige Führungserfahrung auf Stufe Teamleitung • Selbstständige Arbeitsweise, Belastbarkeit und Gelassenheit auch in herausfordernden Situationen • Teamfähigkeit und Bereitschaft zur interdisziplinären Zusammenarbeit • Hohe Sozialkompetenz und Einfühlungsvermögen im Umgang mit verschiedenen Zielgruppen • Sehr gute mündliche und schriftliche Deutschkenntnisse sowie sehr gute Italienischkenntnisse • Sehr gute IT-Kenntnisse, insbesondere in der Nutzung von MS Office • Bereitschaft zu Einsätzen an weiteren Standorten im Kanton Graubünden",
+        "en": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit. Wir suchen für die Abteilung Arbeitsmarktliche Massnahmen per 1. Oktober 2026 oder nach Vereinbarung eine/-n Leiter/-in Sachbearbeitung und Assistent/-in der Abteilungsleiterin (80-100%). | Aufgaben: • Fachliche und personelle Führung von rund 5 Mitarbeitenden • Koordination der Arbeiten und bei Bedarf Mitarbeit im Bereich Sachbearbeitung • Sicherstellung einer engen Zusammenarbeit innerhalb der Abteilung sowie mit zuweisenden Stellen • Unterstützung der Abteilungsleitung für die Koordination und Planung der arbeitsmarktlichen Massnahmen • Beratung von RAV-Mitarbeitenden und stellensuchenden Personen zu arbeitsmarktlichen Massnahmen • Gewährleistung der Datenqualität in der Gesuchsbearbeitung und in den Anwenderapplikationen • Erstellung von Berichten und Präsentationen für interne und externe Gremien | Anforderungen: • Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation • Fähigkeit, ein Team motiviert zu leiten, idealerweise mehrjährige Führungserfahrung auf Stufe Teamleitung • Selbstständige Arbeitsweise, Belastbarkeit und Gelassenheit auch in herausfordernden Situationen • Teamfähigkeit und Bereitschaft zur interdisziplinären Zusammenarbeit • Hohe Sozialkompetenz und Einfühlungsvermögen im Umgang mit verschiedenen Zielgruppen • Sehr gute mündliche und schriftliche Deutschkenntnisse sowie sehr gute Italienischkenntnisse • Sehr gute IT-Kenntnisse, insbesondere in der Nutzung von MS Office • Bereitschaft zu Einsätzen an weiteren Standorten im Kanton Graubünden",
+        "fr": "Das Amt für Industrie, Gewerbe und Arbeit (KIGA) beschäftigt derzeit rund 135 Mitarbeitende in sechs Regionen im Kanton Graubünden. Neben der öffentlichen Arbeitsvermittlung (RAV) organisieren wir Arbeitsmarktliche Massnahmen für stellensuchende Personen und führen die kantonale Arbeitslosenkasse. Darüber hinaus vollziehen wir verschiedene Aufgaben im Bereich Arbeitsmarkt und Arbeitssicherheit. Wir suchen für die Abteilung Arbeitsmarktliche Massnahmen per 1. Oktober 2026 oder nach Vereinbarung eine/-n Leiter/-in Sachbearbeitung und Assistent/-in der Abteilungsleiterin (80-100%). | Aufgaben: • Fachliche und personelle Führung von rund 5 Mitarbeitenden • Koordination der Arbeiten und bei Bedarf Mitarbeit im Bereich Sachbearbeitung • Sicherstellung einer engen Zusammenarbeit innerhalb der Abteilung sowie mit zuweisenden Stellen • Unterstützung der Abteilungsleitung für die Koordination und Planung der arbeitsmarktlichen Massnahmen • Beratung von RAV-Mitarbeitenden und stellensuchenden Personen zu arbeitsmarktlichen Massnahmen • Gewährleistung der Datenqualität in der Gesuchsbearbeitung und in den Anwenderapplikationen • Erstellung von Berichten und Präsentationen für interne und externe Gremien | Anforderungen: • Abgeschlossene kaufmännische Ausbildung oder gleichwertige Qualifikation • Fähigkeit, ein Team motiviert zu leiten, idealerweise mehrjährige Führungserfahrung auf Stufe Teamleitung • Selbstständige Arbeitsweise, Belastbarkeit und Gelassenheit auch in herausfordernden Situationen • Teamfähigkeit und Bereitschaft zur interdisziplinären Zusammenarbeit • Hohe Sozialkompetenz und Einfühlungsvermögen im Umgang mit verschiedenen Zielgruppen • Sehr gute mündliche und schriftliche Deutschkenntnisse sowie sehr gute Italienischkenntnisse • Sehr gute IT-Kenntnisse, insbesondere in der Nutzung von MS Office • Bereitschaft zu Einsätzen an weiteren Standorten im Kanton Graubünden"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2684/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-30T11:01:17.492Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://apply.refline.ch/514915/2684/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Industrie Gewerbe und Arbeit",
+      "applicationDeadline": "2026-05-25",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-administration-und-sachbearbeitung-kanton-gr-ch"
+        ],
+        "de": [
+          "leiter-in-administration-und-sachbearbeitung-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-administration-und-sachbearbeitung-kanton-gr-ch"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-30T11:01:17.492Z"
+    },
+    {
+      "id": "kanton-gr-f3feee061001",
+      "slug": "ict-architekt-in-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "ict-architekt-in-kantonale-verwaltung-graubunden-chur",
+        "it": "ict-architekt-in-kanton-gr-ch",
+        "en": "ict-architekt-in-kanton-gr-ch",
+        "fr": "ict-architekt-in-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "ICT-Architekt/-in",
+      "titleByLocale": {
+        "de": "ICT-Architekt/-in",
+        "it": "ICT-Architekt/-in",
+        "en": "ICT-Architekt/-in",
+        "fr": "ICT-Architekt/-in"
+      },
+      "description": "Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere Dienststellen mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran. Ist ICT-Architektur genau dein Ding? Wir als Amt für Informatik suchen per sofort oder nach Vereinbarung eine/-n ICT-Architekt/-in. | Aufgaben: • Du erarbeitest Weisungen und Richtlinien zu internen ICT-Systemen und Applikationen • Du planst die Integration von Systemen und Applikationen in die bestehende ICT-Landschaft • Du begleitest und berätst unsere Kunden bei Fragen und Anforderungen zur ICT-Architektur • Du arbeitest im ICT-Architekturboard mit und entwickelst das Anwendungsportfolio weiter • Du erstellst und unterhältst die Informations-, Technologie- und Datenarchitektur und führst den Technologie-Lifecycle | Anforderungen: • Ein abgeschlossenes Studium in Informatik oder in einem verwandten Bereich • Mehrjährige Berufserfahrung im Bereich Informations-, Technologie und Datenarchitektur • Vernetztes, analytisches Denken sowie eine strukturierte und teamorientierte Arbeitsweise • Eine selbstständige, qualitätsbewusste und zuverlässige Persönlichkeit mit Eigeninitiative, Organisationstalent und Durchhaltevermögen • Gute Deutschkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "de": "Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere Dienststellen mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran. Ist ICT-Architektur genau dein Ding? Wir als Amt für Informatik suchen per sofort oder nach Vereinbarung eine/-n ICT-Architekt/-in. | Aufgaben: • Du erarbeitest Weisungen und Richtlinien zu internen ICT-Systemen und Applikationen • Du planst die Integration von Systemen und Applikationen in die bestehende ICT-Landschaft • Du begleitest und berätst unsere Kunden bei Fragen und Anforderungen zur ICT-Architektur • Du arbeitest im ICT-Architekturboard mit und entwickelst das Anwendungsportfolio weiter • Du erstellst und unterhältst die Informations-, Technologie- und Datenarchitektur und führst den Technologie-Lifecycle | Anforderungen: • Ein abgeschlossenes Studium in Informatik oder in einem verwandten Bereich • Mehrjährige Berufserfahrung im Bereich Informations-, Technologie und Datenarchitektur • Vernetztes, analytisches Denken sowie eine strukturierte und teamorientierte Arbeitsweise • Eine selbstständige, qualitätsbewusste und zuverlässige Persönlichkeit mit Eigeninitiative, Organisationstalent und Durchhaltevermögen • Gute Deutschkenntnisse in Wort und Schrift",
+        "it": "Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere Dienststellen mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran. Ist ICT-Architektur genau dein Ding? Wir als Amt für Informatik suchen per sofort oder nach Vereinbarung eine/-n ICT-Architekt/-in. | Aufgaben: • Du erarbeitest Weisungen und Richtlinien zu internen ICT-Systemen und Applikationen • Du planst die Integration von Systemen und Applikationen in die bestehende ICT-Landschaft • Du begleitest und berätst unsere Kunden bei Fragen und Anforderungen zur ICT-Architektur • Du arbeitest im ICT-Architekturboard mit und entwickelst das Anwendungsportfolio weiter • Du erstellst und unterhältst die Informations-, Technologie- und Datenarchitektur und führst den Technologie-Lifecycle | Anforderungen: • Ein abgeschlossenes Studium in Informatik oder in einem verwandten Bereich • Mehrjährige Berufserfahrung im Bereich Informations-, Technologie und Datenarchitektur • Vernetztes, analytisches Denken sowie eine strukturierte und teamorientierte Arbeitsweise • Eine selbstständige, qualitätsbewusste und zuverlässige Persönlichkeit mit Eigeninitiative, Organisationstalent und Durchhaltevermögen • Gute Deutschkenntnisse in Wort und Schrift",
+        "en": "Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere Dienststellen mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran. Ist ICT-Architektur genau dein Ding? Wir als Amt für Informatik suchen per sofort oder nach Vereinbarung eine/-n ICT-Architekt/-in. | Aufgaben: • Du erarbeitest Weisungen und Richtlinien zu internen ICT-Systemen und Applikationen • Du planst die Integration von Systemen und Applikationen in die bestehende ICT-Landschaft • Du begleitest und berätst unsere Kunden bei Fragen und Anforderungen zur ICT-Architektur • Du arbeitest im ICT-Architekturboard mit und entwickelst das Anwendungsportfolio weiter • Du erstellst und unterhältst die Informations-, Technologie- und Datenarchitektur und führst den Technologie-Lifecycle | Anforderungen: • Ein abgeschlossenes Studium in Informatik oder in einem verwandten Bereich • Mehrjährige Berufserfahrung im Bereich Informations-, Technologie und Datenarchitektur • Vernetztes, analytisches Denken sowie eine strukturierte und teamorientierte Arbeitsweise • Eine selbstständige, qualitätsbewusste und zuverlässige Persönlichkeit mit Eigeninitiative, Organisationstalent und Durchhaltevermögen • Gute Deutschkenntnisse in Wort und Schrift",
+        "fr": "Kompetenzzentrum der kantonalen Verwaltung Graubünden unterstützen wir unsere Dienststellen mit einer sicheren Basisinfrastruktur und fortschrittlichen Applikationen. Gemeinsam mit dir bringen wir die digitale Transformation des Kantons Graubünden voran. Ist ICT-Architektur genau dein Ding? Wir als Amt für Informatik suchen per sofort oder nach Vereinbarung eine/-n ICT-Architekt/-in. | Aufgaben: • Du erarbeitest Weisungen und Richtlinien zu internen ICT-Systemen und Applikationen • Du planst die Integration von Systemen und Applikationen in die bestehende ICT-Landschaft • Du begleitest und berätst unsere Kunden bei Fragen und Anforderungen zur ICT-Architektur • Du arbeitest im ICT-Architekturboard mit und entwickelst das Anwendungsportfolio weiter • Du erstellst und unterhältst die Informations-, Technologie- und Datenarchitektur und führst den Technologie-Lifecycle | Anforderungen: • Ein abgeschlossenes Studium in Informatik oder in einem verwandten Bereich • Mehrjährige Berufserfahrung im Bereich Informations-, Technologie und Datenarchitektur • Vernetztes, analytisches Denken sowie eine strukturierte und teamorientierte Arbeitsweise • Eine selbstständige, qualitätsbewusste und zuverlässige Persönlichkeit mit Eigeninitiative, Organisationstalent und Durchhaltevermögen • Gute Deutschkenntnisse in Wort und Schrift"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2682/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-30T11:01:16.813Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://apply.refline.ch/514915/2682/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Informatik",
+      "applicationDeadline": "2026-05-20",
+      "pensumMin": 60,
+      "pensumMax": 100,
+      "pensum": "60-100%",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-30T11:01:16.813Z"
+    },
+    {
+      "id": "kanton-gr-9b316aabdca7",
+      "slug": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+      "slugByLocale": {
+        "de": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+        "it": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+        "en": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+        "fr": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Projektleiter/-in Bestellverfahren öffentlicher Verkehr",
+      "titleByLocale": {
+        "de": "Projektleiter/-in Bestellverfahren öffentlicher Verkehr",
+        "it": "Projektleiter/-in Bestellverfahren öffentlicher Verkehr",
+        "en": "Projektleiter/-in Bestellverfahren öffentlicher Verkehr",
+        "fr": "Projektleiter/-in Bestellverfahren öffentlicher Verkehr"
+      },
+      "description": "Das Amt für Energie und Verkehr ist das kantonale Kompetenzzentrum für Fragen in den Bereichen Energie und öffentlicher Verkehr. Im Bereich öffentlicher Verkehr sind wir zuständig für die strategische Planung und die gegenseitige Abstimmung des gesamten öffentlichen Verkehrs im Kanton Graubünden. Wir koordinieren den öffentlichen Verkehr von Bahn und Bus und sind federführend bei der Planung, Projektierung und Verwirklichung von Projekten für einen zukunftsgerichteten öffentlichen Verkehr. Gute Anbindungen an das nationale und internationale Schienennetz wie auch regelmässige und häufige Verbindungen im Regional- und im Agglomerationsverkehr sind für die Erhaltung und Weiterentwicklung des Lebens-, Tourismus- und Wirtschaftsraums Graubünden von zentraler Bedeutung Wir suchen für das Amt für Energie und Verkehr per 1. September 2026 oder nach Vereinbarung eine/n Projektleiter/-in Bestellverfahren öffentlicher Verkehr. | Aufgaben: • Durchführung des Bestellverfahrens für den regionalen öffentlichen Verkehr (RPV) für die Strassentransportdienste im Kanton Graubünden • Durchführung von Ausschreibungen und Verantwortung für den Abschluss von Zielvereinbarungen mit den Transportunternehmen • Fachliche Beurteilung von Betriebsmittelgesuchen nach ARPV • Fachliche Beurteilung von Fördergesuchen • Betreuung der Tarifverbünde im Kanton Graubünden | Anforderungen: • Hochschul- oder Fachhochschulabschluss in betriebswirtschaftlicher oder verkehrsplanerischer Richtung • Interesse an interdisziplinärer Zusammenarbeit, Verhandlungsgeschick und Gewandtheit im Umgang mit Transportunternehmen, Behörden und Verbänden • Erfahrung bei der selbstständigen Bearbeitung konzeptioneller Fragen • Mehrjährige Berufserfahrung im Bereich öffentlicher Verkehr von Vorteil • Stilsichere Beherrschung der deutschen Sprache in Wort und Schrift • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+      "descriptionByLocale": {
+        "de": "Das Amt für Energie und Verkehr ist das kantonale Kompetenzzentrum für Fragen in den Bereichen Energie und öffentlicher Verkehr. Im Bereich öffentlicher Verkehr sind wir zuständig für die strategische Planung und die gegenseitige Abstimmung des gesamten öffentlichen Verkehrs im Kanton Graubünden. Wir koordinieren den öffentlichen Verkehr von Bahn und Bus und sind federführend bei der Planung, Projektierung und Verwirklichung von Projekten für einen zukunftsgerichteten öffentlichen Verkehr. Gute Anbindungen an das nationale und internationale Schienennetz wie auch regelmässige und häufige Verbindungen im Regional- und im Agglomerationsverkehr sind für die Erhaltung und Weiterentwicklung des Lebens-, Tourismus- und Wirtschaftsraums Graubünden von zentraler Bedeutung Wir suchen für das Amt für Energie und Verkehr per 1. September 2026 oder nach Vereinbarung eine/n Projektleiter/-in Bestellverfahren öffentlicher Verkehr. | Aufgaben: • Durchführung des Bestellverfahrens für den regionalen öffentlichen Verkehr (RPV) für die Strassentransportdienste im Kanton Graubünden • Durchführung von Ausschreibungen und Verantwortung für den Abschluss von Zielvereinbarungen mit den Transportunternehmen • Fachliche Beurteilung von Betriebsmittelgesuchen nach ARPV • Fachliche Beurteilung von Fördergesuchen • Betreuung der Tarifverbünde im Kanton Graubünden | Anforderungen: • Hochschul- oder Fachhochschulabschluss in betriebswirtschaftlicher oder verkehrsplanerischer Richtung • Interesse an interdisziplinärer Zusammenarbeit, Verhandlungsgeschick und Gewandtheit im Umgang mit Transportunternehmen, Behörden und Verbänden • Erfahrung bei der selbstständigen Bearbeitung konzeptioneller Fragen • Mehrjährige Berufserfahrung im Bereich öffentlicher Verkehr von Vorteil • Stilsichere Beherrschung der deutschen Sprache in Wort und Schrift • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+        "it": "Das Amt für Energie und Verkehr ist das kantonale Kompetenzzentrum für Fragen in den Bereichen Energie und öffentlicher Verkehr. Im Bereich öffentlicher Verkehr sind wir zuständig für die strategische Planung und die gegenseitige Abstimmung des gesamten öffentlichen Verkehrs im Kanton Graubünden. Wir koordinieren den öffentlichen Verkehr von Bahn und Bus und sind federführend bei der Planung, Projektierung und Verwirklichung von Projekten für einen zukunftsgerichteten öffentlichen Verkehr. Gute Anbindungen an das nationale und internationale Schienennetz wie auch regelmässige und häufige Verbindungen im Regional- und im Agglomerationsverkehr sind für die Erhaltung und Weiterentwicklung des Lebens-, Tourismus- und Wirtschaftsraums Graubünden von zentraler Bedeutung Wir suchen für das Amt für Energie und Verkehr per 1. September 2026 oder nach Vereinbarung eine/n Projektleiter/-in Bestellverfahren öffentlicher Verkehr. | Aufgaben: • Durchführung des Bestellverfahrens für den regionalen öffentlichen Verkehr (RPV) für die Strassentransportdienste im Kanton Graubünden • Durchführung von Ausschreibungen und Verantwortung für den Abschluss von Zielvereinbarungen mit den Transportunternehmen • Fachliche Beurteilung von Betriebsmittelgesuchen nach ARPV • Fachliche Beurteilung von Fördergesuchen • Betreuung der Tarifverbünde im Kanton Graubünden | Anforderungen: • Hochschul- oder Fachhochschulabschluss in betriebswirtschaftlicher oder verkehrsplanerischer Richtung • Interesse an interdisziplinärer Zusammenarbeit, Verhandlungsgeschick und Gewandtheit im Umgang mit Transportunternehmen, Behörden und Verbänden • Erfahrung bei der selbstständigen Bearbeitung konzeptioneller Fragen • Mehrjährige Berufserfahrung im Bereich öffentlicher Verkehr von Vorteil • Stilsichere Beherrschung der deutschen Sprache in Wort und Schrift • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+        "en": "Das Amt für Energie und Verkehr ist das kantonale Kompetenzzentrum für Fragen in den Bereichen Energie und öffentlicher Verkehr. Im Bereich öffentlicher Verkehr sind wir zuständig für die strategische Planung und die gegenseitige Abstimmung des gesamten öffentlichen Verkehrs im Kanton Graubünden. Wir koordinieren den öffentlichen Verkehr von Bahn und Bus und sind federführend bei der Planung, Projektierung und Verwirklichung von Projekten für einen zukunftsgerichteten öffentlichen Verkehr. Gute Anbindungen an das nationale und internationale Schienennetz wie auch regelmässige und häufige Verbindungen im Regional- und im Agglomerationsverkehr sind für die Erhaltung und Weiterentwicklung des Lebens-, Tourismus- und Wirtschaftsraums Graubünden von zentraler Bedeutung Wir suchen für das Amt für Energie und Verkehr per 1. September 2026 oder nach Vereinbarung eine/n Projektleiter/-in Bestellverfahren öffentlicher Verkehr. | Aufgaben: • Durchführung des Bestellverfahrens für den regionalen öffentlichen Verkehr (RPV) für die Strassentransportdienste im Kanton Graubünden • Durchführung von Ausschreibungen und Verantwortung für den Abschluss von Zielvereinbarungen mit den Transportunternehmen • Fachliche Beurteilung von Betriebsmittelgesuchen nach ARPV • Fachliche Beurteilung von Fördergesuchen • Betreuung der Tarifverbünde im Kanton Graubünden | Anforderungen: • Hochschul- oder Fachhochschulabschluss in betriebswirtschaftlicher oder verkehrsplanerischer Richtung • Interesse an interdisziplinärer Zusammenarbeit, Verhandlungsgeschick und Gewandtheit im Umgang mit Transportunternehmen, Behörden und Verbänden • Erfahrung bei der selbstständigen Bearbeitung konzeptioneller Fragen • Mehrjährige Berufserfahrung im Bereich öffentlicher Verkehr von Vorteil • Stilsichere Beherrschung der deutschen Sprache in Wort und Schrift • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+        "fr": "Das Amt für Energie und Verkehr ist das kantonale Kompetenzzentrum für Fragen in den Bereichen Energie und öffentlicher Verkehr. Im Bereich öffentlicher Verkehr sind wir zuständig für die strategische Planung und die gegenseitige Abstimmung des gesamten öffentlichen Verkehrs im Kanton Graubünden. Wir koordinieren den öffentlichen Verkehr von Bahn und Bus und sind federführend bei der Planung, Projektierung und Verwirklichung von Projekten für einen zukunftsgerichteten öffentlichen Verkehr. Gute Anbindungen an das nationale und internationale Schienennetz wie auch regelmässige und häufige Verbindungen im Regional- und im Agglomerationsverkehr sind für die Erhaltung und Weiterentwicklung des Lebens-, Tourismus- und Wirtschaftsraums Graubünden von zentraler Bedeutung Wir suchen für das Amt für Energie und Verkehr per 1. September 2026 oder nach Vereinbarung eine/n Projektleiter/-in Bestellverfahren öffentlicher Verkehr. | Aufgaben: • Durchführung des Bestellverfahrens für den regionalen öffentlichen Verkehr (RPV) für die Strassentransportdienste im Kanton Graubünden • Durchführung von Ausschreibungen und Verantwortung für den Abschluss von Zielvereinbarungen mit den Transportunternehmen • Fachliche Beurteilung von Betriebsmittelgesuchen nach ARPV • Fachliche Beurteilung von Fördergesuchen • Betreuung der Tarifverbünde im Kanton Graubünden | Anforderungen: • Hochschul- oder Fachhochschulabschluss in betriebswirtschaftlicher oder verkehrsplanerischer Richtung • Interesse an interdisziplinärer Zusammenarbeit, Verhandlungsgeschick und Gewandtheit im Umgang mit Transportunternehmen, Behörden und Verbänden • Erfahrung bei der selbstständigen Bearbeitung konzeptioneller Fragen • Mehrjährige Berufserfahrung im Bereich öffentlicher Verkehr von Vorteil • Stilsichere Beherrschung der deutschen Sprache in Wort und Schrift • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2681/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-30T11:01:16.135Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://apply.refline.ch/514915/2681/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Energie und Verkehr",
+      "applicationDeadline": "2026-05-31",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch"
+        ],
+        "de": [
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-30T11:01:16.135Z"
+    },
+    {
+      "id": "kanton-gr-38a794013bd7",
+      "slug": "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart",
+      "slugByLocale": {
+        "de": "berater-in-fur-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart",
+        "it": "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart",
+        "en": "berater-in-fur-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart",
+        "fr": "berater-in-fur-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Berater/-in für den Fachbereich Betriebsentwicklung",
+      "titleByLocale": {
+        "de": "Berater/-in für den Fachbereich Betriebsentwicklung",
+        "it": "Berater/-in per den Fachbereich Betriebsentwicklung",
+        "en": "Berater/-in für den Fachbereich Betriebsentwicklung",
+        "fr": "Berater/-in für den Fachbereich Betriebsentwicklung"
+      },
+      "description": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb. Zur Verstärkung des Bereichs Beratung suchen wir per sofort oder nach Vereinbarung eine/-n Berater/-in für den Fachbereich Betriebsentwicklung | Aufgaben: • Erarbeitung von einzelbetrieblichen Betriebskonzepten sowie strategischen Entscheidungsgrundlagen für landwirtschaftliche Familienbetriebe • Erstellung von Tragbarkeitsberechnungen und Finanzierungsberichten • Beratung von Betriebsleiterfamilien im Prozess der Hofübergabe • Beratung von Privatpersonen, Gemeinden sowie weiteren privaten und öffentlichen Institutionen in landwirtschaftlichen Fragestellungen • Organisation und Durchführung von Weiterbildungsveranstaltungen im Fachbereich Betriebsentwicklung • Vernetzung innerhalb der Betriebsentwicklung und über die Bereiche hinweg • Erteilung von Unterricht an der Betriebsleiterschule | Anforderungen: • Agronom/-in (Bachelor oder Master) oder gleichwertige Ausbildung • Berufserfahrung und Kenntnisse im Bereich Betriebswirtschaft • Erfahrung in den Bereichen Bildung und Beratung • Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung & Beratung) • Teamfähige, zuverlässige und engagierte Persönlichkeit mit bereitschaft Verantwortung zu übernehmen • Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse in einer weiteren Kantonssprache sind von Vorteil.",
+      "descriptionByLocale": {
+        "de": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb. Zur Verstärkung des Bereichs Beratung suchen wir per sofort oder nach Vereinbarung eine/-n Berater/-in für den Fachbereich Betriebsentwicklung | Aufgaben: • Erarbeitung von einzelbetrieblichen Betriebskonzepten sowie strategischen Entscheidungsgrundlagen für landwirtschaftliche Familienbetriebe • Erstellung von Tragbarkeitsberechnungen und Finanzierungsberichten • Beratung von Betriebsleiterfamilien im Prozess der Hofübergabe • Beratung von Privatpersonen, Gemeinden sowie weiteren privaten und öffentlichen Institutionen in landwirtschaftlichen Fragestellungen • Organisation und Durchführung von Weiterbildungsveranstaltungen im Fachbereich Betriebsentwicklung • Vernetzung innerhalb der Betriebsentwicklung und über die Bereiche hinweg • Erteilung von Unterricht an der Betriebsleiterschule | Anforderungen: • Agronom/-in (Bachelor oder Master) oder gleichwertige Ausbildung • Berufserfahrung und Kenntnisse im Bereich Betriebswirtschaft • Erfahrung in den Bereichen Bildung und Beratung • Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung & Beratung) • Teamfähige, zuverlässige und engagierte Persönlichkeit mit bereitschaft Verantwortung zu übernehmen • Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse in einer weiteren Kantonssprache sind von Vorteil.",
+        "it": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb. Zur Verstärkung des Bereichs Beratung suchen wir per sofort oder nach Vereinbarung eine/-n Berater/-in für den Fachbereich Betriebsentwicklung | Aufgaben: • Erarbeitung von einzelbetrieblichen Betriebskonzepten sowie strategischen Entscheidungsgrundlagen für landwirtschaftliche Familienbetriebe • Erstellung von Tragbarkeitsberechnungen und Finanzierungsberichten • Beratung von Betriebsleiterfamilien im Prozess der Hofübergabe • Beratung von Privatpersonen, Gemeinden sowie weiteren privaten und öffentlichen Institutionen in landwirtschaftlichen Fragestellungen • Organisation und Durchführung von Weiterbildungsveranstaltungen im Fachbereich Betriebsentwicklung • Vernetzung innerhalb der Betriebsentwicklung und über die Bereiche hinweg • Erteilung von Unterricht an der Betriebsleiterschule | Anforderungen: • Agronom/-in (Bachelor oder Master) oder gleichwertige Ausbildung • Berufserfahrung und Kenntnisse im Bereich Betriebswirtschaft • Erfahrung in den Bereichen Bildung und Beratung • Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung & Beratung) • Teamfähige, zuverlässige und engagierte Persönlichkeit mit bereitschaft Verantwortung zu übernehmen • Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse in einer weiteren Kantonssprache sind von Vorteil.",
+        "en": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb. Zur Verstärkung des Bereichs Beratung suchen wir per sofort oder nach Vereinbarung eine/-n Berater/-in für den Fachbereich Betriebsentwicklung | Aufgaben: • Erarbeitung von einzelbetrieblichen Betriebskonzepten sowie strategischen Entscheidungsgrundlagen für landwirtschaftliche Familienbetriebe • Erstellung von Tragbarkeitsberechnungen und Finanzierungsberichten • Beratung von Betriebsleiterfamilien im Prozess der Hofübergabe • Beratung von Privatpersonen, Gemeinden sowie weiteren privaten und öffentlichen Institutionen in landwirtschaftlichen Fragestellungen • Organisation und Durchführung von Weiterbildungsveranstaltungen im Fachbereich Betriebsentwicklung • Vernetzung innerhalb der Betriebsentwicklung und über die Bereiche hinweg • Erteilung von Unterricht an der Betriebsleiterschule | Anforderungen: • Agronom/-in (Bachelor oder Master) oder gleichwertige Ausbildung • Berufserfahrung und Kenntnisse im Bereich Betriebswirtschaft • Erfahrung in den Bereichen Bildung und Beratung • Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung & Beratung) • Teamfähige, zuverlässige und engagierte Persönlichkeit mit bereitschaft Verantwortung zu übernehmen • Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse in einer weiteren Kantonssprache sind von Vorteil.",
+        "fr": "Der Plantahof ist eine Dienststelle im Departement für Volkswirtschaft und Soziales und das Kompetenzzentrum für die landwirtschaftliche Bildung und Beratung im Kanton Graubünden. Neben der landwirtschaftlichen Berufsfachschule bietet der Plantahof diverse weiterführende Lehrgänge, Weiterbildungskurse und Tagungen an und ist für die umfassende Beratung und die Vermittlung von Fachwissen zugunsten der Bündner und Glarner Landwirtschafts- und Alpbetriebe und weiterer Kreise, die sich in landwirtschaftlichen Themen bewegen, zuständig. Zu diesen Zwecken führt er auch einen eigenen Versuchs- und Gutsbetrieb an vier verschiedenen Standorten mitsamt zwei Hofläden. Schliesslich verfügt er über ein Tagungszentrum mit Internat, Hörsaal sowie einem Verpflegungsbetrieb. Zur Verstärkung des Bereichs Beratung suchen wir per sofort oder nach Vereinbarung eine/-n Berater/-in für den Fachbereich Betriebsentwicklung | Aufgaben: • Erarbeitung von einzelbetrieblichen Betriebskonzepten sowie strategischen Entscheidungsgrundlagen für landwirtschaftliche Familienbetriebe • Erstellung von Tragbarkeitsberechnungen und Finanzierungsberichten • Beratung von Betriebsleiterfamilien im Prozess der Hofübergabe • Beratung von Privatpersonen, Gemeinden sowie weiteren privaten und öffentlichen Institutionen in landwirtschaftlichen Fragestellungen • Organisation und Durchführung von Weiterbildungsveranstaltungen im Fachbereich Betriebsentwicklung • Vernetzung innerhalb der Betriebsentwicklung und über die Bereiche hinweg • Erteilung von Unterricht an der Betriebsleiterschule | Anforderungen: • Agronom/-in (Bachelor oder Master) oder gleichwertige Ausbildung • Berufserfahrung und Kenntnisse im Bereich Betriebswirtschaft • Erfahrung in den Bereichen Bildung und Beratung • Zusatzqualifikation als Lehr- und Beratungsperson (Minor Bildung & Beratung) • Teamfähige, zuverlässige und engagierte Persönlichkeit mit bereitschaft Verantwortung zu übernehmen • Die allgemeine Arbeitssprache ist Deutsch. Kenntnisse in einer weiteren Kantonssprache sind von Vorteil."
+      },
+      "location": "Landquart",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2675/pub/2/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-30T11:01:15.456Z",
+      "addressLocality": "Landquart",
+      "postalCode": "7302",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://apply.refline.ch/514915/2675/pub/2/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Plantahof",
+      "applicationDeadline": "2026-05-18",
+      "pensumMin": 60,
+      "pensumMax": 80,
+      "pensum": "60-80%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-in-fur-den-fachbereich-betriebsentwicklung-kanton-gr-ch"
+        ],
+        "de": [
+          "berater-in-fur-den-fachbereich-betriebsentwicklung-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berater-in-fur-den-fachbereich-betriebsentwicklung-kanton-gr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-30T11:01:15.456Z"
+    },
+    {
+      "id": "kanton-gr-657b20809c08",
+      "slug": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch",
+      "slugByLocale": {
+        "de": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kantonale-verwaltung-graubunden-chur",
+        "it": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch",
+        "en": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch",
+        "fr": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in)",
+      "titleByLocale": {
+        "de": "Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in)",
+        "it": "Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in)",
+        "en": "Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in)",
+        "fr": "Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in)"
+      },
+      "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenbau per 1. August 2026 oder nach Vereinbarung eine/-n Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in) | Aufgaben: • Fachverantwortung für die Neubau-, Ausbau- und Instandsetzungsprojekte auf dem Hauptstrassennetz im ganzen Kanton • Verantwortung für die fach-, termin- und kostengerechte Projektabwicklung sowie die Überwachung der Einhaltung der Qualitätsvorgaben • Oberbauleitung für sämtliche Projekte auf den Hauptstrassen des Kantons • Selbstständige Leitung von anspruchsvollen Strassen- und Tiefbauprojekten in den Phasen Ausschreibung und Realisierung • Koordination zwischen Projektierung und Realisierung • Führen eines Teams von ca. 10 Mitarbeitenden, bestehend aus Abschnittsbauleitern und örtlichen Bauleitern • Gesamtverantwortung für die Planung und Durchführung der Weiterbildung aller Bauleitungsmitarbeitenden des Tiefbauamts | Anforderungen: • Abschluss als Bauingenieur/-in (Stufe BSc, MSc), Baumeister/-in oder eine gleichwertige Ausbildung • Sehr gute Fachkenntnisse und mehrjährige Erfahrung in der Ausführung von Strassen- und Tiefbauprojekten • Durchsetzungsvermögen, Kommunikationsgeschick und Eigeninitiative • Führungserfahrung und Belastbarkeit • Freude an interdisziplinärer Teamarbeit • Gute IT-Anwenderkenntnisse (Devisierungssoftware, MS Office) • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+      "descriptionByLocale": {
+        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenbau per 1. August 2026 oder nach Vereinbarung eine/-n Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in) | Aufgaben: • Fachverantwortung für die Neubau-, Ausbau- und Instandsetzungsprojekte auf dem Hauptstrassennetz im ganzen Kanton • Verantwortung für die fach-, termin- und kostengerechte Projektabwicklung sowie die Überwachung der Einhaltung der Qualitätsvorgaben • Oberbauleitung für sämtliche Projekte auf den Hauptstrassen des Kantons • Selbstständige Leitung von anspruchsvollen Strassen- und Tiefbauprojekten in den Phasen Ausschreibung und Realisierung • Koordination zwischen Projektierung und Realisierung • Führen eines Teams von ca. 10 Mitarbeitenden, bestehend aus Abschnittsbauleitern und örtlichen Bauleitern • Gesamtverantwortung für die Planung und Durchführung der Weiterbildung aller Bauleitungsmitarbeitenden des Tiefbauamts | Anforderungen: • Abschluss als Bauingenieur/-in (Stufe BSc, MSc), Baumeister/-in oder eine gleichwertige Ausbildung • Sehr gute Fachkenntnisse und mehrjährige Erfahrung in der Ausführung von Strassen- und Tiefbauprojekten • Durchsetzungsvermögen, Kommunikationsgeschick und Eigeninitiative • Führungserfahrung und Belastbarkeit • Freude an interdisziplinärer Teamarbeit • Gute IT-Anwenderkenntnisse (Devisierungssoftware, MS Office) • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+        "it": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenbau per 1. August 2026 oder nach Vereinbarung eine/-n Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in) | Aufgaben: • Fachverantwortung für die Neubau-, Ausbau- und Instandsetzungsprojekte auf dem Hauptstrassennetz im ganzen Kanton • Verantwortung für die fach-, termin- und kostengerechte Projektabwicklung sowie die Überwachung der Einhaltung der Qualitätsvorgaben • Oberbauleitung für sämtliche Projekte auf den Hauptstrassen des Kantons • Selbstständige Leitung von anspruchsvollen Strassen- und Tiefbauprojekten in den Phasen Ausschreibung und Realisierung • Koordination zwischen Projektierung und Realisierung • Führen eines Teams von ca. 10 Mitarbeitenden, bestehend aus Abschnittsbauleitern und örtlichen Bauleitern • Gesamtverantwortung für die Planung und Durchführung der Weiterbildung aller Bauleitungsmitarbeitenden des Tiefbauamts | Anforderungen: • Abschluss als Bauingenieur/-in (Stufe BSc, MSc), Baumeister/-in oder eine gleichwertige Ausbildung • Sehr gute Fachkenntnisse und mehrjährige Erfahrung in der Ausführung von Strassen- und Tiefbauprojekten • Durchsetzungsvermögen, Kommunikationsgeschick und Eigeninitiative • Führungserfahrung und Belastbarkeit • Freude an interdisziplinärer Teamarbeit • Gute IT-Anwenderkenntnisse (Devisierungssoftware, MS Office) • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+        "en": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenbau per 1. August 2026 oder nach Vereinbarung eine/-n Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in) | Aufgaben: • Fachverantwortung für die Neubau-, Ausbau- und Instandsetzungsprojekte auf dem Hauptstrassennetz im ganzen Kanton • Verantwortung für die fach-, termin- und kostengerechte Projektabwicklung sowie die Überwachung der Einhaltung der Qualitätsvorgaben • Oberbauleitung für sämtliche Projekte auf den Hauptstrassen des Kantons • Selbstständige Leitung von anspruchsvollen Strassen- und Tiefbauprojekten in den Phasen Ausschreibung und Realisierung • Koordination zwischen Projektierung und Realisierung • Führen eines Teams von ca. 10 Mitarbeitenden, bestehend aus Abschnittsbauleitern und örtlichen Bauleitern • Gesamtverantwortung für die Planung und Durchführung der Weiterbildung aller Bauleitungsmitarbeitenden des Tiefbauamts | Anforderungen: • Abschluss als Bauingenieur/-in (Stufe BSc, MSc), Baumeister/-in oder eine gleichwertige Ausbildung • Sehr gute Fachkenntnisse und mehrjährige Erfahrung in der Ausführung von Strassen- und Tiefbauprojekten • Durchsetzungsvermögen, Kommunikationsgeschick und Eigeninitiative • Führungserfahrung und Belastbarkeit • Freude an interdisziplinärer Teamarbeit • Gute IT-Anwenderkenntnisse (Devisierungssoftware, MS Office) • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+        "fr": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenbau per 1. August 2026 oder nach Vereinbarung eine/-n Sektionsleiter/-in Bau Hauptstrassen (Oberbauleiter/-in) | Aufgaben: • Fachverantwortung für die Neubau-, Ausbau- und Instandsetzungsprojekte auf dem Hauptstrassennetz im ganzen Kanton • Verantwortung für die fach-, termin- und kostengerechte Projektabwicklung sowie die Überwachung der Einhaltung der Qualitätsvorgaben • Oberbauleitung für sämtliche Projekte auf den Hauptstrassen des Kantons • Selbstständige Leitung von anspruchsvollen Strassen- und Tiefbauprojekten in den Phasen Ausschreibung und Realisierung • Koordination zwischen Projektierung und Realisierung • Führen eines Teams von ca. 10 Mitarbeitenden, bestehend aus Abschnittsbauleitern und örtlichen Bauleitern • Gesamtverantwortung für die Planung und Durchführung der Weiterbildung aller Bauleitungsmitarbeitenden des Tiefbauamts | Anforderungen: • Abschluss als Bauingenieur/-in (Stufe BSc, MSc), Baumeister/-in oder eine gleichwertige Ausbildung • Sehr gute Fachkenntnisse und mehrjährige Erfahrung in der Ausführung von Strassen- und Tiefbauprojekten • Durchsetzungsvermögen, Kommunikationsgeschick und Eigeninitiative • Führungserfahrung und Belastbarkeit • Freude an interdisziplinärer Teamarbeit • Gute IT-Anwenderkenntnisse (Devisierungssoftware, MS Office) • Gute Kenntnisse in mehreren Kantonssprachen von Vorteil"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2664/pub/1/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-30T11:01:14.777Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione Pubblica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://apply.refline.ch/514915/2664/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Tiefbauamt",
+      "applicationDeadline": "2026-05-31",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-30T11:01:14.777Z"
     },
     {
       "id": "kanton-gr-6e41f2b517d5",
@@ -664,7 +1196,7 @@
       "url": "https://apply.refline.ch/514915/2679/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:39.627Z",
+      "crawledAt": "2026-04-30T11:01:14.097Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -699,6 +1231,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:48.704Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -743,7 +1276,7 @@
       "url": "https://apply.refline.ch/514915/2662/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:38.976Z",
+      "crawledAt": "2026-04-30T11:01:13.418Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -779,6 +1312,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:48.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -823,7 +1357,7 @@
       "url": "https://apply.refline.ch/514915/2666/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:38.324Z",
+      "crawledAt": "2026-04-30T11:01:12.735Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -863,6 +1397,7 @@
         "mitarbeiter-in-aufbewahrung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:47.341Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -907,7 +1442,7 @@
       "url": "https://apply.refline.ch/514915/2667/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:37.672Z",
+      "crawledAt": "2026-04-30T11:01:12.058Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -947,6 +1482,7 @@
         "mitarbeiter-in-katalog-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:46.656Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -991,7 +1527,7 @@
       "url": "https://apply.refline.ch/514915/2680/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:37.019Z",
+      "crawledAt": "2026-04-30T11:01:11.378Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1024,6 +1560,7 @@
         "assistent-in-der-amtsleitung-mit-personalverantwortung-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:45.967Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1068,7 +1605,7 @@
       "url": "https://apply.refline.ch/514915/2658/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:36.366Z",
+      "crawledAt": "2026-04-30T11:01:10.701Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1109,6 +1646,7 @@
         "projektleiterin-projektleiter-standortentwicklung-innovation-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:45.283Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1153,7 +1691,7 @@
       "url": "https://apply.refline.ch/514915/2663/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:35.718Z",
+      "crawledAt": "2026-04-30T11:01:09.975Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1192,6 +1730,7 @@
         "ict-system-spezialist-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:44.599Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1236,7 +1775,7 @@
       "url": "https://apply.refline.ch/514915/2678/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:35.066Z",
+      "crawledAt": "2026-04-30T11:01:08.882Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1320,7 +1859,7 @@
       "url": "https://apply.refline.ch/514915/2668/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:34.412Z",
+      "crawledAt": "2026-04-30T11:01:08.202Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1404,7 +1943,7 @@
       "url": "https://apply.refline.ch/514915/2665/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:33.758Z",
+      "crawledAt": "2026-04-30T11:01:07.524Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1445,6 +1984,7 @@
         "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:42.549Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1481,7 +2021,7 @@
       "descriptionByLocale": {
         "it": "Descrizione L'Ufficio di Ingegneria Civile è responsabile della pianificazione, costruzione, manutenzione e funzionamento delle strade cantonali, nonché della costruzione dell'acqua e del traffico lento a Grigioni. Ci occupiamo anche della manutenzione operativa delle strade nazionali nell'area cantonale. L'introduzione della gestione della mobilità operativa ha anche centralizzato la gestione della flotta cantonale per garantire un funzionamento più economico e ambientale. In qualità di specialista per il traffico lento, coordinamo la pianificazione e la costruzione dei sistemi di traffico lento. Questo include in particolare il traffico pedonale, l'escursionismo, il ciclismo e la mountain bike, nonché il movimento con dispositivi simili ai veicoli. Come ufficio certificato Friendly Work Space, siamo particolarmente interessati alla salute e alla soddisfazione dei nostri circa 480 dipendenti. Per questo motivo, ci impegniamo ad una gestione sistematica della salute professionale (BGM). Stiamo cercando l'attuazione della strategia di traffico lento 2037 (strategia LV 2037) all'interno dell'amministrazione cantonale di 1. giugno 2026 o d'accordo uno specialista qualificato. Informazione e comunicazione",
         "en": "Descrizione The Civil Engineering Office is responsible for the planning, construction, maintenance and operation of the cantonal roads as well as the water construction and the slow traffic in Graubünden. We also take care of the operational maintenance of national roads in the cantonal area. The introduction of operational mobility management also centralised the management of the cantonal vehicle fleet in order to ensure a more economical and environmentally sound operation. As a specialist for slow traffic, we coordinate the planning and construction of the systems of slow traffic. This includes in particular pedestrian traffic, hiking, cycling and mountain biking, as well as the movement with vehicle-like devices. As a Friendly Work Space certified office, we are particularly interested in the health and satisfaction of our around 480 employees. For this reason, we are committed to a systematic occupational health management (BGM). We are looking for the implementation of the slow traffic strategy 2037 (strategy LV 2037) within the cantonal administration by 1. June 2026 or by agreement a qualified specialist. Information and communication",
-        "de": "Descrizione Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Mit der Einführung des Betrieblichen Mobilitätsmanagements wurde unter anderem auch das Management der kantonalen Fahrzeugflotte zentralisiert, um einen wirtschaftlicheren und umweltverträglichen Betrieb sicherzustellen. Als Fachstelle für Langsamverkehr koordinieren wir die Planung und den Bau der Anlagen des Langsamverkehrs. Dieser umfasst insbesondere den Fussverkehr, das Wandern, das Radfahren und Mountainbiken sowie die Fortbewegung mit fahrzeugähnlichen Geräten. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Umsetzung der Langsamverkehrsstrategie 2037 (Strategie LV 2037) innerhalb der kantonalen Verwaltung per 1. Juni 2026 oder nach Vereinbarung eine qualifizierte Fachperson. ## Aufgaben - Umsetzung der Strategie LV 2037 ( Link ) - Fördern und Verankern einer LV-freundlichen Planungskultur im Kanton Graubünden - Gestalten der Prozesse und Etablierung eines Steuergremiums zur Umsetzung der LV-Strategie - Führen von Schlüsselprojekten mit Bezug zur Strategie LV 2037 - Koordination der Arbeiten mit Bezug zur Strategie LV 2037 innerhalb des Tiefbauamts und anderen Kantonalen Amtsstellen und Abstimmung von Strategie, Planungsinstrumenten und Projekten - Erstellen von Berichten zum Umsetzungsstand der LV-Strategie zuhanden der betroffenen Amtsleitungen und der Politik - Beschaffung externer Leistungen zur Bearbeitung von strategischen Themen im LV - Bereitstellung von Daten und Grundlagen für die Kommunikation und für Pilotprojekte im Bereich LV ## Anforderungen - Hochschulabschluss in Raumplanung, Verkehrsplanung, Geografie oder einer vergleichbaren Disziplin - Weiterbildung im Bereich Langsamverkehr ist von Vorteil - Mehrjährige Erfahrung in strategischer Verkehrs- oder Mobilitätsplanung, vorzugsweise mit Bezug zu Fuss- und Veloverkehr oder multimodaler Mobilität - Erfahrung in der Steuerung komplexer Verwaltungs- oder Governance-Projekten und interdisziplinärer Zusammenarbeit - Sehr gutes Verständnis der nationalen, kantonalen und kommunalen Verwaltungsstrukturen und Planungsinstrumente (idealerweise im Kanton Graubünden oder einem anderen Schweizer Kanton / einer Gemeinde) - Freude an Querschnittsarbeit mit verschiedensten Akteuren und an fachlicher Führung - Ausgeprägte Kommunikations- und Moderationsfähigkeiten, diplomatisches Geschick und politisches Gespür sowie Durchsetzungsfähigkeit - Sehr gute mündliche und schriftliche Ausdrucksweise in Deutsch - Italienisch- und/oder Romanischkenntnisse sind von Vorteil",
+        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Mit der Einführung des Betrieblichen Mobilitätsmanagements wurde unter anderem auch das Management der kantonalen Fahrzeugflotte zentralisiert, um einen wirtschaftlicheren und umweltverträglichen Betrieb sicherzustellen. Als Fachstelle für Langsamverkehr koordinieren wir die Planung und den Bau der Anlagen des Langsamverkehrs. Dieser umfasst insbesondere den Fussverkehr, das Wandern, das Radfahren und Mountainbiken sowie die Fortbewegung mit fahrzeugähnlichen Geräten. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Umsetzung der Langsamverkehrsstrategie 2037 (Strategie LV 2037) innerhalb der kantonalen Verwaltung per 1. Juni 2026 oder nach Vereinbarung eine qualifizierte Fachperson. | Aufgaben: • Umsetzung der Strategie LV 2037 ( Link ) • Fördern und Verankern einer LV-freundlichen Planungskultur im Kanton Graubünden • Gestalten der Prozesse und Etablierung eines Steuergremiums zur Umsetzung der LV-Strategie • Führen von Schlüsselprojekten mit Bezug zur Strategie LV 2037 • Koordination der Arbeiten mit Bezug zur Strategie LV 2037 innerhalb des Tiefbauamts und anderen Kantonalen Amtsstellen und Abstimmung von Strategie, Planungsinstrumenten und Projekten • Erstellen von Berichten zum Umsetzungsstand der LV-Strategie zuhanden der betroffenen Amtsleitungen und der Politik • Beschaffung externer Leistungen zur Bearbeitung von strategischen Themen im LV • Bereitstellung von Daten und Grundlagen für die Kommunikation und für Pilotprojekte im Bereich LV | Anforderungen: • Hochschulabschluss in Raumplanung, Verkehrsplanung, Geografie oder einer vergleichbaren Disziplin • Weiterbildung im Bereich Langsamverkehr ist von Vorteil • Mehrjährige Erfahrung in strategischer Verkehrs- oder Mobilitätsplanung, vorzugsweise mit Bezug zu Fuss- und Veloverkehr oder multimodaler Mobilität • Erfahrung in der Steuerung komplexer Verwaltungs- oder Governance-Projekten und interdisziplinärer Zusammenarbeit • Sehr gutes Verständnis der nationalen, kantonalen und kommunalen Verwaltungsstrukturen und Planungsinstrumente (idealerweise im Kanton Graubünden oder einem anderen Schweizer Kanton / einer Gemeinde) • Freude an Querschnittsarbeit mit verschiedensten Akteuren und an fachlicher Führung • Ausgeprägte Kommunikations- und Moderationsfähigkeiten, diplomatisches Geschick und politisches Gespür sowie Durchsetzungsfähigkeit • Sehr gute mündliche und schriftliche Ausdrucksweise in Deutsch • Italienisch- und/oder Romanischkenntnisse sind von Vorteil",
         "fr": "Descrizione Le Bureau du génie civil est responsable de la planification, de la construction, de l'entretien et de l'exploitation des routes cantonales ainsi que de la construction de l'eau et de la lenteur du trafic à Graubünden. Nous nous occupons également de l'entretien opérationnel des routes nationales dans la région cantonale. L'introduction de la gestion de la mobilité opérationnelle a également centralisé la gestion du parc de véhicules cantonaux afin d'assurer une exploitation plus économique et écologiquement rationnelle. En tant que spécialiste du trafic lent, nous coordonnons la planification et la construction des systèmes de trafic lent. Cela inclut en particulier la circulation piétonne, la randonnée, le vélo et le vélo de montagne, ainsi que le mouvement avec des dispositifs de type véhicule. En tant que bureau certifié Friendly Work Space, nous sommes particulièrement intéressés par la santé et la satisfaction de nos quelque 480 employés. C'est pour cette raison que nous nous engageons à une gestion systématique de la santé au travail. Nous recherchons la mise en œuvre de la stratégie 2037 (stratégie LV 2037) au sein de l'administration cantonale de 1. Juin 2026 ou par accord un spécialiste qualifié. Information et communication"
       },
       "location": "Chur",
@@ -1489,7 +2029,7 @@
       "url": "https://apply.refline.ch/514915/2672/pub/4/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:33.106Z",
+      "crawledAt": "2026-04-30T11:01:06.839Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1532,6 +2072,7 @@
         "projektleiter-in-per-la-umsetzung-der-langsamverkehrsstrategie-graubunden-kantonale-verwaltung-graubunden-chur",
         "directeur-de-projet-pour-la-mise-en-uvre-de-la-strategie-de-transport-lent-graubunden-kantonale-verwaltung-graubunden-ch"
       ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-23T10:20:41.864Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1544,9 +2085,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "kanton-gr-0ffee9d541da",
@@ -1579,7 +2118,7 @@
       "url": "https://apply.refline.ch/514915/2674/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:32.452Z",
+      "crawledAt": "2026-04-30T11:01:06.150Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1615,6 +2154,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:41.182Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1659,7 +2199,7 @@
       "url": "https://apply.refline.ch/514915/2659/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:31.798Z",
+      "crawledAt": "2026-04-30T11:01:05.466Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1699,6 +2239,7 @@
         "akademische-r-mitarbeiter-in-im-bereich-sonderpadagogik-integration-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:48.296Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1743,7 +2284,7 @@
       "url": "https://apply.refline.ch/514915/2660/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:31.145Z",
+      "crawledAt": "2026-04-30T11:01:04.785Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1786,6 +2327,7 @@
         "betriebsokonom-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-16T10:12:47.679Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1830,7 +2372,7 @@
       "url": "https://apply.refline.ch/514915/2654/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:30.494Z",
+      "crawledAt": "2026-04-30T11:01:04.107Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1871,6 +2413,7 @@
         "chef-in-verkehrspolizei-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:47.062Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1915,7 +2458,7 @@
       "url": "https://apply.refline.ch/514915/2657/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:29.813Z",
+      "crawledAt": "2026-04-30T11:01:03.429Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1951,6 +2494,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:12:46.446Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1995,7 +2539,7 @@
       "url": "https://apply.refline.ch/514915/2650/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:29.027Z",
+      "crawledAt": "2026-04-30T11:01:02.748Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2036,6 +2580,7 @@
         "schulsekretarin-schulsekretar-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:45.829Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2080,7 +2625,7 @@
       "url": "https://apply.refline.ch/514915/2656/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:28.375Z",
+      "crawledAt": "2026-04-30T11:01:02.069Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2115,6 +2660,7 @@
         "wissenschaftliches-volontariat-bundner-kunstmuseum-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:45.213Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2159,7 +2705,7 @@
       "url": "https://apply.refline.ch/514915/2655/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:27.722Z",
+      "crawledAt": "2026-04-30T11:01:01.391Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2200,6 +2746,7 @@
         "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:44.581Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2244,7 +2791,7 @@
       "url": "https://apply.refline.ch/514915/2640/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:27.063Z",
+      "crawledAt": "2026-04-30T11:01:00.712Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2329,7 +2876,7 @@
       "url": "https://apply.refline.ch/514915/2651/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:26.410Z",
+      "crawledAt": "2026-04-30T11:01:00.035Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2393,6 +2940,7 @@
         "messtechniker-in-emissionen-luft-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:58.185Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2437,7 +2985,7 @@
       "url": "https://apply.refline.ch/514915/2652/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:25.759Z",
+      "crawledAt": "2026-04-30T11:00:59.355Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2500,6 +3048,7 @@
         "assistentin-assistent-der-amtsleitung-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:57.342Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2544,7 +3093,7 @@
       "url": "https://apply.refline.ch/514915/2646/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:25.108Z",
+      "crawledAt": "2026-04-30T11:00:58.487Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2607,6 +3156,7 @@
         "addetto-a-amministrazione-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:48:55.467Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2651,7 +3201,7 @@
       "url": "https://apply.refline.ch/514915/2645/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:24.456Z",
+      "crawledAt": "2026-04-30T11:00:57.809Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2706,6 +3256,7 @@
         "sachbearbeiter-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:54.849Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2750,7 +3301,7 @@
       "url": "https://apply.refline.ch/514915/2647/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:23.804Z",
+      "crawledAt": "2026-04-30T11:00:57.132Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2803,6 +3354,7 @@
         "it-oder-juristische-fachperson-als-stv-leiter-in-datenschutzaufsichtsstelle-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.673Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -2847,7 +3399,7 @@
       "url": "https://apply.refline.ch/514915/2642/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:23.152Z",
+      "crawledAt": "2026-04-30T11:00:56.448Z",
       "addressLocality": "Haldenstein",
       "postalCode": "7023",
       "addressCountry": "CH",
@@ -2911,6 +3463,7 @@
         "leiter-in-amt-fur-militar-und-zivilschutz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.050Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2955,7 +3508,7 @@
       "url": "https://apply.refline.ch/514915/2638/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:22.499Z",
+      "crawledAt": "2026-04-30T11:00:55.767Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3018,6 +3571,7 @@
         "sachbearbeiter-in-rechtsdienst-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:47.335Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3062,7 +3616,7 @@
       "url": "https://apply.refline.ch/514915/2627/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:21.846Z",
+      "crawledAt": "2026-04-30T11:00:55.089Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3148,7 +3702,7 @@
       "url": "https://apply.refline.ch/514915/2629/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:21.191Z",
+      "crawledAt": "2026-04-30T11:00:54.409Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3194,6 +3748,7 @@
         "schulpsychologin-schulpsychologe-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:45.478Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3238,7 +3793,7 @@
       "url": "https://apply.refline.ch/514915/2639/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:20.511Z",
+      "crawledAt": "2026-04-30T11:00:53.703Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3293,6 +3848,7 @@
         "chemiker-in-fh-umweltingenieur-in-fh-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:44.857Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3337,7 +3893,7 @@
       "url": "https://apply.refline.ch/514915/2516/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:19.858Z",
+      "crawledAt": "2026-04-30T11:00:53.022Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3401,6 +3957,7 @@
         "polizeikommandant-in-kantonspolizei-graubunden-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:43.616Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3445,7 +4002,7 @@
       "url": "https://apply.refline.ch/514915/2619/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:19.206Z",
+      "crawledAt": "2026-04-30T11:00:52.212Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3503,6 +4060,7 @@
         "projektmitarbeiter-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:38.668Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3547,7 +4105,7 @@
       "url": "https://apply.refline.ch/514915/2605/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:18.554Z",
+      "crawledAt": "2026-04-30T11:00:51.532Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3605,6 +4163,7 @@
         "kantonszahnarztin-kantonszahnarzt-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:36.179Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3649,7 +4208,7 @@
       "url": "https://apply.refline.ch/514915/2565/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:17.901Z",
+      "crawledAt": "2026-04-30T11:00:50.830Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3713,6 +4272,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:48:35.559Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3757,7 +4317,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-29T22:07:17.245Z",
+      "crawledAt": "2026-04-30T11:00:50.135Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3821,6 +4381,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
