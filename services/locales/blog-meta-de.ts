@@ -4381,6 +4381,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-700-dossier-consultori.title': 'Crans-Montana: Beratungsstellen bearbeiten 700 Fälle',
     'blog.article.crans-montana-700-dossier-consultori.excerpt': 'Vier Monate nach der Tragödie verwalten die Hilfsdienste für Opfer fast 700 Fälle, davon 400 allein im Wallis und 20 im Tessin.',
     'blog.article.crans-montana-700-dossier-consultori.imageAlt': 'Panoramablick auf Crans-Montana im Winter mit schneebedeckten Gebäuden und Bergen im Hintergrund',
+    'blog.article.perequazione-ticino-frontalieri-2026.title': 'Finanzausgleich: Ticino benachteiligt durch Grenzgänger',
+    'blog.article.perequazione-ticino-frontalieri-2026.excerpt': 'Berna hält den Tessin für reicher, als er tatsächlich ist, was die Bundesgelder beeinflusst. Hier erfahren Sie, was sich für Grenzgänger ändert.',
+    'blog.article.perequazione-ticino-frontalieri-2026.imageAlt': 'Panoramablick auf Bellinzona mit der Burg und dem Fluss',
 };
 
 export default blogMetaDe;

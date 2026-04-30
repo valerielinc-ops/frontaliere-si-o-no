@@ -4381,6 +4381,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-700-dossier-consultori.title': 'Crans-Montana: aid services handling 700 cases',
     'blog.article.crans-montana-700-dossier-consultori.excerpt': 'Four months after the tragedy, victim assistance services manage nearly 700 cases, with 400 in Valais alone and 20 in Ticino.',
     'blog.article.crans-montana-700-dossier-consultori.imageAlt': 'Panoramic view of Crans-Montana in winter with snow-covered buildings and mountains in the background',
+    'blog.article.perequazione-ticino-frontalieri-2026.title': 'Financial equalisation: Ticino disadvantaged for cross-border workers',
+    'blog.article.perequazione-ticino-frontalieri-2026.excerpt': 'Bern considers Ticino richer than it actually is, affecting federal funds. Here\'s what changes for cross-border workers.',
+    'blog.article.perequazione-ticino-frontalieri-2026.imageAlt': 'Panorama of Bellinzona with the castle and the river',
 };
 
 export default blogMetaEn;

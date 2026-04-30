@@ -11236,4 +11236,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-700-dossier-consultori.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'perequazione-ticino-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-04-30T16:59:42.393Z',
+ image: '/images/blog/perequazione-ticino-frontalieri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

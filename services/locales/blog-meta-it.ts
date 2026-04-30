@@ -4382,6 +4382,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-700-dossier-consultori.title': 'Crans-Montana: consultori al lavoro su 700 dossier',
     'blog.article.crans-montana-700-dossier-consultori.excerpt': 'Quattro mesi dopo la tragedia, i servizi di aiuto alle vittime gestiscono quasi 700 casi, con 400 solo in Vallese e 20 in Ticino.',
     'blog.article.crans-montana-700-dossier-consultori.imageAlt': 'Vista panoramica di Crans-Montana in inverno con edifici coperti di neve e montagne sullo sfondo',
+    'blog.article.perequazione-ticino-frontalieri-2026.title': 'Perequazione finanziaria: Ticino svantaggiato per i frontalieri',
+    'blog.article.perequazione-ticino-frontalieri-2026.excerpt': 'Berna considera il Ticino più ricco di quanto sia realmente, influenzando i fondi federali. Ecco cosa cambia per i frontalieri.',
+    'blog.article.perequazione-ticino-frontalieri-2026.imageAlt': 'Panorama di Bellinzona con il castello e il fiume',
 };
 
 export default blogMetaIt;

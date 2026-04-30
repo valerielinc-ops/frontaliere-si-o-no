@@ -4382,6 +4382,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crans-montana-700-dossier-consultori.title': 'Crans-Montana : 700 dossiers en cours',
     'blog.article.crans-montana-700-dossier-consultori.excerpt': 'Quatre mois après la tragédie, les services d\'aide aux victimes gèrent près de 700 cas, dont 400 en Valais et 20 en Ticino.',
     'blog.article.crans-montana-700-dossier-consultori.imageAlt': 'Vue panoramique de Crans-Montana en hiver avec des bâtiments enneigés et des montagnes à l\'arrière-plan',
+    'blog.article.perequazione-ticino-frontalieri-2026.title': 'Égalisation financière: le Tessin désavantagé pour les frontaliers',
+    'blog.article.perequazione-ticino-frontalieri-2026.excerpt': 'Berne considère le Tessin plus riche qu\'il ne l\'est réellement, influençant les fonds fédéraux. Voici ce qui change pour les frontaliers.',
+    'blog.article.perequazione-ticino-frontalieri-2026.imageAlt': 'Panorama de Bellinzone avec le château et la rivière',
 };
 
 export default blogMetaFr;

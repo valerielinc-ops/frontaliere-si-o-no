@@ -29329,6 +29329,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-perequazione-ticino-frontalieri-2026': {
+    title: 'Perequazione finanziaria: Ticino svantaggiato per i frontalieri',
+    description: 'Berna considera il Ticino più ricco di quanto sia realmente, influenzando i fondi federali. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, perequazione, finanziaria, svantaggiato, berna',
+    ogTitle: 'Perequazione finanziaria: Ticino svantaggiato per i frontalieri',
+    ogDescription: 'Berna considera il Ticino più ricco di quanto sia realmente, influenzando i fondi federali. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/perequazione-ticino-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Perequazione finanziaria: Ticino svantaggiato per i frontalieri",
+      "description": "Berna considera il Ticino più ricco di quanto sia realmente, influenzando i fondi federali. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/perequazione-ticino-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Bellinzona con il castello e il fiume"
+      },
+      "datePublished": "2026-04-30T16:59:42+00:00",
+      "dateModified": "2026-04-30T16:59:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/perequazione-ticino-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
