@@ -4292,6 +4292,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comco-inchieste-keyword-bidding-2026.title': 'COMCO enquête sur des accords illicites dans le keyword bidding',
     'blog.article.comco-inchieste-keyword-bidding-2026.excerpt': 'Deux enquêtes ouvertes par la COMCO dans le secteur des voyages et des casinos en ligne pour des accords illicites présumés dans le keyword bidding.',
     'blog.article.comco-inchieste-keyword-bidding-2026.imageAlt': 'Vue aérienne du lac de Lugano avec une eau bleue claire, entourée de montagnes et de bâtiments.',
+    'blog.article.dezonamenti-ticino-2026-confronti.title': 'Désenclavement au Tessin: dialogue avec le Département',
+    'blog.article.dezonamenti-ticino-2026-confronti.excerpt': 'L\'Association des Communes du Tessin demande un dialogue direct avec le Département du Territoire pour résoudre les problèmes de désenclavement',
+    'blog.article.dezonamenti-ticino-2026-confronti.imageAlt': 'Vue de Bellinzona avec le drapeau du Tessin',
 };
 
 export default blogMetaFr;

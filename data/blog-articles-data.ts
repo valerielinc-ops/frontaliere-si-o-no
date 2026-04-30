@@ -11026,4 +11026,11 @@ export const ARTICLES = [
  image: '/images/blog/comco-inchieste-keyword-bidding-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dezonamenti-ticino-2026-confronti',
+ category: 'pratico',
+ date: '2026-04-30T11:40:26.700Z',
+ image: '/images/blog/dezonamenti-ticino-2026-confronti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

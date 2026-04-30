@@ -2661,6 +2661,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-azienda-bardello-cerca-operatore-cnc': { name: 'Lavoro Bardello', path: '/articoli-frontaliere/azienda-bardello-cerca-operatore-cnc', parent: 'blog' },
     'blog-divario-irpef-pensionati-2026': { name: 'Fiscale', path: '/articoli-frontaliere/divario-irpef-pensionati-2026', parent: 'blog' },
     'blog-comco-inchieste-keyword-bidding-2026': { name: 'Novità', path: '/articoli-frontaliere/comco-inchieste-keyword-bidding-2026', parent: 'blog' },
+    'blog-dezonamenti-ticino-2026-confronti': { name: 'Dezonamenti Ticino', path: '/articoli-frontaliere/dezonamenti-ticino-2026-confronti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -28459,6 +28459,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dezonamenti-ticino-2026-confronti': {
+    title: 'Dezonamenti in Ticino: serve dialogo diretto con il Dipartimento',
+    description: 'L\'Associazione dei Comuni Ticino chiede confronto diretto con il Dipartimento del Territorio per risolvere problemi di dezonamento. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, dezonamenti, serve, dialogo, diretto',
+    ogTitle: 'Dezonamenti in Ticino: serve dialogo diretto con il Dipartimento',
+    ogDescription: 'L\'Associazione dei Comuni Ticino chiede confronto diretto con il Dipartimento del Territorio per risolvere problemi di dezonamento',
+    canonicalPath: '/articoli-frontaliere/dezonamenti-ticino-2026-confronti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dezonamenti in Ticino: serve dialogo diretto con il Dipartimento",
+      "description": "L'Associazione dei Comuni Ticino chiede confronto diretto con il Dipartimento del Territorio per risolvere problemi di dezonamento. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dezonamenti-ticino-2026-confronti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Bellinzona con bandiera del Ticino"
+      },
+      "datePublished": "2026-04-30T11:40:26+00:00",
+      "dateModified": "2026-04-30T11:40:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dezonamenti-ticino-2026-confronti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

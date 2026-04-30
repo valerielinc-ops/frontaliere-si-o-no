@@ -4291,6 +4291,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comco-inchieste-keyword-bidding-2026.title': 'COMCO untersucht illegale Vereinbarungen beim Keyword Bidding',
     'blog.article.comco-inchieste-keyword-bidding-2026.excerpt': 'Zwei Untersuchungen der COMCO im Reise- und Online-Casino-Sektor wegen mutmaßlicher illegaler Vereinbarungen beim Keyword Bidding.',
     'blog.article.comco-inchieste-keyword-bidding-2026.imageAlt': 'Luftaufnahme des Luganersees mit klarem blauem Wasser, umgeben von Bergen und Gebäuden.',
+    'blog.article.dezonamenti-ticino-2026-confronti.title': 'Entzonungen im Tessin: Dialog mit dem Departement nötig',
+    'blog.article.dezonamenti-ticino-2026-confronti.excerpt': 'Der Verband der Gemeinden Tessin fordert direkten Austausch mit dem Departement für Raumentwicklung zur Lösung von Entzonungsproblemen',
+    'blog.article.dezonamenti-ticino-2026-confronti.imageAlt': 'Ansicht von Bellinzona mit der Flagge des Tessin',
 };
 
 export default blogMetaDe;

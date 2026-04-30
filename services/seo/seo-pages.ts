@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1480,
+ "numberOfItems": 1481,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6115,7 +6115,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1477, "name": "Inflazione Italia aprile 2026: +2,8% e carrello...", "url": `${BASE_URL}/articoli-frontaliere/inflazione-aprile-2026-italia` },
           { "@type": "ListItem", "position": 1478, "name": "Azienda Bardello cerca operatore CNC: esperienz...", "url": `${BASE_URL}/articoli-frontaliere/azienda-bardello-cerca-operatore-cnc` },
           { "@type": "ListItem", "position": 1479, "name": "Pensionati penalizzati: fino a 2.400 euro in pi...", "url": `${BASE_URL}/articoli-frontaliere/divario-irpef-pensionati-2026` },
-          { "@type": "ListItem", "position": 1480, "name": "COMCO indaga su accordi illeciti nel keyword bi...", "url": `${BASE_URL}/articoli-frontaliere/comco-inchieste-keyword-bidding-2026` }
+          { "@type": "ListItem", "position": 1480, "name": "COMCO indaga su accordi illeciti nel keyword bi...", "url": `${BASE_URL}/articoli-frontaliere/comco-inchieste-keyword-bidding-2026` },
+          { "@type": "ListItem", "position": 1481, "name": "Dezonamenti in Ticino: serve dialogo diretto co...", "url": `${BASE_URL}/articoli-frontaliere/dezonamenti-ticino-2026-confronti` }
  ]
  },
  {

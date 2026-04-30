@@ -4292,6 +4292,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comco-inchieste-keyword-bidding-2026.title': 'COMCO indaga su accordi illeciti nel keyword bidding',
     'blog.article.comco-inchieste-keyword-bidding-2026.excerpt': 'Due inchieste aperte dalla COMCO nel settore dei viaggi e dei casinò online per presunti accordi illeciti nel keyword bidding.',
     'blog.article.comco-inchieste-keyword-bidding-2026.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici.',
+    'blog.article.dezonamenti-ticino-2026-confronti.title': 'Dezonamenti in Ticino: serve dialogo diretto con il Dipartimento',
+    'blog.article.dezonamenti-ticino-2026-confronti.excerpt': 'L\'Associazione dei Comuni Ticino chiede confronto diretto con il Dipartimento del Territorio per risolvere problemi di dezonamento',
+    'blog.article.dezonamenti-ticino-2026-confronti.imageAlt': 'Veduta di Bellinzona con bandiera del Ticino',
 };
 
 export default blogMetaIt;

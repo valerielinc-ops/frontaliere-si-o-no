@@ -4291,6 +4291,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comco-inchieste-keyword-bidding-2026.title': 'COMCO investigates illegal keyword bidding agreements',
     'blog.article.comco-inchieste-keyword-bidding-2026.excerpt': 'Two investigations opened by COMCO in the travel and online casino sector for alleged illegal keyword bidding agreements.',
     'blog.article.comco-inchieste-keyword-bidding-2026.imageAlt': 'Aerial view of Lake Lugano with clear blue water, surrounded by mountains and buildings.',
+    'blog.article.dezonamenti-ticino-2026-confronti.title': 'Derezervation in Ticino: direct dialogue with the Department needed',
+    'blog.article.dezonamenti-ticino-2026-confronti.excerpt': 'The Association of Ticino Municipalities asks for direct dialogue with the Department of Territory to solve dezoning issues',
+    'blog.article.dezonamenti-ticino-2026-confronti.imageAlt': 'View of Bellinzona with Ticino flag',
 };
 
 export default blogMetaEn;
