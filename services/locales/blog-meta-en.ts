@@ -4093,6 +4093,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.regione-lombardia-4-4-milioni-insubria.title': 'Lombardy funds Insubria research',
     'blog.article.regione-lombardia-4-4-milioni-insubria.excerpt': '4.4 million euros for new research infrastructure at Insubria University, with strategic projects in Varese, Como, and Busto Arsizio.',
     'blog.article.regione-lombardia-4-4-milioni-insubria.imageAlt': 'University of Insubria campus in Varese with modern research facilities',
+    'blog.article.luve-hyperscaler-ai-accordo-100-milioni.title': 'LUVE secures 100m deal with global hyperscaler',
+    'blog.article.luve-hyperscaler-ai-accordo-100-milioni.excerpt': 'The Varese-based company LUVE wins a multi-year contract to cool next-generation data centers.',
+    'blog.article.luve-hyperscaler-ai-accordo-100-milioni.imageAlt': 'Data center with advanced cooling technology in Ticino',
 };
 
 export default blogMetaEn;

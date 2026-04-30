@@ -26545,6 +26545,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luve-hyperscaler-ai-accordo-100-milioni': {
+    title: 'LUVE sigla accordo da 100 milioni con hyperscaler globale',
+    description: 'LUVE, azienda varesina specializzata in sistemi di raffreddamento industriale, firma accordo da oltre 100 milioni con hyperscaler globale per data center ad',
+    keywords: 'frontalieri, ticino, svizzera, italia, luve, sigla, accordo, milioni',
+    ogTitle: 'LUVE sigla accordo da 100 milioni con hyperscaler globale',
+    ogDescription: 'LUVE, azienda varesina specializzata in sistemi di raffreddamento industriale, firma accordo da oltre 100 milioni con hyperscaler globale per data center ad',
+    canonicalPath: '/articoli-frontaliere/luve-hyperscaler-ai-accordo-100-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LUVE sigla accordo da 100 milioni con hyperscaler globale",
+      "description": "LUVE, azienda varesina specializzata in sistemi di raffreddamento industriale, firma accordo da oltre 100 milioni con hyperscaler globale per data center ad",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/luve-hyperscaler-ai-accordo-100-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Data center con tecnologia di raffreddamento avanzata in Ticino"
+      },
+      "datePublished": "2026-04-30T01:44:54+00:00",
+      "dateModified": "2026-04-30T01:44:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luve-hyperscaler-ai-accordo-100-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

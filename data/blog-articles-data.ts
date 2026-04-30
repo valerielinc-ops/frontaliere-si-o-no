@@ -10563,4 +10563,11 @@ export const ARTICLES = [
  image: '/images/blog/regione-lombardia-4-4-milioni-insubria.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'luve-hyperscaler-ai-accordo-100-milioni',
+ category: 'novita',
+ date: '2026-04-30T01:44:54.667Z',
+ image: '/images/blog/luve-hyperscaler-ai-accordo-100-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

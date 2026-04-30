@@ -2595,6 +2595,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-digitale-3d-visita': { name: 'Varese Digitale', path: '/articoli-frontaliere/varese-digitale-3d-visita', parent: 'blog' },
     'blog-varesotto-paperoni-lago-maggiore-2026': { name: 'Varese: il 2% detiene il 15% della', path: '/articoli-frontaliere/varesotto-paperoni-lago-maggiore-2026', parent: 'blog' },
     'blog-regione-lombardia-4-4-milioni-insubria': { name: 'Novità', path: '/articoli-frontaliere/regione-lombardia-4-4-milioni-insubria', parent: 'blog' },
+    'blog-luve-hyperscaler-ai-accordo-100-milioni': { name: 'Novità', path: '/articoli-frontaliere/luve-hyperscaler-ai-accordo-100-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];
