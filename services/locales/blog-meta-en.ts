@@ -4198,6 +4198,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ia-selezione-personale-rischi-ticino.title': 'AI and Hiring: New Challenges for the Ticino Market',
     'blog.article.ia-selezione-personale-rischi-ticino.excerpt': 'The use of AI in recruitment raises concerns regarding discrimination and bias. An analysis of risks for candidates and companies in Ticino.',
     'blog.article.ia-selezione-personale-rischi-ticino.imageAlt': 'Personal selection with artificial intelligence in a Lugano office',
+    'blog.article.denatalita-ticino-azione-urgente-2026.title': 'Falling birth rates in Ticino: Deputy Isabella demands action',
+    'blog.article.denatalita-ticino-azione-urgente-2026.excerpt': 'Claudio Isabella of the Centre criticises the lack of effective measures against the decline in births in the Canton of Ticino',
+    'blog.article.denatalita-ticino-azione-urgente-2026.imageAlt': 'Aerial view of Locarno, Lake Maggiore and surrounding mountains',
 };
 
 export default blogMetaEn;

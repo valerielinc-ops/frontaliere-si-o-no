@@ -4199,6 +4199,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ia-selezione-personale-rischi-ticino.title': 'IA e assunzioni: le nuove sfide per il mercato ticinese',
     'blog.article.ia-selezione-personale-rischi-ticino.excerpt': 'L\'uso dell\'IA nella selezione del personale solleva dubbi su discriminazioni e bias. Analisi dei rischi per i candidati e le aziende in Ticino.',
     'blog.article.ia-selezione-personale-rischi-ticino.imageAlt': 'Selezione personale con intelligenza artificiale in ufficio a Lugano',
+    'blog.article.denatalita-ticino-azione-urgente-2026.title': 'Denatalità in Ticino: il deputato Isabella chiede azioni concrete',
+    'blog.article.denatalita-ticino-azione-urgente-2026.excerpt': 'Claudio Isabella del Centro critica la mancanza di misure efficaci contro il calo delle nascite nel Canton Ticino',
+    'blog.article.denatalita-ticino-azione-urgente-2026.imageAlt': 'Vista aerea di Locarno, Lago Maggiore e montagne circostanti',
 };
 
 export default blogMetaIt;

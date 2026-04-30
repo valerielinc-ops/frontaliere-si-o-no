@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1449,
+ "numberOfItems": 1450,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6084,7 +6084,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1446, "name": "Glaciazione demografica in Ticino: allarme per ...", "url": `${BASE_URL}/articoli-frontaliere/glaciazione-demografica-ticino-2026` },
           { "@type": "ListItem", "position": 1447, "name": "A2 in tilt: ritardi oltre l'ora tra Chiasso e L...", "url": `${BASE_URL}/articoli-frontaliere/a2-traffico-ritardi-lugano-2026` },
           { "@type": "ListItem", "position": 1448, "name": "Roberto Grassi nuovo presidente LIUC Castellanza", "url": `${BASE_URL}/articoli-frontaliere/roberto-grassi-nuovo-presidente-liuc-castellanza` },
-          { "@type": "ListItem", "position": 1449, "name": "IA e assunzioni: le nuove sfide per il mercato ...", "url": `${BASE_URL}/articoli-frontaliere/ia-selezione-personale-rischi-ticino` }
+          { "@type": "ListItem", "position": 1449, "name": "IA e assunzioni: le nuove sfide per il mercato ...", "url": `${BASE_URL}/articoli-frontaliere/ia-selezione-personale-rischi-ticino` },
+          { "@type": "ListItem", "position": 1450, "name": "Denatalità in Ticino: il deputato Isabella chie...", "url": `${BASE_URL}/articoli-frontaliere/denatalita-ticino-azione-urgente-2026` }
  ]
  },
  {

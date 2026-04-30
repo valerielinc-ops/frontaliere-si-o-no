@@ -10808,4 +10808,11 @@ export const ARTICLES = [
  image: '/images/blog/ia-selezione-personale-rischi-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'denatalita-ticino-azione-urgente-2026',
+ category: 'novita',
+ date: '2026-04-30T07:10:51.231Z',
+ image: '/images/blog/denatalita-ticino-azione-urgente-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -27560,6 +27560,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-denatalita-ticino-azione-urgente-2026': {
+    title: 'Denatalità in Ticino: il deputato Isabella chiede azioni concrete',
+    description: 'Claudio Isabella del Centro critica la mancanza di misure efficaci contro il calo delle nascite nel Canton Ticino. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, denatalità, deputato, isabella, chiede',
+    ogTitle: 'Denatalità in Ticino: il deputato Isabella chiede azioni concrete',
+    ogDescription: 'Claudio Isabella del Centro critica la mancanza di misure efficaci contro il calo delle nascite nel Canton Ticino',
+    canonicalPath: '/articoli-frontaliere/denatalita-ticino-azione-urgente-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Denatalità in Ticino: il deputato Isabella chiede azioni concrete",
+      "description": "Claudio Isabella del Centro critica la mancanza di misure efficaci contro il calo delle nascite nel Canton Ticino. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/denatalita-ticino-azione-urgente-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Locarno, Lago Maggiore e montagne circostanti"
+      },
+      "datePublished": "2026-04-30T07:10:51+00:00",
+      "dateModified": "2026-04-30T07:10:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/denatalita-ticino-azione-urgente-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

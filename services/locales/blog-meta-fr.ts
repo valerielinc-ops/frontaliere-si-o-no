@@ -4199,6 +4199,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ia-selezione-personale-rischi-ticino.title': 'IA et embauches : les nouveaux défis du marché tessinois',
     'blog.article.ia-selezione-personale-rischi-ticino.excerpt': 'L\'usage de l\'IA dans la sélection du personnel soulève des doutes sur les discriminations et les biais. Analyse des risques pour les candidats et les entreprises du Tessin.',
     'blog.article.ia-selezione-personale-rischi-ticino.imageAlt': 'Sélection du personnel par intelligence artificielle dans un bureau à Lugano',
+    'blog.article.denatalita-ticino-azione-urgente-2026.title': 'Dénatalité au Tessin : le député Isabella demande des actions concrètes',
+    'blog.article.denatalita-ticino-azione-urgente-2026.excerpt': 'Claudio Isabella du Centre critique le manque de mesures efficaces contre la baisse des naissances dans le canton du Tessin',
+    'blog.article.denatalita-ticino-azione-urgente-2026.imageAlt': 'Vue aérienne de Locarno, Lac Majeur et montagnes environnantes',
 };
 
 export default blogMetaFr;

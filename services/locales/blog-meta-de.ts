@@ -4198,6 +4198,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ia-selezione-personale-rischi-ticino.title': 'KI und Recruiting: Neue Herausforderungen im Tessin',
     'blog.article.ia-selezione-personale-rischi-ticino.excerpt': 'Der Einsatz von KI bei der Personalauswahl wirft Fragen zu Diskriminierung und Bias auf. Eine Risikoanalyse für Kandidaten und Unternehmen im Tessin.',
     'blog.article.ia-selezione-personale-rischi-ticino.imageAlt': 'Personalrekrutierung mit künstlicher Intelligenz in einem Büro in Lugano',
+    'blog.article.denatalita-ticino-azione-urgente-2026.title': 'Geburtenrückgang im Tessin: Isabella fordert konkrete Maßnahmen',
+    'blog.article.denatalita-ticino-azione-urgente-2026.excerpt': 'Claudio Isabella vom Centro kritisiert den Mangel an wirksamen Maßnahmen gegen den Geburtenrückgang im Kanton Tessin',
+    'blog.article.denatalita-ticino-azione-urgente-2026.imageAlt': 'Luftaufnahme von Locarno, Lago Maggiore und umliegende Berge',
 };
 
 export default blogMetaDe;
