@@ -1,0 +1,257 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+
+import {
+ chooseWinner,
+ jaccardSimilarity,
+ loadWinners,
+ makeKey,
+ resolveWinner,
+ saveWinners,
+ type CandidateInput,
+ type WinnersFile,
+} from '@/services/previousSlugWinners';
+
+const NOW = '2026-04-30T12:00:00.000Z';
+
+describe('previousSlugWinners', () => {
+ describe('jaccardSimilarity', () => {
+ it('returns 1 for identical slugs', () => {
+ expect(jaccardSimilarity('foo-bar-baz', 'foo-bar-baz')).toBe(1);
+ });
+
+ it('returns 0 for fully disjoint slugs', () => {
+ expect(jaccardSimilarity('alpha-beta', 'gamma-delta')).toBe(0);
+ });
+
+ it('returns 0 for two empty inputs (no division-by-zero)', () => {
+ expect(jaccardSimilarity('', '')).toBe(0);
+ });
+
+ it('correctly computes |intersection| / |union|', () => {
+ // tokens(a) = {a, b, c}; tokens(b) = {b, c, d}
+ // intersection = {b, c} (2); union = {a, b, c, d} (4) → 0.5
+ expect(jaccardSimilarity('a-b-c', 'b-c-d')).toBe(0.5);
+ });
+
+ it('lowercases and dedupes within each slug', () => {
+ // tokens(a) = {foo, bar} after dedup; tokens(b) = {foo, bar}
+ expect(jaccardSimilarity('FOO-bar-foo', 'foo-bar')).toBe(1);
+ });
+ });
+
+ describe('chooseWinner — token-Jaccard heuristic', () => {
+ it('returns null for empty candidates list', () => {
+ expect(chooseWinner('any-slug', [], NOW)).toBeNull();
+ });
+
+ it('picks the candidate with highest Jaccard against the old slug', () => {
+ const candidates: CandidateInput[] = [
+ { jobIdentifier: 'job-a', canonicalSlug: 'foo-bar' }, // 1 token shared (foo)
+ { jobIdentifier: 'job-b', canonicalSlug: 'foo-baz-qux' }, // 1 shared, but bigger union → smaller
+ { jobIdentifier: 'job-c', canonicalSlug: 'foo-bar-baz' }, // 2 shared (foo, bar) → highest
+ ];
+ const winner = chooseWinner('foo-bar', candidates, NOW);
+ expect(winner).not.toBeNull();
+ expect(winner!.winnerJobIdentifier).toBe('job-a'); // foo-bar EXACTLY matches → 1.0
+ expect(winner!.score).toBe(1);
+ });
+
+ it('breaks ties by lexicographic order of jobIdentifier', () => {
+ // Both candidates have identical Jaccard (1.0) — same canonical slug.
+ const candidates: CandidateInput[] = [
+ { jobIdentifier: 'job-zzz', canonicalSlug: 'foo' },
+ { jobIdentifier: 'job-aaa', canonicalSlug: 'foo' },
+ { jobIdentifier: 'job-mmm', canonicalSlug: 'foo' },
+ ];
+ const winner = chooseWinner('foo', candidates, NOW);
+ expect(winner!.winnerJobIdentifier).toBe('job-aaa');
+ });
+
+ it('zero-similarity is still a valid score (caller may filter)', () => {
+ const candidates: CandidateInput[] = [
+ { jobIdentifier: 'job-a', canonicalSlug: 'totally-unrelated' },
+ ];
+ const winner = chooseWinner('xxx', candidates, NOW);
+ expect(winner!.score).toBe(0);
+ expect(winner!.winnerJobIdentifier).toBe('job-a');
+ });
+
+ it('chooses the convit case correctly: same role beats same city', () => {
+ // Reproduces the production scenario from 2026-04-30 audit run 25152767223:
+ // 8 active Convit jobs all claim the same prevSlug. The role-matching job
+ // (Job 8 — same role keywords) should beat the city-matching job (Job 1 —
+ // same city tail).
+ const oldSlug =
+ 'social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca';
+ const candidates: CandidateInput[] = [
+ // Same city (biasca) but different role
+ {
+ jobIdentifier: 'convit-1f9f769932df',
+ canonicalSlug:
+ 'admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-biasca',
+ },
+ // Same role (social-security-advisor) but different city
+ {
+ jobIdentifier: 'convit-cd35c2a7593a',
+ canonicalSlug:
+ 'social-security-advisor-junior-3a-3b-hybrid-convit-holding-gmbh-quartino-riazzino',
+ },
+ // Other Convit jobs share fewer tokens
+ {
+ jobIdentifier: 'convit-d3c2c737392d',
+ canonicalSlug:
+ 'private-wealth-planning-consultant-hybrid-convit-holding-gmbh-quartino',
+ },
+ ];
+ const winner = chooseWinner(oldSlug, candidates, NOW);
+ expect(winner!.winnerJobIdentifier).toBe('convit-cd35c2a7593a');
+ });
+ });
+
+ describe('resolveWinner — registry behaviour', () => {
+ it('returns null for empty candidates', () => {
+ const winners: WinnersFile = {};
+ expect(resolveWinner(winners, 'en', 'old', [], NOW)).toBeNull();
+ });
+
+ it('single candidate is a trivial winner — does NOT mutate the registry', () => {
+ const winners: WinnersFile = {};
+ const out = resolveWinner(winners, 'en', 'old', [
+ { jobIdentifier: 'job-a', canonicalSlug: 'old' },
+ ], NOW);
+ expect(out!.winnerJobIdentifier).toBe('job-a');
+ expect(Object.keys(winners)).toHaveLength(0);
+ });
+
+ it('multi-candidate first-time decision writes a registry entry', () => {
+ const winners: WinnersFile = {};
+ resolveWinner(winners, 'en', 'foo', [
+ { jobIdentifier: 'job-a', canonicalSlug: 'foo-bar' },
+ { jobIdentifier: 'job-b', canonicalSlug: 'foo' },
+ ], NOW);
+ const key = makeKey('en', 'foo');
+ expect(winners[key]).toBeDefined();
+ expect(winners[key].winnerJobIdentifier).toBe('job-b');
+ expect(winners[key].candidatesCount).toBe(2);
+ });
+
+ it('reuses prior decision when the winner is still in the candidates list', () => {
+ const winners: WinnersFile = {
+ [makeKey('en', 'shared')]: {
+ winnerJobIdentifier: 'job-aaa',
+ winnerCanonical: 'shared-old',
+ decidedAt: '2026-01-01T00:00:00.000Z',
+ score: 1,
+ candidatesCount: 2,
+ },
+ };
+ const out = resolveWinner(winners, 'en', 'shared', [
+ { jobIdentifier: 'job-aaa', canonicalSlug: 'shared-old' },
+ { jobIdentifier: 'job-bbb', canonicalSlug: 'completely-different-slug' },
+ ], NOW);
+ expect(out!.winnerJobIdentifier).toBe('job-aaa');
+ // Original decidedAt preserved (decision NOT recomputed).
+ expect(out!.decidedAt).toBe('2026-01-01T00:00:00.000Z');
+ });
+
+ it('re-elects when the prior winner is no longer in the candidates list', () => {
+ const winners: WinnersFile = {
+ [makeKey('en', 'shared')]: {
+ winnerJobIdentifier: 'job-removed',
+ winnerCanonical: 'shared-old',
+ decidedAt: '2026-01-01T00:00:00.000Z',
+ score: 1,
+ candidatesCount: 2,
+ },
+ };
+ const out = resolveWinner(winners, 'en', 'shared', [
+ { jobIdentifier: 'job-still-here', canonicalSlug: 'shared-similar' },
+ ], NOW);
+ expect(out!.winnerJobIdentifier).toBe('job-still-here');
+ expect(out!.decidedAt).toBe(NOW); // freshly decided
+ // Registry NOT updated for single-candidate trivial case.
+ expect(winners[makeKey('en', 'shared')].winnerJobIdentifier).toBe('job-removed');
+ });
+
+ it('re-elects when prior winner removed AND multiple new candidates exist', () => {
+ const winners: WinnersFile = {
+ [makeKey('en', 'shared')]: {
+ winnerJobIdentifier: 'job-removed',
+ winnerCanonical: 'gone-slug',
+ decidedAt: '2026-01-01T00:00:00.000Z',
+ score: 1,
+ candidatesCount: 3,
+ },
+ };
+ const out = resolveWinner(winners, 'en', 'shared', [
+ { jobIdentifier: 'job-aaa', canonicalSlug: 'shared-similar' },
+ { jobIdentifier: 'job-bbb', canonicalSlug: 'totally-other' },
+ ], NOW);
+ expect(out!.winnerJobIdentifier).toBe('job-aaa');
+ expect(out!.decidedAt).toBe(NOW);
+ // Registry updated.
+ expect(winners[makeKey('en', 'shared')].winnerJobIdentifier).toBe('job-aaa');
+ });
+ });
+
+ describe('persistence (load + save)', () => {
+ let tmp: string;
+ beforeEach(() => {
+ tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'prev-slug-test-'));
+ });
+ afterEach(() => {
+ fs.rmSync(tmp, { recursive: true, force: true });
+ });
+
+ it('loadWinners returns {} for missing file', () => {
+ expect(loadWinners(path.join(tmp, 'nope.json'))).toEqual({});
+ });
+
+ it('loadWinners returns {} for malformed JSON (does not throw)', () => {
+ const file = path.join(tmp, 'bad.json');
+ fs.writeFileSync(file, '{ not valid json', 'utf-8');
+ expect(loadWinners(file)).toEqual({});
+ });
+
+ it('saveWinners + loadWinners is a roundtrip', () => {
+ const file = path.join(tmp, 'round.json');
+ const data: WinnersFile = {
+ [makeKey('en', 'foo')]: {
+ winnerJobIdentifier: 'job-a',
+ winnerCanonical: 'foo-bar',
+ decidedAt: NOW,
+ score: 0.75,
+ candidatesCount: 3,
+ },
+ };
+ saveWinners(file, data);
+ expect(loadWinners(file)).toEqual(data);
+ });
+
+ it('saveWinners sorts keys for stable diffs', () => {
+ const file = path.join(tmp, 'sorted.json');
+ saveWinners(file, {
+ [makeKey('en', 'zzz')]: {
+ winnerJobIdentifier: 'job', winnerCanonical: 'zzz', decidedAt: NOW, score: 0, candidatesCount: 1,
+ },
+ [makeKey('en', 'aaa')]: {
+ winnerJobIdentifier: 'job', winnerCanonical: 'aaa', decidedAt: NOW, score: 0, candidatesCount: 1,
+ },
+ });
+ const raw = fs.readFileSync(file, 'utf-8');
+ const aaaPos = raw.indexOf('en::aaa');
+ const zzzPos = raw.indexOf('en::zzz');
+ expect(aaaPos).toBeGreaterThan(0);
+ expect(zzzPos).toBeGreaterThan(aaaPos);
+ });
+
+ it('saveWinners creates the directory if missing', () => {
+ const file = path.join(tmp, 'sub', 'dir', 'winners.json');
+ saveWinners(file, {});
+ expect(fs.existsSync(file)).toBe(true);
+ });
+ });
+});
