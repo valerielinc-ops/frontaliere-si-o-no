@@ -7886,5 +7886,109 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-30T04:17:49.084Z",
+    "label": "before",
+    "total": 2668,
+    "needsRetranslation": 99,
+    "incomplete": 42,
+    "complete": 2626,
+    "missingByLocale": {
+      "it": 30,
+      "en": 14,
+      "de": 36,
+      "fr": 36
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "International School of Ticino",
+        "pending": 2
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Ermenegildo Zegna Group",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-30T05:35:32.316Z",
+    "label": "after",
+    "total": 2668,
+    "needsRetranslation": 74,
+    "incomplete": 31,
+    "complete": 2637,
+    "missingByLocale": {
+      "it": 27,
+      "en": 7,
+      "de": 27,
+      "fr": 26
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 1
+      }
+    ]
   }
 ]
