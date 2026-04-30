@@ -125,6 +125,11 @@ export type NewsletterUpsertInput = {
  status?: NewsletterSubscriberStatus;
  metadata?: Record<string, any> | null;
  variant?: string | null;
+ /** GDPR consent proof fields (Art. 7 + Mailjet policy 1d) */
+ consentGiven?: boolean;
+ consentText?: string | null;
+ consentMethod?: 'email_checkbox' | 'google_oauth' | 'linkedin_oauth' | 'facebook_oauth' | string;
+ consentUserAgent?: string | null;
 };
 
 export type NewsletterEventInput = {
@@ -507,6 +512,14 @@ export async function captureNewsletterSubscriber(
  status: subscriptionState.status,
  variant: sanitizeString(input.variant) || sanitizeString(existingData?.variant),
  metadata: input.metadata || existingData?.metadata || null,
+ consent_given: input.consentGiven ?? existingData?.consent_given ?? false,
+ consent_given_at: input.consentGiven
+ ? (existingData?.consent_given_at || now)
+ : (existingData?.consent_given_at || null),
+ consent_text: sanitizeString(input.consentText) || sanitizeString(existingData?.consent_text),
+ consent_method: sanitizeString(input.consentMethod) || sanitizeString(existingData?.consent_method) || sourceChannel,
+ consent_source_url: sanitizeString(input.sourcePage) || (typeof window !== 'undefined' ? window.location.href : null) || sanitizeString(existingData?.consent_source_url),
+ consent_user_agent: sanitizeString(input.consentUserAgent) || sanitizeString(existingData?.consent_user_agent) || (typeof navigator !== 'undefined' ? navigator.userAgent : null),
  subscribedAt: existingData?.subscribedAt || serverTimestamp(),
  subscribed_at: existingData?.subscribed_at || serverTimestamp(),
  created_at: existingData?.created_at || serverTimestamp(),

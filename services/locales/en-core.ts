@@ -933,6 +933,8 @@ const enCore: Record<string, string> = {
  'newsletter.pendingReminder.description': 'You have a pending subscription. Check your email and click the link to activate the newsletter.',
  'newsletter.pendingReminder.resend': 'Didn\'t receive the email?',
  'newsletter.dataPrivacy': 'Your email is safe. We never share it with anyone.',
+ 'newsletter.consentLabel': 'I agree to receive the weekly newsletter with updates on CHF/EUR exchange rate, border traffic and tax news for cross-border workers. I can unsubscribe at any time.',
+ 'newsletter.consentRequired': 'You must accept the consent to subscribe.',
  'newsletter.popup.title': 'Stay Updated!',
  'newsletter.popup.subtitle': 'Subscribe to the weekly newsletter: CHF/EUR rate, traffic and tax news every Monday.',
  'newsletter.popup.close': 'Close',

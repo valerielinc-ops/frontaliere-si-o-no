@@ -73,6 +73,7 @@ const SubscriptionCTA: React.FC = () => {
  const { user, signIn: googleSignIn } = useAuth();
  const [visible, setVisible] = useState(false);
  const [email, setEmail] = useState('');
+ const [consentChecked, setConsentChecked] = useState(false);
  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'pending' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
  const [resendStatus, setResendStatus] = useState<'idle' | 'sending' | 'sent' | 'cooldown' | 'error'>('idle');
@@ -125,10 +126,17 @@ const SubscriptionCTA: React.FC = () => {
  Analytics.trackUIInteraction('newsletter_cta', 'banner', 'dismiss', 'closed');
  };
 
+ const CONSENT_TEXT = 'Accetto di ricevere la newsletter settimanale con aggiornamenti su cambio CHF/EUR, traffico di frontiera e novità fiscali per frontalieri. Posso disiscrivermi in qualsiasi momento.';
+
  const handleSubmit = async (e: React.FormEvent) => {
  e.preventDefault();
  if (!validateEmailStrict(email).valid) {
  setErrorMessage(t('newsletter.invalidEmail'));
+ setStatus('error');
+ return;
+ }
+ if (!consentChecked) {
+ setErrorMessage(t('newsletter.consentRequired'));
  setStatus('error');
  return;
  }
@@ -155,6 +163,10 @@ const SubscriptionCTA: React.FC = () => {
  locale: navigator.language || 'it-IT',
  isActive: false,
  status: 'pending',
+ consentGiven: true,
+ consentText: CONSENT_TEXT,
+ consentMethod: 'email_checkbox',
+ consentUserAgent: navigator.userAgent,
  }),
  8000,
  'newsletter_upsert',
@@ -298,7 +310,8 @@ const SubscriptionCTA: React.FC = () => {
  </div>
 
  {/* Form */}
- <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+ <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+ <div className="flex flex-col sm:flex-row gap-2">
  <div className="flex-1">
  <label htmlFor="cta-email" className="sr-only">{t('newsletter.emailLabel')}</label>
  <EmailInput
@@ -320,6 +333,18 @@ const SubscriptionCTA: React.FC = () => {
  <><Zap className="w-4 h-4" /> {t('newsletter.cta.joinNow')}</>
  )}
  </button>
+ </div>
+ <label className="flex items-start gap-2 cursor-pointer">
+ <input
+ type="checkbox"
+ checked={consentChecked}
+ onChange={(e) => { setConsentChecked(e.target.checked); setStatus('idle'); }}
+ className="mt-0.5 w-4 h-4 rounded text-info focus-visible:ring-info shrink-0"
+ />
+ <span className="text-xs text-muted leading-relaxed">
+ {t('newsletter.consentLabel')}
+ </span>
+ </label>
  </form>
 
  {/* Errors */}

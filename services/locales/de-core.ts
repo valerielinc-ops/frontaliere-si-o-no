@@ -933,6 +933,8 @@ const deCore: Record<string, string> = {
  'newsletter.pendingReminder.description': 'Sie haben eine ausstehende Anmeldung. Prüfen Sie Ihre E-Mail und klicken Sie auf den Link, um den Newsletter zu aktivieren.',
  'newsletter.pendingReminder.resend': 'E-Mail nicht erhalten?',
  'newsletter.dataPrivacy': 'Ihre E-Mail ist sicher. Wir geben sie niemals an Dritte weiter.',
+ 'newsletter.consentLabel': 'Ich stimme zu, den wöchentlichen Newsletter mit Updates zu CHF/EUR-Kurs, Grenzverkehr und Steuernovitäten für Grenzgänger zu erhalten. Ich kann mich jederzeit abmelden.',
+ 'newsletter.consentRequired': 'Sie müssen die Einwilligung akzeptieren, um sich anzumelden.',
  'newsletter.popup.title': 'Bleiben Sie informiert!',
  'newsletter.popup.subtitle': 'Abonnieren Sie den wöchentlichen Newsletter: CHF/EUR-Kurs, Verkehr und Steuernews jeden Montag.',
  'newsletter.popup.close': 'Schließen',

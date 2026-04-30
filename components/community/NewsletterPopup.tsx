@@ -64,6 +64,7 @@ const NewsletterPopup: React.FC = () => {
  const [visible, setVisible] = useState(false);
  const [queueActive, setQueueActive] = useState(false);
  const [email, setEmail] = useState('');
+ const [consentChecked, setConsentChecked] = useState(false);
  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'pending' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
  const [reminderMode, setReminderMode] = useState(false);
@@ -347,10 +348,17 @@ const NewsletterPopup: React.FC = () => {
 
  const validateEmail = (emailStr: string) => validateEmailStrict(emailStr).valid;
 
+ const CONSENT_TEXT = 'Accetto di ricevere la newsletter settimanale con aggiornamenti su cambio CHF/EUR, traffico di frontiera e novità fiscali per frontalieri. Posso disiscrivermi in qualsiasi momento.';
+
  const handleSubmit = async (e: React.FormEvent) => {
  e.preventDefault();
  if (!validateEmail(email)) {
  setErrorMessage(t('newsletter.invalidEmail'));
+ setStatus('error');
+ return;
+ }
+ if (!consentChecked) {
+ setErrorMessage(t('newsletter.consentRequired'));
  setStatus('error');
  return;
  }
@@ -377,6 +385,10 @@ const NewsletterPopup: React.FC = () => {
  locale: navigator.language || 'it-IT',
  isActive: false,
  status: 'pending',
+ consentGiven: true,
+ consentText: CONSENT_TEXT,
+ consentMethod: 'email_checkbox',
+ consentUserAgent: navigator.userAgent,
  }),
  8000,
  'newsletter_upsert',
@@ -594,6 +606,18 @@ const NewsletterPopup: React.FC = () => {
  className="w-full px-4 py-3 bg-surface-alt border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-info text-strong"
  />
  </div>
+
+ <label className="flex items-start gap-2 cursor-pointer">
+ <input
+ type="checkbox"
+ checked={consentChecked}
+ onChange={(e) => { setConsentChecked(e.target.checked); setStatus('idle'); }}
+ className="mt-0.5 w-4 h-4 rounded text-info focus-visible:ring-info shrink-0"
+ />
+ <span className="text-xs text-muted leading-relaxed">
+ {t('newsletter.consentLabel')}
+ </span>
+ </label>
 
  {status === 'error' && (
  <div className="flex items-center gap-2 p-2 bg-danger-subtle rounded-lg text-danger text-xs">
