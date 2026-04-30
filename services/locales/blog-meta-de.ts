@@ -4393,6 +4393,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzona-2025-consuntivo-risultati.title': 'Bellinzona: Defizit 2025 auf -2,7 Millionen reduziert',
     'blog.article.bellinzona-2025-consuntivo-risultati.excerpt': 'Die Rechnung 2025 der Stadt Bellinzona schließt mit einem auf -2,7 Millionen reduzierten Defizit, dank einer Steigerung der Steuereinnahmen und der Kontrolle der Ausgaben.',
     'blog.article.bellinzona-2025-consuntivo-risultati.imageAlt': 'Luftaufnahme von Bellinzona mit Castelgrande und den Alpen im Hintergrund',
+    'blog.article.iniziativa-democrazia-respinta-2026.title': 'Nationalrat lehnt Demokratie-Initiative ab',
+    'blog.article.iniziativa-democrazia-respinta-2026.excerpt': 'Der Nationalrat empfiehlt die Ablehnung der Demokratie-Initiative mit 130 zu 62 Stimmen.',
+    'blog.article.iniziativa-democrazia-respinta-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

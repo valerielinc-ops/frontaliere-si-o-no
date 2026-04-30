@@ -11264,4 +11264,11 @@ export const ARTICLES = [
  image: '/images/blog/bellinzona-2025-consuntivo-risultati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'iniziativa-democrazia-respinta-2026',
+ category: 'novita',
+ date: '2026-04-30T17:31:01.046Z',
+ image: '/images/blog/iniziativa-democrazia-respinta-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

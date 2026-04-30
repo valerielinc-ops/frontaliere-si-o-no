@@ -29445,6 +29445,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-democrazia-respinta-2026': {
+    title: 'Iniziativa per la democrazia respinta dal Consiglio nazionale',
+    description: 'Il Consiglio nazionale ha respinto l\'iniziativa per la democrazia con 130 voti a 62. Scopri le implicazioni per i frontalieri e i requisiti per la n',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, democrazia, respinta, consiglio',
+    ogTitle: 'Iniziativa per la democrazia respinta dal Consiglio nazionale',
+    ogDescription: 'Il Consiglio nazionale ha respinto l\'iniziativa per la democrazia con 130 voti a 62. Scopri le implicazioni per i frontalieri e i requisiti per la n',
+    canonicalPath: '/articoli-frontaliere/iniziativa-democrazia-respinta-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa per la democrazia respinta dal Consiglio nazionale",
+      "description": "Il Consiglio nazionale ha respinto l'iniziativa per la democrazia con 130 voti a 62. Scopri le implicazioni per i frontalieri e i requisiti per la n",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziativa-democrazia-respinta-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-04-30T17:31:01+00:00",
+      "dateModified": "2026-04-30T17:31:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-democrazia-respinta-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

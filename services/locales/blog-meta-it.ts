@@ -4394,6 +4394,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-2025-consuntivo-risultati.title': 'Bellinzona: disavanzo 2025 ridotto a -2,7 milioni',
     'blog.article.bellinzona-2025-consuntivo-risultati.excerpt': 'Il consuntivo 2025 della Città di Bellinzona chiude con un disavanzo ridotto a -2,7 milioni, grazie a un aumento del gettito fiscale e al contenimento delle spese.',
     'blog.article.bellinzona-2025-consuntivo-risultati.imageAlt': 'Vista aerea di Bellinzona con il Castelgrande e le Alpi in lontananza',
+    'blog.article.iniziativa-democrazia-respinta-2026.title': 'Iniziativa per la democrazia respinta dal Consiglio nazionale',
+    'blog.article.iniziativa-democrazia-respinta-2026.excerpt': 'Il Consiglio nazionale raccomanda la bocciatura dell\'iniziativa per la democrazia con 130 voti a 62.',
+    'blog.article.iniziativa-democrazia-respinta-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

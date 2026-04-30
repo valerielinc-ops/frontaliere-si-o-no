@@ -4394,6 +4394,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bellinzona-2025-consuntivo-risultati.title': 'Bellinzone: déficit 2025 réduit à -2,7 millions',
     'blog.article.bellinzona-2025-consuntivo-risultati.excerpt': 'Le bilan 2025 de la Ville de Bellinzone se clôture avec un déficit réduit à -2,7 millions, grâce à une augmentation des recettes fiscales et au contrôle des dépenses.',
     'blog.article.bellinzona-2025-consuntivo-risultati.imageAlt': 'Vue aérienne de Bellinzona avec le Castelgrande et les Alpes en arrière-plan',
+    'blog.article.iniziativa-democrazia-respinta-2026.title': 'Initiative pour la démocratie rejetée par le Conseil national',
+    'blog.article.iniziativa-democrazia-respinta-2026.excerpt': 'Le Conseil national recommande le rejet de l\'initiative pour la démocratie par 130 voix contre 62.',
+    'blog.article.iniziativa-democrazia-respinta-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
