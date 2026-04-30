@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-15T10:57:05.186Z",
-    "label": "before",
-    "total": 2925,
-    "needsRetranslation": 1233,
-    "incomplete": 119,
-    "complete": 2806,
-    "missingByLocale": {
-      "it": 57,
-      "en": 92,
-      "de": 73,
-      "fr": 104
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 48
-      },
-      {
-        "company": "AGIE Charmilles SA",
-        "pending": 10
-      },
-      {
-        "company": "Lonza",
-        "pending": 7
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 7
-      },
-      {
-        "company": "Prada Group",
-        "pending": 6
-      },
-      {
-        "company": "Denner",
-        "pending": 5
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Transgourmet Schweiz AG",
-        "pending": 4
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 4
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-15T12:41:12.346Z",
-    "label": "after",
-    "total": 2925,
-    "needsRetranslation": 68,
-    "incomplete": 13,
-    "complete": 2912,
-    "missingByLocale": {
-      "it": 7,
-      "en": 8,
-      "de": 6,
-      "fr": 11
-    },
-    "topPending": [
-      {
-        "company": "AXA Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 1
-      },
-      {
-        "company": "Groupe Mutuel",
-        "pending": 1
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 1
-      },
-      {
-        "company": "Manor AG",
-        "pending": 1
-      },
-      {
-        "company": "Otis SA",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-15T13:58:28.895Z",
     "label": "before",
     "total": 2925,
@@ -7863,6 +7751,118 @@
       },
       {
         "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-29T22:53:46.769Z",
+    "label": "before",
+    "total": 2667,
+    "needsRetranslation": 1146,
+    "incomplete": 79,
+    "complete": 2588,
+    "missingByLocale": {
+      "it": 57,
+      "en": 36,
+      "de": 53,
+      "fr": 66
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Lonza",
+        "pending": 4
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 3
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 3
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 2
+      },
+      {
+        "company": "Avaloq",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-30T00:14:32.786Z",
+    "label": "after",
+    "total": 2667,
+    "needsRetranslation": 97,
+    "incomplete": 42,
+    "complete": 2625,
+    "missingByLocale": {
+      "it": 30,
+      "en": 15,
+      "de": 35,
+      "fr": 36
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "International School of Ticino",
+        "pending": 2
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
         "pending": 1
       }
     ]

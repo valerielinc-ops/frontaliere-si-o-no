@@ -259,12 +259,13 @@
           "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-20T21:51:49.023Z"
+      "firstSeenAt": "2026-04-20T21:51:49.023Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "10002111",
@@ -588,7 +589,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -2049,7 +2049,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-interdisziplinares-ambulatorium-kantonsspital-graubunden-walenstadt"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -2310,7 +2309,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -4697,7 +4695,8 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
@@ -4765,7 +4764,6 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5090,7 +5088,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-o-fachexpertin-fachexperte-onkologiepflege-ambulant-kantonsspital-graubunden-chur"
       ],
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5480,7 +5477,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6070,7 +6066,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
