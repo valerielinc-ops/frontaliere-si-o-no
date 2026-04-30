@@ -2635,6 +2635,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-samantha-bourgoin-apisuisse-2026': { name: 'Novità', path: '/articoli-frontaliere/samantha-bourgoin-apisuisse-2026', parent: 'blog' },
     'blog-birdwatching-monteviasco-2026': { name: 'Novità', path: '/articoli-frontaliere/birdwatching-monteviasco-2026', parent: 'blog' },
     'blog-gallarate-bilancio-cassani-2026': { name: 'Bilancio Gallarate', path: '/articoli-frontaliere/gallarate-bilancio-cassani-2026', parent: 'blog' },
+    'blog-certificazione-greco-antico-lombardia-2026': { name: 'Novità', path: '/articoli-frontaliere/certificazione-greco-antico-lombardia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

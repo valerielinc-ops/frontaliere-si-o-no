@@ -10843,4 +10843,11 @@ export const ARTICLES = [
  image: '/images/blog/gallarate-bilancio-cassani-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'certificazione-greco-antico-lombardia-2026',
+ category: 'novita',
+ date: '2026-04-30T07:55:18.137Z',
+ image: '/images/blog/certificazione-greco-antico-lombardia-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4213,6 +4213,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gallarate-bilancio-cassani-2026.title': 'Gallarate: Cassani\'s 2026 budget approved, debt dispute',
     'blog.article.gallarate-bilancio-cassani-2026.excerpt': 'The tenth budget of the Cassani era in Gallarate was approved, with 92 million in revenue and a 16 million cash surplus.',
     'blog.article.gallarate-bilancio-cassani-2026.imageAlt': 'Aerial view of Lake Lugano with Gallarate in the background, clear blue sky, detailed landscape, DSLR photography.',
+    'blog.article.certificazione-greco-antico-lombardia-2026.title': 'Ancient Greek certified in Lombardy: first in Italy',
+    'blog.article.certificazione-greco-antico-lombardia-2026.excerpt': 'From May 6 to 7, 2026, students from Lombardy\'s classical high schools will be able to obtain an official certification in Ancient Greek.',
+    'blog.article.certificazione-greco-antico-lombardia-2026.imageAlt': 'Students taking an ancient Greek exam in a modern classroom in Ticino',
 };
 
 export default blogMetaEn;

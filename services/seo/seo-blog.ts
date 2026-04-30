@@ -27705,6 +27705,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-certificazione-greco-antico-lombardia-2026': {
+    title: 'Greco antico certificato in Lombardia: prima volta in Italia',
+    description: 'Dal 6 al 7 maggio 2026, studenti dei licei classici lombardi potranno ottenere una certificazione ufficiale in greco antico. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, greco, antico, certificato, lombardia',
+    ogTitle: 'Greco antico certificato in Lombardia: prima volta in Italia',
+    ogDescription: 'Dal 6 al 7 maggio 2026, studenti dei licei classici lombardi potranno ottenere una certificazione ufficiale in greco antico.',
+    canonicalPath: '/articoli-frontaliere/certificazione-greco-antico-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Greco antico certificato in Lombardia: prima volta in Italia",
+      "description": "Dal 6 al 7 maggio 2026, studenti dei licei classici lombardi potranno ottenere una certificazione ufficiale in greco antico. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/certificazione-greco-antico-lombardia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti che partecipano a un esame di greco antico in una classe moderna in Ticino"
+      },
+      "datePublished": "2026-04-30T07:55:18+00:00",
+      "dateModified": "2026-04-30T07:55:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/certificazione-greco-antico-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

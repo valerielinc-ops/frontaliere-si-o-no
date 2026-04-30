@@ -4213,6 +4213,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gallarate-bilancio-cassani-2026.title': 'Gallarate: Bilanz Cassani 2026, Projekte aber Streit über Schulden',
     'blog.article.gallarate-bilancio-cassani-2026.excerpt': 'Der zehnte Haushalt der Ära Cassani in Gallarate wurde mit 92 Millionen Einnahmen und 16 Millionen Cashflow-Saldo genehmigt.',
     'blog.article.gallarate-bilancio-cassani-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Gallarate im Hintergrund, klarer blauer Himmel, detaillierte Landschaft, DSLR-Fotografie.',
+    'blog.article.certificazione-greco-antico-lombardia-2026.title': 'Zertifizierter Altgriechisch in Lombardei: Italien-Premiere',
+    'blog.article.certificazione-greco-antico-lombardia-2026.excerpt': 'Vom 6. bis 7. Mai 2026 können Schüler der klassischen Gymnasien in der Lombardei ein offizielles Zertifikat in Altgriechisch erhalten.',
+    'blog.article.certificazione-greco-antico-lombardia-2026.imageAlt': 'Schüler, die eine Prüfung in Altgriechisch in einem modernen Klassenzimmer in Tessin ablegen',
 };
 
 export default blogMetaDe;

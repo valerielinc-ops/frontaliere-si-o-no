@@ -4214,6 +4214,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gallarate-bilancio-cassani-2026.title': 'Gallarate: Bilancio Cassani 2026, opere ma scontro sul debito',
     'blog.article.gallarate-bilancio-cassani-2026.excerpt': 'Approvato il decimo bilancio dell\'era Cassani a Gallarate, con 92 milioni di entrate e 16 milioni di saldo di cassa.',
     'blog.article.gallarate-bilancio-cassani-2026.imageAlt': 'Vista aerea del Lago di Lugano con Gallarate sullo sfondo, cielo azzurro limpido, paesaggio dettagliato, fotografia DSLR.',
+    'blog.article.certificazione-greco-antico-lombardia-2026.title': 'Greco antico certificato in Lombardia: prima volta in Italia',
+    'blog.article.certificazione-greco-antico-lombardia-2026.excerpt': 'Dal 6 al 7 maggio 2026, studenti dei licei classici lombardi potranno ottenere una certificazione ufficiale in greco antico.',
+    'blog.article.certificazione-greco-antico-lombardia-2026.imageAlt': 'Studenti che partecipano a un esame di greco antico in una classe moderna in Ticino',
 };
 
 export default blogMetaIt;
