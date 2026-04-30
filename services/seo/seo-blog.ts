@@ -29764,6 +29764,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-piano-pandemico-2025-2029-approvato': {
+    title: 'Piano Pandemico 2025-2029 approvato: cosa cambia | Frontaliere Ticino',
+    description: 'La Conferenza Stato-Regioni ha approvato il nuovo Piano Pandemico 2025-2029 con un investimento di 1,1 miliardi di euro per potenziare il sistema sanitario',
+    keywords: 'frontalieri, ticino, svizzera, italia, piano, pandemico, 2025-2029, approvato',
+    ogTitle: 'Piano Pandemico 2025-2029 approvato: cosa cambia',
+    ogDescription: 'La Conferenza Stato-Regioni ha approvato il nuovo Piano Pandemico 2025-2029 con un investimento di 1,1 miliardi di euro per potenziare il sistema sanitario',
+    canonicalPath: '/articoli-frontaliere/piano-pandemico-2025-2029-approvato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Piano Pandemico 2025-2029 approvato: cosa cambia",
+      "description": "La Conferenza Stato-Regioni ha approvato il nuovo Piano Pandemico 2025-2029 con un investimento di 1,1 miliardi di euro per potenziare il sistema sanitario",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/piano-pandemico-2025-2029-approvato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con strutture sanitarie moderne sullo sfondo"
+      },
+      "datePublished": "2026-04-30T18:55:56+00:00",
+      "dateModified": "2026-04-30T18:55:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piano-pandemico-2025-2029-approvato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

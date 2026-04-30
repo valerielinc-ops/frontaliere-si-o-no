@@ -4427,6 +4427,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.solaro-chiude-ambulatorio-medico.title': 'Solaro ferme le cabinet médical du village Brollo',
     'blog.article.solaro-chiude-ambulatorio-medico.excerpt': 'Le cabinet médical temporaire du village Brollo à Solaro fermera exceptionnellement le 21 mai.',
     'blog.article.solaro-chiude-ambulatorio-medico.imageAlt': 'Vue du lac de Lugano avec les montagnes environnantes et un petit bateau sur l\'eau.',
+    'blog.article.piano-pandemico-2025-2029-approvato.title': 'Plan pandémique 2025-2029 approuvé : que change-t-il ?',
+    'blog.article.piano-pandemico-2025-2029-approvato.excerpt': 'La Conférence État-Régions a approuvé le nouveau Plan pandémique 2025-2029 avec un investissement de 1,1 milliard d\'euros',
+    'blog.article.piano-pandemico-2025-2029-approvato.imageAlt': 'Vue aérienne du lac de Lugano avec des installations de santé modernes en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -4426,6 +4426,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.solaro-chiude-ambulatorio-medico.title': 'Solaro closes the medical clinic at Villaggio Brollo',
     'blog.article.solaro-chiude-ambulatorio-medico.excerpt': 'The Temporary Medical Clinic at Villaggio Brollo in Solaro will close early on May 21.',
     'blog.article.solaro-chiude-ambulatorio-medico.imageAlt': 'View of Lake Lugano with surrounding mountains and a small boat on the water.',
+    'blog.article.piano-pandemico-2025-2029-approvato.title': '2025-2029 Pandemic Plan Approved: What Changes',
+    'blog.article.piano-pandemico-2025-2029-approvato.excerpt': 'The State-Regions Conference has approved the new 2025-2029 Pandemic Plan with an investment of 1.1 billion euros',
+    'blog.article.piano-pandemico-2025-2029-approvato.imageAlt': 'Aerial view of Lake Lugano with modern healthcare facilities in the background',
 };
 
 export default blogMetaEn;

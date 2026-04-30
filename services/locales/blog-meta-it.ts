@@ -4427,6 +4427,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.solaro-chiude-ambulatorio-medico.title': 'Solaro chiude l’ambulatorio medico al Villaggio Brollo',
     'blog.article.solaro-chiude-ambulatorio-medico.excerpt': 'L’Ambulatorio Medico Temporaneo di Villaggio Brollo a Solaro chiuderà in anticipo il 21 maggio.',
     'blog.article.solaro-chiude-ambulatorio-medico.imageAlt': 'Vista del Lago di Lugano con le montagne circostanti e una piccola barca sull\'acqua.',
+    'blog.article.piano-pandemico-2025-2029-approvato.title': 'Piano Pandemico 2025-2029 approvato: cosa cambia',
+    'blog.article.piano-pandemico-2025-2029-approvato.excerpt': 'La Conferenza Stato-Regioni ha approvato il nuovo Piano Pandemico 2025-2029 con un investimento di 1,1 miliardi di euro',
+    'blog.article.piano-pandemico-2025-2029-approvato.imageAlt': 'Vista aerea del Lago di Lugano con strutture sanitarie moderne sullo sfondo',
 };
 
 export default blogMetaIt;

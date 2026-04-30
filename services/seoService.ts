@@ -2706,6 +2706,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-emergenza-acqua-lombardia-2026': { name: 'Novità', path: '/articoli-frontaliere/emergenza-acqua-lombardia-2026', parent: 'blog' },
     'blog-bambino-annegato-morcote-30-aprile-2026': { name: 'Novità', path: '/articoli-frontaliere/bambino-annegato-morcote-30-aprile-2026', parent: 'blog' },
     'blog-solaro-chiude-ambulatorio-medico': { name: 'Novità', path: '/articoli-frontaliere/solaro-chiude-ambulatorio-medico', parent: 'blog' },
+    'blog-piano-pandemico-2025-2029-approvato': { name: 'Novità Sanità', path: '/articoli-frontaliere/piano-pandemico-2025-2029-approvato', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4426,6 +4426,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.solaro-chiude-ambulatorio-medico.title': 'Arztpraxis im Dorf Brollo wird geschlossen',
     'blog.article.solaro-chiude-ambulatorio-medico.excerpt': 'Die temporäre Arztpraxis im Dorf Brollo in Solaro wird am 21. Mai früher als geplant schließen.',
     'blog.article.solaro-chiude-ambulatorio-medico.imageAlt': 'Blick auf den Luganersee mit den umliegenden Bergen und einem kleinen Boot auf dem Wasser.',
+    'blog.article.piano-pandemico-2025-2029-approvato.title': 'Pandemieplan 2025-2029: Was sich ändert',
+    'blog.article.piano-pandemico-2025-2029-approvato.excerpt': 'Die Konferenz Staat-Regionen hat den neuen Pandemieplan 2025-2029 mit einer Investition von 1,1 Milliarden Euro genehmigt',
+    'blog.article.piano-pandemico-2025-2029-approvato.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Gesundheitsanlagen im Hintergrund',
 };
 
 export default blogMetaDe;

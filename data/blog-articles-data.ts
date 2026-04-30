@@ -11341,4 +11341,11 @@ export const ARTICLES = [
  image: '/images/blog/solaro-chiude-ambulatorio-medico.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'piano-pandemico-2025-2029-approvato',
+ category: 'novita',
+ date: '2026-04-30T18:55:56.847Z',
+ image: '/images/blog/piano-pandemico-2025-2029-approvato.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
