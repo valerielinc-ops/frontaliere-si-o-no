@@ -11369,4 +11369,11 @@ export const ARTICLES = [
  image: '/images/blog/chiusure-melide-autostrada-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'webuild-csc-rinnovo-sede-onu-ginevra',
+ category: 'novita',
+ date: '2026-04-30T20:09:43.663Z',
+ image: '/images/blog/webuild-csc-rinnovo-sede-onu-ginevra.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

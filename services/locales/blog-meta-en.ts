@@ -4438,6 +4438,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusure-melide-autostrada-2026.title': 'Night closures Melide A2 southbound exit',
     'blog.article.chiusure-melide-autostrada-2026.excerpt': 'The Melide motorway exit southbound will be closed from Sunday, May 3 to Friday, May 8, 2026, from 9:30 PM to 5:00 AM for noise-reducing pavement renewal works.',
     'blog.article.chiusure-melide-autostrada-2026.imageAlt': 'Aerial view of Lake Lugano and the Melide exit on the A2 highway at night, showing roadworks and traffic management.',
+    'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.title': 'Webuild: CSC starts UN Geneva HQ renovation',
+    'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.excerpt': 'The consortium led by CSC Costruzioni has begun work on the renovation of Building E of the Palais des Nations in Geneva, with a 215 million euro contract.',
+    'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.imageAlt': 'Palais des Nations in Geneva during renovation works',
 };
 
 export default blogMetaEn;

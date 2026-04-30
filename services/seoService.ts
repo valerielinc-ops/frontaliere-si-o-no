@@ -2710,6 +2710,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-polizia-ticino-progetto-zali-comuni': { name: 'Polizia Ticino', path: '/articoli-frontaliere/polizia-ticino-progetto-zali-comuni', parent: 'blog' },
     'blog-ffs-siemens-116-treni-suburbani-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ffs-siemens-116-treni-suburbani-ticino-2026', parent: 'blog' },
     'blog-chiusure-melide-autostrada-2026': { name: 'Chiusure notturne', path: '/articoli-frontaliere/chiusure-melide-autostrada-2026', parent: 'blog' },
+    'blog-webuild-csc-rinnovo-sede-onu-ginevra': { name: 'Novità', path: '/articoli-frontaliere/webuild-csc-rinnovo-sede-onu-ginevra', parent: 'blog' },
  };
 
  const info = sectionNames[section];

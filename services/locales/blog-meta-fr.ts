@@ -4439,6 +4439,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiusure-melide-autostrada-2026.title': 'Fermeture nocturne sortie Melide autoroute A2',
     'blog.article.chiusure-melide-autostrada-2026.excerpt': 'La sortie autoroutière de Melide en direction sud sera fermée du dimanche 3 mai au vendredi 8 mai 2026 de 21h30 à 5h00 pour des travaux de renouvellement de la chaussée phonique.',
     'blog.article.chiusure-melide-autostrada-2026.imageAlt': 'Vue aérienne du lac de Lugano et de la sortie de Melide sur l\'autoroute A2 de nuit, montrant des travaux routiers et la gestion du trafic.',
+    'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.title': 'Webuild: CSC Costruzioni rénove le siège de l\'ONU à Genève',
+    'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.excerpt': 'Le consortium dirigé par CSC Costruzioni a commencé les travaux de rénovation du bâtiment E du Palais des Nations à Genève, pour un contrat de 215 millions d\'euros.',
+    'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.imageAlt': 'Palais des Nations à Genève pendant les travaux de rénovation',
 };
 
 export default blogMetaFr;

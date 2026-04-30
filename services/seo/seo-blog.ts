@@ -29880,6 +29880,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-webuild-csc-rinnovo-sede-onu-ginevra': {
+    title: 'Webuild: CSC Costruzioni avvia lavori per rinnovare la sede ONU a Ginevra',
+    description: 'CSC Costruzioni avvia i lavori per il rinnovamento dell\'Edificio E del Palais des Nations a Ginevra, con un contratto da 215 milioni di euro. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, webuild, costruzioni, avvia, lavori',
+    ogTitle: 'Webuild: CSC Costruzioni avvia lavori per rinnovare la sede ONU a Ginevra',
+    ogDescription: 'CSC Costruzioni avvia i lavori per il rinnovamento dell\'Edificio E del Palais des Nations a Ginevra, con un contratto da 215 milioni di euro.',
+    canonicalPath: '/articoli-frontaliere/webuild-csc-rinnovo-sede-onu-ginevra',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Webuild: CSC Costruzioni avvia lavori per rinnovare la sede ONU a Ginevra",
+      "description": "CSC Costruzioni avvia i lavori per il rinnovamento dell'Edificio E del Palais des Nations a Ginevra, con un contratto da 215 milioni di euro. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/webuild-csc-rinnovo-sede-onu-ginevra.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palais des Nations a Ginevra durante i lavori di rinnovo"
+      },
+      "datePublished": "2026-04-30T20:09:43+00:00",
+      "dateModified": "2026-04-30T20:09:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/webuild-csc-rinnovo-sede-onu-ginevra`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

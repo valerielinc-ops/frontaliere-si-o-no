@@ -4439,6 +4439,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusure-melide-autostrada-2026.title': 'Chiusure notturne uscita Melide autostrada A2',
     'blog.article.chiusure-melide-autostrada-2026.excerpt': 'L\'uscita autostradale di Melide in direzione sud sarà chiusa da domenica 3 maggio a venerdì 8 maggio 2026 dalle 21.30 alle 05.00 per lavori di rinnovo della pavimentazione fonoassorbente.',
     'blog.article.chiusure-melide-autostrada-2026.imageAlt': 'Vista aerea del Lago di Lugano e dell\'uscita di Melide sull\'autostrada A2 di notte, con lavori in corso e gestione del traffico.',
+    'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.title': 'Webuild: CSC Costruzioni avvia lavori per rinnovare la sede ONU a Ginevra',
+    'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.excerpt': 'Il consorzio guidato da CSC Costruzioni ha iniziato i lavori per il rinnovo dell\'Edificio E del Palais des Nations a Ginevra, con un contratto da 215 milioni di euro.',
+    'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.imageAlt': 'Palais des Nations a Ginevra durante i lavori di rinnovo',
 };
 
 export default blogMetaIt;
