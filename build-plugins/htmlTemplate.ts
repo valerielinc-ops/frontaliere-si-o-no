@@ -115,6 +115,14 @@ export interface SimplePageOpts {
   * (see `renderHubChromeSplit` in shared/hubChrome.ts) is the canonical use.
   */
  preMainHtml?: string;
+ /**
+  * When true, emits the AdSense `data-no-auto-ads` attribute on `<body>` so
+  * Google Auto Ads (Anchor, In-page, Vignette) skip the entire page. Used by
+  * "drive-by" SEO landings where engagement is sub-5s and ad serving wastes
+  * frequency caps without earning (e.g. F8 border wait, F6 fuel daily, F2
+  * health premiums — bounce ≥97%, dwell <5s).
+  */
+ disableAutoAds?: boolean;
 }
 
 export function buildSimplePage(opts: SimplePageOpts): string {
@@ -135,6 +143,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  skipMainWrap = false,
  seoContentOutsideRoot = false,
  preMainHtml = '',
+ disableAutoAds = false,
  } = opts;
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
@@ -193,7 +202,7 @@ ${ldTags}${cssLink}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
- <body class="bg-surface-alt text-heading overflow-x-hidden">
+ <body class="bg-surface-alt text-heading overflow-x-hidden"${disableAutoAds ? ' data-no-auto-ads' : ''}>
 ${bodySection}${jsScript}
  </body>
 </html>`;

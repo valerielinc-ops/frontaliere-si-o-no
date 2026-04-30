@@ -1736,6 +1736,7 @@ function renderPage(inp: PageInputs): string {
 
   // Word count sanity check (hard-gated later by the caller)
   const html = buildSeoPageHtml({
+    disableAutoAds: true,
     locale,
     title,
     description,
@@ -1954,6 +1955,7 @@ function renderArchive(inp: ArchiveInputs): string {
       </article>`;
 
   return buildSeoPageHtml({
+    disableAutoAds: true,
     locale,
     title,
     description,
@@ -2595,6 +2597,7 @@ function renderStationPage(opts: {
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   return buildSeoPageHtml({
+    disableAutoAds: true,
     locale,
     title,
     description,
@@ -3098,6 +3101,7 @@ function renderItalianCityPage(opts: {
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   return buildSeoPageHtml({
+    disableAutoAds: true,
     locale,
     title,
     description,
@@ -3802,6 +3806,7 @@ function renderItalianStationPage(opts: {
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   return buildSeoPageHtml({
+    disableAutoAds: true,
     locale,
     title,
     description,

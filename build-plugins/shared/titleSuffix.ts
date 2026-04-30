@@ -22,10 +22,19 @@
 
 export const TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
 /**
- * Hard cap on the final <title> length. 70 keeps the rendered <title>
- * within Google's ~70-char SERP-display budget on most queries.
+ * Hard cap on the final <title> length. 90 matches the deploy-blocking
+ * `audit:title-length` threshold (scripts/audit-dist-multi.mjs:49) — staying
+ * inside the audit gate while leaving room for full headlines + brand suffix.
+ *
+ * Previously 70 (Google's SERP-display budget). That was tighter than the
+ * audit gate and caused word-aware truncation with `…` to fire on headlines
+ * 49-68 chars long, which then read as broken in the SERP and collapsed CTR
+ * (e.g. `/calcola-stipendio/` 4.8% → 0.99% over the 87a807975 → 2026-04-30
+ * window). 90 keeps the audit gate green while preserving the full keyword
+ * tail for indexing; Google will visually truncate at SERP-render time but
+ * without the broken `…` artifact mid-headline.
  */
-export const TITLE_MAX_CHARS = 70;
+export const TITLE_MAX_CHARS = 90;
 
 /**
  * Word-aware truncation: cut on the last whitespace boundary inside `max`,

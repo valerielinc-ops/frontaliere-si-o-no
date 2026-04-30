@@ -1795,7 +1795,7 @@ function BlogArticles({
  </div>
  </aside>
 
- <article ref={articleRef} className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-lg" data-no-auto-ads="inside">
+ <article ref={articleRef} className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-lg">
  {/* Hero image */}
  <div className="relative overflow-hidden" style={{ aspectRatio: '2/1', contain: 'layout' }}>
  {(() => {

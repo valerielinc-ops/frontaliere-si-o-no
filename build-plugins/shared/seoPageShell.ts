@@ -169,6 +169,15 @@ export interface SeoPageShellOpts {
     readonly activeSubTab: string;
     readonly hero?: HubHero;
   };
+  /**
+   * When true, propagates `data-no-auto-ads` to the rendered `<body>` so
+   * Google AdSense Auto Ads skip the entire page. Set on drive-by SEO
+   * templates (border wait, fuel daily, health premiums) where engagement
+   * is too low for ad serving to earn — frees frequency caps for engaged
+   * pages and avoids hurting the AdSense quality score with high-bounce
+   * impressions.
+   */
+  disableAutoAds?: boolean;
 }
 
 /**
@@ -205,6 +214,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     // SimplePageOpts.seoContentOutsideRoot for the full rationale.
     seoContentOutsideRoot = true,
     hubChrome,
+    disableAutoAds = false,
   } = opts;
 
   const assets = distDir ? resolveEntryAssets(distDir) : { entryJs: '', entryCss: '' };
@@ -239,6 +249,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     preMainHtml: subnavHtml,
     skipMainWrap,
     seoContentOutsideRoot,
+    disableAutoAds,
   };
 
   return buildSimplePage(simpleOpts);

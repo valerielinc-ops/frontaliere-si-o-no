@@ -487,7 +487,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  // ── Auth gate view: 3-column grid ──
 
  return (
- <div className="space-y-5" data-no-auto-ads="inside">
+ <div className="space-y-5">
  {backButton}
 
  {/* 3-column grid: left rail | content | right rail (desktop xl only) */}

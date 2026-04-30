@@ -5752,7 +5752,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateLocationHref = gateLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: gateLocationSlug }, locale) : '';
 
  return (
- <div className="space-y-5" data-no-auto-ads="inside">
+ <div className="space-y-5">
  <button
  onClick={backToList}
  className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline"
@@ -6203,7 +6203,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (hybridLayoutEnabled) {
  return (
- <div className="space-y-6 hybrid-ab-wrap" data-no-auto-ads="inside">
+ <div className="space-y-6 hybrid-ab-wrap">
  <style>{`
  .hybrid-ab-wrap { max-width: 1120px; }
  .hybrid-ab-root { border: 1px solid #d8e4f4; background: #fff; border-radius: 20px; padding: 12px; overflow: hidden; }
@@ -6310,7 +6310,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  return (
- <div className="space-y-6" data-no-auto-ads="inside">
+ <div className="space-y-6">
  <button
  onClick={backToList}
  className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline"

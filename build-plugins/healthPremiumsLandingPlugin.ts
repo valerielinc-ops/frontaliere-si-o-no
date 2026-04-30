@@ -2093,6 +2093,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   return buildSeoPageHtml({
+    disableAutoAds: true,
     locale,
     title,
     description,
@@ -2364,6 +2365,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   return buildSeoPageHtml({
+    disableAutoAds: true,
     locale,
     title,
     description,
@@ -2573,6 +2575,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   return buildSeoPageHtml({
+    disableAutoAds: true,
     locale,
     title,
     description,
