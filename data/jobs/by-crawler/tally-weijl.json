@@ -1205,11 +1205,11 @@
     },
     {
       "id": "tally-weijl-1f4bede8f068",
-      "slug": "flexible-aushilfe-tally-weijl-winterthur",
+      "slug": "aiuto-flessibile-tally-weijl-winterthur",
       "slugByLocale": {
         "de": "flexible-aushilfe-tally-weijl-winterthur",
         "en": "flexible-aushilfe-tally-weijl-winterthur",
-        "it": "flexible-aushilfe-tally-weijl-winterthur",
+        "it": "aiuto-flessibile-tally-weijl-winterthur",
         "fr": "flexible-aushilfe-tally-weijl-winterthur"
       },
       "company": "TALLY WEiJL",
@@ -1266,11 +1266,17 @@
       "postalCode": "8400",
       "firstSeenAt": "2026-04-30T11:35:45.407Z",
       "previousSlugs": [
+        "flexible-aushilfe-tally-weijl-winterthur",
         "aushilfe-flessibile-tally-weijl-winterthur",
         "assistant-flexible-tally-weijl-winterthur",
         "aushilfe-fur-die-zukunft-tally-weijl-winterthur",
         "assistente-flessibile-tally-weijl-winterthur"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "flexible-aushilfe-tally-weijl-winterthur"
+        ]
+      }
     },
     {
       "id": "tally-weijl-4a9ab1655229",

@@ -23,9 +23,12 @@
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-04-30T11:03:11.335Z",
-      "slug": "berufsbildner-in-pflege-neurochirugie-und-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur",
+      "slug": "professione-in-allattamento-neurochirugie-e-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "berufsbildner-in-pflege-neurochirugie-und-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur"
+        "de": "berufsbildner-in-pflege-neurochirugie-und-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur",
+        "it": "professione-in-allattamento-neurochirugie-e-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur",
+        "en": "profession-in-nursing-neurochirugie-and-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur",
+        "fr": "profession-en-soins-infirmiers-neurochirugie-et-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Berufsbildner:in Pflege Neurochirugie und Hals-Nasen-Ohrenklinik",
@@ -54,7 +57,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-30T11:03:11.335Z"
+      "firstSeenAt": "2026-04-30T11:03:11.335Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-pflege-neurochirugie-und-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-pflege-neurochirugie-und-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10010351",
@@ -4748,8 +4759,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",

@@ -2649,7 +2649,7 @@
         "en": "senior-program-manager-integrated-biologics-lonza-ch",
         "it": "senior-program-manager-integrated-biologics-lonza-ch",
         "de": "senior-program-manager-integrated-biologics-lonza-ch",
-        "fr": "senior-program-manager-integrated-biologics-lonza-ch"
+        "fr": "aine-gestionnaire-de-programme-produits-biologiques-integres-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2707,12 +2707,12 @@
     },
     {
       "id": "lonza-5242ed2e6d46",
-      "slug": "operator-schichtbetrieb-4-schicht-apollo-m-w-d-lonza-ch",
+      "slug": "operazione-di-spostamento-dell-operatore-4-strati-apollo-m-w-d-lonza-ch",
       "slugByLocale": {
         "de": "operator-schichtbetrieb-4-schicht-apollo-m-w-d-lonza-ch",
-        "it": "operator-schichtbetrieb-4-schicht-apollo-m-w-d-lonza-ch",
-        "en": "operator-schichtbetrieb-4-schicht-apollo-m-w-d-lonza-ch",
-        "fr": "operator-schichtbetrieb-4-schicht-apollo-m-w-d-lonza-ch"
+        "it": "operazione-di-spostamento-dell-operatore-4-strati-apollo-m-w-d-lonza-ch",
+        "en": "operator-shift-operation-4-layer-apollo-m-w-d-lonza-ch",
+        "fr": "fonctionnement-du-poste-de-commande-4-couches-apollo-m-w-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2766,7 +2766,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-30T11:07:23.209Z"
+      "firstSeenAt": "2026-04-30T11:07:23.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operator-schichtbetrieb-4-schicht-apollo-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "operator-schichtbetrieb-4-schicht-apollo-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "operator-schichtbetrieb-4-schicht-apollo-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operator-schichtbetrieb-4-schicht-apollo-m-w-d-lonza-ch"
+      ]
     }
   ]
 }

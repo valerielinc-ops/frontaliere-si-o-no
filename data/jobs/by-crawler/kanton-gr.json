@@ -635,12 +635,12 @@
     },
     {
       "id": "kanton-gr-46c273edd005",
-      "slug": "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
+      "slug": "membro-kesb-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-        "it": "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-        "en": "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
-        "fr": "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
+        "it": "membro-kesb-kantonale-verwaltung-graubunden-chur",
+        "en": "kesb-member-kantonale-verwaltung-graubunden-chur",
+        "fr": "membre-kesb-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -689,14 +689,23 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
-          "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
+          "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
+          "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
+        ],
+        "en": [
+          "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch"
+        "mitglied-kindes-und-erwachsenenschutzbehorde-kanton-gr-ch",
+        "mitglied-kindes-e-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur",
+        "mitglied-kindes-und-erwachsenenschutzbehorde-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -714,12 +723,12 @@
     },
     {
       "id": "kanton-gr-28db030389a1",
-      "slug": "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch",
+      "slug": "giurista-per-il-servizio-legale-attivita-di-segreteria-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "jurist-in-rechtsdienst-aktuariat-kantonale-verwaltung-graubunden-chur",
-        "it": "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch",
-        "en": "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch",
-        "fr": "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch"
+        "it": "giurista-per-il-servizio-legale-attivita-di-segreteria-kantonale-verwaltung-graubunden-chur",
+        "en": "legal-officer-legal-secretary-kantonale-verwaltung-graubunden-chur",
+        "fr": "juriste-pour-le-service-juridique-actuariat-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -780,7 +789,21 @@
         }
       },
       "firstSeenAt": "2026-04-30T11:01:18.166Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch"
+        ],
+        "en": [
+          "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch"
+        ],
+        "fr": [
+          "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-rechtsdienst-aktuariat-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-8e05f7137c3f",
@@ -863,12 +886,12 @@
     },
     {
       "id": "kanton-gr-f3feee061001",
-      "slug": "ict-architekt-in-kanton-gr-ch",
+      "slug": "architetto-ict-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "ict-architekt-in-kantonale-verwaltung-graubunden-chur",
-        "it": "ict-architekt-in-kanton-gr-ch",
-        "en": "ict-architekt-in-kanton-gr-ch",
-        "fr": "ict-architekt-in-kanton-gr-ch"
+        "it": "architetto-ict-kantonale-verwaltung-graubunden-chur",
+        "en": "ict-architect-kantonale-verwaltung-graubunden-chur",
+        "fr": "architecte-ti-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -927,16 +950,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-30T11:01:16.813Z"
+      "firstSeenAt": "2026-04-30T11:01:16.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-architekt-in-kanton-gr-ch"
+        ],
+        "en": [
+          "ict-architekt-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "ict-architekt-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-architekt-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-9b316aabdca7",
-      "slug": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+      "slug": "responsabile-procedura-di-appalto-per-il-trasporto-pubblico-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
-        "it": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
-        "en": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
-        "fr": "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
+        "it": "responsabile-procedura-di-appalto-per-il-trasporto-pubblico-kantonale-verwaltung-graubunden-chur",
+        "en": "project-manager-public-transport-procurement-kantonale-verwaltung-graubunden-chur",
+        "fr": "responsable-des-procedures-d-appel-d-offres-pour-le-transport-public-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -986,14 +1023,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch"
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch"
+        ],
+        "en": [
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch"
+        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
+        "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1012,12 +1057,12 @@
     },
     {
       "id": "kanton-gr-38a794013bd7",
-      "slug": "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart",
+      "slug": "consulente-per-il-settore-sviluppo-aziendale-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
         "de": "berater-in-fur-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart",
-        "it": "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart",
-        "en": "berater-in-fur-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart",
-        "fr": "berater-in-fur-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
+        "it": "consulente-per-il-settore-sviluppo-aziendale-kantonale-verwaltung-graubunden-landquart",
+        "en": "advisor-for-the-business-development-department-kantonale-verwaltung-graubunden-landquart",
+        "fr": "conseiller-pour-le-secteur-developpement-d-entreprise-kantonale-verwaltung-graubunden-landquart"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1066,14 +1111,23 @@
       "pensum": "60-80%",
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-fur-den-fachbereich-betriebsentwicklung-kanton-gr-ch"
+          "berater-in-fur-den-fachbereich-betriebsentwicklung-kanton-gr-ch",
+          "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
         ],
         "de": [
           "berater-in-fur-den-fachbereich-betriebsentwicklung-kanton-gr-ch"
+        ],
+        "en": [
+          "berater-in-fur-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
+        ],
+        "fr": [
+          "berater-in-fur-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
         ]
       },
       "previousSlugs": [
-        "berater-in-fur-den-fachbereich-betriebsentwicklung-kanton-gr-ch"
+        "berater-in-fur-den-fachbereich-betriebsentwicklung-kanton-gr-ch",
+        "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart",
+        "berater-in-fur-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1091,12 +1145,12 @@
     },
     {
       "id": "kanton-gr-657b20809c08",
-      "slug": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch",
+      "slug": "responsabile-sezione-costruzioni-strade-principali-capo-opera-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kantonale-verwaltung-graubunden-chur",
-        "it": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch",
-        "en": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch",
-        "fr": "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
+        "it": "responsabile-sezione-costruzioni-strade-principali-capo-opera-kantonale-verwaltung-graubunden-chur",
+        "en": "section-leader-highway-construction-head-of-construction-kantonale-verwaltung-graubunden-chur",
+        "fr": "responsable-de-section-construction-de-routes-principales-chef-de-chantier-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1155,7 +1209,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-30T11:01:14.777Z"
+      "firstSeenAt": "2026-04-30T11:01:14.777Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
+        ],
+        "en": [
+          "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-6e41f2b517d5",

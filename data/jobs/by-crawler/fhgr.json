@@ -580,12 +580,12 @@
     },
     {
       "id": "fhgr-7a6e6ef260e9",
-      "slug": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
+      "slug": "personale-scientifico-progetto-fachhochschule-graubunden-chur",
       "slugByLocale": {
         "de": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
-        "it": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
-        "en": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
-        "fr": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
+        "it": "personale-scientifico-progetto-fachhochschule-graubunden-chur",
+        "en": "scientific-in-project-staff-fachhochschule-graubunden-chur",
+        "fr": "personnel-scientifique-en-projet-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -631,14 +631,22 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch"
+          "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
+          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
         ],
         "de": [
           "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch"
+        ],
+        "en": [
+          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
+          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch"
+        "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
+        "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

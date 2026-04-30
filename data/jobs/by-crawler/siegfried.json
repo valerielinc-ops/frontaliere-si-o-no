@@ -1478,12 +1478,12 @@
     },
     {
       "id": "siegfried-d4ba56ece93e",
-      "slug": "site-hr-head-siegfried-ch",
+      "slug": "sito-hr-head-siegfried-evionnaz",
       "slugByLocale": {
         "en": "site-hr-head-siegfried-evionnaz",
-        "it": "site-hr-head-siegfried-ch",
-        "de": "site-hr-head-siegfried-ch",
-        "fr": "site-hr-head-siegfried-ch"
+        "it": "sito-hr-head-siegfried-evionnaz",
+        "de": "standort-hr-head-siegfried-evionnaz",
+        "fr": "site-hr-chef-siegfried-evionnaz"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1539,7 +1539,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-30T11:26:45.280Z"
+      "firstSeenAt": "2026-04-30T11:26:45.280Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "site-hr-head-siegfried-ch"
+        ],
+        "de": [
+          "site-hr-head-siegfried-ch"
+        ],
+        "fr": [
+          "site-hr-head-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "site-hr-head-siegfried-ch"
+      ]
     }
   ]
 }
