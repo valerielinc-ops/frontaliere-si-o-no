@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1535,
+ "numberOfItems": 1536,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6170,7 +6170,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1532, "name": "Ricavi alberghi Ticino 2025: +3,9% a 6,2 miliardi", "url": `${BASE_URL}/articoli-frontaliere/ricavi-alberghi-ticino-2025-crescita` },
           { "@type": "ListItem", "position": 1533, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/controllo-finanze-ticino-2026` },
           { "@type": "ListItem", "position": 1534, "name": "Swiss Market Index in verde: spunti utili per i...", "url": `${BASE_URL}/articoli-frontaliere/swiss-market-index-verde-2026` },
-          { "@type": "ListItem", "position": 1535, "name": "Crowdfunding BCC: raccolti quasi 100mila euro", "url": `${BASE_URL}/articoli-frontaliere/bcc-crowdfunding-100mila-euro` }
+          { "@type": "ListItem", "position": 1535, "name": "Crowdfunding BCC: raccolti quasi 100mila euro", "url": `${BASE_URL}/articoli-frontaliere/bcc-crowdfunding-100mila-euro` },
+          { "@type": "ListItem", "position": 1536, "name": "Truffatrice seriale arrestata a Como con gioiel...", "url": `${BASE_URL}/articoli-frontaliere/truffatrice-seriale-como-lecco-2026` }
  ]
  },
  {

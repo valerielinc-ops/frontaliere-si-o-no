@@ -4457,6 +4457,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bcc-crowdfunding-100mila-euro.title': 'Crowdfunding BCC : près de 100 000 euros récoltés',
     'blog.article.bcc-crowdfunding-100mila-euro.excerpt': 'La BCC Busto Garolfo et Buguggiate a récolté près de 100 000 euros grâce au crowdfunding, avec plus de 1 200 donateurs impliqués et un surfinancement de 141%.',
     'blog.article.bcc-crowdfunding-100mila-euro.imageAlt': 'Un événement de crowdfunding dans une banque moderne en Suisse, avec des personnes collaborant et discutant de projets, des écrans numériques affichant la progression de la collecte de fonds, et en arrière-plan le lac de Lugano.',
+    'blog.article.truffatrice-seriale-como-lecco-2026.title': 'Arrestation d\'une truffeuse à Côme avec bijoux et argent',
+    'blog.article.truffatrice-seriale-como-lecco-2026.excerpt': 'Une femme tchèque de 31 ans a été arrêtée pour des escroqueries aux dépens de deux personnes âgées entre Côme et Lecco, avec un butin de 2.400 euros en espèces et des bijoux.',
+    'blog.article.truffatrice-seriale-como-lecco-2026.imageAlt': 'Police en action sur le Lac de Côme',
 };
 
 export default blogMetaFr;

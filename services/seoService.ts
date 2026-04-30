@@ -2716,6 +2716,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controllo-finanze-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/controllo-finanze-ticino-2026', parent: 'blog' },
     'blog-swiss-market-index-verde-2026': { name: 'Novità', path: '/articoli-frontaliere/swiss-market-index-verde-2026', parent: 'blog' },
     'blog-bcc-crowdfunding-100mila-euro': { name: 'Crowdfunding BCC', path: '/articoli-frontaliere/bcc-crowdfunding-100mila-euro', parent: 'blog' },
+    'blog-truffatrice-seriale-como-lecco-2026': { name: 'Truffa Como', path: '/articoli-frontaliere/truffatrice-seriale-como-lecco-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
