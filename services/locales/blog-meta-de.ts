@@ -4315,6 +4315,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.record-passeggeri-treni-svizzera-2026.title': 'Rekord bei Passagierzahlen der Schweizer Bahnen 2026',
     'blog.article.record-passeggeri-treni-svizzera-2026.excerpt': 'Die wichtigsten Schweizer Bahngesellschaften verzeichnen im ersten Quartal 2026 einen Anstieg von 5 %, während der Güterverkehr um 4 % sinkt.',
     'blog.article.record-passeggeri-treni-svizzera-2026.imageAlt': 'Luganersee mit modernen Zügen im Hintergrund',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.title': 'Bahn: Ausbau der Infrastruktur schreitet voran',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.excerpt': '300 Projekte für den Ausbau des Schweizer Schienennetzes bis 2035, laufende Arbeiten in Lausanne und Freiburg.',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.imageAlt': 'Luftaufnahme des Luganersees mit moderner Bahninfrastruktur und umliegenden Bergen',
 };
 
 export default blogMetaDe;

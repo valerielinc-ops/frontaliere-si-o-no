@@ -11082,4 +11082,11 @@ export const ARTICLES = [
  image: '/images/blog/record-passeggeri-treni-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ferrovia-svizzera-300-progetti-2026',
+ category: 'novita',
+ date: '2026-04-30T13:03:35.411Z',
+ image: '/images/blog/ferrovia-svizzera-300-progetti-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

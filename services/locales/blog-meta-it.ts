@@ -4316,6 +4316,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.record-passeggeri-treni-svizzera-2026.title': 'Record di passeggeri sui treni svizzeri nel 2026',
     'blog.article.record-passeggeri-treni-svizzera-2026.excerpt': 'Le principali compagnie ferroviarie svizzere registrano un aumento del 5% nel primo trimestre 2026, mentre il trasporto merci cala del 4%.',
     'blog.article.record-passeggeri-treni-svizzera-2026.imageAlt': 'Lago di Lugano con treni moderni in secondo piano',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.title': 'Ferrovia: passi avanti nell\'estensione dell\'infrastruttura',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.excerpt': '300 progetti in corso per l\'ampliamento della rete ferroviaria svizzera entro il 2035, con lavori in corso a Losanna e Friburgo.',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.imageAlt': 'Vista aerea del Lago di Lugano con infrastrutture ferroviarie moderne e montagne circostanti',
 };
 
 export default blogMetaIt;

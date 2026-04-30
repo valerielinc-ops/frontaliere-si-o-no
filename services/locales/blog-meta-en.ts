@@ -4315,6 +4315,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.record-passeggeri-treni-svizzera-2026.title': 'Record passenger numbers on Swiss trains in 2026',
     'blog.article.record-passeggeri-treni-svizzera-2026.excerpt': 'Major Swiss rail companies report a 5% increase in the first quarter of 2026, while freight transport drops by 4%.',
     'blog.article.record-passeggeri-treni-svizzera-2026.imageAlt': 'Lake Lugano with modern trains in the background',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.title': 'Railway: progress in infrastructure expansion',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.excerpt': '300 projects underway to expand the Swiss railway network by 2035, with work ongoing in Lausanne and Fribourg.',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.imageAlt': 'Aerial view of Lake Lugano with modern train infrastructure and surrounding mountains',
 };
 
 export default blogMetaEn;

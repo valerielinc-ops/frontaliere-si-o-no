@@ -4316,6 +4316,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.record-passeggeri-treni-svizzera-2026.title': 'Record de passagers dans les trains suisses en 2026',
     'blog.article.record-passeggeri-treni-svizzera-2026.excerpt': 'Les principales compagnies ferroviaires suisses enregistrent une augmentation de 5% au premier trimestre 2026, tandis que le transport de marchandises chute de 4%.',
     'blog.article.record-passeggeri-treni-svizzera-2026.imageAlt': 'Lac de Lugano avec des trains modernes en arrière-plan',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.title': 'Chemin de fer: avancées dans l\'extension de l\'infrastructure',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.excerpt': '300 projets en cours pour l\'extension du réseau ferroviaire suisse d\'ici 2035, avec des travaux en cours à Lausanne et Fribourg.',
+    'blog.article.ferrovia-svizzera-300-progetti-2026.imageAlt': 'Vue aérienne du lac de Lugano avec une infrastructure ferroviaire moderne et les montagnes environnantes',
 };
 
 export default blogMetaFr;

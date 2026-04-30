@@ -2669,6 +2669,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-passaporto-poste-italiane-uffici': { name: 'Novità', path: '/articoli-frontaliere/passaporto-poste-italiane-uffici', parent: 'blog' },
     'blog-comco-indaga-pubblicita-motori-ricerca': { name: 'Novità', path: '/articoli-frontaliere/comco-indaga-pubblicita-motori-ricerca', parent: 'blog' },
     'blog-record-passeggeri-treni-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/record-passeggeri-treni-svizzera-2026', parent: 'blog' },
+    'blog-ferrovia-svizzera-300-progetti-2026': { name: 'Novità', path: '/articoli-frontaliere/ferrovia-svizzera-300-progetti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
