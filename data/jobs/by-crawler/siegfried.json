@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-04-30T11:27:02.762Z",
+  "assembledAt": "2026-04-30T22:28:24.458Z",
   "jobs": [
     {
       "id": "siegfried-bda06d917747",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician-R-D---Flow-Chemistry_R25_593",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T11:27:00.129Z",
+      "crawledAt": "2026-04-30T22:28:21.957Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -88,6 +88,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -133,7 +134,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R25_632",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:26:59.363Z",
+      "crawledAt": "2026-04-30T22:28:21.396Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -194,6 +195,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.288Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -239,7 +241,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T11:26:58.663Z",
+      "crawledAt": "2026-04-30T22:28:20.822Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -314,7 +316,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:26:57.867Z",
+      "crawledAt": "2026-04-30T22:28:20.259Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -344,6 +346,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:40.883Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -389,7 +392,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Process-Safety-Engineer_R26_215",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T11:26:57.167Z",
+      "crawledAt": "2026-04-30T22:28:19.689Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -421,6 +424,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:40.286Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -466,7 +470,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsleiter_R26_236",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:26:56.424Z",
+      "crawledAt": "2026-04-30T22:28:19.123Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -525,6 +529,7 @@
         "betriebsleiter-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-13T11:14:39.669Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -570,7 +575,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T11:26:54.699Z",
+      "crawledAt": "2026-04-30T22:28:18.048Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,6 +626,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:38.458Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -666,7 +672,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production_R26_247",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:26:54.013Z",
+      "crawledAt": "2026-04-30T22:28:17.494Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -696,6 +702,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:37.862Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -741,7 +748,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Schlieren/Procurement-Manager_R25_605",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T11:26:53.239Z",
+      "crawledAt": "2026-04-30T22:28:16.918Z",
       "addressLocality": "Schlieren",
       "addressCountry": "CH",
       "country": "CH",
@@ -815,7 +822,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Officer-Process-Assistant-50-_R26_312",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T11:26:52.543Z",
+      "crawledAt": "2026-04-30T22:28:16.352Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -877,6 +884,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:36.725Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -922,7 +930,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Operations-support-specialist_R26_313",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T11:26:51.565Z",
+      "crawledAt": "2026-04-30T22:28:15.787Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -955,6 +963,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:36.115Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1000,7 +1009,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T11:26:50.823Z",
+      "crawledAt": "2026-04-30T22:28:15.215Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1056,6 +1065,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1101,7 +1111,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Teamleiter-Werkschutz_R26_305",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:26:50.068Z",
+      "crawledAt": "2026-04-30T22:28:14.649Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1152,6 +1162,7 @@
         "teamleiter-werkschutz-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-13T11:14:34.800Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1197,7 +1208,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:26:49.325Z",
+      "crawledAt": "2026-04-30T22:28:14.073Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1223,6 +1234,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1268,7 +1280,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Project-Manager-Analytics_R26_297",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:26:47.812Z",
+      "crawledAt": "2026-04-30T22:28:13.508Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1298,6 +1310,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:33.604Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1343,7 +1356,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker--m-w-d-_R26_349",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:26:46.929Z",
+      "crawledAt": "2026-04-30T22:28:12.933Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1380,6 +1393,7 @@
         "ingegnere-m-w-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1425,7 +1439,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Kalibriertechniker--in_R26_347",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:26:46.132Z",
+      "crawledAt": "2026-04-30T22:28:12.368Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1462,6 +1476,7 @@
         "kalibriertechniker-m-w-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1480,8 +1495,8 @@
       "id": "siegfried-d4ba56ece93e",
       "slug": "sito-hr-head-siegfried-evionnaz",
       "slugByLocale": {
-        "en": "site-hr-head-siegfried-evionnaz",
         "it": "sito-hr-head-siegfried-evionnaz",
+        "en": "site-hr-head-siegfried-evionnaz",
         "de": "standort-hr-head-siegfried-evionnaz",
         "fr": "site-hr-chef-siegfried-evionnaz"
       },
@@ -1490,15 +1505,15 @@
       "companyDomain": "siegfried.ch",
       "title": "Site HR Head",
       "titleByLocale": {
+        "it": "Site Risorse Umane Head",
         "en": "Site HR Head",
-        "it": "Sito HR Head",
-        "de": "Standort HR Head",
-        "fr": "Site HR Chef"
+        "de": "Site Personalwesen Head",
+        "fr": "Site Ressources Humaines Head"
       },
       "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n \n \n \n Your Role: \nAt Siegfried we are currently looking for a Site HR Head to join our team in our site based in Evionnaz.\nThe Site HR Head is the senior HR leader accountable for end to end HR leadership at site level, in line with the global HR Target Operating Model.\n\nAt site level, the role translates global people strategy into a robust site HR roadmap, enabling business performance, operational excellence, workforce readiness, and full regulatory compliance.\n\nResponsibilities at site level:\n\n1.Site HR Leadership & Business Partnering\n\n• Define and execute the Site HR Roadmap, aligned with global HR strategy and operational priorities. \n• Act as trusted advisor to the Site Leadership Team, driving performance, leadership effectiveness, and organizational health. \n• Lead change, transformation, and cultural initiatives, supporting site evolution and business continuity. \n• Ensure HR business continuity, crisis preparedness, and workforce risk mitigation. \n• Manage site HR budget and drive process efficiency and OPEX optimization. \n• Contribute to global HR initiatives and projects, representing site perspectives.\n\n2. Employee Relations, Compliance & Governance (SITE)\n\n• Own employee relations and labor law compliance, including investigations, grievances, and dispute resolution. \n• Lead engagement with social partners / employee representatives, where applicable. \n• Represent the company in internal and external audits. \n• Partner closely with Legal and Communications on sensitive cases. \n• Own integrity, speak up, and ethics topics at site and country level. \n• Ensure consistent application of policies, internal controls, and regulatory requirements.\n\n3. Talent, Leadership & Engagement (Site Execution)\n\n• Lead strategic workforce planning aligned to site capacity, capability, and future needs. \n• Oversee recruitment for critical roles and talent attraction at site level. \n• Drive performance management, leadership development, and succession planning (in alignment with global frameworks). \n• Own onboarding quality, employee development focus, and engagement initiatives. \n• Execute learning & development activities (non GxP) at site level. \n• Coordinate international assignments (site execution). \n• Support internal communications and employer branding at site level.\n\n4. Payroll & Benefits (Site Governance)\n\n• Ensure accurate and compliant payroll and benefits administration (delivered via People Hub where applicable). \n• Partner with Total Rewards to ensure competitive and compliant compensation practices. \n• Oversee time & attendance, absenteeism, HR master data quality, and HR administration governance. \n• Act as data steward, enabling reliable HR reporting and analytics.\n\n5. Reporting, Analytics & KPIs\n\n• Ensure timely, accurate site HR reporting. \n• Drive data based decision making using defined HR KPIs. \n• Monitor trends related to retention, engagement, performance, and workforce risk.\n\nKey Performance Indicators:\n\n• Delivery of Site HR Roadmap (quality, time, cost)\n• Compliance with labor laws, policies, and controls\n• Employee engagement and leadership effectiveness\n• Retention of critical roles\n• Effectiveness of performance management \n Your Profile: \n \n What are we looking for? \n \n Education: \n\n- Bachelor's in law, Labor Relations, Psychology, HR Management or related field\n- Master's or Postgraduate qualification in Human Resources preferred\n \n Experience: \n\n- 10+ years of HR leadership experience in a multinational environment (pharmaceutical manufacturing preferred)\n- Proven experience leading HR at site level\n- Experience in multi-site or matrix environments\n \n Languages: \n\n- Fluent in French and English\n \n Competencies: \n\n- Strategic thinking with strong business acumen\n- Proven ability to influence and drive change\n- Strong labor relations expertise\n- Change leadership and communication skills\n- High integrity, cultural awareness and interpersonal skills\n \n Your Benefits: \n ​\n What do we offer? \n \n - Free parking\n \n - Health insurance: Up to 10% discount on supplemental insurance plans through our partners\n \n - Generous and customizable stock purchase plan\n \n - Child allowance: Siegfried AG increases the statutory cantonal allowance by 10% and pays an additional CHF 100 per month\n \n - Individual continuing education opportunities\n \n - Reka vouchers: Siegfried AG offers its employees a 20% discount\n \n - Attractive company pension plan\n \n - On-site fitness classes and numerous company events\n \n - Access to the Swibeco employee benefits platform\n \n - 5 weeks of vacation and the option to buy back up to 2 weeks\n \n \n If you’re excited by the idea of joining our group , we’d love to hear from you.\n Apply today and be part of building something extraordinary! \n \n \n Founded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 13 sites across three continents. With a team of more than 3,800 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\n Your Role:\nAt Siegfried we are currently looking for a Site HR Head to join our team in our site based in Evionnaz.\nThe Site HR Head is the senior HR leader accountable for end to end HR leadership at site level, in line with the global HR Target Operating Model.\n\nAt site level, the role translates global people strategy into a robust site HR roadmap, enabling business performance, operational excellence, workforce readiness, and full regulatory compliance.\n\nResponsibilities at site level:\n\n1.Site HR Leadership & Business Partnering\n\n• Define and execute the Site HR Roadmap, aligned with global HR strategy and operational priorities.\n• Act as trusted advisor to the Site Leadership Team, driving performance, leadership effectiveness, and organizational health.\n• Lead change, transformation, and cultural initiatives, supporting site evolution and business continuity.\n• Ensure HR business continuity, crisis preparedness, and workforce risk mitigation.\n• Manage site HR budget and drive process efficiency and OPEX optimization.\n• Contribute to global HR initiatives and projects, representing site perspectives.\n\n2. Employee Relations, Compliance & Governance (SITE)\n\n• Own employee relations and labor law compliance, including investigations, grievances, and dispute resolution.\n• Lead engagement with social partners / employee representatives, where applicable.\n• Represent the company in internal and external audits.\n• Partner closely with Legal and Communications on sensitive cases.\n• Own integrity, speak up, and ethics topics at site and country level.\n• Ensure consistent application of policies, internal controls, and regulatory requirements.\n\n3. Talent, Leadership & Engagement (Site Execution)\n\n• Lead strategic workforce planning aligned to site capacity, capability, and future needs.\n• Oversee recruitment for critical roles and talent attraction at site level.\n• Drive performance management, leadership development, and succession planning (in alignment with global frameworks).\n• Own onboarding quality, employee development focus, and engagement initiatives.\n• Execute learning & development activities (non GxP) at site level.\n• Coordinate international assignments (site execution).\n• Support internal communications and employer branding at site level.\n\n4. Payroll & Benefits (Site Governance)\n\n• Ensure accurate and compliant payroll and benefits administration (delivered via People Hub where applicable).\n• Partner with Total Rewards to ensure competitive and compliant compensation practices.\n• Oversee time & attendance, absenteeism, HR master data quality, and HR administration governance.\n• Act as data steward, enabling reliable HR reporting and analytics.\n\n5. Reporting, Analytics & KPIs\n\n• Ensure timely, accurate site HR reporting.\n• Drive data based decision making using defined HR KPIs.\n• Monitor trends related to retention, engagement, performance, and workforce risk.\n\nKey Performance Indicators:\n\n• Delivery of Site HR Roadmap (quality, time, cost)\n• Compliance with labor laws, policies, and controls\n• Employee engagement and leadership effectiveness\n• Retention of critical roles\n• Effectiveness of performance management\n Your Profile:\n\n What are we looking for?\n\n Education:\n\n- Bachelor's in law, Labor Relations, Psychology, HR Management or related field\n- Master's or Postgraduate qualification in Human Resources preferred\n\n Experience:\n\n- 10+ years of HR leadership experience in a multinational environment (pharmaceutical manufacturing preferred)\n- Proven experience leading HR at site level\n- Experience in multi-site or matrix environments\n\n Languages:\n\n- Fluent in French and English\n\n Competencies:\n\n- Strategic thinking with strong business acumen\n- Proven ability to influence and drive change\n- Strong labor relations expertise\n- Change leadership and communication skills\n- High integrity, cultural awareness and interpersonal skills\n\n Your Benefits:\n ​\n What do we offer?\n\n - Free parking\n\n - Health insurance: Up to 10% discount on supplemental insurance plans through our partners\n\n - Generous and customizable stock purchase plan\n\n - Child allowance: Siegfried AG increases the statutory cantonal allowance by 10% and pays an additional CHF 100 per month\n\n - Individual continuing education opportunities\n\n - Reka vouchers: Siegfried AG offers its employees a 20% discount\n\n - Attractive company pension plan\n\n - On-site fitness classes and numerous company events\n\n - Access to the Swibeco employee benefits platform\n\n - 5 weeks of vacation and the option to buy back up to 2 weeks\n\n If you’re excited by the idea of joining our group , we’d love to hear from you.\n Apply today and be part of building something extraordinary!\n\n Founded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 13 sites across three continents. With a team of more than 3,800 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
         "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto. Il tuo ruolo: A Siegfried stiamo attualmente cercando un sito HR Head per unirsi al nostro team nel nostro sito con sede a Evionnaz. Il Site HR Head è il leader senior delle risorse umane responsabile per la leadership end to end HR a livello del sito, in linea con il modello operativo globale HR Target. A livello del sito, il ruolo traduce la strategia delle persone globali in una robusta roadmap del sito HR, consentendo prestazioni aziendali, eccellenza operativa, disponibilità della forza lavoro e piena conformità normativa. Responsabilità a livello del sito: 1.Site HR Leadership & Business Partnering • Definire ed eseguire il Site HR Roadmap, allineato con la strategia HR globale e le priorità operative. • Agire come consulente di fiducia per il team di Leadership del sito, le prestazioni di guida, l'efficacia della leadership e la salute organizzativa. • Cambiamento di piombo, trasformazione e iniziative culturali, sostenendo l'evoluzione del sito e la continuità aziendale. • Assicurare continuità aziendale HR, preparazione alla crisi e mitigazione del rischio di forza lavoro. • Gestione del budget del sito HR e dell'efficienza del processo di azionamento e ottimizzazione OPEX. • Contribuire a iniziative e progetti HR globali, che rappresentano le prospettive del sito. 2. Rapporti dei dipendenti, conformità e governance (SITE) • Possedere relazioni dei dipendenti e conformità del diritto del lavoro, comprese le indagini, le controversie e la risoluzione delle controversie. • Lead engagement con partner sociali / rappresentanti dei dipendenti, ove applicabile. • Rappresentare la società in audit interni ed esterni. • Collaborare a stretto contatto con Legale e Comunicazioni sui casi sensibili. • IntegritÃ, parlare e temi etici a livello di luogo e paese. • Assicurare l'applicazione coerente di politiche, controlli interni e requisiti normativi. 3. Talent, Leadership & Engagement (Site Execution) • Guidare la pianificazione strategica della forza lavoro allineato alle capacità del sito, alle capacità e alle esigenze future. • Superare il reclutamento per ruoli critici e attrattiva del talento a livello del sito. • Guidare la gestione delle prestazioni, lo sviluppo della leadership e la pianificazione della successione (in allineamento con i quadri globali). • Proprio onboarding qualità, focus sviluppo dei dipendenti, e iniziative di impegno. • Eseguire attività di apprendimento e sviluppo (non GxP) a livello del sito. • Coordinare incarichi internazionali (esecuzione del sito). • Sostenere le comunicazioni interne e il marchio del datore di lavoro a livello del sito. 4. Payroll & Benefits (Site Governance) • Assicurare la gestione accurata e conforme del libro paga e dei benefici (consegnato tramite People Hub ove applicabile). • Partner di Total Rewards per garantire pratiche di compensazione competitive e conformi. • Controllare il tempo e la frequenza, l'assenteismo, la qualità dei dati master HR e la governance dell'amministrazione delle risorse umane. • Agire come amministratore di dati, consentendo report e analisi affidabili delle risorse umane. 5. Reporting, Analytics & KPIs • Assicurare la reportistica HR del sito tempestiva e accurata. • Guidare il processo decisionale basato sui dati utilizzando i KPI HR definiti. • Monitorare le tendenze relative al rischio di ritenzione, impegno, prestazioni e forza lavoro. Indicatori di performance chiave: • Consegna del sito HR Roadmap (qualità, tempo, costo) • conformità con le leggi, le politiche e i controlli • Impegno dei dipendenti e l'efficacia della leadership • Conservazione dei ruoli critici • Efficienza della gestione delle prestazioni Il tuo profilo: Cosa stiamo cercando? Istruzione: - Bachelor's in law, Labor Relations, Psicologia, HR Management o relativo campo - Masters o Postgraduate in Risorse Umane ha preferito Esperienza: - 10+ anni di esperienza di leadership HR in un ambiente multinazionale (preferito dalla produzione farmaceutica) - Esperienza comprovata leader HR a livello del sito - Esperienza in ambienti multi-sito o matrice Lingue: - Conoscenza del lavoro francese e inglese Competencies: - - Parcheggio gratuito - Assicurazione sanitaria: Fino al 10% di sconto sui piani assicurativi complementari attraverso i nostri partner - Piano d'acquisto azionario generoso e personalizzabile - Indennità per bambini: Siegfried AG aumenta l'indennità cantonale legale del 10% e paga un ulteriore CHF 100 al mese - Opportunità di formazione continua individuale - Prestazioni per dipendenti Reka: Siegfried AG offre ai propri dipendenti uno sconto del 20% - Piano pensionistico aziendale attraente - Piattaforma di fitness in loco e numerosi eventi aziendali Se siete entusiasti dell'idea di unire il nostro gruppo, ci piacerebbe sentire da voi. Applicare oggi e far parte di costruire qualcosa di straordinario! Fondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale di 13 siti in tre continenti. Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico. Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact. Your Role: At Siegfried we are currently looking for a Site HR Head to join our team in our site based in Evionnaz. The Site HR Head is the senior HR leader accountable for end to end HR leadership at site level, in line with the global HR Target Operating Model. At site level, the role translates global people strategy into a robust site HR roadmap, enabling business performance, operational excellence, workforce readiness, and full regulatory compliance. Responsibilities at site level: 1.Site HR Leadership & Business Partnering • Define and execute the Site HR Roadmap, aligned with global HR strategy and operational priorities. • Act as trusted advisor to the Site Leadership Team, driving performance, leadership effectiveness, and organizational health. • Lead change, transformation, and cultural initiatives, supporting site evolution and business continuity. • Ensure HR business continuity, crisis preparedness, and workforce risk mitigation. • Manage site HR budget and drive process efficiency and OPEX optimization. • Contribute to global HR initiatives and projects, representing site perspectives. 2. Employee Relations, Compliance & Governance (SITE) • Own employee relations and labor law compliance, including investigations, grievances, and dispute resolution. • Lead engagement with social partners / employee representatives, where applicable. • Represent the company in internal and external audits. • Partner closely with Legal and Communications on sensitive cases. • Own integrity, speak up, and ethics topics at site and country level. • Ensure consistent application of policies, internal controls, and regulatory requirements. 3. Talent, Leadership & Engagement (Site Execution) • Lead strategic workforce planning aligned to site capacity, capability, and future needs. • Oversee recruitment for critical roles and talent attraction at site level. • Drive performance management, leadership development, and succession planning (in alignment with global frameworks). • Own onboarding quality, employee development focus, and engagement initiatives. • Execute learning & development activities (non GxP) at site level. • Coordinate international assignments (site execution). • Support internal communications and employer branding at site level. 4. Payroll & Benefits (Site Governance) • Ensure accurate and compliant payroll and benefits administration (delivered via People Hub where applicable). • Partner with Total Rewards to ensure competitive and compliant compensation practices. • Oversee time & attendance, absenteeism, HR master data quality, and HR administration governance. • Act as data steward, enabling reliable HR reporting and analytics. 5. Reporting, Analytics & KPIs • Ensure timely, accurate site HR reporting. • Drive data based decision making using defined HR KPIs. • Monitor trends related to retention, engagement, performance, and workforce risk. Key Performance Indicators: • Delivery of Site HR Roadmap (quality, time, cost) • Compliance with labor laws, policies, and controls • Employee engagement and leadership effectiveness • Retention of critical roles • Effectiveness of performance management Your Profile: What are we looking for? Education: - Bachelor's in law, Labor Relations, Psychology, HR Management or related field - Master's or Postgraduate qualification in Human Resources preferred Experience: - 10+ years of HR leadership experience in a multinational environment (pharmaceutical manufacturing preferred) - Proven experience leading HR at site level - Experience in multi-site or matrix environments Languages: - Fluent in French and English Competencies: - Strategic thinking with strong business acumen - Proven ability to influence and drive change - Strong labor relations expertise - Change leadership and communication skills - High integrity, cultural awareness and interpersonal skills Your Benefits: ​ What do we offer? - Free parking - Health insurance: Up to 10% discount on supplemental insurance plans through our partners - Generous and customizable stock purchase plan - Child allowance: Siegfried AG increases the statutory cantonal allowance by 10% and pays an additional CHF 100 per month - Individual continuing education opportunities - Reka vouchers: Siegfried AG offers its employees a 20% discount - Attractive company pension plan - On-site fitness classes and numerous company events - Access to the Swibeco employee benefits platform - 5 weeks of vacation and the option to buy back up to 2 weeks If you’re excited by the idea of joining our group , we’d love to hear from you. Apply today and be part of building something extraordinary! Founded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 13 sites across three continents. With a team of more than 3,800 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
         "de": "\"Expect to grow\", persönlich und professionell: Bei Siegfried bieten wir spannende Herausforderungen und vielfältige Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und respektierter Partner für die pharmazeutische Industrie halten wir höchste Standards in Sicherheit, Qualität und Nachhaltigkeit bei gleichzeitiger Förderung einer Kultur, die Sie dazu befähigt. Begleiten Sie ein schnell wachsendes globales Unternehmen, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertet – mit langfristigen Möglichkeiten zum Wachstum und zur Wirkung. Ihre Rolle: Bei Siegfried suchen wir derzeit einen Site HR Head, der sich unserem Team in Evionnaz anschließt. Der Site HR Head ist der führende HR-Führer, der für das Ende der HR-Führung auf Standortebene verantwortlich ist, entsprechend dem globalen HR-Ziel-Betriebsmodell. Auf Standortebene überträgt die Rolle die globale Menschenstrategie in eine robuste HR-Straßenkarte, die Unternehmensleistung, operative Exzellenz, Belegschaftsbereitschaft und volle regulatorische Compliance ermöglicht. Verantwortlichkeiten auf Standortebene: 1.Site HR Leadership & Business Partnering • Definieren und ausführen Sie die Site HR Roadmap, die mit der globalen HR-Strategie und operativen Prioritäten zusammenhängt. • Aktivieren Sie als vertrauenswürdiger Berater des Site Leadership Teams, Fahrleistung, Führungswirksamkeit und organisatorische Gesundheit. • Führende Veränderungen, Transformationen und kulturelle Initiativen, Unterstützung der Standortentwicklung und Unternehmenskontinuität. • Gewährleistung der Kontinuität des Personals, der Krisenbereitschaft und der Risikominderung von Arbeitskräften. • Personalbudget verwalten und Prozesseffizienz und OPEX-Optimierung steuern. • Beitrag zu globalen HR-Initiativen und -Projekten, die Standortperspektiven darstellen. 2. Mitarbeiterbeziehungen, Compliance & Governance (SITE) • Eigene Mitarbeiterbeziehungen und die Einhaltung des Arbeitsrechts, einschließlich Untersuchungen, Traurigkeiten und Streitbeilegung. • Leadengagement mit Sozialpartnern / Arbeitnehmervertretern, gegebenenfalls. • Vertreten Sie das Unternehmen in internen und externen Audits. • Partner eng mit Recht und Kommunikation über sensible Fälle. • Eigene Integrität, Sprechen und Ethikthemen auf Standort- und Länderebene. • Gewährleistung einer konsequenten Anwendung von Richtlinien, internen Kontrollen und regulatorischen Anforderungen. 3. Talent, Leadership & Engagement (Site Execution) • Führen Sie strategische Personalplanung, die auf Standortkapazität, Kapazität und zukünftige Bedürfnisse ausgerichtet ist. • Beaufsichtigen Sie die Rekrutierung für kritische Rollen und Talent Attraktion auf Standortebene. • Antriebsleistungsmanagement, Führungsentwicklung und Nachfolgeplanung (in Abstimmung mit globalen Rahmenbedingungen). • Eigene Onboarding-Qualität, Mitarbeiterentwicklung Fokus und Engagement-Initiativen. • Ausführen von Lern- und Entwicklungsaktivitäten (nicht GxP) auf Standortebene. • Koordinierte internationale Aufgaben (Standortausführung). • Unterstützung der internen Kommunikation und der Employer Branding auf der Website Ebene. 4. Payroll & Benefits (Site Governance) • Gewährleistung einer korrekten und konformen Lohn- und Leistungsverwaltung (gegebenenfalls über People Hub). • Partner mit Total Rewards, um wettbewerbsfähige und konforme Vergütungspraktiken zu gewährleisten. • Übersehen Sie Zeit und Teilnahme, Abwesenheit, HR-Master-Datenqualität und HR-Administration Governance. • Aktivieren Sie als Data Steward und ermöglichen eine zuverlässige HR-Berichterstattung und Analyse. 5. Reporting, Analytics & KPIs • Stellen Sie eine rechtzeitige, genaue Personalberichterstattung vor. • Datenbasierte Entscheidungsfindung mit definierten HR-KPIs antreiben. • Überwachen Sie Trends im Zusammenhang mit Retentions-, Engagement-, Performance- und Belegschaftsrisiko. Key Performance Indicators: • Lieferung von Site HR Roadmap (Qualität, Zeit, Kosten) • Einhaltung von Arbeitsgesetzen, Richtlinien und Kontrollen • Mitarbeiter Engagement und Führungswirksamkeit • Retention von kritischen Rollen • Wirkung von Leistungsmanagement Ihr Profil: Was suchen wir? Ausbildung: - Bachelor in Recht, Arbeitsbeziehungen, Psychologie, HR Management oder verwandten Bereich - Master- oder Postgraduiertenqualifikation in Human Resources bevorzugte Erfahrung: - 10+ Jahre HR-Führungserfahrung in einer multinationalen Umgebung (pharmazeutische Herstellung bevorzugt) - Provene Erfahrung führende HR auf Standortebene - Erfahrung in Multi-Site- oder Matrix-Umgebungen Sprachen: - Flieg in Französisch und Englisch Kompetenzen: - Strategisches Denken mit starkem Business acumen - Kostenlose Parkplätze - Krankenversicherung: Bis zu 10% Rabatt auf Zusatzversicherungspläne durch unsere Partner - Genereller und anpassbarer Aktienkaufplan - Kinderzuschlag: Siegfried AG erhöht die gesetzliche Kantonszulage um 10% und zahlt zusätzlich CHF 100 pro Monat - individuelle Weiterbildungsmöglichkeiten - Reka Gutscheine: Siegfried AG bietet seinen Mitarbeitern einen 20% Rabatt - Attraktive Firmenrentenplan - Vor Ort Fitnesskurse und zahlreiche Firmenveranstaltungen - Zugang zur Swibeco-Arbeitsplattform Wenn Sie begeistert von der Idee, unsere Gruppe zu verbinden, würden wir gerne von Ihnen hören. Bewerben Sie sich heute und sind Teil des Aufbaus etwas Außergewöhnliches! Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem weltweiten Netzwerk von 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von mehr als 3.800 hochqualifizierten Fachkräften nehmen wir die Innovationen unserer Pharmakunden in industrieller Größenordnung und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Dosierungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie. Siegfried ist ein führendes CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zurich).",
         "fr": "\"Attendez-vous à grandir\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en encourageant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où la diversité des points de vue et des expériences se conjugue dans un environnement de collaboration. Ici, vous trouverez un lieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles - offrant des opportunités à long terme de se développer et d'avoir un impact. Votre rôle : Chez Siegfried, nous sommes actuellement à la recherche d'un responsable des ressources humaines pour rejoindre notre équipe sur notre site d'Evionnaz. Le responsable RH du site est le cadre supérieur responsable de la gestion des ressources humaines au niveau du site, conformément au modèle opérationnel cible des ressources humaines au niveau mondial. Au niveau du site, il traduit la stratégie globale en matière de ressources humaines en une feuille de route solide pour le site, permettant la performance de l'entreprise, l'excellence opérationnelle, la préparation de la main-d'œuvre et la conformité totale à la réglementation. Responsabilités au niveau du site : 1. leadership RH du site et partenariat commercial - Définir et exécuter la feuille de route RH du site, alignée sur la stratégie RH mondiale et les priorités opérationnelles. - Agir en tant que conseiller de confiance auprès de l'équipe dirigeante du site, en stimulant les performances, l'efficacité du leadership et la santé de l'organisation. - Mener des initiatives en matière de changement, de transformation et de culture, en soutenant l'évolution du site et la continuité des activités. - Assurer la continuité des activités des RH, la préparation aux crises et l'atténuation des risques liés à la main-d'œuvre. - Gérer le budget RH du site et favoriser l'efficacité des processus et l'optimisation des coûts d'exploitation. - Contribuer aux initiatives et projets RH mondiaux, en représentant les perspectives du site. 2. Relations avec les employés, conformité et gouvernance (SITE) - Prendre en charge les relations avec les employés et la conformité au droit du travail, y compris les enquêtes, les griefs et la résolution des litiges. - Diriger l'engagement avec les partenaires sociaux et les représentants des employés, le cas échéant. - Représenter l'entreprise lors des audits internes et externes. - Travailler en étroite collaboration avec le service juridique et le service des communications sur les dossiers sensibles. - S'approprier les thèmes de l'intégrité, de la prise de parole et de l'éthique au niveau du site et du pays. - Veiller à l'application cohérente des politiques, des contrôles internes et des exigences réglementaires. 3. Talent, leadership et engagement (exécution du site) - Diriger la planification stratégique des effectifs en fonction de la capacité du site, de ses aptitudes et de ses besoins futurs. - Superviser le recrutement pour les rôles critiques et l'attraction des talents au niveau du site. - Diriger la gestion des performances, le développement du leadership et la planification des successions (en conformité avec les cadres mondiaux). - S'occuper de la qualité de l'intégration, de l'accent mis sur le développement des employés et des initiatives d'engagement. - Exécuter des activités d'apprentissage et de développement (non GxP) au niveau du site. - Coordonner les missions internationales (exécution sur le site). - Soutenir les communications internes et l'image de marque de l'employeur au niveau du site. 4. Paie et avantages sociaux (gouvernance du site) - Assurer une gestion précise et conforme de la paie et des avantages sociaux (par l'intermédiaire du People Hub, le cas échéant). - Travailler en partenariat avec Total Rewards pour garantir des pratiques de rémunération compétitives et conformes. - Superviser le temps et la présence, l'absentéisme, la qualité des données de base des RH et la gouvernance de l'administration des RH. - Vous êtes responsable de la gestion des données, ce qui permet d'établir des rapports et des analyses fiables sur les ressources humaines. 5. Reporting, Analytics & KPIs - Assurer un reporting RH précis et en temps voulu sur le site. - Favoriser la prise de décision basée sur les données en utilisant les KPI RH définis. - Suivre les tendances liées à la rétention, à l'engagement, à la performance et aux risques liés à la main-d'œuvre. Indicateurs de performance clés : - La livraison de la feuille de route RH du site (qualité, temps, coût) - La conformité avec le droit du travail, les politiques et les contrôles - L'engagement des employés et l'efficacité du leadership - La rétention des rôles critiques - L'efficacité de la gestion de la performance Votre profil : Que recherchons-nous ? Formation : - Licence en droit, relations sociales, psychologie, gestion des ressources humaines ou dans un domaine connexe - Master ou diplôme d'études supérieures en ressources humaines de préférence Expérience : - 10+ ans d'expérience en leadership RH dans un environnement multinational (industrie pharmaceutique de préférence) - Expérience prouvée dans la direction des RH au niveau du site - Expérience dans des environnements multi-sites ou matriciels Langues : - Maîtrise du français et de l'anglais Compétences : - Réflexion stratégique avec un sens aigu des affaires - Capacité avérée à influencer et à conduire le changement - Forte expertise en matière de relations sociales - Leadership du changement et compétences en matière de communication - Grande intégrité, sensibilité culturelle et compétences interpersonnelles Vos avantages : Qu'offrons-nous ? - Parking gratuit - Assurance maladie : Jusqu'à 10% de rabais sur les assurances complémentaires auprès de nos partenaires - Plan d'achat d'actions généreux et personnalisable - Allocation pour enfant : Siegfried AG augmente l'allocation cantonale légale de 10% et verse 100 CHF supplémentaires par mois - Possibilités individuelles de formation continue - Chèques Reka : Siegfried AG offre à ses employés un rabais de 20% - Plan de prévoyance d'entreprise attrayant - Cours de fitness sur place et nombreuses manifestations d'entreprise - Accès à la plateforme de prévoyance Swibeco - 5 semaines de vacances et la possibilité de racheter jusqu'à 2 semaines Si l'idée de rejoindre notre groupe vous enthousiasme, nous serions ravis de vous entendre. Posez votre candidature dès aujourd'hui et participez à la construction de quelque chose d'extraordinaire ! Fondée en 1873 à Zofingen, en Suisse, Siegfried s'est développée en un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir assurer le développement et la fabrication d'API et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique. Siegfried est une CDMO (Contract Development & Manufacturing Organization) de premier plan dont le siège se trouve à Zofingen, en Suisse. La société exploite des sites de production à Evionnaz (Valais), Zofingen (Argovie) et Schlieren (Zurich)."
       },
@@ -1507,7 +1522,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Site-HR-Head_R26_379",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T11:26:45.280Z",
+      "crawledAt": "2026-04-30T22:28:11.791Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1521,26 +1536,13 @@
       "postedDate": "2026-04-30",
       "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Site-HR-Head_R26_379",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R26_379",
       "hiringOrganization": "Siegfried Evionnaz SA",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-30T11:26:45.280Z",
       "previousSlugsByLocale": {
+        "en": [
+          "site-hr-head-siegfried-ch"
+        ],
         "it": [
           "site-hr-head-siegfried-ch"
         ],
@@ -1553,7 +1555,21 @@
       },
       "previousSlugs": [
         "site-hr-head-siegfried-ch"
-      ]
+      ],
+      "firstSeenAt": "2026-04-30T11:26:45.280Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950"
     }
   ]
 }
