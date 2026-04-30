@@ -4358,6 +4358,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-spese-carburante-air-france-2026.title': 'Air France prévoit 9,3 milliards de dollars pour le carburant en 2026',
     'blog.article.aumento-spese-carburante-air-france-2026.excerpt': 'Air France dépensera 9,3 milliards de dollars en carburant en 2026, soit une augmentation de 2,4 milliards par rapport à 2025.',
     'blog.article.aumento-spese-carburante-air-france-2026.imageAlt': 'Vue aérienne de Lugano avec des avions Air France en arrière-plan, mettant en valeur la silhouette de la ville et la frontière suisse-italienne.',
+    'blog.article.trenord-ritardi-frontalieri-2026.title': 'Trenord : 17 lignes insuffisantes en 2026',
+    'blog.article.trenord-ritardi-frontalieri-2026.excerpt': 'En février 2026, 17 lignes Trenord sur 42 ont droit à une indemnisation pour retards. Astuti (Pd) : \'Le conseiller Lucente doit s\'expliquer\'',
+    'blog.article.trenord-ritardi-frontalieri-2026.imageAlt': 'Gare bondée au Tessin avec des passagers attendant des trains en retard',
 };
 
 export default blogMetaFr;

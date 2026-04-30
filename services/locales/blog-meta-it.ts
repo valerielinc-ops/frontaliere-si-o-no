@@ -4358,6 +4358,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-spese-carburante-air-france-2026.title': 'Aumento spese carburante Air France: 2,4 miliardi di dollari per 2026',
     'blog.article.aumento-spese-carburante-air-france-2026.excerpt': 'Air France spenderà 9,3 miliardi di dollari in carburante nel 2026, un aumento di 2,4 miliardi rispetto al 2025.',
     'blog.article.aumento-spese-carburante-air-france-2026.imageAlt': 'Vista aerea di Lugano con aerei Air France sullo sfondo, mostrando la skyline della città e il confine italo-svizzero.',
+    'blog.article.trenord-ritardi-frontalieri-2026.title': 'Trenord: 17 linee insufficienti a febbraio 2026. Astuti chiede spiegazioni',
+    'blog.article.trenord-ritardi-frontalieri-2026.excerpt': 'A febbraio 2026, 17 linee Trenord su 42 hanno diritto all\'indennizzo per ritardi. Astuti (Pd): \'Assessore Lucente spieghi\'',
+    'blog.article.trenord-ritardi-frontalieri-2026.imageAlt': 'Stazione ferroviaria affollata in Ticino con passeggeri in attesa di treni in ritardo',
 };
 
 export default blogMetaIt;

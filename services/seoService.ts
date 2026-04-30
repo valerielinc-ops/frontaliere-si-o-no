@@ -2683,6 +2683,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pulmino-elettrico-granello-cislago-2026': { name: 'Novità', path: '/articoli-frontaliere/pulmino-elettrico-granello-cislago-2026', parent: 'blog' },
     'blog-ambrogio-castiglioni-digital-industries-world': { name: 'Novità', path: '/articoli-frontaliere/ambrogio-castiglioni-digital-industries-world', parent: 'blog' },
     'blog-aumento-spese-carburante-air-france-2026': { name: 'Air France', path: '/articoli-frontaliere/aumento-spese-carburante-air-france-2026', parent: 'blog' },
+    'blog-trenord-ritardi-frontalieri-2026': { name: 'Trenord ritardi', path: '/articoli-frontaliere/trenord-ritardi-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

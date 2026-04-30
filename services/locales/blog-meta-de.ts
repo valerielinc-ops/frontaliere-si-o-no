@@ -4357,6 +4357,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-spese-carburante-air-france-2026.title': 'Air France: 2,4 Mrd. Dollar mehr für Treibstoff 2026',
     'blog.article.aumento-spese-carburante-air-france-2026.excerpt': 'Air France plant 9,3 Mrd. Dollar für Treibstoff 2026, ein Anstieg von 2,4 Mrd. Dollar im Vergleich zu 2025.',
     'blog.article.aumento-spese-carburante-air-france-2026.imageAlt': 'Luftbild von Lugano mit Air-France-Flugzeugen im Hintergrund, das die Skyline der Stadt und die schweizerisch-italienische Grenze zeigt.',
+    'blog.article.trenord-ritardi-frontalieri-2026.title': 'Trenord: 17 Linien im Februar 2026 unzureichend. Astuti fordert Erklärungen',
+    'blog.article.trenord-ritardi-frontalieri-2026.excerpt': 'Im Februar 2026 haben 17 von 42 Trenord-Linien Anspruch auf Entschädigung für Verspätungen. Astuti (Pd): \'Assessor Lucente soll erklären\'',
+    'blog.article.trenord-ritardi-frontalieri-2026.imageAlt': 'Überfüllte Bahnhof in Tessin mit Passagieren, die auf verspätete Züge warten',
 };
 
 export default blogMetaDe;

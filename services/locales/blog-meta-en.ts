@@ -4357,6 +4357,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-spese-carburante-air-france-2026.title': 'Air France to spend };.4 billion more on fuel in 2026',
     'blog.article.aumento-spese-carburante-air-france-2026.excerpt': 'Air France will spend $9.3 billion on fuel in 2026, a };.4 billion increase from 2025.',
     'blog.article.aumento-spese-carburante-air-france-2026.imageAlt': 'Aerial view of Lugano with Air France aircraft in the background, showcasing the city\'s skyline and the Swiss-Italian border.',
+    'blog.article.trenord-ritardi-frontalieri-2026.title': 'Trenord: 17 lines insufficient by February 2026',
+    'blog.article.trenord-ritardi-frontalieri-2026.excerpt': 'In February 2026, 17 out of 42 Trenord lines are eligible for delay compensation. Astuti (Pd): \'Assessor Lucente, please explain\'',
+    'blog.article.trenord-ritardi-frontalieri-2026.imageAlt': 'Crowded train station in Ticino with passengers waiting for delayed trains',
 };
 
 export default blogMetaEn;

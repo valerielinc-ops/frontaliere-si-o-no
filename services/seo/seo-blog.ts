@@ -29097,6 +29097,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trenord-ritardi-frontalieri-2026': {
+    title: 'Trenord: 17 linee insufficienti a febbraio 2026. Astuti chiede spiegazioni',
+    description: 'A febbraio 2026, 17 linee Trenord su 42 hanno diritto all\'indennizzo per ritardi. Astuti (Pd): \'Assessore Lucente spieghi\'. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenord, linee, insufficienti, febbraio',
+    ogTitle: 'Trenord: 17 linee insufficienti a febbraio 2026. Astuti chiede spiegazioni',
+    ogDescription: 'A febbraio 2026, 17 linee Trenord su 42 hanno diritto all\'indennizzo per ritardi. Astuti (Pd): \'Assessore Lucente spieghi\'',
+    canonicalPath: '/articoli-frontaliere/trenord-ritardi-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenord: 17 linee insufficienti a febbraio 2026. Astuti chiede spiegazioni",
+      "description": "A febbraio 2026, 17 linee Trenord su 42 hanno diritto all'indennizzo per ritardi. Astuti (Pd): 'Assessore Lucente spieghi'. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trenord-ritardi-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria affollata in Ticino con passeggeri in attesa di treni in ritardo"
+      },
+      "datePublished": "2026-04-30T15:38:40+00:00",
+      "dateModified": "2026-04-30T15:38:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trenord-ritardi-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
