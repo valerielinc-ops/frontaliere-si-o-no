@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-6y8eo0",
-      "slug": "data-ingegnere-chiasso",
+      "slug": "ingegnere-dati-lastminute-com-chiasso",
       "company": "lastminute.com",
       "title": "Data Engineer",
       "location": "Chiasso",
@@ -60,7 +60,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "data-ingegnere-chiasso",
+        "it": "ingegnere-dati-lastminute-com-chiasso",
         "en": "data-engineer-lastminute-com-chiasso",
         "de": "data-ingenieur-chiasso",
         "fr": "data-ingenieur-chiasso"
@@ -70,14 +70,16 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "data-engineer-chiasso"
+          "data-engineer-chiasso",
+          "data-ingegnere-chiasso"
         ],
         "en": [
           "data-engineer-chiasso"
         ]
       },
       "previousSlugs": [
-        "data-engineer-chiasso"
+        "data-engineer-chiasso",
+        "data-ingegnere-chiasso"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,

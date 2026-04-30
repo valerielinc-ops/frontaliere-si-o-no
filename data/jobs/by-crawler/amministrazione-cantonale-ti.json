@@ -39,20 +39,27 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "operaio-a-a-tempo-tempo-100-presso-l-area-dell-esercizio-e-della-manutenzione-centro-di-manutenzione-cmloc-locarno-ammin",
-        "en": "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-maintenance-centro-di-maintenance-cmloc-locarno-orario-di-lavoro-42-ore-set-213icc",
+        "en": "operating-time-100-at-the-operating-and-maintenance-area-maintenance-centre-cmloc-locarno-amministrazione-cantonale-tici",
         "de": "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-wartung-centro-di-wartung-cmloc-locarno-orario-di-lavoro-42-ore-settimanali-213icc",
-        "fr": "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-maintenance-centro-di-maintenance-cmloc-locarno-orario-di-lavoro-42-ore-set-213icc"
+        "fr": "temps-d-exploitation-100-au-secteur-d-exploitation-et-d-entretien-centre-d-entretien-cmloc-locarno-amministrazione-canto"
       },
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-manutenzione-centro-di-manutenzione-cmloc-locarno-orario-di-lavoro-42-ore-s",
           "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-manutenzione-centro-di-manutenzione-cmloc-locarno-orario-di-lavoro-42-ore-s-213icc"
+        ],
+        "en": [
+          "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-maintenance-centro-di-maintenance-cmloc-locarno-orario-di-lavoro-42-ore-set-213icc"
+        ],
+        "fr": [
+          "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-maintenance-centro-di-maintenance-cmloc-locarno-orario-di-lavoro-42-ore-set-213icc"
         ]
       },
       "previousSlugs": [
         "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-manutenzione-centro-di-manutenzione-cmloc-locarno-orario-di-lavoro-42-ore-s",
-        "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-manutenzione-centro-di-manutenzione-cmloc-locarno-orario-di-lavoro-42-ore-s-213icc"
+        "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-manutenzione-centro-di-manutenzione-cmloc-locarno-orario-di-lavoro-42-ore-s-213icc",
+        "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-maintenance-centro-di-maintenance-cmloc-locarno-orario-di-lavoro-42-ore-set-213icc"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -109,14 +116,23 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-amministrazione-cantonale-ticino-bell",
-        "en": "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-imp-213ibo",
-        "de": "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-imp-213ibo",
-        "fr": "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-imp-213ibo"
+        "en": "director-full-time-100-at-cantonal-finance-control-bellinzona-amministrazione-cantonale-ticino-bellinzona",
+        "de": "director-vollzeit-100-bei-cantonal-finance-control-bellinzona-amministrazione-cantonale-ticino-bellinzona",
+        "fr": "directeur-a-temps-plein-100-a-cantonal-finance-control-bellinzona-amministrazione-cantonale-ticino-bellinzona"
       },
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-imp",
+          "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-imp-213ibo"
+        ],
+        "en": [
+          "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-imp-213ibo"
+        ],
+        "de": [
+          "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-imp-213ibo"
+        ],
+        "fr": [
           "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-imp-213ibo"
         ]
       },

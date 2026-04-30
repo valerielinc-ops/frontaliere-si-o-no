@@ -2236,8 +2236,8 @@
       "slugByLocale": {
         "en": "hotel-cleanliness-supervisor-marriott-geneva",
         "it": "hotel-cleanliness-supervisor-marriott-international-geneva",
-        "de": "umsatzmanager-marriott-international-geneva",
-        "fr": "responsable-revenue-management-marriott-international-geneva"
+        "de": "hotel-cleanliness-vorgesetzter-marriott-international-geneva",
+        "fr": "hotel-cleanliness-superviseur-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2293,10 +2293,18 @@
       "previousSlugsByLocale": {
         "it": [
           "responsabile-revenue-management-marriott-international-geneva"
+        ],
+        "de": [
+          "umsatzmanager-marriott-international-geneva"
+        ],
+        "fr": [
+          "responsable-revenue-management-marriott-international-geneva"
         ]
       },
       "previousSlugs": [
-        "responsabile-revenue-management-marriott-international-geneva"
+        "responsabile-revenue-management-marriott-international-geneva",
+        "umsatzmanager-marriott-international-geneva",
+        "responsable-revenue-management-marriott-international-geneva"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2949,12 +2957,12 @@
     },
     {
       "id": "marriott-d30b74a65259",
-      "slug": "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
+      "slug": "chef-de-partie-marriott-international-geneva",
       "slugByLocale": {
         "en": "chef-de-rang-marriott-geneva",
-        "it": "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
-        "de": "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
-        "fr": "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+        "it": "chef-de-partie-marriott-international-geneva",
+        "de": "kuchenhilfskraft-marriott-international-geneva",
+        "fr": "cheffe-de-rang-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3018,7 +3026,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-29T22:16:08.687Z"
+      "firstSeenAt": "2026-04-29T22:16:08.687Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier"
+        ],
+        "de": [
+          "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier"
+        ],
+        "fr": [
+          "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
+        "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
+        "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+      ]
     },
     {
       "id": "marriott-3295b8db2bf7",

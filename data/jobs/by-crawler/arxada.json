@@ -1713,10 +1713,10 @@
     },
     {
       "id": "arxada-7d7876a4eac4",
-      "slug": "lab-assistant-in-junior-chemist-r-t-arxada-ch",
+      "slug": "assistente-in-laboratorio-junior-chemist-r-t-arxada-visp",
       "slugByLocale": {
         "de": "lab-assistant-in-junior-chemist-r-t-arxada-ch",
-        "it": "lab-assistant-in-junior-chemist-r-t-arxada-ch",
+        "it": "assistente-in-laboratorio-junior-chemist-r-t-arxada-visp",
         "en": "lab-assistant-in-junior-chemist-r-t-arxada-ch",
         "fr": "lab-assistant-in-junior-chemist-r-t-arxada-ch"
       },
@@ -1773,7 +1773,15 @@
         }
       },
       "postalCode": "3930",
-      "firstSeenAt": "2026-04-29T21:17:43.554Z"
+      "firstSeenAt": "2026-04-29T21:17:43.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-assistant-in-junior-chemist-r-t-arxada-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lab-assistant-in-junior-chemist-r-t-arxada-ch"
+      ]
     }
   ]
 }

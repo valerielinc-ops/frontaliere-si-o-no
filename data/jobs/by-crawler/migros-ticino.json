@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-fa8to6",
-      "slug": "collaboratore-trice-in-restaurant-migros-restaurant-chur-fa8to6",
+      "slug": "staff-in-ristorante-migros-restaurant-chur",
       "company": "Migros Restaurant",
       "title": "Mitarbeiter*in Restaurant",
       "location": "Chur",
@@ -72,7 +72,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-in-restaurant-migros-restaurant-chur-fa8to6",
+        "it": "staff-in-ristorante-migros-restaurant-chur",
         "en": "mitarbeiter-in-restaurant-migros-restaurant-chur-fa8to6",
         "de": "mitarbeiter-in-restaurant-migros-restaurant-chur-fa8to6",
         "fr": "mitarbeiter-in-restaurant-migros-restaurant-chur-fa8to6"
@@ -80,11 +80,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-restaurant-migros-restaurant-chur"
+          "mitarbeiter-in-restaurant-migros-restaurant-chur",
+          "collaboratore-trice-in-restaurant-migros-restaurant-chur-fa8to6"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-restaurant-migros-restaurant-chur"
+        "mitarbeiter-in-restaurant-migros-restaurant-chur",
+        "collaboratore-trice-in-restaurant-migros-restaurant-chur-fa8to6"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

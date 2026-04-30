@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-d4941655b8da",
-      "slug": "fachspezialistin-fachspezialist-lohnabrechnung-60-70-hilcona-schaan",
+      "slug": "specialista-payroll-hilcona-ag-schaan",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-lohnabrechnung-60-70-hilcona-schaan",
-        "it": "fachspezialistin-fachspezialist-lohnabrechnung-60-70-hilcona-schaan",
-        "en": "fachspezialistin-fachspezialist-lohnabrechnung-60-70-hilcona-schaan",
-        "fr": "fachspezialistin-fachspezialist-lohnabrechnung-60-70-hilcona-schaan"
+        "it": "specialista-payroll-hilcona-ag-schaan",
+        "en": "payroll-specialist-hilcona-ag-schaan",
+        "fr": "specialiste-paie-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -61,16 +61,30 @@
       },
       "postalCode": "7000",
       "firstSeenAt": "2026-04-29T22:01:47.557Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-lohnabrechnung-60-70-hilcona-schaan"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-lohnabrechnung-60-70-hilcona-schaan"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-lohnabrechnung-60-70-hilcona-schaan"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-lohnabrechnung-60-70-hilcona-schaan"
+      ]
     },
     {
       "id": "hilcona-2a2f1d6dfd55",
-      "slug": "teamleiter-teamleiterin-warenlager-rhb-oensingen-bell-schweiz-ag-oensingen",
+      "slug": "team-leader-rhb-oensingen-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "teamleiter-teamleiterin-warenlager-rhb-oensingen-bell-schweiz-ag-oensingen",
-        "it": "teamleiter-teamleiterin-warenlager-rhb-oensingen-bell-schweiz-ag-oensingen",
+        "it": "team-leader-rhb-oensingen-bell-schweiz-ag-oensingen",
         "en": "teamleiter-teamleiterin-warenlager-rhb-oensingen-bell-schweiz-ag-oensingen",
-        "fr": "teamleiter-teamleiterin-warenlager-rhb-oensingen-bell-schweiz-ag-oensingen"
+        "fr": "chef-d-equipe-rhb-oensingen-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -109,14 +123,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-teamleiterin-warenlager-rhb-oensingen-hilcona-oensingen"
+          "teamleiter-teamleiterin-warenlager-rhb-oensingen-hilcona-oensingen",
+          "teamleiter-teamleiterin-warenlager-rhb-oensingen-bell-schweiz-ag-oensingen"
         ],
         "de": [
           "teamleiter-teamleiterin-warenlager-rhb-oensingen-hilcona-oensingen"
+        ],
+        "fr": [
+          "teamleiter-teamleiterin-warenlager-rhb-oensingen-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "teamleiter-teamleiterin-warenlager-rhb-oensingen-hilcona-oensingen"
+        "teamleiter-teamleiterin-warenlager-rhb-oensingen-hilcona-oensingen",
+        "teamleiter-teamleiterin-warenlager-rhb-oensingen-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
