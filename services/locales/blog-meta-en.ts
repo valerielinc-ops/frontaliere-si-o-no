@@ -4150,6 +4150,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ispra-pranzo-solidale-oratorio-2026.title': 'Ispra: success at the second solidarity lunch in the oratory',
     'blog.article.ispra-pranzo-solidale-oratorio-2026.excerpt': 'Great turnout in Ispra for the solidarity lunch organized by the Pastoral Community and the Association of Ispra Volunteers.',
     'blog.article.ispra-pranzo-solidale-oratorio-2026.imageAlt': 'A group of people enjoying a communal meal in a warm, inviting oratory hall in Ispra, Italy.',
+    'blog.article.malpensa-contanti-sequestri-370mila-euro.title': 'Malpensa: €6m in cash seized in 3 months',
+    'blog.article.malpensa-contanti-sequestri-370mila-euro.excerpt': 'Finance Police and Customs checks reveal violations for over €6 million in undeclared cash.',
+    'blog.article.malpensa-contanti-sequestri-370mila-euro.imageAlt': 'Malpensa Airport with security personnel and cash detection dogs',
 };
 
 export default blogMetaEn;

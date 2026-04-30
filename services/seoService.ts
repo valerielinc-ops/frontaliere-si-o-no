@@ -2614,6 +2614,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-moda-sostenibile-varese-2026': { name: 'Moda sostenibile', path: '/articoli-frontaliere/moda-sostenibile-varese-2026', parent: 'blog' },
     'blog-sciopero-fame-timoc-terreno-conteso': { name: 'Novità', path: '/articoli-frontaliere/sciopero-fame-timoc-terreno-conteso', parent: 'blog' },
     'blog-ispra-pranzo-solidale-oratorio-2026': { name: 'Novità', path: '/articoli-frontaliere/ispra-pranzo-solidale-oratorio-2026', parent: 'blog' },
+    'blog-malpensa-contanti-sequestri-370mila-euro': { name: 'Malpensa Contanti', path: '/articoli-frontaliere/malpensa-contanti-sequestri-370mila-euro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -27096,6 +27096,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-malpensa-contanti-sequestri-370mila-euro': {
+    title: 'Malpensa: 6 milioni in contanti sequestrati in 3 mesi',
+    description: 'Controlli della Guardia di Finanza e Dogane rivelano violazioni per oltre 6 milioni di euro in contanti non dichiarati. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, malpensa, milioni, contanti, sequestrati',
+    ogTitle: 'Malpensa: 6 milioni in contanti sequestrati in 3 mesi',
+    ogDescription: 'Controlli della Guardia di Finanza e Dogane rivelano violazioni per oltre 6 milioni di euro in contanti non dichiarati.',
+    canonicalPath: '/articoli-frontaliere/malpensa-contanti-sequestri-370mila-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malpensa: 6 milioni in contanti sequestrati in 3 mesi",
+      "description": "Controlli della Guardia di Finanza e Dogane rivelano violazioni per oltre 6 milioni di euro in contanti non dichiarati. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/malpensa-contanti-sequestri-370mila-euro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Malpensa con personale delle forze dell'ordine e cani anti-contanti"
+      },
+      "datePublished": "2026-04-30T05:08:39+00:00",
+      "dateModified": "2026-04-30T05:08:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malpensa-contanti-sequestri-370mila-euro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

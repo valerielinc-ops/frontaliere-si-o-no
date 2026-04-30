@@ -10696,4 +10696,11 @@ export const ARTICLES = [
  image: '/images/blog/ispra-pranzo-solidale-oratorio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'malpensa-contanti-sequestri-370mila-euro',
+ category: 'novita',
+ date: '2026-04-30T05:08:39.382Z',
+ image: '/images/blog/malpensa-contanti-sequestri-370mila-euro.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

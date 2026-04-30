@@ -4151,6 +4151,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ispra-pranzo-solidale-oratorio-2026.title': 'Ispra: successo al secondo pranzo solidale in oratorio',
     'blog.article.ispra-pranzo-solidale-oratorio-2026.excerpt': 'Grande partecipazione a Ispra per il pranzo solidale organizzato dalla Comunità pastorale e dall\'Associazione Volontari ispresi.',
     'blog.article.ispra-pranzo-solidale-oratorio-2026.imageAlt': 'Un gruppo di persone gode di un pasto comunitario in una sala oratorio accogliente a Ispra, Italia.',
+    'blog.article.malpensa-contanti-sequestri-370mila-euro.title': 'Malpensa: 6 milioni in contanti sequestrati in 3 mesi',
+    'blog.article.malpensa-contanti-sequestri-370mila-euro.excerpt': 'Controlli della Guardia di Finanza e Dogane rivelano violazioni per oltre 6 milioni di euro in contanti non dichiarati.',
+    'blog.article.malpensa-contanti-sequestri-370mila-euro.imageAlt': 'Aeroporto di Malpensa con personale delle forze dell\'ordine e cani anti-contanti',
 };
 
 export default blogMetaIt;
