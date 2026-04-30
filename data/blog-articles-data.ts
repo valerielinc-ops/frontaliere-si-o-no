@@ -10850,4 +10850,11 @@ export const ARTICLES = [
  image: '/images/blog/certificazione-greco-antico-lombardia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rokj-lugano-serata-solidale',
+ category: 'novita',
+ date: '2026-04-30T08:06:30.656Z',
+ image: '/images/blog/rokj-lugano-serata-solidale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

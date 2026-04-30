@@ -27734,6 +27734,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rokj-lugano-serata-solidale': {
+    title: 'ROKJ Ticino: serata solidale il 6 maggio a Lugano | Frontaliere Ticino',
+    description: 'Scopri come partecipare alla serata solidale di ROKJ Ticino il 6 maggio a Lugano con Sebalter per sostenere bambini e giovani in difficoltà. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, rokj, serata, solidale, maggio',
+    ogTitle: 'ROKJ Ticino: serata solidale il 6 maggio a Lugano',
+    ogDescription: 'Partecipa alla serata solidale di ROKJ Ticino il 6 maggio a Lugano con Sebalter per sostenere bambini e giovani in difficoltà.',
+    canonicalPath: '/articoli-frontaliere/rokj-lugano-serata-solidale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ROKJ Ticino: serata solidale il 6 maggio a Lugano",
+      "description": "Scopri come partecipare alla serata solidale di ROKJ Ticino il 6 maggio a Lugano con Sebalter per sostenere bambini e giovani in difficoltà. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rokj-lugano-serata-solidale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Serata solidale all'Asilo Ciani di Lugano"
+      },
+      "datePublished": "2026-04-30T08:06:30+00:00",
+      "dateModified": "2026-04-30T08:06:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rokj-lugano-serata-solidale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

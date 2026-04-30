@@ -4216,6 +4216,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.certificazione-greco-antico-lombardia-2026.title': 'Ancient Greek certified in Lombardy: first in Italy',
     'blog.article.certificazione-greco-antico-lombardia-2026.excerpt': 'From May 6 to 7, 2026, students from Lombardy\'s classical high schools will be able to obtain an official certification in Ancient Greek.',
     'blog.article.certificazione-greco-antico-lombardia-2026.imageAlt': 'Students taking an ancient Greek exam in a modern classroom in Ticino',
+    'blog.article.rokj-lugano-serata-solidale.title': 'ROKJ Ticino: charity evening with Sebalter on May 6th in Lugano',
+    'blog.article.rokj-lugano-serata-solidale.excerpt': 'ROKJ Ticino is hosting a charity evening on May 6th featuring Sebalter to support children and young people in financial need.',
+    'blog.article.rokj-lugano-serata-solidale.imageAlt': 'Charity evening at Asilo Ciani in Lugano',
 };
 
 export default blogMetaEn;

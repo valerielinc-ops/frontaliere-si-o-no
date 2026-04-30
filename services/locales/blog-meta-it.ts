@@ -4217,6 +4217,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.certificazione-greco-antico-lombardia-2026.title': 'Greco antico certificato in Lombardia: prima volta in Italia',
     'blog.article.certificazione-greco-antico-lombardia-2026.excerpt': 'Dal 6 al 7 maggio 2026, studenti dei licei classici lombardi potranno ottenere una certificazione ufficiale in greco antico.',
     'blog.article.certificazione-greco-antico-lombardia-2026.imageAlt': 'Studenti che partecipano a un esame di greco antico in una classe moderna in Ticino',
+    'blog.article.rokj-lugano-serata-solidale.title': 'ROKJ Ticino: serata solidale il 6 maggio a Lugano',
+    'blog.article.rokj-lugano-serata-solidale.excerpt': 'L\'associazione ROKJ Ticino presenta una serata solidale il 6 maggio con Sebalter per sostenere bambini e giovani in difficoltà economiche.',
+    'blog.article.rokj-lugano-serata-solidale.imageAlt': 'Serata solidale all\'Asilo Ciani di Lugano',
 };
 
 export default blogMetaIt;

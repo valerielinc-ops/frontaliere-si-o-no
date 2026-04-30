@@ -4216,6 +4216,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.certificazione-greco-antico-lombardia-2026.title': 'Zertifizierter Altgriechisch in Lombardei: Italien-Premiere',
     'blog.article.certificazione-greco-antico-lombardia-2026.excerpt': 'Vom 6. bis 7. Mai 2026 können Schüler der klassischen Gymnasien in der Lombardei ein offizielles Zertifikat in Altgriechisch erhalten.',
     'blog.article.certificazione-greco-antico-lombardia-2026.imageAlt': 'Schüler, die eine Prüfung in Altgriechisch in einem modernen Klassenzimmer in Tessin ablegen',
+    'blog.article.rokj-lugano-serata-solidale.title': 'ROKJ Ticino: Benefizabend mit Sebalter am 6. Mai in Lugano',
+    'blog.article.rokj-lugano-serata-solidale.excerpt': 'Der Verein ROKJ Ticino veranstaltet am 6. Mai einen Benefizabend mit Sebalter, um Kinder und Jugendliche in finanzieller Not zu unterstützen.',
+    'blog.article.rokj-lugano-serata-solidale.imageAlt': 'Wohltätigkeitsabend im Asilo Ciani in Lugano',
 };
 
 export default blogMetaDe;

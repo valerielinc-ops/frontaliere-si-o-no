@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1455,
+ "numberOfItems": 1456,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6090,7 +6090,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1452, "name": "Samantha Bourgoin è la nuova presidente di Apis...", "url": `${BASE_URL}/articoli-frontaliere/samantha-bourgoin-apisuisse-2026` },
           { "@type": "ListItem", "position": 1453, "name": "Birdwatching a Monteviasco: escursione per risc...", "url": `${BASE_URL}/articoli-frontaliere/birdwatching-monteviasco-2026` },
           { "@type": "ListItem", "position": 1454, "name": "Gallarate: Bilancio Cassani 2026, opere ma scon...", "url": `${BASE_URL}/articoli-frontaliere/gallarate-bilancio-cassani-2026` },
-          { "@type": "ListItem", "position": 1455, "name": "Greco antico certificato in Lombardia: prima vo...", "url": `${BASE_URL}/articoli-frontaliere/certificazione-greco-antico-lombardia-2026` }
+          { "@type": "ListItem", "position": 1455, "name": "Greco antico certificato in Lombardia: prima vo...", "url": `${BASE_URL}/articoli-frontaliere/certificazione-greco-antico-lombardia-2026` },
+          { "@type": "ListItem", "position": 1456, "name": "ROKJ Ticino: serata solidale il 6 maggio a Lugano", "url": `${BASE_URL}/articoli-frontaliere/rokj-lugano-serata-solidale` }
  ]
  },
  {
