@@ -2280,38 +2280,49 @@ ${hreflangHtml}
  }
  recordEmit('active-job', __tActiveJob);
 
- // Legacy redirect: if non-IT locale and Italian slug differs
- // generate redirect from Italian-slug-in-non-IT-locale → canonical URL.
- // Marked noindex: this URL is a soft redirect to the canonical FR/EN/DE
- // slug. Without noindex, multi-city jobs sharing the same translated
- // role title (e.g. "intendant", "Pool Attendant") emit identical
- // <title> tags across cities and trip the Semrush title-uniqueness gate
- // — and Google would otherwise index the legacy slug alongside the
- // canonical one, splitting authority.
+ // Legacy bridge: if non-IT locale and Italian slug differs from the
+ // locale-canonical slug, emit a FULL-CONTENT bridge at the legacy URL
+ // (Italian slug under non-IT locale prefix → e.g.
+ // /de/jobs-im-tessin/<it-slug>/) using the locale-canonical HTML.
+ //
+ // Replaces the previous thin `buildCanonicalBridgePage` redirect (run
+ // pre-2026-04-30): that emitted a ~5 KB "click here" interstitial with
+ // `noindex,follow` and a `location.replace` script, served bundle-less
+ // pages that flashed a placeholder UI before redirecting. Same pattern
+ // as the previousSlugs bridge (jobsSeoPagesPlugin.ts:7264-7271):
+ //   - reuse the locale-canonical `html` verbatim (full content, SPA
+ //     bundle inside, JSON-LD, hreflang, breadcrumbs, everything)
+ //   - inject __BRIDGE_TARGET_SLUG__ so the SPA looks the job up by the
+ //     canonical slug after hydration (the URL stays at the legacy slug;
+ //     `<link rel="canonical">` inside `html` already points at the
+ //     locale-canonical URL, so Google consolidates link equity)
+ //
+ // Robots: index,follow (the default inside `html`). The previous
+ // `noindex,follow` was a workaround against title-uniqueness duplication
+ // when sister-city jobs share the same translated role; with the
+ // canonical pointing at the locale-canonical URL, Google folds equity
+ // and the Semrush title-uniqueness audit treats the bridge and canonical
+ // as the same indexable surface. Trade-off accepted to give the user
+ // full content immediately at the legacy URL.
+ //
+ // Activejob guard: if another job's canonical in this locale already
+ // claimed this exact path (cross-job IT-slug = locale-slug collision —
+ // rare, but possible for short generic slugs), leave it alone.
  if (locale !== 'it' && perLocaleSlug[locale] !== job.slug) {
- const __tLegacyRedirect = startTimer();
+ const __tLegacyBridge = startTimer();
  const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
- const legacyHtml = buildCanonicalBridgePage({
- canonicalUrl,
- pathLabel: canonicalPath,
- title: `${esc(localizedTitle)} | Frontaliere Ticino`,
- description: `Versione legacy dell annuncio ${localizedTitle}. Apri la pagina canonica aggiornata.`,
- body: `Questa URL legacy dell annuncio non e la versione principale. Usa la pagina canonica per contenuto e metadati aggiornati.`,
- ctaLabel: String(localizedTitle || 'Apri annuncio'),
- lang: locale,
- noindex: true,
- });
+ if (!activeJobDirs.has(legacyRel.replace(/\/+$/, ''))) {
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(perLocaleSlug[locale])};</script>`;
+ const legacyIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
+ const legacyFlatHtml = legacyIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
  const legacyDir = np.join(distDir, legacyRel);
- if (!fs.existsSync(np.join(legacyDir, 'index.html'))) {
  _md(legacyDir);
- _qw(np.join(legacyDir, 'index.html'), legacyHtml);
- }
+ _qw(np.join(legacyDir, 'index.html'), legacyIndexHtml);
  const legacyFlat = np.join(distDir, legacyRel + '.html');
- if (!fs.existsSync(legacyFlat)) {
  _md(np.dirname(legacyFlat));
- _qw(legacyFlat, legacyHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qw(legacyFlat, legacyFlatHtml);
  }
- recordEmit('active-job-legacy', __tLegacyRedirect);
+ recordEmit('active-job-legacy-bridge', __tLegacyBridge);
  }
  }
  }

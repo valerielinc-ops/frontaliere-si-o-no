@@ -63,15 +63,36 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('expiredRobotsTag');
     });
 
-    it('legacy slug bridge pages use noindex,follow (Phase 3B: avoid duplicate-title splits)', () => {
-      const start = source.indexOf('// Legacy redirect: if non-IT locale and Italian slug differs');
-      const end = source.indexOf('const legacyFlat', start);
+    it('legacy slug bridge pages serve full locale-canonical HTML (indexable, BRIDGE_TARGET_SLUG injected)', () => {
+      // Phase 4 (2026-04-30): replaces the previous thin
+      // buildCanonicalBridgePage redirect — those were noindex,follow with
+      // a `location.replace` placeholder UI. The new bridge reuses the
+      // full locale-canonical `html` (same pattern as the previousSlugs
+      // bridge at jobsSeoPagesPlugin:7264-7271): `<link rel="canonical">`
+      // inside `html` already points at the locale-canonical URL, so
+      // Google folds equity. Robots stays at the canonical's default
+      // (index,follow) — the previous noindex was a workaround for
+      // title-uniqueness duplication that the canonical signal already
+      // handles. The page is now SPA-hydratable (bundle inside `html`),
+      // monetised (ADSENSE_SNIPPET inherited), and auth-gated for real
+      // users while bypassing for crawlers via `isCrawlerVisitor`.
+      // Anchor on the `if` statement, not the comment, so the comment block
+      // (which legitimately mentions `buildCanonicalBridgePage` to explain
+      // what was replaced) doesn't leak into the assertion text.
+      const ifLine = "if (locale !== 'it' && perLocaleSlug[locale] !== job.slug) {";
+      const start = source.indexOf(ifLine, source.indexOf('// Legacy bridge'));
+      const end = source.indexOf("recordEmit('active-job-legacy-bridge'", start);
       const block = source.slice(start, end);
-      expect(block).toContain('buildCanonicalBridgePage');
-      // Phase 3B: marked noindex because multi-city jobs sharing the same
-      // translated role title would trip Semrush W2 (duplicate <title>) and
-      // split authority across legacy + canonical URLs.
-      expect(block).toContain('noindex: true');
+      // Reuses the locale-canonical html, NOT the thin redirect builder.
+      expect(block).not.toContain('buildCanonicalBridgePage');
+      expect(block).not.toContain('noindex: true');
+      // Hooks: __BRIDGE_TARGET_SLUG__ for the SPA's lookup, plus the
+      // canonical html as the source.
+      expect(block).toContain('__BRIDGE_TARGET_SLUG__');
+      expect(block).toContain('perLocaleSlug[locale]');
+      expect(block).toContain('html.replace(\'</head>\'');
+      // Cross-job collision guard: don't clobber another job's canonical.
+      expect(block).toContain('activeJobDirs.has');
     });
 
     it('company slug alias pages serve full canonical content (no thin stub, no noindex)', () => {
