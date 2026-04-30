@@ -4231,6 +4231,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sanzioni-ue-imprese-italiane-2026.title': 'Breaking EU sanctions is a crime: Italian firms take action',
     'blog.article.sanzioni-ue-imprese-italiane-2026.excerpt': 'As of January 24, 2026, violating EU sanctions may result in up to 6 years imprisonment for individuals and fines up to 5% of turnover for companies.',
     'blog.article.sanzioni-ue-imprese-italiane-2026.imageAlt': 'Business meeting in a modern office in Mendrisio, with a view of the Swiss-Italian border',
+    'blog.article.varese-lavoro-specializzato-paradosso-2026.title': 'Varese: jobs available but skilled workers are missing',
+    'blog.article.varese-lavoro-specializzato-paradosso-2026.excerpt': 'Employment is growing but there are difficulties in finding technical and scientific profiles. Here are the 2025 data',
+    'blog.article.varese-lavoro-specializzato-paradosso-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino and Lombardy shores, clear day',
 };
 
 export default blogMetaEn;

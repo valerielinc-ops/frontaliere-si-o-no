@@ -27879,6 +27879,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-lavoro-specializzato-paradosso-2026': {
+    title: 'Varese: lavoro disponibile ma mancano i lavoratori specializzati',
+    description: 'Occupazione in crescita ma difficoltà a trovare profili tecnici e scientifici. Ecco i dati del 2025. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, lavoro, disponibile, mancano',
+    ogTitle: 'Varese: lavoro disponibile ma mancano i lavoratori specializzati',
+    ogDescription: 'Occupazione in crescita ma difficoltà a trovare profili tecnici e scientifici. Ecco i dati del 2025',
+    canonicalPath: '/articoli-frontaliere/varese-lavoro-specializzato-paradosso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: lavoro disponibile ma mancano i lavoratori specializzati",
+      "description": "Occupazione in crescita ma difficoltà a trovare profili tecnici e scientifici. Ecco i dati del 2025. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-lavoro-specializzato-paradosso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le sponde del Ticino e della Lombardia, giornata limpida"
+      },
+      "datePublished": "2026-04-30T08:51:18+00:00",
+      "dateModified": "2026-04-30T08:51:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-lavoro-specializzato-paradosso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

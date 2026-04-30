@@ -4231,6 +4231,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sanzioni-ue-imprese-italiane-2026.title': 'EU-Sanktionen zu verletzen ist ein Verbrechen: italienische Unternehmen handeln',
     'blog.article.sanzioni-ue-imprese-italiane-2026.excerpt': 'Ab dem 24. Januar 2026 können Verstöße gegen EU-Sanktionen für natürliche Personen bis zu 6 Jahre Haft und für Unternehmen bis zu 5% des Umsatzes an Strafen bedeuten.',
     'blog.article.sanzioni-ue-imprese-italiane-2026.imageAlt': 'Geschäftsbesprechung in einem modernen Büro in Mendrisio mit Blick auf die Schweizer-Italienische Grenze',
+    'blog.article.varese-lavoro-specializzato-paradosso-2026.title': 'Varese: Jobs verfügbar, aber Fachkräfte fehlen',
+    'blog.article.varese-lavoro-specializzato-paradosso-2026.excerpt': 'Die Beschäftigung wächst, doch es gibt Schwierigkeiten, technische und wissenschaftliche Profile zu finden. Hier sind die Daten für 2025',
+    'blog.article.varese-lavoro-specializzato-paradosso-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Ufern des Tessin und der Lombardei, klarer Tag',
 };
 
 export default blogMetaDe;

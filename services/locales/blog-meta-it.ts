@@ -4232,6 +4232,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sanzioni-ue-imprese-italiane-2026.title': 'Violare le sanzioni UE è reato: le imprese italiane corrono ai ripari',
     'blog.article.sanzioni-ue-imprese-italiane-2026.excerpt': 'Dal 24 gennaio 2026, violare le sanzioni UE può comportare pene fino a 6 anni di reclusione per le persone fisiche e sanzioni fino al 5% del fatturato per le imprese.',
     'blog.article.sanzioni-ue-imprese-italiane-2026.imageAlt': 'Riunione di lavoro in un ufficio moderno a Mendrisio, con vista sul confine svizzero-italiano',
+    'blog.article.varese-lavoro-specializzato-paradosso-2026.title': 'Varese: lavoro disponibile ma mancano i lavoratori specializzati',
+    'blog.article.varese-lavoro-specializzato-paradosso-2026.excerpt': 'Occupazione in crescita ma difficoltà a trovare profili tecnici e scientifici. Ecco i dati del 2025',
+    'blog.article.varese-lavoro-specializzato-paradosso-2026.imageAlt': 'Vista aerea del Lago di Lugano con le sponde del Ticino e della Lombardia, giornata limpida',
 };
 
 export default blogMetaIt;
