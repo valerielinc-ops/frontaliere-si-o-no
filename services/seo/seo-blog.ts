@@ -26690,6 +26690,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mani-pulite-vite-salvate-asst-iniziativa': {
+    title: 'Mani pulite, vite salvate: l\'iniziativa di ASST Sette Laghi',
+    description: 'Test pratici per l\'igiene delle mani negli ospedali e case di comunità del Canton Ticino il 5 maggio 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mani, pulite, vite, salvate',
+    ogTitle: 'Mani pulite, vite salvate: l\'iniziativa di ASST Sette Laghi',
+    ogDescription: 'Test pratici per l\'igiene delle mani negli ospedali e case di comunità del Canton Ticino il 5 maggio 2026',
+    canonicalPath: '/articoli-frontaliere/mani-pulite-vite-salvate-asst-iniziativa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mani pulite, vite salvate: l'iniziativa di ASST Sette Laghi",
+      "description": "Test pratici per l'igiene delle mani negli ospedali e case di comunità del Canton Ticino il 5 maggio 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mani-pulite-vite-salvate-asst-iniziativa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Iniziativa di igiene delle mani in un ospedale del Canton Ticino"
+      },
+      "datePublished": "2026-04-30T02:43:22+00:00",
+      "dateModified": "2026-04-30T02:43:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mani-pulite-vite-salvate-asst-iniziativa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4109,6 +4109,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parcheggi-ospedale-circolo-varese-2026.title': 'Parcheggi e viabilità all’Ospedale di Circolo: confronto costruttivo',
     'blog.article.parcheggi-ospedale-circolo-varese-2026.excerpt': 'Incontro tra Asst Sette Laghi, Comune di Varese e sindacati per migliorare parcheggi e viabilità all’Ospedale di Circolo.',
     'blog.article.parcheggi-ospedale-circolo-varese-2026.imageAlt': 'Ospedale di Circolo di Varese con parcheggi e viabilità',
+    'blog.article.mani-pulite-vite-salvate-asst-iniziativa.title': 'Mani pulite, vite salvate: l\'iniziativa di ASST Sette Laghi',
+    'blog.article.mani-pulite-vite-salvate-asst-iniziativa.excerpt': 'Test pratici per l\'igiene delle mani negli ospedali e case di comunità del Canton Ticino il 5 maggio 2026',
+    'blog.article.mani-pulite-vite-salvate-asst-iniziativa.imageAlt': 'Iniziativa di igiene delle mani in un ospedale del Canton Ticino',
 };
 
 export default blogMetaIt;

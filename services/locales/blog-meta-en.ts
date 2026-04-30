@@ -4108,6 +4108,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parcheggi-ospedale-circolo-varese-2026.title': 'Parking and traffic at Circolo Hospital: constructive discussion',
     'blog.article.parcheggi-ospedale-circolo-varese-2026.excerpt': 'Meeting between Asst Sette Laghi, Varese municipality and unions to improve parking and traffic at Circolo Hospital.',
     'blog.article.parcheggi-ospedale-circolo-varese-2026.imageAlt': 'Circolo Hospital in Varese with parking and traffic',
+    'blog.article.mani-pulite-vite-salvate-asst-iniziativa.title': 'Clean hands, saved lives: ASST Sette Laghi initiative',
+    'blog.article.mani-pulite-vite-salvate-asst-iniziativa.excerpt': 'Practical tests for hand hygiene in hospitals and community homes in Canton Ticino on May 5, 2026',
+    'blog.article.mani-pulite-vite-salvate-asst-iniziativa.imageAlt': 'Hand hygiene initiative in a Ticino hospital',
 };
 
 export default blogMetaEn;

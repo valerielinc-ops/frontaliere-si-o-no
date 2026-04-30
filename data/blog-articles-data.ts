@@ -10598,4 +10598,11 @@ export const ARTICLES = [
  image: '/images/blog/parcheggi-ospedale-circolo-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mani-pulite-vite-salvate-asst-iniziativa',
+ category: 'novita',
+ date: '2026-04-30T02:43:22.681Z',
+ image: '/images/blog/mani-pulite-vite-salvate-asst-iniziativa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

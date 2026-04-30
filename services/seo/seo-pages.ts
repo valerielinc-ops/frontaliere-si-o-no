@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1419,
+ "numberOfItems": 1420,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6054,7 +6054,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1416, "name": "Social media e lavoro: cosa evitare e cosa postare", "url": `${BASE_URL}/articoli-frontaliere/social-media-frontalieri-ticino` },
           { "@type": "ListItem", "position": 1417, "name": "Stazioni sciistiche Ticino: più dati per il pro...", "url": `${BASE_URL}/articoli-frontaliere/stazioni-sciistiche-ticino-credito-dati-2026` },
           { "@type": "ListItem", "position": 1418, "name": "Lavori notturni su via Clemente Maraini a Lugano", "url": `${BASE_URL}/articoli-frontaliere/lavori-notturni-via-clemente-maraini` },
-          { "@type": "ListItem", "position": 1419, "name": "Parcheggi e viabilità all’Ospedale di Circolo: ...", "url": `${BASE_URL}/articoli-frontaliere/parcheggi-ospedale-circolo-varese-2026` }
+          { "@type": "ListItem", "position": 1419, "name": "Parcheggi e viabilità all’Ospedale di Circolo: ...", "url": `${BASE_URL}/articoli-frontaliere/parcheggi-ospedale-circolo-varese-2026` },
+          { "@type": "ListItem", "position": 1420, "name": "Mani pulite, vite salvate: l'iniziativa di ASST...", "url": `${BASE_URL}/articoli-frontaliere/mani-pulite-vite-salvate-asst-iniziativa` }
  ]
  },
  {
