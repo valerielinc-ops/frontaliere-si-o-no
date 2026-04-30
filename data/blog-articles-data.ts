@@ -10605,4 +10605,11 @@ export const ARTICLES = [
  image: '/images/blog/mani-pulite-vite-salvate-asst-iniziativa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'manager-insubria-rasizza-battioni-4-maggio',
+ category: 'novita',
+ date: '2026-04-30T02:50:43.494Z',
+ image: '/images/blog/manager-insubria-rasizza-battioni-4-maggio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

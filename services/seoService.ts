@@ -2601,6 +2601,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavori-notturni-via-clemente-maraini': { name: 'Lavori notturni', path: '/articoli-frontaliere/lavori-notturni-via-clemente-maraini', parent: 'blog' },
     'blog-parcheggi-ospedale-circolo-varese-2026': { name: 'Parcheggi e viabilità', path: '/articoli-frontaliere/parcheggi-ospedale-circolo-varese-2026', parent: 'blog' },
     'blog-mani-pulite-vite-salvate-asst-iniziativa': { name: 'Novità', path: '/articoli-frontaliere/mani-pulite-vite-salvate-asst-iniziativa', parent: 'blog' },
+    'blog-manager-insubria-rasizza-battioni-4-maggio': { name: 'Novità', path: '/articoli-frontaliere/manager-insubria-rasizza-battioni-4-maggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

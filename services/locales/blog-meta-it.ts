@@ -4112,6 +4112,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mani-pulite-vite-salvate-asst-iniziativa.title': 'Mani pulite, vite salvate: l\'iniziativa di ASST Sette Laghi',
     'blog.article.mani-pulite-vite-salvate-asst-iniziativa.excerpt': 'Test pratici per l\'igiene delle mani negli ospedali e case di comunità del Canton Ticino il 5 maggio 2026',
     'blog.article.mani-pulite-vite-salvate-asst-iniziativa.imageAlt': 'Iniziativa di igiene delle mani in un ospedale del Canton Ticino',
+    'blog.article.manager-insubria-rasizza-battioni-4-maggio.title': 'Manager all’Insubria: Rasizza e Battioni in cattedra il 4 maggio',
+    'blog.article.manager-insubria-rasizza-battioni-4-maggio.excerpt': 'Rosario Rasizza e Stefano Battioni incontrano gli studenti dell’Università dell’Insubria per discutere di gestione d’impresa e cambiamenti tecnologici.',
+    'blog.article.manager-insubria-rasizza-battioni-4-maggio.imageAlt': 'Aula universitaria moderna con studenti e professori in discussione',
 };
 
 export default blogMetaIt;

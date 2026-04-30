@@ -4111,6 +4111,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mani-pulite-vite-salvate-asst-iniziativa.title': 'Saubere Hände, gerettete Leben: Initiative von ASST Sette Laghi',
     'blog.article.mani-pulite-vite-salvate-asst-iniziativa.excerpt': 'Praktische Tests zur Handhygiene in den Krankenhäusern und Gemeinschaftshäusern des Kantons Tessin am 5. Mai 2026',
     'blog.article.mani-pulite-vite-salvate-asst-iniziativa.imageAlt': 'Hygieneinitiative für Händewaschen in einem Krankenhaus im Tessin',
+    'blog.article.manager-insubria-rasizza-battioni-4-maggio.title': 'Manager an der Insubria: Rasizza und Battioni am 4. Mai',
+    'blog.article.manager-insubria-rasizza-battioni-4-maggio.excerpt': 'Rosario Rasizza und Stefano Battioni treffen Studierende der Universität Insubria, um über Unternehmensführung und technologische Veränderungen zu diskutieren.',
+    'blog.article.manager-insubria-rasizza-battioni-4-maggio.imageAlt': 'Moderner Universitäts-Hörsaal mit Studenten und Professoren in Diskussion',
 };
 
 export default blogMetaDe;

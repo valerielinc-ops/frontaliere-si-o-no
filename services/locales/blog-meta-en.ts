@@ -4111,6 +4111,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mani-pulite-vite-salvate-asst-iniziativa.title': 'Clean hands, saved lives: ASST Sette Laghi initiative',
     'blog.article.mani-pulite-vite-salvate-asst-iniziativa.excerpt': 'Practical tests for hand hygiene in hospitals and community homes in Canton Ticino on May 5, 2026',
     'blog.article.mani-pulite-vite-salvate-asst-iniziativa.imageAlt': 'Hand hygiene initiative in a Ticino hospital',
+    'blog.article.manager-insubria-rasizza-battioni-4-maggio.title': 'Managers at Insubria: Rasizza and Battioni on May 4th',
+    'blog.article.manager-insubria-rasizza-battioni-4-maggio.excerpt': 'Rosario Rasizza and Stefano Battioni meet with Insubria University students to discuss business management and technological changes.',
+    'blog.article.manager-insubria-rasizza-battioni-4-maggio.imageAlt': 'Modern university classroom with students and professors in discussion',
 };
 
 export default blogMetaEn;

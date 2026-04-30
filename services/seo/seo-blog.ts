@@ -26719,6 +26719,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-manager-insubria-rasizza-battioni-4-maggio': {
+    title: 'Manager all’Insubria: Rasizza e Battioni in cattedra il 4 maggio',
+    description: 'Rosario Rasizza e Stefano Battioni incontrano gli studenti dell’Università dell’Insubria per discutere di gestione d’impresa e cambiamenti tecnologici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, manager, insubria, rasizza, battioni',
+    ogTitle: 'Manager all’Insubria: Rasizza e Battioni in cattedra il 4 maggio',
+    ogDescription: 'Rosario Rasizza e Stefano Battioni incontrano gli studenti dell’Università dell’Insubria per discutere di gestione d’impresa e cambiamenti tecnologici.',
+    canonicalPath: '/articoli-frontaliere/manager-insubria-rasizza-battioni-4-maggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Manager all’Insubria: Rasizza e Battioni in cattedra il 4 maggio",
+      "description": "Rosario Rasizza e Stefano Battioni incontrano gli studenti dell’Università dell’Insubria per discutere di gestione d’impresa e cambiamenti tecnologici.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/manager-insubria-rasizza-battioni-4-maggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula universitaria moderna con studenti e professori in discussione"
+      },
+      "datePublished": "2026-04-30T02:50:43+00:00",
+      "dateModified": "2026-04-30T02:50:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/manager-insubria-rasizza-battioni-4-maggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
