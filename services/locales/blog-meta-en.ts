@@ -4165,6 +4165,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-intenso-a2-lugano-ritardi.title': 'A2 towards Lugano: heavy traffic, delays up to 1h30',
     'blog.article.traffico-intenso-a2-lugano-ritardi.excerpt': 'Delays between Chiasso and the San Salvatore tunnel, estimated between one and one and a half hours.',
     'blog.article.traffico-intenso-a2-lugano-ritardi.imageAlt': 'Traffic jam on A2 highway near Lugano, San Salvatore tunnel',
+    'blog.article.ritardi-a2-tra-chiasso-lugano.title': 'Heavy traffic on A2: up to 1 hour 40 minutes delay',
+    'blog.article.ritardi-a2-tra-chiasso-lugano.excerpt': 'Red alert this morning on the A2 motorway between Chiasso and Lugano, with delays of up to 104 minutes due to a broken down vehicle.',
+    'blog.article.ritardi-a2-tra-chiasso-lugano.imageAlt': 'A2 highway between Chiasso and Lugano with heavy traffic',
 };
 
 export default blogMetaEn;

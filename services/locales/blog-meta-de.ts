@@ -4165,6 +4165,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-intenso-a2-lugano-ritardi.title': 'A2 Richtung Lugano: Starker Verkehr und Verzögerungen bis 1h30',
     'blog.article.traffico-intenso-a2-lugano-ritardi.excerpt': 'Verzögerungen auf der A2 zwischen Chiasso und dem San-Salvatore-Tunnel, mit geschätzten Verzögerungen zwischen einer Stunde und eineinhalb Stunden.',
     'blog.article.traffico-intenso-a2-lugano-ritardi.imageAlt': 'Stau auf der Autobahn A2 in Richtung Lugano, San Salvatore Tunnel',
+    'blog.article.ritardi-a2-tra-chiasso-lugano.title': 'Stau auf der A2: bis zu 1 Stunde und 40 Minuten Verzögerung',
+    'blog.article.ritardi-a2-tra-chiasso-lugano.excerpt': 'Roter Morgen auf der Autobahn A2 zwischen Chiasso und Lugano, mit Verzögerungen von bis zu 104 Minuten aufgrund eines liegengebliebenen Fahrzeugs.',
+    'blog.article.ritardi-a2-tra-chiasso-lugano.imageAlt': 'Autobahn A2 zwischen Chiasso und Lugano mit starkem Verkehr',
 };
 
 export default blogMetaDe;

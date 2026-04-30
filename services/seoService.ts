@@ -2619,6 +2619,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-restringimento-a2-ritardi-2026': { name: 'Novità', path: '/articoli-frontaliere/restringimento-a2-ritardi-2026', parent: 'blog' },
     'blog-repressione-cinese-svizzera-ong-critiche': { name: 'Novità', path: '/articoli-frontaliere/repressione-cinese-svizzera-ong-critiche', parent: 'blog' },
     'blog-traffico-intenso-a2-lugano-ritardi': { name: 'Traffico A2 Lugano', path: '/articoli-frontaliere/traffico-intenso-a2-lugano-ritardi', parent: 'blog' },
+    'blog-ritardi-a2-tra-chiasso-lugano': { name: 'Traffico A2', path: '/articoli-frontaliere/ritardi-a2-tra-chiasso-lugano', parent: 'blog' },
  };
 
  const info = sectionNames[section];

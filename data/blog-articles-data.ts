@@ -10731,4 +10731,11 @@ export const ARTICLES = [
  image: '/images/blog/traffico-intenso-a2-lugano-ritardi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ritardi-a2-tra-chiasso-lugano',
+ category: 'novita',
+ date: '2026-04-30T05:41:06.839Z',
+ image: '/images/blog/ritardi-a2-tra-chiasso-lugano.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

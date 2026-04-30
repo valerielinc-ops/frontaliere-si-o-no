@@ -4166,6 +4166,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-intenso-a2-lugano-ritardi.title': 'A2 verso Lugano: traffico intenso e ritardi fino a 1h30',
     'blog.article.traffico-intenso-a2-lugano-ritardi.excerpt': 'Rallentamenti sulla A2 tra Chiasso e la galleria del San Salvatore, con ritardi stimati tra un\'ora e un\'ora e trenta.',
     'blog.article.traffico-intenso-a2-lugano-ritardi.imageAlt': 'Ingorgo autostradale A2 verso Lugano, galleria del San Salvatore',
+    'blog.article.ritardi-a2-tra-chiasso-lugano.title': 'Traffico congestionato sull\'A2: fino a un\'ora e quaranta di ritardi',
+    'blog.article.ritardi-a2-tra-chiasso-lugano.excerpt': 'Mattinata da bollino rosso sull\'autostrada A2 tra Chiasso e Lugano, con ritardi fino a 104 minuti a causa di un veicolo in avaria.',
+    'blog.article.ritardi-a2-tra-chiasso-lugano.imageAlt': 'Autostrada A2 tra Chiasso e Lugano con traffico intenso',
 };
 
 export default blogMetaIt;

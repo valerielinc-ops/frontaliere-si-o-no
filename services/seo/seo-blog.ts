@@ -27241,6 +27241,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ritardi-a2-tra-chiasso-lugano': {
+    title: 'Traffico congestionato sull\'A2: fino a un\'ora e quaranta di ritardi',
+    description: 'Mattinata da bollino rosso sull\'autostrada A2 tra Chiasso e Lugano, con ritardi fino a 104 minuti a causa di un veicolo in avaria. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, congestionato, sull, fino',
+    ogTitle: 'Traffico congestionato sull\'A2: fino a un\'ora e quaranta di ritardi',
+    ogDescription: 'Mattinata da bollino rosso sull\'autostrada A2 tra Chiasso e Lugano, con ritardi fino a 104 minuti a causa di un veicolo in avaria.',
+    canonicalPath: '/articoli-frontaliere/ritardi-a2-tra-chiasso-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico congestionato sull'A2: fino a un'ora e quaranta di ritardi",
+      "description": "Mattinata da bollino rosso sull'autostrada A2 tra Chiasso e Lugano, con ritardi fino a 104 minuti a causa di un veicolo in avaria. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ritardi-a2-tra-chiasso-lugano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A2 tra Chiasso e Lugano con traffico intenso"
+      },
+      "datePublished": "2026-04-30T05:41:06+00:00",
+      "dateModified": "2026-04-30T05:41:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ritardi-a2-tra-chiasso-lugano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
