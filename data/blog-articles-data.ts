@@ -10822,4 +10822,11 @@ export const ARTICLES = [
  image: '/images/blog/beko-cassinetta-risultati-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'samantha-bourgoin-apisuisse-2026',
+ category: 'novita',
+ date: '2026-04-30T07:30:07.117Z',
+ image: '/images/blog/samantha-bourgoin-apisuisse-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

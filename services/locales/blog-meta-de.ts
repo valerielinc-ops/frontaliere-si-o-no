@@ -4204,6 +4204,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.beko-cassinetta-risultati-2026.title': 'Beko Cassinetta: Krise überwunden, jetzt zählen die Ergebnisse',
     'blog.article.beko-cassinetta-risultati-2026.excerpt': 'Ein Jahr nach der Vereinbarung, die das Werk Beko in Cassinetta gerettet hat, zeigen sich erste Ergebnisse und zukünftige Herausforderungen',
     'blog.article.beko-cassinetta-risultati-2026.imageAlt': 'Luftaufnahme des Beko-Werks in Cassinetta di Biandronno',
+    'blog.article.samantha-bourgoin-apisuisse-2026.title': 'Samantha Bourgoin ist die neue Präsidentin von Apisuisse',
+    'blog.article.samantha-bourgoin-apisuisse-2026.excerpt': 'Die Grünen-Abgeordnete wurde am 18. April gewählt. Apisuisse vertritt etwa 18\'000 Imker in der Schweiz.',
+    'blog.article.samantha-bourgoin-apisuisse-2026.imageAlt': 'Ein Imker in der Schweiz kontrolliert Bienenstöcke in einer ländlichen Landschaft',
 };
 
 export default blogMetaDe;

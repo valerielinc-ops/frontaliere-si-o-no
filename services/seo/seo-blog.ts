@@ -27618,6 +27618,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-samantha-bourgoin-apisuisse-2026': {
+    title: 'Samantha Bourgoin è la nuova presidente di Apisuisse',
+    description: 'La deputata dei Verdi è stata eletta il 18 aprile. Apisuisse rappresenta circa 18\'000 apicoltori in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, samantha, bourgoin, nuova, presidente',
+    ogTitle: 'Samantha Bourgoin è la nuova presidente di Apisuisse',
+    ogDescription: 'La deputata dei Verdi è stata eletta il 18 aprile. Apisuisse rappresenta circa 18\'000 apicoltori in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/samantha-bourgoin-apisuisse-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Samantha Bourgoin è la nuova presidente di Apisuisse",
+      "description": "La deputata dei Verdi è stata eletta il 18 aprile. Apisuisse rappresenta circa 18'000 apicoltori in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/samantha-bourgoin-apisuisse-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un apicoltore in Ticino controlla gli alveari in un paesaggio rurale"
+      },
+      "datePublished": "2026-04-30T07:30:07+00:00",
+      "dateModified": "2026-04-30T07:30:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/samantha-bourgoin-apisuisse-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

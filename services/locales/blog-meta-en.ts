@@ -4204,6 +4204,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.beko-cassinetta-risultati-2026.title': 'Beko Cassinetta: overcoming the crisis, results matter now',
     'blog.article.beko-cassinetta-risultati-2026.excerpt': 'One year after the agreement that saved the Beko plant in Cassinetta, the first results and future challenges emerge',
     'blog.article.beko-cassinetta-risultati-2026.imageAlt': 'Aerial view of Beko factory in Cassinetta di Biandronno',
+    'blog.article.samantha-bourgoin-apisuisse-2026.title': 'Samantha Bourgoin is the new president of Apisuisse',
+    'blog.article.samantha-bourgoin-apisuisse-2026.excerpt': 'The Green Party deputy was elected on April 18. Apisuisse represents around 18,000 beekeepers in Switzerland.',
+    'blog.article.samantha-bourgoin-apisuisse-2026.imageAlt': 'A beekeeper in Ticino checking beehives in a rural landscape',
 };
 
 export default blogMetaEn;
