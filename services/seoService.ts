@@ -2715,6 +2715,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ricavi-alberghi-ticino-2025-crescita': { name: 'Novità', path: '/articoli-frontaliere/ricavi-alberghi-ticino-2025-crescita', parent: 'blog' },
     'blog-controllo-finanze-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/controllo-finanze-ticino-2026', parent: 'blog' },
     'blog-swiss-market-index-verde-2026': { name: 'Novità', path: '/articoli-frontaliere/swiss-market-index-verde-2026', parent: 'blog' },
+    'blog-bcc-crowdfunding-100mila-euro': { name: 'Crowdfunding BCC', path: '/articoli-frontaliere/bcc-crowdfunding-100mila-euro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

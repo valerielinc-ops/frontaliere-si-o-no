@@ -4454,6 +4454,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.swiss-market-index-verde-2026.title': 'Swiss Market Index in verde: spunti utili per i frontalieri',
     'blog.article.swiss-market-index-verde-2026.excerpt': 'Il Swiss Market Index chiude in positivo, con implicazioni per gli investimenti e le pensioni dei frontalieri',
     'blog.article.swiss-market-index-verde-2026.imageAlt': 'Lago di Lugano con montagne e edifici circostanti',
+    'blog.article.bcc-crowdfunding-100mila-euro.title': 'Crowdfunding BCC: raccolti quasi 100mila euro',
+    'blog.article.bcc-crowdfunding-100mila-euro.excerpt': 'La BCC Busto Garolfo e Buguggiate ha raccolto quasi 100mila euro attraverso il crowdfunding, con oltre 1.200 donatori coinvolti e un overfunding del 141%.',
+    'blog.article.bcc-crowdfunding-100mila-euro.imageAlt': 'Evento di crowdfunding in una banca moderna in Svizzera, con persone che collaborano e discutono progetti, schermi digitali che mostrano il progresso della raccolta fondi e sullo sfondo il Lago di Lugano.',
 };
 
 export default blogMetaIt;

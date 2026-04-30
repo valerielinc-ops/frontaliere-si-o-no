@@ -11404,4 +11404,11 @@ export const ARTICLES = [
  image: '/images/blog/swiss-market-index-verde-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bcc-crowdfunding-100mila-euro',
+ category: 'novita',
+ date: '2026-04-30T20:54:32.164Z',
+ image: '/images/blog/bcc-crowdfunding-100mila-euro.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

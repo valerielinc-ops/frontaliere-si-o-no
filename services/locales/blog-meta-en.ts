@@ -4453,6 +4453,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.swiss-market-index-verde-2026.title': 'Swiss Market Index up: tips for cross-border workers',
     'blog.article.swiss-market-index-verde-2026.excerpt': 'The Swiss Market Index closes in positive territory, with implications for investments and pensions of cross-border workers',
     'blog.article.swiss-market-index-verde-2026.imageAlt': 'Lake Lugano with surrounding mountains and buildings',
+    'blog.article.bcc-crowdfunding-100mila-euro.title': 'BCC crowdfunding: nearly 100,000 euros raised',
+    'blog.article.bcc-crowdfunding-100mila-euro.excerpt': 'BCC Busto Garolfo and Buguggiate raised nearly 100,000 euros through crowdfunding, with over 1,200 donors involved and a 141% overfunding.',
+    'blog.article.bcc-crowdfunding-100mila-euro.imageAlt': 'A crowdfunding event in a modern Swiss bank setting, with people collaborating and discussing projects, digital screens displaying fundraising progress, and a backdrop of Lake Lugano.',
 };
 
 export default blogMetaEn;

@@ -30025,6 +30025,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bcc-crowdfunding-100mila-euro': {
+    title: 'Crowdfunding BCC: raccolti quasi 100mila euro | Frontaliere Ticino',
+    description: 'La BCC Busto Garolfo e Buguggiate ha raccolto quasi 100mila euro attraverso il crowdfunding, con oltre 1.200 donatori coinvolti e un overfunding del 141%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crowdfunding, raccolti, quasi, 100mila',
+    ogTitle: 'Crowdfunding BCC: raccolti quasi 100mila euro',
+    ogDescription: 'La BCC Busto Garolfo e Buguggiate ha raccolto quasi 100mila euro attraverso il crowdfunding, con oltre 1.200 donatori coinvolti e un overfunding del 141%.',
+    canonicalPath: '/articoli-frontaliere/bcc-crowdfunding-100mila-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crowdfunding BCC: raccolti quasi 100mila euro",
+      "description": "La BCC Busto Garolfo e Buguggiate ha raccolto quasi 100mila euro attraverso il crowdfunding, con oltre 1.200 donatori coinvolti e un overfunding del 141%.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bcc-crowdfunding-100mila-euro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento di crowdfunding in una banca moderna in Svizzera, con persone che collaborano e discutono progetti, schermi digitali che mostrano il progresso della raccolta fondi e sullo sfondo il Lago di Lugano."
+      },
+      "datePublished": "2026-04-30T20:54:32+00:00",
+      "dateModified": "2026-04-30T20:54:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bcc-crowdfunding-100mila-euro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
