@@ -1,19 +1,21 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-04-30T10:01:52.897Z",
+  "generatedAt": "2026-04-30T21:03:26.199Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2393,
-  "avgDurationMs": 2393,
+  "unchangedCount": 1,
+  "durationMs": 1874,
+  "avgDurationMs": 1874,
   "durationHistory": [
-    2393
+    1874
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Consulente Legal Jr.",
       "slug": "consulente-legal-jr-a-plus-plus-group-massagno",
@@ -51,7 +53,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
