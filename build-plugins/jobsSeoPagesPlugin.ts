@@ -377,14 +377,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
 
  /* ── Find SPA entry bundle so job pages hydrate into the full app ── */
- let entryJs = '', entryCss = '';
- try {
- const builtHtml = fs.readFileSync(np.join(distDir, 'index.html'), 'utf-8');
- entryJs = builtHtml.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/)?.[1] ?? '';
- entryCss = builtHtml.match(/href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/)?.[1] ?? '';
- } catch { /* index.html missing */ }
- const hasSpaBundle = !!(entryJs && entryCss);
- if (!hasSpaBundle) console.warn('[jobs-seo-pages] Could not find SPA entry bundles — pages will be static-only');
+ // Race-free via the shared resolver: see spaBundleResolver.ts. The previous
+ // inline read silently lost the writeBundle race in CI (run 25151657070
+ // produced 123,184 bundle-less pages on this exact path).
+ const { resolveSpaBundle } = await import('./spaBundleResolver');
+ const spaBundle = resolveSpaBundle(distDir);
+ const entryJs = spaBundle.entryJs;
+ const entryCss = spaBundle.entryCss;
+ const hasSpaBundle = spaBundle.hasSpaBundle;
 
  // ── Load blog article data for cross-linking (SEO: internal links from job → article pages) ──
  interface RecentArticle { id: string; category: string; date: string; image: string }

@@ -447,19 +447,21 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  let faqCount = 0;
 
  const assetsDir = np.join(distDir, 'assets');
- let entryJs = '', entryCss = '', vendorReactChunk = '';
- try {
- const builtHtml = fs.readFileSync(np.join(distDir, 'index.html'), 'utf-8');
- entryJs = builtHtml.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/)?.[1] ?? '';
- entryCss = builtHtml.match(/href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/)?.[1] ?? '';
- } catch { /* index.html missing */ }
+ // Race-free SPA bundle hash extraction. See spaBundleResolver.ts.
+ const { resolveSpaBundle } = await import('./spaBundleResolver');
+ const spaBundle = resolveSpaBundle(distDir);
+ const entryJs = spaBundle.entryJs;
+ const entryCss = spaBundle.entryCss;
+ let vendorReactChunk = '';
  let blogMetaItChunk = '';
  try {
  const assetFiles = fs.readdirSync(assetsDir);
  vendorReactChunk = assetFiles.find((f: string) => f.startsWith('vendor-react-') && f.endsWith('.js') && !f.endsWith('.js.map')) ?? '';
  blogMetaItChunk = assetFiles.find((f: string) => /^blog-meta-it-[A-Za-z0-9_-]+\.js$/.test(f) && !f.endsWith('.js.map')) ?? '';
  } catch { /* assets dir missing */ }
- const hasSpaBundle = !!(entryJs && entryCss);
+ // Tautological after the resolver throws on missing bundle. Kept so the
+ // template branches that gate on it stay readable.
+ const hasSpaBundle = spaBundle.hasSpaBundle;
  let itCriticalTags = '';
  try {
  const af = fs.readdirSync(assetsDir);

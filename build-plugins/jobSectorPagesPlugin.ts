@@ -371,17 +371,12 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
       const counts = countSectorJobsByLocale(jobs);
       const sectorProseData = loadSectorProseData(rootDir);
 
-      // Try to discover hashed SPA entry bundle
-      let entryJs = '';
-      let entryCss = '';
-      try {
-        const builtHtml = fs.readFileSync(np.join(distDir, 'index.html'), 'utf-8');
-        entryJs = builtHtml.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/)?.[1] ?? '';
-        entryCss = builtHtml.match(/href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/)?.[1] ?? '';
-      } catch {
-        /* index.html missing — degrade gracefully */
-      }
-      const hasSpaBundle = !!(entryJs && entryCss);
+      // Race-free SPA bundle hash extraction. See spaBundleResolver.ts.
+      const { resolveSpaBundle } = await import('./spaBundleResolver');
+      const spaBundle = resolveSpaBundle(distDir);
+      const entryJs = spaBundle.entryJs;
+      const entryCss = spaBundle.entryCss;
+      const hasSpaBundle = spaBundle.hasSpaBundle;
 
       const dateStamp = new Date().toISOString().slice(0, 10);
       const year = new Date().getUTCFullYear();

@@ -10,6 +10,7 @@
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
 import { WriteCollector } from './batchWrite';
+import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
@@ -660,12 +661,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // IMPORTANT: Extract from Vite-generated index.html to get the correct entry
  // (multiple index-*.js chunks exist; find() would pick the wrong one)
  const assetsDir = np.join(distDir, 'assets');
- let entryJs = '', entryCss = '', vendorReactChunk = '';
- try {
- const builtHtml = fs.readFileSync(np.join(distDir, 'index.html'), 'utf-8');
- entryJs = builtHtml.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/)?.[1] ?? '';
- entryCss = builtHtml.match(/href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/)?.[1] ?? '';
- } catch { /* index.html missing */ }
+ // Race-free SPA bundle hash extraction. See spaBundleResolver.ts for the
+ // race we close (run 25151657070: 123,184 bundle-less pages because of
+ // an inline read that lost the writeBundle race).
+ const spaBundle = resolveSpaBundle(distDir);
+ const entryJs = spaBundle.entryJs;
+ const entryCss = spaBundle.entryCss;
+ let vendorReactChunk = '';
  let itCriticalChunks: string[] = [];
  try {
  const assetFiles = fs.readdirSync(assetsDir);
@@ -675,8 +677,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  vendorReactChunk = assetFiles.find((f: string) => f.startsWith('vendor-react-') && f.endsWith('.js') && !f.endsWith('.js.map')) ?? '';
  } catch { /* assets dir missing — will fall back to redirect */ }
 
- const hasSpaBundle = !!(entryJs && entryCss);
- if (!hasSpaBundle) console.warn('[static-pages] Could not find entry JS/CSS bundles — falling back to redirect');
+ // resolveSpaBundle throws when the bundle can't be located — no silent
+ // fallback to bundle-less pages. The flag stays for the few branches that
+ // still gate template fragments on it; it's tautologically `true` here.
+ const hasSpaBundle = spaBundle.hasSpaBundle;
  const corePreloads = [
  vendorReactChunk ? `<link rel="modulepreload" crossorigin href="/assets/${vendorReactChunk}">` : '',
  ...itCriticalChunks.map(c => `<link rel="modulepreload" href="/assets/${c}">`),
