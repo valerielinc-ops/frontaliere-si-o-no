@@ -4486,6 +4486,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.isolino-virginia-riapre-2026.title': 'Isolino Virginia reopens: a journey through time among stilt houses and nature',
     'blog.article.isolino-virginia-riapre-2026.excerpt': 'After three years of closure, Isolino Virginia reopens to the public with a new museum setup and dining services.',
     'blog.article.isolino-virginia-riapre-2026.imageAlt': 'Aerial view of Isolino Virginia on Lake Varese',
+    'blog.article.sostenibilita-salone-csr-varese-2026.title': 'Varese: CSR and Social Innovation Fair at Ville Ponti Congress Centre',
+    'blog.article.sostenibilita-salone-csr-varese-2026.excerpt': 'On May 6, 2026, Varese will host the CSR Fair, an event dedicated to sustainability and social innovation with businesses, institutions, and the Third Sector.',
+    'blog.article.sostenibilita-salone-csr-varese-2026.imageAlt': 'Conference on sustainability and innovation at the Ville Ponti Congress Centre in Varese',
 };
 
 export default blogMetaEn;

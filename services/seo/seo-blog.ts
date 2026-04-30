@@ -30344,6 +30344,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sostenibilita-salone-csr-varese-2026': {
+    title: 'Varese: Salone della CSR e innovazione sociale al Centro Congressi Ville Ponti',
+    description: 'Il 6 maggio 2026 a Varese si terrà il Salone della CSR, un evento dedicato a sostenibilità e innovazione sociale con imprese, istituzioni e Terzo Settore.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, salone, innovazione, sociale',
+    ogTitle: 'Salone CSR Varese 2026: sostenibilità e innovazione',
+    ogDescription: 'Il 6 maggio 2026 a Varese si terrà il Salone della CSR, un evento dedicato a sostenibilità e innovazione sociale con imprese, istituzioni e Terzo Settore.',
+    canonicalPath: '/articoli-frontaliere/sostenibilita-salone-csr-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salone CSR Varese 2026: sostenibilità e innovazione",
+      "description": "Il 6 maggio 2026 a Varese si terrà il Salone della CSR, un evento dedicato a sostenibilità e innovazione sociale con imprese, istituzioni e Terzo Settore.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sostenibilita-salone-csr-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza sul tema della sostenibilità e innovazione presso il Centro Congressi Ville Ponti di Varese"
+      },
+      "datePublished": "2026-04-30T22:41:52+00:00",
+      "dateModified": "2026-04-30T22:41:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sostenibilita-salone-csr-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

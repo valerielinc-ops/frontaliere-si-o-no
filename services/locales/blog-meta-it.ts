@@ -4487,6 +4487,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.isolino-virginia-riapre-2026.title': 'L’Isolino Virginia riapre: viaggio nel tempo tra palafitte e natura',
     'blog.article.isolino-virginia-riapre-2026.excerpt': 'Dopo tre anni di chiusura, l’Isolino Virginia riapre al pubblico con un nuovo allestimento museale e servizi di ristorazione.',
     'blog.article.isolino-virginia-riapre-2026.imageAlt': 'Vista aerea dell\'Isolino Virginia sul Lago di Varese',
+    'blog.article.sostenibilita-salone-csr-varese-2026.title': 'Varese: Salone della CSR e innovazione sociale al Centro Congressi Ville Ponti',
+    'blog.article.sostenibilita-salone-csr-varese-2026.excerpt': 'Il 6 maggio 2026 a Varese si terrà il Salone della CSR, un evento dedicato a sostenibilità e innovazione sociale con imprese, istituzioni e Terzo Settore.',
+    'blog.article.sostenibilita-salone-csr-varese-2026.imageAlt': 'Conferenza sul tema della sostenibilità e innovazione presso il Centro Congressi Ville Ponti di Varese',
 };
 
 export default blogMetaIt;
