@@ -4258,6 +4258,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.settore-alberghiero-ricavi-2025.title': 'Swiss hotel revenues up 3.9% in 2025',
     'blog.article.settore-alberghiero-ricavi-2025.excerpt': 'Switzerland\'s hotel sector sees a 3.9% increase in 2025 revenue, with summer peaks and differences between categories and tourist areas.',
     'blog.article.settore-alberghiero-ricavi-2025.imageAlt': 'Hotel on Lake Lugano with panoramic view',
+    'blog.article.berna-skopje-scambi-economici-2026.title': 'Berna e Skopje rafforzano scambi economici e cooperazione',
+    'blog.article.berna-skopje-scambi-economici-2026.excerpt': 'The President of the Confederation Guy Parmelin visits North Macedonia to strengthen economic relations.',
+    'blog.article.berna-skopje-scambi-economici-2026.imageAlt': 'Panorama of Bellinzona with the Bellinzona Castle and the Alps',
 };
 
 export default blogMetaEn;

@@ -4259,6 +4259,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.settore-alberghiero-ricavi-2025.title': 'Ricavi alberghieri in crescita: +3,9% nel 2025',
     'blog.article.settore-alberghiero-ricavi-2025.excerpt': 'Il settore alberghiero svizzero registra un aumento del 3,9% nel fatturato 2025, con picchi estivi e differenze tra categorie e zone turistiche.',
     'blog.article.settore-alberghiero-ricavi-2025.imageAlt': 'Hotel sul lago di Lugano con vista panoramica',
+    'blog.article.berna-skopje-scambi-economici-2026.title': 'Berna e Skopje rafforzano scambi economici e cooperazione',
+    'blog.article.berna-skopje-scambi-economici-2026.excerpt': 'Il presidente della Confederazione Guy Parmelin visita la Macedonia del Nord per rafforzare le relazioni economiche.',
+    'blog.article.berna-skopje-scambi-economici-2026.imageAlt': 'Panorama di Bellinzona con il Castello di Bellinzona e le Alpi',
 };
 
 export default blogMetaIt;

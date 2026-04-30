@@ -10949,4 +10949,11 @@ export const ARTICLES = [
  image: '/images/blog/settore-alberghiero-ricavi-2025.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'berna-skopje-scambi-economici-2026',
+ category: 'novita',
+ date: '2026-04-30T10:12:55.073Z',
+ image: '/images/blog/berna-skopje-scambi-economici-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

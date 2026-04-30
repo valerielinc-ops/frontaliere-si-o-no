@@ -4258,6 +4258,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.settore-alberghiero-ricavi-2025.title': 'Umsatz im Hotelgewerbe steigt: +3,9% im 2025',
     'blog.article.settore-alberghiero-ricavi-2025.excerpt': 'Die Schweizer Hotellerie verzeichnet im Jahr 2025 einen Umsatzanstieg von 3,9%, mit Spitzen im Sommer und Unterschieden zwischen Kategorien und touristischen Regionen.',
     'blog.article.settore-alberghiero-ricavi-2025.imageAlt': 'Hotel am Luganersee mit Panoramablick',
+    'blog.article.berna-skopje-scambi-economici-2026.title': 'Berna und Skopje stärken wirtschaftliche Zusammenarbeit',
+    'blog.article.berna-skopje-scambi-economici-2026.excerpt': 'Bundespräsident Guy Parmelin besucht Nordmazedonien, um die wirtschaftlichen Beziehungen zu stärken.',
+    'blog.article.berna-skopje-scambi-economici-2026.imageAlt': 'Panorama von Bellinzona mit der Burg Bellinzona und den Alpen',
 };
 
 export default blogMetaDe;

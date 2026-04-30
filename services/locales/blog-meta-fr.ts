@@ -4259,6 +4259,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.settore-alberghiero-ricavi-2025.title': 'Chiffre d\'affaires hôtelier en hausse: +3,9% en 2025',
     'blog.article.settore-alberghiero-ricavi-2025.excerpt': 'Le secteur hôtelier suisse enregistre une augmentation de 3,9% du chiffre d\'affaires en 2025, avec des pics estivaux et des différences entre catégories et zones touristiques.',
     'blog.article.settore-alberghiero-ricavi-2025.imageAlt': 'Hôtel sur le lac de Lugano avec vue panoramique',
+    'blog.article.berna-skopje-scambi-economici-2026.title': 'Berne et Skopje renforcent leurs échanges économiques',
+    'blog.article.berna-skopje-scambi-economici-2026.excerpt': 'Le président de la Confédération Guy Parmelin se rend en Macédoine du Nord pour renforcer les relations économiques.',
+    'blog.article.berna-skopje-scambi-economici-2026.imageAlt': 'Panorama de Bellinzona avec le Château de Bellinzona et les Alpes',
 };
 
 export default blogMetaFr;

@@ -28140,6 +28140,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-berna-skopje-scambi-economici-2026': {
+    title: 'Berna e Skopje rafforzano scambi economici e cooperazione',
+    description: 'Il presidente della Confederazione Guy Parmelin visita la Macedonia del Nord per rafforzare le relazioni economiche e la cooperazione internazionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, skopje, rafforzano, scambi',
+    ogTitle: 'Berna e Skopje rafforzano scambi economici e cooperazione',
+    ogDescription: 'Il presidente della Confederazione Guy Parmelin visita la Macedonia del Nord per rafforzare le relazioni economiche e la cooperazione internazionale.',
+    canonicalPath: '/articoli-frontaliere/berna-skopje-scambi-economici-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna e Skopje rafforzano scambi economici e cooperazione",
+      "description": "Il presidente della Confederazione Guy Parmelin visita la Macedonia del Nord per rafforzare le relazioni economiche e la cooperazione internazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/berna-skopje-scambi-economici-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Bellinzona con il Castello di Bellinzona e le Alpi"
+      },
+      "datePublished": "2026-04-30T10:12:55+00:00",
+      "dateModified": "2026-04-30T10:12:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/berna-skopje-scambi-economici-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
