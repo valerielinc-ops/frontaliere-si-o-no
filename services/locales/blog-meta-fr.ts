@@ -4418,6 +4418,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.denuncia-strisce-pedonali-como-2026.title': 'Dénonciation à Côme: passages piétons dangereux',
     'blog.article.denuncia-strisce-pedonali-como-2026.excerpt': 'Une lectrice signale l\'état critique des passages piétons dans presque toute la ville de Côme, rendant dangereux le traversement des rues.',
     'blog.article.denuncia-strisce-pedonali-como-2026.imageAlt': 'Passages piétons usés à Côme, dangereux pour les piétons',
+    'blog.article.emergenza-acqua-lombardia-2026.title': 'Pénurie d\'eau en Lombardie: déficit de 37%, que se passe-t-il maintenant?',
+    'blog.article.emergenza-acqua-lombardia-2026.excerpt': 'Situation critique en Lombardie: déficit hydrique de 37%, absence de neige et mesures urgentes pour l\'été',
+    'blog.article.emergenza-acqua-lombardia-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes et les villes, eau bleue claire, journée ensoleillée',
 };
 
 export default blogMetaFr;

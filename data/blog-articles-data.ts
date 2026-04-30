@@ -11320,4 +11320,11 @@ export const ARTICLES = [
  image: '/images/blog/denuncia-strisce-pedonali-como-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'emergenza-acqua-lombardia-2026',
+ category: 'novita',
+ date: '2026-04-30T18:31:52.895Z',
+ image: '/images/blog/emergenza-acqua-lombardia-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

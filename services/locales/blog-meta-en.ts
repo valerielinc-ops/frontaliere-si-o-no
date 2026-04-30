@@ -4417,6 +4417,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.denuncia-strisce-pedonali-como-2026.title': 'Report: dangerous pedestrian crossings in Como',
     'blog.article.denuncia-strisce-pedonali-como-2026.excerpt': 'A reader reports the critical condition of pedestrian crossings across almost the entire city of Como, making street crossings dangerous.',
     'blog.article.denuncia-strisce-pedonali-como-2026.imageAlt': 'Worn-out pedestrian crossings in Como, dangerous for pedestrians',
+    'blog.article.emergenza-acqua-lombardia-2026.title': 'Water emergency in Lombardy: 37% deficit, what\'s next',
+    'blog.article.emergenza-acqua-lombardia-2026.excerpt': 'Critical situation in Lombardy: 37% water deficit, lack of snow and urgent measures for summer',
+    'blog.article.emergenza-acqua-lombardia-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and towns, clear blue water, sunny day',
 };
 
 export default blogMetaEn;

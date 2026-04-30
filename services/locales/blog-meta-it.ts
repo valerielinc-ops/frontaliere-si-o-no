@@ -4418,6 +4418,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.denuncia-strisce-pedonali-como-2026.title': 'Denuncia a Como: strisce pedonali pericolose',
     'blog.article.denuncia-strisce-pedonali-como-2026.excerpt': 'Una lettrice segnala lo stato critico delle strisce pedonali in quasi tutta la città di Como, rendendo pericoloso l\'attraversamento delle strade.',
     'blog.article.denuncia-strisce-pedonali-como-2026.imageAlt': 'Strisce pedonali consumate a Como, pericolose per i pedoni',
+    'blog.article.emergenza-acqua-lombardia-2026.title': 'Emergenza acqua in Lombardia: deficit del 37%, cosa succede ora',
+    'blog.article.emergenza-acqua-lombardia-2026.excerpt': 'Situazione critica in Lombardia: deficit idrico del 37%, assenza di neve e misure urgenti per l\'estate',
+    'blog.article.emergenza-acqua-lombardia-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti e paesi, acqua blu cristallina, giornata di sole',
 };
 
 export default blogMetaIt;

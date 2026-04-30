@@ -4417,6 +4417,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.denuncia-strisce-pedonali-como-2026.title': 'Fußgängerüberwege in Como gefährlich',
     'blog.article.denuncia-strisce-pedonali-como-2026.excerpt': 'Eine Leserin weist auf den kritischen Zustand der Fußgängerüberwege in fast der gesamten Stadt Como hin, was das Überqueren der Straßen gefährlich macht.',
     'blog.article.denuncia-strisce-pedonali-como-2026.imageAlt': 'Abgenutzte Fußgängerüberwege in Como, gefährlich für Fußgänger',
+    'blog.article.emergenza-acqua-lombardia-2026.title': 'Wassernotstand in der Lombardei: 37% Defizit, was passiert jetzt?',
+    'blog.article.emergenza-acqua-lombardia-2026.excerpt': 'Kritische Situation in der Lombardei: 37% Wassermangel, kein Schnee und dringende Maßnahmen für den Sommer',
+    'blog.article.emergenza-acqua-lombardia-2026.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und Städten, klares blaues Wasser, sonniger Tag',
 };
 
 export default blogMetaDe;

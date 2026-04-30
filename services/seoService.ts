@@ -2703,6 +2703,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bilancio-provincia-varese-1-5-milioni': { name: 'Bilancio Provincia', path: '/articoli-frontaliere/bilancio-provincia-varese-1-5-milioni', parent: 'blog' },
     'blog-varese-citta-piu-verde-2026': { name: 'Varese verde', path: '/articoli-frontaliere/varese-citta-piu-verde-2026', parent: 'blog' },
     'blog-denuncia-strisce-pedonali-como-2026': { name: 'Denuncia Como', path: '/articoli-frontaliere/denuncia-strisce-pedonali-como-2026', parent: 'blog' },
+    'blog-emergenza-acqua-lombardia-2026': { name: 'Novità', path: '/articoli-frontaliere/emergenza-acqua-lombardia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
