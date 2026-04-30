@@ -4168,6 +4168,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ritardi-a2-tra-chiasso-lugano.title': 'Stau auf der A2: bis zu 1 Stunde und 40 Minuten Verzögerung',
     'blog.article.ritardi-a2-tra-chiasso-lugano.excerpt': 'Roter Morgen auf der Autobahn A2 zwischen Chiasso und Lugano, mit Verzögerungen von bis zu 104 Minuten aufgrund eines liegengebliebenen Fahrzeugs.',
     'blog.article.ritardi-a2-tra-chiasso-lugano.imageAlt': 'Autobahn A2 zwischen Chiasso und Lugano mit starkem Verkehr',
+    'blog.article.a2-corsia-ritardi-lugano-2026.title': 'A2-Stau: eine Spur, Verzögerungen über eine Stunde',
+    'blog.article.a2-corsia-ritardi-lugano-2026.excerpt': 'Starker Verkehr zwischen Chiasso und Grancia, Stau ab Chiasso/Balerna, Verzögerungen bis zu 1h40. Polizei kontrolliert die Fahrbahn.',
+    'blog.article.a2-corsia-ritardi-lugano-2026.imageAlt': 'Autobahn A2 mit starkem Verkehr und einer Spur offen',
 };
 
 export default blogMetaDe;

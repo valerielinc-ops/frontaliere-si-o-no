@@ -4169,6 +4169,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ritardi-a2-tra-chiasso-lugano.title': 'Traffico congestionato sull\'A2: fino a un\'ora e quaranta di ritardi',
     'blog.article.ritardi-a2-tra-chiasso-lugano.excerpt': 'Mattinata da bollino rosso sull\'autostrada A2 tra Chiasso e Lugano, con ritardi fino a 104 minuti a causa di un veicolo in avaria.',
     'blog.article.ritardi-a2-tra-chiasso-lugano.imageAlt': 'Autostrada A2 tra Chiasso e Lugano con traffico intenso',
+    'blog.article.a2-corsia-ritardi-lugano-2026.title': 'A2 in tilt: una sola corsia, ritardi oltre l\'ora',
+    'blog.article.a2-corsia-ritardi-lugano-2026.excerpt': 'Traffico intenso tra Chiasso e Grancia, coda da Chiasso/Balerna, ritardi fino a 1h40. Polizia controlla la carreggiata.',
+    'blog.article.a2-corsia-ritardi-lugano-2026.imageAlt': 'Autostrada A2 con traffico intenso e una sola corsia aperta',
 };
 
 export default blogMetaIt;

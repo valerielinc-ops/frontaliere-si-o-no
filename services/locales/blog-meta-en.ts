@@ -4168,6 +4168,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ritardi-a2-tra-chiasso-lugano.title': 'Heavy traffic on A2: up to 1 hour 40 minutes delay',
     'blog.article.ritardi-a2-tra-chiasso-lugano.excerpt': 'Red alert this morning on the A2 motorway between Chiasso and Lugano, with delays of up to 104 minutes due to a broken down vehicle.',
     'blog.article.ritardi-a2-tra-chiasso-lugano.imageAlt': 'A2 highway between Chiasso and Lugano with heavy traffic',
+    'blog.article.a2-corsia-ritardi-lugano-2026.title': 'A2 lane closed: heavy delays up to 1h40',
+    'blog.article.a2-corsia-ritardi-lugano-2026.excerpt': 'Heavy traffic between Chiasso and Grancia, queue from Chiasso/Balerna. Police checking the road.',
+    'blog.article.a2-corsia-ritardi-lugano-2026.imageAlt': 'A2 highway with heavy traffic and one lane open',
 };
 
 export default blogMetaEn;

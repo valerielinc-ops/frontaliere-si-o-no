@@ -4169,6 +4169,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ritardi-a2-tra-chiasso-lugano.title': 'Bouchons sur l\'A2: jusqu\'à 1h40 de retard',
     'blog.article.ritardi-a2-tra-chiasso-lugano.excerpt': 'Matinée de bouchons rouges sur l\'autoroute A2 entre Chiasso et Lugano, avec des retards allant jusqu\'à 104 minutes en raison d\'un véhicule en panne.',
     'blog.article.ritardi-a2-tra-chiasso-lugano.imageAlt': 'Autoroute A2 entre Chiasso et Lugano avec un trafic intense',
+    'blog.article.a2-corsia-ritardi-lugano-2026.title': 'A2 en panne : une seule voie, retards d\'une heure',
+    'blog.article.a2-corsia-ritardi-lugano-2026.excerpt': 'Trafic intense entre Chiasso et Grancia, file depuis Chiasso/Balerna, retards jusqu\'à 1h40. La police contrôle la chaussée.',
+    'blog.article.a2-corsia-ritardi-lugano-2026.imageAlt': 'Autoroute A2 avec un trafic intense et une seule voie ouverte',
 };
 
 export default blogMetaFr;

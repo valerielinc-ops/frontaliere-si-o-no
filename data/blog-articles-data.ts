@@ -10738,4 +10738,11 @@ export const ARTICLES = [
  image: '/images/blog/ritardi-a2-tra-chiasso-lugano.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'a2-corsia-ritardi-lugano-2026',
+ category: 'novita',
+ date: '2026-04-30T05:48:08.534Z',
+ image: '/images/blog/a2-corsia-ritardi-lugano-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

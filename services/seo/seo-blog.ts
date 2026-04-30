@@ -27270,6 +27270,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a2-corsia-ritardi-lugano-2026': {
+    title: 'A2 in tilt: una sola corsia, ritardi oltre l\'ora | Frontaliere Ticino',
+    description: 'Traffico intenso tra Chiasso e Grancia, coda da Chiasso/Balerna, ritardi fino a 1h40. Polizia controlla la carreggiata. Cosa fare per evitare ritardi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilt, sola, corsia, ritardi',
+    ogTitle: 'A2 in tilt: una sola corsia, ritardi oltre l\'ora',
+    ogDescription: 'Traffico intenso tra Chiasso e Grancia, coda da Chiasso/Balerna, ritardi fino a 1h40. Polizia controlla la carreggiata. Cosa fare per evitare ritardi.',
+    canonicalPath: '/articoli-frontaliere/a2-corsia-ritardi-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A2 in tilt: una sola corsia, ritardi oltre l'ora",
+      "description": "Traffico intenso tra Chiasso e Grancia, coda da Chiasso/Balerna, ritardi fino a 1h40. Polizia controlla la carreggiata. Cosa fare per evitare ritardi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/a2-corsia-ritardi-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A2 con traffico intenso e una sola corsia aperta"
+      },
+      "datePublished": "2026-04-30T05:48:08+00:00",
+      "dateModified": "2026-04-30T05:48:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-corsia-ritardi-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
