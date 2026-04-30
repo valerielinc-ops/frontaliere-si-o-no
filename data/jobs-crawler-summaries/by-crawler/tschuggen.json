@@ -1,18 +1,55 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-04-30T11:39:18.707Z",
+  "generatedAt": "2026-04-30T22:40:57.036Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 12198,
-  "avgDurationMs": 12198,
+  "durationMs": 12347,
+  "avgDurationMs": 12347,
   "durationHistory": [
-    12198
+    12347
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "tschuggen-0efcd13d4564",
+      "slug": "chef-de-partie-garde-manger-m-w-d-sommersaison-2026-tschuggen-ch",
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Chef de Partie Garde-Manger (m/w/d) Sommersaison 2026",
+      "location": "Arosa",
+      "canton": "GR",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1320/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-30T22:40:47.647Z",
+      "addressLocality": "Arosa",
+      "postalCode": "7050",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Gastronomia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1320/Description/1",
+      "department": "Küche",
+      "hotelName": "Tschuggen Grand Hotel",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "tschuggen-ff144d1e3ea7",
@@ -26,7 +63,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1344/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:39:09.355Z",
+      "crawledAt": "2026-04-30T22:40:48.556Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -63,7 +100,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1308/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:39:08.489Z",
+      "crawledAt": "2026-04-30T22:40:46.748Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -100,7 +137,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:39:10.238Z",
+      "crawledAt": "2026-04-30T22:40:49.416Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -137,7 +174,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1341/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:39:11.115Z",
+      "crawledAt": "2026-04-30T22:40:50.083Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -174,7 +211,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1340/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:39:11.983Z",
+      "crawledAt": "2026-04-30T22:40:50.962Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -211,7 +248,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1315/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:39:12.867Z",
+      "crawledAt": "2026-04-30T22:40:51.871Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -248,7 +285,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:39:13.724Z",
+      "crawledAt": "2026-04-30T22:40:52.772Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -264,7 +301,6 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "department": "Spa",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-22T22:34:13.947Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -286,7 +322,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1339/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:39:14.598Z",
+      "crawledAt": "2026-04-30T22:40:53.678Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -323,7 +359,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1336/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:39:15.495Z",
+      "crawledAt": "2026-04-30T22:40:54.623Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -347,10 +383,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "tschuggen-1927880b4baa",
-      "slug": "demi-chef-patisserie-m-w-d-sommersaison-2026-tschuggen-ch",
+      "slug": "mezza-pasticceria-principale-m-w-d-dormire-2026-tschuggen-collection-arosa",
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
       "companyDomain": "tschuggencollection.ch",
@@ -377,15 +415,16 @@
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
       "firstSeenAt": "2026-04-15T22:29:44.655Z",
-      "_qualityScore": 85,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
