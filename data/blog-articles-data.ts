@@ -11033,4 +11033,11 @@ export const ARTICLES = [
  image: '/images/blog/dezonamenti-ticino-2026-confronti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pizza-bibita-costi-citta',
+ category: 'pratico',
+ date: '2026-04-30T11:47:58.963Z',
+ image: '/images/blog/pizza-bibita-costi-citta.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

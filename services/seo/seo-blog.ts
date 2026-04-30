@@ -28488,6 +28488,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pizza-bibita-costi-citta': {
+    title: 'Pizza e bibita sempre più care: la classifica delle 30 città più costose',
+    description: 'Scopri la classifica delle 30 città italiane più costose per pizza e bibita. Bolzano in testa con 15 euro di media. Implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pizza, bibita, sempre, care',
+    ogTitle: 'Pizza e bibita sempre più care: la classifica delle 30 città più costose',
+    ogDescription: 'Scopri la classifica delle 30 città italiane più costose per pizza e bibita. Bolzano in testa con 15 euro di media. Implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/pizza-bibita-costi-citta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pizza e bibita sempre più care: la classifica delle 30 città più costose",
+      "description": "Scopri la classifica delle 30 città italiane più costose per pizza e bibita. Bolzano in testa con 15 euro di media. Implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pizza-bibita-costi-citta.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una pizzeria affollata a Lugano con vista sul lago di Lugano"
+      },
+      "datePublished": "2026-04-30T11:47:58+00:00",
+      "dateModified": "2026-04-30T11:47:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pizza-bibita-costi-citta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

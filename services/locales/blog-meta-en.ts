@@ -4294,6 +4294,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dezonamenti-ticino-2026-confronti.title': 'Derezervation in Ticino: direct dialogue with the Department needed',
     'blog.article.dezonamenti-ticino-2026-confronti.excerpt': 'The Association of Ticino Municipalities asks for direct dialogue with the Department of Territory to solve dezoning issues',
     'blog.article.dezonamenti-ticino-2026-confronti.imageAlt': 'View of Bellinzona with Ticino flag',
+    'blog.article.pizza-bibita-costi-citta.title': 'Pizza and drink prices soaring: Italy\'s 30 most expensive cities',
+    'blog.article.pizza-bibita-costi-citta.excerpt': 'Osservatorio Prezzi e Tariffe data shows a significant rise in pizza and drink costs across Italy, with Bolzano topping the list.',
+    'blog.article.pizza-bibita-costi-citta.imageAlt': 'A bustling pizzeria in Lugano with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

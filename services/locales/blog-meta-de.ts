@@ -4294,6 +4294,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dezonamenti-ticino-2026-confronti.title': 'Entzonungen im Tessin: Dialog mit dem Departement nötig',
     'blog.article.dezonamenti-ticino-2026-confronti.excerpt': 'Der Verband der Gemeinden Tessin fordert direkten Austausch mit dem Departement für Raumentwicklung zur Lösung von Entzonungsproblemen',
     'blog.article.dezonamenti-ticino-2026-confronti.imageAlt': 'Ansicht von Bellinzona mit der Flagge des Tessin',
+    'blog.article.pizza-bibita-costi-citta.title': 'Pizza und Getränke werden immer teurer: Die 30 teuersten Städte',
+    'blog.article.pizza-bibita-costi-citta.excerpt': 'Die Daten des Osservatorio Prezzi e Tariffe zeigen einen deutlichen Anstieg der Kosten für Pizza und Getränke in Italien, wobei Bozen an der Spitze steht.',
+    'blog.article.pizza-bibita-costi-citta.imageAlt': 'Ein belebtes Pizzeria in Lugano mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

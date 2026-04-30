@@ -4295,6 +4295,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dezonamenti-ticino-2026-confronti.title': 'Dezonamenti in Ticino: serve dialogo diretto con il Dipartimento',
     'blog.article.dezonamenti-ticino-2026-confronti.excerpt': 'L\'Associazione dei Comuni Ticino chiede confronto diretto con il Dipartimento del Territorio per risolvere problemi di dezonamento',
     'blog.article.dezonamenti-ticino-2026-confronti.imageAlt': 'Veduta di Bellinzona con bandiera del Ticino',
+    'blog.article.pizza-bibita-costi-citta.title': 'Pizza e bibita sempre più care: la classifica delle 30 città più costose',
+    'blog.article.pizza-bibita-costi-citta.excerpt': 'I dati dell\'Osservatorio Prezzi e Tariffe mostrano un aumento significativo dei costi per pizza e bibita in Italia, con Bolzano in testa alla classifica.',
+    'blog.article.pizza-bibita-costi-citta.imageAlt': 'Una pizzeria affollata a Lugano con vista sul lago di Lugano',
 };
 
 export default blogMetaIt;

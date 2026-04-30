@@ -4295,6 +4295,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dezonamenti-ticino-2026-confronti.title': 'Désenclavement au Tessin: dialogue avec le Département',
     'blog.article.dezonamenti-ticino-2026-confronti.excerpt': 'L\'Association des Communes du Tessin demande un dialogue direct avec le Département du Territoire pour résoudre les problèmes de désenclavement',
     'blog.article.dezonamenti-ticino-2026-confronti.imageAlt': 'Vue de Bellinzona avec le drapeau du Tessin',
+    'blog.article.pizza-bibita-costi-citta.title': 'Pizza et boissons : les 30 villes les plus chères',
+    'blog.article.pizza-bibita-costi-citta.excerpt': 'Les données de l\'Osservatorio Prezzi e Tariffe montrent une augmentation significative des coûts pour une pizza et une boisson en Italie, avec Bolzano en tête du classement.',
+    'blog.article.pizza-bibita-costi-citta.imageAlt': 'Une pizzeria animée à Lugano avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;
