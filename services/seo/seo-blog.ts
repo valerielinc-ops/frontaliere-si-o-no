@@ -27995,6 +27995,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-presunti-maltrattamenti-asilo-chiasso': {
+    title: 'Presunti maltrattamenti in asilo nido: accertamenti in corso',
+    description: 'Tre denunce per presunti maltrattamenti in un asilo nido privato di Chiasso. Accertamenti in corso da parte di polizia e Ministero pubblico. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, presunti, maltrattamenti, asilo, nido',
+    ogTitle: 'Presunti maltrattamenti in asilo nido a Chiasso',
+    ogDescription: 'Tre denunce per presunti maltrattamenti in un asilo nido privato di Chiasso. Accertamenti in corso da parte di polizia e Ministero pubblico.',
+    canonicalPath: '/articoli-frontaliere/presunti-maltrattamenti-asilo-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Presunti maltrattamenti in asilo nido a Chiasso",
+      "description": "Tre denunce per presunti maltrattamenti in un asilo nido privato di Chiasso. Accertamenti in corso da parte di polizia e Ministero pubblico. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/presunti-maltrattamenti-asilo-chiasso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Genitore preoccupato fuori da un asilo nido privato a Chiasso"
+      },
+      "datePublished": "2026-04-30T09:28:59+00:00",
+      "dateModified": "2026-04-30T09:28:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/presunti-maltrattamenti-asilo-chiasso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

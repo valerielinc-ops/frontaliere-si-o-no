@@ -4244,6 +4244,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parita-paura-frontalieri-ticino.title': 'La parità che fa paura ai frontalieri del Ticino',
     'blog.article.parita-paura-frontalieri-ticino.excerpt': 'Solo 28 Paesi al mondo sono guidati da una donna. In Ticino, la parità di genere è ancora un obiettivo lontano.',
     'blog.article.parita-paura-frontalieri-ticino.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido, colori autunnali',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.title': 'Presunti maltrattamenti in asilo nido: accertamenti in corso',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.excerpt': 'Tre denunce per presunti maltrattamenti in un asilo nido privato di Chiasso. Inchiesta aperta, accertamenti in corso.',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.imageAlt': 'Genitore preoccupato fuori da un asilo nido privato a Chiasso',
 };
 
 export default blogMetaIt;

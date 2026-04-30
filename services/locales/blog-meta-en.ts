@@ -4243,6 +4243,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parita-paura-frontalieri-ticino.title': 'Gender equality that scares Ticino cross-border workers',
     'blog.article.parita-paura-frontalieri-ticino.excerpt': 'Only 28 countries in the world are led by a woman. In Ticino, gender equality is still a distant goal.',
     'blog.article.parita-paura-frontalieri-ticino.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, clear blue sky, autumn colors',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.title': 'Alleged abuse in daycare: investigation ongoing',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.excerpt': 'Three reports of alleged abuse at a private daycare in Chiasso. Inquiry open, investigations underway.',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.imageAlt': 'Concerned parent outside a private daycare center in Chiasso',
 };
 
 export default blogMetaEn;

@@ -2645,6 +2645,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-competenze-lavoro-2026': { name: 'Mercato del lavoro', path: '/articoli-frontaliere/varese-competenze-lavoro-2026', parent: 'blog' },
     'blog-kof-barometro-ripresa-economica-2026': { name: 'Economia Svizzera', path: '/articoli-frontaliere/kof-barometro-ripresa-economica-2026', parent: 'blog' },
     'blog-parita-paura-frontalieri-ticino': { name: 'Parità di genere', path: '/articoli-frontaliere/parita-paura-frontalieri-ticino', parent: 'blog' },
+    'blog-presunti-maltrattamenti-asilo-chiasso': { name: 'Novità', path: '/articoli-frontaliere/presunti-maltrattamenti-asilo-chiasso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4244,6 +4244,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parita-paura-frontalieri-ticino.title': 'L\'égalité qui fait peur aux frontaliers du Tessin',
     'blog.article.parita-paura-frontalieri-ticino.excerpt': 'Seulement 28 pays dans le monde sont dirigés par une femme. Au Tessin, l\'égalité des genres est encore un objectif lointain.',
     'blog.article.parita-paura-frontalieri-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan, ciel bleu clair, couleurs automnales',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.title': 'Mauvais traitements présumés en crèche: enquête en cours',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.excerpt': 'Trois plaintes pour mauvais traitements présumés dans une crèche privée de Chiasso. Enquête ouverte, vérifications en cours.',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.imageAlt': 'Parent inquiet devant une crèche privée à Chiasso',
 };
 
 export default blogMetaFr;

@@ -10914,4 +10914,11 @@ export const ARTICLES = [
  image: '/images/blog/parita-paura-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'presunti-maltrattamenti-asilo-chiasso',
+ category: 'novita',
+ date: '2026-04-30T09:28:59.074Z',
+ image: '/images/blog/presunti-maltrattamenti-asilo-chiasso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4243,6 +4243,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parita-paura-frontalieri-ticino.title': 'Die Gleichstellung, die den Grenzgängern Angst macht',
     'blog.article.parita-paura-frontalieri-ticino.excerpt': 'Nur 28 Länder dieser Welt werden von einer Frau regiert. Im Tessin ist die Gleichstellung der Geschlechter noch ein fernes Ziel.',
     'blog.article.parita-paura-frontalieri-ticino.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund, klarer blauer Himmel, Herbstfarben',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.title': 'Verdacht auf Misshandlung in Kita: Ermittlungen laufen',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.excerpt': 'Drei Anzeigen wegen mutmaßlicher Misshandlungen in einer privaten Kita in Chiasso. Ermittlungen eingeleitet, Untersuchungen laufen.',
+    'blog.article.presunti-maltrattamenti-asilo-chiasso.imageAlt': 'Besorgte Eltern vor einem privaten Kindergarten in Chiasso',
 };
 
 export default blogMetaDe;
