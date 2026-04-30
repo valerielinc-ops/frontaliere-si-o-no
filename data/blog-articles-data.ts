@@ -11502,4 +11502,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-nuovo-solco-italia-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'eurodreams-vincita-rendita-22mila-franchi',
+ category: 'novita',
+ date: '2026-04-30T23:09:22.201Z',
+ image: '/images/blog/eurodreams-vincita-rendita-22mila-franchi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

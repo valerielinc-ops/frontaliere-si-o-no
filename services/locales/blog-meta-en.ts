@@ -4495,6 +4495,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.title': 'Crans-Montana: new rift between Italy and Switzerland',
     'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.excerpt': 'Italy joins fire case as civil party, but chances of success are slim. Swiss President Parmelin to meet Meloni and Mattarella.',
     'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.imageAlt': 'Panoramic view of Crans-Montana in winter',
+    'blog.article.eurodreams-vincita-rendita-22mila-franchi.title': 'Eurodreams: 22,222 francs monthly for 30 years',
+    'blog.article.eurodreams-vincita-rendita-22mila-franchi.excerpt': 'A lucky Eurodreams win: 22,222 francs per month for 30 years, achieved in Spain but managed by Swisslos and Loterie romande',
+    'blog.article.eurodreams-vincita-rendita-22mila-franchi.imageAlt': 'Person holding a winning lottery ticket in front of a Swiss-Italian border landscape',
 };
 
 export default blogMetaEn;

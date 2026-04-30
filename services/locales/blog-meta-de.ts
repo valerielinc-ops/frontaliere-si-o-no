@@ -4495,6 +4495,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.title': 'Crans-Montana: Neue Spannungen zwischen Italien und der Schweiz',
     'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.excerpt': 'Italien tritt als Nebenkläger im Silvesterbrandfall auf, doch die Erfolgsaussichten sind gering. Der Schweizer Präsident Parmelin wird Meloni und Mattarella treffen.',
     'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.imageAlt': 'Panoramablick auf Crans-Montana im Winter',
+    'blog.article.eurodreams-vincita-rendita-22mila-franchi.title': 'Eurodreams: 22.222 Franken monatlich für 30 Jahre gewonnen',
+    'blog.article.eurodreams-vincita-rendita-22mila-franchi.excerpt': 'Ein glücklicher Gewinn bei Eurodreams: 22.222 Franken pro Monat für 30 Jahre, erzielt in Spanien, aber von Swisslos und Loterie romande verwaltet',
+    'blog.article.eurodreams-vincita-rendita-22mila-franchi.imageAlt': 'Person mit einem Gewinnlos vor einer schweizerisch-italienischen Grenzlandschaft',
 };
 
 export default blogMetaDe;

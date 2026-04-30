@@ -2729,6 +2729,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sostenibilita-salone-csr-varese-2026': { name: 'Salone CSR Varese', path: '/articoli-frontaliere/sostenibilita-salone-csr-varese-2026', parent: 'blog' },
     'blog-film-the-sea-varese-gaza-2026': { name: 'Eventi culturali', path: '/articoli-frontaliere/film-the-sea-varese-gaza-2026', parent: 'blog' },
     'blog-crans-montana-nuovo-solco-italia-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-nuovo-solco-italia-svizzera-2026', parent: 'blog' },
+    'blog-eurodreams-vincita-rendita-22mila-franchi': { name: 'Novità', path: '/articoli-frontaliere/eurodreams-vincita-rendita-22mila-franchi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

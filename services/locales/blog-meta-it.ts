@@ -4496,6 +4496,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.title': 'Crans-Montana, si apre un nuovo solco tra Italia e Svizzera',
     'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.excerpt': 'L\'Italia si costituisce parte civile per l\'incendio di Capodanno, ma le chance di successo sono scarse. Il presidente svizzero Parmelin incontrerà Meloni e Mattarella.',
     'blog.article.crans-montana-nuovo-solco-italia-svizzera-2026.imageAlt': 'Vista panoramica di Crans-Montana in inverno',
+    'blog.article.eurodreams-vincita-rendita-22mila-franchi.title': 'Eurodreams: vinta una rendita mensile di 22mila franchi per 30 anni',
+    'blog.article.eurodreams-vincita-rendita-22mila-franchi.excerpt': 'Una fortunata vincita di Eurodreams: 22.222 franchi al mese per 30 anni, realizzata in Spagna ma gestita da Swisslos e Loterie romande',
+    'blog.article.eurodreams-vincita-rendita-22mila-franchi.imageAlt': 'Persona con biglietto vincente della lotteria davanti a un paesaggio di confine svizzero-italiano',
 };
 
 export default blogMetaIt;

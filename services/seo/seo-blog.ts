@@ -30431,6 +30431,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eurodreams-vincita-rendita-22mila-franchi': {
+    title: 'Eurodreams: vinta una rendita mensile di 22mila franchi per 30 anni',
+    description: 'Una fortunata vincita di Eurodreams: 22.222 franchi al mese per 30 anni, realizzata in Spagna ma gestita da Swisslos e Loterie romande. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, eurodreams, vinta, rendita, mensile',
+    ogTitle: 'Eurodreams: vinta una rendita mensile di 22mila franchi per 30 anni',
+    ogDescription: 'Una fortunata vincita di Eurodreams: 22.222 franchi al mese per 30 anni, realizzata in Spagna ma gestita da Swisslos e Loterie romande',
+    canonicalPath: '/articoli-frontaliere/eurodreams-vincita-rendita-22mila-franchi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eurodreams: vinta una rendita mensile di 22mila franchi per 30 anni",
+      "description": "Una fortunata vincita di Eurodreams: 22.222 franchi al mese per 30 anni, realizzata in Spagna ma gestita da Swisslos e Loterie romande. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/eurodreams-vincita-rendita-22mila-franchi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona con biglietto vincente della lotteria davanti a un paesaggio di confine svizzero-italiano"
+      },
+      "datePublished": "2026-04-30T23:09:22+00:00",
+      "dateModified": "2026-04-30T23:09:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eurodreams-vincita-rendita-22mila-franchi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
