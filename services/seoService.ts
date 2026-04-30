@@ -2627,6 +2627,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-problemi-casellario-giudiziale-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/problemi-casellario-giudiziale-varese-2026', parent: 'blog' },
     'blog-comco-inchieste-pubblicita-online-2026': { name: 'Novità', path: '/articoli-frontaliere/comco-inchieste-pubblicita-online-2026', parent: 'blog' },
     'blog-glaciazione-demografica-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/glaciazione-demografica-ticino-2026', parent: 'blog' },
+    'blog-a2-traffico-ritardi-lugano-2026': { name: 'Traffico A2', path: '/articoli-frontaliere/a2-traffico-ritardi-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

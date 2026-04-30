@@ -10787,4 +10787,11 @@ export const ARTICLES = [
  image: '/images/blog/glaciazione-demografica-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'a2-traffico-ritardi-lugano-2026',
+ category: 'novita',
+ date: '2026-04-30T06:46:25.602Z',
+ image: '/images/blog/a2-traffico-ritardi-lugano-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4190,6 +4190,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.glaciazione-demografica-ticino-2026.title': 'Décroissance démographique en Ticino: alerte pour l\'avenir',
     'blog.article.glaciazione-demografica-ticino-2026.excerpt': 'Faible taux de natalité et vieillissement de la population inquiètent le canton du Ticino. Interpellation parlementaire pour une stratégie cantonale.',
     'blog.article.glaciazione-demografica-ticino-2026.imageAlt': 'Bellinzona, Canton du Tessin, avec Castelgrande et la rivière Ticino',
+    'blog.article.a2-traffico-ritardi-lugano-2026.title': 'A2 en panne : retards d\'une heure entre Chiasso et Lugano',
+    'blog.article.a2-traffico-ritardi-lugano-2026.excerpt': 'Matinée cauchemardesque sur l\'A2 en direction du nord avec des retards allant jusqu\'à une heure et quarante minutes. Accidents et contrôles de police compliquent la circulation',
+    'blog.article.a2-traffico-ritardi-lugano-2026.imageAlt': 'Vue aérienne de l\'autoroute A2 près de Lugano avec embouteillages et présence policière',
 };
 
 export default blogMetaFr;

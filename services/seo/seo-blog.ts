@@ -27473,6 +27473,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a2-traffico-ritardi-lugano-2026': {
+    title: 'A2 in tilt: ritardi oltre l\'ora tra Chiasso e Lugano',
+    description: 'Mattinata da incubo sulla A2 in direzione nord con ritardi fino a un\'ora e quaranta minuti. Incidenti e controlli della polizia complicano il traffico',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilt, ritardi, oltre, chiasso',
+    ogTitle: 'A2 in tilt: ritardi oltre l\'ora tra Chiasso e Lugano',
+    ogDescription: 'Mattinata da incubo sulla A2 in direzione nord con ritardi fino a un\'ora e quaranta minuti. Incidenti e controlli della polizia complicano il traffico',
+    canonicalPath: '/articoli-frontaliere/a2-traffico-ritardi-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A2 in tilt: ritardi oltre l'ora tra Chiasso e Lugano",
+      "description": "Mattinata da incubo sulla A2 in direzione nord con ritardi fino a un'ora e quaranta minuti. Incidenti e controlli della polizia complicano il traffico",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/a2-traffico-ritardi-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'autostrada A2 vicino a Lugano con traffico congestionato e presenza della polizia"
+      },
+      "datePublished": "2026-04-30T06:46:25+00:00",
+      "dateModified": "2026-04-30T06:46:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-traffico-ritardi-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

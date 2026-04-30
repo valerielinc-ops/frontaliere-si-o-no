@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1446,
+ "numberOfItems": 1447,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6081,7 +6081,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1443, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/pnrr-disabilita-medio-olona-715mila-euro` },
           { "@type": "ListItem", "position": 1444, "name": "Problemi informatici al casellario giudiziale d...", "url": `${BASE_URL}/articoli-frontaliere/problemi-casellario-giudiziale-varese-2026` },
           { "@type": "ListItem", "position": 1445, "name": "COMCO indaga su accordi illeciti nella pubblici...", "url": `${BASE_URL}/articoli-frontaliere/comco-inchieste-pubblicita-online-2026` },
-          { "@type": "ListItem", "position": 1446, "name": "Glaciazione demografica in Ticino: allarme per ...", "url": `${BASE_URL}/articoli-frontaliere/glaciazione-demografica-ticino-2026` }
+          { "@type": "ListItem", "position": 1446, "name": "Glaciazione demografica in Ticino: allarme per ...", "url": `${BASE_URL}/articoli-frontaliere/glaciazione-demografica-ticino-2026` },
+          { "@type": "ListItem", "position": 1447, "name": "A2 in tilt: ritardi oltre l'ora tra Chiasso e L...", "url": `${BASE_URL}/articoli-frontaliere/a2-traffico-ritardi-lugano-2026` }
  ]
  },
  {
