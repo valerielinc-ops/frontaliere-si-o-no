@@ -4162,6 +4162,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.repressione-cinese-svizzera-ong-critiche.title': 'Chinesische Unterdrückung in der Schweiz: NGOs kritisieren Bern',
     'blog.article.repressione-cinese-svizzera-ong-critiche.excerpt': 'NGOs kritisieren das Fehlen konkreter Maßnahmen zum Schutz von Tibetern und Uiguren in der Schweiz, trotz der Anerkennung der transnationalen Unterdrückung',
     'blog.article.repressione-cinese-svizzera-ong-critiche.imageAlt': 'Demonstranten in Bellinzona mit Schildern und Fahnen gegen chinesische Unterdrückung',
+    'blog.article.traffico-intenso-a2-lugano-ritardi.title': 'A2 Richtung Lugano: Starker Verkehr und Verzögerungen bis 1h30',
+    'blog.article.traffico-intenso-a2-lugano-ritardi.excerpt': 'Verzögerungen auf der A2 zwischen Chiasso und dem San-Salvatore-Tunnel, mit geschätzten Verzögerungen zwischen einer Stunde und eineinhalb Stunden.',
+    'blog.article.traffico-intenso-a2-lugano-ritardi.imageAlt': 'Stau auf der Autobahn A2 in Richtung Lugano, San Salvatore Tunnel',
 };
 
 export default blogMetaDe;

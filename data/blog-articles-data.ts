@@ -10724,4 +10724,11 @@ export const ARTICLES = [
  image: '/images/blog/repressione-cinese-svizzera-ong-critiche.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'traffico-intenso-a2-lugano-ritardi',
+ category: 'pratico',
+ date: '2026-04-30T05:34:05.691Z',
+ image: '/images/blog/traffico-intenso-a2-lugano-ritardi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

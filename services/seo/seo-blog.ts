@@ -27212,6 +27212,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-intenso-a2-lugano-ritardi': {
+    title: 'A2 verso Lugano: traffico intenso e ritardi fino a 1h30',
+    description: 'Traffico intenso sull’A2 verso Lugano, con ritardi fino a un’ora e trenta. Scopri le cause e le alternative per evitare i disagi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, verso, lugano, traffico, intenso',
+    ogTitle: 'Traffico intenso A2 Lugano: ritardi fino a 1h30',
+    ogDescription: 'Traffico intenso sull’A2 verso Lugano, con ritardi fino a un’ora e trenta. Scopri le cause e le alternative per evitare i disagi.',
+    canonicalPath: '/articoli-frontaliere/traffico-intenso-a2-lugano-ritardi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico intenso sull’A2 verso Lugano: ritardi fino a un’ora e trenta",
+      "description": "Traffico intenso sull’A2 verso Lugano, con ritardi fino a un’ora e trenta. Scopri le cause e le alternative per evitare i disagi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/traffico-intenso-a2-lugano-ritardi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingorgo autostradale A2 verso Lugano, galleria del San Salvatore"
+      },
+      "datePublished": "2026-04-30T05:34:05+00:00",
+      "dateModified": "2026-04-30T05:34:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-intenso-a2-lugano-ritardi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

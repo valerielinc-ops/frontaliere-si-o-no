@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1437,
+ "numberOfItems": 1438,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6072,7 +6072,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1434, "name": "Malpensa: 6 milioni in contanti sequestrati in ...", "url": `${BASE_URL}/articoli-frontaliere/malpensa-contanti-sequestri-370mila-euro` },
           { "@type": "ListItem", "position": 1435, "name": "Grigioni, stretta sui permessi dopo infiltrazio...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-stretta-permessi-mafia-roveredo` },
           { "@type": "ListItem", "position": 1436, "name": "A2: traffico intenso e ritardi oltre l'ora", "url": `${BASE_URL}/articoli-frontaliere/restringimento-a2-ritardi-2026` },
-          { "@type": "ListItem", "position": 1437, "name": "Repressione cinese in Svizzera: ONG criticano B...", "url": `${BASE_URL}/articoli-frontaliere/repressione-cinese-svizzera-ong-critiche` }
+          { "@type": "ListItem", "position": 1437, "name": "Repressione cinese in Svizzera: ONG criticano B...", "url": `${BASE_URL}/articoli-frontaliere/repressione-cinese-svizzera-ong-critiche` },
+          { "@type": "ListItem", "position": 1438, "name": "Traffico intenso sull’A2 verso Lugano: ritardi ...", "url": `${BASE_URL}/articoli-frontaliere/traffico-intenso-a2-lugano-ritardi` }
  ]
  },
  {
