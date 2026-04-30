@@ -513,6 +513,31 @@ jobs:
         continue-on-error: true
         run: node scripts/capture-deployed-sitemaps.mjs
 
+      - name: Audit SPA bundle injection (block broken deploys at the source)
+        # Verifies every per-slug `dist/<path>/index.html` contains the SPA
+        # hydration script. The 2026-04-30 incident showed write-registry
+        # collisions occasionally produce per-slug pages without the bundle —
+        # the live E2E test catches it post-deploy, but the broken HTML is
+        # already serving users by then. This static check on dist/ runs
+        # BEFORE upload-pages-artifact, so a broken build never reaches
+        # production. On failure, inspect `dist/.write-collisions.json`
+        # (uploaded as `write-collisions-analysis` artifact below).
+        if: github.event.inputs.profile_sequential != 'true'
+        run: npm run audit:spa-bundle-injection
+
+      - name: Upload write-collisions analysis (small artifact)
+        # Always upload (even when the audit above fails) so we have the
+        # registry data to diagnose the failure. dist/.write-collisions.json
+        # is dotfile-filtered by GitHub Pages so it can't be served live;
+        # this artifact is the only way to retrieve it.
+        if: always() && github.event.inputs.profile_sequential != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: write-collisions-analysis
+          path: dist/.write-collisions.json
+          retention-days: 7
+          if-no-files-found: ignore
+
       - name: Upload artifact for GitHub Pages
         # PATH 3 (tar in bg during post-build pool) was tried in commit
         # 11b65de81 and reverted: tar reading 6.4 GB of dist/ contended
