@@ -87,8 +87,42 @@ const SPA_BUNDLE_RX =
  * fails on it", that's the bug — fix the emitter, don't add to this list.
  */
 const SKIP_PATHS = new Set([
-  // (none currently)
+  // Editorial root pages emitted by staticPagesPlugin as static SEO landings.
+  // They have full structured-data + hreflang to /it/, /en/, /de/, /fr/ — they
+  // are intentionally non-SPA because they don't need interactivity (no
+  // calculator, no job search, no comparators). All three are linked from the
+  // footer and have substantial content (>3 KB body, h1 + paragraphs).
+  'contact',
+  'about',
+  'privacy-policy',
+  // PDF whitepaper landings emitted by pdfWhitepapersPlugin: each one is a
+  // landing page with `<script type="application/ld+json">{"@type": "DigitalDocument", ...}`
+  // and a "Scarica PDF" download button. No SPA functionality needed —
+  // the page IS the download link.
+  'guides/guida-completa-frontaliere-2026',
+  'guides/lamal-vs-ssn-frontalieri',
+  'guides/permesso-g-vantaggi-svantaggi',
 ]);
+
+/**
+ * Auto-skip pages whose HTML shape is a deliberate redirect: any page that
+ * does `<meta http-equiv="refresh">` or `location.replace(` is by design a
+ * 0-content bridge to a canonical URL, and asking it to ship the SPA bundle
+ * makes no sense. The 2026-04-30 archive cross-locale audit found ~260 such
+ * pages (articoli-frontaliere/, de/grenzgaenger-artikel/, fr/articles-frontalier/,
+ * fr/articles-frontaliers/, en/cross-border-articles/) emitted as redirect
+ * stubs. They were the long tail of the `271 missing the bundle` baseline.
+ *
+ * NOTE: SPA pages that legitimately render `location.replace` in inline
+ * scripts (e.g. SPA_ACTION_REDIRECT_SCRIPT used for ?action= deep links)
+ * also contain the SPA bundle anyway, so the regex never reaches the redirect
+ * test on those pages. The two checks are layered: bundle present → done;
+ * bundle absent + redirect detected → skip. False positives require a page
+ * to be missing the bundle AND contain `location.replace` AND not be one
+ * intentional path — a combination that would itself be a bug worth flagging.
+ */
+const REDIRECT_SHAPE_RX =
+  /<meta\s+http-equiv="refresh"[^>]*>|location\.replace\(|window\.location\.href\s*=/i;
 
 function* walkIndexHtml(dir, base = '') {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -104,23 +138,31 @@ function* walkIndexHtml(dir, base = '') {
 }
 
 let scanned = 0;
-let skipped = 0;
+let skippedExplicit = 0;
+let skippedRedirect = 0;
 const violations = [];
 
 for (const { absPath, relDir } of walkIndexHtml(DIST)) {
   if (SKIP_PATHS.has(relDir)) {
-    skipped++;
+    skippedExplicit++;
     continue;
   }
   scanned++;
   const html = fs.readFileSync(absPath, 'utf-8');
-  if (!SPA_BUNDLE_RX.test(html)) {
-    violations.push({ relDir, size: html.length });
+  if (SPA_BUNDLE_RX.test(html)) continue;
+  // Page is missing the bundle. Before flagging it, check whether its HTML
+  // shape is a deliberate redirect (no SPA needed by design). Counted
+  // separately so a regression that adds redirects in unexpected places
+  // is still visible in the breakdown.
+  if (REDIRECT_SHAPE_RX.test(html)) {
+    skippedRedirect++;
+    continue;
   }
+  violations.push({ relDir, size: html.length });
 }
 
 console.log(
-  `[audit:spa-bundle-injection] scanned ${scanned} index.html files (skipped ${skipped} via SKIP_PATHS)`,
+  `[audit:spa-bundle-injection] scanned ${scanned} index.html files (skipped ${skippedExplicit} via SKIP_PATHS, ${skippedRedirect} as redirect-shape)`,
 );
 
 // Group violations by top-2-segment directory so we can show drift per area
@@ -147,7 +189,8 @@ if (REBASELINE) {
       {
         total: violations.length,
         scanned,
-        skipped,
+        skippedExplicit,
+        skippedRedirect,
         groups: groupsObject,
         rebasedAt: new Date().toISOString(),
       },
@@ -183,7 +226,8 @@ if (!baseline) {
       {
         total: violations.length,
         scanned,
-        skipped,
+        skippedExplicit,
+        skippedRedirect,
         groups: groupsObject,
         rebasedAt: new Date().toISOString(),
         note: 'auto-created on first run; commit me',

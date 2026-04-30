@@ -39,6 +39,10 @@ import {
  type CollisionRecord,
  type ClaimVersion,
 } from './sharedWriteRegistry';
+import {
+ getGlobalIntraPluginOverwrites,
+ _resetGlobalIntraPluginOverwriteCounter,
+} from './batchWrite';
 
 interface LifecycleOptions {
  readonly rootDir: string;
@@ -70,6 +74,7 @@ export function writeRegistryResetPlugin(opts: LifecycleOptions): Plugin {
  enforce: 'pre',
  buildStart() {
  reset();
+ _resetGlobalIntraPluginOverwriteCounter();
  configureDumpDir(resolveDumpDir(opts.rootDir));
  },
  };
@@ -158,6 +163,22 @@ function collectCollidingPaths(): Array<{
 interface CollisionSummary {
  totalCollisions: number;
  uniquePaths: number;
+ /**
+  * Cumulative count of intra-plugin Map.set overwrites across every
+  * WriteCollector instance for this build. Each overwrite means a same-path
+  * second `add()` REPLACED the first (Map last-add-wins), so only one
+  * version actually reached the disk for that path during that flush.
+  *
+  * Relationship to {@link totalCollisions}: every intra-plugin overwrite
+  * also produces a registry collision record (same path, two different
+  * contents from the same plugin), so `totalCollisions ≥ intraPluginOverwrites`.
+  * The remainder (`totalCollisions - intraPluginOverwrites`) is cross-plugin
+  * collisions — paths claimed by two different plugins, where the Map dedup
+  * doesn't apply (different collector instances) and the disk outcome
+  * depends on flush order. Currently 0 (we drove cross-plugin to zero in
+  * Phase 4) and gated by `WRITE_COLLISION_MODE=throw` for regression alarm.
+  */
+ intraPluginOverwrites: number;
  byPluginPair: Array<{ pair: string; count: number }>;
 }
 
@@ -175,6 +196,7 @@ function summarise(records: readonly CollisionRecord[]): CollisionSummary {
  return {
  totalCollisions: records.length,
  uniquePaths: uniquePaths.size,
+ intraPluginOverwrites: getGlobalIntraPluginOverwrites(),
  byPluginPair,
  };
 }
@@ -188,8 +210,20 @@ function formatConsoleSummary(
  lines.push('');
  lines.push('\x1b[33m━━━ write-registry collision report ━━━\x1b[0m');
  lines.push(`mode: \x1b[1m${mode}\x1b[0m`);
+ // Disk outcome: every intra-plugin overwrite means the Map dedup absorbed
+ // a duplicate write, so only `uniquePaths + (totalCollisions - intraPluginOverwrites)`
+ // distinct writes actually hit the disk. Cross-plugin collisions still
+ // race at the OS level (different collectors flush in parallel), but those
+ // are 0 today after Phase 4 case 2/3.
+ const crossPluginCollisions = summary.totalCollisions - summary.intraPluginOverwrites;
  lines.push(
- `${summary.totalCollisions} collision(s) across ${summary.uniquePaths} unique path(s):`,
+ `${summary.totalCollisions} collision attempt(s) across ${summary.uniquePaths} unique path(s):`,
+ );
+ lines.push(
+ ` → ${summary.intraPluginOverwrites} deduped via Map last-add-wins (deterministic, single write to disk)`,
+ );
+ lines.push(
+ ` → ${crossPluginCollisions} cross-plugin (would race at OS level; 0 expected after Phase 4)`,
  );
  for (const { pair, count } of summary.byPluginPair) {
  lines.push(` ${count.toString().padStart(4)} × ${pair}`);

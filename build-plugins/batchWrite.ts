@@ -70,6 +70,29 @@ export async function flushWrites(writes: PendingWrite[], concurrency = 500): Pr
 /** Default threshold above which add() kicks off a background flush. */
 const DEFAULT_AUTO_FLUSH_THRESHOLD = 5000;
 
+/**
+ * Module-level cumulative counter of intra-plugin Map.set overwrites across
+ * EVERY WriteCollector instance for the current build. Reset by
+ * {@link _resetGlobalIntraPluginOverwriteCounter} (called from
+ * writeRegistryResetPlugin's buildStart hook).
+ *
+ * Why module-level: each plugin's closeBundle creates its own WriteCollector,
+ * so per-instance counters don't sum across plugins. The collision report
+ * needs the total to surface "X attempts → Y unique writes hit disk (Z
+ * deduped via Map)" — without this counter the report only shows attempts.
+ */
+let globalIntraPluginOverwrites = 0;
+
+/** Read by writeRegistryReportPlugin's closeBundle to enrich the summary. */
+export function getGlobalIntraPluginOverwrites(): number {
+  return globalIntraPluginOverwrites;
+}
+
+/** Called by writeRegistryResetPlugin's buildStart to clear stale state. */
+export function _resetGlobalIntraPluginOverwriteCounter(): void {
+  globalIntraPluginOverwrites = 0;
+}
+
 export interface WriteCollectorOptions {
  /** When true, add() skips files that already exist on disk. */
  skipExisting?: boolean;
@@ -170,7 +193,10 @@ export class WriteCollector {
  // earlier write is silently discarded — the disk only ever sees ONE
  // version of any path within a single plugin's flush. Track overwrite
  // count for diagnostics.
- if (this.writes.has(filePath)) this._overwrittenInPlugin += 1;
+ if (this.writes.has(filePath)) {
+ this._overwrittenInPlugin += 1;
+ globalIntraPluginOverwrites += 1;
+ }
  this.writes.set(filePath, { filePath, content });
 
  // Auto-flush in background once we cross the threshold. add() must stay
