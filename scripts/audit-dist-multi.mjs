@@ -1853,10 +1853,12 @@ async function main() {
   const want = (name) => {
     if (group === 'all') return true;
     if (group === 'ratio') return name === 'ratio';
-    if (group === 'heavy') return ['h1', 'dup', 'jobposting'].includes(name);
-    if (group === 'light') return ['title', 'pageweight', 'hreflang', 'titleuniq', 'sd'].includes(name);
-    // Backward-compat: previous experiment had heavy = ratio+h1+dup+jobposting
+    // T6 rebalanced: heavy = h1+dup (faster), jobposting moved to light.
+    if (group === 'heavy') return ['h1', 'dup'].includes(name);
+    if (group === 'light') return ['title', 'pageweight', 'hreflang', 'titleuniq', 'jobposting', 'sd'].includes(name);
+    // Backward-compat: previous experiments
     if (group === 'heavy-with-ratio') return ['ratio', 'h1', 'dup', 'jobposting'].includes(name);
+    if (group === 'heavy-with-jobposting') return ['h1', 'dup', 'jobposting'].includes(name);
     return true;
   };
 
