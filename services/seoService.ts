@@ -2631,6 +2631,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-roberto-grassi-nuovo-presidente-liuc-castellanza': { name: 'Novità LIUC', path: '/articoli-frontaliere/roberto-grassi-nuovo-presidente-liuc-castellanza', parent: 'blog' },
     'blog-ia-selezione-personale-rischi-ticino': { name: 'IA nel lavoro', path: '/articoli-frontaliere/ia-selezione-personale-rischi-ticino', parent: 'blog' },
     'blog-denatalita-ticino-azione-urgente-2026': { name: 'Novità', path: '/articoli-frontaliere/denatalita-ticino-azione-urgente-2026', parent: 'blog' },
+    'blog-beko-cassinetta-risultati-2026': { name: 'Novità', path: '/articoli-frontaliere/beko-cassinetta-risultati-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4202,6 +4202,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.denatalita-ticino-azione-urgente-2026.title': 'Denatalità in Ticino: il deputato Isabella chiede azioni concrete',
     'blog.article.denatalita-ticino-azione-urgente-2026.excerpt': 'Claudio Isabella del Centro critica la mancanza di misure efficaci contro il calo delle nascite nel Canton Ticino',
     'blog.article.denatalita-ticino-azione-urgente-2026.imageAlt': 'Vista aerea di Locarno, Lago Maggiore e montagne circostanti',
+    'blog.article.beko-cassinetta-risultati-2026.title': 'Beko Cassinetta: superata la crisi, ora contano i risultati',
+    'blog.article.beko-cassinetta-risultati-2026.excerpt': 'A un anno dall\'accordo che ha salvato lo stabilimento Beko di Cassinetta, emergono i primi risultati e le sfide future',
+    'blog.article.beko-cassinetta-risultati-2026.imageAlt': 'Vista aerea dello stabilimento Beko a Cassinetta di Biandronno',
 };
 
 export default blogMetaIt;

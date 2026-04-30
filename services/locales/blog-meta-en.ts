@@ -4201,6 +4201,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.denatalita-ticino-azione-urgente-2026.title': 'Falling birth rates in Ticino: Deputy Isabella demands action',
     'blog.article.denatalita-ticino-azione-urgente-2026.excerpt': 'Claudio Isabella of the Centre criticises the lack of effective measures against the decline in births in the Canton of Ticino',
     'blog.article.denatalita-ticino-azione-urgente-2026.imageAlt': 'Aerial view of Locarno, Lake Maggiore and surrounding mountains',
+    'blog.article.beko-cassinetta-risultati-2026.title': 'Beko Cassinetta: overcoming the crisis, results matter now',
+    'blog.article.beko-cassinetta-risultati-2026.excerpt': 'One year after the agreement that saved the Beko plant in Cassinetta, the first results and future challenges emerge',
+    'blog.article.beko-cassinetta-risultati-2026.imageAlt': 'Aerial view of Beko factory in Cassinetta di Biandronno',
 };
 
 export default blogMetaEn;

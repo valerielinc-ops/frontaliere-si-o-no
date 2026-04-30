@@ -10815,4 +10815,11 @@ export const ARTICLES = [
  image: '/images/blog/denatalita-ticino-azione-urgente-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'beko-cassinetta-risultati-2026',
+ category: 'novita',
+ date: '2026-04-30T07:18:52.735Z',
+ image: '/images/blog/beko-cassinetta-risultati-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

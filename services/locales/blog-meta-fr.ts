@@ -4202,6 +4202,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.denatalita-ticino-azione-urgente-2026.title': 'Dénatalité au Tessin : le député Isabella demande des actions concrètes',
     'blog.article.denatalita-ticino-azione-urgente-2026.excerpt': 'Claudio Isabella du Centre critique le manque de mesures efficaces contre la baisse des naissances dans le canton du Tessin',
     'blog.article.denatalita-ticino-azione-urgente-2026.imageAlt': 'Vue aérienne de Locarno, Lac Majeur et montagnes environnantes',
+    'blog.article.beko-cassinetta-risultati-2026.title': 'Beko Cassinetta : la crise surmontée, place aux résultats',
+    'blog.article.beko-cassinetta-risultati-2026.excerpt': 'Un an après l\'accord qui a sauvé l\'usine Beko de Cassinetta, les premiers résultats et les défis futurs émergent',
+    'blog.article.beko-cassinetta-risultati-2026.imageAlt': 'Vue aérienne de l\'usine Beko à Cassinetta di Biandronno',
 };
 
 export default blogMetaFr;

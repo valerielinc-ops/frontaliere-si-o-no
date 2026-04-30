@@ -4201,6 +4201,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.denatalita-ticino-azione-urgente-2026.title': 'Geburtenrückgang im Tessin: Isabella fordert konkrete Maßnahmen',
     'blog.article.denatalita-ticino-azione-urgente-2026.excerpt': 'Claudio Isabella vom Centro kritisiert den Mangel an wirksamen Maßnahmen gegen den Geburtenrückgang im Kanton Tessin',
     'blog.article.denatalita-ticino-azione-urgente-2026.imageAlt': 'Luftaufnahme von Locarno, Lago Maggiore und umliegende Berge',
+    'blog.article.beko-cassinetta-risultati-2026.title': 'Beko Cassinetta: Krise überwunden, jetzt zählen die Ergebnisse',
+    'blog.article.beko-cassinetta-risultati-2026.excerpt': 'Ein Jahr nach der Vereinbarung, die das Werk Beko in Cassinetta gerettet hat, zeigen sich erste Ergebnisse und zukünftige Herausforderungen',
+    'blog.article.beko-cassinetta-risultati-2026.imageAlt': 'Luftaufnahme des Beko-Werks in Cassinetta di Biandronno',
 };
 
 export default blogMetaDe;
