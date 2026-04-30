@@ -26922,6 +26922,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-elmec-innovation-summit-brunello-2026': {
+    title: 'Elmec Innovation Summit 2026: AI, Cybersecurity e Infrastrutture IT a Brunello',
+    description: 'Il 14 maggio 2026 torna a Brunello l\'Elmec Innovation Summit, un evento dedicato all\'innovazione IT con workshop, esperienze tecnologiche e confronto su AI',
+    keywords: 'frontalieri, ticino, svizzera, italia, elmec, innovation, summit, cybersecurity',
+    ogTitle: 'Elmec Innovation Summit 2026: AI, Cybersecurity e Infrastrutture IT a Brunello',
+    ogDescription: 'Il 14 maggio 2026 torna a Brunello l\'Elmec Innovation Summit, un evento dedicato all\'innovazione IT con workshop, esperienze tecnologiche e confronto su AI',
+    canonicalPath: '/articoli-frontaliere/elmec-innovation-summit-brunello-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elmec Innovation Summit 2026: AI, Cybersecurity e Infrastrutture IT a Brunello",
+      "description": "Il 14 maggio 2026 torna a Brunello l'Elmec Innovation Summit, un evento dedicato all'innovazione IT con workshop, esperienze tecnologiche e confronto su AI",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/elmec-innovation-summit-brunello-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza tecnologica al Campus Elmec di Brunello, con partecipanti impegnati in workshop e dimostrazioni tecnologiche."
+      },
+      "datePublished": "2026-04-30T04:06:36+00:00",
+      "dateModified": "2026-04-30T04:06:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/elmec-innovation-summit-brunello-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

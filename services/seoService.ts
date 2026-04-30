@@ -2608,6 +2608,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-due-scuole-due-mondi-un-solo-legame': { name: 'Mostra gemellaggio', path: '/articoli-frontaliere/due-scuole-due-mondi-un-solo-legame', parent: 'blog' },
     'blog-camion-incastrato-grantola-2026': { name: 'Novità', path: '/articoli-frontaliere/camion-incastrato-grantola-2026', parent: 'blog' },
     'blog-vedano-olona-medici-servizio-instabile': { name: 'Servizio medici', path: '/articoli-frontaliere/vedano-olona-medici-servizio-instabile', parent: 'blog' },
+    'blog-elmec-innovation-summit-brunello-2026': { name: 'Elmec Innovation Summit', path: '/articoli-frontaliere/elmec-innovation-summit-brunello-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

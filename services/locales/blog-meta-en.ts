@@ -4132,6 +4132,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vedano-olona-medici-servizio-instabile.title': 'Vedano Olona mayor denounces instability of doctors',
     'blog.article.vedano-olona-medici-servizio-instabile.excerpt': 'The mayor of Vedano Olona, Sergio Mina, denounces the instability of the general medicine service and asks for urgent interventions.',
     'blog.article.vedano-olona-medici-servizio-instabile.imageAlt': 'View of Lake Lugano with surrounding mountains',
+    'blog.article.elmec-innovation-summit-brunello-2026.title': 'Elmec Innovation Summit 2026: AI, Cybersecurity & IT in Brunello',
+    'blog.article.elmec-innovation-summit-brunello-2026.excerpt': 'On May 14, 2026, the Elmec Innovation Summit returns to Brunello, an event dedicated to IT innovation with workshops, tech experiences, and discussions on AI, cybersecurity, and IT infrastructure.',
+    'blog.article.elmec-innovation-summit-brunello-2026.imageAlt': 'Technology conference at the Elmec Campus in Brunello, with attendees participating in workshops and tech demos.',
 };
 
 export default blogMetaEn;

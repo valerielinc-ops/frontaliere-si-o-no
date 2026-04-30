@@ -4133,6 +4133,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vedano-olona-medici-servizio-instabile.title': 'Vedano Olona, le maire dénonce l\'instabilité des médecins',
     'blog.article.vedano-olona-medici-servizio-instabile.excerpt': 'Le maire de Vedano Olona, Sergio Mina, dénonce l\'instabilité du service de médecine générale et demande des interventions urgentes.',
     'blog.article.vedano-olona-medici-servizio-instabile.imageAlt': 'Vue du lac de Lugano avec les montagnes environnantes',
+    'blog.article.elmec-innovation-summit-brunello-2026.title': 'Elmec Innovation Summit 2026: IA, cybersécurité et IT à Brunello',
+    'blog.article.elmec-innovation-summit-brunello-2026.excerpt': 'Le 14 mai 2026, l\'Elmec Innovation Summit revient à Brunello, un événement dédié à l\'innovation IT avec des ateliers, des expériences technologiques et des échanges sur l\'IA, la cybersécurité et les infrastructures IT.',
+    'blog.article.elmec-innovation-summit-brunello-2026.imageAlt': 'Conférence technologique au campus Elmec de Brunello, avec des participants engagés dans des ateliers et des démonstrations technologiques.',
 };
 
 export default blogMetaFr;
