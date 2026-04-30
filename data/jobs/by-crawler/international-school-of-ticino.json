@@ -1,84 +1,7 @@
 {
   "crawlerKey": "international-school-of-ticino",
-  "assembledAt": "2026-04-30T10:59:27.869Z",
+  "assembledAt": "2026-04-30T22:01:05.918Z",
   "jobs": [
-    {
-      "url": "https://jobs.inspirededu.com/job/Lugano-Biology-&-Chemistry-Teacher/1359421357/",
-      "applyUrl": "https://jobs.inspirededu.com/job/Lugano-Biology-&-Chemistry-Teacher/1359421357/",
-      "title": "Biology & Chemistry Teacher",
-      "company": "International School of Ticino",
-      "companyKey": "international-school-of-ticino",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "description": "Inspired Education is the leading global group of premium schools, with a portfolio of 125 premium private schools spanning 6 continents which utilise proven educational practices from every corner of the globe, ensuring over 95,000 students receive a world-class learning experience from Kindergarten to Year 13.\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in Lugano, IST offers a stimulating international learning environment in Ticino.",
-      "descriptionByLocale": {
-        "en": "## Descrizione\n\nInspired Education is the leading global group of premium schools, with a portfolio of 125 premium private schools spanning 6 continents which utilise proven educational practices from every corner of the globe, ensuring over 95,000 students receive a world-class learning experience from Kindergarten to Year 13.\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in Lugano, IST offers a stimulating international learning environment in Ticino.",
-        "it": "Descrizione Inspired Education è il principale gruppo globale di scuole premium, con un portafoglio di 125 scuole private premium che spaziano da 6 continenti che utilizzano pratiche educative collaudate da ogni angolo del mondo, assicurando che oltre 95.000 studenti ricevano un'esperienza di apprendimento di livello mondiale da Kindergarten a 13 anni. La Scuola Internazionale di Ticino (IST) fa parte del Gruppo Ispirato per l'Educazione, uno dei principali gruppi scolastici al mondo. Situato a Lugano, IST offre un ambiente di apprendimento internazionale stimolante in Ticino.",
-        "de": "Beschreibung Inspired Education ist die führende globale Gruppe von Premium-Schulen, mit einem Portfolio von 125 Premium-Privatschulen über 6 Kontinente, die bewährte Bildungspraktiken aus jeder Ecke der Welt nutzen, um sicherzustellen, dass über 95.000 Studenten erhalten eine erstklassige Lernerfahrung von Kindergarten zu Jahr 13. Die International School of Ticino (IST) ist Teil der Inspired Education Group, einer der weltweit führenden Premium-Schulgruppen. Das IST in Lugano bietet eine anregende internationale Lernumgebung in Tessin.",
-        "fr": "Descrizione Inspired Education est le premier groupe mondial d'écoles haut de gamme, avec un portefeuille de 125 écoles privées haut de gamme sur 6 continents qui utilisent des pratiques éducatives éprouvées de tous les coins du monde, assurant plus de 95 000 étudiants reçoivent une expérience d'apprentissage de classe mondiale de la maternelle à l'année 13. L'École Internationale du Tessin (IST) fait partie du Groupe Inspiré de l'Education, l'un des principaux groupes d'écoles haut de gamme au monde. Situé à Lugano, l'IST offre un environnement d'apprentissage international stimulant au Tessin."
-      },
-      "titleByLocale": {
-        "en": "Biolog Te",
-        "it": "Biology & Chemistry Teacher",
-        "de": "Biologie und Chemie",
-        "fr": "Professeur de biologie et de chimie"
-      },
-      "slug": "biology-chemistry-teacher-international-school-of-ticino-lugano",
-      "slugByLocale": {
-        "en": "biology-chemistry-teacher-ist",
-        "it": "biology-chemistry-teacher-international-school-of-ticino-lugano",
-        "de": "biologie-und-chemie-international-school-of-ticino-lugano",
-        "fr": "professeur-de-biologie-et-de-chimie-international-school-of-ticino-lugano"
-      },
-      "category": "education",
-      "datePosted": "2026-04-29",
-      "source": "ist-inspirededu-crawler",
-      "sourceLang": "en",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione / Scuola internazionale",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "jobReqId": "1359421357",
-      "crawledAt": "",
-      "id": "international-school-of-ticino-7f225f589c22",
-      "previousSlugsByLocale": {
-        "it": [
-          "biology-chemistry-teacher-ist"
-        ],
-        "de": [
-          "biology-chemistry-teacher-ist"
-        ],
-        "fr": [
-          "biology-chemistry-teacher-ist"
-        ]
-      },
-      "previousSlugs": [
-        "biology-chemistry-teacher-ist"
-      ],
-      "salaryMin": 42000,
-      "salaryMax": 77500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 42000,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Ponteggia 23",
-      "postalCode": "6814",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-04-29T22:06:07.848Z"
-    },
     {
       "url": "https://jobs.inspirededu.com/job/Lugano-German-Teacher/1359419457/",
       "applyUrl": "https://jobs.inspirededu.com/job/Lugano-German-Teacher/1359419457/",
@@ -161,6 +84,78 @@
           "german-teacher-international-school-of-ticino-lugano"
         ]
       }
+    },
+    {
+      "url": "https://jobs.inspirededu.com/job/Lugano-Biology-&-Chemistry-Teacher/1359421357/",
+      "applyUrl": "https://jobs.inspirededu.com/job/Lugano-Biology-&-Chemistry-Teacher/1359421357/",
+      "title": "Biology & Chemistry Teacher",
+      "company": "International School of Ticino",
+      "companyKey": "international-school-of-ticino",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "description": "Inspired Education is the leading global group of premium schools, with a portfolio of 125 premium private schools spanning 6 continents which utilise proven educational practices from every corner of the globe, ensuring over 95,000 students receive a world-class learning experience from Kindergarten to Year 13.\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in Lugano, IST offers a stimulating international learning environment in Ticino.",
+      "descriptionByLocale": {
+        "en": "Inspired Education is the leading global group of premium schools, with a portfolio of 125 premium private schools spanning 6 continents which utilise proven educational practices from every corner of the globe, ensuring over 95,000 students receive a world-class learning experience from Kindergarten to Year 13.\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in Lugano, IST offers a stimulating international learning environment in Ticino.",
+        "it": "Posizione aperta presso la International School of Ticino a Lugano.\nRuolo: Biology & Chemistry Teacher.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group, uno dei principali gruppi scolastici premium al mondo. Situata a Lugano, IST offre un ambiente di apprendimento internazionale stimolante in Ticino.",
+        "de": "Inspired Education is the leading global group of premium schools, with a portfolio of 125 premium private schools spanning 6 continents which utilise proven educational practices from every corner of the globe, ensuring over 95,000 students receive a world-class learning experience from Kindergarten to Year 13.\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in Lugano, IST offers a stimulating international learning environment in Ticino.",
+        "fr": "Inspired Education is the leading global group of premium schools, with a portfolio of 125 premium private schools spanning 6 continents which utilise proven educational practices from every corner of the globe, ensuring over 95,000 students receive a world-class learning experience from Kindergarten to Year 13.\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in Lugano, IST offers a stimulating international learning environment in Ticino."
+      },
+      "titleByLocale": {
+        "en": "Biology & Chemistry Teacher",
+        "it": "Biology & Chemistry Teacher",
+        "de": "Biology & Chemistry Teacher",
+        "fr": "Biology & Chemistry Teacher"
+      },
+      "slug": "biology-chemistry-teacher-international-school-of-ticino-lugano",
+      "slugByLocale": {
+        "en": "biology-chemistry-teacher-ist",
+        "it": "biology-chemistry-teacher-international-school-of-ticino-lugano",
+        "de": "biology-chemistry-teacher-ist",
+        "fr": "biology-chemistry-teacher-ist"
+      },
+      "category": "education",
+      "datePosted": "2026-04-29",
+      "source": "ist-inspirededu-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione / Scuola internazionale",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "jobReqId": "1359421357",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "international-school-of-ticino-7f225f589c22",
+      "previousSlugsByLocale": {
+        "it": [
+          "biology-chemistry-teacher-ist"
+        ]
+      },
+      "previousSlugs": [
+        "biology-chemistry-teacher-ist"
+      ],
+      "salaryMin": 42000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 42000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Ponteggia 23",
+      "postalCode": "6814",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-04-29T22:06:07.848Z"
     }
   ]
 }
