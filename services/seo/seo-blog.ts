@@ -27792,6 +27792,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-polizia-ticinese-fase-progettuale-conclusa': {
+    title: 'Polizia ticinese: conclusa la fase progettuale | Frontaliere Ticino',
+    description: 'Il Consiglio di Stato ha deciso di non proseguire con il progetto «Polizia ticinese» dopo la consultazione. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, ticinese, conclusa, fase',
+    ogTitle: 'Polizia ticinese: conclusa la fase progettuale',
+    ogDescription: 'Il Consiglio di Stato ha deciso di non proseguire con il progetto «Polizia ticinese» dopo la consultazione. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/polizia-ticinese-fase-progettuale-conclusa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Polizia ticinese: conclusa la fase progettuale",
+      "description": "Il Consiglio di Stato ha deciso di non proseguire con il progetto «Polizia ticinese» dopo la consultazione. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/polizia-ticinese-fase-progettuale-conclusa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-30T08:24:48+00:00",
+      "dateModified": "2026-04-30T08:24:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-ticinese-fase-progettuale-conclusa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

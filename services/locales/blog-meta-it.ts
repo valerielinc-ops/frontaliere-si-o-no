@@ -4223,6 +4223,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-fogliaro-san-giuseppe-2026.title': 'Fogliaro festeggia San Giuseppe lavoratore con messa, gastronomia e mercatino',
     'blog.article.varese-fogliaro-san-giuseppe-2026.excerpt': 'Il rione di Fogliaro a Varese celebra San Giuseppe lavoratore con una giornata di eventi tra messa solenne, bancarelle e gastronomia locale',
     'blog.article.varese-fogliaro-san-giuseppe-2026.imageAlt': 'Mercatino dell\'artigianato a Fogliaro, Varese, con bancarelle colorate e gente che gusta piatti locali',
+    'blog.article.polizia-ticinese-fase-progettuale-conclusa.title': 'Polizia ticinese: conclusa la fase progettuale',
+    'blog.article.polizia-ticinese-fase-progettuale-conclusa.excerpt': 'Il Consiglio di Stato ha deciso di non proseguire con il progetto «Polizia ticinese» dopo la consultazione.',
+    'blog.article.polizia-ticinese-fase-progettuale-conclusa.imageAlt': 'Castelgrande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

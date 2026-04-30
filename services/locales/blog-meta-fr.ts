@@ -4223,6 +4223,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-fogliaro-san-giuseppe-2026.title': 'Fogliaro célèbre Saint Joseph avec messe, gastronomie et marché',
     'blog.article.varese-fogliaro-san-giuseppe-2026.excerpt': 'Le quartier de Fogliaro à Varèse célèbre Saint Joseph avec une journée d\'événements entre messe solennelle, stands et gastronomie locale',
     'blog.article.varese-fogliaro-san-giuseppe-2026.imageAlt': 'Marché artisanal à Fogliaro, Varese, avec des stands colorés et des gens qui dégustent des plats locaux',
+    'blog.article.polizia-ticinese-fase-progettuale-conclusa.title': 'Police tessinoise : fin de la phase de projet',
+    'blog.article.polizia-ticinese-fase-progettuale-conclusa.excerpt': 'Le Conseil d\'État a décidé de ne pas poursuivre le projet « Police tessinoise » après la consultation.',
+    'blog.article.polizia-ticinese-fase-progettuale-conclusa.imageAlt': 'Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;

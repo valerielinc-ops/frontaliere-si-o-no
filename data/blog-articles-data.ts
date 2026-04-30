@@ -10865,4 +10865,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-fogliaro-san-giuseppe-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'polizia-ticinese-fase-progettuale-conclusa',
+ category: 'novita',
+ date: '2026-04-30T08:24:48.192Z',
+ image: '/images/blog/polizia-ticinese-fase-progettuale-conclusa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

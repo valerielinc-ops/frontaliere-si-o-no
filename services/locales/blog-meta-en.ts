@@ -4222,6 +4222,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-fogliaro-san-giuseppe-2026.title': 'Fogliaro celebrates St. Joseph the Worker with mass, food and market',
     'blog.article.varese-fogliaro-san-giuseppe-2026.excerpt': 'The Fogliaro district in Varese celebrates St. Joseph the Worker with a day of events including solemn mass, stalls and local gastronomy',
     'blog.article.varese-fogliaro-san-giuseppe-2026.imageAlt': 'Artisan market in Fogliaro, Varese, with colorful stalls and people enjoying local food',
+    'blog.article.polizia-ticinese-fase-progettuale-conclusa.title': 'Ticino police: project phase concluded',
+    'blog.article.polizia-ticinese-fase-progettuale-conclusa.excerpt': 'The State Council decided not to proceed with the \'Ticino Police\' project after the consultation.',
+    'blog.article.polizia-ticinese-fase-progettuale-conclusa.imageAlt': 'Castelgrande in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;
