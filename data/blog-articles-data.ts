@@ -11208,4 +11208,11 @@ export const ARTICLES = [
  image: '/images/blog/guerra-iran-industria-alimentare-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rientro-a2-incubo-30-aprile-2026',
+ category: 'novita',
+ date: '2026-04-30T16:10:45.832Z',
+ image: '/images/blog/rientro-a2-incubo-30-aprile-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

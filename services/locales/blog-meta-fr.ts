@@ -4370,6 +4370,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guerra-iran-industria-alimentare-2026.title': 'Guerre en Iran: pression sur l\'industrie alimentaire suisse',
     'blog.article.guerra-iran-industria-alimentare-2026.excerpt': 'Des engrais au verre, le conflit dans le Golfe Persique touche des secteurs clés. Voici les effets en Suisse et les perspectives futures.',
     'blog.article.guerra-iran-industria-alimentare-2026.imageAlt': 'Vue aérienne d\'une usine suisse produisant des bouteilles en verre, entourée de champs verts et de montagnes, avec un accent sur le processus industriel et la consommation d\'énergie.',
+    'blog.article.rientro-a2-incubo-30-aprile-2026.title': 'Retour A2 cauchemardesque: embouteillages de Rivera à Lugano Sud',
+    'blog.article.rientro-a2-incubo-30-aprile-2026.excerpt': 'Journée noire pour les frontaliers: accidents et trafic intense sur l\'A2, embouteillages de Rivera à Lugano Sud et postes frontaliers saturés',
+    'blog.article.rientro-a2-incubo-30-aprile-2026.imageAlt': 'Embouteillage sur l\'autoroute A2 en Suisse près du tunnel du San Salvatore',
 };
 
 export default blogMetaFr;

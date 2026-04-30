@@ -4370,6 +4370,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guerra-iran-industria-alimentare-2026.title': 'Guerra in Iran: pressione sull\'industria alimentare svizzera',
     'blog.article.guerra-iran-industria-alimentare-2026.excerpt': 'Dai fertilizzanti al vetro, il conflitto nel Golfo Persico colpisce settori chiave. Ecco gli effetti in Svizzera e le prospettive future.',
     'blog.article.guerra-iran-industria-alimentare-2026.imageAlt': 'Veduta aerea di una fabbrica svizzera che produce bottiglie di vetro, circondata da campi verdi e montagne, con attenzione al processo industriale e al consumo di energia.',
+    'blog.article.rientro-a2-incubo-30-aprile-2026.title': 'Rientro A2 da incubo: code da Rivera a Lugano Sud',
+    'blog.article.rientro-a2-incubo-30-aprile-2026.excerpt': 'Giornata nera per i pendolari: incidenti e traffico intenso sulla A2, code da Rivera a Lugano Sud e valichi di frontiera intasati',
+    'blog.article.rientro-a2-incubo-30-aprile-2026.imageAlt': 'Coda di auto sulla A2 in Ticino vicino alla galleria del San Salvatore',
 };
 
 export default blogMetaIt;

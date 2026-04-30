@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1506,
+ "numberOfItems": 1507,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6141,7 +6141,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1503, "name": "Trenord: 17 linee insufficienti a febbraio 2026...", "url": `${BASE_URL}/articoli-frontaliere/trenord-ritardi-frontalieri-2026` },
           { "@type": "ListItem", "position": 1504, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/polizia-ticinese-progetto-concluso` },
           { "@type": "ListItem", "position": 1505, "name": "Bike sharing a Como: gratis per le prime 3 ore ...", "url": `${BASE_URL}/articoli-frontaliere/bike-sharing-como-gratis-giugno` },
-          { "@type": "ListItem", "position": 1506, "name": "Guerra in Iran: pressione sull'industria alimen...", "url": `${BASE_URL}/articoli-frontaliere/guerra-iran-industria-alimentare-2026` }
+          { "@type": "ListItem", "position": 1506, "name": "Guerra in Iran: pressione sull'industria alimen...", "url": `${BASE_URL}/articoli-frontaliere/guerra-iran-industria-alimentare-2026` },
+          { "@type": "ListItem", "position": 1507, "name": "Rientro A2 da incubo: code da Rivera a Lugano Sud", "url": `${BASE_URL}/articoli-frontaliere/rientro-a2-incubo-30-aprile-2026` }
  ]
  },
  {

@@ -29213,6 +29213,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rientro-a2-incubo-30-aprile-2026': {
+    title: 'Rientro A2 da incubo: code da Rivera a Lugano Sud | Frontaliere Ticino',
+    description: 'Giornata nera per i pendolari: incidenti e traffico intenso sulla A2, code da Rivera a Lugano Sud e valichi di frontiera intasati. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, rientro, incubo, code, rivera',
+    ogTitle: 'Rientro A2 da incubo: code da Rivera a Lugano Sud',
+    ogDescription: 'Giornata nera per i pendolari: incidenti e traffico intenso sulla A2, code da Rivera a Lugano Sud e valichi di frontiera intasati',
+    canonicalPath: '/articoli-frontaliere/rientro-a2-incubo-30-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rientro A2 da incubo: code da Rivera a Lugano Sud",
+      "description": "Giornata nera per i pendolari: incidenti e traffico intenso sulla A2, code da Rivera a Lugano Sud e valichi di frontiera intasati. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rientro-a2-incubo-30-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda di auto sulla A2 in Ticino vicino alla galleria del San Salvatore"
+      },
+      "datePublished": "2026-04-30T16:10:45+00:00",
+      "dateModified": "2026-04-30T16:10:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rientro-a2-incubo-30-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

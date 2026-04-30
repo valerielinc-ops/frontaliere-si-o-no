@@ -4369,6 +4369,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guerra-iran-industria-alimentare-2026.title': 'War in Iran: pressure on Swiss food industry',
     'blog.article.guerra-iran-industria-alimentare-2026.excerpt': 'From fertilizers to glass, the conflict in the Persian Gulf hits key sectors. Here are the effects in Switzerland and future prospects.',
     'blog.article.guerra-iran-industria-alimentare-2026.imageAlt': 'Aerial view of a Swiss factory producing glass bottles, surrounded by green fields and mountains, with a focus on the industrial process and energy consumption.',
+    'blog.article.rientro-a2-incubo-30-aprile-2026.title': 'Nightmare A2 return: queues from Rivera to Lugano Sud',
+    'blog.article.rientro-a2-incubo-30-aprile-2026.excerpt': 'Black day for commuters: accidents and heavy traffic on the A2, queues from Rivera to Lugano Sud and border crossings congested',
+    'blog.article.rientro-a2-incubo-30-aprile-2026.imageAlt': 'Traffic jam on the A2 highway in Ticino near the San Salvatore tunnel',
 };
 
 export default blogMetaEn;
