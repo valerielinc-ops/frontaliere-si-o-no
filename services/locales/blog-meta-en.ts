@@ -4225,6 +4225,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.polizia-ticinese-fase-progettuale-conclusa.title': 'Ticino police: project phase concluded',
     'blog.article.polizia-ticinese-fase-progettuale-conclusa.excerpt': 'The State Council decided not to proceed with the \'Ticino Police\' project after the consultation.',
     'blog.article.polizia-ticinese-fase-progettuale-conclusa.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.a2-melide-chiusure-notturne-lavori.title': 'A2 Melide: night closures for road resurfacing',
+    'blog.article.a2-melide-chiusure-notturne-lavori.excerpt': 'From Sunday 3 May to Friday 8 May 2026, the Melide exit will be closed every night from 9:30 PM to 5:00 AM for maintenance work.',
+    'blog.article.a2-melide-chiusure-notturne-lavori.imageAlt': 'Nighttime roadworks at Melide highway exit',
 };
 
 export default blogMetaEn;

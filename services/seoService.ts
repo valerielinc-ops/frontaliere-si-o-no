@@ -2639,6 +2639,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rokj-lugano-serata-solidale': { name: 'Eventi solidali', path: '/articoli-frontaliere/rokj-lugano-serata-solidale', parent: 'blog' },
     'blog-varese-fogliaro-san-giuseppe-2026': { name: 'Eventi Varese', path: '/articoli-frontaliere/varese-fogliaro-san-giuseppe-2026', parent: 'blog' },
     'blog-polizia-ticinese-fase-progettuale-conclusa': { name: 'Novità', path: '/articoli-frontaliere/polizia-ticinese-fase-progettuale-conclusa', parent: 'blog' },
+    'blog-a2-melide-chiusure-notturne-lavori': { name: 'Novità', path: '/articoli-frontaliere/a2-melide-chiusure-notturne-lavori', parent: 'blog' },
  };
 
  const info = sectionNames[section];

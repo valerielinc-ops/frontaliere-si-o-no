@@ -10872,4 +10872,11 @@ export const ARTICLES = [
  image: '/images/blog/polizia-ticinese-fase-progettuale-conclusa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'a2-melide-chiusure-notturne-lavori',
+ category: 'novita',
+ date: '2026-04-30T08:33:55.835Z',
+ image: '/images/blog/a2-melide-chiusure-notturne-lavori.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

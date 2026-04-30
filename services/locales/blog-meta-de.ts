@@ -4225,6 +4225,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.polizia-ticinese-fase-progettuale-conclusa.title': 'Tessin-Polizei: Planungsphase abgeschlossen',
     'blog.article.polizia-ticinese-fase-progettuale-conclusa.excerpt': 'Der Staatsrat hat beschlossen, das Projekt «Tessin-Polizei» nach der Konsultation nicht weiterzuführen.',
     'blog.article.polizia-ticinese-fase-progettuale-conclusa.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.a2-melide-chiusure-notturne-lavori.title': 'A2 Melide: Nachtschließungen für Straßenarbeiten',
+    'blog.article.a2-melide-chiusure-notturne-lavori.excerpt': 'Von Sonntag, 3. Mai bis Freitag, 8. Mai 2026, wird die Ausfahrt Melide jede Nacht von 21.30 bis 5.00 Uhr für Instandhaltungsarbeiten geschlossen.',
+    'blog.article.a2-melide-chiusure-notturne-lavori.imageAlt': 'Nacharbeiten am Autobahnausfahrt Melide nachts',
 };
 
 export default blogMetaDe;

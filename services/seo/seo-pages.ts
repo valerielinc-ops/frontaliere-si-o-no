@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1458,
+ "numberOfItems": 1459,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6093,7 +6093,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1455, "name": "Greco antico certificato in Lombardia: prima vo...", "url": `${BASE_URL}/articoli-frontaliere/certificazione-greco-antico-lombardia-2026` },
           { "@type": "ListItem", "position": 1456, "name": "ROKJ Ticino: serata solidale il 6 maggio a Lugano", "url": `${BASE_URL}/articoli-frontaliere/rokj-lugano-serata-solidale` },
           { "@type": "ListItem", "position": 1457, "name": "Fogliaro festeggia San Giuseppe lavoratore con ...", "url": `${BASE_URL}/articoli-frontaliere/varese-fogliaro-san-giuseppe-2026` },
-          { "@type": "ListItem", "position": 1458, "name": "Polizia ticinese: conclusa la fase progettuale", "url": `${BASE_URL}/articoli-frontaliere/polizia-ticinese-fase-progettuale-conclusa` }
+          { "@type": "ListItem", "position": 1458, "name": "Polizia ticinese: conclusa la fase progettuale", "url": `${BASE_URL}/articoli-frontaliere/polizia-ticinese-fase-progettuale-conclusa` },
+          { "@type": "ListItem", "position": 1459, "name": "A2 Melide: chiusure notturne per lavori alla pa...", "url": `${BASE_URL}/articoli-frontaliere/a2-melide-chiusure-notturne-lavori` }
  ]
  },
  {

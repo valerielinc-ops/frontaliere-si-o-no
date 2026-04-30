@@ -27821,6 +27821,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a2-melide-chiusure-notturne-lavori': {
+    title: 'A2 Melide: chiusure notturne per lavori alla pavimentazione',
+    description: 'Da domenica 3 maggio a venerdì 8 maggio 2026, l\'uscita di Melide sarà chiusa ogni notte dalle 21.30 alle 5.00 per lavori di manutenzione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, melide, chiusure, notturne, lavori',
+    ogTitle: 'A2 Melide: chiusure notturne per lavori alla pavimentazione',
+    ogDescription: 'Da domenica 3 maggio a venerdì 8 maggio 2026, l\'uscita di Melide sarà chiusa ogni notte dalle 21.30 alle 5.00 per lavori di manutenzione.',
+    canonicalPath: '/articoli-frontaliere/a2-melide-chiusure-notturne-lavori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A2 Melide: chiusure notturne per lavori alla pavimentazione",
+      "description": "Da domenica 3 maggio a venerdì 8 maggio 2026, l'uscita di Melide sarà chiusa ogni notte dalle 21.30 alle 5.00 per lavori di manutenzione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/a2-melide-chiusure-notturne-lavori.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori notturni sull'uscita autostradale di Melide"
+      },
+      "datePublished": "2026-04-30T08:33:55+00:00",
+      "dateModified": "2026-04-30T08:33:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-melide-chiusure-notturne-lavori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
