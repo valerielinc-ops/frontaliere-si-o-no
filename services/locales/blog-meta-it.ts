@@ -4124,6 +4124,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vergiate-color-run-2026-non-competitiva.title': 'Vergiate si colora: torna la Color Run non competitiva per tutte le età',
     'blog.article.vergiate-color-run-2026-non-competitiva.excerpt': 'Domenica 24 maggio 2026, Vergiate ospita la Color Run, una corsa di 4 km aperta a tutte le età. Iscrizioni aperte fino al 10 maggio.',
     'blog.article.vergiate-color-run-2026-non-competitiva.imageAlt': 'Color Run a Vergiate 2026: corsa non competitiva per tutte le età',
+    'blog.article.due-scuole-due-mondi-un-solo-legame.title': 'Gemellaggio Ticino-Gaza in mostra',
+    'blog.article.due-scuole-due-mondi-un-solo-legame.excerpt': 'Una mostra a Viganello racconta il gemellaggio tra studenti ticinesi e di Gaza, un progetto di Future in Peace per l\'educazione ai diritti umani.',
+    'blog.article.due-scuole-due-mondi-un-solo-legame.imageAlt': 'Scuola media di Viganello, Ticino, con studenti che partecipano a una mostra di gemellaggio.',
 };
 
 export default blogMetaIt;

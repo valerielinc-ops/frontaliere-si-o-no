@@ -10633,4 +10633,11 @@ export const ARTICLES = [
  image: '/images/blog/vergiate-color-run-2026-non-competitiva.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'due-scuole-due-mondi-un-solo-legame',
+ category: 'novita',
+ date: '2026-04-30T03:33:37.565Z',
+ image: '/images/blog/due-scuole-due-mondi-un-solo-legame.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

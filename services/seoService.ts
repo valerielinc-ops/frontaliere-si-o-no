@@ -2605,6 +2605,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-etico-convegno-liuc-ucid': { name: 'Convegno LIUC', path: '/articoli-frontaliere/lavoro-etico-convegno-liuc-ucid', parent: 'blog' },
     'blog-1maggio-eremo-monastero-legge-varese': { name: '1° maggio', path: '/articoli-frontaliere/1maggio-eremo-monastero-legge-varese', parent: 'blog' },
     'blog-vergiate-color-run-2026-non-competitiva': { name: 'Color Run Vergiate', path: '/articoli-frontaliere/vergiate-color-run-2026-non-competitiva', parent: 'blog' },
+    'blog-due-scuole-due-mondi-un-solo-legame': { name: 'Mostra gemellaggio', path: '/articoli-frontaliere/due-scuole-due-mondi-un-solo-legame', parent: 'blog' },
  };
 
  const info = sectionNames[section];

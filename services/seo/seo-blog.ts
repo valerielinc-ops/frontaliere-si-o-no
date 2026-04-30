@@ -26835,6 +26835,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-due-scuole-due-mondi-un-solo-legame': {
+    title: 'Gemellaggio Ticino-Gaza in mostra | Frontaliere Ticino',
+    description: 'Scopri la mostra sul gemellaggio tra studenti ticinesi e di Gaza a Viganello. Un progetto di Future in Peace per l\'educazione ai diritti umani. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, gemellaggio, ticino-gaza, mostra, viganello',
+    ogTitle: 'Mostra gemellaggio studenti Ticino Gaza | Frontaliere Ticino',
+    ogDescription: 'Scopri la mostra sul gemellaggio tra studenti ticinesi e di Gaza a Viganello. Un progetto di Future in Peace per l\'educazione ai diritti umani.',
+    canonicalPath: '/articoli-frontaliere/due-scuole-due-mondi-un-solo-legame',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mostra gemellaggio studenti Ticino Gaza",
+      "description": "Scopri la mostra sul gemellaggio tra studenti ticinesi e di Gaza a Viganello. Un progetto di Future in Peace per l'educazione ai diritti umani. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/due-scuole-due-mondi-un-solo-legame.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola media di Viganello, Ticino, con studenti che partecipano a una mostra di gemellaggio."
+      },
+      "datePublished": "2026-04-30T03:33:37+00:00",
+      "dateModified": "2026-04-30T03:33:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/due-scuole-due-mondi-un-solo-legame`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

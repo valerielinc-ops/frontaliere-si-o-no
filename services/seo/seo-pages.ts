@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1424,
+ "numberOfItems": 1425,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6059,7 +6059,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1421, "name": "Manager all’Insubria: Rasizza e Battioni in cat...", "url": `${BASE_URL}/articoli-frontaliere/manager-insubria-rasizza-battioni-4-maggio` },
           { "@type": "ListItem", "position": 1422, "name": "Convegno LIUC: etica e responsabilità nel lavoro", "url": `${BASE_URL}/articoli-frontaliere/lavoro-etico-convegno-liuc-ucid` },
           { "@type": "ListItem", "position": 1423, "name": "1° maggio tra Eremo e Monastero sul Lago Maggio...", "url": `${BASE_URL}/articoli-frontaliere/1maggio-eremo-monastero-legge-varese` },
-          { "@type": "ListItem", "position": 1424, "name": "Color Run Vergiate 2026: corsa non competitiva ...", "url": `${BASE_URL}/articoli-frontaliere/vergiate-color-run-2026-non-competitiva` }
+          { "@type": "ListItem", "position": 1424, "name": "Color Run Vergiate 2026: corsa non competitiva ...", "url": `${BASE_URL}/articoli-frontaliere/vergiate-color-run-2026-non-competitiva` },
+          { "@type": "ListItem", "position": 1425, "name": "Mostra gemellaggio studenti Ticino Gaza", "url": `${BASE_URL}/articoli-frontaliere/due-scuole-due-mondi-un-solo-legame` }
  ]
  },
  {

@@ -4123,6 +4123,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vergiate-color-run-2026-non-competitiva.title': 'Vergiate turns colorful: the non-competitive Color Run returns for all ages',
     'blog.article.vergiate-color-run-2026-non-competitiva.excerpt': 'On Sunday, May 24, 2026, Vergiate hosts the Color Run, a 4 km race open to all ages. Registrations open until May 10.',
     'blog.article.vergiate-color-run-2026-non-competitiva.imageAlt': 'Color Run in Vergiate 2026: a non-competitive race for all ages',
+    'blog.article.due-scuole-due-mondi-un-solo-legame.title': 'Ticino-Gaza twinning exhibition',
+    'blog.article.due-scuole-due-mondi-un-solo-legame.excerpt': 'An exhibition in Viganello tells the story of the twinning between Ticinese and Gaza students, a Future in Peace project for human rights education.',
+    'blog.article.due-scuole-due-mondi-un-solo-legame.imageAlt': 'Viganello Middle School, Ticino, Switzerland, with students participating in a twinning project exhibition.',
 };
 
 export default blogMetaEn;
