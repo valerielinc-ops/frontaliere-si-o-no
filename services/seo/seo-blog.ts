@@ -28633,6 +28633,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comco-indaga-pubblicita-motori-ricerca': {
+    title: 'COMCO indaga su pubblicità via motori di ricerca: viaggi e casinò online',
+    description: 'La Commissione della Concorrenza svizzera apre due indagini su accordi illeciti tra aziende del settore viaggi e casinò online. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, comco, indaga, pubblicità, motori',
+    ogTitle: 'COMCO indaga su pubblicità via motori di ricerca: viaggi e casinò online',
+    ogDescription: 'La Commissione della Concorrenza svizzera apre due indagini su accordi illeciti tra aziende del settore viaggi e casinò online',
+    canonicalPath: '/articoli-frontaliere/comco-indaga-pubblicita-motori-ricerca',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "COMCO indaga su pubblicità via motori di ricerca: viaggi e casinò online",
+      "description": "La Commissione della Concorrenza svizzera apre due indagini su accordi illeciti tra aziende del settore viaggi e casinò online. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comco-indaga-pubblicita-motori-ricerca.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con un laptop che mostra i risultati di un motore di ricerca"
+      },
+      "datePublished": "2026-04-30T12:40:25+00:00",
+      "dateModified": "2026-04-30T12:40:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comco-indaga-pubblicita-motori-ricerca`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4310,6 +4310,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.passaporto-poste-italiane-uffici.title': 'Passaporto in 7.500 uffici postali italiani',
     'blog.article.passaporto-poste-italiane-uffici.excerpt': 'Da marzo 2024, il servizio di rilascio e rinnovo passaporti è disponibile in 7.500 uffici postali italiani, inclusi quelli del progetto Polis.',
     'blog.article.passaporto-poste-italiane-uffici.imageAlt': 'Ufficio Poste Italiane in Ticino, con un cliente al bancone e un impiegato che fornisce assistenza.',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.title': 'COMCO indaga su pubblicità via motori di ricerca: viaggi e casinò online',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.excerpt': 'La Commissione della Concorrenza svizzera apre due indagini su accordi illeciti tra aziende del settore viaggi e casinò online',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.imageAlt': 'Vista aerea del Lago di Lugano con un laptop che mostra i risultati di un motore di ricerca',
 };
 
 export default blogMetaIt;

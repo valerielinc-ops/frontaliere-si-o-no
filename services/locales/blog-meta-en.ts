@@ -4309,6 +4309,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.passaporto-poste-italiane-uffici.title': 'Passport service at 7,500 Italian post offices',
     'blog.article.passaporto-poste-italiane-uffici.excerpt': 'From March 2024, passport issuance and renewal services are available at 7,500 Italian post offices, including those in the Polis project.',
     'blog.article.passaporto-poste-italiane-uffici.imageAlt': 'Poste Italiane office in Ticino, Switzerland, with a customer at the counter and an employee providing assistance.',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.title': 'Swiss Competition Commission probes search engine ads: travel and online casinos',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.excerpt': 'The Swiss Competition Commission opens two investigations into illegal agreements between travel sector companies and online casinos',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.imageAlt': 'Aerial view of Lake Lugano with a laptop displaying search engine results',
 };
 
 export default blogMetaEn;

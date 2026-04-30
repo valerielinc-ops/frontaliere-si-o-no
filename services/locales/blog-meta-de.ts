@@ -4309,6 +4309,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.passaporto-poste-italiane-uffici.title': 'Pass in 7.500 italienischen Postämtern',
     'blog.article.passaporto-poste-italiane-uffici.excerpt': 'Ab März 2024 ist der Dienst für die Ausstellung und Verlängerung von Pässen in 7.500 italienischen Postämtern verfügbar, einschließlich derjenigen des Polis-Projekts.',
     'blog.article.passaporto-poste-italiane-uffici.imageAlt': 'Poste Italiane Büro in Tessin, Schweiz, mit einem Kunden am Schalter und einem Mitarbeiter, der Hilfe leistet.',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.title': 'COMCO untersucht Werbung über Suchmaschinen: Reisen und Online-Casinos',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.excerpt': 'Die Schweizer Wettbewerbsbehörde COMCO eröffnet zwei Untersuchungen zu illegalen Absprachen zwischen Unternehmen der Reise- und Online-Casino-Branche.',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.imageAlt': 'Luftansicht des Luganersees mit einem Laptop, der Suchmaschinen-Ergebnisse anzeigt',
 };
 
 export default blogMetaDe;

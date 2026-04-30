@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1486,
+ "numberOfItems": 1487,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6121,7 +6121,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1483, "name": "Education Day 2026: scuole e imprese a confronto", "url": `${BASE_URL}/articoli-frontaliere/education-day-confindustria-varese-2026` },
           { "@type": "ListItem", "position": 1484, "name": "Riforma polizia Ticino: progetto fermo", "url": `${BASE_URL}/articoli-frontaliere/riforma-polizia-ticino-progetto-fermo` },
           { "@type": "ListItem", "position": 1485, "name": "FFS e Siemens firmano contratto per 116 nuovi t...", "url": `${BASE_URL}/articoli-frontaliere/ffs-siemens-nuovi-treni-ticino` },
-          { "@type": "ListItem", "position": 1486, "name": "Passaporto in 7.500 uffici postali italiani", "url": `${BASE_URL}/articoli-frontaliere/passaporto-poste-italiane-uffici` }
+          { "@type": "ListItem", "position": 1486, "name": "Passaporto in 7.500 uffici postali italiani", "url": `${BASE_URL}/articoli-frontaliere/passaporto-poste-italiane-uffici` },
+          { "@type": "ListItem", "position": 1487, "name": "COMCO indaga su pubblicità via motori di ricerc...", "url": `${BASE_URL}/articoli-frontaliere/comco-indaga-pubblicita-motori-ricerca` }
  ]
  },
  {

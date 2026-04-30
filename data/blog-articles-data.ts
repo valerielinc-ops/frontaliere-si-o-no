@@ -11068,4 +11068,11 @@ export const ARTICLES = [
  image: '/images/blog/passaporto-poste-italiane-uffici.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'comco-indaga-pubblicita-motori-ricerca',
+ category: 'novita',
+ date: '2026-04-30T12:40:25.133Z',
+ image: '/images/blog/comco-indaga-pubblicita-motori-ricerca.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

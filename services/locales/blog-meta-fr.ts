@@ -4310,6 +4310,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.passaporto-poste-italiane-uffici.title': 'Passeport dans 7.500 bureaux de poste italiens',
     'blog.article.passaporto-poste-italiane-uffici.excerpt': 'À partir de mars 2024, le service de délivrance et de renouvellement des passeports est disponible dans 7.500 bureaux de poste italiens, y compris ceux du projet Polis.',
     'blog.article.passaporto-poste-italiane-uffici.imageAlt': 'Bureau de Poste Italiane au Tessin, en Suisse, avec un client au comptoir et un employé fournissant de l\'aide.',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.title': 'COMCO enquête sur la publicité en ligne: voyages et casinos',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.excerpt': 'La Commission de la Concurrence suisse ouvre deux enquêtes sur des accords illicites entre entreprises du secteur des voyages et des casinos en ligne',
+    'blog.article.comco-indaga-pubblicita-motori-ricerca.imageAlt': 'Vue aérienne du lac de Lugano avec un ordinateur portable affichant des résultats de moteur de recherche',
 };
 
 export default blogMetaFr;
