@@ -4469,6 +4469,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sunrise-pratiche-abusive-fermate-2026.title': 'Tribunale ferma le pratiche abusive di Sunrise',
     'blog.article.sunrise-pratiche-abusive-fermate-2026.excerpt': 'Il tribunale distrettuale di Zurigo ha dichiarato illegittime due clausole contrattuali di Sunrise relative agli aumenti di prezzo e alle modalità di disdetta.',
     'blog.article.sunrise-pratiche-abusive-fermate-2026.imageAlt': 'Vista del Lago di Lugano con la città di Lugano sullo sfondo',
+    'blog.article.proroga-accise-carburanti-2026.title': 'Proroga accise carburanti: sconto gasolio a 24,4 centesimi, benzina a 6',
+    'blog.article.proroga-accise-carburanti-2026.excerpt': 'Il governo italiano ha prorogato di tre settimane la riduzione delle accise sui carburanti, con sconto differenziato per benzina e gasolio.',
+    'blog.article.proroga-accise-carburanti-2026.imageAlt': 'Lago di Lugano con edifici moderni sullo sfondo',
 };
 
 export default blogMetaIt;

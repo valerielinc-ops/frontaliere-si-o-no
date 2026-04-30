@@ -4468,6 +4468,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sunrise-pratiche-abusive-fermate-2026.title': 'Zurich court halts Sunrise\'s abusive practices',
     'blog.article.sunrise-pratiche-abusive-fermate-2026.excerpt': 'The Zurich district court has ruled that two Sunrise contractual clauses regarding price increases and termination procedures are illegal.',
     'blog.article.sunrise-pratiche-abusive-fermate-2026.imageAlt': 'View of Lake Lugano with the city of Lugano in the background',
+    'blog.article.proroga-accise-carburanti-2026.title': 'Fuel tax cut extended: diesel 24.4c, petrol 6c discount',
+    'blog.article.proroga-accise-carburanti-2026.excerpt': 'The Italian government has extended the reduction of fuel excise duties for three weeks, with a differentiated discount for petrol and diesel.',
+    'blog.article.proroga-accise-carburanti-2026.imageAlt': 'Lake Lugano with modern buildings in the background',
 };
 
 export default blogMetaEn;

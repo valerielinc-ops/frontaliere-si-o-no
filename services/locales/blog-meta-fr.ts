@@ -4469,6 +4469,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sunrise-pratiche-abusive-fermate-2026.title': 'Tribunal stop aux pratiques abusives de Sunrise',
     'blog.article.sunrise-pratiche-abusive-fermate-2026.excerpt': 'Le tribunal de district de Zurich a déclaré illégales deux clauses contractuelles de Sunrise relatives aux augmentations de prix et aux modalités de résiliation.',
     'blog.article.sunrise-pratiche-abusive-fermate-2026.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.proroga-accise-carburanti-2026.title': 'Prorogation réductions carburants: essence 6c, diesel 24,4c',
+    'blog.article.proroga-accise-carburanti-2026.excerpt': 'Le gouvernement italien a prolongé de trois semaines la réduction des accises sur les carburants, avec une remise différenciée pour l\'essence et le diesel.',
+    'blog.article.proroga-accise-carburanti-2026.imageAlt': 'Lac de Lugano avec des bâtiments modernes en arrière-plan',
 };
 
 export default blogMetaFr;

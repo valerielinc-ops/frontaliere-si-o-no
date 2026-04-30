@@ -4468,6 +4468,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sunrise-pratiche-abusive-fermate-2026.title': 'Gericht stoppt Sunrise\' missbräuchliche Praktiken',
     'blog.article.sunrise-pratiche-abusive-fermate-2026.excerpt': 'Das Bezirksgericht Zürich hat zwei Vertragsklauseln von Sunrise zu Preiserhöhungen und Kündigungsmodalitäten für ungültig erklärt.',
     'blog.article.sunrise-pratiche-abusive-fermate-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano im Hintergrund',
+    'blog.article.proroga-accise-carburanti-2026.title': 'Steuerermäßigung für Kraftstoffe verlängert: Diesel 24,4 Cent, Benzin 6',
+    'blog.article.proroga-accise-carburanti-2026.excerpt': 'Die italienische Regierung hat die Senkung der Kraftstoffsteuern um drei Wochen verlängert, mit unterschiedlichen Rabatten für Benzin und Diesel.',
+    'blog.article.proroga-accise-carburanti-2026.imageAlt': 'Luganersee mit modernen Gebäuden im Hintergrund',
 };
 
 export default blogMetaDe;
