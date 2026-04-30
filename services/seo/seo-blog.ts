@@ -28952,6 +28952,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lugano-red-carpet-contribuenti-2026': {
+    title: 'Lugano rafforza l\'attrattiva per grandi contribuenti',
+    description: 'Il Municipio di Lugano conferma un piano d\'azione per attrarre contribuenti facoltosi e investitori internazionali. Scopri le implicazioni pratiche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, rafforza, attrattiva, grandi',
+    ogTitle: 'Lugano rafforza l\'attrattiva per grandi contribuenti',
+    ogDescription: 'Il Municipio di Lugano conferma un piano d\'azione per attrarre contribuenti facoltosi e investitori internazionali. Scopri le implicazioni pratiche.',
+    canonicalPath: '/articoli-frontaliere/lugano-red-carpet-contribuenti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano rafforza l'attrattiva per grandi contribuenti",
+      "description": "Il Municipio di Lugano conferma un piano d'azione per attrarre contribuenti facoltosi e investitori internazionali. Scopri le implicazioni pratiche.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-red-carpet-contribuenti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il Lago di Lugano e un tappeto rosso che conduce a una residenza di lusso"
+      },
+      "datePublished": "2026-04-30T14:42:23+00:00",
+      "dateModified": "2026-04-30T14:42:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-red-carpet-contribuenti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

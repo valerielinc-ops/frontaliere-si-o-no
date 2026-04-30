@@ -4343,6 +4343,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lidl-formazione-duale-gdo-ticino.title': 'Lidl introduce formazione duale in Ticino',
     'blog.article.lidl-formazione-duale-gdo-ticino.excerpt': 'Lidl Italia porta il modello di formazione duale nella grande distribuzione organizzata, con oltre 23.000 candidature in quattro anni.',
     'blog.article.lidl-formazione-duale-gdo-ticino.imageAlt': 'Supermercato Lidl moderno in Ticino, Svizzera',
+    'blog.article.lugano-red-carpet-contribuenti-2026.title': 'Lugano rafforza l\'attrattiva per grandi contribuenti',
+    'blog.article.lugano-red-carpet-contribuenti-2026.excerpt': 'Il Municipio di Lugano conferma un piano d\'azione per attrarre contribuenti facoltosi e investitori internazionali',
+    'blog.article.lugano-red-carpet-contribuenti-2026.imageAlt': 'Vista panoramica di Lugano con il Lago di Lugano e un tappeto rosso che conduce a una residenza di lusso',
 };
 
 export default blogMetaIt;

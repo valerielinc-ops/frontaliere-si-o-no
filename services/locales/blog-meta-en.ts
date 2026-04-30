@@ -4342,6 +4342,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lidl-formazione-duale-gdo-ticino.title': 'Lidl introduces dual training in Ticino',
     'blog.article.lidl-formazione-duale-gdo-ticino.excerpt': 'Lidl Italia brings the dual training model to organized large-scale distribution, with over 23,000 applications in four years.',
     'blog.article.lidl-formazione-duale-gdo-ticino.imageAlt': 'Modern Lidl supermarket in Ticino, Switzerland',
+    'blog.article.lugano-red-carpet-contribuenti-2026.title': 'Lugano strengthens appeal for high-net-worth individuals',
+    'blog.article.lugano-red-carpet-contribuenti-2026.excerpt': 'The Municipality of Lugano confirms an action plan to attract wealthy taxpayers and international investors',
+    'blog.article.lugano-red-carpet-contribuenti-2026.imageAlt': 'Panoramic view of Lugano with Lake Lugano and a red carpet leading to a luxurious residence',
 };
 
 export default blogMetaEn;

@@ -11145,4 +11145,11 @@ export const ARTICLES = [
  image: '/images/blog/lidl-formazione-duale-gdo-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lugano-red-carpet-contribuenti-2026',
+ category: 'fiscale',
+ date: '2026-04-30T14:42:23.522Z',
+ image: '/images/blog/lugano-red-carpet-contribuenti-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
