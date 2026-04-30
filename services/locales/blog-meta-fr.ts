@@ -4472,6 +4472,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.proroga-accise-carburanti-2026.title': 'Prorogation réductions carburants: essence 6c, diesel 24,4c',
     'blog.article.proroga-accise-carburanti-2026.excerpt': 'Le gouvernement italien a prolongé de trois semaines la réduction des accises sur les carburants, avec une remise différenciée pour l\'essence et le diesel.',
     'blog.article.proroga-accise-carburanti-2026.imageAlt': 'Lac de Lugano avec des bâtiments modernes en arrière-plan',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.title': 'Police tessinoise : projet abandonné par le Conseil d\'État',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.excerpt': 'Le Conseil d\'État a décidé de ne pas poursuivre avec le projet Police tessinoise, lancé en 2016 pour améliorer la collaboration entre la police cantonale et les polices communales.',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.imageAlt': 'Vue aérienne du Castelgrande à Bellinzona, en Suisse, avec les montagnes environnantes et la rivière Ticino. L\'image capture le château historique et le paysage urbain moderne en arrière-plan.',
 };
 
 export default blogMetaFr;

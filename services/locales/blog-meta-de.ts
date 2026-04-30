@@ -4471,6 +4471,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.proroga-accise-carburanti-2026.title': 'Steuerermäßigung für Kraftstoffe verlängert: Diesel 24,4 Cent, Benzin 6',
     'blog.article.proroga-accise-carburanti-2026.excerpt': 'Die italienische Regierung hat die Senkung der Kraftstoffsteuern um drei Wochen verlängert, mit unterschiedlichen Rabatten für Benzin und Diesel.',
     'blog.article.proroga-accise-carburanti-2026.imageAlt': 'Luganersee mit modernen Gebäuden im Hintergrund',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.title': 'Tessin: Polizeiprojekt vom Staatsrat gestoppt',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.excerpt': 'Der Staatsrat hat beschlossen, das 2016 gestartete Projekt \'Polizei Tessin\' nicht weiterzuführen, um die Zusammenarbeit zwischen kantonaler und kommunaler Polizei zu verbessern.',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Schweiz, mit den umliegenden Bergen und dem Fluss Ticino. Das Bild zeigt die historische Burg und die moderne Stadtlandschaft im Hintergrund.',
 };
 
 export default blogMetaDe;

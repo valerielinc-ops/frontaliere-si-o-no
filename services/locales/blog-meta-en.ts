@@ -4471,6 +4471,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.proroga-accise-carburanti-2026.title': 'Fuel tax cut extended: diesel 24.4c, petrol 6c discount',
     'blog.article.proroga-accise-carburanti-2026.excerpt': 'The Italian government has extended the reduction of fuel excise duties for three weeks, with a differentiated discount for petrol and diesel.',
     'blog.article.proroga-accise-carburanti-2026.imageAlt': 'Lake Lugano with modern buildings in the background',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.title': 'Ticino police project abandoned by State Council',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.excerpt': 'The State Council has decided not to proceed with the Ticino Police project, launched in 2016 to improve collaboration between cantonal and municipal police.',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Switzerland, with the surrounding mountains and the Ticino river. The image captures the historic castle and the modern cityscape in the background.',
 };
 
 export default blogMetaEn;

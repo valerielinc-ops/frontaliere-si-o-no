@@ -30199,6 +30199,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-polizia-ticinese-progetto-abbandonato-2026': {
+    title: 'Polizia ticinese: progetto abbandonato dal Consiglio di Stato',
+    description: 'Il Consiglio di Stato ha deciso di non proseguire con il progetto Polizia ticinese, avviato nel 2016 per migliorare la collaborazione tra polizia cantonale e',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, ticinese, progetto, abbandonato',
+    ogTitle: 'Polizia ticinese: progetto abbandonato dal Consiglio di Stato',
+    ogDescription: 'Il Consiglio di Stato ha deciso di non proseguire con il progetto Polizia ticinese, avviato nel 2016 per migliorare la collaborazione tra polizia cantonale e',
+    canonicalPath: '/articoli-frontaliere/polizia-ticinese-progetto-abbandonato-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Polizia ticinese: progetto abbandonato dal Consiglio di Stato",
+      "description": "Il Consiglio di Stato ha deciso di non proseguire con il progetto Polizia ticinese, avviato nel 2016 per migliorare la collaborazione tra polizia cantonale e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/polizia-ticinese-progetto-abbandonato-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del Castelgrande a Bellinzona, Svizzera, con le montagne circostanti e il fiume Ticino. L'immagine cattura il castello storico e il paesaggio urbano moderno sullo sfondo."
+      },
+      "datePublished": "2026-04-30T21:43:33+00:00",
+      "dateModified": "2026-04-30T21:43:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-ticinese-progetto-abbandonato-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

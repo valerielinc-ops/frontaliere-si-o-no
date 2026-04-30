@@ -2721,6 +2721,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-confindustria-como-arte-cultura-salute-13-maggio': { name: 'Evento Confindustria', path: '/articoli-frontaliere/confindustria-como-arte-cultura-salute-13-maggio', parent: 'blog' },
     'blog-sunrise-pratiche-abusive-fermate-2026': { name: 'Novità', path: '/articoli-frontaliere/sunrise-pratiche-abusive-fermate-2026', parent: 'blog' },
     'blog-proroga-accise-carburanti-2026': { name: 'Novità', path: '/articoli-frontaliere/proroga-accise-carburanti-2026', parent: 'blog' },
+    'blog-polizia-ticinese-progetto-abbandonato-2026': { name: 'Novità', path: '/articoli-frontaliere/polizia-ticinese-progetto-abbandonato-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

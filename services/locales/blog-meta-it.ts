@@ -4472,6 +4472,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.proroga-accise-carburanti-2026.title': 'Proroga accise carburanti: sconto gasolio a 24,4 centesimi, benzina a 6',
     'blog.article.proroga-accise-carburanti-2026.excerpt': 'Il governo italiano ha prorogato di tre settimane la riduzione delle accise sui carburanti, con sconto differenziato per benzina e gasolio.',
     'blog.article.proroga-accise-carburanti-2026.imageAlt': 'Lago di Lugano con edifici moderni sullo sfondo',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.title': 'Polizia ticinese: progetto abbandonato dal Consiglio di Stato',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.excerpt': 'Il Consiglio di Stato ha deciso di non proseguire con il progetto Polizia ticinese, avviato nel 2016 per migliorare la collaborazione tra polizia cantonale e comunali.',
+    'blog.article.polizia-ticinese-progetto-abbandonato-2026.imageAlt': 'Veduta aerea del Castelgrande a Bellinzona, Svizzera, con le montagne circostanti e il fiume Ticino. L\'immagine cattura il castello storico e il paesaggio urbano moderno sullo sfondo.',
 };
 
 export default blogMetaIt;
