@@ -4238,6 +4238,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-competenze-lavoro-2026.title': 'Varese: domanda di lavoro alta ma competenze sempre più difficili da trovare',
     'blog.article.varese-competenze-lavoro-2026.excerpt': 'Il mercato del lavoro di Varese mostra un paradosso: alta domanda ma crescente difficoltà nel reperire competenze specializzate, con tassi di occupazione al 70% e disoccupazione al 3%.',
     'blog.article.varese-competenze-lavoro-2026.imageAlt': 'Foxtown outlet a Mendrisio, con frontalieri e lavoratori in primo piano',
+    'blog.article.kof-barometro-ripresa-economica-2026.title': 'Economia svizzera in ripresa, ma prospettive modeste',
+    'blog.article.kof-barometro-ripresa-economica-2026.excerpt': 'Il barometro del KOF segna 97,9 punti in aprile, con segnali misti dai vari settori economici.',
+    'blog.article.kof-barometro-ripresa-economica-2026.imageAlt': 'Vista aerea del Lago di Lugano con il panorama urbano sullo sfondo, cielo azzurro limpido, giornata estiva.',
 };
 
 export default blogMetaIt;

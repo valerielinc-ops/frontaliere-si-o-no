@@ -10900,4 +10900,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-competenze-lavoro-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'kof-barometro-ripresa-economica-2026',
+ category: 'novita',
+ date: '2026-04-30T09:03:29.065Z',
+ image: '/images/blog/kof-barometro-ripresa-economica-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4238,6 +4238,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-competenze-lavoro-2026.title': 'Varèse : forte demande d\'emploi mais compétences rares',
     'blog.article.varese-competenze-lavoro-2026.excerpt': 'Le marché du travail de Varèse présente un paradoxe : une forte demande mais une difficulté croissante à trouver des compétences spécialisées, avec des taux d\'occupation à 70 % et un taux de chômage de 3 %.',
     'blog.article.varese-competenze-lavoro-2026.imageAlt': 'Centre commercial Foxtown à Mendrisio, avec des travailleurs frontaliers au premier plan',
+    'blog.article.kof-barometro-ripresa-economica-2026.title': 'Économie suisse en reprise, mais perspectives modestes',
+    'blog.article.kof-barometro-ripresa-economica-2026.excerpt': 'Le baromètre du KOF affiche 97,9 points en avril, avec des signaux mitigés des différents secteurs économiques.',
+    'blog.article.kof-barometro-ripresa-economica-2026.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage urbain en arrière-plan, ciel bleu clair, journée d\'été.',
 };
 
 export default blogMetaFr;

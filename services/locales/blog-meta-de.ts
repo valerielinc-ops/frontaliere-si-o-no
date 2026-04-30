@@ -4237,6 +4237,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-competenze-lavoro-2026.title': 'Varese: Hohe Nachfrage, aber Fachkräfte schwer zu finden',
     'blog.article.varese-competenze-lavoro-2026.excerpt': 'Der Arbeitsmarkt in Varese zeigt ein Paradoxon: Hohe Nachfrage, aber wachsende Schwierigkeiten, spezialisierte Fähigkeiten zu finden, mit einer Beschäftigungsquote von 70 % und einer Arbeitslosenquote von 3 %.',
     'blog.article.varese-competenze-lavoro-2026.imageAlt': 'Foxtown Outlet in Mendrisio, mit Grenzgängern im Vordergrund',
+    'blog.article.kof-barometro-ripresa-economica-2026.title': 'Schweizer Wirtschaft im Aufschwung, aber bescheidene Aussichten',
+    'blog.article.kof-barometro-ripresa-economica-2026.excerpt': 'Der KOF-Barometer liegt im April bei 97,9 Punkten, mit gemischten Signalen aus den verschiedenen Wirtschaftszweigen.',
+    'blog.article.kof-barometro-ripresa-economica-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit der Stadtlandschaft im Hintergrund, klarer blauer Himmel, Sommertag.',
 };
 
 export default blogMetaDe;

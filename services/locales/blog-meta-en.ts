@@ -4237,6 +4237,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-competenze-lavoro-2026.title': 'Varese: high demand but skilled workers hard to find',
     'blog.article.varese-competenze-lavoro-2026.excerpt': 'Varese\'s job market shows a paradox: high demand but increasing difficulty in finding specialized skills, with a 70% employment rate and 3% unemployment.',
     'blog.article.varese-competenze-lavoro-2026.imageAlt': 'Foxtown outlet in Mendrisio, with cross-border workers in the foreground',
+    'blog.article.kof-barometro-ripresa-economica-2026.title': 'Swiss economy recovering, but modest outlook',
+    'blog.article.kof-barometro-ripresa-economica-2026.excerpt': 'The KOF barometer stands at 97.9 points in April, with mixed signals from various economic sectors.',
+    'blog.article.kof-barometro-ripresa-economica-2026.imageAlt': 'Aerial view of Lake Lugano with the cityscape in the background, clear blue sky, summer day.',
 };
 
 export default blogMetaEn;
