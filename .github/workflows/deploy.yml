@@ -438,19 +438,14 @@ jobs:
           # tail-latency adding ~40s wall (run 25131629748: gate at the end
           # of spawn order made wall 279s vs expected ~240s).
           spawn_capped gate:seo-source              /tmp/gate.log npm run gate:seo-source
-          # PERF EXPERIMENT: 16-task parallel pool restored. The consolidated
-          # audit:dist-multi was the long-pole (~240s serial). Splitting back
-          # lets MAX_PARALLEL parallelize. Scripts audit-dist-multi.mjs and
-          # validate-sitemap-pages.mjs remain in repo as reference (not invoked).
-          spawn_capped audit:text-html-ratio        /tmp/g5.log npm run audit:text-html-ratio
-          spawn_capped audit:page-weight            /tmp/g4.log npm run audit:page-weight
-          spawn_capped audit:h1-title-duplicates    /tmp/g6.log npm run audit:h1-title-duplicates
-          spawn_capped audit:title-length           /tmp/g7.log npm run audit:title-length
-          spawn_capped audit:content-duplicates     /tmp/g3.log npm run audit:content-duplicates
-          spawn_capped audit:title-uniqueness       /tmp/g2.log npm run audit:title-uniqueness
-          spawn_capped audit:hreflang               /tmp/g1.log npm run audit:hreflang
-          spawn_capped validate:jobposting-schema   /tmp/v1.log npm run validate:jobposting-schema
-          spawn_capped validate:structured-data     /tmp/v7.log node scripts/validate-structured-data-completeness.mjs
+          # PERF EXPERIMENT (T4): split audit:dist-multi into 2 parallel walkers.
+          # Heavy = text-html-ratio + h1-title-duplicates + content-duplicates +
+          # jobposting-schema (the 4 slowest checks).
+          # Light = title-length + page-weight + hreflang + title-uniqueness +
+          # structured-data (the 5 lighter checks).
+          # Each walker reads dist/ once; the 2 run in parallel.
+          spawn_capped audit:dist-multi-heavy       /tmp/g5.log env AUDIT_DIST_MULTI_GROUP=heavy npm run audit:dist-multi
+          spawn_capped audit:dist-multi-light       /tmp/g6.log env AUDIT_DIST_MULTI_GROUP=light npm run audit:dist-multi
           # Group C — SPA render validation (5 min internal budget)
           spawn_capped validate:spa-render          /tmp/spa.log timeout 300 node scripts/validate-spa-render.mjs
           # Group D — E2E smoke (3 min internal budget)
@@ -459,10 +454,7 @@ jobs:
           # ratchet baseline in data/orphan-pages-baseline.json). Improvements
           # accepted silently; any sitemap whose orphan count goes UP fails.
           spawn_capped audit:orphan-sitemap-pages   /tmp/g9.log npm run audit:orphan-sitemap-pages -- --gate=baseline
-          spawn_capped validate:soft-404            /tmp/v4.log node scripts/validate-soft404.mjs
-          spawn_capped validate:content-quality     /tmp/v6.log node scripts/validate-content-quality.mjs
-          spawn_capped audit:sitemap-canonicals     /tmp/g8.log npm run audit:sitemap-canonicals
-          spawn_capped validate:canonical           /tmp/v5.log node scripts/validate-canonical.mjs
+          spawn_capped validate:sitemap-pages       /tmp/spm.log npm run validate:sitemap-pages
           spawn_capped validate:jobs-quality        /tmp/v2.log npm run validate:jobs-quality
           spawn_capped validate:sitemap-links       /tmp/v3.log npm run validate:sitemap-links
 
@@ -488,7 +480,7 @@ jobs:
           fi
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 19 post-build validators+audits+SPA+E2E+gate passed"
+          echo "✅ All 9 post-build validators+audits+SPA+E2E+gate passed"
 
       # Visual regression baselines are OS-sensitive (darwin vs linux pixel
       # diffs). We run them only when a linux-specific baseline has been

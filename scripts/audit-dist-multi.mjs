@@ -1844,15 +1844,25 @@ async function main() {
   // Build the structured-data sampled set up-front (mirrors original sampling).
   const { sampled: sdSampled, byCategory: sdByCategory } = buildSampledSet(files);
 
-  const ratio = new RatioAudit();
-  const titleA = new TitleAudit();
-  const h1A = new H1Audit();
-  const dupA = new DupAudit();
-  const pageWeightA = new PageWeightAudit();
-  const hreflangA = new HreflangAudit(distFileSet);
-  const titleUniqA = new TitleUniqAudit();
-  const jobPostingA = new JobPostingAudit();
-  const sdA = new StructuredDataAudit(sdSampled, sdByCategory);
+  // PERF EXPERIMENT: optional split into 2 walkers. AUDIT_DIST_MULTI_GROUP=heavy
+  // runs the 4 slowest checks; =light runs the 5 lighter ones. Unset = all 9.
+  const group = process.env.AUDIT_DIST_MULTI_GROUP || 'all';
+  const want = (name) => {
+    if (group === 'all') return true;
+    if (group === 'heavy') return ['ratio', 'h1', 'dup', 'jobposting'].includes(name);
+    if (group === 'light') return ['title', 'pageweight', 'hreflang', 'titleuniq', 'sd'].includes(name);
+    return true;
+  };
+
+  const ratio = want('ratio') ? new RatioAudit() : null;
+  const titleA = want('title') ? new TitleAudit() : null;
+  const h1A = want('h1') ? new H1Audit() : null;
+  const dupA = want('dup') ? new DupAudit() : null;
+  const pageWeightA = want('pageweight') ? new PageWeightAudit() : null;
+  const hreflangA = want('hreflang') ? new HreflangAudit(distFileSet) : null;
+  const titleUniqA = want('titleuniq') ? new TitleUniqAudit() : null;
+  const jobPostingA = want('jobposting') ? new JobPostingAudit() : null;
+  const sdA = want('sd') ? new StructuredDataAudit(sdSampled, sdByCategory) : null;
 
   for (const file of files) {
     let html;
@@ -1870,13 +1880,13 @@ async function main() {
     const distRel = relative(DIST, file);
     const relFromCwd = relative(process.cwd(), file);
 
-    ratio.ingest(file, html, htmlBytes, relFromRoot);
-    titleA.ingest(file, html, relFromRoot);
-    h1A.ingest(file, html, relFromRoot);
-    dupA.ingest(file, html, distRel);
-    pageWeightA.ingest(file, html, htmlBytes, relFromRoot);
-    hreflangA.ingest(file, html, distRel);
-    titleUniqA.ingest(file, html, distRel);
+    if (ratio) ratio.ingest(file, html, htmlBytes, relFromRoot);
+    if (titleA) titleA.ingest(file, html, relFromRoot);
+    if (h1A) h1A.ingest(file, html, relFromRoot);
+    if (dupA) dupA.ingest(file, html, distRel);
+    if (pageWeightA) pageWeightA.ingest(file, html, htmlBytes, relFromRoot);
+    if (hreflangA) hreflangA.ingest(file, html, distRel);
+    if (titleUniqA) titleUniqA.ingest(file, html, distRel);
 
     // JSON-LD is parsed at most once per file and shared between the two
     // schema validators. Both originals scan every HTML file's <script
@@ -1884,38 +1894,40 @@ async function main() {
     // `html.includes('"JobPosting"')` filter (we replicate that internally),
     // and structured-data only runs on the sampled subset.
     let sharedJsonLdBlocks = null;
-    const willCheckJobPosting = html.includes('"JobPosting"') || html.includes("'JobPosting'");
-    const willCheckSd = sdSampled.has(file);
+    const willCheckJobPosting = jobPostingA && (html.includes('"JobPosting"') || html.includes("'JobPosting'"));
+    const willCheckSd = sdA && sdSampled.has(file);
     if (willCheckJobPosting || willCheckSd) {
       sharedJsonLdBlocks = extractJsonLdBlocks(html);
     }
-    jobPostingA.ingest(file, html, relFromCwd, sharedJsonLdBlocks);
-    sdA.ingest(file, html, sharedJsonLdBlocks);
+    if (jobPostingA) jobPostingA.ingest(file, html, relFromCwd, sharedJsonLdBlocks);
+    if (sdA) sdA.ingest(file, html, sharedJsonLdBlocks);
   }
 
-  const ratioRes = await runRatio(ratio);
-  const titleRes = await runTitle(titleA);
-  const h1Res = await runH1(h1A);
-  const dupRes = runDup(dupA);
-  const pageWeightRes = runPageWeight(pageWeightA);
-  const hreflangRes = runHreflang(hreflangA);
-  const titleUniqRes = runTitleUniqueness(titleUniqA);
-  const jobPostingRes = runJobPosting(jobPostingA);
-  const sdRes = runStructuredData(sdA, files.length);
+  const ratioRes = ratio ? await runRatio(ratio) : { passed: true, skipped: true };
+  const titleRes = titleA ? await runTitle(titleA) : { passed: true, skipped: true };
+  const h1Res = h1A ? await runH1(h1A) : { passed: true, skipped: true };
+  const dupRes = dupA ? runDup(dupA) : { passed: true, skipped: true };
+  const pageWeightRes = pageWeightA ? runPageWeight(pageWeightA) : { passed: true, skipped: true };
+  const hreflangRes = hreflangA ? runHreflang(hreflangA) : { passed: true, skipped: true };
+  const titleUniqRes = titleUniqA ? runTitleUniqueness(titleUniqA) : { passed: true, skipped: true };
+  const jobPostingRes = jobPostingA ? runJobPosting(jobPostingA) : { passed: true, skipped: true };
+  const sdRes = sdA ? runStructuredData(sdA, files.length) : { passed: true, skipped: true };
 
   const wallSec = ((Date.now() - startedAt) / 1000).toFixed(2);
-  console.log(`\n──── audit-dist-multi summary ────`);
+  const tag = group === 'all' ? '' : `[${group}] `;
+  const fmt = (r) => r.skipped ? 'SKIP' : (r.passed ? 'PASS' : 'FAIL');
+  console.log(`\n──── ${tag}audit-dist-multi summary ────`);
   console.log(`scanned: ${files.length} HTML files`);
   console.log(`wall: ${wallSec}s`);
-  console.log(`text-html-ratio:                ${ratioRes.passed ? 'PASS' : 'FAIL'}`);
-  console.log(`title-length:                   ${titleRes.passed ? 'PASS' : 'FAIL'}`);
-  console.log(`h1-title-duplicates:            ${h1Res.passed ? 'PASS' : 'FAIL'}`);
-  console.log(`content-duplicates:             ${dupRes.passed ? 'PASS' : 'FAIL'}`);
-  console.log(`page-weight:                    ${pageWeightRes.passed ? 'PASS' : 'FAIL'}`);
-  console.log(`hreflang:                       ${hreflangRes.passed ? 'PASS' : 'FAIL'}`);
-  console.log(`title-uniqueness:               ${titleUniqRes.passed ? 'PASS' : 'FAIL'}`);
-  console.log(`jobposting-schema:              ${jobPostingRes.passed ? 'PASS' : 'FAIL'}`);
-  console.log(`structured-data-completeness:   ${sdRes.passed ? 'PASS' : 'FAIL'}`);
+  console.log(`text-html-ratio:                ${fmt(ratioRes)}`);
+  console.log(`title-length:                   ${fmt(titleRes)}`);
+  console.log(`h1-title-duplicates:            ${fmt(h1Res)}`);
+  console.log(`content-duplicates:             ${fmt(dupRes)}`);
+  console.log(`page-weight:                    ${fmt(pageWeightRes)}`);
+  console.log(`hreflang:                       ${fmt(hreflangRes)}`);
+  console.log(`title-uniqueness:               ${fmt(titleUniqRes)}`);
+  console.log(`jobposting-schema:              ${fmt(jobPostingRes)}`);
+  console.log(`structured-data-completeness:   ${fmt(sdRes)}`);
 
   const allPassed =
     ratioRes.passed && titleRes.passed && h1Res.passed && dupRes.passed &&
