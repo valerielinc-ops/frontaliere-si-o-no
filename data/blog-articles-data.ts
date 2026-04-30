@@ -10717,4 +10717,11 @@ export const ARTICLES = [
  image: '/images/blog/restringimento-a2-ritardi-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'repressione-cinese-svizzera-ong-critiche',
+ category: 'novita',
+ date: '2026-04-30T05:25:04.504Z',
+ image: '/images/blog/repressione-cinese-svizzera-ong-critiche.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

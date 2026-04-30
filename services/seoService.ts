@@ -2617,6 +2617,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-malpensa-contanti-sequestri-370mila-euro': { name: 'Malpensa Contanti', path: '/articoli-frontaliere/malpensa-contanti-sequestri-370mila-euro', parent: 'blog' },
     'blog-grigioni-stretta-permessi-mafia-roveredo': { name: 'Novità', path: '/articoli-frontaliere/grigioni-stretta-permessi-mafia-roveredo', parent: 'blog' },
     'blog-restringimento-a2-ritardi-2026': { name: 'Novità', path: '/articoli-frontaliere/restringimento-a2-ritardi-2026', parent: 'blog' },
+    'blog-repressione-cinese-svizzera-ong-critiche': { name: 'Novità', path: '/articoli-frontaliere/repressione-cinese-svizzera-ong-critiche', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -27183,6 +27183,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-repressione-cinese-svizzera-ong-critiche': {
+    title: 'Repressione cinese in Svizzera: ONG criticano Berna',
+    description: 'ONG denunciano la mancanza di misure concrete per proteggere tibetani e uiguri in Svizzera nonostante il riconoscimento della repressione transnazionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, repressione, cinese, criticano, berna',
+    ogTitle: 'Repressione cinese in Svizzera: ONG criticano Berna',
+    ogDescription: 'ONG denunciano la mancanza di misure concrete per proteggere tibetani e uiguri in Svizzera nonostante il riconoscimento della repressione transnazionale',
+    canonicalPath: '/articoli-frontaliere/repressione-cinese-svizzera-ong-critiche',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Repressione cinese in Svizzera: ONG criticano Berna",
+      "description": "ONG denunciano la mancanza di misure concrete per proteggere tibetani e uiguri in Svizzera nonostante il riconoscimento della repressione transnazionale",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/repressione-cinese-svizzera-ong-critiche.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestanti a Bellinzona con cartelli e bandiere contro la repressione cinese"
+      },
+      "datePublished": "2026-04-30T05:25:04+00:00",
+      "dateModified": "2026-04-30T05:25:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/repressione-cinese-svizzera-ong-critiche`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

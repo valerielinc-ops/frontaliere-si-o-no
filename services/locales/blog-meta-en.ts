@@ -4159,6 +4159,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.restringimento-a2-ritardi-2026.title': 'A2: heavy traffic and delays over an hour',
     'blog.article.restringimento-a2-ritardi-2026.excerpt': 'Lane reduction causing delays up to 100 minutes between Chiasso and Grancia. Police present for checks.',
     'blog.article.restringimento-a2-ritardi-2026.imageAlt': 'A2 highway with heavy traffic near Mendrisio',
+    'blog.article.repressione-cinese-svizzera-ong-critiche.title': 'Chinese repression in Switzerland: NGOs criticize Bern',
+    'blog.article.repressione-cinese-svizzera-ong-critiche.excerpt': 'NGOs denounce the lack of concrete measures to protect Tibetans and Uyghurs in Switzerland despite recognizing transnational repression',
+    'blog.article.repressione-cinese-svizzera-ong-critiche.imageAlt': 'Protesters in Bellinzona with signs and banners against Chinese repression',
 };
 
 export default blogMetaEn;

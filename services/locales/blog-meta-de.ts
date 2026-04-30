@@ -4159,6 +4159,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.restringimento-a2-ritardi-2026.title': 'A2: Starker Verkehr und Verspätungen über eine Stunde',
     'blog.article.restringimento-a2-ritardi-2026.excerpt': 'Verengung auf eine Spur verursacht Verzögerungen von bis zu 100 Minuten zwischen Chiasso und Grancia. Polizei anwesend für Kontrollen.',
     'blog.article.restringimento-a2-ritardi-2026.imageAlt': 'Autobahn A2 mit Stau in der Nähe von Mendrisio',
+    'blog.article.repressione-cinese-svizzera-ong-critiche.title': 'Chinesische Unterdrückung in der Schweiz: NGOs kritisieren Bern',
+    'blog.article.repressione-cinese-svizzera-ong-critiche.excerpt': 'NGOs kritisieren das Fehlen konkreter Maßnahmen zum Schutz von Tibetern und Uiguren in der Schweiz, trotz der Anerkennung der transnationalen Unterdrückung',
+    'blog.article.repressione-cinese-svizzera-ong-critiche.imageAlt': 'Demonstranten in Bellinzona mit Schildern und Fahnen gegen chinesische Unterdrückung',
 };
 
 export default blogMetaDe;
