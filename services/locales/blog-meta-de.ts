@@ -4351,6 +4351,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pulmino-elettrico-granello-cislago-2026.title': 'Elektrobus für Il Granello in Cislago: nachhaltige Fahrten',
     'blog.article.pulmino-elettrico-granello-cislago-2026.excerpt': 'Ein Elektrobus, der von einem Gallarate-Händler für einige Monate kostenlos zur Verfügung gestellt wurde, unterstützt die täglichen Aktivitäten und Fahrten der Jugendlichen der Genossenschaft Il Granello in Cislago.',
     'blog.article.pulmino-elettrico-granello-cislago-2026.imageAlt': 'Ein Elektrobus auf einer Straße in Cislago mit Jungen, die einsteigen',
+    'blog.article.ambrogio-castiglioni-digital-industries-world.title': 'Ambrogio Castiglioni neuer Präsident von Digital Industries World',
+    'blog.article.ambrogio-castiglioni-digital-industries-world.excerpt': 'Der Vareser Ambrogio Castiglioni wurde zum neuen Präsidenten von Digital Industries World ernannt, mit dem Ziel, ein integriertes Ökosystem für industrielle Innovation zu schaffen.',
+    'blog.article.ambrogio-castiglioni-digital-industries-world.imageAlt': 'Eine Gruppe von Fachleuten in einem modernen Büro in Lugano, die über digitale Innovation und industrielle Automatisierung diskutieren.',
 };
 
 export default blogMetaDe;

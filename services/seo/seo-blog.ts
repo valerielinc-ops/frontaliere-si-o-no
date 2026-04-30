@@ -29039,6 +29039,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ambrogio-castiglioni-digital-industries-world': {
+    title: 'Ambrogio Castiglioni nuovo presidente di Digital Industries World',
+    description: 'Ambrogio Castiglioni, originario di Carnago, è stato nominato nuovo presidente di Digital Industries World. Scopri le implicazioni per i frontalieri e le',
+    keywords: 'frontalieri, ticino, svizzera, italia, ambrogio, castiglioni, nuovo, presidente',
+    ogTitle: 'Ambrogio Castiglioni nuovo presidente di Digital Industries World',
+    ogDescription: 'Ambrogio Castiglioni, originario di Carnago, è stato nominato nuovo presidente di Digital Industries World. Scopri le implicazioni per i frontalieri e le',
+    canonicalPath: '/articoli-frontaliere/ambrogio-castiglioni-digital-industries-world',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ambrogio Castiglioni nuovo presidente di Digital Industries World",
+      "description": "Ambrogio Castiglioni, originario di Carnago, è stato nominato nuovo presidente di Digital Industries World. Scopri le implicazioni per i frontalieri e le",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ambrogio-castiglioni-digital-industries-world.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di professionisti in un ufficio moderno a Lugano, impegnati in una discussione su innovazione digitale e automazione industriale."
+      },
+      "datePublished": "2026-04-30T15:10:22+00:00",
+      "dateModified": "2026-04-30T15:10:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ambrogio-castiglioni-digital-industries-world`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

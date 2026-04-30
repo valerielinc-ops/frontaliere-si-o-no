@@ -11166,4 +11166,11 @@ export const ARTICLES = [
  image: '/images/blog/pulmino-elettrico-granello-cislago-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ambrogio-castiglioni-digital-industries-world',
+ category: 'novita',
+ date: '2026-04-30T15:10:22.808Z',
+ image: '/images/blog/ambrogio-castiglioni-digital-industries-world.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

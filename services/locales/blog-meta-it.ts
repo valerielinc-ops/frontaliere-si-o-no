@@ -4352,6 +4352,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pulmino-elettrico-granello-cislago-2026.title': 'Pulmino elettrico per Il Granello di Cislago: viaggi più sostenibili',
     'blog.article.pulmino-elettrico-granello-cislago-2026.excerpt': 'Un pulmino elettrico messo a disposizione gratuitamente per alcuni mesi da un concessionario di Gallarate supporta le attività quotidiane e gli spostamenti dei ragazzi della cooperativa Il Granello di Cislago.',
     'blog.article.pulmino-elettrico-granello-cislago-2026.imageAlt': 'Un pulmino elettrico in una strada di Cislago con ragazzi che salgono a bordo',
+    'blog.article.ambrogio-castiglioni-digital-industries-world.title': 'Ambrogio Castiglioni nuovo presidente di Digital Industries World',
+    'blog.article.ambrogio-castiglioni-digital-industries-world.excerpt': 'Il varesino Ambrogio Castiglioni è stato nominato nuovo presidente di Digital Industries World, con l\'obiettivo di creare un ecosistema integrato per l\'innovazione industriale.',
+    'blog.article.ambrogio-castiglioni-digital-industries-world.imageAlt': 'Un gruppo di professionisti in un ufficio moderno a Lugano, impegnati in una discussione su innovazione digitale e automazione industriale.',
 };
 
 export default blogMetaIt;
