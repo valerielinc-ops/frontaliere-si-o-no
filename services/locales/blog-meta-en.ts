@@ -4099,6 +4099,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.social-media-frontalieri-ticino.title': 'Social media and work: what to avoid and what to post',
     'blog.article.social-media-frontalieri-ticino.excerpt': 'An expert explains which social media content can jeopardize the careers of cross-border workers in Ticino',
     'blog.article.social-media-frontalieri-ticino.imageAlt': 'A cross-border worker uses his phone to post on social media during a day off at Lake Lugano',
+    'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.title': 'Ski resorts: more data and progress needed for next credit',
+    'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.excerpt': 'Parliamentary question asks for seasonal balance and new criteria to evaluate Ticino ski resorts',
+    'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.imageAlt': 'Aerial view of a ski resort in Ticino with snow-covered slopes and modern facilities',
 };
 
 export default blogMetaEn;

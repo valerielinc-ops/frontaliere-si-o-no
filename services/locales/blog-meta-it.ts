@@ -4100,6 +4100,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.social-media-frontalieri-ticino.title': 'Social media e lavoro: cosa evitare e cosa postare',
     'blog.article.social-media-frontalieri-ticino.excerpt': 'Un esperto spiega quali contenuti sui social possono compromettere la carriera dei frontalieri in Ticino',
     'blog.article.social-media-frontalieri-ticino.imageAlt': 'Un frontaliero utilizza il telefono per postare sui social media durante una giornata di relax sul Lago di Lugano',
+    'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.title': 'Stazioni sciistiche: per il prossimo credito servono più dati e passi avanti',
+    'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.excerpt': 'Interrogazione parlamentare chiede bilancio stagionale e nuovi criteri per valutare le stazioni sciistiche ticinesi',
+    'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.imageAlt': 'Vista aerea di una stazione sciistica in Ticino con pendii innevati e strutture moderne',
 };
 
 export default blogMetaIt;

@@ -4099,6 +4099,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.social-media-frontalieri-ticino.title': 'Social Media und Arbeit: Was zu vermeiden und zu posten',
     'blog.article.social-media-frontalieri-ticino.excerpt': 'Ein Experte erklärt, welche Inhalte in sozialen Medien die Karriere von Grenzgängern im Tessin gefährden können',
     'blog.article.social-media-frontalieri-ticino.imageAlt': 'Ein Grenzgänger nutzt sein Telefon, um auf sozialen Medien zu posten, während er einen freien Tag am Luganersee verbringt',
+    'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.title': 'Skigebiete: Für den nächsten Kredit braucht es mehr Daten und Fortschritte',
+    'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.excerpt': 'Parlamentarische Anfrage fordert Saisonbilanz und neue Kriterien zur Bewertung der Ticinoer Skigebiete',
+    'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.imageAlt': 'Luftaufnahme eines Skigebiets in Tessin mit schneebedeckten Pisten und modernen Einrichtungen',
 };
 
 export default blogMetaDe;

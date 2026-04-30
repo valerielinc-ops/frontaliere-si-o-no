@@ -10577,4 +10577,11 @@ export const ARTICLES = [
  image: '/images/blog/social-media-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'stazioni-sciistiche-ticino-credito-dati-2026',
+ category: 'pratico',
+ date: '2026-04-30T02:14:52.545Z',
+ image: '/images/blog/stazioni-sciistiche-ticino-credito-dati-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
