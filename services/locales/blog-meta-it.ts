@@ -4286,6 +4286,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.azienda-bardello-cerca-operatore-cnc.title': 'Azienda Bardello cerca operatore CNC: esperienza richiesta',
     'blog.article.azienda-bardello-cerca-operatore-cnc.excerpt': 'Onostampi Srl, azienda certificata ISO 9001:2015, cerca operatore CNC con almeno 5 anni di esperienza per lavorazioni su 3, 4 e 5 assi.',
     'blog.article.azienda-bardello-cerca-operatore-cnc.imageAlt': 'Operatore CNC al lavoro in un\'azienda di Bardello',
+    'blog.article.divario-irpef-pensionati-2026.title': 'Pensionati penalizzati: fino a 2.400 euro in più di Irpef',
+    'blog.article.divario-irpef-pensionati-2026.excerpt': 'Una simulazione del Caf Cgil evidenzia un divario fiscale tra lavoratori dipendenti e pensionati sotto i 50mila euro annui',
+    'blog.article.divario-irpef-pensionati-2026.imageAlt': 'Veduta dettagliata dei castelli di Bellinzona con il paesaggio del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -11012,4 +11012,11 @@ export const ARTICLES = [
  image: '/images/blog/azienda-bardello-cerca-operatore-cnc.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'divario-irpef-pensionati-2026',
+ category: 'fiscale',
+ date: '2026-04-30T11:19:47.372Z',
+ image: '/images/blog/divario-irpef-pensionati-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -28401,6 +28401,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divario-irpef-pensionati-2026': {
+    title: 'Pensionati penalizzati: fino a 2.400 euro in più di Irpef',
+    description: 'Una simulazione del Caf Cgil evidenzia un divario fiscale tra lavoratori dipendenti e pensionati sotto i 50mila euro annui. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionati, penalizzati, fino, euro',
+    ogTitle: 'Pensionati penalizzati: fino a 2.400 euro in più di Irpef',
+    ogDescription: 'Una simulazione del Caf Cgil evidenzia un divario fiscale tra lavoratori dipendenti e pensionati sotto i 50mila euro annui',
+    canonicalPath: '/articoli-frontaliere/divario-irpef-pensionati-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionati penalizzati: fino a 2.400 euro in più di Irpef",
+      "description": "Una simulazione del Caf Cgil evidenzia un divario fiscale tra lavoratori dipendenti e pensionati sotto i 50mila euro annui. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/divario-irpef-pensionati-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta dettagliata dei castelli di Bellinzona con il paesaggio del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-04-30T11:19:47+00:00",
+      "dateModified": "2026-04-30T11:19:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divario-irpef-pensionati-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

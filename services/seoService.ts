@@ -2659,6 +2659,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-barometro-kof-ripresa-modesta-2026': { name: 'Economia Svizzera', path: '/articoli-frontaliere/barometro-kof-ripresa-modesta-2026', parent: 'blog' },
     'blog-inflazione-aprile-2026-italia': { name: 'Inflazione Italia', path: '/articoli-frontaliere/inflazione-aprile-2026-italia', parent: 'blog' },
     'blog-azienda-bardello-cerca-operatore-cnc': { name: 'Lavoro Bardello', path: '/articoli-frontaliere/azienda-bardello-cerca-operatore-cnc', parent: 'blog' },
+    'blog-divario-irpef-pensionati-2026': { name: 'Fiscale', path: '/articoli-frontaliere/divario-irpef-pensionati-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

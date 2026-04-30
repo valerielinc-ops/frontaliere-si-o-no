@@ -4285,6 +4285,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.azienda-bardello-cerca-operatore-cnc.title': 'Onostampi Srl seeks experienced CNC operator',
     'blog.article.azienda-bardello-cerca-operatore-cnc.excerpt': 'Onostampi Srl, an ISO 9001:2015 certified company, is looking for a CNC operator with at least 5 years of experience for machining on 3, 4, and 5 axes.',
     'blog.article.azienda-bardello-cerca-operatore-cnc.imageAlt': 'CNC operator working in a Bardello company',
+    'blog.article.divario-irpef-pensionati-2026.title': 'Retirees penalized: up to €2,400 more in IRPEF',
+    'blog.article.divario-irpef-pensionati-2026.excerpt': 'A simulation by Caf Cgil highlights a tax gap between employees and retirees earning under €50,000 annually',
+    'blog.article.divario-irpef-pensionati-2026.imageAlt': 'Detailed view of Bellinzona\'s castles with the Ticino landscape in the background',
 };
 
 export default blogMetaEn;
