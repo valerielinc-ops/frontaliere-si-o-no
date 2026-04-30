@@ -4388,6 +4388,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.viabilita-camion-travedona-2026.title': 'Viabilità sperimentale per camion intorno a Travedona dal 5 maggio',
     'blog.article.viabilita-camion-travedona-2026.excerpt': 'Dal 5 maggio 2026 nuova viabilità per camion in 6 comuni del Varese, con un anello a senso unico per migliorare la sicurezza e la fluidità del traffico',
     'blog.article.viabilita-camion-travedona-2026.imageAlt': 'Vista aerea di Travedona Monate con il Lago di Varese e la nuova viabilità per camion',
+    'blog.article.casa-comunita-luino-punto-unico-accesso.title': 'Luino: apre la Casa di Comunità con punto unico di accesso',
+    'blog.article.casa-comunita-luino-punto-unico-accesso.excerpt': 'Da venerdì 1° maggio è operativo il Punto Unico di Accesso nella nuova Casa di Comunità di Luino, finanziata con fondi PNRR.',
+    'blog.article.casa-comunita-luino-punto-unico-accesso.imageAlt': 'Casa di Comunità di Luino, ingresso ospedale',
 };
 
 export default blogMetaIt;

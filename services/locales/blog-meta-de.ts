@@ -4387,6 +4387,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.viabilita-camion-travedona-2026.title': 'Neue LKW-Route ab 5. Mai um Travedona',
     'blog.article.viabilita-camion-travedona-2026.excerpt': 'Ab dem 5. Mai 2026 neue LKW-Route in 6 Gemeinden im Varese, mit einem Einbahnkreis für mehr Sicherheit und flüssigen Verkehr',
     'blog.article.viabilita-camion-travedona-2026.imageAlt': 'Luftaufnahme von Travedona Monate mit dem Varese-See und der neuen LKW-Route',
+    'blog.article.casa-comunita-luino-punto-unico-accesso.title': 'Luino: Eröffnung des Gemeindehauses mit Einheitszugang',
+    'blog.article.casa-comunita-luino-punto-unico-accesso.excerpt': 'Seit Freitag, dem 1. Mai, ist der Einheitszugang im neuen Gemeindehaus von Luino, finanziert mit Mitteln des PNRR, in Betrieb.',
+    'blog.article.casa-comunita-luino-punto-unico-accesso.imageAlt': 'Gemeinschaftshaus Luino, Krankenhaus-Eingang',
 };
 
 export default blogMetaDe;

@@ -11250,4 +11250,11 @@ export const ARTICLES = [
  image: '/images/blog/viabilita-camion-travedona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'casa-comunita-luino-punto-unico-accesso',
+ category: 'novita',
+ date: '2026-04-30T17:16:51.369Z',
+ image: '/images/blog/casa-comunita-luino-punto-unico-accesso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4387,6 +4387,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.viabilita-camion-travedona-2026.title': 'Experimental truck route around Travedona from May 5th',
     'blog.article.viabilita-camion-travedona-2026.excerpt': 'From May 5th, 2026, new truck routes in 6 Varese municipalities, with a one-way loop to improve safety and traffic flow',
     'blog.article.viabilita-camion-travedona-2026.imageAlt': 'Aerial view of Travedona Monate with Lake Varese and the new truck route',
+    'blog.article.casa-comunita-luino-punto-unico-accesso.title': 'Luino: Community House opens with single access point',
+    'blog.article.casa-comunita-luino-punto-unico-accesso.excerpt': 'As of Friday, May 1st, the Single Access Point is operational in the new Community House of Luino, funded with PNRR resources.',
+    'blog.article.casa-comunita-luino-punto-unico-accesso.imageAlt': 'Luino Community House, hospital entrance',
 };
 
 export default blogMetaEn;
