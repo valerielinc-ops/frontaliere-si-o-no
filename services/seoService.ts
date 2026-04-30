@@ -2679,6 +2679,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-clausole-sunrise-illegittime-2026': { name: 'Novità', path: '/articoli-frontaliere/clausole-sunrise-illegittime-2026', parent: 'blog' },
     'blog-lidl-formazione-duale-gdo-ticino': { name: 'Novità', path: '/articoli-frontaliere/lidl-formazione-duale-gdo-ticino', parent: 'blog' },
     'blog-lugano-red-carpet-contribuenti-2026': { name: 'Lugano contribuenti', path: '/articoli-frontaliere/lugano-red-carpet-contribuenti-2026', parent: 'blog' },
+    'blog-trenord-disservizi-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/trenord-disservizi-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

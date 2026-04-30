@@ -4346,6 +4346,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lugano-red-carpet-contribuenti-2026.title': 'Lugano rafforza l\'attrattiva per grandi contribuenti',
     'blog.article.lugano-red-carpet-contribuenti-2026.excerpt': 'Il Municipio di Lugano conferma un piano d\'azione per attrarre contribuenti facoltosi e investitori internazionali',
     'blog.article.lugano-red-carpet-contribuenti-2026.imageAlt': 'Vista panoramica di Lugano con il Lago di Lugano e un tappeto rosso che conduce a una residenza di lusso',
+    'blog.article.trenord-disservizi-frontalieri-2026.title': 'Trenord: 25 linee con indennizzo, inizio 2026 disastroso',
+    'blog.article.trenord-disservizi-frontalieri-2026.excerpt': 'Dati allarmanti per Trenord: 25 linee con indennizzo a gennaio 2026, 17 a febbraio. Il Pd chiede chiarezza.',
+    'blog.article.trenord-disservizi-frontalieri-2026.imageAlt': 'Stazione ferroviaria affollata a Mendrisio, con pendolari in attesa dei treni Trenord.',
 };
 
 export default blogMetaIt;

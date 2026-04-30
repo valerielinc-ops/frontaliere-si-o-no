@@ -11152,4 +11152,11 @@ export const ARTICLES = [
  image: '/images/blog/lugano-red-carpet-contribuenti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'trenord-disservizi-frontalieri-2026',
+ category: 'novita',
+ date: '2026-04-30T14:51:42.948Z',
+ image: '/images/blog/trenord-disservizi-frontalieri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4345,6 +4345,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lugano-red-carpet-contribuenti-2026.title': 'Lugano strengthens appeal for high-net-worth individuals',
     'blog.article.lugano-red-carpet-contribuenti-2026.excerpt': 'The Municipality of Lugano confirms an action plan to attract wealthy taxpayers and international investors',
     'blog.article.lugano-red-carpet-contribuenti-2026.imageAlt': 'Panoramic view of Lugano with Lake Lugano and a red carpet leading to a luxurious residence',
+    'blog.article.trenord-disservizi-frontalieri-2026.title': 'Trenord: 25 lines with compensation, disastrous start to 2026',
+    'blog.article.trenord-disservizi-frontalieri-2026.excerpt': 'Alarm bells for Trenord: 25 lines with compensation in January 2026, 17 in February. The Pd demands clarity.',
+    'blog.article.trenord-disservizi-frontalieri-2026.imageAlt': 'Crowded train station in Mendrisio, with commuters waiting for Trenord trains.',
 };
 
 export default blogMetaEn;
