@@ -4433,6 +4433,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.polizia-ticino-progetto-zali-comuni.title': 'Polizia Ticino: Zali conferma, progetto non accantonato',
     'blog.article.polizia-ticino-progetto-zali-comuni.excerpt': 'Il consigliere di Stato Claudio Zali chiarisce che il progetto Polizia ticinese non è stato scartato, ma resta una delle soluzioni possibili.',
     'blog.article.polizia-ticino-progetto-zali-comuni.imageAlt': 'Vista aerea di Lugano con lago e montagne',
+    'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.title': 'FFS e Siemens: 116 nuovi treni per il Ticino',
+    'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.excerpt': 'Due miliardi di franchi per 116 treni a due piani per il traffico suburbano. Entreranno in servizio dal 2031.',
+    'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.imageAlt': 'Vista panoramica del Lago di Lugano con Lugano e Monte Brè in primo piano',
 };
 
 export default blogMetaIt;

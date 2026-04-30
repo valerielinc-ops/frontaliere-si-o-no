@@ -4432,6 +4432,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.polizia-ticino-progetto-zali-comuni.title': 'Ticino Police: Zali confirms, project not shelved',
     'blog.article.polizia-ticino-progetto-zali-comuni.excerpt': 'State Councillor Claudio Zali clarifies that the Ticino Police project has not been discarded, but remains one of the possible solutions.',
     'blog.article.polizia-ticino-progetto-zali-comuni.imageAlt': 'Aerial view of Lugano with lake and mountains',
+    'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.title': 'SBB and Siemens: 116 new trains for Ticino',
+    'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.excerpt': 'Two billion francs for 116 double-decker trains for suburban traffic. They will enter service from 2031.',
+    'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano with Lugano and Monte Brè in the foreground',
 };
 
 export default blogMetaEn;

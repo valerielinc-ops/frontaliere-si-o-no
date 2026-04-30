@@ -29822,6 +29822,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ffs-siemens-116-treni-suburbani-ticino-2026': {
+    title: 'FFS e Siemens: 116 nuovi treni per il Ticino | Frontaliere Ticino',
+    description: 'Due miliardi di franchi per 116 treni a due piani per il traffico suburbano. Entreranno in servizio dal 2031. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siemens, nuovi, treni, miliardi',
+    ogTitle: 'FFS e Siemens: 116 nuovi treni per il Ticino',
+    ogDescription: 'Due miliardi di franchi per 116 treni a due piani per il traffico suburbano. Entreranno in servizio dal 2031.',
+    canonicalPath: '/articoli-frontaliere/ffs-siemens-116-treni-suburbani-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS e Siemens: 116 nuovi treni per il Ticino",
+      "description": "Due miliardi di franchi per 116 treni a due piani per il traffico suburbano. Entreranno in servizio dal 2031. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ffs-siemens-116-treni-suburbani-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con Lugano e Monte Brè in primo piano"
+      },
+      "datePublished": "2026-04-30T19:54:26+00:00",
+      "dateModified": "2026-04-30T19:54:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ffs-siemens-116-treni-suburbani-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

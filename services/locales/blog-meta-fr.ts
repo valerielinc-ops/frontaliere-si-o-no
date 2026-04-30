@@ -4433,6 +4433,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.polizia-ticino-progetto-zali-comuni.title': 'Police du Tessin: Zali confirme, le projet n\'est pas abandonné',
     'blog.article.polizia-ticino-progetto-zali-comuni.excerpt': 'Le conseiller d\'État Claudio Zali clarifie que le projet de police tessinoise n\'a pas été écarté, mais reste l\'une des solutions possibles.',
     'blog.article.polizia-ticino-progetto-zali-comuni.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes',
+    'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.title': 'FFS et Siemens: 116 nouveaux trains pour le Tessin',
+    'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.excerpt': 'Deux milliards de francs pour 116 trains à deux étages pour le trafic suburbain. Ils entreront en service à partir de 2031.',
+    'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.imageAlt': 'Vue panoramique du lac de Lugano avec Lugano et le Monte Brè au premier plan',
 };
 
 export default blogMetaFr;
