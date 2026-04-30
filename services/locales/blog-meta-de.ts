@@ -4372,6 +4372,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rientro-a2-incubo-30-aprile-2026.title': 'Albtraum-Rückkehr auf der A2: Staus von Rivera bis Lugano Süd',
     'blog.article.rientro-a2-incubo-30-aprile-2026.excerpt': 'Schwarzer Tag für Pendler: Unfälle und dichter Verkehr auf der A2, Staus von Rivera bis Lugano Süd und überlastete Grenzübergänge',
     'blog.article.rientro-a2-incubo-30-aprile-2026.imageAlt': 'Stau auf der A2 in der Schweiz nahe dem San-Salvatore-Tunnel',
+    'blog.article.ultimo-giorno-funivia-santis-2026.title': 'Letzter Tag für die Säntis-Seilbahnfahrt',
+    'blog.article.ultimo-giorno-funivia-santis-2026.excerpt': 'Ab dem 1. Mai wird die Säntis-Seilbahn für Renovierungen geschlossen. Die neuen Kabinen können bis zu 85 Passagiere transportieren.',
+    'blog.article.ultimo-giorno-funivia-santis-2026.imageAlt': 'Seilbahn Säntis in der Schweiz mit Panoramablick auf den Berg',
 };
 
 export default blogMetaDe;

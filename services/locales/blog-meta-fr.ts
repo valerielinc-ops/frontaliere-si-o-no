@@ -4373,6 +4373,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rientro-a2-incubo-30-aprile-2026.title': 'Retour A2 cauchemardesque: embouteillages de Rivera à Lugano Sud',
     'blog.article.rientro-a2-incubo-30-aprile-2026.excerpt': 'Journée noire pour les frontaliers: accidents et trafic intense sur l\'A2, embouteillages de Rivera à Lugano Sud et postes frontaliers saturés',
     'blog.article.rientro-a2-incubo-30-aprile-2026.imageAlt': 'Embouteillage sur l\'autoroute A2 en Suisse près du tunnel du San Salvatore',
+    'blog.article.ultimo-giorno-funivia-santis-2026.title': 'Dernier jour pour monter au Säntis en téléphérique',
+    'blog.article.ultimo-giorno-funivia-santis-2026.excerpt': 'À partir du 1er mai, le téléphérique du Säntis sera fermé pour des rénovations. Les nouvelles cabines pourront transporter jusqu\'à 85 passagers.',
+    'blog.article.ultimo-giorno-funivia-santis-2026.imageAlt': 'Télécabine du Säntis en Suisse avec une vue panoramique sur la montagne',
 };
 
 export default blogMetaFr;

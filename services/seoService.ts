@@ -2688,6 +2688,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bike-sharing-como-gratis-giugno': { name: 'Bike sharing Como', path: '/articoli-frontaliere/bike-sharing-como-gratis-giugno', parent: 'blog' },
     'blog-guerra-iran-industria-alimentare-2026': { name: 'Novità', path: '/articoli-frontaliere/guerra-iran-industria-alimentare-2026', parent: 'blog' },
     'blog-rientro-a2-incubo-30-aprile-2026': { name: 'Traffico A2', path: '/articoli-frontaliere/rientro-a2-incubo-30-aprile-2026', parent: 'blog' },
+    'blog-ultimo-giorno-funivia-santis-2026': { name: 'Funivia Säntis', path: '/articoli-frontaliere/ultimo-giorno-funivia-santis-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

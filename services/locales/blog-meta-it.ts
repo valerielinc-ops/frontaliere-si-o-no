@@ -4373,6 +4373,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rientro-a2-incubo-30-aprile-2026.title': 'Rientro A2 da incubo: code da Rivera a Lugano Sud',
     'blog.article.rientro-a2-incubo-30-aprile-2026.excerpt': 'Giornata nera per i pendolari: incidenti e traffico intenso sulla A2, code da Rivera a Lugano Sud e valichi di frontiera intasati',
     'blog.article.rientro-a2-incubo-30-aprile-2026.imageAlt': 'Coda di auto sulla A2 in Ticino vicino alla galleria del San Salvatore',
+    'blog.article.ultimo-giorno-funivia-santis-2026.title': 'Ultimo giorno utile per salire sul Säntis in funivia',
+    'blog.article.ultimo-giorno-funivia-santis-2026.excerpt': 'Dal 1° maggio la funivia del Säntis sarà chiusa per rinnovi. Le nuove cabine potranno trasportare fino a 85 passeggeri.',
+    'blog.article.ultimo-giorno-funivia-santis-2026.imageAlt': 'Funivia del Säntis in Svizzera con vista panoramica della montagna',
 };
 
 export default blogMetaIt;

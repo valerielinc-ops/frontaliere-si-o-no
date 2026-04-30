@@ -4372,6 +4372,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rientro-a2-incubo-30-aprile-2026.title': 'Nightmare A2 return: queues from Rivera to Lugano Sud',
     'blog.article.rientro-a2-incubo-30-aprile-2026.excerpt': 'Black day for commuters: accidents and heavy traffic on the A2, queues from Rivera to Lugano Sud and border crossings congested',
     'blog.article.rientro-a2-incubo-30-aprile-2026.imageAlt': 'Traffic jam on the A2 highway in Ticino near the San Salvatore tunnel',
+    'blog.article.ultimo-giorno-funivia-santis-2026.title': 'Last day to ride the Säntis cable car',
+    'blog.article.ultimo-giorno-funivia-santis-2026.excerpt': 'From May 1st, the Säntis cable car will be closed for renovations. The new cabins will be able to transport up to 85 passengers.',
+    'blog.article.ultimo-giorno-funivia-santis-2026.imageAlt': 'Säntis funicular in Switzerland with a panoramic view of the mountain',
 };
 
 export default blogMetaEn;

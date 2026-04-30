@@ -29242,6 +29242,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ultimo-giorno-funivia-santis-2026': {
+    title: 'Ultimo giorno utile per salire sul Säntis in funivia',
+    description: 'Scopri quando riapre la funivia del Säntis dopo il rinnovo. Informazioni su date, costi e alternative per i visitatori. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, ultimo, giorno, utile, salire',
+    ogTitle: 'Ultimo giorno funivia Säntis 2026',
+    ogDescription: 'Scopri quando riapre la funivia del Säntis dopo il rinnovo. Informazioni su date, costi e alternative per i visitatori.',
+    canonicalPath: '/articoli-frontaliere/ultimo-giorno-funivia-santis-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ultimo giorno utile per salire sul Säntis in funivia",
+      "description": "Scopri quando riapre la funivia del Säntis dopo il rinnovo. Informazioni su date, costi e alternative per i visitatori. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ultimo-giorno-funivia-santis-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Funivia del Säntis in Svizzera con vista panoramica della montagna"
+      },
+      "datePublished": "2026-04-30T16:25:56+00:00",
+      "dateModified": "2026-04-30T16:25:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ultimo-giorno-funivia-santis-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
