@@ -30460,6 +30460,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-piano-casa-meloni-emergenza-abitativa': {
+    title: 'Piano Casa Meloni: via libera al decreto per l\'emergenza abitativa',
+    description: 'Il Consiglio dei Ministri approva il Piano Casa con 10,5 miliardi per edilizia pubblica e privata. Meloni: priorità per alloggi accessibili. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, piano, casa, meloni, libera',
+    ogTitle: 'Piano Casa Meloni: via libera al decreto per l\'emergenza abitativa',
+    ogDescription: 'Il Consiglio dei Ministri approva il Piano Casa con 10,5 miliardi per edilizia pubblica e privata. Meloni: priorità per alloggi accessibili',
+    canonicalPath: '/articoli-frontaliere/piano-casa-meloni-emergenza-abitativa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Piano Casa Meloni: via libera al decreto per l'emergenza abitativa",
+      "description": "Il Consiglio dei Ministri approva il Piano Casa con 10,5 miliardi per edilizia pubblica e privata. Meloni: priorità per alloggi accessibili. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/piano-casa-meloni-emergenza-abitativa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago di Lugano in primo piano"
+      },
+      "datePublished": "2026-04-30T23:19:03+00:00",
+      "dateModified": "2026-04-30T23:19:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piano-casa-meloni-emergenza-abitativa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -11509,4 +11509,11 @@ export const ARTICLES = [
  image: '/images/blog/eurodreams-vincita-rendita-22mila-franchi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'piano-casa-meloni-emergenza-abitativa',
+ category: 'novita',
+ date: '2026-04-30T23:19:03.331Z',
+ image: '/images/blog/piano-casa-meloni-emergenza-abitativa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

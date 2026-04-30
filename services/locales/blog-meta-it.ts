@@ -4499,6 +4499,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.eurodreams-vincita-rendita-22mila-franchi.title': 'Eurodreams: vinta una rendita mensile di 22mila franchi per 30 anni',
     'blog.article.eurodreams-vincita-rendita-22mila-franchi.excerpt': 'Una fortunata vincita di Eurodreams: 22.222 franchi al mese per 30 anni, realizzata in Spagna ma gestita da Swisslos e Loterie romande',
     'blog.article.eurodreams-vincita-rendita-22mila-franchi.imageAlt': 'Persona con biglietto vincente della lotteria davanti a un paesaggio di confine svizzero-italiano',
+    'blog.article.piano-casa-meloni-emergenza-abitativa.title': 'Piano Casa Meloni: via libera al decreto per l\'emergenza abitativa',
+    'blog.article.piano-casa-meloni-emergenza-abitativa.excerpt': 'Il Consiglio dei Ministri approva il Piano Casa con 10,5 miliardi per edilizia pubblica e privata. Meloni: priorità per alloggi accessibili',
+    'blog.article.piano-casa-meloni-emergenza-abitativa.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano in primo piano',
 };
 
 export default blogMetaIt;

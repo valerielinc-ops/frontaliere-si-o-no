@@ -4498,6 +4498,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.eurodreams-vincita-rendita-22mila-franchi.title': 'Eurodreams: 22,222 francs monthly for 30 years',
     'blog.article.eurodreams-vincita-rendita-22mila-franchi.excerpt': 'A lucky Eurodreams win: 22,222 francs per month for 30 years, achieved in Spain but managed by Swisslos and Loterie romande',
     'blog.article.eurodreams-vincita-rendita-22mila-franchi.imageAlt': 'Person holding a winning lottery ticket in front of a Swiss-Italian border landscape',
+    'blog.article.piano-casa-meloni-emergenza-abitativa.title': 'Meloni\'s Housing Plan: green light for emergency decree',
+    'blog.article.piano-casa-meloni-emergenza-abitativa.excerpt': 'The Council of Ministers approves the Housing Plan with 10.5 billion for public and private construction. Meloni: priority for affordable housing',
+    'blog.article.piano-casa-meloni-emergenza-abitativa.imageAlt': 'Aerial view of Lugano with Lake Lugano in the foreground',
 };
 
 export default blogMetaEn;
