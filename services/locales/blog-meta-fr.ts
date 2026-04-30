@@ -4106,6 +4106,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-notturni-via-clemente-maraini.title': 'Travaux nocturnes sur la via Clemente Maraini à Lugano',
     'blog.article.lavori-notturni-via-clemente-maraini.excerpt': 'Du dimanche 3 mai au vendredi 22 mai, travaux nocturnes sur la via Clemente Maraini à Lugano pour l\'extension et le renforcement des sous-structures AIL.',
     'blog.article.lavori-notturni-via-clemente-maraini.imageAlt': 'Travaux de nuit sur la via Clemente Maraini à Lugano',
+    'blog.article.parcheggi-ospedale-circolo-varese-2026.title': 'Parkings et circulation à l’Hôpital de Circolo : échange constructif',
+    'blog.article.parcheggi-ospedale-circolo-varese-2026.excerpt': 'Rencontre entre Asst Sette Laghi, la commune de Varese et les syndicats pour améliorer les parkings et la circulation à l’Hôpital de Circolo.',
+    'blog.article.parcheggi-ospedale-circolo-varese-2026.imageAlt': 'Hôpital Circolo de Varese avec parkings et circulation',
 };
 
 export default blogMetaFr;

@@ -4106,6 +4106,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-notturni-via-clemente-maraini.title': 'Lavori notturni su via Clemente Maraini a Lugano',
     'blog.article.lavori-notturni-via-clemente-maraini.excerpt': 'Da domenica 3 maggio a venerdì 22 maggio, lavori notturni su via Clemente Maraini a Lugano per estensione e potenziamento delle sottostrutture AIL.',
     'blog.article.lavori-notturni-via-clemente-maraini.imageAlt': 'Lavori notturni su via Clemente Maraini a Lugano',
+    'blog.article.parcheggi-ospedale-circolo-varese-2026.title': 'Parcheggi e viabilità all’Ospedale di Circolo: confronto costruttivo',
+    'blog.article.parcheggi-ospedale-circolo-varese-2026.excerpt': 'Incontro tra Asst Sette Laghi, Comune di Varese e sindacati per migliorare parcheggi e viabilità all’Ospedale di Circolo.',
+    'blog.article.parcheggi-ospedale-circolo-varese-2026.imageAlt': 'Ospedale di Circolo di Varese con parcheggi e viabilità',
 };
 
 export default blogMetaIt;

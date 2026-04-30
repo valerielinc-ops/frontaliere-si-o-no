@@ -26661,6 +26661,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parcheggi-ospedale-circolo-varese-2026': {
+    title: 'Parcheggi e viabilità all’Ospedale di Circolo: confronto costruttivo',
+    description: 'Incontro tra Asst Sette Laghi, Comune di Varese e sindacati per migliorare parcheggi e viabilità all’Ospedale di Circolo. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, parcheggi, viabilità, ospedale, circolo',
+    ogTitle: 'Parcheggi e viabilità all’Ospedale di Circolo: confronto costruttivo',
+    ogDescription: 'Incontro tra Asst Sette Laghi, Comune di Varese e sindacati per migliorare parcheggi e viabilità all’Ospedale di Circolo.',
+    canonicalPath: '/articoli-frontaliere/parcheggi-ospedale-circolo-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parcheggi e viabilità all’Ospedale di Circolo: confronto costruttivo",
+      "description": "Incontro tra Asst Sette Laghi, Comune di Varese e sindacati per migliorare parcheggi e viabilità all’Ospedale di Circolo. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/parcheggi-ospedale-circolo-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale di Circolo di Varese con parcheggi e viabilità"
+      },
+      "datePublished": "2026-04-30T02:31:19+00:00",
+      "dateModified": "2026-04-30T02:31:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parcheggi-ospedale-circolo-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -10591,4 +10591,11 @@ export const ARTICLES = [
  image: '/images/blog/lavori-notturni-via-clemente-maraini.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'parcheggi-ospedale-circolo-varese-2026',
+ category: 'pratico',
+ date: '2026-04-30T02:31:19.564Z',
+ image: '/images/blog/parcheggi-ospedale-circolo-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
