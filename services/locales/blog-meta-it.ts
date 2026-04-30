@@ -4367,6 +4367,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bike-sharing-como-gratis-giugno.title': 'Como, bike sharing gratis per 3 ore fino a giugno',
     'blog.article.bike-sharing-como-gratis-giugno.excerpt': 'Il servizio di bike sharing a Como è tornato con 80 biciclette e 17 stazioni. Gratis per le prime 3 ore fino al 30 giugno.',
     'blog.article.bike-sharing-como-gratis-giugno.imageAlt': 'Bike sharing a Como con vista sul lago',
+    'blog.article.guerra-iran-industria-alimentare-2026.title': 'Guerra in Iran: pressione sull\'industria alimentare svizzera',
+    'blog.article.guerra-iran-industria-alimentare-2026.excerpt': 'Dai fertilizzanti al vetro, il conflitto nel Golfo Persico colpisce settori chiave. Ecco gli effetti in Svizzera e le prospettive future.',
+    'blog.article.guerra-iran-industria-alimentare-2026.imageAlt': 'Veduta aerea di una fabbrica svizzera che produce bottiglie di vetro, circondata da campi verdi e montagne, con attenzione al processo industriale e al consumo di energia.',
 };
 
 export default blogMetaIt;

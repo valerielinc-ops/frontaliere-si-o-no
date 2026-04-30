@@ -11201,4 +11201,11 @@ export const ARTICLES = [
  image: '/images/blog/bike-sharing-como-gratis-giugno.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'guerra-iran-industria-alimentare-2026',
+ category: 'novita',
+ date: '2026-04-30T16:06:25.175Z',
+ image: '/images/blog/guerra-iran-industria-alimentare-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

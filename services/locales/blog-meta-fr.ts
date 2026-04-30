@@ -4367,6 +4367,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bike-sharing-como-gratis-giugno.title': 'Como, vélo en libre service gratuit pendant 3 heures jusqu\'en juin',
     'blog.article.bike-sharing-como-gratis-giugno.excerpt': 'Le service de vélo en libre service à Como est de retour avec 80 vélos et 17 stations. Gratuit pendant les 3 premières heures jusqu\'au 30 juin.',
     'blog.article.bike-sharing-como-gratis-giugno.imageAlt': 'Location de vélos à Côme avec vue sur le lac',
+    'blog.article.guerra-iran-industria-alimentare-2026.title': 'Guerre en Iran: pression sur l\'industrie alimentaire suisse',
+    'blog.article.guerra-iran-industria-alimentare-2026.excerpt': 'Des engrais au verre, le conflit dans le Golfe Persique touche des secteurs clés. Voici les effets en Suisse et les perspectives futures.',
+    'blog.article.guerra-iran-industria-alimentare-2026.imageAlt': 'Vue aérienne d\'une usine suisse produisant des bouteilles en verre, entourée de champs verts et de montagnes, avec un accent sur le processus industriel et la consommation d\'énergie.',
 };
 
 export default blogMetaFr;

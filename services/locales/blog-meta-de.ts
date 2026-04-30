@@ -4366,6 +4366,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bike-sharing-como-gratis-giugno.title': 'Como: Kostenloses Fahrradverleih bis Juni',
     'blog.article.bike-sharing-como-gratis-giugno.excerpt': 'Der Fahrradverleihservice in Como ist mit 80 Fahrrädern und 17 Stationen zurück. Kostenlos für die ersten 3 Stunden bis zum 30. Juni.',
     'blog.article.bike-sharing-como-gratis-giugno.imageAlt': 'Leihfahrräder in Como mit Seeblick',
+    'blog.article.guerra-iran-industria-alimentare-2026.title': 'Krieg im Iran: Druck auf die Schweizer Lebensmittelindustrie',
+    'blog.article.guerra-iran-industria-alimentare-2026.excerpt': 'Von Düngemitteln bis Glas trifft der Konflikt im Persischen Golf Schlüsselbranchen. Hier die Auswirkungen in der Schweiz und die Zukunftsperspektiven.',
+    'blog.article.guerra-iran-industria-alimentare-2026.imageAlt': 'Luftaufnahme einer Schweizer Fabrik, die Glasflaschen herstellt, umgeben von grünen Feldern und Bergen, mit Fokus auf den industriellen Prozess und den Energieverbrauch.',
 };
 
 export default blogMetaDe;

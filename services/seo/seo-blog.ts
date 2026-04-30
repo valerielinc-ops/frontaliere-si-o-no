@@ -29184,6 +29184,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guerra-iran-industria-alimentare-2026': {
+    title: 'Guerra in Iran: pressione sull\'industria alimentare svizzera',
+    description: 'Dai fertilizzanti al vetro, il conflitto nel Golfo Persico colpisce settori chiave. Ecco gli effetti in Svizzera e le prospettive future. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, guerra, iran, pressione, sull',
+    ogTitle: 'Guerra in Iran: pressione sull\'industria alimentare svizzera',
+    ogDescription: 'Dai fertilizzanti al vetro, il conflitto nel Golfo Persico colpisce settori chiave. Ecco gli effetti in Svizzera e le prospettive future.',
+    canonicalPath: '/articoli-frontaliere/guerra-iran-industria-alimentare-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guerra in Iran: pressione sull'industria alimentare svizzera",
+      "description": "Dai fertilizzanti al vetro, il conflitto nel Golfo Persico colpisce settori chiave. Ecco gli effetti in Svizzera e le prospettive future. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guerra-iran-industria-alimentare-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di una fabbrica svizzera che produce bottiglie di vetro, circondata da campi verdi e montagne, con attenzione al processo industriale e al consumo di energia."
+      },
+      "datePublished": "2026-04-30T16:06:25+00:00",
+      "dateModified": "2026-04-30T16:06:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guerra-iran-industria-alimentare-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
