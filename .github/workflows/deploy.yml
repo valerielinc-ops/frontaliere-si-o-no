@@ -522,6 +522,40 @@ jobs:
         continue-on-error: true
         run: node scripts/capture-deployed-sitemaps.mjs
 
+      - name: Sync previous-slug winners registry (commit data/previous-slug-winners.json)
+        # The previous-slug bridge dedup logic (Phase 4 case 1) chooses ONE
+        # canonical winner per `(locale, oldSlug)` claimed by multiple active
+        # jobs and persists the decision to data/previous-slug-winners.json.
+        # The file is read at the start of every build to keep URL→canonical
+        # mappings stable across builds (Google's link equity hangs on this
+        # being deterministic). If we don't commit the build's mutations back,
+        # every CI run starts with a stale or empty file and the heuristic
+        # silently re-elects winners on every build → URL flicker.
+        #
+        # Idempotency: if the build didn't touch the file (no contested
+        # prevSlugs added or removed since the last run), the diff is empty
+        # and this step is a no-op. The git-push-with-retry helper handles
+        # the race where another workflow (cron blog generator, GSC orphan
+        # import, etc.) pushed to main while we were building.
+        if: success() && github.event.inputs.profile_sequential != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/previous-slug-winners.json; then
+            echo "[previous-slug-winners] no changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/previous-slug-winners.json
+          git commit -m "chore(seo): sync previous-slug winners registry"
+          # The registry is owned exclusively by jobsSeoPagesPlugin's
+          # closeBundle. No other workflow writes data/previous-slug-winners.json,
+          # so a rebase onto a newer main is always safe (no conflict possible
+          # on this file). The retry helper covers the case where main moved
+          # for unrelated reasons during the build.
+          bash scripts/lib/git-push-with-retry.sh
+
       - name: Audit SPA bundle injection (block broken deploys at the source)
         # Verifies every per-slug `dist/<path>/index.html` contains the SPA
         # hydration script. The 2026-04-30 incident showed write-registry
