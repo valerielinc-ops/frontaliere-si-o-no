@@ -27444,6 +27444,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-glaciazione-demografica-ticino-2026': {
+    title: 'Glaciazione demografica in Ticino: allarme per il futuro',
+    description: 'Basso tasso di natalità e invecchiamento della popolazione preoccupano il Canton Ticino. Interrogazione parlamentare per una strategia cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, glaciazione, demografica, allarme, futuro',
+    ogTitle: 'Glaciazione demografica in Ticino: allarme per il futuro',
+    ogDescription: 'Basso tasso di natalità e invecchiamento della popolazione preoccupano il Canton Ticino. Interrogazione parlamentare per una strategia cantonale.',
+    canonicalPath: '/articoli-frontaliere/glaciazione-demografica-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Glaciazione demografica in Ticino: allarme per il futuro",
+      "description": "Basso tasso di natalità e invecchiamento della popolazione preoccupano il Canton Ticino. Interrogazione parlamentare per una strategia cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/glaciazione-demografica-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, Canton Ticino, con il Castelgrande e il fiume Ticino"
+      },
+      "datePublished": "2026-04-30T06:37:54+00:00",
+      "dateModified": "2026-04-30T06:37:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/glaciazione-demografica-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

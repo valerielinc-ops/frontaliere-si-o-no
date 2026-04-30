@@ -4186,6 +4186,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comco-inchieste-pubblicita-online-2026.title': 'COMCO investigates illegal online ad deals',
     'blog.article.comco-inchieste-pubblicita-online-2026.excerpt': 'The Swiss Competition Commission opens two investigations into search engines for alleged illegal agreements between travel companies and online casinos.',
     'blog.article.comco-inchieste-pubblicita-online-2026.imageAlt': 'Lugano cityscape with Lake Ceresio and surrounding mountains',
+    'blog.article.glaciazione-demografica-ticino-2026.title': 'Demographic decline alarms Ticino\'s future',
+    'blog.article.glaciazione-demografica-ticino-2026.excerpt': 'Low birth rate and aging population concern the Canton of Ticino. Parliamentary question for a cantonal strategy.',
+    'blog.article.glaciazione-demografica-ticino-2026.imageAlt': 'Bellinzona, Canton Ticino, with Castelgrande and the Ticino river',
 };
 
 export default blogMetaEn;

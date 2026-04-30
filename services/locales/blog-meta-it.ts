@@ -4187,6 +4187,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comco-inchieste-pubblicita-online-2026.title': 'COMCO indaga su accordi illeciti nella pubblicità online',
     'blog.article.comco-inchieste-pubblicita-online-2026.excerpt': 'La Commissione della concorrenza svizzera apre due inchieste sui motori di ricerca per presunti accordi illeciti tra aziende di viaggi e casinò online.',
     'blog.article.comco-inchieste-pubblicita-online-2026.imageAlt': 'Panorama di Lugano con il Lago Ceresio e le montagne circostanti',
+    'blog.article.glaciazione-demografica-ticino-2026.title': 'Glaciazione demografica in Ticino: allarme per il futuro',
+    'blog.article.glaciazione-demografica-ticino-2026.excerpt': 'Basso tasso di natalità e invecchiamento della popolazione preoccupano il Canton Ticino. Interrogazione parlamentare per una strategia cantonale.',
+    'blog.article.glaciazione-demografica-ticino-2026.imageAlt': 'Bellinzona, Canton Ticino, con il Castelgrande e il fiume Ticino',
 };
 
 export default blogMetaIt;

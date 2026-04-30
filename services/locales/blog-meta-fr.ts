@@ -4187,6 +4187,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comco-inchieste-pubblicita-online-2026.title': 'COMCO enquête sur des accords illicites dans la publicité en ligne',
     'blog.article.comco-inchieste-pubblicita-online-2026.excerpt': 'La Commission de la concurrence suisse ouvre deux enquêtes sur les moteurs de recherche pour des accords présumés illicites entre des entreprises de voyages et des casinos en ligne.',
     'blog.article.comco-inchieste-pubblicita-online-2026.imageAlt': 'Panorama de Lugano avec le lac Ceresio et les montagnes environnantes',
+    'blog.article.glaciazione-demografica-ticino-2026.title': 'Décroissance démographique en Ticino: alerte pour l\'avenir',
+    'blog.article.glaciazione-demografica-ticino-2026.excerpt': 'Faible taux de natalité et vieillissement de la population inquiètent le canton du Ticino. Interpellation parlementaire pour une stratégie cantonale.',
+    'blog.article.glaciazione-demografica-ticino-2026.imageAlt': 'Bellinzona, Canton du Tessin, avec Castelgrande et la rivière Ticino',
 };
 
 export default blogMetaFr;

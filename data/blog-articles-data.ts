@@ -10780,4 +10780,11 @@ export const ARTICLES = [
  image: '/images/blog/comco-inchieste-pubblicita-online-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'glaciazione-demografica-ticino-2026',
+ category: 'novita',
+ date: '2026-04-30T06:37:54.482Z',
+ image: '/images/blog/glaciazione-demografica-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
