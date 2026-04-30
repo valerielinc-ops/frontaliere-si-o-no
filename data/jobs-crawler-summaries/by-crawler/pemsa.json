@@ -1,49 +1,18 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-04-29T22:26:07.076Z",
+  "generatedAt": "2026-04-30T11:19:50.975Z",
   "total": 45,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 12,
-  "removedCount": 1,
-  "unchangedCount": 32,
-  "durationMs": 107486,
-  "avgDurationMs": 107486,
+  "removedCount": 0,
+  "unchangedCount": 33,
+  "durationMs": 111022,
+  "avgDurationMs": 111022,
   "durationHistory": [
-    107486
+    111022
   ],
-  "newJobs": [
-    {
-      "title": "Carpentieri Metallici",
-      "slug": "carpentieri-metallici-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/carpentieri-metallici-2672359/",
-      "applyUrl": "https://www.pemsa.ch/it/job/carpentieri-metallici-2672359/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-29",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-14",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 14,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "MURATORE/CARPENTIERE",
@@ -490,36 +459,37 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "IDRAULICO ESPERTO",
-      "slug": "idraulico-esperto-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/idraulico-esperto-2670266/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-esperto-2670266/",
+      "title": "Carpentieri Metallici",
+      "slug": "carpentieri-metallici-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/carpentieri-metallici-2672359/",
+      "applyUrl": "https://www.pemsa.ch/it/job/carpentieri-metallici-2672359/",
       "company": "PEMSA",
       "companyKey": "pemsa",
       "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "category": "impiantistica",
+      "category": "edilizia",
       "sector": "Edilizia e tecnica",
       "source": "pemsa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-14",
+      "postedDate": "2026-04-29",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "2026-04-29",
-      "id": "pemsa-cee66d0ffaee",
+      "validThrough": "2026-05-14",
+      "id": "pemsa-3c5ca92450e2",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-04-14T10:29:13.204Z",
+      "firstSeenAt": "2026-04-29T22:26:07.074Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -527,9 +497,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Muratore",
       "slug": "muratore-pemsa-bellinzona",
@@ -1594,43 +1562,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "id": "pemsa-4c14801c9c80",
-      "firstSeenAt": "2026-04-13T22:15:31.704Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Fresatore Taglio Beton",
-      "slug": "fresatore-taglio-beton-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/fresatore-taglio-beton-2664877/",
-      "applyUrl": "https://www.pemsa.ch/it/job/fresatore-taglio-beton-2664877/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "cantiere",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-11",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-26",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "id": "pemsa-37761e55691a",
       "firstSeenAt": "2026-04-13T22:15:31.704Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
