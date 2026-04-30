@@ -4084,6 +4084,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ubs-credit-suisse-integrazione-risultati-2026.title': 'UBS: record profit thanks to Credit Suisse integration',
     'blog.article.ubs-credit-suisse-integrazione-risultati-2026.excerpt': 'UBS closes the first quarter of 2026 with a net profit of $3.04 billion, thanks to the integration of Credit Suisse',
     'blog.article.ubs-credit-suisse-integrazione-risultati-2026.imageAlt': 'Aerial view of Lake Lugano with UBS and Credit Suisse buildings in the background',
+    'blog.article.varese-digitale-3d-visita.title': 'Varese goes digital: explore the city in 3D with a click',
+    'blog.article.varese-digitale-3d-visita.excerpt': 'You can explore Varese in 3D thanks to the new portal Varesedigitale.it. Find out how to visit the city virtually.',
+    'blog.article.varese-digitale-3d-visita.imageAlt': 'Aerial view of Varese city center with modern buildings and historic landmarks',
 };
 
 export default blogMetaEn;

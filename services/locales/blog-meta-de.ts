@@ -4084,6 +4084,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ubs-credit-suisse-integrazione-risultati-2026.title': 'UBS: Rekordgewinn dank Credit Suisse-Übernahme',
     'blog.article.ubs-credit-suisse-integrazione-risultati-2026.excerpt': 'UBS schließt das erste Quartal 2026 mit einem Nettogewinn von 3,04 Milliarden Dollar ab, dank der Integration der Credit Suisse',
     'blog.article.ubs-credit-suisse-integrazione-risultati-2026.imageAlt': 'Luftaufnahme des Luganersees mit den Gebäuden von UBS und Credit Suisse im Hintergrund',
+    'blog.article.varese-digitale-3d-visita.title': 'Varese wird digital: Entdecken Sie die Stadt in 3D mit einem Klick',
+    'blog.article.varese-digitale-3d-visita.excerpt': 'Varese kann dank des neuen Portals Varesedigitale.it in 3D erkundet werden. Erfahren Sie, wie Sie die Stadt virtuell besuchen können.',
+    'blog.article.varese-digitale-3d-visita.imageAlt': 'Luftaufnahme des Varese Stadtzentrums mit modernen Gebäuden und historischen Wahrzeichen',
 };
 
 export default blogMetaDe;

@@ -4085,6 +4085,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ubs-credit-suisse-integrazione-risultati-2026.title': 'UBS: utile record grazie all\'integrazione di Credit Suisse',
     'blog.article.ubs-credit-suisse-integrazione-risultati-2026.excerpt': 'UBS chiude il primo trimestre 2026 con un utile netto di 3,04 miliardi di dollari, grazie all\'integrazione di Credit Suisse',
     'blog.article.ubs-credit-suisse-integrazione-risultati-2026.imageAlt': 'Vista aerea del Lago di Lugano con gli edifici di UBS e Credit Suisse sullo sfondo',
+    'blog.article.varese-digitale-3d-visita.title': 'Varese diventa digitale: visita la città in 3D con un click',
+    'blog.article.varese-digitale-3d-visita.excerpt': 'Varese si può esplorare in 3D grazie al nuovo portale Varesedigitale.it. Scopri come visitare la città virtualmente.',
+    'blog.article.varese-digitale-3d-visita.imageAlt': 'Vista aerea del centro di Varese con edifici moderni e monumenti storici',
 };
 
 export default blogMetaIt;

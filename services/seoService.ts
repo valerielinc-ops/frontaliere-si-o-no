@@ -2592,6 +2592,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-violenza-sessuale-conseguenze-ticino': { name: 'Violenza sessuale, le conseguenze sono', path: '/articoli-frontaliere/violenza-sessuale-conseguenze-ticino', parent: 'blog' },
     'blog-mendrisio-bilancio-positivo-2025-analisi': { name: 'Bilancio Mendrisio', path: '/articoli-frontaliere/mendrisio-bilancio-positivo-2025-analisi', parent: 'blog' },
     'blog-ubs-credit-suisse-integrazione-risultati-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-credit-suisse-integrazione-risultati-2026', parent: 'blog' },
+    'blog-varese-digitale-3d-visita': { name: 'Varese Digitale', path: '/articoli-frontaliere/varese-digitale-3d-visita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

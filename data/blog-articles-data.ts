@@ -10542,4 +10542,11 @@ export const ARTICLES = [
  image: '/images/blog/ubs-credit-suisse-integrazione-risultati-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-digitale-3d-visita',
+ category: 'novita',
+ date: '2026-04-30T01:11:24.457Z',
+ image: '/images/blog/varese-digitale-3d-visita.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

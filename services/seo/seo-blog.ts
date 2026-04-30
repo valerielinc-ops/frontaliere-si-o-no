@@ -26458,6 +26458,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-digitale-3d-visita': {
+    title: 'Varese diventa digitale: visita la città in 3D con un click',
+    description: 'Scopri come esplorare Varese in 3D grazie al nuovo portale Varesedigitale.it. Visita la città virtualmente e scopri i suoi luoghi simbolo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, diventa, digitale, visita',
+    ogTitle: 'Varese diventa digitale: visita la città in 3D con un click',
+    ogDescription: 'Scopri come esplorare Varese in 3D grazie al nuovo portale Varesedigitale.it. Visita la città virtualmente e scopri i suoi luoghi simbolo.',
+    canonicalPath: '/articoli-frontaliere/varese-digitale-3d-visita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese diventa digitale: visita la città in 3D con un click",
+      "description": "Scopri come esplorare Varese in 3D grazie al nuovo portale Varesedigitale.it. Visita la città virtualmente e scopri i suoi luoghi simbolo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-digitale-3d-visita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro di Varese con edifici moderni e monumenti storici"
+      },
+      "datePublished": "2026-04-30T01:11:24+00:00",
+      "dateModified": "2026-04-30T01:11:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-digitale-3d-visita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
