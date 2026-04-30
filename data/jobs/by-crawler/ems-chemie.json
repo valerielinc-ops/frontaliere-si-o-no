@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-04-30T10:40:50.720Z",
+  "assembledAt": "2026-04-30T21:42:31.956Z",
   "jobs": [
     {
       "title": "Betriebscontroller (w/m/d) 100%",
@@ -23,8 +23,8 @@
       "slug": "betriebscontroller-w-m-d-100-ems-chemie-domat-ems",
       "slugByLocale": {
         "it": "betriebscontroller-w-m-d-100-ems-chemie-domat-ems",
-        "en": "betriebscontroller-w-m-d-100-ems-chemie-domat-ems",
-        "de": "betriebscontroller-w-m-d-100-ems-chemie-domat-ems",
+        "en": "operations-controller-w-m-d-100-ems-chemie-ag-domat-ems",
+        "de": "betriebsleiter-w-m-d-100-ems-chemie-ag-domat-ems",
         "fr": "betriebscontroller-w-m-d-100-ems-chemie-domat-ems"
       },
       "titleByLocale": {
@@ -315,7 +315,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-23T21:33:59.305Z"
+      "firstSeenAt": "2026-04-23T21:33:59.305Z",
+      "needsRetranslation": true
     },
     {
       "title": "Prozessingenieur Betriebsentwicklung (m/w/d) 100%",
@@ -439,7 +440,8 @@
       },
       "previousSlugs": [
         "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter Materialprüfung (m/w/d) 100%",
