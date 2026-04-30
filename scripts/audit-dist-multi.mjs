@@ -1853,12 +1853,10 @@ async function main() {
   const want = (name) => {
     if (group === 'all') return true;
     if (group === 'ratio') return name === 'ratio';
-    // T6 rebalanced: heavy = h1+dup (faster), jobposting moved to light.
-    if (group === 'heavy') return ['h1', 'dup'].includes(name);
-    if (group === 'light') return ['title', 'pageweight', 'hreflang', 'titleuniq', 'jobposting', 'sd'].includes(name);
-    // Backward-compat: previous experiments
-    if (group === 'heavy-with-ratio') return ['ratio', 'h1', 'dup', 'jobposting'].includes(name);
-    if (group === 'heavy-with-jobposting') return ['h1', 'dup', 'jobposting'].includes(name);
+    // T5 winner config: heavy = h1+dup+jobposting (188s), light = rest (~150s).
+    // Measured 222s wall vs T6 rebalance (231s) and baseline 1-walker (230s).
+    if (group === 'heavy') return ['h1', 'dup', 'jobposting'].includes(name);
+    if (group === 'light') return ['title', 'pageweight', 'hreflang', 'titleuniq', 'sd'].includes(name);
     return true;
   };
 
