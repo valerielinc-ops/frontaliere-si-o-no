@@ -9,6 +9,7 @@
  */
 
 import { execSync } from 'child_process';
+import { BOT_UA_PATTERNS } from '../services/botPatterns';
 
 export const BUILD_ID = String(Date.now());
 
@@ -230,14 +231,28 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
 /**
  * Inline lazy-loader injected at the bottom of every static page (and also
  * emitted from index.html). Runs once per page and:
+ *  0. Bot gate: if the UA matches a BOT_UA_PATTERNS substring or
+ *     navigator.webdriver === true, the loader returns immediately. This is
+ *     the static-HTML counterpart to `<AdSenseBanner>`'s SKIP_FOR_BOT and
+ *     extends the bot filter to Auto Ads (Anchor / In-page / Vignette) which
+ *     are injected by adsbygoogle.js itself, bypassing the React component.
+ *     ~95% of revenue comes from those Auto Ads formats — without this gate,
+ *     bots still triggered the script load and inflated AD_REQUESTS at near-
+ *     zero RPM. See services/botPatterns.ts for the shared pattern source.
  *  1. Watches every <ins class="adsbygoogle"> with IntersectionObserver
  *     (rootMargin 200px) — on first visible slot, loads adsbygoogle.js.
  *  2. Falls back to requestIdleCallback (4s timeout) for pages without manual
  *     slots so Auto Ads still serve.
  *  3. On script load, pushes {} for every slot currently in the DOM.
  */
+const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
 export const ADSENSE_LAZY_LOADER = `<script>
 (function(){
+  var ua=(navigator.userAgent||'').toLowerCase();
+  if(!ua||navigator.webdriver===true)return;
+  var P=${BOT_PATTERNS_LITERAL};
+  for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return;
+  if(ua.indexOf('chrome')>=0&&!('chrome' in window))return;
   var loaded=false;
   function loadScript(){
     if(loaded)return;loaded=true;
