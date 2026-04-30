@@ -10521,4 +10521,11 @@ export const ARTICLES = [
  image: '/images/blog/italian-e-bike-tragedy-bern.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'violenza-sessuale-conseguenze-ticino',
+ category: 'novita',
+ date: '2026-04-30T00:37:28.933Z',
+ image: '/images/blog/violenza-sessuale-conseguenze-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

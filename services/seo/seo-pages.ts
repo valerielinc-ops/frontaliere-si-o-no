@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1408,
+ "numberOfItems": 1409,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6043,7 +6043,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1405, "name": "UBS, utile oltre i 3 miliardi nel 2026", "url": `${BASE_URL}/articoli-frontaliere/ubs-utile-3-miliardi-2026` },
           { "@type": "ListItem", "position": 1406, "name": "Borse europee in calo, timori dalle trimestrali", "url": `${BASE_URL}/articoli-frontaliere/borse-europee-zurigo-trimestrali` },
           { "@type": "ListItem", "position": 1407, "name": "SUPSI nomina 20 nuovi professori e professoresse", "url": `${BASE_URL}/articoli-frontaliere/supsi-20-nuovi-professori-2026` },
-          { "@type": "ListItem", "position": 1408, "name": "Incidente e-bike Bern", "url": `${BASE_URL}/articoli-frontaliere/italian-e-bike-tragedy-bern` }
+          { "@type": "ListItem", "position": 1408, "name": "Incidente e-bike Bern", "url": `${BASE_URL}/articoli-frontaliere/italian-e-bike-tragedy-bern` },
+          { "@type": "ListItem", "position": 1409, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/violenza-sessuale-conseguenze-ticino` }
  ]
  },
  {

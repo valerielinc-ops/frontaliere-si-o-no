@@ -4075,6 +4075,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.italian-e-bike-tragedy-bern.title': 'Toter Italiener bei E-Bike-Unfall im Kanton Bern',
     'blog.article.italian-e-bike-tragedy-bern.excerpt': 'Ein 60-jähriger Italiener mit Wohnsitz im Kanton Bern ist am 28. April 2026 bei einem Unfall mit seinem E-Bike in Bätterkinden im Kanton Bern gestorben.',
     'blog.article.italian-e-bike-tragedy-bern.imageAlt': 'Realistische Szene eines italienischen E-Bikes bei einem Unfall im Kanton Bern',
+    'blog.article.violenza-sessuale-conseguenze-ticino.title': 'Sexuelle Gewalt: Folgen sind vielfältig und langanhaltend',
+    'blog.article.violenza-sessuale-conseguenze-ticino.excerpt': 'Sexuelle Gewalt: Folgen sind vielfältig und langanhaltend',
+    'blog.article.violenza-sessuale-conseguenze-ticino.imageAlt': 'Lake Lugano',
 };
 
 export default blogMetaDe;

@@ -26371,6 +26371,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-violenza-sessuale-conseguenze-ticino': {
+    title: 'Violenza sessuale, le conseguenze sono tante e durature',
+    description: 'Un nuovo studio romando ha dimostrato che le conseguenze di un\'aggressione sessuale sono indelebili e persistono per mesi con alti tassi di depressione, ansia e',
+    keywords: 'frontalieri, ticino, svizzera, italia, violenza, sessuale, conseguenze, sono',
+    ogTitle: 'Violenza sessuale, le conseguenze sono tante e durature',
+    ogDescription: 'Un nuovo studio romando ha dimostrato che le conseguenze di un\'aggressione sessuale sono indelebili e persistono per mesi con alti tassi di depressione, ansia e',
+    canonicalPath: '/articoli-frontaliere/violenza-sessuale-conseguenze-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Violenza sessuale, le conseguenze sono tante e durature\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.frontaliereticino.ch/violenza-sessuale-conseguenze-ticino\"},\"author\":{\"@type\":\"Person\",\"name\":\"Frontaliere Ticino\"},\"datePublished\":\"2026-04-29\",\"dateModified\":\"2026-04-29\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Frontaliere Ticino\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.frontaliereticino.ch/logo.png\"}},\"description\":\"Un nuovo studio romando ha dimostrato che le conseguenze di un'aggressione sessuale sono indelebili e persistono per mesi con alti tassi di depressione, ansia e disturbi fisici.\"}",
+      "description": "Un nuovo studio romando ha dimostrato che le conseguenze di un'aggressione sessuale sono indelebili e persistono per mesi con alti tassi di depressione, ansia e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/violenza-sessuale-conseguenze-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano"
+      },
+      "datePublished": "2026-04-30T00:37:28+00:00",
+      "dateModified": "2026-04-30T00:37:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/violenza-sessuale-conseguenze-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4076,6 +4076,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.italian-e-bike-tragedy-bern.title': 'Morto italiano in incidente di e-bike nel Canton Bern',
     'blog.article.italian-e-bike-tragedy-bern.excerpt': 'Un uomo di 60 anni, italiano residente nel Canton Bern, è deceduto dopo un incidente con la sua e-bike a Bätterkinden, nel canton Bern, il 28 aprile 2026.',
     'blog.article.italian-e-bike-tragedy-bern.imageAlt': 'E-bike italiana coinvolta in un incidente nel Canton Bern, scena realistica in Ticino',
+    'blog.article.violenza-sessuale-conseguenze-ticino.title': 'Violenza sessuale, le conseguenze sono tante e durature',
+    'blog.article.violenza-sessuale-conseguenze-ticino.excerpt': 'Violenza sessuale, le conseguenze sono tante e durature',
+    'blog.article.violenza-sessuale-conseguenze-ticino.imageAlt': 'Lago di Lugano',
 };
 
 export default blogMetaIt;
