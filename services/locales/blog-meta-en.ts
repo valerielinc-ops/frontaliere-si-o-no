@@ -4180,6 +4180,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pnrr-disabilita-medio-olona-715mila-euro.title': '715k euros from NRRP for disability autonomy',
     'blog.article.pnrr-disabilita-medio-olona-715mila-euro.excerpt': 'The NRRP-funded project for the autonomy of people with disabilities in Medio Olona includes equipped apartments and work internships.',
     'blog.article.pnrr-disabilita-medio-olona-715mila-euro.imageAlt': 'Accessible apartment with smart home technology in Ticino',
+    'blog.article.problemi-casellario-giudiziale-varese-2026.title': 'Computer issues at Varese\'s criminal record office, only paper requests',
+    'blog.article.problemi-casellario-giudiziale-varese-2026.excerpt': 'The website to book the pickup of the criminal record is down. Only paper requests with ID are accepted.',
+    'blog.article.problemi-casellario-giudiziale-varese-2026.imageAlt': 'Varese Justice Palace with a digital error message',
 };
 
 export default blogMetaEn;

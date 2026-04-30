@@ -4181,6 +4181,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pnrr-disabilita-medio-olona-715mila-euro.title': '715 000 euros du PNRR pour l\'autonomie des personnes handicapées',
     'blog.article.pnrr-disabilita-medio-olona-715mila-euro.excerpt': 'Le projet financé par le PNRR pour l\'autonomie des personnes handicapées dans le Moyen Olona prévoit des appartements équipés et des stages de travail.',
     'blog.article.pnrr-disabilita-medio-olona-715mila-euro.imageAlt': 'Appartement accessible avec domotique au Tessin',
+    'blog.article.problemi-casellario-giudiziale-varese-2026.title': 'Problèmes informatiques au casier de Varèse, demandes papier',
+    'blog.article.problemi-casellario-giudiziale-varese-2026.excerpt': 'Le site pour réserver le retrait du casier judiciaire est en panne. Seules les demandes papier avec pièce d\'identité sont acceptées.',
+    'blog.article.problemi-casellario-giudiziale-varese-2026.imageAlt': 'Palais de justice de Varese avec un message d\'erreur numérique',
 };
 
 export default blogMetaFr;

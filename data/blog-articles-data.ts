@@ -10766,4 +10766,11 @@ export const ARTICLES = [
  image: '/images/blog/pnrr-disabilita-medio-olona-715mila-euro.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'problemi-casellario-giudiziale-varese-2026',
+ category: 'novita',
+ date: '2026-04-30T06:21:39.291Z',
+ image: '/images/blog/problemi-casellario-giudiziale-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

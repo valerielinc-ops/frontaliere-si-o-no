@@ -4181,6 +4181,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pnrr-disabilita-medio-olona-715mila-euro.title': '715mila euro del PNRR per l\'autonomia delle persone con disabilità',
     'blog.article.pnrr-disabilita-medio-olona-715mila-euro.excerpt': 'Il progetto finanziato dal PNRR per l\'autonomia delle persone con disabilità nel Medio Olona prevede appartamenti attrezzati e tirocini lavorativi.',
     'blog.article.pnrr-disabilita-medio-olona-715mila-euro.imageAlt': 'Appartamento accessibile con domotica in Ticino',
+    'blog.article.problemi-casellario-giudiziale-varese-2026.title': 'Problemi informatici al casellario giudiziale di Varese, richieste solo cartacee',
+    'blog.article.problemi-casellario-giudiziale-varese-2026.excerpt': 'Il sito per prenotare il ritiro del casellario giudiziale è in tilt. Si accettano solo richieste cartacee con documento d\'identità.',
+    'blog.article.problemi-casellario-giudiziale-varese-2026.imageAlt': 'Palazzo di Giustizia di Varese con un messaggio di errore digitale',
 };
 
 export default blogMetaIt;
