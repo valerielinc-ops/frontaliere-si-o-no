@@ -4337,6 +4337,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.flotilla-svizzera-gaza-2026.title': 'Flottila Svizzera a Gaza: Otto Svizzeri Sani e Salvi',
     'blog.article.flotilla-svizzera-gaza-2026.excerpt': 'Gli otto svizzeri partiti con la Global Sumud Flotilla sono sani e salvi dopo l\'intervento della marina israeliana.',
     'blog.article.flotilla-svizzera-gaza-2026.imageAlt': 'Un gruppo di attivisti su una barca nel Mar Mediterraneo, con la bandiera svizzera visibile, durante una missione umanitaria.',
+    'blog.article.clausole-sunrise-illegittime-2026.title': 'Vittoria consumatori: illegittime le clausole Sunrise',
+    'blog.article.clausole-sunrise-illegittime-2026.excerpt': 'Il tribunale di Zurigo accoglie la causa contro Sunrise, giudicando illegittime le clausole su disdette e aumenti tariffari',
+    'blog.article.clausole-sunrise-illegittime-2026.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

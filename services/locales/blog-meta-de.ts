@@ -4336,6 +4336,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.flotilla-svizzera-gaza-2026.title': 'Schweizer Flottille nach Gaza: Acht Schweizer wohlbehalten',
     'blog.article.flotilla-svizzera-gaza-2026.excerpt': 'Die acht Schweizer, die mit der Global Sumud Flottille aufgebrochen sind, sind nach dem Eingreifen der israelischen Marine wohlbehalten.',
     'blog.article.flotilla-svizzera-gaza-2026.imageAlt': 'Eine Gruppe von Aktivisten auf einem Boot im Mittelmeer, mit der Schweizer Flagge sichtbar, während einer humanitären Mission.',
+    'blog.article.clausole-sunrise-illegittime-2026.title': 'Verbrauchersieg: Sunrise-Klauseln unrechtmäßig',
+    'blog.article.clausole-sunrise-illegittime-2026.excerpt': 'Das Zürcher Gericht gibt der Klage gegen Sunrise statt und erklärt die Klauseln zu Kündigungen und Tariferhöhungen für unrechtmäßig',
+    'blog.article.clausole-sunrise-illegittime-2026.imageAlt': 'Luftaufnahme des Luganersees mit modernen Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

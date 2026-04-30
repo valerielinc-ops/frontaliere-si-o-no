@@ -4337,6 +4337,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.flotilla-svizzera-gaza-2026.title': 'Flottille suisse à Gaza: huit Suisses sains et saufs',
     'blog.article.flotilla-svizzera-gaza-2026.excerpt': 'Les huit Suisses partis avec la Global Sumud Flotilla sont sains et saufs après l\'intervention de la marine israélienne.',
     'blog.article.flotilla-svizzera-gaza-2026.imageAlt': 'Un groupe d\'activistes sur un bateau en Méditerranée, avec le drapeau suisse visible, lors d\'une mission humanitaire.',
+    'blog.article.clausole-sunrise-illegittime-2026.title': 'Victoire des consommateurs : clauses Sunrise illégitimes',
+    'blog.article.clausole-sunrise-illegittime-2026.excerpt': 'Le tribunal de Zurich accepte la plainte contre Sunrise, jugeant illégitimes les clauses sur les résiliations et les augmentations tarifaires',
+    'blog.article.clausole-sunrise-illegittime-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

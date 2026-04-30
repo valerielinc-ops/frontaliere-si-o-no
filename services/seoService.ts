@@ -2676,6 +2676,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bce-tassi-inflazione-ticino-2026': { name: 'Bce tassi', path: '/articoli-frontaliere/bce-tassi-inflazione-ticino-2026', parent: 'blog' },
     'blog-microterremoto-artificiale-ticino-2026': { name: 'Microterremoto artificiale', path: '/articoli-frontaliere/microterremoto-artificiale-ticino-2026', parent: 'blog' },
     'blog-flotilla-svizzera-gaza-2026': { name: 'Novità', path: '/articoli-frontaliere/flotilla-svizzera-gaza-2026', parent: 'blog' },
+    'blog-clausole-sunrise-illegittime-2026': { name: 'Novità', path: '/articoli-frontaliere/clausole-sunrise-illegittime-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

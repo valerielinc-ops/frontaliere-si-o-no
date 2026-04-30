@@ -28894,6 +28894,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-clausole-sunrise-illegittime-2026': {
+    title: 'Vittoria consumatori: illegittime le clausole Sunrise',
+    description: 'Il tribunale di Zurigo accoglie la causa contro Sunrise, giudicando illegittime le clausole su disdette e aumenti tariffari. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, vittoria, consumatori, illegittime, clausole',
+    ogTitle: 'Vittoria consumatori: illegittime le clausole Sunrise',
+    ogDescription: 'Il tribunale di Zurigo accoglie la causa contro Sunrise, giudicando illegittime le clausole su disdette e aumenti tariffari',
+    canonicalPath: '/articoli-frontaliere/clausole-sunrise-illegittime-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vittoria consumatori: illegittime le clausole Sunrise",
+      "description": "Il tribunale di Zurigo accoglie la causa contro Sunrise, giudicando illegittime le clausole su disdette e aumenti tariffari. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/clausole-sunrise-illegittime-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-30T14:28:09+00:00",
+      "dateModified": "2026-04-30T14:28:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/clausole-sunrise-illegittime-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

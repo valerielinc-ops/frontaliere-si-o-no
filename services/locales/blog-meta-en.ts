@@ -4336,6 +4336,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.flotilla-svizzera-gaza-2026.title': 'Swiss Gaza Flotilla: Eight Safe and Sound',
     'blog.article.flotilla-svizzera-gaza-2026.excerpt': 'The eight Swiss who departed with the Global Sumud Flotilla are safe and sound after the Israeli navy\'s intervention.',
     'blog.article.flotilla-svizzera-gaza-2026.imageAlt': 'A group of activists on a boat in the Mediterranean Sea, with the Swiss flag visible, during a humanitarian mission.',
+    'blog.article.clausole-sunrise-illegittime-2026.title': 'Consumer win: Sunrise clauses deemed unlawful',
+    'blog.article.clausole-sunrise-illegittime-2026.excerpt': 'Zurich court rules in favor of consumers, finding Sunrise\'s termination and price increase clauses invalid',
+    'blog.article.clausole-sunrise-illegittime-2026.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
 };
 
 export default blogMetaEn;
