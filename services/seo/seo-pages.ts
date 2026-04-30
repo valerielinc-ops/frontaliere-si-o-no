@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1528,
+ "numberOfItems": 1529,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6163,7 +6163,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1525, "name": "Solaro chiude l’ambulatorio medico al Villaggio...", "url": `${BASE_URL}/articoli-frontaliere/solaro-chiude-ambulatorio-medico` },
           { "@type": "ListItem", "position": 1526, "name": "Piano Pandemico 2025-2029 approvato: cosa cambia", "url": `${BASE_URL}/articoli-frontaliere/piano-pandemico-2025-2029-approvato` },
           { "@type": "ListItem", "position": 1527, "name": "Polizia Ticino: Zali conferma, progetto non acc...", "url": `${BASE_URL}/articoli-frontaliere/polizia-ticino-progetto-zali-comuni` },
-          { "@type": "ListItem", "position": 1528, "name": "FFS e Siemens: 116 nuovi treni per il Ticino", "url": `${BASE_URL}/articoli-frontaliere/ffs-siemens-116-treni-suburbani-ticino-2026` }
+          { "@type": "ListItem", "position": 1528, "name": "FFS e Siemens: 116 nuovi treni per il Ticino", "url": `${BASE_URL}/articoli-frontaliere/ffs-siemens-116-treni-suburbani-ticino-2026` },
+          { "@type": "ListItem", "position": 1529, "name": "Chiusure notturne uscita Melide autostrada A2", "url": `${BASE_URL}/articoli-frontaliere/chiusure-melide-autostrada-2026` }
  ]
  },
  {

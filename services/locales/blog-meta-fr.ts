@@ -4436,6 +4436,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.title': 'FFS et Siemens: 116 nouveaux trains pour le Tessin',
     'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.excerpt': 'Deux milliards de francs pour 116 trains à deux étages pour le trafic suburbain. Ils entreront en service à partir de 2031.',
     'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.imageAlt': 'Vue panoramique du lac de Lugano avec Lugano et le Monte Brè au premier plan',
+    'blog.article.chiusure-melide-autostrada-2026.title': 'Fermeture nocturne sortie Melide autoroute A2',
+    'blog.article.chiusure-melide-autostrada-2026.excerpt': 'La sortie autoroutière de Melide en direction sud sera fermée du dimanche 3 mai au vendredi 8 mai 2026 de 21h30 à 5h00 pour des travaux de renouvellement de la chaussée phonique.',
+    'blog.article.chiusure-melide-autostrada-2026.imageAlt': 'Vue aérienne du lac de Lugano et de la sortie de Melide sur l\'autoroute A2 de nuit, montrant des travaux routiers et la gestion du trafic.',
 };
 
 export default blogMetaFr;

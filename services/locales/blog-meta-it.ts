@@ -4436,6 +4436,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.title': 'FFS e Siemens: 116 nuovi treni per il Ticino',
     'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.excerpt': 'Due miliardi di franchi per 116 treni a due piani per il traffico suburbano. Entreranno in servizio dal 2031.',
     'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.imageAlt': 'Vista panoramica del Lago di Lugano con Lugano e Monte Brè in primo piano',
+    'blog.article.chiusure-melide-autostrada-2026.title': 'Chiusure notturne uscita Melide autostrada A2',
+    'blog.article.chiusure-melide-autostrada-2026.excerpt': 'L\'uscita autostradale di Melide in direzione sud sarà chiusa da domenica 3 maggio a venerdì 8 maggio 2026 dalle 21.30 alle 05.00 per lavori di rinnovo della pavimentazione fonoassorbente.',
+    'blog.article.chiusure-melide-autostrada-2026.imageAlt': 'Vista aerea del Lago di Lugano e dell\'uscita di Melide sull\'autostrada A2 di notte, con lavori in corso e gestione del traffico.',
 };
 
 export default blogMetaIt;

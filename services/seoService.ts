@@ -2709,6 +2709,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-piano-pandemico-2025-2029-approvato': { name: 'Novità Sanità', path: '/articoli-frontaliere/piano-pandemico-2025-2029-approvato', parent: 'blog' },
     'blog-polizia-ticino-progetto-zali-comuni': { name: 'Polizia Ticino', path: '/articoli-frontaliere/polizia-ticino-progetto-zali-comuni', parent: 'blog' },
     'blog-ffs-siemens-116-treni-suburbani-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ffs-siemens-116-treni-suburbani-ticino-2026', parent: 'blog' },
+    'blog-chiusure-melide-autostrada-2026': { name: 'Chiusure notturne', path: '/articoli-frontaliere/chiusure-melide-autostrada-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

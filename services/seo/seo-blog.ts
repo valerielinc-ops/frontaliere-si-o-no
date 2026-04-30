@@ -29851,6 +29851,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusure-melide-autostrada-2026': {
+    title: 'Chiusure notturne uscita Melide autostrada A2 | Frontaliere Ticino',
+    description: 'L\'uscita autostradale di Melide in direzione sud sarà chiusa da domenica 3 maggio a venerdì 8 maggio 2026 dalle 21.30 alle 05.00 per lavori di rinnovo della',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, uscita, melide',
+    ogTitle: 'Chiusure notturne uscita Melide autostrada A2',
+    ogDescription: 'L\'uscita autostradale di Melide in direzione sud sarà chiusa da domenica 3 maggio a venerdì 8 maggio 2026 dalle 21.30 alle 05.00 per lavori di rinnovo della',
+    canonicalPath: '/articoli-frontaliere/chiusure-melide-autostrada-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure notturne uscita Melide autostrada A2",
+      "description": "L'uscita autostradale di Melide in direzione sud sarà chiusa da domenica 3 maggio a venerdì 8 maggio 2026 dalle 21.30 alle 05.00 per lavori di rinnovo della",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiusure-melide-autostrada-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano e dell'uscita di Melide sull'autostrada A2 di notte, con lavori in corso e gestione del traffico."
+      },
+      "datePublished": "2026-04-30T20:02:36+00:00",
+      "dateModified": "2026-04-30T20:02:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-melide-autostrada-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

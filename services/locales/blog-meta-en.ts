@@ -4435,6 +4435,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.title': 'SBB and Siemens: 116 new trains for Ticino',
     'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.excerpt': 'Two billion francs for 116 double-decker trains for suburban traffic. They will enter service from 2031.',
     'blog.article.ffs-siemens-116-treni-suburbani-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano with Lugano and Monte Brè in the foreground',
+    'blog.article.chiusure-melide-autostrada-2026.title': 'Night closures Melide A2 southbound exit',
+    'blog.article.chiusure-melide-autostrada-2026.excerpt': 'The Melide motorway exit southbound will be closed from Sunday, May 3 to Friday, May 8, 2026, from 9:30 PM to 5:00 AM for noise-reducing pavement renewal works.',
+    'blog.article.chiusure-melide-autostrada-2026.imageAlt': 'Aerial view of Lake Lugano and the Melide exit on the A2 highway at night, showing roadworks and traffic management.',
 };
 
 export default blogMetaEn;

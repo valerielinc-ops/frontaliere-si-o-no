@@ -11362,4 +11362,11 @@ export const ARTICLES = [
  image: '/images/blog/ffs-siemens-116-treni-suburbani-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiusure-melide-autostrada-2026',
+ category: 'novita',
+ date: '2026-04-30T20:02:36.368Z',
+ image: '/images/blog/chiusure-melide-autostrada-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
