@@ -11376,4 +11376,11 @@ export const ARTICLES = [
  image: '/images/blog/webuild-csc-rinnovo-sede-onu-ginevra.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'migranti-pasture-progetto-congelato',
+ category: 'novita',
+ date: '2026-04-30T20:23:21.495Z',
+ image: '/images/blog/migranti-pasture-progetto-congelato.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

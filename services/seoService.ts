@@ -2711,6 +2711,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ffs-siemens-116-treni-suburbani-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ffs-siemens-116-treni-suburbani-ticino-2026', parent: 'blog' },
     'blog-chiusure-melide-autostrada-2026': { name: 'Chiusure notturne', path: '/articoli-frontaliere/chiusure-melide-autostrada-2026', parent: 'blog' },
     'blog-webuild-csc-rinnovo-sede-onu-ginevra': { name: 'Novità', path: '/articoli-frontaliere/webuild-csc-rinnovo-sede-onu-ginevra', parent: 'blog' },
+    'blog-migranti-pasture-progetto-congelato': { name: 'Novità', path: '/articoli-frontaliere/migranti-pasture-progetto-congelato', parent: 'blog' },
  };
 
  const info = sectionNames[section];

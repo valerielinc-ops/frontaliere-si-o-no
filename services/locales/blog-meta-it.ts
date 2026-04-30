@@ -4442,6 +4442,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.title': 'Webuild: CSC Costruzioni avvia lavori per rinnovare la sede ONU a Ginevra',
     'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.excerpt': 'Il consorzio guidato da CSC Costruzioni ha iniziato i lavori per il rinnovo dell\'Edificio E del Palais des Nations a Ginevra, con un contratto da 215 milioni di euro.',
     'blog.article.webuild-csc-rinnovo-sede-onu-ginevra.imageAlt': 'Palais des Nations a Ginevra durante i lavori di rinnovo',
+    'blog.article.migranti-pasture-progetto-congelato.title': 'Migranti problematici a Pasture: progetto congelato',
+    'blog.article.migranti-pasture-progetto-congelato.excerpt': 'Il progetto per una sezione di richiedenti asilo problematici a Pasture è stato congelato. La Confederazione punta a creare centri speciali.',
+    'blog.article.migranti-pasture-progetto-congelato.imageAlt': 'Incontro ufficiale su politiche migratorie in Ticino',
 };
 
 export default blogMetaIt;

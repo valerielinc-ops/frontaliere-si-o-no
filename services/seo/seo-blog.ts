@@ -29909,6 +29909,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-migranti-pasture-progetto-congelato': {
+    title: 'Migranti problematici a Pasture: progetto congelato',
+    description: 'Il progetto per una sezione di richiedenti asilo problematici a Pasture è stato congelato. La Confederazione punta a creare centri speciali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, migranti, problematici, pasture, progetto',
+    ogTitle: 'Migranti problematici a Pasture: progetto congelato',
+    ogDescription: 'Il progetto per una sezione di richiedenti asilo problematici a Pasture è stato congelato. La Confederazione punta a creare centri speciali.',
+    canonicalPath: '/articoli-frontaliere/migranti-pasture-progetto-congelato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migranti problematici a Pasture: progetto congelato",
+      "description": "Il progetto per una sezione di richiedenti asilo problematici a Pasture è stato congelato. La Confederazione punta a creare centri speciali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/migranti-pasture-progetto-congelato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro ufficiale su politiche migratorie in Ticino"
+      },
+      "datePublished": "2026-04-30T20:23:21+00:00",
+      "dateModified": "2026-04-30T20:23:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/migranti-pasture-progetto-congelato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
