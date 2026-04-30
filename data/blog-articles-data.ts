@@ -11222,4 +11222,11 @@ export const ARTICLES = [
  image: '/images/blog/ultimo-giorno-funivia-santis-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-varese-acli-lavoro-dignitoso',
+ category: 'novita',
+ date: '2026-04-30T16:31:55.271Z',
+ image: '/images/blog/primo-maggio-varese-acli-lavoro-dignitoso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

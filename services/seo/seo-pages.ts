@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1508,
+ "numberOfItems": 1509,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6143,7 +6143,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1505, "name": "Bike sharing a Como: gratis per le prime 3 ore ...", "url": `${BASE_URL}/articoli-frontaliere/bike-sharing-como-gratis-giugno` },
           { "@type": "ListItem", "position": 1506, "name": "Guerra in Iran: pressione sull'industria alimen...", "url": `${BASE_URL}/articoli-frontaliere/guerra-iran-industria-alimentare-2026` },
           { "@type": "ListItem", "position": 1507, "name": "Rientro A2 da incubo: code da Rivera a Lugano Sud", "url": `${BASE_URL}/articoli-frontaliere/rientro-a2-incubo-30-aprile-2026` },
-          { "@type": "ListItem", "position": 1508, "name": "Ultimo giorno utile per salire sul Säntis in fu...", "url": `${BASE_URL}/articoli-frontaliere/ultimo-giorno-funivia-santis-2026` }
+          { "@type": "ListItem", "position": 1508, "name": "Ultimo giorno utile per salire sul Säntis in fu...", "url": `${BASE_URL}/articoli-frontaliere/ultimo-giorno-funivia-santis-2026` },
+          { "@type": "ListItem", "position": 1509, "name": "Primo Maggio a Varese, le ACLI: “Il lavoro dign...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-varese-acli-lavoro-dignitoso` }
  ]
  },
  {

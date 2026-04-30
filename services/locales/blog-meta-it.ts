@@ -4376,6 +4376,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ultimo-giorno-funivia-santis-2026.title': 'Ultimo giorno utile per salire sul Säntis in funivia',
     'blog.article.ultimo-giorno-funivia-santis-2026.excerpt': 'Dal 1° maggio la funivia del Säntis sarà chiusa per rinnovi. Le nuove cabine potranno trasportare fino a 85 passeggeri.',
     'blog.article.ultimo-giorno-funivia-santis-2026.imageAlt': 'Funivia del Säntis in Svizzera con vista panoramica della montagna',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.title': 'Primo Maggio a Varese, le ACLI: “Il lavoro dignitoso è l’urgenza del presente”',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.excerpt': 'Le ACLI provinciali di Varese mettono al centro del dibattito il tema del lavoro dignitoso, indicandolo come urgenza del presente e leva fondamentale per il futuro.',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.imageAlt': 'Folla a Varese per il Primo Maggio, con striscioni e bandiere, celebrazione dei diritti dei lavoratori',
 };
 
 export default blogMetaIt;

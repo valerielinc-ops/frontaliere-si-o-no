@@ -4376,6 +4376,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ultimo-giorno-funivia-santis-2026.title': 'Dernier jour pour monter au Säntis en téléphérique',
     'blog.article.ultimo-giorno-funivia-santis-2026.excerpt': 'À partir du 1er mai, le téléphérique du Säntis sera fermé pour des rénovations. Les nouvelles cabines pourront transporter jusqu\'à 85 passagers.',
     'blog.article.ultimo-giorno-funivia-santis-2026.imageAlt': 'Télécabine du Säntis en Suisse avec une vue panoramique sur la montagne',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.title': '1er Mai à Varèse, les ACLI : « Le travail digne est l\'urgence du présent »',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.excerpt': 'Les ACLI provinciales de Varèse placent au centre du débat le thème du travail digne, l\'indiquant comme urgence du présent et levier fondamental pour l\'avenir.',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.imageAlt': 'Foule à Varèse pour le Premier Mai, avec des banderoles et des drapeaux, célébration des droits des travailleurs',
 };
 
 export default blogMetaFr;

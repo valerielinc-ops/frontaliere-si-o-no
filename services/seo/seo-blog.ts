@@ -29271,6 +29271,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-varese-acli-lavoro-dignitoso': {
+    title: 'Primo Maggio a Varese, le ACLI: “Il lavoro dignitoso è l’urgenza del presente”',
+    description: 'Le ACLI provinciali di Varese mettono al centro del dibattito il tema del lavoro dignitoso, indicandolo come urgenza del presente e leva fondamentale per il',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, varese, acli',
+    ogTitle: 'Primo Maggio a Varese, le ACLI: “Il lavoro dignitoso è l’urgenza del presente”',
+    ogDescription: 'Le ACLI provinciali di Varese mettono al centro del dibattito il tema del lavoro dignitoso, indicandolo come urgenza del presente e leva fondamentale per il',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-varese-acli-lavoro-dignitoso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio a Varese, le ACLI: “Il lavoro dignitoso è l’urgenza del presente”",
+      "description": "Le ACLI provinciali di Varese mettono al centro del dibattito il tema del lavoro dignitoso, indicandolo come urgenza del presente e leva fondamentale per il",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-varese-acli-lavoro-dignitoso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Folla a Varese per il Primo Maggio, con striscioni e bandiere, celebrazione dei diritti dei lavoratori"
+      },
+      "datePublished": "2026-04-30T16:31:55+00:00",
+      "dateModified": "2026-04-30T16:31:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-varese-acli-lavoro-dignitoso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

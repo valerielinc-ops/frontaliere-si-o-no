@@ -4375,6 +4375,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ultimo-giorno-funivia-santis-2026.title': 'Letzter Tag für die Säntis-Seilbahnfahrt',
     'blog.article.ultimo-giorno-funivia-santis-2026.excerpt': 'Ab dem 1. Mai wird die Säntis-Seilbahn für Renovierungen geschlossen. Die neuen Kabinen können bis zu 85 Passagiere transportieren.',
     'blog.article.ultimo-giorno-funivia-santis-2026.imageAlt': 'Seilbahn Säntis in der Schweiz mit Panoramablick auf den Berg',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.title': '1. Mai in Varese: ACLI fordern würdige Arbeit',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.excerpt': 'Die ACLI der Provinz Varese setzen im Debattenschwerpunkt das Thema würdige Arbeit, das sie als dringende Gegenwartssache und grundlegenden Hebel für die Zukunft bezeichnen.',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.imageAlt': 'Menschenmenge in Varese zum Tag der Arbeit, mit Transparenten und Fahnen, Feier der Arbeiterrechte',
 };
 
 export default blogMetaDe;

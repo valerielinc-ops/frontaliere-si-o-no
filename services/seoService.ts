@@ -2689,6 +2689,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-guerra-iran-industria-alimentare-2026': { name: 'Novità', path: '/articoli-frontaliere/guerra-iran-industria-alimentare-2026', parent: 'blog' },
     'blog-rientro-a2-incubo-30-aprile-2026': { name: 'Traffico A2', path: '/articoli-frontaliere/rientro-a2-incubo-30-aprile-2026', parent: 'blog' },
     'blog-ultimo-giorno-funivia-santis-2026': { name: 'Funivia Säntis', path: '/articoli-frontaliere/ultimo-giorno-funivia-santis-2026', parent: 'blog' },
+    'blog-primo-maggio-varese-acli-lavoro-dignitoso': { name: 'Primo Maggio', path: '/articoli-frontaliere/primo-maggio-varese-acli-lavoro-dignitoso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

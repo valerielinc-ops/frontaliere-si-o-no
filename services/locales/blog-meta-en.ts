@@ -4375,6 +4375,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ultimo-giorno-funivia-santis-2026.title': 'Last day to ride the Säntis cable car',
     'blog.article.ultimo-giorno-funivia-santis-2026.excerpt': 'From May 1st, the Säntis cable car will be closed for renovations. The new cabins will be able to transport up to 85 passengers.',
     'blog.article.ultimo-giorno-funivia-santis-2026.imageAlt': 'Säntis funicular in Switzerland with a panoramic view of the mountain',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.title': 'May Day in Varese: ACLI calls for dignified work',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.excerpt': 'The Varese provincial ACLI put the topic of dignified work at the heart of the debate, indicating it as the urgency of the present and a fundamental lever for the future.',
+    'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.imageAlt': 'Crowd in Varese for May Day, with banners and flags, celebrating workers\' rights',
 };
 
 export default blogMetaEn;
