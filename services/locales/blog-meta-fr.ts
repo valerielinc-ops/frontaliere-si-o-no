@@ -4247,6 +4247,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.presunti-maltrattamenti-asilo-chiasso.title': 'Mauvais traitements présumés en crèche: enquête en cours',
     'blog.article.presunti-maltrattamenti-asilo-chiasso.excerpt': 'Trois plaintes pour mauvais traitements présumés dans une crèche privée de Chiasso. Enquête ouverte, vérifications en cours.',
     'blog.article.presunti-maltrattamenti-asilo-chiasso.imageAlt': 'Parent inquiet devant une crèche privée à Chiasso',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.title': 'Commerce de détail au Tessin: +2,7% au 1er trimestre 2026',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.excerpt': 'Le commerce de détail au Tessin enregistre une augmentation des revenus de 2,7% au premier trimestre 2026, avec le segment alimentaire en croissance de 3,2%.',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.imageAlt': 'Vue panoramique du lac de Lugano avec le centre-ville de Lugano',
 };
 
 export default blogMetaFr;

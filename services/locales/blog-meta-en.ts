@@ -4246,6 +4246,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.presunti-maltrattamenti-asilo-chiasso.title': 'Alleged abuse in daycare: investigation ongoing',
     'blog.article.presunti-maltrattamenti-asilo-chiasso.excerpt': 'Three reports of alleged abuse at a private daycare in Chiasso. Inquiry open, investigations underway.',
     'blog.article.presunti-maltrattamenti-asilo-chiasso.imageAlt': 'Concerned parent outside a private daycare center in Chiasso',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.title': 'Retail trade in Ticino: +2.7% in Q1 2026',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.excerpt': 'Retail trade in Ticino reports a 2.7% increase in revenue in the first quarter of 2026, with the food segment growing by 3.2%.',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano with the city center of Lugano',
 };
 
 export default blogMetaEn;

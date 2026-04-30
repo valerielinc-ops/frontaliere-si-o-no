@@ -4247,6 +4247,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.presunti-maltrattamenti-asilo-chiasso.title': 'Presunti maltrattamenti in asilo nido: accertamenti in corso',
     'blog.article.presunti-maltrattamenti-asilo-chiasso.excerpt': 'Tre denunce per presunti maltrattamenti in un asilo nido privato di Chiasso. Inchiesta aperta, accertamenti in corso.',
     'blog.article.presunti-maltrattamenti-asilo-chiasso.imageAlt': 'Genitore preoccupato fuori da un asilo nido privato a Chiasso',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.title': 'Commercio al dettaglio in Ticino: +2,7% nel primo trimestre 2026',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.excerpt': 'Il commercio al dettaglio in Ticino registra un aumento dei ricavi del 2,7% nel primo trimestre 2026, con il segmento alimentare in crescita del 3,2%.',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.imageAlt': 'Vista panoramica del Lago di Lugano con il centro città di Lugano',
 };
 
 export default blogMetaIt;

@@ -10921,4 +10921,11 @@ export const ARTICLES = [
  image: '/images/blog/presunti-maltrattamenti-asilo-chiasso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'commercio-dettaglio-ricavi-ticino-2026',
+ category: 'novita',
+ date: '2026-04-30T09:35:16.553Z',
+ image: '/images/blog/commercio-dettaglio-ricavi-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

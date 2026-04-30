@@ -28024,6 +28024,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commercio-dettaglio-ricavi-ticino-2026': {
+    title: 'Commercio al dettaglio in Ticino: +2,7% nel primo trimestre 2026',
+    description: 'Il commercio al dettaglio in Ticino registra un aumento dei ricavi del 2,7% nel primo trimestre 2026, con il segmento alimentare in crescita del 3,2%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, commercio, dettaglio, primo, trimestre',
+    ogTitle: 'Commercio al dettaglio in Ticino: +2,7% nel primo trimestre 2026',
+    ogDescription: 'Il commercio al dettaglio in Ticino registra un aumento dei ricavi del 2,7% nel primo trimestre 2026, con il segmento alimentare in crescita del 3,2%.',
+    canonicalPath: '/articoli-frontaliere/commercio-dettaglio-ricavi-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commercio al dettaglio in Ticino: +2,7% nel primo trimestre 2026",
+      "description": "Il commercio al dettaglio in Ticino registra un aumento dei ricavi del 2,7% nel primo trimestre 2026, con il segmento alimentare in crescita del 3,2%.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/commercio-dettaglio-ricavi-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con il centro città di Lugano"
+      },
+      "datePublished": "2026-04-30T09:35:16+00:00",
+      "dateModified": "2026-04-30T09:35:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/commercio-dettaglio-ricavi-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

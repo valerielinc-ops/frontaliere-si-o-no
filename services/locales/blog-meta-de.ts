@@ -4246,6 +4246,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.presunti-maltrattamenti-asilo-chiasso.title': 'Verdacht auf Misshandlung in Kita: Ermittlungen laufen',
     'blog.article.presunti-maltrattamenti-asilo-chiasso.excerpt': 'Drei Anzeigen wegen mutmaßlicher Misshandlungen in einer privaten Kita in Chiasso. Ermittlungen eingeleitet, Untersuchungen laufen.',
     'blog.article.presunti-maltrattamenti-asilo-chiasso.imageAlt': 'Besorgte Eltern vor einem privaten Kindergarten in Chiasso',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.title': 'Einzelhandel im Tessin: +2,7% im ersten Quartal 2026',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.excerpt': 'Der Einzelhandel im Tessin verzeichnet im ersten Quartal 2026 einen Umsatzanstieg von 2,7%, wobei der Lebensmittelbereich um 3,2% wächst.',
+    'blog.article.commercio-dettaglio-ricavi-ticino-2026.imageAlt': 'Panoramablick auf den Luganersee mit dem Stadtzentrum von Lugano',
 };
 
 export default blogMetaDe;
