@@ -30112,6 +30112,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confindustria-como-arte-cultura-salute-13-maggio': {
+    title: 'Confindustria Como esplora il legame tra arte, cultura e salute',
+    description: 'Evento il 13 maggio con esperti per discutere l\'impatto positivo dell\'arte e della cultura sulla salute e il benessere. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, confindustria, como, esplora, legame',
+    ogTitle: 'Confindustria Como esplora arte, cultura e salute',
+    ogDescription: 'Evento il 13 maggio con esperti per discutere l\'impatto positivo dell\'arte e della cultura sulla salute e il benessere',
+    canonicalPath: '/articoli-frontaliere/confindustria-como-arte-cultura-salute-13-maggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confindustria Como esplora arte, cultura e salute",
+      "description": "Evento il 13 maggio con esperti per discutere l'impatto positivo dell'arte e della cultura sulla salute e il benessere. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/confindustria-como-arte-cultura-salute-13-maggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un evento culturale a Lugano, Ticino, con persone che partecipano ad attività artistiche sul lago"
+      },
+      "datePublished": "2026-04-30T21:23:48+00:00",
+      "dateModified": "2026-04-30T21:23:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confindustria-como-arte-cultura-salute-13-maggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2718,6 +2718,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bcc-crowdfunding-100mila-euro': { name: 'Crowdfunding BCC', path: '/articoli-frontaliere/bcc-crowdfunding-100mila-euro', parent: 'blog' },
     'blog-truffatrice-seriale-como-lecco-2026': { name: 'Truffa Como', path: '/articoli-frontaliere/truffatrice-seriale-como-lecco-2026', parent: 'blog' },
     'blog-passaporto-musei-svizzera-30-anni-record': { name: 'Novità', path: '/articoli-frontaliere/passaporto-musei-svizzera-30-anni-record', parent: 'blog' },
+    'blog-confindustria-como-arte-cultura-salute-13-maggio': { name: 'Evento Confindustria', path: '/articoli-frontaliere/confindustria-como-arte-cultura-salute-13-maggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

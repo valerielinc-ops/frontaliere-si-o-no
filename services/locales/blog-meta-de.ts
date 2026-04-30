@@ -4462,6 +4462,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.passaporto-musei-svizzera-30-anni-record.title': 'Passaporto Musei Svizzeri: 30 anni e un record',
     'blog.article.passaporto-musei-svizzera-30-anni-record.excerpt': 'Über 1,5 Millionen Eintritte im Jahr 2025, ein Anstieg von 6%. Zu den meistbesuchten Museen gehören das Nationalmuseum in Zürich und das Kunstmuseum in Bern.',
     'blog.article.passaporto-musei-svizzera-30-anni-record.imageAlt': 'Kunstmuseum Bern, modernes Gebäude mit architektonischen Details',
+    'blog.article.confindustria-como-arte-cultura-salute-13-maggio.title': 'Kunst, Kultur, Gesundheit: Confindustria Como untersucht',
+    'blog.article.confindustria-como-arte-cultura-salute-13-maggio.excerpt': 'Veranstaltung am 13. Mai mit Experten, um die positive Auswirkung von Kunst und Kultur auf Gesundheit und Wohlbefinden zu diskutieren',
+    'blog.article.confindustria-como-arte-cultura-salute-13-maggio.imageAlt': 'Ein kulturelles Ereignis in Lugano, Tessin, mit Menschen, die an künstlerischen Aktivitäten am See teilnehmen',
 };
 
 export default blogMetaDe;

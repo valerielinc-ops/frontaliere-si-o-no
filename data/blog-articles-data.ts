@@ -11425,4 +11425,11 @@ export const ARTICLES = [
  image: '/images/blog/passaporto-musei-svizzera-30-anni-record.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'confindustria-como-arte-cultura-salute-13-maggio',
+ category: 'novita',
+ date: '2026-04-30T21:23:48.727Z',
+ image: '/images/blog/confindustria-como-arte-cultura-salute-13-maggio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

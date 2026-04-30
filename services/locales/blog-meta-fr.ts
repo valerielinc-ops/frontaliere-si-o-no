@@ -4463,6 +4463,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.passaporto-musei-svizzera-30-anni-record.title': 'Pass Musei Svizzeri, 30 ans et un record historique',
     'blog.article.passaporto-musei-svizzera-30-anni-record.excerpt': 'Plus de 1,5 million d\'entrées en 2025, une augmentation de 6%. Parmi les musées les plus visités, le Musée national de Zurich et le Kunstmuseum de Berne.',
     'blog.article.passaporto-musei-svizzera-30-anni-record.imageAlt': 'Musée des Beaux-Arts de Berne, bâtiment moderne avec détails architecturaux',
+    'blog.article.confindustria-como-arte-cultura-salute-13-maggio.title': 'Confindustria Como explore le lien entre art, culture et santé',
+    'blog.article.confindustria-como-arte-cultura-salute-13-maggio.excerpt': 'Événement le 13 mai avec des experts pour discuter de l\'impact positif de l\'art et de la culture sur la santé et le bien-être',
+    'blog.article.confindustria-como-arte-cultura-salute-13-maggio.imageAlt': 'Un événement culturel à Lugano, Tessin, avec des personnes participant à des activités artistiques au lac',
 };
 
 export default blogMetaFr;
