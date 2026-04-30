@@ -565,6 +565,21 @@ jobs:
         if: success() && github.event.inputs.profile_sequential != 'true'
         run: npm run probe:5xx
 
+      - name: Post-deploy rendering smoke (live E2E)
+        # Regression guard for the 2026-04-30 rendering incident: an
+        # intermittent build race condition occasionally shipped per-slug SEO
+        # pages without the SPA bundle script tag, leaving them stuck on
+        # pre-hydration static content — and on articles, it produced an
+        # infinite client-side loop with the no-slash flat-html-redirect
+        # bridge. The bug is non-deterministic and only reproduces end-to-end
+        # against the deployed pipeline, so this check runs against the LIVE
+        # site (not localhost). See `tests/e2e/post-deploy-rendering-live.spec.ts`
+        # for the full failure-mode docstring and the four URL targets.
+        if: success() && github.event.inputs.profile_sequential != 'true'
+        env:
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: npm run test:e2e:live
+
       - name: Wait for live article metadata
         if: success() && github.event.inputs.profile_sequential != 'true' && github.event_name == 'workflow_dispatch' && github.event.inputs.article_url != '' && github.event.inputs.og_title != ''
         id: wait_live_meta

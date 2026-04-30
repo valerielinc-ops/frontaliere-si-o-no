@@ -15,6 +15,7 @@
     "test:fast": "vitest run --bail 1",
     "test:e2e": "playwright test",
     "test:e2e:smoke": "playwright test tests/e2e/seo-content-integrity.spec.ts tests/e2e/link-graph-integrity.spec.ts tests/e2e/seo-visual-ui.spec.ts",
+    "test:e2e:live": "playwright test --config=playwright.live.config.ts",
     "test:e2e:visual": "RUN_VISUAL_REGRESSION=1 playwright test tests/e2e/seo-visual-regression.spec.ts",
     "test:e2e:visual:update": "RUN_VISUAL_REGRESSION=1 playwright test tests/e2e/seo-visual-regression.spec.ts --update-snapshots",
     "build:e2e": "npm run build && npm run test:e2e:smoke",

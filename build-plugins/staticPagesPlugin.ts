@@ -3087,7 +3087,6 @@ ${hrefTags}
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
  <style>${skeletonAnim}</style>
  <div id="root"><main id="main-content">${rootHtml}</main></div>
- <script>location.replace('/${pp.replace(/~and~/g, '&')}'+location.hash)</script>
  </body>
 </html>`;
  };

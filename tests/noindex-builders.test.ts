@@ -74,12 +74,20 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('noindex: true');
     });
 
-    it('company slug alias pages use index,follow (canonicalized, not noindex)', () => {
+    it('company slug alias pages serve full canonical content (no thin stub, no noindex)', () => {
       const start = source.indexOf('// Redirect pages for raw slugs that differ from canonical');
       const end = source.indexOf('const rawFlat', start);
       const block = source.slice(start, end);
-      expect(block).toContain('buildCanonicalBridgePage');
-      expect(block).toContain('noindex: false');
+      // Mirrors the previousSlugs bridge pattern: alias URLs (e.g.
+      // /azienda-lidl-svizzera/ vs canonical /azienda-lidl/) serve the SAME
+      // rich companyHtml so Google sees substantive content instead of a thin
+      // ~200-byte "go to canonical" stub. The embedded `<link rel="canonical">`
+      // already points to the canonical hub URL — that single signal
+      // consolidates authority on the canonical without de-indexing the alias.
+      // No `buildCanonicalBridgePage`, no `noindex` here by design.
+      expect(block).not.toContain('buildCanonicalBridgePage');
+      expect(block).not.toContain('noindex: true');
+      expect(block).toContain('companyHtml');
     });
 
     it('legacy redirect pages use noindex,follow (archived, not canonical)', () => {

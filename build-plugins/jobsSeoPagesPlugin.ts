@@ -2975,34 +2975,24 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
  // Redirect pages for raw slugs that differ from canonical (e.g. lidl-svizzera → lidl).
  // These are non-canonical alternate URLs that exist only so older inbound links
- // and crawler discoveries don't 404. They MUST be noindex,follow:
- //   - The page body is a thin "go to canonical" stub (~200 bytes of text), so
- //     Semrush flags it as low text-to-HTML ratio.
- //   - Indexing them would create competing duplicates against the canonical hub.
- // The <link rel="canonical"> on each stub still tells crawlers where the real
- // content lives; noindex,follow tells them not to surface this URL itself.
+ // and crawler discoveries don't 404. We serve the SAME full canonical HTML at
+ // each alias path; the embedded <link rel="canonical"> already points to the
+ // canonical hub URL, so Google consolidates authority on the canonical via
+ // that reference. No thin stub, no noindex — index,follow with canonical
+ // reference is the cleanest signal. Mirrors the previousSlugs bridge pattern
+ // documented around line 7190+.
  for (const rawSlug of rawSlugs) {
  const rawFullSlug = `${prefix}-${rawSlug}`;
  const rawRelPath = `${localePrefix[locale]}/${sectionSlug}/${rawFullSlug}`.replace(/\/+/g, '/').replace(/^\//, '');
- const redirectHtml = buildCanonicalBridgePage({
- canonicalUrl,
- pathLabel: canonicalPath,
- title: `${esc(companyName)} | Frontaliere Ticino`,
- description: `Versione alternativa della pagina azienda ${companyName}.`,
- body: `Questa URL azienda non e la variante canonica. Apri la pagina principale dell azienda per gli annunci aggiornati.`,
- ctaLabel: String(companyName || 'Apri azienda'),
- lang: locale,
- noindex: true,
- });
  const rawDir = np.join(distDir, rawRelPath);
  if (!fs.existsSync(np.join(rawDir, 'index.html'))) {
  _md(rawDir);
- _qw(np.join(rawDir, 'index.html'), redirectHtml);
+ _qw(np.join(rawDir, 'index.html'), companyHtml);
  }
  const rawFlat = np.join(distDir, rawRelPath + '.html');
  if (!fs.existsSync(rawFlat)) {
  _md(np.dirname(rawFlat));
- _qw(rawFlat, redirectHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
+ _qw(rawFlat, companyHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
  }
  // Declarative brand-alias bridge pages (P5 dedup).

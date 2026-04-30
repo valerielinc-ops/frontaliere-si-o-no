@@ -928,7 +928,6 @@ ${headTags}
  </head>
  <body>
  <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi">Confronta Servizi</a> | <a href="/tasse-e-pensione">Tasse e Pensione</a> | <a href="/guida-frontaliere">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri">FAQ</a> | <a href="/glossario-frontaliere">Glossario</a> | <a href="/articoli-frontaliere">Articoli</a></nav></article></main></div>
- <script>location.replace('/${pp.replace(/~and~/g, '&')}'+location.hash)</script>
  </body>
 </html>`;
  };
