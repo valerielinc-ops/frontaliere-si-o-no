@@ -28343,6 +28343,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inflazione-aprile-2026-italia': {
+    title: 'Inflazione Italia aprile 2026: +2,8% e carrello della spesa in aumento',
+    description: 'Ad aprile 2026 l\'inflazione in Italia sale al +2,8%, con un aumento del carrello della spesa al +2,5%. Scopri l\'impatto per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, aprile, carrello, spesa',
+    ogTitle: 'Inflazione Italia aprile 2026: +2,8% e carrello della spesa in aumento',
+    ogDescription: 'Ad aprile 2026 l\'inflazione in Italia sale al +2,8%, con un aumento del carrello della spesa al +2,5%. Scopri l\'impatto per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/inflazione-aprile-2026-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inflazione Italia aprile 2026: +2,8% e carrello della spesa in aumento",
+      "description": "Ad aprile 2026 l'inflazione in Italia sale al +2,8%, con un aumento del carrello della spesa al +2,5%. Scopri l'impatto per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inflazione-aprile-2026-italia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne e edifici circostanti"
+      },
+      "datePublished": "2026-04-30T11:02:45+00:00",
+      "dateModified": "2026-04-30T11:02:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inflazione-aprile-2026-italia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

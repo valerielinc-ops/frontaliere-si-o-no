@@ -4279,6 +4279,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.barometro-kof-ripresa-modesta-2026.title': 'KOF-Barometer: Schweizer Wirtschaft erholt sich leicht',
     'blog.article.barometro-kof-ripresa-modesta-2026.excerpt': 'Das KOF-Barometer zeigt im April eine leichte Verbesserung, doch die Aussichten bleiben unterdurchschnittlich.',
     'blog.article.barometro-kof-ripresa-modesta-2026.imageAlt': 'Luganersee mit Spiegelungen der umliegenden Berge',
+    'blog.article.inflazione-aprile-2026-italia.title': 'Inflation Italien April 2026: +2,8% und Einkaufskorb steigt',
+    'blog.article.inflazione-aprile-2026-italia.excerpt': 'Im April 2026 steigt die Inflation in Italien auf +2,8%, wobei der Einkaufskorb um +2,5% ansteigt.',
+    'blog.article.inflazione-aprile-2026-italia.imageAlt': 'Luganersee mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

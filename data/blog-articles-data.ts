@@ -10998,4 +10998,11 @@ export const ARTICLES = [
  image: '/images/blog/barometro-kof-ripresa-modesta-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'inflazione-aprile-2026-italia',
+ category: 'novita',
+ date: '2026-04-30T11:02:45.017Z',
+ image: '/images/blog/inflazione-aprile-2026-italia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

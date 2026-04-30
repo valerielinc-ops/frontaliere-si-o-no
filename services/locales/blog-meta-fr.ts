@@ -4280,6 +4280,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.barometro-kof-ripresa-modesta-2026.title': 'Baromètre KOF: reprise modeste pour l\'économie suisse',
     'blog.article.barometro-kof-ripresa-modesta-2026.excerpt': 'Le baromètre du KOF signale une légère amélioration en avril, mais les perspectives restent modestes en dessous de la moyenne pluriannuelle.',
     'blog.article.barometro-kof-ripresa-modesta-2026.imageAlt': 'Lac de Lugano avec les reflets des montagnes environnantes',
+    'blog.article.inflazione-aprile-2026-italia.title': 'Inflation Italie avril 2026: +2,8% et panier de courses en hausse',
+    'blog.article.inflazione-aprile-2026-italia.excerpt': 'En avril 2026, l\'inflation en Italie atteint +2,8%, avec une augmentation du panier de courses à +2,5%.',
+    'blog.article.inflazione-aprile-2026-italia.imageAlt': 'Lac de Lugano avec montagnes et bâtiments environnants',
 };
 
 export default blogMetaFr;

@@ -4279,6 +4279,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.barometro-kof-ripresa-modesta-2026.title': 'KOF Barometer: modest recovery for Swiss economy',
     'blog.article.barometro-kof-ripresa-modesta-2026.excerpt': 'The KOF barometer signals a slight improvement in April, but prospects remain modest below the multi-year average.',
     'blog.article.barometro-kof-ripresa-modesta-2026.imageAlt': 'Lake Lugano with reflections of the surrounding mountains',
+    'blog.article.inflazione-aprile-2026-italia.title': 'Italy inflation April 2026: +2.8% and grocery basket up',
+    'blog.article.inflazione-aprile-2026-italia.excerpt': 'In April 2026, Italy\'s inflation rises to +2.8%, with a +2.5% increase in the grocery basket.',
+    'blog.article.inflazione-aprile-2026-italia.imageAlt': 'Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;

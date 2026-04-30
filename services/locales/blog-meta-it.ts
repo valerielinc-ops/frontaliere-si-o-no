@@ -4280,6 +4280,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.barometro-kof-ripresa-modesta-2026.title': 'Barometro KOF: ripresa modesta per l\'economia svizzera',
     'blog.article.barometro-kof-ripresa-modesta-2026.excerpt': 'Il barometro del KOF segnala un leggero miglioramento in aprile, ma le prospettive restano modeste sotto la media pluriennale.',
     'blog.article.barometro-kof-ripresa-modesta-2026.imageAlt': 'Lago di Lugano con riflessi delle montagne circostanti',
+    'blog.article.inflazione-aprile-2026-italia.title': 'Inflazione Italia aprile 2026: +2,8% e carrello della spesa in aumento',
+    'blog.article.inflazione-aprile-2026-italia.excerpt': 'Ad aprile 2026 l\'inflazione in Italia sale al +2,8%, con un aumento del carrello della spesa al +2,5%.',
+    'blog.article.inflazione-aprile-2026-italia.imageAlt': 'Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;
