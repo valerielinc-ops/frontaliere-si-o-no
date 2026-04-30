@@ -4141,6 +4141,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.domus-san-donato-autonomia-terza-eta.title': 'Domus San Donato: safe autonomy for the elderly',
     'blog.article.domus-san-donato-autonomia-terza-eta.excerpt': 'New protected apartments for the elderly at Domus San Donato, built in the former convent. Freedom and assisted services',
     'blog.article.domus-san-donato-autonomia-terza-eta.imageAlt': 'Domus San Donato senior living facility in Ticino',
+    'blog.article.moda-sostenibile-varese-2026.title': 'Sustainable fashion and stories of rebirth in Varese',
+    'blog.article.moda-sostenibile-varese-2026.excerpt': 'Students and oncological women united in a sustainable fashion show in Varese, with recycled clothes and messages of resilience',
+    'blog.article.moda-sostenibile-varese-2026.imageAlt': 'Sustainable fashion show in Varese with students and cancer survivors',
 };
 
 export default blogMetaEn;

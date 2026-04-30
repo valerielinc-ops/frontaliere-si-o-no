@@ -2611,6 +2611,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-elmec-innovation-summit-brunello-2026': { name: 'Elmec Innovation Summit', path: '/articoli-frontaliere/elmec-innovation-summit-brunello-2026', parent: 'blog' },
     'blog-scuola-austriaca-bitcoin-lugano-2026': { name: 'Scuola austriaca Lugano', path: '/articoli-frontaliere/scuola-austriaca-bitcoin-lugano-2026', parent: 'blog' },
     'blog-domus-san-donato-autonomia-terza-eta': { name: 'Novità', path: '/articoli-frontaliere/domus-san-donato-autonomia-terza-eta', parent: 'blog' },
+    'blog-moda-sostenibile-varese-2026': { name: 'Moda sostenibile', path: '/articoli-frontaliere/moda-sostenibile-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

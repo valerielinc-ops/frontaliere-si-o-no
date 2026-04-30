@@ -4141,6 +4141,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.domus-san-donato-autonomia-terza-eta.title': 'Domus San Donato: sichere Autonomie im Alter',
     'blog.article.domus-san-donato-autonomia-terza-eta.excerpt': 'Neue geschützte Wohnungen für Senioren in Domus San Donato, realisiert im ehemaligen Gebäude der Schwestern. Freiheit und betreute Dienstleistungen',
     'blog.article.domus-san-donato-autonomia-terza-eta.imageAlt': 'Seniorenwohnanlage Domus San Donato im Tessin',
+    'blog.article.moda-sostenibile-varese-2026.title': 'Nachhaltige Mode und Geschichten des Wiederaufstiegs in Varese',
+    'blog.article.moda-sostenibile-varese-2026.excerpt': 'Studenten und onkologische Patientinnen vereint bei einer Modenschau mit nachhaltiger Mode in Varese, mit recycelten Kleidern und Botschaften der Resilienz',
+    'blog.article.moda-sostenibile-varese-2026.imageAlt': 'Nachhaltige Modenschau in Varese mit Studenten und Krebspatientinnen',
 };
 
 export default blogMetaDe;

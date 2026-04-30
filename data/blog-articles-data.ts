@@ -10675,4 +10675,11 @@ export const ARTICLES = [
  image: '/images/blog/domus-san-donato-autonomia-terza-eta.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'moda-sostenibile-varese-2026',
+ category: 'novita',
+ date: '2026-04-30T04:35:07.812Z',
+ image: '/images/blog/moda-sostenibile-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

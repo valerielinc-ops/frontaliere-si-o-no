@@ -27009,6 +27009,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-moda-sostenibile-varese-2026': {
+    title: 'Moda sostenibile e storie di rinascita a Varese | Frontaliere Ticino',
+    description: 'Scopri come studenti e donne oncologiche hanno unito le forze per una sfilata di moda sostenibile a Varese, con abiti riciclati e messaggi di resilienza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, moda, sostenibile, storie, rinascita',
+    ogTitle: 'Moda sostenibile e storie di rinascita a Varese',
+    ogDescription: 'Scopri come studenti e donne oncologiche hanno unito le forze per una sfilata di moda sostenibile a Varese, con abiti riciclati e messaggi di resilienza.',
+    canonicalPath: '/articoli-frontaliere/moda-sostenibile-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Moda sostenibile e storie di rinascita a Varese",
+      "description": "Scopri come studenti e donne oncologiche hanno unito le forze per una sfilata di moda sostenibile a Varese, con abiti riciclati e messaggi di resilienza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/moda-sostenibile-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sfilata di moda sostenibile a Varese con studenti e donne oncologiche"
+      },
+      "datePublished": "2026-04-30T04:35:07+00:00",
+      "dateModified": "2026-04-30T04:35:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/moda-sostenibile-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

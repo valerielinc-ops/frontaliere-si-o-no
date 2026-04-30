@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1430,
+ "numberOfItems": 1431,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6065,7 +6065,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1427, "name": "Vedano Olona, sindaco scrive ad ASST: «Servizio...", "url": `${BASE_URL}/articoli-frontaliere/vedano-olona-medici-servizio-instabile` },
           { "@type": "ListItem", "position": 1428, "name": "Elmec Innovation Summit 2026: AI, Cybersecurity...", "url": `${BASE_URL}/articoli-frontaliere/elmec-innovation-summit-brunello-2026` },
           { "@type": "ListItem", "position": 1429, "name": "Scuola austriaca protagonista al Plan ₿ Forum d...", "url": `${BASE_URL}/articoli-frontaliere/scuola-austriaca-bitcoin-lugano-2026` },
-          { "@type": "ListItem", "position": 1430, "name": "Domus San Donato: autonomia sicura per la terza...", "url": `${BASE_URL}/articoli-frontaliere/domus-san-donato-autonomia-terza-eta` }
+          { "@type": "ListItem", "position": 1430, "name": "Domus San Donato: autonomia sicura per la terza...", "url": `${BASE_URL}/articoli-frontaliere/domus-san-donato-autonomia-terza-eta` },
+          { "@type": "ListItem", "position": 1431, "name": "Moda sostenibile e storie di rinascita a Varese", "url": `${BASE_URL}/articoli-frontaliere/moda-sostenibile-varese-2026` }
  ]
  },
  {
