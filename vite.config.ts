@@ -218,8 +218,9 @@ export default defineConfig(({ mode }) => {
  plugins: [
  // Resets the cross-plugin write registry at every buildStart so watch-mode
  // rebuilds don't carry stale claims. Must be FIRST so it runs before any
- // plugin's closeBundle starts calling claim().
- writeRegistryResetPlugin(),
+ // plugin's closeBundle starts calling claim(). Also configures the per-build
+ // content dump dir from WRITE_COLLISION_DUMP env var.
+ writeRegistryResetPlugin({ rootDir: __dirname }),
  ...allPlugins.map(withProfile),
  // Prints the collision summary and writes dist/.write-collisions.json after
  // every other plugin's closeBundle has flushed. enforce/order makes it the

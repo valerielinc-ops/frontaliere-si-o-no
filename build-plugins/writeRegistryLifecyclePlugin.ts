@@ -32,7 +32,12 @@ import type { Plugin } from 'vite';
 import {
  reset,
  getCollisions,
+ getPathHistory,
+ configureDumpDir,
+ getDumpDir,
+ pruneDumpToCollidingHashes,
  type CollisionRecord,
+ type ClaimVersion,
 } from './sharedWriteRegistry';
 
 interface LifecycleOptions {
@@ -42,13 +47,30 @@ interface LifecycleOptions {
 const RESET = 'write-registry-reset';
 const REPORT = 'write-registry-report';
 
-export function writeRegistryResetPlugin(): Plugin {
+/**
+ * Resolve the per-build content dump directory. Enabled when
+ * `WRITE_COLLISION_DUMP=1`, in which case every unique-by-hash content seen
+ * during the build is written to `dist/.write-collisions-data/<hash>.html`.
+ * After the build, the report plugin prunes this dir to keep only hashes
+ * referenced by colliding paths (typically <50 MB out of GBs of writes).
+ *
+ * Disabled by default so local builds don't create extra files. CI sets
+ * `WRITE_COLLISION_DUMP=1` on the Build step.
+ */
+function resolveDumpDir(rootDir: string): string | null {
+ const flag = (process.env.WRITE_COLLISION_DUMP || '').toLowerCase();
+ if (flag !== '1' && flag !== 'true' && flag !== 'yes') return null;
+ return path.resolve(rootDir, 'dist', '.write-collisions-data');
+}
+
+export function writeRegistryResetPlugin(opts: LifecycleOptions): Plugin {
  return {
  name: RESET,
  apply: 'build',
  enforce: 'pre',
  buildStart() {
  reset();
+ configureDumpDir(resolveDumpDir(opts.rootDir));
  },
  };
 }
@@ -76,19 +98,61 @@ export function writeRegistryReportPlugin(opts: LifecycleOptions): Plugin {
  // eslint-disable-next-line no-console
  console.log(formatConsoleSummary(records, summary, mode));
 
+ // Enriched JSON: includes the FULL version history for every colliding
+ // path (not just adjacent-pair `records`), so the analysis script can
+ // compare ALL versions ever proposed for each path. The legacy `records`
+ // field is kept for backward compatibility with the in-flight summary
+ // consumers (none yet — but cheap to keep).
+ const collidingPaths = collectCollidingPaths();
  if (fs.existsSync(distDir)) {
  const reportPath = path.join(distDir, '.write-collisions.json');
  fs.writeFileSync(
  reportPath,
- JSON.stringify({ mode, records, summary }, null, 2),
+ JSON.stringify({ mode, records, summary, paths: collidingPaths }, null, 2),
  'utf-8',
  );
  // eslint-disable-next-line no-console
  console.log(`\x1b[36m[write-registry]\x1b[0m full report → ${reportPath}`);
  }
+
+ // If the per-claim content dump was enabled, prune it to keep only the
+ // content of hashes referenced by colliding paths. This converts a
+ // "dump every unique content seen during the build" (potentially GBs)
+ // into a "dump every content that competed for a colliding path"
+ // (typically <50 MB), which is what the analysis script needs.
+ const dumpDir = getDumpDir();
+ if (dumpDir) {
+ const { kept, removed } = pruneDumpToCollidingHashes();
+ // eslint-disable-next-line no-console
+ console.log(
+ `\x1b[36m[write-registry]\x1b[0m content dump pruned: kept ${kept} (referenced by colliding paths), removed ${removed} (non-colliding) at ${dumpDir}`,
+ );
+ }
  },
  },
  };
+}
+
+/**
+ * Build the `paths: [...]` block of the JSON report. Only paths whose
+ * version count is ≥ 2 (i.e. that had at least one collision) are included.
+ * Each path lists the ordered sequence of versions seen, which the analysis
+ * script joins with the corresponding `<hash>.html` files in the dump dir.
+ */
+function collectCollidingPaths(): Array<{
+ path: string;
+ versions: ClaimVersion[];
+}> {
+ const out: Array<{ path: string; versions: ClaimVersion[] }> = [];
+ for (const [p, versions] of getPathHistory()) {
+ if (versions.length >= 2) {
+ out.push({ path: p, versions: versions.slice() });
+ }
+ }
+ // Sort by collision count descending so the heaviest paths are first
+ // — useful when eyeballing the JSON.
+ out.sort((a, b) => b.versions.length - a.versions.length);
+ return out;
 }
 
 interface CollisionSummary {

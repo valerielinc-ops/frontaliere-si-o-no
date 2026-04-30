@@ -258,6 +258,15 @@ jobs:
           # imports the worker tree pulled in — `./blogContextualLinksData`
           # and `./shared/hreflangGuard`). Workers now resolve cleanly under
           # tsx 4.x `--import`. Default = max(availableParallelism, cpus.length).
+          #
+          # WRITE_COLLISION_DUMP=1 makes sharedWriteRegistry dump every
+          # unique-by-hash content claim()'d during the build to
+          # `dist/.write-collisions-data/<hash>.html`. After the build, the
+          # registry's report plugin prunes that directory to keep only
+          # hashes referenced by colliding paths (typically <50 MB out of
+          # GBs of intermediate writes). The pruned set is uploaded as the
+          # `write-collisions-analysis` artifact for end-of-build analysis.
+          WRITE_COLLISION_DUMP: '1'
         shell: bash
         run: |
           set -o pipefail
@@ -527,14 +536,21 @@ jobs:
 
       - name: Upload write-collisions analysis (small artifact)
         # Always upload (even when the audit above fails) so we have the
-        # registry data to diagnose the failure. dist/.write-collisions.json
-        # is dotfile-filtered by GitHub Pages so it can't be served live;
-        # this artifact is the only way to retrieve it.
+        # registry data to diagnose the failure. Both targets are
+        # dotfile-filtered by GitHub Pages so they can't be served live; this
+        # artifact is the only way to retrieve them.
+        #   - dist/.write-collisions.json: per-path version history + summary
+        #   - dist/.write-collisions-data/<hash>.html: full content of every
+        #     version that competed for a colliding path (pruned by the
+        #     registry to ~tens of MB after the build).
+        # Download with: gh run download <run-id> -n write-collisions-analysis
         if: always() && github.event.inputs.profile_sequential != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: write-collisions-analysis
-          path: dist/.write-collisions.json
+          path: |
+            dist/.write-collisions.json
+            dist/.write-collisions-data/
           retention-days: 7
           if-no-files-found: ignore
 

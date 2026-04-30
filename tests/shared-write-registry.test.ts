@@ -1,3 +1,6 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import {
@@ -5,6 +8,9 @@ import {
  declareSharedPath,
  reset,
  getCollisions,
+ getPathHistory,
+ configureDumpDir,
+ pruneDumpToCollidingHashes,
  setModeForTest,
  clearDeclarationsForTest,
  WriteCollisionError,
@@ -154,5 +160,108 @@ describe('sharedWriteRegistry', () => {
  expect(claim('/dist/bar/index.html', 'pluginA', '<html>b</html>')).toBe('allow-write');
  expect(claim('/dist/baz/index.html', 'pluginB', '<html>c</html>')).toBe('allow-write');
  expect(getCollisions()).toHaveLength(0);
+ });
+
+ describe('pathHistory: full version capture for end-of-build analysis', () => {
+ it('records every distinct content version for a colliding path', () => {
+ setModeForTest('report');
+ claim('/dist/foo/index.html', 'pluginA', '<html>v1</html>');
+ claim('/dist/foo/index.html', 'pluginB', '<html>v2</html>');
+ claim('/dist/foo/index.html', 'pluginC', '<html>v3</html>');
+ const history = getPathHistory();
+ const versions = history.get('/dist/foo/index.html');
+ expect(versions).toBeDefined();
+ expect(versions).toHaveLength(3);
+ expect(versions![0].plugin).toBe('pluginA');
+ expect(versions![1].plugin).toBe('pluginB');
+ expect(versions![2].plugin).toBe('pluginC');
+ // Each version carries size + a non-negative timestamp.
+ for (const v of versions!) {
+ expect(v.size).toBeGreaterThan(0);
+ expect(v.timestamp).toBeGreaterThanOrEqual(0);
+ }
+ });
+
+ it('idempotent re-claim does NOT append a duplicate version', () => {
+ setModeForTest('report');
+ claim('/dist/foo/index.html', 'pluginA', '<html>v1</html>');
+ claim('/dist/foo/index.html', 'pluginA', '<html>v1</html>'); // same hash
+ const versions = getPathHistory().get('/dist/foo/index.html');
+ expect(versions).toHaveLength(1);
+ });
+
+ it('returning to an EARLIER hash is still idempotent (no new version, no collision)', () => {
+ // Plugin emits v1 → v2 → v1 again. The third claim should be skipped
+ // because v1's hash is already in the version array. This prevents
+ // oscillation loops from inflating the collision count.
+ setModeForTest('report');
+ claim('/dist/foo/index.html', 'pluginA', '<html>v1</html>');
+ claim('/dist/foo/index.html', 'pluginA', '<html>v2</html>');
+ const out = claim('/dist/foo/index.html', 'pluginA', '<html>v1</html>');
+ expect(out).toBe('skip-write');
+ const versions = getPathHistory().get('/dist/foo/index.html');
+ expect(versions).toHaveLength(2);
+ });
+
+ it('getCollisions derives adjacent-pair records from the version chain', () => {
+ setModeForTest('report');
+ claim('/dist/foo/index.html', 'pluginA', '<html>v1</html>');
+ claim('/dist/foo/index.html', 'pluginB', '<html>v2</html>');
+ claim('/dist/foo/index.html', 'pluginC', '<html>v3</html>');
+ const records = getCollisions();
+ // 3 versions → 2 adjacent collision pairs.
+ expect(records).toHaveLength(2);
+ expect(records[0].first.plugin).toBe('pluginA');
+ expect(records[0].attempted.plugin).toBe('pluginB');
+ expect(records[1].first.plugin).toBe('pluginB');
+ expect(records[1].attempted.plugin).toBe('pluginC');
+ });
+ });
+
+ describe('content dump (dump dir + prune)', () => {
+ let tmp: string;
+ beforeEach(() => {
+ tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'write-collisions-test-'));
+ configureDumpDir(tmp);
+ setModeForTest('report');
+ });
+ afterEach(() => {
+ configureDumpDir(null);
+ fs.rmSync(tmp, { recursive: true, force: true });
+ });
+
+ it('writes one file per unique content hash to the dump dir', () => {
+ claim('/dist/a/index.html', 'pluginA', '<html>v1</html>');
+ claim('/dist/b/index.html', 'pluginB', '<html>v1</html>'); // dedup-by-hash → no extra file
+ claim('/dist/c/index.html', 'pluginC', '<html>v2</html>');
+ const files = fs.readdirSync(tmp).filter((f) => f.endsWith('.html'));
+ expect(files).toHaveLength(2);
+ });
+
+ it('pruneDumpToCollidingHashes keeps only hashes referenced by paths with versions ≥ 2', () => {
+ // Path A: 1 version (no collision) → its hash will be pruned
+ claim('/dist/a/index.html', 'pluginA', '<html>solo</html>');
+ // Path B: 2 versions (collision) → both hashes retained
+ claim('/dist/b/index.html', 'pluginA', '<html>collide-v1</html>');
+ claim('/dist/b/index.html', 'pluginB', '<html>collide-v2</html>');
+
+ const before = fs.readdirSync(tmp).filter((f) => f.endsWith('.html'));
+ expect(before).toHaveLength(3);
+
+ const { kept, removed } = pruneDumpToCollidingHashes();
+ expect(kept).toBe(2);
+ expect(removed).toBe(1);
+
+ const after = fs.readdirSync(tmp).filter((f) => f.endsWith('.html'));
+ expect(after).toHaveLength(2);
+ });
+
+ it('does nothing when dump dir is null (default)', () => {
+ configureDumpDir(null);
+ claim('/dist/a/index.html', 'pluginA', '<html>v1</html>');
+ // No file would be created anyway since dir is null. Verify prune is a no-op too.
+ const result = pruneDumpToCollidingHashes();
+ expect(result).toEqual({ kept: 0, removed: 0 });
+ });
  });
 });

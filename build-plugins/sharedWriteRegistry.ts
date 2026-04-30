@@ -56,9 +56,33 @@
  * registry by design (post-processing existing claimed paths).
  */
 import { createHash } from 'node:crypto';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 export type CollisionMode = 'report' | 'throw';
 
+/**
+ * One version of a write attempt for a given path. The registry accumulates
+ * an array of these per path so end-of-build analysis can compare ALL the
+ * variants ever proposed for that path (not just the last winner) and decide
+ * which plugin should be the canonical owner.
+ */
+export interface ClaimVersion {
+  readonly plugin: string;
+  readonly callSite: string;
+  readonly contentHash: string;
+  /** Content length in bytes (UTF-8). Cheap signal of "richness". */
+  readonly size: number;
+  /** ms since the registry was last reset; useful for ordering across plugins. */
+  readonly timestamp: number;
+}
+
+/**
+ * @deprecated Kept for backward compatibility with existing tests. Prefer
+ * {@link ClaimVersion} via {@link getPathHistory}. The legacy `Claim` shape
+ * intentionally omits `size` and `timestamp` so older consumers don't see
+ * fields they don't expect.
+ */
 interface Claim {
   readonly plugin: string;
   readonly callSite: string;
@@ -91,10 +115,35 @@ export interface SharedPathDeclaration {
   readonly reason: string;
 }
 
-/** Module-scope state. Cleared per-build by {@link reset}. */
-const claims = new Map<string, Claim>();
-const collisions: CollisionRecord[] = [];
+/**
+ * Module-scope state. Cleared per-build by {@link reset}.
+ * `pathHistory` accumulates EVERY version of every path the registry sees;
+ * the latest entry's `contentHash` is what's currently on disk (modulo the
+ * pending parallel-flush race we exist to expose). End-of-build analysis
+ * walks this map and finds paths whose `versions.length > 1` — those are
+ * the collisions.
+ */
+const pathHistory = new Map<string, ClaimVersion[]>();
 const sharedPathDeclarations: SharedPathDeclaration[] = [];
+
+/**
+ * Set of content hashes already dumped to disk. Each unique hash is written
+ * at most once (the dump dir is content-addressed: filename = `${hash}.html`).
+ */
+const dumpedHashes = new Set<string>();
+
+/**
+ * Optional directory where every claim()'d content is dumped to disk for
+ * end-of-build analysis. When `null`, no dump is performed (the default
+ * for unit tests and ad-hoc runs). CI sets it via {@link configureDumpDir}
+ * to enable post-mortem inspection of every version that ever competed for
+ * a colliding path.
+ */
+let dumpContentDir: string | null = null;
+let dumpDirMkdirDone = false;
+
+/** Reference clock for {@link ClaimVersion.timestamp}. Reset by {@link reset}. */
+let buildStartMs = Date.now();
 
 /** Cache the mode so tests can override safely between calls to {@link setModeForTest}. */
 let modeOverride: CollisionMode | null = null;
@@ -132,15 +181,39 @@ function detectCallSite(): string {
   return 'unknown';
 }
 
-function findSharedPathDeclaration(path: string): SharedPathDeclaration | undefined {
+function findSharedPathDeclaration(claimPath: string): SharedPathDeclaration | undefined {
   for (const decl of sharedPathDeclarations) {
     if (typeof decl.pattern === 'string') {
-      if (decl.pattern === path) return decl;
-    } else if (decl.pattern.test(path)) {
+      if (decl.pattern === claimPath) return decl;
+    } else if (decl.pattern.test(claimPath)) {
       return decl;
     }
   }
   return undefined;
+}
+
+/**
+ * Write the given content to `${dumpContentDir}/${contentHash}.html` if dumping
+ * is enabled and we haven't already dumped this hash. Content-addressed naming
+ * deduplicates automatically across plugins/paths.
+ *
+ * Failure modes are silent (mkdir + writeFile may fail in sandboxed
+ * environments); the registry is a diagnostic tool and shouldn't crash the
+ * build over a dump failure. The build's primary I/O is unaffected.
+ */
+function maybeDumpContent(contentHash: string, content: string): void {
+  if (!dumpContentDir) return;
+  if (dumpedHashes.has(contentHash)) return;
+  try {
+    if (!dumpDirMkdirDone) {
+      fs.mkdirSync(dumpContentDir, { recursive: true });
+      dumpDirMkdirDone = true;
+    }
+    fs.writeFileSync(path.join(dumpContentDir, `${contentHash}.html`), content, 'utf-8');
+    dumpedHashes.add(contentHash);
+  } catch {
+    // swallow — diagnostic only
+  }
 }
 
 export class WriteCollisionError extends Error {
@@ -183,45 +256,63 @@ export type ClaimOutcome = 'allow-write' | 'skip-write';
  * @throws {WriteCollisionError} when {@link currentMode} is `'throw'` and the
  *         claim would conflict with an existing non-shared claim.
  */
-export function claim(path: string, plugin: string, content: string): ClaimOutcome {
+export function claim(claimPath: string, plugin: string, content: string): ClaimOutcome {
   const contentHash = hashContent(content);
-  const existing = claims.get(path);
+  const versions = pathHistory.get(claimPath);
+  const newVersion = (): ClaimVersion => ({
+    plugin,
+    callSite: detectCallSite(),
+    contentHash,
+    size: Buffer.byteLength(content, 'utf-8'),
+    timestamp: Date.now() - buildStartMs,
+  });
 
-  if (!existing) {
-    claims.set(path, { plugin, callSite: detectCallSite(), contentHash });
+  if (!versions) {
+    pathHistory.set(claimPath, [newVersion()]);
+    maybeDumpContent(contentHash, content);
     return 'allow-write';
   }
 
-  // Idempotent: same content in any caller is a no-op.
-  if (existing.contentHash === contentHash) {
-    return 'skip-write';
+  // Idempotent: this exact content has already been written for this path
+  // (by ANY plugin, at ANY prior time). Common, harmless, and silent.
+  // We accept "saw this content before" rather than "matches the latest"
+  // because plugin loops sometimes oscillate between equivalent renders.
+  for (let i = 0; i < versions.length; i += 1) {
+    if (versions[i].contentHash === contentHash) {
+      return 'skip-write';
+    }
   }
 
-  // Declared shared path: the named winner overwrites; everyone else stays out.
-  const decl = findSharedPathDeclaration(path);
+  // Declared shared path: the named winner appends a new version (and overwrites
+  // on disk via last-writer-wins); everyone else stays out (skip-write).
+  const decl = findSharedPathDeclaration(claimPath);
   if (decl) {
     if (decl.winner === plugin) {
-      claims.set(path, { plugin, callSite: detectCallSite(), contentHash });
+      versions.push(newVersion());
+      maybeDumpContent(contentHash, content);
       return 'allow-write';
     }
     return 'skip-write';
   }
 
-  // Real collision.
-  const record: CollisionRecord = {
-    path,
-    first: existing,
-    attempted: { plugin, callSite: detectCallSite(), contentHash },
-  };
-  collisions.push(record);
-
+  // Real collision: a new content for an already-claimed path with no shared
+  // declaration. Record the new version so end-of-build analysis can compare
+  // it against prior versions; whether the build aborts depends on mode.
   if (currentMode() === 'throw') {
+    const previous = versions[versions.length - 1];
+    const record: CollisionRecord = {
+      path: claimPath,
+      first: { plugin: previous.plugin, callSite: previous.callSite, contentHash: previous.contentHash },
+      attempted: { plugin, callSite: detectCallSite(), contentHash },
+    };
     throw new WriteCollisionError(record);
   }
 
-  // report mode: keep the build going with last-writer-wins so we surface
-  // ALL collisions at end-of-build, not just the first.
-  claims.set(path, record.attempted);
+  // report mode: append the new version, dump its content for analysis,
+  // and let the parallel flush race normally (last-writer-wins on disk).
+  // We surface every collision at end-of-build, not just the first.
+  versions.push(newVersion());
+  maybeDumpContent(contentHash, content);
   return 'allow-write';
 }
 
@@ -239,23 +330,120 @@ export function declareSharedPath(decl: SharedPathDeclaration): void {
 }
 
 /**
- * Clear all claims and collision records for a fresh build. Does NOT clear
- * shared-path declarations. Called by `writeRegistryLifecyclePlugin` at
- * `buildStart` so watch-mode rebuilds don't carry stale state.
+ * Clear all claim history and dump dedup state for a fresh build. Does NOT
+ * clear shared-path declarations or the configured dump directory — those are
+ * configuration, not state. Called by `writeRegistryLifecyclePlugin` at
+ * `buildStart` so watch-mode rebuilds don't carry stale claims.
  */
 export function reset(): void {
-  claims.clear();
-  collisions.length = 0;
+  pathHistory.clear();
+  dumpedHashes.clear();
+  dumpDirMkdirDone = false;
+  buildStartMs = Date.now();
 }
 
-/** Read-only view of collisions accumulated since the last {@link reset}. */
+/**
+ * Read-only view of every path's full version history. Paths with
+ * `versions.length === 1` had no collision; paths with `>= 2` had collisions
+ * (one record per adjacent pair). End-of-build analysis (analyze-write-
+ * collisions.mjs) iterates this map.
+ */
+export function getPathHistory(): ReadonlyMap<string, readonly ClaimVersion[]> {
+  return pathHistory;
+}
+
+/**
+ * Read-only view of collisions accumulated since the last {@link reset},
+ * derived from {@link pathHistory}. Each adjacent pair of versions for a
+ * path is one collision record.
+ *
+ * Paths covered by a {@link declareSharedPath} declaration are EXCLUDED
+ * from the result: their multi-version history is intentional, not a
+ * collision. Kept for backward compatibility with the legacy console-summary
+ * code path; new analysis should walk {@link getPathHistory} directly and
+ * apply its own filtering.
+ */
 export function getCollisions(): readonly CollisionRecord[] {
-  return collisions;
+  const records: CollisionRecord[] = [];
+  for (const [claimPath, versions] of pathHistory) {
+    if (versions.length < 2) continue;
+    if (findSharedPathDeclaration(claimPath)) continue;
+    for (let i = 1; i < versions.length; i += 1) {
+      const prev = versions[i - 1];
+      const curr = versions[i];
+      records.push({
+        path: claimPath,
+        first: { plugin: prev.plugin, callSite: prev.callSite, contentHash: prev.contentHash },
+        attempted: { plugin: curr.plugin, callSite: curr.callSite, contentHash: curr.contentHash },
+      });
+    }
+  }
+  return records;
 }
 
 /** Read-only view of shared-path declarations active in the current process. */
 export function getSharedPathDeclarations(): readonly SharedPathDeclaration[] {
   return sharedPathDeclarations;
+}
+
+/**
+ * Configure where each unique-by-hash content gets dumped to disk during
+ * `claim()`. Pass `null` to disable dumping (the default — keeps unit tests
+ * and ad-hoc local builds from creating extra files). The lifecycle plugin
+ * sets this from `WRITE_COLLISION_DUMP=1` + the project's dist directory.
+ */
+export function configureDumpDir(dir: string | null): void {
+  dumpContentDir = dir;
+  dumpDirMkdirDone = false;
+}
+
+/** Inspect the dump directory currently configured. Returns `null` when disabled. */
+export function getDumpDir(): string | null {
+  return dumpContentDir;
+}
+
+/**
+ * Walk the dump directory and delete every `<hash>.html` file whose hash is
+ * NOT referenced by a colliding path. After a typical build, this prunes
+ * the dump from "every unique-by-hash content seen during the build"
+ * (potentially gigabytes) down to "only the content of paths that actually
+ * collided" (typically tens of MB). The lifecycle plugin invokes this after
+ * writing the JSON report.
+ */
+export function pruneDumpToCollidingHashes(): { kept: number; removed: number } {
+  if (!dumpContentDir) return { kept: 0, removed: 0 };
+
+  const keepHashes = new Set<string>();
+  for (const [, versions] of pathHistory) {
+    if (versions.length < 2) continue;
+    for (const v of versions) keepHashes.add(v.contentHash);
+  }
+
+  let kept = 0;
+  let removed = 0;
+  let entries: string[] = [];
+  try {
+    entries = fs.readdirSync(dumpContentDir);
+  } catch {
+    return { kept: 0, removed: 0 };
+  }
+
+  for (const entry of entries) {
+    if (!entry.endsWith('.html')) continue;
+    const hash = entry.slice(0, -'.html'.length);
+    if (keepHashes.has(hash)) {
+      kept += 1;
+    } else {
+      try {
+        fs.unlinkSync(path.join(dumpContentDir, entry));
+        removed += 1;
+      } catch {
+        // ignore — diagnostic only
+      }
+    }
+  }
+
+  return { kept, removed };
 }
 
 /** Test-only override for {@link currentMode}. Pass `null` to revert to env. */
