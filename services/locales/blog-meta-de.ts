@@ -4153,6 +4153,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.malpensa-contanti-sequestri-370mila-euro.title': 'Malpensa: 6 Millionen Bargeld in 3 Monaten beschlagnahmt',
     'blog.article.malpensa-contanti-sequestri-370mila-euro.excerpt': 'Kontrollen der Guardia di Finanza und Zollbehörden zeigen Verstöße von über 6 Millionen Euro an nicht deklariertem Bargeld auf.',
     'blog.article.malpensa-contanti-sequestri-370mila-euro.imageAlt': 'Flughafen Malpensa mit Sicherheitskräften und Geldsuchhunden',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.title': 'Grigioni, restrizioni su permessi dopo infiltrazione mafiosa',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.excerpt': 'Nuove regole per i permessi di dimora in Grigioni dopo arresti legati alla camorra e \'ndrangheta a Roveredo',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.imageAlt': 'Castelgrande in Bellinzona, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

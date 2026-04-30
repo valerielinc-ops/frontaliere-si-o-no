@@ -4153,6 +4153,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.malpensa-contanti-sequestri-370mila-euro.title': 'Malpensa: €6m in cash seized in 3 months',
     'blog.article.malpensa-contanti-sequestri-370mila-euro.excerpt': 'Finance Police and Customs checks reveal violations for over €6 million in undeclared cash.',
     'blog.article.malpensa-contanti-sequestri-370mila-euro.imageAlt': 'Malpensa Airport with security personnel and cash detection dogs',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.title': 'Grisons tighten permits after mafia infiltration',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.excerpt': 'New rules for residence permits in Grisons after arrests linked to the Camorra and \'Ndrangheta in Roveredo',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.imageAlt': 'Castelgrande in Bellinzona, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

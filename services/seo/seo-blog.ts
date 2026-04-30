@@ -27125,6 +27125,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-stretta-permessi-mafia-roveredo': {
+    title: 'Grigioni, stretta sui permessi dopo infiltrazione mafiosa',
+    description: 'Nuove regole per i permessi di dimora in Grigioni dopo arresti legati alla camorra e \'ndrangheta a Roveredo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, stretta, permessi, dopo',
+    ogTitle: 'Grigioni, stretta sui permessi dopo infiltrazione mafiosa',
+    ogDescription: 'Nuove regole per i permessi di dimora in Grigioni dopo arresti legati alla camorra e \'ndrangheta a Roveredo',
+    canonicalPath: '/articoli-frontaliere/grigioni-stretta-permessi-mafia-roveredo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni, stretta sui permessi dopo infiltrazione mafiosa",
+      "description": "Nuove regole per i permessi di dimora in Grigioni dopo arresti legati alla camorra e 'ndrangheta a Roveredo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/grigioni-stretta-permessi-mafia-roveredo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino, Svizzera"
+      },
+      "datePublished": "2026-04-30T05:13:23+00:00",
+      "dateModified": "2026-04-30T05:13:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grigioni-stretta-permessi-mafia-roveredo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

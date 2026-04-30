@@ -4154,6 +4154,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.malpensa-contanti-sequestri-370mila-euro.title': 'Malpensa: 6 millions en espèces saisies en 3 mois',
     'blog.article.malpensa-contanti-sequestri-370mila-euro.excerpt': 'Les contrôles de la Garde financière et des douanes révèlent des violations pour plus de 6 millions d\'euros en espèces non déclarées.',
     'blog.article.malpensa-contanti-sequestri-370mila-euro.imageAlt': 'Aéroport de Malpensa avec personnel de sécurité et chiens détecteurs de billets',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.title': 'Grisons, restrictions sur les permis après infiltration mafieuse',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.excerpt': 'Nouvelles règles pour les permis de séjour dans les Grisons après des arrestations liées à la camorra et à la \'ndrangheta à Roveredo',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.imageAlt': 'Castelgrande à Bellinzone, Tessin, Suisse',
 };
 
 export default blogMetaFr;

@@ -10703,4 +10703,11 @@ export const ARTICLES = [
  image: '/images/blog/malpensa-contanti-sequestri-370mila-euro.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'grigioni-stretta-permessi-mafia-roveredo',
+ category: 'novita',
+ date: '2026-04-30T05:13:23.804Z',
+ image: '/images/blog/grigioni-stretta-permessi-mafia-roveredo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

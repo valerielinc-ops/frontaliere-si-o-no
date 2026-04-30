@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1434,
+ "numberOfItems": 1435,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6069,7 +6069,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1431, "name": "Moda sostenibile e storie di rinascita a Varese", "url": `${BASE_URL}/articoli-frontaliere/moda-sostenibile-varese-2026` },
           { "@type": "ListItem", "position": 1432, "name": "Sciopero della fame a Varese: la battaglia di T...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-fame-timoc-terreno-conteso` },
           { "@type": "ListItem", "position": 1433, "name": "Ispra: successo al secondo pranzo solidale in o...", "url": `${BASE_URL}/articoli-frontaliere/ispra-pranzo-solidale-oratorio-2026` },
-          { "@type": "ListItem", "position": 1434, "name": "Malpensa: 6 milioni in contanti sequestrati in ...", "url": `${BASE_URL}/articoli-frontaliere/malpensa-contanti-sequestri-370mila-euro` }
+          { "@type": "ListItem", "position": 1434, "name": "Malpensa: 6 milioni in contanti sequestrati in ...", "url": `${BASE_URL}/articoli-frontaliere/malpensa-contanti-sequestri-370mila-euro` },
+          { "@type": "ListItem", "position": 1435, "name": "Grigioni, stretta sui permessi dopo infiltrazio...", "url": `${BASE_URL}/articoli-frontaliere/grigioni-stretta-permessi-mafia-roveredo` }
  ]
  },
  {

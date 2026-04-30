@@ -4154,6 +4154,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.malpensa-contanti-sequestri-370mila-euro.title': 'Malpensa: 6 milioni in contanti sequestrati in 3 mesi',
     'blog.article.malpensa-contanti-sequestri-370mila-euro.excerpt': 'Controlli della Guardia di Finanza e Dogane rivelano violazioni per oltre 6 milioni di euro in contanti non dichiarati.',
     'blog.article.malpensa-contanti-sequestri-370mila-euro.imageAlt': 'Aeroporto di Malpensa con personale delle forze dell\'ordine e cani anti-contanti',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.title': 'Grigioni, stretta sui permessi dopo infiltrazione mafiosa',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.excerpt': 'Nuove regole per i permessi di dimora in Grigioni dopo arresti legati alla camorra e \'ndrangheta a Roveredo',
+    'blog.article.grigioni-stretta-permessi-mafia-roveredo.imageAlt': 'Castelgrande a Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;
