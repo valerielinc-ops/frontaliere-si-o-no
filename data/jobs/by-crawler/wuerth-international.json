@@ -1,6 +1,6 @@
 {
   "crawlerKey": "wuerth-international",
-  "assembledAt": "2026-04-30T11:43:56.041Z",
+  "assembledAt": "2026-04-30T22:45:18.551Z",
   "jobs": [
     {
       "id": "wuerth-international-c6a8efa5a3f3",
@@ -47,7 +47,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_Steuerexperte.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:43:53.736Z",
+      "crawledAt": "2026-04-30T22:45:16.391Z",
       "requirementsByLocale": {
         "it": [
           "Laurea triennale o magistrale in diritto tributario (nazionale/internazionale)",
@@ -89,6 +89,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:48.734Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "currency": "CHF",
@@ -148,7 +149,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular-Praktikum-Empfang.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T11:43:53.309Z",
+      "crawledAt": "2026-04-30T22:45:15.959Z",
       "previousSlugsByLocale": {
         "de": [
           "berufspraktikum-empfang-a-wuerth-international-chur"
@@ -192,6 +193,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:48.270Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
