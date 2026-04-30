@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-04-30T10:44:49.271Z",
+  "assembledAt": "2026-04-30T21:46:18.940Z",
   "jobs": [
     {
       "id": "fhgr-7309b549f3fa",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T10:44:46.910Z",
+      "crawledAt": "2026-04-30T21:46:16.270Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -94,6 +94,7 @@
         "lehrstelle-architekturmodellbauer-in-efz-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:28.055Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -138,7 +139,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/772/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T10:44:46.056Z",
+      "crawledAt": "2026-04-30T21:46:15.353Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -196,6 +197,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:32:27.193Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -240,7 +242,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T10:44:45.171Z",
+      "crawledAt": "2026-04-30T21:46:14.419Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -298,6 +300,7 @@
         "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -342,7 +345,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/774/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T10:44:44.270Z",
+      "crawledAt": "2026-04-30T21:46:13.484Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -403,6 +406,7 @@
         "studienleiter-in-business-administration-studienrichtung-new-business-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:24.670Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -447,7 +451,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/784/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T10:44:43.326Z",
+      "crawledAt": "2026-04-30T21:46:12.440Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -528,7 +532,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/783/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T10:44:42.362Z",
+      "crawledAt": "2026-04-30T21:46:11.401Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -565,6 +569,7 @@
         "lehrstelle-als-kauffrau-kaufmann-efz-fachhochschule-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:04:05.014Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -582,9 +587,9 @@
       "id": "fhgr-7a6e6ef260e9",
       "slug": "personale-scientifico-progetto-fachhochschule-graubunden-chur",
       "slugByLocale": {
-        "de": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
         "it": "personale-scientifico-progetto-fachhochschule-graubunden-chur",
         "en": "scientific-in-project-staff-fachhochschule-graubunden-chur",
+        "de": "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
         "fr": "personnel-scientifique-en-projet-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
@@ -592,16 +597,16 @@
       "companyDomain": "fhgr.ch",
       "title": "Wissenschaftliche/-n Projektmitarbeiter/-in",
       "titleByLocale": {
-        "de": "Wissenschaftliche/-n Projektmitarbeiter/-in",
         "it": "Personale scientifico/progetto",
         "en": "Scientific/in project staff",
+        "de": "Wissenschaftliche/-n Projektmitarbeiter/-in",
         "fr": "Personnel scientifique/en projet"
       },
       "description": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Unterstützung unseres Teams am Institut für Tourismus und Freizeit (ITF) suchen wir per sofort oder nach Vereinbarung eine/n | Als Teil unseres Teams arbeiten Sie an Projekten in unseren Forschungsfeldern Digitale Transformation im Tourismus , Touristische Lebensräume und Tourismus- und Freizeitinfrastrukturen . Gemeinsam mit touristischen Leistungsträgern entwickeln und realisieren Sie praxisnahe Lösungen im Rahmen von angewandten Forschungs- und Dienstleistungsprojekten. Zusätzlich wirken Sie im Bachelorstudiengang «Tourismus» mit. Sie unterstützen die Studienleitung bei Aufgaben rund um den Studiengang und erhalten Einblicke in die Lehrtätigkeit. | Ihr Profil • Abgeschlossenes Bachelorstudium in Tourismus oder einem verwandten Bereich, vorzugsweise mit Berufserfahrung • Erste Erfahrung in der Teilprojektleitung und Projektkoordination • Digitale Kompetenz und sicherer Umgang mit digitalen Plattformen • Freude an der Zusammenarbeit mit verschiedenen Stakeholdern und in interdisziplinären Teams • Sehr gute Deutsch- und Englischkenntnisse | Wir begeistern Sie mit • einem dynamischen Arbeitsumfeld in einem engagierten Team mit einer offenen und persönlichen Atmosphäre • vielfältigen und herausfordernden Aufgaben in einem abwechslungsreichen Arbeitsumfeld • Raum für Eigeninitiative und die Möglichkeit, die Entwicklung des Instituts aktiv mitzugestalten • jährlich drei Wochen Zeitguthaben für die persönliche Weiterbildung • der Möglichkeit, berufsbegleitend Weiterbildungen zu verfolgen (bspw. «Master of Science in Business Administration» an der FHGR) • Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
       "descriptionByLocale": {
-        "de": "## Descrizione\nAls Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Unterstützung unseres Teams am Institut für Tourismus und Freizeit (ITF) suchen wir per sofort oder nach Vereinbarung eine/n\n\n## Mansioni\n- Als Teil unseres Teams arbeiten Sie an Projekten in unseren Forschungsfeldern Digitale Transformation im Tourismus, Touristische Lebensräume und Tourismus- und Freizeitinfrastrukturen\n- Gemeinsam mit touristischen Leistungsträgern entwickeln und realisieren Sie praxisnahe Lösungen im Rahmen von angewandten Forschungs- und Dienstleistungsprojekten\n- Zusätzlich wirken Sie im Bachelorstudiengang «Tourismus» mit\n- Sie unterstützen die Studienleitung bei Aufgaben rund um den Studiengang und erhalten Einblicke in die Lehrtätigkeit\n\n## Requisiti\n- Abgeschlossenes Bachelorstudium in Tourismus oder einem verwandten Bereich, vorzugsweise mit Berufserfahrung\n- Erste Erfahrung in der Teilprojektleitung und Projektkoordination\n- Digitale Kompetenz und sicherer Umgang mit digitalen Plattformen\n- Freude an der Zusammenarbeit mit verschiedenen Stakeholdern und in interdisziplinären Teams\n- Sehr gute Deutsch- und Englischkenntnisse\n\n## Cosa offriamo\n- einem dynamischen Arbeitsumfeld in einem engagierten Team mit einer offenen und persönlichen Atmosphäre\n- vielfältigen und herausfordernden Aufgaben in einem abwechslungsreichen Arbeitsumfeld\n- Raum für Eigeninitiative und die Möglichkeit, die Entwicklung des Instituts aktiv mitzugestalten\n- jährlich drei Wochen Zeitguthaben für die persönliche Weiterbildung\n- der Möglichkeit, berufsbegleitend Weiterbildungen zu verfolgen (bspw. «Master of Science in Business Administration» an der FHGR)\n- Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
         "it": "Descrizione Come università, l'UAS Graubünden si concentra sul pensiero dinamico e sull'azione proattiva. Gli oltre 2400 studenti che frequentano la scuola e la formazione si trasformano in personalità responsabili. Nella nostra ricerca inter e transdisciplinare, ci concentriamo sui temi delle tecnologie future applicate, dello sviluppo della regione alpina e dell'azione imprenditoriale. Come datore di lavoro, promuoviamo le pari opportunità e la diversità. Per supportare il nostro team presso l'Istituto del Turismo e del Tempo Libero (ITF), stiamo cercando un ## Mansioni - Come parte del nostro team, lavorerai su progetti nei nostri campi di ricerca della Trasformazione Digitale nel Turismo, Insieme ai fornitori di servizi turistici, svilupperai e implementerai soluzioni pratiche nell'ambito di progetti di ricerca applicata e di servizio - Sarai anche coinvolto nel programma di laurea triennale \"Turismo\" - Supporterai il responsabile degli studi con compiti relativi al programma e otterrai approfondimenti sulle attività didattiche ## Requisiti - Laurea triennale in turismo o in un settore correlato, preferibilmente con esperienza professionale - Esperienza iniziale nella gestione di sottoprogetti e nel coordinamento di progetti - Competenza digitale e sicurezza nel lavoro con le piattaforme digitali - Piacere di lavorare con vari stakeholder e in team interdisciplinari - Ottima conoscenza del tedesco e dell'inglese ## Cosa offriamo - Un ambiente di lavoro dinamico in un team impegnato con un'atmosfera aperta e personale - Compiti diversi e stimolanti in un ambiente di lavoro vario - Spazio per l'iniziativa e l'opportunità di contribuire attivamente allo sviluppo dell'istituto, tre settimane di credito di tempo all'anno per lo sviluppo personale - l'opportunità di seguire un'ulteriore formazione mentre si lavora (ad es. \"Master of Science in Business Administration\") \"Master of Science in Business Administration\" presso la FHGR) - condizioni di lavoro moderne e un'ampia gamma di attività sportive e culturali",
         "en": "Descrizione As a university, the UAS Graubünden focuses on dynamic thinking and proactive action. We develop our more than 2400 students in education and training into responsible personalities. In our inter- and transdisciplinary research, we focus on the topics of applied future technologies, development in the Alpine region and entrepreneurial action. As an employer, we promote equal opportunities and diversity. To support our team at the Institute of Tourism and Leisure (ITF), we are looking for a ## Mansioni - As part of our team, you will work on projects in our research fields of Digital Transformation in Tourism, Tourism Living Spaces and Tourism and Leisure Infrastructures - Together with tourism service providers, you will develop and implement practical solutions as part of applied research and service projects - You will also be involved in the Bachelor's degree program \"Tourism\" - You will support the head of studies with tasks related to the program and gain insights into teaching activities ## Requisiti - Completed Bachelor's degree in tourism or a related field, Preferably with professional experience - First experience in sub-project management and project coordination - Digital competence and confident handling of digital platforms - Enjoy working with various stakeholders and in interdisciplinary teams - Very good German and English skills ## Cosa offriamo - A dynamic working environment in a committed team with an open and personal atmosphere - Diverse and challenging tasks in a varied working environment - Room for initiative and the opportunity to actively contribute to the development of the institute, actively shape the development of the institute - three weeks of time credit per year for personal development - the opportunity to pursue further training while working (e.g. \"Master of Science in Business Administration\") \"Master of Science in Business Administration\" at the FHGR) - Modern employment conditions and many sports and cultural activities",
+        "de": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Unterstützung unseres Teams am Institut für Tourismus und Freizeit (ITF) suchen wir per sofort oder nach Vereinbarung eine/n | Als Teil unseres Teams arbeiten Sie an Projekten in unseren Forschungsfeldern Digitale Transformation im Tourismus , Touristische Lebensräume und Tourismus- und Freizeitinfrastrukturen . Gemeinsam mit touristischen Leistungsträgern entwickeln und realisieren Sie praxisnahe Lösungen im Rahmen von angewandten Forschungs- und Dienstleistungsprojekten. Zusätzlich wirken Sie im Bachelorstudiengang «Tourismus» mit. Sie unterstützen die Studienleitung bei Aufgaben rund um den Studiengang und erhalten Einblicke in die Lehrtätigkeit. | Ihr Profil • Abgeschlossenes Bachelorstudium in Tourismus oder einem verwandten Bereich, vorzugsweise mit Berufserfahrung • Erste Erfahrung in der Teilprojektleitung und Projektkoordination • Digitale Kompetenz und sicherer Umgang mit digitalen Plattformen • Freude an der Zusammenarbeit mit verschiedenen Stakeholdern und in interdisziplinären Teams • Sehr gute Deutsch- und Englischkenntnisse | Wir begeistern Sie mit • einem dynamischen Arbeitsumfeld in einem engagierten Team mit einer offenen und persönlichen Atmosphäre • vielfältigen und herausfordernden Aufgaben in einem abwechslungsreichen Arbeitsumfeld • Raum für Eigeninitiative und die Möglichkeit, die Entwicklung des Instituts aktiv mitzugestalten • jährlich drei Wochen Zeitguthaben für die persönliche Weiterbildung • der Möglichkeit, berufsbegleitend Weiterbildungen zu verfolgen (bspw. «Master of Science in Business Administration» an der FHGR) • Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
         "fr": "Descrizione En tant que haute école, la FH Graubünden mise sur une pensée dynamique et une action proactive. Nous développons nos plus de 2400 étudiants en formation initiale et continue pour en faire des personnalités responsables. Dans notre recherche inter- et transdisciplinaire, nous nous concentrons sur les thèmes des technologies d'avenir appliquées, du développement dans l'espace alpin et de l'action entrepreneuriale. En tant qu'employeur, nous encourageons l'égalité des chances et la diversité. Pour soutenir notre équipe à l'Institut du tourisme et des loisirs (ITF), nous recherchons de suite ou à convenir un/e ## Mansioni - Au sein de notre équipe, vous travaillerez sur des projets dans nos champs de recherche Transformation numérique dans le tourisme, Espaces de vie touristiques et Infrastructures de tourisme et de loisirs - En collaboration avec des prestataires touristiques, vous développez et réalisez des solutions pratiques dans le cadre de projets de recherche appliquée et de prestations de services - De plus, vous participez au cursus de bachelor \"Tourisme\" - Vous assistez la direction des études dans les tâches liées au cursus et obtenez un aperçu de l'activité d'enseignement ## Requisiti - Diplôme de bachelor en tourisme ou dans un domaine apparenté, de préférence avec expérience professionnelle - Première expérience dans la direction de projets partiels et la coordination de projets - Compétence numérique et aisance dans l'utilisation de plateformes numériques - Goût pour la collaboration avec différentes parties prenantes et au sein d'équipes interdisciplinaires - Très bonnes connaissances de l'allemand et de l'anglais ## Cosa offriamo - un environnement de travail dynamique au sein d'une équipe engagée avec une atmosphère ouverte et personnelle - des tâches variées et stimulantes dans un environnement de travail diversifié - de la place pour l'initiative personnelle et la possibilité, de participer activement au développement de l'institut - trois semaines de crédit-temps par an pour la formation continue personnelle - la possibilité de suivre des formations continues en cours d'emploi (p. ex. \"des conditions d'emploi modernes et de nombreuses activités sportives et culturelles."
       },
       "location": "Chur",
@@ -609,7 +614,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/785/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T10:44:41.397Z",
+      "crawledAt": "2026-04-30T21:46:10.347Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -624,18 +629,16 @@
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/785/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Institut für Tourismus und Freizeit (ITF)",
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
+        "de": [
+          "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch"
+        ],
         "it": [
           "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
           "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
-        ],
-        "de": [
-          "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch"
         ],
         "en": [
           "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
@@ -648,6 +651,7 @@
         "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
         "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
       ],
+      "firstSeenAt": "2026-04-30T10:44:41.397Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -659,8 +663,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-30T10:44:41.397Z"
+      }
     }
   ]
 }
