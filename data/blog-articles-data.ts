@@ -11383,4 +11383,11 @@ export const ARTICLES = [
  image: '/images/blog/migranti-pasture-progetto-congelato.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ricavi-alberghi-ticino-2025-crescita',
+ category: 'novita',
+ date: '2026-04-30T20:31:59.663Z',
+ image: '/images/blog/ricavi-alberghi-ticino-2025-crescita.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

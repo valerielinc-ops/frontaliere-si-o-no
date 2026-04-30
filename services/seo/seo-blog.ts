@@ -29938,6 +29938,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricavi-alberghi-ticino-2025-crescita': {
+    title: 'Ricavi alberghi Ticino 2025: +3,9% a 6,2 miliardi | Frontaliere Ticino',
+    description: 'Il settore alberghiero svizzero ha registrato un aumento del 3,9% nel 2025, con picchi del 6,3% negli hotel a 5 stelle. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricavi, alberghi, 2025, miliardi',
+    ogTitle: 'Ricavi alberghi Ticino 2025: +3,9% a 6,2 miliardi',
+    ogDescription: 'Il settore alberghiero svizzero ha registrato un aumento del 3,9% nel 2025, con picchi del 6,3% negli hotel a 5 stelle.',
+    canonicalPath: '/articoli-frontaliere/ricavi-alberghi-ticino-2025-crescita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricavi alberghi Ticino 2025: +3,9% a 6,2 miliardi",
+      "description": "Il settore alberghiero svizzero ha registrato un aumento del 3,9% nel 2025, con picchi del 6,3% negli hotel a 5 stelle. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ricavi-alberghi-ticino-2025-crescita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con alberghi e montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-30T20:31:59+00:00",
+      "dateModified": "2026-04-30T20:31:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ricavi-alberghi-ticino-2025-crescita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

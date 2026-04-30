@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1531,
+ "numberOfItems": 1532,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6166,7 +6166,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1528, "name": "FFS e Siemens: 116 nuovi treni per il Ticino", "url": `${BASE_URL}/articoli-frontaliere/ffs-siemens-116-treni-suburbani-ticino-2026` },
           { "@type": "ListItem", "position": 1529, "name": "Chiusure notturne uscita Melide autostrada A2", "url": `${BASE_URL}/articoli-frontaliere/chiusure-melide-autostrada-2026` },
           { "@type": "ListItem", "position": 1530, "name": "Webuild: CSC Costruzioni avvia lavori per rinno...", "url": `${BASE_URL}/articoli-frontaliere/webuild-csc-rinnovo-sede-onu-ginevra` },
-          { "@type": "ListItem", "position": 1531, "name": "Migranti problematici a Pasture: progetto conge...", "url": `${BASE_URL}/articoli-frontaliere/migranti-pasture-progetto-congelato` }
+          { "@type": "ListItem", "position": 1531, "name": "Migranti problematici a Pasture: progetto conge...", "url": `${BASE_URL}/articoli-frontaliere/migranti-pasture-progetto-congelato` },
+          { "@type": "ListItem", "position": 1532, "name": "Ricavi alberghi Ticino 2025: +3,9% a 6,2 miliardi", "url": `${BASE_URL}/articoli-frontaliere/ricavi-alberghi-ticino-2025-crescita` }
  ]
  },
  {

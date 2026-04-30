@@ -4445,6 +4445,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.migranti-pasture-progetto-congelato.title': 'Migranti problematici a Pasture: progetto congelato',
     'blog.article.migranti-pasture-progetto-congelato.excerpt': 'Il progetto per una sezione di richiedenti asilo problematici a Pasture è stato congelato. La Confederazione punta a creare centri speciali.',
     'blog.article.migranti-pasture-progetto-congelato.imageAlt': 'Incontro ufficiale su politiche migratorie in Ticino',
+    'blog.article.ricavi-alberghi-ticino-2025-crescita.title': 'Ricavi alberghi Ticino 2025: +3,9% a 6,2 miliardi',
+    'blog.article.ricavi-alberghi-ticino-2025-crescita.excerpt': 'Il settore alberghiero svizzero ha registrato un aumento del 3,9% nel 2025, con picchi del 6,3% negli hotel a 5 stelle.',
+    'blog.article.ricavi-alberghi-ticino-2025-crescita.imageAlt': 'Vista del Lago di Lugano con alberghi e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -4444,6 +4444,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.migranti-pasture-progetto-congelato.title': 'Troubled asylum seekers project frozen in Pasture',
     'blog.article.migranti-pasture-progetto-congelato.excerpt': 'The project for a section of problematic asylum seekers in Pasture has been frozen. The Confederation aims to create special centers.',
     'blog.article.migranti-pasture-progetto-congelato.imageAlt': 'Official meeting on migration policies in Ticino',
+    'blog.article.ricavi-alberghi-ticino-2025-crescita.title': 'Ticino hotels revenue 2025: +3.9% to 6.2 billion',
+    'blog.article.ricavi-alberghi-ticino-2025-crescita.excerpt': 'Swiss hospitality sector saw a 3.9% rise in 2025, with 5-star hotels peaking at 6.3%.',
+    'blog.article.ricavi-alberghi-ticino-2025-crescita.imageAlt': 'View of Lake Lugano with hotels and mountains in the background',
 };
 
 export default blogMetaEn;
