@@ -55,7 +55,11 @@ on:
         default: '4'
 
 permissions:
-  contents: read
+  # contents: write so the "Sync previous-slug winners registry" step can
+  # commit data/previous-slug-winners.json back to main after the build
+  # populates it. The same pattern is used by every other data-refresh
+  # workflow in the repo (refresh-keyword-config.yml etc).
+  contents: write
   pages: write
   id-token: write
 
@@ -382,7 +386,7 @@ jobs:
       #                            explicit approval (CLAUDE.md non-negotiable #5).
       - name: Post-build validations + SEO audits + SPA render + E2E (capped parallel)
         run: |
-          # IMPORTANT: 19 fully-parallel Node processes on the 2-core ubuntu
+          # IMPORTANT: 16 fully-parallel Node processes on the 2-core ubuntu
           # runner thrashed catastrophically — sum(per-task wall) ≈ step wall
           # (566 s ≈ 567 s, run #25108605667). The CPU spent more time
           # context-switching than actually executing audits. Theoretical
@@ -434,16 +438,20 @@ jobs:
           # tail-latency adding ~40s wall (run 25131629748: gate at the end
           # of spawn order made wall 279s vs expected ~240s).
           spawn_capped gate:seo-source              /tmp/gate.log npm run gate:seo-source
-          spawn_capped audit:text-html-ratio        /tmp/g5.log npm run audit:text-html-ratio
+          # Consolidated dist-walker: one walk + one read per HTML page runs
+          # text-html-ratio + title-length + h1-title-duplicates +
+          # content-duplicates in pipeline. Replaces 4 separate spawn_capped
+          # calls (g5/g6/g7/g3) that each re-read all of dist/ end-to-end
+          # (~6.7 GB, ~374K files). Output is semantically identical to the
+          # 4 originals; baselines in data/{text-html-ratio,title-length,
+          # h1-title-duplicates}-baseline.json are unchanged.
+          spawn_capped audit:dist-multi             /tmp/g5.log npm run audit:dist-multi
           spawn_capped validate:jobposting-schema   /tmp/v1.log npm run validate:jobposting-schema
           # Group C — SPA render validation (5 min internal budget)
           spawn_capped validate:spa-render          /tmp/spa.log timeout 300 node scripts/validate-spa-render.mjs
           spawn_capped audit:page-weight            /tmp/g4.log npm run audit:page-weight
-          spawn_capped audit:h1-title-duplicates    /tmp/g6.log npm run audit:h1-title-duplicates
-          spawn_capped audit:title-length           /tmp/g7.log npm run audit:title-length
           # Group D — E2E smoke (3 min internal budget)
           spawn_capped test:e2e:smoke               /tmp/e2e.log timeout 180 npx playwright test
-          spawn_capped audit:content-duplicates     /tmp/g3.log npm run audit:content-duplicates
           # Gate — orphaned pages in sitemaps (BFS reachability from homepage;
           # ratchet baseline in data/orphan-pages-baseline.json). Improvements
           # accepted silently; any sitemap whose orphan count goes UP fails.
@@ -482,7 +490,7 @@ jobs:
           fi
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 19 post-build validators+audits+SPA+E2E+gate passed"
+          echo "✅ All 16 post-build validators+audits+SPA+E2E+gate passed"
 
       # Visual regression baselines are OS-sensitive (darwin vs linux pixel
       # diffs). We run them only when a linux-specific baseline has been
@@ -549,12 +557,24 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/previous-slug-winners.json
           git commit -m "chore(seo): sync previous-slug winners registry"
+          # Stash everything else (dist artifacts + any other tracked files
+          # the build mutated) so a rebase-on-conflict has a clean working
+          # tree. The git-push-with-retry helper does `git pull --rebase`
+          # internally, which refuses to run on a dirty tree. We restore
+          # the stash AFTER push so subsequent steps (Audit SPA bundle,
+          # Upload artifact for GitHub Pages) still see dist/.
+          # --keep-index preserves our staged commit; --include-untracked
+          # also stashes dist/, which is gitignored but still confuses
+          # rebase if any file inside it is somehow tracked.
+          git stash push --keep-index --include-untracked -m "deploy-build-tree" || true
           # The registry is owned exclusively by jobsSeoPagesPlugin's
           # closeBundle. No other workflow writes data/previous-slug-winners.json,
           # so a rebase onto a newer main is always safe (no conflict possible
           # on this file). The retry helper covers the case where main moved
           # for unrelated reasons during the build.
           bash scripts/lib/git-push-with-retry.sh
+          # Restore the stash so subsequent deploy steps see dist/.
+          git stash pop || true
 
       - name: Audit SPA bundle injection (block broken deploys at the source)
         # Verifies every per-slug `dist/<path>/index.html` contains the SPA
