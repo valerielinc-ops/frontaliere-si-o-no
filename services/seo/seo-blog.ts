@@ -29358,6 +29358,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-viabilita-camion-travedona-2026': {
+    title: 'Viabilità sperimentale per camion intorno a Travedona dal 5 maggio',
+    description: 'Dal 5 maggio 2026 nuova viabilità sperimentale per camion in 6 comuni del Varese, con un anello a senso unico per migliorare la sicurezza e la fluidità del',
+    keywords: 'frontalieri, ticino, svizzera, italia, viabilità, sperimentale, camion, intorno',
+    ogTitle: 'Viabilità sperimentale per camion intorno a Travedona dal 5 maggio',
+    ogDescription: 'Dal 5 maggio 2026 nuova viabilità sperimentale per camion in 6 comuni del Varese, con un anello a senso unico per migliorare la sicurezza e la fluidità del',
+    canonicalPath: '/articoli-frontaliere/viabilita-camion-travedona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Viabilità sperimentale per camion intorno a Travedona dal 5 maggio",
+      "description": "Dal 5 maggio 2026 nuova viabilità sperimentale per camion in 6 comuni del Varese, con un anello a senso unico per migliorare la sicurezza e la fluidità del",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/viabilita-camion-travedona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Travedona Monate con il Lago di Varese e la nuova viabilità per camion"
+      },
+      "datePublished": "2026-04-30T17:10:28+00:00",
+      "dateModified": "2026-04-30T17:10:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/viabilita-camion-travedona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

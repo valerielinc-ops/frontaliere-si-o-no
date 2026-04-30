@@ -4384,6 +4384,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.perequazione-ticino-frontalieri-2026.title': 'Finanzausgleich: Ticino benachteiligt durch Grenzgänger',
     'blog.article.perequazione-ticino-frontalieri-2026.excerpt': 'Berna hält den Tessin für reicher, als er tatsächlich ist, was die Bundesgelder beeinflusst. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.perequazione-ticino-frontalieri-2026.imageAlt': 'Panoramablick auf Bellinzona mit der Burg und dem Fluss',
+    'blog.article.viabilita-camion-travedona-2026.title': 'Neue LKW-Route ab 5. Mai um Travedona',
+    'blog.article.viabilita-camion-travedona-2026.excerpt': 'Ab dem 5. Mai 2026 neue LKW-Route in 6 Gemeinden im Varese, mit einem Einbahnkreis für mehr Sicherheit und flüssigen Verkehr',
+    'blog.article.viabilita-camion-travedona-2026.imageAlt': 'Luftaufnahme von Travedona Monate mit dem Varese-See und der neuen LKW-Route',
 };
 
 export default blogMetaDe;

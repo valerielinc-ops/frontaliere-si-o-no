@@ -4385,6 +4385,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.perequazione-ticino-frontalieri-2026.title': 'Égalisation financière: le Tessin désavantagé pour les frontaliers',
     'blog.article.perequazione-ticino-frontalieri-2026.excerpt': 'Berne considère le Tessin plus riche qu\'il ne l\'est réellement, influençant les fonds fédéraux. Voici ce qui change pour les frontaliers.',
     'blog.article.perequazione-ticino-frontalieri-2026.imageAlt': 'Panorama de Bellinzone avec le château et la rivière',
+    'blog.article.viabilita-camion-travedona-2026.title': 'Nouvelle circulation pour camions près de Travedona à partir du 5 mai',
+    'blog.article.viabilita-camion-travedona-2026.excerpt': 'À partir du 5 mai 2026, nouvelle circulation pour camions dans 6 communes du Varèse, avec un anneau à sens unique pour améliorer la sécurité et la fluidité du trafic',
+    'blog.article.viabilita-camion-travedona-2026.imageAlt': 'Vue aérienne de Travedona Monate avec le lac de Varese et la nouvelle route pour camions',
 };
 
 export default blogMetaFr;

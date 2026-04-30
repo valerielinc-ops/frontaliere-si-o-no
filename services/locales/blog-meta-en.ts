@@ -4384,6 +4384,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.perequazione-ticino-frontalieri-2026.title': 'Financial equalisation: Ticino disadvantaged for cross-border workers',
     'blog.article.perequazione-ticino-frontalieri-2026.excerpt': 'Bern considers Ticino richer than it actually is, affecting federal funds. Here\'s what changes for cross-border workers.',
     'blog.article.perequazione-ticino-frontalieri-2026.imageAlt': 'Panorama of Bellinzona with the castle and the river',
+    'blog.article.viabilita-camion-travedona-2026.title': 'Experimental truck route around Travedona from May 5th',
+    'blog.article.viabilita-camion-travedona-2026.excerpt': 'From May 5th, 2026, new truck routes in 6 Varese municipalities, with a one-way loop to improve safety and traffic flow',
+    'blog.article.viabilita-camion-travedona-2026.imageAlt': 'Aerial view of Travedona Monate with Lake Varese and the new truck route',
 };
 
 export default blogMetaEn;

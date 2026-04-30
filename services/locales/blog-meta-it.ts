@@ -4385,6 +4385,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.perequazione-ticino-frontalieri-2026.title': 'Perequazione finanziaria: Ticino svantaggiato per i frontalieri',
     'blog.article.perequazione-ticino-frontalieri-2026.excerpt': 'Berna considera il Ticino più ricco di quanto sia realmente, influenzando i fondi federali. Ecco cosa cambia per i frontalieri.',
     'blog.article.perequazione-ticino-frontalieri-2026.imageAlt': 'Panorama di Bellinzona con il castello e il fiume',
+    'blog.article.viabilita-camion-travedona-2026.title': 'Viabilità sperimentale per camion intorno a Travedona dal 5 maggio',
+    'blog.article.viabilita-camion-travedona-2026.excerpt': 'Dal 5 maggio 2026 nuova viabilità per camion in 6 comuni del Varese, con un anello a senso unico per migliorare la sicurezza e la fluidità del traffico',
+    'blog.article.viabilita-camion-travedona-2026.imageAlt': 'Vista aerea di Travedona Monate con il Lago di Varese e la nuova viabilità per camion',
 };
 
 export default blogMetaIt;

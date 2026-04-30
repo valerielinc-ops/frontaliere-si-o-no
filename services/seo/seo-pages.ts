@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1511,
+ "numberOfItems": 1512,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6146,7 +6146,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1508, "name": "Ultimo giorno utile per salire sul Säntis in fu...", "url": `${BASE_URL}/articoli-frontaliere/ultimo-giorno-funivia-santis-2026` },
           { "@type": "ListItem", "position": 1509, "name": "Primo Maggio a Varese, le ACLI: “Il lavoro dign...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-varese-acli-lavoro-dignitoso` },
           { "@type": "ListItem", "position": 1510, "name": "Crans-Montana: consultori al lavoro su 700 dossier", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-700-dossier-consultori` },
-          { "@type": "ListItem", "position": 1511, "name": "Perequazione finanziaria: Ticino svantaggiato p...", "url": `${BASE_URL}/articoli-frontaliere/perequazione-ticino-frontalieri-2026` }
+          { "@type": "ListItem", "position": 1511, "name": "Perequazione finanziaria: Ticino svantaggiato p...", "url": `${BASE_URL}/articoli-frontaliere/perequazione-ticino-frontalieri-2026` },
+          { "@type": "ListItem", "position": 1512, "name": "Viabilità sperimentale per camion intorno a Tra...", "url": `${BASE_URL}/articoli-frontaliere/viabilita-camion-travedona-2026` }
  ]
  },
  {
