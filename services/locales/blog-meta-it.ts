@@ -4253,6 +4253,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contibellinzona-2025-risultati.title': 'Bellinzona chiude 2025 con un rosso più contenuto',
     'blog.article.contibellinzona-2025-risultati.excerpt': 'Il consuntivo 2025 della Città di Bellinzona mostra un disavanzo di 2,7 milioni, molto inferiore ai 13,4 milioni previsti',
     'blog.article.contibellinzona-2025-risultati.imageAlt': 'Panorama di Bellinzona con il Castelgrande in primo piano',
+    'blog.article.italia-inadempiente-crediti-sanitari.title': 'Italia inadempiente sui crediti sanitari: Quadri chiede chiarezza',
+    'blog.article.italia-inadempiente-crediti-sanitari.excerpt': 'Il consigliere nazionale Lorenzo Quadri interroga il Consiglio federale sui ritardi italiani nei rimborsi sanitari',
+    'blog.article.italia-inadempiente-crediti-sanitari.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido',
 };
 
 export default blogMetaIt;

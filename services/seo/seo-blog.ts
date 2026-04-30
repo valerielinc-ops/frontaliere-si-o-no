@@ -28082,6 +28082,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-italia-inadempiente-crediti-sanitari': {
+    title: 'Italia inadempiente sui crediti sanitari: Quadri chiede chiarezza',
+    description: 'Il consigliere nazionale Lorenzo Quadri interroga il Consiglio federale sui ritardi italiani nei rimborsi sanitari alla Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, inadempiente, crediti, sanitari, quadri',
+    ogTitle: 'Italia inadempiente sui crediti sanitari: Quadri chiede chiarezza',
+    ogDescription: 'Il consigliere nazionale Lorenzo Quadri interroga il Consiglio federale sui ritardi italiani nei rimborsi sanitari alla Svizzera',
+    canonicalPath: '/articoli-frontaliere/italia-inadempiente-crediti-sanitari',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Italia inadempiente sui crediti sanitari: Quadri chiede chiarezza",
+      "description": "Il consigliere nazionale Lorenzo Quadri interroga il Consiglio federale sui ritardi italiani nei rimborsi sanitari alla Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/italia-inadempiente-crediti-sanitari.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido"
+      },
+      "datePublished": "2026-04-30T09:54:32+00:00",
+      "dateModified": "2026-04-30T09:54:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/italia-inadempiente-crediti-sanitari`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

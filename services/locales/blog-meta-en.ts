@@ -4252,6 +4252,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contibellinzona-2025-risultati.title': 'Bellinzona ends 2025 with smaller deficit',
     'blog.article.contibellinzona-2025-risultati.excerpt': 'The 2025 financial report of the City of Bellinzona shows a deficit of 2.7 million francs, much lower than the 13.4 million francs forecasted',
     'blog.article.contibellinzona-2025-risultati.imageAlt': 'Bellinzona cityscape with Castelgrande castle in the foreground',
+    'blog.article.italia-inadempiente-crediti-sanitari.title': 'Italy delays health credit reimbursements: Quadri asks for clarity',
+    'blog.article.italia-inadempiente-crediti-sanitari.excerpt': 'National Councillor Lorenzo Quadri questions the Federal Council about Italy\'s delays in health reimbursements',
+    'blog.article.italia-inadempiente-crediti-sanitari.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, clear blue sky',
 };
 
 export default blogMetaEn;

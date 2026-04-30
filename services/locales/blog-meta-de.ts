@@ -4252,6 +4252,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.contibellinzona-2025-risultati.title': 'Bellinzona schließt 2025 mit geringerer Defizit',
     'blog.article.contibellinzona-2025-risultati.excerpt': 'Die Jahresrechnung 2025 der Stadt Bellinzona weist ein Defizit von 2,7 Millionen Franken aus, deutlich weniger als die prognostizierten 13,4 Millionen.',
     'blog.article.contibellinzona-2025-risultati.imageAlt': 'Bellinzona Stadtansicht mit der Burg Castelgrande im Vordergrund',
+    'blog.article.italia-inadempiente-crediti-sanitari.title': 'Italien lässt Gesundheitskosten offen: Quadri fordert Klarheit',
+    'blog.article.italia-inadempiente-crediti-sanitari.excerpt': 'Nationalrat Lorenzo Quadri befragt den Bundesrat zu den Verzögerungen Italiens bei der Rückerstattung der Gesundheitskosten',
+    'blog.article.italia-inadempiente-crediti-sanitari.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund, klarer blauer Himmel',
 };
 
 export default blogMetaDe;

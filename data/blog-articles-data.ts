@@ -10935,4 +10935,11 @@ export const ARTICLES = [
  image: '/images/blog/contibellinzona-2025-risultati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'italia-inadempiente-crediti-sanitari',
+ category: 'novita',
+ date: '2026-04-30T09:54:32.119Z',
+ image: '/images/blog/italia-inadempiente-crediti-sanitari.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
