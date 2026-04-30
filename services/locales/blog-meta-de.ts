@@ -4447,6 +4447,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ricavi-alberghi-ticino-2025-crescita.title': 'Umsatz Hotels Tessin 2025: +3,9% auf 6,2 Mrd. Franken',
     'blog.article.ricavi-alberghi-ticino-2025-crescita.excerpt': 'Die Schweizer Hotellerie verzeichnete 2025 einen Anstieg von 3,9%, mit Spitzenwerten von 6,3% in 5-Sterne-Hotels.',
     'blog.article.ricavi-alberghi-ticino-2025-crescita.imageAlt': 'Blick auf den Luganersee mit Hotels und Bergen im Hintergrund',
+    'blog.article.controllo-finanze-ticino-2026.title': 'Neuer Direktor für die kantonale Finanzkontrolle gesucht',
+    'blog.article.controllo-finanze-ticino-2026.excerpt': 'Der Kanton Tessin sucht einen neuen Direktor für die kantonale Finanzkontrolle nach der Ankündigung der Pensionierung von Giovanni Cavallero.',
+    'blog.article.controllo-finanze-ticino-2026.imageAlt': 'Castelgrande in Bellinzona mit Blick auf die Schweizer-Italienische Grenze',
 };
 
 export default blogMetaDe;

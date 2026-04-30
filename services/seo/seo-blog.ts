@@ -29967,6 +29967,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controllo-finanze-ticino-2026': {
+    title: 'Cercasi direttore per il Controllo cantonale delle finanze',
+    description: 'Il Canton Ticino cerca un nuovo direttore per il Controllo cantonale delle finanze dopo l\'annuncio della pensione di Giovanni cavallero. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cercasi, direttore, controllo, cantonale',
+    ogTitle: 'Cercasi direttore per il Controllo cantonale delle finanze',
+    ogDescription: 'Il Canton Ticino cerca un nuovo direttore per il Controllo cantonale delle finanze dopo l\'annuncio della pensione di Giovanni cavallero.',
+    canonicalPath: '/articoli-frontaliere/controllo-finanze-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Cercasi direttore per il Controllo cantonale delle finanze\",\"description\":\"Il Canton Ticino cerca un nuovo direttore per il Controllo cantonale delle finanze dopo l'annuncio della pensione di Giovanni cavallero.\",\"datePublished\":\"2026-04-30\",\"image\":\"https://www.frontaliere-ticino.ch/images/bellinzona.webp\"}",
+      "description": "Il Canton Ticino cerca un nuovo direttore per il Controllo cantonale delle finanze dopo l'annuncio della pensione di Giovanni cavallero. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controllo-finanze-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona con vista sul confine italo-svizzero"
+      },
+      "datePublished": "2026-04-30T20:40:06+00:00",
+      "dateModified": "2026-04-30T20:40:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controllo-finanze-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

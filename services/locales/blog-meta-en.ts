@@ -4447,6 +4447,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ricavi-alberghi-ticino-2025-crescita.title': 'Ticino hotels revenue 2025: +3.9% to 6.2 billion',
     'blog.article.ricavi-alberghi-ticino-2025-crescita.excerpt': 'Swiss hospitality sector saw a 3.9% rise in 2025, with 5-star hotels peaking at 6.3%.',
     'blog.article.ricavi-alberghi-ticino-2025-crescita.imageAlt': 'View of Lake Lugano with hotels and mountains in the background',
+    'blog.article.controllo-finanze-ticino-2026.title': 'New director sought for Canton Ticino\'s financial control',
+    'blog.article.controllo-finanze-ticino-2026.excerpt': 'Canton Ticino is looking for a new director for the cantonal financial control following Giovanni Cavallero\'s retirement announcement.',
+    'blog.article.controllo-finanze-ticino-2026.imageAlt': 'Castelgrande in Bellinzona with a view of the Swiss-Italian border',
 };
 
 export default blogMetaEn;

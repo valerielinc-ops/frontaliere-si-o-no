@@ -4448,6 +4448,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ricavi-alberghi-ticino-2025-crescita.title': 'Ricavi alberghi Ticino 2025: +3,9% a 6,2 miliardi',
     'blog.article.ricavi-alberghi-ticino-2025-crescita.excerpt': 'Il settore alberghiero svizzero ha registrato un aumento del 3,9% nel 2025, con picchi del 6,3% negli hotel a 5 stelle.',
     'blog.article.ricavi-alberghi-ticino-2025-crescita.imageAlt': 'Vista del Lago di Lugano con alberghi e montagne sullo sfondo',
+    'blog.article.controllo-finanze-ticino-2026.title': 'Cercasi direttore per il Controllo cantonale delle finanze',
+    'blog.article.controllo-finanze-ticino-2026.excerpt': 'Il Canton Ticino cerca un nuovo direttore per il Controllo cantonale delle finanze dopo l\'annuncio della pensione di Giovanni cavallero.',
+    'blog.article.controllo-finanze-ticino-2026.imageAlt': 'Castelgrande a Bellinzona con vista sul confine italo-svizzero',
 };
 
 export default blogMetaIt;
