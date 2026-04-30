@@ -4240,6 +4240,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.kof-barometro-ripresa-economica-2026.title': 'Schweizer Wirtschaft im Aufschwung, aber bescheidene Aussichten',
     'blog.article.kof-barometro-ripresa-economica-2026.excerpt': 'Der KOF-Barometer liegt im April bei 97,9 Punkten, mit gemischten Signalen aus den verschiedenen Wirtschaftszweigen.',
     'blog.article.kof-barometro-ripresa-economica-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit der Stadtlandschaft im Hintergrund, klarer blauer Himmel, Sommertag.',
+    'blog.article.parita-paura-frontalieri-ticino.title': 'Die Gleichstellung, die den Grenzgängern Angst macht',
+    'blog.article.parita-paura-frontalieri-ticino.excerpt': 'Nur 28 Länder dieser Welt werden von einer Frau regiert. Im Tessin ist die Gleichstellung der Geschlechter noch ein fernes Ziel.',
+    'blog.article.parita-paura-frontalieri-ticino.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund, klarer blauer Himmel, Herbstfarben',
 };
 
 export default blogMetaDe;

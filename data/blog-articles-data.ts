@@ -10907,4 +10907,11 @@ export const ARTICLES = [
  image: '/images/blog/kof-barometro-ripresa-economica-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'parita-paura-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-04-30T09:19:33.209Z',
+ image: '/images/blog/parita-paura-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

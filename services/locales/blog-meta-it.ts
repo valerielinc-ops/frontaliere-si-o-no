@@ -4241,6 +4241,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.kof-barometro-ripresa-economica-2026.title': 'Economia svizzera in ripresa, ma prospettive modeste',
     'blog.article.kof-barometro-ripresa-economica-2026.excerpt': 'Il barometro del KOF segna 97,9 punti in aprile, con segnali misti dai vari settori economici.',
     'blog.article.kof-barometro-ripresa-economica-2026.imageAlt': 'Vista aerea del Lago di Lugano con il panorama urbano sullo sfondo, cielo azzurro limpido, giornata estiva.',
+    'blog.article.parita-paura-frontalieri-ticino.title': 'La parità che fa paura ai frontalieri del Ticino',
+    'blog.article.parita-paura-frontalieri-ticino.excerpt': 'Solo 28 Paesi al mondo sono guidati da una donna. In Ticino, la parità di genere è ancora un obiettivo lontano.',
+    'blog.article.parita-paura-frontalieri-ticino.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido, colori autunnali',
 };
 
 export default blogMetaIt;

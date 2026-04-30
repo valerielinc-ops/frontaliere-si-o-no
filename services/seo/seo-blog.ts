@@ -27966,6 +27966,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parita-paura-frontalieri-ticino': {
+    title: 'La parità che fa paura ai frontalieri del Ticino | Frontaliere Ticino',
+    description: 'Solo 28 Paesi al mondo sono guidati da una donna. In Ticino, la parità di genere è ancora un obiettivo lontano. Scopri di più. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, parità, paura, solo, paesi',
+    ogTitle: 'La parità che fa paura ai frontalieri del Ticino',
+    ogDescription: 'Solo 28 Paesi al mondo sono guidati da una donna. In Ticino, la parità di genere è ancora un obiettivo lontano. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/parita-paura-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La parità che fa paura ai frontalieri del Ticino",
+      "description": "Solo 28 Paesi al mondo sono guidati da una donna. In Ticino, la parità di genere è ancora un obiettivo lontano. Scopri di più. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/parita-paura-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido, colori autunnali"
+      },
+      "datePublished": "2026-04-30T09:19:33+00:00",
+      "dateModified": "2026-04-30T09:19:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parita-paura-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

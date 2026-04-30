@@ -4240,6 +4240,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.kof-barometro-ripresa-economica-2026.title': 'Swiss economy recovering, but modest outlook',
     'blog.article.kof-barometro-ripresa-economica-2026.excerpt': 'The KOF barometer stands at 97.9 points in April, with mixed signals from various economic sectors.',
     'blog.article.kof-barometro-ripresa-economica-2026.imageAlt': 'Aerial view of Lake Lugano with the cityscape in the background, clear blue sky, summer day.',
+    'blog.article.parita-paura-frontalieri-ticino.title': 'Gender equality that scares Ticino cross-border workers',
+    'blog.article.parita-paura-frontalieri-ticino.excerpt': 'Only 28 countries in the world are led by a woman. In Ticino, gender equality is still a distant goal.',
+    'blog.article.parita-paura-frontalieri-ticino.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, clear blue sky, autumn colors',
 };
 
 export default blogMetaEn;
