@@ -2598,6 +2598,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-luve-hyperscaler-ai-accordo-100-milioni': { name: 'Novità', path: '/articoli-frontaliere/luve-hyperscaler-ai-accordo-100-milioni', parent: 'blog' },
     'blog-social-media-frontalieri-ticino': { name: 'Social Media', path: '/articoli-frontaliere/social-media-frontalieri-ticino', parent: 'blog' },
     'blog-stazioni-sciistiche-ticino-credito-dati-2026': { name: 'Stazioni sciistiche', path: '/articoli-frontaliere/stazioni-sciistiche-ticino-credito-dati-2026', parent: 'blog' },
+    'blog-lavori-notturni-via-clemente-maraini': { name: 'Lavori notturni', path: '/articoli-frontaliere/lavori-notturni-via-clemente-maraini', parent: 'blog' },
  };
 
  const info = sectionNames[section];

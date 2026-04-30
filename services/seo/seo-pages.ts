@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1417,
+ "numberOfItems": 1418,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6052,7 +6052,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1414, "name": "Regione Lombardia finanzia l'Università dell'In...", "url": `${BASE_URL}/articoli-frontaliere/regione-lombardia-4-4-milioni-insubria` },
           { "@type": "ListItem", "position": 1415, "name": "LUVE sigla accordo da 100 milioni con hyperscal...", "url": `${BASE_URL}/articoli-frontaliere/luve-hyperscaler-ai-accordo-100-milioni` },
           { "@type": "ListItem", "position": 1416, "name": "Social media e lavoro: cosa evitare e cosa postare", "url": `${BASE_URL}/articoli-frontaliere/social-media-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 1417, "name": "Stazioni sciistiche Ticino: più dati per il pro...", "url": `${BASE_URL}/articoli-frontaliere/stazioni-sciistiche-ticino-credito-dati-2026` }
+          { "@type": "ListItem", "position": 1417, "name": "Stazioni sciistiche Ticino: più dati per il pro...", "url": `${BASE_URL}/articoli-frontaliere/stazioni-sciistiche-ticino-credito-dati-2026` },
+          { "@type": "ListItem", "position": 1418, "name": "Lavori notturni su via Clemente Maraini a Lugano", "url": `${BASE_URL}/articoli-frontaliere/lavori-notturni-via-clemente-maraini` }
  ]
  },
  {

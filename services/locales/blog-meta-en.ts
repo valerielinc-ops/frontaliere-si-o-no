@@ -4102,6 +4102,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.title': 'Ski resorts: more data and progress needed for next credit',
     'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.excerpt': 'Parliamentary question asks for seasonal balance and new criteria to evaluate Ticino ski resorts',
     'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.imageAlt': 'Aerial view of a ski resort in Ticino with snow-covered slopes and modern facilities',
+    'blog.article.lavori-notturni-via-clemente-maraini.title': 'Night works on via Clemente Maraini in Lugano',
+    'blog.article.lavori-notturni-via-clemente-maraini.excerpt': 'From Sunday, May 3rd to Friday, May 22nd, night works on via Clemente Maraini in Lugano for the extension and reinforcement of AIL substructures.',
+    'blog.article.lavori-notturni-via-clemente-maraini.imageAlt': 'Nighttime road construction on via Clemente Maraini in Lugano',
 };
 
 export default blogMetaEn;

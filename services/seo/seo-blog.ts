@@ -26632,6 +26632,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-notturni-via-clemente-maraini': {
+    title: 'Lavori notturni su via Clemente Maraini a Lugano | Frontaliere Ticino',
+    description: 'Da domenica 3 maggio a venerdì 22 maggio, lavori notturni su via Clemente Maraini a Lugano per estensione e potenziamento delle sottostrutture AIL.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, notturni, clemente, maraini',
+    ogTitle: 'Lavori notturni su via Clemente Maraini a Lugano',
+    ogDescription: 'Da domenica 3 maggio a venerdì 22 maggio, lavori notturni su via Clemente Maraini a Lugano per estensione e potenziamento delle sottostrutture AIL.',
+    canonicalPath: '/articoli-frontaliere/lavori-notturni-via-clemente-maraini',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori notturni su via Clemente Maraini a Lugano",
+      "description": "Da domenica 3 maggio a venerdì 22 maggio, lavori notturni su via Clemente Maraini a Lugano per estensione e potenziamento delle sottostrutture AIL.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavori-notturni-via-clemente-maraini.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori notturni su via Clemente Maraini a Lugano"
+      },
+      "datePublished": "2026-04-30T02:20:44+00:00",
+      "dateModified": "2026-04-30T02:20:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-notturni-via-clemente-maraini`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

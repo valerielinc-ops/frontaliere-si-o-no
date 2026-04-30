@@ -10584,4 +10584,11 @@ export const ARTICLES = [
  image: '/images/blog/stazioni-sciistiche-ticino-credito-dati-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavori-notturni-via-clemente-maraini',
+ category: 'novita',
+ date: '2026-04-30T02:20:44.536Z',
+ image: '/images/blog/lavori-notturni-via-clemente-maraini.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

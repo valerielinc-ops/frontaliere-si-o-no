@@ -4102,6 +4102,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.title': 'Skigebiete: Für den nächsten Kredit braucht es mehr Daten und Fortschritte',
     'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.excerpt': 'Parlamentarische Anfrage fordert Saisonbilanz und neue Kriterien zur Bewertung der Ticinoer Skigebiete',
     'blog.article.stazioni-sciistiche-ticino-credito-dati-2026.imageAlt': 'Luftaufnahme eines Skigebiets in Tessin mit schneebedeckten Pisten und modernen Einrichtungen',
+    'blog.article.lavori-notturni-via-clemente-maraini.title': 'Nacharbeiten auf der Via Clemente Maraini in Lugano',
+    'blog.article.lavori-notturni-via-clemente-maraini.excerpt': 'Von Sonntag, 3. Mai, bis Freitag, 22. Mai, Nacharbeiten auf der Via Clemente Maraini in Lugano für die Erweiterung und Verstärkung der AIL-Unterstrukturen.',
+    'blog.article.lavori-notturni-via-clemente-maraini.imageAlt': 'Nachts Arbeiten auf der via Clemente Maraini in Lugano',
 };
 
 export default blogMetaDe;
