@@ -4115,6 +4115,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.manager-insubria-rasizza-battioni-4-maggio.title': 'Manager all’Insubria: Rasizza e Battioni in cattedra il 4 maggio',
     'blog.article.manager-insubria-rasizza-battioni-4-maggio.excerpt': 'Rosario Rasizza e Stefano Battioni incontrano gli studenti dell’Università dell’Insubria per discutere di gestione d’impresa e cambiamenti tecnologici.',
     'blog.article.manager-insubria-rasizza-battioni-4-maggio.imageAlt': 'Aula universitaria moderna con studenti e professori in discussione',
+    'blog.article.lavoro-etico-convegno-liuc-ucid.title': 'Convegno LIUC: etica e responsabilità nel lavoro',
+    'blog.article.lavoro-etico-convegno-liuc-ucid.excerpt': 'Venerdì 8 maggio alla LIUC convegno su etica e responsabilità nel lavoro con UCID. Intervengono il card. Angelo Bagnasco e il vescovo di Lodi.',
+    'blog.article.lavoro-etico-convegno-liuc-ucid.imageAlt': 'Convegno alla LIUC su etica e lavoro, Castronno',
 };
 
 export default blogMetaIt;

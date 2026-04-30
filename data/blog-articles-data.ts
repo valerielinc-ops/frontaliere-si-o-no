@@ -10612,4 +10612,11 @@ export const ARTICLES = [
  image: '/images/blog/manager-insubria-rasizza-battioni-4-maggio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavoro-etico-convegno-liuc-ucid',
+ category: 'pratico',
+ date: '2026-04-30T03:00:04.184Z',
+ image: '/images/blog/lavoro-etico-convegno-liuc-ucid.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

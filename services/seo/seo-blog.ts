@@ -26748,6 +26748,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-etico-convegno-liuc-ucid': {
+    title: 'Convegno LIUC: etica e responsabilità nel lavoro | Frontaliere Ticino',
+    description: 'Venerdì 8 maggio convegno alla LIUC su etica e responsabilità nel lavoro con UCID. Intervengono il card. Angelo Bagnasco e il vescovo di Lodi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, convegno, liuc, etica, responsabilità',
+    ogTitle: 'Convegno LIUC: etica e responsabilità nel lavoro',
+    ogDescription: 'Venerdì 8 maggio convegno alla LIUC su etica e responsabilità nel lavoro con UCID. Intervengono il card. Angelo Bagnasco e il vescovo di Lodi.',
+    canonicalPath: '/articoli-frontaliere/lavoro-etico-convegno-liuc-ucid',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Convegno LIUC: etica e responsabilità nel lavoro",
+      "description": "Venerdì 8 maggio convegno alla LIUC su etica e responsabilità nel lavoro con UCID. Intervengono il card. Angelo Bagnasco e il vescovo di Lodi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoro-etico-convegno-liuc-ucid.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Convegno alla LIUC su etica e lavoro, Castronno"
+      },
+      "datePublished": "2026-04-30T03:00:04+00:00",
+      "dateModified": "2026-04-30T03:00:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-etico-convegno-liuc-ucid`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

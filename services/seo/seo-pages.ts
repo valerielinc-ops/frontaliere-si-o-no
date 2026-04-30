@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1421,
+ "numberOfItems": 1422,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6056,7 +6056,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1418, "name": "Lavori notturni su via Clemente Maraini a Lugano", "url": `${BASE_URL}/articoli-frontaliere/lavori-notturni-via-clemente-maraini` },
           { "@type": "ListItem", "position": 1419, "name": "Parcheggi e viabilità all’Ospedale di Circolo: ...", "url": `${BASE_URL}/articoli-frontaliere/parcheggi-ospedale-circolo-varese-2026` },
           { "@type": "ListItem", "position": 1420, "name": "Mani pulite, vite salvate: l'iniziativa di ASST...", "url": `${BASE_URL}/articoli-frontaliere/mani-pulite-vite-salvate-asst-iniziativa` },
-          { "@type": "ListItem", "position": 1421, "name": "Manager all’Insubria: Rasizza e Battioni in cat...", "url": `${BASE_URL}/articoli-frontaliere/manager-insubria-rasizza-battioni-4-maggio` }
+          { "@type": "ListItem", "position": 1421, "name": "Manager all’Insubria: Rasizza e Battioni in cat...", "url": `${BASE_URL}/articoli-frontaliere/manager-insubria-rasizza-battioni-4-maggio` },
+          { "@type": "ListItem", "position": 1422, "name": "Convegno LIUC: etica e responsabilità nel lavoro", "url": `${BASE_URL}/articoli-frontaliere/lavoro-etico-convegno-liuc-ucid` }
  ]
  },
  {

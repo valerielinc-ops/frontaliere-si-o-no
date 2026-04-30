@@ -4115,6 +4115,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.manager-insubria-rasizza-battioni-4-maggio.title': 'Manager à l\'Insubria : Rasizza et Battioni le 4 mai',
     'blog.article.manager-insubria-rasizza-battioni-4-maggio.excerpt': 'Rosario Rasizza et Stefano Battioni rencontrent les étudiants de l\'Université de l\'Insubria pour discuter de gestion d\'entreprise et de changements technologiques.',
     'blog.article.manager-insubria-rasizza-battioni-4-maggio.imageAlt': 'Salle de classe universitaire moderne avec étudiants et professeurs en discussion',
+    'blog.article.lavoro-etico-convegno-liuc-ucid.title': 'Conférence LIUC : éthique et responsabilité au travail',
+    'blog.article.lavoro-etico-convegno-liuc-ucid.excerpt': 'Vendredi 8 mai, conférence à la LIUC sur l\'éthique et la responsabilité au travail avec l\'UCID. Interviennent le cardinal Angelo Bagnasco et l\'évêque de Lodi.',
+    'blog.article.lavoro-etico-convegno-liuc-ucid.imageAlt': 'Conférence à la LIUC sur l\'éthique et le travail, Castronno',
 };
 
 export default blogMetaFr;
