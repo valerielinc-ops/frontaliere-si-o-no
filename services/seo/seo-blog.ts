@@ -27038,6 +27038,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sciopero-fame-timoc-terreno-conteso': {
+    title: 'Sciopero della fame a Varese: la battaglia di Timoc per un terreno conteso',
+    description: 'Timoc, 70 anni, protesta davanti alla caserma dei Carabinieri per accedere a documenti bloccati nella sua abitazione. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sciopero, fame, varese, battaglia',
+    ogTitle: 'Sciopero della fame a Varese: la battaglia di Timoc per un terreno conteso',
+    ogDescription: 'Timoc, 70 anni, protesta davanti alla caserma dei Carabinieri per accedere a documenti bloccati nella sua abitazione.',
+    canonicalPath: '/articoli-frontaliere/sciopero-fame-timoc-terreno-conteso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sciopero della fame a Varese: la battaglia di Timoc per un terreno conteso",
+      "description": "Timoc, 70 anni, protesta davanti alla caserma dei Carabinieri per accedere a documenti bloccati nella sua abitazione. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sciopero-fame-timoc-terreno-conteso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uomo in sciopero della fame davanti alla caserma dei Carabinieri a Varese"
+      },
+      "datePublished": "2026-04-30T04:47:11+00:00",
+      "dateModified": "2026-04-30T04:47:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-fame-timoc-terreno-conteso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

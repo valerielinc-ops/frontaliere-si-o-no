@@ -10682,4 +10682,11 @@ export const ARTICLES = [
  image: '/images/blog/moda-sostenibile-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sciopero-fame-timoc-terreno-conteso',
+ category: 'novita',
+ date: '2026-04-30T04:47:11.590Z',
+ image: '/images/blog/sciopero-fame-timoc-terreno-conteso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

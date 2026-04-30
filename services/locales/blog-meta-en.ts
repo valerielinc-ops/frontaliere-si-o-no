@@ -4144,6 +4144,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.moda-sostenibile-varese-2026.title': 'Sustainable fashion and stories of rebirth in Varese',
     'blog.article.moda-sostenibile-varese-2026.excerpt': 'Students and oncological women united in a sustainable fashion show in Varese, with recycled clothes and messages of resilience',
     'blog.article.moda-sostenibile-varese-2026.imageAlt': 'Sustainable fashion show in Varese with students and cancer survivors',
+    'blog.article.sciopero-fame-timoc-terreno-conteso.title': 'Hunger strike in Varese: Timoc\'s fight for contested land',
+    'blog.article.sciopero-fame-timoc-terreno-conteso.excerpt': 'Timoc, 70, protests outside the Carabinieri barracks to access documents blocked in his home.',
+    'blog.article.sciopero-fame-timoc-terreno-conteso.imageAlt': 'Man on hunger strike in front of the Carabinieri station in Varese',
 };
 
 export default blogMetaEn;

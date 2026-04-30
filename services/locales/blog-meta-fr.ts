@@ -4145,6 +4145,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.moda-sostenibile-varese-2026.title': 'Mode durable et histoires de renaissance à Varese',
     'blog.article.moda-sostenibile-varese-2026.excerpt': 'Étudiants et femmes oncologiques unis dans un défilé de mode durable à Varese, avec des vêtements recyclés et des messages de résilience',
     'blog.article.moda-sostenibile-varese-2026.imageAlt': 'Défilé de mode durable à Varese avec des étudiants et des survivantes du cancer',
+    'blog.article.sciopero-fame-timoc-terreno-conteso.title': 'Grève de la faim à Varèse : le combat de Timoc pour un terrain contesté',
+    'blog.article.sciopero-fame-timoc-terreno-conteso.excerpt': 'Timoc, 70 ans, proteste devant la caserne des Carabiniers pour accéder à des documents bloqués dans sa résidence.',
+    'blog.article.sciopero-fame-timoc-terreno-conteso.imageAlt': 'Homme en grève de la faim devant la caserne des Carabiniers à Varese',
 };
 
 export default blogMetaFr;

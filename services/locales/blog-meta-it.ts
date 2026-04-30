@@ -4145,6 +4145,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.moda-sostenibile-varese-2026.title': 'Moda sostenibile e storie di rinascita a Varese',
     'blog.article.moda-sostenibile-varese-2026.excerpt': 'Studenti e donne oncologiche unite in una sfilata di moda sostenibile a Varese, con abiti riciclati e messaggi di resilienza',
     'blog.article.moda-sostenibile-varese-2026.imageAlt': 'Sfilata di moda sostenibile a Varese con studenti e donne oncologiche',
+    'blog.article.sciopero-fame-timoc-terreno-conteso.title': 'Sciopero della fame a Varese: la battaglia di Timoc per un terreno conteso',
+    'blog.article.sciopero-fame-timoc-terreno-conteso.excerpt': 'Timoc, 70 anni, protesta davanti alla caserma dei Carabinieri per accedere a documenti bloccati nella sua abitazione.',
+    'blog.article.sciopero-fame-timoc-terreno-conteso.imageAlt': 'Uomo in sciopero della fame davanti alla caserma dei Carabinieri a Varese',
 };
 
 export default blogMetaIt;
