@@ -1,21 +1,22 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-04-29T22:43:34.198Z",
+  "generatedAt": "2026-04-30T11:37:11.746Z",
   "total": 21,
-  "newCount": 2,
-  "updatedCount": 14,
+  "newCount": 0,
+  "updatedCount": 17,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 22518,
-  "avgDurationMs": 22518,
+  "unchangedCount": 4,
+  "durationMs": 25819,
+  "avgDurationMs": 25819,
   "durationHistory": [
-    22518
+    25819
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-213icc",
-      "slug": "operaio-a-tempo-100-presso-l-area-dell-esercizio-e-della-manutenzione-centro-di-manutenzione-cmloc-locarno-orario-di-lavoro-42-ore-s",
+      "slug": "operaio-a-a-tempo-tempo-100-presso-l-area-dell-esercizio-e-della-manutenzione-centro-di-manutenzione-cmloc-locarno-ammin",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Operaio/a a tempo tempo (100%) presso l’Area dell'esercizio e della manutenzione, Centro di manutenzione (CMLoc), Locarno",
       "location": "Locarno",
@@ -33,19 +34,25 @@
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-04-29T22:43:27.361Z",
       "firstSeenAt": "2026-04-29T22:43:27.361Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 79,
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-213ibo",
-      "slug": "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-imp",
+      "slug": "direttore-a-tempo-pieno-100-presso-il-controllo-cantonale-delle-finanze-bellinzona-amministrazione-cantonale-ticino-bell",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Direttore, a tempo pieno (100%), presso il Controllo cantonale delle finanze, Bellinzona",
       "location": "Bellinzona",
@@ -63,18 +70,23 @@
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-04-29T22:43:27.361Z",
       "firstSeenAt": "2026-04-29T22:43:27.361Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 68,
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-213ice",
       "slug": "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-40-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servi",
@@ -103,6 +115,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -138,6 +151,44 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-213ich",
+      "slug": "operatore-trice-sociale-i-a-tempo-parziale-80-presso-l-ufficio-degli-invalidi-centro-professionale-e-sociale-gerra-piano-e-al-funzionamento-213ich",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Operatore/trice sociale I a tempo parziale (80%) presso l’Ufficio degli invalidi, Centro professionale e sociale, Gerra Piano",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "other",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-21",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4164",
+      "source": "Company Careers Crawler",
+      "salaryMin": 68456,
+      "salaryMax": 107475,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-04-21T10:54:48.862Z",
+      "firstSeenAt": "2026-04-21T10:54:48.862Z",
+      "sourceLang": "it",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -210,6 +261,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -246,6 +298,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -574,42 +627,6 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "company-213ich",
-      "slug": "operatore-trice-sociale-i-a-tempo-parziale-80-presso-l-ufficio-degli-invalidi-centro-professionale-e-sociale-gerra-piano-e-al-funzionamento-213ich",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Operatore/trice sociale I a tempo parziale (80%) presso l’Ufficio degli invalidi, Centro professionale e sociale, Gerra Piano",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "other",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4164",
-      "source": "Company Careers Crawler",
-      "salaryMin": 68456,
-      "salaryMax": 107475,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-04-21T10:54:48.862Z",
-      "firstSeenAt": "2026-04-21T10:54:48.862Z",
-      "sourceLang": "it",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "company-213icl",
       "slug": "operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l-organizzazione-sociopsichiatrica-cantonal",
