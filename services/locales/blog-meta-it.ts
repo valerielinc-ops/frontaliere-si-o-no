@@ -4478,6 +4478,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.summer-camp-malnate-tenuta-novella.title': 'Summer camp a Malnate: natura, fattoria e inglese per bambini',
     'blog.article.summer-camp-malnate-tenuta-novella.excerpt': 'Alla Tenuta La Novella di Malnate, un\'estate tra animali, attività all\'aperto e inglese per bambini dai 6 ai 10 anni.',
     'blog.article.summer-camp-malnate-tenuta-novella.imageAlt': 'Bambini in un campo estivo alla Tenuta La Novella di Malnate, tra animali e natura',
+    'blog.article.liuc-golf-frontalieri-accordo-2026.title': 'Liuc e Federazione Golf: accordo per studenti-atleti',
+    'blog.article.liuc-golf-frontalieri-accordo-2026.excerpt': 'Protocollo d\'intesa triennale per conciliare studio e carriera agonistica nel golf',
+    'blog.article.liuc-golf-frontalieri-accordo-2026.imageAlt': 'Campus universitario moderno a Castellanza con studenti che giocano a golf',
 };
 
 export default blogMetaIt;

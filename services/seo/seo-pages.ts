@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1542,
+ "numberOfItems": 1543,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6177,7 +6177,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1539, "name": "Tribunale ferma pratiche abusive di Sunrise", "url": `${BASE_URL}/articoli-frontaliere/sunrise-pratiche-abusive-fermate-2026` },
           { "@type": "ListItem", "position": 1540, "name": "Proroga accise carburanti: sconto gasolio a 24,...", "url": `${BASE_URL}/articoli-frontaliere/proroga-accise-carburanti-2026` },
           { "@type": "ListItem", "position": 1541, "name": "Polizia ticinese: progetto abbandonato dal Cons...", "url": `${BASE_URL}/articoli-frontaliere/polizia-ticinese-progetto-abbandonato-2026` },
-          { "@type": "ListItem", "position": 1542, "name": "Summer camp a Malnate: natura, fattoria e ingle...", "url": `${BASE_URL}/articoli-frontaliere/summer-camp-malnate-tenuta-novella` }
+          { "@type": "ListItem", "position": 1542, "name": "Summer camp a Malnate: natura, fattoria e ingle...", "url": `${BASE_URL}/articoli-frontaliere/summer-camp-malnate-tenuta-novella` },
+          { "@type": "ListItem", "position": 1543, "name": "Liuc e Federazione Golf: accordo per studenti-a...", "url": `${BASE_URL}/articoli-frontaliere/liuc-golf-frontalieri-accordo-2026` }
  ]
  },
  {

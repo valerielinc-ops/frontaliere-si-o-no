@@ -4477,6 +4477,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.summer-camp-malnate-tenuta-novella.title': 'Summer camp in Malnate: nature, farm and English for kids',
     'blog.article.summer-camp-malnate-tenuta-novella.excerpt': 'At Tenuta La Novella in Malnate, a summer among animals, outdoor activities and English for children aged 6 to 10.',
     'blog.article.summer-camp-malnate-tenuta-novella.imageAlt': 'Children at a summer camp at Tenuta La Novella in Malnate, among animals and nature',
+    'blog.article.liuc-golf-frontalieri-accordo-2026.title': 'Liuc and Golf Federation: agreement for student-athletes',
+    'blog.article.liuc-golf-frontalieri-accordo-2026.excerpt': 'Three-year agreement to balance study and competitive golf career',
+    'blog.article.liuc-golf-frontalieri-accordo-2026.imageAlt': 'Modern university campus in Castellanza with students playing golf',
 };
 
 export default blogMetaEn;

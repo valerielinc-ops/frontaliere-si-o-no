@@ -11460,4 +11460,11 @@ export const ARTICLES = [
  image: '/images/blog/summer-camp-malnate-tenuta-novella.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'liuc-golf-frontalieri-accordo-2026',
+ category: 'novita',
+ date: '2026-04-30T22:13:45.132Z',
+ image: '/images/blog/liuc-golf-frontalieri-accordo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

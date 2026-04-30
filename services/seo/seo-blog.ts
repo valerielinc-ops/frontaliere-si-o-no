@@ -30257,6 +30257,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-liuc-golf-frontalieri-accordo-2026': {
+    title: 'Liuc e Federazione Golf: accordo per studenti-atleti',
+    description: 'Protocollo d’intesa triennale tra LIUC e Federazione Italiana Golf per favorire la doppia carriera degli studenti-atleti e promuovere il golf tra la comunità',
+    keywords: 'frontalieri, ticino, svizzera, italia, liuc, federazione, golf, accordo',
+    ogTitle: 'Liuc e Federazione Golf: accordo per studenti-atleti',
+    ogDescription: 'Protocollo d’intesa triennale tra LIUC e Federazione Italiana Golf per favorire la doppia carriera degli studenti-atleti e promuovere il golf tra la comunità',
+    canonicalPath: '/articoli-frontaliere/liuc-golf-frontalieri-accordo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Liuc e Federazione Golf: accordo per studenti-atleti",
+      "description": "Protocollo d’intesa triennale tra LIUC e Federazione Italiana Golf per favorire la doppia carriera degli studenti-atleti e promuovere il golf tra la comunità",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/liuc-golf-frontalieri-accordo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus universitario moderno a Castellanza con studenti che giocano a golf"
+      },
+      "datePublished": "2026-04-30T22:13:45+00:00",
+      "dateModified": "2026-04-30T22:13:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/liuc-golf-frontalieri-accordo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
