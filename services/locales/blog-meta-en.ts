@@ -4120,6 +4120,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.1maggio-eremo-monastero-legge-varese.title': 'May 1st between Hermitage and Monastery on Lake Maggiore',
     'blog.article.1maggio-eremo-monastero-legge-varese.excerpt': 'Guided tours and picnics for Labor Day at the Hermitage of Santa Caterina del Sasso and Torba Monastery',
     'blog.article.1maggio-eremo-monastero-legge-varese.imageAlt': 'Aerial view of Eremo di Santa Caterina del Sasso on Lake Maggiore',
+    'blog.article.vergiate-color-run-2026-non-competitiva.title': 'Vergiate turns colorful: the non-competitive Color Run returns for all ages',
+    'blog.article.vergiate-color-run-2026-non-competitiva.excerpt': 'On Sunday, May 24, 2026, Vergiate hosts the Color Run, a 4 km race open to all ages. Registrations open until May 10.',
+    'blog.article.vergiate-color-run-2026-non-competitiva.imageAlt': 'Color Run in Vergiate 2026: a non-competitive race for all ages',
 };
 
 export default blogMetaEn;

@@ -10626,4 +10626,11 @@ export const ARTICLES = [
  image: '/images/blog/1maggio-eremo-monastero-legge-varese.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vergiate-color-run-2026-non-competitiva',
+ category: 'novita',
+ date: '2026-04-30T03:23:26.192Z',
+ image: '/images/blog/vergiate-color-run-2026-non-competitiva.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

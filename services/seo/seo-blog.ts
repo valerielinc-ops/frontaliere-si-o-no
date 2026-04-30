@@ -26806,6 +26806,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vergiate-color-run-2026-non-competitiva': {
+    title: 'Vergiate si colora: torna la Color Run non competitiva per tutte le età',
+    description: 'Scopri la Color Run di Vergiate 2026, una corsa non competitiva di 4 km aperta a tutte le età. Iscrizioni aperte fino al 10 maggio. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, vergiate, colora, torna, color',
+    ogTitle: 'Color Run Vergiate 2026: corsa non competitiva per tutte le età',
+    ogDescription: 'Scopri la Color Run di Vergiate 2026, una corsa non competitiva di 4 km aperta a tutte le età. Iscrizioni aperte fino al 10 maggio.',
+    canonicalPath: '/articoli-frontaliere/vergiate-color-run-2026-non-competitiva',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Color Run Vergiate 2026: corsa non competitiva per tutte le età",
+      "description": "Scopri la Color Run di Vergiate 2026, una corsa non competitiva di 4 km aperta a tutte le età. Iscrizioni aperte fino al 10 maggio. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vergiate-color-run-2026-non-competitiva.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Color Run a Vergiate 2026: corsa non competitiva per tutte le età"
+      },
+      "datePublished": "2026-04-30T03:23:26+00:00",
+      "dateModified": "2026-04-30T03:23:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vergiate-color-run-2026-non-competitiva`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

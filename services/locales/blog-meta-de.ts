@@ -4120,6 +4120,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.1maggio-eremo-monastero-legge-varese.title': '1. Mai zwischen Eremo und Kloster am Lago Maggiore und im Valle Olona',
     'blog.article.1maggio-eremo-monastero-legge-varese.excerpt': 'Führungen und Picknick zum Tag der Arbeit im Eremo di Santa Caterina del Sasso und im Kloster Torba',
     'blog.article.1maggio-eremo-monastero-legge-varese.imageAlt': 'Luftaufnahme des Eremo di Santa Caterina del Sasso am Lago Maggiore',
+    'blog.article.vergiate-color-run-2026-non-competitiva.title': 'Vergiate wird bunt: Color Run für alle Altersgruppen',
+    'blog.article.vergiate-color-run-2026-non-competitiva.excerpt': 'Am Sonntag, den 24. Mai 2026, findet in Vergiate die Color Run statt, ein 4 km langer Lauf für alle Altersgruppen. Anmeldungen sind bis zum 10. Mai möglich.',
+    'blog.article.vergiate-color-run-2026-non-competitiva.imageAlt': 'Color Run in Vergiate 2026: ein nicht-wettbewerbsfähiger Lauf für alle Altersgruppen',
 };
 
 export default blogMetaDe;
