@@ -57,11 +57,20 @@ import path from 'node:path';
  * `candidatesCount`) are not used by the plugin; they exist so a developer
  * inspecting `data/previous-slug-winners.json` can understand WHY a winner
  * was chosen without re-running the build.
+ *
+ * `lastSeenAt` is touched on every build that re-claims this `(locale,
+ * oldSlug)` pair (whether the decision was reused or re-elected). Used by
+ * {@link pruneStaleWinners} to garbage-collect entries whose oldSlug nobody
+ * lists in their `previousSlugs` anymore. Backward compat: if an older
+ * entry on disk lacks `lastSeenAt`, the prune routine falls back to
+ * `decidedAt` so historical entries don't auto-purge on the first run after
+ * the field is introduced.
  */
 export interface WinnerEntry {
   readonly winnerJobIdentifier: string;
   readonly winnerCanonical: string;
   readonly decidedAt: string;
+  readonly lastSeenAt: string;
   readonly score: number;
   readonly candidatesCount: number;
 }
@@ -151,6 +160,7 @@ export function chooseWinner(
     winnerJobIdentifier: bestIdentifier,
     winnerCanonical: bestCanonical,
     decidedAt: now,
+    lastSeenAt: now,
     score: Math.round(bestScore * 10000) / 10000,
     candidatesCount: candidates.length,
   };
@@ -197,23 +207,34 @@ export function saveWinners(filePath: string, winners: WinnersFile): void {
 /**
  * Resolve the winner for one (locale, oldSlug) given the current candidates.
  *
- * Decision tree:
- *   1. Single candidate → trivial winner; no entry update needed.
- *      Returns the candidate's identifier verbatim.
- *   2. Multiple candidates AND a prior entry exists AND the prior winner is
- *      still in the candidates list → reuse the prior decision (URL stable).
- *   3. Otherwise (no prior entry, or prior winner no longer active) →
- *      run the heuristic, mutate `winners` with the new entry, return the
- *      new winner.
+ * Decision tree (in order):
+ *   1. Empty candidates → return null (caller should skip).
+ *   2. Existing entry whose winner is still in the candidates list →
+ *      reuse the decision unchanged BUT touch `lastSeenAt` to mark this
+ *      entry alive. Keeps URL stable across builds; prevents the prune
+ *      routine from garbage-collecting active entries.
+ *   3. Existing entry whose winner is NO LONGER in the candidates →
+ *      re-elect via the heuristic, overwrite the entry. URL flips to a
+ *      remaining claimant; future builds keep the new winner stable.
+ *      This branch fires both when multiple candidates remain and when
+ *      only one is left — in either case we want the file to track the
+ *      current canonical so subsequent builds don't dance around an
+ *      orphan registry entry.
+ *   4. No existing entry, multiple candidates → first-time election via
+ *      heuristic; persist.
+ *   5. No existing entry, single candidate → trivial winner; do NOT
+ *      persist. Single-claimant slugs don't need a registry entry — they
+ *      can't collide. Saves the file from accumulating one row per
+ *      legitimately unique prevSlug.
  *
- * Returns the winner entry (whether new or reused), or `null` if candidates
- * is empty. The caller should compare the entry's `winnerJobIdentifier`
- * against the iterating job's identifier and skip emit when they differ.
+ * Returns the winner entry (whether new, reused, or trivial), or `null`
+ * if candidates is empty. The caller should compare the entry's
+ * `winnerJobIdentifier` against the iterating job's identifier and skip
+ * emit when they differ.
  *
- * Mutation note: `winners` is mutated in place when a new decision is made.
- * Callers should detect changes (e.g. by computing `Object.keys(winners).
- * length` before/after, or by tracking writes via an out parameter — this
- * helper takes the simpler "mutate and let the caller diff" approach).
+ * Mutation note: `winners` is mutated in place. Callers should JSON.
+ * stringify the registry before and after the resolve loop to detect
+ * whether a save() is needed.
  */
 export function resolveWinner(
   winners: WinnersFile,
@@ -224,29 +245,76 @@ export function resolveWinner(
 ): WinnerEntry | null {
   if (candidates.length === 0) return null;
 
-  if (candidates.length === 1) {
-    // Trivial: one claimant, no decision to record.
-    return {
-      winnerJobIdentifier: candidates[0].jobIdentifier,
-      winnerCanonical: candidates[0].canonicalSlug,
-      decidedAt: now,
-      score: jaccardSimilarity(oldSlug, candidates[0].canonicalSlug),
-      candidatesCount: 1,
-    };
-  }
-
   const key = makeKey(locale, oldSlug);
   const existing = winners[key];
+
+  // Branch 2: prior decision still valid — touch lastSeenAt and reuse.
   if (
     existing &&
     candidates.some((c) => c.jobIdentifier === existing.winnerJobIdentifier)
   ) {
-    // Prior decision still valid — keep URL stable.
-    return existing;
+    if (existing.lastSeenAt !== now) {
+      winners[key] = { ...existing, lastSeenAt: now };
+    }
+    return winners[key];
   }
 
-  // Re-elect.
-  const fresh = chooseWinner(oldSlug, candidates, now);
-  if (fresh) winners[key] = fresh;
-  return fresh;
+  // Branch 3 + 4: existing-but-stale OR first-time multi-candidate. Re-elect.
+  // Branch 3 fires regardless of candidates.length so the file always reflects
+  // the current canonical when the prior winner is gone.
+  if (existing || candidates.length > 1) {
+    const fresh = chooseWinner(oldSlug, candidates, now);
+    if (!fresh) return null;
+    winners[key] = fresh;
+    return fresh;
+  }
+
+  // Branch 5: no existing entry, single candidate — trivial, ephemeral.
+  return {
+    winnerJobIdentifier: candidates[0].jobIdentifier,
+    winnerCanonical: candidates[0].canonicalSlug,
+    decidedAt: now,
+    lastSeenAt: now,
+    score: jaccardSimilarity(oldSlug, candidates[0].canonicalSlug),
+    candidatesCount: 1,
+  };
+}
+
+/**
+ * Garbage-collect winner entries whose `(locale, oldSlug)` pair has not
+ * been re-claimed in the last `ttlMs` milliseconds. Mutates `winners` in
+ * place and returns the count of pruned entries so the caller can log it.
+ *
+ * Why TTL instead of immediate purge: a job feed that briefly drops a
+ * listing (crawler hiccup, weekend off-shift, manual de-listing during
+ * editorial review) shouldn't trigger an immediate URL flip. The
+ * configured grace window — 30 days for production — is wide enough that
+ * a temporarily-absent winner gets restored on its return WITHOUT URL
+ * churn but tight enough that genuinely-removed slugs eventually exit
+ * the file.
+ *
+ * Backward compat: entries written before `lastSeenAt` was added fall
+ * back to `decidedAt`. Entries with both fields missing or unparseable
+ * are kept (defensive — better to leak an unparseable row than purge a
+ * working entry).
+ */
+export function pruneStaleWinners(
+  winners: WinnersFile,
+  ttlMs: number,
+  now: string,
+): number {
+  const cutoff = Date.parse(now);
+  if (!Number.isFinite(cutoff)) return 0;
+  const cutoffMinusTtl = cutoff - ttlMs;
+  let pruned = 0;
+  for (const key of Object.keys(winners)) {
+    const entry = winners[key];
+    const stamp = entry.lastSeenAt || entry.decidedAt;
+    const t = Date.parse(stamp);
+    if (Number.isFinite(t) && t < cutoffMinusTtl) {
+      delete winners[key];
+      pruned += 1;
+    }
+  }
+  return pruned;
 }

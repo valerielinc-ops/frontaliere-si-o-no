@@ -8,6 +8,7 @@ import {
  jaccardSimilarity,
  loadWinners,
  makeKey,
+ pruneStaleWinners,
  resolveWinner,
  saveWinners,
  type CandidateInput,
@@ -138,12 +139,13 @@ describe('previousSlugWinners', () => {
  expect(winners[key].candidatesCount).toBe(2);
  });
 
- it('reuses prior decision when the winner is still in the candidates list', () => {
+ it('reuses prior decision when the winner is still in the candidates list and TOUCHES lastSeenAt', () => {
  const winners: WinnersFile = {
  [makeKey('en', 'shared')]: {
  winnerJobIdentifier: 'job-aaa',
  winnerCanonical: 'shared-old',
  decidedAt: '2026-01-01T00:00:00.000Z',
+ lastSeenAt: '2026-01-01T00:00:00.000Z',
  score: 1,
  candidatesCount: 2,
  },
@@ -155,14 +157,40 @@ describe('previousSlugWinners', () => {
  expect(out!.winnerJobIdentifier).toBe('job-aaa');
  // Original decidedAt preserved (decision NOT recomputed).
  expect(out!.decidedAt).toBe('2026-01-01T00:00:00.000Z');
+ // lastSeenAt is bumped to NOW so the prune routine sees this entry as alive.
+ expect(out!.lastSeenAt).toBe(NOW);
+ expect(winners[makeKey('en', 'shared')].lastSeenAt).toBe(NOW);
  });
 
- it('re-elects when the prior winner is no longer in the candidates list', () => {
+ it('reuse: skips touch if lastSeenAt is already === now (idempotent)', () => {
+ const winners: WinnersFile = {
+ [makeKey('en', 'shared')]: {
+ winnerJobIdentifier: 'job-aaa',
+ winnerCanonical: 'shared-old',
+ decidedAt: '2026-01-01T00:00:00.000Z',
+ lastSeenAt: NOW,
+ score: 1,
+ candidatesCount: 2,
+ },
+ };
+ const before = winners[makeKey('en', 'shared')];
+ const out = resolveWinner(winners, 'en', 'shared', [
+ { jobIdentifier: 'job-aaa', canonicalSlug: 'shared-old' },
+ { jobIdentifier: 'job-bbb', canonicalSlug: 'completely-different-slug' },
+ ], NOW);
+ expect(out).toBe(before); // exact reference equality — no clone made
+ });
+
+ it('re-elects AND OVERWRITES the registry when prior winner is gone, even with single replacement', () => {
+ // Branch 3 of the new lifecycle: when the previously-recorded winner
+ // is no longer in candidates, we adopt whoever IS in candidates so the
+ // file always reflects the current canonical (not a stale reference).
  const winners: WinnersFile = {
  [makeKey('en', 'shared')]: {
  winnerJobIdentifier: 'job-removed',
  winnerCanonical: 'shared-old',
  decidedAt: '2026-01-01T00:00:00.000Z',
+ lastSeenAt: '2026-01-01T00:00:00.000Z',
  score: 1,
  candidatesCount: 2,
  },
@@ -172,8 +200,10 @@ describe('previousSlugWinners', () => {
  ], NOW);
  expect(out!.winnerJobIdentifier).toBe('job-still-here');
  expect(out!.decidedAt).toBe(NOW); // freshly decided
- // Registry NOT updated for single-candidate trivial case.
- expect(winners[makeKey('en', 'shared')].winnerJobIdentifier).toBe('job-removed');
+ expect(out!.lastSeenAt).toBe(NOW);
+ // Registry IS updated even though only one candidate remained — keeps
+ // the file consistent with the live state.
+ expect(winners[makeKey('en', 'shared')].winnerJobIdentifier).toBe('job-still-here');
  });
 
  it('re-elects when prior winner removed AND multiple new candidates exist', () => {
@@ -182,6 +212,7 @@ describe('previousSlugWinners', () => {
  winnerJobIdentifier: 'job-removed',
  winnerCanonical: 'gone-slug',
  decidedAt: '2026-01-01T00:00:00.000Z',
+ lastSeenAt: '2026-01-01T00:00:00.000Z',
  score: 1,
  candidatesCount: 3,
  },
@@ -192,8 +223,91 @@ describe('previousSlugWinners', () => {
  ], NOW);
  expect(out!.winnerJobIdentifier).toBe('job-aaa');
  expect(out!.decidedAt).toBe(NOW);
+ expect(out!.lastSeenAt).toBe(NOW);
  // Registry updated.
  expect(winners[makeKey('en', 'shared')].winnerJobIdentifier).toBe('job-aaa');
+ });
+ });
+
+ describe('pruneStaleWinners — TTL garbage collection', () => {
+ const TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
+ const NOW_PRUNE = '2026-04-30T12:00:00.000Z';
+ const oneDayBefore = new Date(Date.parse(NOW_PRUNE) - 1 * 24 * 60 * 60 * 1000).toISOString();
+ const fortyDaysBefore = new Date(Date.parse(NOW_PRUNE) - 40 * 24 * 60 * 60 * 1000).toISOString();
+ const fiftyDaysBefore = new Date(Date.parse(NOW_PRUNE) - 50 * 24 * 60 * 60 * 1000).toISOString();
+
+ it('keeps entries whose lastSeenAt is within the TTL window', () => {
+ const winners: WinnersFile = {
+ [makeKey('en', 'fresh')]: {
+ winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: oneDayBefore,
+ lastSeenAt: oneDayBefore, score: 0.5, candidatesCount: 2,
+ },
+ };
+ const pruned = pruneStaleWinners(winners, TTL_MS, NOW_PRUNE);
+ expect(pruned).toBe(0);
+ expect(Object.keys(winners)).toHaveLength(1);
+ });
+
+ it('removes entries whose lastSeenAt is older than TTL', () => {
+ const winners: WinnersFile = {
+ [makeKey('en', 'stale')]: {
+ winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: fortyDaysBefore,
+ lastSeenAt: fortyDaysBefore, score: 0.5, candidatesCount: 2,
+ },
+ [makeKey('en', 'older')]: {
+ winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: fiftyDaysBefore,
+ lastSeenAt: fiftyDaysBefore, score: 0.5, candidatesCount: 2,
+ },
+ };
+ const pruned = pruneStaleWinners(winners, TTL_MS, NOW_PRUNE);
+ expect(pruned).toBe(2);
+ expect(Object.keys(winners)).toHaveLength(0);
+ });
+
+ it('mixed entries: keeps fresh, removes stale', () => {
+ const winners: WinnersFile = {
+ [makeKey('en', 'fresh')]: {
+ winnerJobIdentifier: 'a', winnerCanonical: 'x', decidedAt: oneDayBefore,
+ lastSeenAt: oneDayBefore, score: 0, candidatesCount: 1,
+ },
+ [makeKey('en', 'stale')]: {
+ winnerJobIdentifier: 'b', winnerCanonical: 'y', decidedAt: fortyDaysBefore,
+ lastSeenAt: fortyDaysBefore, score: 0, candidatesCount: 1,
+ },
+ };
+ const pruned = pruneStaleWinners(winners, TTL_MS, NOW_PRUNE);
+ expect(pruned).toBe(1);
+ expect(Object.keys(winners)).toEqual([makeKey('en', 'fresh')]);
+ });
+
+ it('backward compat: entry without lastSeenAt falls back to decidedAt', () => {
+ // Simulate an entry written before lastSeenAt was added — only decidedAt.
+ const winners: WinnersFile = {
+ [makeKey('en', 'old')]: {
+ winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: oneDayBefore,
+ lastSeenAt: '', // empty — must fall back
+ score: 0, candidatesCount: 1,
+ },
+ };
+ const pruned = pruneStaleWinners(winners, TTL_MS, NOW_PRUNE);
+ // decidedAt is recent → entry kept.
+ expect(pruned).toBe(0);
+ });
+
+ it('returns 0 and is a no-op for empty registry', () => {
+ const winners: WinnersFile = {};
+ expect(pruneStaleWinners(winners, TTL_MS, NOW_PRUNE)).toBe(0);
+ });
+
+ it('returns 0 when `now` is unparseable (defensive — never purge on bad input)', () => {
+ const winners: WinnersFile = {
+ [makeKey('en', 'fresh')]: {
+ winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: oneDayBefore,
+ lastSeenAt: oneDayBefore, score: 0, candidatesCount: 1,
+ },
+ };
+ expect(pruneStaleWinners(winners, TTL_MS, 'not-a-date')).toBe(0);
+ expect(Object.keys(winners)).toHaveLength(1);
  });
  });
 
@@ -223,6 +337,7 @@ describe('previousSlugWinners', () => {
  winnerJobIdentifier: 'job-a',
  winnerCanonical: 'foo-bar',
  decidedAt: NOW,
+ lastSeenAt: NOW,
  score: 0.75,
  candidatesCount: 3,
  },
@@ -235,10 +350,10 @@ describe('previousSlugWinners', () => {
  const file = path.join(tmp, 'sorted.json');
  saveWinners(file, {
  [makeKey('en', 'zzz')]: {
- winnerJobIdentifier: 'job', winnerCanonical: 'zzz', decidedAt: NOW, score: 0, candidatesCount: 1,
+ winnerJobIdentifier: 'job', winnerCanonical: 'zzz', decidedAt: NOW, lastSeenAt: NOW, score: 0, candidatesCount: 1,
  },
  [makeKey('en', 'aaa')]: {
- winnerJobIdentifier: 'job', winnerCanonical: 'aaa', decidedAt: NOW, score: 0, candidatesCount: 1,
+ winnerJobIdentifier: 'job', winnerCanonical: 'aaa', decidedAt: NOW, lastSeenAt: NOW, score: 0, candidatesCount: 1,
  },
  });
  const raw = fs.readFileSync(file, 'utf-8');

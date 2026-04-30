@@ -31,6 +31,7 @@ import {
  loadWinners,
  saveWinners,
  resolveWinner,
+ pruneStaleWinners,
  makeKey as previousSlugWinnerKey,
  type CandidateInput as PreviousSlugCandidate,
  type WinnersFile as PreviousSlugWinnersFile,
@@ -7323,10 +7324,30 @@ ${hreflangLinks}
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages${skipNote}`);
  }
 
- // Persist the winners file if any decision changed during this build.
- // Stable cross-build URLs depend on this — without persistence, the
- // heuristic could re-elect a different winner on a different build and
- // silently flip every previously-stable bridge target.
+ // Garbage-collect entries whose oldSlug nobody has claimed in the last
+ // 30 days. Without this the registry grows monotonically: deleted jobs
+ // leave their winner entries behind as ghosts, and a slug that nobody
+ // lists in any previousSlugs anymore stays in the file forever.
+ // 30 days is a grace window wide enough to ride out a temporarily-
+ // absent feed entry (crawler hiccup, weekend off-shift, manual review)
+ // without flipping the URL on its return; tight enough that genuinely
+ // removed slugs eventually exit the file.
+ const PREV_SLUG_WINNER_TTL_DAYS = 30;
+ const prunedWinners = pruneStaleWinners(
+ previousSlugWinners,
+ PREV_SLUG_WINNER_TTL_DAYS * 24 * 60 * 60 * 1000,
+ nowIso,
+ );
+ if (prunedWinners > 0) {
+ console.log(
+ `\x1b[36m[jobs-seo-pages]\x1b[0m previous-slug winners: pruned ${prunedWinners} stale entries (>${PREV_SLUG_WINNER_TTL_DAYS}d since last seen)`,
+ );
+ }
+
+ // Persist the winners file if any decision changed during this build,
+ // OR if the prune removed entries. Stable cross-build URLs depend on
+ // persistence — without it, the heuristic could re-elect a different
+ // winner on a different build and silently flip every bridge target.
  if (JSON.stringify(previousSlugWinners) !== previousSlugWinnersBefore) {
  saveWinners(previousSlugWinnersPath, previousSlugWinners);
  console.log(
