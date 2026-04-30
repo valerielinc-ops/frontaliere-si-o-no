@@ -933,6 +933,8 @@ const frCore: Record<string, string> = {
  'newsletter.pendingReminder.description': 'Vous avez une inscription en attente. Vérifiez votre email et cliquez sur le lien pour activer la newsletter.',
  'newsletter.pendingReminder.resend': 'Email non reçu ?',
  'newsletter.dataPrivacy': 'Votre email est en sécurité. Nous ne le partageons jamais avec personne.',
+ 'newsletter.consentLabel': 'J\'accepte de recevoir la newsletter hebdomadaire avec des mises à jour sur le taux CHF/EUR, le trafic frontalier et les actualités fiscales pour les travailleurs frontaliers. Je peux me désabonner à tout moment.',
+ 'newsletter.consentRequired': 'Vous devez accepter le consentement pour vous inscrire.',
  'newsletter.popup.title': 'Restez informé !',
  'newsletter.popup.subtitle': 'Abonnez-vous à la newsletter hebdomadaire : taux CHF/EUR, trafic et actualités fiscales chaque lundi.',
  'newsletter.popup.close': 'Fermer',
