@@ -4282,6 +4282,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inflazione-aprile-2026-italia.title': 'Italy inflation April 2026: +2.8% and grocery basket up',
     'blog.article.inflazione-aprile-2026-italia.excerpt': 'In April 2026, Italy\'s inflation rises to +2.8%, with a +2.5% increase in the grocery basket.',
     'blog.article.inflazione-aprile-2026-italia.imageAlt': 'Lake Lugano with surrounding mountains and buildings',
+    'blog.article.azienda-bardello-cerca-operatore-cnc.title': 'Onostampi Srl seeks experienced CNC operator',
+    'blog.article.azienda-bardello-cerca-operatore-cnc.excerpt': 'Onostampi Srl, an ISO 9001:2015 certified company, is looking for a CNC operator with at least 5 years of experience for machining on 3, 4, and 5 axes.',
+    'blog.article.azienda-bardello-cerca-operatore-cnc.imageAlt': 'CNC operator working in a Bardello company',
 };
 
 export default blogMetaEn;

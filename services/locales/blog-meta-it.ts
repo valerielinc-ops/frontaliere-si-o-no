@@ -4283,6 +4283,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inflazione-aprile-2026-italia.title': 'Inflazione Italia aprile 2026: +2,8% e carrello della spesa in aumento',
     'blog.article.inflazione-aprile-2026-italia.excerpt': 'Ad aprile 2026 l\'inflazione in Italia sale al +2,8%, con un aumento del carrello della spesa al +2,5%.',
     'blog.article.inflazione-aprile-2026-italia.imageAlt': 'Lago di Lugano con montagne e edifici circostanti',
+    'blog.article.azienda-bardello-cerca-operatore-cnc.title': 'Azienda Bardello cerca operatore CNC: esperienza richiesta',
+    'blog.article.azienda-bardello-cerca-operatore-cnc.excerpt': 'Onostampi Srl, azienda certificata ISO 9001:2015, cerca operatore CNC con almeno 5 anni di esperienza per lavorazioni su 3, 4 e 5 assi.',
+    'blog.article.azienda-bardello-cerca-operatore-cnc.imageAlt': 'Operatore CNC al lavoro in un\'azienda di Bardello',
 };
 
 export default blogMetaIt;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1477,
+ "numberOfItems": 1478,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6112,7 +6112,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1474, "name": "Cessione Bper-BCC: le sei filiali interessate i...", "url": `${BASE_URL}/articoli-frontaliere/cessione-bper-bcc-varese-2026` },
           { "@type": "ListItem", "position": 1475, "name": "Innalzamento Lago Maggiore: impatti economici e...", "url": `${BASE_URL}/articoli-frontaliere/innalzamento-livello-verbano-impatti-economici` },
           { "@type": "ListItem", "position": 1476, "name": "Barometro KOF: ripresa modesta per l'economia s...", "url": `${BASE_URL}/articoli-frontaliere/barometro-kof-ripresa-modesta-2026` },
-          { "@type": "ListItem", "position": 1477, "name": "Inflazione Italia aprile 2026: +2,8% e carrello...", "url": `${BASE_URL}/articoli-frontaliere/inflazione-aprile-2026-italia` }
+          { "@type": "ListItem", "position": 1477, "name": "Inflazione Italia aprile 2026: +2,8% e carrello...", "url": `${BASE_URL}/articoli-frontaliere/inflazione-aprile-2026-italia` },
+          { "@type": "ListItem", "position": 1478, "name": "Azienda Bardello cerca operatore CNC: esperienz...", "url": `${BASE_URL}/articoli-frontaliere/azienda-bardello-cerca-operatore-cnc` }
  ]
  },
  {

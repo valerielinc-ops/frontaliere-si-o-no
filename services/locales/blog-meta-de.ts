@@ -4282,6 +4282,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inflazione-aprile-2026-italia.title': 'Inflation Italien April 2026: +2,8% und Einkaufskorb steigt',
     'blog.article.inflazione-aprile-2026-italia.excerpt': 'Im April 2026 steigt die Inflation in Italien auf +2,8%, wobei der Einkaufskorb um +2,5% ansteigt.',
     'blog.article.inflazione-aprile-2026-italia.imageAlt': 'Luganersee mit umliegenden Bergen und Gebäuden',
+    'blog.article.azienda-bardello-cerca-operatore-cnc.title': 'Onostampi sucht CNC-Bediener mit Erfahrung',
+    'blog.article.azienda-bardello-cerca-operatore-cnc.excerpt': 'Onostampi Srl, ein nach ISO 9001:2015 zertifiziertes Unternehmen, sucht einen CNC-Bediener mit mindestens 5 Jahren Erfahrung für Bearbeitungen auf 3-, 4- und 5-Achsen-Maschinen.',
+    'blog.article.azienda-bardello-cerca-operatore-cnc.imageAlt': 'CNC-Bediener bei der Arbeit in einem Unternehmen in Bardello',
 };
 
 export default blogMetaDe;

@@ -11005,4 +11005,11 @@ export const ARTICLES = [
  image: '/images/blog/inflazione-aprile-2026-italia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'azienda-bardello-cerca-operatore-cnc',
+ category: 'novita',
+ date: '2026-04-30T11:13:42.901Z',
+ image: '/images/blog/azienda-bardello-cerca-operatore-cnc.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
