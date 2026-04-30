@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grace-la-margna",
-  "assembledAt": "2026-04-29T21:59:26.757Z",
+  "assembledAt": "2026-04-30T10:52:26.411Z",
   "jobs": [
     {
       "title": "Assistant Outlet Manager (m/w) - restaurants are your stage",
@@ -44,7 +44,7 @@
         "fr": "assistant-outlet-manager-h-w-les-restaurants-sont-votre-scene-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:58:23.910Z",
+      "crawledAt": "2026-04-30T10:51:40.361Z",
       "id": "grace-la-margna-c0f1d3a6a815",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -119,7 +119,7 @@
         "fr": "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:58:28.203Z",
+      "crawledAt": "2026-04-30T10:51:44.638Z",
       "id": "grace-la-margna-bbc2c160c4ea",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -147,7 +147,8 @@
       },
       "previousSlugs": [
         "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Barkeeper/Mixologist (m/w) - be the hero in the Bar",
@@ -191,7 +192,7 @@
         "fr": "barkeeper-mixologist-h-w-soyez-le-heros-du-bar-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:58:39.619Z",
+      "crawledAt": "2026-04-30T10:51:48.617Z",
       "id": "grace-la-margna-8aa7c6b5079c",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -266,7 +267,7 @@
         "fr": "concierge-h-w-createur-d-experiences-uniques-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:58:43.930Z",
+      "crawledAt": "2026-04-30T10:51:52.725Z",
       "previousSlugs": [
         "concierge-m-w-creator-of-unique-experiences-grace-la-margna-st-moritz-st-moritz",
         "concierge-m-w-creator-of-unique-experiences",
@@ -347,7 +348,7 @@
         "fr": "f-b-apprenti-m-w-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:58:48.211Z",
+      "crawledAt": "2026-04-30T10:51:56.753Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -417,7 +418,7 @@
         "fr": "front-office-apprenti-m-w-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:58:52.565Z",
+      "crawledAt": "2026-04-30T10:52:00.822Z",
       "id": "grace-la-margna-3a693cb7389a",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -492,7 +493,7 @@
         "fr": "serveur-en-chef-serveuse-m-w-soyez-le-heros-du-restaurant-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:58:56.927Z",
+      "crawledAt": "2026-04-30T10:52:04.860Z",
       "id": "grace-la-margna-e5b905980c76",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -567,7 +568,7 @@
         "fr": "prepose-a-la-salle-a-manger-dans-la-chambre-soyez-le-premier-sourire-a-la-porte-du-client-grace-la-margna-st-moritz-st-m"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:59:08.419Z",
+      "crawledAt": "2026-04-30T10:52:08.974Z",
       "id": "grace-la-margna-ba6898120278",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -642,7 +643,7 @@
         "fr": "agent-de-reservation-h-w-etre-le-maitre-dans-le-remplissage-de-la-maison-au-meilleur-prix-grace-la-margna-st-moritz-st-m"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:59:12.773Z",
+      "crawledAt": "2026-04-30T10:52:13.226Z",
       "previousSlugs": [
         "reservierungsagent-m-w-sei-der-meister-darin-das-haus-zum-besten-preis-zu-fullen-grace-la-",
         "reservation-agent-m-w-be-the-master-in-filling-the-house-at-the-best-price",
@@ -716,7 +717,7 @@
         "fr": "restaurant-supervisor-m-w-restaurant-is-your-stage"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:59:17.133Z",
+      "crawledAt": "2026-04-30T10:52:17.286Z",
       "id": "grace-la-margna-1e3784aea151",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -791,7 +792,7 @@
         "fr": "sommelier-lun-mercredi-soyez-le-maitre-des-bouteilles-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:59:21.469Z",
+      "crawledAt": "2026-04-30T10:52:21.397Z",
       "previousSlugs": [
         "sommelier-m-w-be-the-master-of-bottles"
       ],
@@ -863,7 +864,7 @@
         "fr": "therapeute-de-spa-receptionniste-soyez-la-touche-magique-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-04-29T21:59:25.797Z",
+      "crawledAt": "2026-04-30T10:52:25.461Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
