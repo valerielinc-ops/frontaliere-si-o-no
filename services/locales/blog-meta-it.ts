@@ -4424,6 +4424,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bambino-annegato-morcote-30-aprile-2026.title': 'Bambino di due anni muore annegato a Morcote',
     'blog.article.bambino-annegato-morcote-30-aprile-2026.excerpt': 'Tragedia a Vico Morcote: un bambino di due anni è morto annegato in una piscina privata. L\'allarme è scattato nel primo pomeriggio di giovedì 30 aprile.',
     'blog.article.bambino-annegato-morcote-30-aprile-2026.imageAlt': 'Vista di Morcote sul lago Ceresio con una piscina privata in primo piano',
+    'blog.article.solaro-chiude-ambulatorio-medico.title': 'Solaro chiude l’ambulatorio medico al Villaggio Brollo',
+    'blog.article.solaro-chiude-ambulatorio-medico.excerpt': 'L’Ambulatorio Medico Temporaneo di Villaggio Brollo a Solaro chiuderà in anticipo il 21 maggio.',
+    'blog.article.solaro-chiude-ambulatorio-medico.imageAlt': 'Vista del Lago di Lugano con le montagne circostanti e una piccola barca sull\'acqua.',
 };
 
 export default blogMetaIt;

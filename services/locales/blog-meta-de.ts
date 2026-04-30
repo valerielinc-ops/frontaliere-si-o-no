@@ -4423,6 +4423,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bambino-annegato-morcote-30-aprile-2026.title': 'Zwei Jahre alter Junge ertrinkt in Morcote',
     'blog.article.bambino-annegato-morcote-30-aprile-2026.excerpt': 'Tragödie in Vico Morcote: Ein zweijähriges Kind ist in einem privaten Schwimmbad ertrunken. Der Alarm ging am frühen Nachmittag von Donnerstag, dem 30. April, los.',
     'blog.article.bambino-annegato-morcote-30-aprile-2026.imageAlt': 'Ansicht von Morcote am Ceresio-See mit einem privaten Pool im Vordergrund',
+    'blog.article.solaro-chiude-ambulatorio-medico.title': 'Arztpraxis im Dorf Brollo wird geschlossen',
+    'blog.article.solaro-chiude-ambulatorio-medico.excerpt': 'Die temporäre Arztpraxis im Dorf Brollo in Solaro wird am 21. Mai früher als geplant schließen.',
+    'blog.article.solaro-chiude-ambulatorio-medico.imageAlt': 'Blick auf den Luganersee mit den umliegenden Bergen und einem kleinen Boot auf dem Wasser.',
 };
 
 export default blogMetaDe;

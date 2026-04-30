@@ -29735,6 +29735,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-solaro-chiude-ambulatorio-medico': {
+    title: 'Solaro chiude l’ambulatorio medico al Villaggio Brollo',
+    description: 'L’Ambulatorio Medico Temporaneo di Villaggio Brollo a Solaro chiuderà in anticipo il 21 maggio. Scopri i dettagli e i servizi alternativi disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, solaro, chiude, ambulatorio, medico',
+    ogTitle: 'Solaro chiude l’ambulatorio medico al Villaggio Brollo',
+    ogDescription: 'L’Ambulatorio Medico Temporaneo di Villaggio Brollo a Solaro chiuderà in anticipo il 21 maggio. Scopri i dettagli e i servizi alternativi disponibili.',
+    canonicalPath: '/articoli-frontaliere/solaro-chiude-ambulatorio-medico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Solaro chiude l’ambulatorio medico al Villaggio Brollo",
+      "description": "L’Ambulatorio Medico Temporaneo di Villaggio Brollo a Solaro chiuderà in anticipo il 21 maggio. Scopri i dettagli e i servizi alternativi disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/solaro-chiude-ambulatorio-medico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con le montagne circostanti e una piccola barca sull'acqua."
+      },
+      "datePublished": "2026-04-30T18:48:46+00:00",
+      "dateModified": "2026-04-30T18:48:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/solaro-chiude-ambulatorio-medico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

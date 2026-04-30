@@ -11334,4 +11334,11 @@ export const ARTICLES = [
  image: '/images/blog/bambino-annegato-morcote-30-aprile-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'solaro-chiude-ambulatorio-medico',
+ category: 'novita',
+ date: '2026-04-30T18:48:46.103Z',
+ image: '/images/blog/solaro-chiude-ambulatorio-medico.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
