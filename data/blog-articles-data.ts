@@ -11285,4 +11285,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-bilancio-centri-violenza-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'addio-giovanni-salandin-cgil-frontalieri',
+ category: 'novita',
+ date: '2026-04-30T17:51:40.647Z',
+ image: '/images/blog/addio-giovanni-salandin-cgil-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

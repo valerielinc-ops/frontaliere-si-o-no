@@ -2698,6 +2698,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iniziativa-democrazia-respinta-2026': { name: 'Iniziativa democrazia', path: '/articoli-frontaliere/iniziativa-democrazia-respinta-2026', parent: 'blog' },
     'blog-primo-maggio-varese-2026-storia-e-trasformazioni': { name: 'Primo Maggio', path: '/articoli-frontaliere/primo-maggio-varese-2026-storia-e-trasformazioni', parent: 'blog' },
     'blog-primo-bilancio-centri-violenza-2026': { name: 'Centri violenza', path: '/articoli-frontaliere/primo-bilancio-centri-violenza-2026', parent: 'blog' },
+    'blog-addio-giovanni-salandin-cgil-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/addio-giovanni-salandin-cgil-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

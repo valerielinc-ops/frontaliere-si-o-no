@@ -29532,6 +29532,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-addio-giovanni-salandin-cgil-frontalieri': {
+    title: 'Addio a Salandin, storico leader Cgil | Frontaliere Ticino',
+    description: 'Il mondo sindacale varesino è in lutto per la scomparsa di Giovanni Salandin, storico dirigente Cgil che ha dedicato la vita alla difesa dei diritti dei',
+    keywords: 'frontalieri, ticino, svizzera, italia, addio, salandin, storico, leader',
+    ogTitle: 'Addio a Giovanni Salandin, storico leader Cgil',
+    ogDescription: 'Il mondo sindacale varesino è in lutto per la scomparsa di Giovanni Salandin, storico dirigente Cgil che ha dedicato la vita alla difesa dei diritti dei',
+    canonicalPath: '/articoli-frontaliere/addio-giovanni-salandin-cgil-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Addio a Giovanni Salandin, storico leader Cgil: l’ultimo saluto a Brissago Valtravaglia",
+      "description": "Il mondo sindacale varesino è in lutto per la scomparsa di Giovanni Salandin, storico dirigente Cgil che ha dedicato la vita alla difesa dei diritti dei",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/addio-giovanni-salandin-cgil-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cerimonia di addio a Giovanni Salandin a Brissago Valtravaglia"
+      },
+      "datePublished": "2026-04-30T17:51:40+00:00",
+      "dateModified": "2026-04-30T17:51:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/addio-giovanni-salandin-cgil-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4403,6 +4403,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-bilancio-centri-violenza-2026.title': 'ATS Insubria: 398 uomini seguiti nei centri per autori di violenza',
     'blog.article.primo-bilancio-centri-violenza-2026.excerpt': 'Nel primo anno di attività, i Centri per Uomini Autori di Violenza (CUAV) hanno seguito 398 uomini, con un\'età media di 42 anni.',
     'blog.article.primo-bilancio-centri-violenza-2026.imageAlt': 'Centro di consulenza in Ticino, con vista sul lago e montagne circostanti',
+    'blog.article.addio-giovanni-salandin-cgil-frontalieri.title': 'Addio a Salandin, storico leader Cgil',
+    'blog.article.addio-giovanni-salandin-cgil-frontalieri.excerpt': 'Il mondo sindacale varesino è in lutto per la scomparsa di Giovanni Salandin, storico dirigente Cgil che ha dedicato la vita alla difesa dei diritti dei lavoratori.',
+    'blog.article.addio-giovanni-salandin-cgil-frontalieri.imageAlt': 'Cerimonia di addio a Giovanni Salandin a Brissago Valtravaglia',
 };
 
 export default blogMetaIt;

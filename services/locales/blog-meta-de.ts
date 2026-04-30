@@ -4402,6 +4402,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-bilancio-centri-violenza-2026.title': 'ATS Insubria: 398 Männer in Gewaltzentren begleitet',
     'blog.article.primo-bilancio-centri-violenza-2026.excerpt': 'Im ersten Jahr der Tätigkeit haben die Zentren für gewalttätige Männer (CUAV) 398 Männer begleitet, mit einem Durchschnittsalter von 42 Jahren.',
     'blog.article.primo-bilancio-centri-violenza-2026.imageAlt': 'Beratungszentrum in Ticino, mit Blick auf den See und die umliegenden Berge',
+    'blog.article.addio-giovanni-salandin-cgil-frontalieri.title': 'Abschied von Salandin, historische Cgil-Führer',
+    'blog.article.addio-giovanni-salandin-cgil-frontalieri.excerpt': 'Die Gewerkschaftswelt von Varese trauert um den Tod von Giovanni Salandin, den historischen Cgil-Führer, der sein Leben dem Schutz der Arbeiterrechte gewidmet hat.',
+    'blog.article.addio-giovanni-salandin-cgil-frontalieri.imageAlt': 'Abschiedsfeier für Giovanni Salandin in Brissago Valtravaglia',
 };
 
 export default blogMetaDe;
