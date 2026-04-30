@@ -4307,6 +4307,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-siemens-nuovi-treni-ticino.title': 'FFS e Siemens firmano contratto per 116 nuovi treni',
     'blog.article.ffs-siemens-nuovi-treni-ticino.excerpt': 'Le FFS e Siemens Mobility Svizzera hanno firmato il contratto per 116 nuovi treni a due piani per la S-Bahn, con un investimento di fino a 2 miliardi di franchi.',
     'blog.article.ffs-siemens-nuovi-treni-ticino.imageAlt': 'Nuovi treni a due piani alla stazione di Lugano, Lago Ceresio',
+    'blog.article.passaporto-poste-italiane-uffici.title': 'Passaporto in 7.500 uffici postali italiani',
+    'blog.article.passaporto-poste-italiane-uffici.excerpt': 'Da marzo 2024, il servizio di rilascio e rinnovo passaporti è disponibile in 7.500 uffici postali italiani, inclusi quelli del progetto Polis.',
+    'blog.article.passaporto-poste-italiane-uffici.imageAlt': 'Ufficio Poste Italiane in Ticino, con un cliente al bancone e un impiegato che fornisce assistenza.',
 };
 
 export default blogMetaIt;

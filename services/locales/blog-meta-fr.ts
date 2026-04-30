@@ -4307,6 +4307,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-siemens-nuovi-treni-ticino.title': 'FFS et Siemens signent un contrat pour 116 nouveaux trains',
     'blog.article.ffs-siemens-nuovi-treni-ticino.excerpt': 'Les CFF et Siemens Mobility Suisse ont signé le contrat pour 116 nouveaux trains à deux étages pour le S-Bahn, avec un investissement allant jusqu\'à 2 milliards de francs.',
     'blog.article.ffs-siemens-nuovi-treni-ticino.imageAlt': 'Nouveaux trains à deux étages à la gare de Lugano, Lac de Lugano',
+    'blog.article.passaporto-poste-italiane-uffici.title': 'Passeport dans 7.500 bureaux de poste italiens',
+    'blog.article.passaporto-poste-italiane-uffici.excerpt': 'À partir de mars 2024, le service de délivrance et de renouvellement des passeports est disponible dans 7.500 bureaux de poste italiens, y compris ceux du projet Polis.',
+    'blog.article.passaporto-poste-italiane-uffici.imageAlt': 'Bureau de Poste Italiane au Tessin, en Suisse, avec un client au comptoir et un employé fournissant de l\'aide.',
 };
 
 export default blogMetaFr;

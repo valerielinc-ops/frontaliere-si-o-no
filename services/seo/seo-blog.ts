@@ -28604,6 +28604,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-passaporto-poste-italiane-uffici': {
+    title: 'Passaporto in 7.500 uffici postali italiani | Frontaliere Ticino',
+    description: 'Scopri come richiedere il passaporto in 7.500 uffici postali italiani, inclusi quelli del progetto Polis. Vantaggi e procedure per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, passaporto, uffici, postali, italiani',
+    ogTitle: 'Passaporto in 7.500 uffici postali italiani',
+    ogDescription: 'Scopri come richiedere il passaporto in 7.500 uffici postali italiani, inclusi quelli del progetto Polis. Vantaggi e procedure per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/passaporto-poste-italiane-uffici',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Passaporto in 7.500 uffici postali italiani",
+      "description": "Scopri come richiedere il passaporto in 7.500 uffici postali italiani, inclusi quelli del progetto Polis. Vantaggi e procedure per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/passaporto-poste-italiane-uffici.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio Poste Italiane in Ticino, con un cliente al bancone e un impiegato che fornisce assistenza."
+      },
+      "datePublished": "2026-04-30T12:32:54+00:00",
+      "dateModified": "2026-04-30T12:32:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passaporto-poste-italiane-uffici`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

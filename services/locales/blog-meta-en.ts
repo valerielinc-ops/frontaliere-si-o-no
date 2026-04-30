@@ -4306,6 +4306,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-siemens-nuovi-treni-ticino.title': 'SBB and Siemens sign contract for 116 new trains',
     'blog.article.ffs-siemens-nuovi-treni-ticino.excerpt': 'SBB and Siemens Mobility Switzerland have signed the contract for 116 new double-decker trains for the S-Bahn, with an investment of up to 2 billion francs.',
     'blog.article.ffs-siemens-nuovi-treni-ticino.imageAlt': 'New double-decker trains at Lugano station, Lake Lugano',
+    'blog.article.passaporto-poste-italiane-uffici.title': 'Passport service at 7,500 Italian post offices',
+    'blog.article.passaporto-poste-italiane-uffici.excerpt': 'From March 2024, passport issuance and renewal services are available at 7,500 Italian post offices, including those in the Polis project.',
+    'blog.article.passaporto-poste-italiane-uffici.imageAlt': 'Poste Italiane office in Ticino, Switzerland, with a customer at the counter and an employee providing assistance.',
 };
 
 export default blogMetaEn;

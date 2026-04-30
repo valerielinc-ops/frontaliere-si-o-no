@@ -2666,6 +2666,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-education-day-confindustria-varese-2026': { name: 'Education Day', path: '/articoli-frontaliere/education-day-confindustria-varese-2026', parent: 'blog' },
     'blog-riforma-polizia-ticino-progetto-fermo': { name: 'Riforma polizia', path: '/articoli-frontaliere/riforma-polizia-ticino-progetto-fermo', parent: 'blog' },
     'blog-ffs-siemens-nuovi-treni-ticino': { name: 'Nuovi treni FFS', path: '/articoli-frontaliere/ffs-siemens-nuovi-treni-ticino', parent: 'blog' },
+    'blog-passaporto-poste-italiane-uffici': { name: 'Novità', path: '/articoli-frontaliere/passaporto-poste-italiane-uffici', parent: 'blog' },
  };
 
  const info = sectionNames[section];

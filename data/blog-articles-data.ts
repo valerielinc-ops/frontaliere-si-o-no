@@ -11061,4 +11061,11 @@ export const ARTICLES = [
  image: '/images/blog/ffs-siemens-nuovi-treni-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'passaporto-poste-italiane-uffici',
+ category: 'novita',
+ date: '2026-04-30T12:32:54.141Z',
+ image: '/images/blog/passaporto-poste-italiane-uffici.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

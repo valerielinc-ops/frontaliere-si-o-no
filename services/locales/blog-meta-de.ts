@@ -4306,6 +4306,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ffs-siemens-nuovi-treni-ticino.title': 'SBB und Siemens unterzeichnen Vertrag für 116 neue Züge',
     'blog.article.ffs-siemens-nuovi-treni-ticino.excerpt': 'Die SBB und Siemens Mobility Schweiz haben den Vertrag für 116 neue Doppelstockzüge für die S-Bahn unterzeichnet, mit einer Investition von bis zu 2 Milliarden Franken.',
     'blog.article.ffs-siemens-nuovi-treni-ticino.imageAlt': 'Neue Doppelstockzüge am Bahnhof Lugano, Luganersee',
+    'blog.article.passaporto-poste-italiane-uffici.title': 'Pass in 7.500 italienischen Postämtern',
+    'blog.article.passaporto-poste-italiane-uffici.excerpt': 'Ab März 2024 ist der Dienst für die Ausstellung und Verlängerung von Pässen in 7.500 italienischen Postämtern verfügbar, einschließlich derjenigen des Polis-Projekts.',
+    'blog.article.passaporto-poste-italiane-uffici.imageAlt': 'Poste Italiane Büro in Tessin, Schweiz, mit einem Kunden am Schalter und einem Mitarbeiter, der Hilfe leistet.',
 };
 
 export default blogMetaDe;
