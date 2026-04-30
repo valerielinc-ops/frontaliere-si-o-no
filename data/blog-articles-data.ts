@@ -11467,4 +11467,11 @@ export const ARTICLES = [
  image: '/images/blog/liuc-golf-frontalieri-accordo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pillola-giorno-dopo-vendita-libera-2026',
+ category: 'novita',
+ date: '2026-04-30T22:22:39.148Z',
+ image: '/images/blog/pillola-giorno-dopo-vendita-libera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

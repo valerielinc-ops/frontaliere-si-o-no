@@ -4481,6 +4481,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.liuc-golf-frontalieri-accordo-2026.title': 'Liuc et Fédération de Golf: accord pour étudiants-athlètes',
     'blog.article.liuc-golf-frontalieri-accordo-2026.excerpt': 'Protocole d\'accord triennal pour concilier études et carrière sportive dans le golf',
     'blog.article.liuc-golf-frontalieri-accordo-2026.imageAlt': 'Campus universitaire moderne à Castellanza avec des étudiants jouant au golf',
+    'blog.article.pillola-giorno-dopo-vendita-libera-2026.title': 'Pilule du lendemain sans consultation : les changements',
+    'blog.article.pillola-giorno-dopo-vendita-libera-2026.excerpt': 'Le Conseil national suisse approuve la vente de la pilule du lendemain sans entretien obligatoire. Voici ce qui change pour les femmes en Suisse et au Tessin.',
+    'blog.article.pillola-giorno-dopo-vendita-libera-2026.imageAlt': 'Pharmacie à Lugano avec panneau pour contraception d\'urgence',
 };
 
 export default blogMetaFr;

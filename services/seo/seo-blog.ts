@@ -30286,6 +30286,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pillola-giorno-dopo-vendita-libera-2026': {
+    title: 'Pillola del giorno dopo senza consulenza: cosa cambia',
+    description: 'Il Consiglio nazionale svizzero approva la vendita della pillola del giorno dopo senza colloquio obbligatorio. Ecco cosa cambia per le donne in Ticino e in',
+    keywords: 'frontalieri, ticino, svizzera, italia, pillola, giorno, dopo, senza',
+    ogTitle: 'Pillola del giorno dopo senza consulenza: cosa cambia',
+    ogDescription: 'Il Consiglio nazionale svizzero approva la vendita della pillola del giorno dopo senza colloquio obbligatorio. Ecco cosa cambia per le donne in Ticino e in',
+    canonicalPath: '/articoli-frontaliere/pillola-giorno-dopo-vendita-libera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pillola del giorno dopo senza consulenza: cosa cambia",
+      "description": "Il Consiglio nazionale svizzero approva la vendita della pillola del giorno dopo senza colloquio obbligatorio. Ecco cosa cambia per le donne in Ticino e in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pillola-giorno-dopo-vendita-libera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Farmacia a Lugano con segnale per contraccettivi d'emergenza"
+      },
+      "datePublished": "2026-04-30T22:22:39+00:00",
+      "dateModified": "2026-04-30T22:22:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pillola-giorno-dopo-vendita-libera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

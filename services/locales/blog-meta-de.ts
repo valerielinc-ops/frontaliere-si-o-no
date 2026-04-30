@@ -4480,6 +4480,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.liuc-golf-frontalieri-accordo-2026.title': 'Liuc und Golfverband: Vereinbarung für Studentensportler',
     'blog.article.liuc-golf-frontalieri-accordo-2026.excerpt': 'Dreijahresabkommen zur Vereinbarkeit von Studium und Golfkarriere',
     'blog.article.liuc-golf-frontalieri-accordo-2026.imageAlt': 'Moderner Universitätscampus in Castellanza mit Studenten, die Golf spielen',
+    'blog.article.pillola-giorno-dopo-vendita-libera-2026.title': 'Pille danach ohne Beratung: Was sich ändert',
+    'blog.article.pillola-giorno-dopo-vendita-libera-2026.excerpt': 'Der Schweizer Nationalrat genehmigt den Verkauf der Pille danach ohne obligatorisches Beratungsgespräch. Hier erfahren Sie, was sich für Frauen im Tessin und in der Schweiz ändert.',
+    'blog.article.pillola-giorno-dopo-vendita-libera-2026.imageAlt': 'Apotheke in Lugano mit Schild für Notfallverhütung',
 };
 
 export default blogMetaDe;

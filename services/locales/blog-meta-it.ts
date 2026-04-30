@@ -4481,6 +4481,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.liuc-golf-frontalieri-accordo-2026.title': 'Liuc e Federazione Golf: accordo per studenti-atleti',
     'blog.article.liuc-golf-frontalieri-accordo-2026.excerpt': 'Protocollo d\'intesa triennale per conciliare studio e carriera agonistica nel golf',
     'blog.article.liuc-golf-frontalieri-accordo-2026.imageAlt': 'Campus universitario moderno a Castellanza con studenti che giocano a golf',
+    'blog.article.pillola-giorno-dopo-vendita-libera-2026.title': 'Pillola del giorno dopo senza consulenza: cosa cambia',
+    'blog.article.pillola-giorno-dopo-vendita-libera-2026.excerpt': 'Il Consiglio nazionale svizzero approva la vendita della pillola del giorno dopo senza colloquio obbligatorio. Ecco cosa cambia per le donne in Ticino e in Svizzera.',
+    'blog.article.pillola-giorno-dopo-vendita-libera-2026.imageAlt': 'Farmacia a Lugano con segnale per contraccettivi d\'emergenza',
 };
 
 export default blogMetaIt;
