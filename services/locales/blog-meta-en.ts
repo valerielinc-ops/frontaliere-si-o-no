@@ -4249,6 +4249,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.commercio-dettaglio-ricavi-ticino-2026.title': 'Retail trade in Ticino: +2.7% in Q1 2026',
     'blog.article.commercio-dettaglio-ricavi-ticino-2026.excerpt': 'Retail trade in Ticino reports a 2.7% increase in revenue in the first quarter of 2026, with the food segment growing by 3.2%.',
     'blog.article.commercio-dettaglio-ricavi-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano with the city center of Lugano',
+    'blog.article.contibellinzona-2025-risultati.title': 'Bellinzona ends 2025 with smaller deficit',
+    'blog.article.contibellinzona-2025-risultati.excerpt': 'The 2025 financial report of the City of Bellinzona shows a deficit of 2.7 million francs, much lower than the 13.4 million francs forecasted',
+    'blog.article.contibellinzona-2025-risultati.imageAlt': 'Bellinzona cityscape with Castelgrande castle in the foreground',
 };
 
 export default blogMetaEn;

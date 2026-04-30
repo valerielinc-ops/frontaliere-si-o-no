@@ -2647,6 +2647,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-parita-paura-frontalieri-ticino': { name: 'Parità di genere', path: '/articoli-frontaliere/parita-paura-frontalieri-ticino', parent: 'blog' },
     'blog-presunti-maltrattamenti-asilo-chiasso': { name: 'Novità', path: '/articoli-frontaliere/presunti-maltrattamenti-asilo-chiasso', parent: 'blog' },
     'blog-commercio-dettaglio-ricavi-ticino-2026': { name: 'Commercio dettaglio', path: '/articoli-frontaliere/commercio-dettaglio-ricavi-ticino-2026', parent: 'blog' },
+    'blog-contibellinzona-2025-risultati': { name: 'Finanze comunali', path: '/articoli-frontaliere/contibellinzona-2025-risultati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

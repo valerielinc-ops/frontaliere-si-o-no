@@ -4249,6 +4249,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.commercio-dettaglio-ricavi-ticino-2026.title': 'Einzelhandel im Tessin: +2,7% im ersten Quartal 2026',
     'blog.article.commercio-dettaglio-ricavi-ticino-2026.excerpt': 'Der Einzelhandel im Tessin verzeichnet im ersten Quartal 2026 einen Umsatzanstieg von 2,7%, wobei der Lebensmittelbereich um 3,2% wächst.',
     'blog.article.commercio-dettaglio-ricavi-ticino-2026.imageAlt': 'Panoramablick auf den Luganersee mit dem Stadtzentrum von Lugano',
+    'blog.article.contibellinzona-2025-risultati.title': 'Bellinzona schließt 2025 mit geringerer Defizit',
+    'blog.article.contibellinzona-2025-risultati.excerpt': 'Die Jahresrechnung 2025 der Stadt Bellinzona weist ein Defizit von 2,7 Millionen Franken aus, deutlich weniger als die prognostizierten 13,4 Millionen.',
+    'blog.article.contibellinzona-2025-risultati.imageAlt': 'Bellinzona Stadtansicht mit der Burg Castelgrande im Vordergrund',
 };
 
 export default blogMetaDe;

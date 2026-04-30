@@ -4250,6 +4250,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.commercio-dettaglio-ricavi-ticino-2026.title': 'Commercio al dettaglio in Ticino: +2,7% nel primo trimestre 2026',
     'blog.article.commercio-dettaglio-ricavi-ticino-2026.excerpt': 'Il commercio al dettaglio in Ticino registra un aumento dei ricavi del 2,7% nel primo trimestre 2026, con il segmento alimentare in crescita del 3,2%.',
     'blog.article.commercio-dettaglio-ricavi-ticino-2026.imageAlt': 'Vista panoramica del Lago di Lugano con il centro città di Lugano',
+    'blog.article.contibellinzona-2025-risultati.title': 'Bellinzona chiude 2025 con un rosso più contenuto',
+    'blog.article.contibellinzona-2025-risultati.excerpt': 'Il consuntivo 2025 della Città di Bellinzona mostra un disavanzo di 2,7 milioni, molto inferiore ai 13,4 milioni previsti',
+    'blog.article.contibellinzona-2025-risultati.imageAlt': 'Panorama di Bellinzona con il Castelgrande in primo piano',
 };
 
 export default blogMetaIt;

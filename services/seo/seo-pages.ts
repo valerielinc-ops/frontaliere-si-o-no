@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1466,
+ "numberOfItems": 1467,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6101,7 +6101,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1463, "name": "Economia svizzera in ripresa, ma prospettive mo...", "url": `${BASE_URL}/articoli-frontaliere/kof-barometro-ripresa-economica-2026` },
           { "@type": "ListItem", "position": 1464, "name": "La parità che fa paura ai frontalieri del Ticino", "url": `${BASE_URL}/articoli-frontaliere/parita-paura-frontalieri-ticino` },
           { "@type": "ListItem", "position": 1465, "name": "Presunti maltrattamenti in asilo nido a Chiasso", "url": `${BASE_URL}/articoli-frontaliere/presunti-maltrattamenti-asilo-chiasso` },
-          { "@type": "ListItem", "position": 1466, "name": "Commercio al dettaglio in Ticino: +2,7% nel pri...", "url": `${BASE_URL}/articoli-frontaliere/commercio-dettaglio-ricavi-ticino-2026` }
+          { "@type": "ListItem", "position": 1466, "name": "Commercio al dettaglio in Ticino: +2,7% nel pri...", "url": `${BASE_URL}/articoli-frontaliere/commercio-dettaglio-ricavi-ticino-2026` },
+          { "@type": "ListItem", "position": 1467, "name": "Bellinzona chiude 2025 con un rosso più contenuto", "url": `${BASE_URL}/articoli-frontaliere/contibellinzona-2025-risultati` }
  ]
  },
  {

@@ -28053,6 +28053,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contibellinzona-2025-risultati': {
+    title: 'Bellinzona chiude 2025 con un rosso più contenuto | Frontaliere Ticino',
+    description: 'Il consuntivo 2025 della Città di Bellinzona mostra un disavanzo di 2,7 milioni, molto inferiore ai 13,4 milioni previsti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, chiude, 2025, rosso',
+    ogTitle: 'Bellinzona chiude 2025 con un rosso più contenuto',
+    ogDescription: 'Il consuntivo 2025 della Città di Bellinzona mostra un disavanzo di 2,7 milioni, molto inferiore ai 13,4 milioni previsti.',
+    canonicalPath: '/articoli-frontaliere/contibellinzona-2025-risultati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona chiude 2025 con un rosso più contenuto",
+      "description": "Il consuntivo 2025 della Città di Bellinzona mostra un disavanzo di 2,7 milioni, molto inferiore ai 13,4 milioni previsti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/contibellinzona-2025-risultati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Bellinzona con il Castelgrande in primo piano"
+      },
+      "datePublished": "2026-04-30T09:45:43+00:00",
+      "dateModified": "2026-04-30T09:45:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contibellinzona-2025-risultati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

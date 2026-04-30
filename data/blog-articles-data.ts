@@ -10928,4 +10928,11 @@ export const ARTICLES = [
  image: '/images/blog/commercio-dettaglio-ricavi-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'contibellinzona-2025-risultati',
+ category: 'fiscale',
+ date: '2026-04-30T09:45:43.897Z',
+ image: '/images/blog/contibellinzona-2025-risultati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
