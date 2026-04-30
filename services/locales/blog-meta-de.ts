@@ -4183,6 +4183,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.problemi-casellario-giudiziale-varese-2026.title': 'IT-Probleme beim Strafregister in Varese, nur Papieranträge',
     'blog.article.problemi-casellario-giudiziale-varese-2026.excerpt': 'Die Website für die Terminbuchung des Strafregisters ist ausgefallen. Nur Papieranträge mit Ausweisdokument werden angenommen.',
     'blog.article.problemi-casellario-giudiziale-varese-2026.imageAlt': 'Justizpalast in Varese mit einer digitalen Fehlermeldung',
+    'blog.article.comco-inchieste-pubblicita-online-2026.title': 'COMCO untersucht illegale Absprachen in Online-Werbung',
+    'blog.article.comco-inchieste-pubblicita-online-2026.excerpt': 'Die Schweizerische Wettbewerbskommission eröffnet zwei Untersuchungen zu Suchmaschinen wegen mutmaßlicher illegaler Absprachen zwischen Reiseunternehmen und Online-Casinos.',
+    'blog.article.comco-inchieste-pubblicita-online-2026.imageAlt': 'Lugano-Panorama mit dem Ceresio-See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

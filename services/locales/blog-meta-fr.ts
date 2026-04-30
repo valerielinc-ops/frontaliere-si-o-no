@@ -4184,6 +4184,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.problemi-casellario-giudiziale-varese-2026.title': 'Problèmes informatiques au casier de Varèse, demandes papier',
     'blog.article.problemi-casellario-giudiziale-varese-2026.excerpt': 'Le site pour réserver le retrait du casier judiciaire est en panne. Seules les demandes papier avec pièce d\'identité sont acceptées.',
     'blog.article.problemi-casellario-giudiziale-varese-2026.imageAlt': 'Palais de justice de Varese avec un message d\'erreur numérique',
+    'blog.article.comco-inchieste-pubblicita-online-2026.title': 'COMCO enquête sur des accords illicites dans la publicité en ligne',
+    'blog.article.comco-inchieste-pubblicita-online-2026.excerpt': 'La Commission de la concurrence suisse ouvre deux enquêtes sur les moteurs de recherche pour des accords présumés illicites entre des entreprises de voyages et des casinos en ligne.',
+    'blog.article.comco-inchieste-pubblicita-online-2026.imageAlt': 'Panorama de Lugano avec le lac Ceresio et les montagnes environnantes',
 };
 
 export default blogMetaFr;

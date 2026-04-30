@@ -4183,6 +4183,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.problemi-casellario-giudiziale-varese-2026.title': 'Computer issues at Varese\'s criminal record office, only paper requests',
     'blog.article.problemi-casellario-giudiziale-varese-2026.excerpt': 'The website to book the pickup of the criminal record is down. Only paper requests with ID are accepted.',
     'blog.article.problemi-casellario-giudiziale-varese-2026.imageAlt': 'Varese Justice Palace with a digital error message',
+    'blog.article.comco-inchieste-pubblicita-online-2026.title': 'COMCO investigates illegal online ad deals',
+    'blog.article.comco-inchieste-pubblicita-online-2026.excerpt': 'The Swiss Competition Commission opens two investigations into search engines for alleged illegal agreements between travel companies and online casinos.',
+    'blog.article.comco-inchieste-pubblicita-online-2026.imageAlt': 'Lugano cityscape with Lake Ceresio and surrounding mountains',
 };
 
 export default blogMetaEn;

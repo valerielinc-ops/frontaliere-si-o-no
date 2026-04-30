@@ -4184,6 +4184,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.problemi-casellario-giudiziale-varese-2026.title': 'Problemi informatici al casellario giudiziale di Varese, richieste solo cartacee',
     'blog.article.problemi-casellario-giudiziale-varese-2026.excerpt': 'Il sito per prenotare il ritiro del casellario giudiziale è in tilt. Si accettano solo richieste cartacee con documento d\'identità.',
     'blog.article.problemi-casellario-giudiziale-varese-2026.imageAlt': 'Palazzo di Giustizia di Varese con un messaggio di errore digitale',
+    'blog.article.comco-inchieste-pubblicita-online-2026.title': 'COMCO indaga su accordi illeciti nella pubblicità online',
+    'blog.article.comco-inchieste-pubblicita-online-2026.excerpt': 'La Commissione della concorrenza svizzera apre due inchieste sui motori di ricerca per presunti accordi illeciti tra aziende di viaggi e casinò online.',
+    'blog.article.comco-inchieste-pubblicita-online-2026.imageAlt': 'Panorama di Lugano con il Lago Ceresio e le montagne circostanti',
 };
 
 export default blogMetaIt;

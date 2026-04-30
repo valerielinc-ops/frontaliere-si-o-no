@@ -27415,6 +27415,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comco-inchieste-pubblicita-online-2026': {
+    title: 'COMCO indaga su accordi illeciti nella pubblicità online',
+    description: 'La Commissione della concorrenza svizzera apre due inchieste sui motori di ricerca per presunti accordi illeciti tra aziende di viaggi e casinò online.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comco, indaga, accordi, illeciti',
+    ogTitle: 'COMCO indaga su accordi illeciti nella pubblicità online',
+    ogDescription: 'La Commissione della concorrenza svizzera apre due inchieste sui motori di ricerca per presunti accordi illeciti tra aziende di viaggi e casinò online.',
+    canonicalPath: '/articoli-frontaliere/comco-inchieste-pubblicita-online-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "COMCO indaga su accordi illeciti nella pubblicità online",
+      "description": "La Commissione della concorrenza svizzera apre due inchieste sui motori di ricerca per presunti accordi illeciti tra aziende di viaggi e casinò online.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comco-inchieste-pubblicita-online-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il Lago Ceresio e le montagne circostanti"
+      },
+      "datePublished": "2026-04-30T06:30:06+00:00",
+      "dateModified": "2026-04-30T06:30:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comco-inchieste-pubblicita-online-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

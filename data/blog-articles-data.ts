@@ -10773,4 +10773,11 @@ export const ARTICLES = [
  image: '/images/blog/problemi-casellario-giudiziale-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'comco-inchieste-pubblicita-online-2026',
+ category: 'novita',
+ date: '2026-04-30T06:30:06.174Z',
+ image: '/images/blog/comco-inchieste-pubblicita-online-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
