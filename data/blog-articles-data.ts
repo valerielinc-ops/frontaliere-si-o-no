@@ -11292,4 +11292,11 @@ export const ARTICLES = [
  image: '/images/blog/addio-giovanni-salandin-cgil-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'guardia-medica-como-ponte-maggio-2026',
+ category: 'novita',
+ date: '2026-04-30T17:58:51.888Z',
+ image: '/images/blog/guardia-medica-como-ponte-maggio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

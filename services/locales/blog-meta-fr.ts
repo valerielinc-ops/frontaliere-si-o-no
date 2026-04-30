@@ -4406,6 +4406,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.title': 'Adieu à Salandin, figure historique de la Cgil',
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.excerpt': 'Le monde syndical varésan est en deuil suite au décès de Giovanni Salandin, dirigeant historique de la Cgil qui a consacré sa vie à la défense des droits des travailleurs.',
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.imageAlt': 'Cérémonie d\'adieu à Giovanni Salandin à Brissago Valtravaglia',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.title': 'Garde médicale active pour le pont du 1er mai : ce qu\'il faut savoir',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.excerpt': 'Continuité des soins active jusqu\'à 8h du lundi 4 mai. Ambulatoire pédiatrique du samedi actif le 2 mai. Numéro vert 116 117.',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la skyline de Côme en arrière-plan, ciel bleu clair, journée d\'été',
 };
 
 export default blogMetaFr;

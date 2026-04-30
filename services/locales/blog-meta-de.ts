@@ -4405,6 +4405,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.title': 'Abschied von Salandin, historische Cgil-Führer',
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.excerpt': 'Die Gewerkschaftswelt von Varese trauert um den Tod von Giovanni Salandin, den historischen Cgil-Führer, der sein Leben dem Schutz der Arbeiterrechte gewidmet hat.',
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.imageAlt': 'Abschiedsfeier für Giovanni Salandin in Brissago Valtravaglia',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.title': 'Ärztlicher Notdienst am 1. Mai-Wochenende: Wichtige Infos',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.excerpt': 'Notdienst bis 8 Uhr am Montag, 4. Mai. Kinderarzt-Sprechstunde am Samstag, 2. Mai. Grüne Nummer 116 117.',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Skyline von Como im Hintergrund, klarer blauer Himmel, Sommertag',
 };
 
 export default blogMetaDe;

@@ -29561,6 +29561,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guardia-medica-como-ponte-maggio-2026': {
+    title: 'Guardia medica attiva per il ponte del 1° maggio: ecco cosa sapere',
+    description: 'Continuità Assistenziale attiva fino alle 8 di lunedì 4 maggio. Ambulatorio Pediatrico del sabato attivo il 2 maggio. Numero verde 116 117. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, guardia, medica, attiva, ponte',
+    ogTitle: 'Guardia medica attiva per il ponte del 1° maggio: ecco cosa sapere',
+    ogDescription: 'Continuità Assistenziale attiva fino alle 8 di lunedì 4 maggio. Ambulatorio Pediatrico del sabato attivo il 2 maggio. Numero verde 116 117.',
+    canonicalPath: '/articoli-frontaliere/guardia-medica-como-ponte-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guardia medica attiva per il ponte del 1° maggio: ecco cosa sapere",
+      "description": "Continuità Assistenziale attiva fino alle 8 di lunedì 4 maggio. Ambulatorio Pediatrico del sabato attivo il 2 maggio. Numero verde 116 117. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guardia-medica-como-ponte-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con lo skyline di Como sullo sfondo, cielo azzurro limpido, giornata estiva"
+      },
+      "datePublished": "2026-04-30T17:58:51+00:00",
+      "dateModified": "2026-04-30T17:58:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guardia-medica-como-ponte-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

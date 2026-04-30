@@ -4406,6 +4406,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.title': 'Addio a Salandin, storico leader Cgil',
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.excerpt': 'Il mondo sindacale varesino è in lutto per la scomparsa di Giovanni Salandin, storico dirigente Cgil che ha dedicato la vita alla difesa dei diritti dei lavoratori.',
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.imageAlt': 'Cerimonia di addio a Giovanni Salandin a Brissago Valtravaglia',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.title': 'Guardia medica attiva per il ponte del 1° maggio: ecco cosa sapere',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.excerpt': 'Continuità Assistenziale attiva fino alle 8 di lunedì 4 maggio. Ambulatorio Pediatrico del sabato attivo il 2 maggio. Numero verde 116 117.',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.imageAlt': 'Vista aerea del Lago di Lugano con lo skyline di Como sullo sfondo, cielo azzurro limpido, giornata estiva',
 };
 
 export default blogMetaIt;

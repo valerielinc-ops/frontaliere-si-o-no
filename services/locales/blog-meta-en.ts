@@ -4405,6 +4405,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.title': 'Farewell to Salandin, historic Cgil leader',
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.excerpt': 'The Varese trade union world is in mourning for the passing of Giovanni Salandin, a historic Cgil leader who dedicated his life to defending workers\' rights.',
     'blog.article.addio-giovanni-salandin-cgil-frontalieri.imageAlt': 'Farewell ceremony for Giovanni Salandin in Brissago Valtravaglia',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.title': 'Medical guard active for the 1st May bank holiday: what to know',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.excerpt': 'Continuity of Care active until 8 AM on Monday 4th May. Saturday Paediatric Clinic active on 2nd May. Emergency number 116 117.',
+    'blog.article.guardia-medica-como-ponte-maggio-2026.imageAlt': 'Aerial view of Lake Lugano with Como\'s skyline in the background, clear blue sky, summer day',
 };
 
 export default blogMetaEn;
