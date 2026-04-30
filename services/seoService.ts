@@ -2700,6 +2700,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-primo-bilancio-centri-violenza-2026': { name: 'Centri violenza', path: '/articoli-frontaliere/primo-bilancio-centri-violenza-2026', parent: 'blog' },
     'blog-addio-giovanni-salandin-cgil-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/addio-giovanni-salandin-cgil-frontalieri', parent: 'blog' },
     'blog-guardia-medica-como-ponte-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/guardia-medica-como-ponte-maggio-2026', parent: 'blog' },
+    'blog-bilancio-provincia-varese-1-5-milioni': { name: 'Bilancio Provincia', path: '/articoli-frontaliere/bilancio-provincia-varese-1-5-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

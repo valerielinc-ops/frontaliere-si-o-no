@@ -11299,4 +11299,11 @@ export const ARTICLES = [
  image: '/images/blog/guardia-medica-como-ponte-maggio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bilancio-provincia-varese-1-5-milioni',
+ category: 'novita',
+ date: '2026-04-30T18:06:09.500Z',
+ image: '/images/blog/bilancio-provincia-varese-1-5-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

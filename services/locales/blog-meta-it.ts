@@ -4409,6 +4409,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guardia-medica-como-ponte-maggio-2026.title': 'Guardia medica attiva per il ponte del 1° maggio: ecco cosa sapere',
     'blog.article.guardia-medica-como-ponte-maggio-2026.excerpt': 'Continuità Assistenziale attiva fino alle 8 di lunedì 4 maggio. Ambulatorio Pediatrico del sabato attivo il 2 maggio. Numero verde 116 117.',
     'blog.article.guardia-medica-como-ponte-maggio-2026.imageAlt': 'Vista aerea del Lago di Lugano con lo skyline di Como sullo sfondo, cielo azzurro limpido, giornata estiva',
+    'blog.article.bilancio-provincia-varese-1-5-milioni.title': 'Bilancio Provincia Varese: 1,5 milioni per investimenti',
+    'blog.article.bilancio-provincia-varese-1-5-milioni.excerpt': 'Il bilancio della Provincia di Varese per il 2025 si chiude con un avanzo di 1,5 milioni, destinati a investimenti in viabilità e patrimonio culturale.',
+    'blog.article.bilancio-provincia-varese-1-5-milioni.imageAlt': 'Vista aerea di Bellinzona con i suoi castelli e il fiume Ticino',
 };
 
 export default blogMetaIt;

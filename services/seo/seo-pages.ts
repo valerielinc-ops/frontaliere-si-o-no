@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1519,
+ "numberOfItems": 1520,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6154,7 +6154,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1516, "name": "Primo Maggio 2026: storia, infortuni e trasform...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-varese-2026-storia-e-trasformazioni` },
           { "@type": "ListItem", "position": 1517, "name": "ATS Insubria: 398 uomini seguiti nei centri per...", "url": `${BASE_URL}/articoli-frontaliere/primo-bilancio-centri-violenza-2026` },
           { "@type": "ListItem", "position": 1518, "name": "Addio a Giovanni Salandin, storico leader Cgil:...", "url": `${BASE_URL}/articoli-frontaliere/addio-giovanni-salandin-cgil-frontalieri` },
-          { "@type": "ListItem", "position": 1519, "name": "Guardia medica attiva per il ponte del 1° maggi...", "url": `${BASE_URL}/articoli-frontaliere/guardia-medica-como-ponte-maggio-2026` }
+          { "@type": "ListItem", "position": 1519, "name": "Guardia medica attiva per il ponte del 1° maggi...", "url": `${BASE_URL}/articoli-frontaliere/guardia-medica-como-ponte-maggio-2026` },
+          { "@type": "ListItem", "position": 1520, "name": "Bilancio Provincia Varese: 1,5 milioni per inve...", "url": `${BASE_URL}/articoli-frontaliere/bilancio-provincia-varese-1-5-milioni` }
  ]
  },
  {

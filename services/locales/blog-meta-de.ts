@@ -4408,6 +4408,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guardia-medica-como-ponte-maggio-2026.title': 'Ärztlicher Notdienst am 1. Mai-Wochenende: Wichtige Infos',
     'blog.article.guardia-medica-como-ponte-maggio-2026.excerpt': 'Notdienst bis 8 Uhr am Montag, 4. Mai. Kinderarzt-Sprechstunde am Samstag, 2. Mai. Grüne Nummer 116 117.',
     'blog.article.guardia-medica-como-ponte-maggio-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Skyline von Como im Hintergrund, klarer blauer Himmel, Sommertag',
+    'blog.article.bilancio-provincia-varese-1-5-milioni.title': 'Haushalt Provinz Varese: 1,5 Mio. für Investitionen',
+    'blog.article.bilancio-provincia-varese-1-5-milioni.excerpt': 'Der Haushalt der Provinz Varese für 2025 schließt mit einem Überschuss von 1,5 Millionen, die für Investitionen in Verkehrsinfrastruktur und Kulturerbe vorgesehen sind.',
+    'blog.article.bilancio-provincia-varese-1-5-milioni.imageAlt': 'Luftaufnahme von Bellinzona mit seinen Burgen und dem Fluss Ticino',
 };
 
 export default blogMetaDe;

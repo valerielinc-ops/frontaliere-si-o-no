@@ -29590,6 +29590,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bilancio-provincia-varese-1-5-milioni': {
+    title: 'Bilancio Provincia Varese: 1,5 milioni per investimenti',
+    description: 'Il bilancio della Provincia di Varese per il 2025 si chiude con un avanzo di 1,5 milioni, destinati a investimenti in viabilità e patrimonio culturale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilancio, provincia, varese, milioni',
+    ogTitle: 'Bilancio Provincia Varese: 1,5 milioni per investimenti',
+    ogDescription: 'Il bilancio della Provincia di Varese per il 2025 si chiude con un avanzo di 1,5 milioni, destinati a investimenti in viabilità e patrimonio culturale.',
+    canonicalPath: '/articoli-frontaliere/bilancio-provincia-varese-1-5-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilancio Provincia Varese: 1,5 milioni per investimenti",
+      "description": "Il bilancio della Provincia di Varese per il 2025 si chiude con un avanzo di 1,5 milioni, destinati a investimenti in viabilità e patrimonio culturale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bilancio-provincia-varese-1-5-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona con i suoi castelli e il fiume Ticino"
+      },
+      "datePublished": "2026-04-30T18:06:09+00:00",
+      "dateModified": "2026-04-30T18:06:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilancio-provincia-varese-1-5-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

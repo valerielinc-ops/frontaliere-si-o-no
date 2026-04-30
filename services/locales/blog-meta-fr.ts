@@ -4409,6 +4409,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guardia-medica-como-ponte-maggio-2026.title': 'Garde médicale active pour le pont du 1er mai : ce qu\'il faut savoir',
     'blog.article.guardia-medica-como-ponte-maggio-2026.excerpt': 'Continuité des soins active jusqu\'à 8h du lundi 4 mai. Ambulatoire pédiatrique du samedi actif le 2 mai. Numéro vert 116 117.',
     'blog.article.guardia-medica-como-ponte-maggio-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la skyline de Côme en arrière-plan, ciel bleu clair, journée d\'été',
+    'blog.article.bilancio-provincia-varese-1-5-milioni.title': 'Budget du canton de Varèse : 1,5 million pour les investissements',
+    'blog.article.bilancio-provincia-varese-1-5-milioni.excerpt': 'Le budget du canton de Varèse pour 2025 se clôture avec un excédent de 1,5 million, destiné à des investissements dans la circulation routière et le patrimoine culturel.',
+    'blog.article.bilancio-provincia-varese-1-5-milioni.imageAlt': 'Vue aérienne de Bellinzone avec ses châteaux et la rivière du Tessin',
 };
 
 export default blogMetaFr;
