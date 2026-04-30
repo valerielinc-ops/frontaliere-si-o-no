@@ -4399,6 +4399,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.title': 'May Day 2026: history, accidents and work transformations',
     'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.excerpt': 'Stefania Filetti, General Secretary of the CGIL of Varese, retraces the history of May Day and analyzes the data on workplace accidents in the province.',
     'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.imageAlt': 'Historic square in Varese during a workers\' demonstration on May 1st',
+    'blog.article.primo-bilancio-centri-violenza-2026.title': 'ATS Insubria: 398 men followed in violence perpetrator centers',
+    'blog.article.primo-bilancio-centri-violenza-2026.excerpt': 'In the first year of activity, the Centers for Male Perpetrators of Violence (CUAV) followed 398 men, with an average age of 42 years.',
+    'blog.article.primo-bilancio-centri-violenza-2026.imageAlt': 'Counseling center in Ticino, with a view of the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

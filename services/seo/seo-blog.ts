@@ -29503,6 +29503,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-bilancio-centri-violenza-2026': {
+    title: 'ATS Insubria: 398 uomini seguiti nei centri per autori di violenza',
+    description: 'Scopri il primo bilancio dei Centri per Uomini Autori di Violenza (CUAV) attivi nei territori di ATS Insubria, con 398 uomini seguiti nel primo anno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, insubria, uomini, seguiti, centri',
+    ogTitle: 'ATS Insubria: 398 uomini seguiti nei centri per autori di violenza',
+    ogDescription: 'Scopri il primo bilancio dei Centri per Uomini Autori di Violenza (CUAV) attivi nei territori di ATS Insubria, con 398 uomini seguiti nel primo anno.',
+    canonicalPath: '/articoli-frontaliere/primo-bilancio-centri-violenza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ATS Insubria: 398 uomini seguiti nei centri per autori di violenza",
+      "description": "Scopri il primo bilancio dei Centri per Uomini Autori di Violenza (CUAV) attivi nei territori di ATS Insubria, con 398 uomini seguiti nel primo anno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-bilancio-centri-violenza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di consulenza in Ticino, con vista sul lago e montagne circostanti"
+      },
+      "datePublished": "2026-04-30T17:44:20+00:00",
+      "dateModified": "2026-04-30T17:44:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-bilancio-centri-violenza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

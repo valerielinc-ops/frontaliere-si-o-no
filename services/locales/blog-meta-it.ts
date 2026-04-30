@@ -4400,6 +4400,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.title': 'Primo Maggio 2026: storia, infortuni e trasformazioni del lavoro',
     'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.excerpt': 'Stefania Filetti, segretaria generale della CGIL di Varese, ripercorre la storia del Primo Maggio e analizza i dati sugli infortuni sul lavoro in provincia.',
     'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.imageAlt': 'Piazza storica a Varese durante una manifestazione dei lavoratori il 1° maggio',
+    'blog.article.primo-bilancio-centri-violenza-2026.title': 'ATS Insubria: 398 uomini seguiti nei centri per autori di violenza',
+    'blog.article.primo-bilancio-centri-violenza-2026.excerpt': 'Nel primo anno di attività, i Centri per Uomini Autori di Violenza (CUAV) hanno seguito 398 uomini, con un\'età media di 42 anni.',
+    'blog.article.primo-bilancio-centri-violenza-2026.imageAlt': 'Centro di consulenza in Ticino, con vista sul lago e montagne circostanti',
 };
 
 export default blogMetaIt;

@@ -4400,6 +4400,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.title': '1er mai 2026 : histoire, accidents et transformations du travail',
     'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.excerpt': 'Stefania Filetti, secrétaire générale de la CGIL de Varèse, retrace l\'histoire du 1er mai et analyse les données sur les accidents du travail dans la province.',
     'blog.article.primo-maggio-varese-2026-storia-e-trasformazioni.imageAlt': 'Place historique à Varese pendant une manifestation des travailleurs le 1er mai',
+    'blog.article.primo-bilancio-centri-violenza-2026.title': 'ATS Insubria : 398 hommes suivis dans les centres pour auteurs de violence',
+    'blog.article.primo-bilancio-centri-violenza-2026.excerpt': 'Lors de la première année d\'activité, les Centres pour Hommes Auteurs de Violence (CHAV) ont suivi 398 hommes, avec un âge moyen de 42 ans.',
+    'blog.article.primo-bilancio-centri-violenza-2026.imageAlt': 'Centre de conseil en Ticino, avec vue sur le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

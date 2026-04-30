@@ -11278,4 +11278,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-varese-2026-storia-e-trasformazioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-bilancio-centri-violenza-2026',
+ category: 'pratico',
+ date: '2026-04-30T17:44:20.804Z',
+ image: '/images/blog/primo-bilancio-centri-violenza-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
