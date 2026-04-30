@@ -4097,6 +4097,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.luve-hyperscaler-ai-accordo-100-milioni.title': 'LUVE sigla accordo da 100 milioni con hyperscaler globale',
     'blog.article.luve-hyperscaler-ai-accordo-100-milioni.excerpt': 'L\'azienda varesina LUVE conquista un contratto pluriennale per raffreddare data center di nuova generazione.',
     'blog.article.luve-hyperscaler-ai-accordo-100-milioni.imageAlt': 'Data center con tecnologia di raffreddamento avanzata in Ticino',
+    'blog.article.social-media-frontalieri-ticino.title': 'Social media e lavoro: cosa evitare e cosa postare',
+    'blog.article.social-media-frontalieri-ticino.excerpt': 'Un esperto spiega quali contenuti sui social possono compromettere la carriera dei frontalieri in Ticino',
+    'blog.article.social-media-frontalieri-ticino.imageAlt': 'Un frontaliero utilizza il telefono per postare sui social media durante una giornata di relax sul Lago di Lugano',
 };
 
 export default blogMetaIt;

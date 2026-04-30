@@ -4096,6 +4096,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.luve-hyperscaler-ai-accordo-100-milioni.title': 'LUVE secures 100m deal with global hyperscaler',
     'blog.article.luve-hyperscaler-ai-accordo-100-milioni.excerpt': 'The Varese-based company LUVE wins a multi-year contract to cool next-generation data centers.',
     'blog.article.luve-hyperscaler-ai-accordo-100-milioni.imageAlt': 'Data center with advanced cooling technology in Ticino',
+    'blog.article.social-media-frontalieri-ticino.title': 'Social media and work: what to avoid and what to post',
+    'blog.article.social-media-frontalieri-ticino.excerpt': 'An expert explains which social media content can jeopardize the careers of cross-border workers in Ticino',
+    'blog.article.social-media-frontalieri-ticino.imageAlt': 'A cross-border worker uses his phone to post on social media during a day off at Lake Lugano',
 };
 
 export default blogMetaEn;

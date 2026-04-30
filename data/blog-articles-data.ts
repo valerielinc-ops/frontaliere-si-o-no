@@ -10570,4 +10570,11 @@ export const ARTICLES = [
  image: '/images/blog/luve-hyperscaler-ai-accordo-100-milioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'social-media-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-04-30T02:02:41.639Z',
+ image: '/images/blog/social-media-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -26574,6 +26574,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-social-media-frontalieri-ticino': {
+    title: 'Social media e lavoro: cosa evitare e cosa postare',
+    description: 'Un esperto spiega quali contenuti sui social possono compromettere la carriera dei frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, social, media, lavoro, cosa',
+    ogTitle: 'Social media e lavoro: cosa evitare e cosa postare',
+    ogDescription: 'Un esperto spiega quali contenuti sui social possono compromettere la carriera dei frontalieri in Ticino',
+    canonicalPath: '/articoli-frontaliere/social-media-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Social media e lavoro: cosa evitare e cosa postare",
+      "description": "Un esperto spiega quali contenuti sui social possono compromettere la carriera dei frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/social-media-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliero utilizza il telefono per postare sui social media durante una giornata di relax sul Lago di Lugano"
+      },
+      "datePublished": "2026-04-30T02:02:41+00:00",
+      "dateModified": "2026-04-30T02:02:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/social-media-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
