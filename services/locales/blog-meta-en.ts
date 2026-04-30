@@ -4504,6 +4504,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.targhe-personalizzabili-quadri-approvazione.title': 'Personalized license plates approved in Switzerland',
     'blog.article.targhe-personalizzabili-quadri-approvazione.excerpt': 'The National Council has approved Lorenzo Quadri\'s motion for personalized license plates, paving the way for \'vanity plates\'',
     'blog.article.targhe-personalizzabili-quadri-approvazione.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.title': 'Trenord: 17 lines eligible for compensation, Como worst',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.excerpt': 'Alarm data for commuters: 17 out of 42 lines qualify for compensation, with the Asso-Seveso-Milan line being the worst overall.',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.imageAlt': 'Aerial view of Lake Lugano with a train station in the foreground',
 };
 
 export default blogMetaEn;

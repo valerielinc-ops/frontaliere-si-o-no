@@ -4505,6 +4505,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.targhe-personalizzabili-quadri-approvazione.title': 'Targhe personalizzabili in Svizzera: approvata la mozione di Quadri',
     'blog.article.targhe-personalizzabili-quadri-approvazione.excerpt': 'Il Consiglio nazionale ha approvato la mozione di Lorenzo Quadri per targhe personalizzabili, aprendo la strada alle \'vanity plates\'',
     'blog.article.targhe-personalizzabili-quadri-approvazione.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.title': 'Trenord, 17 linee con diritto all\'indennizzo: peggiore è Como',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.excerpt': 'Dati allarmanti per i pendolari: 17 linee su 42 danno diritto all\'indennizzo, con la linea Asso-Seveso-Milano la peggiore in assoluto.',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.imageAlt': 'Vista aerea del Lago di Lugano con una stazione ferroviaria in primo piano',
 };
 
 export default blogMetaIt;

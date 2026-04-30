@@ -30518,6 +30518,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trenord-indennizzi-pendolari-como-2026': {
+    title: 'Trenord, 17 linee con diritto all\'indennizzo: peggiore è Como',
+    description: 'Dati allarmanti per i pendolari: 17 linee Trenord su 42 danno diritto all\'indennizzo, con la linea Asso-Seveso-Milano la peggiore in assoluto. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenord, linee, diritto, indennizzo',
+    ogTitle: 'Trenord, 17 linee con diritto all\'indennizzo: peggiore è Como',
+    ogDescription: 'Dati allarmanti per i pendolari: 17 linee Trenord su 42 danno diritto all\'indennizzo, con la linea Asso-Seveso-Milano la peggiore in assoluto.',
+    canonicalPath: '/articoli-frontaliere/trenord-indennizzi-pendolari-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenord, 17 linee con diritto all'indennizzo: peggiore è Como",
+      "description": "Dati allarmanti per i pendolari: 17 linee Trenord su 42 danno diritto all'indennizzo, con la linea Asso-Seveso-Milano la peggiore in assoluto. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trenord-indennizzi-pendolari-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con una stazione ferroviaria in primo piano"
+      },
+      "datePublished": "2026-04-30T23:42:19+00:00",
+      "dateModified": "2026-04-30T23:42:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trenord-indennizzi-pendolari-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2732,6 +2732,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-eurodreams-vincita-rendita-22mila-franchi': { name: 'Novità', path: '/articoli-frontaliere/eurodreams-vincita-rendita-22mila-franchi', parent: 'blog' },
     'blog-piano-casa-meloni-emergenza-abitativa': { name: 'Piano Casa', path: '/articoli-frontaliere/piano-casa-meloni-emergenza-abitativa', parent: 'blog' },
     'blog-targhe-personalizzabili-quadri-approvazione': { name: 'Novità', path: '/articoli-frontaliere/targhe-personalizzabili-quadri-approvazione', parent: 'blog' },
+    'blog-trenord-indennizzi-pendolari-como-2026': { name: 'Novità', path: '/articoli-frontaliere/trenord-indennizzi-pendolari-como-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

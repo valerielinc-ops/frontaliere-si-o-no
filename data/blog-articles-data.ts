@@ -11523,4 +11523,11 @@ export const ARTICLES = [
  image: '/images/blog/targhe-personalizzabili-quadri-approvazione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'trenord-indennizzi-pendolari-como-2026',
+ category: 'novita',
+ date: '2026-04-30T23:42:19.523Z',
+ image: '/images/blog/trenord-indennizzi-pendolari-como-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4504,6 +4504,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.targhe-personalizzabili-quadri-approvazione.title': 'Personalisierbare Nummernschilder in der Schweiz: Motion von Quadri angenommen',
     'blog.article.targhe-personalizzabili-quadri-approvazione.excerpt': 'Der Nationalrat hat die Motion von Lorenzo Quadri für personalisierbare Nummernschilder angenommen und damit den Weg für \'Vanity Plates\' geebnet',
     'blog.article.targhe-personalizzabili-quadri-approvazione.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.title': 'Trenord: 17 Linien mit Anspruch auf Entschädigung – am schlechtesten Como',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.excerpt': 'Alarmierende Daten für Pendler: 17 von 42 Linien berechtigen zur Entschädigung, wobei die Linie Asso-Seveso-Mailand am schlechtesten abschneidet.',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit einem Bahnhof im Vordergrund',
 };
 
 export default blogMetaDe;

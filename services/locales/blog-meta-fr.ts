@@ -4505,6 +4505,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.targhe-personalizzabili-quadri-approvazione.title': 'Plaques personnalisables en Suisse: motion de Quadri adoptée',
     'blog.article.targhe-personalizzabili-quadri-approvazione.excerpt': 'Le Conseil national a adopté la motion de Lorenzo Quadri pour des plaques personnalisables, ouvrant la voie aux \'vanity plates\'',
     'blog.article.targhe-personalizzabili-quadri-approvazione.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.title': 'Trenord, 17 lignes avec droit à indemnisation : Como la pire',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.excerpt': 'Données alarmantes pour les navetteurs : 17 lignes sur 42 donnent droit à indemnisation, avec la ligne Asso-Seveso-Milan la pire en absolu.',
+    'blog.article.trenord-indennizzi-pendolari-como-2026.imageAlt': 'Vue aérienne du lac de Lugano avec une gare en premier plan',
 };
 
 export default blogMetaFr;
