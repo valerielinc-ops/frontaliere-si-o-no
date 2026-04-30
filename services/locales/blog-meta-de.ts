@@ -4378,6 +4378,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.title': '1. Mai in Varese: ACLI fordern würdige Arbeit',
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.excerpt': 'Die ACLI der Provinz Varese setzen im Debattenschwerpunkt das Thema würdige Arbeit, das sie als dringende Gegenwartssache und grundlegenden Hebel für die Zukunft bezeichnen.',
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.imageAlt': 'Menschenmenge in Varese zum Tag der Arbeit, mit Transparenten und Fahnen, Feier der Arbeiterrechte',
+    'blog.article.crans-montana-700-dossier-consultori.title': 'Crans-Montana: Beratungsstellen bearbeiten 700 Fälle',
+    'blog.article.crans-montana-700-dossier-consultori.excerpt': 'Vier Monate nach der Tragödie verwalten die Hilfsdienste für Opfer fast 700 Fälle, davon 400 allein im Wallis und 20 im Tessin.',
+    'blog.article.crans-montana-700-dossier-consultori.imageAlt': 'Panoramablick auf Crans-Montana im Winter mit schneebedeckten Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

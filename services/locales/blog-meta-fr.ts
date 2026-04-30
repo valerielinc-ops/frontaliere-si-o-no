@@ -4379,6 +4379,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.title': '1er Mai à Varèse, les ACLI : « Le travail digne est l\'urgence du présent »',
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.excerpt': 'Les ACLI provinciales de Varèse placent au centre du débat le thème du travail digne, l\'indiquant comme urgence du présent et levier fondamental pour l\'avenir.',
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.imageAlt': 'Foule à Varèse pour le Premier Mai, avec des banderoles et des drapeaux, célébration des droits des travailleurs',
+    'blog.article.crans-montana-700-dossier-consultori.title': 'Crans-Montana : 700 dossiers en cours',
+    'blog.article.crans-montana-700-dossier-consultori.excerpt': 'Quatre mois après la tragédie, les services d\'aide aux victimes gèrent près de 700 cas, dont 400 en Valais et 20 en Ticino.',
+    'blog.article.crans-montana-700-dossier-consultori.imageAlt': 'Vue panoramique de Crans-Montana en hiver avec des bâtiments enneigés et des montagnes à l\'arrière-plan',
 };
 
 export default blogMetaFr;

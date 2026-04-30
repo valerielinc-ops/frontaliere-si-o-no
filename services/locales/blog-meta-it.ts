@@ -4379,6 +4379,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.title': 'Primo Maggio a Varese, le ACLI: “Il lavoro dignitoso è l’urgenza del presente”',
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.excerpt': 'Le ACLI provinciali di Varese mettono al centro del dibattito il tema del lavoro dignitoso, indicandolo come urgenza del presente e leva fondamentale per il futuro.',
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.imageAlt': 'Folla a Varese per il Primo Maggio, con striscioni e bandiere, celebrazione dei diritti dei lavoratori',
+    'blog.article.crans-montana-700-dossier-consultori.title': 'Crans-Montana: consultori al lavoro su 700 dossier',
+    'blog.article.crans-montana-700-dossier-consultori.excerpt': 'Quattro mesi dopo la tragedia, i servizi di aiuto alle vittime gestiscono quasi 700 casi, con 400 solo in Vallese e 20 in Ticino.',
+    'blog.article.crans-montana-700-dossier-consultori.imageAlt': 'Vista panoramica di Crans-Montana in inverno con edifici coperti di neve e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -4378,6 +4378,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.title': 'May Day in Varese: ACLI calls for dignified work',
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.excerpt': 'The Varese provincial ACLI put the topic of dignified work at the heart of the debate, indicating it as the urgency of the present and a fundamental lever for the future.',
     'blog.article.primo-maggio-varese-acli-lavoro-dignitoso.imageAlt': 'Crowd in Varese for May Day, with banners and flags, celebrating workers\' rights',
+    'blog.article.crans-montana-700-dossier-consultori.title': 'Crans-Montana: aid services handling 700 cases',
+    'blog.article.crans-montana-700-dossier-consultori.excerpt': 'Four months after the tragedy, victim assistance services manage nearly 700 cases, with 400 in Valais alone and 20 in Ticino.',
+    'blog.article.crans-montana-700-dossier-consultori.imageAlt': 'Panoramic view of Crans-Montana in winter with snow-covered buildings and mountains in the background',
 };
 
 export default blogMetaEn;

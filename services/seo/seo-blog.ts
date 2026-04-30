@@ -29300,6 +29300,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-700-dossier-consultori': {
+    title: 'Crans-Montana: consultori al lavoro su 700 dossier',
+    description: 'Quattro mesi dopo la tragedia, i servizi di aiuto alle vittime gestiscono quasi 700 casi, con 400 solo in Vallese e 20 in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, consultori, lavoro, dossier',
+    ogTitle: 'Crans-Montana: consultori al lavoro su 700 dossier',
+    ogDescription: 'Quattro mesi dopo la tragedia, i servizi di aiuto alle vittime gestiscono quasi 700 casi, con 400 solo in Vallese e 20 in Ticino.',
+    canonicalPath: '/articoli-frontaliere/crans-montana-700-dossier-consultori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana: consultori al lavoro su 700 dossier",
+      "description": "Quattro mesi dopo la tragedia, i servizi di aiuto alle vittime gestiscono quasi 700 casi, con 400 solo in Vallese e 20 in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-700-dossier-consultori.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Crans-Montana in inverno con edifici coperti di neve e montagne sullo sfondo"
+      },
+      "datePublished": "2026-04-30T16:45:34+00:00",
+      "dateModified": "2026-04-30T16:45:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-700-dossier-consultori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

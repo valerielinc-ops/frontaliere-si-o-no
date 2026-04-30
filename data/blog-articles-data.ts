@@ -11229,4 +11229,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-varese-acli-lavoro-dignitoso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-700-dossier-consultori',
+ category: 'novita',
+ date: '2026-04-30T16:45:34.775Z',
+ image: '/images/blog/crans-montana-700-dossier-consultori.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
