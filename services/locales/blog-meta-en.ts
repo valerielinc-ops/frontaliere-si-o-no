@@ -4219,6 +4219,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rokj-lugano-serata-solidale.title': 'ROKJ Ticino: charity evening with Sebalter on May 6th in Lugano',
     'blog.article.rokj-lugano-serata-solidale.excerpt': 'ROKJ Ticino is hosting a charity evening on May 6th featuring Sebalter to support children and young people in financial need.',
     'blog.article.rokj-lugano-serata-solidale.imageAlt': 'Charity evening at Asilo Ciani in Lugano',
+    'blog.article.varese-fogliaro-san-giuseppe-2026.title': 'Fogliaro celebrates St. Joseph the Worker with mass, food and market',
+    'blog.article.varese-fogliaro-san-giuseppe-2026.excerpt': 'The Fogliaro district in Varese celebrates St. Joseph the Worker with a day of events including solemn mass, stalls and local gastronomy',
+    'blog.article.varese-fogliaro-san-giuseppe-2026.imageAlt': 'Artisan market in Fogliaro, Varese, with colorful stalls and people enjoying local food',
 };
 
 export default blogMetaEn;

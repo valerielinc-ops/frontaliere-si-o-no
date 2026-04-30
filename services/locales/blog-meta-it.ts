@@ -4220,6 +4220,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rokj-lugano-serata-solidale.title': 'ROKJ Ticino: serata solidale il 6 maggio a Lugano',
     'blog.article.rokj-lugano-serata-solidale.excerpt': 'L\'associazione ROKJ Ticino presenta una serata solidale il 6 maggio con Sebalter per sostenere bambini e giovani in difficoltà economiche.',
     'blog.article.rokj-lugano-serata-solidale.imageAlt': 'Serata solidale all\'Asilo Ciani di Lugano',
+    'blog.article.varese-fogliaro-san-giuseppe-2026.title': 'Fogliaro festeggia San Giuseppe lavoratore con messa, gastronomia e mercatino',
+    'blog.article.varese-fogliaro-san-giuseppe-2026.excerpt': 'Il rione di Fogliaro a Varese celebra San Giuseppe lavoratore con una giornata di eventi tra messa solenne, bancarelle e gastronomia locale',
+    'blog.article.varese-fogliaro-san-giuseppe-2026.imageAlt': 'Mercatino dell\'artigianato a Fogliaro, Varese, con bancarelle colorate e gente che gusta piatti locali',
 };
 
 export default blogMetaIt;

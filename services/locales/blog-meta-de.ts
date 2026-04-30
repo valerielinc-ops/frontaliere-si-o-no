@@ -4219,6 +4219,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rokj-lugano-serata-solidale.title': 'ROKJ Ticino: Benefizabend mit Sebalter am 6. Mai in Lugano',
     'blog.article.rokj-lugano-serata-solidale.excerpt': 'Der Verein ROKJ Ticino veranstaltet am 6. Mai einen Benefizabend mit Sebalter, um Kinder und Jugendliche in finanzieller Not zu unterstützen.',
     'blog.article.rokj-lugano-serata-solidale.imageAlt': 'Wohltätigkeitsabend im Asilo Ciani in Lugano',
+    'blog.article.varese-fogliaro-san-giuseppe-2026.title': 'Fogliaro feiert den Tag des heiligen Josef mit Messe, Essen und Markt',
+    'blog.article.varese-fogliaro-san-giuseppe-2026.excerpt': 'Der Stadtteil Fogliaro in Varese feiert den Tag des heiligen Josef mit einer Messe, Ständen und lokaler Küche',
+    'blog.article.varese-fogliaro-san-giuseppe-2026.imageAlt': 'Handwerksmarkt in Fogliaro, Varese, mit bunten Ständen und Menschen, die lokale Speisen genießen',
 };
 
 export default blogMetaDe;

@@ -27763,6 +27763,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-fogliaro-san-giuseppe-2026': {
+    title: 'Fogliaro festeggia San Giuseppe lavoratore con messa, gastronomia e mercatino',
+    description: 'Il rione di Fogliaro a Varese celebra San Giuseppe lavoratore con una giornata di eventi tra messa solenne, bancarelle e gastronomia locale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fogliaro, festeggia, giuseppe, lavoratore',
+    ogTitle: 'Fogliaro festeggia San Giuseppe lavoratore con messa, gastronomia e mercatino',
+    ogDescription: 'Il rione di Fogliaro a Varese celebra San Giuseppe lavoratore con una giornata di eventi tra messa solenne, bancarelle e gastronomia locale',
+    canonicalPath: '/articoli-frontaliere/varese-fogliaro-san-giuseppe-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fogliaro festeggia San Giuseppe lavoratore con messa, gastronomia e mercatino",
+      "description": "Il rione di Fogliaro a Varese celebra San Giuseppe lavoratore con una giornata di eventi tra messa solenne, bancarelle e gastronomia locale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-fogliaro-san-giuseppe-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercatino dell'artigianato a Fogliaro, Varese, con bancarelle colorate e gente che gusta piatti locali"
+      },
+      "datePublished": "2026-04-30T08:15:58+00:00",
+      "dateModified": "2026-04-30T08:15:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-fogliaro-san-giuseppe-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
