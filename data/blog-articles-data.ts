@@ -11516,4 +11516,11 @@ export const ARTICLES = [
  image: '/images/blog/piano-casa-meloni-emergenza-abitativa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'targhe-personalizzabili-quadri-approvazione',
+ category: 'novita',
+ date: '2026-04-30T23:32:55.881Z',
+ image: '/images/blog/targhe-personalizzabili-quadri-approvazione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

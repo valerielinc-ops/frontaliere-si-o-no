@@ -4501,6 +4501,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.piano-casa-meloni-emergenza-abitativa.title': 'Melonis Wohnungsbauplan: Notverordnung genehmigt',
     'blog.article.piano-casa-meloni-emergenza-abitativa.excerpt': 'Der Ministerrat billigt den Wohnungsbauplan mit 10,5 Milliarden für öffentlichen und privaten Wohnungsbau. Meloni: Priorität für bezahlbaren Wohnraum',
     'blog.article.piano-casa-meloni-emergenza-abitativa.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Vordergrund',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.title': 'Personalisierbare Nummernschilder in der Schweiz: Motion von Quadri angenommen',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.excerpt': 'Der Nationalrat hat die Motion von Lorenzo Quadri für personalisierbare Nummernschilder angenommen und damit den Weg für \'Vanity Plates\' geebnet',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

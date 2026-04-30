@@ -4502,6 +4502,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.piano-casa-meloni-emergenza-abitativa.title': 'Piano Casa Meloni: via libera al decreto per l\'emergenza abitativa',
     'blog.article.piano-casa-meloni-emergenza-abitativa.excerpt': 'Il Consiglio dei Ministri approva il Piano Casa con 10,5 miliardi per edilizia pubblica e privata. Meloni: priorità per alloggi accessibili',
     'blog.article.piano-casa-meloni-emergenza-abitativa.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano in primo piano',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.title': 'Targhe personalizzabili in Svizzera: approvata la mozione di Quadri',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.excerpt': 'Il Consiglio nazionale ha approvato la mozione di Lorenzo Quadri per targhe personalizzabili, aprendo la strada alle \'vanity plates\'',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

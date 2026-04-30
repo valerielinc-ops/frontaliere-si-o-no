@@ -2731,6 +2731,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-nuovo-solco-italia-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-nuovo-solco-italia-svizzera-2026', parent: 'blog' },
     'blog-eurodreams-vincita-rendita-22mila-franchi': { name: 'Novità', path: '/articoli-frontaliere/eurodreams-vincita-rendita-22mila-franchi', parent: 'blog' },
     'blog-piano-casa-meloni-emergenza-abitativa': { name: 'Piano Casa', path: '/articoli-frontaliere/piano-casa-meloni-emergenza-abitativa', parent: 'blog' },
+    'blog-targhe-personalizzabili-quadri-approvazione': { name: 'Novità', path: '/articoli-frontaliere/targhe-personalizzabili-quadri-approvazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

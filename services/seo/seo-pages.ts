@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1550,
+ "numberOfItems": 1551,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6185,7 +6185,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1547, "name": "Varese: Film 'The Sea' e dibattito con collegam...", "url": `${BASE_URL}/articoli-frontaliere/film-the-sea-varese-gaza-2026` },
           { "@type": "ListItem", "position": 1548, "name": "Crans-Montana, nuovo solco Italia-Svizzera", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-nuovo-solco-italia-svizzera-2026` },
           { "@type": "ListItem", "position": 1549, "name": "Eurodreams: vinta una rendita mensile di 22mila...", "url": `${BASE_URL}/articoli-frontaliere/eurodreams-vincita-rendita-22mila-franchi` },
-          { "@type": "ListItem", "position": 1550, "name": "Piano Casa Meloni: via libera al decreto per l'...", "url": `${BASE_URL}/articoli-frontaliere/piano-casa-meloni-emergenza-abitativa` }
+          { "@type": "ListItem", "position": 1550, "name": "Piano Casa Meloni: via libera al decreto per l'...", "url": `${BASE_URL}/articoli-frontaliere/piano-casa-meloni-emergenza-abitativa` },
+          { "@type": "ListItem", "position": 1551, "name": "Targhe personalizzabili in Svizzera: approvata ...", "url": `${BASE_URL}/articoli-frontaliere/targhe-personalizzabili-quadri-approvazione` }
  ]
  },
  {

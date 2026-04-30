@@ -30489,6 +30489,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-targhe-personalizzabili-quadri-approvazione': {
+    title: 'Targhe personalizzabili in Svizzera: approvata la mozione di Quadri',
+    description: 'Il Consiglio nazionale ha approvato la mozione di Lorenzo Quadri per targhe personalizzabili, aprendo la strada alle \'vanity plates\'. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, targhe, personalizzabili, approvata, mozione',
+    ogTitle: 'Targhe personalizzabili in Svizzera: approvata la mozione di Quadri',
+    ogDescription: 'Il Consiglio nazionale ha approvato la mozione di Lorenzo Quadri per targhe personalizzabili, aprendo la strada alle \'vanity plates\'',
+    canonicalPath: '/articoli-frontaliere/targhe-personalizzabili-quadri-approvazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Targhe personalizzabili in Svizzera: approvata la mozione di Quadri",
+      "description": "Il Consiglio nazionale ha approvato la mozione di Lorenzo Quadri per targhe personalizzabili, aprendo la strada alle 'vanity plates'. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/targhe-personalizzabili-quadri-approvazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-04-30T23:32:55+00:00",
+      "dateModified": "2026-04-30T23:32:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/targhe-personalizzabili-quadri-approvazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

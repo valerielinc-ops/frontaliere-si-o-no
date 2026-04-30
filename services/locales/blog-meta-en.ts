@@ -4501,6 +4501,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.piano-casa-meloni-emergenza-abitativa.title': 'Meloni\'s Housing Plan: green light for emergency decree',
     'blog.article.piano-casa-meloni-emergenza-abitativa.excerpt': 'The Council of Ministers approves the Housing Plan with 10.5 billion for public and private construction. Meloni: priority for affordable housing',
     'blog.article.piano-casa-meloni-emergenza-abitativa.imageAlt': 'Aerial view of Lugano with Lake Lugano in the foreground',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.title': 'Personalized license plates approved in Switzerland',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.excerpt': 'The National Council has approved Lorenzo Quadri\'s motion for personalized license plates, paving the way for \'vanity plates\'',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

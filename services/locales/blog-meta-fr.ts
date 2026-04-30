@@ -4502,6 +4502,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.piano-casa-meloni-emergenza-abitativa.title': 'Plan logement Meloni: feu vert pour le décret sur l\'urgence du logement',
     'blog.article.piano-casa-meloni-emergenza-abitativa.excerpt': 'Le Conseil des Ministres approuve le Plan logement avec 10,5 milliards pour l\'immobilier public et privé. Meloni: priorité pour les logements accessibles',
     'blog.article.piano-casa-meloni-emergenza-abitativa.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano au premier plan',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.title': 'Plaques personnalisables en Suisse: motion de Quadri adoptée',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.excerpt': 'Le Conseil national a adopté la motion de Lorenzo Quadri pour des plaques personnalisables, ouvrant la voie aux \'vanity plates\'',
+    'blog.article.targhe-personalizzabili-quadri-approvazione.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;
