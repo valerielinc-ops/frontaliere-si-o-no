@@ -9,16 +9,39 @@
  *
  * How it works:
  *   --snapshot (before build):
- *     Copies every .css/.js file from dist/assets/ into .clarity-asset-cache/.
- *     In CI, dist/assets/ exists because the GitHub Actions cache restores it.
- *     Writes a manifest with timestamps for age-based expiry.
+ *     1. Copies every .css/.js file from dist/assets/ into .clarity-asset-cache/.
+ *        In CI, dist/assets/ exists because the GitHub Actions cache restores it.
+ *        New files get manifest['<file>'] = { firstSeen: now, lastSeen: now }.
+ *        Files already in cache get manifest['<file>'].lastSeen = now (firstSeen
+ *        stays unchanged).
+ *     2. Manifest prune: drop manifest entries (and their on-disk files) whose
+ *        `firstSeen` is older than MAX_AGE_DAYS. Aging is by `firstSeen` so an
+ *        asset that's been around for MAX_AGE_DAYS continuously still exits
+ *        the cache — bounded retention regardless of activity.
+ *     3. Orphan reconciliation: any file in .clarity-asset-cache/ that has NO
+ *        manifest entry is deleted. Without this step, a file that ends up in
+ *        the cache directory through any path that bypasses the manifest
+ *        (manifest corruption, manual copy, partial write) lives there
+ *        forever — neither prune nor matching-by-name catches it. With this
+ *        step, the cache directory is guaranteed to track the manifest 1:1.
  *
  *   --merge (after build):
  *     Copies cached assets into dist/assets/ — skipping files already present
- *     from the fresh build and files older than 30 days.
+ *     from the fresh build and files whose manifest `firstSeen` is older than
+ *     MAX_AGE_DAYS. The latter never reach dist/, so a stale asset never
+ *     ships even if a previous run somehow left it in cache.
+ *
+ * Asset rename behaviour (e.g. content-hash flip from index-AAA.js to
+ * index-BBB.js): the OLD filename keeps living in cache until its
+ * `firstSeen` crosses MAX_AGE_DAYS, then prune deletes it. The NEW filename
+ * gets its own manifest entry with a fresh `firstSeen`. So renamed assets
+ * DO get cleaned up — but only after the TTL. Lower MAX_AGE_DAYS → faster
+ * eviction of orphan hashes; higher → longer Clarity replay window for
+ * stale recordings. Default is 3 days as a balance.
  *
  * The GitHub Actions cache (`clarity-assets-*`) persists .clarity-asset-cache/
- * across deploys, accumulating 1-2 generations of old assets.
+ * across deploys, so a build at T sees assets from every build in the last
+ * MAX_AGE_DAYS.
  */
 
 import fs from 'node:fs';
@@ -31,7 +54,13 @@ const CACHE_DIR = path.join(ROOT, '.clarity-asset-cache');
 const DIST_ASSETS = path.join(ROOT, 'dist', 'assets');
 
 const ASSET_EXTENSIONS = ['.css', '.js'];
-const MAX_AGE_DAYS = 7;
+// 3 days = roughly 3 deploy generations on this repo. Tight enough to keep
+// the cache lean (~10-15 MB instead of 40+ MB) and cap GH Actions cache
+// upload time, wide enough to keep Clarity recordings styled while users
+// are actively replaying them (most session replays happen within 24-48 h
+// of the original visit per Clarity dashboards). Bump if Clarity reports
+// missing-asset 404s on recordings older than 3 days.
+const MAX_AGE_DAYS = 3;
 
 /**
  * --snapshot: Save ALL current dist/assets/*.{css,js} into the cache.
@@ -85,7 +114,9 @@ function snapshot() {
     copied++;
   }
 
-  // Prune expired entries from manifest (files older than MAX_AGE_DAYS)
+  // Prune expired entries from manifest (files older than MAX_AGE_DAYS).
+  // Aging is by `firstSeen` so retention is bounded even for assets that
+  // keep showing up in dist/ across consecutive builds.
   const maxAgeMs = MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
   const nowMs = Date.now();
   let pruned = 0;
@@ -99,9 +130,26 @@ function snapshot() {
     }
   }
 
+  // Orphan reconciliation: any file in .clarity-asset-cache/ NOT referenced
+  // by the manifest is deleted. Without this, files that ended up in the
+  // cache directory through any path that bypasses manifest tracking
+  // (manifest corruption, manual copy, partial write from a killed process)
+  // would leak forever — neither the prune above nor the snapshot copy
+  // loop ever sees them. Excludes _manifest.json (the manifest itself) and
+  // any other underscore-prefixed metadata file.
+  const trackedFiles = new Set(Object.keys(manifest));
+  let orphans = 0;
+  for (const file of fs.readdirSync(CACHE_DIR)) {
+    if (file.startsWith('_')) continue; // _manifest.json and friends
+    if (trackedFiles.has(file)) continue;
+    if (!ASSET_EXTENSIONS.some(ext => file.endsWith(ext))) continue;
+    fs.unlinkSync(path.join(CACHE_DIR, file));
+    orphans++;
+  }
+
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
-  console.log(`   Snapshot: ${copied} new, ${skipped} already cached, ${pruned} expired & pruned`);
+  console.log(`   Snapshot: ${copied} new, ${skipped} already cached, ${pruned} expired & pruned, ${orphans} orphan files reconciled`);
   console.log(`   Total in cache: ${Object.keys(manifest).length} assets`);
   console.log('   ✅ Assets cached for post-build merge');
 }
