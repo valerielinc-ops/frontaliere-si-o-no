@@ -4178,6 +4178,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollino-rosso-a2-chiasso-lugano-2026.title': 'Bollino rosso sull\'A2 tra Chiasso e Lugano',
     'blog.article.bollino-rosso-a2-chiasso-lugano-2026.excerpt': 'Ritardi fino a un\'ora e quaranta minuti tra Chiasso e Lugano nord a causa di un veicolo in avaria. Rallentamenti anche sulle strade cantonali.',
     'blog.article.bollino-rosso-a2-chiasso-lugano-2026.imageAlt': 'Ingorgo autostradale A2 tra Chiasso e Lugano',
+    'blog.article.pnrr-disabilita-medio-olona-715mila-euro.title': '715mila euro del PNRR per l\'autonomia delle persone con disabilità',
+    'blog.article.pnrr-disabilita-medio-olona-715mila-euro.excerpt': 'Il progetto finanziato dal PNRR per l\'autonomia delle persone con disabilità nel Medio Olona prevede appartamenti attrezzati e tirocini lavorativi.',
+    'blog.article.pnrr-disabilita-medio-olona-715mila-euro.imageAlt': 'Appartamento accessibile con domotica in Ticino',
 };
 
 export default blogMetaIt;

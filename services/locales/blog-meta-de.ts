@@ -4177,6 +4177,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollino-rosso-a2-chiasso-lugano-2026.title': 'Rote Ampel auf der A2 zwischen Chiasso und Lugano',
     'blog.article.bollino-rosso-a2-chiasso-lugano-2026.excerpt': 'Verzögerungen von bis zu einer Stunde und vierzig Minuten zwischen Chiasso und Lugano Nord aufgrund eines Pannenfahrzeugs. Auch auf den Kantonsstraßen gibt es Verzögerungen.',
     'blog.article.bollino-rosso-a2-chiasso-lugano-2026.imageAlt': 'Stau auf der Autobahn A2 zwischen Chiasso und Lugano',
+    'blog.article.pnrr-disabilita-medio-olona-715mila-euro.title': '715.000 € PNRR für Autonomie von Behinderten',
+    'blog.article.pnrr-disabilita-medio-olona-715mila-euro.excerpt': 'Das vom PNRR finanzierte Projekt zur Selbstständigkeit von Menschen mit Behinderungen im Mittelolona sieht ausgestattete Wohnungen und Arbeitspraktika vor.',
+    'blog.article.pnrr-disabilita-medio-olona-715mila-euro.imageAlt': 'Barrierefreie Wohnung mit Smart-Home-Technologie im Tessin',
 };
 
 export default blogMetaDe;

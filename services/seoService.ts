@@ -2623,6 +2623,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-a2-corsia-ritardi-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/a2-corsia-ritardi-lugano-2026', parent: 'blog' },
     'blog-aquanexa-visita-acquedotto-alfa-laveno': { name: 'Novità', path: '/articoli-frontaliere/aquanexa-visita-acquedotto-alfa-laveno', parent: 'blog' },
     'blog-bollino-rosso-a2-chiasso-lugano-2026': { name: 'Novità', path: '/articoli-frontaliere/bollino-rosso-a2-chiasso-lugano-2026', parent: 'blog' },
+    'blog-pnrr-disabilita-medio-olona-715mila-euro': { name: 'Novità', path: '/articoli-frontaliere/pnrr-disabilita-medio-olona-715mila-euro', parent: 'blog' },
  };
 
  const info = sectionNames[section];

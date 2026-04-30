@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1442,
+ "numberOfItems": 1443,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6077,7 +6077,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1439, "name": "Traffico congestionato sull'A2: fino a un'ora e...", "url": `${BASE_URL}/articoli-frontaliere/ritardi-a2-tra-chiasso-lugano` },
           { "@type": "ListItem", "position": 1440, "name": "A2 in tilt: una sola corsia, ritardi oltre l'ora", "url": `${BASE_URL}/articoli-frontaliere/a2-corsia-ritardi-lugano-2026` },
           { "@type": "ListItem", "position": 1441, "name": "Aquanexa visita acquedotto Alfa a Laveno Mombello", "url": `${BASE_URL}/articoli-frontaliere/aquanexa-visita-acquedotto-alfa-laveno` },
-          { "@type": "ListItem", "position": 1442, "name": "Bollino rosso sull'A2 tra Chiasso e Lugano", "url": `${BASE_URL}/articoli-frontaliere/bollino-rosso-a2-chiasso-lugano-2026` }
+          { "@type": "ListItem", "position": 1442, "name": "Bollino rosso sull'A2 tra Chiasso e Lugano", "url": `${BASE_URL}/articoli-frontaliere/bollino-rosso-a2-chiasso-lugano-2026` },
+          { "@type": "ListItem", "position": 1443, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/pnrr-disabilita-medio-olona-715mila-euro` }
  ]
  },
  {

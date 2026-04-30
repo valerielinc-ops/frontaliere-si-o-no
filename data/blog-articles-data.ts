@@ -10759,4 +10759,11 @@ export const ARTICLES = [
  image: '/images/blog/bollino-rosso-a2-chiasso-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pnrr-disabilita-medio-olona-715mila-euro',
+ category: 'novita',
+ date: '2026-04-30T06:13:38.145Z',
+ image: '/images/blog/pnrr-disabilita-medio-olona-715mila-euro.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

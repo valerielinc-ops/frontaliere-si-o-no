@@ -27357,6 +27357,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pnrr-disabilita-medio-olona-715mila-euro': {
+    title: '715mila euro del PNRR per l\'autonomia delle persone con disabilità',
+    description: 'Scopri come il progetto finanziato dal PNRR sta promuovendo l\'autonomia delle persone con disabilità nel Medio Olona con appartamenti attrezzati e tirocini',
+    keywords: 'frontalieri, ticino, svizzera, italia, 715mila, euro, pnrr, autonomia',
+    ogTitle: '715mila euro PNRR per autonomia disabili Medio Olona',
+    ogDescription: 'Scopri come il progetto finanziato dal PNRR sta promuovendo l\'autonomia delle persone con disabilità nel Medio Olona con appartamenti attrezzati e tirocini',
+    canonicalPath: '/articoli-frontaliere/pnrr-disabilita-medio-olona-715mila-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"715mila euro PNRR per autonomia disabili Medio Olona\",\"description\":\"Scopri come il progetto finanziato dal PNRR sta promuovendo l'autonomia delle persone con disabilità nel Medio Olona con appartamenti attrezzati e tirocini lavorativi.\",\"datePublished\":\"2026-04-29\",\"image\":\"https://frontaliereticino.ch/lac-lugano.webp\"}",
+      "description": "Scopri come il progetto finanziato dal PNRR sta promuovendo l'autonomia delle persone con disabilità nel Medio Olona con appartamenti attrezzati e tirocini",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pnrr-disabilita-medio-olona-715mila-euro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Appartamento accessibile con domotica in Ticino"
+      },
+      "datePublished": "2026-04-30T06:13:38+00:00",
+      "dateModified": "2026-04-30T06:13:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pnrr-disabilita-medio-olona-715mila-euro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
