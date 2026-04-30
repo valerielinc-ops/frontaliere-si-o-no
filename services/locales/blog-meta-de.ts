@@ -4339,6 +4339,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.clausole-sunrise-illegittime-2026.title': 'Verbrauchersieg: Sunrise-Klauseln unrechtmäßig',
     'blog.article.clausole-sunrise-illegittime-2026.excerpt': 'Das Zürcher Gericht gibt der Klage gegen Sunrise statt und erklärt die Klauseln zu Kündigungen und Tariferhöhungen für unrechtmäßig',
     'blog.article.clausole-sunrise-illegittime-2026.imageAlt': 'Luftaufnahme des Luganersees mit modernen Gebäuden und Bergen im Hintergrund',
+    'blog.article.lidl-formazione-duale-gdo-ticino.title': 'Lidl führt duale Ausbildung im Tessin ein',
+    'blog.article.lidl-formazione-duale-gdo-ticino.excerpt': 'Lidl Italia bringt das Modell der dualen Ausbildung in den organisierten Großhandel, mit über 23.000 Bewerbungen in vier Jahren.',
+    'blog.article.lidl-formazione-duale-gdo-ticino.imageAlt': 'Moderner Lidl-Supermarkt in Tessin, Schweiz',
 };
 
 export default blogMetaDe;

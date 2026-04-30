@@ -4340,6 +4340,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.clausole-sunrise-illegittime-2026.title': 'Victoire des consommateurs : clauses Sunrise illégitimes',
     'blog.article.clausole-sunrise-illegittime-2026.excerpt': 'Le tribunal de Zurich accepte la plainte contre Sunrise, jugeant illégitimes les clauses sur les résiliations et les augmentations tarifaires',
     'blog.article.clausole-sunrise-illegittime-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
+    'blog.article.lidl-formazione-duale-gdo-ticino.title': 'Lidl lance la formation duale en Suisse',
+    'blog.article.lidl-formazione-duale-gdo-ticino.excerpt': 'Lidl Italia apporte le modèle de formation duale dans la grande distribution organisée, avec plus de 23.000 candidatures en quatre ans.',
+    'blog.article.lidl-formazione-duale-gdo-ticino.imageAlt': 'Supermarché Lidl moderne au Tessin, Suisse',
 };
 
 export default blogMetaFr;

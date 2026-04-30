@@ -11138,4 +11138,11 @@ export const ARTICLES = [
  image: '/images/blog/clausole-sunrise-illegittime-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lidl-formazione-duale-gdo-ticino',
+ category: 'novita',
+ date: '2026-04-30T14:34:23.025Z',
+ image: '/images/blog/lidl-formazione-duale-gdo-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

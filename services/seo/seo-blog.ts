@@ -28923,6 +28923,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lidl-formazione-duale-gdo-ticino': {
+    title: 'Lidl introduce formazione duale in Ticino | Frontaliere Ticino',
+    description: 'Lidl Italia porta il modello di formazione duale nella grande distribuzione organizzata, con oltre 23.000 candidature in quattro anni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lidl, introduce, formazione, duale',
+    ogTitle: 'Lidl introduce formazione duale in Ticino',
+    ogDescription: 'Lidl Italia porta il modello di formazione duale nella grande distribuzione organizzata, con oltre 23.000 candidature in quattro anni.',
+    canonicalPath: '/articoli-frontaliere/lidl-formazione-duale-gdo-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Lidl introduce formazione duale in Ticino\",\"description\":\"Lidl Italia porta il modello di formazione duale nella grande distribuzione organizzata, con oltre 23.000 candidature in quattro anni.\",\"datePublished\":\"2026-04-30\",\"author\":{\"@type\":\"Organization\",\"name\":\"Frontaliere Ticino\"}}",
+      "description": "Lidl Italia porta il modello di formazione duale nella grande distribuzione organizzata, con oltre 23.000 candidature in quattro anni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lidl-formazione-duale-gdo-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Supermercato Lidl moderno in Ticino, Svizzera"
+      },
+      "datePublished": "2026-04-30T14:34:23+00:00",
+      "dateModified": "2026-04-30T14:34:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lidl-formazione-duale-gdo-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

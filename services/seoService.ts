@@ -2677,6 +2677,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-microterremoto-artificiale-ticino-2026': { name: 'Microterremoto artificiale', path: '/articoli-frontaliere/microterremoto-artificiale-ticino-2026', parent: 'blog' },
     'blog-flotilla-svizzera-gaza-2026': { name: 'Novità', path: '/articoli-frontaliere/flotilla-svizzera-gaza-2026', parent: 'blog' },
     'blog-clausole-sunrise-illegittime-2026': { name: 'Novità', path: '/articoli-frontaliere/clausole-sunrise-illegittime-2026', parent: 'blog' },
+    'blog-lidl-formazione-duale-gdo-ticino': { name: 'Novità', path: '/articoli-frontaliere/lidl-formazione-duale-gdo-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

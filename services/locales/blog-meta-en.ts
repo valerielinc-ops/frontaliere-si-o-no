@@ -4339,6 +4339,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.clausole-sunrise-illegittime-2026.title': 'Consumer win: Sunrise clauses deemed unlawful',
     'blog.article.clausole-sunrise-illegittime-2026.excerpt': 'Zurich court rules in favor of consumers, finding Sunrise\'s termination and price increase clauses invalid',
     'blog.article.clausole-sunrise-illegittime-2026.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
+    'blog.article.lidl-formazione-duale-gdo-ticino.title': 'Lidl introduces dual training in Ticino',
+    'blog.article.lidl-formazione-duale-gdo-ticino.excerpt': 'Lidl Italia brings the dual training model to organized large-scale distribution, with over 23,000 applications in four years.',
+    'blog.article.lidl-formazione-duale-gdo-ticino.imageAlt': 'Modern Lidl supermarket in Ticino, Switzerland',
 };
 
 export default blogMetaEn;

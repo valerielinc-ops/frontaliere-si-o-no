@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1496,
+ "numberOfItems": 1497,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6131,7 +6131,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1493, "name": "Bce mantiene tassi fermi ma rischi inflazione a...", "url": `${BASE_URL}/articoli-frontaliere/bce-tassi-inflazione-ticino-2026` },
           { "@type": "ListItem", "position": 1494, "name": "Microterremoto artificiale in Ticino: esperimen...", "url": `${BASE_URL}/articoli-frontaliere/microterremoto-artificiale-ticino-2026` },
           { "@type": "ListItem", "position": 1495, "name": "Flottila Svizzera a Gaza: Otto Svizzeri Sani e ...", "url": `${BASE_URL}/articoli-frontaliere/flotilla-svizzera-gaza-2026` },
-          { "@type": "ListItem", "position": 1496, "name": "Vittoria consumatori: illegittime le clausole S...", "url": `${BASE_URL}/articoli-frontaliere/clausole-sunrise-illegittime-2026` }
+          { "@type": "ListItem", "position": 1496, "name": "Vittoria consumatori: illegittime le clausole S...", "url": `${BASE_URL}/articoli-frontaliere/clausole-sunrise-illegittime-2026` },
+          { "@type": "ListItem", "position": 1497, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/lidl-formazione-duale-gdo-ticino` }
  ]
  },
  {
