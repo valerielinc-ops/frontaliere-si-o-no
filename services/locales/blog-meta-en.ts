@@ -4411,6 +4411,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bilancio-provincia-varese-1-5-milioni.title': 'Varese Province Budget: 1.5M for Investments',
     'blog.article.bilancio-provincia-varese-1-5-milioni.excerpt': 'The 2025 budget for Varese Province closes with a surplus of 1.5 million, earmarked for investments in road infrastructure and cultural heritage.',
     'blog.article.bilancio-provincia-varese-1-5-milioni.imageAlt': 'Aerial view of Bellinzona with its castles and the Ticino river',
+    'blog.article.varese-citta-piu-verde-2026.title': 'Varese among Europe\'s greenest cities',
+    'blog.article.varese-citta-piu-verde-2026.excerpt': 'Varese is one of only two European cities where over 50% of the population lives by the 3-30-300 rule.',
+    'blog.article.varese-citta-piu-verde-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and green parks',
 };
 
 export default blogMetaEn;

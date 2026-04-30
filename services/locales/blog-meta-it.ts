@@ -4412,6 +4412,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bilancio-provincia-varese-1-5-milioni.title': 'Bilancio Provincia Varese: 1,5 milioni per investimenti',
     'blog.article.bilancio-provincia-varese-1-5-milioni.excerpt': 'Il bilancio della Provincia di Varese per il 2025 si chiude con un avanzo di 1,5 milioni, destinati a investimenti in viabilità e patrimonio culturale.',
     'blog.article.bilancio-provincia-varese-1-5-milioni.imageAlt': 'Vista aerea di Bellinzona con i suoi castelli e il fiume Ticino',
+    'blog.article.varese-citta-piu-verde-2026.title': 'Varese tra le città più verdi d\'Europa',
+    'blog.article.varese-citta-piu-verde-2026.excerpt': 'Varese è tra le sole due città europee dove oltre il 50% della popolazione vive secondo la regola del 3-30-300.',
+    'blog.article.varese-citta-piu-verde-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e parchi verdi',
 };
 
 export default blogMetaIt;

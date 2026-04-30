@@ -11306,4 +11306,11 @@ export const ARTICLES = [
  image: '/images/blog/bilancio-provincia-varese-1-5-milioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-citta-piu-verde-2026',
+ category: 'novita',
+ date: '2026-04-30T18:12:38.359Z',
+ image: '/images/blog/varese-citta-piu-verde-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

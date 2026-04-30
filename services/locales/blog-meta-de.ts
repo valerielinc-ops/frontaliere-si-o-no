@@ -4411,6 +4411,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bilancio-provincia-varese-1-5-milioni.title': 'Haushalt Provinz Varese: 1,5 Mio. für Investitionen',
     'blog.article.bilancio-provincia-varese-1-5-milioni.excerpt': 'Der Haushalt der Provinz Varese für 2025 schließt mit einem Überschuss von 1,5 Millionen, die für Investitionen in Verkehrsinfrastruktur und Kulturerbe vorgesehen sind.',
     'blog.article.bilancio-provincia-varese-1-5-milioni.imageAlt': 'Luftaufnahme von Bellinzona mit seinen Burgen und dem Fluss Ticino',
+    'blog.article.varese-citta-piu-verde-2026.title': 'Varese gehört zu den grünsten Städten Europas',
+    'blog.article.varese-citta-piu-verde-2026.excerpt': 'Varese ist eine der beiden europäischen Städte, in denen über 50 % der Bevölkerung nach der 3-30-300-Regel leben.',
+    'blog.article.varese-citta-piu-verde-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und grünen Parks',
 };
 
 export default blogMetaDe;

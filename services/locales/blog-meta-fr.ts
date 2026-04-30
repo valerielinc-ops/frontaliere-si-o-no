@@ -4412,6 +4412,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bilancio-provincia-varese-1-5-milioni.title': 'Budget du canton de Varèse : 1,5 million pour les investissements',
     'blog.article.bilancio-provincia-varese-1-5-milioni.excerpt': 'Le budget du canton de Varèse pour 2025 se clôture avec un excédent de 1,5 million, destiné à des investissements dans la circulation routière et le patrimoine culturel.',
     'blog.article.bilancio-provincia-varese-1-5-milioni.imageAlt': 'Vue aérienne de Bellinzone avec ses châteaux et la rivière du Tessin',
+    'blog.article.varese-citta-piu-verde-2026.title': 'Varèse parmi les villes les plus vertes d\'Europe',
+    'blog.article.varese-citta-piu-verde-2026.excerpt': 'Varèse est l\'une des deux seules villes européennes où plus de 50 % de la population vit selon la règle du 3-30-300.',
+    'blog.article.varese-citta-piu-verde-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des parcs verts',
 };
 
 export default blogMetaFr;

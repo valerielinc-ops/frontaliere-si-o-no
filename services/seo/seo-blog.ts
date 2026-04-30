@@ -29619,6 +29619,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-citta-piu-verde-2026': {
+    title: 'Varese tra le città più verdi d\'Europa | Frontaliere Ticino',
+    description: 'Varese è tra le sole due città europee dove oltre il 50% della popolazione vive secondo la regola del 3-30-300. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, città, verdi, europa',
+    ogTitle: 'Varese tra le città più verdi d\'Europa',
+    ogDescription: 'Varese è tra le sole due città europee dove oltre il 50% della popolazione vive secondo la regola del 3-30-300.',
+    canonicalPath: '/articoli-frontaliere/varese-citta-piu-verde-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese tra le città più verdi d'Europa",
+      "description": "Varese è tra le sole due città europee dove oltre il 50% della popolazione vive secondo la regola del 3-30-300. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-citta-piu-verde-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e parchi verdi"
+      },
+      "datePublished": "2026-04-30T18:12:38+00:00",
+      "dateModified": "2026-04-30T18:12:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-citta-piu-verde-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
