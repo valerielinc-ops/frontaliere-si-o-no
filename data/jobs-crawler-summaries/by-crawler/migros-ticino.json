@@ -1,21 +1,22 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-04-29T22:18:51.951Z",
-  "total": 26,
-  "newCount": 1,
+  "generatedAt": "2026-04-30T11:12:28.852Z",
+  "total": 25,
+  "newCount": 0,
   "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 35998,
-  "avgDurationMs": 35998,
+  "durationMs": 43190,
+  "avgDurationMs": 43190,
   "durationHistory": [
-    35998
+    43190
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-fa8to6",
-      "slug": "mitarbeiter-in-restaurant-migros-restaurant-chur",
+      "slug": "collaboratore-trice-in-restaurant-migros-restaurant-chur-fa8to6",
       "company": "Migros Restaurant",
       "title": "Mitarbeiter*in Restaurant",
       "location": "Chur",
@@ -43,18 +44,24 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-04-29T22:18:50.098Z",
       "firstSeenAt": "2026-04-29T22:18:50.098Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 73,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 9,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-djv9rd",
       "slug": "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt-djv9rd",
@@ -701,55 +708,6 @@
         "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
       ],
       "_migrosWorkPercentage": "623%",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-04-26T10:03:16.994Z",
-      "firstSeenAt": "2026-04-26T10:03:16.994Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-yp5cdr",
-      "slug": "verkaufer-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-landquart-yp5cdr",
-      "company": "Genossenschaft Migros Ostschweiz",
-      "title": "Verkäufer*in Früchte/Gemüse",
-      "location": "Landquart",
-      "canton": "GR",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin-fruchtegemuse/f7a2b2dd-4968-463b-813f-4dd4cbe73fa7",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Du stellst sicher, dass im Bereich Früchte/Gemüse 🍎🥦 alle Regale stets gut gefüllt und die Waren optimal bewirtschaftet sind, damit die Kunden immer das finden, was sie suchen. 🛒",
-        "Freundliche und kompetente Kundenbedienung und -beratung 😊🛍️ gehören für dich selbstverständlich dazu und du stehst den Kunden mit deinem Fachwissen beratend zur Seite.",
-        "Du sorgst dafür, dass die Produkte ansprechend präsentiert und effizient disponiert werden, um ein angenehmes Einkaufserlebnis zu schaffen 🛍️ und bist verantwortlich für die Gestaltung der Warenpräsentation.",
-        "Du übernimmst Verantwortung für die Bestellung und Kontrolle der Waren📦💳, sodass nicht zu viel oder zu wenig im Regal liegt.",
-        "Mit deinem Einsatz trägst du dazu bei, dass dein Bereich ordentlich, sauber und einladend ✨ bleibt."
-      ],
-      "_migrosBenefits": [
-        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
-        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
-        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
-      ],
-      "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
       "crawledAt": "2026-04-26T10:03:16.994Z",
