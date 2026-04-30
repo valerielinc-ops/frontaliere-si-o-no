@@ -2594,6 +2594,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ubs-credit-suisse-integrazione-risultati-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-credit-suisse-integrazione-risultati-2026', parent: 'blog' },
     'blog-varese-digitale-3d-visita': { name: 'Varese Digitale', path: '/articoli-frontaliere/varese-digitale-3d-visita', parent: 'blog' },
     'blog-varesotto-paperoni-lago-maggiore-2026': { name: 'Varese: il 2% detiene il 15% della', path: '/articoli-frontaliere/varesotto-paperoni-lago-maggiore-2026', parent: 'blog' },
+    'blog-regione-lombardia-4-4-milioni-insubria': { name: 'Novità', path: '/articoli-frontaliere/regione-lombardia-4-4-milioni-insubria', parent: 'blog' },
  };
 
  const info = sectionNames[section];

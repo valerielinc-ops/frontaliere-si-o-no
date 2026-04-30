@@ -26516,6 +26516,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-regione-lombardia-4-4-milioni-insubria': {
+    title: 'Lombardia finanzia ricerca Insubria | Frontaliere Ticino',
+    description: 'Regione Lombardia ha assegnato 4,4 milioni di euro all\'Università dell\'Insubria per nuove infrastrutture di ricerca a Varese, Como e Busto Arsizio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, finanzia, ricerca, insubria',
+    ogTitle: 'Regione Lombardia finanzia l\'Università dell\'Insubria con 4,4 milioni per la ricerca',
+    ogDescription: 'Regione Lombardia ha assegnato 4,4 milioni di euro all\'Università dell\'Insubria per nuove infrastrutture di ricerca a Varese, Como e Busto Arsizio.',
+    canonicalPath: '/articoli-frontaliere/regione-lombardia-4-4-milioni-insubria',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Regione Lombardia finanzia l'Università dell'Insubria con 4,4 milioni per la ricerca",
+      "description": "Regione Lombardia ha assegnato 4,4 milioni di euro all'Università dell'Insubria per nuove infrastrutture di ricerca a Varese, Como e Busto Arsizio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/regione-lombardia-4-4-milioni-insubria.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus dell'Università dell'Insubria a Varese con strutture di ricerca moderne"
+      },
+      "datePublished": "2026-04-30T01:36:37+00:00",
+      "dateModified": "2026-04-30T01:36:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/regione-lombardia-4-4-milioni-insubria`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

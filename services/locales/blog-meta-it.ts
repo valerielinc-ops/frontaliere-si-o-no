@@ -4091,6 +4091,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varesotto-paperoni-lago-maggiore-2026.title': 'Varese: il 2% detiene il 15% della ricchezza',
     'blog.article.varesotto-paperoni-lago-maggiore-2026.excerpt': 'Scoperte sulla concentrazione di ricchezza nel Varesotto e decisioni su Lago Maggiore per l\'estate 2026',
     'blog.article.varesotto-paperoni-lago-maggiore-2026.imageAlt': 'Vista aerea del Lago Maggiore con i paesi circostanti e le montagne sullo sfondo',
+    'blog.article.regione-lombardia-4-4-milioni-insubria.title': 'Lombardia finanzia ricerca Insubria',
+    'blog.article.regione-lombardia-4-4-milioni-insubria.excerpt': '4,4 milioni di euro per nuove infrastrutture di ricerca all\'Università dell\'Insubria, con progetti strategici a Varese, Como e Busto Arsizio.',
+    'blog.article.regione-lombardia-4-4-milioni-insubria.imageAlt': 'Campus dell\'Università dell\'Insubria a Varese con strutture di ricerca moderne',
 };
 
 export default blogMetaIt;

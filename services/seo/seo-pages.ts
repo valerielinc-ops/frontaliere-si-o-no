@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1413,
+ "numberOfItems": 1414,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6048,7 +6048,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1410, "name": "Mendrisio chiude 2025 con avanzo di 800mila fra...", "url": `${BASE_URL}/articoli-frontaliere/mendrisio-bilancio-positivo-2025-analisi` },
           { "@type": "ListItem", "position": 1411, "name": "UBS: utile record grazie all'integrazione di Cr...", "url": `${BASE_URL}/articoli-frontaliere/ubs-credit-suisse-integrazione-risultati-2026` },
           { "@type": "ListItem", "position": 1412, "name": "Varese diventa digitale: visita la città in 3D ...", "url": `${BASE_URL}/articoli-frontaliere/varese-digitale-3d-visita` },
-          { "@type": "ListItem", "position": 1413, "name": "Varese: il 2% detiene il 15% della ricchezza", "url": `${BASE_URL}/articoli-frontaliere/varesotto-paperoni-lago-maggiore-2026` }
+          { "@type": "ListItem", "position": 1413, "name": "Varese: il 2% detiene il 15% della ricchezza", "url": `${BASE_URL}/articoli-frontaliere/varesotto-paperoni-lago-maggiore-2026` },
+          { "@type": "ListItem", "position": 1414, "name": "Regione Lombardia finanzia l'Università dell'In...", "url": `${BASE_URL}/articoli-frontaliere/regione-lombardia-4-4-milioni-insubria` }
  ]
  },
  {

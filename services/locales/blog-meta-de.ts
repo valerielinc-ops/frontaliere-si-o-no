@@ -4090,6 +4090,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varesotto-paperoni-lago-maggiore-2026.title': 'Varese: 2 % besitzen 15 % des Vermögens',
     'blog.article.varesotto-paperoni-lago-maggiore-2026.excerpt': 'Entdeckungen über die Vermögenskonzentration im Varesotto und Entscheidungen für den Lago Maggiore im Sommer 2026',
     'blog.article.varesotto-paperoni-lago-maggiore-2026.imageAlt': 'Luftaufnahme des Lago Maggiore mit den umliegenden Städten und Bergen im Hintergrund',
+    'blog.article.regione-lombardia-4-4-milioni-insubria.title': 'Lombardei finanziert Insubria-Forschung',
+    'blog.article.regione-lombardia-4-4-milioni-insubria.excerpt': '4,4 Millionen Euro für neue Forschungseinrichtungen an der Universität Insubria mit strategischen Projekten in Varese, Como und Busto Arsizio.',
+    'blog.article.regione-lombardia-4-4-milioni-insubria.imageAlt': 'Campus der Universität Insubria in Varese mit modernen Forschungsanlagen',
 };
 
 export default blogMetaDe;

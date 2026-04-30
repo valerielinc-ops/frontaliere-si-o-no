@@ -10556,4 +10556,11 @@ export const ARTICLES = [
  image: '/images/blog/varesotto-paperoni-lago-maggiore-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'regione-lombardia-4-4-milioni-insubria',
+ category: 'novita',
+ date: '2026-04-30T01:36:37.390Z',
+ image: '/images/blog/regione-lombardia-4-4-milioni-insubria.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
