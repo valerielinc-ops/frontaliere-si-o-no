@@ -4228,6 +4228,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a2-melide-chiusure-notturne-lavori.title': 'A2 Melide: Nachtschließungen für Straßenarbeiten',
     'blog.article.a2-melide-chiusure-notturne-lavori.excerpt': 'Von Sonntag, 3. Mai bis Freitag, 8. Mai 2026, wird die Ausfahrt Melide jede Nacht von 21.30 bis 5.00 Uhr für Instandhaltungsarbeiten geschlossen.',
     'blog.article.a2-melide-chiusure-notturne-lavori.imageAlt': 'Nacharbeiten am Autobahnausfahrt Melide nachts',
+    'blog.article.sanzioni-ue-imprese-italiane-2026.title': 'EU-Sanktionen zu verletzen ist ein Verbrechen: italienische Unternehmen handeln',
+    'blog.article.sanzioni-ue-imprese-italiane-2026.excerpt': 'Ab dem 24. Januar 2026 können Verstöße gegen EU-Sanktionen für natürliche Personen bis zu 6 Jahre Haft und für Unternehmen bis zu 5% des Umsatzes an Strafen bedeuten.',
+    'blog.article.sanzioni-ue-imprese-italiane-2026.imageAlt': 'Geschäftsbesprechung in einem modernen Büro in Mendrisio mit Blick auf die Schweizer-Italienische Grenze',
 };
 
 export default blogMetaDe;

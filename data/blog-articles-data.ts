@@ -10879,4 +10879,11 @@ export const ARTICLES = [
  image: '/images/blog/a2-melide-chiusure-notturne-lavori.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sanzioni-ue-imprese-italiane-2026',
+ category: 'novita',
+ date: '2026-04-30T08:42:34.699Z',
+ image: '/images/blog/sanzioni-ue-imprese-italiane-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

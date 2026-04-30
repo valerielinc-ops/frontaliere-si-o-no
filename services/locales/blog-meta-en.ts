@@ -4228,6 +4228,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a2-melide-chiusure-notturne-lavori.title': 'A2 Melide: night closures for road resurfacing',
     'blog.article.a2-melide-chiusure-notturne-lavori.excerpt': 'From Sunday 3 May to Friday 8 May 2026, the Melide exit will be closed every night from 9:30 PM to 5:00 AM for maintenance work.',
     'blog.article.a2-melide-chiusure-notturne-lavori.imageAlt': 'Nighttime roadworks at Melide highway exit',
+    'blog.article.sanzioni-ue-imprese-italiane-2026.title': 'Breaking EU sanctions is a crime: Italian firms take action',
+    'blog.article.sanzioni-ue-imprese-italiane-2026.excerpt': 'As of January 24, 2026, violating EU sanctions may result in up to 6 years imprisonment for individuals and fines up to 5% of turnover for companies.',
+    'blog.article.sanzioni-ue-imprese-italiane-2026.imageAlt': 'Business meeting in a modern office in Mendrisio, with a view of the Swiss-Italian border',
 };
 
 export default blogMetaEn;

@@ -27850,6 +27850,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sanzioni-ue-imprese-italiane-2026': {
+    title: 'Violare le sanzioni UE è reato: le imprese italiane corrono ai ripari',
+    description: 'Dal 24 gennaio 2026, violare le sanzioni UE può comportare pene fino a 6 anni di reclusione per le persone fisiche e sanzioni fino al 5% del fatturato per le',
+    keywords: 'frontalieri, ticino, svizzera, italia, violare, sanzioni, reato, imprese',
+    ogTitle: 'Violare le sanzioni UE è reato: le imprese italiane corrono ai ripari',
+    ogDescription: 'Dal 24 gennaio 2026, violare le sanzioni UE può comportare pene fino a 6 anni di reclusione per le persone fisiche e sanzioni fino al 5% del fatturato per le',
+    canonicalPath: '/articoli-frontaliere/sanzioni-ue-imprese-italiane-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Violare le sanzioni UE è reato: le imprese italiane corrono ai ripari",
+      "description": "Dal 24 gennaio 2026, violare le sanzioni UE può comportare pene fino a 6 anni di reclusione per le persone fisiche e sanzioni fino al 5% del fatturato per le",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sanzioni-ue-imprese-italiane-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Riunione di lavoro in un ufficio moderno a Mendrisio, con vista sul confine svizzero-italiano"
+      },
+      "datePublished": "2026-04-30T08:42:34+00:00",
+      "dateModified": "2026-04-30T08:42:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanzioni-ue-imprese-italiane-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2640,6 +2640,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-fogliaro-san-giuseppe-2026': { name: 'Eventi Varese', path: '/articoli-frontaliere/varese-fogliaro-san-giuseppe-2026', parent: 'blog' },
     'blog-polizia-ticinese-fase-progettuale-conclusa': { name: 'Novità', path: '/articoli-frontaliere/polizia-ticinese-fase-progettuale-conclusa', parent: 'blog' },
     'blog-a2-melide-chiusure-notturne-lavori': { name: 'Novità', path: '/articoli-frontaliere/a2-melide-chiusure-notturne-lavori', parent: 'blog' },
+    'blog-sanzioni-ue-imprese-italiane-2026': { name: 'Novità', path: '/articoli-frontaliere/sanzioni-ue-imprese-italiane-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

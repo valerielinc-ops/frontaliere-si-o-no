@@ -4229,6 +4229,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a2-melide-chiusure-notturne-lavori.title': 'A2 Melide: chiusure notturne per lavori alla pavimentazione',
     'blog.article.a2-melide-chiusure-notturne-lavori.excerpt': 'Da domenica 3 maggio a venerdì 8 maggio 2026, l\'uscita di Melide sarà chiusa ogni notte dalle 21.30 alle 5.00 per lavori di manutenzione.',
     'blog.article.a2-melide-chiusure-notturne-lavori.imageAlt': 'Lavori notturni sull\'uscita autostradale di Melide',
+    'blog.article.sanzioni-ue-imprese-italiane-2026.title': 'Violare le sanzioni UE è reato: le imprese italiane corrono ai ripari',
+    'blog.article.sanzioni-ue-imprese-italiane-2026.excerpt': 'Dal 24 gennaio 2026, violare le sanzioni UE può comportare pene fino a 6 anni di reclusione per le persone fisiche e sanzioni fino al 5% del fatturato per le imprese.',
+    'blog.article.sanzioni-ue-imprese-italiane-2026.imageAlt': 'Riunione di lavoro in un ufficio moderno a Mendrisio, con vista sul confine svizzero-italiano',
 };
 
 export default blogMetaIt;
