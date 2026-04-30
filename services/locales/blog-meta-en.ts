@@ -4489,6 +4489,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sostenibilita-salone-csr-varese-2026.title': 'Varese: CSR and Social Innovation Fair at Ville Ponti Congress Centre',
     'blog.article.sostenibilita-salone-csr-varese-2026.excerpt': 'On May 6, 2026, Varese will host the CSR Fair, an event dedicated to sustainability and social innovation with businesses, institutions, and the Third Sector.',
     'blog.article.sostenibilita-salone-csr-varese-2026.imageAlt': 'Conference on sustainability and innovation at the Ville Ponti Congress Centre in Varese',
+    'blog.article.film-the-sea-varese-gaza-2026.title': 'Varese: \'The Sea\' film and live Gaza debate',
+    'blog.article.film-the-sea-varese-gaza-2026.excerpt': 'Varese\'s Cineclub Filmstudio 90 screens \'The Sea\' with a debate and live link to the Global Sumud Flotilla to Gaza.',
+    'blog.article.film-the-sea-varese-gaza-2026.imageAlt': 'Cinematic event in Varese with live stream to Gaza',
 };
 
 export default blogMetaEn;

@@ -11488,4 +11488,11 @@ export const ARTICLES = [
  image: '/images/blog/sostenibilita-salone-csr-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'film-the-sea-varese-gaza-2026',
+ category: 'novita',
+ date: '2026-04-30T22:52:31.689Z',
+ image: '/images/blog/film-the-sea-varese-gaza-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

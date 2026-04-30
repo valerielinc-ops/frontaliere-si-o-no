@@ -4490,6 +4490,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sostenibilita-salone-csr-varese-2026.title': 'Varese: Salone della CSR e innovazione sociale al Centro Congressi Ville Ponti',
     'blog.article.sostenibilita-salone-csr-varese-2026.excerpt': 'Il 6 maggio 2026 a Varese si terrà il Salone della CSR, un evento dedicato a sostenibilità e innovazione sociale con imprese, istituzioni e Terzo Settore.',
     'blog.article.sostenibilita-salone-csr-varese-2026.imageAlt': 'Conferenza sul tema della sostenibilità e innovazione presso il Centro Congressi Ville Ponti di Varese',
+    'blog.article.film-the-sea-varese-gaza-2026.title': 'Varese: Film \'The Sea\' e dibattito con collegamento live a Gaza',
+    'blog.article.film-the-sea-varese-gaza-2026.excerpt': 'Il Cineclub Filmstudio 90 di Varese proietta \'The Sea\' con dibattito e collegamento live alla Global Sumud Flotilla verso Gaza.',
+    'blog.article.film-the-sea-varese-gaza-2026.imageAlt': 'Evento cinematografico a Varese con collegamento live verso Gaza',
 };
 
 export default blogMetaIt;

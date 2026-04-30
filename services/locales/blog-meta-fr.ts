@@ -4490,6 +4490,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sostenibilita-salone-csr-varese-2026.title': 'Varèse: Salon de la RSE et innovation sociale',
     'blog.article.sostenibilita-salone-csr-varese-2026.excerpt': 'Le 6 mai 2026 à Varèse se tiendra le Salon de la RSE, un événement dédié à la durabilité et à l\'innovation sociale avec les entreprises, les institutions et le secteur tiers.',
     'blog.article.sostenibilita-salone-csr-varese-2026.imageAlt': 'Conférence sur la durabilité et l\'innovation au Centre de Congrès Ville Ponti de Varese',
+    'blog.article.film-the-sea-varese-gaza-2026.title': 'Varèse : projection du film \'The Sea\' et débat avec Gaza en direct',
+    'blog.article.film-the-sea-varese-gaza-2026.excerpt': 'Le Cineclub Filmstudio 90 de Varèse projette \'The Sea\' avec débat et connexion en direct à la Global Sumud Flotilla vers Gaza.',
+    'blog.article.film-the-sea-varese-gaza-2026.imageAlt': 'Événement cinématographique à Varèse avec diffusion en direct vers Gaza',
 };
 
 export default blogMetaFr;

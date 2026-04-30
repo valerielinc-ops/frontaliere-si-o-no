@@ -4489,6 +4489,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sostenibilita-salone-csr-varese-2026.title': 'Varese: Messe für CSR und soziale Innovation',
     'blog.article.sostenibilita-salone-csr-varese-2026.excerpt': 'Am 6. Mai 2026 findet in Varese die CSR-Messe statt, ein Event zu Nachhaltigkeit und sozialer Innovation mit Unternehmen, Institutionen und dem Dritten Sektor.',
     'blog.article.sostenibilita-salone-csr-varese-2026.imageAlt': 'Konferenz über Nachhaltigkeit und Innovation im Kongresszentrum Ville Ponti in Varese',
+    'blog.article.film-the-sea-varese-gaza-2026.title': 'Varese: Film \'The Sea\' und Diskussion mit Live-Anschluss nach Gaza',
+    'blog.article.film-the-sea-varese-gaza-2026.excerpt': 'Der Cineclub Filmstudio 90 in Varese zeigt \'The Sea\' mit Diskussion und Live-Anschluss zur Global Sumud Flotilla nach Gaza.',
+    'blog.article.film-the-sea-varese-gaza-2026.imageAlt': 'Kinoveranstaltung in Varese mit Live-Stream nach Gaza',
 };
 
 export default blogMetaDe;

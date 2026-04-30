@@ -30373,6 +30373,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-film-the-sea-varese-gaza-2026': {
+    title: 'Varese: Film \'The Sea\' e dibattito con collegamento live a Gaza',
+    description: 'Il Cineclub Filmstudio 90 di Varese proietta \'The Sea\' con dibattito e collegamento live alla Global Sumud Flotilla verso Gaza il 6 maggio 2026. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, film, dibattito, collegamento',
+    ogTitle: 'Varese: Film \'The Sea\' e dibattito con collegamento live a Gaza',
+    ogDescription: 'Il Cineclub Filmstudio 90 di Varese proietta \'The Sea\' con dibattito e collegamento live alla Global Sumud Flotilla verso Gaza il 6 maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/film-the-sea-varese-gaza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: Film 'The Sea' e dibattito con collegamento live a Gaza",
+      "description": "Il Cineclub Filmstudio 90 di Varese proietta 'The Sea' con dibattito e collegamento live alla Global Sumud Flotilla verso Gaza il 6 maggio 2026. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/film-the-sea-varese-gaza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento cinematografico a Varese con collegamento live verso Gaza"
+      },
+      "datePublished": "2026-04-30T22:52:31+00:00",
+      "dateModified": "2026-04-30T22:52:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/film-the-sea-varese-gaza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
