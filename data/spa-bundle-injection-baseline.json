@@ -1,8 +1,8 @@
 {
-  "total": 123184,
-  "scanned": 129400,
+  "total": 6850,
+  "scanned": 129416,
   "skipped": 0,
   "groups": {},
-  "rebasedAt": "2026-04-30T07:09:36.000Z",
-  "note": "Initial baseline captured from CI run 25151657070 — total count of dist/<path>/index.html files lacking <script type='module' src='/assets/index-*.js'>. Many SEO emit templates in jobsSeoPagesPlugin / staticPagesPlugin / ogPagesPlugin omit the bundle conditional by pre-existing oversight (Bug 0); the ratchet drives this number down as templates get fixed. Group breakdown was not captured in the initial run; will populate as templates are fixed and audit:spa-bundle-injection:rebaseline is called."
+  "rebasedAt": "2026-04-30T07:40:06.000Z",
+  "note": "Rebased from CI run 25152767223 — the same codebase that produced 123 184 bundle-less pages on the previous run (25151657070) produced only 6 850 here, a delta of -116 334. The fluctuation between runs is the smoking gun for the dist/index.html read race: jobsSeoPagesPlugin / ogPagesPlugin / staticPagesPlugin each read the bundle hash independently in their closeBundle, and depending on plugin scheduling vs Vite's writeBundle of the SPA shell, hasSpaBundle is sometimes false → tens of thousands of emits drop the bundle. The 6 850 floor is the 'good case': mostly intentional bridges/redirects + a small residual systematic gap to investigate. Locking the floor here means any future re-occurrence of the race will fail the gate (current > baseline) and block the deploy at the source. Drive this number toward zero by (a) making hasSpaBundle deterministic, (b) refactoring intentional-no-bundle templates to live outside the SCAN scope via SKIP_PATHS."
 }
