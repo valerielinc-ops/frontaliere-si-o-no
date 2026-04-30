@@ -28749,6 +28749,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumenti-tariffe-sunrise-2026': {
+    title: 'Telefonare e navigare costerà un po’ di più dal 2026',
+    description: 'Scopri gli aumenti delle tariffe di Sunrise, Yallo e Lebara dal 2026 e come influenzano i frontalieri in Ticino. Confronta le offerte e pianifica il tuo budget.',
+    keywords: 'frontalieri, ticino, svizzera, italia, telefonare, navigare, costerà, sunrise',
+    ogTitle: 'Aumenti tariffe Sunrise 2026: cosa cambia per i frontalieri',
+    ogDescription: 'Scopri gli aumenti delle tariffe di Sunrise, Yallo e Lebara dal 2026 e come influenzano i frontalieri in Ticino. Confronta le offerte e pianifica il tuo budget.',
+    canonicalPath: '/articoli-frontaliere/aumenti-tariffe-sunrise-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumenti tariffe Sunrise 2026: cosa cambia per i frontalieri",
+      "description": "Scopri gli aumenti delle tariffe di Sunrise, Yallo e Lebara dal 2026 e come influenzano i frontalieri in Ticino. Confronta le offerte e pianifica il tuo budget.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumenti-tariffe-sunrise-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con edifici moderni e smartphone che galleggiano sopra l'acqua, simbolo della comunicazione mobile."
+      },
+      "datePublished": "2026-04-30T13:19:08+00:00",
+      "dateModified": "2026-04-30T13:19:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumenti-tariffe-sunrise-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

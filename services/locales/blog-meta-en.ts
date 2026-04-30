@@ -4321,6 +4321,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bce-tassi-invariati-30-aprile-2026.title': 'ECB: rates unchanged, impact on Ticino',
     'blog.article.bce-tassi-invariati-30-aprile-2026.excerpt': 'The ECB keeps interest rates unchanged, with implications for cross-border workers and the Ticino economy.',
     'blog.article.bce-tassi-invariati-30-aprile-2026.imageAlt': 'Lake Lugano with reflections of the surrounding mountains',
+    'blog.article.aumenti-tariffe-sunrise-2026.title': 'Mobile and internet costs rise from 2026',
+    'blog.article.aumenti-tariffe-sunrise-2026.excerpt': 'Sunrise increases mobile and internet rates starting August 2026. Here\'s what changes for cross-border workers in Ticino.',
+    'blog.article.aumenti-tariffe-sunrise-2026.imageAlt': 'Aerial view of Lake Lugano with modern buildings and smartphones floating above the water, symbolizing mobile communication.',
 };
 
 export default blogMetaEn;

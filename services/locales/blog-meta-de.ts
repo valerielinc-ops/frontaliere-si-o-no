@@ -4321,6 +4321,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bce-tassi-invariati-30-aprile-2026.title': 'EZB: Zinsen unverändert, Auswirkungen auf den Kanton Tessin',
     'blog.article.bce-tassi-invariati-30-aprile-2026.excerpt': 'Die EZB hält die Zinssätze unverändert, mit Auswirkungen auf Grenzgänger und die Tessiner Wirtschaft.',
     'blog.article.bce-tassi-invariati-30-aprile-2026.imageAlt': 'Luganersee mit Spiegelungen der umliegenden Berge',
+    'blog.article.aumenti-tariffe-sunrise-2026.title': 'Ab 2026 mehr für Telefonieren und Surfen',
+    'blog.article.aumenti-tariffe-sunrise-2026.excerpt': 'Sunrise erhöht die Tarife für Mobilfunk und Internet ab August 2026. Das ändert sich für Grenzgänger im Tessin.',
+    'blog.article.aumenti-tariffe-sunrise-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Gebäuden und Smartphones, die über dem Wasser schweben, Symbol für mobile Kommunikation.',
 };
 
 export default blogMetaDe;

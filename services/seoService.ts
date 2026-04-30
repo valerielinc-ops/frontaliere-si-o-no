@@ -2671,6 +2671,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-record-passeggeri-treni-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/record-passeggeri-treni-svizzera-2026', parent: 'blog' },
     'blog-ferrovia-svizzera-300-progetti-2026': { name: 'Novità', path: '/articoli-frontaliere/ferrovia-svizzera-300-progetti-2026', parent: 'blog' },
     'blog-bce-tassi-invariati-30-aprile-2026': { name: 'Bce tassi', path: '/articoli-frontaliere/bce-tassi-invariati-30-aprile-2026', parent: 'blog' },
+    'blog-aumenti-tariffe-sunrise-2026': { name: 'Novità', path: '/articoli-frontaliere/aumenti-tariffe-sunrise-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

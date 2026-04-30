@@ -4322,6 +4322,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bce-tassi-invariati-30-aprile-2026.title': 'Bce: tassi invariati, impatto sul Canton Ticino',
     'blog.article.bce-tassi-invariati-30-aprile-2026.excerpt': 'La Bce mantiene i tassi di interesse invariati, con implicazioni per i frontalieri e l\'economia ticinese.',
     'blog.article.bce-tassi-invariati-30-aprile-2026.imageAlt': 'Lago di Lugano con riflessi delle montagne circostanti',
+    'blog.article.aumenti-tariffe-sunrise-2026.title': 'Telefonare e navigare costerà un po’ di più dal 2026',
+    'blog.article.aumenti-tariffe-sunrise-2026.excerpt': 'Sunrise aumenta le tariffe per telefonia mobile e Internet a partire da agosto 2026. Ecco cosa cambia per i frontalieri in Ticino.',
+    'blog.article.aumenti-tariffe-sunrise-2026.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e smartphone che galleggiano sopra l\'acqua, simbolo della comunicazione mobile.',
 };
 
 export default blogMetaIt;
