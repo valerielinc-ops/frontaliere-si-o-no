@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grand-hotel-des-bains-kempinski",
-  "assembledAt": "2026-04-30T11:01:15.249Z",
+  "assembledAt": "2026-04-30T22:02:46.830Z",
   "jobs": [
     {
       "title": "Apprentice \"Koch EFZ\" (f/m/d) from August 2026",
@@ -44,7 +44,7 @@
         "de": "apprentice-koch-efz-f-m-d-from-august-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprenti-koch-efz-f-m-j-a-partir-d-aout-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-30T11:01:15.164Z",
+      "crawledAt": "2026-04-30T22:02:46.735Z",
       "previousSlugs": [
         "apprentice-koch-cfc-f-m-d-from-august-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "apprentice-koch-efz-f-m-d-from-august-2026-328957",
@@ -127,7 +127,7 @@
         "de": "chef-de-rang-f-m-d-crazy-pizza-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-ow4rtb",
         "fr": "chef-de-rang-f-m-d-crazy-pizza-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-ow4rtb"
       },
-      "crawledAt": "2026-04-30T11:01:15.165Z",
+      "crawledAt": "2026-04-30T22:02:46.736Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -209,7 +209,7 @@
         "de": "pizzabacker-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "pizzaiolo-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-30T11:01:15.165Z",
+      "crawledAt": "2026-04-30T22:02:46.737Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -304,7 +304,7 @@
         "de": "halber-chef-de-partie-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "demi-chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-30T11:01:15.166Z",
+      "crawledAt": "2026-04-30T22:02:46.738Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -388,7 +388,7 @@
         "de": "chef-de-partie-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-30T11:01:15.167Z",
+      "crawledAt": "2026-04-30T22:02:46.740Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -464,7 +464,7 @@
         "de": "trainee-culinary-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprenti-culinary-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-30T11:01:15.167Z",
+      "crawledAt": "2026-04-30T22:02:46.741Z",
       "previousSlugs": [
         "apprendista-culinary-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "trainee-culinary-f-m-d-458553"
@@ -494,7 +494,8 @@
           "apprendista-culinary-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:57:20.566Z"
+      "firstSeenAt": "2026-04-13T21:57:20.566Z",
+      "needsRetranslation": true
     },
     {
       "title": "In-Room Dining Supervisor (f/m/d)",
@@ -538,7 +539,7 @@
         "de": "zimmerdienstleiter-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "room-service-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-30T11:01:15.169Z",
+      "crawledAt": "2026-04-30T22:02:46.741Z",
       "previousSlugs": [
         "room-service-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "azienda-grand-hotel-des-bains-kempinski-st-moritz",
@@ -636,7 +637,7 @@
         "de": "steward-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "vers-l-arriere-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-30T11:01:15.169Z",
+      "crawledAt": "2026-04-30T22:02:46.742Z",
       "id": "grand-hotel-des-bains-kempinski-e7d6d391aa4f",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -664,7 +665,70 @@
       },
       "previousSlugs": [
         "steward-f-m-d-499214"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "title": "Room Attendant (f/m/d)",
+      "slug": "room-attendant-f-m-d-500592",
+      "url": "https://kempinski.pinpointhq.com/en/postings/f5f4b7ec-e75b-4e67-a691-a0a9b38d6d04",
+      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/f5f4b7ec-e75b-4e67-a691-a0a9b38d6d04",
+      "company": "Grand Hotel des Bains Kempinski St. Moritz",
+      "companyKey": "grand-hotel-des-bains-kempinski",
+      "companyDomain": "kempinski.com",
+      "location": "St. Moritz",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Turismo & Ospitalità",
+      "sector": "Hotellerie & Gastronomia",
+      "department": "Rooms Division, Front Office & Guest Services",
+      "source": "kempinski-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-30",
+      "validThrough": "",
+      "employmentType": "FULL_TIME",
+      "contractType": "seasonal",
+      "description": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities: Cleaning the guest rooms Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors Ensuring the maintenance and cleanliness of the equipment and the floor offices Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have Ability to work under pressure, tidiness and very high quality awareness Structured and organised way of working Great interest in team-oriented work Good knowledge of German and English | We offer: Live and work in the heart of the Engadine Alps A wide range of creative opportunities Pleasant working atmosphere in a young and dynamic team International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant Free use of the in-house childcare centre for employees' children Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses Internal ‘Feel Good Committee’ to help shape all welfare issues",
+      "titleByLocale": {
+        "fr": "Room Attendant (f/m/d)",
+        "en": "Room Attendant (f/m/d)",
+        "it": "Room Attendant (f/m/d)",
+        "de": "Room Attendant (f/m/d)"
+      },
+      "descriptionByLocale": {
+        "en": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities: Cleaning the guest rooms Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors Ensuring the maintenance and cleanliness of the equipment and the floor offices Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have Ability to work under pressure, tidiness and very high quality awareness Structured and organised way of working Great interest in team-oriented work Good knowledge of German and English | We offer: Live and work in the heart of the Engadine Alps A wide range of creative opportunities Pleasant working atmosphere in a young and dynamic team International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant Free use of the in-house childcare centre for employees' children Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "it": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities: Cleaning the guest rooms Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors Ensuring the maintenance and cleanliness of the equipment and the floor offices Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have Ability to work under pressure, tidiness and very high quality awareness Structured and organised way of working Great interest in team-oriented work Good knowledge of German and English | We offer: Live and work in the heart of the Engadine Alps A wide range of creative opportunities Pleasant working atmosphere in a young and dynamic team International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant Free use of the in-house childcare centre for employees' children Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "de": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities: Cleaning the guest rooms Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors Ensuring the maintenance and cleanliness of the equipment and the floor offices Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have Ability to work under pressure, tidiness and very high quality awareness Structured and organised way of working Great interest in team-oriented work Good knowledge of German and English | We offer: Live and work in the heart of the Engadine Alps A wide range of creative opportunities Pleasant working atmosphere in a young and dynamic team International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant Free use of the in-house childcare centre for employees' children Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses Internal ‘Feel Good Committee’ to help shape all welfare issues",
+        "fr": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. We are looking for you as a Room Attendant! | Key Responsibilities: Cleaning the guest rooms Checking the functionality and good condition of the items in the room during cleaning Cleaning the corridors and floors Ensuring the maintenance and cleanliness of the equipment and the floor offices Carrying out the turn-down service | Skills, Knowledge and Expertise: Do you have an eye for detail and work in an organised and precise manner even in stressful situations? We are looking for you to join our dynamic and highly motivated housekeeping team! For this challenging task you have Ability to work under pressure, tidiness and very high quality awareness Structured and organised way of working Great interest in team-oriented work Good knowledge of German and English | We offer: Live and work in the heart of the Engadine Alps A wide range of creative opportunities Pleasant working atmosphere in a young and dynamic team International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant Free use of the in-house childcare centre for employees' children Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses Internal ‘Feel Good Committee’ to help shape all welfare issues"
+      },
+      "slugByLocale": {
+        "it": "room-attendant-f-m-d-500592",
+        "en": "room-attendant-f-m-d-500592",
+        "de": "room-attendant-f-m-d-500592",
+        "fr": "room-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
+      },
+      "crawledAt": "2026-04-30T22:02:46.743Z",
+      "id": "grand-hotel-des-bains-kempinski-a7cceff65a8c",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Mezdi 27",
+      "postalCode": "7500",
+      "firstSeenAt": "2026-04-30T22:02:46.743Z"
     }
   ]
 }
