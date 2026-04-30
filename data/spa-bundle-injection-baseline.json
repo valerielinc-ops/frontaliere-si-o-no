@@ -1,8 +1,8 @@
 {
-  "total": 6850,
-  "scanned": 129416,
+  "total": 271,
+  "scanned": 130149,
   "skipped": 0,
   "groups": {},
-  "rebasedAt": "2026-04-30T07:40:06.000Z",
-  "note": "Rebased from CI run 25152767223 — the same codebase that produced 123 184 bundle-less pages on the previous run (25151657070) produced only 6 850 here, a delta of -116 334. The fluctuation between runs is the smoking gun for the dist/index.html read race: jobsSeoPagesPlugin / ogPagesPlugin / staticPagesPlugin each read the bundle hash independently in their closeBundle, and depending on plugin scheduling vs Vite's writeBundle of the SPA shell, hasSpaBundle is sometimes false → tens of thousands of emits drop the bundle. The 6 850 floor is the 'good case': mostly intentional bridges/redirects + a small residual systematic gap to investigate. Locking the floor here means any future re-occurrence of the race will fail the gate (current > baseline) and block the deploy at the source. Drive this number toward zero by (a) making hasSpaBundle deterministic, (b) refactoring intentional-no-bundle templates to live outside the SCAN scope via SKIP_PATHS."
+  "rebasedAt": "2026-04-30T13:55:59.000Z",
+  "note": "Locked at 271 from CI run 25168389011 \u2014 drop of 6 579 from the previous floor of 6 850 after the legacy locale bridge fix (commit b18eb3910). The remaining 271 are intentional non-SPA pages: ~140 articoli-frontaliere/<slug>/ cross-locale archive entries (redirect bridges by design), ~120 article archive variants in de/fr/en, 4 PDF whitepaper landings (/guides/<slug>/), 3 root English SEO pages (/contact/, /about/, /privacy-policy/). Drive this number toward zero only by SKIP_PATHS allowlist or by refactoring the affected templates \u2014 DO NOT relax the regex."
 }
