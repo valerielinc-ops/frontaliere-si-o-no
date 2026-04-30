@@ -4172,6 +4172,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a2-corsia-ritardi-lugano-2026.title': 'A2 in tilt: una sola corsia, ritardi oltre l\'ora',
     'blog.article.a2-corsia-ritardi-lugano-2026.excerpt': 'Traffico intenso tra Chiasso e Grancia, coda da Chiasso/Balerna, ritardi fino a 1h40. Polizia controlla la carreggiata.',
     'blog.article.a2-corsia-ritardi-lugano-2026.imageAlt': 'Autostrada A2 con traffico intenso e una sola corsia aperta',
+    'blog.article.aquanexa-visita-acquedotto-alfa-laveno.title': 'Aquanexa visita acquedotto Alfa a Laveno Mombello',
+    'blog.article.aquanexa-visita-acquedotto-alfa-laveno.excerpt': 'Una delegazione di Aquanexa ha visitato l\'acquedotto IX Fontane di Laveno Mombello, gestito da Alfa, per il progetto Aquamind.',
+    'blog.article.aquanexa-visita-acquedotto-alfa-laveno.imageAlt': 'Delegazione Aquanexa visita acquedotto Alfa a Laveno Mombello',
 };
 
 export default blogMetaIt;

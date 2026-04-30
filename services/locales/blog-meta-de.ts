@@ -4171,6 +4171,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a2-corsia-ritardi-lugano-2026.title': 'A2-Stau: eine Spur, Verzögerungen über eine Stunde',
     'blog.article.a2-corsia-ritardi-lugano-2026.excerpt': 'Starker Verkehr zwischen Chiasso und Grancia, Stau ab Chiasso/Balerna, Verzögerungen bis zu 1h40. Polizei kontrolliert die Fahrbahn.',
     'blog.article.a2-corsia-ritardi-lugano-2026.imageAlt': 'Autobahn A2 mit starkem Verkehr und einer Spur offen',
+    'blog.article.aquanexa-visita-acquedotto-alfa-laveno.title': 'Aquanexa besucht die Wasserleitung Alfa in Laveno Mombello',
+    'blog.article.aquanexa-visita-acquedotto-alfa-laveno.excerpt': 'Eine Delegation von Aquanexa besuchte die Wasserleitung IX Fontane in Laveno Mombello, die von Alfa verwaltet wird, für das Projekt Aquamind.',
+    'blog.article.aquanexa-visita-acquedotto-alfa-laveno.imageAlt': 'Aquanexa-Delegation besucht Wasseraufbereitungsanlage Alfa in Laveno Mombello',
 };
 
 export default blogMetaDe;

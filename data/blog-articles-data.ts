@@ -10745,4 +10745,11 @@ export const ARTICLES = [
  image: '/images/blog/a2-corsia-ritardi-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aquanexa-visita-acquedotto-alfa-laveno',
+ category: 'novita',
+ date: '2026-04-30T05:59:06.394Z',
+ image: '/images/blog/aquanexa-visita-acquedotto-alfa-laveno.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

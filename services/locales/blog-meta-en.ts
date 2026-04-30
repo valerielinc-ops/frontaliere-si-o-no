@@ -4171,6 +4171,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a2-corsia-ritardi-lugano-2026.title': 'A2 lane closed: heavy delays up to 1h40',
     'blog.article.a2-corsia-ritardi-lugano-2026.excerpt': 'Heavy traffic between Chiasso and Grancia, queue from Chiasso/Balerna. Police checking the road.',
     'blog.article.a2-corsia-ritardi-lugano-2026.imageAlt': 'A2 highway with heavy traffic and one lane open',
+    'blog.article.aquanexa-visita-acquedotto-alfa-laveno.title': 'Aquanexa visits Alfa\'s IX Fontane aqueduct in Laveno Mombello',
+    'blog.article.aquanexa-visita-acquedotto-alfa-laveno.excerpt': 'An Aquanexa delegation visited the IX Fontane aqueduct in Laveno Mombello, managed by Alfa, for the Aquamind project.',
+    'blog.article.aquanexa-visita-acquedotto-alfa-laveno.imageAlt': 'Aquanexa delegation visits Alfa water treatment plant in Laveno Mombello',
 };
 
 export default blogMetaEn;

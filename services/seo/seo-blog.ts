@@ -27299,6 +27299,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aquanexa-visita-acquedotto-alfa-laveno': {
+    title: 'Aquanexa visita acquedotto Alfa a Laveno Mombello | Frontaliere Ticino',
+    description: 'Una delegazione di Aquanexa ha visitato l\'acquedotto IX Fontane di Laveno Mombello per il progetto Aquamind, esplorando tecnologie avanzate per la gestione del',
+    keywords: 'frontalieri, ticino, svizzera, italia, aquanexa, visita, acquedotto, alfa',
+    ogTitle: 'Aquanexa visita acquedotto Alfa a Laveno Mombello',
+    ogDescription: 'Una delegazione di Aquanexa ha visitato l\'acquedotto IX Fontane di Laveno Mombello per il progetto Aquamind, esplorando tecnologie avanzate per la gestione del',
+    canonicalPath: '/articoli-frontaliere/aquanexa-visita-acquedotto-alfa-laveno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aquanexa visita acquedotto Alfa a Laveno Mombello",
+      "description": "Una delegazione di Aquanexa ha visitato l'acquedotto IX Fontane di Laveno Mombello per il progetto Aquamind, esplorando tecnologie avanzate per la gestione del",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aquanexa-visita-acquedotto-alfa-laveno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Delegazione Aquanexa visita acquedotto Alfa a Laveno Mombello"
+      },
+      "datePublished": "2026-04-30T05:59:06+00:00",
+      "dateModified": "2026-04-30T05:59:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aquanexa-visita-acquedotto-alfa-laveno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
