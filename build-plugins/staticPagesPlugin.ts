@@ -582,7 +582,19 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  /* ── Buffered write system via shared WriteCollector ── */
  const collector = new WriteCollector({ distDir, pluginName: 'staticPagesPlugin' });
+ // Intra-plugin dedup: first call to a path wins. Without this the seoMap
+ // outer loop and the hreflang branch can target the same file (e.g.
+ // /en/about-us/index.html appears as both a primary URL and a hreflang of
+ // /about/) — both reach _qw, both writes go to the collector, and the
+ // parallel flush race resolves non-deterministically. Tracking written
+ // paths makes the build's collector queue idempotent per path within this
+ // plugin, which is the single-owner-per-path invariant the rest of the
+ // codebase already relies on (see sharedWriteRegistry.ts for the
+ // cross-plugin layer).
+ const _writtenPaths = new Set<string>();
  function _qw(filePath: string, content: string) {
+ if (_writtenPaths.has(filePath)) return;
+ _writtenPaths.add(filePath);
  collector.add(filePath, content);
  }
 
@@ -3098,6 +3110,17 @@ ${hrefTags}
  // `<html lang>` and structured data match the English body content, and
  // the canonical points to the proper `/en/…` cluster member.
  if (!italianPageExists) {
+ // Locale roots (/en/, /de/, /fr/) are owned by the post-loop "Locale-root
+ // SPA shells" block (line ~3300) which mirrors the full IT root with
+ // locale rewrites + locale-correct SEO injection — a richer artifact
+ // (~106 KB) than what this branch can produce here (~25 KB shell). Letting
+ // both branches emit creates a write race against the same path. Skip
+ // here so the post-loop branch is the single owner.
+ const isLocaleRoot = url.path === '/en/' || url.path === '/de/' || url.path === '/fr/';
+ if (isLocaleRoot) {
+ count++;
+ continue;
+ }
  const dir = np.join(distDir, url.path);
  /* dir created by _qw */
  const primaryLocale = detectLocale(url.path);

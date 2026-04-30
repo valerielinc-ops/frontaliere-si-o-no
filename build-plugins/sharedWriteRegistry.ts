@@ -324,8 +324,23 @@ export function claim(claimPath: string, plugin: string, content: string): Claim
  * Call this at module-load time of a plugin (top-level export) so the
  * declaration is registered before any `claim()` call. Declarations survive
  * {@link reset} (they're configuration, not state).
+ *
+ * Idempotent: re-declaring the same `(pattern, winner)` pair is a no-op so
+ * vite-watch-mode rebuilds don't accumulate duplicate declarations across
+ * the lifetime of the dev server. The reason field is allowed to differ
+ * across re-declarations (the latest one wins for the human-readable field).
  */
 export function declareSharedPath(decl: SharedPathDeclaration): void {
+  for (const existing of sharedPathDeclarations) {
+    const samePattern =
+      typeof existing.pattern === 'string' && typeof decl.pattern === 'string'
+        ? existing.pattern === decl.pattern
+        : typeof existing.pattern !== 'string' && typeof decl.pattern !== 'string'
+          ? existing.pattern.source === decl.pattern.source &&
+            existing.pattern.flags === decl.pattern.flags
+          : false;
+    if (samePattern && existing.winner === decl.winner) return;
+  }
   sharedPathDeclarations.push(decl);
 }
 

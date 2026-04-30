@@ -13,6 +13,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
+import { declareSharedPath } from './sharedWriteRegistry';
 import { BASE_URL } from './constants';
 import {
   generateAllScenarios,
@@ -28,6 +29,36 @@ import { resolveSalaryHubFlushed } from './shared/buildSignals';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
+
+/**
+ * Declare salaryHubPlugin as the canonical owner of every salary-scenario path
+ * it emits, so writes from staticPagesPlugin (which iterates its seoMap and
+ * happens to cover the same locale-prefixed scenario URLs) don't collide on
+ * the same target file.
+ *
+ * Without this declaration, both plugins' parallel `WriteCollector.add` calls
+ * targeted /(en|de|fr)/(calculate-salary|gehalt-berechnen|calculer-salaire)/
+ * (net-salary|nettogehalt|salaire-net)-{N}-chf/index.html and the
+ * non-deterministic flush race resolved between salaryHubPlugin's richer
+ * 14 KB content and staticPagesPlugin's simpler 13 KB shell. Declaring the
+ * winner makes the registry skip-write the loser's add() — same outcome
+ * every build, no race.
+ *
+ * The pattern matches both the directory-form (.../net-salary-NN-chf/index.html)
+ * and the flat-form (.../net-salary-NN-chf.html) so flatHtmlRedirectPlugin's
+ * later post-processing into a redirect bridge is unaffected.
+ *
+ * Module-load registration: declareSharedPath is idempotent for matching
+ * (pattern, winner) pairs, so vite watch-mode rebuilds re-importing this
+ * module never accumulate stale entries.
+ */
+declareSharedPath({
+  pattern:
+    /\/(stipendio-netto|net-salary|nettogehalt|salaire-net)-\d+-chf(\/index\.html|\.html)$/,
+  winner: 'salaryHubPlugin',
+  reason:
+    'salaryHubPlugin emits ~500 pre-computed salary scenarios across 4 locales with full simulation data + AdSense slots. staticPagesPlugin reaches the same paths via its seoMap loop and would race-overwrite with a less-rich shell. Winner is salaryHubPlugin.',
+});
 
 export function salaryHubPlugin(rootDir: string): Plugin {
   return {

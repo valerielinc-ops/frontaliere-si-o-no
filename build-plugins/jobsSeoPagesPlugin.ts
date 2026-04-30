@@ -27,6 +27,14 @@ import {
 } from './shared/jobBoardCommuterContext';
 import { renderCompanyHubFrontalierContext } from './shared/companyHubFrontalierContext';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
+import {
+ loadWinners,
+ saveWinners,
+ resolveWinner,
+ makeKey as previousSlugWinnerKey,
+ type CandidateInput as PreviousSlugCandidate,
+ type WinnersFile as PreviousSlugWinnersFile,
+} from '../services/previousSlugWinners';
 import { EMPLOYER_BRANDS, type EmployerBrand } from '../services/employerBrands';
 import {
  BRAND_CANONICAL_MAP,
@@ -7147,8 +7155,77 @@ ${hreflangLinks}
  // Uses locale-aware previousSlugsByLocale when available:
  // - previousSlugsByLocale[locale] → bridge pages only under that locale's prefix
  // - Legacy flat previousSlugs → bridge pages under ALL locale prefixes (safe fallback)
+ //
+ // Dedup-at-write-time (2026-04-30): when multiple active jobs claim the
+ // same previousSlug for the same locale (the convit-holding case — 8 jobs
+ // share the same translated old slug), only ONE bridge is emitted. The
+ // winner is chosen via token-Jaccard similarity between oldSlug and each
+ // candidate's current canonical, and persisted to
+ // `data/previous-slug-winners.json` so the same prevSlug always points to
+ // the same canonical across builds. See `services/previousSlugWinners.ts`
+ // for the full rationale and heuristic.
+
+ // Pre-scan #1: build the claimant map BEFORE the emit loop. For each
+ // (locale, oldSlug) pair, list every active job that claims it via either
+ // previousSlugsByLocale[locale] or the legacy flat previousSlugs (locale-
+ // unattributed entries fan out across all locales).
+ const previousSlugClaimants = new Map<string, PreviousSlugCandidate[]>();
+ for (const job of validJobs) {
+ const localeAwareAll = new Set<string>();
+ const pslByLocale = (job as any).previousSlugsByLocale;
+ if (pslByLocale && typeof pslByLocale === 'object') {
+ for (const arr of Object.values(pslByLocale)) {
+ if (Array.isArray(arr)) for (const s of arr as string[]) localeAwareAll.add(s);
+ }
+ }
+ const legacyOnly = Array.isArray(job.previousSlugs)
+ ? job.previousSlugs.filter((s: string) => !localeAwareAll.has(s))
+ : [];
+ if (localeAwareAll.size === 0 && legacyOnly.length === 0) continue;
+ for (const locale of localeList) {
+ const currentSlug = localizedSlug(job, locale);
+ if (!currentSlug) continue;
+ const localeSpecific = pslByLocale && Array.isArray(pslByLocale[locale]) ? (pslByLocale[locale] as string[]) : [];
+ const prevSlugsForLocale = new Set<string>([...localeSpecific, ...legacyOnly]);
+ for (const oldSlug of prevSlugsForLocale) {
+ if (!oldSlug || oldSlug === currentSlug) continue;
+ if (RESERVED_HUB_SLUGS.has(oldSlug)) continue;
+ const key = previousSlugWinnerKey(locale, oldSlug);
+ const list = previousSlugClaimants.get(key);
+ const candidate: PreviousSlugCandidate = {
+ jobIdentifier: String((job as any).id || (job as any).slug || currentSlug),
+ canonicalSlug: currentSlug,
+ };
+ if (list) list.push(candidate);
+ else previousSlugClaimants.set(key, [candidate]);
+ }
+ }
+ }
+
+ // Pre-scan #2: load persisted winners and resolve a winner identifier for
+ // every key. Single-claimant keys take the trivial winner (no registry
+ // entry written). Multi-claimant keys reuse the persisted winner when it
+ // is still in the candidates list, else re-elect via the heuristic.
+ const previousSlugWinnersPath = np.resolve(rootDir, 'data', 'previous-slug-winners.json');
+ const previousSlugWinners: PreviousSlugWinnersFile = loadWinners(previousSlugWinnersPath);
+ const previousSlugWinnersBefore = JSON.stringify(previousSlugWinners);
+ const winnerByPrevSlugKey = new Map<string, string>(); // key → winner jobIdentifier
+ const nowIso = new Date().toISOString();
+ let multiClaimantKeys = 0;
+ for (const [key, candidates] of previousSlugClaimants) {
+ const [locale, oldSlug] = key.split('::', 2);
+ if (candidates.length > 1) multiClaimantKeys += 1;
+ const winner = resolveWinner(previousSlugWinners, locale, oldSlug, candidates, nowIso);
+ if (winner) winnerByPrevSlugKey.set(key, winner.winnerJobIdentifier);
+ }
+ if (multiClaimantKeys > 0) {
+ console.log(
+ `\x1b[36m[jobs-seo-pages]\x1b[0m previous-slug winners: ${previousSlugClaimants.size} claimed slugs, ${multiClaimantKeys} contested → resolved via registry + heuristic`,
+ );
+ }
 
  let bridgeCount = 0;
+ let bridgeSkippedNotWinner = 0;
  for (const job of validJobs) {
  // Collect previous slugs that aren't locale-attributed (legacy flat entries)
  const localeAwareAll = new Set<string>();
@@ -7192,6 +7269,7 @@ ${hreflangLinks}
  return { indexHtml: bridgeIndexHtml, flatHtml: bridgeFlatHtml };
  };
 
+ const myJobIdentifier = String((job as any).id || (job as any).slug || currentSlug);
  for (const oldSlug of prevSlugsForLocale) {
  if (oldSlug === currentSlug) continue;
  // Skip bridge generation when the previousSlug is a reserved sector/city
@@ -7201,6 +7279,16 @@ ${hreflangLinks}
  // jobSectorPagesPlugin's curated sector hub at the same path and sends
  // both users and Google to a job soft-landing instead of the canonical hub.
  if (RESERVED_HUB_SLUGS.has(oldSlug)) continue;
+ // Dedup at write time: if multiple active jobs share this prevSlug, only
+ // the registered winner emits the bridge. Other claimants skip silently —
+ // their canonical content is still indexed at THEIR own canonical URL,
+ // and the bridge URL stably points at the winner's canonical across builds.
+ const winnerKey = previousSlugWinnerKey(locale, oldSlug);
+ const winnerId = winnerByPrevSlugKey.get(winnerKey);
+ if (winnerId && winnerId !== myJobIdentifier) {
+ bridgeSkippedNotWinner += 1;
+ continue;
+ }
  const oldPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${oldSlug}`.replace(/\/+/g, '/');
  const oldRelPath = oldPath.replace(/^\//, '');
  // Skip if an active job page already occupies this path (buffered writes
@@ -7229,7 +7317,21 @@ ${hreflangLinks}
  }
  }
  if (bridgeCount > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages`);
+ const skipNote = bridgeSkippedNotWinner > 0
+ ? ` (${bridgeSkippedNotWinner} duplicate emits skipped — see data/previous-slug-winners.json for the canonical owner per slug)`
+ : '';
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages${skipNote}`);
+ }
+
+ // Persist the winners file if any decision changed during this build.
+ // Stable cross-build URLs depend on this — without persistence, the
+ // heuristic could re-elect a different winner on a different build and
+ // silently flip every previously-stable bridge target.
+ if (JSON.stringify(previousSlugWinners) !== previousSlugWinnersBefore) {
+ saveWinners(previousSlugWinnersPath, previousSlugWinners);
+ console.log(
+ `\x1b[36m[jobs-seo-pages]\x1b[0m previous-slug winners updated → ${np.relative(rootDir, previousSlugWinnersPath)}`,
+ );
  }
 
  /* ── Cross-locale reconciliation bridge pages ──────────────── */
