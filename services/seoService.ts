@@ -2607,6 +2607,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vergiate-color-run-2026-non-competitiva': { name: 'Color Run Vergiate', path: '/articoli-frontaliere/vergiate-color-run-2026-non-competitiva', parent: 'blog' },
     'blog-due-scuole-due-mondi-un-solo-legame': { name: 'Mostra gemellaggio', path: '/articoli-frontaliere/due-scuole-due-mondi-un-solo-legame', parent: 'blog' },
     'blog-camion-incastrato-grantola-2026': { name: 'Novità', path: '/articoli-frontaliere/camion-incastrato-grantola-2026', parent: 'blog' },
+    'blog-vedano-olona-medici-servizio-instabile': { name: 'Servizio medici', path: '/articoli-frontaliere/vedano-olona-medici-servizio-instabile', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4130,6 +4130,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.camion-incastrato-grantola-2026.title': 'Camion incastrato a Grantola: strada bloccata in attesa dell\'autogru',
     'blog.article.camion-incastrato-grantola-2026.excerpt': 'I vigili del fuoco intervengono per liberare un camion bloccato su un tornante a Grantola, causando interruzioni al traffico.',
     'blog.article.camion-incastrato-grantola-2026.imageAlt': 'Camion incastrato in un tornante sulla provinciale a Grantola',
+    'blog.article.vedano-olona-medici-servizio-instabile.title': 'Vedano Olona, sindaco denuncia instabilità medici',
+    'blog.article.vedano-olona-medici-servizio-instabile.excerpt': 'Il sindaco di Vedano Olona, Sergio Mina, denuncia l\'instabilità del servizio di medicina generale e chiede interventi urgenti.',
+    'blog.article.vedano-olona-medici-servizio-instabile.imageAlt': 'Veduta del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

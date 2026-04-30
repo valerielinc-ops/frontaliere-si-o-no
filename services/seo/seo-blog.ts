@@ -26893,6 +26893,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vedano-olona-medici-servizio-instabile': {
+    title: 'Vedano Olona, sindaco denuncia instabilità medici | Frontaliere Ticino',
+    description: 'Il sindaco di Vedano Olona, Sergio Mina, denuncia l\'instabilità del servizio di medicina generale e chiede interventi urgenti per garantire assistenza ai',
+    keywords: 'frontalieri, ticino, svizzera, italia, vedano, olona, sindaco, denuncia',
+    ogTitle: 'Vedano Olona, sindaco scrive ad ASST: «Servizio medici instabile, servono garanzie»',
+    ogDescription: 'Il sindaco di Vedano Olona, Sergio Mina, denuncia l\'instabilità del servizio di medicina generale e chiede interventi urgenti per garantire assistenza ai',
+    canonicalPath: '/articoli-frontaliere/vedano-olona-medici-servizio-instabile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vedano Olona, sindaco scrive ad ASST: «Servizio medici instabile, servono garanzie»",
+      "description": "Il sindaco di Vedano Olona, Sergio Mina, denuncia l'instabilità del servizio di medicina generale e chiede interventi urgenti per garantire assistenza ai",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vedano-olona-medici-servizio-instabile.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Lago di Lugano con le montagne circostanti"
+      },
+      "datePublished": "2026-04-30T03:52:30+00:00",
+      "dateModified": "2026-04-30T03:52:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vedano-olona-medici-servizio-instabile`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

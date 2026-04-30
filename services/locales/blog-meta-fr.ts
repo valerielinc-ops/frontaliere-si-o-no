@@ -4130,6 +4130,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.camion-incastrato-grantola-2026.title': 'Camion bloqué à Grantola: route fermée en attendant la dépanneuse',
     'blog.article.camion-incastrato-grantola-2026.excerpt': 'Les pompiers interviennent pour libérer un camion bloqué sur un virage à Grantola, causant des interruptions de la circulation.',
     'blog.article.camion-incastrato-grantola-2026.imageAlt': 'Camion coincé dans un virage sur la route provinciale à Grantola',
+    'blog.article.vedano-olona-medici-servizio-instabile.title': 'Vedano Olona, le maire dénonce l\'instabilité des médecins',
+    'blog.article.vedano-olona-medici-servizio-instabile.excerpt': 'Le maire de Vedano Olona, Sergio Mina, dénonce l\'instabilité du service de médecine générale et demande des interventions urgentes.',
+    'blog.article.vedano-olona-medici-servizio-instabile.imageAlt': 'Vue du lac de Lugano avec les montagnes environnantes',
 };
 
 export default blogMetaFr;

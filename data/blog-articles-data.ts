@@ -10647,4 +10647,11 @@ export const ARTICLES = [
  image: '/images/blog/camion-incastrato-grantola-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vedano-olona-medici-servizio-instabile',
+ category: 'novita',
+ date: '2026-04-30T03:52:30.261Z',
+ image: '/images/blog/vedano-olona-medici-servizio-instabile.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

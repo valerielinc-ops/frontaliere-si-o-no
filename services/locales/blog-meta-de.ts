@@ -4129,6 +4129,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.camion-incastrato-grantola-2026.title': 'Lkw steckt in Grantola fest: Straße gesperrt',
     'blog.article.camion-incastrato-grantola-2026.excerpt': 'Die Feuerwehr befreit einen Lkw, der auf einer Kurve in Grantola stecken geblieben ist, was zu Verkehrsunterbrechungen führt.',
     'blog.article.camion-incastrato-grantola-2026.imageAlt': 'Lkw steckt in einer Kurve auf der Provinzialstraße in Grantola fest',
+    'blog.article.vedano-olona-medici-servizio-instabile.title': 'Vedano Olona: Bürgermeister klagt über Ärztemangel',
+    'blog.article.vedano-olona-medici-servizio-instabile.excerpt': 'Der Bürgermeister von Vedano Olona, Sergio Mina, beklagt die Instabilität des allgemeinen medizinischen Dienstes und fordert dringende Maßnahmen.',
+    'blog.article.vedano-olona-medici-servizio-instabile.imageAlt': 'Blick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaDe;

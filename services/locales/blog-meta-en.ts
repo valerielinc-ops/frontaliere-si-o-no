@@ -4129,6 +4129,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.camion-incastrato-grantola-2026.title': 'Truck stuck in Grantola: road blocked awaiting recovery',
     'blog.article.camion-incastrato-grantola-2026.excerpt': 'Firefighters intervene to free a truck stuck on a bend in Grantola, causing traffic disruptions.',
     'blog.article.camion-incastrato-grantola-2026.imageAlt': 'Truck stuck on a bend in the provincial road in Grantola',
+    'blog.article.vedano-olona-medici-servizio-instabile.title': 'Vedano Olona mayor denounces instability of doctors',
+    'blog.article.vedano-olona-medici-servizio-instabile.excerpt': 'The mayor of Vedano Olona, Sergio Mina, denounces the instability of the general medicine service and asks for urgent interventions.',
+    'blog.article.vedano-olona-medici-servizio-instabile.imageAlt': 'View of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;
