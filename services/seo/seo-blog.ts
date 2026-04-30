@@ -28517,6 +28517,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-education-day-confindustria-varese-2026': {
+    title: 'Education Day 2026: scuole e imprese a confronto | Frontaliere Ticino',
+    description: 'La terza edizione dell\'Education Day di Confindustria Varese si terrà il 5 maggio 2026 alle Ville Ponti con centinaia di studenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, education, scuole, imprese, confronto',
+    ogTitle: 'Education Day 2026: scuole e imprese a confronto',
+    ogDescription: 'La terza edizione dell\'Education Day di Confindustria Varese si terrà il 5 maggio 2026 alle Ville Ponti con centinaia di studenti.',
+    canonicalPath: '/articoli-frontaliere/education-day-confindustria-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Education Day 2026: scuole e imprese a confronto",
+      "description": "La terza edizione dell'Education Day di Confindustria Varese si terrà il 5 maggio 2026 alle Ville Ponti con centinaia di studenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/education-day-confindustria-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti presentano progetti durante l'Education Day a Locarno"
+      },
+      "datePublished": "2026-04-30T12:00:27+00:00",
+      "dateModified": "2026-04-30T12:00:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/education-day-confindustria-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

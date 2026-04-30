@@ -2663,6 +2663,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-comco-inchieste-keyword-bidding-2026': { name: 'Novità', path: '/articoli-frontaliere/comco-inchieste-keyword-bidding-2026', parent: 'blog' },
     'blog-dezonamenti-ticino-2026-confronti': { name: 'Dezonamenti Ticino', path: '/articoli-frontaliere/dezonamenti-ticino-2026-confronti', parent: 'blog' },
     'blog-pizza-bibita-costi-citta': { name: 'Pizza e bibita', path: '/articoli-frontaliere/pizza-bibita-costi-citta', parent: 'blog' },
+    'blog-education-day-confindustria-varese-2026': { name: 'Education Day', path: '/articoli-frontaliere/education-day-confindustria-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

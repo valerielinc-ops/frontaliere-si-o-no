@@ -11040,4 +11040,11 @@ export const ARTICLES = [
  image: '/images/blog/pizza-bibita-costi-citta.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'education-day-confindustria-varese-2026',
+ category: 'novita',
+ date: '2026-04-30T12:00:27.437Z',
+ image: '/images/blog/education-day-confindustria-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

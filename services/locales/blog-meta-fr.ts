@@ -4298,6 +4298,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pizza-bibita-costi-citta.title': 'Pizza et boissons : les 30 villes les plus chères',
     'blog.article.pizza-bibita-costi-citta.excerpt': 'Les données de l\'Osservatorio Prezzi e Tariffe montrent une augmentation significative des coûts pour une pizza et une boisson en Italie, avec Bolzano en tête du classement.',
     'blog.article.pizza-bibita-costi-citta.imageAlt': 'Une pizzeria animée à Lugano avec vue sur le lac de Lugano',
+    'blog.article.education-day-confindustria-varese-2026.title': 'Education Day 2026 : écoles et entreprises en dialogue',
+    'blog.article.education-day-confindustria-varese-2026.excerpt': 'La troisième édition de l\'Education Day de Confindustria Varese se tiendra le 5 mai 2026 aux Ville Ponti avec des centaines d\'étudiants.',
+    'blog.article.education-day-confindustria-varese-2026.imageAlt': 'Étudiants présentent des projets lors de l\'Education Day à Locarno',
 };
 
 export default blogMetaFr;

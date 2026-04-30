@@ -4297,6 +4297,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pizza-bibita-costi-citta.title': 'Pizza und Getränke werden immer teurer: Die 30 teuersten Städte',
     'blog.article.pizza-bibita-costi-citta.excerpt': 'Die Daten des Osservatorio Prezzi e Tariffe zeigen einen deutlichen Anstieg der Kosten für Pizza und Getränke in Italien, wobei Bozen an der Spitze steht.',
     'blog.article.pizza-bibita-costi-citta.imageAlt': 'Ein belebtes Pizzeria in Lugano mit Blick auf den Luganersee',
+    'blog.article.education-day-confindustria-varese-2026.title': 'Bildungstag 2026: Schulen und Unternehmen im Austausch',
+    'blog.article.education-day-confindustria-varese-2026.excerpt': 'Die dritte Ausgabe des Bildungstags von Confindustria Varese findet am 5. Mai 2026 in den Ville Ponti mit hunderten Schülern statt.',
+    'blog.article.education-day-confindustria-varese-2026.imageAlt': 'Schüler präsentieren Projekte während des Education Day in Locarno',
 };
 
 export default blogMetaDe;

@@ -4298,6 +4298,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pizza-bibita-costi-citta.title': 'Pizza e bibita sempre più care: la classifica delle 30 città più costose',
     'blog.article.pizza-bibita-costi-citta.excerpt': 'I dati dell\'Osservatorio Prezzi e Tariffe mostrano un aumento significativo dei costi per pizza e bibita in Italia, con Bolzano in testa alla classifica.',
     'blog.article.pizza-bibita-costi-citta.imageAlt': 'Una pizzeria affollata a Lugano con vista sul lago di Lugano',
+    'blog.article.education-day-confindustria-varese-2026.title': 'Education Day 2026: scuole e imprese a confronto',
+    'blog.article.education-day-confindustria-varese-2026.excerpt': 'La terza edizione dell\'Education Day di Confindustria Varese si terrà il 5 maggio 2026 alle Ville Ponti con centinaia di studenti.',
+    'blog.article.education-day-confindustria-varese-2026.imageAlt': 'Studenti presentano progetti durante l\'Education Day a Locarno',
 };
 
 export default blogMetaIt;
