@@ -49,7 +49,7 @@ on:
         type: boolean
         default: false
       post_build_max_parallel:
-        description: 'Concurrency cap for the 11-task post-build pool. Default 4 — measured -33% wall vs =2 baseline (230s vs 345s) and -16% vs =3 (274s). The 4-way overlap masks I/O wait time; 2-core thrashing penalty is small because most tasks are I/O-bound (reading dist/). Override with 1/2/3 for one-off measurements.'
+        description: 'Concurrency cap for the 8-task post-build pool. Default 4 — measured -33% wall vs =2 baseline (230s vs 345s) and -16% vs =3 (274s). The 4-way overlap masks I/O wait time; 2-core thrashing penalty is small because most tasks are I/O-bound (reading dist/). Override with 1/2/3 for one-off measurements.'
         required: false
         type: string
         default: '4'
@@ -352,7 +352,7 @@ jobs:
       #   - Validate SPA render (canonical, schema, robots)
       #   - E2E smoke tests (Playwright)
       #
-      # All 16 jobs are read-only against dist/ and have no shared state, so
+      # All 8 jobs are read-only against dist/ and have no shared state, so
       # wall-clock = max(durations) instead of sum. Real-run timing data
       # (run #25028714773): 83s + 131s + 65s + 49s = 328s sequential vs ~131s
       # parallel — saves ~197s per deploy.
@@ -386,7 +386,7 @@ jobs:
       #                            explicit approval (CLAUDE.md non-negotiable #5).
       - name: Post-build validations + SEO audits + SPA render + E2E (capped parallel)
         run: |
-          # IMPORTANT: 16 fully-parallel Node processes on the 2-core ubuntu
+          # IMPORTANT: 8 fully-parallel Node processes on the 2-core ubuntu
           # runner thrashed catastrophically — sum(per-task wall) ≈ step wall
           # (566 s ≈ 567 s, run #25108605667). The CPU spent more time
           # context-switching than actually executing audits. Theoretical
@@ -455,12 +455,14 @@ jobs:
           # ratchet baseline in data/orphan-pages-baseline.json). Improvements
           # accepted silently; any sitemap whose orphan count goes UP fails.
           spawn_capped audit:orphan-sitemap-pages   /tmp/g9.log npm run audit:orphan-sitemap-pages -- --gate=baseline
-          spawn_capped validate:soft-404            /tmp/v4.log node scripts/validate-soft404.mjs
-          spawn_capped validate:content-quality     /tmp/v6.log node scripts/validate-content-quality.mjs
-          # Gate — sitemap canonical integrity (HARD gate, no baseline).
-          # Every <loc> in dist/sitemap-*.xml must self-canonicalize.
-          spawn_capped audit:sitemap-canonicals     /tmp/g8.log npm run audit:sitemap-canonicals
-          spawn_capped validate:canonical           /tmp/v5.log node scripts/validate-canonical.mjs
+          # Consolidated sitemap-walker: parses sitemap XML once and reads each
+          # targeted HTML once, running 4 checks in pipeline (HARD gate on
+          # sitemap-canonicals, plus validate:canonical / soft-404 /
+          # content-quality). Replaces 4 separate spawn_capped calls that each
+          # parsed the same sitemaps and re-read the same HTML pages. Output is
+          # semantically identical to the 4 originals (per-check PASS/FAIL still
+          # printed); thresholds 800/400 chars + 50 words unchanged.
+          spawn_capped validate:sitemap-pages       /tmp/spm.log npm run validate:sitemap-pages
           spawn_capped validate:jobs-quality        /tmp/v2.log npm run validate:jobs-quality
           spawn_capped validate:sitemap-links       /tmp/v3.log npm run validate:sitemap-links
 
