@@ -4466,6 +4466,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.confindustria-como-arte-cultura-salute-13-maggio.title': 'Confindustria Como esplora il legame tra arte, cultura e salute',
     'blog.article.confindustria-como-arte-cultura-salute-13-maggio.excerpt': 'Evento il 13 maggio con esperti per discutere l\'impatto positivo dell\'arte e della cultura sulla salute e il benessere',
     'blog.article.confindustria-como-arte-cultura-salute-13-maggio.imageAlt': 'Un evento culturale a Lugano, Ticino, con persone che partecipano ad attività artistiche sul lago',
+    'blog.article.sunrise-pratiche-abusive-fermate-2026.title': 'Tribunale ferma le pratiche abusive di Sunrise',
+    'blog.article.sunrise-pratiche-abusive-fermate-2026.excerpt': 'Il tribunale distrettuale di Zurigo ha dichiarato illegittime due clausole contrattuali di Sunrise relative agli aumenti di prezzo e alle modalità di disdetta.',
+    'blog.article.sunrise-pratiche-abusive-fermate-2026.imageAlt': 'Vista del Lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

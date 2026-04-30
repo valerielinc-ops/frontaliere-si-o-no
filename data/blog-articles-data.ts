@@ -11432,4 +11432,11 @@ export const ARTICLES = [
  image: '/images/blog/confindustria-como-arte-cultura-salute-13-maggio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sunrise-pratiche-abusive-fermate-2026',
+ category: 'novita',
+ date: '2026-04-30T21:31:14.353Z',
+ image: '/images/blog/sunrise-pratiche-abusive-fermate-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

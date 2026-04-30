@@ -2719,6 +2719,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-truffatrice-seriale-como-lecco-2026': { name: 'Truffa Como', path: '/articoli-frontaliere/truffatrice-seriale-como-lecco-2026', parent: 'blog' },
     'blog-passaporto-musei-svizzera-30-anni-record': { name: 'Novità', path: '/articoli-frontaliere/passaporto-musei-svizzera-30-anni-record', parent: 'blog' },
     'blog-confindustria-como-arte-cultura-salute-13-maggio': { name: 'Evento Confindustria', path: '/articoli-frontaliere/confindustria-como-arte-cultura-salute-13-maggio', parent: 'blog' },
+    'blog-sunrise-pratiche-abusive-fermate-2026': { name: 'Novità', path: '/articoli-frontaliere/sunrise-pratiche-abusive-fermate-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
