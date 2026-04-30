@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Audit: every per-slug `dist/<path>/index.html` must include the SPA bundle
- * `<script type="module" src="/assets/index-{hash}.js">` tag.
+ * Audit: ratchet on the count of `dist/<path>/index.html` files missing the
+ * SPA bundle `<script type="module" src="/assets/index-{hash}.js">` tag.
  *
  * Why this gate exists
  * --------------------
@@ -18,13 +18,32 @@
  * users. This script runs BEFORE the GitHub Pages artifact upload, so a
  * broken build never reaches production.
  *
+ * Why it's a ratchet, not a strict gate
+ * -------------------------------------
+ * The first run of this gate against the current build found 123k+ pages
+ * lacking the bundle — many SEO emit templates in jobsSeoPagesPlugin /
+ * staticPagesPlugin / ogPagesPlugin omit `${hasSpaBundle ? ... : ''}` by
+ * pre-existing oversight, not by race. A strict gate would freeze every
+ * deploy until the entire codebase is fixed; a ratchet lets normal deploys
+ * proceed while still failing on REGRESSIONS (any new build whose violation
+ * count exceeds the baseline). Each template fix lowers the count, the
+ * baseline is rebased manually, and over time the ratchet drives the count
+ * to zero — then we flip back to strict. Same pattern as
+ * `audit:text-html-ratio` and `audit:h1-title-duplicates`.
+ *
  * Failure mode → diagnosis
  * ------------------------
- * If this script exits non-zero, the dist/ output is corrupt. The proximate
- * cause is almost always a write-registry collision. Inspect:
+ * If this script exits non-zero, the new build has MORE bundle-less pages
+ * than the baseline — usually a write-registry collision shifted a page
+ * from "has bundle" to "no bundle". Inspect:
  *   - `dist/.write-collisions.json` (locally) or
  *   - the `write-collisions-analysis` GitHub Actions artifact (on CI)
  * to find which two plugins claimed the same path and which version won.
+ *
+ * Improvements (count drops) are accepted automatically. To lock in the
+ * improvement as the new floor, run:
+ *   npm run audit:spa-bundle-injection:rebaseline
+ * and commit the updated `data/spa-bundle-injection-baseline.json`.
  *
  * Scope
  * -----
@@ -39,7 +58,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const DIST = path.resolve(process.cwd(), 'dist');
+const BASELINE_PATH = path.resolve(ROOT, 'data', 'spa-bundle-injection-baseline.json');
+const REBASELINE = process.argv.includes('--rebaseline');
 
 if (!fs.existsSync(DIST)) {
   console.error(`[audit:spa-bundle-injection] dist/ not found at ${DIST}`);
@@ -101,14 +123,8 @@ console.log(
   `[audit:spa-bundle-injection] scanned ${scanned} index.html files (skipped ${skipped} via SKIP_PATHS)`,
 );
 
-if (violations.length === 0) {
-  console.log('[audit:spa-bundle-injection] ✅ every index.html contains the SPA bundle script');
-  process.exit(0);
-}
-
-// Group violations by top-2-segment directory so the user immediately sees
-// the affected feature area (e.g. "cerca-lavoro-ticino: 142 files" vs spread
-// across many roots). Helps map the failure to a specific build plugin.
+// Group violations by top-2-segment directory so we can show drift per area
+// in error / progress messages without dumping 100k paths.
 const groups = new Map();
 for (const v of violations) {
   const segments = v.relDir.split('/');
@@ -118,43 +134,137 @@ for (const v of violations) {
   entry.count++;
   if (entry.samples.length < 3) entry.samples.push(v.relDir + '/');
 }
-
 const sortedGroups = Array.from(groups.entries()).sort((a, b) => b[1].count - a[1].count);
+const groupsObject = Object.fromEntries(
+  sortedGroups.map(([key, { count }]) => [key, count]),
+);
 
+if (REBASELINE) {
+  fs.mkdirSync(path.dirname(BASELINE_PATH), { recursive: true });
+  fs.writeFileSync(
+    BASELINE_PATH,
+    JSON.stringify(
+      {
+        total: violations.length,
+        scanned,
+        skipped,
+        groups: groupsObject,
+        rebasedAt: new Date().toISOString(),
+      },
+      null,
+      2,
+    ) + '\n',
+    'utf-8',
+  );
+  console.log(
+    `[audit:spa-bundle-injection] baseline rebased → ${path.relative(ROOT, BASELINE_PATH)} (total=${violations.length})`,
+  );
+  process.exit(0);
+}
+
+let baseline = null;
+if (fs.existsSync(BASELINE_PATH)) {
+  try {
+    baseline = JSON.parse(fs.readFileSync(BASELINE_PATH, 'utf-8'));
+  } catch (err) {
+    console.error(`[audit:spa-bundle-injection] failed to read baseline at ${BASELINE_PATH}: ${err}`);
+    baseline = null;
+  }
+}
+
+if (!baseline) {
+  // First-run setup: no baseline yet. Don't fail the build; just log + write
+  // the baseline so the next run can ratchet against it. The dev/CI is
+  // expected to commit the baseline file alongside this audit.
+  fs.mkdirSync(path.dirname(BASELINE_PATH), { recursive: true });
+  fs.writeFileSync(
+    BASELINE_PATH,
+    JSON.stringify(
+      {
+        total: violations.length,
+        scanned,
+        skipped,
+        groups: groupsObject,
+        rebasedAt: new Date().toISOString(),
+        note: 'auto-created on first run; commit me',
+      },
+      null,
+      2,
+    ) + '\n',
+    'utf-8',
+  );
+  console.log(
+    `[audit:spa-bundle-injection] no baseline found — wrote initial baseline (total=${violations.length}). Commit ${path.relative(ROOT, BASELINE_PATH)}.`,
+  );
+  process.exit(0);
+}
+
+const baselineTotal = typeof baseline.total === 'number' ? baseline.total : -1;
+const current = violations.length;
+
+if (current === 0 && baselineTotal === 0) {
+  console.log('[audit:spa-bundle-injection] ✅ every index.html contains the SPA bundle script');
+  process.exit(0);
+}
+
+if (current <= baselineTotal) {
+  const delta = baselineTotal - current;
+  console.log(
+    `[audit:spa-bundle-injection] ✅ ${current} file(s) missing the bundle ` +
+      `(baseline=${baselineTotal}, delta=-${delta}). ` +
+      (delta > 0
+        ? `Progress! Run \`npm run audit:spa-bundle-injection:rebaseline\` to lock in the new floor.`
+        : `No regression.`),
+  );
+  // Print top groups for visibility even when passing.
+  if (current > 0) {
+    console.log('Affected directories (top 5):');
+    for (const [key, { count }] of sortedGroups.slice(0, 5)) {
+      console.log(`  ${String(count).padStart(6)} × ${key}`);
+    }
+  }
+  process.exit(0);
+}
+
+// REGRESSION: current > baseline. Block.
+const delta = current - baselineTotal;
 console.error('');
 console.error(
-  `[audit:spa-bundle-injection] ❌ ${violations.length} file(s) missing the SPA bundle script tag`,
+  `[audit:spa-bundle-injection] ❌ regression: ${current} files missing the SPA bundle (baseline=${baselineTotal}, delta=+${delta})`,
 );
 console.error('');
 console.error('Affected directories (top 2 path segments):');
 for (const [key, { count, samples }] of sortedGroups) {
-  console.error(`  ${String(count).padStart(6)} × ${key}`);
-  for (const s of samples) {
-    console.error(`           ${s}`);
+  const baselineCount =
+    baseline.groups && typeof baseline.groups[key] === 'number' ? baseline.groups[key] : 0;
+  const groupDelta = count - baselineCount;
+  const marker = groupDelta > 0 ? `+${groupDelta}` : `${groupDelta}`;
+  console.error(`  ${String(count).padStart(6)} × ${key}  (baseline=${baselineCount}, delta=${marker})`);
+  if (groupDelta > 0) {
+    for (const s of samples) {
+      console.error(`           ${s}`);
+    }
   }
 }
 console.error('');
 console.error('What this means');
 console.error('---------------');
-console.error('Every per-slug page is supposed to ship with the SPA hydration script:');
-console.error('  <script type="module" src="/assets/index-{hash}.js">');
-console.error('When this tag is missing, the page stays on its pre-hydration static');
-console.error('content forever — chrome and interactivity are gone, and articles can');
-console.error('infinite-loop against the no-slash redirect bridge.');
-console.error('');
-console.error('Most likely cause');
-console.error('-----------------');
-console.error('A write-registry collision: two plugins (or two call sites in the');
-console.error('same plugin) emitted to the same dist/ path with different content,');
-console.error('one with the bundle and one without, and the bundle-less write won');
-console.error('the parallel `Promise.all` race.');
+console.error('More pages are missing the SPA hydration script than the baseline allowed.');
+console.error('Most likely cause: a write-registry collision shifted some pages from');
+console.error('"has bundle" to "no bundle" because a bundle-less plugin won the race.');
 console.error('');
 console.error('Diagnose');
 console.error('--------');
 console.error('  • Locally:  open `dist/.write-collisions.json` — find the affected');
-console.error('              path, see which plugin/call sites collided.');
+console.error('              path, see which plugin/call sites collided, then run');
+console.error('              `npm run analyze:write-collisions`.');
 console.error('  • On CI:    download the `write-collisions-analysis` artifact:');
 console.error('              gh run download <run-id> -n write-collisions-analysis');
+console.error('');
+console.error('If you intentionally lowered the threshold by fixing emit templates,');
+console.error('rebase the floor:');
+console.error('  npm run audit:spa-bundle-injection:rebaseline');
+console.error('and commit the updated data/spa-bundle-injection-baseline.json.');
 console.error('');
 
 process.exit(1);

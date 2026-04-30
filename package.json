@@ -26,6 +26,7 @@
     "gate:seo-source": "vitest run tests/seo/ --reporter=dot",
     "audit:title-uniqueness": "node scripts/audit-title-uniqueness.mjs",
     "audit:spa-bundle-injection": "node scripts/audit-spa-bundle-injection.mjs",
+    "audit:spa-bundle-injection:rebaseline": "node scripts/audit-spa-bundle-injection.mjs --rebaseline",
     "analyze:write-collisions": "node scripts/analyze-write-collisions.mjs",
     "test:watch": "vitest",
     "new-article": "node scripts/create-article.mjs",

@@ -544,6 +544,9 @@ jobs:
         #     version that competed for a colliding path (pruned by the
         #     registry to ~tens of MB after the build).
         # Download with: gh run download <run-id> -n write-collisions-analysis
+        # NOTE: include-hidden-files is required because both targets start
+        # with `.`; without it, actions/upload-artifact@v4 silently drops them
+        # and produces an empty artifact (this was the bug in run 25151657070).
         if: always() && github.event.inputs.profile_sequential != 'true'
         uses: actions/upload-artifact@v4
         with:
@@ -553,6 +556,7 @@ jobs:
             dist/.write-collisions-data/
           retention-days: 7
           if-no-files-found: ignore
+          include-hidden-files: true
 
       - name: Upload artifact for GitHub Pages
         # PATH 3 (tar in bg during post-build pool) was tried in commit

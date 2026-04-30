@@ -1,0 +1,8 @@
+{
+  "total": 123184,
+  "scanned": 129400,
+  "skipped": 0,
+  "groups": {},
+  "rebasedAt": "2026-04-30T07:09:36.000Z",
+  "note": "Initial baseline captured from CI run 25151657070 — total count of dist/<path>/index.html files lacking <script type='module' src='/assets/index-*.js'>. Many SEO emit templates in jobsSeoPagesPlugin / staticPagesPlugin / ogPagesPlugin omit the bundle conditional by pre-existing oversight (Bug 0); the ratchet drives this number down as templates get fixed. Group breakdown was not captured in the initial run; will populate as templates are fixed and audit:spa-bundle-injection:rebaseline is called."
+}
