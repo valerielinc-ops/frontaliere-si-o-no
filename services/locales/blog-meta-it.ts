@@ -4355,6 +4355,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ambrogio-castiglioni-digital-industries-world.title': 'Ambrogio Castiglioni nuovo presidente di Digital Industries World',
     'blog.article.ambrogio-castiglioni-digital-industries-world.excerpt': 'Il varesino Ambrogio Castiglioni è stato nominato nuovo presidente di Digital Industries World, con l\'obiettivo di creare un ecosistema integrato per l\'innovazione industriale.',
     'blog.article.ambrogio-castiglioni-digital-industries-world.imageAlt': 'Un gruppo di professionisti in un ufficio moderno a Lugano, impegnati in una discussione su innovazione digitale e automazione industriale.',
+    'blog.article.aumento-spese-carburante-air-france-2026.title': 'Aumento spese carburante Air France: 2,4 miliardi di dollari per 2026',
+    'blog.article.aumento-spese-carburante-air-france-2026.excerpt': 'Air France spenderà 9,3 miliardi di dollari in carburante nel 2026, un aumento di 2,4 miliardi rispetto al 2025.',
+    'blog.article.aumento-spese-carburante-air-france-2026.imageAlt': 'Vista aerea di Lugano con aerei Air France sullo sfondo, mostrando la skyline della città e il confine italo-svizzero.',
 };
 
 export default blogMetaIt;

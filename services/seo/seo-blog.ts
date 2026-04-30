@@ -29068,6 +29068,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-spese-carburante-air-france-2026': {
+    title: 'Aumento spese carburante Air France: 2,4 miliardi di dollari per 2026',
+    description: 'Air France spenderà 9,3 miliardi di dollari in carburante nel 2026, un aumento di 2,4 miliardi rispetto al 2025. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, spese, carburante, france',
+    ogTitle: 'Aumento spese carburante Air France: 2,4 miliardi di dollari per 2026',
+    ogDescription: 'Air France spenderà 9,3 miliardi di dollari in carburante nel 2026, un aumento di 2,4 miliardi rispetto al 2025.',
+    canonicalPath: '/articoli-frontaliere/aumento-spese-carburante-air-france-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento spese carburante Air France: 2,4 miliardi di dollari per 2026",
+      "description": "Air France spenderà 9,3 miliardi di dollari in carburante nel 2026, un aumento di 2,4 miliardi rispetto al 2025. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-spese-carburante-air-france-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con aerei Air France sullo sfondo, mostrando la skyline della città e il confine italo-svizzero."
+      },
+      "datePublished": "2026-04-30T15:32:27+00:00",
+      "dateModified": "2026-04-30T15:32:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-spese-carburante-air-france-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
