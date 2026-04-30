@@ -2272,7 +2272,7 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       const pages = generateBorderWaitPages({ current, history, today, distDir });
       const archives = generateBorderWaitArchives({ history, today, distDir });
 
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'borderWaitPagesPlugin' });
       let pagesWritten = 0;
       let archivesWritten = 0;
       let skipped = 0;

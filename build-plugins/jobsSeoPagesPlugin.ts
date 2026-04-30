@@ -354,7 +354,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
 
  /* ── Buffered write system via shared WriteCollector ── */
- const collector = new WriteCollector({ distDir });
+ const collector = new WriteCollector({ distDir, pluginName: 'jobsSeoPagesPlugin' });
  const _ensuredDirs = new Set<string>();
  function _md(dir: string) {
  if (_ensuredDirs.has(dir)) return;

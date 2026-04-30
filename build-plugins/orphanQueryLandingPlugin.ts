@@ -664,7 +664,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         fr: await loadLocaleStrings(rootDir, 'fr'),
       };
 
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'orphanQueryLandingPlugin' });
       const dateStamp = new Date().toISOString().slice(0, 10);
       const sitemapEntries: string[] = [];
       const routes: OrphanLandingRoute[] = [];

@@ -2753,7 +2753,7 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
         pages[path] = html;
       }
 
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'jobMarketSnapshotPlugin' });
       const sitemapEntries: string[] = [];
       let pagesWritten = 0;
       let skippedForWordCount = 0;

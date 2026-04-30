@@ -1006,7 +1006,7 @@ export function annualReportPlugin(rootDir: string): Plugin {
         return;
       }
 
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'annualReportPlugin' });
       const sitemapEntries: string[] = [];
 
       for (const locale of LOCALES) {

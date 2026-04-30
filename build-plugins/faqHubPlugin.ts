@@ -499,7 +499,7 @@ export function faqHubPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'faqHubPlugin' });
       const dateStamp = new Date().toISOString().slice(0, 10);
 
       const alternates = FAQ_HUB_LOCALES.map(

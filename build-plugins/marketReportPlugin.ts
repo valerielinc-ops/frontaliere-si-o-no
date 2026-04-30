@@ -738,7 +738,7 @@ export function marketReportPlugin(rootDir: string): Plugin {
         console.warn('\x1b[33m[market-report]\x1b[0m data/jobs-stats.json missing — emitting report with fallback zeroes');
       }
 
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'marketReportPlugin' });
       const dateStamp = new Date().toISOString().slice(0, 10);
       const sitemapEntries: string[] = [];
 

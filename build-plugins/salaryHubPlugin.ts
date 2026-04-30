@@ -35,7 +35,7 @@ export function salaryHubPlugin(rootDir: string): Plugin {
     apply: 'build',
     async closeBundle() {
       const distDir = path.resolve(rootDir, 'dist');
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'salaryHubPlugin' });
 
       // ── Generate all scenarios ──────────────────────────────────
       const scenarios = generateAllScenarios();

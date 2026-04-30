@@ -450,7 +450,7 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'professionLandingsPlugin' });
       const dateStamp = new Date().toISOString().slice(0, 10);
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
 

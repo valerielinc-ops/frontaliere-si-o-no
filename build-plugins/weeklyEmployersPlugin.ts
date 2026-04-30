@@ -3340,7 +3340,7 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       });
       __weProfRecord('generate-pages', __tGen);
 
-      const collector = new WriteCollector({ distDir, skipExisting: false });
+      const collector = new WriteCollector({ distDir, skipExisting: false, pluginName: 'weeklyEmployersPlugin' });
 
       let currentWeekCount = 0;
       let archiveCount = 0;

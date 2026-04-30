@@ -21,6 +21,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getManifest } from './contentHash';
+import { claim, type ClaimOutcome } from './sharedWriteRegistry';
 
 export interface PendingWrite {
  filePath: string;
@@ -82,6 +83,13 @@ export interface WriteCollectorOptions {
   * Set to Infinity to opt out of streaming (legacy buffer-everything mode).
   */
  autoFlushThreshold?: number;
+ /**
+  * Plugin name used for cross-plugin write collision detection via the
+  * shared write registry. Defaults to `'unknown'` for backward compatibility,
+  * but every caller SHOULD pass its own plugin name so collision messages
+  * can name both writers. See `sharedWriteRegistry.ts` for the invariant.
+  */
+ pluginName?: string;
 }
 
 /**
@@ -101,7 +109,9 @@ export class WriteCollector {
  private writes: PendingWrite[] = [];
  private skipExisting: boolean;
  private _skippedByHash = 0;
+ private _skippedByCollision = 0;
  private _distDir: string;
+ private _pluginName: string;
  private _pendingFlushes: Promise<number>[] = [];
  private _firstError: Error | null = null;
  private readonly _concurrency: number;
@@ -112,6 +122,7 @@ export class WriteCollector {
  this._distDir = opts?.distDir ?? '';
  this._concurrency = opts?.concurrency ?? 500;
  this._autoFlushThreshold = opts?.autoFlushThreshold ?? DEFAULT_AUTO_FLUSH_THRESHOLD;
+ this._pluginName = opts?.pluginName ?? 'unknown';
  }
 
  /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
@@ -129,6 +140,14 @@ export class WriteCollector {
  if (!fileExists) {
   manifest.shouldWrite(rel, content);
  }
+ }
+ // Cross-plugin/intra-plugin write collision check.
+ // claim() throws WriteCollisionError in `throw` mode and returns 'skip-write'
+ // for idempotent re-claims (identical content) or declared-shared losers.
+ const outcome: ClaimOutcome = claim(filePath, this._pluginName, content);
+ if (outcome === 'skip-write') {
+ this._skippedByCollision++;
+ return;
  }
  this.writes.push({ filePath, content });
 
@@ -161,6 +180,9 @@ export class WriteCollector {
  /** Pending in-memory writes not yet flushed (legacy semantic — same as before). */
  get count() { return this.writes.length; }
  get skippedByHash() { return this._skippedByHash; }
+ /** Number of add() calls skipped because the path was already claimed
+  * (idempotent re-write or declared-shared loser). */
+ get skippedByCollision() { return this._skippedByCollision; }
 
  /**
   * Flush all queued writes in parallel batches (see {@link flushWrites}).

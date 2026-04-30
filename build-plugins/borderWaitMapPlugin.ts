@@ -530,7 +530,7 @@ export function borderWaitMapPlugin(rootDir: string): Plugin {
         return;
       }
       const distDir = path.resolve(rootDir, 'dist');
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'borderWaitMapPlugin' });
       const dateStamp = new Date().toISOString().slice(0, 10);
       const sitemapEntries: string[] = [];
 

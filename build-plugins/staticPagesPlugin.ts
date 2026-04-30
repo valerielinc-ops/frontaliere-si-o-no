@@ -581,7 +581,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const distDir = np.resolve(rootDir, 'dist');
 
  /* ── Buffered write system via shared WriteCollector ── */
- const collector = new WriteCollector({ distDir });
+ const collector = new WriteCollector({ distDir, pluginName: 'staticPagesPlugin' });
  function _qw(filePath: string, content: string) {
  collector.add(filePath, content);
  }

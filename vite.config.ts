@@ -28,6 +28,10 @@ import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
 import { flatHtmlRedirectPlugin } from './build-plugins/flatHtmlRedirectPlugin';
 import { hreflangPostprocessPlugin } from './build-plugins/hreflangPostprocessPlugin';
 import { postWalkCoordinatorPlugin } from './build-plugins/postWalkCoordinatorPlugin';
+import {
+  writeRegistryResetPlugin,
+  writeRegistryReportPlugin,
+} from './build-plugins/writeRegistryLifecyclePlugin';
 // flatContentPlugin removed — all plugins now write real content to both index.html and flat .html directly,
 // then flatHtmlRedirectPlugin (post-processor) converts each flat .html with a sibling /index.html into a
 // 301-style redirect bridge to close ~3.2k Semrush hreflang↔canonical conflicts.
@@ -212,9 +216,17 @@ export default defineConfig(({ mode }) => {
  host: '0.0.0.0',
  },
  plugins: [
+ // Resets the cross-plugin write registry at every buildStart so watch-mode
+ // rebuilds don't carry stale claims. Must be FIRST so it runs before any
+ // plugin's closeBundle starts calling claim().
+ writeRegistryResetPlugin(),
  ...allPlugins.map(withProfile),
- // Last entry: emits `[profile-total] ...` after every wrapped plugin's
- // closeBundle has resolved. No-op when BUILD_PROFILE !== '1'.
+ // Prints the collision summary and writes dist/.write-collisions.json after
+ // every other plugin's closeBundle has flushed. enforce/order makes it the
+ // last hook in the chain.
+ writeRegistryReportPlugin({ rootDir: __dirname }),
+ // Emits `[profile-total] ...` after every wrapped plugin's closeBundle has
+ // resolved. No-op when BUILD_PROFILE !== '1'.
  profileSummaryPlugin(),
  ],
  define: {

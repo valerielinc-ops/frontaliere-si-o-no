@@ -47,7 +47,7 @@ export function affiliateRedirectPlugin(rootDir: string): Plugin {
  apply: 'build',
  async closeBundle() {
  const distDir = path.resolve(rootDir, 'dist');
- const writer = new WriteCollector({ distDir });
+ const writer = new WriteCollector({ distDir, pluginName: 'affiliateRedirectPlugin' });
 
  for (const partner of PARTNERS) {
  const html = buildRedirectPage(partner);

@@ -2897,7 +2897,7 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       const yoyActive = Object.values(yoyByCanton).filter((y) => y !== null).length;
       const triYearActive = Object.values(triYearByCanton).filter((y) => y !== null).length;
 
-      const collector = new WriteCollector({ distDir, skipExisting: false });
+      const collector = new WriteCollector({ distDir, skipExisting: false, pluginName: 'healthPremiumsLandingPlugin' });
       let pagesWritten = 0;
       let skippedForWordCount = 0;
       const writtenPaths: string[] = [];

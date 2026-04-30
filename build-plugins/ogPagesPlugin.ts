@@ -23,7 +23,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const np = await import('node:path');
 
  const distDir = np.resolve(rootDir, 'dist');
- const collector = new WriteCollector({ distDir });
+ const collector = new WriteCollector({ distDir, pluginName: 'ogPagesPlugin' });
  const DEFAULT_IMG = '/og-image.png';
  const blogImageById: Record<string, string> = {};
 

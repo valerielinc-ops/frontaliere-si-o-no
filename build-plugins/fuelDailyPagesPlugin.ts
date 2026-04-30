@@ -4107,7 +4107,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         italianStations: italianLeaves,
       });
 
-      const collector = new WriteCollector({ distDir });
+      const collector = new WriteCollector({ distDir, pluginName: 'fuelDailyPagesPlugin' });
 
       let pagesWritten = 0;
       let skipped = 0;
