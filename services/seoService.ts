@@ -2664,6 +2664,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dezonamenti-ticino-2026-confronti': { name: 'Dezonamenti Ticino', path: '/articoli-frontaliere/dezonamenti-ticino-2026-confronti', parent: 'blog' },
     'blog-pizza-bibita-costi-citta': { name: 'Pizza e bibita', path: '/articoli-frontaliere/pizza-bibita-costi-citta', parent: 'blog' },
     'blog-education-day-confindustria-varese-2026': { name: 'Education Day', path: '/articoli-frontaliere/education-day-confindustria-varese-2026', parent: 'blog' },
+    'blog-riforma-polizia-ticino-progetto-fermo': { name: 'Riforma polizia', path: '/articoli-frontaliere/riforma-polizia-ticino-progetto-fermo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

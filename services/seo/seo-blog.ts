@@ -28546,6 +28546,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riforma-polizia-ticino-progetto-fermo': {
+    title: 'Riforma polizia Ticino: progetto fermo | Frontaliere Ticino',
+    description: 'Il Consiglio di Stato non attua la riorganizzazione tra polizia cantonale e comunale. Zali: \'Decisione politica non ancora presa\'. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, polizia, progetto, fermo',
+    ogTitle: 'Riforma polizia Ticino: progetto fermo',
+    ogDescription: 'Il Consiglio di Stato non attua la riorganizzazione tra polizia cantonale e comunale. Zali: \'Decisione politica non ancora presa\'',
+    canonicalPath: '/articoli-frontaliere/riforma-polizia-ticino-progetto-fermo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riforma polizia Ticino: progetto fermo",
+      "description": "Il Consiglio di Stato non attua la riorganizzazione tra polizia cantonale e comunale. Zali: 'Decisione politica non ancora presa'. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riforma-polizia-ticino-progetto-fermo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona con Castelgrande e il fiume Ticino"
+      },
+      "datePublished": "2026-04-30T12:14:53+00:00",
+      "dateModified": "2026-04-30T12:14:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riforma-polizia-ticino-progetto-fermo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

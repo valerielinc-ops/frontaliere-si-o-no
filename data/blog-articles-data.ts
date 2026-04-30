@@ -11047,4 +11047,11 @@ export const ARTICLES = [
  image: '/images/blog/education-day-confindustria-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'riforma-polizia-ticino-progetto-fermo',
+ category: 'novita',
+ date: '2026-04-30T12:14:53.755Z',
+ image: '/images/blog/riforma-polizia-ticino-progetto-fermo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

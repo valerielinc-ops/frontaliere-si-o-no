@@ -4301,6 +4301,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.education-day-confindustria-varese-2026.title': 'Education Day 2026: scuole e imprese a confronto',
     'blog.article.education-day-confindustria-varese-2026.excerpt': 'La terza edizione dell\'Education Day di Confindustria Varese si terrà il 5 maggio 2026 alle Ville Ponti con centinaia di studenti.',
     'blog.article.education-day-confindustria-varese-2026.imageAlt': 'Studenti presentano progetti durante l\'Education Day a Locarno',
+    'blog.article.riforma-polizia-ticino-progetto-fermo.title': 'Riforma polizia Ticino: progetto fermo',
+    'blog.article.riforma-polizia-ticino-progetto-fermo.excerpt': 'Il Consiglio di Stato non attua la riorganizzazione tra polizia cantonale e comunale. Zali: \'Decisione politica non ancora presa\'',
+    'blog.article.riforma-polizia-ticino-progetto-fermo.imageAlt': 'Bellinzona con Castelgrande e il fiume Ticino',
 };
 
 export default blogMetaIt;
