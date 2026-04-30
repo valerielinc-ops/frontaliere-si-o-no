@@ -487,4 +487,35 @@ describe('router — sector hub URLs', () => {
     expect(r.route.jobBoardCity).toBe('lugano');
     expect(r.route.staticOverlay).toBeFalsy();
   });
+
+  // Regression pinning the lavoro-part-time hydration bug (2026-04-30):
+  // parsePath used to fall through to `jobSlug: 'lavoro-part-time'` because
+  // the staticOverlay guard only covered today/recency landings. The SPA
+  // then re-rendered the URL as a synthetic job-detail page (H1 derived
+  // from the slug — "Lavoro Part Time"), clobbering the build-time hub
+  // HTML. resolveEditorialJobLandingDescriptor now catches every editorial
+  // landing kind, so each one resolves to staticOverlay.
+  describe('editorial landing slugs all set staticOverlay (no jobSlug fallthrough)', () => {
+    const cases: Array<{ path: string; label: string }> = [
+      // part-time hubs (the original bug)
+      { path: '/cerca-lavoro-ticino/lavoro-part-time/', label: 'IT part-time' },
+      { path: '/en/find-jobs-ticino/part-time-jobs/', label: 'EN part-time' },
+      { path: '/de/jobs-im-tessin/teilzeit-jobs/', label: 'DE part-time' },
+      { path: '/fr/trouver-emploi-tessin/emploi-temps-partiel/', label: 'FR part-time' },
+      // official-gazette
+      { path: '/cerca-lavoro-ticino/foglio-ufficiale-offerte-di-lavoro-ticino/', label: 'IT official-gazette' },
+      // location-only landing
+      { path: '/cerca-lavoro-ticino/ricerca-lugano/', label: 'IT location landing' },
+      // location-type combo
+      { path: '/cerca-lavoro-ticino/ricerca-lugano-part-time/', label: 'IT location-type' },
+    ];
+    for (const c of cases) {
+      it(c.label, () => {
+        const r = parsePath(c.path);
+        expect(r.route.activeTab).toBe('job-board');
+        expect(r.route.staticOverlay).toBe(true);
+        expect(r.route.jobSlug).toBeUndefined();
+      });
+    }
+  });
 });

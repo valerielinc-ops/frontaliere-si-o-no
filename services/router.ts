@@ -37,9 +37,8 @@ import {
  buildJobSectorRegionLandingModel,
  buildJobTodayLandingModel,
  resolveEditorialJobLandingDescriptor,
- isJobTodayLandingSlug,
 } from '../build-plugins/jobEditorialLanding';
-import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS, isJobRecencyLandingSlug } from '../build-plugins/jobRecencyLanding';
+import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
 import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/healthPremiumsData';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
@@ -2199,16 +2198,27 @@ export function parsePath(pathname: string): ParseResult {
  };
  }
  }
- // Recency-landing slugs (last-3-days / since-yesterday in all 4 locales).
- // Must be checked before the generic jobSlug fallthrough so these URLs
- // don't get routed to a job detail view and show "not found" banner.
- if (rawSecond && isJobRecencyLandingSlug(rawSecond)) {
- return { route: { activeTab: 'job-board', staticOverlay: true }, locale };
- }
- // Today-landing slugs (oggi / today / heute / aujourd'hui, all cantons).
- // Same guard as recency — prevents "Annuncio non trovato" banner when the
- // SPA hydrates over the static oggi page and mis-routes it as a job detail.
- if (rawSecond && isJobTodayLandingSlug(rawSecond)) {
+ // Editorial landing slugs — must be checked before the generic jobSlug
+ // fallthrough so these URLs don't get routed to a job-detail view (either
+ // showing the "Annuncio non trovato" banner, or — when the slug happens
+ // to read like a job title, e.g. /cerca-lavoro-ticino/lavoro-part-time/ —
+ // a synthetic job-detail page whose H1 is derived from the slug, while
+ // the static HTML emitted at build time has the proper hub content).
+ // The single descriptor call subsumes the previous narrower guards for
+ // `today` and `recency` and adds coverage for every editorial landing
+ // emitted by jobEditorialLanding.ts:
+ //   - official-gazette  (foglio-ufficiale-offerte-di-lavoro-ticino, …)
+ //   - nurses-hub        (lavoro-infermieri-ticino, …)
+ //   - part-time         (lavoro-part-time / part-time-jobs / teilzeit-jobs / emploi-temps-partiel)
+ //   - care-variant      (case-anziani / case-cura / RSA cluster slugs)
+ //   - location-only     (ricerca-lugano / search-bellinzona / suche-lugano / recherche-locarno)
+ //   - location-type     (ricerca-lugano-part-time, …)
+ //   - location-sector   (ricerca-lugano-sanita, …)
+ //   - sector-region     (ricerca-sanita-ticino, …)
+ // All of these have static HTML on disk and the SPA must NOT re-render
+ // over them. staticOverlay tells App.tsx to skip the React main render
+ // so the build-time SEO HTML stays visible (lite-shell mode).
+ if (rawSecond && resolveEditorialJobLandingDescriptor(rawSecond)) {
  return { route: { activeTab: 'job-board', staticOverlay: true }, locale };
  }
  const jobSlug = rawSecond;
