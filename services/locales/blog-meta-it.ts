@@ -4079,6 +4079,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.violenza-sessuale-conseguenze-ticino.title': 'Violenza sessuale, le conseguenze sono tante e durature',
     'blog.article.violenza-sessuale-conseguenze-ticino.excerpt': 'Violenza sessuale, le conseguenze sono tante e durature',
     'blog.article.violenza-sessuale-conseguenze-ticino.imageAlt': 'Lago di Lugano',
+    'blog.article.mendrisio-bilancio-positivo-2025-analisi.title': 'Mendrisio chiude 2025 con avanzo di 800mila franchi',
+    'blog.article.mendrisio-bilancio-positivo-2025-analisi.excerpt': 'Per il quarto anno consecutivo, Mendrisio presenta un bilancio positivo con un avanzo di 800mila franchi, nonostante un preventivo in rosso.',
+    'blog.article.mendrisio-bilancio-positivo-2025-analisi.imageAlt': 'Vista aerea di Mendrisio, Svizzera, con il centro storico e gli edifici moderni, che mostra il distretto finanziario e il paesaggio circostante.',
 };
 
 export default blogMetaIt;

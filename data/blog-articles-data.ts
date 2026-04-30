@@ -10528,4 +10528,11 @@ export const ARTICLES = [
  image: '/images/blog/violenza-sessuale-conseguenze-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mendrisio-bilancio-positivo-2025-analisi',
+ category: 'fiscale',
+ date: '2026-04-30T00:46:59.231Z',
+ image: '/images/blog/mendrisio-bilancio-positivo-2025-analisi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

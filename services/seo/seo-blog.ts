@@ -26400,6 +26400,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mendrisio-bilancio-positivo-2025-analisi': {
+    title: 'Mendrisio chiude 2025 con avanzo di 800mila franchi',
+    description: 'Per il quarto anno consecutivo, Mendrisio presenta un bilancio positivo con un avanzo di 800mila franchi, nonostante un preventivo in rosso. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mendrisio, chiude, 2025, avanzo',
+    ogTitle: 'Mendrisio chiude 2025 con avanzo di 800mila franchi',
+    ogDescription: 'Per il quarto anno consecutivo, Mendrisio presenta un bilancio positivo con un avanzo di 800mila franchi, nonostante un preventivo in rosso.',
+    canonicalPath: '/articoli-frontaliere/mendrisio-bilancio-positivo-2025-analisi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mendrisio chiude 2025 con avanzo di 800mila franchi",
+      "description": "Per il quarto anno consecutivo, Mendrisio presenta un bilancio positivo con un avanzo di 800mila franchi, nonostante un preventivo in rosso. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mendrisio-bilancio-positivo-2025-analisi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Svizzera, con il centro storico e gli edifici moderni, che mostra il distretto finanziario e il paesaggio circostante."
+      },
+      "datePublished": "2026-04-30T00:46:59+00:00",
+      "dateModified": "2026-04-30T00:46:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mendrisio-bilancio-positivo-2025-analisi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

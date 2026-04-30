@@ -2590,6 +2590,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-supsi-20-nuovi-professori-2026': { name: 'Novità', path: '/articoli-frontaliere/supsi-20-nuovi-professori-2026', parent: 'blog' },
     'blog-italian-e-bike-tragedy-bern': { name: 'Morto italiano in incidente di e-bike nel', path: '/articoli-frontaliere/italian-e-bike-tragedy-bern', parent: 'blog' },
     'blog-violenza-sessuale-conseguenze-ticino': { name: 'Violenza sessuale, le conseguenze sono', path: '/articoli-frontaliere/violenza-sessuale-conseguenze-ticino', parent: 'blog' },
+    'blog-mendrisio-bilancio-positivo-2025-analisi': { name: 'Bilancio Mendrisio', path: '/articoli-frontaliere/mendrisio-bilancio-positivo-2025-analisi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

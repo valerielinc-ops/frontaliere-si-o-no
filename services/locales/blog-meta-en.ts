@@ -4078,6 +4078,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.violenza-sessuale-conseguenze-ticino.title': 'Sexual Violence, Long-Term Consequences',
     'blog.article.violenza-sessuale-conseguenze-ticino.excerpt': 'Sexual violence, long-term consequences',
     'blog.article.violenza-sessuale-conseguenze-ticino.imageAlt': 'Lake Lugano',
+    'blog.article.mendrisio-bilancio-positivo-2025-analisi.title': 'Mendrisio ends 2025 with 800k CHF surplus',
+    'blog.article.mendrisio-bilancio-positivo-2025-analisi.excerpt': 'For the fourth consecutive year, Mendrisio presents a positive balance with a surplus of 800,000 francs, despite a negative budget forecast.',
+    'blog.article.mendrisio-bilancio-positivo-2025-analisi.imageAlt': 'Aerial view of Mendrisio, Switzerland, with its historic center and modern buildings, showcasing the financial district and the surrounding landscape.',
 };
 
 export default blogMetaEn;
