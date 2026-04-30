@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-04-29T21:16:06.460Z",
-  "total": 3,
+  "generatedAt": "2026-04-30T10:09:53.521Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2610,
-  "avgDurationMs": 2610,
+  "unchangedCount": 0,
+  "durationMs": 3048,
+  "avgDurationMs": 3048,
   "durationHistory": [
-    2610
+    3048
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-05-29",
+      "validThrough": "2026-05-30",
       "id": "ariston-group-8f87aad08aa9",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -88,42 +88,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "IMPIEGATO/A COMMERCIALE INTERNO (SALES SUPPORT)",
-      "slug": "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930",
-      "url": "https://careers.aristongroup.com/job/Maerstetten-IMPIEGATOA-COMMERCIALE-INTERNO-%28SALES-SUPPORT%29-Beda-6930/1377887233/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1377887233/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Bedano, CH, 6930",
-      "addressLocality": "Bedano, CH, 6930",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-05-29",
-      "id": "ariston-group-aa9bfd740eb8",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "6930",
-      "firstSeenAt": "2026-04-13T21:06:02.389Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
