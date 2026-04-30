@@ -4318,6 +4318,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ferrovia-svizzera-300-progetti-2026.title': 'Bahn: Ausbau der Infrastruktur schreitet voran',
     'blog.article.ferrovia-svizzera-300-progetti-2026.excerpt': '300 Projekte für den Ausbau des Schweizer Schienennetzes bis 2035, laufende Arbeiten in Lausanne und Freiburg.',
     'blog.article.ferrovia-svizzera-300-progetti-2026.imageAlt': 'Luftaufnahme des Luganersees mit moderner Bahninfrastruktur und umliegenden Bergen',
+    'blog.article.bce-tassi-invariati-30-aprile-2026.title': 'EZB: Zinsen unverändert, Auswirkungen auf den Kanton Tessin',
+    'blog.article.bce-tassi-invariati-30-aprile-2026.excerpt': 'Die EZB hält die Zinssätze unverändert, mit Auswirkungen auf Grenzgänger und die Tessiner Wirtschaft.',
+    'blog.article.bce-tassi-invariati-30-aprile-2026.imageAlt': 'Luganersee mit Spiegelungen der umliegenden Berge',
 };
 
 export default blogMetaDe;

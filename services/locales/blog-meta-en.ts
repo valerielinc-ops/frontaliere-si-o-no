@@ -4318,6 +4318,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ferrovia-svizzera-300-progetti-2026.title': 'Railway: progress in infrastructure expansion',
     'blog.article.ferrovia-svizzera-300-progetti-2026.excerpt': '300 projects underway to expand the Swiss railway network by 2035, with work ongoing in Lausanne and Fribourg.',
     'blog.article.ferrovia-svizzera-300-progetti-2026.imageAlt': 'Aerial view of Lake Lugano with modern train infrastructure and surrounding mountains',
+    'blog.article.bce-tassi-invariati-30-aprile-2026.title': 'ECB: rates unchanged, impact on Ticino',
+    'blog.article.bce-tassi-invariati-30-aprile-2026.excerpt': 'The ECB keeps interest rates unchanged, with implications for cross-border workers and the Ticino economy.',
+    'blog.article.bce-tassi-invariati-30-aprile-2026.imageAlt': 'Lake Lugano with reflections of the surrounding mountains',
 };
 
 export default blogMetaEn;

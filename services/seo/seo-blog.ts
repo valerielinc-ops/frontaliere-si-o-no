@@ -28720,6 +28720,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bce-tassi-invariati-30-aprile-2026': {
+    title: 'Bce: tassi invariati, impatto sul Canton Ticino | Frontaliere Ticino',
+    description: 'La Bce mantiene i tassi di interesse invariati, con implicazioni per i frontalieri e l\'economia ticinese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassi, invariati, impatto, canton',
+    ogTitle: 'Bce: tassi invariati, impatto sul Canton Ticino',
+    ogDescription: 'La Bce mantiene i tassi di interesse invariati, con implicazioni per i frontalieri e l\'economia ticinese.',
+    canonicalPath: '/articoli-frontaliere/bce-tassi-invariati-30-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Bce: tassi invariati, impatto sul Canton Ticino\",\"description\":\"La Bce mantiene i tassi di interesse invariati, con implicazioni per i frontalieri e l'economia ticinese.\",\"datePublished\":\"2026-04-30\",\"image\":\"https://www.frontaliere-ticino.ch/images/lac-lugano.webp\"}",
+      "description": "La Bce mantiene i tassi di interesse invariati, con implicazioni per i frontalieri e l'economia ticinese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bce-tassi-invariati-30-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con riflessi delle montagne circostanti"
+      },
+      "datePublished": "2026-04-30T13:12:23+00:00",
+      "dateModified": "2026-04-30T13:12:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bce-tassi-invariati-30-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -11089,4 +11089,11 @@ export const ARTICLES = [
  image: '/images/blog/ferrovia-svizzera-300-progetti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bce-tassi-invariati-30-aprile-2026',
+ category: 'novita',
+ date: '2026-04-30T13:12:23.654Z',
+ image: '/images/blog/bce-tassi-invariati-30-aprile-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

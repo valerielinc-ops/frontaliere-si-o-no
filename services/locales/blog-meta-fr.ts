@@ -4319,6 +4319,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ferrovia-svizzera-300-progetti-2026.title': 'Chemin de fer: avancées dans l\'extension de l\'infrastructure',
     'blog.article.ferrovia-svizzera-300-progetti-2026.excerpt': '300 projets en cours pour l\'extension du réseau ferroviaire suisse d\'ici 2035, avec des travaux en cours à Lausanne et Fribourg.',
     'blog.article.ferrovia-svizzera-300-progetti-2026.imageAlt': 'Vue aérienne du lac de Lugano avec une infrastructure ferroviaire moderne et les montagnes environnantes',
+    'blog.article.bce-tassi-invariati-30-aprile-2026.title': 'BCE: taux inchangés, impact sur le canton du Ticino',
+    'blog.article.bce-tassi-invariati-30-aprile-2026.excerpt': 'La BCE maintient les taux d\'intérêt inchangés, avec des implications pour les frontaliers et l\'économie tessinoise.',
+    'blog.article.bce-tassi-invariati-30-aprile-2026.imageAlt': 'Lac de Lugano avec les reflets des montagnes environnantes',
 };
 
 export default blogMetaFr;
