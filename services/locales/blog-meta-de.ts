@@ -4507,6 +4507,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trenord-indennizzi-pendolari-como-2026.title': 'Trenord: 17 Linien mit Anspruch auf Entschädigung – am schlechtesten Como',
     'blog.article.trenord-indennizzi-pendolari-como-2026.excerpt': 'Alarmierende Daten für Pendler: 17 von 42 Linien berechtigen zur Entschädigung, wobei die Linie Asso-Seveso-Mailand am schlechtesten abschneidet.',
     'blog.article.trenord-indennizzi-pendolari-como-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit einem Bahnhof im Vordergrund',
+    'blog.article.ponte-brivio-cantiere-14-milioni.title': 'Brivio-Brücke: 14 Millionen für Sanierung, bis zu 40 Minuten Verzögerung',
+    'blog.article.ponte-brivio-cantiere-14-milioni.excerpt': 'Die Bauarbeiten an der Brivio-Brücke, mit einer Investition von 14 Millionen, werden bis zu 40 Minuten Verzögerung für Pendler verursachen.',
+    'blog.article.ponte-brivio-cantiere-14-milioni.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

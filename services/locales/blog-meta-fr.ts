@@ -4508,6 +4508,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trenord-indennizzi-pendolari-como-2026.title': 'Trenord, 17 lignes avec droit à indemnisation : Como la pire',
     'blog.article.trenord-indennizzi-pendolari-como-2026.excerpt': 'Données alarmantes pour les navetteurs : 17 lignes sur 42 donnent droit à indemnisation, avec la ligne Asso-Seveso-Milan la pire en absolu.',
     'blog.article.trenord-indennizzi-pendolari-como-2026.imageAlt': 'Vue aérienne du lac de Lugano avec une gare en premier plan',
+    'blog.article.ponte-brivio-cantiere-14-milioni.title': 'Pont de Brivio : 14 millions pour la rénovation, retards jusqu\'à 40 minutes',
+    'blog.article.ponte-brivio-cantiere-14-milioni.excerpt': 'Le chantier du pont de Brivio, avec un investissement de 14 millions, causera des désagréments allant jusqu\'à 40 minutes de retard pour les déplacements.',
+    'blog.article.ponte-brivio-cantiere-14-milioni.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bâtiments',
 };
 
 export default blogMetaFr;

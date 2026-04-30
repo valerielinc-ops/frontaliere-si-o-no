@@ -11530,4 +11530,11 @@ export const ARTICLES = [
  image: '/images/blog/trenord-indennizzi-pendolari-como-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ponte-brivio-cantiere-14-milioni',
+ category: 'novita',
+ date: '2026-04-30T23:50:50.785Z',
+ image: '/images/blog/ponte-brivio-cantiere-14-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

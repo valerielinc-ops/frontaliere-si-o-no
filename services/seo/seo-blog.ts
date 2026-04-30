@@ -30547,6 +30547,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ponte-brivio-cantiere-14-milioni': {
+    title: 'Ponte di Brivio, 14 milioni per la riqualificazione: ritardi fino a 40 minuti',
+    description: 'Scopri i dettagli del cantiere da 14 milioni per il Ponte di Brivio e i disagi previsti per chi si sposta. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ponte, brivio, milioni, riqualificazione',
+    ogTitle: 'Ponte di Brivio, 14 milioni per la riqualificazione: ritardi fino a 40 minuti',
+    ogDescription: 'Scopri i dettagli del cantiere da 14 milioni per il Ponte di Brivio e i disagi previsti per chi si sposta.',
+    canonicalPath: '/articoli-frontaliere/ponte-brivio-cantiere-14-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ponte di Brivio, 14 milioni per la riqualificazione: ritardi fino a 40 minuti",
+      "description": "Scopri i dettagli del cantiere da 14 milioni per il Ponte di Brivio e i disagi previsti per chi si sposta. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ponte-brivio-cantiere-14-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici"
+      },
+      "datePublished": "2026-04-30T23:50:50+00:00",
+      "dateModified": "2026-04-30T23:50:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ponte-brivio-cantiere-14-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

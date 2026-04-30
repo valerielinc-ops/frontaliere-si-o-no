@@ -2733,6 +2733,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-piano-casa-meloni-emergenza-abitativa': { name: 'Piano Casa', path: '/articoli-frontaliere/piano-casa-meloni-emergenza-abitativa', parent: 'blog' },
     'blog-targhe-personalizzabili-quadri-approvazione': { name: 'Novità', path: '/articoli-frontaliere/targhe-personalizzabili-quadri-approvazione', parent: 'blog' },
     'blog-trenord-indennizzi-pendolari-como-2026': { name: 'Novità', path: '/articoli-frontaliere/trenord-indennizzi-pendolari-como-2026', parent: 'blog' },
+    'blog-ponte-brivio-cantiere-14-milioni': { name: 'Novità', path: '/articoli-frontaliere/ponte-brivio-cantiere-14-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

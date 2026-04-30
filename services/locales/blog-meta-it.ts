@@ -4508,6 +4508,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trenord-indennizzi-pendolari-como-2026.title': 'Trenord, 17 linee con diritto all\'indennizzo: peggiore è Como',
     'blog.article.trenord-indennizzi-pendolari-como-2026.excerpt': 'Dati allarmanti per i pendolari: 17 linee su 42 danno diritto all\'indennizzo, con la linea Asso-Seveso-Milano la peggiore in assoluto.',
     'blog.article.trenord-indennizzi-pendolari-como-2026.imageAlt': 'Vista aerea del Lago di Lugano con una stazione ferroviaria in primo piano',
+    'blog.article.ponte-brivio-cantiere-14-milioni.title': 'Ponte di Brivio, 14 milioni per la riqualificazione: ritardi fino a 40 minuti',
+    'blog.article.ponte-brivio-cantiere-14-milioni.excerpt': 'Il cantiere per il ponte di Brivio, con un investimento di 14 milioni, causerà disagi fino a 40 minuti di ritardo per chi si sposta.',
+    'blog.article.ponte-brivio-cantiere-14-milioni.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;
