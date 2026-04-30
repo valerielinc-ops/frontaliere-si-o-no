@@ -1,89 +1,5 @@
 [
   {
-    "timestamp": "2026-04-15T13:58:28.895Z",
-    "label": "before",
-    "total": 2925,
-    "needsRetranslation": 67,
-    "incomplete": 12,
-    "complete": 2913,
-    "missingByLocale": {
-      "it": 6,
-      "en": 8,
-      "de": 5,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "AXA Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Groupe Mutuel",
-        "pending": 1
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 1
-      },
-      {
-        "company": "Manor AG",
-        "pending": 1
-      },
-      {
-        "company": "Otis SA",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-15T14:33:42.433Z",
-    "label": "after",
-    "total": 2925,
-    "needsRetranslation": 58,
-    "incomplete": 3,
-    "complete": 2922,
-    "missingByLocale": {
-      "it": 1,
-      "en": 1,
-      "de": 0,
-      "fr": 3
-    },
-    "topPending": [
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-15T22:36:38.469Z",
     "label": "before",
     "total": 2921,
@@ -7863,6 +7779,110 @@
       },
       {
         "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-30T02:58:08.701Z",
+    "label": "before",
+    "total": 2668,
+    "needsRetranslation": 99,
+    "incomplete": 42,
+    "complete": 2626,
+    "missingByLocale": {
+      "it": 30,
+      "en": 14,
+      "de": 36,
+      "fr": 36
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "International School of Ticino",
+        "pending": 2
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Ermenegildo Zegna Group",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-30T04:14:40.609Z",
+    "label": "after",
+    "total": 2668,
+    "needsRetranslation": 74,
+    "incomplete": 31,
+    "complete": 2637,
+    "missingByLocale": {
+      "it": 27,
+      "en": 7,
+      "de": 27,
+      "fr": 26
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
         "pending": 1
       }
     ]
