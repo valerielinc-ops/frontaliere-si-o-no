@@ -1,16 +1,16 @@
 {
   "key": "schindler",
   "label": "Schindler",
-  "generatedAt": "2026-04-30T11:26:25.844Z",
-  "total": 4,
+  "generatedAt": "2026-04-30T22:28:04.873Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5324,
-  "avgDurationMs": 5324,
+  "durationMs": 5081,
+  "avgDurationMs": 5081,
   "durationHistory": [
-    5324
+    5081
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://job.schindler.com/ASZ/job/Castione-Arbedo-Montatore-ascensori-%28mfd%29-80-100-Tici/1368086633/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-30T11:26:23.074Z",
+      "crawledAt": "2026-04-30T22:28:03.007Z",
       "firstSeenAt": "2026-04-13T11:14:16.458Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -64,42 +64,12 @@
       "url": "https://job.schindler.com/Schindler/job/Bioggio-Montatoretrice-di-ascensori-SENIOR-%28mfd%29-80-100-Tici/1367856233/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-30T11:26:21.999Z",
+      "crawledAt": "2026-04-30T22:28:01.596Z",
       "firstSeenAt": "2026-04-13T11:14:15.051Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "schindler-662375d58209",
-      "slug": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
-      "company": "Schindler",
-      "companyKey": "schindler",
-      "companyDomain": "schindler.com",
-      "title": "Apprendistato Operatore*trice in automazione  AFC per il 2026",
-      "location": "Locarno",
-      "canton": "TI",
-      "addressLocality": "Locarno",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "engineering",
-      "contract": "apprenticeship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-16",
-      "url": "https://job.schindler.com/SBB/job/Locarno-Apprendistato-Operatoretrice-in-automazione-AFC-per-il-2026-Tici/1212517801/",
-      "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
-      "sourceLang": "it",
-      "crawledAt": "2026-04-30T11:26:23.522Z",
-      "firstSeenAt": "2026-04-13T11:14:15.533Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 14
       }
@@ -124,7 +94,7 @@
       "url": "https://job.schindler.com/Schindler/job/Locarno-Electronics-%28PCBA%29-Production-Supervisor-%28mfd-100%29-Tici/1381533833/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T11:26:23.872Z",
+      "crawledAt": "2026-04-30T22:28:02.681Z",
       "firstSeenAt": "2026-04-13T11:14:15.990Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -135,6 +105,43 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "schindler-662375d58209",
+      "slug": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
+      "company": "Schindler",
+      "companyKey": "schindler",
+      "companyDomain": "schindler.com",
+      "title": "Apprendistato Operatore*trice in automazione  AFC per il 2026",
+      "location": "Locarno",
+      "canton": "TI",
+      "addressLocality": "Locarno",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "engineering",
+      "contract": "apprenticeship",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-16",
+      "url": "https://job.schindler.com/SBB/job/Locarno-Apprendistato-Operatoretrice-in-automazione-AFC-per-il-2026-Tici/1212517801/",
+      "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
+      "sourceLang": "it",
+      "crawledAt": "2026-04-30T11:26:23.522Z",
+      "firstSeenAt": "2026-04-13T11:14:15.533Z",
+      "salaryMin": 42640,
+      "salaryMax": 61000,
+      "streetAddress": "Via Industria 11",
+      "postalCode": "6934",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
