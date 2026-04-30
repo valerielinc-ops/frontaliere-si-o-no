@@ -4303,6 +4303,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-polizia-ticino-progetto-fermo.title': 'Ticino police reform: project stalled',
     'blog.article.riforma-polizia-ticino-progetto-fermo.excerpt': 'The State Council is not implementing the reorganization between cantonal and municipal police. Zali: \'Political decision not yet made\'',
     'blog.article.riforma-polizia-ticino-progetto-fermo.imageAlt': 'Bellinzona with Castelgrande and the Ticino river',
+    'blog.article.ffs-siemens-nuovi-treni-ticino.title': 'SBB and Siemens sign contract for 116 new trains',
+    'blog.article.ffs-siemens-nuovi-treni-ticino.excerpt': 'SBB and Siemens Mobility Switzerland have signed the contract for 116 new double-decker trains for the S-Bahn, with an investment of up to 2 billion francs.',
+    'blog.article.ffs-siemens-nuovi-treni-ticino.imageAlt': 'New double-decker trains at Lugano station, Lake Lugano',
 };
 
 export default blogMetaEn;

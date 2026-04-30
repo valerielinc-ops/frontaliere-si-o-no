@@ -28575,6 +28575,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ffs-siemens-nuovi-treni-ticino': {
+    title: 'FFS e Siemens firmano contratto per 116 nuovi treni',
+    description: 'Le FFS e Siemens Mobility Svizzera hanno firmato il contratto per 116 nuovi treni a due piani per la S-Bahn, con un investimento di fino a 2 miliardi di',
+    keywords: 'frontalieri, ticino, svizzera, italia, siemens, firmano, contratto, nuovi',
+    ogTitle: 'FFS e Siemens firmano contratto per 116 nuovi treni',
+    ogDescription: 'Le FFS e Siemens Mobility Svizzera hanno firmato il contratto per 116 nuovi treni a due piani per la S-Bahn, con un investimento di fino a 2 miliardi di',
+    canonicalPath: '/articoli-frontaliere/ffs-siemens-nuovi-treni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS e Siemens firmano contratto per 116 nuovi treni",
+      "description": "Le FFS e Siemens Mobility Svizzera hanno firmato il contratto per 116 nuovi treni a due piani per la S-Bahn, con un investimento di fino a 2 miliardi di",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ffs-siemens-nuovi-treni-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuovi treni a due piani alla stazione di Lugano, Lago Ceresio"
+      },
+      "datePublished": "2026-04-30T12:26:02+00:00",
+      "dateModified": "2026-04-30T12:26:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ffs-siemens-nuovi-treni-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

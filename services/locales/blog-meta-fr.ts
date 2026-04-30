@@ -4304,6 +4304,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riforma-polizia-ticino-progetto-fermo.title': 'Réforme police Ticino: projet bloqué',
     'blog.article.riforma-polizia-ticino-progetto-fermo.excerpt': 'Le Conseil d\'État n\'applique pas la réorganisation entre la police cantonale et communale. Zali: \'Décision politique non encore prise\'',
     'blog.article.riforma-polizia-ticino-progetto-fermo.imageAlt': 'Bellinzone avec le Castelgrande et la rivière du Tessin',
+    'blog.article.ffs-siemens-nuovi-treni-ticino.title': 'FFS et Siemens signent un contrat pour 116 nouveaux trains',
+    'blog.article.ffs-siemens-nuovi-treni-ticino.excerpt': 'Les CFF et Siemens Mobility Suisse ont signé le contrat pour 116 nouveaux trains à deux étages pour le S-Bahn, avec un investissement allant jusqu\'à 2 milliards de francs.',
+    'blog.article.ffs-siemens-nuovi-treni-ticino.imageAlt': 'Nouveaux trains à deux étages à la gare de Lugano, Lac de Lugano',
 };
 
 export default blogMetaFr;

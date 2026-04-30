@@ -2665,6 +2665,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pizza-bibita-costi-citta': { name: 'Pizza e bibita', path: '/articoli-frontaliere/pizza-bibita-costi-citta', parent: 'blog' },
     'blog-education-day-confindustria-varese-2026': { name: 'Education Day', path: '/articoli-frontaliere/education-day-confindustria-varese-2026', parent: 'blog' },
     'blog-riforma-polizia-ticino-progetto-fermo': { name: 'Riforma polizia', path: '/articoli-frontaliere/riforma-polizia-ticino-progetto-fermo', parent: 'blog' },
+    'blog-ffs-siemens-nuovi-treni-ticino': { name: 'Nuovi treni FFS', path: '/articoli-frontaliere/ffs-siemens-nuovi-treni-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

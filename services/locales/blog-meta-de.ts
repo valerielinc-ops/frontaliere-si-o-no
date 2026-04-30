@@ -4303,6 +4303,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-polizia-ticino-progetto-fermo.title': 'Polizeireform im Tessin: Projekt gestoppt',
     'blog.article.riforma-polizia-ticino-progetto-fermo.excerpt': 'Der Staatsrat setzt die Reorganisation zwischen kantonaler und kommunaler Polizei nicht um. Zali: \'Politische Entscheidung noch nicht getroffen\'',
     'blog.article.riforma-polizia-ticino-progetto-fermo.imageAlt': 'Bellinzona mit Castelgrande und dem Fluss Ticino',
+    'blog.article.ffs-siemens-nuovi-treni-ticino.title': 'SBB und Siemens unterzeichnen Vertrag für 116 neue Züge',
+    'blog.article.ffs-siemens-nuovi-treni-ticino.excerpt': 'Die SBB und Siemens Mobility Schweiz haben den Vertrag für 116 neue Doppelstockzüge für die S-Bahn unterzeichnet, mit einer Investition von bis zu 2 Milliarden Franken.',
+    'blog.article.ffs-siemens-nuovi-treni-ticino.imageAlt': 'Neue Doppelstockzüge am Bahnhof Lugano, Luganersee',
 };
 
 export default blogMetaDe;

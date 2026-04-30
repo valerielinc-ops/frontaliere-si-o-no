@@ -11054,4 +11054,11 @@ export const ARTICLES = [
  image: '/images/blog/riforma-polizia-ticino-progetto-fermo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ffs-siemens-nuovi-treni-ticino',
+ category: 'novita',
+ date: '2026-04-30T12:26:02.216Z',
+ image: '/images/blog/ffs-siemens-nuovi-treni-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
