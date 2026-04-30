@@ -4070,6 +4070,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.borse-europee-zurigo-trimestrali.title': 'Borse europee in calo, timori dalle trimestrali',
     'blog.article.borse-europee-zurigo-trimestrali.excerpt': 'Zurigo ansima ma poi fa quasi pari. Analisi degli ultimi sviluppi e impatti per i frontalieri.',
     'blog.article.borse-europee-zurigo-trimestrali.imageAlt': 'Vista del lago di Lugano con la città e le montagne',
+    'blog.article.supsi-20-nuovi-professori-2026.title': 'SUPSI nomina 20 nuovi professori e professoresse',
+    'blog.article.supsi-20-nuovi-professori-2026.excerpt': 'La cerimonia di conferimento si è tenuta a Mendrisio il 28 aprile 2026. Assegnate anche 12 nomine a senior.',
+    'blog.article.supsi-20-nuovi-professori-2026.imageAlt': 'Vista aerea del campus SUPSI a Mendrisio, Ticino',
 };
 
 export default blogMetaIt;

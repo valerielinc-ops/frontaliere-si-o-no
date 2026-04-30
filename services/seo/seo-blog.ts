@@ -26313,6 +26313,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-supsi-20-nuovi-professori-2026': {
+    title: 'SUPSI nomina 20 nuovi professori e professoresse | Frontaliere Ticino',
+    description: 'La cerimonia di conferimento si è tenuta a Mendrisio il 28 aprile 2026. Assegnate anche 12 nomine a senior. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, supsi, nomina, nuovi, professori',
+    ogTitle: 'SUPSI nomina 20 nuovi professori e professoresse',
+    ogDescription: 'La cerimonia di conferimento si è tenuta a Mendrisio il 28 aprile 2026. Assegnate anche 12 nomine a senior.',
+    canonicalPath: '/articoli-frontaliere/supsi-20-nuovi-professori-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SUPSI nomina 20 nuovi professori e professoresse",
+      "description": "La cerimonia di conferimento si è tenuta a Mendrisio il 28 aprile 2026. Assegnate anche 12 nomine a senior. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/supsi-20-nuovi-professori-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del campus SUPSI a Mendrisio, Ticino"
+      },
+      "datePublished": "2026-04-30T00:01:44+00:00",
+      "dateModified": "2026-04-30T00:01:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/supsi-20-nuovi-professori-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -10507,4 +10507,11 @@ export const ARTICLES = [
  image: '/images/blog/borse-europee-zurigo-trimestrali.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'supsi-20-nuovi-professori-2026',
+ category: 'novita',
+ date: '2026-04-30T00:01:44.147Z',
+ image: '/images/blog/supsi-20-nuovi-professori-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

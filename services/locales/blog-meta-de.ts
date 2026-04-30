@@ -4069,6 +4069,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.borse-europee-zurigo-trimestrali.title': 'Europäische Börsen im Rückgang, Sorge um Quartalszahlen',
     'blog.article.borse-europee-zurigo-trimestrali.excerpt': 'Zürich keucht, dann fast ausgeglichen. Analyse der letzten Entwicklungen und Auswirkungen auf Grenzgänger.',
     'blog.article.borse-europee-zurigo-trimestrali.imageAlt': 'Blick auf den Luganersee mit der Stadt und den Bergen',
+    'blog.article.supsi-20-nuovi-professori-2026.title': 'SUPSI ernennt 20 neue Professoren',
+    'blog.article.supsi-20-nuovi-professori-2026.excerpt': 'Die Verleihungszeremonie fand am 28. April 2026 in Mendrisio statt. Zudem wurden 12 Senior-Nominierungen vergeben.',
+    'blog.article.supsi-20-nuovi-professori-2026.imageAlt': 'Luftansicht des SUPSI-Campus in Mendrisio, Tessin',
 };
 
 export default blogMetaDe;

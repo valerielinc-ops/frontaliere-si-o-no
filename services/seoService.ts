@@ -2587,6 +2587,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fed-powell-addio-tassi-invariati': { name: 'Economia', path: '/articoli-frontaliere/fed-powell-addio-tassi-invariati', parent: 'blog' },
     'blog-ubs-utile-3-miliardi-2026': { name: 'Novità', path: '/articoli-frontaliere/ubs-utile-3-miliardi-2026', parent: 'blog' },
     'blog-borse-europee-zurigo-trimestrali': { name: 'Novità', path: '/articoli-frontaliere/borse-europee-zurigo-trimestrali', parent: 'blog' },
+    'blog-supsi-20-nuovi-professori-2026': { name: 'Novità', path: '/articoli-frontaliere/supsi-20-nuovi-professori-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
