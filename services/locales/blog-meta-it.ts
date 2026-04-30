@@ -4364,6 +4364,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.polizia-ticinese-progetto-concluso.title': 'Polizia ticinese: progetto concluso, nessun sviluppo',
     'blog.article.polizia-ticinese-progetto-concluso.excerpt': 'Il Consiglio di Stato ha deciso di non proseguire con il progetto \'Polizia ticinese\' dopo la fase progettuale.',
     'blog.article.polizia-ticinese-progetto-concluso.imageAlt': 'Castelgrande a Bellinzona con vista sulle Alpi Ticinesi',
+    'blog.article.bike-sharing-como-gratis-giugno.title': 'Como, bike sharing gratis per 3 ore fino a giugno',
+    'blog.article.bike-sharing-como-gratis-giugno.excerpt': 'Il servizio di bike sharing a Como è tornato con 80 biciclette e 17 stazioni. Gratis per le prime 3 ore fino al 30 giugno.',
+    'blog.article.bike-sharing-como-gratis-giugno.imageAlt': 'Bike sharing a Como con vista sul lago',
 };
 
 export default blogMetaIt;

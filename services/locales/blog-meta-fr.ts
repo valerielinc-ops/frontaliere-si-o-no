@@ -4364,6 +4364,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.polizia-ticinese-progetto-concluso.title': 'Police tessinoise : projet terminé, pas de suite',
     'blog.article.polizia-ticinese-progetto-concluso.excerpt': 'Le Conseil d\'État a décidé de ne pas poursuivre avec le projet \'Police tessinoise\' après la phase de projet.',
     'blog.article.polizia-ticinese-progetto-concluso.imageAlt': 'Château de Castelgrande à Bellinzone avec vue sur les Alpes tessin',
+    'blog.article.bike-sharing-como-gratis-giugno.title': 'Como, vélo en libre service gratuit pendant 3 heures jusqu\'en juin',
+    'blog.article.bike-sharing-como-gratis-giugno.excerpt': 'Le service de vélo en libre service à Como est de retour avec 80 vélos et 17 stations. Gratuit pendant les 3 premières heures jusqu\'au 30 juin.',
+    'blog.article.bike-sharing-como-gratis-giugno.imageAlt': 'Location de vélos à Côme avec vue sur le lac',
 };
 
 export default blogMetaFr;

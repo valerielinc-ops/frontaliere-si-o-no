@@ -11194,4 +11194,11 @@ export const ARTICLES = [
  image: '/images/blog/polizia-ticinese-progetto-concluso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bike-sharing-como-gratis-giugno',
+ category: 'novita',
+ date: '2026-04-30T16:01:30.510Z',
+ image: '/images/blog/bike-sharing-como-gratis-giugno.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

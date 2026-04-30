@@ -2685,6 +2685,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aumento-spese-carburante-air-france-2026': { name: 'Air France', path: '/articoli-frontaliere/aumento-spese-carburante-air-france-2026', parent: 'blog' },
     'blog-trenord-ritardi-frontalieri-2026': { name: 'Trenord ritardi', path: '/articoli-frontaliere/trenord-ritardi-frontalieri-2026', parent: 'blog' },
     'blog-polizia-ticinese-progetto-concluso': { name: 'Novità', path: '/articoli-frontaliere/polizia-ticinese-progetto-concluso', parent: 'blog' },
+    'blog-bike-sharing-como-gratis-giugno': { name: 'Bike sharing Como', path: '/articoli-frontaliere/bike-sharing-como-gratis-giugno', parent: 'blog' },
  };
 
  const info = sectionNames[section];

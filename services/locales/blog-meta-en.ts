@@ -4363,6 +4363,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.polizia-ticinese-progetto-concluso.title': 'Ticino police project ends without progress',
     'blog.article.polizia-ticinese-progetto-concluso.excerpt': 'The State Council decided not to continue with the \'Ticino Police\' project after the planning phase.',
     'blog.article.polizia-ticinese-progetto-concluso.imageAlt': 'Castelgrande castle in Bellinzona with view of the Ticino Alps',
+    'blog.article.bike-sharing-como-gratis-giugno.title': 'Como: free bike sharing for 3 hours until June',
+    'blog.article.bike-sharing-como-gratis-giugno.excerpt': 'The bike sharing service in Como is back with 80 bicycles and 17 stations. Free for the first 3 hours until June 30th.',
+    'blog.article.bike-sharing-como-gratis-giugno.imageAlt': 'Bike sharing in Como with lake view',
 };
 
 export default blogMetaEn;

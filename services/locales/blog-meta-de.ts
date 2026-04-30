@@ -4363,6 +4363,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.polizia-ticinese-progetto-concluso.title': 'Tessinische Polizei: Projekt abgeschlossen, keine Fortschritte',
     'blog.article.polizia-ticinese-progetto-concluso.excerpt': 'Der Staatsrat hat beschlossen, das Projekt \'Tessinische Polizei\' nach der Planungsphase nicht weiterzuführen.',
     'blog.article.polizia-ticinese-progetto-concluso.imageAlt': 'Castelgrande in Bellinzona mit Blick auf die Alpen des Tessin',
+    'blog.article.bike-sharing-como-gratis-giugno.title': 'Como: Kostenloses Fahrradverleih bis Juni',
+    'blog.article.bike-sharing-como-gratis-giugno.excerpt': 'Der Fahrradverleihservice in Como ist mit 80 Fahrrädern und 17 Stationen zurück. Kostenlos für die ersten 3 Stunden bis zum 30. Juni.',
+    'blog.article.bike-sharing-como-gratis-giugno.imageAlt': 'Leihfahrräder in Como mit Seeblick',
 };
 
 export default blogMetaDe;

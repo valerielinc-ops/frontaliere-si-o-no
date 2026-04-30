@@ -29155,6 +29155,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bike-sharing-como-gratis-giugno': {
+    title: 'Como, bike sharing gratis per 3 ore fino a giugno | Frontaliere Ticino',
+    description: 'Scopri il nuovo servizio di bike sharing a Como, gratuito per le prime 3 ore fino a giugno. 80 biciclette e 17 stazioni disponibili. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, bike, sharing, gratis',
+    ogTitle: 'Bike sharing Como gratis 3 ore giugno',
+    ogDescription: 'Scopri il nuovo servizio di bike sharing a Como, gratuito per le prime 3 ore fino a giugno. 80 biciclette e 17 stazioni disponibili.',
+    canonicalPath: '/articoli-frontaliere/bike-sharing-como-gratis-giugno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bike sharing a Como: gratis per le prime 3 ore fino a giugno",
+      "description": "Scopri il nuovo servizio di bike sharing a Como, gratuito per le prime 3 ore fino a giugno. 80 biciclette e 17 stazioni disponibili. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bike-sharing-como-gratis-giugno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bike sharing a Como con vista sul lago"
+      },
+      "datePublished": "2026-04-30T16:01:30+00:00",
+      "dateModified": "2026-04-30T16:01:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bike-sharing-como-gratis-giugno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
