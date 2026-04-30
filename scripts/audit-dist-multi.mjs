@@ -1844,13 +1844,19 @@ async function main() {
   // Build the structured-data sampled set up-front (mirrors original sampling).
   const { sampled: sdSampled, byCategory: sdByCategory } = buildSampledSet(files);
 
-  // PERF EXPERIMENT: optional split into 2 walkers. AUDIT_DIST_MULTI_GROUP=heavy
-  // runs the 4 slowest checks; =light runs the 5 lighter ones. Unset = all 9.
+  // PERF EXPERIMENT: optional split into N walkers via AUDIT_DIST_MULTI_GROUP.
+  //   ratio  — only text-html-ratio (the slowest single check)
+  //   heavy  — h1 + dup + jobposting (medium-heavy checks)
+  //   light  — title + pageweight + hreflang + titleuniq + sd (lighter checks)
+  //   unset/all — all 9 checks (default)
   const group = process.env.AUDIT_DIST_MULTI_GROUP || 'all';
   const want = (name) => {
     if (group === 'all') return true;
-    if (group === 'heavy') return ['ratio', 'h1', 'dup', 'jobposting'].includes(name);
+    if (group === 'ratio') return name === 'ratio';
+    if (group === 'heavy') return ['h1', 'dup', 'jobposting'].includes(name);
     if (group === 'light') return ['title', 'pageweight', 'hreflang', 'titleuniq', 'sd'].includes(name);
+    // Backward-compat: previous experiment had heavy = ratio+h1+dup+jobposting
+    if (group === 'heavy-with-ratio') return ['ratio', 'h1', 'dup', 'jobposting'].includes(name);
     return true;
   };
 

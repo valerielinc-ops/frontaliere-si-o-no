@@ -444,8 +444,11 @@ jobs:
           # Light = title-length + page-weight + hreflang + title-uniqueness +
           # structured-data (the 5 lighter checks).
           # Each walker reads dist/ once; the 2 run in parallel.
-          spawn_capped audit:dist-multi-heavy       /tmp/g5.log env AUDIT_DIST_MULTI_GROUP=heavy npm run audit:dist-multi
-          spawn_capped audit:dist-multi-light       /tmp/g6.log env AUDIT_DIST_MULTI_GROUP=light npm run audit:dist-multi
+          # T5 EXPERIMENT: 3 walkers. ratio (slowest single check) isolated;
+          # heavy (h1+dup+jobposting) and light (title+pw+hl+tu+sd) split.
+          spawn_capped audit:dist-multi-ratio       /tmp/g5.log env AUDIT_DIST_MULTI_GROUP=ratio npm run audit:dist-multi
+          spawn_capped audit:dist-multi-heavy       /tmp/g6.log env AUDIT_DIST_MULTI_GROUP=heavy npm run audit:dist-multi
+          spawn_capped audit:dist-multi-light       /tmp/g7.log env AUDIT_DIST_MULTI_GROUP=light npm run audit:dist-multi
           # Group C — SPA render validation (5 min internal budget)
           spawn_capped validate:spa-render          /tmp/spa.log timeout 300 node scripts/validate-spa-render.mjs
           # Group D — E2E smoke (3 min internal budget)
@@ -480,7 +483,7 @@ jobs:
           fi
 
           if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 9 post-build validators+audits+SPA+E2E+gate passed"
+          echo "✅ All 10 post-build validators+audits+SPA+E2E+gate passed"
 
       # Visual regression baselines are OS-sensitive (darwin vs linux pixel
       # diffs). We run them only when a linux-specific baseline has been
