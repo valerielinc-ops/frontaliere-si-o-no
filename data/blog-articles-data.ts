@@ -10640,4 +10640,11 @@ export const ARTICLES = [
  image: '/images/blog/due-scuole-due-mondi-un-solo-legame.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'camion-incastrato-grantola-2026',
+ category: 'novita',
+ date: '2026-04-30T03:42:37.499Z',
+ image: '/images/blog/camion-incastrato-grantola-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

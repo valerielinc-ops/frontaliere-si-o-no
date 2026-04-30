@@ -26864,6 +26864,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-camion-incastrato-grantola-2026': {
+    title: 'Camion incastrato a Grantola: strada bloccata in attesa dell\'autogru',
+    description: 'I vigili del fuoco intervengono per liberare un camion bloccato su un tornante a Grantola, causando interruzioni al traffico. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, camion, incastrato, grantola, strada',
+    ogTitle: 'Camion incastrato a Grantola: strada bloccata in attesa dell\'autogru',
+    ogDescription: 'I vigili del fuoco intervengono per liberare un camion bloccato su un tornante a Grantola, causando interruzioni al traffico.',
+    canonicalPath: '/articoli-frontaliere/camion-incastrato-grantola-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Camion incastrato a Grantola: strada bloccata in attesa dell'autogru",
+      "description": "I vigili del fuoco intervengono per liberare un camion bloccato su un tornante a Grantola, causando interruzioni al traffico. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/camion-incastrato-grantola-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camion incastrato in un tornante sulla provinciale a Grantola"
+      },
+      "datePublished": "2026-04-30T03:42:37+00:00",
+      "dateModified": "2026-04-30T03:42:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/camion-incastrato-grantola-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

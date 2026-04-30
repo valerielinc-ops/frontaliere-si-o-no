@@ -4127,6 +4127,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.due-scuole-due-mondi-un-solo-legame.title': 'Gemellaggio Ticino-Gaza in mostra',
     'blog.article.due-scuole-due-mondi-un-solo-legame.excerpt': 'Una mostra a Viganello racconta il gemellaggio tra studenti ticinesi e di Gaza, un progetto di Future in Peace per l\'educazione ai diritti umani.',
     'blog.article.due-scuole-due-mondi-un-solo-legame.imageAlt': 'Scuola media di Viganello, Ticino, con studenti che partecipano a una mostra di gemellaggio.',
+    'blog.article.camion-incastrato-grantola-2026.title': 'Camion incastrato a Grantola: strada bloccata in attesa dell\'autogru',
+    'blog.article.camion-incastrato-grantola-2026.excerpt': 'I vigili del fuoco intervengono per liberare un camion bloccato su un tornante a Grantola, causando interruzioni al traffico.',
+    'blog.article.camion-incastrato-grantola-2026.imageAlt': 'Camion incastrato in un tornante sulla provinciale a Grantola',
 };
 
 export default blogMetaIt;

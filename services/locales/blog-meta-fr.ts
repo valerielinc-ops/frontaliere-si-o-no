@@ -4127,6 +4127,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.due-scuole-due-mondi-un-solo-legame.title': 'Jumelage Ticino-Gaza en exposition',
     'blog.article.due-scuole-due-mondi-un-solo-legame.excerpt': 'Une exposition à Viganello raconte le jumelage entre étudiants tessinois et de Gaza, un projet de Future in Peace pour l\'éducation aux droits humains.',
     'blog.article.due-scuole-due-mondi-un-solo-legame.imageAlt': 'École secondaire de Viganello, Tessin, Suisse, avec des élèves participant à une exposition de jumelage.',
+    'blog.article.camion-incastrato-grantola-2026.title': 'Camion bloqué à Grantola: route fermée en attendant la dépanneuse',
+    'blog.article.camion-incastrato-grantola-2026.excerpt': 'Les pompiers interviennent pour libérer un camion bloqué sur un virage à Grantola, causant des interruptions de la circulation.',
+    'blog.article.camion-incastrato-grantola-2026.imageAlt': 'Camion coincé dans un virage sur la route provinciale à Grantola',
 };
 
 export default blogMetaFr;

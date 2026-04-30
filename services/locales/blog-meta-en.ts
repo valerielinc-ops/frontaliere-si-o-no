@@ -4126,6 +4126,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.due-scuole-due-mondi-un-solo-legame.title': 'Ticino-Gaza twinning exhibition',
     'blog.article.due-scuole-due-mondi-un-solo-legame.excerpt': 'An exhibition in Viganello tells the story of the twinning between Ticinese and Gaza students, a Future in Peace project for human rights education.',
     'blog.article.due-scuole-due-mondi-un-solo-legame.imageAlt': 'Viganello Middle School, Ticino, Switzerland, with students participating in a twinning project exhibition.',
+    'blog.article.camion-incastrato-grantola-2026.title': 'Truck stuck in Grantola: road blocked awaiting recovery',
+    'blog.article.camion-incastrato-grantola-2026.excerpt': 'Firefighters intervene to free a truck stuck on a bend in Grantola, causing traffic disruptions.',
+    'blog.article.camion-incastrato-grantola-2026.imageAlt': 'Truck stuck on a bend in the provincial road in Grantola',
 };
 
 export default blogMetaEn;

@@ -4126,6 +4126,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.due-scuole-due-mondi-un-solo-legame.title': 'Ticino-Gaza: Partnerschaft in Ausstellung',
     'blog.article.due-scuole-due-mondi-un-solo-legame.excerpt': 'Eine Ausstellung in Viganello erzählt von der Partnerschaft zwischen Schülern aus dem Tessin und Gaza, ein Projekt von Future in Peace für die Bildung in Menschenrechten.',
     'blog.article.due-scuole-due-mondi-un-solo-legame.imageAlt': 'Mittelschule Viganello, Tessin, Schweiz, mit Schülern, die an einer Ausstellung zum Partnerschaftsprojekt teilnehmen.',
+    'blog.article.camion-incastrato-grantola-2026.title': 'Lkw steckt in Grantola fest: Straße gesperrt',
+    'blog.article.camion-incastrato-grantola-2026.excerpt': 'Die Feuerwehr befreit einen Lkw, der auf einer Kurve in Grantola stecken geblieben ist, was zu Verkehrsunterbrechungen führt.',
+    'blog.article.camion-incastrato-grantola-2026.imageAlt': 'Lkw steckt in einer Kurve auf der Provinzialstraße in Grantola fest',
 };
 
 export default blogMetaDe;
