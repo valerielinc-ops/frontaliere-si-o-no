@@ -4460,6 +4460,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.truffatrice-seriale-como-lecco-2026.title': 'Arrestation d\'une truffeuse à Côme avec bijoux et argent',
     'blog.article.truffatrice-seriale-como-lecco-2026.excerpt': 'Une femme tchèque de 31 ans a été arrêtée pour des escroqueries aux dépens de deux personnes âgées entre Côme et Lecco, avec un butin de 2.400 euros en espèces et des bijoux.',
     'blog.article.truffatrice-seriale-como-lecco-2026.imageAlt': 'Police en action sur le Lac de Côme',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.title': 'Pass Musei Svizzeri, 30 ans et un record historique',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.excerpt': 'Plus de 1,5 million d\'entrées en 2025, une augmentation de 6%. Parmi les musées les plus visités, le Musée national de Zurich et le Kunstmuseum de Berne.',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.imageAlt': 'Musée des Beaux-Arts de Berne, bâtiment moderne avec détails architecturaux',
 };
 
 export default blogMetaFr;

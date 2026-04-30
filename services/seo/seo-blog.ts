@@ -30083,6 +30083,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-passaporto-musei-svizzera-30-anni-record': {
+    title: 'Passaporto Musei Svizzeri, 30 anni e un record storico',
+    description: 'Il Passaporto Musei Svizzeri celebra 30 anni con un record di 1,5 milioni di ingressi nel 2025. Scopri di più su questo successo culturale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, passaporto, musei, svizzeri, anni',
+    ogTitle: 'Passaporto Musei Svizzeri, 30 anni e un record storico',
+    ogDescription: 'Il Passaporto Musei Svizzeri celebra 30 anni con un record di 1,5 milioni di ingressi nel 2025. Scopri di più su questo successo culturale.',
+    canonicalPath: '/articoli-frontaliere/passaporto-musei-svizzera-30-anni-record',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Passaporto Musei Svizzeri, 30 anni e un record storico",
+      "description": "Il Passaporto Musei Svizzeri celebra 30 anni con un record di 1,5 milioni di ingressi nel 2025. Scopri di più su questo successo culturale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/passaporto-musei-svizzera-30-anni-record.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Kunstmuseum di Berna, edificio moderno con dettagli architettonici"
+      },
+      "datePublished": "2026-04-30T21:14:06+00:00",
+      "dateModified": "2026-04-30T21:14:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passaporto-musei-svizzera-30-anni-record`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

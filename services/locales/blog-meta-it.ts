@@ -4460,6 +4460,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.truffatrice-seriale-como-lecco-2026.title': 'Truffatrice seriale arrestata a Como con gioielli e contanti',
     'blog.article.truffatrice-seriale-como-lecco-2026.excerpt': 'Arrestata una 31enne ceca per truffe ai danni di due anziane tra Como e Lecco, con un bottino di 2.400 euro in contanti e gioielli.',
     'blog.article.truffatrice-seriale-como-lecco-2026.imageAlt': 'Polizia in azione sul Lago di Como',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.title': 'Passaporto Musei Svizzeri, 30 anni e un record storico',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.excerpt': 'Oltre 1,5 milioni di ingressi nel 2025, un aumento del 6%. Tra i musei più visitati, il Museo nazionale di Zurigo e il Kunstmuseum di Berna.',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.imageAlt': 'Kunstmuseum di Berna, edificio moderno con dettagli architettonici',
 };
 
 export default blogMetaIt;

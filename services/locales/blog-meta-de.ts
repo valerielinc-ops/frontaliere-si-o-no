@@ -4459,6 +4459,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.truffatrice-seriale-como-lecco-2026.title': 'Serienbetrügerin in Como mit Schmuck und Bargeld festgenommen',
     'blog.article.truffatrice-seriale-como-lecco-2026.excerpt': 'Eine 31-jährige Tschechin wurde wegen Betrugs an zwei Senioren zwischen Como und Lecco festgenommen, mit einer Beute von 2.400 Euro in bar und Schmuck.',
     'blog.article.truffatrice-seriale-como-lecco-2026.imageAlt': 'Polizei im Einsatz am Comer See',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.title': 'Passaporto Musei Svizzeri: 30 anni e un record',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.excerpt': 'Über 1,5 Millionen Eintritte im Jahr 2025, ein Anstieg von 6%. Zu den meistbesuchten Museen gehören das Nationalmuseum in Zürich und das Kunstmuseum in Bern.',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.imageAlt': 'Kunstmuseum Bern, modernes Gebäude mit architektonischen Details',
 };
 
 export default blogMetaDe;

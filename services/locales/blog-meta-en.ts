@@ -4459,6 +4459,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.truffatrice-seriale-como-lecco-2026.title': 'Serial swindler arrested in Como with jewels and cash',
     'blog.article.truffatrice-seriale-como-lecco-2026.excerpt': 'A 31-year-old Czech woman was arrested for scamming two elderly victims between Como and Lecco, with a haul of 2,400 euros in cash and jewellery.',
     'blog.article.truffatrice-seriale-como-lecco-2026.imageAlt': 'Police in action on Lake Como',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.title': 'Swiss Museum Pass turns 30 with record visits',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.excerpt': 'Over 1.5 million entries in 2025, a 6% increase. Among the most visited museums are the National Museum in Zurich and the Kunstmuseum in Bern.',
+    'blog.article.passaporto-musei-svizzera-30-anni-record.imageAlt': 'Kunstmuseum Bern, modern building with architectural details',
 };
 
 export default blogMetaEn;

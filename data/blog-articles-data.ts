@@ -11418,4 +11418,11 @@ export const ARTICLES = [
  image: '/images/blog/truffatrice-seriale-como-lecco-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'passaporto-musei-svizzera-30-anni-record',
+ category: 'novita',
+ date: '2026-04-30T21:14:06.017Z',
+ image: '/images/blog/passaporto-musei-svizzera-30-anni-record.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
