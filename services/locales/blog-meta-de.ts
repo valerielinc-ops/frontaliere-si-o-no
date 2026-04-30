@@ -4327,6 +4327,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.settore-ict-ticino-riconoscimento-istituzioni.title': 'ICT Ticino: 18.000 Arbeitnehmer fordern Anerkennung',
     'blog.article.settore-ict-ticino-riconoscimento-istituzioni.excerpt': 'Der ICT-Sektor in Ticino, mit 18.000 Beschäftigten, fordert eine Vertretung in der Dreiparteienkommission. Der Staatsrat erkennt die strategische Bedeutung an.',
     'blog.article.settore-ict-ticino-riconoscimento-istituzioni.imageAlt': 'Ein belebter digitaler Hub in Lugano, Tessin, mit modernen Bürogebäuden und Tech-Profis, die an ihren Laptops arbeiten.',
+    'blog.article.bce-tassi-inflazione-ticino-2026.title': 'EZB hält Zinsen stabil, aber Inflationsrisiken steigen',
+    'blog.article.bce-tassi-inflazione-ticino-2026.excerpt': 'Die EZB hält die Zinsen unverändert, warnt aber vor Inflationsrisiken durch den Nahost-Konflikt. Auswirkungen für Grenzgänger im Tessin.',
+    'blog.article.bce-tassi-inflazione-ticino-2026.imageAlt': 'Panoramablick auf den Luganersee und die Innenstadt',
 };
 
 export default blogMetaDe;

@@ -4327,6 +4327,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.settore-ict-ticino-riconoscimento-istituzioni.title': 'ICT Ticino: 18,000 workers seek recognition',
     'blog.article.settore-ict-ticino-riconoscimento-istituzioni.excerpt': 'Ticino\'s ICT sector, with 18,000 employees, asks for representation in the Tripartite Commission. The State Council acknowledges its strategic importance.',
     'blog.article.settore-ict-ticino-riconoscimento-istituzioni.imageAlt': 'A bustling digital hub in Lugano, Ticino, with modern office buildings and tech professionals working on laptops.',
+    'blog.article.bce-tassi-inflazione-ticino-2026.title': 'ECB holds rates but inflation risks rise',
+    'blog.article.bce-tassi-inflazione-ticino-2026.excerpt': 'The ECB keeps rates unchanged but warns of inflation risks due to Middle East conflict. Impacts for cross-border workers in Ticino.',
+    'blog.article.bce-tassi-inflazione-ticino-2026.imageAlt': 'Panoramic view of Lake Lugano and city center',
 };
 
 export default blogMetaEn;

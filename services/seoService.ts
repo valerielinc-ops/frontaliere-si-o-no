@@ -2673,6 +2673,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bce-tassi-invariati-30-aprile-2026': { name: 'Bce tassi', path: '/articoli-frontaliere/bce-tassi-invariati-30-aprile-2026', parent: 'blog' },
     'blog-aumenti-tariffe-sunrise-2026': { name: 'Novità', path: '/articoli-frontaliere/aumenti-tariffe-sunrise-2026', parent: 'blog' },
     'blog-settore-ict-ticino-riconoscimento-istituzioni': { name: 'Novità', path: '/articoli-frontaliere/settore-ict-ticino-riconoscimento-istituzioni', parent: 'blog' },
+    'blog-bce-tassi-inflazione-ticino-2026': { name: 'Bce tassi', path: '/articoli-frontaliere/bce-tassi-inflazione-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

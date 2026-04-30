@@ -28807,6 +28807,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bce-tassi-inflazione-ticino-2026': {
+    title: 'Bce tassi fermi ma rischi inflazione aumentati | Frontaliere Ticino',
+    description: 'La Bce mantiene i tassi invariati ma avverte su rischi inflazione per conflitto Medio Oriente. Impatti per frontalieri Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassi, fermi, rischi, inflazione',
+    ogTitle: 'Bce tassi fermi ma rischi inflazione aumentati',
+    ogDescription: 'La Bce mantiene i tassi invariati ma avverte su rischi inflazione per conflitto Medio Oriente. Impatti per frontalieri Ticino.',
+    canonicalPath: '/articoli-frontaliere/bce-tassi-inflazione-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bce mantiene tassi fermi ma rischi inflazione aumentati",
+      "description": "La Bce mantiene i tassi invariati ma avverte su rischi inflazione per conflitto Medio Oriente. Impatti per frontalieri Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bce-tassi-inflazione-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano e centro città"
+      },
+      "datePublished": "2026-04-30T13:39:56+00:00",
+      "dateModified": "2026-04-30T13:39:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bce-tassi-inflazione-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

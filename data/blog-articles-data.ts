@@ -11110,4 +11110,11 @@ export const ARTICLES = [
  image: '/images/blog/settore-ict-ticino-riconoscimento-istituzioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bce-tassi-inflazione-ticino-2026',
+ category: 'fiscale',
+ date: '2026-04-30T13:39:56.499Z',
+ image: '/images/blog/bce-tassi-inflazione-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
