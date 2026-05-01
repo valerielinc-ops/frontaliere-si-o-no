@@ -34607,6 +34607,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tentato-assassinio-chiasso-2026': {
+    title: 'Condannato a 11 anni per tentato assassinio a Chiasso',
+    description: 'Un 34enne è stato condannato a 11 anni per tentato assassinio della compagna a Chiasso. La corte ha ordinato anche l\'espulsione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, condannato, anni, tentato, assassinio',
+    ogTitle: 'Condannato a 11 anni per tentato assassinio a Chiasso',
+    ogDescription: 'Un 34enne è stato condannato a 11 anni per tentato assassinio della compagna a Chiasso. La corte ha ordinato anche l\'espulsione.',
+    canonicalPath: '/articoli-frontaliere/tentato-assassinio-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Condannato a 11 anni per tentato assassinio a Chiasso",
+      "description": "Un 34enne è stato condannato a 11 anni per tentato assassinio della compagna a Chiasso. La corte ha ordinato anche l'espulsione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tentato-assassinio-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Corte delle Assise Criminali a Chiasso"
+      },
+      "datePublished": "2026-05-01T21:58:31+00:00",
+      "dateModified": "2026-05-01T21:58:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tentato-assassinio-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

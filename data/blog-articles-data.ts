@@ -12510,4 +12510,11 @@ export const ARTICLES = [
  image: '/images/blog/ia-meteo-eventi-estremi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tentato-assassinio-chiasso-2026',
+ category: 'novita',
+ date: '2026-05-01T21:58:31.700Z',
+ image: '/images/blog/tentato-assassinio-chiasso-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

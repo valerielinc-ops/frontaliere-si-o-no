@@ -4928,6 +4928,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ia-meteo-eventi-estremi.title': 'IA fallisce previsioni eventi estremi: studio dell\'Università di Ginevra',
     'blog.article.ia-meteo-eventi-estremi.excerpt': 'Nuovo studio rivela che l\'IA sbaglia sistematicamente previsioni su eventi meteorologici estremi, sottostimando ondate di calore e freddo',
     'blog.article.ia-meteo-eventi-estremi.imageAlt': 'Lago di Lugano con cielo tempestoso e tecnologia di previsione meteo',
+    'blog.article.tentato-assassinio-chiasso-2026.title': 'Condannato a 11 anni per tentato assassinio a Chiasso',
+    'blog.article.tentato-assassinio-chiasso-2026.excerpt': 'Un 34enne è stato condannato a 11 anni per tentato assassinio della compagna a Chiasso. La corte ha ordinato anche l\'espulsione.',
+    'blog.article.tentato-assassinio-chiasso-2026.imageAlt': 'Corte delle Assise Criminali a Chiasso',
 };
 
 export default blogMetaIt;

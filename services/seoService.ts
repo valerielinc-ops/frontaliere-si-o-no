@@ -2873,6 +2873,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tragedia-vico-morcote-bimbo-piscina': { name: 'Tragedia Vico Morcote', path: '/articoli-frontaliere/tragedia-vico-morcote-bimbo-piscina', parent: 'blog' },
     'blog-crans-montana-soccorso-denunciato': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-soccorso-denunciato', parent: 'blog' },
     'blog-ia-meteo-eventi-estremi': { name: 'Novità', path: '/articoli-frontaliere/ia-meteo-eventi-estremi', parent: 'blog' },
+    'blog-tentato-assassinio-chiasso-2026': { name: 'Novità', path: '/articoli-frontaliere/tentato-assassinio-chiasso-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

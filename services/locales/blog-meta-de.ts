@@ -4927,6 +4927,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ia-meteo-eventi-estremi.title': 'KI scheitert bei Extremwetter-Vorhersagen: Studie Uni Genf',
     'blog.article.ia-meteo-eventi-estremi.excerpt': 'Neue Studie zeigt, dass KI systematisch Vorhersagen zu extremen Wetterereignissen verfehlt und Hitzewellen sowie Kältewellen unterschätzt',
     'blog.article.ia-meteo-eventi-estremi.imageAlt': 'Luganersee mit stürmischem Himmel und Wettervorhersagetechnologie',
+    'blog.article.tentato-assassinio-chiasso-2026.title': '11 Jahre Haft für versuchten Mord in Chiasso',
+    'blog.article.tentato-assassinio-chiasso-2026.excerpt': 'Ein 34-Jähriger wurde zu 11 Jahren Haft für den versuchten Mord an seiner Partnerin in Chiasso verurteilt. Das Gericht ordnete auch die Ausweisung an.',
+    'blog.article.tentato-assassinio-chiasso-2026.imageAlt': 'Strafgericht in Chiasso',
 };
 
 export default blogMetaDe;

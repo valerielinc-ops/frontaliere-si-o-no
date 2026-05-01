@@ -4927,6 +4927,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ia-meteo-eventi-estremi.title': 'AI fails to predict extreme weather events: University of Geneva study',
     'blog.article.ia-meteo-eventi-estremi.excerpt': 'New study reveals that AI systematically fails to predict extreme weather events, underestimating heat and cold waves',
     'blog.article.ia-meteo-eventi-estremi.imageAlt': 'Lake Lugano with stormy sky and weather forecasting technology',
+    'blog.article.tentato-assassinio-chiasso-2026.title': '34-year-old sentenced to 11 years for attempted murder in Chiasso',
+    'blog.article.tentato-assassinio-chiasso-2026.excerpt': 'A 34-year-old has been sentenced to 11 years for attempted murder of his partner in Chiasso. The court also ordered his expulsion.',
+    'blog.article.tentato-assassinio-chiasso-2026.imageAlt': 'Criminal Court in Chiasso',
 };
 
 export default blogMetaEn;
