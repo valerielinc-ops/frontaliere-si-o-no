@@ -1,49 +1,18 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-01T09:47:02.341Z",
+  "generatedAt": "2026-05-01T21:13:46.970Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8848,
-  "avgDurationMs": 8848,
+  "durationMs": 10665,
+  "avgDurationMs": 10665,
   "durationHistory": [
-    8848
+    10665
   ],
-  "newJobs": [
-    {
-      "title": "Produktionsmitarbeiter 100% (m/w/div) - REF282794R",
-      "slug": "produktionsmitarbeiter-100-m-w-div-ref282794r-bosch-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF282794R-produktionsmitarbeiter-100-m-w-div-ref282794r",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000119063447-produktionsmitarbeiter-100-m-w-div-ref282794r?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-07",
-      "validThrough": "",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Mechaniker (w/m/div.)",
@@ -77,6 +46,42 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Produktionsmitarbeiter 100% (m/w/div) - REF282794R",
+      "slug": "produktionsmitarbeiter-100-m-w-div-ref282794r-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF282794R-produktionsmitarbeiter-100-m-w-div-ref282794r",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000119063447-produktionsmitarbeiter-100-m-w-div-ref282794r?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-07",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-4bcd4c5b844f",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1950",
+      "firstSeenAt": "2026-05-01T09:47:02.341Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
