@@ -33070,6 +33070,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-processo-campione-dicembre-2026': {
+    title: 'Processo Casino Campione rinviato a dicembre 2026 | Frontaliere Ticino',
+    description: 'La presidente Valeria Costi ha rinviato il processo sul Casinò di Campione a dicembre 2026 per altri processi da celebrare prima. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, casino, campione, rinviato',
+    ogTitle: 'Processo Casino Campione rinviato a dicembre 2026',
+    ogDescription: 'La presidente Valeria Costi ha rinviato il processo sul Casinò di Campione a dicembre 2026 per altri processi da celebrare prima.',
+    canonicalPath: '/articoli-frontaliere/processo-campione-dicembre-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Processo Casino Campione rinviato a dicembre 2026",
+      "description": "La presidente Valeria Costi ha rinviato il processo sul Casinò di Campione a dicembre 2026 per altri processi da celebrare prima. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/processo-campione-dicembre-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lago di Lugano e della città"
+      },
+      "datePublished": "2026-05-01T13:43:30+00:00",
+      "dateModified": "2026-05-01T13:43:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/processo-campione-dicembre-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

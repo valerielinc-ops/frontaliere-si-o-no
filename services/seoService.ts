@@ -2820,6 +2820,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-142-violenza-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/142-violenza-ticino-2026', parent: 'blog' },
     'blog-primo-maggio-2026-traffico-gottardo': { name: 'Primo Maggio 2026', path: '/articoli-frontaliere/primo-maggio-2026-traffico-gottardo', parent: 'blog' },
     'blog-incidente-e-roller-lugano-2026': { name: 'Incidente Lugano', path: '/articoli-frontaliere/incidente-e-roller-lugano-2026', parent: 'blog' },
+    'blog-processo-campione-dicembre-2026': { name: 'Processo Casino', path: '/articoli-frontaliere/processo-campione-dicembre-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

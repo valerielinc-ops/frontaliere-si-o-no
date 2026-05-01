@@ -4768,6 +4768,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-e-roller-lugano-2026.title': 'Unfall mit E-Roller und E-Bike in Lugano: Frau schwer verletzt',
     'blog.article.incidente-e-roller-lugano-2026.excerpt': 'Ein Unfall zwischen einem E-Roller und einem E-Bike hat eine junge Frau und eine ältere Frau betroffen, wobei letztere schwer verletzt wurde.',
     'blog.article.incidente-e-roller-lugano-2026.imageAlt': 'E-Bike und E-Roller in einem Unfall in Lugano',
+    'blog.article.processo-campione-dicembre-2026.title': 'Prozess Casino Campione auf Dezember 2026 verschoben',
+    'blog.article.processo-campione-dicembre-2026.excerpt': 'Die Präsidentin des Gerichts hat die Verschiebung wegen anderer anstehender Prozesse entschieden',
+    'blog.article.processo-campione-dicembre-2026.imageAlt': 'Luftaufnahme vom Luganersee und der Stadt',
 };
 
 export default blogMetaDe;

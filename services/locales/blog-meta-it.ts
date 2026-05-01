@@ -4769,6 +4769,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-e-roller-lugano-2026.title': 'Incidente con e-roller e e-bike a Lugano: donna gravemente ferita',
     'blog.article.incidente-e-roller-lugano-2026.excerpt': 'Un incidente tra un e-roller e un\'e-bike ha coinvolto una ragazza e una donna, lasciando quest\'ultima gravemente ferita.',
     'blog.article.incidente-e-roller-lugano-2026.imageAlt': 'E-bike e e-roller coinvolti in un incidente a Lugano',
+    'blog.article.processo-campione-dicembre-2026.title': 'Processo Casino Campione rinviato a dicembre 2026',
+    'blog.article.processo-campione-dicembre-2026.excerpt': 'La presidente del collegio giudicante ha deciso il rinvio per altri processi da celebrare prima',
+    'blog.article.processo-campione-dicembre-2026.imageAlt': 'Vista aerea del lago di Lugano e della città',
 };
 
 export default blogMetaIt;

@@ -12139,4 +12139,11 @@ export const ARTICLES = [
  image: '/images/blog/incidente-e-roller-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'processo-campione-dicembre-2026',
+ category: 'novita',
+ date: '2026-05-01T13:43:30.929Z',
+ image: '/images/blog/processo-campione-dicembre-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
