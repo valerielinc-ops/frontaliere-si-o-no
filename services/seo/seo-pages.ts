@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1662,
+ "numberOfItems": 1663,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6297,7 +6297,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1659, "name": "Trump aumenta dazi UE del 25% su auto e camion", "url": `${BASE_URL}/articoli-frontaliere/trump-dazi-ue-frontalieri-ticino` },
           { "@type": "ListItem", "position": 1660, "name": "Balerna celebra 100 anni del Consiglio comunale", "url": `${BASE_URL}/articoli-frontaliere/balerna-consiglio-comunale-centenario` },
           { "@type": "ListItem", "position": 1661, "name": "Confsal lancia manifesto del lavoro: dignità, s...", "url": `${BASE_URL}/articoli-frontaliere/confsal-manifesto-lavoro-dignita-salari` },
-          { "@type": "ListItem", "position": 1662, "name": "USA-Iran: tensioni nucleari e sanzioni nel 2026", "url": `${BASE_URL}/articoli-frontaliere/usa-iran-nucleare-sanzioni-2026` }
+          { "@type": "ListItem", "position": 1662, "name": "USA-Iran: tensioni nucleari e sanzioni nel 2026", "url": `${BASE_URL}/articoli-frontaliere/usa-iran-nucleare-sanzioni-2026` },
+          { "@type": "ListItem", "position": 1663, "name": "Convegno sulla sicurezza nei locali pubblici a ...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-locali-pubblici-convegno-ville-ponti` }
  ]
  },
  {

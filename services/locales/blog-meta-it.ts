@@ -4838,6 +4838,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.usa-iran-nucleare-sanzioni-2026.title': 'USA-Iran: tensioni nucleari e sanzioni nel 2026',
     'blog.article.usa-iran-nucleare-sanzioni-2026.excerpt': 'Teheran accusa Washington di poco impegno nei negoziati e azioni militari parallele. Trump: negoziati in corso telefonicamente.',
     'blog.article.usa-iran-nucleare-sanzioni-2026.imageAlt': 'Vista del lago di Lugano con edifici moderni e montagne sullo sfondo',
+    'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.title': 'Sicurezza nei locali pubblici, convegno a Ville Ponti il 29 giugno',
+    'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.excerpt': 'Convegno sulla sicurezza nei locali pubblici a Ville Ponti il 29 giugno 2026. Focus su prevenzione incendi e normative.',
+    'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.imageAlt': 'Centro Congressi Ville Ponti, Varese, convegno sicurezza locali pubblici',
 };
 
 export default blogMetaIt;

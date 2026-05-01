@@ -12300,4 +12300,11 @@ export const ARTICLES = [
  image: '/images/blog/usa-iran-nucleare-sanzioni-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sicurezza-locali-pubblici-convegno-ville-ponti',
+ category: 'novita',
+ date: '2026-05-01T17:26:56.905Z',
+ image: '/images/blog/sicurezza-locali-pubblici-convegno-ville-ponti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -33737,6 +33737,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-locali-pubblici-convegno-ville-ponti': {
+    title: 'Sicurezza nei locali pubblici, convegno a Ville Ponti il 29 giugno',
+    description: 'Convegno sulla sicurezza nei locali pubblici a Ville Ponti il 29 giugno 2026. Focus su prevenzione incendi e normative. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, locali, pubblici, convegno',
+    ogTitle: 'Convegno sicurezza locali pubblici Ville Ponti 29 giugno',
+    ogDescription: 'Convegno sulla sicurezza nei locali pubblici a Ville Ponti il 29 giugno 2026. Focus su prevenzione incendi e normative.',
+    canonicalPath: '/articoli-frontaliere/sicurezza-locali-pubblici-convegno-ville-ponti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Convegno sulla sicurezza nei locali pubblici a Ville Ponti il 29 giugno 2026",
+      "description": "Convegno sulla sicurezza nei locali pubblici a Ville Ponti il 29 giugno 2026. Focus su prevenzione incendi e normative. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sicurezza-locali-pubblici-convegno-ville-ponti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro Congressi Ville Ponti, Varese, convegno sicurezza locali pubblici"
+      },
+      "datePublished": "2026-05-01T17:26:56+00:00",
+      "dateModified": "2026-05-01T17:26:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-locali-pubblici-convegno-ville-ponti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

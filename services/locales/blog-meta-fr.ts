@@ -4838,6 +4838,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.usa-iran-nucleare-sanzioni-2026.title': 'USA-Iran : tensions nucléaires et sanctions en 2026',
     'blog.article.usa-iran-nucleare-sanzioni-2026.excerpt': 'Téhéran accuse Washington de peu d\'engagement dans les négociations et d\'actions militaires parallèles. Trump : des négociations en cours par téléphone.',
     'blog.article.usa-iran-nucleare-sanzioni-2026.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
+    'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.title': 'Sécurité dans les lieux publics, conférence à Ville Ponti le 29 juin',
+    'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.excerpt': 'Conférence sur la sécurité dans les lieux publics à Ville Ponti le 29 juin 2026. Focus sur la prévention des incendies et les réglementations.',
+    'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.imageAlt': 'Centre de congrès Ville Ponti, Varese, conférence sur la sécurité des lieux publics',
 };
 
 export default blogMetaFr;

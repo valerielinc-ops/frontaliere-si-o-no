@@ -4837,6 +4837,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.usa-iran-nucleare-sanzioni-2026.title': 'US-Iran: nuclear tensions and sanctions in 2026',
     'blog.article.usa-iran-nucleare-sanzioni-2026.excerpt': 'Tehran accuses Washington of little commitment in negotiations and parallel military actions. Trump: negotiations ongoing by phone.',
     'blog.article.usa-iran-nucleare-sanzioni-2026.imageAlt': 'Lake Lugano view with modern buildings and mountains in the background',
+    'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.title': 'Public venue safety conference in Ville Ponti on June 29',
+    'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.excerpt': 'Conference on public venue safety in Ville Ponti on June 29, 2026. Focus on fire prevention and regulations.',
+    'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.imageAlt': 'Ville Ponti Congress Center, Varese, public venues safety conference',
 };
 
 export default blogMetaEn;
