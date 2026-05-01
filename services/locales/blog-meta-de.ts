@@ -4747,6 +4747,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusura-notturna-a9-lomazzo-chiasso.title': 'A9: Nachtschließung zwischen Lomazzo und Chiasso – was für Grenzgänger gilt',
     'blog.article.chiusura-notturna-a9-lomazzo-chiasso.excerpt': 'Von 22:00 Uhr am 4. Mai bis 5:00 Uhr am 5. Mai wird die A9 zwischen Lomazzo Süd und Como Zentrum in Richtung Chiasso gesperrt. Grenzgänger müssen Umleitungen nutzen.',
     'blog.article.chiusura-notturna-a9-lomazzo-chiasso.imageAlt': 'Autobahn A9 in der Nacht mit laufenden Arbeiten zwischen Lomazzo und Como, Blick vom Luganersee',
+    'blog.article.como-festa-lavoro-diritti-salari.title': 'Como: Tag der Arbeit - Würde und Löhne',
+    'blog.article.como-festa-lavoro-diritti-salari.excerpt': 'Hunderte Menschen haben sich auf dem Piazza Perretta zum Tag der Arbeit versammelt, organisiert von den Gewerkschaften Cgil, Cisl und Uil. Hauptforderungen: würdige Löhne, Sicherheit und Stabilität.',
+    'blog.article.como-festa-lavoro-diritti-salari.imageAlt': 'Luftaufnahme des Luganersees mit dem Skyline von Como im Hintergrund, klarer blauer Himmel, Menschen versammelt auf einem öffentlichen Platz, festliche Atmosphäre',
 };
 
 export default blogMetaDe;

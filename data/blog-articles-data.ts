@@ -12090,4 +12090,11 @@ export const ARTICLES = [
  image: '/images/blog/chiusura-notturna-a9-lomazzo-chiasso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-festa-lavoro-diritti-salari',
+ category: 'novita',
+ date: '2026-05-01T12:27:50.000Z',
+ image: '/images/blog/como-festa-lavoro-diritti-salari.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

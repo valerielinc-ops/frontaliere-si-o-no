@@ -2813,6 +2813,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-anziani-truffati-arresto-como-ticino': { name: 'Anziani truffati', path: '/articoli-frontaliere/anziani-truffati-arresto-como-ticino', parent: 'blog' },
     'blog-bellinzonesi-germania-karate-2026': { name: 'Novità', path: '/articoli-frontaliere/bellinzonesi-germania-karate-2026', parent: 'blog' },
     'blog-chiusura-notturna-a9-lomazzo-chiasso': { name: 'Chiusura notturna A9', path: '/articoli-frontaliere/chiusura-notturna-a9-lomazzo-chiasso', parent: 'blog' },
+    'blog-como-festa-lavoro-diritti-salari': { name: 'Festa del Lavoro', path: '/articoli-frontaliere/como-festa-lavoro-diritti-salari', parent: 'blog' },
  };
 
  const info = sectionNames[section];

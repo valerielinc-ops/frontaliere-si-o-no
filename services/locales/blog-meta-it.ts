@@ -4748,6 +4748,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusura-notturna-a9-lomazzo-chiasso.title': 'A9, chiusura notturna tra Lomazzo e Chiasso: cosa cambia per i frontalieri',
     'blog.article.chiusura-notturna-a9-lomazzo-chiasso.excerpt': 'Dalle 22:00 del 4 maggio alle 5:00 del 5 maggio, chiusura notturna tra Lomazzo sud e Como Centro verso Chiasso. Deviazioni obbligatorie per i frontalieri.',
     'blog.article.chiusura-notturna-a9-lomazzo-chiasso.imageAlt': 'Autostrada A9 di notte con lavori in corso tra Lomazzo e Como, vista dal Lago di Lugano',
+    'blog.article.como-festa-lavoro-diritti-salari.title': 'Como, Festa del lavoro: diritti e salari dignitosi',
+    'blog.article.como-festa-lavoro-diritti-salari.excerpt': 'Centinaia di persone si sono radunate in piazza Perretta per la Festa del Lavoro, promossa dai sindacati Cgil, Cisl e Uil. Richieste centrali: salari dignitosi, sicurezza e stabilità.',
+    'blog.article.como-festa-lavoro-diritti-salari.imageAlt': 'Vista aerea del Lago di Lugano con lo skyline di Como sullo sfondo, cielo azzurro limpido, persone riunite in una piazza pubblica, atmosfera festosa',
 };
 
 export default blogMetaIt;

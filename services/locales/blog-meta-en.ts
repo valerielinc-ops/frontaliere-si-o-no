@@ -4747,6 +4747,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusura-notturna-a9-lomazzo-chiasso.title': 'A9 night closure: changes for cross-border workers',
     'blog.article.chiusura-notturna-a9-lomazzo-chiasso.excerpt': 'From 10:00 PM on May 4th to 5:00 AM on May 5th, nighttime closure between Lomazzo Sud and Como Centro towards Chiasso. Mandatory detours for cross-border workers.',
     'blog.article.chiusura-notturna-a9-lomazzo-chiasso.imageAlt': 'A9 highway at night with ongoing work between Lomazzo and Como, view from Lake Lugano',
+    'blog.article.como-festa-lavoro-diritti-salari.title': 'Como, Labour Day: dignified wages and rights',
+    'blog.article.como-festa-lavoro-diritti-salari.excerpt': 'Hundreds of people gathered in Piazza Perretta for Labour Day, organized by the Cgil, Cisl and Uil unions. Key demands: dignified wages, safety and stability.',
+    'blog.article.como-festa-lavoro-diritti-salari.imageAlt': 'Aerial view of Lake Lugano with Como\'s skyline in the background, clear blue sky, people gathered in a public square, festive atmosphere',
 };
 
 export default blogMetaEn;
