@@ -4610,6 +4610,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-sindacati-piazza-2026.title': 'Primo maggio, sindacati in piazza per difendere salari e impieghi',
     'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Una cinquantina di località svizzere ospitano manifestazioni per la giornata internazionale dei diritti delle lavoratrici e dei lavoratori.',
     'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': 'Manifestazione del Primo Maggio a Bellinzona con striscioni e bandiere',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.title': 'Weekend del 1° Maggio a Varese: eventi imperdibili',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'Dalla festa di San Vittore allo spettacolo delle mongolfiere di Angera, ecco cosa fare nel weekend del 1° Maggio in provincia di Varese',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Eventi del weekend a Varese con mongolfiere sul Lago Maggiore e famiglie che godono di attività all\'aperto',
 };
 
 export default blogMetaIt;

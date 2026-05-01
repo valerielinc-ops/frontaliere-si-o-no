@@ -4610,6 +4610,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-sindacati-piazza-2026.title': '1er mai, syndicats en place pour défendre salaires et emplois',
     'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Une cinquantaine de localités suisses accueillent des manifestations pour la journée internationale des droits des travailleuses et des travailleurs.',
     'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': 'Manifestation du 1er mai à Bellinzone avec des banderoles et des drapeaux',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.title': 'Week-end du 1er mai à Varèse : événements incontournables',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'De la fête de Saint-Victor au spectacle des montgolfières d\'Angera, voici ce qu\'il faut faire le week-end du 1er mai dans la province de Varèse',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Événements du week-end à Varèse avec des montgolfières sur le lac Majeur et des familles profitant des activités de plein air',
 };
 
 export default blogMetaFr;

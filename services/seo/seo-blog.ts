@@ -31533,6 +31533,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spasso-weekend-1-maggio-varese-2026': {
+    title: 'Weekend del 1° Maggio a Varese: eventi imperdibili',
+    description: 'Scopri gli eventi del weekend del 1° Maggio a Varese, dalla Festa di San Vittore allo spettacolo delle mongolfiere di Angera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, weekend, maggio, varese, eventi',
+    ogTitle: 'Weekend del 1° Maggio a Varese: eventi imperdibili',
+    ogDescription: 'Scopri gli eventi del weekend del 1° Maggio a Varese, dalla Festa di San Vittore allo spettacolo delle mongolfiere di Angera.',
+    canonicalPath: '/articoli-frontaliere/spasso-weekend-1-maggio-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Weekend del 1° Maggio a Varese: eventi imperdibili",
+      "description": "Scopri gli eventi del weekend del 1° Maggio a Varese, dalla Festa di San Vittore allo spettacolo delle mongolfiere di Angera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spasso-weekend-1-maggio-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Eventi del weekend a Varese con mongolfiere sul Lago Maggiore e famiglie che godono di attività all'aperto"
+      },
+      "datePublished": "2026-05-01T06:06:15+00:00",
+      "dateModified": "2026-05-01T06:06:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spasso-weekend-1-maggio-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

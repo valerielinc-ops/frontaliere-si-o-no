@@ -11768,4 +11768,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-sindacati-piazza-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'spasso-weekend-1-maggio-varese-2026',
+ category: 'novita',
+ date: '2026-05-01T06:06:15.261Z',
+ image: '/images/blog/spasso-weekend-1-maggio-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

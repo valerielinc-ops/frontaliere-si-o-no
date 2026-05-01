@@ -4609,6 +4609,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-sindacati-piazza-2026.title': 'May Day: unions rally to defend wages and jobs',
     'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Around fifty Swiss towns host demonstrations for International Workers\' Day.',
     'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': 'May 1st demonstration in Bellinzona with banners and flags',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.title': '1st May Weekend in Varese: Unmissable Events',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'From the feast of San Vittore to the hot air balloon spectacle in Angera, here\'s what to do during the 1st May weekend in the province of Varese',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Weekend events in Varese with hot air balloons over Lake Maggiore and families enjoying outdoor activities',
 };
 
 export default blogMetaEn;

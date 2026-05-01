@@ -4609,6 +4609,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-sindacati-piazza-2026.title': '1. Mai: Gewerkschaften demonstrieren für Löhne und Jobs',
     'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Rund fünfzig Schweizer Orte beherbergen Kundgebungen zum internationalen Tag der Arbeiterrechte.',
     'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': '1. Mai Demonstration in Bellinzona mit Transparenten und Fahnen',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.title': 'Wochenende am 1. Mai in Varese: Unverpassbare Ereignisse',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'Von der Feier des San Vittore bis zur Ballonfahrt in Angera, hier ist, was man am Wochenende des 1. Mai in der Provinz Varese unternehmen kann',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Wochenendveranstaltungen in Varese mit Heißluftballons über dem Lago Maggiore und Familien, die Outdoor-Aktivitäten genießen',
 };
 
 export default blogMetaDe;
