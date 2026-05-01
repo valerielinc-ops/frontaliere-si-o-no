@@ -4904,6 +4904,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.title': '5 curiosités sur les brevets suisses',
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.excerpt': 'La Suisse est le pays le plus innovant d\'Europe en matière de brevets. Voici les données les plus intéressantes de 2025.',
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.imageAlt': 'Vue aérienne du Monte San Salvatore surplombant Lugano, Tessin, Suisse',
+    'blog.article.liberta-stampa-minimi-25-anni.title': 'Liberté de la presse en Suisse: 8ème au monde',
+    'blog.article.liberta-stampa-minimi-25-anni.excerpt': 'La Suisse se classe à la huitième place dans le classement mondial de la liberté de la presse, mais présente des critiques juridiques et économiques.',
+    'blog.article.liberta-stampa-minimi-25-anni.imageAlt': 'Château de Castelgrande à Bellinzone, Tessin, Suisse',
 };
 
 export default blogMetaFr;

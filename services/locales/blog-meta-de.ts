@@ -4903,6 +4903,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.title': 'Fünf Fakten zu Schweizer Patenten',
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.excerpt': 'Die Schweiz ist das innovativste Land Europas in Sachen Patente. Hier sind die interessantesten Daten aus dem Jahr 2025.',
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.imageAlt': 'Luftaufnahme des Monte San Salvatore mit Blick auf Lugano, Tessin, Schweiz',
+    'blog.article.liberta-stampa-minimi-25-anni.title': 'Pressefreiheit in der Schweiz: Platz acht weltweit',
+    'blog.article.liberta-stampa-minimi-25-anni.excerpt': 'Die Schweiz belegt den achten Platz im weltweiten Ranking der Pressefreiheit, weist aber rechtliche und wirtschaftliche Schwachstellen auf.',
+    'blog.article.liberta-stampa-minimi-25-anni.imageAlt': 'Castelgrande Schloss in Bellinzona, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

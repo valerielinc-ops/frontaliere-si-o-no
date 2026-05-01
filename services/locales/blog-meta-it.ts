@@ -4904,6 +4904,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.title': 'Cinque curiosità sui brevetti svizzeri',
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.excerpt': 'La Svizzera è il paese più innovativo d\'Europa in materia di brevetti. Ecco i dati più interessanti del 2025.',
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.imageAlt': 'Vista aerea del Monte San Salvatore sopra Lugano, Ticino, Svizzera',
+    'blog.article.liberta-stampa-minimi-25-anni.title': 'Libertà di stampa in Svizzera: ottava nel mondo',
+    'blog.article.liberta-stampa-minimi-25-anni.excerpt': 'La Svizzera si posiziona all\'ottavo posto nella classifica mondiale della libertà di stampa, ma presenta criticità giuridiche ed economiche.',
+    'blog.article.liberta-stampa-minimi-25-anni.imageAlt': 'Castelgrande a Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

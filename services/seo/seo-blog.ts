@@ -34375,6 +34375,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-liberta-stampa-minimi-25-anni': {
+    title: 'Libertà di stampa in Svizzera: ottava nel mondo | Frontaliere Ticino',
+    description: 'La Svizzera si posiziona all\'ottavo posto nella classifica mondiale della libertà di stampa, ma presenta criticità giuridiche ed economiche. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, libertà, stampa, ottava, mondo',
+    ogTitle: 'Libertà di stampa in Svizzera: ottava nel mondo',
+    ogDescription: 'La Svizzera si posiziona all\'ottavo posto nella classifica mondiale della libertà di stampa, ma presenta criticità giuridiche ed economiche.',
+    canonicalPath: '/articoli-frontaliere/liberta-stampa-minimi-25-anni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Libertà di stampa in Svizzera: ottava nel mondo",
+      "description": "La Svizzera si posiziona all'ottavo posto nella classifica mondiale della libertà di stampa, ma presenta criticità giuridiche ed economiche. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/liberta-stampa-minimi-25-anni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino, Svizzera"
+      },
+      "datePublished": "2026-05-01T20:38:28+00:00",
+      "dateModified": "2026-05-01T20:38:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/liberta-stampa-minimi-25-anni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

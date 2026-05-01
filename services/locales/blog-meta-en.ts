@@ -4903,6 +4903,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.title': 'Five facts about Swiss patents',
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.excerpt': 'Switzerland is Europe\'s most innovative country when it comes to patents. Here are the most interesting figures from 2025.',
     'blog.article.cinque-curiosita-brevetti-svizzeri-2026.imageAlt': 'Aerial view of Monte San Salvatore overlooking Lugano, Ticino, Switzerland',
+    'blog.article.liberta-stampa-minimi-25-anni.title': 'Switzerland ranks 8th in world press freedom',
+    'blog.article.liberta-stampa-minimi-25-anni.excerpt': 'Switzerland ranks 8th in the global press freedom index, but faces legal and economic challenges.',
+    'blog.article.liberta-stampa-minimi-25-anni.imageAlt': 'Castelgrande Castle in Bellinzona, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

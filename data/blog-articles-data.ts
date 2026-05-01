@@ -12454,4 +12454,11 @@ export const ARTICLES = [
  image: '/images/blog/cinque-curiosita-brevetti-svizzeri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'liberta-stampa-minimi-25-anni',
+ category: 'novita',
+ date: '2026-05-01T20:38:28.742Z',
+ image: '/images/blog/liberta-stampa-minimi-25-anni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -2865,6 +2865,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-delia-bella-ciao-concertone-2026': { name: 'Novità', path: '/articoli-frontaliere/delia-bella-ciao-concertone-2026', parent: 'blog' },
     'blog-funivia-santis-ammodernamento-2026': { name: 'Novità', path: '/articoli-frontaliere/funivia-santis-ammodernamento-2026', parent: 'blog' },
     'blog-cinque-curiosita-brevetti-svizzeri-2026': { name: 'Novità', path: '/articoli-frontaliere/cinque-curiosita-brevetti-svizzeri-2026', parent: 'blog' },
+    'blog-liberta-stampa-minimi-25-anni': { name: 'Libertà stampa', path: '/articoli-frontaliere/liberta-stampa-minimi-25-anni', parent: 'blog' },
  };
 
  const info = sectionNames[section];
