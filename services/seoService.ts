@@ -2761,6 +2761,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-audit-polizia-ticino-2026': { name: 'Audit Polizia', path: '/articoli-frontaliere/audit-polizia-ticino-2026', parent: 'blog' },
     'blog-tassa-salute-frontalieri-lombardia-piemonte': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-piemonte', parent: 'blog' },
     'blog-zonaprotetta-40-anni-sessualita-consapevole': { name: 'Novità', path: '/articoli-frontaliere/zonaprotetta-40-anni-sessualita-consapevole', parent: 'blog' },
+    'blog-cina-turismo-interno-2026': { name: 'Novità', path: '/articoli-frontaliere/cina-turismo-interno-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

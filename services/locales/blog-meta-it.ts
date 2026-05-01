@@ -4592,6 +4592,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.zonaprotetta-40-anni-sessualita-consapevole.title': 'Zonaprotetta festeggia 40 anni: da lotta all\'Aids a sessualità consapevole',
     'blog.article.zonaprotetta-40-anni-sessualita-consapevole.excerpt': 'L\'associazione Zonaprotetta compie 40 anni, celebrando il passaggio dalla lotta all\'Aids alla promozione della sessualità consapevole in Ticino.',
     'blog.article.zonaprotetta-40-anni-sessualita-consapevole.imageAlt': 'Centro di consulenza per la salute sessuale a Lugano, Ticino',
+    'blog.article.cina-turismo-interno-2026.title': 'Cina: boom di viaggi interni e spese per il turismo',
+    'blog.article.cina-turismo-interno-2026.excerpt': 'Nel primo trimestre 2026, la Cina registra 1,9 miliardi di viaggi interni e 271 miliardi di dollari di spesa turistica',
+    'blog.article.cina-turismo-interno-2026.imageAlt': 'Vista del lago di Lugano con la città sullo sfondo',
 };
 
 export default blogMetaIt;

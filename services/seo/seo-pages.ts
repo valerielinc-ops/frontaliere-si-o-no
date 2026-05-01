@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1580,
+ "numberOfItems": 1581,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6215,7 +6215,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1577, "name": "Furti in chiese e negozi: arresti e appello a s...", "url": `${BASE_URL}/articoli-frontaliere/furti-chiese-negozi-ticino-arresti` },
           { "@type": "ListItem", "position": 1578, "name": "Audit Polizia Ticino: governo chiede sei mesi i...", "url": `${BASE_URL}/articoli-frontaliere/audit-polizia-ticino-2026` },
           { "@type": "ListItem", "position": 1579, "name": "Tassa salute frontalieri: Lombardia richiede al...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-piemonte` },
-          { "@type": "ListItem", "position": 1580, "name": "Zonaprotetta festeggia 40 anni: da lotta all'Ai...", "url": `${BASE_URL}/articoli-frontaliere/zonaprotetta-40-anni-sessualita-consapevole` }
+          { "@type": "ListItem", "position": 1580, "name": "Zonaprotetta festeggia 40 anni: da lotta all'Ai...", "url": `${BASE_URL}/articoli-frontaliere/zonaprotetta-40-anni-sessualita-consapevole` },
+          { "@type": "ListItem", "position": 1581, "name": "Cina: boom di viaggi interni e spese per il tur...", "url": `${BASE_URL}/articoli-frontaliere/cina-turismo-interno-2026` }
  ]
  },
  {

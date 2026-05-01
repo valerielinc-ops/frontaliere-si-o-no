@@ -11726,4 +11726,11 @@ export const ARTICLES = [
  image: '/images/blog/zonaprotetta-40-anni-sessualita-consapevole.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cina-turismo-interno-2026',
+ category: 'novita',
+ date: '2026-05-01T05:21:28.511Z',
+ image: '/images/blog/cina-turismo-interno-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

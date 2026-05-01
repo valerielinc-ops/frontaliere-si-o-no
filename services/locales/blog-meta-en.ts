@@ -4591,6 +4591,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.zonaprotetta-40-anni-sessualita-consapevole.title': 'Zonaprotetta celebrates 40 years: from AIDS fight to aware sexuality',
     'blog.article.zonaprotetta-40-anni-sessualita-consapevole.excerpt': 'The Zonaprotetta association turns 40, marking the shift from the fight against AIDS to promoting aware sexuality in Ticino.',
     'blog.article.zonaprotetta-40-anni-sessualita-consapevole.imageAlt': 'Sexual health consultation center in Lugano, Ticino',
+    'blog.article.cina-turismo-interno-2026.title': 'China: surge in domestic travel and tourism spending',
+    'blog.article.cina-turismo-interno-2026.excerpt': 'In the first quarter of 2026, China recorded 1.9 billion domestic trips and };71 billion in tourism expenditure',
+    'blog.article.cina-turismo-interno-2026.imageAlt': 'View of Lake Lugano with the city in the background',
 };
 
 export default blogMetaEn;
