@@ -31707,6 +31707,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dramma-canton-ticino-bimbo-annega-piscina': {
+    title: 'Dramma in Canton Ticino: bimbo di due anni annega in piscina',
+    description: 'Un tragico incidente in una piscina privata ha sconvolto la comunità del Canton Ticino. Un bimbo di due anni ha perso la vita. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, dramma, canton, bimbo, anni',
+    ogTitle: 'Dramma in Canton Ticino: bimbo di due anni annega in piscina',
+    ogDescription: 'Un tragico incidente in una piscina privata ha sconvolto la comunità del Canton Ticino. Un bimbo di due anni ha perso la vita.',
+    canonicalPath: '/articoli-frontaliere/dramma-canton-ticino-bimbo-annega-piscina',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dramma in Canton Ticino: bimbo di due anni annega in piscina",
+      "description": "Un tragico incidente in una piscina privata ha sconvolto la comunità del Canton Ticino. Un bimbo di due anni ha perso la vita. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dramma-canton-ticino-bimbo-annega-piscina.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena del Lago di Lugano con lo skyline della città sullo sfondo"
+      },
+      "datePublished": "2026-05-01T06:57:48+00:00",
+      "dateModified": "2026-05-01T06:57:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dramma-canton-ticino-bimbo-annega-piscina`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

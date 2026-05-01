@@ -4627,6 +4627,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.title': 'Referees investigation: Inter-Roma case to Rocchi\'s explanation',
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.excerpt': 'Gianluca Rocchi under investigation for sports fraud. Updates on the referees inquiry in Italy.',
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.imageAlt': 'Football match in Lugano, with fans in the stands',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.title': 'Tragedy in Ticino: Two-Year-Old Drowns in Private Pool',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.excerpt': 'A tragic accident in a private pool has shaken the Canton Ticino community. A two-year-old child has lost their life.',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.imageAlt': 'Serene view of Lake Lugano with the city skyline in the background',
 };
 
 export default blogMetaEn;

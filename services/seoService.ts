@@ -2773,6 +2773,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mondo-radio-piange-alberto-davoli': { name: 'Novità', path: '/articoli-frontaliere/mondo-radio-piange-alberto-davoli', parent: 'blog' },
     'blog-rendiconto-banca-interpretazione-2026': { name: 'Rendiconto banca', path: '/articoli-frontaliere/rendiconto-banca-interpretazione-2026', parent: 'blog' },
     'blog-inchiesta-arbitri-roccchi-inter-roma': { name: 'Inchiesta arbitri', path: '/articoli-frontaliere/inchiesta-arbitri-roccchi-inter-roma', parent: 'blog' },
+    'blog-dramma-canton-ticino-bimbo-annega-piscina': { name: 'Dramma Ticino', path: '/articoli-frontaliere/dramma-canton-ticino-bimbo-annega-piscina', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4628,6 +4628,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.title': 'Enquête arbitres, de l\'affaire Inter-Roma à l\'explication de Rocchi',
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.excerpt': 'Gianluca Rocchi est sous enquête pour fraude sportive. Nouvelles sur l\'enquête des arbitres en Italie.',
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.imageAlt': 'Match de football à Lugano, avec des supporters dans les gradins',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.title': 'Drame dans le canton du Ticino: un enfant de deux ans se noie dans une piscine',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.excerpt': 'Un tragique accident dans une piscine privée a bouleversé la communauté du canton du Ticino. Un enfant de deux ans a perdu la vie.',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.imageAlt': 'Vue sereine du lac de Lugano avec la skyline de la ville en arrière-plan',
 };
 
 export default blogMetaFr;

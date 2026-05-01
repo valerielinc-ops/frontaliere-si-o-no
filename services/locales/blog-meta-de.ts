@@ -4627,6 +4627,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.title': 'Schiedsrichter-Skandal: Rocchi und Inter-Roma-Fall',
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.excerpt': 'Gianluca Rocchi wird wegen Sportbetrugs untersucht. Neue Entwicklungen im italienischen Schiedsrichter-Skandal.',
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.imageAlt': 'Fußballspiel in Lugano, mit Fans auf den Tribünen',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.title': 'Tragödie im Kanton Tessin: Zweijähriger ertrinkt im Pool',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.excerpt': 'Ein tragischer Unfall in einem privaten Pool hat die Gemeinschaft des Kantons Tessin erschüttert. Ein zweijähriges Kind hat sein Leben verloren.',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.imageAlt': 'Ruhige Ansicht des Luganer Sees mit der Skyline der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -11810,4 +11810,11 @@ export const ARTICLES = [
  image: '/images/blog/inchiesta-arbitri-roccchi-inter-roma.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dramma-canton-ticino-bimbo-annega-piscina',
+ category: 'novita',
+ date: '2026-05-01T06:57:48.277Z',
+ image: '/images/blog/dramma-canton-ticino-bimbo-annega-piscina.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

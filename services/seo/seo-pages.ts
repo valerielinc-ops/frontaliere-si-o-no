@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1592,
+ "numberOfItems": 1593,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6227,7 +6227,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1589, "name": "Concertone Primo Maggio Roma artisti scaletta 2026", "url": `${BASE_URL}/articoli-frontaliere/concertone-primo-maggio-roma-artisti-2026` },
           { "@type": "ListItem", "position": 1590, "name": "Il mondo della radio piange Alberto Davoli", "url": `${BASE_URL}/articoli-frontaliere/mondo-radio-piange-alberto-davoli` },
           { "@type": "ListItem", "position": 1591, "name": "Rendiconto annuale banca: come interpretarlo", "url": `${BASE_URL}/articoli-frontaliere/rendiconto-banca-interpretazione-2026` },
-          { "@type": "ListItem", "position": 1592, "name": "Inchiesta arbitri, dal caso Inter-Roma alla spi...", "url": `${BASE_URL}/articoli-frontaliere/inchiesta-arbitri-roccchi-inter-roma` }
+          { "@type": "ListItem", "position": 1592, "name": "Inchiesta arbitri, dal caso Inter-Roma alla spi...", "url": `${BASE_URL}/articoli-frontaliere/inchiesta-arbitri-roccchi-inter-roma` },
+          { "@type": "ListItem", "position": 1593, "name": "Dramma in Canton Ticino: bimbo di due anni anne...", "url": `${BASE_URL}/articoli-frontaliere/dramma-canton-ticino-bimbo-annega-piscina` }
  ]
  },
  {

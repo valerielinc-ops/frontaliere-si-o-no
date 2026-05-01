@@ -4628,6 +4628,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.title': 'Inchiesta arbitri, dal caso Inter-Roma alla spiegazione di Rocchi',
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.excerpt': 'Gianluca Rocchi indagato per frode sportiva. Novità sull\'inchiesta arbitri in Italia.',
     'blog.article.inchiesta-arbitri-roccchi-inter-roma.imageAlt': 'Partita di calcio a Lugano, con tifosi negli spalti',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.title': 'Dramma in Canton Ticino: bimbo di due anni annega in piscina',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.excerpt': 'Un tragico incidente in una piscina privata ha sconvolto la comunità del Canton Ticino. Un bimbo di due anni ha perso la vita.',
+    'blog.article.dramma-canton-ticino-bimbo-annega-piscina.imageAlt': 'Vista serena del Lago di Lugano con lo skyline della città sullo sfondo',
 };
 
 export default blogMetaIt;
