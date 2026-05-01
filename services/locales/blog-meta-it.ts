@@ -4826,6 +4826,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mezzi-pesanti-biandronno-2026.title': 'Mezzi pesanti, Biandronno avvia sperimentazione',
     'blog.article.mezzi-pesanti-biandronno-2026.excerpt': 'Il sindaco Massimo Porotti annuncia l\'inizio della sperimentazione per limitare il traffico dei mezzi pesanti nel Medio Verbano',
     'blog.article.mezzi-pesanti-biandronno-2026.imageAlt': 'Vista aerea del Lago di Lugano con i paesi circostanti e le montagne',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.title': 'Trump aumenta dazi su auto e camion UE del 25%',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.excerpt': 'Il presidente USA annuncia l\'aumento dei dazi su auto e camion provenienti dall\'UE, accusando l\'Unione Europea di non rispettare l\'accordo commerciale.',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.imageAlt': 'Lago di Lugano con vista sul confine svizzero-italiano',
 };
 
 export default blogMetaIt;

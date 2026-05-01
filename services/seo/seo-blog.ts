@@ -33621,6 +33621,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trump-dazi-ue-frontalieri-ticino': {
+    title: 'Trump aumenta dazi su auto e camion UE del 25% | Frontaliere Ticino',
+    description: 'Il presidente USA annuncia l\'aumento dei dazi su auto e camion provenienti dall\'UE, accusando l\'Unione Europea di non rispettare l\'accordo commerciale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trump, aumenta, dazi, auto',
+    ogTitle: 'Trump aumenta dazi UE del 25% su auto e camion',
+    ogDescription: 'Il presidente USA annuncia l\'aumento dei dazi su auto e camion provenienti dall\'UE, accusando l\'Unione Europea di non rispettare l\'accordo commerciale.',
+    canonicalPath: '/articoli-frontaliere/trump-dazi-ue-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trump aumenta dazi UE del 25% su auto e camion",
+      "description": "Il presidente USA annuncia l'aumento dei dazi su auto e camion provenienti dall'UE, accusando l'Unione Europea di non rispettare l'accordo commerciale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trump-dazi-ue-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sul confine svizzero-italiano"
+      },
+      "datePublished": "2026-05-01T16:49:39+00:00",
+      "dateModified": "2026-05-01T16:49:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trump-dazi-ue-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

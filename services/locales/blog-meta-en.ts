@@ -4825,6 +4825,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mezzi-pesanti-biandronno-2026.title': 'Heavy traffic, Biandronno starts trial',
     'blog.article.mezzi-pesanti-biandronno-2026.excerpt': 'Mayor Massimo Porotti announces the start of the trial to limit heavy traffic in Medio Verbano',
     'blog.article.mezzi-pesanti-biandronno-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding towns and mountains',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.title': 'Trump raises EU car tariffs to 25%',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.excerpt': 'The US president announces increased tariffs on cars and trucks from the EU, accusing the European Union of not respecting the trade agreement.',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
 };
 
 export default blogMetaEn;

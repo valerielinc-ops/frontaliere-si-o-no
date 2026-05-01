@@ -4826,6 +4826,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mezzi-pesanti-biandronno-2026.title': 'Pesants, Biandronno lance une expérimentation',
     'blog.article.mezzi-pesanti-biandronno-2026.excerpt': 'Le maire Massimo Porotti annonce le début de l\'expérimentation pour limiter le trafic des poids lourds dans le Moyen Verbano',
     'blog.article.mezzi-pesanti-biandronno-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les villes environnantes et les montagnes',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.title': 'Trump augmente les droits de douane sur les véhicules de l\'UE',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.excerpt': 'Le président américain annonce l\'augmentation des droits de douane sur les voitures et camions en provenance de l\'UE, accusant l\'Union européenne de ne pas respecter l\'accord commercial.',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

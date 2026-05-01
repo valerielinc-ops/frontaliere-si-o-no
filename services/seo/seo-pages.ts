@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1658,
+ "numberOfItems": 1659,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6293,7 +6293,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1655, "name": "Radar sempre attivi: ecco dove dal 4 al 10 maggio", "url": `${BASE_URL}/articoli-frontaliere/radar-ticino-velocita-2026` },
           { "@type": "ListItem", "position": 1656, "name": "Manifestazioni del Primo maggio 2026 a Zurigo e...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-zurigo-basilea-2026` },
           { "@type": "ListItem", "position": 1657, "name": "Rive libere: Ascona apre al pubblico d'inverno", "url": `${BASE_URL}/articoli-frontaliere/rive-libere-ascona-2026` },
-          { "@type": "ListItem", "position": 1658, "name": "Mezzi pesanti, Biandronno avvia sperimentazione", "url": `${BASE_URL}/articoli-frontaliere/mezzi-pesanti-biandronno-2026` }
+          { "@type": "ListItem", "position": 1658, "name": "Mezzi pesanti, Biandronno avvia sperimentazione", "url": `${BASE_URL}/articoli-frontaliere/mezzi-pesanti-biandronno-2026` },
+          { "@type": "ListItem", "position": 1659, "name": "Trump aumenta dazi UE del 25% su auto e camion", "url": `${BASE_URL}/articoli-frontaliere/trump-dazi-ue-frontalieri-ticino` }
  ]
  },
  {

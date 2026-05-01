@@ -12272,4 +12272,11 @@ export const ARTICLES = [
  image: '/images/blog/mezzi-pesanti-biandronno-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'trump-dazi-ue-frontalieri-ticino',
+ category: 'fiscale',
+ date: '2026-05-01T16:49:39.141Z',
+ image: '/images/blog/trump-dazi-ue-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4825,6 +4825,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mezzi-pesanti-biandronno-2026.title': 'Schwerlastverkehr: Biandronno startet Testphase',
     'blog.article.mezzi-pesanti-biandronno-2026.excerpt': 'Bürgermeister Massimo Porotti kündigt den Beginn der Testphase zur Begrenzung des Schwerlastverkehrs im Mittelverbano an',
     'blog.article.mezzi-pesanti-biandronno-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Orten und Bergen',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.title': 'Trump erhöht Zölle auf EU-Autos auf 25%',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.excerpt': 'Der US-Präsident kündigt höhere Zölle auf Autos und LKWs aus der EU an und wirft der Europäischen Union vor, das Handelsabkommen nicht einzuhalten.',
+    'blog.article.trump-dazi-ue-frontalieri-ticino.imageAlt': 'Luganersee mit Blick auf die Schweizer-Italienische Grenze',
 };
 
 export default blogMetaDe;
