@@ -275,15 +275,22 @@ jobs:
 
       - name: Upload write-collisions analysis
         if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          gh run download "$DEPLOY_RUN_ID" \
+            --name "write-collisions-analysis-${DEPLOY_RUN_ID}" \
+            --dir /tmp/write-collisions/ || true
+
+      - name: Re-upload write-collisions analysis
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: write-collisions-analysis
-          path: |
-            dist/.write-collisions.json
-            dist/.write-collisions-data/
+          path: /tmp/write-collisions/
           retention-days: 7
           if-no-files-found: ignore
-          include-hidden-files: true
 
       - name: Wait for GitHub Pages CDN propagation
         # Polls /build-id.txt on the live site until it matches the deployed
@@ -429,7 +436,7 @@ jobs:
 
   rollback:
     needs: validate
-    if: ${{ needs.validate.result == 'failure' }}
+    if: ${{ always() && needs.validate.result == 'failure' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
