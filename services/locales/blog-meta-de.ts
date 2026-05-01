@@ -4864,6 +4864,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.collisione-cadegliano-varese-ferito-54enne.title': 'Unfall in Cadegliano-Viconago: 54-Jähriger verletzt',
     'blog.article.collisione-cadegliano-varese-ferito-54enne.excerpt': 'Ein Unfall zwischen einem Auto und einem Motorrad hat einen 54-Jährigen in Cadegliano-Viconago, Varese, verletzt. Hier sind die Details des Unfalls und die Folgen.',
     'blog.article.collisione-cadegliano-varese-ferito-54enne.imageAlt': 'Szene eines Autounfalls zwischen einem Auto und einem Motorrad in Cadegliano Viconago, Varese',
+    'blog.article.congresso-lugano-cancro-prostata-2024.title': 'Rekordkongress in Lugano gegen Prostatakrebs',
+    'blog.article.congresso-lugano-cancro-prostata-2024.excerpt': 'Über 1000 Ärzte und Forscher in Lugano für internationale Leitlinien. Im Tessin 400 Fälle pro Jahr.',
+    'blog.article.congresso-lugano-cancro-prostata-2024.imageAlt': 'Kongresspalast Lugano mit See im Hintergrund',
 };
 
 export default blogMetaDe;

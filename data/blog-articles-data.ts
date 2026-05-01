@@ -12363,4 +12363,11 @@ export const ARTICLES = [
  image: '/images/blog/collisione-cadegliano-varese-ferito-54enne.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'congresso-lugano-cancro-prostata-2024',
+ category: 'novita',
+ date: '2026-05-01T18:48:05.860Z',
+ image: '/images/blog/congresso-lugano-cancro-prostata-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4865,6 +4865,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.collisione-cadegliano-varese-ferito-54enne.title': 'Incidente a Cadegliano Viconago: ferito un 54enne',
     'blog.article.collisione-cadegliano-varese-ferito-54enne.excerpt': 'Un incidente tra un\'auto e una moto ha coinvolto un 54enne a Cadegliano Viconago, Varese. Ecco i dettagli dell\'incidente e le conseguenze.',
     'blog.article.collisione-cadegliano-varese-ferito-54enne.imageAlt': 'Scene di un incidente stradale tra un\'auto e una moto a Cadegliano Viconago, Varese',
+    'blog.article.congresso-lugano-cancro-prostata-2024.title': 'Congresso record a Lugano contro il cancro alla prostata',
+    'blog.article.congresso-lugano-cancro-prostata-2024.excerpt': 'Oltre 1000 medici e ricercatori a Lugano per linee guida internazionali. In Ticino 400 casi l\'anno.',
+    'blog.article.congresso-lugano-cancro-prostata-2024.imageAlt': 'Palazzo dei Congressi di Lugano con lago in secondo piano',
 };
 
 export default blogMetaIt;

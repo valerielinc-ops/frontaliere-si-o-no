@@ -33998,6 +33998,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congresso-lugano-cancro-prostata-2024': {
+    title: 'Congresso record a Lugano contro il cancro alla prostata',
+    description: 'Oltre 1000 medici e ricercatori a Lugano per linee guida internazionali. In Ticino 400 casi l\'anno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, congresso, record, lugano, contro',
+    ogTitle: 'Congresso record a Lugano contro il cancro alla prostata',
+    ogDescription: 'Oltre 1000 medici e ricercatori a Lugano per linee guida internazionali. In Ticino 400 casi l\'anno.',
+    canonicalPath: '/articoli-frontaliere/congresso-lugano-cancro-prostata-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congresso record a Lugano contro il cancro alla prostata",
+      "description": "Oltre 1000 medici e ricercatori a Lugano per linee guida internazionali. In Ticino 400 casi l'anno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/congresso-lugano-cancro-prostata-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo dei Congressi di Lugano con lago in secondo piano"
+      },
+      "datePublished": "2026-05-01T18:48:05+00:00",
+      "dateModified": "2026-05-01T18:48:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congresso-lugano-cancro-prostata-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
