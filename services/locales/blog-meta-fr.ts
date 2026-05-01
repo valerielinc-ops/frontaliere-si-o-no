@@ -4583,6 +4583,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-chiese-negozi-ticino-arresti.title': 'Vols dans les églises et magasins: arrestations et appel à signaler',
     'blog.article.furti-chiese-negozi-ticino-arresti.excerpt': 'Deux Roumains arrêtés pour des vols dans les églises et magasins en Tessin et Grisons. La police invite à signaler d\'éventuels autres épisodes.',
     'blog.article.furti-chiese-negozi-ticino-arresti.imageAlt': 'Vue aérienne d\'une église au Tessin avec une voiture de police garée à proximité, entourée de verdure luxuriante et de montagnes.',
+    'blog.article.audit-polizia-ticino-2026.title': 'Audit Police Ticino: gouvernement demande six mois de plus pour le message',
+    'blog.article.audit-polizia-ticino-2026.excerpt': 'Le Conseil d\'État demande un délai pour le message sur l\'audit de la Police Cantonale. Dadò et Ferrara insistent sur l\'urgence.',
+    'blog.article.audit-polizia-ticino-2026.imageAlt': 'Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;

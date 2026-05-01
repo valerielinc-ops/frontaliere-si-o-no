@@ -4582,6 +4582,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-chiese-negozi-ticino-arresti.title': 'Arrests for thefts in churches and shops',
     'blog.article.furti-chiese-negozi-ticino-arresti.excerpt': 'Two Romanians arrested for thefts in churches and shops in Ticino and Grisons. The police invite to report any other incidents.',
     'blog.article.furti-chiese-negozi-ticino-arresti.imageAlt': 'Aerial view of a church in Ticino with a police car parked nearby, surrounded by lush greenery and mountains.',
+    'blog.article.audit-polizia-ticino-2026.title': 'Ticino Police Audit: Government Requests Six-Month Extension',
+    'blog.article.audit-polizia-ticino-2026.excerpt': 'The State Council asks for an extension for the message on the Canton Police audit. Dadò and Ferrara insist on urgency.',
+    'blog.article.audit-polizia-ticino-2026.imageAlt': 'Castelgrande in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

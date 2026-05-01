@@ -4582,6 +4582,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-chiese-negozi-ticino-arresti.title': 'Diebstähle in Kirchen und Geschäften: Festnahmen und Aufruf zur Meldung',
     'blog.article.furti-chiese-negozi-ticino-arresti.excerpt': 'Zwei Rumänen wurden wegen Diebstählen in Kirchen und Geschäften in Tessin und Graubünden festgenommen. Die Polizei fordert zur Meldung weiterer Vorfälle auf.',
     'blog.article.furti-chiese-negozi-ticino-arresti.imageAlt': 'Luftaufnahme einer Kirche im Tessin mit einem daneben geparkten Polizeiauto, umgeben von üppiger Vegetation und Bergen.',
+    'blog.article.audit-polizia-ticino-2026.title': 'Audit Polizei Tessin: Regierung bittet um sechs Monate mehr für Botschaft',
+    'blog.article.audit-polizia-ticino-2026.excerpt': 'Der Staatsrat bittet um eine Fristverlängerung für die Botschaft zur Prüfung der Kantonspolizei. Dadò und Ferrara betonen die Dringlichkeit.',
+    'blog.article.audit-polizia-ticino-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

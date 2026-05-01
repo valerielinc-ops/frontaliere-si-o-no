@@ -2758,6 +2758,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-direttore-controllo-finanze-ticino': { name: 'Novità', path: '/articoli-frontaliere/nuovo-direttore-controllo-finanze-ticino', parent: 'blog' },
     'blog-riapre-ufficio-postale-casale-litta': { name: 'Novità', path: '/articoli-frontaliere/riapre-ufficio-postale-casale-litta', parent: 'blog' },
     'blog-furti-chiese-negozi-ticino-arresti': { name: 'Novità', path: '/articoli-frontaliere/furti-chiese-negozi-ticino-arresti', parent: 'blog' },
+    'blog-audit-polizia-ticino-2026': { name: 'Audit Polizia', path: '/articoli-frontaliere/audit-polizia-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

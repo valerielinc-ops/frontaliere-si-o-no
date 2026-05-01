@@ -11705,4 +11705,11 @@ export const ARTICLES = [
  image: '/images/blog/furti-chiese-negozi-ticino-arresti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'audit-polizia-ticino-2026',
+ category: 'novita',
+ date: '2026-05-01T04:58:57.119Z',
+ image: '/images/blog/audit-polizia-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

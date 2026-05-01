@@ -4583,6 +4583,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-chiese-negozi-ticino-arresti.title': 'Furti in chiese e negozi: arresti e appello a segnalare',
     'blog.article.furti-chiese-negozi-ticino-arresti.excerpt': 'Due rumeni arrestati per furti in chiese e negozi in Ticino e Grigioni. La polizia invita a segnalare eventuali altri episodi.',
     'blog.article.furti-chiese-negozi-ticino-arresti.imageAlt': 'Vista aerea di una chiesa nel Ticino con un\'auto della polizia parcheggiata vicino, circondata da verde lussureggiante e montagne.',
+    'blog.article.audit-polizia-ticino-2026.title': 'Audit Polizia Ticino: governo chiede sei mesi in più per il messaggio',
+    'blog.article.audit-polizia-ticino-2026.excerpt': 'Il Consiglio di Stato chiede una proroga per il messaggio sull\'audit della Polizia Cantonale. Dadò e Ferrara insistono sull\'urgenza.',
+    'blog.article.audit-polizia-ticino-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

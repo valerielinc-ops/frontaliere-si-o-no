@@ -31272,6 +31272,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-audit-polizia-ticino-2026': {
+    title: 'Audit Polizia Ticino: governo chiede sei mesi in più per il messaggio',
+    description: 'Il Consiglio di Stato del Canton Ticino chiede una proroga per il messaggio sull\'audit della Polizia Cantonale. Dadò e Ferrara insistono sull\'urgenza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, audit, polizia, governo, chiede',
+    ogTitle: 'Audit Polizia Ticino: governo chiede sei mesi in più per il messaggio',
+    ogDescription: 'Il Consiglio di Stato del Canton Ticino chiede una proroga per il messaggio sull\'audit della Polizia Cantonale. Dadò e Ferrara insistono sull\'urgenza.',
+    canonicalPath: '/articoli-frontaliere/audit-polizia-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Audit Polizia Ticino: governo chiede sei mesi in più per il messaggio",
+      "description": "Il Consiglio di Stato del Canton Ticino chiede una proroga per il messaggio sull'audit della Polizia Cantonale. Dadò e Ferrara insistono sull'urgenza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/audit-polizia-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-05-01T04:58:57+00:00",
+      "dateModified": "2026-05-01T04:58:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/audit-polizia-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
