@@ -4573,6 +4573,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-bilancio-2026-avanzo-record.title': 'Varese approves 2026 budget with record surplus: 17 million',
     'blog.article.varese-bilancio-2026-avanzo-record.excerpt': 'The Province of Varese approves a thriving budget with a free administrative surplus of over 17 million euros.',
     'blog.article.varese-bilancio-2026-avanzo-record.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano and surrounding mountains',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.title': 'Ticino seeks new finance director',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.excerpt': 'Giovanni Cavallero will retire in 2027. The Canton has opened the competition for his replacement.',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.imageAlt': 'Palazzo del Governo in Bellinzona, headquarters of the Government of Canton Ticino',
 };
 
 export default blogMetaEn;

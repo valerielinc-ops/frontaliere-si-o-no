@@ -4573,6 +4573,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-bilancio-2026-avanzo-record.title': 'Varese genehmigt Haushalt 2026 mit Rekordüberschuss: 17 Mio.',
     'blog.article.varese-bilancio-2026-avanzo-record.excerpt': 'Die Provinz Varese genehmigt einen florierenden Haushalt mit einem freien Verwaltungsüberschuss von über 17 Millionen Euro.',
     'blog.article.varese-bilancio-2026-avanzo-record.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano und den umliegenden Bergen',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.title': 'Kanton Tessin sucht neuen Finanzkontrolleur',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.excerpt': 'Giovanni Cavallero geht 2027 in Pension. Der Kanton hat die Ausschreibung für seinen Nachfolger eröffnet.',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.imageAlt': 'Palazzo del Governo in Bellinzona, Sitz der Regierung des Kantons Tessin',
 };
 
 export default blogMetaDe;

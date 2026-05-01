@@ -4574,6 +4574,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-bilancio-2026-avanzo-record.title': 'Varèse approuve un budget 2026 avec un excédent record de 17 millions',
     'blog.article.varese-bilancio-2026-avanzo-record.excerpt': 'La Province de Varèse approuve un budget florissant avec un excédent libre de gestion de plus de 17 millions d\'euros.',
     'blog.article.varese-bilancio-2026-avanzo-record.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano et les montagnes environnantes',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.title': 'Le canton du Tessin cherche un nouveau directeur des finances',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.excerpt': 'Giovanni Cavallero partira à la retraite en 2027. Le canton a lancé un concours pour son successeur.',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.imageAlt': 'Palazzo del Governo à Bellinzona, siège du gouvernement du canton du Tessin',
 };
 
 export default blogMetaFr;

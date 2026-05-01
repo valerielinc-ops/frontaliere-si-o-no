@@ -4574,6 +4574,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-bilancio-2026-avanzo-record.title': 'Varese approva bilancio 2026 con avanzo record: 17 milioni',
     'blog.article.varese-bilancio-2026-avanzo-record.excerpt': 'La Provincia di Varese approva un bilancio florido con un avanzo libero di amministrazione di oltre 17 milioni di euro.',
     'blog.article.varese-bilancio-2026-avanzo-record.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano e le montagne circostanti',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.title': 'Canton Ticino cerca nuovo direttore del Controllo cantonale delle finanze',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.excerpt': 'Giovanni Cavallero andrà in pensione nel 2027. Il Cantone ha aperto il concorso per il suo sostituto.',
+    'blog.article.nuovo-direttore-controllo-finanze-ticino.imageAlt': 'Palazzo del Governo a Bellinzona, sede del Consiglio di Stato del Canton Ticino',
 };
 
 export default blogMetaIt;

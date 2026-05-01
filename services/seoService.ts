@@ -2755,6 +2755,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-fino-mornasco-30-aprile-2026': { name: 'Incidente Fino Mornasco', path: '/articoli-frontaliere/incidente-fino-mornasco-30-aprile-2026', parent: 'blog' },
     'blog-galleria-gottardo-secondo-tubo-2026': { name: 'Novità', path: '/articoli-frontaliere/galleria-gottardo-secondo-tubo-2026', parent: 'blog' },
     'blog-varese-bilancio-2026-avanzo-record': { name: 'Bilancio Varese', path: '/articoli-frontaliere/varese-bilancio-2026-avanzo-record', parent: 'blog' },
+    'blog-nuovo-direttore-controllo-finanze-ticino': { name: 'Novità', path: '/articoli-frontaliere/nuovo-direttore-controllo-finanze-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

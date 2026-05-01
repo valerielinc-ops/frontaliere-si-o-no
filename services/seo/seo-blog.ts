@@ -31185,6 +31185,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-direttore-controllo-finanze-ticino': {
+    title: 'Canton Ticino cerca nuovo direttore del Controllo cantonale delle finanze',
+    description: 'Il Canton Ticino cerca un nuovo direttore per il Controllo cantonale delle finanze. Scopri i dettagli e come candidarti. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, canton, cerca, nuovo, direttore',
+    ogTitle: 'Nuovo direttore Controllo cantonale delle finanze Ticino',
+    ogDescription: 'Il Canton Ticino cerca un nuovo direttore per il Controllo cantonale delle finanze. Scopri i dettagli e come candidarti.',
+    canonicalPath: '/articoli-frontaliere/nuovo-direttore-controllo-finanze-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo direttore Controllo cantonale delle finanze Ticino",
+      "description": "Il Canton Ticino cerca un nuovo direttore per il Controllo cantonale delle finanze. Scopri i dettagli e come candidarti. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-direttore-controllo-finanze-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Governo a Bellinzona, sede del Consiglio di Stato del Canton Ticino"
+      },
+      "datePublished": "2026-05-01T04:20:27+00:00",
+      "dateModified": "2026-05-01T04:20:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-direttore-controllo-finanze-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

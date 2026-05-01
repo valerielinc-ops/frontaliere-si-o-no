@@ -11684,4 +11684,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-bilancio-2026-avanzo-record.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovo-direttore-controllo-finanze-ticino',
+ category: 'novita',
+ date: '2026-05-01T04:20:27.331Z',
+ image: '/images/blog/nuovo-direttore-controllo-finanze-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
