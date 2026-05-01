@@ -4621,6 +4621,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mondo-radio-piange-alberto-davoli.title': 'Die Radiowelt trauert um Alberto Davoli',
     'blog.article.mondo-radio-piange-alberto-davoli.excerpt': 'Der Pionier der Privatsender ist im Alter von 60 Jahren nach langer Krankheit verstorben. Die Beerdigung findet morgen in Brunella statt.',
     'blog.article.mondo-radio-piange-alberto-davoli.imageAlt': 'Radiomikrofon auf einem Schreibtisch in einem Ticino-Studio',
+    'blog.article.rendiconto-banca-interpretazione-2026.title': 'Jahresabrechnung der Bank: So liest du sie',
+    'blog.article.rendiconto-banca-interpretazione-2026.excerpt': 'Erfahre, wie du die Jahresabrechnung über Kosten und Gebühren deiner Bank liest und was das für deine Investitionen bedeutet.',
+    'blog.article.rendiconto-banca-interpretazione-2026.imageAlt': 'Panoramablick auf den Luganersee mit der Innenstadt im Hintergrund',
 };
 
 export default blogMetaDe;

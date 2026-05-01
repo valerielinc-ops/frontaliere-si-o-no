@@ -31649,6 +31649,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rendiconto-banca-interpretazione-2026': {
+    title: 'Rendiconto annuale banca: come interpretarlo | Frontaliere Ticino',
+    description: 'Scopri come leggere il rendiconto annuale su costi e oneri della tua banca e cosa significa per i tuoi investimenti. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, rendiconto, annuale, banca, interpretarlo',
+    ogTitle: 'Rendiconto annuale banca: come interpretarlo',
+    ogDescription: 'Scopri come leggere il rendiconto annuale su costi e oneri della tua banca e cosa significa per i tuoi investimenti.',
+    canonicalPath: '/articoli-frontaliere/rendiconto-banca-interpretazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rendiconto annuale banca: come interpretarlo",
+      "description": "Scopri come leggere il rendiconto annuale su costi e oneri della tua banca e cosa significa per i tuoi investimenti. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rendiconto-banca-interpretazione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con il centro città sullo sfondo"
+      },
+      "datePublished": "2026-05-01T06:41:20+00:00",
+      "dateModified": "2026-05-01T06:41:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rendiconto-banca-interpretazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

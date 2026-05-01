@@ -4622,6 +4622,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mondo-radio-piange-alberto-davoli.title': 'Il mondo della radio piange Alberto Davoli',
     'blog.article.mondo-radio-piange-alberto-davoli.excerpt': 'Il pioniere delle emittenti private è mancato a 60 anni dopo una lunga malattia. Funerali domani alla Brunella.',
     'blog.article.mondo-radio-piange-alberto-davoli.imageAlt': 'Microfono da studio radiofonico su una scrivania in Ticino',
+    'blog.article.rendiconto-banca-interpretazione-2026.title': 'Rendiconto annuale banca: come interpretarlo',
+    'blog.article.rendiconto-banca-interpretazione-2026.excerpt': 'Scopri come leggere il rendiconto annuale su costi e oneri della tua banca e cosa significa per i tuoi investimenti.',
+    'blog.article.rendiconto-banca-interpretazione-2026.imageAlt': 'Vista panoramica del Lago di Lugano con il centro città sullo sfondo',
 };
 
 export default blogMetaIt;
