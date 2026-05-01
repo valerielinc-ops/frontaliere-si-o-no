@@ -4907,6 +4907,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.liberta-stampa-minimi-25-anni.title': 'Libertà di stampa in Svizzera: ottava nel mondo',
     'blog.article.liberta-stampa-minimi-25-anni.excerpt': 'La Svizzera si posiziona all\'ottavo posto nella classifica mondiale della libertà di stampa, ma presenta criticità giuridiche ed economiche.',
     'blog.article.liberta-stampa-minimi-25-anni.imageAlt': 'Castelgrande a Bellinzona, Ticino, Svizzera',
+    'blog.article.villaggio-angelo-busto-arsizio.title': 'Dolore e vicinanza per Matteo e la sua famiglia',
+    'blog.article.villaggio-angelo-busto-arsizio.excerpt': 'Il villaggio di Busto Arsizio si stringe intorno alla famiglia di Matteo, un bambino di 4 anni scomparso, con dolore e affetto.',
+    'blog.article.villaggio-angelo-busto-arsizio.imageAlt': 'Villaggio di Busto Arsizio con una chiesa e persone riunite intorno',
 };
 
 export default blogMetaIt;

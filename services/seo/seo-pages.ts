@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1685,
+ "numberOfItems": 1686,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6320,7 +6320,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1682, "name": "Delia cambia testo Bella Ciao al Concertone: pi...", "url": `${BASE_URL}/articoli-frontaliere/delia-bella-ciao-concertone-2026` },
           { "@type": "ListItem", "position": 1683, "name": "Funivia del Säntis chiusa per mesi: ammodername...", "url": `${BASE_URL}/articoli-frontaliere/funivia-santis-ammodernamento-2026` },
           { "@type": "ListItem", "position": 1684, "name": "Cinque curiosità sui brevetti svizzeri", "url": `${BASE_URL}/articoli-frontaliere/cinque-curiosita-brevetti-svizzeri-2026` },
-          { "@type": "ListItem", "position": 1685, "name": "Libertà di stampa in Svizzera: ottava nel mondo", "url": `${BASE_URL}/articoli-frontaliere/liberta-stampa-minimi-25-anni` }
+          { "@type": "ListItem", "position": 1685, "name": "Libertà di stampa in Svizzera: ottava nel mondo", "url": `${BASE_URL}/articoli-frontaliere/liberta-stampa-minimi-25-anni` },
+          { "@type": "ListItem", "position": 1686, "name": "Tutto il villaggio dal suo piccolo angelo: il d...", "url": `${BASE_URL}/articoli-frontaliere/villaggio-angelo-busto-arsizio` }
  ]
  },
  {

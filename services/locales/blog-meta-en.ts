@@ -4906,6 +4906,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.liberta-stampa-minimi-25-anni.title': 'Switzerland ranks 8th in world press freedom',
     'blog.article.liberta-stampa-minimi-25-anni.excerpt': 'Switzerland ranks 8th in the global press freedom index, but faces legal and economic challenges.',
     'blog.article.liberta-stampa-minimi-25-anni.imageAlt': 'Castelgrande Castle in Bellinzona, Ticino, Switzerland',
+    'blog.article.villaggio-angelo-busto-arsizio.title': 'Pain and closeness for Matteo and his family',
+    'blog.article.villaggio-angelo-busto-arsizio.excerpt': 'The village of Busto Arsizio gathers around the family of Matteo, a 4-year-old boy who has gone missing, with pain and affection.',
+    'blog.article.villaggio-angelo-busto-arsizio.imageAlt': 'Village of Busto Arsizio with a church and people gathered around',
 };
 
 export default blogMetaEn;

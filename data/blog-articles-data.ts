@@ -12461,4 +12461,11 @@ export const ARTICLES = [
  image: '/images/blog/liberta-stampa-minimi-25-anni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'villaggio-angelo-busto-arsizio',
+ category: 'novita',
+ date: '2026-05-01T20:52:33.492Z',
+ image: '/images/blog/villaggio-angelo-busto-arsizio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

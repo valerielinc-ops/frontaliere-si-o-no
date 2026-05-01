@@ -34404,6 +34404,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-villaggio-angelo-busto-arsizio': {
+    title: 'Dolore e vicinanza per Matteo e la sua famiglia | Frontaliere Ticino',
+    description: 'Il villaggio di Busto Arsizio si stringe intorno alla famiglia di Matteo, un bambino di 4 anni scomparso, con dolore e affetto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, dolore, vicinanza, matteo, famiglia',
+    ogTitle: 'Tutto il villaggio dal suo piccolo angelo: il dolore, la vicinanza, l\'affetto per Matteo e la sua famiglia',
+    ogDescription: 'Il villaggio di Busto Arsizio si stringe intorno alla famiglia di Matteo, un bambino di 4 anni scomparso, con dolore e affetto.',
+    canonicalPath: '/articoli-frontaliere/villaggio-angelo-busto-arsizio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tutto il villaggio dal suo piccolo angelo: il dolore, la vicinanza, l'affetto per Matteo e la sua famiglia",
+      "description": "Il villaggio di Busto Arsizio si stringe intorno alla famiglia di Matteo, un bambino di 4 anni scomparso, con dolore e affetto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/villaggio-angelo-busto-arsizio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio di Busto Arsizio con una chiesa e persone riunite intorno"
+      },
+      "datePublished": "2026-05-01T20:52:33+00:00",
+      "dateModified": "2026-05-01T20:52:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/villaggio-angelo-busto-arsizio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

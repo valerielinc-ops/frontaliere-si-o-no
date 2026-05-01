@@ -4906,6 +4906,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.liberta-stampa-minimi-25-anni.title': 'Pressefreiheit in der Schweiz: Platz acht weltweit',
     'blog.article.liberta-stampa-minimi-25-anni.excerpt': 'Die Schweiz belegt den achten Platz im weltweiten Ranking der Pressefreiheit, weist aber rechtliche und wirtschaftliche Schwachstellen auf.',
     'blog.article.liberta-stampa-minimi-25-anni.imageAlt': 'Castelgrande Schloss in Bellinzona, Tessin, Schweiz',
+    'blog.article.villaggio-angelo-busto-arsizio.title': 'Schmerz und Nähe für Matteo und seine Familie',
+    'blog.article.villaggio-angelo-busto-arsizio.excerpt': 'Das Dorf Busto Arsizio schließt sich mit Schmerz und Zuneigung um die Familie von Matteo, einem verschwundenen 4-jährigen Jungen.',
+    'blog.article.villaggio-angelo-busto-arsizio.imageAlt': 'Dorf Busto Arsizio mit einer Kirche und Menschen versammelt',
 };
 
 export default blogMetaDe;

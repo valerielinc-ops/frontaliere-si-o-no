@@ -4907,6 +4907,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.liberta-stampa-minimi-25-anni.title': 'Liberté de la presse en Suisse: 8ème au monde',
     'blog.article.liberta-stampa-minimi-25-anni.excerpt': 'La Suisse se classe à la huitième place dans le classement mondial de la liberté de la presse, mais présente des critiques juridiques et économiques.',
     'blog.article.liberta-stampa-minimi-25-anni.imageAlt': 'Château de Castelgrande à Bellinzone, Tessin, Suisse',
+    'blog.article.villaggio-angelo-busto-arsizio.title': 'Douleur et proximité pour Matteo et sa famille',
+    'blog.article.villaggio-angelo-busto-arsizio.excerpt': 'Le village de Busto Arsizio se serre autour de la famille de Matteo, un enfant de 4 ans disparu, avec douleur et affection.',
+    'blog.article.villaggio-angelo-busto-arsizio.imageAlt': 'Village de Busto Arsizio avec une église et des gens rassemblés',
 };
 
 export default blogMetaFr;
