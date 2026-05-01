@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1681,
+ "numberOfItems": 1682,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6316,7 +6316,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1678, "name": "Primo maggio in Ticino: salari e diritti al cen...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-ticino-salari-2024` },
           { "@type": "ListItem", "position": 1679, "name": "Sosta selvaggia a Moltrasio: il problema degli ...", "url": `${BASE_URL}/articoli-frontaliere/sosta-selvaggia-moltrasio-2026` },
           { "@type": "ListItem", "position": 1680, "name": "Svizzera sconfitta dalla Svezia: una lezione pe...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-hockey-sconfitta-svezia` },
-          { "@type": "ListItem", "position": 1681, "name": "Incidente Lambrugo: 74enne in ospedale dopo sco...", "url": `${BASE_URL}/articoli-frontaliere/lambrugo-incidente-74enne-ospedale` }
+          { "@type": "ListItem", "position": 1681, "name": "Incidente Lambrugo: 74enne in ospedale dopo sco...", "url": `${BASE_URL}/articoli-frontaliere/lambrugo-incidente-74enne-ospedale` },
+          { "@type": "ListItem", "position": 1682, "name": "Delia cambia testo Bella Ciao al Concertone: pi...", "url": `${BASE_URL}/articoli-frontaliere/delia-bella-ciao-concertone-2026` }
  ]
  },
  {

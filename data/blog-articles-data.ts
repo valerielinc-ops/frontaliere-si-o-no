@@ -12433,4 +12433,11 @@ export const ARTICLES = [
  image: '/images/blog/lambrugo-incidente-74enne-ospedale.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'delia-bella-ciao-concertone-2026',
+ category: 'novita',
+ date: '2026-05-01T20:10:56.738Z',
+ image: '/images/blog/delia-bella-ciao-concertone-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

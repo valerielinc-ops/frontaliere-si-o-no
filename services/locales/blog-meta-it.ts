@@ -4895,6 +4895,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lambrugo-incidente-74enne-ospedale.title': 'Incidente a Lambrugo: 74enne in ospedale dopo scontro auto-moto',
     'blog.article.lambrugo-incidente-74enne-ospedale.excerpt': 'Un grave incidente stradale a Lambrugo, Como, ha coinvolto un\'auto e una moto, con un 74enne ricoverato in ospedale.',
     'blog.article.lambrugo-incidente-74enne-ospedale.imageAlt': 'Incidente stradale a Lambrugo, Como, con auto e moto coinvolte',
+    'blog.article.delia-bella-ciao-concertone-2026.title': 'Delia cambia testo Bella Ciao al Concertone: più attuale',
+    'blog.article.delia-bella-ciao-concertone-2026.excerpt': 'Delia modifica Bella Ciao al Concertone del 1° maggio a Roma, sostituendo \'partigiano\' con \'essere umano\'',
+    'blog.article.delia-bella-ciao-concertone-2026.imageAlt': 'Palco del concertone con pubblico e Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

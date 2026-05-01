@@ -34288,6 +34288,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-delia-bella-ciao-concertone-2026': {
+    title: 'Delia cambia testo Bella Ciao al Concertone: più attuale',
+    description: 'Delia modifica Bella Ciao al Concertone del 1° maggio a Roma, sostituendo \'partigiano\' con \'essere umano\' per rendere il messaggio più attuale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, delia, cambia, testo, bella',
+    ogTitle: 'Delia cambia testo Bella Ciao al Concertone: più attuale',
+    ogDescription: 'Delia modifica Bella Ciao al Concertone del 1° maggio a Roma, sostituendo \'partigiano\' con \'essere umano\' per rendere il messaggio più attuale.',
+    canonicalPath: '/articoli-frontaliere/delia-bella-ciao-concertone-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Delia cambia testo Bella Ciao al Concertone: più attuale",
+      "description": "Delia modifica Bella Ciao al Concertone del 1° maggio a Roma, sostituendo 'partigiano' con 'essere umano' per rendere il messaggio più attuale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/delia-bella-ciao-concertone-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palco del concertone con pubblico e Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-01T20:10:56+00:00",
+      "dateModified": "2026-05-01T20:10:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/delia-bella-ciao-concertone-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4895,6 +4895,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lambrugo-incidente-74enne-ospedale.title': 'Accident à Lambrugo: un septuagénaire blessé',
     'blog.article.lambrugo-incidente-74enne-ospedale.excerpt': 'Un grave accident de la route à Lambrugo, Como, a impliqué une voiture et une moto, avec un septuagénaire hospitalisé.',
     'blog.article.lambrugo-incidente-74enne-ospedale.imageAlt': 'Accident de la route à Lambrugo, Como, impliquant une voiture et une moto',
+    'blog.article.delia-bella-ciao-concertone-2026.title': 'Delia modifie Bella Ciao au Concertone: plus actuel',
+    'blog.article.delia-bella-ciao-concertone-2026.excerpt': 'Delia modifie Bella Ciao au Concertone du 1er mai à Rome, remplaçant \'partigiano\' par \'être humain\'',
+    'blog.article.delia-bella-ciao-concertone-2026.imageAlt': 'Scène de concert avec public et Lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
