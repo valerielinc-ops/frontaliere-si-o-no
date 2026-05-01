@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-05-01T09:38:29.941Z",
+  "assembledAt": "2026-05-01T21:05:27.869Z",
   "jobs": [
     {
       "title": "Agente Principale",
@@ -222,7 +222,8 @@
       },
       "previousSlugs": [
         "consulente-assicurativo-per-il-luganese"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo",
@@ -488,7 +489,8 @@
           "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:08:31.463Z"
+      "firstSeenAt": "2026-04-13T21:08:31.463Z",
+      "needsRetranslation": true
     },
     {
       "title": "Kundenbetreuer:in medizinische Leistungsprüfung BVG",
