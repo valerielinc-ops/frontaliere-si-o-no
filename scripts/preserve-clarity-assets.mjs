@@ -54,13 +54,13 @@ const CACHE_DIR = path.join(ROOT, '.clarity-asset-cache');
 const DIST_ASSETS = path.join(ROOT, 'dist', 'assets');
 
 const ASSET_EXTENSIONS = ['.css', '.js'];
-// 3 days = roughly 3 deploy generations on this repo. Tight enough to keep
+// 1 days = roughly 1 deploy generations on this repo. Tight enough to keep
 // the cache lean (~10-15 MB instead of 40+ MB) and cap GH Actions cache
 // upload time, wide enough to keep Clarity recordings styled while users
 // are actively replaying them (most session replays happen within 24-48 h
 // of the original visit per Clarity dashboards). Bump if Clarity reports
-// missing-asset 404s on recordings older than 3 days.
-const MAX_AGE_DAYS = 3;
+// missing-asset 404s on recordings older than 1 days.
+const MAX_AGE_DAYS = 1;
 
 /**
  * --snapshot: Save ALL current dist/assets/*.{css,js} into the cache.
