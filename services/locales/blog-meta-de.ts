@@ -4600,6 +4600,21 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crystal-palace-finale-conference-rayo.title': 'Crystal Palace kurz vor dem Conference-League-Finale, träumt vom Rayo',
     'blog.article.crystal-palace-finale-conference-rayo.excerpt': 'Der Crystal Palace besiegt den Shakthar Donetsk mit 3-1 und träumt vom Conference-League-Finale. Der Rayo Vallecano schlägt den Strasbourg mit 1-0.',
     'blog.article.crystal-palace-finale-conference-rayo.imageAlt': 'Fans von Crystal Palace und Rayo Vallecano feiern in einer Schweizer-Italienischen Grenzstadt, mit dem Luganersee im Hintergrund.',
+    'blog.article.trump-cina-russia-patto-2026.title': 'Trump könnte Bündnis mit China und Russland schmieden',
+    'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analysiert Trumps Schritte in Iran und mögliche Allianzen mit China und Russland. Europa bleibt machtlos.',
+    'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Detaillierte Ansicht der Burgen von Bellinzona mit einem modernen Finanzdistrikt im Hintergrund, die die Mischung aus Geschichte und zeitgenössischer Wirtschaft im Tessin zeigt.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.title': '1. Mai im Zeichen der Gewerkschaftseinheit in Marghera',
+    'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl und Uil feiern den Tag der Arbeit mit Fokus auf würdige Arbeit.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'Eine Menschenmenge versammelt sich auf einem Platz in Lugano, Tessin, und feiert den Tag der Arbeit mit Transparenten und Fahnen unter einem klaren blauen Himmel.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.title': '1. Mai: Gewerkschaften demonstrieren für Löhne und Jobs',
+    'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Rund fünfzig Schweizer Orte beherbergen Kundgebungen zum internationalen Tag der Arbeiterrechte.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': '1. Mai Demonstration in Bellinzona mit Transparenten und Fahnen',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.title': 'Wochenende am 1. Mai in Varese: Unverpassbare Ereignisse',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'Von der Feier des San Vittore bis zur Ballonfahrt in Angera, hier ist, was man am Wochenende des 1. Mai in der Provinz Varese unternehmen kann',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Wochenendveranstaltungen in Varese mit Heißluftballons über dem Lago Maggiore und Familien, die Outdoor-Aktivitäten genießen',
+    'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Suchtprävention: 1 Franken heute spart 20 morgen',
+    'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Kürzungen bei den Mitteln für die Suchtprävention im Tessin, trotz steigender Gesundheitskosten. Der Experte: Es wird eine Logik des sofortigen Sparens verfolgt.',
+    'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und spazierenden Menschen',
 };
 
 export default blogMetaDe;

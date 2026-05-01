@@ -31446,6 +31446,151 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trump-cina-russia-patto-2026': {
+    title: 'Trump potrebbe stringere patto con Cina e Russia | Frontaliere Ticino',
+    description: 'Massimo Cacciari analizza le mosse di Trump in Iran e le possibili alleanze con Cina e Russia. L\'Europa resta impotente di fronte alla crisi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, trump, potrebbe, stringere, patto',
+    ogTitle: 'Trump potrebbe stringere patto con Cina e Russia',
+    ogDescription: 'Massimo Cacciari analizza le mosse di Trump in Iran e le possibili alleanze con Cina e Russia. L\'Europa resta impotente di fronte alla crisi.',
+    canonicalPath: '/articoli-frontaliere/trump-cina-russia-patto-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trump potrebbe stringere patto con Cina e Russia",
+      "description": "Massimo Cacciari analizza le mosse di Trump in Iran e le possibili alleanze con Cina e Russia. L'Europa resta impotente di fronte alla crisi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trump-cina-russia-patto-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista dettagliata dei castelli di Bellinzona con un distretto finanziario moderno sullo sfondo, che mostra il mix di storia ed economia contemporanea nel Ticino."
+      },
+      "datePublished": "2026-05-01T05:44:34+00:00",
+      "dateModified": "2026-05-01T05:44:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trump-cina-russia-patto-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-primo-maggio-unita-sindacale-marghera': {
+    title: 'Primo Maggio all\'insegna dell\'unità sindacale a Marghera',
+    description: 'Cgil, Cisl e Uil insieme per celebrare la Festa dei Lavoratori con un focus sul lavoro dignitoso e divergenze sul Dl Lavoro. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, insegna, dell',
+    ogTitle: 'Primo Maggio unita sindacale Marghera',
+    ogDescription: 'Cgil, Cisl e Uil insieme per celebrare la Festa dei Lavoratori con un focus sul lavoro dignitoso e divergenze sul Dl Lavoro.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-unita-sindacale-marghera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio unita sindacale Marghera",
+      "description": "Cgil, Cisl e Uil insieme per celebrare la Festa dei Lavoratori con un focus sul lavoro dignitoso e divergenze sul Dl Lavoro. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-unita-sindacale-marghera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una folla di persone riunite in una piazza a Lugano, Ticino, che celebrano il Primo Maggio con striscioni e bandiere, sotto un cielo azzurro limpido."
+      },
+      "datePublished": "2026-05-01T05:50:44+00:00",
+      "dateModified": "2026-05-01T05:50:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-unita-sindacale-marghera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-primo-maggio-sindacati-piazza-2026': {
+    title: 'Primo maggio, sindacati in piazza per difendere salari e impieghi',
+    description: 'Una cinquantina di località svizzere ospitano manifestazioni per la giornata internazionale dei diritti delle lavoratrici e dei lavoratori. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, sindacati, piazza',
+    ogTitle: 'Primo maggio, sindacati in piazza per difendere salari e impieghi',
+    ogDescription: 'Una cinquantina di località svizzere ospitano manifestazioni per la giornata internazionale dei diritti delle lavoratrici e dei lavoratori.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-sindacati-piazza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo maggio, sindacati in piazza per difendere salari e impieghi",
+      "description": "Una cinquantina di località svizzere ospitano manifestazioni per la giornata internazionale dei diritti delle lavoratrici e dei lavoratori. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-sindacati-piazza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione del Primo Maggio a Bellinzona con striscioni e bandiere"
+      },
+      "datePublished": "2026-05-01T05:59:50+00:00",
+      "dateModified": "2026-05-01T05:59:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-sindacati-piazza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-spasso-weekend-1-maggio-varese-2026': {
+    title: 'Weekend del 1° Maggio a Varese: eventi imperdibili',
+    description: 'Scopri gli eventi del weekend del 1° Maggio a Varese, dalla Festa di San Vittore allo spettacolo delle mongolfiere di Angera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, weekend, maggio, varese, eventi',
+    ogTitle: 'Weekend del 1° Maggio a Varese: eventi imperdibili',
+    ogDescription: 'Scopri gli eventi del weekend del 1° Maggio a Varese, dalla Festa di San Vittore allo spettacolo delle mongolfiere di Angera.',
+    canonicalPath: '/articoli-frontaliere/spasso-weekend-1-maggio-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Weekend del 1° Maggio a Varese: eventi imperdibili",
+      "description": "Scopri gli eventi del weekend del 1° Maggio a Varese, dalla Festa di San Vittore allo spettacolo delle mongolfiere di Angera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/spasso-weekend-1-maggio-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Eventi del weekend a Varese con mongolfiere sul Lago Maggiore e famiglie che godono di attività all'aperto"
+      },
+      "datePublished": "2026-05-01T06:06:15+00:00",
+      "dateModified": "2026-05-01T06:06:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spasso-weekend-1-maggio-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prevenzione-dipendenze-ticino-2026': {
+    title: 'Prevenzione dipendenze: un franco oggi per risparmiarne 20 domani',
+    description: 'Tagli ai fondi per la prevenzione delle dipendenze in Ticino, nonostante i costi sanitari in aumento. L\'esperto: si segue una logica di risparmio immediato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prevenzione, dipendenze, franco, oggi',
+    ogTitle: 'Prevenzione dipendenze: un franco oggi per risparmiarne 20 domani',
+    ogDescription: 'Tagli ai fondi per la prevenzione delle dipendenze in Ticino, nonostante i costi sanitari in aumento. L\'esperto: si segue una logica di risparmio immediato.',
+    canonicalPath: '/articoli-frontaliere/prevenzione-dipendenze-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prevenzione dipendenze: un franco oggi per risparmiarne 20 domani",
+      "description": "Tagli ai fondi per la prevenzione delle dipendenze in Ticino, nonostante i costi sanitari in aumento. L'esperto: si segue una logica di risparmio immediato.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prevenzione-dipendenze-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con edifici moderni e persone che camminano"
+      },
+      "datePublished": "2026-05-01T06:14:58+00:00",
+      "dateModified": "2026-05-01T06:14:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prevenzione-dipendenze-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

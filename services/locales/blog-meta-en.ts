@@ -4600,6 +4600,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crystal-palace-finale-conference-rayo.title': 'Crystal Palace close to Conference final, dreams of Rayo',
     'blog.article.crystal-palace-finale-conference-rayo.excerpt': 'Crystal Palace beats Shakhtar Donetsk 3-1 and dreams of the Conference League final. Rayo Vallecano defeats Strasbourg 1-0.',
     'blog.article.crystal-palace-finale-conference-rayo.imageAlt': 'Crystal Palace and Rayo Vallecano fans celebrating in a Swiss-Italian border town, with Lake Lugano in the background.',
+    'blog.article.trump-cina-russia-patto-2026.title': 'Trump may strike deal with China and Russia',
+    'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analyzes Trump\'s moves in Iran and possible alliances with China and Russia. Europe remains powerless.',
+    'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Detailed view of Bellinzona\'s castles with a modern financial district in the background, showcasing the blend of history and contemporary economics in Ticino.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.title': 'May Day united in Marghera',
+    'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl and Uil together to celebrate Labour Day with a focus on dignified work.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'A crowd of people gathered in a square in Lugano, Ticino, celebrating May Day with banners and flags, under a clear blue sky.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.title': 'May Day: unions rally to defend wages and jobs',
+    'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Around fifty Swiss towns host demonstrations for International Workers\' Day.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': 'May 1st demonstration in Bellinzona with banners and flags',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.title': '1st May Weekend in Varese: Unmissable Events',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'From the feast of San Vittore to the hot air balloon spectacle in Angera, here\'s what to do during the 1st May weekend in the province of Varese',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Weekend events in Varese with hot air balloons over Lake Maggiore and families enjoying outdoor activities',
+    'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Addiction prevention: 1 CHF today to save 20 tomorrow',
+    'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Cuts to addiction prevention funds in Ticino, despite rising healthcare costs. The expert: a logic of immediate savings is being followed.',
+    'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'View of Lake Lugano with modern buildings and people walking',
 };
 
 export default blogMetaEn;

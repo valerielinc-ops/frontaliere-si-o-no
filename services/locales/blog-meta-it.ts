@@ -4601,6 +4601,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crystal-palace-finale-conference-rayo.title': 'Crystal Palace a un passo dalla finale di Conference, sogna il Rayo',
     'blog.article.crystal-palace-finale-conference-rayo.excerpt': 'Il Crystal Palace vince 3-1 contro lo Shakthar Donetsk e sogna la finale di Conference League. Il Rayo Vallecano batte 1-0 lo Strasburgo.',
     'blog.article.crystal-palace-finale-conference-rayo.imageAlt': 'Tifosi del Crystal Palace e del Rayo Vallecano festeggiano in una città di confine svizzero-italiana, con il Lago di Lugano sullo sfondo.',
+    'blog.article.trump-cina-russia-patto-2026.title': 'Trump potrebbe stringere patto con Cina e Russia',
+    'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analizza le mosse di Trump in Iran e le possibili alleanze con Cina e Russia. L\'Europa resta impotente.',
+    'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Vista dettagliata dei castelli di Bellinzona con un distretto finanziario moderno sullo sfondo, che mostra il mix di storia ed economia contemporanea nel Ticino.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.title': 'Primo Maggio all\'insegna dell\'unità sindacale a Marghera',
+    'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl e Uil insieme per celebrare la Festa dei Lavoratori con un focus sul lavoro dignitoso.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'Una folla di persone riunite in una piazza a Lugano, Ticino, che celebrano il Primo Maggio con striscioni e bandiere, sotto un cielo azzurro limpido.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.title': 'Primo maggio, sindacati in piazza per difendere salari e impieghi',
+    'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Una cinquantina di località svizzere ospitano manifestazioni per la giornata internazionale dei diritti delle lavoratrici e dei lavoratori.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': 'Manifestazione del Primo Maggio a Bellinzona con striscioni e bandiere',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.title': 'Weekend del 1° Maggio a Varese: eventi imperdibili',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'Dalla festa di San Vittore allo spettacolo delle mongolfiere di Angera, ecco cosa fare nel weekend del 1° Maggio in provincia di Varese',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Eventi del weekend a Varese con mongolfiere sul Lago Maggiore e famiglie che godono di attività all\'aperto',
+    'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Prevenzione dipendenze: un franco oggi per risparmiarne 20 domani',
+    'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Tagli ai fondi per la prevenzione delle dipendenze in Ticino, nonostante i costi sanitari in aumento. L\'esperto: si segue una logica di risparmio immediato.',
+    'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'Vista del lago di Lugano con edifici moderni e persone che camminano',
 };
 
 export default blogMetaIt;

@@ -4601,6 +4601,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crystal-palace-finale-conference-rayo.title': 'Crystal Palace à un pas de la finale de Conference, rêve du Rayo',
     'blog.article.crystal-palace-finale-conference-rayo.excerpt': 'Le Crystal Palace gagne 3-1 contre le Shakthar Donetsk et rêve de la finale de Conference League. Le Rayo Vallecano bat 1-0 le Strasbourg.',
     'blog.article.crystal-palace-finale-conference-rayo.imageAlt': 'Les supporters de Crystal Palace et Rayo Vallecano célèbrent dans une ville frontalière suisse-italienne, avec le lac de Lugano en arrière-plan.',
+    'blog.article.trump-cina-russia-patto-2026.title': 'Trump pourrait conclure un pacte avec la Chine et la Russie',
+    'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analyse les mouvements de Trump en Iran et les alliances possibles avec la Chine et la Russie. L\'Europe reste impuissante.',
+    'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Vue détaillée des châteaux de Bellinzone avec un quartier financier moderne en arrière-plan, mettant en avant le mélange d\'histoire et d\'économie contemporaine en Tessin.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.title': '1er Mai sous le signe de l\'unité syndicale à Marghera',
+    'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl et Uil ensemble pour célébrer la Fête des Travailleurs avec un focus sur le travail digne.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'Une foule de personnes réunies sur une place à Lugano, Tessin, célébrant le Premier Mai avec des banderoles et des drapeaux, sous un ciel bleu dégagé.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.title': '1er mai, syndicats en place pour défendre salaires et emplois',
+    'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Une cinquantaine de localités suisses accueillent des manifestations pour la journée internationale des droits des travailleuses et des travailleurs.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': 'Manifestation du 1er mai à Bellinzone avec des banderoles et des drapeaux',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.title': 'Week-end du 1er mai à Varèse : événements incontournables',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'De la fête de Saint-Victor au spectacle des montgolfières d\'Angera, voici ce qu\'il faut faire le week-end du 1er mai dans la province de Varèse',
+    'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Événements du week-end à Varèse avec des montgolfières sur le lac Majeur et des familles profitant des activités de plein air',
+    'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Prévention des dépendances: 1 franc aujourd\'hui pour en économiser 20 demain',
+    'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Réduction des fonds pour la prévention des dépendances en Ticino, malgré l\'augmentation des coûts sanitaires. L\'expert: on suit une logique d\'économie immédiate.',
+    'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes et des personnes qui marchent',
 };
 
 export default blogMetaFr;
