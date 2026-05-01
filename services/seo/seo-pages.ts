@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1691,
+ "numberOfItems": 1692,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6326,7 +6326,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1688, "name": "1° maggio: sindacati Ticino contro iniziative U...", "url": `${BASE_URL}/articoli-frontaliere/sindacati-ticino-1-maggio-2026` },
           { "@type": "ListItem", "position": 1689, "name": "Polizia Ticino: progetto abbandonato dopo oppos...", "url": `${BASE_URL}/articoli-frontaliere/polizia-ticino-abbandono-progetto-2026` },
           { "@type": "ListItem", "position": 1690, "name": "Tragedia a Vico Morcote: bimbo di due anni anne...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-vico-morcote-bimbo-piscina` },
-          { "@type": "ListItem", "position": 1691, "name": "Crans-Montana, denunciata l'Organizzazione cant...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-soccorso-denunciato` }
+          { "@type": "ListItem", "position": 1691, "name": "Crans-Montana, denunciata l'Organizzazione cant...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-soccorso-denunciato` },
+          { "@type": "ListItem", "position": 1692, "name": "IA fallisce previsioni eventi estremi: studio U...", "url": `${BASE_URL}/articoli-frontaliere/ia-meteo-eventi-estremi` }
  ]
  },
  {

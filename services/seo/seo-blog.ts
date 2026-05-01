@@ -34578,6 +34578,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ia-meteo-eventi-estremi': {
+    title: 'IA fallisce previsioni eventi estremi: studio dell\'Università di Ginevra',
+    description: 'Nuovo studio rivela che l\'IA sbaglia sistematicamente previsioni su eventi meteorologici estremi, sottostimando ondate di calore e freddo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, fallisce, previsioni, eventi, estremi',
+    ogTitle: 'IA fallisce previsioni eventi estremi: studio Università di Ginevra',
+    ogDescription: 'Nuovo studio rivela che l\'IA sbaglia sistematicamente previsioni su eventi meteorologici estremi, sottostimando ondate di calore e freddo',
+    canonicalPath: '/articoli-frontaliere/ia-meteo-eventi-estremi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IA fallisce previsioni eventi estremi: studio Università di Ginevra",
+      "description": "Nuovo studio rivela che l'IA sbaglia sistematicamente previsioni su eventi meteorologici estremi, sottostimando ondate di calore e freddo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ia-meteo-eventi-estremi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con cielo tempestoso e tecnologia di previsione meteo"
+      },
+      "datePublished": "2026-05-01T21:50:27+00:00",
+      "dateModified": "2026-05-01T21:50:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ia-meteo-eventi-estremi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

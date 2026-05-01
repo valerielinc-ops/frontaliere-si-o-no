@@ -4925,6 +4925,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crans-montana-soccorso-denunciato.title': 'Crans-Montana, plainte contre l\'organisation cantonale de sauvetage',
     'blog.article.crans-montana-soccorso-denunciato.excerpt': 'Enquête ouverte sur le dispositif d\'intervention après l\'incendie du bar Le Constellation. Les avocats des victimes dénoncent des carences',
     'blog.article.crans-montana-soccorso-denunciato.imageAlt': 'Vue aérienne de Crans-Montana, Suisse, avec les services d\'urgence actifs après l\'incendie',
+    'blog.article.ia-meteo-eventi-estremi.title': 'L\'IA échoue à prédire les événements extrêmes : étude de l\'Université de Genève',
+    'blog.article.ia-meteo-eventi-estremi.excerpt': 'Une nouvelle étude révèle que l\'IA se trompe systématiquement sur les prévisions d\'événements météorologiques extrêmes, sous-estimant les vagues de chaleur et de froid',
+    'blog.article.ia-meteo-eventi-estremi.imageAlt': 'Lac de Lugano avec ciel orageux et technologie de prévision météorologique',
 };
 
 export default blogMetaFr;

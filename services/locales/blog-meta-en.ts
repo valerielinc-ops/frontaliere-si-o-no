@@ -4924,6 +4924,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-soccorso-denunciato.title': 'Crans-Montana, rescue organization reported',
     'blog.article.crans-montana-soccorso-denunciato.excerpt': 'Investigation opened into response system after Le Constellation bar fire. Victims\' lawyers report shortcomings',
     'blog.article.crans-montana-soccorso-denunciato.imageAlt': 'Aerial view of Crans-Montana, Switzerland, with emergency services active after the fire',
+    'blog.article.ia-meteo-eventi-estremi.title': 'AI fails to predict extreme weather events: University of Geneva study',
+    'blog.article.ia-meteo-eventi-estremi.excerpt': 'New study reveals that AI systematically fails to predict extreme weather events, underestimating heat and cold waves',
+    'blog.article.ia-meteo-eventi-estremi.imageAlt': 'Lake Lugano with stormy sky and weather forecasting technology',
 };
 
 export default blogMetaEn;

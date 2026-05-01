@@ -4925,6 +4925,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-soccorso-denunciato.title': 'Crans-Montana, denunciata l\'Organizzazione cantonale di soccorso',
     'blog.article.crans-montana-soccorso-denunciato.excerpt': 'Indagine aperta sul dispositivo di intervento dopo l\'incendio del bar Le Constellation. Avvocati delle vittime denunciano carenze',
     'blog.article.crans-montana-soccorso-denunciato.imageAlt': 'Vista aerea di Crans-Montana, Svizzera, con i soccorsi attivi dopo l\'incendio',
+    'blog.article.ia-meteo-eventi-estremi.title': 'IA fallisce previsioni eventi estremi: studio dell\'Università di Ginevra',
+    'blog.article.ia-meteo-eventi-estremi.excerpt': 'Nuovo studio rivela che l\'IA sbaglia sistematicamente previsioni su eventi meteorologici estremi, sottostimando ondate di calore e freddo',
+    'blog.article.ia-meteo-eventi-estremi.imageAlt': 'Lago di Lugano con cielo tempestoso e tecnologia di previsione meteo',
 };
 
 export default blogMetaIt;

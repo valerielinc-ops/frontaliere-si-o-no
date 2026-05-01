@@ -4924,6 +4924,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-soccorso-denunciato.title': 'Crans-Montana: Kantonaler Rettungsdienst angezeigt',
     'blog.article.crans-montana-soccorso-denunciato.excerpt': 'Ermittlungen zum Einsatz nach dem Brand im Bar Le Constellation. Anwälte der Opfer melden Mängel',
     'blog.article.crans-montana-soccorso-denunciato.imageAlt': 'Luftaufnahme von Crans-Montana, Schweiz, mit Rettungsdiensten nach dem Brand',
+    'blog.article.ia-meteo-eventi-estremi.title': 'KI scheitert bei Extremwetter-Vorhersagen: Studie Uni Genf',
+    'blog.article.ia-meteo-eventi-estremi.excerpt': 'Neue Studie zeigt, dass KI systematisch Vorhersagen zu extremen Wetterereignissen verfehlt und Hitzewellen sowie Kältewellen unterschätzt',
+    'blog.article.ia-meteo-eventi-estremi.imageAlt': 'Luganersee mit stürmischem Himmel und Wettervorhersagetechnologie',
 };
 
 export default blogMetaDe;

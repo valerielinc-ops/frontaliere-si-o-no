@@ -12503,4 +12503,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-soccorso-denunciato.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ia-meteo-eventi-estremi',
+ category: 'novita',
+ date: '2026-05-01T21:50:27.108Z',
+ image: '/images/blog/ia-meteo-eventi-estremi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
