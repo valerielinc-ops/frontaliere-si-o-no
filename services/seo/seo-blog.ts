@@ -34027,6 +34027,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-circolo-albate-riapertura-2026': {
+    title: 'Riapre il Circolo ad Albate: una piazza al coperto per la comunità',
+    description: 'Il bar Circolo ad Albate riapre i battenti il 1° maggio 2026, diventando un punto di aggregazione sociale e culturale per la comunità. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, riapre, circolo, albate, piazza',
+    ogTitle: 'Riapre il Circolo ad Albate: una piazza al coperto per la comunità',
+    ogDescription: 'Il bar Circolo ad Albate riapre i battenti il 1° maggio 2026, diventando un punto di aggregazione sociale e culturale per la comunità.',
+    canonicalPath: '/articoli-frontaliere/circolo-albate-riapertura-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riapre il Circolo ad Albate: una piazza al coperto per la comunità",
+      "description": "Il bar Circolo ad Albate riapre i battenti il 1° maggio 2026, diventando un punto di aggregazione sociale e culturale per la comunità. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/circolo-albate-riapertura-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bar Circolo ad Albate, Como, con persone che chiacchierano e bevono"
+      },
+      "datePublished": "2026-05-01T18:55:36+00:00",
+      "dateModified": "2026-05-01T18:55:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/circolo-albate-riapertura-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

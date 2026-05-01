@@ -2853,6 +2853,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-142-linea-aiuto-vittime-violenza-ticino': { name: 'Novità', path: '/articoli-frontaliere/142-linea-aiuto-vittime-violenza-ticino', parent: 'blog' },
     'blog-collisione-cadegliano-varese-ferito-54enne': { name: 'Incidente Cadegliano Viconago', path: '/articoli-frontaliere/collisione-cadegliano-varese-ferito-54enne', parent: 'blog' },
     'blog-congresso-lugano-cancro-prostata-2024': { name: 'Novità', path: '/articoli-frontaliere/congresso-lugano-cancro-prostata-2024', parent: 'blog' },
+    'blog-circolo-albate-riapertura-2026': { name: 'Novità', path: '/articoli-frontaliere/circolo-albate-riapertura-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

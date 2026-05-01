@@ -12370,4 +12370,11 @@ export const ARTICLES = [
  image: '/images/blog/congresso-lugano-cancro-prostata-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'circolo-albate-riapertura-2026',
+ category: 'novita',
+ date: '2026-05-01T18:55:36.154Z',
+ image: '/images/blog/circolo-albate-riapertura-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

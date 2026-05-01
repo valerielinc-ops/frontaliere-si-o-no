@@ -4868,6 +4868,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.congresso-lugano-cancro-prostata-2024.title': 'Congrès record à Lugano contre le cancer de la prostate',
     'blog.article.congresso-lugano-cancro-prostata-2024.excerpt': 'Plus de 1000 médecins et chercheurs à Lugano pour les lignes directrices internationales. En Suisse, 400 cas par an.',
     'blog.article.congresso-lugano-cancro-prostata-2024.imageAlt': 'Palais des Congrès de Lugano avec lac en arrière-plan',
+    'blog.article.circolo-albate-riapertura-2026.title': 'Réouverture du Cercle à Albate: une place couverte pour la communauté',
+    'blog.article.circolo-albate-riapertura-2026.excerpt': 'Le mythique bar de l\'Union des Cercles Coopératifs à Albate rouvre ses portes le 1er mai 2026, devenant un point de rassemblement social et culturel.',
+    'blog.article.circolo-albate-riapertura-2026.imageAlt': 'Bar Circolo à Albate, Côme, avec des personnes discutant et buvant',
 };
 
 export default blogMetaFr;
