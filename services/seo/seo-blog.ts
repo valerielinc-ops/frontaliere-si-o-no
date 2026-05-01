@@ -33476,6 +33476,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-scende-piazza-lugano-2026': {
+    title: '1° Maggio a Lugano: il lavoro scende in piazza | Frontaliere Ticino',
+    description: 'Centinaia di persone hanno sfilato per le vie di Lugano sotto lo slogan \'Né sfruttati, né divisi\' per rivendicare salari equi e sicurezza sul lavoro',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggio, lugano, lavoro, scende',
+    ogTitle: '1° Maggio a Lugano: il lavoro scende in piazza',
+    ogDescription: 'Centinaia di persone hanno sfilato per le vie di Lugano sotto lo slogan \'Né sfruttati, né divisi\' per rivendicare salari equi e sicurezza sul lavoro',
+    canonicalPath: '/articoli-frontaliere/lavoro-scende-piazza-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "1° Maggio a Lugano: il lavoro scende in piazza",
+      "description": "Centinaia di persone hanno sfilato per le vie di Lugano sotto lo slogan 'Né sfruttati, né divisi' per rivendicare salari equi e sicurezza sul lavoro",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoro-scende-piazza-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione del 1° Maggio a Lugano, Piazza Manzoni, con centinaia di persone e bandiere sindacali"
+      },
+      "datePublished": "2026-05-01T16:01:37+00:00",
+      "dateModified": "2026-05-01T16:01:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-scende-piazza-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4811,6 +4811,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-sindacati-iniziativa-udc.title': '1° maggio 2026: sindacati e politica contro l\'iniziativa UDC',
     'blog.article.primo-maggio-2026-ticino-sindacati-iniziativa-udc.excerpt': 'Mobilitazione nazionale contro l\'iniziativa UDC \'No a una Svizzera da 10 milioni!\' con manifestazioni in diverse città svizzere.',
     'blog.article.primo-maggio-2026-ticino-sindacati-iniziativa-udc.imageAlt': 'Una grande folla di persone protesta davanti al Lago di Lugano con striscioni e cartelli, sotto un cielo azzurro limpido.',
+    'blog.article.lavoro-scende-piazza-lugano-2026.title': '1° Maggio a Lugano: il lavoro scende in piazza',
+    'blog.article.lavoro-scende-piazza-lugano-2026.excerpt': 'Centinaia di persone hanno sfilato per le vie di Lugano sotto lo slogan \'Né sfruttati, né divisi\' per rivendicare salari equi e sicurezza sul lavoro',
+    'blog.article.lavoro-scende-piazza-lugano-2026.imageAlt': 'Manifestazione del 1° Maggio a Lugano, Piazza Manzoni, con centinaia di persone e bandiere sindacali',
 };
 
 export default blogMetaIt;

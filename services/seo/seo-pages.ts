@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1653,
+ "numberOfItems": 1654,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6288,7 +6288,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1650, "name": "Flottila per Gaza intercettata, presidio a Varese", "url": `${BASE_URL}/articoli-frontaliere/flotilla-gaza-varese-presidio-montegrappa` },
           { "@type": "ListItem", "position": 1651, "name": "Orso ripreso in Valposchiavo: ritorno dopo anni", "url": `${BASE_URL}/articoli-frontaliere/orso-valposchiavo-2026-ritorno` },
           { "@type": "ListItem", "position": 1652, "name": "87 studenti premiati con borse di studio a Gall...", "url": `${BASE_URL}/articoli-frontaliere/gallarate-borse-studio-2026` },
-          { "@type": "ListItem", "position": 1653, "name": "1° maggio 2026: sindacati e politica contro l'i...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-ticino-sindacati-iniziativa-udc` }
+          { "@type": "ListItem", "position": 1653, "name": "1° maggio 2026: sindacati e politica contro l'i...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-ticino-sindacati-iniziativa-udc` },
+          { "@type": "ListItem", "position": 1654, "name": "1° Maggio a Lugano: il lavoro scende in piazza", "url": `${BASE_URL}/articoli-frontaliere/lavoro-scende-piazza-lugano-2026` }
  ]
  },
  {

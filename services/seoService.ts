@@ -2834,6 +2834,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-orso-valposchiavo-2026-ritorno': { name: 'Novità', path: '/articoli-frontaliere/orso-valposchiavo-2026-ritorno', parent: 'blog' },
     'blog-gallarate-borse-studio-2026': { name: 'Borse di studio', path: '/articoli-frontaliere/gallarate-borse-studio-2026', parent: 'blog' },
     'blog-primo-maggio-2026-ticino-sindacati-iniziativa-udc': { name: 'Novità', path: '/articoli-frontaliere/primo-maggio-2026-ticino-sindacati-iniziativa-udc', parent: 'blog' },
+    'blog-lavoro-scende-piazza-lugano-2026': { name: '1° Maggio Lugano', path: '/articoli-frontaliere/lavoro-scende-piazza-lugano-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

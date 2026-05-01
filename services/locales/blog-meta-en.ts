@@ -4810,6 +4810,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-sindacati-iniziativa-udc.title': '1 May 2026: unions and politics against UDC initiative',
     'blog.article.primo-maggio-2026-ticino-sindacati-iniziativa-udc.excerpt': 'National mobilization against the UDC initiative \'No to a Switzerland of 10 million!\' with demonstrations in various Swiss cities.',
     'blog.article.primo-maggio-2026-ticino-sindacati-iniziativa-udc.imageAlt': 'A large crowd of people protesting in front of Lake Lugano with banners and signs under a clear blue sky.',
+    'blog.article.lavoro-scende-piazza-lugano-2026.title': 'May Day in Lugano: workers take to the streets',
+    'blog.article.lavoro-scende-piazza-lugano-2026.excerpt': 'Hundreds of people marched through Lugano under the slogan \'Neither exploited, nor divided\' to demand fair wages and workplace safety',
+    'blog.article.lavoro-scende-piazza-lugano-2026.imageAlt': 'May 1st demonstration in Lugano, Piazza Manzoni, with hundreds of people and union flags',
 };
 
 export default blogMetaEn;
