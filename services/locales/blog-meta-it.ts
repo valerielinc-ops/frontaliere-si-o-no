@@ -4814,6 +4814,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-scende-piazza-lugano-2026.title': '1° Maggio a Lugano: il lavoro scende in piazza',
     'blog.article.lavoro-scende-piazza-lugano-2026.excerpt': 'Centinaia di persone hanno sfilato per le vie di Lugano sotto lo slogan \'Né sfruttati, né divisi\' per rivendicare salari equi e sicurezza sul lavoro',
     'blog.article.lavoro-scende-piazza-lugano-2026.imageAlt': 'Manifestazione del 1° Maggio a Lugano, Piazza Manzoni, con centinaia di persone e bandiere sindacali',
+    'blog.article.radar-ticino-velocita-2026.title': 'Radar sempre attivi: ecco dove dal 4 al 10 maggio',
+    'blog.article.radar-ticino-velocita-2026.excerpt': 'La Polizia cantonale annuncia controlli della velocità in diverse località del Ticino dal 4 al 10 maggio 2026.',
+    'blog.article.radar-ticino-velocita-2026.imageAlt': 'Radar stradali in Ticino, controllo velocità',
 };
 
 export default blogMetaIt;

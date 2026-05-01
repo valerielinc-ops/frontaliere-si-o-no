@@ -4813,6 +4813,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-scende-piazza-lugano-2026.title': '1. Mai in Lugano: Arbeit geht auf die Straße',
     'blog.article.lavoro-scende-piazza-lugano-2026.excerpt': 'Hunderte Menschen sind unter dem Motto \'Weder ausgebeutet noch gespalten\' durch die Straßen von Lugano gezogen, um faire Löhne und Sicherheit am Arbeitsplatz zu fordern',
     'blog.article.lavoro-scende-piazza-lugano-2026.imageAlt': '1. Mai Demonstration in Lugano, Piazza Manzoni, mit Hunderten von Menschen und Gewerkschaftsfahnen',
+    'blog.article.radar-ticino-velocita-2026.title': 'Radar immer aktiv: Kontrollstandorte vom 4. bis 10. Mai',
+    'blog.article.radar-ticino-velocita-2026.excerpt': 'Die Kantonspolizei kündigt Geschwindigkeitskontrollen an verschiedenen Orten im Tessin vom 4. bis 10. Mai 2026 an.',
+    'blog.article.radar-ticino-velocita-2026.imageAlt': 'Straßenradar in Tessin, Geschwindigkeitskontrolle',
 };
 
 export default blogMetaDe;

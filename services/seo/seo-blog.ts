@@ -33505,6 +33505,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-radar-ticino-velocita-2026': {
+    title: 'Radar sempre attivi: ecco dove dal 4 al 10 maggio | Frontaliere Ticino',
+    description: 'La Polizia cantonale annuncia controlli della velocità in diverse località del Ticino dal 4 al 10 maggio 2026. Ecco dove saranno posizionati i radar.',
+    keywords: 'frontalieri, ticino, svizzera, italia, radar, sempre, attivi, ecco',
+    ogTitle: 'Radar sempre attivi: ecco dove dal 4 al 10 maggio',
+    ogDescription: 'La Polizia cantonale annuncia controlli della velocità in diverse località del Ticino dal 4 al 10 maggio 2026. Ecco dove saranno posizionati i radar.',
+    canonicalPath: '/articoli-frontaliere/radar-ticino-velocita-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Radar sempre attivi: ecco dove dal 4 al 10 maggio",
+      "description": "La Polizia cantonale annuncia controlli della velocità in diverse località del Ticino dal 4 al 10 maggio 2026. Ecco dove saranno posizionati i radar.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/radar-ticino-velocita-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Radar stradali in Ticino, controllo velocità"
+      },
+      "datePublished": "2026-05-01T16:12:47+00:00",
+      "dateModified": "2026-05-01T16:12:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/radar-ticino-velocita-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

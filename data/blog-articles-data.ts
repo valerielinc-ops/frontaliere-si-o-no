@@ -12244,4 +12244,11 @@ export const ARTICLES = [
  image: '/images/blog/lavoro-scende-piazza-lugano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'radar-ticino-velocita-2026',
+ category: 'pratico',
+ date: '2026-05-01T16:12:47.938Z',
+ image: '/images/blog/radar-ticino-velocita-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
