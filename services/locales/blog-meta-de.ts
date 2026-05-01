@@ -4834,6 +4834,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.confsal-manifesto-lavoro-dignita-salari.title': 'Confsal veröffentlicht Arbeitsmanifest: Würde, Löhne und Rechte im Fokus',
     'blog.article.confsal-manifesto-lavoro-dignita-salari.excerpt': 'Am 1. Mai hat die Confsal ihr Arbeitsmanifest in Neapel vorgestellt und dabei die Notwendigkeit von Würde, fairen Löhnen und Rechten für Arbeitnehmer hervorgehoben.',
     'blog.article.confsal-manifesto-lavoro-dignita-salari.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit dem Luganersee und der Stadtlandschaft im Hintergrund. Klarer blauer Himmel, sonniger Tag.',
+    'blog.article.usa-iran-nucleare-sanzioni-2026.title': 'USA-Iran: Atomspannungen und Sanktionen 2026',
+    'blog.article.usa-iran-nucleare-sanzioni-2026.excerpt': 'Teheran wirft Washington mangelnden Einsatz in den Verhandlungen und parallele Militäraktion vor. Trump: Verhandlungen laufen telefonisch.',
+    'blog.article.usa-iran-nucleare-sanzioni-2026.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

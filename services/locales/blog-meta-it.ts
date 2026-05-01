@@ -4835,6 +4835,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.confsal-manifesto-lavoro-dignita-salari.title': 'Confsal lancia manifesto del lavoro: dignità, salari e diritti al centro',
     'blog.article.confsal-manifesto-lavoro-dignita-salari.excerpt': 'Il 1 maggio, la Confsal ha presentato il suo manifesto del lavoro a Napoli, evidenziando la necessità di dignità, salari equi e diritti per i lavoratori.',
     'blog.article.confsal-manifesto-lavoro-dignita-salari.imageAlt': 'Vista aerea di Lugano, Svizzera, con il lago di Lugano e il paesaggio urbano sullo sfondo. Cielo azzurro limpido, giornata di sole.',
+    'blog.article.usa-iran-nucleare-sanzioni-2026.title': 'USA-Iran: tensioni nucleari e sanzioni nel 2026',
+    'blog.article.usa-iran-nucleare-sanzioni-2026.excerpt': 'Teheran accusa Washington di poco impegno nei negoziati e azioni militari parallele. Trump: negoziati in corso telefonicamente.',
+    'blog.article.usa-iran-nucleare-sanzioni-2026.imageAlt': 'Vista del lago di Lugano con edifici moderni e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -4834,6 +4834,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.confsal-manifesto-lavoro-dignita-salari.title': 'Confsal unveils work manifesto: dignity, wages and rights at its core',
     'blog.article.confsal-manifesto-lavoro-dignita-salari.excerpt': 'On May 1st, Confsal presented its work manifesto in Naples, highlighting the need for dignity, fair wages and rights for workers.',
     'blog.article.confsal-manifesto-lavoro-dignita-salari.imageAlt': 'Aerial view of Lugano, Switzerland, with Lake Lugano and the cityscape in the background. Clear blue sky, sunny day.',
+    'blog.article.usa-iran-nucleare-sanzioni-2026.title': 'US-Iran: nuclear tensions and sanctions in 2026',
+    'blog.article.usa-iran-nucleare-sanzioni-2026.excerpt': 'Tehran accuses Washington of little commitment in negotiations and parallel military actions. Trump: negotiations ongoing by phone.',
+    'blog.article.usa-iran-nucleare-sanzioni-2026.imageAlt': 'Lake Lugano view with modern buildings and mountains in the background',
 };
 
 export default blogMetaEn;

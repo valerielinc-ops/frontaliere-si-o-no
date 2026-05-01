@@ -12293,4 +12293,11 @@ export const ARTICLES = [
  image: '/images/blog/confsal-manifesto-lavoro-dignita-salari.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'usa-iran-nucleare-sanzioni-2026',
+ category: 'novita',
+ date: '2026-05-01T17:17:51.770Z',
+ image: '/images/blog/usa-iran-nucleare-sanzioni-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

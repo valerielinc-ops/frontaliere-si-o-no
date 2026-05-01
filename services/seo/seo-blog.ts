@@ -33708,6 +33708,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-usa-iran-nucleare-sanzioni-2026': {
+    title: 'USA-Iran: tensioni nucleari e sanzioni nel 2026 | Frontaliere Ticino',
+    description: 'Teheran accusa USA di poco impegno nei negoziati e azioni militari parallele. Trump: colloqui in corso telefonicamente. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, usa-iran, tensioni, nucleari, sanzioni',
+    ogTitle: 'USA-Iran: tensioni nucleari e sanzioni nel 2026',
+    ogDescription: 'Teheran accusa USA di poco impegno nei negoziati e azioni militari parallele. Trump: colloqui in corso telefonicamente.',
+    canonicalPath: '/articoli-frontaliere/usa-iran-nucleare-sanzioni-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "USA-Iran: tensioni nucleari e sanzioni nel 2026",
+      "description": "Teheran accusa USA di poco impegno nei negoziati e azioni militari parallele. Trump: colloqui in corso telefonicamente. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/usa-iran-nucleare-sanzioni-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con edifici moderni e montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-01T17:17:51+00:00",
+      "dateModified": "2026-05-01T17:17:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/usa-iran-nucleare-sanzioni-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
