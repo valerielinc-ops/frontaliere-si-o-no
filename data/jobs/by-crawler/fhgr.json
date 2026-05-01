@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-05-01T10:10:51.493Z",
+  "assembledAt": "2026-05-01T21:37:46.995Z",
   "jobs": [
     {
       "id": "fhgr-7309b549f3fa",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:10:49.204Z",
+      "crawledAt": "2026-05-01T21:37:44.507Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -94,6 +94,7 @@
         "lehrstelle-architekturmodellbauer-in-efz-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:28.055Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -103,108 +104,6 @@
           "@type": "QuantitativeValue",
           "minValue": 41600,
           "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "fhgr-711c55ac5c15",
-      "slug": "architetto-o-ingegnere-civile-per-la-direzione-dell-istituto-per-le-costruzioni-in-ambiente-alpino-fachhochschule-graubu",
-      "slugByLocale": {
-        "it": "architetto-o-ingegnere-civile-per-la-direzione-dell-istituto-per-le-costruzioni-in-ambiente-alpino-fachhochschule-graubu",
-        "en": "architect-or-civil-engineer-to-lead-the-institute-for-construction-in-alpine-regions-fachhochschule-graubunden-chur",
-        "de": "architekt-in-oder-bauingenieur-in-fur-die-leitung-des-instituts-fur-bauen-im-alpinen-raum-",
-        "fr": "architecte-ou-ingenieur-civil-pour-diriger-l-institut-de-la-construction-en-milieu-alpin-fachhochschule-graubunden-chur"
-      },
-      "company": "Fachhochschule Graubünden",
-      "companyKey": "fhgr",
-      "companyDomain": "fhgr.ch",
-      "title": "Architekt/-in oder Bauingenieur/-in für die Leitung des Instituts für Bauen im alpinen Raum",
-      "titleByLocale": {
-        "it": "Architetto o ingegnere civile per la direzione dell'Istituto per le costruzioni in ambiente alpino",
-        "en": "Architect or Civil Engineer to Lead the Institute for Construction in Alpine Regions",
-        "de": "Architekt/-in oder Bauingenieur/-in für die Leitung des Instituts für Bauen im alpinen Raum",
-        "fr": "Architecte ou ingénieur civil pour diriger l'Institut de la construction en milieu alpin"
-      },
-      "description": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für unser Institut für Bauen im alpinen Raum (IBAR) suchen wir per Herbstsemester 2026 oder nach Vereinbarung entweder eine:n | In dieser vielseitigen Funktion leiten Sie das Institut für Bauen im alpinen Raum sowohl strategisch, operativ als auch personell. Sie akquirieren Forschungsprojekte, setzen diese um oder arbeiten in bestehenden Forschungsprojekten der jeweiligen Fachbereiche mit. Dabei bearbeiten Sie anspruchsvolle analytische und konzeptionelle Fragestellungen und entwickeln innovative Lösungen. Ausserdem erstellen Sie wissenschaftliche Publikationen sowie Berichte. Parallel dazu unterrichten Sie im Bachelorstudiengang Architektur oder im Bachelorstudiengang Bauingenieurwesen und betreuen Studierende bei Semester- und Bachelorarbeiten. Mit Ihrem strategischen Blick unterstützen Sie zudem die Departementsleitung bei der Akquise neuer Projekte, der Kundenpflege und weiteren zentralen Aufgaben der Hochschulentwicklung. Sie repräsentieren das Institut sowohl nach innen als auch nach aussen und führen es mit klaren Visionen in eine erfolgreiche Zukunft. | Ihr Profil • Masterabschluss(Promotion von Vorteil) in Architektur oder Bauingenieurwesen (vorzugsweise Tiefbau), ergänzt mit einem EMBA oder einer äquivalenten Weiterbildung • Erfahrung in der Projektierung und Leitung von anspruchsvollen Bauprojekten oder Infrastrukturprojekten mit mehrjähriger Praxiserfahrung, im Idealfall mit Bezug zum alpinen Raum • Führungserfahrung von interdisziplinären Teams sowie ein unternehmerischer und kooperativer Führungsstil • Erfahrung in der Akquise, Leitung und Durchführung von Forschungsprojekten mit einem aktiven nationalen und internationalen Netzwerk • Proaktive und kommunikative Persönlichkeit | Wir begeistern Sie mit • Einer spannenden und abwechslungsreichen Tätigkeit in einem dynamischen Umfeld • Jährlich drei Wochen Zeitguthaben für die persönliche Weiterbildung • Unserer Unterstützung in der persönlichen Weiterentwicklung • Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
-      "descriptionByLocale": {
-        "it": "Descrizione Come università di scienze applicate, la FH Graubünden si basa su un pensiero dinamico e un'azione proattiva. Formiamo oltre 2400 studenti nei corsi di formazione e perfezionamento a diventare personalità responsabili. Nella nostra ricerca inter- e transdisciplinare ci concentriamo su tecnologie future applicate, sviluppo in ambiente alpino e attività imprenditoriali. Come datrice di lavoro promuoviamo la parità di opportunità e la diversità. Per il nostro Istituto per le costruzioni in ambiente alpino (IBAR) cerchiamo per il semestre autunnale 2026 o da concordare, una persona in qualità di ## Mansioni - In questa funzione variegata, dirigerà l'Istituto per le costruzioni in ambiente alpino sia strategicamente, operativamente che a livello di gestione del personale. - Acquisirà progetti di ricerca, li realizzerà o collaborerà in progetti di ricerca esistenti nei rispettivi settori specialistici. - Affronterà questioni analitiche e concettuali complesse e svilupperà soluzioni innovative. - Inoltre, redigerà pubblicazioni scientifiche e rapporti. - Parallelamente, insegnerà nel corso di laurea in architettura o nel corso di laurea in ingegneria civile e accompagnerà gli studenti nei lavori semestrali e di bachelor. - Con la sua visione strategica, supporterà inoltre la direzione del dipartimento nell'acquisizione di nuovi progetti, nella cura della clientela e in altre attività centrali dello sviluppo universitario. - Rappresenterà l'istituto sia internamente che esternamente e lo guiderà con visioni chiare verso un futuro di successo. ## Requisiti - Laurea magistrale (un dottorato è un vantaggio) in architettura o ingegneria civile (preferibilmente ingegneria delle infrastrutture), completata da un EMBA o una formazione continua equivalente - Esperienza nella progettazione e gestione di progetti edili o infrastrutturali complessi con diversi anni di esperienza pratica, idealmente con riferimento all'ambiente alpino - Esperienza nella direzione di team interdisciplinari e uno stile di leadership imprenditoriale e collaborativo - Esperienza nell'acquisizione, gestione e realizzazione di progetti di ricerca con una rete attiva a livello nazionale e internazionale - Personalità proattiva e comunicativa ## Cosa offriamo - Un'attività interessante e varia in un ambiente dinamico - Ogni anno tre settimane di credito tempo per la formazione continua personale - Il nostro sostegno nello sviluppo professionale personale - Condizioni di impiego moderne e numerose offerte sportive e culturali",
-        "en": "Description As a university of applied sciences, FH Graubünden values dynamic thinking and proactive action. We develop our more than 2,400 students in education and continuing training into responsible individuals. Our interdisciplinary and transdisciplinary research focuses on applied future technologies, development in alpine regions, and entrepreneurial action. As an employer, we promote equal opportunities and diversity. For our Institute for Construction in Alpine Regions (IBAR), we are seeking, starting autumn semester 2026 or by agreement, either a ## Responsibilities - In this multifaceted role, you will lead the Institute for Construction in Alpine Regions strategically, operationally, and in terms of personnel management. - You will acquire research projects, implement them, or contribute to existing research projects within the respective specialist areas. - You will address challenging analytical and conceptual issues and develop innovative solutions. - Furthermore, you will produce scientific publications and reports. - In parallel, you will teach in the Bachelor's programme in Architecture or the Bachelor's programme in Civil Engineering and supervise students in semester and bachelor theses. - With your strategic perspective, you will also support the department management in acquiring new projects, maintaining client relationships, and other central tasks of university development. - You will represent the institute both internally and externally and lead it with clear visions towards a successful future. ## Requirements - Master’s degree (PhD is an advantage) in Architecture or Civil Engineering (preferably civil infrastructure), complemented by an EMBA or equivalent continuing education - Experience in planning and managing demanding construction or infrastructure projects with several years of practical experience, ideally related to alpine regions - Experience in leading interdisciplinary teams and an entrepreneurial, collaborative leadership style - Experience in acquiring, managing, and conducting research projects with an active national and international network - Proactive and communicative personality ## What we offer - An exciting and varied role in a dynamic environment - Three weeks of annual time credit for personal continuing education - Our support in your personal professional development - Modern employment conditions and numerous sports and cultural offerings",
-        "de": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für unser Institut für Bauen im alpinen Raum (IBAR) suchen wir per Herbstsemester 2026 oder nach Vereinbarung entweder eine:n | In dieser vielseitigen Funktion leiten Sie das Institut für Bauen im alpinen Raum sowohl strategisch, operativ als auch personell. Sie akquirieren Forschungsprojekte, setzen diese um oder arbeiten in bestehenden Forschungsprojekten der jeweiligen Fachbereiche mit. Dabei bearbeiten Sie anspruchsvolle analytische und konzeptionelle Fragestellungen und entwickeln innovative Lösungen. Ausserdem erstellen Sie wissenschaftliche Publikationen sowie Berichte. Parallel dazu unterrichten Sie im Bachelorstudiengang Architektur oder im Bachelorstudiengang Bauingenieurwesen und betreuen Studierende bei Semester- und Bachelorarbeiten. Mit Ihrem strategischen Blick unterstützen Sie zudem die Departementsleitung bei der Akquise neuer Projekte, der Kundenpflege und weiteren zentralen Aufgaben der Hochschulentwicklung. Sie repräsentieren das Institut sowohl nach innen als auch nach aussen und führen es mit klaren Visionen in eine erfolgreiche Zukunft. | Ihr Profil • Masterabschluss(Promotion von Vorteil) in Architektur oder Bauingenieurwesen (vorzugsweise Tiefbau), ergänzt mit einem EMBA oder einer äquivalenten Weiterbildung • Erfahrung in der Projektierung und Leitung von anspruchsvollen Bauprojekten oder Infrastrukturprojekten mit mehrjähriger Praxiserfahrung, im Idealfall mit Bezug zum alpinen Raum • Führungserfahrung von interdisziplinären Teams sowie ein unternehmerischer und kooperativer Führungsstil • Erfahrung in der Akquise, Leitung und Durchführung von Forschungsprojekten mit einem aktiven nationalen und internationalen Netzwerk • Proaktive und kommunikative Persönlichkeit | Wir begeistern Sie mit • Einer spannenden und abwechslungsreichen Tätigkeit in einem dynamischen Umfeld • Jährlich drei Wochen Zeitguthaben für die persönliche Weiterbildung • Unserer Unterstützung in der persönlichen Weiterentwicklung • Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
-        "fr": "Description En tant qu'université des sciences appliquées, la HES Graubünden mise sur une pensée dynamique et une action proactive. Nous formons nos plus de 2400 étudiants en formation initiale et continue afin d’en faire des personnes responsables. Notre recherche inter- et transdisciplinaire se concentre sur les technologies futures appliquées, le développement en milieu alpin et l’action entrepreneuriale. En tant qu'employeur, nous promouvons l'égalité des chances et la diversité. Pour notre Institut de la construction en milieu alpin (IBAR), nous recherchons, dès le semestre d'automne 2026 ou selon entente, une personne en qualité de ## Missions - Dans ce poste polyvalent, vous dirigerez l'Institut de la construction en milieu alpin sur les plans stratégique, opérationnel et managérial. - Vous acquerrez des projets de recherche, les mettrez en œuvre ou participerez à des projets de recherche existants dans les domaines spécialisés concernés. - Vous traiterez des questions analytiques et conceptuelles exigeantes et développerez des solutions innovantes. - Vous rédigerez en outre des publications scientifiques ainsi que des rapports. - Parallèlement, vous enseignerez dans la filière de bachelor en architecture ou en ingénierie civile et encadrerez les étudiants dans leurs travaux semestriels et de bachelor. - Grâce à votre vision stratégique, vous soutiendrez également la direction du département dans l'acquisition de nouveaux projets, la gestion de la clientèle et d'autres tâches centrales du développement de l'université. - Vous représenterez l'institut tant en interne qu'en externe et le conduirez, avec des visions claires, vers un avenir réussi. ## Exigences - Diplôme de master (un doctorat est un atout) en architecture ou en génie civil (de préférence génie des infrastructures), complété par un EMBA ou une formation continue équivalente - Expérience dans la conception et la gestion de projets de construction ou d'infrastructure exigeants, avec plusieurs années d'expérience pratique, idéalement liée au milieu alpin - Expérience dans la direction d'équipes interdisciplinaires ainsi qu'un style de management entrepreneurial et coopératif - Expérience dans l'acquisition, la gestion et la réalisation de projets de recherche, avec un réseau actif au niveau national et international - Personnalité proactive et communicative ## Ce que nous offrons - Une activité passionnante et variée au sein d'un environnement dynamique - Trois semaines annuelles de crédit-temps pour la formation continue personnelle - Notre soutien dans votre développement professionnel personnel - Des conditions d'emploi modernes et de nombreuses offres sportives et culturelles"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.fhgr.ch/Vacancies/772/Description/1",
-      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:10:48.313Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione / Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Formazione / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://jobs.fhgr.ch/Vacancies/772/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Laurea magistrale (un dottorato è un vantaggio) in architettura o ingegneria civile",
-          "Formazione EMBA o equivalente",
-          "Esperienza nella gestione di progetti edili o infrastrutturali complessi",
-          "Esperienza pratica nell'ambiente alpino",
-          "Esperienza nella direzione di team interdisciplinari",
-          "Esperienza nell'acquisizione e gestione di progetti di ricerca",
-          "Rete nazionale e internazionale attiva",
-          "Personalità proattiva e comunicativa"
-        ],
-        "en": [
-          "Master’s degree in Architecture or Civil Engineering",
-          "EMBA or equivalent qualification",
-          "Experience in managing complex construction or infrastructure projects",
-          "Practical experience in alpine regions",
-          "Leadership experience with interdisciplinary teams",
-          "Experience in research project acquisition and management",
-          "Active national and international network",
-          "Proactive and communicative personality"
-        ],
-        "fr": [
-          "Master en architecture ou génie civil",
-          "EMBA ou formation équivalente",
-          "Expérience dans la gestion de projets de construction ou d'infrastructure complexes",
-          "Expérience pratique en milieu alpin",
-          "Expérience dans la direction d'équipes interdisciplinaires",
-          "Expérience dans l'acquisition et la gestion de projets de recherche",
-          "Réseau actif au niveau national et international",
-          "Personnalité proactive et communicative"
-        ]
-      },
-      "department": "Institut für Bauen im alpinen Raum (IBAR)",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "architekt-in-oder-bauingenieur-in-fur-die-leitung-des-instituts-fur-bauen-im-alpinen-raum-"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "architekt-in-oder-bauingenieur-in-fur-die-leitung-des-instituts-fur-bauen-im-alpinen-raum-"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:32:27.193Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -240,7 +139,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:10:47.428Z",
+      "crawledAt": "2026-05-01T21:37:43.599Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -298,6 +197,7 @@
         "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -342,7 +242,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/774/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:10:46.572Z",
+      "crawledAt": "2026-05-01T21:37:42.676Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -403,6 +303,7 @@
         "studienleiter-in-business-administration-studienrichtung-new-business-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:24.670Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -447,7 +348,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/784/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:10:45.580Z",
+      "crawledAt": "2026-05-01T21:37:41.657Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -528,7 +429,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/783/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:10:44.631Z",
+      "crawledAt": "2026-05-01T21:37:40.651Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -565,6 +466,7 @@
         "lehrstelle-als-kauffrau-kaufmann-efz-fachhochschule-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:04:05.014Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -609,7 +511,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/785/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:10:43.668Z",
+      "crawledAt": "2026-05-01T21:37:39.600Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
