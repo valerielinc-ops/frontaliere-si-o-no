@@ -4846,6 +4846,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cassis-aragchi-colloquio-iran.title': 'Cassis and Araghchi discuss regional situation',
     'blog.article.cassis-aragchi-colloquio-iran.excerpt': 'Federal Councillor Ignazio Cassis spoke with Iranian Foreign Minister Abbas Araghchi about the regional situation.',
     'blog.article.cassis-aragchi-colloquio-iran.imageAlt': 'Lake Lugano and mountains',
+    'blog.article.colosso-35-tonnellate-legnano.title': '35-tonne giant born in Legnano',
+    'blog.article.colosso-35-tonnellate-legnano.excerpt': 'Camu Srl of Legnano presents T-Mill, a 35-tonne CNC machine tool for high-precision machining.',
+    'blog.article.colosso-35-tonnellate-legnano.imageAlt': '35-ton CNC machine in a workshop in Legnano',
 };
 
 export default blogMetaEn;

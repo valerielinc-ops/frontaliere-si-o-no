@@ -4846,6 +4846,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassis-aragchi-colloquio-iran.title': 'Cassis und Araghchi besprechen regionale Lage',
     'blog.article.cassis-aragchi-colloquio-iran.excerpt': 'Bundesrat Ignazio Cassis hat mit dem iranischen Außenminister Abbas Araghchi über die regionale Lage gesprochen.',
     'blog.article.cassis-aragchi-colloquio-iran.imageAlt': 'Luganer See und Berge',
+    'blog.article.colosso-35-tonnellate-legnano.title': '35-Tonnen-Koloss aus Legnano',
+    'blog.article.colosso-35-tonnellate-legnano.excerpt': 'Die Camu Srl aus Legnano stellt T-Mill vor, eine 35 Tonnen schwere CNC-Werkzeugmaschine für Präzisionsbearbeitungen.',
+    'blog.article.colosso-35-tonnellate-legnano.imageAlt': '35-Tonnen-CNC-Maschine in einer Werkstatt in Legnano',
 };
 
 export default blogMetaDe;

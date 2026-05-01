@@ -12321,4 +12321,11 @@ export const ARTICLES = [
  image: '/images/blog/cassis-aragchi-colloquio-iran.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'colosso-35-tonnellate-legnano',
+ category: 'novita',
+ date: '2026-05-01T17:51:35.336Z',
+ image: '/images/blog/colosso-35-tonnellate-legnano.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

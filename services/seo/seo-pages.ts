@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1665,
+ "numberOfItems": 1666,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6300,7 +6300,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1662, "name": "USA-Iran: tensioni nucleari e sanzioni nel 2026", "url": `${BASE_URL}/articoli-frontaliere/usa-iran-nucleare-sanzioni-2026` },
           { "@type": "ListItem", "position": 1663, "name": "Convegno sulla sicurezza nei locali pubblici a ...", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-locali-pubblici-convegno-ville-ponti` },
           { "@type": "ListItem", "position": 1664, "name": "Sospetta fuga di gas, stazione metro temporanea...", "url": `${BASE_URL}/articoli-frontaliere/sospetta-fuga-gas-londra-metro-chiusa` },
-          { "@type": "ListItem", "position": 1665, "name": "Cassis e Araghchi discutono situazione regionale", "url": `${BASE_URL}/articoli-frontaliere/cassis-aragchi-colloquio-iran` }
+          { "@type": "ListItem", "position": 1665, "name": "Cassis e Araghchi discutono situazione regionale", "url": `${BASE_URL}/articoli-frontaliere/cassis-aragchi-colloquio-iran` },
+          { "@type": "ListItem", "position": 1666, "name": "{\"it\":\"Colosso da 35 tonnellate nato a Legnano\"...", "url": `${BASE_URL}/articoli-frontaliere/colosso-35-tonnellate-legnano` }
  ]
  },
  {

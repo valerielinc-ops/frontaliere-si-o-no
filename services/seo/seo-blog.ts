@@ -33824,6 +33824,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-colosso-35-tonnellate-legnano': {
+    title: 'Colosso da 35 tonnellate nato a Legnano | Frontaliere Ticino',
+    description: 'Scopri il T-Mill, la macchina utensile CNC da 35 tonnellate sviluppata dalla Camu Srl di Legnano per lavorazioni ad alta precisione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, colosso, tonnellate, nato, legnano',
+    ogTitle: 'Colosso da 35 tonnellate nato a Legnano',
+    ogDescription: 'Scopri il T-Mill, la macchina utensile CNC da 35 tonnellate sviluppata dalla Camu Srl di Legnano per lavorazioni ad alta precisione.',
+    canonicalPath: '/articoli-frontaliere/colosso-35-tonnellate-legnano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"it\":\"Colosso da 35 tonnellate nato a Legnano\",\"en\":\"35-ton giant born in Legnano\",\"de\":\"35-Tonnen-Riese aus Legnano\",\"fr\":\"Géant de 35 tonnes né à Legnano\"}",
+      "description": "Scopri il T-Mill, la macchina utensile CNC da 35 tonnellate sviluppata dalla Camu Srl di Legnano per lavorazioni ad alta precisione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/colosso-35-tonnellate-legnano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Macchina utensile CNC da 35 tonnellate in un'officina a Legnano"
+      },
+      "datePublished": "2026-05-01T17:51:35+00:00",
+      "dateModified": "2026-05-01T17:51:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/colosso-35-tonnellate-legnano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
