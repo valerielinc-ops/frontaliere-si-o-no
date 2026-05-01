@@ -4940,6 +4940,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.siccit-estate-2026-ticino.title': 'Sécheresse au Tessin: été 2026 en danger',
     'blog.article.siccit-estate-2026-ticino.excerpt': 'Avril 2026 a été le plus sec des dernières années, avec des précipitations à 10% de la moyenne. Risque d\'incendies et bassins hydriques critiques.',
     'blog.article.siccit-estate-2026-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes et des paysages secs',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.title': 'Police unique au Tessin : Galusero contre Galli, le débat s\'enflamme',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.excerpt': 'Le Conseil d\'État a décidé de stopper le projet \'Police tessinoise\'. Les réactions de Galusero et Galli.',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.imageAlt': 'Vue aérienne de Lugano, Tessin, Suisse',
 };
 
 export default blogMetaFr;

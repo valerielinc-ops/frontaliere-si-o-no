@@ -34723,6 +34723,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-polizia-ticino-progetto-abbandono-2026': {
+    title: 'Polizia unica in Ticino: Galusero vs Galli, il dibattito si accende',
+    description: 'Il Consiglio di Stato ha deciso di stoppare il progetto \'Polizia ticinese\'. Le reazioni di Galusero e Galli e le implicazioni per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, unica, galusero, galli',
+    ogTitle: 'Polizia unica in Ticino: Galusero vs Galli, il dibattito si accende',
+    ogDescription: 'Il Consiglio di Stato ha deciso di stoppare il progetto \'Polizia ticinese\'. Le reazioni di Galusero e Galli e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/polizia-ticino-progetto-abbandono-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Polizia unica in Ticino: Galusero vs Galli, il dibattito si accende",
+      "description": "Il Consiglio di Stato ha deciso di stoppare il progetto 'Polizia ticinese'. Le reazioni di Galusero e Galli e le implicazioni per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/polizia-ticino-progetto-abbandono-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Lugano, Ticino, Svizzera"
+      },
+      "datePublished": "2026-05-01T22:39:51+00:00",
+      "dateModified": "2026-05-01T22:39:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-ticino-progetto-abbandono-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

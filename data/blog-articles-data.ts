@@ -12538,4 +12538,11 @@ export const ARTICLES = [
  image: '/images/blog/siccit-estate-2026-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'polizia-ticino-progetto-abbandono-2026',
+ category: 'novita',
+ date: '2026-05-01T22:39:51.715Z',
+ image: '/images/blog/polizia-ticino-progetto-abbandono-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

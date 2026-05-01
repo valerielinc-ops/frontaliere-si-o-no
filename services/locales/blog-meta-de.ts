@@ -4939,6 +4939,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.siccit-estate-2026-ticino.title': 'Dürre im Tessin: Risiko für den Sommer 2026',
     'blog.article.siccit-estate-2026-ticino.excerpt': 'April 2026 war der trockenste der letzten Jahre, mit Niederschlägen bei nur 10 % des Durchschnitts. Brandgefahr und kritische Wasserreserven.',
     'blog.article.siccit-estate-2026-ticino.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und trockenen Landschaften',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.title': 'Einheitliche Polizei im Tessin: Galusero vs Galli, Debatte entbrennt',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.excerpt': 'Der Staatsrat hat beschlossen, das Projekt \'Polizei Ticino\' zu stoppen. Die Reaktionen von Galusero und Galli.',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.imageAlt': 'Luftaufnahme von Lugano, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

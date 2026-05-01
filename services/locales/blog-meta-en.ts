@@ -4939,6 +4939,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.siccit-estate-2026-ticino.title': 'Drought in Ticino: summer 2026 at risk',
     'blog.article.siccit-estate-2026-ticino.excerpt': 'April 2026 was the driest in recent years, with precipitation at 10% of the average. Fire risk and critical water basins.',
     'blog.article.siccit-estate-2026-ticino.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and dry landscapes',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.title': 'Single police force in Ticino: Galusero vs Galli, debate heats up',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.excerpt': 'The State Council has decided to halt the \'Ticino Police\' project. Reactions from Galusero and Galli.',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.imageAlt': 'Aerial view of Lugano, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

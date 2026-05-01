@@ -2877,6 +2877,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-primo-maggio-2026-svizzera-cortei': { name: 'Primo Maggio 2026', path: '/articoli-frontaliere/primo-maggio-2026-svizzera-cortei', parent: 'blog' },
     'blog-guardie-svizzere-2025-intenso': { name: 'Guardie svizzere', path: '/articoli-frontaliere/guardie-svizzere-2025-intenso', parent: 'blog' },
     'blog-siccit-estate-2026-ticino': { name: 'Novità', path: '/articoli-frontaliere/siccit-estate-2026-ticino', parent: 'blog' },
+    'blog-polizia-ticino-progetto-abbandono-2026': { name: 'Polizia Ticino', path: '/articoli-frontaliere/polizia-ticino-progetto-abbandono-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4940,6 +4940,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.siccit-estate-2026-ticino.title': 'Siccità in Ticino: estate 2026 a rischio',
     'blog.article.siccit-estate-2026-ticino.excerpt': 'Aprile 2026 è stato il più secco degli ultimi anni, con precipitazioni al 10% della media. Rischio incendi e bacini idrici critici.',
     'blog.article.siccit-estate-2026-ticino.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti e paesaggi secchi',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.title': 'Polizia unica in Ticino: Galusero vs Galli, il dibattito si accende',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.excerpt': 'Il Consiglio di Stato ha deciso di stoppare il progetto \'Polizia ticinese\'. Le reazioni di Galusero e Galli.',
+    'blog.article.polizia-ticino-progetto-abbandono-2026.imageAlt': 'Veduta aerea di Lugano, Ticino, Svizzera',
 };
 
 export default blogMetaIt;
