@@ -12118,4 +12118,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-torino-tensioni-askatasuna.jpg',
  hasCalculator: true,
  },
+ {
+ id: '142-violenza-ticino-2026',
+ category: 'novita',
+ date: '2026-05-01T13:06:26.802Z',
+ image: '/images/blog/142-violenza-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

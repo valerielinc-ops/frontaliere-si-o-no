@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1636,
+ "numberOfItems": 1637,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6271,7 +6271,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1633, "name": "Como, centinaia in piazza per la Festa del lavo...", "url": `${BASE_URL}/articoli-frontaliere/como-festa-lavoro-diritti-salari` },
           { "@type": "ListItem", "position": 1634, "name": "Denuncia per mancanza di attrezzature ai soccor...", "url": `${BASE_URL}/articoli-frontaliere/denuncia-soccorsi-crans-montana-2026` },
           { "@type": "ListItem", "position": 1635, "name": "Incidente a Cantù: auto contro muro, due feriti", "url": `${BASE_URL}/articoli-frontaliere/incidente-cantu-due-feriti` },
-          { "@type": "ListItem", "position": 1636, "name": "Primo Maggio a Torino: tensioni tra manifestant...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-torino-tensioni-askatasuna` }
+          { "@type": "ListItem", "position": 1636, "name": "Primo Maggio a Torino: tensioni tra manifestant...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-torino-tensioni-askatasuna` },
+          { "@type": "ListItem", "position": 1637, "name": "Il 142 è attivo: una telefonata per rompere il ...", "url": `${BASE_URL}/articoli-frontaliere/142-violenza-ticino-2026` }
  ]
  },
  {

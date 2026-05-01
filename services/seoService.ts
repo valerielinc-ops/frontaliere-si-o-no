@@ -2817,6 +2817,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-denuncia-soccorsi-crans-montana-2026': { name: 'Denuncia soccorsi', path: '/articoli-frontaliere/denuncia-soccorsi-crans-montana-2026', parent: 'blog' },
     'blog-incidente-cantu-due-feriti': { name: 'Incidente Cantù', path: '/articoli-frontaliere/incidente-cantu-due-feriti', parent: 'blog' },
     'blog-primo-maggio-torino-tensioni-askatasuna': { name: 'Novità', path: '/articoli-frontaliere/primo-maggio-torino-tensioni-askatasuna', parent: 'blog' },
+    'blog-142-violenza-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/142-violenza-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

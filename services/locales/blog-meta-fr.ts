@@ -4760,6 +4760,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-torino-tensioni-askatasuna.title': '1er mai à Turin : tensions entre manifestants et police',
     'blog.article.primo-maggio-torino-tensioni-askatasuna.excerpt': 'Un groupe se détache du cortège principal vers l\'ancien centre social Askatasuna, tensions avec la police.',
     'blog.article.primo-maggio-torino-tensioni-askatasuna.imageAlt': 'Manifestants à Turin le Premier Mai',
+    'blog.article.142-violenza-ticino-2026.title': 'Le 142 est actif : un appel pour briser le silence sur la violence',
+    'blog.article.142-violenza-ticino-2026.excerpt': 'Dès aujourd\'hui, le numéro 142 est actif dans toute la Suisse pour les victimes de violence. Découvrez comment cela fonctionne et qui peut vous aider.',
+    'blog.article.142-violenza-ticino-2026.imageAlt': 'LAC Lugano Arts Center avec vue sur la ville',
 };
 
 export default blogMetaFr;

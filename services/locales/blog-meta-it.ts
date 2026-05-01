@@ -4760,6 +4760,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-torino-tensioni-askatasuna.title': 'Primo Maggio a Torino: tensioni tra manifestanti e forze dell\'ordine',
     'blog.article.primo-maggio-torino-tensioni-askatasuna.excerpt': 'Un gruppo si stacca dal corteo principale verso l\'ex centro sociale Askatasuna, tensioni con la polizia.',
     'blog.article.primo-maggio-torino-tensioni-askatasuna.imageAlt': 'Gruppo di manifestanti a Torino durante il Primo Maggio',
+    'blog.article.142-violenza-ticino-2026.title': 'Il 142 è attivo: una telefonata per rompere il silenzio sulla violenza',
+    'blog.article.142-violenza-ticino-2026.excerpt': 'Da oggi in tutta la Svizzera è attivo il numero 142 per vittime di violenza. Scopri come funziona e chi può aiutarti.',
+    'blog.article.142-violenza-ticino-2026.imageAlt': 'LAC Lugano Arts Center con vista sulla città',
 };
 
 export default blogMetaIt;

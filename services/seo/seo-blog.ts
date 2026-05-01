@@ -32983,6 +32983,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-142-violenza-ticino-2026': {
+    title: 'Il 142 è attivo: una telefonata per rompere il silenzio sulla violenza',
+    description: 'Da oggi in tutta la Svizzera è attivo il numero 142 per vittime di violenza. Scopri come funziona e chi può aiutarti. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, attivo, telefonata, rompere, silenzio',
+    ogTitle: 'Il 142 è attivo: una telefonata per rompere il silenzio sulla violenza',
+    ogDescription: 'Da oggi in tutta la Svizzera è attivo il numero 142 per vittime di violenza. Scopri come funziona e chi può aiutarti.',
+    canonicalPath: '/articoli-frontaliere/142-violenza-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il 142 è attivo: una telefonata per rompere il silenzio sulla violenza",
+      "description": "Da oggi in tutta la Svizzera è attivo il numero 142 per vittime di violenza. Scopri come funziona e chi può aiutarti. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/142-violenza-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "LAC Lugano Arts Center con vista sulla città"
+      },
+      "datePublished": "2026-05-01T13:06:26+00:00",
+      "dateModified": "2026-05-01T13:06:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/142-violenza-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
