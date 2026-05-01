@@ -4693,6 +4693,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lago-maggiore-sale-ambiente-2026.title': 'Lago Maggiore steigt: +15 cm, Sorgen für die Umwelt',
     'blog.article.lago-maggiore-sale-ambiente-2026.excerpt': 'Die ADBPO erhöht den maximalen Wasserstand auf +1,40 Meter. Sorgen für Tourismusorte und Ökosysteme',
     'blog.article.lago-maggiore-sale-ambiente-2026.imageAlt': 'Luftaufnahme des Lago Maggiore mit Schweizer und italienischen Ufern',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.title': '25 cm mehr für den Lago Maggiore: Was sich für Grenzgänger ändert',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.excerpt': 'Ab dem nächsten Sommer kann der Höchststand des Lago Maggiore um 25 Zentimeter erhöht werden. Hier erfahren Sie, was sich für Grenzgänger ändert',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.imageAlt': 'Lago Maggiore mit hohem Wasserstand, überflutete Strände, Seelandschaft',
 };
 
 export default blogMetaDe;

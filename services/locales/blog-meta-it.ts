@@ -4694,6 +4694,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lago-maggiore-sale-ambiente-2026.title': 'Lago Maggiore sale: +15 cm, timori per l\'ambiente',
     'blog.article.lago-maggiore-sale-ambiente-2026.excerpt': 'L\'ADBPO innalza il livello massimo del lago a +1,40 metri. Timori per le località turistiche e gli ecosistemi',
     'blog.article.lago-maggiore-sale-ambiente-2026.imageAlt': 'Vista aerea del Lago Maggiore con le rive svizzere e italiane',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.title': '25 cm in più per il Lago Maggiore: cosa cambia per i frontalieri',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.excerpt': 'Dalla prossima estate il livello massimo del Lago Maggiore potrà essere innalzato di 25 centimetri. Ecco cosa cambia per i frontalieri',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.imageAlt': 'Lago Maggiore con livello dell\'acqua alto, spiagge sommerse, paesaggio lacustre',
 };
 
 export default blogMetaIt;

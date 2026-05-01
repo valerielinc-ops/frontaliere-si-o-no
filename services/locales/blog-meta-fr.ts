@@ -4694,6 +4694,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lago-maggiore-sale-ambiente-2026.title': 'Lac Majeur monte: +15 cm, craintes pour l\'environnement',
     'blog.article.lago-maggiore-sale-ambiente-2026.excerpt': 'L\'ADBPO élève le niveau maximum du lac à +1,40 mètres. Craintes pour les localités touristiques et les écosystèmes',
     'blog.article.lago-maggiore-sale-ambiente-2026.imageAlt': 'Vue aérienne du lac Majeur avec les rives suisses et italiennes',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.title': '25 cm de plus pour le lac Majeur: ce qui change pour les frontaliers',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.excerpt': 'Dès l\'été prochain, le niveau maximal du lac Majeur pourra être élevé de 25 centimètres. Voici ce qui change pour les frontaliers',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.imageAlt': 'Lac Majeur avec niveau d\'eau élevé, plages submergées, paysage lacustre',
 };
 
 export default blogMetaFr;

@@ -32345,6 +32345,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-25-centimetri-lago-maggiore-frontalieri': {
+    title: '25 cm in più per il Lago Maggiore: cosa cambia per i frontalieri',
+    description: 'Dalla prossima estate il livello massimo del Lago Maggiore potrà essere innalzato di 25 centimetri. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lago, maggiore, cosa, cambia',
+    ogTitle: '25 cm in più per il Lago Maggiore: cosa cambia per i frontalieri',
+    ogDescription: 'Dalla prossima estate il livello massimo del Lago Maggiore potrà essere innalzato di 25 centimetri. Ecco cosa cambia per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/25-centimetri-lago-maggiore-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "25 cm in più per il Lago Maggiore: cosa cambia per i frontalieri",
+      "description": "Dalla prossima estate il livello massimo del Lago Maggiore potrà essere innalzato di 25 centimetri. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/25-centimetri-lago-maggiore-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Maggiore con livello dell'acqua alto, spiagge sommerse, paesaggio lacustre"
+      },
+      "datePublished": "2026-05-01T09:47:40+00:00",
+      "dateModified": "2026-05-01T09:47:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/25-centimetri-lago-maggiore-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

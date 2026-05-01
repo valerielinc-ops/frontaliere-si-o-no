@@ -4693,6 +4693,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lago-maggiore-sale-ambiente-2026.title': 'Lake Maggiore rises: +15 cm, environmental concerns',
     'blog.article.lago-maggiore-sale-ambiente-2026.excerpt': 'ADBPO raises the lake\'s maximum level to +1.40 meters. Fears for tourist spots and ecosystems',
     'blog.article.lago-maggiore-sale-ambiente-2026.imageAlt': 'Aerial view of Lake Maggiore with Swiss and Italian shores',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.title': '25 cm more for Lake Maggiore: what changes for cross-border workers',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.excerpt': 'From next summer, the maximum level of Lake Maggiore can be raised by 25 centimeters. Here\'s what changes for cross-border workers',
+    'blog.article.25-centimetri-lago-maggiore-frontalieri.imageAlt': 'Lake Maggiore with high water level, submerged beaches, lakeside landscape',
 };
 
 export default blogMetaEn;

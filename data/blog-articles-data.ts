@@ -11964,4 +11964,11 @@ export const ARTICLES = [
  image: '/images/blog/lago-maggiore-sale-ambiente-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: '25-centimetri-lago-maggiore-frontalieri',
+ category: 'novita',
+ date: '2026-05-01T09:47:40.019Z',
+ image: '/images/blog/25-centimetri-lago-maggiore-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
