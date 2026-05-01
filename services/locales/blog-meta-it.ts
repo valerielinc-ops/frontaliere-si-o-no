@@ -4808,6 +4808,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gallarate-borse-studio-2026.title': '87 studenti premiati con borse di studio a Gallarate',
     'blog.article.gallarate-borse-studio-2026.excerpt': 'La cerimonia si è svolta al Maga-Hic di Gallarate, dove 87 studenti sono stati premiati per i loro risultati scolastici ed extrascolastici.',
     'blog.article.gallarate-borse-studio-2026.imageAlt': 'Cerimonia al Maga-Hic di Gallarate con studenti premiati',
+    'blog.article.primo-maggio-2026-ticino-sindacati-iniziativa-udc.title': '1° maggio 2026: sindacati e politica contro l\'iniziativa UDC',
+    'blog.article.primo-maggio-2026-ticino-sindacati-iniziativa-udc.excerpt': 'Mobilitazione nazionale contro l\'iniziativa UDC \'No a una Svizzera da 10 milioni!\' con manifestazioni in diverse città svizzere.',
+    'blog.article.primo-maggio-2026-ticino-sindacati-iniziativa-udc.imageAlt': 'Una grande folla di persone protesta davanti al Lago di Lugano con striscioni e cartelli, sotto un cielo azzurro limpido.',
 };
 
 export default blogMetaIt;

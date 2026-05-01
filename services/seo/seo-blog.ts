@@ -33447,6 +33447,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-2026-ticino-sindacati-iniziativa-udc': {
+    title: '1° maggio 2026: sindacati e politica contro l\'iniziativa UDC',
+    description: 'Mobilitazione nazionale contro l\'iniziativa UDC \'No a una Svizzera da 10 milioni!\' con manifestazioni in diverse città svizzere. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggio, sindacati, politica, contro',
+    ogTitle: '1° maggio 2026: sindacati e politica contro l\'iniziativa UDC',
+    ogDescription: 'Mobilitazione nazionale contro l\'iniziativa UDC \'No a una Svizzera da 10 milioni!\' con manifestazioni in diverse città svizzere.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-2026-ticino-sindacati-iniziativa-udc',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "1° maggio 2026: sindacati e politica contro l'iniziativa UDC",
+      "description": "Mobilitazione nazionale contro l'iniziativa UDC 'No a una Svizzera da 10 milioni!' con manifestazioni in diverse città svizzere. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-2026-ticino-sindacati-iniziativa-udc.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una grande folla di persone protesta davanti al Lago di Lugano con striscioni e cartelli, sotto un cielo azzurro limpido."
+      },
+      "datePublished": "2026-05-01T15:50:24+00:00",
+      "dateModified": "2026-05-01T15:50:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-ticino-sindacati-iniziativa-udc`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

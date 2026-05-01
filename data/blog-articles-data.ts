@@ -12230,4 +12230,11 @@ export const ARTICLES = [
  image: '/images/blog/gallarate-borse-studio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-2026-ticino-sindacati-iniziativa-udc',
+ category: 'novita',
+ date: '2026-05-01T15:50:24.804Z',
+ image: '/images/blog/primo-maggio-2026-ticino-sindacati-iniziativa-udc.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
