@@ -4615,6 +4615,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Addiction prevention: 1 CHF today to save 20 tomorrow',
     'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Cuts to addiction prevention funds in Ticino, despite rising healthcare costs. The expert: a logic of immediate savings is being followed.',
     'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'View of Lake Lugano with modern buildings and people walking',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.title': 'May Day concert in Rome: artists on the bill',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.excerpt': 'The traditional event for Labour Day in Rome with Arisa, Pierpaolo Spollon and BigMama. All the artists on the bill',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.imageAlt': 'Concert stage at Rome\'s First of May concert with performing artists',
 };
 
 export default blogMetaEn;

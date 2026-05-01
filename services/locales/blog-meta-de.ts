@@ -4615,6 +4615,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Suchtprävention: 1 Franken heute spart 20 morgen',
     'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Kürzungen bei den Mitteln für die Suchtprävention im Tessin, trotz steigender Gesundheitskosten. Der Experte: Es wird eine Logik des sofortigen Sparens verfolgt.',
     'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und spazierenden Menschen',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.title': 'Konzert am 1. Mai in Rom: die Künstler',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.excerpt': 'Das traditionelle Event zum Tag der Arbeit in Rom mit Arisa, Pierpaolo Spollon und BigMama. Alle Künstler im Programm',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.imageAlt': 'Konzertbühne beim Ersten Mai Konzert in Rom mit auftretenden Künstlern',
 };
 
 export default blogMetaDe;

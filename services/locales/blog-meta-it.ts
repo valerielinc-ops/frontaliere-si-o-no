@@ -4616,6 +4616,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Prevenzione dipendenze: un franco oggi per risparmiarne 20 domani',
     'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Tagli ai fondi per la prevenzione delle dipendenze in Ticino, nonostante i costi sanitari in aumento. L\'esperto: si segue una logica di risparmio immediato.',
     'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'Vista del lago di Lugano con edifici moderni e persone che camminano',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.title': 'Concertone del Primo Maggio a Roma: gli artisti in scaletta',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.excerpt': 'Il tradizionale evento per la Festa dei Lavoratori a Roma con Arisa, Pierpaolo Spollon e BigMama. Tutti gli artisti in scaletta',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.imageAlt': 'Palco del Concertone del Primo Maggio a Roma con artisti in esibizione',
 };
 
 export default blogMetaIt;

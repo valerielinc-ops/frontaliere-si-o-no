@@ -31591,6 +31591,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-concertone-primo-maggio-roma-artisti-2026': {
+    title: 'Concertone del Primo Maggio a Roma: gli artisti in scaletta',
+    description: 'Il Concertone del Primo Maggio a Roma con Arisa, Pierpaolo Spollon e BigMama. Tutti gli artisti in scaletta e informazioni utili per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, concertone, primo, maggio, roma',
+    ogTitle: 'Concertone Primo Maggio Roma artisti scaletta 2026',
+    ogDescription: 'Il Concertone del Primo Maggio a Roma con Arisa, Pierpaolo Spollon e BigMama. Tutti gli artisti in scaletta e informazioni utili per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/concertone-primo-maggio-roma-artisti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Concertone Primo Maggio Roma artisti scaletta 2026",
+      "description": "Il Concertone del Primo Maggio a Roma con Arisa, Pierpaolo Spollon e BigMama. Tutti gli artisti in scaletta e informazioni utili per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/concertone-primo-maggio-roma-artisti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palco del Concertone del Primo Maggio a Roma con artisti in esibizione"
+      },
+      "datePublished": "2026-05-01T06:23:53+00:00",
+      "dateModified": "2026-05-01T06:23:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/concertone-primo-maggio-roma-artisti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
