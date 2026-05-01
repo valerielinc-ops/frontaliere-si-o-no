@@ -4861,6 +4861,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.142-linea-aiuto-vittime-violenza-ticino.title': '142: new helpline for violence victims in Ticino',
     'blog.article.142-linea-aiuto-vittime-violenza-ticino.excerpt': 'The number 142 is now active in Ticino to support victims of physical, psychological, or sexual violence. Free and anonymous, it offers 24/7 counseling.',
     'blog.article.142-linea-aiuto-vittime-violenza-ticino.imageAlt': 'Lake Lugano with city view',
+    'blog.article.collisione-cadegliano-varese-ferito-54enne.title': 'Accident in Cadegliano Viconago: 54-year-old injured',
+    'blog.article.collisione-cadegliano-varese-ferito-54enne.excerpt': 'An accident between a car and a motorcycle involved a 54-year-old in Cadegliano Viconago, Varese. Here are the details of the accident and the consequences.',
+    'blog.article.collisione-cadegliano-varese-ferito-54enne.imageAlt': 'Scene of a car and motorcycle collision in Cadegliano Viconago, Varese',
 };
 
 export default blogMetaEn;

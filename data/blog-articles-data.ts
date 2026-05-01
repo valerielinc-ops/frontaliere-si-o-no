@@ -12356,4 +12356,11 @@ export const ARTICLES = [
  image: '/images/blog/142-linea-aiuto-vittime-violenza-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'collisione-cadegliano-varese-ferito-54enne',
+ category: 'novita',
+ date: '2026-05-01T18:38:34.733Z',
+ image: '/images/blog/collisione-cadegliano-varese-ferito-54enne.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

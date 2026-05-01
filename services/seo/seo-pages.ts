@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1670,
+ "numberOfItems": 1671,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6305,7 +6305,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1667, "name": "Villa Visconti Borromeo Litta riapre a Lainate:...", "url": `${BASE_URL}/articoli-frontaliere/riapre-villa-visconti-lainate-2026` },
           { "@type": "ListItem", "position": 1668, "name": "Teheran consegna nuova proposta negoziale ai me...", "url": `${BASE_URL}/articoli-frontaliere/teheran-proposta-pakistan-mediatori` },
           { "@type": "ListItem", "position": 1669, "name": "Inflazione in Svizzera: perché i frontalieri se...", "url": `${BASE_URL}/articoli-frontaliere/inflazione-svizzera-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 1670, "name": "142: nuova linea d'aiuto per vittime di violenz...", "url": `${BASE_URL}/articoli-frontaliere/142-linea-aiuto-vittime-violenza-ticino` }
+          { "@type": "ListItem", "position": 1670, "name": "142: nuova linea d'aiuto per vittime di violenz...", "url": `${BASE_URL}/articoli-frontaliere/142-linea-aiuto-vittime-violenza-ticino` },
+          { "@type": "ListItem", "position": 1671, "name": "Incidente a Cadegliano Viconago: ferito un 54enne", "url": `${BASE_URL}/articoli-frontaliere/collisione-cadegliano-varese-ferito-54enne` }
  ]
  },
  {

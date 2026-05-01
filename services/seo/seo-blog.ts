@@ -33969,6 +33969,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-collisione-cadegliano-varese-ferito-54enne': {
+    title: 'Incidente a Cadegliano Viconago: ferito un 54enne | Frontaliere Ticino',
+    description: 'Un incidente tra un\'auto e una moto a Cadegliano Viconago, Varese, ha lasciato un 54enne ferito. Ecco i dettagli e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, cadegliano, viconago, ferito',
+    ogTitle: 'Incidente a Cadegliano Viconago: ferito un 54enne',
+    ogDescription: 'Un incidente tra un\'auto e una moto a Cadegliano Viconago, Varese, ha lasciato un 54enne ferito. Ecco i dettagli e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/collisione-cadegliano-varese-ferito-54enne',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente a Cadegliano Viconago: ferito un 54enne",
+      "description": "Un incidente tra un'auto e una moto a Cadegliano Viconago, Varese, ha lasciato un 54enne ferito. Ecco i dettagli e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/collisione-cadegliano-varese-ferito-54enne.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scene di un incidente stradale tra un'auto e una moto a Cadegliano Viconago, Varese"
+      },
+      "datePublished": "2026-05-01T18:38:34+00:00",
+      "dateModified": "2026-05-01T18:38:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/collisione-cadegliano-varese-ferito-54enne`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
