@@ -4796,6 +4796,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.festa-fritti-glam-varese-2026.title': 'Festa dei fritti al Glam di Varese: gnocco martedì, fritto misto giovedì',
     'blog.article.festa-fritti-glam-varese-2026.excerpt': 'Dal 30 aprile 2026 al Glam Caffè di Varese via Manin ogni martedì e giovedì pranzo con gnocco fritto e fritto misto. Digestivo offerto.',
     'blog.article.festa-fritti-glam-varese-2026.imageAlt': 'Glam Caffè a Varese, evento festa dei fritti 2026',
+    'blog.article.alta-mesolcina-sfida-movimento-2026.title': 'Lostallo, Soazza e Mesocco per il titolo di comune più attivo',
+    'blog.article.alta-mesolcina-sfida-movimento-2026.excerpt': 'I tre comuni dell\'Alta Mesolcina partecipano alla "Coop sfida fra comuni" per promuovere l\'attività fisica durante il mese di maggio 2026.',
+    'blog.article.alta-mesolcina-sfida-movimento-2026.imageAlt': 'Vista aerea della regione dell\'Alta Mesolcina in Ticino, Svizzera, con montagne e valli, cielo azzurro limpido e persone che praticano attività all\'aperto.',
 };
 
 export default blogMetaIt;

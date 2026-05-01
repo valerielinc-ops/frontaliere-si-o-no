@@ -12202,4 +12202,11 @@ export const ARTICLES = [
  image: '/images/blog/festa-fritti-glam-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'alta-mesolcina-sfida-movimento-2026',
+ category: 'novita',
+ date: '2026-05-01T15:10:10.641Z',
+ image: '/images/blog/alta-mesolcina-sfida-movimento-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

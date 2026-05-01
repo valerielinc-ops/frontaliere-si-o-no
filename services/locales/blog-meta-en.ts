@@ -4795,6 +4795,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.festa-fritti-glam-varese-2026.title': 'Fried feast at Glam in Varese: gnocco on Tuesday, mixed fry on Thursday',
     'blog.article.festa-fritti-glam-varese-2026.excerpt': 'From April 30, 2026, every Tuesday and Thursday at Glam Caffè in Varese, via Manin, enjoy lunch with fried gnocco and mixed fry. Digestif on the house.',
     'blog.article.festa-fritti-glam-varese-2026.imageAlt': 'Glam Caffè in Varese, fried food festival 2026',
+    'blog.article.alta-mesolcina-sfida-movimento-2026.title': 'Lostallo, Soazza and Mesocco vie for most active municipality',
+    'blog.article.alta-mesolcina-sfida-movimento-2026.excerpt': 'The three municipalities of Alta Mesolcina are participating in the \'Coop municipal challenge\' to promote physical activity during the month of May 2026.',
+    'blog.article.alta-mesolcina-sfida-movimento-2026.imageAlt': 'Aerial view of the Alta Mesolcina region in Ticino, Switzerland, with mountains and valleys, clear blue sky, and people engaging in outdoor activities.',
 };
 
 export default blogMetaEn;

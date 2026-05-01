@@ -4796,6 +4796,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.festa-fritti-glam-varese-2026.title': 'Fête des fritures au Glam de Varèse: gnocchi mardi, fritures jeudi',
     'blog.article.festa-fritti-glam-varese-2026.excerpt': 'Du 30 avril 2026 au Glam Caffè de Varèse, via Manin, déjeuner avec gnocchi frit et fritures tous les mardi et jeudi. Digestif offert.',
     'blog.article.festa-fritti-glam-varese-2026.imageAlt': 'Glam Caffè à Varèse, fête des fritures 2026',
+    'blog.article.alta-mesolcina-sfida-movimento-2026.title': 'Lostallo, Soazza et Mesocco pour le titre de commune la plus active',
+    'blog.article.alta-mesolcina-sfida-movimento-2026.excerpt': 'Les trois communes de la Haute Mesolcina participent au défi "Coop défi entre communes" pour promouvoir l\'activité physique pendant le mois de mai 2026.',
+    'blog.article.alta-mesolcina-sfida-movimento-2026.imageAlt': 'Vue aérienne de la région de l\'Alta Mesolcina dans le Tessin, Suisse, avec des montagnes et des vallées, un ciel bleu clair et des personnes pratiquant des activités de plein air.',
 };
 
 export default blogMetaFr;

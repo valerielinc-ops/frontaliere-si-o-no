@@ -33331,6 +33331,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-alta-mesolcina-sfida-movimento-2026': {
+    title: 'Lostallo, Soazza e Mesocco per il titolo di comune più attivo',
+    description: 'Lostallo, Soazza e Mesocco partecipano alla "Coop sfida fra comuni" per promuovere l\'attività fisica durante il mese di maggio 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lostallo, soazza, mesocco, titolo',
+    ogTitle: 'Lostallo, Soazza e Mesocco per il titolo di "Comune più attivo della Svizzera"',
+    ogDescription: 'Lostallo, Soazza e Mesocco partecipano alla "Coop sfida fra comuni" per promuovere l\'attività fisica durante il mese di maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/alta-mesolcina-sfida-movimento-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lostallo, Soazza e Mesocco per il titolo di \"Comune più attivo della Svizzera\"",
+      "description": "Lostallo, Soazza e Mesocco partecipano alla \"Coop sfida fra comuni\" per promuovere l'attività fisica durante il mese di maggio 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/alta-mesolcina-sfida-movimento-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della regione dell'Alta Mesolcina in Ticino, Svizzera, con montagne e valli, cielo azzurro limpido e persone che praticano attività all'aperto."
+      },
+      "datePublished": "2026-05-01T15:10:10+00:00",
+      "dateModified": "2026-05-01T15:10:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/alta-mesolcina-sfida-movimento-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

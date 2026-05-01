@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1648,
+ "numberOfItems": 1649,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6283,7 +6283,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1645, "name": "142: il numero che combatte la violenza in Ticino", "url": `${BASE_URL}/articoli-frontaliere/142-numero-aiuto-vittime-ticino` },
           { "@type": "ListItem", "position": 1646, "name": "Dopo il ponte, l’acqua: meteo Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/ponte-l-acqua-ticino-2026` },
           { "@type": "ListItem", "position": 1647, "name": "Nuovo canile di Varese ai Duni: progetto approv...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-canile-varese-duni-2026` },
-          { "@type": "ListItem", "position": 1648, "name": "Festa dei fritti al Glam di Varese: gnocco mart...", "url": `${BASE_URL}/articoli-frontaliere/festa-fritti-glam-varese-2026` }
+          { "@type": "ListItem", "position": 1648, "name": "Festa dei fritti al Glam di Varese: gnocco mart...", "url": `${BASE_URL}/articoli-frontaliere/festa-fritti-glam-varese-2026` },
+          { "@type": "ListItem", "position": 1649, "name": "Lostallo, Soazza e Mesocco per il titolo di \"Co...", "url": `${BASE_URL}/articoli-frontaliere/alta-mesolcina-sfida-movimento-2026` }
  ]
  },
  {
