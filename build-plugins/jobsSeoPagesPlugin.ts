@@ -3609,8 +3609,8 @@ ${alternates}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
+ <div id="root"></div>
+ <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
  <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
@@ -3644,7 +3644,7 @@ ${alternates}
  </section>
  ${renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true })}
  </main>
- </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
  const outDir = np.join(distDir, canonicalPath.slice(1));
@@ -3770,8 +3770,8 @@ ${alternates}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
+ <div id="root"></div>
+ <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
  <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
@@ -3807,7 +3807,7 @@ ${alternates}
  </section>
  ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true })}
  </main>
- </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
  const outDir = np.join(distDir, canonicalPath.slice(1));
@@ -3936,8 +3936,8 @@ ${alternates}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
+ <div id="root"></div>
+ <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
  <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
@@ -3969,7 +3969,7 @@ ${alternates}
  </section>
  ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true })}
  </main>
- </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
  const outDir = np.join(distDir, canonicalPath.slice(1));
@@ -4101,8 +4101,8 @@ ${alternates}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
+ <div id="root"></div>
+ <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
  <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
@@ -4131,7 +4131,7 @@ ${alternates}
  </section>
  ${renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé' })}
  </main>
- </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
  const outDir = np.join(distDir, canonicalPath.slice(1));
@@ -4290,8 +4290,8 @@ ${alternates}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
+ <div id="root"></div>
+ <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
  <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(pageH1)}</h1>
@@ -4323,7 +4323,7 @@ ${alternates}
  </section>
  ${renderJobBoardCommuterContext({ locale, location })}
  </main>
- </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
  // Primary write — at canonicalPath (clean URL for geo-hub cities,
@@ -4511,8 +4511,8 @@ ${alternates}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
+ <div id="root"></div>
+ <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
  <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
@@ -4542,7 +4542,7 @@ ${alternates}
  </section>
  ${renderJobBoardCommuterContext({ locale, location, sectorOrType: model.typeLabel })}
  </main>
- </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
  const outDir = np.join(distDir, canonicalPath.slice(1));
@@ -4674,8 +4674,8 @@ ${alternates}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root">
- <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
+ <div id="root"></div>
+ <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
  <header style="margin-bottom:28px">
  <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
  <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
@@ -4705,7 +4705,7 @@ ${alternates}
  </section>
  ${renderJobBoardCommuterContext({ locale, location, sectorOrType: model.sectorLabel })}
  </main>
- </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
  const outDir = np.join(distDir, canonicalPath.slice(1));
