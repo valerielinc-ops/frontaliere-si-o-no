@@ -11747,4 +11747,11 @@ export const ARTICLES = [
  image: '/images/blog/crystal-palace-finale-conference-rayo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'trump-cina-russia-patto-2026',
+ category: 'novita',
+ date: '2026-05-01T05:44:34.050Z',
+ image: '/images/blog/trump-cina-russia-patto-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

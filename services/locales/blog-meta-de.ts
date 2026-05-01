@@ -4600,6 +4600,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crystal-palace-finale-conference-rayo.title': 'Crystal Palace kurz vor dem Conference-League-Finale, träumt vom Rayo',
     'blog.article.crystal-palace-finale-conference-rayo.excerpt': 'Der Crystal Palace besiegt den Shakthar Donetsk mit 3-1 und träumt vom Conference-League-Finale. Der Rayo Vallecano schlägt den Strasbourg mit 1-0.',
     'blog.article.crystal-palace-finale-conference-rayo.imageAlt': 'Fans von Crystal Palace und Rayo Vallecano feiern in einer Schweizer-Italienischen Grenzstadt, mit dem Luganersee im Hintergrund.',
+    'blog.article.trump-cina-russia-patto-2026.title': 'Trump könnte Bündnis mit China und Russland schmieden',
+    'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analysiert Trumps Schritte in Iran und mögliche Allianzen mit China und Russland. Europa bleibt machtlos.',
+    'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Detaillierte Ansicht der Burgen von Bellinzona mit einem modernen Finanzdistrikt im Hintergrund, die die Mischung aus Geschichte und zeitgenössischer Wirtschaft im Tessin zeigt.',
 };
 
 export default blogMetaDe;

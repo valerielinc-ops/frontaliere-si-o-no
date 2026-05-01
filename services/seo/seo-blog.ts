@@ -31446,6 +31446,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trump-cina-russia-patto-2026': {
+    title: 'Trump potrebbe stringere patto con Cina e Russia | Frontaliere Ticino',
+    description: 'Massimo Cacciari analizza le mosse di Trump in Iran e le possibili alleanze con Cina e Russia. L\'Europa resta impotente di fronte alla crisi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, trump, potrebbe, stringere, patto',
+    ogTitle: 'Trump potrebbe stringere patto con Cina e Russia',
+    ogDescription: 'Massimo Cacciari analizza le mosse di Trump in Iran e le possibili alleanze con Cina e Russia. L\'Europa resta impotente di fronte alla crisi.',
+    canonicalPath: '/articoli-frontaliere/trump-cina-russia-patto-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trump potrebbe stringere patto con Cina e Russia",
+      "description": "Massimo Cacciari analizza le mosse di Trump in Iran e le possibili alleanze con Cina e Russia. L'Europa resta impotente di fronte alla crisi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trump-cina-russia-patto-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista dettagliata dei castelli di Bellinzona con un distretto finanziario moderno sullo sfondo, che mostra il mix di storia ed economia contemporanea nel Ticino."
+      },
+      "datePublished": "2026-05-01T05:44:34+00:00",
+      "dateModified": "2026-05-01T05:44:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trump-cina-russia-patto-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

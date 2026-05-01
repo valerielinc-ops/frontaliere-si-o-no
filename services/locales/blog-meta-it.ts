@@ -4601,6 +4601,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crystal-palace-finale-conference-rayo.title': 'Crystal Palace a un passo dalla finale di Conference, sogna il Rayo',
     'blog.article.crystal-palace-finale-conference-rayo.excerpt': 'Il Crystal Palace vince 3-1 contro lo Shakthar Donetsk e sogna la finale di Conference League. Il Rayo Vallecano batte 1-0 lo Strasburgo.',
     'blog.article.crystal-palace-finale-conference-rayo.imageAlt': 'Tifosi del Crystal Palace e del Rayo Vallecano festeggiano in una città di confine svizzero-italiana, con il Lago di Lugano sullo sfondo.',
+    'blog.article.trump-cina-russia-patto-2026.title': 'Trump potrebbe stringere patto con Cina e Russia',
+    'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analizza le mosse di Trump in Iran e le possibili alleanze con Cina e Russia. L\'Europa resta impotente.',
+    'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Vista dettagliata dei castelli di Bellinzona con un distretto finanziario moderno sullo sfondo, che mostra il mix di storia ed economia contemporanea nel Ticino.',
 };
 
 export default blogMetaIt;
