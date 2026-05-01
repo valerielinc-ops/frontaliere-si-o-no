@@ -4721,6 +4721,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-arresto-frontaliere-tunisino.title': 'Arresto di un frontaliere tunisino a Como per resistenza a pubblico ufficiale',
     'blog.article.como-arresto-frontaliere-tunisino.excerpt': 'Un 19enne tunisino, regolare in Italia ma senza fissa dimora, è stato arrestato per violenza e resistenza a pubblico ufficiale.',
     'blog.article.como-arresto-frontaliere-tunisino.imageAlt': 'Polizia di Como durante un\'operazione di controllo',
+    'blog.article.indagine-soccorsi-crans-montana-2026.title': 'Indagine sui soccorsi a Crans-Montana: carenze segnalate',
+    'blog.article.indagine-soccorsi-crans-montana-2026.excerpt': 'Due famiglie delle vittime denunciano gravi carenze nella gestione dei soccorsi durante l\'incendio di Capodanno a Crans-Montana.',
+    'blog.article.indagine-soccorsi-crans-montana-2026.imageAlt': 'Vista di Crans-Montana con servizi di emergenza sullo sfondo',
 };
 
 export default blogMetaIt;

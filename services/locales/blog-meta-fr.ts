@@ -4721,6 +4721,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-arresto-frontaliere-tunisino.title': 'Un Tunisien arrêté à Côme pour résistance à un agent',
     'blog.article.como-arresto-frontaliere-tunisino.excerpt': 'Un Tunisien de 19 ans, en règle en Italie mais sans domicile fixe, a été arrêté pour violence et résistance à un agent.',
     'blog.article.como-arresto-frontaliere-tunisino.imageAlt': 'Police à Côme lors d\'une opération de contrôle',
+    'blog.article.indagine-soccorsi-crans-montana-2026.title': 'Enquête sur les secours à Crans-Montana: des lacunes signalées',
+    'blog.article.indagine-soccorsi-crans-montana-2026.excerpt': 'Deux familles de victimes dénoncent de graves lacunes dans la gestion des secours lors de l\'incendie du Nouvel An à Crans-Montana.',
+    'blog.article.indagine-soccorsi-crans-montana-2026.imageAlt': 'Vue de Crans-Montana avec les services d\'urgence en arrière-plan',
 };
 
 export default blogMetaFr;

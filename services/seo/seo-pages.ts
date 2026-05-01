@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1623,
+ "numberOfItems": 1624,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6258,7 +6258,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1620, "name": "Rete stradale di Mendrisio sotto pressione: urg...", "url": `${BASE_URL}/articoli-frontaliere/rete-stradale-mendrisio-interventi-urgenti` },
           { "@type": "ListItem", "position": 1621, "name": "A8 Milano-Varese, chiusure notturne tra Solbiat...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostradali-a8-milano-varese` },
           { "@type": "ListItem", "position": 1622, "name": "Primo Maggio 2026: sindacati in piazza contro l...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-ticino-sindacati` },
-          { "@type": "ListItem", "position": 1623, "name": "Arresto di un frontaliere tunisino a Como per r...", "url": `${BASE_URL}/articoli-frontaliere/como-arresto-frontaliere-tunisino` }
+          { "@type": "ListItem", "position": 1623, "name": "Arresto di un frontaliere tunisino a Como per r...", "url": `${BASE_URL}/articoli-frontaliere/como-arresto-frontaliere-tunisino` },
+          { "@type": "ListItem", "position": 1624, "name": "Indagine sui soccorsi a Crans-Montana: carenze ...", "url": `${BASE_URL}/articoli-frontaliere/indagine-soccorsi-crans-montana-2026` }
  ]
  },
  {

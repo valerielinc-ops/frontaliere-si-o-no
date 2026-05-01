@@ -2804,6 +2804,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavori-autostradali-a8-milano-varese': { name: 'Novità', path: '/articoli-frontaliere/lavori-autostradali-a8-milano-varese', parent: 'blog' },
     'blog-primo-maggio-2026-ticino-sindacati': { name: 'Primo Maggio 2026', path: '/articoli-frontaliere/primo-maggio-2026-ticino-sindacati', parent: 'blog' },
     'blog-como-arresto-frontaliere-tunisino': { name: 'Novità', path: '/articoli-frontaliere/como-arresto-frontaliere-tunisino', parent: 'blog' },
+    'blog-indagine-soccorsi-crans-montana-2026': { name: 'Indagine soccorsi', path: '/articoli-frontaliere/indagine-soccorsi-crans-montana-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

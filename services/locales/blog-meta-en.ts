@@ -4720,6 +4720,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-arresto-frontaliere-tunisino.title': 'Tunisian cross-border worker arrested in Como for resisting police',
     'blog.article.como-arresto-frontaliere-tunisino.excerpt': 'A 19-year-old Tunisian man, legally in Italy but homeless, was arrested for violence and resisting a public official.',
     'blog.article.como-arresto-frontaliere-tunisino.imageAlt': 'Como police during a control operation',
+    'blog.article.indagine-soccorsi-crans-montana-2026.title': 'Investigation into Crans-Montana rescue efforts: shortcomings reported',
+    'blog.article.indagine-soccorsi-crans-montana-2026.excerpt': 'Two families of the victims report serious shortcomings in the management of rescue efforts during the New Year\'s Eve fire in Crans-Montana.',
+    'blog.article.indagine-soccorsi-crans-montana-2026.imageAlt': 'View of Crans-Montana with emergency services in the background',
 };
 
 export default blogMetaEn;
