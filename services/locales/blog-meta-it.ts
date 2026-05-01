@@ -4517,6 +4517,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-luoghi-culto-bellinzonese.title': 'Furti nei luoghi di culto: due arresti nel Bellinzonese',
     'blog.article.furti-luoghi-culto-bellinzonese.excerpt': 'Due cittadini rumeni residenti all\'estero sono stati arrestati il 26 aprile nel Bellinzonese, sospettati di aver compiuto ripetuti furti in chiese e un negozio.',
     'blog.article.furti-luoghi-culto-bellinzonese.imageAlt': 'Chiesa nel Canton Ticino con elementi di sicurezza e vigilanza',
+    'blog.article.hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.title': 'Hockey Nl / Psicodramma Davos, il titolo 2025-2026 al FriborgoGottéron',
+    'blog.article.hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.excerpt': 'Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per il spareggio.',
+    'blog.article.hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.imageAlt': 'Locarno con il teatro e il lago',
 };
 
 export default blogMetaIt;

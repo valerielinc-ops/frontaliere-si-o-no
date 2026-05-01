@@ -4517,6 +4517,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-luoghi-culto-bellinzonese.title': 'Vols dans les lieux de culte : deux arrestations dans le Bellinzonais',
     'blog.article.furti-luoghi-culto-bellinzonese.excerpt': 'Deux citoyens roumains résidant à l\'étranger ont été arrêtés le 26 avril dans le Bellinzonais, soupçonnés d\'avoir commis des vols répétés dans des églises et un magasin.',
     'blog.article.furti-luoghi-culto-bellinzonese.imageAlt': 'Église dans le canton du Tessin avec éléments de sécurité et surveillance',
+    'blog.article.hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.title': 'Hockey NL / Psychodrame à Davos, le titre 2025-2026 au Gottéron',
+    'blog.article.hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.excerpt': 'Le titre 2025-2026 de la Hockey NL a été attribué au Gottéron, avec Stefano Bottini de Lugano qui s\'est préparé pour le barrage.',
+    'blog.article.hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.imageAlt': 'Locarno avec théâtre et lac',
 };
 
 export default blogMetaFr;

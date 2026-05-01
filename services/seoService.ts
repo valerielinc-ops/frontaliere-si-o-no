@@ -2736,6 +2736,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ponte-brivio-cantiere-14-milioni': { name: 'Novità', path: '/articoli-frontaliere/ponte-brivio-cantiere-14-milioni', parent: 'blog' },
     'blog-ponte-maggio-villa-panza-laboratori-bambini': { name: 'Eventi culturali', path: '/articoli-frontaliere/ponte-maggio-villa-panza-laboratori-bambini', parent: 'blog' },
     'blog-furti-luoghi-culto-bellinzonese': { name: 'Furti nei luoghi di culto', path: '/articoli-frontaliere/furti-luoghi-culto-bellinzonese', parent: 'blog' },
+    'blog-hockey-nl-psicodramma-davos-2025-2026-friborgogotteron': { name: 'Hockey Nl, Psicodramma Davos', path: '/articoli-frontaliere/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron', parent: 'blog' },
  };
 
  const info = sectionNames[section];

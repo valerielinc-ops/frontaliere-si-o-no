@@ -30634,6 +30634,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hockey-nl-psicodramma-davos-2025-2026-friborgogotteron': {
+    title: 'Hockey Nl / Psicodramma Davos, il titolo 2025-2026 al FriborgoGottéron',
+    description: 'Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per il spareggio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, hockey, psicodramma, davos, titolo',
+    ogTitle: 'Hockey Nl / Psicodramma Davos, il titolo 2025-2026 al FriborgoGottéron',
+    ogDescription: 'Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per il spareggio.',
+    canonicalPath: '/articoli-frontaliere/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hockey Nl / Psicodramma Davos, il titolo 2025-2026 al FriborgoGottéron",
+      "description": "Il titolo 2025-2026 del Hockey Nl è stato assegnato al FriborgoGottéron, con Stefano Bottini da Lugano che si è preparato per il spareggio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Locarno con il teatro e il lago"
+      },
+      "datePublished": "2026-05-01T00:28:46+00:00",
+      "dateModified": "2026-05-01T00:28:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -11551,4 +11551,11 @@ export const ARTICLES = [
  image: '/images/blog/furti-luoghi-culto-bellinzonese.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'hockey-nl-psicodramma-davos-2025-2026-friborgogotteron',
+ category: 'novita',
+ date: '2026-05-01T00:28:45.986Z',
+ image: '/images/blog/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
