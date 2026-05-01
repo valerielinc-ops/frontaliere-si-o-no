@@ -12181,4 +12181,11 @@ export const ARTICLES = [
  image: '/images/blog/142-numero-aiuto-vittime-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ponte-l-acqua-ticino-2026',
+ category: 'novita',
+ date: '2026-05-01T14:41:42.445Z',
+ image: '/images/blog/ponte-l-acqua-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

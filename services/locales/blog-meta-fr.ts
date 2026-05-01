@@ -4787,6 +4787,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.142-numero-aiuto-vittime-ticino.title': '142 : le numéro qui lutte contre la violence au Tessin',
     'blog.article.142-numero-aiuto-vittime-ticino.excerpt': 'Désormais actif, le numéro 142 pour l\'aide aux victimes de violence au Tessin et dans toute la Suisse, gratuit et disponible 24/7.',
     'blog.article.142-numero-aiuto-vittime-ticino.imageAlt': 'Lac de Lugano avec le numéro 142 affiché sur un smartphone',
+    'blog.article.ponte-l-acqua-ticino-2026.title': 'Après le pont, la pluie : météo Tessin 2026',
+    'blog.article.ponte-l-acqua-ticino-2026.excerpt': 'Week-end ensoleillé, mais des pluies et des températures plus fraîches à partir de lundi. Voici ce qu\'il faut attendre.',
+    'blog.article.ponte-l-acqua-ticino-2026.imageAlt': 'Lac de Lugano avec ciel dégagé et soleil éclatant',
 };
 
 export default blogMetaFr;

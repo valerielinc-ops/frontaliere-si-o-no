@@ -4786,6 +4786,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.142-numero-aiuto-vittime-ticino.title': '142: Die Nummer gegen Gewalt im Tessin',
     'blog.article.142-numero-aiuto-vittime-ticino.excerpt': 'Ab heute ist die Nummer 142 für die Hilfe von Gewaltopfern im Tessin und in der ganzen Schweiz aktiv, kostenlos und 24/7 verfügbar.',
     'blog.article.142-numero-aiuto-vittime-ticino.imageAlt': 'Luganersee mit der Nummer 142 auf einem Smartphone angezeigt',
+    'blog.article.ponte-l-acqua-ticino-2026.title': 'Nach der Brücke, das Wasser: Wetter im Tessin 2026',
+    'blog.article.ponte-l-acqua-ticino-2026.excerpt': 'Sonniges Wochenende, aber ab Montag Regen und kühlere Temperaturen. Hier erfahren Sie, was Sie erwartet.',
+    'blog.article.ponte-l-acqua-ticino-2026.imageAlt': 'Luganersee mit klarem Himmel und Sonnenschein',
 };
 
 export default blogMetaDe;

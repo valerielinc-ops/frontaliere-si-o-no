@@ -4787,6 +4787,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.142-numero-aiuto-vittime-ticino.title': '142: il numero che combatte la violenza in Ticino',
     'blog.article.142-numero-aiuto-vittime-ticino.excerpt': 'Da oggi attivo il numero 142 per l\'aiuto alle vittime di violenza in Ticino e in tutta la Svizzera, gratuito e disponibile 24/7.',
     'blog.article.142-numero-aiuto-vittime-ticino.imageAlt': 'Lago di Lugano con il numero 142 visualizzato su uno smartphone',
+    'blog.article.ponte-l-acqua-ticino-2026.title': 'Dopo il ponte, l’acqua: meteo Ticino 2026',
+    'blog.article.ponte-l-acqua-ticino-2026.excerpt': 'Fine settimana soleggiato, ma da lunedì piogge e temperature più fresche. Ecco cosa aspettarsi.',
+    'blog.article.ponte-l-acqua-ticino-2026.imageAlt': 'Lago di Lugano con cielo sereno e sole splendente',
 };
 
 export default blogMetaIt;

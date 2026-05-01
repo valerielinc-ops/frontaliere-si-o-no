@@ -33244,6 +33244,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ponte-l-acqua-ticino-2026': {
+    title: 'Dopo il ponte, l’acqua: meteo Ticino 2026 | Frontaliere Ticino',
+    description: 'Fine settimana soleggiato, ma da lunedì piogge e temperature più fresche. Ecco cosa aspettarsi in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dopo, ponte, acqua, meteo',
+    ogTitle: 'Dopo il ponte, l’acqua: meteo Ticino 2026',
+    ogDescription: 'Fine settimana soleggiato, ma da lunedì piogge e temperature più fresche. Ecco cosa aspettarsi in Ticino.',
+    canonicalPath: '/articoli-frontaliere/ponte-l-acqua-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dopo il ponte, l’acqua: meteo Ticino 2026",
+      "description": "Fine settimana soleggiato, ma da lunedì piogge e temperature più fresche. Ecco cosa aspettarsi in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ponte-l-acqua-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con cielo sereno e sole splendente"
+      },
+      "datePublished": "2026-05-01T14:41:42+00:00",
+      "dateModified": "2026-05-01T14:41:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ponte-l-acqua-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

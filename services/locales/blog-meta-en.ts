@@ -4786,6 +4786,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.142-numero-aiuto-vittime-ticino.title': '142: the number fighting violence in Ticino',
     'blog.article.142-numero-aiuto-vittime-ticino.excerpt': 'From today, the 142 number is active for helping victims of violence in Ticino and throughout Switzerland, free and available 24/7.',
     'blog.article.142-numero-aiuto-vittime-ticino.imageAlt': 'Lake Lugano with the number 142 displayed on a smartphone',
+    'blog.article.ponte-l-acqua-ticino-2026.title': 'After the bridge, the water: Ticino weather 2026',
+    'blog.article.ponte-l-acqua-ticino-2026.excerpt': 'Sunny weekend, but from Monday rain and cooler temperatures. Here\'s what to expect.',
+    'blog.article.ponte-l-acqua-ticino-2026.imageAlt': 'Lake Lugano with clear skies and sunshine',
 };
 
 export default blogMetaEn;
