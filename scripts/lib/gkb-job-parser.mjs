@@ -13,7 +13,12 @@
  *   - Posted:     <span class="tableaslist_element_1152487"> (e.g. "Online seit: 10.04.2026")
  *   - Apply:      <span class="tableaslist_element_1152500"> → <a href="/Vacancies/{ID}/Application/CheckLogin/1">
  *
- * Detail page: /Vacancies/{ID}/Description/1
+ * Detail page: /Vacancies/{ID}/Description/1/Default
+ *   - The bare /Description/1 path serves a custom GKB-themed Foundation template
+ *     (used for apprenticeships/Lehrstellen) that lacks customdatablock markers,
+ *     making it unparseable. Appending /Default forces Umantis to render the
+ *     standard ATS template that this parser targets. Public-facing URL stored
+ *     on jobs stays without /Default for prettier user presentation.
  *   - <h1 class="contenttitle"> = job title
  *   - <title>Title | GKB JobService</title>
  *   - Content in <div class="showblock_textblock"> → <div class="customdatablock">
@@ -268,6 +273,10 @@ export function parseGkbListingPage(html = '') {
       entryLevel: entry,
       postedDate,
       detailUrl: `${BASE_URL}/Vacancies/${vacancyId}/Description/1`,
+      // /Default forces the standard Umantis template; without it, Lehrstellen
+      // (e.g. vacancy 1909) render a Foundation-themed page with no customdatablock
+      // markers, producing an empty description.
+      fetchUrl: `${BASE_URL}/Vacancies/${vacancyId}/Description/1/Default`,
       applyUrl: `${BASE_URL}/Vacancies/${vacancyId}/Application/CheckLogin/1`,
     });
   }
@@ -380,10 +389,13 @@ export async function fetchAllGkbJobs() {
     let detailTitle = listing.title;
 
     try {
-      const detailHtml = await fetchPage(listing.detailUrl);
+      const detailHtml = await fetchPage(listing.fetchUrl || listing.detailUrl);
       const detail = parseGkbDetailPage(detailHtml, listing.title);
       descriptionText = detail.description;
       if (detail.title) detailTitle = detail.title;
+      if (!descriptionText) {
+        console.warn(`  ⚠️ Empty description parsed for ${listing.vacancyId} (${listing.title}). Umantis may have changed the detail template — investigate before shipping.`);
+      }
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch detail for ${listing.vacancyId}: ${err?.message}`);
     }

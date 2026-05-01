@@ -275,6 +275,12 @@ describe('Graubündner Kantonalbank crawler parser', () => {
       expect(listings[0].detailUrl).toBe('https://recruitingapp-2607.umantis.com/Vacancies/1912/Description/1');
     });
 
+    it('builds /Default fetch URLs for parseable detail pages', () => {
+      // /Description/1 serves a custom Foundation template (no customdatablock)
+      // for Lehrstellen; /Default forces the standard ATS template.
+      expect(listings[0].fetchUrl).toBe('https://recruitingapp-2607.umantis.com/Vacancies/1912/Description/1/Default');
+    });
+
     it('builds correct apply URLs', () => {
       expect(listings[0].applyUrl).toBe('https://recruitingapp-2607.umantis.com/Vacancies/1912/Application/CheckLogin/1');
     });
@@ -355,6 +361,20 @@ describe('Graubündner Kantonalbank crawler parser', () => {
     it('handles empty HTML gracefully', () => {
       const result = parseGkbDetailPage('', 'Default');
       expect(result.title).toBe('Default');
+      expect(result.description).toBe('');
+    });
+
+    it('returns empty description for the Foundation/Lehrstelle template', () => {
+      // /Vacancies/{ID}/Description/1 (without /Default) serves a stripped
+      // GKB-themed Foundation template with no customdatablock markers — this
+      // is exactly why fetchUrl must use /Default.
+      const foundationHtml = `<!doctype html><html><body>
+        <div class="large-8 medium-7 columns">
+          <p>Intro text from Lehrstelle template.</p>
+          <p><h1>Mediamatiker:in in Chur (Lehrbeginn 2027)</h1></p>
+          <p><strong>Deine Aufgaben.</strong><br/>Apprenticeship body.</p>
+        </div></body></html>`;
+      const result = parseGkbDetailPage(foundationHtml, 'Mediamatiker:in');
       expect(result.description).toBe('');
     });
   });
