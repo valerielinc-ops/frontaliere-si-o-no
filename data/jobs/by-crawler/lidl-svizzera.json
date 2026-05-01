@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-04-30T22:07:06.616Z",
+  "assembledAt": "2026-05-01T10:31:52.548Z",
   "jobs": [
     {
       "id": "company-komp69",
@@ -30,7 +30,7 @@
       "slugByLocale": {
         "it": "vendita-m-w-d-60-80-lidl-svizzera-st-moritz",
         "en": "seller-m-w-d-60-80-lidl-svizzera-st-moritz",
-        "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz-komp69",
+        "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-cadenazzo",
         "fr": "vendeur-vendeuse-avec-responsabilite-de-poste-h-f-d-60-80-lidl-svizzera-st-moritz"
       },
       "titleByLocale": {
@@ -72,16 +72,20 @@
         ],
         "en": [
           "sales-associate-with-shift-responsibility-m-f-d-60-80-lidl-svizzera-st-moritz"
+        ],
+        "de": [
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz-komp69"
         ]
       },
       "previousSlugs": [
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz-komp69",
-        "sales-associate-with-shift-responsibility-m-f-d-60-80-lidl-svizzera-st-moritz"
+        "sales-associate-with-shift-responsibility-m-f-d-60-80-lidl-svizzera-st-moritz",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz-komp69"
       ]
     },
     {
       "id": "company-1s7m1i",
-      "slug": "ch-lavoro-per-studenti-vendita-m-w-d-20-60-lidl-svizzera-biasca-1s7m1i",
+      "slug": "ch-lavoro-per-studenti-vendita-m-f-d-20-60-lidl-svizzera-cadenazzo",
       "company": "Lidl Svizzera",
       "title": "CH_ Lavoro per studenti vendita (m/f/d) 20-60%",
       "location": "Biasca",
@@ -118,7 +122,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ch-lavoro-per-studenti-vendita-m-w-d-20-60-lidl-svizzera-biasca-1s7m1i",
+        "it": "ch-lavoro-per-studenti-vendita-m-f-d-20-60-lidl-svizzera-cadenazzo",
         "en": "student-job-sales-m-f-d-20-60-lidl-svizzera-biasca",
         "de": "ch-lavoro-per-studenti-verkauf-m-w-d-20-60-lidl-svizzera-biasca-1s7m1i",
         "fr": "emploi-etudiant-vente-m-f-d-20-60-lidl-svizzera-biasca"
@@ -129,7 +133,8 @@
       "streetAddress": "Via Stefano Franscini 3",
       "previousSlugsByLocale": {
         "it": [
-          "ch-lavoro-per-studenti-vendita-m-w-d-20-60-lidl-svizzera-biasca"
+          "ch-lavoro-per-studenti-vendita-m-w-d-20-60-lidl-svizzera-biasca",
+          "ch-lavoro-per-studenti-vendita-m-w-d-20-60-lidl-svizzera-biasca-1s7m1i"
         ],
         "en": [
           "ch-lavoro-per-studenti-sales-m-w-d-20-60-lidl-svizzera-biasca-1s7m1i"
@@ -140,11 +145,10 @@
       },
       "previousSlugs": [
         "ch-lavoro-per-studenti-vendita-m-w-d-20-60-lidl-svizzera-biasca",
+        "ch-lavoro-per-studenti-vendita-m-w-d-20-60-lidl-svizzera-biasca-1s7m1i",
         "ch-lavoro-per-studenti-sales-m-w-d-20-60-lidl-svizzera-biasca-1s7m1i",
         "ch-lavoro-per-studenti-vente-m-w-d-20-60-lidl-svizzera-biasca-1s7m1i"
       ],
-      "salaryMin": 59000,
-      "salaryMax": 90500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -158,7 +162,9 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "salaryMin": 59000,
+      "salaryMax": 90500
     },
     {
       "id": "company-ixk693",
@@ -234,7 +240,8 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-tyv50x",
@@ -354,7 +361,8 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
-      "qualityScore": 97
+      "qualityScore": 97,
+      "needsRetranslation": true
     },
     {
       "id": "company-3t5gz5",
@@ -468,7 +476,8 @@
         "apprentissage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-biasca"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
-      "qualityScore": 97
+      "qualityScore": 97,
+      "needsRetranslation": true
     },
     {
       "id": "company-kscbfg",
@@ -581,7 +590,8 @@
         "retail-trainee-program-cfp-or-afc-start-2026-lidl-svizzera-locarno",
         "einzelhandelslehre-cfp-oder-afc-start-2026-lidl-svizzera-locarno",
         "retail-apprentice-cfp-or-afc-start-2026-lidl-svizzera-locarno"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-zdpsyo",
@@ -685,7 +695,8 @@
         "einzelhandelslehre-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione",
         "retail-apprentice-cfp-or-afc-start-2026-lidl-svizzera-arbedo-castione",
         "apprenti-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-arbedo-castione"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-ethzl9",
@@ -802,7 +813,8 @@
         "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-lidl-svizzera-lugano"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
-      "qualityScore": 97
+      "qualityScore": 97,
+      "needsRetranslation": true
     },
     {
       "id": "company-kp8dxh",
@@ -923,7 +935,8 @@
         "apprenti-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
-      "qualityScore": 97
+      "qualityScore": 97,
+      "needsRetranslation": true
     },
     {
       "id": "company-7p9uz6",
