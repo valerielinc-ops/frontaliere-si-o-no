@@ -12426,4 +12426,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-hockey-sconfitta-svezia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lambrugo-incidente-74enne-ospedale',
+ category: 'novita',
+ date: '2026-05-01T20:03:25.908Z',
+ image: '/images/blog/lambrugo-incidente-74enne-ospedale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

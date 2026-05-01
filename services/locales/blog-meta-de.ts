@@ -4891,6 +4891,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-hockey-sconfitta-svezia.title': 'Schweiz von Schweden besiegt: Eine Lehre für die Zukunft',
     'blog.article.svizzera-hockey-sconfitta-svezia.excerpt': 'Die Schweizer Eishockeynationalmannschaft erleidet eine schwere Niederlage gegen Schweden, das Endergebnis lautet 8-1.',
     'blog.article.svizzera-hockey-sconfitta-svezia.imageAlt': 'Ein Eishockeyspiel in einer Schweizer Arena mit Spielern in Aktion und Zuschauern',
+    'blog.article.lambrugo-incidente-74enne-ospedale.title': 'Schwerer Unfall in Lambrugo: 74-Jähriger im Krankenhaus',
+    'blog.article.lambrugo-incidente-74enne-ospedale.excerpt': 'Ein schwerer Verkehrsunfall in Lambrugo, Como, hat eine Auto und ein Motorrad beteiligt, wobei ein 74-Jähriger ins Krankenhaus eingeliefert wurde.',
+    'blog.article.lambrugo-incidente-74enne-ospedale.imageAlt': 'Verkehrsunfall in Lambrugo, Como, mit einem Auto und einem Motorrad',
 };
 
 export default blogMetaDe;

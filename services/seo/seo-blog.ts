@@ -34259,6 +34259,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lambrugo-incidente-74enne-ospedale': {
+    title: 'Incidente a Lambrugo: 74enne in ospedale dopo scontro auto-moto',
+    description: 'Un grave incidente stradale a Lambrugo, Como, ha coinvolto un\'auto e una moto, con un 74enne ricoverato in ospedale. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, lambrugo, 74enne, ospedale',
+    ogTitle: 'Incidente Lambrugo: 74enne in ospedale dopo scontro auto-moto',
+    ogDescription: 'Un grave incidente stradale a Lambrugo, Como, ha coinvolto un\'auto e una moto, con un 74enne ricoverato in ospedale. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/lambrugo-incidente-74enne-ospedale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente Lambrugo: 74enne in ospedale dopo scontro auto-moto",
+      "description": "Un grave incidente stradale a Lambrugo, Como, ha coinvolto un'auto e una moto, con un 74enne ricoverato in ospedale. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lambrugo-incidente-74enne-ospedale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale a Lambrugo, Como, con auto e moto coinvolte"
+      },
+      "datePublished": "2026-05-01T20:03:25+00:00",
+      "dateModified": "2026-05-01T20:03:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lambrugo-incidente-74enne-ospedale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

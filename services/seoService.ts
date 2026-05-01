@@ -2861,6 +2861,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-primo-maggio-ticino-salari-2024': { name: 'Primo maggio Ticino', path: '/articoli-frontaliere/primo-maggio-ticino-salari-2024', parent: 'blog' },
     'blog-sosta-selvaggia-moltrasio-2026': { name: 'Sosta selvaggia', path: '/articoli-frontaliere/sosta-selvaggia-moltrasio-2026', parent: 'blog' },
     'blog-svizzera-hockey-sconfitta-svezia': { name: 'Novità', path: '/articoli-frontaliere/svizzera-hockey-sconfitta-svezia', parent: 'blog' },
+    'blog-lambrugo-incidente-74enne-ospedale': { name: 'Incidente Lambrugo', path: '/articoli-frontaliere/lambrugo-incidente-74enne-ospedale', parent: 'blog' },
  };
 
  const info = sectionNames[section];

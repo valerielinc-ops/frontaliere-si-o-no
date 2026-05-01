@@ -4892,6 +4892,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-hockey-sconfitta-svezia.title': 'Svizzera sconfitta dalla Svezia: una lezione per il futuro',
     'blog.article.svizzera-hockey-sconfitta-svezia.excerpt': 'La nazionale svizzera di hockey subisce una pesante sconfitta contro la Svezia, con un risultato finale di 8-1.',
     'blog.article.svizzera-hockey-sconfitta-svezia.imageAlt': 'Una partita di hockey in un\'arena svizzera con giocatori in azione e spettatori',
+    'blog.article.lambrugo-incidente-74enne-ospedale.title': 'Incidente a Lambrugo: 74enne in ospedale dopo scontro auto-moto',
+    'blog.article.lambrugo-incidente-74enne-ospedale.excerpt': 'Un grave incidente stradale a Lambrugo, Como, ha coinvolto un\'auto e una moto, con un 74enne ricoverato in ospedale.',
+    'blog.article.lambrugo-incidente-74enne-ospedale.imageAlt': 'Incidente stradale a Lambrugo, Como, con auto e moto coinvolte',
 };
 
 export default blogMetaIt;
