@@ -11838,4 +11838,11 @@ export const ARTICLES = [
  image: '/images/blog/piano-freddo-como-200-persone-172-notti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-studenti-polizia-on-road-2026',
+ category: 'novita',
+ date: '2026-05-01T07:27:58.460Z',
+ image: '/images/blog/como-studenti-polizia-on-road-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

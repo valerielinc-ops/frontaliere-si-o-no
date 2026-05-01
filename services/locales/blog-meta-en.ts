@@ -4639,6 +4639,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.piano-freddo-como-200-persone-172-notti.title': 'Como Cold Weather Plan: 200 people hosted for 172 nights',
     'blog.article.piano-freddo-como-200-persone-172-notti.excerpt': 'Como\'s Cold Weather Plan has hosted 200 homeless people for 172 nights, thanks to the collaboration of volunteers and donors.',
     'blog.article.piano-freddo-como-200-persone-172-notti.imageAlt': 'Lake Como in winter with the city of Como covered in snow and people walking along the lakeside',
+    'blog.article.como-studenti-polizia-on-road-2026.title': 'Como: 10 students become local police officers with On the Road project',
+    'blog.article.como-studenti-polizia-on-road-2026.excerpt': 'A three-year agreement between the City of Como, the Local Police, and the On the Road association to train young officers',
+    'blog.article.como-studenti-polizia-on-road-2026.imageAlt': 'Students in Como become local police officers during the On the Road project',
 };
 
 export default blogMetaEn;

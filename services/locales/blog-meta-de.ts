@@ -4639,6 +4639,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.piano-freddo-como-200-persone-172-notti.title': 'Kältehilfe Como: 200 Personen in 172 Nächten',
     'blog.article.piano-freddo-como-200-persone-172-notti.excerpt': 'Die Kältehilfe Como hat 200 obdachlose Personen für 172 Nächte aufgenommen, dank der Zusammenarbeit von Freiwilligen und Spendern.',
     'blog.article.piano-freddo-como-200-persone-172-notti.imageAlt': 'Lago di Como im Winter mit der schneebedeckten Stadt Como und Menschen, die am Seeufer spazieren',
+    'blog.article.como-studenti-polizia-on-road-2026.title': 'Como: 10 Schüler werden lokale Polizisten',
+    'blog.article.como-studenti-polizia-on-road-2026.excerpt': 'Eine dreijährige Vereinbarung zwischen der Stadt Como, der lokalen Polizei und dem Verein Ragazzi On the Road zur Ausbildung junger Beamter',
+    'blog.article.como-studenti-polizia-on-road-2026.imageAlt': 'Schüler in Como werden zu lokalen Polizeibeamten während des Projekts On the Road',
 };
 
 export default blogMetaDe;

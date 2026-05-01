@@ -31823,6 +31823,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-studenti-polizia-on-road-2026': {
+    title: 'Como, 10 studenti diventano agenti di polizia locale con il progetto On the Road',
+    description: 'Un accordo triennale tra il Comune di Como, la Polizia Locale e l\'associazione Ragazzi On the Road per formare giovani agenti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, studenti, diventano, agenti',
+    ogTitle: 'Como, 10 studenti diventano agenti di polizia locale con il progetto On the Road',
+    ogDescription: 'Un accordo triennale tra il Comune di Como, la Polizia Locale e l\'associazione Ragazzi On the Road per formare giovani agenti',
+    canonicalPath: '/articoli-frontaliere/como-studenti-polizia-on-road-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, 10 studenti diventano agenti di polizia locale con il progetto On the Road",
+      "description": "Un accordo triennale tra il Comune di Como, la Polizia Locale e l'associazione Ragazzi On the Road per formare giovani agenti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-studenti-polizia-on-road-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti di Como diventano agenti di polizia locale durante il progetto On the Road"
+      },
+      "datePublished": "2026-05-01T07:27:58+00:00",
+      "dateModified": "2026-05-01T07:27:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-studenti-polizia-on-road-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

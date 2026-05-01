@@ -4640,6 +4640,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.piano-freddo-como-200-persone-172-notti.title': 'Plan Froid Como : 200 personnes accueillies pour 172 nuits',
     'blog.article.piano-freddo-como-200-persone-172-notti.excerpt': 'Le Plan Froid de Como a accueilli 200 personnes sans abri pour 172 nuits, grâce à la collaboration de bénévoles et de donateurs.',
     'blog.article.piano-freddo-como-200-persone-172-notti.imageAlt': 'Lac de Côme en hiver avec la ville de Côme recouverte de neige et des personnes marchant le long du lac',
+    'blog.article.como-studenti-polizia-on-road-2026.title': 'Como, 10 étudiants deviennent agents de police locale avec le projet On the Road',
+    'blog.article.como-studenti-polizia-on-road-2026.excerpt': 'Un accord triennal entre la commune de Como, la police locale et l\'association Ragazzi On the Road pour former de jeunes agents',
+    'blog.article.como-studenti-polizia-on-road-2026.imageAlt': 'Des étudiants de Côme deviennent agents de police locale lors du projet On the Road',
 };
 
 export default blogMetaFr;

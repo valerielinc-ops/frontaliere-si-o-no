@@ -4640,6 +4640,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.piano-freddo-como-200-persone-172-notti.title': 'Piano Freddo Como: 200 persone accolte per 172 notti',
     'blog.article.piano-freddo-como-200-persone-172-notti.excerpt': 'Il Piano Freddo di Como ha accolto 200 persone senza dimora per 172 notti, grazie alla collaborazione di volontari e donatori.',
     'blog.article.piano-freddo-como-200-persone-172-notti.imageAlt': 'Lago di Como d\'inverno con la città di Como coperta di neve e persone che camminano lungo il lungolago',
+    'blog.article.como-studenti-polizia-on-road-2026.title': 'Como, 10 studenti diventano agenti di polizia locale con il progetto On the Road',
+    'blog.article.como-studenti-polizia-on-road-2026.excerpt': 'Un accordo triennale tra il Comune di Como, la Polizia Locale e l\'associazione Ragazzi On the Road per formare giovani agenti',
+    'blog.article.como-studenti-polizia-on-road-2026.imageAlt': 'Studenti di Como diventano agenti di polizia locale durante il progetto On the Road',
 };
 
 export default blogMetaIt;

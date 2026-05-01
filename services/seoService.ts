@@ -2777,6 +2777,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gioco-oca-giornico-rischi-disastri': { name: 'Novità', path: '/articoli-frontaliere/gioco-oca-giornico-rischi-disastri', parent: 'blog' },
     'blog-primo-maggio-2026-ticino-solidarieta': { name: 'Primo Maggio 2026', path: '/articoli-frontaliere/primo-maggio-2026-ticino-solidarieta', parent: 'blog' },
     'blog-piano-freddo-como-200-persone-172-notti': { name: 'Piano Freddo Como', path: '/articoli-frontaliere/piano-freddo-como-200-persone-172-notti', parent: 'blog' },
+    'blog-como-studenti-polizia-on-road-2026': { name: 'Novità', path: '/articoli-frontaliere/como-studenti-polizia-on-road-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
