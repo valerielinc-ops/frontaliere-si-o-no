@@ -1,113 +1,5 @@
 [
   {
-    "timestamp": "2026-04-16T22:36:22.197Z",
-    "label": "before",
-    "total": 2904,
-    "needsRetranslation": 1231,
-    "incomplete": 47,
-    "complete": 2857,
-    "missingByLocale": {
-      "it": 34,
-      "en": 30,
-      "de": 18,
-      "fr": 37
-    },
-    "topPending": [
-      {
-        "company": "AXA Svizzera",
-        "pending": 4
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 4
-      },
-      {
-        "company": "Bell Schwarzwälder Schinken GmbH",
-        "pending": 3
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 2
-      },
-      {
-        "company": "PEMSA",
-        "pending": 2
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 2
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 2
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-16T23:50:33.833Z",
-    "label": "after",
-    "total": 2904,
-    "needsRetranslation": 70,
-    "incomplete": 11,
-    "complete": 2893,
-    "missingByLocale": {
-      "it": 6,
-      "en": 8,
-      "de": 4,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "AXA Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Groupe Mutuel",
-        "pending": 1
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-17T02:38:33.159Z",
     "label": "before",
     "total": 2904,
@@ -8064,6 +7956,102 @@
     "label": "after",
     "total": 2696,
     "needsRetranslation": 94,
+    "incomplete": 37,
+    "complete": 2659,
+    "missingByLocale": {
+      "it": 34,
+      "en": 16,
+      "de": 32,
+      "fr": 32
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Graubündner Kantonalbank",
+        "pending": 8
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Center da Sanadad Engiadina Bassa",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-01T04:34:12.456Z",
+    "label": "before",
+    "total": 2696,
+    "needsRetranslation": 94,
+    "incomplete": 37,
+    "complete": 2659,
+    "missingByLocale": {
+      "it": 34,
+      "en": 16,
+      "de": 32,
+      "fr": 32
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Graubündner Kantonalbank",
+        "pending": 8
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Center da Sanadad Engiadina Bassa",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-01T05:07:07.422Z",
+    "label": "after",
+    "total": 2696,
+    "needsRetranslation": 58,
     "incomplete": 37,
     "complete": 2659,
     "missingByLocale": {
