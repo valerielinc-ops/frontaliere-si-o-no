@@ -4732,6 +4732,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sesto-calende-strade-cantieri-2026.title': 'Sesto Calende: Kontrollen wegen beschädigten Straßen',
     'blog.article.sesto-calende-strade-cantieri-2026.excerpt': 'Die lokale Polizei von Sesto Calende hat Kontrollen und Sanktionen für die durch Glasfaserkabel-Bauarbeiten beschädigten Straßen eingeleitet, die vom PNRR finanziert werden.',
     'blog.article.sesto-calende-strade-cantieri-2026.imageAlt': 'Luftaufnahme der beschädigten Straßen in Sesto Calende mit Baustellen und Polizeiaktivität',
+    'blog.article.jans-udc-iniziativa-10-milioni.title': 'Jans kritisiert UDC-Initiative: \'Risiko für die Schweiz\'',
+    'blog.article.jans-udc-iniziativa-10-milioni.excerpt': 'Bundesrat Jans kritisiert die UDC-Initiative \'Nein zu einer Schweiz mit 10 Millionen\' und warnt vor schweren Folgen für das Land.',
+    'blog.article.jans-udc-iniziativa-10-milioni.imageAlt': 'Bundesrat Beat Jans spricht bei einer Pressekonferenz in Bern',
 };
 
 export default blogMetaDe;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1627,
+ "numberOfItems": 1628,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6262,7 +6262,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1624, "name": "Indagine sui soccorsi a Crans-Montana: carenze ...", "url": `${BASE_URL}/articoli-frontaliere/indagine-soccorsi-crans-montana-2026` },
           { "@type": "ListItem", "position": 1625, "name": "Crans-Montana: Italia si costituisce parte civile", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-italia-parte-civile-2026` },
           { "@type": "ListItem", "position": 1626, "name": "Greta Gysin si candida a capogruppo dei Verdi", "url": `${BASE_URL}/articoli-frontaliere/gysin-candidata-capogruppo-verdi` },
-          { "@type": "ListItem", "position": 1627, "name": "Sesto Calende: controlli e sanzioni per strade ...", "url": `${BASE_URL}/articoli-frontaliere/sesto-calende-strade-cantieri-2026` }
+          { "@type": "ListItem", "position": 1627, "name": "Sesto Calende: controlli e sanzioni per strade ...", "url": `${BASE_URL}/articoli-frontaliere/sesto-calende-strade-cantieri-2026` },
+          { "@type": "ListItem", "position": 1628, "name": "Jans attacca l'iniziativa UDC: 'Rischio per la ...", "url": `${BASE_URL}/articoli-frontaliere/jans-udc-iniziativa-10-milioni` }
  ]
  },
  {

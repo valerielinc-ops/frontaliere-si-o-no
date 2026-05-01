@@ -4732,6 +4732,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sesto-calende-strade-cantieri-2026.title': 'Sesto Calende: fines for roads damaged by fiber optic sites',
     'blog.article.sesto-calende-strade-cantieri-2026.excerpt': 'The local police of Sesto Calende have started checks and fines for roads damaged by fiber optic construction sites, funded by the PNRR.',
     'blog.article.sesto-calende-strade-cantieri-2026.imageAlt': 'Aerial view of damaged roads in Sesto Calende with construction sites and police activity',
+    'blog.article.jans-udc-iniziativa-10-milioni.title': 'Jans criticizes UDC initiative: \'Risk for Switzerland\'',
+    'blog.article.jans-udc-iniziativa-10-milioni.excerpt': 'Federal Councillor Jans criticizes the UDC initiative \'No to a Switzerland of 10 million\', warning of serious consequences for the country.',
+    'blog.article.jans-udc-iniziativa-10-milioni.imageAlt': 'Federal Councillor Beat Jans speaks at a press conference in Bern',
 };
 
 export default blogMetaEn;

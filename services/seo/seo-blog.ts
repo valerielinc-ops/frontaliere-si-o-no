@@ -32722,6 +32722,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-jans-udc-iniziativa-10-milioni': {
+    title: 'Jans attacca l\'iniziativa UDC: \'Rischio per la Svizzera\'',
+    description: 'Il consigliere federale Jans critica l\'iniziativa UDC \'No a una Svizzera da 10 milioni\', avvertendo gravi conseguenze per il Paese. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, jans, attacca, iniziativa, rischio',
+    ogTitle: 'Jans attacca l\'iniziativa UDC: \'Rischio per la Svizzera\'',
+    ogDescription: 'Il consigliere federale Jans critica l\'iniziativa UDC \'No a una Svizzera da 10 milioni\', avvertendo gravi conseguenze per il Paese.',
+    canonicalPath: '/articoli-frontaliere/jans-udc-iniziativa-10-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Jans attacca l'iniziativa UDC: 'Rischio per la Svizzera'",
+      "description": "Il consigliere federale Jans critica l'iniziativa UDC 'No a una Svizzera da 10 milioni', avvertendo gravi conseguenze per il Paese. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/jans-udc-iniziativa-10-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il consigliere federale Beat Jans parla in conferenza stampa a Berna"
+      },
+      "datePublished": "2026-05-01T11:46:28+00:00",
+      "dateModified": "2026-05-01T11:46:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/jans-udc-iniziativa-10-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

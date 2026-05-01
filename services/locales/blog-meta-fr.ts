@@ -4733,6 +4733,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sesto-calende-strade-cantieri-2026.title': 'Sesto Calende: contrôles et sanctions pour routes endommagées par les chantiers',
     'blog.article.sesto-calende-strade-cantieri-2026.excerpt': 'La police locale de Sesto Calende a lancé des contrôles et des sanctions pour les routes endommagées par les chantiers de la fibre optique, financés par le PNRR.',
     'blog.article.sesto-calende-strade-cantieri-2026.imageAlt': 'Vue aérienne des routes endommagées à Sesto Calende avec des chantiers et une activité policière',
+    'blog.article.jans-udc-iniziativa-10-milioni.title': 'Jans critique l\'initiative UDC: \'Risque pour la Suisse\'',
+    'blog.article.jans-udc-iniziativa-10-milioni.excerpt': 'Le conseiller fédéral Jans critique l\'initiative UDC \'Non à une Suisse de 10 millions\', avertissant de graves conséquences pour le pays.',
+    'blog.article.jans-udc-iniziativa-10-milioni.imageAlt': 'Le conseiller fédéral Beat Jans parle lors d\'une conférence de presse à Berne',
 };
 
 export default blogMetaFr;

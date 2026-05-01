@@ -12055,4 +12055,11 @@ export const ARTICLES = [
  image: '/images/blog/sesto-calende-strade-cantieri-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'jans-udc-iniziativa-10-milioni',
+ category: 'novita',
+ date: '2026-05-01T11:46:27.965Z',
+ image: '/images/blog/jans-udc-iniziativa-10-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
