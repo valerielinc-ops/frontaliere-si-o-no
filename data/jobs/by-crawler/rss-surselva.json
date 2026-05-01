@@ -995,12 +995,12 @@
     },
     {
       "id": "rss-surselva-bdaa5477cbaa",
-      "slug": "chefarzt-in-m-w-d-innere-medizin-rss-surselva-ch",
+      "slug": "capo-medico-m-f-d-medicina-interna-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "chefarzt-in-m-w-d-innere-medizin-regionalspital-surselva-ilanz",
-        "it": "chefarzt-in-m-w-d-innere-medizin-rss-surselva-ch",
-        "en": "chefarzt-in-m-w-d-innere-medizin-rss-surselva-ch",
-        "fr": "chefarzt-in-m-w-d-innere-medizin-rss-surselva-ch"
+        "it": "capo-medico-m-f-d-medicina-interna-regionalspital-surselva-ilanz",
+        "en": "chief-physician-m-f-d-internal-medicine-regionalspital-surselva-ilanz",
+        "fr": "chef-de-service-m-f-d-medecine-interne-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -1056,7 +1056,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-01T10:49:46.756Z"
+      "firstSeenAt": "2026-05-01T10:49:46.756Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarzt-in-m-w-d-innere-medizin-rss-surselva-ch"
+        ],
+        "en": [
+          "chefarzt-in-m-w-d-innere-medizin-rss-surselva-ch"
+        ],
+        "fr": [
+          "chefarzt-in-m-w-d-innere-medizin-rss-surselva-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chefarzt-in-m-w-d-innere-medizin-rss-surselva-ch"
+      ]
     },
     {
       "id": "rss-surselva-23abde2079d7",

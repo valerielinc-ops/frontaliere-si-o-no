@@ -63,10 +63,10 @@
     },
     {
       "id": "prada-d59e86fefb29",
-      "slug": "prada-stock-assistant-m-f-d-prada-mendrisio",
+      "slug": "prada-stock-assistant-lunedi-venedi-d-prada-group-roermond",
       "slugByLocale": {
         "en": "prada-stock-assistant-m-f-d-prada-group-roermond",
-        "it": "prada-stock-assistant-m-f-d-prada-mendrisio",
+        "it": "prada-stock-assistant-lunedi-venedi-d-prada-group-roermond",
         "de": "prada-stock-assistent-m-f-d-prada-group-mendrisio",
         "fr": "prada-stock-assistant-m-f-d-prada-group-roermond"
       },
@@ -108,10 +108,14 @@
       "previousSlugsByLocale": {
         "fr": [
           "prada-stock-assistant-m-f-d-prada-group-mendrisio"
+        ],
+        "it": [
+          "prada-stock-assistant-m-f-d-prada-mendrisio"
         ]
       },
       "previousSlugs": [
-        "prada-stock-assistant-m-f-d-prada-group-mendrisio"
+        "prada-stock-assistant-m-f-d-prada-group-mendrisio",
+        "prada-stock-assistant-m-f-d-prada-mendrisio"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
