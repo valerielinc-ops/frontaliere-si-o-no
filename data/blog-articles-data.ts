@@ -11782,4 +11782,11 @@ export const ARTICLES = [
  image: '/images/blog/prevenzione-dipendenze-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'concertone-primo-maggio-roma-artisti-2026',
+ category: 'novita',
+ date: '2026-05-01T06:23:53.376Z',
+ image: '/images/blog/concertone-primo-maggio-roma-artisti-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

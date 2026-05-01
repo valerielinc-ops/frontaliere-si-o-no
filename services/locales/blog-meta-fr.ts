@@ -4616,6 +4616,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Prévention des dépendances: 1 franc aujourd\'hui pour en économiser 20 demain',
     'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Réduction des fonds pour la prévention des dépendances en Ticino, malgré l\'augmentation des coûts sanitaires. L\'expert: on suit une logique d\'économie immédiate.',
     'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes et des personnes qui marchent',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.title': 'Concert du Premier Mai à Rome: les artistes à l\'affiche',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.excerpt': 'L\'événement traditionnel pour la Fête des Travailleurs à Rome avec Arisa, Pierpaolo Spollon et BigMama. Tous les artistes à l\'affiche',
+    'blog.article.concertone-primo-maggio-roma-artisti-2026.imageAlt': 'Scène de concert du Premier Mai à Rome avec des artistes en performance',
 };
 
 export default blogMetaFr;
