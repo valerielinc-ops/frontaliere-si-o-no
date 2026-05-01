@@ -12216,4 +12216,11 @@ export const ARTICLES = [
  image: '/images/blog/flotilla-gaza-varese-presidio-montegrappa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'orso-valposchiavo-2026-ritorno',
+ category: 'novita',
+ date: '2026-05-01T15:34:58.585Z',
+ image: '/images/blog/orso-valposchiavo-2026-ritorno.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

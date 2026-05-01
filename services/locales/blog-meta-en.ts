@@ -4801,6 +4801,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.flotilla-gaza-varese-presidio-montegrappa.title': 'Gaza flotilla intercepted, Varese solidarity protest',
     'blog.article.flotilla-gaza-varese-presidio-montegrappa.excerpt': 'Solidarity protest in Varese for the flotilla intercepted by Israel. Turkey and Spain speak of piracy.',
     'blog.article.flotilla-gaza-varese-presidio-montegrappa.imageAlt': 'Solidarity protest in Piazza Montegrappa, Varese',
+    'blog.article.orso-valposchiavo-2026-ritorno.title': 'Bear spotted in Valposchiavo: return after years',
+    'blog.article.orso-valposchiavo-2026-ritorno.excerpt': 'A camera trap captured a bear on April 29 in the woods between Le Prese and Miralago, reopening the debate on coexistence with wildlife',
+    'blog.article.orso-valposchiavo-2026-ritorno.imageAlt': 'A bear in the Valposchiavo woods, photographed by a wildlife camera',
 };
 
 export default blogMetaEn;

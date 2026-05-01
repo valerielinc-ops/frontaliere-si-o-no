@@ -4802,6 +4802,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.flotilla-gaza-varese-presidio-montegrappa.title': 'Flottille pour Gaza interceptée, rassemblement à Varèse',
     'blog.article.flotilla-gaza-varese-presidio-montegrappa.excerpt': 'Rassemblement de solidarité à Varèse pour la flottille interceptée par Israël. La Turquie et l\'Espagne parlent de piraterie.',
     'blog.article.flotilla-gaza-varese-presidio-montegrappa.imageAlt': 'Manifestation de solidarité à Piazza Montegrappa, Varese',
+    'blog.article.orso-valposchiavo-2026-ritorno.title': 'Un ours repéré dans la Valposchiavo après des années',
+    'blog.article.orso-valposchiavo-2026-ritorno.excerpt': 'Un piège photographique a capturé un ours le 29 avril dans les bois entre Le Prese et Miralago, relançant le débat sur la coexistence avec la faune sauvage',
+    'blog.article.orso-valposchiavo-2026-ritorno.imageAlt': 'Un ours dans les bois de Valposchiavo, photographié par un piège photographique',
 };
 
 export default blogMetaFr;

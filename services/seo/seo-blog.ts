@@ -33389,6 +33389,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-orso-valposchiavo-2026-ritorno': {
+    title: 'Orso ripreso in Valposchiavo: ritorno dopo anni | Frontaliere Ticino',
+    description: 'Una fototrappola ha immortalato un orso il 29 aprile nei boschi tra Le Prese e Miralago, riaprendo il dibattito sulla convivenza con la fauna selvatica',
+    keywords: 'frontalieri, ticino, svizzera, italia, orso, ripreso, valposchiavo, ritorno',
+    ogTitle: 'Orso ripreso in Valposchiavo: ritorno dopo anni',
+    ogDescription: 'Una fototrappola ha immortalato un orso il 29 aprile nei boschi tra Le Prese e Miralago, riaprendo il dibattito sulla convivenza con la fauna selvatica',
+    canonicalPath: '/articoli-frontaliere/orso-valposchiavo-2026-ritorno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orso ripreso in Valposchiavo: ritorno dopo anni",
+      "description": "Una fototrappola ha immortalato un orso il 29 aprile nei boschi tra Le Prese e Miralago, riaprendo il dibattito sulla convivenza con la fauna selvatica",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/orso-valposchiavo-2026-ritorno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un orso nei boschi di Valposchiavo, ripreso da una fototrappola"
+      },
+      "datePublished": "2026-05-01T15:34:58+00:00",
+      "dateModified": "2026-05-01T15:34:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/orso-valposchiavo-2026-ritorno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

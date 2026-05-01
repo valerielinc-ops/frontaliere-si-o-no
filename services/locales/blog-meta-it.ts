@@ -4802,6 +4802,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.flotilla-gaza-varese-presidio-montegrappa.title': 'Flottila per Gaza intercettata, presidio a Varese',
     'blog.article.flotilla-gaza-varese-presidio-montegrappa.excerpt': 'Presidio di solidarietà a Varese per la Flottila intercettata da Israele. Turchia e Spagna parlano di pirateria.',
     'blog.article.flotilla-gaza-varese-presidio-montegrappa.imageAlt': 'Presidio di solidarietà in piazza Montegrappa, Varese',
+    'blog.article.orso-valposchiavo-2026-ritorno.title': 'Orso ripreso in Valposchiavo: ritorno dopo anni',
+    'blog.article.orso-valposchiavo-2026-ritorno.excerpt': 'Una fototrappola ha immortalato un orso il 29 aprile nei boschi tra Le Prese e Miralago, riaprendo il dibattito sulla convivenza con la fauna selvatica',
+    'blog.article.orso-valposchiavo-2026-ritorno.imageAlt': 'Un orso nei boschi di Valposchiavo, ripreso da una fototrappola',
 };
 
 export default blogMetaIt;
