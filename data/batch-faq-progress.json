@@ -723,7 +723,8 @@
     "san-gallo-vince-thun-ritardo-festa",
     "trivella-san-gottardo-zona-faglia",
     "vergiate-color-run-2026-non-competitiva",
-    "violenza-sessuale-conseguenze-ticino"
+    "violenza-sessuale-conseguenze-ticino",
+    "ritardi-a2-tra-chiasso-lugano"
   ],
   "failed": [
     {
@@ -6425,8 +6426,23 @@
       "id": "estival-pagamento-caduta-stile-lugano",
       "error": "Unterminated string in JSON at position 2121 (line 20 column 28)",
       "at": "2026-04-29T04:11:28.754Z"
+    },
+    {
+      "id": "bellinzona-2025-consuntivo-risultati",
+      "error": "Unterminated string in JSON at position 214 (line 4 column 127)",
+      "at": "2026-05-01T04:36:09.675Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 238 (line 4 column 138)",
+      "at": "2026-05-01T04:36:29.579Z"
+    },
+    {
+      "id": "bike-sharing-como-gratis-giugno",
+      "error": "Unterminated string in JSON at position 220 (line 4 column 115)",
+      "at": "2026-05-01T04:36:50.437Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-04-30T04:14:27.881Z"
+  "updatedAt": "2026-05-01T04:37:12.093Z"
 }
