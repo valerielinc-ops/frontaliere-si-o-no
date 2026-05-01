@@ -4730,6 +4730,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gysin-candidata-capogruppo-verdi.title': 'Greta Gysin si candida a capogruppo dei Verdi',
     'blog.article.gysin-candidata-capogruppo-verdi.excerpt': 'La consigliera nazionale ticinese Greta Gysin si candida alla presidenza del gruppo parlamentare dei Verdi, succedendo ad Aline Trede.',
     'blog.article.gysin-candidata-capogruppo-verdi.imageAlt': 'Greta Gysin parla a un evento politico a Lugano',
+    'blog.article.sesto-calende-strade-cantieri-2026.title': 'Sesto Calende: controlli e sanzioni per strade danneggiate dai cantieri',
+    'blog.article.sesto-calende-strade-cantieri-2026.excerpt': 'La polizia locale di Sesto Calende ha avviato controlli e sanzioni per le strade danneggiate dai cantieri della fibra ottica, finanziati dal PNRR.',
+    'blog.article.sesto-calende-strade-cantieri-2026.imageAlt': 'Vista aerea delle strade danneggiate a Sesto Calende con cantieri e attività della polizia',
 };
 
 export default blogMetaIt;

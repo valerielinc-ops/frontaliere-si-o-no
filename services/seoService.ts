@@ -2807,6 +2807,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-indagine-soccorsi-crans-montana-2026': { name: 'Indagine soccorsi', path: '/articoli-frontaliere/indagine-soccorsi-crans-montana-2026', parent: 'blog' },
     'blog-crans-montana-italia-parte-civile-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-italia-parte-civile-2026', parent: 'blog' },
     'blog-gysin-candidata-capogruppo-verdi': { name: 'Novità', path: '/articoli-frontaliere/gysin-candidata-capogruppo-verdi', parent: 'blog' },
+    'blog-sesto-calende-strade-cantieri-2026': { name: 'Pratico', path: '/articoli-frontaliere/sesto-calende-strade-cantieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

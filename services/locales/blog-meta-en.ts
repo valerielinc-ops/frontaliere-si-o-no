@@ -4729,6 +4729,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gysin-candidata-capogruppo-verdi.title': 'Greta Gysin runs for Greens group leader',
     'blog.article.gysin-candidata-capogruppo-verdi.excerpt': 'Ticino\'s national councillor Greta Gysin is running for the presidency of the Greens parliamentary group, succeeding Aline Trede.',
     'blog.article.gysin-candidata-capogruppo-verdi.imageAlt': 'Greta Gysin speaking at a political event in Lugano',
+    'blog.article.sesto-calende-strade-cantieri-2026.title': 'Sesto Calende: fines for roads damaged by fiber optic sites',
+    'blog.article.sesto-calende-strade-cantieri-2026.excerpt': 'The local police of Sesto Calende have started checks and fines for roads damaged by fiber optic construction sites, funded by the PNRR.',
+    'blog.article.sesto-calende-strade-cantieri-2026.imageAlt': 'Aerial view of damaged roads in Sesto Calende with construction sites and police activity',
 };
 
 export default blogMetaEn;

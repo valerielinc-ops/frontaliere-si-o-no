@@ -4730,6 +4730,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gysin-candidata-capogruppo-verdi.title': 'Greta Gysin candidate à la présidence des Verts',
     'blog.article.gysin-candidata-capogruppo-verdi.excerpt': 'La conseillère nationale tessinoise Greta Gysin se porte candidate à la présidence du groupe parlementaire des Verts, succédant à Aline Trede.',
     'blog.article.gysin-candidata-capogruppo-verdi.imageAlt': 'Greta Gysin parle lors d\'un événement politique à Lugano',
+    'blog.article.sesto-calende-strade-cantieri-2026.title': 'Sesto Calende: contrôles et sanctions pour routes endommagées par les chantiers',
+    'blog.article.sesto-calende-strade-cantieri-2026.excerpt': 'La police locale de Sesto Calende a lancé des contrôles et des sanctions pour les routes endommagées par les chantiers de la fibre optique, financés par le PNRR.',
+    'blog.article.sesto-calende-strade-cantieri-2026.imageAlt': 'Vue aérienne des routes endommagées à Sesto Calende avec des chantiers et une activité policière',
 };
 
 export default blogMetaFr;

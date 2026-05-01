@@ -32693,6 +32693,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sesto-calende-strade-cantieri-2026': {
+    title: 'Sesto Calende: controlli e sanzioni per strade danneggiate dai cantieri',
+    description: 'La polizia locale di Sesto Calende ha avviato controlli e sanzioni per le strade danneggiate dai cantieri della fibra ottica, finanziati dal PNRR.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sesto, calende, controlli, sanzioni',
+    ogTitle: 'Sesto Calende: controlli e sanzioni per strade danneggiate dai cantieri',
+    ogDescription: 'La polizia locale di Sesto Calende ha avviato controlli e sanzioni per le strade danneggiate dai cantieri della fibra ottica, finanziati dal PNRR.',
+    canonicalPath: '/articoli-frontaliere/sesto-calende-strade-cantieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sesto Calende: controlli e sanzioni per strade danneggiate dai cantieri",
+      "description": "La polizia locale di Sesto Calende ha avviato controlli e sanzioni per le strade danneggiate dai cantieri della fibra ottica, finanziati dal PNRR.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sesto-calende-strade-cantieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea delle strade danneggiate a Sesto Calende con cantieri e attività della polizia"
+      },
+      "datePublished": "2026-05-01T11:36:43+00:00",
+      "dateModified": "2026-05-01T11:36:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sesto-calende-strade-cantieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

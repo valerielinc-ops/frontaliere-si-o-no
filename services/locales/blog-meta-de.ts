@@ -4729,6 +4729,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gysin-candidata-capogruppo-verdi.title': 'Greta Gysin kandidiert für die Grünen-Fraktion',
     'blog.article.gysin-candidata-capogruppo-verdi.excerpt': 'Die Tessiner Nationalrätin Greta Gysin bewirbt sich um die Präsidentschaft der Grünen-Fraktion und folgt damit auf Aline Trede.',
     'blog.article.gysin-candidata-capogruppo-verdi.imageAlt': 'Greta Gysin spricht bei einer politischen Veranstaltung in Lugano',
+    'blog.article.sesto-calende-strade-cantieri-2026.title': 'Sesto Calende: Kontrollen wegen beschädigten Straßen',
+    'blog.article.sesto-calende-strade-cantieri-2026.excerpt': 'Die lokale Polizei von Sesto Calende hat Kontrollen und Sanktionen für die durch Glasfaserkabel-Bauarbeiten beschädigten Straßen eingeleitet, die vom PNRR finanziert werden.',
+    'blog.article.sesto-calende-strade-cantieri-2026.imageAlt': 'Luftaufnahme der beschädigten Straßen in Sesto Calende mit Baustellen und Polizeiaktivität',
 };
 
 export default blogMetaDe;

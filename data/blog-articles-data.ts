@@ -12048,4 +12048,11 @@ export const ARTICLES = [
  image: '/images/blog/gysin-candidata-capogruppo-verdi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sesto-calende-strade-cantieri-2026',
+ category: 'pratico',
+ date: '2026-05-01T11:36:42.974Z',
+ image: '/images/blog/sesto-calende-strade-cantieri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
