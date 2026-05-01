@@ -391,12 +391,12 @@
     },
     {
       "id": "denner-b5ff5efbac35",
-      "slug": "verkaufer-in-im-stundenlohn-denner-stein-ag",
+      "slug": "venditore-in-salario-orario-denner-stein-ag",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-stein-ag",
-        "en": "verkaufer-in-im-stundenlohn-denner-stein-ag",
+        "it": "venditore-in-salario-orario-denner-stein-ag",
+        "en": "seller-in-in-hourly-wage-denner-stein-ag",
         "de": "verkaufer-in-im-stundenlohn-denner-stein-ag",
-        "fr": "verkaufer-in-im-stundenlohn-denner-stein-ag"
+        "fr": "vendeur-en-salaire-horaire-denner-stein-ag"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -455,20 +455,24 @@
       "crawledAt": "2026-05-01T21:30:57.274Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-stein-ag"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-stein-ag"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-stein-ag"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-stein-ag",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,

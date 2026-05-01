@@ -401,12 +401,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-08df7b240484",
-      "slug": "it-support-techniker-in-second-level-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "tecnico-di-supporto-it-secondo-livello-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
         "de": "it-support-techniker-in-second-level-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "it-support-techniker-in-second-level-m-w-d-matterhorn-gotthard-bahn-ch",
+        "it": "tecnico-di-supporto-it-secondo-livello-matterhorn-gotthard-bahn-brig",
         "en": "it-support-techniker-in-second-level-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "it-support-techniker-in-second-level-m-w-d-matterhorn-gotthard-bahn-ch"
+        "fr": "technicien-de-support-it-deuxieme-niveau-matterhorn-gotthard-bahn-brig"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -483,7 +483,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-01T22:02:53.506Z"
+      "firstSeenAt": "2026-05-01T22:02:53.506Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-support-techniker-in-second-level-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "it-support-techniker-in-second-level-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-support-techniker-in-second-level-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-e957ff653084",

@@ -1491,7 +1491,7 @@
       "slugByLocale": {
         "de": "administrative-assistent-in-analytik-60-m-w-d-siegfried-ch",
         "it": "administrative-assistent-in-analytik-60-m-w-d-siegfried-ch",
-        "en": "administrative-assistent-in-analytik-60-m-w-d-siegfried-ch",
+        "en": "administrative-assistant-m-w-d-siegfried-zofingen",
         "fr": "administrative-assistent-in-analytik-60-m-w-d-siegfried-ch"
       },
       "company": "Siegfried",
@@ -1552,10 +1552,10 @@
     },
     {
       "id": "siegfried-4e6b28045494",
-      "slug": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
+      "slug": "ingegnere-di-software-senior-m-w-d-siegfried-zofingen",
       "slugByLocale": {
         "de": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
-        "it": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
+        "it": "ingegnere-di-software-senior-m-w-d-siegfried-zofingen",
         "en": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
         "fr": "senior-lab-technician-metrologie-m-w-d-siegfried-ch"
       },
@@ -1613,7 +1613,15 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-05-01T22:19:22.405Z"
+      "firstSeenAt": "2026-05-01T22:19:22.405Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lab-technician-metrologie-m-w-d-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lab-technician-metrologie-m-w-d-siegfried-ch"
+      ]
     }
   ]
 }
