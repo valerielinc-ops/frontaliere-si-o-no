@@ -33795,6 +33795,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassis-aragchi-colloquio-iran': {
+    title: 'Cassis e Araghchi discutono situazione regionale | Frontaliere Ticino',
+    description: 'Il consigliere federale Ignazio Cassis ha parlato con il ministro degli Esteri iraniano Abbas Araghchi della situazione regionale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassis, araghchi, discutono, situazione',
+    ogTitle: 'Cassis e Araghchi discutono situazione regionale',
+    ogDescription: 'Il consigliere federale Ignazio Cassis ha parlato con il ministro degli Esteri iraniano Abbas Araghchi della situazione regionale.',
+    canonicalPath: '/articoli-frontaliere/cassis-aragchi-colloquio-iran',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassis e Araghchi discutono situazione regionale",
+      "description": "Il consigliere federale Ignazio Cassis ha parlato con il ministro degli Esteri iraniano Abbas Araghchi della situazione regionale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cassis-aragchi-colloquio-iran.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano lago e montagne"
+      },
+      "datePublished": "2026-05-01T17:43:07+00:00",
+      "dateModified": "2026-05-01T17:43:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassis-aragchi-colloquio-iran`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

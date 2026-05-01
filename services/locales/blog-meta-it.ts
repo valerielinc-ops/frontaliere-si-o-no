@@ -4844,6 +4844,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sospetta-fuga-gas-londra-metro-chiusa.title': 'Sospetta fuga di gas, stazione metro temporaneamente chiusa',
     'blog.article.sospetta-fuga-gas-londra-metro-chiusa.excerpt': 'La stazione di Farringdon a Londra evacuata e chiusa al traffico a causa di una sospetta fuga di gas accidentale',
     'blog.article.sospetta-fuga-gas-londra-metro-chiusa.imageAlt': 'Stazione della metropolitana di Londra con servizi di emergenza per una fuga di gas',
+    'blog.article.cassis-aragchi-colloquio-iran.title': 'Cassis e Araghchi discutono situazione regionale',
+    'blog.article.cassis-aragchi-colloquio-iran.excerpt': 'Il consigliere federale Ignazio Cassis ha parlato con il ministro degli Esteri iraniano Abbas Araghchi della situazione regionale.',
+    'blog.article.cassis-aragchi-colloquio-iran.imageAlt': 'Lugano lago e montagne',
 };
 
 export default blogMetaIt;

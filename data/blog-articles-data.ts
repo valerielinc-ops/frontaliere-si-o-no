@@ -12314,4 +12314,11 @@ export const ARTICLES = [
  image: '/images/blog/sospetta-fuga-gas-londra-metro-chiusa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cassis-aragchi-colloquio-iran',
+ category: 'novita',
+ date: '2026-05-01T17:43:07.384Z',
+ image: '/images/blog/cassis-aragchi-colloquio-iran.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

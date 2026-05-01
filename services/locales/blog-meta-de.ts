@@ -4843,6 +4843,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sospetta-fuga-gas-londra-metro-chiusa.title': 'Verdacht auf Gasleck: U-Bahn-Station vorübergehend geschlossen',
     'blog.article.sospetta-fuga-gas-londra-metro-chiusa.excerpt': 'Die Station Farringdon in London wurde wegen eines mutmaßlichen Gaslecks evakuiert und für den Verkehr gesperrt',
     'blog.article.sospetta-fuga-gas-londra-metro-chiusa.imageAlt': 'U-Bahn-Station in London mit Rettungsdiensten bei einem Gasleck',
+    'blog.article.cassis-aragchi-colloquio-iran.title': 'Cassis und Araghchi besprechen regionale Lage',
+    'blog.article.cassis-aragchi-colloquio-iran.excerpt': 'Bundesrat Ignazio Cassis hat mit dem iranischen Außenminister Abbas Araghchi über die regionale Lage gesprochen.',
+    'blog.article.cassis-aragchi-colloquio-iran.imageAlt': 'Luganer See und Berge',
 };
 
 export default blogMetaDe;

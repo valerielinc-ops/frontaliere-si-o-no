@@ -2845,6 +2845,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-usa-iran-nucleare-sanzioni-2026': { name: 'Novità', path: '/articoli-frontaliere/usa-iran-nucleare-sanzioni-2026', parent: 'blog' },
     'blog-sicurezza-locali-pubblici-convegno-ville-ponti': { name: 'Convegno sicurezza', path: '/articoli-frontaliere/sicurezza-locali-pubblici-convegno-ville-ponti', parent: 'blog' },
     'blog-sospetta-fuga-gas-londra-metro-chiusa': { name: 'Novità', path: '/articoli-frontaliere/sospetta-fuga-gas-londra-metro-chiusa', parent: 'blog' },
+    'blog-cassis-aragchi-colloquio-iran': { name: 'Novità', path: '/articoli-frontaliere/cassis-aragchi-colloquio-iran', parent: 'blog' },
  };
 
  const info = sectionNames[section];

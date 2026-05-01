@@ -4843,6 +4843,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sospetta-fuga-gas-londra-metro-chiusa.title': 'Suspected gas leak, metro station temporarily closed',
     'blog.article.sospetta-fuga-gas-londra-metro-chiusa.excerpt': 'Farringdon station in London evacuated and closed to traffic due to an accidental suspected gas leak',
     'blog.article.sospetta-fuga-gas-londra-metro-chiusa.imageAlt': 'London Underground station with emergency services attending to a gas leak',
+    'blog.article.cassis-aragchi-colloquio-iran.title': 'Cassis and Araghchi discuss regional situation',
+    'blog.article.cassis-aragchi-colloquio-iran.excerpt': 'Federal Councillor Ignazio Cassis spoke with Iranian Foreign Minister Abbas Araghchi about the regional situation.',
+    'blog.article.cassis-aragchi-colloquio-iran.imageAlt': 'Lake Lugano and mountains',
 };
 
 export default blogMetaEn;
