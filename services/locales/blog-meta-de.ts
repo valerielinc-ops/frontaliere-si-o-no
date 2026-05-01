@@ -4900,6 +4900,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.funivia-santis-ammodernamento-2026.title': 'Säntis-Seilbahn für Monate geschlossen: 30-Millionen-Modernisierung',
     'blog.article.funivia-santis-ammodernamento-2026.excerpt': 'Die Säntis-Seilbahn wird für mehrere Monate wegen einer 30-Millionen-Franken-Modernisierung geschlossen. Die Wiedereröffnung ist für den Herbst geplant.',
     'blog.article.funivia-santis-ammodernamento-2026.imageAlt': 'Luftaufnahme des Säntisbergs und der Standseilbahn, mit der umliegenden Landschaft und der Standseilbahnstation.',
+    'blog.article.cinque-curiosita-brevetti-svizzeri-2026.title': 'Fünf Fakten zu Schweizer Patenten',
+    'blog.article.cinque-curiosita-brevetti-svizzeri-2026.excerpt': 'Die Schweiz ist das innovativste Land Europas in Sachen Patente. Hier sind die interessantesten Daten aus dem Jahr 2025.',
+    'blog.article.cinque-curiosita-brevetti-svizzeri-2026.imageAlt': 'Luftaufnahme des Monte San Salvatore mit Blick auf Lugano, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

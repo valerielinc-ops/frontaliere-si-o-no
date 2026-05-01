@@ -12447,4 +12447,11 @@ export const ARTICLES = [
  image: '/images/blog/funivia-santis-ammodernamento-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cinque-curiosita-brevetti-svizzeri-2026',
+ category: 'novita',
+ date: '2026-05-01T20:29:38.408Z',
+ image: '/images/blog/cinque-curiosita-brevetti-svizzeri-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

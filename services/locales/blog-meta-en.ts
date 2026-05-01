@@ -4900,6 +4900,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.funivia-santis-ammodernamento-2026.title': 'Säntis cableway closed for months: 30 million upgrade',
     'blog.article.funivia-santis-ammodernamento-2026.excerpt': 'The Säntis cableway will close for several months for a 30 million francs upgrade. Reopening expected in autumn.',
     'blog.article.funivia-santis-ammodernamento-2026.imageAlt': 'Aerial view of the Säntis mountain and the funicular, with the surrounding landscape and the funicular station.',
+    'blog.article.cinque-curiosita-brevetti-svizzeri-2026.title': 'Five facts about Swiss patents',
+    'blog.article.cinque-curiosita-brevetti-svizzeri-2026.excerpt': 'Switzerland is Europe\'s most innovative country when it comes to patents. Here are the most interesting figures from 2025.',
+    'blog.article.cinque-curiosita-brevetti-svizzeri-2026.imageAlt': 'Aerial view of Monte San Salvatore overlooking Lugano, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

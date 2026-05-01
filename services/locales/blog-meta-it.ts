@@ -4901,6 +4901,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.funivia-santis-ammodernamento-2026.title': 'Funivia del Säntis chiusa per mesi: ammodernamento da 30 milioni',
     'blog.article.funivia-santis-ammodernamento-2026.excerpt': 'La funivia del Säntis chiuderà per diversi mesi per un ammodernamento da 30 milioni di franchi. Riapertura prevista in autunno.',
     'blog.article.funivia-santis-ammodernamento-2026.imageAlt': 'Vista aerea del monte Säntis e della funivia, con il paesaggio circostante e la stazione della funivia.',
+    'blog.article.cinque-curiosita-brevetti-svizzeri-2026.title': 'Cinque curiosità sui brevetti svizzeri',
+    'blog.article.cinque-curiosita-brevetti-svizzeri-2026.excerpt': 'La Svizzera è il paese più innovativo d\'Europa in materia di brevetti. Ecco i dati più interessanti del 2025.',
+    'blog.article.cinque-curiosita-brevetti-svizzeri-2026.imageAlt': 'Vista aerea del Monte San Salvatore sopra Lugano, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

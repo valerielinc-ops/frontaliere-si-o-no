@@ -34346,6 +34346,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cinque-curiosita-brevetti-svizzeri-2026': {
+    title: 'Cinque curiosità sui brevetti svizzeri | Frontaliere Ticino',
+    description: 'La Svizzera è il paese più innovativo d\'Europa in materia di brevetti. Ecco i dati più interessanti del 2025. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cinque, curiosità, brevetti, svizzeri',
+    ogTitle: 'Cinque curiosità sui brevetti svizzeri',
+    ogDescription: 'La Svizzera è il paese più innovativo d\'Europa in materia di brevetti. Ecco i dati più interessanti del 2025.',
+    canonicalPath: '/articoli-frontaliere/cinque-curiosita-brevetti-svizzeri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cinque curiosità sui brevetti svizzeri",
+      "description": "La Svizzera è il paese più innovativo d'Europa in materia di brevetti. Ecco i dati più interessanti del 2025. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cinque-curiosita-brevetti-svizzeri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Monte San Salvatore sopra Lugano, Ticino, Svizzera"
+      },
+      "datePublished": "2026-05-01T20:29:38+00:00",
+      "dateModified": "2026-05-01T20:29:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cinque-curiosita-brevetti-svizzeri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
