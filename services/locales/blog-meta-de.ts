@@ -4570,6 +4570,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.galleria-gottardo-secondo-tubo-2026.title': 'Gottardo: Erste Trennwand im zweiten Tunnel durchbrochen',
     'blog.article.galleria-gottardo-secondo-tubo-2026.excerpt': 'Die mechanische Fräse \'Alessandra\' hat die erste Trennwand im Norden, 4 km vom Eingang entfernt, durchbrochen. Ein Meilenstein für das Projekt.',
     'blog.article.galleria-gottardo-secondo-tubo-2026.imageAlt': 'Luftaufnahme der Gotthard-Region im Tessin, Schweiz, mit Berglandschaft und Infrastruktur',
+    'blog.article.varese-bilancio-2026-avanzo-record.title': 'Varese genehmigt Haushalt 2026 mit Rekordüberschuss: 17 Mio.',
+    'blog.article.varese-bilancio-2026-avanzo-record.excerpt': 'Die Provinz Varese genehmigt einen florierenden Haushalt mit einem freien Verwaltungsüberschuss von über 17 Millionen Euro.',
+    'blog.article.varese-bilancio-2026-avanzo-record.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

@@ -4571,6 +4571,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.galleria-gottardo-secondo-tubo-2026.title': 'Gottardo, caduto il primo diaframma del secondo tubo',
     'blog.article.galleria-gottardo-secondo-tubo-2026.excerpt': 'La fresa meccanica \'Alessandra\' ha abbattuto il primo diaframma a nord, a 4 km dall\'imbocco. Una pietra miliare per il progetto.',
     'blog.article.galleria-gottardo-secondo-tubo-2026.imageAlt': 'Vista aerea della regione del Gottardo in Ticino, Svizzera, con il paesaggio montano e le infrastrutture',
+    'blog.article.varese-bilancio-2026-avanzo-record.title': 'Varese approva bilancio 2026 con avanzo record: 17 milioni',
+    'blog.article.varese-bilancio-2026-avanzo-record.excerpt': 'La Provincia di Varese approva un bilancio florido con un avanzo libero di amministrazione di oltre 17 milioni di euro.',
+    'blog.article.varese-bilancio-2026-avanzo-record.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano e le montagne circostanti',
 };
 
 export default blogMetaIt;

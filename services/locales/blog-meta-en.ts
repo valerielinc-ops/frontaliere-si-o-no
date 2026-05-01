@@ -4570,6 +4570,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.galleria-gottardo-secondo-tubo-2026.title': 'Gottardo, first diaphragm of second tube down',
     'blog.article.galleria-gottardo-secondo-tubo-2026.excerpt': 'The mechanical cutter \'Alessandra\' has demolished the first diaphragm to the north, 4 km from the entrance. A milestone for the project.',
     'blog.article.galleria-gottardo-secondo-tubo-2026.imageAlt': 'Aerial view of the Gotthard region in Ticino, Switzerland, with the mountain landscape and infrastructure',
+    'blog.article.varese-bilancio-2026-avanzo-record.title': 'Varese approves 2026 budget with record surplus: 17 million',
+    'blog.article.varese-bilancio-2026-avanzo-record.excerpt': 'The Province of Varese approves a thriving budget with a free administrative surplus of over 17 million euros.',
+    'blog.article.varese-bilancio-2026-avanzo-record.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano and surrounding mountains',
 };
 
 export default blogMetaEn;

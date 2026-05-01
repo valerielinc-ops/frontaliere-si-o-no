@@ -4571,6 +4571,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.galleria-gottardo-secondo-tubo-2026.title': 'Gottardo, premier diaphragme du deuxième tube abattu',
     'blog.article.galleria-gottardo-secondo-tubo-2026.excerpt': 'La fraise mécanique \'Alessandra\' a abattu le premier diaphragme au nord, à 4 km de l\'entrée. Une étape importante pour le projet.',
     'blog.article.galleria-gottardo-secondo-tubo-2026.imageAlt': 'Vue aérienne de la région du Gothard au Tessin, Suisse, avec le paysage montagneux et les infrastructures',
+    'blog.article.varese-bilancio-2026-avanzo-record.title': 'Varèse approuve un budget 2026 avec un excédent record de 17 millions',
+    'blog.article.varese-bilancio-2026-avanzo-record.excerpt': 'La Province de Varèse approuve un budget florissant avec un excédent libre de gestion de plus de 17 millions d\'euros.',
+    'blog.article.varese-bilancio-2026-avanzo-record.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano et les montagnes environnantes',
 };
 
 export default blogMetaFr;

@@ -31156,6 +31156,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-bilancio-2026-avanzo-record': {
+    title: 'Varese approva bilancio 2026 con avanzo record: 17 milioni',
+    description: 'La Provincia di Varese approva un bilancio florido con un avanzo libero di amministrazione di oltre 17 milioni di euro. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, approva, bilancio, avanzo',
+    ogTitle: 'Varese approva bilancio 2026 con avanzo record: 17 milioni',
+    ogDescription: 'La Provincia di Varese approva un bilancio florido con un avanzo libero di amministrazione di oltre 17 milioni di euro.',
+    canonicalPath: '/articoli-frontaliere/varese-bilancio-2026-avanzo-record',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese approva bilancio 2026 con avanzo record: 17 milioni",
+      "description": "La Provincia di Varese approva un bilancio florido con un avanzo libero di amministrazione di oltre 17 milioni di euro. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-bilancio-2026-avanzo-record.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano e le montagne circostanti"
+      },
+      "datePublished": "2026-05-01T04:08:20+00:00",
+      "dateModified": "2026-05-01T04:08:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-bilancio-2026-avanzo-record`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

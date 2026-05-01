@@ -11677,4 +11677,11 @@ export const ARTICLES = [
  image: '/images/blog/galleria-gottardo-secondo-tubo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-bilancio-2026-avanzo-record',
+ category: 'fiscale',
+ date: '2026-05-01T04:08:20.498Z',
+ image: '/images/blog/varese-bilancio-2026-avanzo-record.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

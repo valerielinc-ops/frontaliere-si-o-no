@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1573,
+ "numberOfItems": 1574,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6208,7 +6208,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1570, "name": "Trump valuta riduzione truppe in Italia e Spagna", "url": `${BASE_URL}/articoli-frontaliere/trump-riduce-truppe-italia-spagna` },
           { "@type": "ListItem", "position": 1571, "name": "Trump abolisce dazi whisky scozzese per Carlo e...", "url": `${BASE_URL}/articoli-frontaliere/whisky-scozzese-dazi-trump-carlo-camilla` },
           { "@type": "ListItem", "position": 1572, "name": "Incidente a Fino Mornasco: albero cade su auto,...", "url": `${BASE_URL}/articoli-frontaliere/incidente-fino-mornasco-30-aprile-2026` },
-          { "@type": "ListItem", "position": 1573, "name": "Gottardo, caduto il primo diaframma del secondo...", "url": `${BASE_URL}/articoli-frontaliere/galleria-gottardo-secondo-tubo-2026` }
+          { "@type": "ListItem", "position": 1573, "name": "Gottardo, caduto il primo diaframma del secondo...", "url": `${BASE_URL}/articoli-frontaliere/galleria-gottardo-secondo-tubo-2026` },
+          { "@type": "ListItem", "position": 1574, "name": "Varese approva bilancio 2026 con avanzo record:...", "url": `${BASE_URL}/articoli-frontaliere/varese-bilancio-2026-avanzo-record` }
  ]
  },
  {
