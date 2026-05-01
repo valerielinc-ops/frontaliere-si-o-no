@@ -4585,6 +4585,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.audit-polizia-ticino-2026.title': 'Audit Polizei Tessin: Regierung bittet um sechs Monate mehr für Botschaft',
     'blog.article.audit-polizia-ticino-2026.excerpt': 'Der Staatsrat bittet um eine Fristverlängerung für die Botschaft zur Prüfung der Kantonspolizei. Dadò und Ferrara betonen die Dringlichkeit.',
     'blog.article.audit-polizia-ticino-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin',
+    'blog.article.tassa-salute-frontalieri-lombardia-piemonte.title': 'Gesundheitssteuer für Grenzgänger: Lombardei will Anpassung, Piemont sagt nein',
+    'blog.article.tassa-salute-frontalieri-lombardia-piemonte.excerpt': 'Die Lombardei besteht auf die Anwendung der Gesundheitssteuer für Grenzgänger, während das Piemont seine Ablehnung bestätigt. Hier erfahren Sie, was sich ändert',
+    'blog.article.tassa-salute-frontalieri-lombardia-piemonte.imageAlt': 'Luftansicht des Luganer Sees mit dem Schweizer-Italienischen Grenzgebiet im Fokus',
 };
 
 export default blogMetaDe;

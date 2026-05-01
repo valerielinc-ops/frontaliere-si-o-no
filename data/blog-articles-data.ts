@@ -11712,4 +11712,11 @@ export const ARTICLES = [
  image: '/images/blog/audit-polizia-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tassa-salute-frontalieri-lombardia-piemonte',
+ category: 'fiscale',
+ date: '2026-05-01T05:05:16.381Z',
+ image: '/images/blog/tassa-salute-frontalieri-lombardia-piemonte.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

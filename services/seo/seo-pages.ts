@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1578,
+ "numberOfItems": 1579,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6213,7 +6213,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1575, "name": "Nuovo direttore Controllo cantonale delle finan...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-direttore-controllo-finanze-ticino` },
           { "@type": "ListItem", "position": 1576, "name": "Riapre a Casale Litta l'ufficio postale con nuo...", "url": `${BASE_URL}/articoli-frontaliere/riapre-ufficio-postale-casale-litta` },
           { "@type": "ListItem", "position": 1577, "name": "Furti in chiese e negozi: arresti e appello a s...", "url": `${BASE_URL}/articoli-frontaliere/furti-chiese-negozi-ticino-arresti` },
-          { "@type": "ListItem", "position": 1578, "name": "Audit Polizia Ticino: governo chiede sei mesi i...", "url": `${BASE_URL}/articoli-frontaliere/audit-polizia-ticino-2026` }
+          { "@type": "ListItem", "position": 1578, "name": "Audit Polizia Ticino: governo chiede sei mesi i...", "url": `${BASE_URL}/articoli-frontaliere/audit-polizia-ticino-2026` },
+          { "@type": "ListItem", "position": 1579, "name": "Tassa salute frontalieri: Lombardia richiede al...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-piemonte` }
  ]
  },
  {

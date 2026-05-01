@@ -31301,6 +31301,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-lombardia-piemonte': {
+    title: 'Tassa salute frontalieri: Lombardia richiede allineamento, Piemonte dice no',
+    description: 'La Lombardia insiste sull\'applicazione della tassa salute ai frontalieri, mentre il Piemonte conferma la propria contrarietà. Ecco cosa cambia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, richiede',
+    ogTitle: 'Tassa salute frontalieri: Lombardia richiede allineamento, Piemonte dice no',
+    ogDescription: 'La Lombardia insiste sull\'applicazione della tassa salute ai frontalieri, mentre il Piemonte conferma la propria contrarietà. Ecco cosa cambia',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-piemonte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: Lombardia richiede allineamento, Piemonte dice no",
+      "description": "La Lombardia insiste sull'applicazione della tassa salute ai frontalieri, mentre il Piemonte conferma la propria contrarietà. Ecco cosa cambia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-lombardia-piemonte.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano"
+      },
+      "datePublished": "2026-05-01T05:05:16+00:00",
+      "dateModified": "2026-05-01T05:05:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-piemonte`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4586,6 +4586,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.audit-polizia-ticino-2026.title': 'Audit Polizia Ticino: governo chiede sei mesi in più per il messaggio',
     'blog.article.audit-polizia-ticino-2026.excerpt': 'Il Consiglio di Stato chiede una proroga per il messaggio sull\'audit della Polizia Cantonale. Dadò e Ferrara insistono sull\'urgenza.',
     'blog.article.audit-polizia-ticino-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino',
+    'blog.article.tassa-salute-frontalieri-lombardia-piemonte.title': 'Tassa salute frontalieri: Lombardia richiede allineamento, Piemonte dice no',
+    'blog.article.tassa-salute-frontalieri-lombardia-piemonte.excerpt': 'La Lombardia insiste sull\'applicazione della tassa salute ai frontalieri, mentre il Piemonte conferma la propria contrarietà. Ecco cosa cambia',
+    'blog.article.tassa-salute-frontalieri-lombardia-piemonte.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
 };
 
 export default blogMetaIt;

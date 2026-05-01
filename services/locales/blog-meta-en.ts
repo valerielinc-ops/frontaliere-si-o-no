@@ -4585,6 +4585,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.audit-polizia-ticino-2026.title': 'Ticino Police Audit: Government Requests Six-Month Extension',
     'blog.article.audit-polizia-ticino-2026.excerpt': 'The State Council asks for an extension for the message on the Canton Police audit. Dadò and Ferrara insist on urgency.',
     'blog.article.audit-polizia-ticino-2026.imageAlt': 'Castelgrande in Bellinzona, Ticino',
+    'blog.article.tassa-salute-frontalieri-lombardia-piemonte.title': 'Lombardy demands health tax alignment, Piedmont says no',
+    'blog.article.tassa-salute-frontalieri-lombardia-piemonte.excerpt': 'Lombardy insists on applying the health tax to cross-border workers, while Piedmont confirms its opposition. Here\'s what changes',
+    'blog.article.tassa-salute-frontalieri-lombardia-piemonte.imageAlt': 'Aerial view of Lake Lugano with Swiss-Italian border in focus',
 };
 
 export default blogMetaEn;
