@@ -4684,6 +4684,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.zanzara-tigre-losone-2026.title': 'Losone: Rückgang der Tigermücke im 2025',
     'blog.article.zanzara-tigre-losone-2026.excerpt': 'Die Technik der sterilen Männchen hat das Auftreten der Tigermücke in Losone deutlich reduziert. Hier sind die Details.',
     'blog.article.zanzara-tigre-losone-2026.imageAlt': 'Luftaufnahme des Luganersees mit Losone im Hintergrund, Schweizer-Italienische Grenze sichtbar',
+    'blog.article.rive-libere-minusio-tenero-2026.title': 'Freie Ufer: RPSI zufrieden mit der Arbeitsgruppe',
+    'blog.article.rive-libere-minusio-tenero-2026.excerpt': 'RPSI tritt der Arbeitsgruppe für die Aufwertung der Ufer zwischen Minusio und Tenero-Contra bei. Petition für ganzjährigen freien Zugang.',
+    'blog.article.rive-libere-minusio-tenero-2026.imageAlt': 'Winterlicher Luganersee-Uferbereich in Minusio, Tessin',
 };
 
 export default blogMetaDe;

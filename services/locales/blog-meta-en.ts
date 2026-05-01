@@ -4684,6 +4684,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.zanzara-tigre-losone-2026.title': 'Losone: tiger mosquito decline in 2025',
     'blog.article.zanzara-tigre-losone-2026.excerpt': 'The sterile male technique has significantly reduced the presence of the tiger mosquito in Losone. Here are the details.',
     'blog.article.zanzara-tigre-losone-2026.imageAlt': 'Aerial view of Lake Lugano with Losone in the background, Switzerland-Italy border visible',
+    'blog.article.rive-libere-minusio-tenero-2026.title': 'RPSI pleased with riverbanks working group',
+    'blog.article.rive-libere-minusio-tenero-2026.excerpt': 'RPSI joins the working group for the enhancement of the riverbanks between Minusio and Tenero-Contra. Petition for year-round free access.',
+    'blog.article.rive-libere-minusio-tenero-2026.imageAlt': 'Lake Lugano shoreline in winter, Minusio, Ticino',
 };
 
 export default blogMetaEn;

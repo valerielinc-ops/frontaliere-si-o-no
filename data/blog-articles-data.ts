@@ -11943,4 +11943,11 @@ export const ARTICLES = [
  image: '/images/blog/zanzara-tigre-losone-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rive-libere-minusio-tenero-2026',
+ category: 'pratico',
+ date: '2026-05-01T09:23:59.332Z',
+ image: '/images/blog/rive-libere-minusio-tenero-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

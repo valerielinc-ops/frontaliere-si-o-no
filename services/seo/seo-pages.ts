@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1611,
+ "numberOfItems": 1612,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6246,7 +6246,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1608, "name": "Lite notturna a Como in via Brogeda", "url": `${BASE_URL}/articoli-frontaliere/lite-notturna-brogeda-2026` },
           { "@type": "ListItem", "position": 1609, "name": "Crans-Montana, fatture ospedaliere: non tutti g...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-fatture-ospedali-2026` },
           { "@type": "ListItem", "position": 1610, "name": "Crans-Montana: 700 dossier gestiti dai consulto...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-aiuto-vittime-700-dossier` },
-          { "@type": "ListItem", "position": 1611, "name": "Losone: calo zanzara tigre nel 2025", "url": `${BASE_URL}/articoli-frontaliere/zanzara-tigre-losone-2026` }
+          { "@type": "ListItem", "position": 1611, "name": "Losone: calo zanzara tigre nel 2025", "url": `${BASE_URL}/articoli-frontaliere/zanzara-tigre-losone-2026` },
+          { "@type": "ListItem", "position": 1612, "name": "Rive libere: RPSI soddisfatta del gruppo di lavoro", "url": `${BASE_URL}/articoli-frontaliere/rive-libere-minusio-tenero-2026` }
  ]
  },
  {

@@ -4685,6 +4685,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.zanzara-tigre-losone-2026.title': 'Losone: baisse des moustiques tigres en 2025',
     'blog.article.zanzara-tigre-losone-2026.excerpt': 'La technique du mâle stérile a considérablement réduit la présence du moustique tigre à Losone. Voici les détails.',
     'blog.article.zanzara-tigre-losone-2026.imageAlt': 'Vue aérienne du lac de Lugano avec Losone en arrière-plan, frontière Suisse-Italie visible',
+    'blog.article.rive-libere-minusio-tenero-2026.title': 'Rives libres: RPSI satisfaite du groupe de travail',
+    'blog.article.rive-libere-minusio-tenero-2026.excerpt': 'RPSI rejoint le groupe de travail pour la valorisation des rives entre Minusio et Tenero-Contra. Pétition pour l\'accès libre toute l\'année.',
+    'blog.article.rive-libere-minusio-tenero-2026.imageAlt': 'Rive du lac de Lugano en hiver à Minusio, Tessin',
 };
 
 export default blogMetaFr;

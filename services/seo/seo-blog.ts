@@ -32258,6 +32258,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rive-libere-minusio-tenero-2026': {
+    title: 'Rive libere: RPSI soddisfatta del gruppo di lavoro',
+    description: 'RPSI entra nel gruppo di lavoro per la valorizzazione delle rive tra Minusio e Tenero-Contra. Petizione per l\'accesso libero tutto l\'anno. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, rive, libere, rpsi, soddisfatta',
+    ogTitle: 'Rive libere: RPSI soddisfatta del gruppo di lavoro',
+    ogDescription: 'RPSI entra nel gruppo di lavoro per la valorizzazione delle rive tra Minusio e Tenero-Contra. Petizione per l\'accesso libero tutto l\'anno.',
+    canonicalPath: '/articoli-frontaliere/rive-libere-minusio-tenero-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rive libere: RPSI soddisfatta del gruppo di lavoro",
+      "description": "RPSI entra nel gruppo di lavoro per la valorizzazione delle rive tra Minusio e Tenero-Contra. Petizione per l'accesso libero tutto l'anno. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rive-libere-minusio-tenero-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Riva del lago di Lugano in inverno a Minusio, Ticino"
+      },
+      "datePublished": "2026-05-01T09:23:59+00:00",
+      "dateModified": "2026-05-01T09:23:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rive-libere-minusio-tenero-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

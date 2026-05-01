@@ -4685,6 +4685,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.zanzara-tigre-losone-2026.title': 'Losone: calo zanzara tigre nel 2025',
     'blog.article.zanzara-tigre-losone-2026.excerpt': 'La tecnica del maschio sterile ha ridotto significativamente la presenza della zanzara tigre a Losone. Ecco i dettagli.',
     'blog.article.zanzara-tigre-losone-2026.imageAlt': 'Vista aerea del Lago di Lugano con Losone sullo sfondo, confine Svizzera-Italia visibile',
+    'blog.article.rive-libere-minusio-tenero-2026.title': 'Rive libere: RPSI soddisfatta del gruppo di lavoro',
+    'blog.article.rive-libere-minusio-tenero-2026.excerpt': 'RPSI entra nel gruppo di lavoro per la valorizzazione delle rive tra Minusio e Tenero-Contra. Petizione per l\'accesso libero tutto l\'anno.',
+    'blog.article.rive-libere-minusio-tenero-2026.imageAlt': 'Riva del lago di Lugano in inverno a Minusio, Ticino',
 };
 
 export default blogMetaIt;
