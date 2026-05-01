@@ -4540,6 +4540,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cardano-settimana-ecologica-raee-2026.title': 'Cardano al Campo: Ökologische Woche 2026 fördert Elektroschrott-Recycling',
     'blog.article.cardano-settimana-ecologica-raee-2026.excerpt': 'Vom 5. bis 9. Mai fördert Cardano al Campo das Recycling von Elektroschrott mit Veranstaltungen und Sammelaktionen. Ziel ist es, die Sammlung von Elektroschrott zu verbessern, die derzeit unter 1% liegt.',
     'blog.article.cardano-settimana-ecologica-raee-2026.imageAlt': 'Frewillige und Einwohner von Cardano al Campo sammeln Elektronikschrott während der ökologischen Woche 2026',
+    'blog.article.grassi-liuc-sfide-complesse.title': 'Grassi: «Komplexe Herausforderungen, aber die Liuc ist bereit»',
+    'blog.article.grassi-liuc-sfide-complesse.excerpt': 'Roberto Grassi, neuer Präsident der Liuc-Università Cattaneo, nimmt die Herausforderungen der Fertigungsindustrie und der Innovation an.',
+    'blog.article.grassi-liuc-sfide-complesse.imageAlt': 'Blick auf den Luganersee mit einem modernen Universitätscampus im Hintergrund',
 };
 
 export default blogMetaDe;

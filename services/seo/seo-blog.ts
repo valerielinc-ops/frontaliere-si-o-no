@@ -30866,6 +30866,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grassi-liuc-sfide-complesse': {
+    title: 'Grassi: «Sfide complesse, ma la Liuc è pronta» | Frontaliere Ticino',
+    description: 'Roberto Grassi, nuovo presidente della Liuc-Università Cattaneo di Castellanza, affronta le sfide del mondo manifatturiero e dell\'innovazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, grassi, sfide, complesse, liuc',
+    ogTitle: 'Grassi: «Sfide complesse, ma la Liuc è pronta»',
+    ogDescription: 'Roberto Grassi, nuovo presidente della Liuc-Università Cattaneo di Castellanza, affronta le sfide del mondo manifatturiero e dell\'innovazione.',
+    canonicalPath: '/articoli-frontaliere/grassi-liuc-sfide-complesse',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grassi: «Sfide complesse, ma la Liuc è pronta»",
+      "description": "Roberto Grassi, nuovo presidente della Liuc-Università Cattaneo di Castellanza, affronta le sfide del mondo manifatturiero e dell'innovazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/grassi-liuc-sfide-complesse.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con il campus universitario moderno sullo sfondo"
+      },
+      "datePublished": "2026-05-01T02:10:02+00:00",
+      "dateModified": "2026-05-01T02:10:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grassi-liuc-sfide-complesse`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

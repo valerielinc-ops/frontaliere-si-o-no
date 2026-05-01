@@ -4540,6 +4540,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cardano-settimana-ecologica-raee-2026.title': 'Cardano al Campo: 2026 Eco Week focuses on WEEE recycling',
     'blog.article.cardano-settimana-ecologica-raee-2026.excerpt': 'From May 5th to 9th, Cardano al Campo promotes the recycling of electrical waste with events and collections. Goal: to improve WEEE collection, currently below 1%.',
     'blog.article.cardano-settimana-ecologica-raee-2026.imageAlt': 'Volunteers and residents in Cardano al Campo collecting electronic waste during the 2026 Ecological Week',
+    'blog.article.grassi-liuc-sfide-complesse.title': 'Grassi: \'Complex challenges, but Liuc is ready\'',
+    'blog.article.grassi-liuc-sfide-complesse.excerpt': 'Roberto Grassi, new president of Liuc-Università Cattaneo, tackles the challenges of the manufacturing world and innovation.',
+    'blog.article.grassi-liuc-sfide-complesse.imageAlt': 'View of Lake Lugano with a modern university campus in the background',
 };
 
 export default blogMetaEn;

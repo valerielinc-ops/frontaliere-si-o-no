@@ -4541,6 +4541,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cardano-settimana-ecologica-raee-2026.title': 'Cardano al Campo: Settimana Ecologica 2026 punta sul riciclo dei Raee',
     'blog.article.cardano-settimana-ecologica-raee-2026.excerpt': 'Dal 5 al 9 maggio, Cardano al Campo promuove il riciclo dei rifiuti elettrici con eventi e raccolte. Obiettivo: migliorare la raccolta Raee, oggi sotto l\'1%.',
     'blog.article.cardano-settimana-ecologica-raee-2026.imageAlt': 'Volontari e residenti a Cardano al Campo raccolgono rifiuti elettronici durante la Settimana Ecologica 2026',
+    'blog.article.grassi-liuc-sfide-complesse.title': 'Grassi: «Sfide complesse, ma la Liuc è pronta»',
+    'blog.article.grassi-liuc-sfide-complesse.excerpt': 'Roberto Grassi, nuovo presidente della Liuc-Università Cattaneo, affronta le sfide del mondo manifatturiero e dell\'innovazione.',
+    'blog.article.grassi-liuc-sfide-complesse.imageAlt': 'Vista del Lago di Lugano con il campus universitario moderno sullo sfondo',
 };
 
 export default blogMetaIt;

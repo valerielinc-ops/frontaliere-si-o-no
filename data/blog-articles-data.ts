@@ -11607,4 +11607,11 @@ export const ARTICLES = [
  image: '/images/blog/cardano-settimana-ecologica-raee-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'grassi-liuc-sfide-complesse',
+ category: 'novita',
+ date: '2026-05-01T02:10:02.187Z',
+ image: '/images/blog/grassi-liuc-sfide-complesse.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
