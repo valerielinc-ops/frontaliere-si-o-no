@@ -4855,6 +4855,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.teheran-proposta-pakistan-mediatori.title': 'Iran übergibt neues Angebot an pakistanische Vermittler',
     'blog.article.teheran-proposta-pakistan-mediatori.excerpt': 'Die iranische Diplomatie sucht neue Wege zur Beendigung des Konflikts unter Einbeziehung pakistanischer Vermittler',
     'blog.article.teheran-proposta-pakistan-mediatori.imageAlt': 'Diplomatisches Treffen in Teheran zwischen Iran und Pakistan für Friedensvorschlag',
+    'blog.article.inflazione-svizzera-frontalieri-ticino.title': 'Inflation in der Schweiz: Warum Grenzgänger betroffen sind',
+    'blog.article.inflazione-svizzera-frontalieri-ticino.excerpt': 'Die offizielle Inflation in der Schweiz ist niedrig, aber die Grenzgänger im Tessin spüren die Teuerung. Hier ist der Grund.',
+    'blog.article.inflazione-svizzera-frontalieri-ticino.imageAlt': 'Panorama von Lugano mit dem Luganersee und Bergen',
 };
 
 export default blogMetaDe;

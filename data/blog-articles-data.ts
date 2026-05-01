@@ -12342,4 +12342,11 @@ export const ARTICLES = [
  image: '/images/blog/teheran-proposta-pakistan-mediatori.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'inflazione-svizzera-frontalieri-ticino',
+ category: 'fiscale',
+ date: '2026-05-01T18:18:23.371Z',
+ image: '/images/blog/inflazione-svizzera-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

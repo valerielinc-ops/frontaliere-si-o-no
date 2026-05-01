@@ -33911,6 +33911,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inflazione-svizzera-frontalieri-ticino': {
+    title: 'Inflazione in Svizzera: perché i frontalieri sentono il peso',
+    description: 'L\'inflazione ufficiale in Svizzera è bassa, ma i frontalieri in Ticino sentono il peso del caro vita. Ecco perché. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, perché, sentono, peso',
+    ogTitle: 'Inflazione in Svizzera: perché i frontalieri sentono il peso',
+    ogDescription: 'L\'inflazione ufficiale in Svizzera è bassa, ma i frontalieri in Ticino sentono il peso del caro vita. Ecco perché.',
+    canonicalPath: '/articoli-frontaliere/inflazione-svizzera-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inflazione in Svizzera: perché i frontalieri sentono il peso",
+      "description": "L'inflazione ufficiale in Svizzera è bassa, ma i frontalieri in Ticino sentono il peso del caro vita. Ecco perché. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inflazione-svizzera-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-05-01T18:18:23+00:00",
+      "dateModified": "2026-05-01T18:18:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inflazione-svizzera-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2849,6 +2849,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-colosso-35-tonnellate-legnano': { name: 'Novità', path: '/articoli-frontaliere/colosso-35-tonnellate-legnano', parent: 'blog' },
     'blog-riapre-villa-visconti-lainate-2026': { name: 'Villa Visconti Borromeo Litta', path: '/articoli-frontaliere/riapre-villa-visconti-lainate-2026', parent: 'blog' },
     'blog-teheran-proposta-pakistan-mediatori': { name: 'Novità', path: '/articoli-frontaliere/teheran-proposta-pakistan-mediatori', parent: 'blog' },
+    'blog-inflazione-svizzera-frontalieri-ticino': { name: 'Inflazione Svizzera', path: '/articoli-frontaliere/inflazione-svizzera-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

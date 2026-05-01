@@ -4855,6 +4855,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.teheran-proposta-pakistan-mediatori.title': 'Iran submits new proposal to Pakistani mediators',
     'blog.article.teheran-proposta-pakistan-mediatori.excerpt': 'Iranian diplomacy seeks new paths to end the conflict involving Pakistani mediators',
     'blog.article.teheran-proposta-pakistan-mediatori.imageAlt': 'Diplomatic meeting in Tehran between Iran and Pakistan for peace proposal',
+    'blog.article.inflazione-svizzera-frontalieri-ticino.title': 'Why Swiss inflation hits cross-border workers hard',
+    'blog.article.inflazione-svizzera-frontalieri-ticino.excerpt': 'Switzerland\'s official inflation is low, but cross-border workers in Ticino feel the pinch. Here\'s why.',
+    'blog.article.inflazione-svizzera-frontalieri-ticino.imageAlt': 'Lugano cityscape with Lake Lugano and mountains',
 };
 
 export default blogMetaEn;

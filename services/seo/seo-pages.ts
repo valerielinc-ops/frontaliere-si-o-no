@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1668,
+ "numberOfItems": 1669,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6303,7 +6303,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1665, "name": "Cassis e Araghchi discutono situazione regionale", "url": `${BASE_URL}/articoli-frontaliere/cassis-aragchi-colloquio-iran` },
           { "@type": "ListItem", "position": 1666, "name": "{\"it\":\"Colosso da 35 tonnellate nato a Legnano\"...", "url": `${BASE_URL}/articoli-frontaliere/colosso-35-tonnellate-legnano` },
           { "@type": "ListItem", "position": 1667, "name": "Villa Visconti Borromeo Litta riapre a Lainate:...", "url": `${BASE_URL}/articoli-frontaliere/riapre-villa-visconti-lainate-2026` },
-          { "@type": "ListItem", "position": 1668, "name": "Teheran consegna nuova proposta negoziale ai me...", "url": `${BASE_URL}/articoli-frontaliere/teheran-proposta-pakistan-mediatori` }
+          { "@type": "ListItem", "position": 1668, "name": "Teheran consegna nuova proposta negoziale ai me...", "url": `${BASE_URL}/articoli-frontaliere/teheran-proposta-pakistan-mediatori` },
+          { "@type": "ListItem", "position": 1669, "name": "Inflazione in Svizzera: perché i frontalieri se...", "url": `${BASE_URL}/articoli-frontaliere/inflazione-svizzera-frontalieri-ticino` }
  ]
  },
  {

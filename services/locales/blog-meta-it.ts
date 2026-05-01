@@ -4856,6 +4856,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.teheran-proposta-pakistan-mediatori.title': 'Teheran consegna nuova proposta negoziale ai mediatori pakistani',
     'blog.article.teheran-proposta-pakistan-mediatori.excerpt': 'La diplomazia iraniana cerca nuove vie per la fine del conflitto coinvolgendo mediatori pakistani',
     'blog.article.teheran-proposta-pakistan-mediatori.imageAlt': 'Incontro diplomatico a Teheran tra Iran e Pakistan per proposta di pace',
+    'blog.article.inflazione-svizzera-frontalieri-ticino.title': 'Inflazione in Svizzera: perché i frontalieri sentono il peso',
+    'blog.article.inflazione-svizzera-frontalieri-ticino.excerpt': 'L\'inflazione ufficiale in Svizzera è bassa, ma i frontalieri in Ticino sentono il caro vita. Ecco perché.',
+    'blog.article.inflazione-svizzera-frontalieri-ticino.imageAlt': 'Panorama di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;
