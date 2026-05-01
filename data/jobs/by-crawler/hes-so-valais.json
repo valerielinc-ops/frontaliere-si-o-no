@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-04-30T21:56:09.269Z",
+  "assembledAt": "2026-05-01T08:30:46.979Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/specialiste-en-information-documentaire-80-100-***-informations-und-dokumentationsspezialist-oder-spezialistin-80-100--214386",
@@ -234,71 +234,6 @@
       "previousSlugs": [
         "research-associate-80-100-collaborateur-ou-collaboratrice-hes-so-valais"
       ]
-    },
-    {
-      "url": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-scientifique-hes-80-100-***-academic-associate-uas-80-100-214198",
-      "applyUrl": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-scientifique-hes-80-100-***-academic-associate-uas-80-100-214198",
-      "title": "Collaborateur ou collaboratrice scientifique HES (80-100%) ***",
-      "company": "HES-SO Valais-Wallis",
-      "companyKey": "hes-so-valais",
-      "location": "Sion",
-      "postalCode": "1950",
-      "canton": "VS",
-      "country": "CH",
-      "description": "## Descrizione\nPour renforcer son institut Energie et environnement, la Haute Ecole d’Ingénierie met au concours un poste de :Collaborateur ou collaboratrice scientifique\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
-      "descriptionByLocale": {
-        "it": "Descrizione Per rafforzare il suo istituto Energia e ambiente, la Haute Ecole d’Ingénierie mette in concorso un posto di: Collaboratore scientifico La HES-SO Valais-Wallis è una scuola superiore specializzata bilingue (francese-tedesco) del Canton Vallese, con campus a Sion, Sierre, Visp e Saint-Maurice. Forma più di 2'800 studenti in ingegneria, gestione, salute, lavoro sociale e arti.",
-        "en": "Description To strengthen its Energy and Environment Institute, the Haute Ecole d’Ingénierie is recruiting a: Scientific Collaborator The HES-SO Valais-Wallis is a specialized bilingual (French-German) higher education institution in the Canton of Valais, with campuses in Sion, Sierre, Visp, and Saint-Maurice. It educates over 2,800 students in engineering, management, health, social work, and arts.",
-        "de": "Beschreibung Um sein Institut für Energie und Umwelt zu stärken, stellt die Haute Ecole d’Ingénierie eine Stelle als: Wissenschaftlicher Mitarbeiter aus Die HES-SO Valais-Wallis ist eine spezialisierte zweisprachige Höhere Bildungseinrichtung im Kanton Wallis mit Standorten in Sion, Sierre, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in Ingenieurwesen, Verwaltung, Gesundheit, Sozialarbeit und Künste aus.",
-        "fr": "Descrizione Pour renforcer son institut Energie et environnement, la Haute Ecole d’Ingénierie met au concours un poste de :Collaborateur ou collaboratrice scientifique La HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
-      },
-      "titleByLocale": {
-        "it": "Collaborateur ou collaboratrice scientifique HES (80-100%) ***",
-        "en": "Scientific Collaborator HES (80-100%)",
-        "de": "Wissenschaftlicher Mitarbeiter HES (80-100%)",
-        "fr": "Collaborateur ou collaboratrice scientifique HES (80-100%)"
-      },
-      "slug": "collaborateur-ou-collaboratrice-scientifique-hes-80-100-hes-so-valais",
-      "slugByLocale": {
-        "it": "collaborateur-ou-collaboratrice-scientifique-hes-80-100-hes-so-valais",
-        "en": "scientific-collaborator-hes-80-100-hes-so-valais-wallis-sion",
-        "de": "wissenschaftlicher-mitarbeiter-hes-80-100-hes-so-valais-wallis-sion",
-        "fr": "collaborateur-ou-collaboratrice-scientifique-hes-80-100-hes-so-valais"
-      },
-      "category": "research-support",
-      "datePosted": "2026-04-09",
-      "source": "hes-so-valais-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione / Ricerca",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Sion"
-      },
-      "employmentRate": "80-100%",
-      "urlByLocale": {
-        "fr": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-scientifique-hes-80-100-***-academic-associate-uas-80-100-214198",
-        "de": "https://www.hevs.ch/de/recruitee/collaborateur-ou-collaboratrice-scientifique-hes-80-100-***-academic-associate-uas-80-100-214198",
-        "en": "https://www.hevs.ch/en/recruitee/collaborateur-ou-collaboratrice-scientifique-hes-80-100-***-academic-associate-uas-80-100-214198"
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "id": "hes-so-valais-ea2c1601c417",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-13T21:50:34.429Z"
     }
   ]
 }
