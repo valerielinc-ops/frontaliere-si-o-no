@@ -31852,6 +31852,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticinosentieri-nuove-nomine-2026': {
+    title: 'TicinoSentieri: nuove nomine per il 2026 | Frontaliere Ticino',
+    description: 'Roland David è il nuovo presidente e Stéphane Grounauer il direttore operativo. Approvate anche due nuove nomine in comitato. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ticinosentieri, nuove, nomine, roland',
+    ogTitle: 'TicinoSentieri: nuove nomine per il 2026',
+    ogDescription: 'Roland David è il nuovo presidente e Stéphane Grounauer il direttore operativo. Approvate anche due nuove nomine in comitato.',
+    canonicalPath: '/articoli-frontaliere/ticinosentieri-nuove-nomine-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TicinoSentieri: nuove nomine per il 2026",
+      "description": "Roland David è il nuovo presidente e Stéphane Grounauer il direttore operativo. Approvate anche due nuove nomine in comitato. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticinosentieri-nuove-nomine-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-05-01T07:37:51+00:00",
+      "dateModified": "2026-05-01T07:37:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticinosentieri-nuove-nomine-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

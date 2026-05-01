@@ -11845,4 +11845,11 @@ export const ARTICLES = [
  image: '/images/blog/como-studenti-polizia-on-road-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ticinosentieri-nuove-nomine-2026',
+ category: 'novita',
+ date: '2026-05-01T07:37:51.485Z',
+ image: '/images/blog/ticinosentieri-nuove-nomine-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

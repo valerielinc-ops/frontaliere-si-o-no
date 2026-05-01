@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1597,
+ "numberOfItems": 1598,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6232,7 +6232,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1594, "name": "Gioco dell'oca su rischi e disastri a Giornico", "url": `${BASE_URL}/articoli-frontaliere/gioco-oca-giornico-rischi-disastri` },
           { "@type": "ListItem", "position": 1595, "name": "Primo Maggio 2026: pace e solidarietà al centro...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-ticino-solidarieta` },
           { "@type": "ListItem", "position": 1596, "name": "Piano Freddo Como: 200 persone accolte per 172 ...", "url": `${BASE_URL}/articoli-frontaliere/piano-freddo-como-200-persone-172-notti` },
-          { "@type": "ListItem", "position": 1597, "name": "Como, 10 studenti diventano agenti di polizia l...", "url": `${BASE_URL}/articoli-frontaliere/como-studenti-polizia-on-road-2026` }
+          { "@type": "ListItem", "position": 1597, "name": "Como, 10 studenti diventano agenti di polizia l...", "url": `${BASE_URL}/articoli-frontaliere/como-studenti-polizia-on-road-2026` },
+          { "@type": "ListItem", "position": 1598, "name": "TicinoSentieri: nuove nomine per il 2026", "url": `${BASE_URL}/articoli-frontaliere/ticinosentieri-nuove-nomine-2026` }
  ]
  },
  {

@@ -4643,6 +4643,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-studenti-polizia-on-road-2026.title': 'Como, 10 étudiants deviennent agents de police locale avec le projet On the Road',
     'blog.article.como-studenti-polizia-on-road-2026.excerpt': 'Un accord triennal entre la commune de Como, la police locale et l\'association Ragazzi On the Road pour former de jeunes agents',
     'blog.article.como-studenti-polizia-on-road-2026.imageAlt': 'Des étudiants de Côme deviennent agents de police locale lors du projet On the Road',
+    'blog.article.ticinosentieri-nuove-nomine-2026.title': 'TicinoSentieri: nouvelles nominations pour 2026',
+    'blog.article.ticinosentieri-nuove-nomine-2026.excerpt': 'Roland David est le nouveau président et Stéphane Grounauer le directeur opérationnel. Deux nouvelles nominations au comité ont également été approuvées.',
+    'blog.article.ticinosentieri-nuove-nomine-2026.imageAlt': 'Castelgrande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;
