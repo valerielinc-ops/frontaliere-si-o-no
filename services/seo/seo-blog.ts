@@ -33041,6 +33041,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-e-roller-lugano-2026': {
+    title: 'Incidente con e-roller e e-bike a Lugano: donna gravemente ferita',
+    description: 'Un incidente tra un e-roller e un\'e-bike ha coinvolto una ragazza e una donna, lasciando quest\'ultima gravemente ferita. Scopri di più su questo grave incidente',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, e-roller, e-bike, lugano',
+    ogTitle: 'Incidente con e-roller e e-bike a Lugano: donna gravemente ferita',
+    ogDescription: 'Un incidente tra un e-roller e un\'e-bike ha coinvolto una ragazza e una donna, lasciando quest\'ultima gravemente ferita. Scopri di più su questo grave incidente',
+    canonicalPath: '/articoli-frontaliere/incidente-e-roller-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente con e-roller e e-bike a Lugano: donna gravemente ferita",
+      "description": "Un incidente tra un e-roller e un'e-bike ha coinvolto una ragazza e una donna, lasciando quest'ultima gravemente ferita. Scopri di più su questo grave incidente",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-e-roller-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "E-bike e e-roller coinvolti in un incidente a Lugano"
+      },
+      "datePublished": "2026-05-01T13:29:14+00:00",
+      "dateModified": "2026-05-01T13:29:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-e-roller-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

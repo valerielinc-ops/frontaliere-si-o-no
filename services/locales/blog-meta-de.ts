@@ -4765,6 +4765,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-2026-traffico-gottardo.title': '1. Mai 2026: 10 km Stau am Gotthard',
     'blog.article.primo-maggio-2026-traffico-gottardo.excerpt': '10 km Stau am Nordportal des Gotthard, Verzögerungen auch in Chiasso und Brogeda. Hier erfahren Sie, was Reisende wissen müssen.',
     'blog.article.primo-maggio-2026-traffico-gottardo.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.incidente-e-roller-lugano-2026.title': 'Unfall mit E-Roller und E-Bike in Lugano: Frau schwer verletzt',
+    'blog.article.incidente-e-roller-lugano-2026.excerpt': 'Ein Unfall zwischen einem E-Roller und einem E-Bike hat eine junge Frau und eine ältere Frau betroffen, wobei letztere schwer verletzt wurde.',
+    'blog.article.incidente-e-roller-lugano-2026.imageAlt': 'E-Bike und E-Roller in einem Unfall in Lugano',
 };
 
 export default blogMetaDe;

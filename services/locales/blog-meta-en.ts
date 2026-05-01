@@ -4765,6 +4765,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-2026-traffico-gottardo.title': 'May 1st 2026: 10 km traffic jam at the Gotthard',
     'blog.article.primo-maggio-2026-traffico-gottardo.excerpt': '10 km tailbacks at the north portal of the Gotthard, slowdowns also in Chiasso and Brogeda. Here\'s what travelers need to know.',
     'blog.article.primo-maggio-2026-traffico-gottardo.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.incidente-e-roller-lugano-2026.title': 'Serious injury in Lugano e-roller and e-bike accident',
+    'blog.article.incidente-e-roller-lugano-2026.excerpt': 'An accident between an e-roller and an e-bike involved a girl and a woman, leaving the latter seriously injured.',
+    'blog.article.incidente-e-roller-lugano-2026.imageAlt': 'E-bike and e-scooter involved in an accident in Lugano',
 };
 
 export default blogMetaEn;

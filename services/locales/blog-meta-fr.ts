@@ -4766,6 +4766,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-2026-traffico-gottardo.title': '1er mai 2026 : 10 km d\'embouteillage au Gothard',
     'blog.article.primo-maggio-2026-traffico-gottardo.excerpt': 'Embouteillages de 10 km au portail nord du Gothard, ralentissements également à Chiasso et Brogeda. Voici ce qu\'il faut savoir pour les voyageurs.',
     'blog.article.primo-maggio-2026-traffico-gottardo.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.incidente-e-roller-lugano-2026.title': 'Accident avec un e-roller et un e-bike à Lugano: une femme grièvement blessée',
+    'blog.article.incidente-e-roller-lugano-2026.excerpt': 'Un accident entre un e-roller et un e-bike a impliqué une jeune fille et une femme, laissant cette dernière grièvement blessée.',
+    'blog.article.incidente-e-roller-lugano-2026.imageAlt': 'Vélos électriques et trottinettes électriques impliqués dans un accident à Lugano',
 };
 
 export default blogMetaFr;

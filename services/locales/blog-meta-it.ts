@@ -4766,6 +4766,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-2026-traffico-gottardo.title': 'Primo Maggio 2026: 10 km di coda al Gottardo',
     'blog.article.primo-maggio-2026-traffico-gottardo.excerpt': 'Code di 10 km al portale nord del San Gottardo, rallentamenti anche a Chiasso e Brogeda. Ecco cosa sapere per chi viaggia.',
     'blog.article.primo-maggio-2026-traffico-gottardo.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.incidente-e-roller-lugano-2026.title': 'Incidente con e-roller e e-bike a Lugano: donna gravemente ferita',
+    'blog.article.incidente-e-roller-lugano-2026.excerpt': 'Un incidente tra un e-roller e un\'e-bike ha coinvolto una ragazza e una donna, lasciando quest\'ultima gravemente ferita.',
+    'blog.article.incidente-e-roller-lugano-2026.imageAlt': 'E-bike e e-roller coinvolti in un incidente a Lugano',
 };
 
 export default blogMetaIt;
