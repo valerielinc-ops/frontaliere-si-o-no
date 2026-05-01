@@ -4646,6 +4646,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticinosentieri-nuove-nomine-2026.title': 'TicinoSentieri: nuove nomine per il 2026',
     'blog.article.ticinosentieri-nuove-nomine-2026.excerpt': 'Roland David è il nuovo presidente e Stéphane Grounauer il direttore operativo. Approvate anche due nuove nomine in comitato.',
     'blog.article.ticinosentieri-nuove-nomine-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino',
+    'blog.article.ufficio-postale-val-mara-chiusura.title': 'Val Mara: chiusura ufficio postale, mazzata ai servizi',
+    'blog.article.ufficio-postale-val-mara-chiusura.excerpt': 'L\'ufficio postale di Val Mara, frazione di Maroggia, chiuderà. Un duro colpo per i residenti e i frontalieri della zona.',
+    'blog.article.ufficio-postale-val-mara-chiusura.imageAlt': 'Vista aerea di Val Mara, Maroggia, Ticino',
 };
 
 export default blogMetaIt;

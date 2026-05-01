@@ -4645,6 +4645,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticinosentieri-nuove-nomine-2026.title': 'TicinoSentieri: Neue Ernennungen für 2026',
     'blog.article.ticinosentieri-nuove-nomine-2026.excerpt': 'Roland David ist der neue Präsident und Stéphane Grounauer der operative Direktor. Auch zwei neue Ernennungen im Komitee wurden genehmigt.',
     'blog.article.ticinosentieri-nuove-nomine-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin',
+    'blog.article.ufficio-postale-val-mara-chiusura.title': 'Poststelle Val Mara: Schließung, Schlag für Einrichtungen',
+    'blog.article.ufficio-postale-val-mara-chiusura.excerpt': 'Die Poststelle von Val Mara, eine Fraktion von Maroggia, wird schließen. Ein harter Schlag für die Einwohner und Grenzgänger der Region.',
+    'blog.article.ufficio-postale-val-mara-chiusura.imageAlt': 'Luftaufnahme von Val Mara, Maroggia, Tessin',
 };
 
 export default blogMetaDe;

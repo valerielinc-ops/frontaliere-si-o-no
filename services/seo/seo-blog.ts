@@ -31881,6 +31881,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ufficio-postale-val-mara-chiusura': {
+    title: 'Val Mara: chiusura ufficio postale, mazzata ai servizi',
+    description: 'L\'ufficio postale di Val Mara, frazione di Maroggia, chiuderà. Un duro colpo per i residenti e i frontalieri della zona. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, mara, chiusura, ufficio, postale',
+    ogTitle: 'Chiusura ufficio postale Val Mara: mazzata ai servizi',
+    ogDescription: 'L\'ufficio postale di Val Mara, frazione di Maroggia, chiuderà. Un duro colpo per i residenti e i frontalieri della zona.',
+    canonicalPath: '/articoli-frontaliere/ufficio-postale-val-mara-chiusura',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusura ufficio postale Val Mara: mazzata ai servizi",
+      "description": "L'ufficio postale di Val Mara, frazione di Maroggia, chiuderà. Un duro colpo per i residenti e i frontalieri della zona. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ufficio-postale-val-mara-chiusura.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Val Mara, Maroggia, Ticino"
+      },
+      "datePublished": "2026-05-01T07:45:26+00:00",
+      "dateModified": "2026-05-01T07:45:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ufficio-postale-val-mara-chiusura`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

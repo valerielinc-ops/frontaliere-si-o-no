@@ -11852,4 +11852,11 @@ export const ARTICLES = [
  image: '/images/blog/ticinosentieri-nuove-nomine-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ufficio-postale-val-mara-chiusura',
+ category: 'novita',
+ date: '2026-05-01T07:45:26.211Z',
+ image: '/images/blog/ufficio-postale-val-mara-chiusura.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
