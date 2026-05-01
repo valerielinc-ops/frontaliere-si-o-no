@@ -4822,6 +4822,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rive-libere-ascona-2026.title': 'Free riverbanks: Ascona opens to public in winter',
     'blog.article.rive-libere-ascona-2026.excerpt': 'The Rive pubbliche association of Italian-speaking Switzerland celebrates two successes: inclusion in the working group for the Riverbanks Path and the winter opening of the Lido patriziale riverbank in Ascona.',
     'blog.article.rive-libere-ascona-2026.imageAlt': 'Winter walk along the free shores of Ascona on Lake Maggiore',
+    'blog.article.mezzi-pesanti-biandronno-2026.title': 'Heavy traffic, Biandronno starts trial',
+    'blog.article.mezzi-pesanti-biandronno-2026.excerpt': 'Mayor Massimo Porotti announces the start of the trial to limit heavy traffic in Medio Verbano',
+    'blog.article.mezzi-pesanti-biandronno-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding towns and mountains',
 };
 
 export default blogMetaEn;

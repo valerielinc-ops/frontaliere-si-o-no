@@ -12265,4 +12265,11 @@ export const ARTICLES = [
  image: '/images/blog/rive-libere-ascona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mezzi-pesanti-biandronno-2026',
+ category: 'novita',
+ date: '2026-05-01T16:40:09.331Z',
+ image: '/images/blog/mezzi-pesanti-biandronno-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

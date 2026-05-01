@@ -2838,6 +2838,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-radar-ticino-velocita-2026': { name: 'Controlli velocità', path: '/articoli-frontaliere/radar-ticino-velocita-2026', parent: 'blog' },
     'blog-primo-maggio-zurigo-basilea-2026': { name: 'Primo maggio 2026', path: '/articoli-frontaliere/primo-maggio-zurigo-basilea-2026', parent: 'blog' },
     'blog-rive-libere-ascona-2026': { name: 'Rive libere', path: '/articoli-frontaliere/rive-libere-ascona-2026', parent: 'blog' },
+    'blog-mezzi-pesanti-biandronno-2026': { name: 'Novità', path: '/articoli-frontaliere/mezzi-pesanti-biandronno-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

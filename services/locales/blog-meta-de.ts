@@ -4822,6 +4822,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rive-libere-ascona-2026.title': 'Freie Ufer: Ascona öffnet im Winter',
     'blog.article.rive-libere-ascona-2026.excerpt': 'Der Verein Rive pubbliche der italienischen Schweiz feiert zwei Erfolge: die Aufnahme in die Arbeitsgruppe für den Sentiero delle Rive und die Winteröffnung der Uferpromenade des Lido patriziale in Ascona.',
     'blog.article.rive-libere-ascona-2026.imageAlt': 'Winterspaziergang entlang der freien Ufer von Ascona am Lago Maggiore',
+    'blog.article.mezzi-pesanti-biandronno-2026.title': 'Schwerlastverkehr: Biandronno startet Testphase',
+    'blog.article.mezzi-pesanti-biandronno-2026.excerpt': 'Bürgermeister Massimo Porotti kündigt den Beginn der Testphase zur Begrenzung des Schwerlastverkehrs im Mittelverbano an',
+    'blog.article.mezzi-pesanti-biandronno-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Orten und Bergen',
 };
 
 export default blogMetaDe;

@@ -33592,6 +33592,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mezzi-pesanti-biandronno-2026': {
+    title: 'Mezzi pesanti, Biandronno avvia sperimentazione | Frontaliere Ticino',
+    description: 'Il sindaco Massimo Porotti annuncia l\'inizio della sperimentazione per limitare il traffico dei mezzi pesanti nel Medio Verbano. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, mezzi, pesanti, biandronno, avvia',
+    ogTitle: 'Mezzi pesanti, Biandronno avvia sperimentazione',
+    ogDescription: 'Il sindaco Massimo Porotti annuncia l\'inizio della sperimentazione per limitare il traffico dei mezzi pesanti nel Medio Verbano',
+    canonicalPath: '/articoli-frontaliere/mezzi-pesanti-biandronno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mezzi pesanti, Biandronno avvia sperimentazione",
+      "description": "Il sindaco Massimo Porotti annuncia l'inizio della sperimentazione per limitare il traffico dei mezzi pesanti nel Medio Verbano. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mezzi-pesanti-biandronno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con i paesi circostanti e le montagne"
+      },
+      "datePublished": "2026-05-01T16:40:09+00:00",
+      "dateModified": "2026-05-01T16:40:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mezzi-pesanti-biandronno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

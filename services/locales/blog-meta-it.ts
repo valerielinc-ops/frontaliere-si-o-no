@@ -4823,6 +4823,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rive-libere-ascona-2026.title': 'Rive libere: Ascona apre al pubblico d\'inverno',
     'blog.article.rive-libere-ascona-2026.excerpt': 'L\'associazione Rive pubbliche della Svizzera italiana celebra due successi: l\'inclusione nel gruppo di lavoro per il Sentiero delle Rive e l\'apertura invernale della riva del Lido patriziale di Ascona.',
     'blog.article.rive-libere-ascona-2026.imageAlt': 'Passeggiata invernale lungo le rive libere di Ascona sul Lago Maggiore',
+    'blog.article.mezzi-pesanti-biandronno-2026.title': 'Mezzi pesanti, Biandronno avvia sperimentazione',
+    'blog.article.mezzi-pesanti-biandronno-2026.excerpt': 'Il sindaco Massimo Porotti annuncia l\'inizio della sperimentazione per limitare il traffico dei mezzi pesanti nel Medio Verbano',
+    'blog.article.mezzi-pesanti-biandronno-2026.imageAlt': 'Vista aerea del Lago di Lugano con i paesi circostanti e le montagne',
 };
 
 export default blogMetaIt;
