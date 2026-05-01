@@ -4714,6 +4714,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-autostradali-a8-milano-varese.title': 'A8: Nachtschließungen zwischen Solbiate und Cavaria wegen Lärmbarrieren',
     'blog.article.lavori-autostradali-a8-milano-varese.excerpt': 'Vom 4. bis 8. Mai Nachtschließungen zwischen Solbiate Arno und Cavaria wegen Lärmbarrieren',
     'blog.article.lavori-autostradali-a8-milano-varese.imageAlt': 'Autobahn A8 Mailand-Varese mit nächtlichen Bauarbeiten',
+    'blog.article.primo-maggio-2026-ticino-sindacati.title': '1. Mai 2026: Gewerkschaften gegen SVP-Initiative',
+    'blog.article.primo-maggio-2026-ticino-sindacati.excerpt': 'Gewerkschaften demonstrieren für Löhne und Arbeitsplätze und gegen die SVP-Initiative \'Nein zu einer Schweiz mit 10 Millionen Einwohnern\'',
+    'blog.article.primo-maggio-2026-ticino-sindacati.imageAlt': 'Locarno während des Tag der Arbeit, mit Menschen, die marschieren und Schilder über Arbeitsrechte und faire Löhne halten',
 };
 
 export default blogMetaDe;

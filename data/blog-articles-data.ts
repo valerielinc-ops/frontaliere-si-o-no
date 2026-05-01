@@ -12013,4 +12013,11 @@ export const ARTICLES = [
  image: '/images/blog/lavori-autostradali-a8-milano-varese.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-2026-ticino-sindacati',
+ category: 'novita',
+ date: '2026-05-01T10:51:36.010Z',
+ image: '/images/blog/primo-maggio-2026-ticino-sindacati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

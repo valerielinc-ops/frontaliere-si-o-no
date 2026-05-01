@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1621,
+ "numberOfItems": 1622,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6256,7 +6256,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1618, "name": "Primo Maggio Varese: lavoro, diritti e futuro n...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-varese-2026-lavoro-diritti` },
           { "@type": "ListItem", "position": 1619, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/algerini-libici-auto-polizia-arresti` },
           { "@type": "ListItem", "position": 1620, "name": "Rete stradale di Mendrisio sotto pressione: urg...", "url": `${BASE_URL}/articoli-frontaliere/rete-stradale-mendrisio-interventi-urgenti` },
-          { "@type": "ListItem", "position": 1621, "name": "A8 Milano-Varese, chiusure notturne tra Solbiat...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostradali-a8-milano-varese` }
+          { "@type": "ListItem", "position": 1621, "name": "A8 Milano-Varese, chiusure notturne tra Solbiat...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostradali-a8-milano-varese` },
+          { "@type": "ListItem", "position": 1622, "name": "Primo Maggio 2026: sindacati in piazza contro l...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-ticino-sindacati` }
  ]
  },
  {

@@ -32548,6 +32548,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-2026-ticino-sindacati': {
+    title: 'Primo Maggio 2026: sindacati in piazza contro l\'iniziativa UDC',
+    description: 'Sindacati in piazza per difendere salari e impieghi e contro l\'iniziativa UDC \'No a una Svizzera da 10 milioni di abitanti\'. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, sindacati, piazza',
+    ogTitle: 'Primo Maggio 2026: sindacati in piazza contro l\'iniziativa UDC',
+    ogDescription: 'Sindacati in piazza per difendere salari e impieghi e contro l\'iniziativa UDC \'No a una Svizzera da 10 milioni di abitanti\'',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-2026-ticino-sindacati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio 2026: sindacati in piazza contro l'iniziativa UDC",
+      "description": "Sindacati in piazza per difendere salari e impieghi e contro l'iniziativa UDC 'No a una Svizzera da 10 milioni di abitanti'. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-2026-ticino-sindacati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Locarno durante la Festa dei Lavori, con persone che sfilano e tengono cartelli sui diritti del lavoro e salari equi"
+      },
+      "datePublished": "2026-05-01T10:51:36+00:00",
+      "dateModified": "2026-05-01T10:51:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-ticino-sindacati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

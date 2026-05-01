@@ -4715,6 +4715,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-autostradali-a8-milano-varese.title': 'A8 Milano-Varese, chiusure notturne tra Solbiate e Cavaria per lavori',
     'blog.article.lavori-autostradali-a8-milano-varese.excerpt': 'Dal 4 all\'8 maggio chiusure notturne tra Solbiate Arno e Cavaria per lavori alle barriere antirumore',
     'blog.article.lavori-autostradali-a8-milano-varese.imageAlt': 'Autostrada A8 Milano-Varese con lavori notturni in corso',
+    'blog.article.primo-maggio-2026-ticino-sindacati.title': 'Primo Maggio 2026: sindacati in piazza contro l\'iniziativa UDC',
+    'blog.article.primo-maggio-2026-ticino-sindacati.excerpt': 'Sindacati in piazza per difendere salari e impieghi e contro l\'iniziativa UDC \'No a una Svizzera da 10 milioni di abitanti\'',
+    'blog.article.primo-maggio-2026-ticino-sindacati.imageAlt': 'Locarno durante la Festa dei Lavori, con persone che sfilano e tengono cartelli sui diritti del lavoro e salari equi',
 };
 
 export default blogMetaIt;
