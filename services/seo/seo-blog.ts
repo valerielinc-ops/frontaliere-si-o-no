@@ -32171,6 +32171,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-fatture-ospedali-2026': {
+    title: 'Crans-Montana, fatture ospedaliere: non tutti gli ospedali le hanno inviate',
+    description: 'Non tutti gli ospedali svizzeri hanno inviato le fatture ai pazienti italiani feriti nell\'incendio di Crans-Montana. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, fatture, ospedaliere, tutti',
+    ogTitle: 'Crans-Montana, fatture ospedaliere: non tutti gli ospedali le hanno inviate',
+    ogDescription: 'Non tutti gli ospedali svizzeri hanno inviato le fatture ai pazienti italiani feriti nell\'incendio di Crans-Montana.',
+    canonicalPath: '/articoli-frontaliere/crans-montana-fatture-ospedali-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana, fatture ospedaliere: non tutti gli ospedali le hanno inviate",
+      "description": "Non tutti gli ospedali svizzeri hanno inviato le fatture ai pazienti italiani feriti nell'incendio di Crans-Montana. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-fatture-ospedali-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con montagne e barca"
+      },
+      "datePublished": "2026-05-01T09:01:00+00:00",
+      "dateModified": "2026-05-01T09:01:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-fatture-ospedali-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

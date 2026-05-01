@@ -4675,6 +4675,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lite-notturna-brogeda-2026.title': 'Nighttime brawl in Como\'s via Brogeda, two hospitalized',
     'blog.article.lite-notturna-brogeda-2026.excerpt': 'A nighttime brawl in via Brogeda, Como, involved three people, two of whom were hospitalized.',
     'blog.article.lite-notturna-brogeda-2026.imageAlt': 'Night scene in Bellinzona with police cars and flashing lights, people involved in a brawl',
+    'blog.article.crans-montana-fatture-ospedali-2026.title': 'Crans-Montana, hospital bills: not all sent to Italian patients',
+    'blog.article.crans-montana-fatture-ospedali-2026.excerpt': 'Not all Swiss hospitals have sent bills to Italian patients injured in the Crans-Montana fire.',
+    'blog.article.crans-montana-fatture-ospedali-2026.imageAlt': 'Panoramic view of Lake Lugano with mountains and a boat',
 };
 
 export default blogMetaEn;

@@ -4676,6 +4676,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lite-notturna-brogeda-2026.title': 'Bagarre nocturne à Côme: trois personnes impliquées, deux hospitalisées',
     'blog.article.lite-notturna-brogeda-2026.excerpt': 'Une bagarre nocturne dans la rue Brogeda à Côme a impliqué trois personnes, dont deux ont été hospitalisées.',
     'blog.article.lite-notturna-brogeda-2026.imageAlt': 'Scène de nuit à Bellinzone avec des voitures de police et des lumières clignotantes, des personnes impliquées dans une altercation',
+    'blog.article.crans-montana-fatture-ospedali-2026.title': 'Crans-Montana, factures hospitalières: tous les hôpitaux ne les ont pas envoyées',
+    'blog.article.crans-montana-fatture-ospedali-2026.excerpt': 'Tous les hôpitaux suisses n\'ont pas envoyé les factures aux patients italiens blessés dans l\'incendie de Crans-Montana.',
+    'blog.article.crans-montana-fatture-ospedali-2026.imageAlt': 'Vue panoramique du lac de Lugano avec des montagnes et un bateau',
 };
 
 export default blogMetaFr;

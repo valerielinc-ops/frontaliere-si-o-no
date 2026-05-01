@@ -4675,6 +4675,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lite-notturna-brogeda-2026.title': 'Nachtschlacht in Via Brogeda: Drei Beteiligte, zwei im Krankenhaus',
     'blog.article.lite-notturna-brogeda-2026.excerpt': 'Eine Nachtschlacht in der Via Brogeda in Como hat drei Personen involviert, von denen zwei ins Krankenhaus eingeliefert wurden.',
     'blog.article.lite-notturna-brogeda-2026.imageAlt': 'Nacht in Bellinzona mit Polizeiautos und blinkenden Lichtern, Personen in eine Schlägerei verwickelt',
+    'blog.article.crans-montana-fatture-ospedali-2026.title': 'Crans-Montana: Nicht alle Spitäler haben Rechnungen geschickt',
+    'blog.article.crans-montana-fatture-ospedali-2026.excerpt': 'Nicht alle Schweizer Spitäler haben den italienischen Patienten, die beim Brand in Crans-Montana verletzt wurden, Rechnungen geschickt.',
+    'blog.article.crans-montana-fatture-ospedali-2026.imageAlt': 'Panoramablick auf den Luganersee mit Bergen und einem Boot',
 };
 
 export default blogMetaDe;

@@ -11922,4 +11922,11 @@ export const ARTICLES = [
  image: '/images/blog/lite-notturna-brogeda-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-fatture-ospedali-2026',
+ category: 'novita',
+ date: '2026-05-01T09:01:00.384Z',
+ image: '/images/blog/crans-montana-fatture-ospedali-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

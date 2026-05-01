@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1608,
+ "numberOfItems": 1609,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6243,7 +6243,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1605, "name": "Iniziativa 'No a una Svizzera da 10 milioni': s...", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-sostenibile` },
           { "@type": "ListItem", "position": 1606, "name": "Basta un click e arrivano fatture per servizi hot", "url": `${BASE_URL}/articoli-frontaliere/click-fatture-servizio-hot` },
           { "@type": "ListItem", "position": 1607, "name": "Festa delle fragole di Camorino: 70 anni di tra...", "url": `${BASE_URL}/articoli-frontaliere/festa-fragole-camorino-beneficenza` },
-          { "@type": "ListItem", "position": 1608, "name": "Lite notturna a Como in via Brogeda", "url": `${BASE_URL}/articoli-frontaliere/lite-notturna-brogeda-2026` }
+          { "@type": "ListItem", "position": 1608, "name": "Lite notturna a Como in via Brogeda", "url": `${BASE_URL}/articoli-frontaliere/lite-notturna-brogeda-2026` },
+          { "@type": "ListItem", "position": 1609, "name": "Crans-Montana, fatture ospedaliere: non tutti g...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-fatture-ospedali-2026` }
  ]
  },
  {

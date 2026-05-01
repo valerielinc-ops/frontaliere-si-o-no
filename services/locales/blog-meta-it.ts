@@ -4676,6 +4676,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lite-notturna-brogeda-2026.title': 'Como, lite notturna in via Brogeda: tre persone coinvolte, due ricoverate',
     'blog.article.lite-notturna-brogeda-2026.excerpt': 'Una lite notturna in via Brogeda a Como ha coinvolto tre persone, due delle quali sono state ricoverate in ospedale.',
     'blog.article.lite-notturna-brogeda-2026.imageAlt': 'Notte a Bellinzona con auto della polizia e luci lampeggianti, persone coinvolte in una rissa',
+    'blog.article.crans-montana-fatture-ospedali-2026.title': 'Crans-Montana, fatture ospedaliere: non tutti gli ospedali le hanno inviate',
+    'blog.article.crans-montana-fatture-ospedali-2026.excerpt': 'Non tutti gli ospedali svizzeri hanno inviato le fatture ai pazienti italiani feriti nell\'incendio di Crans-Montana.',
+    'blog.article.crans-montana-fatture-ospedali-2026.imageAlt': 'Vista panoramica del Lago di Lugano con montagne e barca',
 };
 
 export default blogMetaIt;
