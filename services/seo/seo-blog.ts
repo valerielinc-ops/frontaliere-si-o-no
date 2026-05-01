@@ -31417,6 +31417,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crystal-palace-finale-conference-rayo': {
+    title: 'Crystal Palace a un passo dalla finale di Conference, sogna il Rayo',
+    description: 'Il Crystal Palace vince 3-1 contro lo Shakthar Donetsk e sogna la finale di Conference League. Il Rayo Vallecano batte 1-0 lo Strasburgo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, crystal, palace, passo, dalla',
+    ogTitle: 'Crystal Palace a un passo dalla finale di Conference, sogna il Rayo',
+    ogDescription: 'Il Crystal Palace vince 3-1 contro lo Shakthar Donetsk e sogna la finale di Conference League. Il Rayo Vallecano batte 1-0 lo Strasburgo.',
+    canonicalPath: '/articoli-frontaliere/crystal-palace-finale-conference-rayo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crystal Palace a un passo dalla finale di Conference, sogna il Rayo",
+      "description": "Il Crystal Palace vince 3-1 contro lo Shakthar Donetsk e sogna la finale di Conference League. Il Rayo Vallecano batte 1-0 lo Strasburgo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crystal-palace-finale-conference-rayo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tifosi del Crystal Palace e del Rayo Vallecano festeggiano in una città di confine svizzero-italiana, con il Lago di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-05-01T05:36:13+00:00",
+      "dateModified": "2026-05-01T05:36:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crystal-palace-finale-conference-rayo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

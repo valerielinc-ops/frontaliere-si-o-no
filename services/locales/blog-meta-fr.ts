@@ -4598,6 +4598,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mondiali-2026-iran-italia-fifa.title': 'Mondial 2026 : l\'Iran qualifié, l\'Italie éliminée',
     'blog.article.mondiali-2026-iran-italia-fifa.excerpt': 'La FIFA confirme la participation de l\'Iran au Mondial 2026, excluant le repêchage de l\'Italie. Voici les implications pour les supporters et le monde du football.',
     'blog.article.mondiali-2026-iran-italia-fifa.imageAlt': 'Vue du lac de Lugano avec montagnes et bâtiments modernes',
+    'blog.article.crystal-palace-finale-conference-rayo.title': 'Crystal Palace à un pas de la finale de Conference, rêve du Rayo',
+    'blog.article.crystal-palace-finale-conference-rayo.excerpt': 'Le Crystal Palace gagne 3-1 contre le Shakthar Donetsk et rêve de la finale de Conference League. Le Rayo Vallecano bat 1-0 le Strasbourg.',
+    'blog.article.crystal-palace-finale-conference-rayo.imageAlt': 'Les supporters de Crystal Palace et Rayo Vallecano célèbrent dans une ville frontalière suisse-italienne, avec le lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaFr;

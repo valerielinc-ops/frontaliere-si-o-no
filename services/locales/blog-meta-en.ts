@@ -4597,6 +4597,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mondiali-2026-iran-italia-fifa.title': 'World Cup 2026: Iran in, Italy out of playoff',
     'blog.article.mondiali-2026-iran-italia-fifa.excerpt': 'FIFA confirms Iran\'s participation in the 2026 World Cup, excluding Italy from the playoff. Here are the implications for fans and the football world.',
     'blog.article.mondiali-2026-iran-italia-fifa.imageAlt': 'View of Lake Lugano with mountains and modern buildings',
+    'blog.article.crystal-palace-finale-conference-rayo.title': 'Crystal Palace close to Conference final, dreams of Rayo',
+    'blog.article.crystal-palace-finale-conference-rayo.excerpt': 'Crystal Palace beats Shakhtar Donetsk 3-1 and dreams of the Conference League final. Rayo Vallecano defeats Strasbourg 1-0.',
+    'blog.article.crystal-palace-finale-conference-rayo.imageAlt': 'Crystal Palace and Rayo Vallecano fans celebrating in a Swiss-Italian border town, with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

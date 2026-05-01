@@ -2763,6 +2763,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-zonaprotetta-40-anni-sessualita-consapevole': { name: 'Novità', path: '/articoli-frontaliere/zonaprotetta-40-anni-sessualita-consapevole', parent: 'blog' },
     'blog-cina-turismo-interno-2026': { name: 'Novità', path: '/articoli-frontaliere/cina-turismo-interno-2026', parent: 'blog' },
     'blog-mondiali-2026-iran-italia-fifa': { name: 'Mondiali 2026', path: '/articoli-frontaliere/mondiali-2026-iran-italia-fifa', parent: 'blog' },
+    'blog-crystal-palace-finale-conference-rayo': { name: 'Novità', path: '/articoli-frontaliere/crystal-palace-finale-conference-rayo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

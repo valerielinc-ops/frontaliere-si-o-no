@@ -11740,4 +11740,11 @@ export const ARTICLES = [
  image: '/images/blog/mondiali-2026-iran-italia-fifa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crystal-palace-finale-conference-rayo',
+ category: 'novita',
+ date: '2026-05-01T05:36:13.835Z',
+ image: '/images/blog/crystal-palace-finale-conference-rayo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
