@@ -12405,4 +12405,11 @@ export const ARTICLES = [
  image: '/images/blog/controlli-velocita-ticino-maggio-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-ticino-salari-2024',
+ category: 'novita',
+ date: '2026-05-01T19:39:05.732Z',
+ image: '/images/blog/primo-maggio-ticino-salari-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

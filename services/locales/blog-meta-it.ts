@@ -4883,6 +4883,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-velocita-ticino-maggio-2024.title': 'Controlli velocità Ticino: ecco dove saranno i radar dal 4 al 10 maggio',
     'blog.article.controlli-velocita-ticino-maggio-2024.excerpt': 'La Polizia cantonale e le polizie comunali comunicano i luoghi dei controlli della velocità mobili e semi-stazionari',
     'blog.article.controlli-velocita-ticino-maggio-2024.imageAlt': 'Vista aerea del Lago di Lugano con i paesi circostanti',
+    'blog.article.primo-maggio-ticino-salari-2024.title': 'Primo maggio in Ticino: salari e diritti al centro delle proteste',
+    'blog.article.primo-maggio-ticino-salari-2024.excerpt': 'Circa duemila persone hanno sfilato a Lugano per chiedere salari dignitosi e denunciare il dumping salariale',
+    'blog.article.primo-maggio-ticino-salari-2024.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

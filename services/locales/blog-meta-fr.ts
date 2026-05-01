@@ -4883,6 +4883,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-velocita-ticino-maggio-2024.title': 'Contrôles de vitesse au Tessin: voici où seront les radars du 4 au 10 mai',
     'blog.article.controlli-velocita-ticino-maggio-2024.excerpt': 'La police cantonale et les polices communales communiquent les lieux des contrôles de vitesse mobiles et semi-stationnaires',
     'blog.article.controlli-velocita-ticino-maggio-2024.imageAlt': 'Vue aérienne du lac de Lugano avec les villes environnantes',
+    'blog.article.primo-maggio-ticino-salari-2024.title': '1er mai au Tessin: salaires et droits au cœur des protestations',
+    'blog.article.primo-maggio-ticino-salari-2024.excerpt': 'Environ deux mille personnes ont défilé à Lugano pour demander des salaires dignes et dénoncer le dumping salarial',
+    'blog.article.primo-maggio-ticino-salari-2024.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

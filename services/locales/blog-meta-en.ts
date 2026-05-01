@@ -4882,6 +4882,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-velocita-ticino-maggio-2024.title': 'Ticino speed checks: radar locations 4-10 May',
     'blog.article.controlli-velocita-ticino-maggio-2024.excerpt': 'The cantonal police and local police announce the locations of mobile and semi-stationary speed checks.',
     'blog.article.controlli-velocita-ticino-maggio-2024.imageAlt': 'Aerial view of Lake Lugano with surrounding towns',
+    'blog.article.primo-maggio-ticino-salari-2024.title': 'May Day in Ticino: wages and rights at protest heart',
+    'blog.article.primo-maggio-ticino-salari-2024.excerpt': 'Around two thousand people marched in Lugano demanding fair wages and denouncing wage dumping',
+    'blog.article.primo-maggio-ticino-salari-2024.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

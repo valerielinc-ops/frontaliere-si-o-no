@@ -34172,6 +34172,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-ticino-salari-2024': {
+    title: 'Primo maggio in Ticino: salari e diritti al centro delle proteste',
+    description: 'Circa duemila persone hanno sfilato a Lugano per chiedere salari dignitosi e denunciare il dumping salariale. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, salari, diritti',
+    ogTitle: 'Primo maggio in Ticino: salari e diritti al centro delle proteste',
+    ogDescription: 'Circa duemila persone hanno sfilato a Lugano per chiedere salari dignitosi e denunciare il dumping salariale',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-ticino-salari-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo maggio in Ticino: salari e diritti al centro delle proteste",
+      "description": "Circa duemila persone hanno sfilato a Lugano per chiedere salari dignitosi e denunciare il dumping salariale. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-ticino-salari-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-01T19:39:05+00:00",
+      "dateModified": "2026-05-01T19:39:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-ticino-salari-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
