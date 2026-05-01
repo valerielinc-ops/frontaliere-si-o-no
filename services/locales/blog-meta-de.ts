@@ -4558,6 +4558,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.processo-bellinzona-merci-russia-2026.title': 'Prozess in Bellinzona wegen russischer Massenvernichtungswaffen',
     'blog.article.processo-bellinzona-merci-russia-2026.excerpt': 'Ein 63-Jähriger wird angeklagt, weil er Material für ein russisches Massenvernichtungswaffenprogramm geliefert hat',
     'blog.article.processo-bellinzona-merci-russia-2026.imageAlt': 'Luftansicht von Bellinzona mit seinen drei Burgen und dem Ticino-Fluss',
+    'blog.article.trump-riduce-truppe-italia-spagna.title': 'Trump prüft Truppenreduzierung in Italien und Spanien',
+    'blog.article.trump-riduce-truppe-italia-spagna.excerpt': 'Donald Trump erwägt eine Reduzierung der US-Truppen in Italien und Spanien und kritisiert die Unterstützung durch diese Länder.',
+    'blog.article.trump-riduce-truppe-italia-spagna.imageAlt': 'Luftaufnahme von Bellinzona mit seinen drei Burgen und der umliegenden Landschaft des Tessin',
 };
 
 export default blogMetaDe;

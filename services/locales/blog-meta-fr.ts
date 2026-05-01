@@ -4559,6 +4559,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.processo-bellinzona-merci-russia-2026.title': 'Procès à Bellinzone pour armes russes',
     'blog.article.processo-bellinzona-merci-russia-2026.excerpt': 'Un homme de 63 ans est jugé pour avoir fourni des matériaux à un programme russe d\'armement de destruction massive',
     'blog.article.processo-bellinzona-merci-russia-2026.imageAlt': 'Vue aérienne de Bellinzone avec ses trois châteaux et la rivière du Tessin',
+    'blog.article.trump-riduce-truppe-italia-spagna.title': 'Trump envisage de réduire les troupes en Italie et en Espagne',
+    'blog.article.trump-riduce-truppe-italia-spagna.excerpt': 'Donald Trump envisage de réduire les troupes américaines en Italie et en Espagne, critiquant l\'aide reçue de ces pays.',
+    'blog.article.trump-riduce-truppe-italia-spagna.imageAlt': 'Vue aérienne de Bellinzona avec ses trois châteaux et le paysage environnant du Tessin',
 };
 
 export default blogMetaFr;

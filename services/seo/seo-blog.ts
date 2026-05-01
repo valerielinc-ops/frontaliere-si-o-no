@@ -31040,6 +31040,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trump-riduce-truppe-italia-spagna': {
+    title: 'Trump valuta riduzione truppe in Italia e Spagna | Frontaliere Ticino',
+    description: 'Donald Trump considera di ridurre le truppe americane in Italia e Spagna, criticando l\'aiuto ricevuto da questi paesi. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, trump, valuta, riduzione, truppe',
+    ogTitle: 'Trump valuta riduzione truppe in Italia e Spagna',
+    ogDescription: 'Donald Trump considera di ridurre le truppe americane in Italia e Spagna, criticando l\'aiuto ricevuto da questi paesi.',
+    canonicalPath: '/articoli-frontaliere/trump-riduce-truppe-italia-spagna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trump valuta riduzione truppe in Italia e Spagna",
+      "description": "Donald Trump considera di ridurre le truppe americane in Italia e Spagna, criticando l'aiuto ricevuto da questi paesi. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trump-riduce-truppe-italia-spagna.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona con i suoi tre castelli e il paesaggio circostante del Ticino"
+      },
+      "datePublished": "2026-05-01T03:16:46+00:00",
+      "dateModified": "2026-05-01T03:16:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trump-riduce-truppe-italia-spagna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

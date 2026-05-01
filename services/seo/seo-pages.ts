@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1569,
+ "numberOfItems": 1570,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6204,7 +6204,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1566, "name": "Fiera Asparago Cantello 2026: programma e preno...", "url": `${BASE_URL}/articoli-frontaliere/fiera-asparago-cantello-2026` },
           { "@type": "ListItem", "position": 1567, "name": "Asparago di Cantello: 5 cose da sapere sul prod...", "url": `${BASE_URL}/articoli-frontaliere/cinque-cose-asparago-cantello-2026` },
           { "@type": "ListItem", "position": 1568, "name": "Sigarette elettroniche: il vizio preferito dagl...", "url": `${BASE_URL}/articoli-frontaliere/sigarette-elettroniche-adolescenti-ticino-2026` },
-          { "@type": "ListItem", "position": 1569, "name": "Processo a Bellinzona per forniture a programma...", "url": `${BASE_URL}/articoli-frontaliere/processo-bellinzona-merci-russia-2026` }
+          { "@type": "ListItem", "position": 1569, "name": "Processo a Bellinzona per forniture a programma...", "url": `${BASE_URL}/articoli-frontaliere/processo-bellinzona-merci-russia-2026` },
+          { "@type": "ListItem", "position": 1570, "name": "Trump valuta riduzione truppe in Italia e Spagna", "url": `${BASE_URL}/articoli-frontaliere/trump-riduce-truppe-italia-spagna` }
  ]
  },
  {

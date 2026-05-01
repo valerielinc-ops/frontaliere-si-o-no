@@ -11649,4 +11649,11 @@ export const ARTICLES = [
  image: '/images/blog/processo-bellinzona-merci-russia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'trump-riduce-truppe-italia-spagna',
+ category: 'novita',
+ date: '2026-05-01T03:16:46.054Z',
+ image: '/images/blog/trump-riduce-truppe-italia-spagna.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

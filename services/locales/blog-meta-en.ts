@@ -4558,6 +4558,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.processo-bellinzona-merci-russia-2026.title': 'Trial in Bellinzona for Russian WMD program supplies',
     'blog.article.processo-bellinzona-merci-russia-2026.excerpt': 'A 63-year-old faces trial for providing materials to a Russian weapons of mass destruction program',
     'blog.article.processo-bellinzona-merci-russia-2026.imageAlt': 'Aerial view of Bellinzona with its three castles and the Ticino river',
+    'blog.article.trump-riduce-truppe-italia-spagna.title': 'Trump considers reducing troops in Italy and Spain',
+    'blog.article.trump-riduce-truppe-italia-spagna.excerpt': 'Donald Trump is considering reducing US troops in Italy and Spain, criticizing the support received from these countries.',
+    'blog.article.trump-riduce-truppe-italia-spagna.imageAlt': 'Aerial view of Bellinzona with its three castles and the surrounding Ticino landscape',
 };
 
 export default blogMetaEn;

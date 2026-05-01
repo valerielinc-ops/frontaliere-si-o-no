@@ -2750,6 +2750,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cinque-cose-asparago-cantello-2026': { name: 'Asparago di Cantello', path: '/articoli-frontaliere/cinque-cose-asparago-cantello-2026', parent: 'blog' },
     'blog-sigarette-elettroniche-adolescenti-ticino-2026': { name: 'Sigarette elettroniche', path: '/articoli-frontaliere/sigarette-elettroniche-adolescenti-ticino-2026', parent: 'blog' },
     'blog-processo-bellinzona-merci-russia-2026': { name: 'Novità', path: '/articoli-frontaliere/processo-bellinzona-merci-russia-2026', parent: 'blog' },
+    'blog-trump-riduce-truppe-italia-spagna': { name: 'Novità', path: '/articoli-frontaliere/trump-riduce-truppe-italia-spagna', parent: 'blog' },
  };
 
  const info = sectionNames[section];

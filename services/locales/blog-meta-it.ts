@@ -4559,6 +4559,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.processo-bellinzona-merci-russia-2026.title': 'Processo a Bellinzona per merci a programma russo di distruzione di massa',
     'blog.article.processo-bellinzona-merci-russia-2026.excerpt': 'Un 63enne finisce sotto processo per aver fornito materiali a un programma russo di armamenti di distruzione di massa',
     'blog.article.processo-bellinzona-merci-russia-2026.imageAlt': 'Vista aerea di Bellinzona con i suoi tre castelli e il fiume Ticino',
+    'blog.article.trump-riduce-truppe-italia-spagna.title': 'Trump valuta riduzione truppe in Italia e Spagna',
+    'blog.article.trump-riduce-truppe-italia-spagna.excerpt': 'Donald Trump considera di ridurre le truppe americane in Italia e Spagna, criticando l\'aiuto ricevuto da questi paesi.',
+    'blog.article.trump-riduce-truppe-italia-spagna.imageAlt': 'Vista aerea di Bellinzona con i suoi tre castelli e il paesaggio circostante del Ticino',
 };
 
 export default blogMetaIt;
