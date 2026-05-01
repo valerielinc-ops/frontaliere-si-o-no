@@ -4739,6 +4739,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lago-maggiore-135-metri-frontalieri.title': 'Lac Majeur à +1,35 mètre: Gobbi, solution équilibrée',
     'blog.article.lago-maggiore-135-metri-frontalieri.excerpt': 'Le conseiller d\'État tessinois Norman Gobbi commente l\'élévation du niveau maximal du lac Majeur à +1,35 mètre.',
     'blog.article.lago-maggiore-135-metri-frontalieri.imageAlt': 'Vue du lac Majeur depuis la vallée de Verzasca, Tessin',
+    'blog.article.anziani-truffati-arresto-como-ticino.title': 'Arrestation à Côme pour escroqueries envers des personnes âgées',
+    'blog.article.anziani-truffati-arresto-como-ticino.excerpt': 'Une femme tchèque de 31 ans arrêtée pour escroqueries envers des personnes âgées. Des méthodes similaires à des cas récents dans le canton du Tessin. Des preuves découvertes à Côme-San Giovanni.',
+    'blog.article.anziani-truffati-arresto-como-ticino.imageAlt': 'Personne âgée inquiète avec téléphone à la main, Locarno',
 };
 
 export default blogMetaFr;

@@ -32780,6 +32780,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-anziani-truffati-arresto-como-ticino': {
+    title: 'Anziani truffati, arresto a Como. Collegamenti con Ticino',
+    description: 'Arresto di una 31enne ceca a Como per truffe agli anziani. Metodi simili a casi recenti in Ticino. Scoperte prove a Como-San Giovanni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, anziani, truffati, arresto, como',
+    ogTitle: 'Anziani truffati, arresto a Como. Collegamenti con Ticino',
+    ogDescription: 'Arresto di una 31enne ceca a Como per truffe agli anziani. Metodi simili a casi recenti in Ticino. Scoperte prove a Como-San Giovanni.',
+    canonicalPath: '/articoli-frontaliere/anziani-truffati-arresto-como-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Anziani truffati, arresto a Como. Collegamenti con Ticino",
+      "description": "Arresto di una 31enne ceca a Como per truffe agli anziani. Metodi simili a casi recenti in Ticino. Scoperte prove a Como-San Giovanni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/anziani-truffati-arresto-como-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Anziano preoccupato con telefono in mano, Locarno"
+      },
+      "datePublished": "2026-05-01T12:04:25+00:00",
+      "dateModified": "2026-05-01T12:04:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/anziani-truffati-arresto-como-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

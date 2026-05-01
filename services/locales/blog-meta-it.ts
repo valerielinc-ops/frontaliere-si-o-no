@@ -4739,6 +4739,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lago-maggiore-135-metri-frontalieri.title': 'Lago Maggiore a +1,35 metri: Gobbi, soluzione equilibrata',
     'blog.article.lago-maggiore-135-metri-frontalieri.excerpt': 'Il consigliere di Stato ticinese Norman Gobbi commenta l\'innalzamento del livello massimo del lago Maggiore a +1,35 metri.',
     'blog.article.lago-maggiore-135-metri-frontalieri.imageAlt': 'Lago Maggiore vista da Valle Verzasca, Canton Ticino',
+    'blog.article.anziani-truffati-arresto-como-ticino.title': 'Anziani truffati, arresto a Como. Collegamenti con Ticino',
+    'blog.article.anziani-truffati-arresto-como-ticino.excerpt': 'Arresto di una 31enne ceca per truffe agli anziani. Metodi simili a casi recenti in Ticino. Scoperte prove a Como-San Giovanni.',
+    'blog.article.anziani-truffati-arresto-como-ticino.imageAlt': 'Anziano preoccupato con telefono in mano, Locarno',
 };
 
 export default blogMetaIt;

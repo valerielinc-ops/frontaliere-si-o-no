@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1629,
+ "numberOfItems": 1630,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6264,7 +6264,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1626, "name": "Greta Gysin si candida a capogruppo dei Verdi", "url": `${BASE_URL}/articoli-frontaliere/gysin-candidata-capogruppo-verdi` },
           { "@type": "ListItem", "position": 1627, "name": "Sesto Calende: controlli e sanzioni per strade ...", "url": `${BASE_URL}/articoli-frontaliere/sesto-calende-strade-cantieri-2026` },
           { "@type": "ListItem", "position": 1628, "name": "Jans attacca l'iniziativa UDC: 'Rischio per la ...", "url": `${BASE_URL}/articoli-frontaliere/jans-udc-iniziativa-10-milioni` },
-          { "@type": "ListItem", "position": 1629, "name": "Lago Maggiore a +1,35 metri: Gobbi, soluzione e...", "url": `${BASE_URL}/articoli-frontaliere/lago-maggiore-135-metri-frontalieri` }
+          { "@type": "ListItem", "position": 1629, "name": "Lago Maggiore a +1,35 metri: Gobbi, soluzione e...", "url": `${BASE_URL}/articoli-frontaliere/lago-maggiore-135-metri-frontalieri` },
+          { "@type": "ListItem", "position": 1630, "name": "Anziani truffati, arresto a Como. Collegamenti ...", "url": `${BASE_URL}/articoli-frontaliere/anziani-truffati-arresto-como-ticino` }
  ]
  },
  {

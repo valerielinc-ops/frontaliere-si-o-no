@@ -4738,6 +4738,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lago-maggiore-135-metri-frontalieri.title': 'Lake Maggiore at +1.35m: Gobbi, balanced solution',
     'blog.article.lago-maggiore-135-metri-frontalieri.excerpt': 'Ticino State Councillor Norman Gobbi comments on the rise of Lake Maggiore\'s maximum level to +1.35 metres.',
     'blog.article.lago-maggiore-135-metri-frontalieri.imageAlt': 'Lake Maggiore view from Verzasca Valley, Ticino',
+    'blog.article.anziani-truffati-arresto-como-ticino.title': 'Elderly scammed, arrest in Como. Links to Ticino',
+    'blog.article.anziani-truffati-arresto-como-ticino.excerpt': 'A 31-year-old Czech woman arrested for scamming the elderly. Similar methods to recent cases in Ticino. Evidence found in Como-San Giovanni.',
+    'blog.article.anziani-truffati-arresto-como-ticino.imageAlt': 'Elderly person concerned with phone in hand, Locarno',
 };
 
 export default blogMetaEn;

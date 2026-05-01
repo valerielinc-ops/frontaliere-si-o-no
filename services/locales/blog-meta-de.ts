@@ -4738,6 +4738,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lago-maggiore-135-metri-frontalieri.title': 'Lago Maggiore bei +1,35 Metern: Gobbi, ausgewogene Lösung',
     'blog.article.lago-maggiore-135-metri-frontalieri.excerpt': 'Der Tessiner Staatsrat Norman Gobbi kommentiert die Erhöhung des maximalen Wasserstands des Lago Maggiore auf +1,35 Meter.',
     'blog.article.lago-maggiore-135-metri-frontalieri.imageAlt': 'Blick auf den Lago Maggiore vom Verzasca-Tal, Tessin',
+    'blog.article.anziani-truffati-arresto-como-ticino.title': 'Ältere Menschen betrogen, Festnahme in Como. Verbindungen zum Tessin',
+    'blog.article.anziani-truffati-arresto-como-ticino.excerpt': 'Festnahme einer 31-jährigen Tschechin wegen Betrugs an älteren Menschen. Ähnliche Methoden wie bei aktuellen Fällen im Tessin. Beweise in Como-San Giovanni gefunden.',
+    'blog.article.anziani-truffati-arresto-como-ticino.imageAlt': 'Ältere Person besorgt mit Telefon in der Hand, Locarno',
 };
 
 export default blogMetaDe;

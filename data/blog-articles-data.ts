@@ -12069,4 +12069,11 @@ export const ARTICLES = [
  image: '/images/blog/lago-maggiore-135-metri-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'anziani-truffati-arresto-como-ticino',
+ category: 'novita',
+ date: '2026-05-01T12:04:25.811Z',
+ image: '/images/blog/anziani-truffati-arresto-como-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
