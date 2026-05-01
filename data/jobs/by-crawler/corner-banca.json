@@ -1,7 +1,106 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-30T21:36:27.455Z",
+  "assembledAt": "2026-05-01T10:01:08.252Z",
   "jobs": [
+    {
+      "id": "corner-banca-f803e5cc9fe2",
+      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+        "en": "spontaneous-apprentice-candidate-corner-banca-switzerland",
+        "de": "spontaner-auszubildender-corner-banca-switzerland",
+        "fr": "candidat-spontane-corner-banca-switzerland"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Candidatura spontanea apprendistato",
+      "titleByLocale": {
+        "it": "Candidatura spontanea apprendistato",
+        "en": "Spontaneous apprentice candidate",
+        "de": "Spontaner Auszubildender",
+        "fr": "Candidat spontané"
+      },
+      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\n \n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+      "descriptionByLocale": {
+        "it": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti • Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7. • Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "en": "♪ Learning ♪ Destination Brilliant students who have finished middle school and are preparing to enter the world of work. They obtain the diploma at the end of a dual training which includes a rotation between the offices oriented to provide them with the necessary knowledge of the sector. ## Duration 4 years (informatics) # Programme - Educational programme IT apprenticeship development applications / infrastructure management / digital business development - School training: extended profile with integrated maturity, at the Technical Professional Centre in Locarno. - Inter-company courses: Ameti Bodio. ♪ Requirements - Diploma of middle schools with all aptitude levels and an average of more than 4.7. - Spicy motivation, passion for contact with people, desire to study and familiarize yourself with figures and computer programs.",
+        "de": "Lernen: Anschriften Brillante Studenten, die die Mittelschule abgeschlossen haben und bereiten sich vor, in die Arbeitswelt einzusteigen. Sie erhalten das Diplom am Ende einer dualen Ausbildung, die eine Rotation zwischen den Büros beinhaltet, die darauf ausgerichtet sind, ihnen die notwendigen Kenntnisse des Sektors zu vermitteln. Dauer 4 Jahre (Informatik) Schulprogramm Computer-Learning-Entwicklung Anwendungen / Infrastrukturmanagement / digitale Geschäftsentwicklung Schulausbildung: erweitertes Profil mit integrierter Reife, am Technical Professional Centre in Locarno. Intercompany Kurse: Ameti Bodio. Anforderungen Diplom der Mittelschulen mit allen Eignungsstufen und einem Durchschnitt von mehr als 4.7. Spicy Motivation, Leidenschaft für den Kontakt mit Menschen, Wunsch, sich mit Zahlen und Computerprogrammen zu studieren und vertraut zu machen.",
+        "fr": "Apprentissage : Adresses Des étudiants brillants qui ont terminé le collège et se préparent à entrer dans le monde du travail. Ils obtiennent le diplôme à la fin d'une double formation qui comprend une rotation entre les bureaux destinés à leur fournir les connaissances nécessaires du secteur. Durée 4 ans (informatique) Programme scolaire informatique développement applications / gestion de l'infrastructure / développement de l'entreprise numérique Formation scolaire: profil étendu avec maturité intégrée, au Centre Professionnel Technique de Locarno. Cours interentreprises: Ameti Bodio. Exigences Diplôme d'études secondaires avec tous les niveaux d'aptitude et une moyenne de plus de 4,7. La motivation, la passion pour le contact avec les gens, le désir d'étudier et de se familiariser avec les figures et les programmes informatiques."
+      },
+      "requirements": [
+        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
+        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "en": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "de": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ]
+      },
+      "location": "Switzerland",
+      "canton": "TI",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-02",
+      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-01T10:01:06.211Z",
+      "previousSlugs": [
+        "initiativbewerbung-lehre-corner-banca-switzerland",
+        "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
+        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "initiativbewerbung-lehre-corner-banca-switzerland"
+        ],
+        "en": [
+          "initiativbewerbung-lehre-corner-banca-switzerland",
+          "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        ],
+        "de": [
+          "initiativbewerbung-lehre-corner-banca-switzerland",
+          "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
+          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland"
+        ],
+        "fr": [
+          "initiativbewerbung-lehre-corner-banca-switzerland",
+          "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland",
+          "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
     {
       "id": "corner-banca-422277a6cd4c",
       "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
@@ -42,7 +141,7 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.426Z",
+      "crawledAt": "2026-05-01T10:01:06.210Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
         "it-card-management-analista-specialista-corner-banca-lugano",
@@ -98,104 +197,6 @@
           "@type": "QuantitativeValue",
           "minValue": 51500,
           "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-f803e5cc9fe2",
-      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-      "slugByLocale": {
-        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "spontaneous-apprentice-candidate-corner-banca-switzerland",
-        "de": "spontaner-auszubildender-corner-banca-switzerland",
-        "fr": "candidat-spontane-corner-banca-switzerland"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Candidatura spontanea apprendistato",
-      "titleByLocale": {
-        "it": "Candidatura spontanea apprendistato",
-        "en": "Spontaneous apprentice candidate",
-        "de": "Spontaner Auszubildender",
-        "fr": "Candidat spontané"
-      },
-      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\n \n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-      "descriptionByLocale": {
-        "it": "## Apprendistato\n\n## Destinatari\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\n## Durata\n4 anni (informatica)\n\n## Programma\n- Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n- Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n- Corsi interaziendali: Ameti Bodio.\n\n## Requisiti\n- Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n- Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "en": "♪ Learning\n\n♪ Destination\nBrilliant students who have finished middle school and are preparing to enter the world of work. They obtain the diploma at the end of a dual training which includes a rotation between the offices oriented to provide them with the necessary knowledge of the sector.\n\n## Duration\n4 years (informatics)\n\n# Programme\n- Educational programme IT apprenticeship development applications / infrastructure management / digital business development\n- School training: extended profile with integrated maturity, at the Technical Professional Centre in Locarno.\n- Inter-company courses: Ameti Bodio.\n\n♪ Requirements\n- Diploma of middle schools with all aptitude levels and an average of more than 4.7.\n- Spicy motivation, passion for contact with people, desire to study and familiarize yourself with figures and computer programs.",
-        "de": "Lernen: Anschriften Brillante Studenten, die die Mittelschule abgeschlossen haben und bereiten sich vor, in die Arbeitswelt einzusteigen. Sie erhalten das Diplom am Ende einer dualen Ausbildung, die eine Rotation zwischen den Büros beinhaltet, die darauf ausgerichtet sind, ihnen die notwendigen Kenntnisse des Sektors zu vermitteln. Dauer 4 Jahre (Informatik) Schulprogramm Computer-Learning-Entwicklung Anwendungen / Infrastrukturmanagement / digitale Geschäftsentwicklung Schulausbildung: erweitertes Profil mit integrierter Reife, am Technical Professional Centre in Locarno. Intercompany Kurse: Ameti Bodio. Anforderungen Diplom der Mittelschulen mit allen Eignungsstufen und einem Durchschnitt von mehr als 4.7. Spicy Motivation, Leidenschaft für den Kontakt mit Menschen, Wunsch, sich mit Zahlen und Computerprogrammen zu studieren und vertraut zu machen.",
-        "fr": "Apprentissage : Adresses Des étudiants brillants qui ont terminé le collège et se préparent à entrer dans le monde du travail. Ils obtiennent le diplôme à la fin d'une double formation qui comprend une rotation entre les bureaux destinés à leur fournir les connaissances nécessaires du secteur. Durée 4 ans (informatique) Programme scolaire informatique développement applications / gestion de l'infrastructure / développement de l'entreprise numérique Formation scolaire: profil étendu avec maturité intégrée, au Centre Professionnel Technique de Locarno. Cours interentreprises: Ameti Bodio. Exigences Diplôme d'études secondaires avec tous les niveaux d'aptitude et une moyenne de plus de 4,7. La motivation, la passion pour le contact avec les gens, le désir d'étudier et de se familiariser avec les figures et les programmes informatiques."
-      },
-      "requirements": [
-        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
-        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "en": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "de": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ]
-      },
-      "location": "Switzerland",
-      "canton": "TI",
-      "addressLocality": "Switzerland",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-02",
-      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-04-30T21:36:25.426Z",
-      "previousSlugs": [
-        "initiativbewerbung-lehre-corner-banca-switzerland",
-        "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
-        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "initiativbewerbung-lehre-corner-banca-switzerland"
-        ],
-        "en": [
-          "initiativbewerbung-lehre-corner-banca-switzerland",
-          "unsolicited-application-apprenticeship-corner-banca-switzerland"
-        ],
-        "de": [
-          "initiativbewerbung-lehre-corner-banca-switzerland",
-          "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
-          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland"
-        ],
-        "fr": [
-          "initiativbewerbung-lehre-corner-banca-switzerland",
-          "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland",
-          "unsolicited-application-apprenticeship-corner-banca-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -269,7 +270,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.424Z",
+      "crawledAt": "2026-05-01T10:01:06.209Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -285,6 +286,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -294,6 +296,109 @@
           "@type": "QuantitativeValue",
           "minValue": 59000,
           "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-0454316cb6c7",
+      "slug": "responsabile-del-rischio-gestione-dell-attivita-e-della-passivita-alm-e-del-rischio-di-liquidita-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "responsabile-del-rischio-gestione-dell-attivita-e-della-passivita-alm-e-del-rischio-di-liquidita-corner-banca-lugano",
+        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "fr": "responsable-des-risques-gestion-de-l-actif-et-du-passif-alm-et-risque-de-liquidite-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+      "titleByLocale": {
+        "it": "Responsabile del Rischio - Gestione dell'Attività e della Passività (ALM) e del Rischio di Liquidità",
+        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+        "de": "Risikomanager - Asset Liability Management (ALM) und Liquiditätsrisiko",
+        "fr": "Responsable des Risques - Gestion de l'Actif et du Passif (ALM) et Risque de Liquidité"
+      },
+      "description": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Descrizione Il candidato selezionato sarà responsabile della gestione dei rischi legati alla Gestione dell'Attività e della Passività (ALM) e del rischio di liquidità, assicurando che la società mantenga una solida posizione finanziaria e possa affrontare efficacemente le sfide del mercato. ## Mansioni - Condurre analisi approfondite dei rischi legati ad ALM e rischio di liquidità, identificando potenziali vulnerabilità e sviluppando strategie di mitigazione - Monitorare la posizione di liquidità quotidiana della società, assicurando la conformità con i requisiti regolamentari e interni in linea con il quadro di Basilea e l'ordinanza FINMA - Collaborare con i dipartimenti del tesoro e della finanza per ottimizzare le pratiche di gestione della liquidità, compresa la previsione dei flussi di cassa, la gestione del cuscinetto di liquidità e le strategie di finanziamento/piani di emergenza - Valutare e gestire l'esposizione della società al rischio di tasso di interesse nel libro bancario (IRRBB), sviluppando strategie per mitigare gli impatti negativi sui guadagni e sul capitale - Condurre test di stress di liquidità e analisi di scenario per valutare l'impatto di condizioni di mercato avverse sulla posizione di liquidità della società - Preparare rapporti dettagliati e accurati sul rischio di liquidità e ALM per la gestione senior, il Comitato, i Regolatori, fornendo analisi e raccomandazioni chiare - Capacità di lavorare sotto pressione in un ambiente dinamico, impostando priorità e incontrando scadenze ravvicinate ## Requisiti ### Competenze tecniche - Conoscenza avanzata di ALM e rischio di liquidità, strumenti e metodologie di gestione del rischio di tasso di interesse, compresa l'analisi di scenario e il test di stress ### Competenze analitiche - Eccellenti competenze analitiche e attenzione al dettaglio, con la capacità di interpretare e sintetizzare grandi volumi di dati complessi utilizzando conoscenze di programmazione (Phyton, R, SQL) ### Competenze comunicative - Forti competenze comunicative scritte e verbali, con la capacità di presentare informazioni tecniche in modo chiaro e conciso a stakeholder non tecnici ### Esperienza - Almeno 5 anni di esperienza nella gestione del rischio, con un focus particolare su ALM/rischio di liquidità o tesoreria ### Lingue - Italiano / Inglese madrelingua / Francese / Tedesco è un vantaggio ### Certificazioni - Certificazione professionale nella gestione del rischio (ad es. FRM, PRM) è un vantaggio ## Cosa offriamo Nessuna informazione disponibile. ## Contatto Nessuna informazione disponibile. Residenti in Ticino o disposti a trasferirsi",
+        "en": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively. Key Responsibilities: • Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies • Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance • Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan • Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital • Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position • Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations • Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines • Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing • Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL) • Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders • Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department • Languages: Italian / English native proficiency / French / German is a plus • Professional certification in risk management (e.g., FRM, PRM) is a plus • Resident in Ticino or willing to relocate",
+        "de": "Beschreibung Der ausgewählte Kandidat wird für die Verwaltung von Risiken im Zusammenhang mit Asset Liability Management (ALM) und Liquiditätsrisiko verantwortlich sein und sicherstellen, dass das Unternehmen eine solide Finanzposition aufrechterhält und Marktherausforderungen effektiv meistern kann. ## Aufgaben - Tiefere Analysen der Risiken im Zusammenhang mit ALM und Liquiditätsrisiko durchführen, potenzielle Schwachstellen identifizieren und Strategien zur Milderung entwickeln - Die tägliche Liquiditätsposition des Unternehmens überwachen und sicherstellen, dass die regulatorischen und internen Anforderungen im Einklang mit dem Basler Rahmenwerk und der FINMA-Verordnung eingehalten werden - Mit der Treasury- und Finanzabteilung zusammenarbeiten, um die Liquiditätsmanagementpraktiken zu optimieren, einschließlich Cashflow-Prognose, Liquiditätsmanagement und Finanzierungsstrategien/Krisenpläne - Die Exposition des Unternehmens gegenüber Zinsrisiken im Bankbuch bewerten und verwalten (IRRBB), Strategien zur Milderung von negativen Auswirkungen auf Erträge und Kapital entwickeln - Liquiditäts-Stresstests und Szenarioanalysen durchführen, um die Auswirkungen von ungünstigen Marktbedingungen auf die Liquiditätsposition des Unternehmens zu bewerten - Detaillierte und genaue Berichte über Liquiditätsrisiko und ALM für das Senior-Management, den Ausschuss und die Regulierungsbehörden erstellen, klare Analysen und Empfehlungen bereitstellen - Fähigkeit, unter Druck in einer dynamischen Umgebung zu arbeiten, Prioritäten zu setzen und enge Fristen einzuhalten ## Anforderungen ### Technische Fähigkeiten - Fortgeschrittene Kenntnisse von ALM und Liquiditätsrisiko, Zinsrisikomanagement-Tools und -Methoden, einschließlich Szenarioanalyse und Stresstest ### Analytische Fähigkeiten - Hervorragende analytische Fähigkeiten und Aufmerksamkeit für Details, mit der Fähigkeit, große Mengen komplexer Daten zu interpretieren und zu synthetisieren, unter Verwendung von Programmierkenntnissen (Phyton, R, SQL) ### Kommunikationsfähigkeiten - Starke schriftliche und mündliche Kommunikationsfähigkeiten, mit der Fähigkeit, technische Informationen klar und prägnant an nicht-technische Interessengruppen zu präsentieren ### Erfahrung - Mindestens 5 Jahre Erfahrung im Risikomanagement, mit besonderem Schwerpunkt auf ALM/Liquiditätsrisiko oder Treasury-Abteilung ### Sprachen - Italienisch / Englisch Muttersprache / Französisch / Deutsch ist ein Vorteil ### Zertifizierungen - Professionelle Zertifizierung im Risikomanagement (z.B. FRM, PRM) ist ein Vorteil ## Was bieten wir Keine Informationen verfügbar. ## Kontakt Keine Informationen verfügbar. Im Kanton Tessin ansässig oder bereit, umzuziehen",
+        "fr": "Description Le candidat sélectionné sera responsable de la gestion des risques liés à la Gestion de l'Actif et du Passif (ALM) et au risque de liquidité, en garantissant que l'entreprise maintient une position financière solide et puisse faire face efficacement aux défis du marché. ## Tâches - Mener des analyses approfondies des risques liés à l'ALM et au risque de liquidité, en identifiant les vulnérabilités potentielles et en élaborant des stratégies d'atténuation - Surveiller la position de liquidité quotidienne de l'entreprise, en garantissant la conformité avec les exigences réglementaires et internes conformément au cadre de Bâle et à l'ordonnance de la FINMA - Collaborer avec les départements de la trésorerie et de la finance pour optimiser les pratiques de gestion de la liquidité, y compris la prévision des flux de trésorerie, la gestion de la réserve de liquidité et les stratégies de financement/plan de crise - Évaluer et gérer l'exposition de l'entreprise au risque de taux d'intérêt dans le livre bancaire (IRRBB), en élaborant des stratégies pour atténuer les impacts négatifs sur les revenus et le capital - Mener des tests de résistance de liquidité et des analyses de scénarios pour évaluer l'impact de conditions de marché défavorables sur la position de liquidité de l'entreprise - Préparer des rapports détaillés et précis sur le risque de liquidité et l'ALM pour la direction supérieure, le Comité, les Régulateurs, en fournissant des analyses et des recommandations claires - Capacité à travailler sous pression dans un environnement dynamique, en fixant des priorités et en respectant des délais serrés ## Exigences ### Compétences techniques - Connaissances avancées de l'ALM et du risque de liquidité, des outils et des méthodes de gestion du risque de taux d'intérêt, y compris l'analyse de scénarios et les tests de résistance ### Compétences analytiques - Excellentes compétences analytiques et attention aux détails, avec la capacité d'interpréter et de synthétiser de grands volumes de données complexes en utilisant des connaissances en programmation (Phyton, R, SQL) ### Compétences de communication - Fortes compétences de communication écrite et orale, avec la capacité de présenter des informations techniques de manière claire et concise aux parties prenantes non techniques ### Expérience - Au moins 5 ans d'expérience dans la gestion des risques, avec un focus particulier sur l'ALM/risque de liquidité ou le département de la trésorerie ### Langues - Italien / Anglais langue maternelle / Français / Allemand est un avantage ### Certifications - Certification professionnelle en gestion des risques (par exemple, FRM, PRM) est un avantage ## Qu'est-ce que nous offrons Aucune information disponible. ## Contact Aucune information disponible. Résident dans le canton du Tessin ou prêt à déménager"
+      },
+      "requirements": [
+        "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
+        "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
+        "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
+        "Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
+        "Languages: Italian / English native proficiency / French / German is a plus",
+        "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-18",
+      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-01T10:01:06.208Z",
+      "previousSlugs": [
+        "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
+        "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
+        "responsable-des-risques-gestion-actifs-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
+        "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
+        "responsabile-del-rischio-alm-e-rischio-di-liquidita-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano"
+        ],
+        "en": [
+          "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
+          "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45"
+        ],
+        "de": [
+          "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45"
+        ],
+        "fr": [
+          "responsable-des-risques-gestion-actifs-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
+          "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
+          "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -370,7 +475,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-30T21:36:25.423Z",
+      "crawledAt": "2026-05-01T10:01:06.208Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -401,6 +506,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -410,108 +516,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-0454316cb6c7",
-      "slug": "responsabile-del-rischio-gestione-dell-attivita-e-della-passivita-alm-e-del-rischio-di-liquidita-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "responsabile-del-rischio-gestione-dell-attivita-e-della-passivita-alm-e-del-rischio-di-liquidita-corner-banca-lugano",
-        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "fr": "responsable-des-risques-gestion-de-l-actif-et-du-passif-alm-et-risque-de-liquidite-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
-      "titleByLocale": {
-        "it": "Responsabile del Rischio - Gestione dell'Attività e della Passività (ALM) e del Rischio di Liquidità",
-        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
-        "de": "Risikomanager - Asset Liability Management (ALM) und Liquiditätsrisiko",
-        "fr": "Responsable des Risques - Gestion de l'Actif et du Passif (ALM) et Risque de Liquidité"
-      },
-      "description": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\n• Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\n• Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\n• Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\n• Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\n• Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\n• Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\n• Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\n• Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\n• Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\n• Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\n• Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\n• Languages: Italian / English native proficiency / French / German is a plus\n\n• Professional certification in risk management (e.g., FRM, PRM) is a plus\n\n• Resident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "Descrizione Il candidato selezionato sarà responsabile della gestione dei rischi legati alla Gestione dell'Attività e della Passività (ALM) e del rischio di liquidità, assicurando che la società mantenga una solida posizione finanziaria e possa affrontare efficacemente le sfide del mercato. ## Mansioni - Condurre analisi approfondite dei rischi legati ad ALM e rischio di liquidità, identificando potenziali vulnerabilità e sviluppando strategie di mitigazione - Monitorare la posizione di liquidità quotidiana della società, assicurando la conformità con i requisiti regolamentari e interni in linea con il quadro di Basilea e l'ordinanza FINMA - Collaborare con i dipartimenti del tesoro e della finanza per ottimizzare le pratiche di gestione della liquidità, compresa la previsione dei flussi di cassa, la gestione del cuscinetto di liquidità e le strategie di finanziamento/piani di emergenza - Valutare e gestire l'esposizione della società al rischio di tasso di interesse nel libro bancario (IRRBB), sviluppando strategie per mitigare gli impatti negativi sui guadagni e sul capitale - Condurre test di stress di liquidità e analisi di scenario per valutare l'impatto di condizioni di mercato avverse sulla posizione di liquidità della società - Preparare rapporti dettagliati e accurati sul rischio di liquidità e ALM per la gestione senior, il Comitato, i Regolatori, fornendo analisi e raccomandazioni chiare - Capacità di lavorare sotto pressione in un ambiente dinamico, impostando priorità e incontrando scadenze ravvicinate ## Requisiti ### Competenze tecniche - Conoscenza avanzata di ALM e rischio di liquidità, strumenti e metodologie di gestione del rischio di tasso di interesse, compresa l'analisi di scenario e il test di stress ### Competenze analitiche - Eccellenti competenze analitiche e attenzione al dettaglio, con la capacità di interpretare e sintetizzare grandi volumi di dati complessi utilizzando conoscenze di programmazione (Phyton, R, SQL) ### Competenze comunicative - Forti competenze comunicative scritte e verbali, con la capacità di presentare informazioni tecniche in modo chiaro e conciso a stakeholder non tecnici ### Esperienza - Almeno 5 anni di esperienza nella gestione del rischio, con un focus particolare su ALM/rischio di liquidità o tesoreria ### Lingue - Italiano / Inglese madrelingua / Francese / Tedesco è un vantaggio ### Certificazioni - Certificazione professionale nella gestione del rischio (ad es. FRM, PRM) è un vantaggio ## Cosa offriamo Nessuna informazione disponibile. ## Contatto Nessuna informazione disponibile. Residenti in Ticino o disposti a trasferirsi",
-        "en": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively. Key Responsibilities: • Conduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies • Monitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance • Collaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan • Assess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital • Conduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position • Prepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations • Ability to work under pressure in a dynamic environment setting priorities and meet tiny deadlines • Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing • Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL) • Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders • Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department • Languages: Italian / English native proficiency / French / German is a plus • Professional certification in risk management (e.g., FRM, PRM) is a plus • Resident in Ticino or willing to relocate",
-        "de": "Beschreibung Der ausgewählte Kandidat wird für die Verwaltung von Risiken im Zusammenhang mit Asset Liability Management (ALM) und Liquiditätsrisiko verantwortlich sein und sicherstellen, dass das Unternehmen eine solide Finanzposition aufrechterhält und Marktherausforderungen effektiv meistern kann. ## Aufgaben - Tiefere Analysen der Risiken im Zusammenhang mit ALM und Liquiditätsrisiko durchführen, potenzielle Schwachstellen identifizieren und Strategien zur Milderung entwickeln - Die tägliche Liquiditätsposition des Unternehmens überwachen und sicherstellen, dass die regulatorischen und internen Anforderungen im Einklang mit dem Basler Rahmenwerk und der FINMA-Verordnung eingehalten werden - Mit der Treasury- und Finanzabteilung zusammenarbeiten, um die Liquiditätsmanagementpraktiken zu optimieren, einschließlich Cashflow-Prognose, Liquiditätsmanagement und Finanzierungsstrategien/Krisenpläne - Die Exposition des Unternehmens gegenüber Zinsrisiken im Bankbuch bewerten und verwalten (IRRBB), Strategien zur Milderung von negativen Auswirkungen auf Erträge und Kapital entwickeln - Liquiditäts-Stresstests und Szenarioanalysen durchführen, um die Auswirkungen von ungünstigen Marktbedingungen auf die Liquiditätsposition des Unternehmens zu bewerten - Detaillierte und genaue Berichte über Liquiditätsrisiko und ALM für das Senior-Management, den Ausschuss und die Regulierungsbehörden erstellen, klare Analysen und Empfehlungen bereitstellen - Fähigkeit, unter Druck in einer dynamischen Umgebung zu arbeiten, Prioritäten zu setzen und enge Fristen einzuhalten ## Anforderungen ### Technische Fähigkeiten - Fortgeschrittene Kenntnisse von ALM und Liquiditätsrisiko, Zinsrisikomanagement-Tools und -Methoden, einschließlich Szenarioanalyse und Stresstest ### Analytische Fähigkeiten - Hervorragende analytische Fähigkeiten und Aufmerksamkeit für Details, mit der Fähigkeit, große Mengen komplexer Daten zu interpretieren und zu synthetisieren, unter Verwendung von Programmierkenntnissen (Phyton, R, SQL) ### Kommunikationsfähigkeiten - Starke schriftliche und mündliche Kommunikationsfähigkeiten, mit der Fähigkeit, technische Informationen klar und prägnant an nicht-technische Interessengruppen zu präsentieren ### Erfahrung - Mindestens 5 Jahre Erfahrung im Risikomanagement, mit besonderem Schwerpunkt auf ALM/Liquiditätsrisiko oder Treasury-Abteilung ### Sprachen - Italienisch / Englisch Muttersprache / Französisch / Deutsch ist ein Vorteil ### Zertifizierungen - Professionelle Zertifizierung im Risikomanagement (z.B. FRM, PRM) ist ein Vorteil ## Was bieten wir Keine Informationen verfügbar. ## Kontakt Keine Informationen verfügbar. Im Kanton Tessin ansässig oder bereit, umzuziehen",
-        "fr": "Description Le candidat sélectionné sera responsable de la gestion des risques liés à la Gestion de l'Actif et du Passif (ALM) et au risque de liquidité, en garantissant que l'entreprise maintient une position financière solide et puisse faire face efficacement aux défis du marché. ## Tâches - Mener des analyses approfondies des risques liés à l'ALM et au risque de liquidité, en identifiant les vulnérabilités potentielles et en élaborant des stratégies d'atténuation - Surveiller la position de liquidité quotidienne de l'entreprise, en garantissant la conformité avec les exigences réglementaires et internes conformément au cadre de Bâle et à l'ordonnance de la FINMA - Collaborer avec les départements de la trésorerie et de la finance pour optimiser les pratiques de gestion de la liquidité, y compris la prévision des flux de trésorerie, la gestion de la réserve de liquidité et les stratégies de financement/plan de crise - Évaluer et gérer l'exposition de l'entreprise au risque de taux d'intérêt dans le livre bancaire (IRRBB), en élaborant des stratégies pour atténuer les impacts négatifs sur les revenus et le capital - Mener des tests de résistance de liquidité et des analyses de scénarios pour évaluer l'impact de conditions de marché défavorables sur la position de liquidité de l'entreprise - Préparer des rapports détaillés et précis sur le risque de liquidité et l'ALM pour la direction supérieure, le Comité, les Régulateurs, en fournissant des analyses et des recommandations claires - Capacité à travailler sous pression dans un environnement dynamique, en fixant des priorités et en respectant des délais serrés ## Exigences ### Compétences techniques - Connaissances avancées de l'ALM et du risque de liquidité, des outils et des méthodes de gestion du risque de taux d'intérêt, y compris l'analyse de scénarios et les tests de résistance ### Compétences analytiques - Excellentes compétences analytiques et attention aux détails, avec la capacité d'interpréter et de synthétiser de grands volumes de données complexes en utilisant des connaissances en programmation (Phyton, R, SQL) ### Compétences de communication - Fortes compétences de communication écrite et orale, avec la capacité de présenter des informations techniques de manière claire et concise aux parties prenantes non techniques ### Expérience - Au moins 5 ans d'expérience dans la gestion des risques, avec un focus particulier sur l'ALM/risque de liquidité ou le département de la trésorerie ### Langues - Italien / Anglais langue maternelle / Français / Allemand est un avantage ### Certifications - Certification professionnelle en gestion des risques (par exemple, FRM, PRM) est un avantage ## Qu'est-ce que nous offrons Aucune information disponible. ## Contact Aucune information disponible. Résident dans le canton du Tessin ou prêt à déménager"
-      },
-      "requirements": [
-        "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
-        "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
-        "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
-        "Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
-        "Languages: Italian / English native proficiency / French / German is a plus",
-        "Professional certification in risk management (e.g., FRM, PRM) is a plus",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Languages: Italian / English native proficiency / French / German is a plus",
-          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Languages: Italian / English native proficiency / French / German is a plus",
-          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.422Z",
-      "previousSlugs": [
-        "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
-        "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
-        "responsable-des-risques-gestion-actifs-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
-        "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
-        "responsabile-del-rischio-alm-e-rischio-di-liquidita-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano"
-        ],
-        "en": [
-          "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
-          "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45"
-        ],
-        "de": [
-          "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45"
-        ],
-        "fr": [
-          "responsable-des-risques-gestion-actifs-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
-          "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
-          "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -589,7 +593,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.421Z",
+      "crawledAt": "2026-05-01T10:01:06.207Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
@@ -623,6 +627,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -709,7 +714,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.420Z",
+      "crawledAt": "2026-05-01T10:01:06.206Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen"
       ],
@@ -722,6 +727,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -812,7 +818,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.419Z",
+      "crawledAt": "2026-05-01T10:01:06.205Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano",
         "conseiller-client-a-100-corner-banca-lugano",
@@ -842,6 +848,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -881,7 +888,7 @@
       "description": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related \n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) \n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) \n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly \n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
       "descriptionByLocale": {
         "it": "Il candidato si unirà al Centro di Eccellenza per l’Autorizzazione e la Prevenzione delle Frode, con responsabilità interfunzionali per i sistemi di credito e di addebito “di elaborazione delle carte e prevenzione delle frodi”. I sistemi supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. • Analizzare e comprendere i processi di “trattamento delle carte, tokenizzazione dei pagamenti e prevenzione delle frodi” e relativi (ad esempio, l’emissione delle carte, la gestione del ciclo di vita, la liquidazione e la liquidazione, le frodi e i riscatti) • Raccogliere, analizzare e valutare le richieste regolari (ad es. cambiamenti, conformità, ...) dai programmi di carta (ad es. VISA, MC, ...) • Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard)",
-        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\n• Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related\n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks)\n\n• Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …)\n\n             translating them into functional and technical specifications\n\n• Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\n• Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\n• Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\n• Draft functional and technical documentation (application specifications, integration flows, data mapping)\n\n• Collaborate with internal and external development teams during the development, testing and release phases, executing directly\n\n             (where needed) testing and release management\n\n• Support the analysis and management of application incidents and production issues\n\nMust Have\n\n• Resident in Ticino or willing to relocate\n\n• Experience in banking or financial contexts\n\n• Experience in functional and technical analysis in IT\n\n• Knowledge of credit and debit card payment systems, including payment tokenization.\n\n• Knowledge of major payment circuits (e.g. Visa, Mastercard)",
+        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems. The systems support key payments processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis • Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) • Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) translating them into functional and technical specifications • Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications • Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models • Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security) Technical and IT Analysis • Draft functional and technical documentation (application specifications, integration flows, data mapping) • Collaborate with internal and external development teams during the development, testing and release phases, executing directly (where needed) testing and release management • Support the analysis and management of application incidents and production issues Must Have • Resident in Ticino or willing to relocate • Experience in banking or financial contexts • Experience in functional and technical analysis in IT • Knowledge of credit and debit card payment systems, including payment tokenization. • Knowledge of major payment circuits (e.g. Visa, Mastercard)",
         "de": "Der Kandidat wird sich dem IT-Zentrum „Authorization & Fraud Prevention“ mit funktionsübergreifender Verantwortung für Kredit- und Debit-Systeme „Card Payments Processing & Betrug Prevention“ anschließen. Die Systeme unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analysetätigkeiten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. • Analyse und Analyse von Funktionen und Prozessen • Analyse und Verständnis von “Kartenzahlungen Verarbeitung, Zahlung Tokenization und Betrugsprävention” Prozessen und verwandten (z.B. Kartenausgabe, Lifecycle Management, Clearing & Abwicklung, Betrug und Rückmeldungen) • Sammeln, Analysieren und Bewertung der regelmäßigen Anfragen (z.B. Änderungen, Compliance, ...) von Kartensystemen (z.B. VISA, MC,...) • Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard)",
         "fr": "Le candidat se joindra au Centre d'excellence sur l'autorisation et la prévention de la fraude des TI, avec des responsabilités interfonctionnelles pour le traitement des paiements et la prévention de la fraude des cartes de crédit et de débit. Les systèmes soutiennent des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Responsabilités clés Analyse fonctionnelle et processus • Analyse et compréhension du traitement des paiements par carte, de la tokenisation des paiements et de la prévention de la fraude (processus d'émission de cartes, de gestion du cycle de vie, de compensation et de règlement, de fraude et de remboursement) • Collecte, analyse et évaluation des demandes régulières (c'est-à-dire des modifications, de la conformité, ...) des systèmes de cartes (par exemple VISA, MC, ...) les transformant en spécifications fonctionnelles et techniques • Collecte, analyse et formalisation des exigences opérationnelles (le cas échéant), les transformant en spécifications fonctionnelles et techniques • Appui à l'entreprise dans la définition de solutions informatiques compatibles avec les modèles opérationnels, réglementaires et de conformité de la banque • Collaborer avec le secteur d'activité et d'autres parties prenantes internes (Opérations, Conformité, Risque, Sécurité) Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données) • Collaborer avec les équipes de développement internes et externes pendant les phases de développement, d'essai et de libération, exécuter directement (le cas échéant) testing et gestion de la mainlevée • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard)"
       },
@@ -920,7 +927,8 @@
       "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.417Z",
+      "crawledAt": "2026-05-01T10:01:06.204Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -937,9 +945,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-acebb12b2bb7",
@@ -1005,7 +1011,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.416Z",
+      "crawledAt": "2026-05-01T10:01:06.203Z",
       "previousSlugs": [
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
         "customer-consulente-60-team-zurich-corner-banca-wallisellen"
@@ -1022,6 +1028,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.257Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1103,7 +1110,7 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.415Z",
+      "crawledAt": "2026-05-01T10:01:06.203Z",
       "previousSlugs": [
         "employee-underwriting-e-cash-corner-banca-lugano"
       ],
@@ -1116,6 +1123,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:25:24.685Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1205,7 +1213,7 @@
       "url": "https://jobs.corner.ch/o/aml-monitoring",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:36:25.414Z",
+      "crawledAt": "2026-05-01T10:01:06.202Z",
       "previousSlugs": [
         "aml-monitoring-corner-banca-lugano"
       ],
@@ -1221,6 +1229,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T10:42:06.718Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
