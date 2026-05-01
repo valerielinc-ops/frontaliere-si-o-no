@@ -11754,4 +11754,11 @@ export const ARTICLES = [
  image: '/images/blog/trump-cina-russia-patto-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-unita-sindacale-marghera',
+ category: 'novita',
+ date: '2026-05-01T05:50:44.542Z',
+ image: '/images/blog/primo-maggio-unita-sindacale-marghera.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

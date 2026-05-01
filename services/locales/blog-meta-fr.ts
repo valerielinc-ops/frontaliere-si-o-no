@@ -4604,6 +4604,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trump-cina-russia-patto-2026.title': 'Trump pourrait conclure un pacte avec la Chine et la Russie',
     'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analyse les mouvements de Trump en Iran et les alliances possibles avec la Chine et la Russie. L\'Europe reste impuissante.',
     'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Vue détaillée des châteaux de Bellinzone avec un quartier financier moderne en arrière-plan, mettant en avant le mélange d\'histoire et d\'économie contemporaine en Tessin.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.title': '1er Mai sous le signe de l\'unité syndicale à Marghera',
+    'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl et Uil ensemble pour célébrer la Fête des Travailleurs avec un focus sur le travail digne.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'Une foule de personnes réunies sur une place à Lugano, Tessin, célébrant le Premier Mai avec des banderoles et des drapeaux, sous un ciel bleu dégagé.',
 };
 
 export default blogMetaFr;

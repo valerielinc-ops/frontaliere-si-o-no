@@ -2765,6 +2765,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mondiali-2026-iran-italia-fifa': { name: 'Mondiali 2026', path: '/articoli-frontaliere/mondiali-2026-iran-italia-fifa', parent: 'blog' },
     'blog-crystal-palace-finale-conference-rayo': { name: 'Novità', path: '/articoli-frontaliere/crystal-palace-finale-conference-rayo', parent: 'blog' },
     'blog-trump-cina-russia-patto-2026': { name: 'Novità', path: '/articoli-frontaliere/trump-cina-russia-patto-2026', parent: 'blog' },
+    'blog-primo-maggio-unita-sindacale-marghera': { name: 'Primo Maggio', path: '/articoli-frontaliere/primo-maggio-unita-sindacale-marghera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

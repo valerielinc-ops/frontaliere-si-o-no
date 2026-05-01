@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1584,
+ "numberOfItems": 1585,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6219,7 +6219,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1581, "name": "Cina: boom di viaggi interni e spese per il tur...", "url": `${BASE_URL}/articoli-frontaliere/cina-turismo-interno-2026` },
           { "@type": "ListItem", "position": 1582, "name": "Mondiali 2026, l'Iran giocherà: addio al ripesc...", "url": `${BASE_URL}/articoli-frontaliere/mondiali-2026-iran-italia-fifa` },
           { "@type": "ListItem", "position": 1583, "name": "Crystal Palace a un passo dalla finale di Confe...", "url": `${BASE_URL}/articoli-frontaliere/crystal-palace-finale-conference-rayo` },
-          { "@type": "ListItem", "position": 1584, "name": "Trump potrebbe stringere patto con Cina e Russia", "url": `${BASE_URL}/articoli-frontaliere/trump-cina-russia-patto-2026` }
+          { "@type": "ListItem", "position": 1584, "name": "Trump potrebbe stringere patto con Cina e Russia", "url": `${BASE_URL}/articoli-frontaliere/trump-cina-russia-patto-2026` },
+          { "@type": "ListItem", "position": 1585, "name": "Primo Maggio unita sindacale Marghera", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-unita-sindacale-marghera` }
  ]
  },
  {

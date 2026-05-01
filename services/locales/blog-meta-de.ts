@@ -4603,6 +4603,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trump-cina-russia-patto-2026.title': 'Trump könnte Bündnis mit China und Russland schmieden',
     'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analysiert Trumps Schritte in Iran und mögliche Allianzen mit China und Russland. Europa bleibt machtlos.',
     'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Detaillierte Ansicht der Burgen von Bellinzona mit einem modernen Finanzdistrikt im Hintergrund, die die Mischung aus Geschichte und zeitgenössischer Wirtschaft im Tessin zeigt.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.title': '1. Mai im Zeichen der Gewerkschaftseinheit in Marghera',
+    'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl und Uil feiern den Tag der Arbeit mit Fokus auf würdige Arbeit.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'Eine Menschenmenge versammelt sich auf einem Platz in Lugano, Tessin, und feiert den Tag der Arbeit mit Transparenten und Fahnen unter einem klaren blauen Himmel.',
 };
 
 export default blogMetaDe;

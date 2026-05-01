@@ -31475,6 +31475,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-unita-sindacale-marghera': {
+    title: 'Primo Maggio all\'insegna dell\'unità sindacale a Marghera',
+    description: 'Cgil, Cisl e Uil insieme per celebrare la Festa dei Lavoratori con un focus sul lavoro dignitoso e divergenze sul Dl Lavoro. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, insegna, dell',
+    ogTitle: 'Primo Maggio unita sindacale Marghera',
+    ogDescription: 'Cgil, Cisl e Uil insieme per celebrare la Festa dei Lavoratori con un focus sul lavoro dignitoso e divergenze sul Dl Lavoro.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-unita-sindacale-marghera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio unita sindacale Marghera",
+      "description": "Cgil, Cisl e Uil insieme per celebrare la Festa dei Lavoratori con un focus sul lavoro dignitoso e divergenze sul Dl Lavoro. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-unita-sindacale-marghera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una folla di persone riunite in una piazza a Lugano, Ticino, che celebrano il Primo Maggio con striscioni e bandiere, sotto un cielo azzurro limpido."
+      },
+      "datePublished": "2026-05-01T05:50:44+00:00",
+      "dateModified": "2026-05-01T05:50:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-unita-sindacale-marghera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

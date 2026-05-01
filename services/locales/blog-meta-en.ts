@@ -4603,6 +4603,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trump-cina-russia-patto-2026.title': 'Trump may strike deal with China and Russia',
     'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analyzes Trump\'s moves in Iran and possible alliances with China and Russia. Europe remains powerless.',
     'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Detailed view of Bellinzona\'s castles with a modern financial district in the background, showcasing the blend of history and contemporary economics in Ticino.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.title': 'May Day united in Marghera',
+    'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl and Uil together to celebrate Labour Day with a focus on dignified work.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'A crowd of people gathered in a square in Lugano, Ticino, celebrating May Day with banners and flags, under a clear blue sky.',
 };
 
 export default blogMetaEn;

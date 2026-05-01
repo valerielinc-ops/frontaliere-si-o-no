@@ -4604,6 +4604,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trump-cina-russia-patto-2026.title': 'Trump potrebbe stringere patto con Cina e Russia',
     'blog.article.trump-cina-russia-patto-2026.excerpt': 'Massimo Cacciari analizza le mosse di Trump in Iran e le possibili alleanze con Cina e Russia. L\'Europa resta impotente.',
     'blog.article.trump-cina-russia-patto-2026.imageAlt': 'Vista dettagliata dei castelli di Bellinzona con un distretto finanziario moderno sullo sfondo, che mostra il mix di storia ed economia contemporanea nel Ticino.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.title': 'Primo Maggio all\'insegna dell\'unità sindacale a Marghera',
+    'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl e Uil insieme per celebrare la Festa dei Lavoratori con un focus sul lavoro dignitoso.',
+    'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'Una folla di persone riunite in una piazza a Lugano, Ticino, che celebrano il Primo Maggio con striscioni e bandiere, sotto un cielo azzurro limpido.',
 };
 
 export default blogMetaIt;
