@@ -11985,4 +11985,11 @@ export const ARTICLES = [
  image: '/images/blog/como-napoli-sinigaglia-divieti-posteggi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-varese-2026-lavoro-diritti',
+ category: 'novita',
+ date: '2026-05-01T10:15:02.734Z',
+ image: '/images/blog/primo-maggio-varese-2026-lavoro-diritti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

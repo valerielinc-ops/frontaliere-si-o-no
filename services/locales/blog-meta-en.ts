@@ -4702,6 +4702,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-napoli-sinigaglia-divieti-posteggi.title': 'Como-Napoli at Sinigaglia: restrictions and parking',
     'blog.article.como-napoli-sinigaglia-divieti-posteggi.excerpt': 'Sold out for the match tomorrow at 18:00. No parking and traffic restrictions from 6:30. Anti-alcohol order from 15:00 to 21:00',
     'blog.article.como-napoli-sinigaglia-divieti-posteggi.imageAlt': 'Stadio Sinigaglia, Como, Italy. Football match atmosphere, fans, security measures',
+    'blog.article.primo-maggio-varese-2026-lavoro-diritti.title': 'May 1st in Varese: work and rights in the AI era',
+    'blog.article.primo-maggio-varese-2026-lavoro-diritti.excerpt': 'CGIL, CISL and UIL take to the streets to demand more rights, security and fair wages in the era of artificial intelligence. Ezio Cigna: work is the foundation of dignity.',
+    'blog.article.primo-maggio-varese-2026-lavoro-diritti.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

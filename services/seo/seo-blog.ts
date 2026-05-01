@@ -32432,6 +32432,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-varese-2026-lavoro-diritti': {
+    title: '1° Maggio a Varese: lavoro e diritti nell\'era AI | Frontaliere Ticino',
+    description: 'CGIL, CISL e UIL in piazza a Varese per il Primo Maggio 2026. Focus su diritti, sicurezza e salari equi nell\'era dell\'intelligenza artificiale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggio, varese, lavoro, diritti',
+    ogTitle: 'Primo Maggio Varese: lavoro, diritti e futuro nell\'era dell\'intelligenza artificiale',
+    ogDescription: 'CGIL, CISL e UIL in piazza a Varese per il Primo Maggio 2026. Focus su diritti, sicurezza e salari equi nell\'era dell\'intelligenza artificiale.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-varese-2026-lavoro-diritti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio Varese: lavoro, diritti e futuro nell'era dell'intelligenza artificiale",
+      "description": "CGIL, CISL e UIL in piazza a Varese per il Primo Maggio 2026. Focus su diritti, sicurezza e salari equi nell'era dell'intelligenza artificiale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-varese-2026-lavoro-diritti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-01T10:15:02+00:00",
+      "dateModified": "2026-05-01T10:15:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-varese-2026-lavoro-diritti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
