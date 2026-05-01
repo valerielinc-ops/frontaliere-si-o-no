@@ -4955,6 +4955,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.title': 'Processo Quadroni: l\'ex capo posto contesta le accuse',
     'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.excerpt': 'L\'ex capo del posto di polizia di Scuol contesta le accuse di abuso di autorità, sequestro di persona e violazione di domicilio.',
     'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.imageAlt': 'Aula di tribunale con giudice, imputato e avvocati',
+    'blog.article.docente-arrestato-giubiasco-proroga.title': 'Docente arrestato a Giubiasco, richiesta proroga detenzione',
+    'blog.article.docente-arrestato-giubiasco-proroga.excerpt': 'La Procura necessita di più tempo per raccogliere testimonianze e attendere la perizia psichiatrica. Inchiesta su minorenni in corso.',
+    'blog.article.docente-arrestato-giubiasco-proroga.imageAlt': 'Vista aerea di Giubiasco con Castelgrande sullo sfondo',
 };
 
 export default blogMetaIt;

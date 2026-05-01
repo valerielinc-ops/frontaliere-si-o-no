@@ -4954,6 +4954,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.title': 'Quadroni trial: former police chief disputes charges',
     'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.excerpt': 'The former head of the Scuol police station disputes the charges of abuse of authority, unlawful confinement, and violation of domicile.',
     'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.imageAlt': 'Courtroom with judge, defendant, and lawyers',
+    'blog.article.docente-arrestato-giubiasco-proroga.title': 'Teacher arrested in Giubiasco, detention extension requested',
+    'blog.article.docente-arrestato-giubiasco-proroga.excerpt': 'The prosecution needs more time to gather testimonies and await the psychiatric report. Ongoing investigation involving minors.',
+    'blog.article.docente-arrestato-giubiasco-proroga.imageAlt': 'Aerial view of Giubiasco with Castelgrande in the background',
 };
 
 export default blogMetaEn;

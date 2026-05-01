@@ -2882,6 +2882,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-uisp-scuola-dante-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/uisp-scuola-dante-varese-2026', parent: 'blog' },
     'blog-ricostruzione-capanna-soveltra-avanza': { name: 'Novità', path: '/articoli-frontaliere/ricostruzione-capanna-soveltra-avanza', parent: 'blog' },
     'blog-processo-quadroni-ex-capo-posto-contesta-accuse': { name: 'Processo Quadroni', path: '/articoli-frontaliere/processo-quadroni-ex-capo-posto-contesta-accuse', parent: 'blog' },
+    'blog-docente-arrestato-giubiasco-proroga': { name: 'Novità', path: '/articoli-frontaliere/docente-arrestato-giubiasco-proroga', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -12573,4 +12573,11 @@ export const ARTICLES = [
  image: '/images/blog/processo-quadroni-ex-capo-posto-contesta-accuse.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'docente-arrestato-giubiasco-proroga',
+ category: 'novita',
+ date: '2026-05-01T23:27:17.337Z',
+ image: '/images/blog/docente-arrestato-giubiasco-proroga.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

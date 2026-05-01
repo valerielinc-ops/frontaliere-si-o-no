@@ -34868,6 +34868,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-docente-arrestato-giubiasco-proroga': {
+    title: 'Docente arrestato a Giubiasco, richiesta proroga detenzione',
+    description: 'La Procura richiede proroga detenzione per docente arrestato a Giubiasco. Inchiesta su minorenni in corso. Scopri di più. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, docente, arrestato, giubiasco, richiesta',
+    ogTitle: 'Docente arrestato a Giubiasco, richiesta proroga detenzione',
+    ogDescription: 'La Procura richiede proroga detenzione per docente arrestato a Giubiasco. Inchiesta su minorenni in corso. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/docente-arrestato-giubiasco-proroga',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Docente arrestato a Giubiasco, richiesta proroga detenzione",
+      "description": "La Procura richiede proroga detenzione per docente arrestato a Giubiasco. Inchiesta su minorenni in corso. Scopri di più. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/docente-arrestato-giubiasco-proroga.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Giubiasco con Castelgrande sullo sfondo"
+      },
+      "datePublished": "2026-05-01T23:27:17+00:00",
+      "dateModified": "2026-05-01T23:27:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/docente-arrestato-giubiasco-proroga`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

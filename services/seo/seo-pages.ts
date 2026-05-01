@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1701,
+ "numberOfItems": 1702,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6336,7 +6336,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1698, "name": "Nazionale respinge iniziativa per la democrazia", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-democrazia-respinta-nazionale` },
           { "@type": "ListItem", "position": 1699, "name": "UISP alla scuola Dante di Varese per promuovere...", "url": `${BASE_URL}/articoli-frontaliere/uisp-scuola-dante-varese-2026` },
           { "@type": "ListItem", "position": 1700, "name": "Capanna Soveltra, la ricostruzione avanza più v...", "url": `${BASE_URL}/articoli-frontaliere/ricostruzione-capanna-soveltra-avanza` },
-          { "@type": "ListItem", "position": 1701, "name": "Processo Quadroni: l'ex capo posto contesta le ...", "url": `${BASE_URL}/articoli-frontaliere/processo-quadroni-ex-capo-posto-contesta-accuse` }
+          { "@type": "ListItem", "position": 1701, "name": "Processo Quadroni: l'ex capo posto contesta le ...", "url": `${BASE_URL}/articoli-frontaliere/processo-quadroni-ex-capo-posto-contesta-accuse` },
+          { "@type": "ListItem", "position": 1702, "name": "Docente arrestato a Giubiasco, richiesta prorog...", "url": `${BASE_URL}/articoli-frontaliere/docente-arrestato-giubiasco-proroga` }
  ]
  },
  {

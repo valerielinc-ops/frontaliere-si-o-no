@@ -4954,6 +4954,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.title': 'Prozess Quadroni: Ex-Polizeichef bestreitet Vorwürfe',
     'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.excerpt': 'Der ehemalige Polizeichef von Scuol bestreitet die Vorwürfe des Amtsmissbrauchs, der Entführung und der Hausfriedensbruchs.',
     'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.imageAlt': 'Gerichtsraum mit Richter, Angeklagten und Anwälten',
+    'blog.article.docente-arrestato-giubiasco-proroga.title': 'Lehrer in Giubiasco festgenommen, Verlängerung der Haft beantragt',
+    'blog.article.docente-arrestato-giubiasco-proroga.excerpt': 'Die Staatsanwaltschaft benötigt mehr Zeit, um Zeugenaussagen zu sammeln und das psychiatrische Gutachten abzuwarten. Laufende Untersuchung zu Minderjährigen.',
+    'blog.article.docente-arrestato-giubiasco-proroga.imageAlt': 'Luftaufnahme von Giubiasco mit Castelgrande im Hintergrund',
 };
 
 export default blogMetaDe;
