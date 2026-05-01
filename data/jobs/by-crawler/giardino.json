@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-04-30T21:50:13.576Z",
+  "assembledAt": "2026-05-01T10:14:52.109Z",
   "jobs": [
     {
       "id": "giardino-e7f4937bce90",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T21:50:11.665Z",
+      "crawledAt": "2026-05-01T10:14:49.851Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -62,6 +62,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T21:43:42.933Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -106,7 +107,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-steward/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T21:50:11.664Z",
+      "crawledAt": "2026-05-01T10:14:49.850Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -147,6 +148,7 @@
         ]
       },
       "firstSeenAt": "2026-04-18T21:25:17.654Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -191,7 +193,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T21:50:11.664Z",
+      "crawledAt": "2026-05-01T10:14:49.850Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
@@ -247,6 +249,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:36:24.233Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -291,7 +294,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-30T21:50:11.663Z",
+      "crawledAt": "2026-05-01T10:14:49.849Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -323,6 +326,7 @@
         ]
       },
       "firstSeenAt": "2026-04-21T21:41:57.797Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
