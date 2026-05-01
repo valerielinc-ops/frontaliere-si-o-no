@@ -4666,6 +4666,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-sostenibile.title': 'Initiative \'Nein zu einer Schweiz mit 10 Millionen\': nachhaltig?',
     'blog.article.iniziativa-10-milioni-sostenibile.excerpt': 'Die Debatte über die SVP-Initiative zeigt die Risiken für Wirtschaft und Einrichtungen im Zusammenhang mit einer Begrenzung der Einwanderung',
     'blog.article.iniziativa-10-milioni-sostenibile.imageAlt': 'Luganersee mit modernen Gebäuden und einem belebten Ufer',
+    'blog.article.click-fatture-servizio-hot.title': 'Ein Klick und schon kommt die Rechnung für Hot-Services',
+    'blog.article.click-fatture-servizio-hot.excerpt': 'Ein Teenager aus dem Tessin erhielt eine Rechnung über 166,80 CHF für ein Abonnement eines Erwachsenen-Dienstes, das versehentlich unterschrieben wurde. So sollten Sie reagieren',
+    'blog.article.click-fatture-servizio-hot.imageAlt': 'Person in Lugano, Tessin, schaut besorgt auf Smartphone, umgeben von Finanzdokumenten und Laptop, Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

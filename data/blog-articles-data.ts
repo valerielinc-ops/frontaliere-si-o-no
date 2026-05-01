@@ -11901,4 +11901,11 @@ export const ARTICLES = [
  image: '/images/blog/iniziativa-10-milioni-sostenibile.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'click-fatture-servizio-hot',
+ category: 'pratico',
+ date: '2026-05-01T08:39:26.129Z',
+ image: '/images/blog/click-fatture-servizio-hot.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

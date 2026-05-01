@@ -4667,6 +4667,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-sostenibile.title': 'Iniziativa \'No a una Svizzera da 10 milioni\': sostenibile?',
     'blog.article.iniziativa-10-milioni-sostenibile.excerpt': 'Il dibattito sull\'iniziativa UDC mette in luce i rischi per economia e servizi legati a un freno dell\'immigrazione',
     'blog.article.iniziativa-10-milioni-sostenibile.imageAlt': 'Lago di Lugano con edifici moderni e un lungolago affollato',
+    'blog.article.click-fatture-servizio-hot.title': 'Basta un click e arrivano fatture per servizi hot',
+    'blog.article.click-fatture-servizio-hot.excerpt': 'Un adolescente del Ticino ha ricevuto una fattura da 166,80 CHF per un abbonamento a un servizio per adulti sottoscritto per errore. Ecco come reagire',
+    'blog.article.click-fatture-servizio-hot.imageAlt': 'Persona a Lugano, Ticino, guarda smartphone preoccupata con documenti finanziari e laptop, vista Lago di Lugano',
 };
 
 export default blogMetaIt;

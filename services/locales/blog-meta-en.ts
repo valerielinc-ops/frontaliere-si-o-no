@@ -4666,6 +4666,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-sostenibile.title': 'Initiative \'No to a 10 million Switzerland\': sustainable?',
     'blog.article.iniziativa-10-milioni-sostenibile.excerpt': 'The debate on the SVP initiative highlights the risks for the economy and services linked to immigration curbs',
     'blog.article.iniziativa-10-milioni-sostenibile.imageAlt': 'Lake Lugano with modern buildings and a bustling waterfront',
+    'blog.article.click-fatture-servizio-hot.title': 'One click and adult service bills arrive',
+    'blog.article.click-fatture-servizio-hot.excerpt': 'A Ticino teenager received a 166.80 CHF bill for an adult service subscription mistakenly signed up for. Here\'s how to react',
+    'blog.article.click-fatture-servizio-hot.imageAlt': 'Person in Lugano, Ticino, looking at smartphone with concern, surrounded by financial documents and laptop, view of Lake Lugano',
 };
 
 export default blogMetaEn;

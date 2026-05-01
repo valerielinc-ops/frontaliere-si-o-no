@@ -32084,6 +32084,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-click-fatture-servizio-hot': {
+    title: 'Basta un click e arrivano fatture per servizi hot | Frontaliere Ticino',
+    description: 'Un adolescente del Ticino ha ricevuto una fattura per un abbonamento a un servizio per adulti sottoscritto per errore. Ecco come reagire e difendersi',
+    keywords: 'frontalieri, ticino, svizzera, italia, basta, click, arrivano, fatture',
+    ogTitle: 'Basta un click e arrivano fatture per servizi hot',
+    ogDescription: 'Un adolescente del Ticino ha ricevuto una fattura per un abbonamento a un servizio per adulti sottoscritto per errore. Ecco come reagire e difendersi',
+    canonicalPath: '/articoli-frontaliere/click-fatture-servizio-hot',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Basta un click e arrivano fatture per servizi hot",
+      "description": "Un adolescente del Ticino ha ricevuto una fattura per un abbonamento a un servizio per adulti sottoscritto per errore. Ecco come reagire e difendersi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/click-fatture-servizio-hot.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona a Lugano, Ticino, guarda smartphone preoccupata con documenti finanziari e laptop, vista Lago di Lugano"
+      },
+      "datePublished": "2026-05-01T08:39:26+00:00",
+      "dateModified": "2026-05-01T08:39:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/click-fatture-servizio-hot`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
