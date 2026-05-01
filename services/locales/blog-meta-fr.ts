@@ -4898,6 +4898,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.delia-bella-ciao-concertone-2026.title': 'Delia modifie Bella Ciao au Concertone: plus actuel',
     'blog.article.delia-bella-ciao-concertone-2026.excerpt': 'Delia modifie Bella Ciao au Concertone du 1er mai à Rome, remplaçant \'partigiano\' par \'être humain\'',
     'blog.article.delia-bella-ciao-concertone-2026.imageAlt': 'Scène de concert avec public et Lac de Lugano en arrière-plan',
+    'blog.article.funivia-santis-ammodernamento-2026.title': 'Télécabine du Säntis fermée pour des mois: modernisation de 30 millions',
+    'blog.article.funivia-santis-ammodernamento-2026.excerpt': 'La télécabine du Säntis fermera pour plusieurs mois pour une modernisation de 30 millions de francs. Réouverture prévue à l\'automne.',
+    'blog.article.funivia-santis-ammodernamento-2026.imageAlt': 'Vue aérienne du mont Säntis et du funiculaire, avec le paysage environnant et la station du funiculaire.',
 };
 
 export default blogMetaFr;

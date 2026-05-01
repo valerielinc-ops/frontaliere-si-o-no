@@ -4898,6 +4898,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.delia-bella-ciao-concertone-2026.title': 'Delia cambia testo Bella Ciao al Concertone: più attuale',
     'blog.article.delia-bella-ciao-concertone-2026.excerpt': 'Delia modifica Bella Ciao al Concertone del 1° maggio a Roma, sostituendo \'partigiano\' con \'essere umano\'',
     'blog.article.delia-bella-ciao-concertone-2026.imageAlt': 'Palco del concertone con pubblico e Lago di Lugano sullo sfondo',
+    'blog.article.funivia-santis-ammodernamento-2026.title': 'Funivia del Säntis chiusa per mesi: ammodernamento da 30 milioni',
+    'blog.article.funivia-santis-ammodernamento-2026.excerpt': 'La funivia del Säntis chiuderà per diversi mesi per un ammodernamento da 30 milioni di franchi. Riapertura prevista in autunno.',
+    'blog.article.funivia-santis-ammodernamento-2026.imageAlt': 'Vista aerea del monte Säntis e della funivia, con il paesaggio circostante e la stazione della funivia.',
 };
 
 export default blogMetaIt;

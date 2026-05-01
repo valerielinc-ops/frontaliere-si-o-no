@@ -12440,4 +12440,11 @@ export const ARTICLES = [
  image: '/images/blog/delia-bella-ciao-concertone-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'funivia-santis-ammodernamento-2026',
+ category: 'novita',
+ date: '2026-05-01T20:19:03.896Z',
+ image: '/images/blog/funivia-santis-ammodernamento-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

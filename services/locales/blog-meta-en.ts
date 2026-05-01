@@ -4897,6 +4897,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.delia-bella-ciao-concertone-2026.title': 'Delia updates Bella Ciao at Concertone: more relevant',
     'blog.article.delia-bella-ciao-concertone-2026.excerpt': 'Delia modifies Bella Ciao at the Concertone on May 1st in Rome, replacing \'partigiano\' with \'essere umano\'',
     'blog.article.delia-bella-ciao-concertone-2026.imageAlt': 'Concert stage with audience and Lake Lugano in the background',
+    'blog.article.funivia-santis-ammodernamento-2026.title': 'Säntis cableway closed for months: 30 million upgrade',
+    'blog.article.funivia-santis-ammodernamento-2026.excerpt': 'The Säntis cableway will close for several months for a 30 million francs upgrade. Reopening expected in autumn.',
+    'blog.article.funivia-santis-ammodernamento-2026.imageAlt': 'Aerial view of the Säntis mountain and the funicular, with the surrounding landscape and the funicular station.',
 };
 
 export default blogMetaEn;
