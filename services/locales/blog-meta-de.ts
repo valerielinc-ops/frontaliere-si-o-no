@@ -4513,6 +4513,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ponte-maggio-villa-panza-laboratori-bambini.title': 'Brückentage am 1. Mai in Villa Panza: Führungen und Kinderworkshops',
     'blog.article.ponte-maggio-villa-panza-laboratori-bambini.excerpt': 'Vom 1. bis 3. Mai 2026 bietet die Villa Panza in Varese geführte Touren und kreative Workshops für Kinder an, inspiriert vom Künstler Josef Albers.',
     'blog.article.ponte-maggio-villa-panza-laboratori-bambini.imageAlt': 'Villa Panza in Varese mit Kindern, die an Kunstworkshops teilnehmen',
+    'blog.article.furti-luoghi-culto-bellinzonese.title': 'Diebstähle in Gotteshäusern: Zwei Festnahmen im Bellinzonese',
+    'blog.article.furti-luoghi-culto-bellinzonese.excerpt': 'Zwei in Rumänien ansässige rumänische Staatsbürger wurden am 26. April im Bellinzonese festgenommen. Sie stehen im Verdacht, mehrfach in Kirchen und einem Laden gestohlen zu haben.',
+    'blog.article.furti-luoghi-culto-bellinzonese.imageAlt': 'Kirche im Kanton Tessin mit Sicherheits- und Überwachungselementen',
 };
 
 export default blogMetaDe;

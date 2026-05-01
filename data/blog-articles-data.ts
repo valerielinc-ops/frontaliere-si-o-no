@@ -11544,4 +11544,11 @@ export const ARTICLES = [
  image: '/images/blog/ponte-maggio-villa-panza-laboratori-bambini.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'furti-luoghi-culto-bellinzonese',
+ category: 'fiscale',
+ date: '2026-05-01T00:18:09.449Z',
+ image: '/images/blog/furti-luoghi-culto-bellinzonese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

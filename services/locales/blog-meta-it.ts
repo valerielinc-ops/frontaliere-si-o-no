@@ -4514,6 +4514,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ponte-maggio-villa-panza-laboratori-bambini.title': 'Ponte del Primo Maggio a Villa Panza: visite guidate e laboratori per bambini',
     'blog.article.ponte-maggio-villa-panza-laboratori-bambini.excerpt': 'Dal 1 al 3 maggio 2026, Villa Panza di Varese ospita visite guidate e laboratori creativi per bambini ispirati all\'artista Josef Albers.',
     'blog.article.ponte-maggio-villa-panza-laboratori-bambini.imageAlt': 'Villa Panza di Varese con bambini che partecipano a laboratori artistici',
+    'blog.article.furti-luoghi-culto-bellinzonese.title': 'Furti nei luoghi di culto: due arresti nel Bellinzonese',
+    'blog.article.furti-luoghi-culto-bellinzonese.excerpt': 'Due cittadini rumeni residenti all\'estero sono stati arrestati il 26 aprile nel Bellinzonese, sospettati di aver compiuto ripetuti furti in chiese e un negozio.',
+    'blog.article.furti-luoghi-culto-bellinzonese.imageAlt': 'Chiesa nel Canton Ticino con elementi di sicurezza e vigilanza',
 };
 
 export default blogMetaIt;

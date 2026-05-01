@@ -2735,6 +2735,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trenord-indennizzi-pendolari-como-2026': { name: 'Novità', path: '/articoli-frontaliere/trenord-indennizzi-pendolari-como-2026', parent: 'blog' },
     'blog-ponte-brivio-cantiere-14-milioni': { name: 'Novità', path: '/articoli-frontaliere/ponte-brivio-cantiere-14-milioni', parent: 'blog' },
     'blog-ponte-maggio-villa-panza-laboratori-bambini': { name: 'Eventi culturali', path: '/articoli-frontaliere/ponte-maggio-villa-panza-laboratori-bambini', parent: 'blog' },
+    'blog-furti-luoghi-culto-bellinzonese': { name: 'Furti nei luoghi di culto', path: '/articoli-frontaliere/furti-luoghi-culto-bellinzonese', parent: 'blog' },
  };
 
  const info = sectionNames[section];

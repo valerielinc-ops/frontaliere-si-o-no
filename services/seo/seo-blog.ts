@@ -30605,6 +30605,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-luoghi-culto-bellinzonese': {
+    title: 'Furti nei luoghi di culto: due arresti nel Bellinzonese',
+    description: 'Due cittadini rumeni residenti all\'estero sono stati arrestati il 26 aprile nel Bellinzonese, sospettati di aver compiuto ripetuti furti in chiese e un negozio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, luoghi, culto, arresti',
+    ogTitle: 'Furti nei luoghi di culto: due arresti nel Bellinzonese',
+    ogDescription: 'Due cittadini rumeni residenti all\'estero sono stati arrestati il 26 aprile nel Bellinzonese, sospettati di aver compiuto ripetuti furti in chiese e un negozio.',
+    canonicalPath: '/articoli-frontaliere/furti-luoghi-culto-bellinzonese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furti nei luoghi di culto: due arresti nel Bellinzonese",
+      "description": "Due cittadini rumeni residenti all'estero sono stati arrestati il 26 aprile nel Bellinzonese, sospettati di aver compiuto ripetuti furti in chiese e un negozio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furti-luoghi-culto-bellinzonese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiesa nel Canton Ticino con elementi di sicurezza e vigilanza"
+      },
+      "datePublished": "2026-05-01T00:18:09+00:00",
+      "dateModified": "2026-05-01T00:18:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-luoghi-culto-bellinzonese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
