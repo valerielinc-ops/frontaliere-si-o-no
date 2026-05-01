@@ -12580,4 +12580,11 @@ export const ARTICLES = [
  image: '/images/blog/docente-arrestato-giubiasco-proroga.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'angelo-custode-ia-colpo-sonno',
+ category: 'novita',
+ date: '2026-05-01T23:38:25.833Z',
+ image: '/images/blog/angelo-custode-ia-colpo-sonno.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

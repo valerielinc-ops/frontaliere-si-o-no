@@ -4957,6 +4957,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.docente-arrestato-giubiasco-proroga.title': 'Teacher arrested in Giubiasco, detention extension requested',
     'blog.article.docente-arrestato-giubiasco-proroga.excerpt': 'The prosecution needs more time to gather testimonies and await the psychiatric report. Ongoing investigation involving minors.',
     'blog.article.docente-arrestato-giubiasco-proroga.imageAlt': 'Aerial view of Giubiasco with Castelgrande in the background',
+    'blog.article.angelo-custode-ia-colpo-sonno.title': 'Can AI guardian prevent drowsy driving?',
+    'blog.article.angelo-custode-ia-colpo-sonno.excerpt': 'The Swiss Driver-Check system, being tested at CSEM in Neuchâtel, measures heart rate and other vital parameters to prevent drowsy driving',
+    'blog.article.angelo-custode-ia-colpo-sonno.imageAlt': 'Driver using an AI monitoring system in a car near Lugano, Switzerland',
 };
 
 export default blogMetaEn;

@@ -4957,6 +4957,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.docente-arrestato-giubiasco-proroga.title': 'Lehrer in Giubiasco festgenommen, Verlängerung der Haft beantragt',
     'blog.article.docente-arrestato-giubiasco-proroga.excerpt': 'Die Staatsanwaltschaft benötigt mehr Zeit, um Zeugenaussagen zu sammeln und das psychiatrische Gutachten abzuwarten. Laufende Untersuchung zu Minderjährigen.',
     'blog.article.docente-arrestato-giubiasco-proroga.imageAlt': 'Luftaufnahme von Giubiasco mit Castelgrande im Hintergrund',
+    'blog.article.angelo-custode-ia-colpo-sonno.title': 'Verhindert der IA-Wächter Müdigkeit am Steuer?',
+    'blog.article.angelo-custode-ia-colpo-sonno.excerpt': 'Das Schweizer System Driver-Check, das derzeit am CSEM in Neuchâtel getestet wird, misst Herzfrequenz und andere Vitalparameter, um Müdigkeit am Steuer zu verhindern.',
+    'blog.article.angelo-custode-ia-colpo-sonno.imageAlt': 'Fahrer, der ein KI-Überwachungssystem in einem Auto in der Nähe von Lugano, Schweiz verwendet',
 };
 
 export default blogMetaDe;

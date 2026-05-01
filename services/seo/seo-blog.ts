@@ -34897,6 +34897,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-angelo-custode-ia-colpo-sonno': {
+    title: 'L\'angelo custode della IA evita i colpi di sonno al volante?',
+    description: 'Scopri come il sistema Driver-Check, sviluppato in Svizzera, utilizza l\'IA per prevenire i colpi di sonno alla guida e le sue limitazioni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, angelo, custode, evita, colpi',
+    ogTitle: 'L\'angelo custode della IA evita i colpi di sonno al volante?',
+    ogDescription: 'Scopri come il sistema Driver-Check, sviluppato in Svizzera, utilizza l\'IA per prevenire i colpi di sonno alla guida e le sue limitazioni.',
+    canonicalPath: '/articoli-frontaliere/angelo-custode-ia-colpo-sonno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'angelo custode della IA evita i colpi di sonno al volante?",
+      "description": "Scopri come il sistema Driver-Check, sviluppato in Svizzera, utilizza l'IA per prevenire i colpi di sonno alla guida e le sue limitazioni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/angelo-custode-ia-colpo-sonno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Automobilista che utilizza un sistema di monitoraggio IA in una vettura vicino a Lugano, Svizzera"
+      },
+      "datePublished": "2026-05-01T23:38:25+00:00",
+      "dateModified": "2026-05-01T23:38:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/angelo-custode-ia-colpo-sonno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
