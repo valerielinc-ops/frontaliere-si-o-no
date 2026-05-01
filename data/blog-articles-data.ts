@@ -12384,4 +12384,11 @@ export const ARTICLES = [
  image: '/images/blog/aranno-incidente-moto-ricoverato-uomo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-viaggio-nel-tempo-2026',
+ category: 'novita',
+ date: '2026-05-01T19:08:00.420Z',
+ image: '/images/blog/como-viaggio-nel-tempo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

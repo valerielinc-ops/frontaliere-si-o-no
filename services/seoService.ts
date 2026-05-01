@@ -2855,6 +2855,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-congresso-lugano-cancro-prostata-2024': { name: 'Novità', path: '/articoli-frontaliere/congresso-lugano-cancro-prostata-2024', parent: 'blog' },
     'blog-circolo-albate-riapertura-2026': { name: 'Novità', path: '/articoli-frontaliere/circolo-albate-riapertura-2026', parent: 'blog' },
     'blog-aranno-incidente-moto-ricoverato-uomo': { name: 'Incidente Aranno', path: '/articoli-frontaliere/aranno-incidente-moto-ricoverato-uomo', parent: 'blog' },
+    'blog-como-viaggio-nel-tempo-2026': { name: 'Como, viaggio nel tempo', path: '/articoli-frontaliere/como-viaggio-nel-tempo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4873,6 +4873,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aranno-incidente-moto-ricoverato-uomo.title': 'Aranno: Motorrad prallt gegen Pfahl und stürzt ab. Ein Mann im Spital',
     'blog.article.aranno-incidente-moto-ricoverato-uomo.excerpt': 'Ein Motorradunfall in Aranno: Der Fahrer wurde ins Krankenhaus eingeliefert. Hier sind die Details.',
     'blog.article.aranno-incidente-moto-ricoverato-uomo.imageAlt': 'Motorradunfall in einer Bergregion des Tessin',
+    'blog.article.como-viaggio-nel-tempo-2026.title': 'Como: Reise in die Vergangenheit: Quinto, Caffè&Caffè, Ul Pan de Comm',
+    'blog.article.como-viaggio-nel-tempo-2026.excerpt': 'Entdecken Sie, wie einige Gegenden von Como ihren zeitlosen Charme bewahren, mit Orten, die von Einheimischen und nicht von Touristen frequentiert werden.',
+    'blog.article.como-viaggio-nel-tempo-2026.imageAlt': 'Via Milano in Como, mit traditionellen Geschäften und Cafés',
 };
 
 export default blogMetaDe;

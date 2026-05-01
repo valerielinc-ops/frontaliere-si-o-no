@@ -34085,6 +34085,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-viaggio-nel-tempo-2026': {
+    title: 'Como, viaggio nel tempo: Quinto, Caffè&Caffè, Ul Pan de Comm',
+    description: 'Scopri come alcune zone di Como mantengono il fascino di un tempo, con locali frequentati da residenti e non da turisti. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, viaggio, tempo, quinto',
+    ogTitle: 'Como, viaggio nel tempo: Quinto, Caffè&Caffè, Ul Pan de Comm',
+    ogDescription: 'Scopri come alcune zone di Como mantengono il fascino di un tempo, con locali frequentati da residenti e non da turisti.',
+    canonicalPath: '/articoli-frontaliere/como-viaggio-nel-tempo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, viaggio nel tempo: Quinto, Caffè&Caffè, Ul Pan de Comm",
+      "description": "Scopri come alcune zone di Como mantengono il fascino di un tempo, con locali frequentati da residenti e non da turisti. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-viaggio-nel-tempo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via Milano a Como, con negozi e caffè tradizionali"
+      },
+      "datePublished": "2026-05-01T19:08:00+00:00",
+      "dateModified": "2026-05-01T19:08:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-viaggio-nel-tempo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

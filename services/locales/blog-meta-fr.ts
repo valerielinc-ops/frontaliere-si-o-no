@@ -4874,6 +4874,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aranno-incidente-moto-ricoverato-uomo.title': 'Aranno, une moto percute un poteau et finit dans un ravin. Un homme hospitalisé',
     'blog.article.aranno-incidente-moto-ricoverato-uomo.excerpt': 'Un accident de moto à Aranno : le conducteur a été hospitalisé. Voici les détails.',
     'blog.article.aranno-incidente-moto-ricoverato-uomo.imageAlt': 'Accident de moto dans une région montagneuse du Tessin',
+    'blog.article.como-viaggio-nel-tempo-2026.title': 'Como, voyage dans le temps : Quinto, Caffè&Caffè, Ul Pan de Comm',
+    'blog.article.como-viaggio-nel-tempo-2026.excerpt': 'Découvrez comment certaines zones de Côme conservent le charme d\'autrefois, avec des lieux fréquentés par les résidents et non par les touristes.',
+    'blog.article.como-viaggio-nel-tempo-2026.imageAlt': 'Via Milano à Côme, avec des magasins et cafés traditionnels',
 };
 
 export default blogMetaFr;

@@ -4873,6 +4873,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aranno-incidente-moto-ricoverato-uomo.title': 'Aranno: motorbike crashes into pole, ends up in ravine. Man hospitalized',
     'blog.article.aranno-incidente-moto-ricoverato-uomo.excerpt': 'A motorbike accident in Aranno: the rider was hospitalized. Here are the details.',
     'blog.article.aranno-incidente-moto-ricoverato-uomo.imageAlt': 'Motorcycle accident in a mountainous area of Ticino',
+    'blog.article.como-viaggio-nel-tempo-2026.title': 'Como, a journey through time: Quinto, Caffè&Caffè, Ul Pan de Comm',
+    'blog.article.como-viaggio-nel-tempo-2026.excerpt': 'Discover how some areas of Como retain their timeless charm, with spots frequented by locals rather than tourists.',
+    'blog.article.como-viaggio-nel-tempo-2026.imageAlt': 'Via Milano in Como, with traditional shops and cafes',
 };
 
 export default blogMetaEn;

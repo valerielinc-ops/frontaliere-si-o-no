@@ -4874,6 +4874,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aranno-incidente-moto-ricoverato-uomo.title': 'Aranno, moto centra palo e finisce nella scarpata. Ricoverato un uomo',
     'blog.article.aranno-incidente-moto-ricoverato-uomo.excerpt': 'Un incidente motociclistico ad Aranno: il conducente è stato ricoverato in ospedale. Ecco i dettagli.',
     'blog.article.aranno-incidente-moto-ricoverato-uomo.imageAlt': 'Incidente motociclistico in una zona montana del Ticino',
+    'blog.article.como-viaggio-nel-tempo-2026.title': 'Como, viaggio nel tempo: Quinto, Caffè&Caffè, Ul Pan de Comm',
+    'blog.article.como-viaggio-nel-tempo-2026.excerpt': 'Scopri come alcune zone di Como mantengono il fascino di un tempo, con locali frequentati da residenti e non da turisti.',
+    'blog.article.como-viaggio-nel-tempo-2026.imageAlt': 'Via Milano a Como, con negozi e caffè tradizionali',
 };
 
 export default blogMetaIt;
