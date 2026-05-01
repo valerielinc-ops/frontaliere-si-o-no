@@ -150,14 +150,10 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
 
-      # Post-build validations pool.
-      # Runs all dist/ HTML walkers in capped parallel (MAX_PARALLEL=4, same
-      # tuning as the original deploy.yml pool — 4-way is optimal for 2-core
-      # runners where tasks are I/O-bound).
-      # test:e2e:smoke and validate:spa-render are NOT in this pool: both need
-      # the full JS/CSS bundle served via vite preview, which is unavailable here
-      # (we only have the HTML slice of dist/). They are replaced by test:e2e:live
-      # which runs against the deployed live site after CDN propagation.
+      # Validation pool.
+      # Runs dist/ HTML walkers plus the post-deploy live smoke in capped
+      # parallel. This keeps the critical path close to the slowest dist audit
+      # instead of paying an extra tail for CDN propagation + probe + live E2E.
       - name: Post-build validations + SEO audits (capped parallel)
         run: |
           MAX_PARALLEL=4
@@ -201,6 +197,10 @@ jobs:
             npm run validate:jobs-quality
           spawn_capped validate:sitemap-links     /tmp/v3.log \
             npm run validate:sitemap-links
+          spawn_capped audit:spa-bundle-injection /tmp/spa-bundle.log \
+            npm run audit:spa-bundle-injection
+          spawn_capped live:post-deploy-smoke     /tmp/live-smoke.log \
+            bash -lc 'node scripts/wait-for-pages-propagation.mjs && npm run probe:5xx && LIVE_BASE_URL=https://frontaliereticino.ch npm run test:e2e:live'
 
           wait
 
@@ -270,48 +270,6 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --in-place-resolver-cmd "node scripts/lib/resolve-winners-conflict.mjs && git add -A"
           git stash pop || true
-
-      - name: Audit SPA bundle injection
-        # Verifies every per-slug dist/<path>/index.html contains the SPA
-        # hydration script. Runs post-deploy so a broken build triggers rollback
-        # rather than blocking the deploy outright.
-        run: npm run audit:spa-bundle-injection
-
-      - name: Upload write-collisions analysis
-        if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
-        run: |
-          gh run download "$DEPLOY_RUN_ID" \
-            --name "write-collisions-analysis-${DEPLOY_RUN_ID}" \
-            --dir /tmp/write-collisions/ || true
-
-      - name: Re-upload write-collisions analysis
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: write-collisions-analysis
-          path: /tmp/write-collisions/
-          retention-days: 7
-          if-no-files-found: ignore
-
-      - name: Wait for GitHub Pages CDN propagation
-        # Polls /build-id.txt on the live site until it matches the deployed
-        # build. Live E2E tests below must run against the new version, not the
-        # Fastly-cached previous one.
-        run: node scripts/wait-for-pages-propagation.mjs
-
-      - name: Post-deploy availability probe (4XX/5XX)
-        run: npm run probe:5xx
-
-      - name: Post-deploy rendering smoke (live E2E)
-        # Replaces both test:e2e:smoke (localhost) and validate:spa-render in the
-        # post-deploy context: runs the full smoke suite + the April-30 rendering
-        # guard against the live site where the JS bundle is available.
-        env:
-          LIVE_BASE_URL: https://frontaliereticino.ch
-        run: npm run test:e2e:live
 
       - name: Read deploy metadata from Firestore
         id: deploy-meta

@@ -356,8 +356,18 @@ jobs:
           if-no-files-found: ignore
           include-hidden-files: true
 
-      - name: Upload previous-slug winners for post-deploy validation
+      - name: Detect previous-slug winners changes
         if: github.event.inputs.profile_sequential != 'true'
+        id: winners_changed
+        run: |
+          if git diff --quiet -- data/previous-slug-winners.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload previous-slug winners for post-deploy validation
+        if: github.event.inputs.profile_sequential != 'true' && steps.winners_changed.outputs.changed == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: winners-${{ github.run_id }}
