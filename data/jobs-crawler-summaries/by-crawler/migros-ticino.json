@@ -1,18 +1,71 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-01T10:38:46.589Z",
-  "total": 24,
-  "newCount": 0,
+  "generatedAt": "2026-05-01T22:05:18.114Z",
+  "total": 25,
+  "newCount": 1,
   "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 49069,
-  "avgDurationMs": 49069,
+  "durationMs": 47765,
+  "avgDurationMs": 47765,
   "durationHistory": [
-    49069
+    47765
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-q0g1ap",
+      "slug": "employe-de-conciergerie-m-w-d-societe-cooperative-migros-valais-sierre",
+      "company": "Société coopérative Migros Valais",
+      "title": "Employé de conciergerie (f/h/d)",
+      "location": "Sierre",
+      "canton": "VS",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-01",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-valais/employe-de-conciergerie-fhd/76b45778-57c5-4e0f-90fb-50aaa9f7ee89",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Garant de la sécurité lors et après la fermeture du Centre",
+        "Fermeture des entrées et sorties du parking et de l’ensemble des accès",
+        "Approvisionnement et rangement des chariots et des paniers",
+        "Travaux de nettoyage et de maintenance",
+        "Soutien auprès des équipes de travail",
+        "Communication des problèmes liés à la sécurité des clients",
+        "Contrôle de l’activité du personnel de nettoyage",
+        "Service à la clientèle"
+      ],
+      "_migrosBenefits": [
+        "Congé maternité/congé paternité: Durée des congés maternité & paternité supérieurs au minimum légal / Droit à un congé pour adoption",
+        "Abonnement mobile: Abonnement mobile à tarif préférentiel",
+        "Prévoyance professionnelle: Possibilité de retraite anticipée dès 58 ans / Prestations supérieurs à la loi sur la prévoyance professionnelle",
+        "Prestations sociales: Prestations sociales supérieures à la moyenne",
+        "Points Cumulus: Points Cumulus supplémentaire sur une multitude de produits",
+        "Banque Migros: Conditions préférentielles à la Banque Migros",
+        "Offres pour les collaborateurs: Carnets de bons d'achat à utiliser dans les points de vente Migros Valais",
+        "Vacances: 5 semaines de vacances / Dès 20 ans de service ou 50 ans: 6 semaines / Dès 30 ans de service ou 60 ans: 7 semaines",
+        "Ecole-club Migros: Remboursement de cours dans les Ecoles-clubs Migros",
+        "Offre loisirs et culture: Réductions sur de nombreuses offres dans les domaines de la culture, des loisirs et du sport",
+        "Conseil social et personnel: Conseils avisés de la part du service de l'orientation sociale pour des questions d'ordre professionnel ou personnel"
+      ],
+      "_migrosWorkPercentage": "89%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-01T22:05:13.915Z",
+      "firstSeenAt": "2026-05-01T22:05:13.915Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-fa8to6",
