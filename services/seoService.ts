@@ -2860,6 +2860,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controlli-velocita-ticino-maggio-2024': { name: 'Controlli velocità Ticino', path: '/articoli-frontaliere/controlli-velocita-ticino-maggio-2024', parent: 'blog' },
     'blog-primo-maggio-ticino-salari-2024': { name: 'Primo maggio Ticino', path: '/articoli-frontaliere/primo-maggio-ticino-salari-2024', parent: 'blog' },
     'blog-sosta-selvaggia-moltrasio-2026': { name: 'Sosta selvaggia', path: '/articoli-frontaliere/sosta-selvaggia-moltrasio-2026', parent: 'blog' },
+    'blog-svizzera-hockey-sconfitta-svezia': { name: 'Novità', path: '/articoli-frontaliere/svizzera-hockey-sconfitta-svezia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

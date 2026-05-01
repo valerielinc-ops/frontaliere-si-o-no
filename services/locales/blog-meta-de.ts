@@ -4888,6 +4888,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sosta-selvaggia-moltrasio-2026.title': 'Verkehrsmissbrauch in Moltrasio am Comer See',
     'blog.article.sosta-selvaggia-moltrasio-2026.excerpt': 'Das Dorf Moltrasio am Comer See ist häufig Opfer von wilder Parkerei durch ausländische Autos. Hier ist, was passiert.',
     'blog.article.sosta-selvaggia-moltrasio-2026.imageAlt': 'Luftaufnahme des Comer Sees mit illegal geparkten Autos entlang der Ufer von Moltrasio',
+    'blog.article.svizzera-hockey-sconfitta-svezia.title': 'Schweiz von Schweden besiegt: Eine Lehre für die Zukunft',
+    'blog.article.svizzera-hockey-sconfitta-svezia.excerpt': 'Die Schweizer Eishockeynationalmannschaft erleidet eine schwere Niederlage gegen Schweden, das Endergebnis lautet 8-1.',
+    'blog.article.svizzera-hockey-sconfitta-svezia.imageAlt': 'Ein Eishockeyspiel in einer Schweizer Arena mit Spielern in Aktion und Zuschauern',
 };
 
 export default blogMetaDe;

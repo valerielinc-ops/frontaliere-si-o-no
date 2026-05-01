@@ -34230,6 +34230,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-hockey-sconfitta-svezia': {
+    title: 'Svizzera sconfitta dalla Svezia: una lezione per il futuro',
+    description: 'La nazionale svizzera di hockey subisce una pesante sconfitta contro la Svezia, con un risultato finale di 8-1. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sconfitta, dalla, svezia, lezione',
+    ogTitle: 'Svizzera sconfitta dalla Svezia: una lezione per il futuro',
+    ogDescription: 'La nazionale svizzera di hockey subisce una pesante sconfitta contro la Svezia, con un risultato finale di 8-1.',
+    canonicalPath: '/articoli-frontaliere/svizzera-hockey-sconfitta-svezia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera sconfitta dalla Svezia: una lezione per il futuro",
+      "description": "La nazionale svizzera di hockey subisce una pesante sconfitta contro la Svezia, con un risultato finale di 8-1. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-hockey-sconfitta-svezia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una partita di hockey in un'arena svizzera con giocatori in azione e spettatori"
+      },
+      "datePublished": "2026-05-01T19:56:29+00:00",
+      "dateModified": "2026-05-01T19:56:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-hockey-sconfitta-svezia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

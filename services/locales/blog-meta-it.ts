@@ -4889,6 +4889,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sosta-selvaggia-moltrasio-2026.title': 'Abusi viabilistici a Moltrasio sul Lago di Como',
     'blog.article.sosta-selvaggia-moltrasio-2026.excerpt': 'Il paesino di Moltrasio sul Lago di Como è spesso vittima di sosta selvaggia da parte di auto straniere. Ecco cosa sta succedendo.',
     'blog.article.sosta-selvaggia-moltrasio-2026.imageAlt': 'Vista aerea del Lago di Como con auto parcheggiate illegalmente lungo le rive di Moltrasio',
+    'blog.article.svizzera-hockey-sconfitta-svezia.title': 'Svizzera sconfitta dalla Svezia: una lezione per il futuro',
+    'blog.article.svizzera-hockey-sconfitta-svezia.excerpt': 'La nazionale svizzera di hockey subisce una pesante sconfitta contro la Svezia, con un risultato finale di 8-1.',
+    'blog.article.svizzera-hockey-sconfitta-svezia.imageAlt': 'Una partita di hockey in un\'arena svizzera con giocatori in azione e spettatori',
 };
 
 export default blogMetaIt;

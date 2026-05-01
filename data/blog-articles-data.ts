@@ -12419,4 +12419,11 @@ export const ARTICLES = [
  image: '/images/blog/sosta-selvaggia-moltrasio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-hockey-sconfitta-svezia',
+ category: 'novita',
+ date: '2026-05-01T19:56:29.257Z',
+ image: '/images/blog/svizzera-hockey-sconfitta-svezia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

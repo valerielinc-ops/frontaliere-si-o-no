@@ -4889,6 +4889,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sosta-selvaggia-moltrasio-2026.title': 'Abus de stationnement à Moltrasio sur le lac de Côme',
     'blog.article.sosta-selvaggia-moltrasio-2026.excerpt': 'Le petit village de Moltrasio sur le lac de Côme est souvent victime de stationnement sauvage par des voitures étrangères. Voici ce qui se passe.',
     'blog.article.sosta-selvaggia-moltrasio-2026.imageAlt': 'Vue aérienne du lac de Côme avec des voitures garées illégalement le long des rives de Moltrasio',
+    'blog.article.svizzera-hockey-sconfitta-svezia.title': 'Suisse battue par la Suède : une leçon pour l\'avenir',
+    'blog.article.svizzera-hockey-sconfitta-svezia.excerpt': 'L\'équipe nationale suisse de hockey subit une lourde défaite contre la Suède, avec un score final de 8-1.',
+    'blog.article.svizzera-hockey-sconfitta-svezia.imageAlt': 'Un match de hockey dans une arène suisse avec des joueurs en action et des spectateurs',
 };
 
 export default blogMetaFr;
