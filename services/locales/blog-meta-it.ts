@@ -4544,6 +4544,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grassi-liuc-sfide-complesse.title': 'Grassi: «Sfide complesse, ma la Liuc è pronta»',
     'blog.article.grassi-liuc-sfide-complesse.excerpt': 'Roberto Grassi, nuovo presidente della Liuc-Università Cattaneo, affronta le sfide del mondo manifatturiero e dell\'innovazione.',
     'blog.article.grassi-liuc-sfide-complesse.imageAlt': 'Vista del Lago di Lugano con il campus universitario moderno sullo sfondo',
+    'blog.article.ciclabile-saronno-rovello-porro-2026.title': 'Ciclabile Saronno-Rovello Porro: quando sarà pronta?',
+    'blog.article.ciclabile-saronno-rovello-porro-2026.excerpt': 'A tre anni dalla posa della ghost bike, Fiab Saronno Ciclocittà sollecita i Comuni per la realizzazione della ciclabile protetta tra Saronno e Rovello Porro.',
+    'blog.article.ciclabile-saronno-rovello-porro-2026.imageAlt': 'Un ciclista su una pista ciclabile protetta lungo un lago in Ticino, con il confine svizzero-italiano sullo sfondo.',
 };
 
 export default blogMetaIt;

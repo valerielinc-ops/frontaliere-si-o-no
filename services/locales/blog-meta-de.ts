@@ -4543,6 +4543,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grassi-liuc-sfide-complesse.title': 'Grassi: «Komplexe Herausforderungen, aber die Liuc ist bereit»',
     'blog.article.grassi-liuc-sfide-complesse.excerpt': 'Roberto Grassi, neuer Präsident der Liuc-Università Cattaneo, nimmt die Herausforderungen der Fertigungsindustrie und der Innovation an.',
     'blog.article.grassi-liuc-sfide-complesse.imageAlt': 'Blick auf den Luganersee mit einem modernen Universitätscampus im Hintergrund',
+    'blog.article.ciclabile-saronno-rovello-porro-2026.title': 'Radweg Saronno-Rovello Porro: Wann wird er fertig?',
+    'blog.article.ciclabile-saronno-rovello-porro-2026.excerpt': 'Drei Jahre nach der Aufstellung des Ghost Bikes fordert Fiab Saronno Ciclocittà die Gemeinden zur Umsetzung des geschützten Radwegs zwischen Saronno und Rovello Porro auf.',
+    'blog.article.ciclabile-saronno-rovello-porro-2026.imageAlt': 'Ein Radfahrer auf einem geschützten Fahrradweg entlang eines Sees in Tessin, mit der Schweizer-Italienischen Grenze im Hintergrund.',
 };
 
 export default blogMetaDe;

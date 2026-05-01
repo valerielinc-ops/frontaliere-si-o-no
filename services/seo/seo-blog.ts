@@ -30895,6 +30895,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ciclabile-saronno-rovello-porro-2026': {
+    title: 'Ciclabile Saronno-Rovello Porro: quando sarà pronta?',
+    description: 'A tre anni dalla posa della ghost bike, Fiab Saronno sollecita i Comuni per la realizzazione della ciclabile protetta tra Saronno e Rovello Porro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ciclabile, saronno-rovello, porro, quando',
+    ogTitle: 'Ciclabile Saronno-Rovello Porro: quando sarà pronta?',
+    ogDescription: 'A tre anni dalla posa della ghost bike, Fiab Saronno sollecita i Comuni per la realizzazione della ciclabile protetta tra Saronno e Rovello Porro.',
+    canonicalPath: '/articoli-frontaliere/ciclabile-saronno-rovello-porro-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ciclabile Saronno-Rovello Porro: quando sarà pronta?",
+      "description": "A tre anni dalla posa della ghost bike, Fiab Saronno sollecita i Comuni per la realizzazione della ciclabile protetta tra Saronno e Rovello Porro.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ciclabile-saronno-rovello-porro-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ciclista su una pista ciclabile protetta lungo un lago in Ticino, con il confine svizzero-italiano sullo sfondo."
+      },
+      "datePublished": "2026-05-01T02:19:00+00:00",
+      "dateModified": "2026-05-01T02:19:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ciclabile-saronno-rovello-porro-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

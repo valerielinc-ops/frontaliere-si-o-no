@@ -11614,4 +11614,11 @@ export const ARTICLES = [
  image: '/images/blog/grassi-liuc-sfide-complesse.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ciclabile-saronno-rovello-porro-2026',
+ category: 'pratico',
+ date: '2026-05-01T02:19:00.879Z',
+ image: '/images/blog/ciclabile-saronno-rovello-porro-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
