@@ -31910,6 +31910,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controversia-bandiera-svizzera-scarpe-on': {
+    title: 'Controversia sull\'uso della bandiera svizzera sulle scarpe On',
+    description: 'L\'Istituto Federale della Proprietà Intellettuale ha concesso a On di usare la bandiera svizzera sulle sue scarpe, nonostante la produzione avvenga all\'estero',
+    keywords: 'frontalieri, ticino, svizzera, italia, controversia, sull, bandiera, sulle',
+    ogTitle: 'Controversia bandiera svizzera scarpe On',
+    ogDescription: 'L\'Istituto Federale della Proprietà Intellettuale ha concesso a On di usare la bandiera svizzera sulle sue scarpe, nonostante la produzione avvenga all\'estero',
+    canonicalPath: '/articoli-frontaliere/controversia-bandiera-svizzera-scarpe-on',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controversia sull'uso della bandiera svizzera sulle scarpe On",
+      "description": "L'Istituto Federale della Proprietà Intellettuale ha concesso a On di usare la bandiera svizzera sulle sue scarpe, nonostante la produzione avvenga all'estero",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controversia-bandiera-svizzera-scarpe-on.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paio di scarpe da corsa con bandiera svizzera esposte in vetrina a Foxtown, Mendrisio"
+      },
+      "datePublished": "2026-05-01T07:57:06+00:00",
+      "dateModified": "2026-05-01T07:57:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controversia-bandiera-svizzera-scarpe-on`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

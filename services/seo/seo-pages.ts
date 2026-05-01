@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1599,
+ "numberOfItems": 1600,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6234,7 +6234,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1596, "name": "Piano Freddo Como: 200 persone accolte per 172 ...", "url": `${BASE_URL}/articoli-frontaliere/piano-freddo-como-200-persone-172-notti` },
           { "@type": "ListItem", "position": 1597, "name": "Como, 10 studenti diventano agenti di polizia l...", "url": `${BASE_URL}/articoli-frontaliere/como-studenti-polizia-on-road-2026` },
           { "@type": "ListItem", "position": 1598, "name": "TicinoSentieri: nuove nomine per il 2026", "url": `${BASE_URL}/articoli-frontaliere/ticinosentieri-nuove-nomine-2026` },
-          { "@type": "ListItem", "position": 1599, "name": "Chiusura ufficio postale Val Mara: mazzata ai s...", "url": `${BASE_URL}/articoli-frontaliere/ufficio-postale-val-mara-chiusura` }
+          { "@type": "ListItem", "position": 1599, "name": "Chiusura ufficio postale Val Mara: mazzata ai s...", "url": `${BASE_URL}/articoli-frontaliere/ufficio-postale-val-mara-chiusura` },
+          { "@type": "ListItem", "position": 1600, "name": "Controversia sull'uso della bandiera svizzera s...", "url": `${BASE_URL}/articoli-frontaliere/controversia-bandiera-svizzera-scarpe-on` }
  ]
  },
  {

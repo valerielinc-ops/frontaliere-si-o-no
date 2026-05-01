@@ -11859,4 +11859,11 @@ export const ARTICLES = [
  image: '/images/blog/ufficio-postale-val-mara-chiusura.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'controversia-bandiera-svizzera-scarpe-on',
+ category: 'novita',
+ date: '2026-05-01T07:57:06.549Z',
+ image: '/images/blog/controversia-bandiera-svizzera-scarpe-on.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

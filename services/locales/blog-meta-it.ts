@@ -4649,6 +4649,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ufficio-postale-val-mara-chiusura.title': 'Val Mara: chiusura ufficio postale, mazzata ai servizi',
     'blog.article.ufficio-postale-val-mara-chiusura.excerpt': 'L\'ufficio postale di Val Mara, frazione di Maroggia, chiuderà. Un duro colpo per i residenti e i frontalieri della zona.',
     'blog.article.ufficio-postale-val-mara-chiusura.imageAlt': 'Vista aerea di Val Mara, Maroggia, Ticino',
+    'blog.article.controversia-bandiera-svizzera-scarpe-on.title': 'Controversia sull\'uso della bandiera svizzera sulle scarpe On',
+    'blog.article.controversia-bandiera-svizzera-scarpe-on.excerpt': 'L\'Istituto Federale della Proprietà Intellettuale ha concesso a On di usare la bandiera svizzera sulle sue scarpe, nonostante la produzione avvenga all\'estero. La decisione ha suscitato polemiche.',
+    'blog.article.controversia-bandiera-svizzera-scarpe-on.imageAlt': 'Paio di scarpe da corsa con bandiera svizzera esposte in vetrina a Foxtown, Mendrisio',
 };
 
 export default blogMetaIt;

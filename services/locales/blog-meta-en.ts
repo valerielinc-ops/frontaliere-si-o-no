@@ -4648,6 +4648,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ufficio-postale-val-mara-chiusura.title': 'Val Mara: post office closure, blow to services',
     'blog.article.ufficio-postale-val-mara-chiusura.excerpt': 'The post office in Val Mara, a hamlet of Maroggia, will close. A hard blow for residents and cross-border workers in the area.',
     'blog.article.ufficio-postale-val-mara-chiusura.imageAlt': 'Aerial view of Val Mara, Maroggia, Ticino',
+    'blog.article.controversia-bandiera-svizzera-scarpe-on.title': 'Controversy over Swiss flag on On shoes',
+    'blog.article.controversia-bandiera-svizzera-scarpe-on.excerpt': 'The Federal Institute of Intellectual Property has granted On the right to use the Swiss flag on its shoes, despite production taking place abroad. The decision has sparked controversy.',
+    'blog.article.controversia-bandiera-svizzera-scarpe-on.imageAlt': 'Pair of running shoes with Swiss flag displayed in Foxtown, Mendrisio store window',
 };
 
 export default blogMetaEn;
