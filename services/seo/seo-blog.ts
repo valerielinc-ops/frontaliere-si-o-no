@@ -31736,6 +31736,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gioco-oca-giornico-rischi-disastri': {
+    title: 'A Giornico un gioco dell\'oca per riflettere su rischi e disastri',
+    description: 'Al Museo di Leventina di Giornico, un gioco dell\'oca interattivo racconta i disastri dal Medioevo al Covid. Scopri di più su questa iniziativa. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, giornico, gioco, dell, riflettere',
+    ogTitle: 'Gioco dell\'oca su rischi e disastri a Giornico',
+    ogDescription: 'Al Museo di Leventina di Giornico, un gioco dell\'oca interattivo racconta i disastri dal Medioevo al Covid. Scopri di più su questa iniziativa.',
+    canonicalPath: '/articoli-frontaliere/gioco-oca-giornico-rischi-disastri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gioco dell'oca su rischi e disastri a Giornico",
+      "description": "Al Museo di Leventina di Giornico, un gioco dell'oca interattivo racconta i disastri dal Medioevo al Covid. Scopri di più su questa iniziativa. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gioco-oca-giornico-rischi-disastri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Museo di Leventina a Giornico, Ticino, con gioco dell'oca interattivo su rischi e disastri"
+      },
+      "datePublished": "2026-05-01T07:04:26+00:00",
+      "dateModified": "2026-05-01T07:04:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gioco-oca-giornico-rischi-disastri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

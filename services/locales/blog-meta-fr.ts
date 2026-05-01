@@ -4631,6 +4631,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.title': 'Drame dans le canton du Ticino: un enfant de deux ans se noie dans une piscine',
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.excerpt': 'Un tragique accident dans une piscine privée a bouleversé la communauté du canton du Ticino. Un enfant de deux ans a perdu la vie.',
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.imageAlt': 'Vue sereine du lac de Lugano avec la skyline de la ville en arrière-plan',
+    'blog.article.gioco-oca-giornico-rischi-disastri.title': 'À Giornico, un jeu de l\'oie sur les risques et les catastrophes',
+    'blog.article.gioco-oca-giornico-rischi-disastri.excerpt': 'Au Musée de Leventina à Giornico, un jeu de l\'oie interactif raconte les catastrophes du Moyen Âge au Covid.',
+    'blog.article.gioco-oca-giornico-rischi-disastri.imageAlt': 'Musée de Leventina à Giornico, Tessin, avec un jeu de l\'oie interactif sur les risques et les catastrophes',
 };
 
 export default blogMetaFr;

@@ -11817,4 +11817,11 @@ export const ARTICLES = [
  image: '/images/blog/dramma-canton-ticino-bimbo-annega-piscina.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gioco-oca-giornico-rischi-disastri',
+ category: 'novita',
+ date: '2026-05-01T07:04:26.800Z',
+ image: '/images/blog/gioco-oca-giornico-rischi-disastri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

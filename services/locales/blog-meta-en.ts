@@ -4630,6 +4630,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.title': 'Tragedy in Ticino: Two-Year-Old Drowns in Private Pool',
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.excerpt': 'A tragic accident in a private pool has shaken the Canton Ticino community. A two-year-old child has lost their life.',
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.imageAlt': 'Serene view of Lake Lugano with the city skyline in the background',
+    'blog.article.gioco-oca-giornico-rischi-disastri.title': 'A Giornico, a board game to reflect on risks and disasters',
+    'blog.article.gioco-oca-giornico-rischi-disastri.excerpt': 'At the Leventina Museum in Giornico, an interactive board game tells the story of disasters from the Middle Ages to Covid.',
+    'blog.article.gioco-oca-giornico-rischi-disastri.imageAlt': 'Leventina Museum in Giornico, Ticino, with an interactive game of the goose about risks and disasters',
 };
 
 export default blogMetaEn;

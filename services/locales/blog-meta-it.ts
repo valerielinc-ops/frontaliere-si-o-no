@@ -4631,6 +4631,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.title': 'Dramma in Canton Ticino: bimbo di due anni annega in piscina',
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.excerpt': 'Un tragico incidente in una piscina privata ha sconvolto la comunità del Canton Ticino. Un bimbo di due anni ha perso la vita.',
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.imageAlt': 'Vista serena del Lago di Lugano con lo skyline della città sullo sfondo',
+    'blog.article.gioco-oca-giornico-rischi-disastri.title': 'A Giornico un gioco dell\'oca per riflettere su rischi e disastri',
+    'blog.article.gioco-oca-giornico-rischi-disastri.excerpt': 'Al Museo di Leventina di Giornico, un gioco dell\'oca interattivo racconta i disastri dal Medioevo al Covid.',
+    'blog.article.gioco-oca-giornico-rischi-disastri.imageAlt': 'Museo di Leventina a Giornico, Ticino, con gioco dell\'oca interattivo su rischi e disastri',
 };
 
 export default blogMetaIt;

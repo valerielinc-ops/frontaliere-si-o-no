@@ -4630,6 +4630,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.title': 'Tragödie im Kanton Tessin: Zweijähriger ertrinkt im Pool',
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.excerpt': 'Ein tragischer Unfall in einem privaten Pool hat die Gemeinschaft des Kantons Tessin erschüttert. Ein zweijähriges Kind hat sein Leben verloren.',
     'blog.article.dramma-canton-ticino-bimbo-annega-piscina.imageAlt': 'Ruhige Ansicht des Luganer Sees mit der Skyline der Stadt im Hintergrund',
+    'blog.article.gioco-oca-giornico-rischi-disastri.title': 'In Giornico ein Brettspiel über Risiken und Katastrophen',
+    'blog.article.gioco-oca-giornico-rischi-disastri.excerpt': 'Im Museum Leventina in Giornico erzählt ein interaktives Brettspiel von Katastrophen vom Mittelalter bis zum Covid.',
+    'blog.article.gioco-oca-giornico-rischi-disastri.imageAlt': 'Leventina-Museum in Giornico, Tessin, mit einem interaktiven Brettspiel über Risiken und Katastrophen',
 };
 
 export default blogMetaDe;
