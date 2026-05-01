@@ -4660,6 +4660,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cbt-italia-ciclisti-mercato.title': 'CBT Italia fordert den Markt heraus: Preise als Vertrauensbeweis für Radfahrer',
     'blog.article.cbt-italia-ciclisti-mercato.excerpt': 'CBT Italia, ein Unternehmen aus Cuneo mit 75-jähriger Geschichte, betritt den italienischen Markt mit aggressiven Preisen und Transparenz und überrascht die Verbraucher.',
     'blog.article.cbt-italia-ciclisti-mercato.imageAlt': 'Ein Radfahrer, der entlang der Ufer des Luganer Sees fährt, mit der Stadt im Hintergrund',
+    'blog.article.maserati-tridente-centenario-2026.title': 'Maserati feiert 100 Jahre Tridente und Rennsport-Legende',
+    'blog.article.maserati-tridente-centenario-2026.excerpt': 'Von 1926 bis 2026: Maserati feiert das Jahrhundert seines ikonischen Logos und den ersten sportlichen Sieg bei der Targa Florio',
+    'blog.article.maserati-tridente-centenario-2026.imageAlt': 'Luganersee und Skyline bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

@@ -4661,6 +4661,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cbt-italia-ciclisti-mercato.title': 'CBT Italia sfida il mercato: prezzi come patto di fiducia con i ciclisti',
     'blog.article.cbt-italia-ciclisti-mercato.excerpt': 'CBT Italia, azienda cuneese con 75 anni di storia, entra nel mercato italiano con prezzi aggressivi e trasparenza, sorprendendo i consumatori',
     'blog.article.cbt-italia-ciclisti-mercato.imageAlt': 'Un ciclista che pedala lungo le rive del Lago di Lugano, con il panorama cittadino sullo sfondo',
+    'blog.article.maserati-tridente-centenario-2026.title': 'Maserati celebra 100 anni del Tridente e la leggenda delle corse',
+    'blog.article.maserati-tridente-centenario-2026.excerpt': 'Dal 1926 al 2026: Maserati festeggia il centenario del suo iconico logo e la prima vittoria sportiva alla Targa Florio',
+    'blog.article.maserati-tridente-centenario-2026.imageAlt': 'Lago di Lugano e skyline al tramonto',
 };
 
 export default blogMetaIt;

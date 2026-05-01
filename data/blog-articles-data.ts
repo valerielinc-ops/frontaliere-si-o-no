@@ -11887,4 +11887,11 @@ export const ARTICLES = [
  image: '/images/blog/cbt-italia-ciclisti-mercato.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'maserati-tridente-centenario-2026',
+ category: 'novita',
+ date: '2026-05-01T08:26:53.636Z',
+ image: '/images/blog/maserati-tridente-centenario-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

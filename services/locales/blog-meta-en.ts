@@ -4660,6 +4660,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cbt-italia-ciclisti-mercato.title': 'CBT Italia challenges the market: prices as a trust pact with cyclists',
     'blog.article.cbt-italia-ciclisti-mercato.excerpt': 'CBT Italia, a Cuneo-based company with 75 years of history, enters the Italian market with aggressive prices and transparency, surprising consumers',
     'blog.article.cbt-italia-ciclisti-mercato.imageAlt': 'A cyclist riding along the shores of Lake Lugano, with the cityscape in the background',
+    'blog.article.maserati-tridente-centenario-2026.title': 'Maserati celebrates 100 years of the Trident and racing legend',
+    'blog.article.maserati-tridente-centenario-2026.excerpt': 'From 1926 to 2026: Maserati celebrates the centenary of its iconic logo and the first sports victory at the Targa Florio',
+    'blog.article.maserati-tridente-centenario-2026.imageAlt': 'Lake Lugano and skyline at sunset',
 };
 
 export default blogMetaEn;

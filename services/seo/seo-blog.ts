@@ -32026,6 +32026,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maserati-tridente-centenario-2026': {
+    title: 'Maserati celebra 100 anni del Tridente e la leggenda delle corse',
+    description: 'Maserati festeggia il centenario del Tridente e la prima vittoria sportiva alla Targa Florio nel 1926. Scopri gli eventi e le iniziative in programma.',
+    keywords: 'frontalieri, ticino, svizzera, italia, maserati, celebra, anni, tridente',
+    ogTitle: 'Maserati celebra 100 anni del Tridente e la leggenda delle corse',
+    ogDescription: 'Maserati festeggia il centenario del Tridente e la prima vittoria sportiva alla Targa Florio nel 1926. Scopri gli eventi e le iniziative in programma.',
+    canonicalPath: '/articoli-frontaliere/maserati-tridente-centenario-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maserati celebra 100 anni del Tridente e la leggenda delle corse",
+      "description": "Maserati festeggia il centenario del Tridente e la prima vittoria sportiva alla Targa Florio nel 1926. Scopri gli eventi e le iniziative in programma.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maserati-tridente-centenario-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano e skyline al tramonto"
+      },
+      "datePublished": "2026-05-01T08:26:53+00:00",
+      "dateModified": "2026-05-01T08:26:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maserati-tridente-centenario-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
