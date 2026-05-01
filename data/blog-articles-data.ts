@@ -11789,4 +11789,18 @@ export const ARTICLES = [
  image: '/images/blog/concertone-primo-maggio-roma-artisti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mondo-radio-piange-alberto-davoli',
+ category: 'novita',
+ date: '2026-05-01T06:34:41.079Z',
+ image: '/images/blog/mondo-radio-piange-alberto-davoli.jpg',
+ hasCalculator: true,
+ },
+ {
+ id: 'rendiconto-banca-interpretazione-2026',
+ category: 'fiscale',
+ date: '2026-05-01T06:41:20.556Z',
+ image: '/images/blog/rendiconto-banca-interpretazione-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

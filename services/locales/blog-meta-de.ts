@@ -4618,6 +4618,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.concertone-primo-maggio-roma-artisti-2026.title': 'Konzert am 1. Mai in Rom: die Künstler',
     'blog.article.concertone-primo-maggio-roma-artisti-2026.excerpt': 'Das traditionelle Event zum Tag der Arbeit in Rom mit Arisa, Pierpaolo Spollon und BigMama. Alle Künstler im Programm',
     'blog.article.concertone-primo-maggio-roma-artisti-2026.imageAlt': 'Konzertbühne beim Ersten Mai Konzert in Rom mit auftretenden Künstlern',
+    'blog.article.mondo-radio-piange-alberto-davoli.title': 'Die Radiowelt trauert um Alberto Davoli',
+    'blog.article.mondo-radio-piange-alberto-davoli.excerpt': 'Der Pionier der Privatsender ist im Alter von 60 Jahren nach langer Krankheit verstorben. Die Beerdigung findet morgen in Brunella statt.',
+    'blog.article.mondo-radio-piange-alberto-davoli.imageAlt': 'Radiomikrofon auf einem Schreibtisch in einem Ticino-Studio',
+    'blog.article.rendiconto-banca-interpretazione-2026.title': 'Jahresabrechnung der Bank: So liest du sie',
+    'blog.article.rendiconto-banca-interpretazione-2026.excerpt': 'Erfahre, wie du die Jahresabrechnung über Kosten und Gebühren deiner Bank liest und was das für deine Investitionen bedeutet.',
+    'blog.article.rendiconto-banca-interpretazione-2026.imageAlt': 'Panoramablick auf den Luganersee mit der Innenstadt im Hintergrund',
 };
 
 export default blogMetaDe;

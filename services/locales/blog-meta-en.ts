@@ -4618,6 +4618,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.concertone-primo-maggio-roma-artisti-2026.title': 'May Day concert in Rome: artists on the bill',
     'blog.article.concertone-primo-maggio-roma-artisti-2026.excerpt': 'The traditional event for Labour Day in Rome with Arisa, Pierpaolo Spollon and BigMama. All the artists on the bill',
     'blog.article.concertone-primo-maggio-roma-artisti-2026.imageAlt': 'Concert stage at Rome\'s First of May concert with performing artists',
+    'blog.article.mondo-radio-piange-alberto-davoli.title': 'The radio world mourns Alberto Davoli',
+    'blog.article.mondo-radio-piange-alberto-davoli.excerpt': 'The pioneer of private broadcasters passed away at 60 after a long illness. Funeral tomorrow at Brunella.',
+    'blog.article.mondo-radio-piange-alberto-davoli.imageAlt': 'Radio microphone on a desk in a Ticino studio',
+    'blog.article.rendiconto-banca-interpretazione-2026.title': 'How to read your bank\'s annual financial report',
+    'blog.article.rendiconto-banca-interpretazione-2026.excerpt': 'Learn how to read your bank\'s annual report on costs and expenses and what it means for your investments.',
+    'blog.article.rendiconto-banca-interpretazione-2026.imageAlt': 'Panoramic view of Lake Lugano with the city center in the background',
 };
 
 export default blogMetaEn;

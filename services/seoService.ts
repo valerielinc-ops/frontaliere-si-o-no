@@ -2770,6 +2770,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-spasso-weekend-1-maggio-varese-2026': { name: 'Eventi Varese', path: '/articoli-frontaliere/spasso-weekend-1-maggio-varese-2026', parent: 'blog' },
     'blog-prevenzione-dipendenze-ticino-2026': { name: 'Prevenzione dipendenze', path: '/articoli-frontaliere/prevenzione-dipendenze-ticino-2026', parent: 'blog' },
     'blog-concertone-primo-maggio-roma-artisti-2026': { name: 'Concertone Primo Maggio', path: '/articoli-frontaliere/concertone-primo-maggio-roma-artisti-2026', parent: 'blog' },
+    'blog-mondo-radio-piange-alberto-davoli': { name: 'Novità', path: '/articoli-frontaliere/mondo-radio-piange-alberto-davoli', parent: 'blog' },
+    'blog-rendiconto-banca-interpretazione-2026': { name: 'Rendiconto banca', path: '/articoli-frontaliere/rendiconto-banca-interpretazione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
