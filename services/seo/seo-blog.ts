@@ -34520,6 +34520,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tragedia-vico-morcote-bimbo-piscina': {
+    title: 'Tragedia a Vico Morcote: bimbo di due anni annega in piscina',
+    description: 'Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La tragedia si è verificata in una villa privata. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tragedia, vico, morcote, bimbo',
+    ogTitle: 'Tragedia a Vico Morcote: bimbo di due anni annega in piscina',
+    ogDescription: 'Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La tragedia si è verificata in una villa privata.',
+    canonicalPath: '/articoli-frontaliere/tragedia-vico-morcote-bimbo-piscina',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tragedia a Vico Morcote: bimbo di due anni annega in piscina",
+      "description": "Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La tragedia si è verificata in una villa privata. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tragedia-vico-morcote-bimbo-piscina.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa a Vico Morcote con piscina e vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-05-01T21:33:30+00:00",
+      "dateModified": "2026-05-01T21:33:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-vico-morcote-bimbo-piscina`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4918,6 +4918,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.polizia-ticino-abbandono-progetto-2026.title': 'Polizei Tessin: Projekt nach Widerstand aufgegeben',
     'blog.article.polizia-ticino-abbandono-progetto-2026.excerpt': 'Das Reformprojekt der Tessiner Polizei wurde nach 12 Monaten Konsultation und starken Widerständen aufgegeben',
     'blog.article.polizia-ticino-abbandono-progetto-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.title': 'Tragödie in Vico Morcote: Zweijähriger ertrinkt im Pool',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.excerpt': 'Ein zweijähriges Kind hat in einem Pool-Unfall in Vico Morcote sein Leben verloren. Die Tragödie ereignete sich in einer Privatvilla.',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.imageAlt': 'Villa in Vico Morcote mit Pool und Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

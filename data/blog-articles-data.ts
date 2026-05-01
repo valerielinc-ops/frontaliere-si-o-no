@@ -12489,4 +12489,11 @@ export const ARTICLES = [
  image: '/images/blog/polizia-ticino-abbandono-progetto-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'tragedia-vico-morcote-bimbo-piscina',
+ category: 'novita',
+ date: '2026-05-01T21:33:30.021Z',
+ image: '/images/blog/tragedia-vico-morcote-bimbo-piscina.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

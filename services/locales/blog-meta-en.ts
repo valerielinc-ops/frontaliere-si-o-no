@@ -4918,6 +4918,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.polizia-ticino-abbandono-progetto-2026.title': 'Ticino Police: reform project abandoned after opposition',
     'blog.article.polizia-ticino-abbandono-progetto-2026.excerpt': 'The reform project of the Ticino police has been abandoned after 12 months of consultation and strong opposition',
     'blog.article.polizia-ticino-abbandono-progetto-2026.imageAlt': 'Aerial view of Lugano with Lake Ceresio',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.title': 'Tragedy in Vico Morcote: 2-year-old drowns in pool',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.excerpt': 'A two-year-old child has lost their life in a pool accident in Vico Morcote. The tragedy occurred in a private villa.',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.imageAlt': 'Villa in Vico Morcote with pool and view of Lake Lugano',
 };
 
 export default blogMetaEn;

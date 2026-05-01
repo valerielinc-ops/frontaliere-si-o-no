@@ -4919,6 +4919,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.polizia-ticino-abbandono-progetto-2026.title': 'Police du Tessin : projet abandonné après des oppositions',
     'blog.article.polizia-ticino-abbandono-progetto-2026.excerpt': 'Le projet de réforme de la police tessinoise a été abandonné après 12 mois de consultation et de fortes oppositions',
     'blog.article.polizia-ticino-abbandono-progetto-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.title': 'Tragédie à Vico Morcote: un enfant de 2 ans se noie dans une piscine',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.excerpt': 'Un enfant de deux ans a perdu la vie dans un accident de piscine à Vico Morcote. La tragédie s\'est produite dans une villa privée.',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.imageAlt': 'Villa à Vico Morcote avec piscine et vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

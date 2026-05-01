@@ -4919,6 +4919,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.polizia-ticino-abbandono-progetto-2026.title': 'Polizia Ticino: progetto abbandonato dopo opposizioni',
     'blog.article.polizia-ticino-abbandono-progetto-2026.excerpt': 'Il progetto di riforma della polizia ticinese è stato abbandonato dopo 12 mesi di consultazione e forti opposizioni',
     'blog.article.polizia-ticino-abbandono-progetto-2026.imageAlt': 'Vista aerea di Lugano con il lago Ceresio',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.title': 'Tragedia a Vico Morcote: bimbo di due anni annega in piscina',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.excerpt': 'Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La tragedia si è verificata in una villa privata.',
+    'blog.article.tragedia-vico-morcote-bimbo-piscina.imageAlt': 'Villa a Vico Morcote con piscina e vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;
