@@ -34462,6 +34462,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sindacati-ticino-1-maggio-2026': {
+    title: '1° maggio: sindacati Ticino contro iniziative UDC e destra',
+    description: '3.000 persone in corteo a Lugano. Critiche a proposte considerate razziste e xenofobe. Fonio: condizioni di lavoro a rischio. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggio, sindacati, contro, iniziative',
+    ogTitle: '1° maggio: sindacati Ticino contro iniziative UDC e destra',
+    ogDescription: '3.000 persone in corteo a Lugano. Critiche a proposte considerate razziste e xenofobe. Fonio: condizioni di lavoro a rischio.',
+    canonicalPath: '/articoli-frontaliere/sindacati-ticino-1-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "1° maggio: sindacati Ticino contro iniziative UDC e destra",
+      "description": "3.000 persone in corteo a Lugano. Critiche a proposte considerate razziste e xenofobe. Fonio: condizioni di lavoro a rischio. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sindacati-ticino-1-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-01T21:14:17+00:00",
+      "dateModified": "2026-05-01T21:14:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindacati-ticino-1-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

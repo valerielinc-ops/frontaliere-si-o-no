@@ -4913,6 +4913,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiese-ticino-derubate-2026.title': 'Chiese derubate in Ticino e Graubünden: due rumeni arrestati',
     'blog.article.chiese-ticino-derubate-2026.excerpt': 'Due rumeni arrestati per furti in sei chiese tra Ticino e Graubünden. Scopri i dettagli delle indagini e cosa fare se sei stato vittima di un furto.',
     'blog.article.chiese-ticino-derubate-2026.imageAlt': 'Veduta aerea di Claro e delle chiese circostanti in Ticino',
+    'blog.article.sindacati-ticino-1-maggio-2026.title': '1° maggio: sindacati Ticino contro iniziative UDC e destra',
+    'blog.article.sindacati-ticino-1-maggio-2026.excerpt': '3.000 persone in corteo a Lugano. Critiche a proposte considerate razziste e xenofobe. Fonio: condizioni di lavoro a rischio.',
+    'blog.article.sindacati-ticino-1-maggio-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

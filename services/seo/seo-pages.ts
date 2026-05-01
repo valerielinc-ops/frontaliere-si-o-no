@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1687,
+ "numberOfItems": 1688,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6322,7 +6322,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1684, "name": "Cinque curiosità sui brevetti svizzeri", "url": `${BASE_URL}/articoli-frontaliere/cinque-curiosita-brevetti-svizzeri-2026` },
           { "@type": "ListItem", "position": 1685, "name": "Libertà di stampa in Svizzera: ottava nel mondo", "url": `${BASE_URL}/articoli-frontaliere/liberta-stampa-minimi-25-anni` },
           { "@type": "ListItem", "position": 1686, "name": "Tutto il villaggio dal suo piccolo angelo: il d...", "url": `${BASE_URL}/articoli-frontaliere/villaggio-angelo-busto-arsizio` },
-          { "@type": "ListItem", "position": 1687, "name": "Chiese derubate in Ticino e Graubünden: due rum...", "url": `${BASE_URL}/articoli-frontaliere/chiese-ticino-derubate-2026` }
+          { "@type": "ListItem", "position": 1687, "name": "Chiese derubate in Ticino e Graubünden: due rum...", "url": `${BASE_URL}/articoli-frontaliere/chiese-ticino-derubate-2026` },
+          { "@type": "ListItem", "position": 1688, "name": "1° maggio: sindacati Ticino contro iniziative U...", "url": `${BASE_URL}/articoli-frontaliere/sindacati-ticino-1-maggio-2026` }
  ]
  },
  {

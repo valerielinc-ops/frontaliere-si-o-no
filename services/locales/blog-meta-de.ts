@@ -4912,6 +4912,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiese-ticino-derubate-2026.title': 'Zwei Rumänen nach Kirchenraub in Ticino und Graubünden verhaftet',
     'blog.article.chiese-ticino-derubate-2026.excerpt': 'Zwei Rumänen wurden wegen Diebstählen in sechs Kirchen zwischen Ticino und Graubünden festgenommen. Erfahren Sie mehr über die Ermittlungen und was zu tun ist, wenn Sie Opfer eines Diebstahls geworden sind.',
     'blog.article.chiese-ticino-derubate-2026.imageAlt': 'Luftaufnahme von Claro und den umliegenden Kirchen in Ticino',
+    'blog.article.sindacati-ticino-1-maggio-2026.title': '1. Mai: Gewerkschaften im Tessin gegen UDC-Initiativen und Rechte',
+    'blog.article.sindacati-ticino-1-maggio-2026.excerpt': '3.000 Personen am Umzug in Lugano. Kritik an als rassistisch und fremdenfeindlich eingestuften Vorschlägen. Fonio: Arbeitsbedingungen gefährdet.',
+    'blog.article.sindacati-ticino-1-maggio-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

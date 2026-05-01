@@ -12475,4 +12475,11 @@ export const ARTICLES = [
  image: '/images/blog/chiese-ticino-derubate-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sindacati-ticino-1-maggio-2026',
+ category: 'novita',
+ date: '2026-05-01T21:14:17.634Z',
+ image: '/images/blog/sindacati-ticino-1-maggio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4913,6 +4913,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiese-ticino-derubate-2026.title': 'Deux Roumains arrêtés pour des vols dans des églises en Suisse',
     'blog.article.chiese-ticino-derubate-2026.excerpt': 'Deux Roumains arrêtés pour des vols dans six églises entre le Tessin et les Grisons. Découvrez les détails de l\'enquête et ce qu\'il faut faire si vous avez été victime d\'un vol.',
     'blog.article.chiese-ticino-derubate-2026.imageAlt': 'Vue aérienne de Claro et des églises environnantes dans le Tessin',
+    'blog.article.sindacati-ticino-1-maggio-2026.title': '1er mai: syndicats du Tessin contre les initiatives UDC et la droite',
+    'blog.article.sindacati-ticino-1-maggio-2026.excerpt': '3.000 personnes en cortège à Lugano. Critiques contre des propositions jugées racistes et xénophobes. Fonio: les conditions de travail en danger.',
+    'blog.article.sindacati-ticino-1-maggio-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;
