@@ -4751,6 +4751,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-festa-lavoro-diritti-salari.title': 'Como, Festa del lavoro: diritti e salari dignitosi',
     'blog.article.como-festa-lavoro-diritti-salari.excerpt': 'Centinaia di persone si sono radunate in piazza Perretta per la Festa del Lavoro, promossa dai sindacati Cgil, Cisl e Uil. Richieste centrali: salari dignitosi, sicurezza e stabilità.',
     'blog.article.como-festa-lavoro-diritti-salari.imageAlt': 'Vista aerea del Lago di Lugano con lo skyline di Como sullo sfondo, cielo azzurro limpido, persone riunite in una piazza pubblica, atmosfera festosa',
+    'blog.article.denuncia-soccorsi-crans-montana-2026.title': 'Denuncia per mancanza di attrezzature ai soccorsi di Crans-Montana',
+    'blog.article.denuncia-soccorsi-crans-montana-2026.excerpt': 'Avvocati delle vittime denunciano l\'Organizzazione cantonale vallesana per insufficienze nel dispositivo di intervento dopo l\'incendio del bar Le Constellation',
+    'blog.article.denuncia-soccorsi-crans-montana-2026.imageAlt': 'Emergenza a Crans-Montana dopo l\'incendio del bar Le Constellation',
 };
 
 export default blogMetaIt;

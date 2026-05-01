@@ -4750,6 +4750,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-festa-lavoro-diritti-salari.title': 'Como: Tag der Arbeit - Würde und Löhne',
     'blog.article.como-festa-lavoro-diritti-salari.excerpt': 'Hunderte Menschen haben sich auf dem Piazza Perretta zum Tag der Arbeit versammelt, organisiert von den Gewerkschaften Cgil, Cisl und Uil. Hauptforderungen: würdige Löhne, Sicherheit und Stabilität.',
     'blog.article.como-festa-lavoro-diritti-salari.imageAlt': 'Luftaufnahme des Luganersees mit dem Skyline von Como im Hintergrund, klarer blauer Himmel, Menschen versammelt auf einem öffentlichen Platz, festliche Atmosphäre',
+    'blog.article.denuncia-soccorsi-crans-montana-2026.title': 'Anzeige wegen mangelnder Ausrüstung bei Rettungseinsätzen in Crans-Montana',
+    'blog.article.denuncia-soccorsi-crans-montana-2026.excerpt': 'Anwälte der Opfer zeigen die kantonale Organisation Wallis wegen Mängeln im Einsatz nach dem Brand im Bar Le Constellation an',
+    'blog.article.denuncia-soccorsi-crans-montana-2026.imageAlt': 'Notfall in Crans-Montana nach dem Brand im Bar Le Constellation',
 };
 
 export default blogMetaDe;

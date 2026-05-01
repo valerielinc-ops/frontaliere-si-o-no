@@ -32896,6 +32896,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-denuncia-soccorsi-crans-montana-2026': {
+    title: 'Denuncia per mancanza di attrezzature ai soccorsi di Crans-Montana',
+    description: 'Avvocati delle vittime denunciano l\'Organizzazione cantonale vallesana per insufficienze nel dispositivo di intervento dopo l\'incendio del bar Le Constellation',
+    keywords: 'frontalieri, ticino, svizzera, italia, denuncia, mancanza, attrezzature, soccorsi',
+    ogTitle: 'Denuncia per mancanza di attrezzature ai soccorsi di Crans-Montana',
+    ogDescription: 'Avvocati delle vittime denunciano l\'Organizzazione cantonale vallesana per insufficienze nel dispositivo di intervento dopo l\'incendio del bar Le Constellation',
+    canonicalPath: '/articoli-frontaliere/denuncia-soccorsi-crans-montana-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Denuncia per mancanza di attrezzature ai soccorsi di Crans-Montana",
+      "description": "Avvocati delle vittime denunciano l'Organizzazione cantonale vallesana per insufficienze nel dispositivo di intervento dopo l'incendio del bar Le Constellation",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/denuncia-soccorsi-crans-montana-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Emergenza a Crans-Montana dopo l'incendio del bar Le Constellation"
+      },
+      "datePublished": "2026-05-01T12:34:09+00:00",
+      "dateModified": "2026-05-01T12:34:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/denuncia-soccorsi-crans-montana-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

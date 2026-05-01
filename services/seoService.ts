@@ -2814,6 +2814,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bellinzonesi-germania-karate-2026': { name: 'Novità', path: '/articoli-frontaliere/bellinzonesi-germania-karate-2026', parent: 'blog' },
     'blog-chiusura-notturna-a9-lomazzo-chiasso': { name: 'Chiusura notturna A9', path: '/articoli-frontaliere/chiusura-notturna-a9-lomazzo-chiasso', parent: 'blog' },
     'blog-como-festa-lavoro-diritti-salari': { name: 'Festa del Lavoro', path: '/articoli-frontaliere/como-festa-lavoro-diritti-salari', parent: 'blog' },
+    'blog-denuncia-soccorsi-crans-montana-2026': { name: 'Denuncia soccorsi', path: '/articoli-frontaliere/denuncia-soccorsi-crans-montana-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
