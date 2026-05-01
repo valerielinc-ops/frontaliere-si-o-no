@@ -2827,6 +2827,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pregassona-festa-400-fonio-iniziativa-udc': { name: 'Festa Pregassona', path: '/articoli-frontaliere/pregassona-festa-400-fonio-iniziativa-udc', parent: 'blog' },
     'blog-142-numero-aiuto-vittime-ticino': { name: '142 Ticino', path: '/articoli-frontaliere/142-numero-aiuto-vittime-ticino', parent: 'blog' },
     'blog-ponte-l-acqua-ticino-2026': { name: 'Meteo Ticino', path: '/articoli-frontaliere/ponte-l-acqua-ticino-2026', parent: 'blog' },
+    'blog-nuovo-canile-varese-duni-2026': { name: 'Nuovo canile Varese', path: '/articoli-frontaliere/nuovo-canile-varese-duni-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

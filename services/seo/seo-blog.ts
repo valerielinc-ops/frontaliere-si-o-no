@@ -33273,6 +33273,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-canile-varese-duni-2026': {
+    title: 'Nuovo canile di Varese ai Duni: progetto approvato, realizzazione a tappe',
+    description: 'La Commissione Ambiente ha approvato il progetto per il nuovo canile di Varese ai Duni, ma i costi aumentati impongono una realizzazione in due fasi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, canile, varese, duni',
+    ogTitle: 'Nuovo canile Varese Duni: progetto approvato, realizzazione a tappe',
+    ogDescription: 'La Commissione Ambiente ha approvato il progetto per il nuovo canile di Varese ai Duni, ma i costi aumentati impongono una realizzazione in due fasi.',
+    canonicalPath: '/articoli-frontaliere/nuovo-canile-varese-duni-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo canile di Varese ai Duni: progetto approvato, realizzazione a tappe",
+      "description": "La Commissione Ambiente ha approvato il progetto per il nuovo canile di Varese ai Duni, ma i costi aumentati impongono una realizzazione in due fasi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovo-canile-varese-duni-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuovo canile di Varese ai Duni, area naturale con possibile cantiere"
+      },
+      "datePublished": "2026-05-01T14:49:08+00:00",
+      "dateModified": "2026-05-01T14:49:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-canile-varese-duni-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4790,6 +4790,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ponte-l-acqua-ticino-2026.title': 'Après le pont, la pluie : météo Tessin 2026',
     'blog.article.ponte-l-acqua-ticino-2026.excerpt': 'Week-end ensoleillé, mais des pluies et des températures plus fraîches à partir de lundi. Voici ce qu\'il faut attendre.',
     'blog.article.ponte-l-acqua-ticino-2026.imageAlt': 'Lac de Lugano avec ciel dégagé et soleil éclatant',
+    'blog.article.nuovo-canile-varese-duni-2026.title': 'Nouveau chenil de Varèse aux Duni: projet approuvé, réalisation par étapes',
+    'blog.article.nuovo-canile-varese-duni-2026.excerpt': 'La Commission Environnement a approuvé le projet pour le nouveau chenil de Varèse aux Duni, mais les coûts augmentés imposent une réalisation en deux phases.',
+    'blog.article.nuovo-canile-varese-duni-2026.imageAlt': 'Nouveau chenil de Varese aux Duni, zone naturelle avec possible chantier',
 };
 
 export default blogMetaFr;

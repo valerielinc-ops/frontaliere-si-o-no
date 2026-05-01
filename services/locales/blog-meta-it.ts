@@ -4790,6 +4790,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ponte-l-acqua-ticino-2026.title': 'Dopo il ponte, l’acqua: meteo Ticino 2026',
     'blog.article.ponte-l-acqua-ticino-2026.excerpt': 'Fine settimana soleggiato, ma da lunedì piogge e temperature più fresche. Ecco cosa aspettarsi.',
     'blog.article.ponte-l-acqua-ticino-2026.imageAlt': 'Lago di Lugano con cielo sereno e sole splendente',
+    'blog.article.nuovo-canile-varese-duni-2026.title': 'Nuovo canile di Varese ai Duni: progetto approvato, realizzazione a tappe',
+    'blog.article.nuovo-canile-varese-duni-2026.excerpt': 'La Commissione Ambiente ha approvato il progetto per il nuovo canile di Varese ai Duni, ma i costi aumentati impongono una realizzazione in due fasi.',
+    'blog.article.nuovo-canile-varese-duni-2026.imageAlt': 'Nuovo canile di Varese ai Duni, area naturale con possibile cantiere',
 };
 
 export default blogMetaIt;

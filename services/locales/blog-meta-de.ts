@@ -4789,6 +4789,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ponte-l-acqua-ticino-2026.title': 'Nach der Brücke, das Wasser: Wetter im Tessin 2026',
     'blog.article.ponte-l-acqua-ticino-2026.excerpt': 'Sonniges Wochenende, aber ab Montag Regen und kühlere Temperaturen. Hier erfahren Sie, was Sie erwartet.',
     'blog.article.ponte-l-acqua-ticino-2026.imageAlt': 'Luganersee mit klarem Himmel und Sonnenschein',
+    'blog.article.nuovo-canile-varese-duni-2026.title': 'Neues Tierheim Varese ai Duni: Projekt genehmigt, Umsetzung in Etappen',
+    'blog.article.nuovo-canile-varese-duni-2026.excerpt': 'Die Umweltkommission hat das Projekt für das neue Tierheim Varese ai Duni genehmigt, aber die gestiegenen Kosten erfordern eine Umsetzung in zwei Phasen.',
+    'blog.article.nuovo-canile-varese-duni-2026.imageAlt': 'Neues Hundezwinger in Varese bei Duni, Naturgebiet mit möglicher Baustelle',
 };
 
 export default blogMetaDe;

@@ -4789,6 +4789,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ponte-l-acqua-ticino-2026.title': 'After the bridge, the water: Ticino weather 2026',
     'blog.article.ponte-l-acqua-ticino-2026.excerpt': 'Sunny weekend, but from Monday rain and cooler temperatures. Here\'s what to expect.',
     'blog.article.ponte-l-acqua-ticino-2026.imageAlt': 'Lake Lugano with clear skies and sunshine',
+    'blog.article.nuovo-canile-varese-duni-2026.title': 'New Varese ai Duni dog shelter: project approved, phased construction',
+    'blog.article.nuovo-canile-varese-duni-2026.excerpt': 'The Environment Commission has approved the project for the new Varese ai Duni dog shelter, but increased costs require a two-phase construction.',
+    'blog.article.nuovo-canile-varese-duni-2026.imageAlt': 'New dog shelter in Varese at Duni, natural area with possible construction site',
 };
 
 export default blogMetaEn;
