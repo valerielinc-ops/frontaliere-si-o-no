@@ -4934,6 +4934,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-2026-svizzera-cortei.title': 'Primo Maggio 2026 in Svizzera: cortei pacifici e critiche al capitalismo',
     'blog.article.primo-maggio-2026-svizzera-cortei.excerpt': 'Migliaia di manifestanti hanno partecipato ai cortei del Primo Maggio in Svizzera, con episodi di vandalismo a Zurigo e critiche al G7 e al capitalismo.',
     'blog.article.primo-maggio-2026-svizzera-cortei.imageAlt': 'Manifestazione del Primo Maggio in una piazza svizzera, con persone che tengono cartelli e striscioni.',
+    'blog.article.guardie-svizzere-2025-intenso.title': 'Guardie svizzere: 2025 anno intenso con morte di Papa Francesco e conclave',
+    'blog.article.guardie-svizzere-2025-intenso.excerpt': 'Il 2025 è stato un anno eccezionale per la Guardia svizzera pontificia, segnato dalla morte di Papa Francesco, il conclave e il giubileo.',
+    'blog.article.guardie-svizzere-2025-intenso.imageAlt': 'Guardie svizzere in uniforme tradizionale davanti a Castel Sant\'Angelo a Roma',
 };
 
 export default blogMetaIt;

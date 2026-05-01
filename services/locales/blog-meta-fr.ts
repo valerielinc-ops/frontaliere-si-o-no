@@ -4934,6 +4934,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-2026-svizzera-cortei.title': '1er Mai 2026 en Suisse: manifestations pacifiques et critiques du capitalisme',
     'blog.article.primo-maggio-2026-svizzera-cortei.excerpt': 'Des milliers de manifestants ont participé aux défilés du 1er Mai en Suisse, avec des épisodes de vandalisme à Zurich et des critiques du G7 et du capitalisme.',
     'blog.article.primo-maggio-2026-svizzera-cortei.imageAlt': 'Manifestation du Premier Mai dans une place suisse, avec des personnes tenant des pancartes et des banderoles.',
+    'blog.article.guardie-svizzere-2025-intenso.title': 'Gardes suisses : 2025, année intense avec la mort du pape François et conclave',
+    'blog.article.guardie-svizzere-2025-intenso.excerpt': 'L\'année 2025 a été exceptionnelle pour la Garde suisse pontificale, marquée par la mort du pape François, le conclave et le jubilé.',
+    'blog.article.guardie-svizzere-2025-intenso.imageAlt': 'Gardes suisses en uniforme traditionnelle devant le château Saint-Ange à Rome',
 };
 
 export default blogMetaFr;

@@ -2875,6 +2875,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ia-meteo-eventi-estremi': { name: 'Novità', path: '/articoli-frontaliere/ia-meteo-eventi-estremi', parent: 'blog' },
     'blog-tentato-assassinio-chiasso-2026': { name: 'Novità', path: '/articoli-frontaliere/tentato-assassinio-chiasso-2026', parent: 'blog' },
     'blog-primo-maggio-2026-svizzera-cortei': { name: 'Primo Maggio 2026', path: '/articoli-frontaliere/primo-maggio-2026-svizzera-cortei', parent: 'blog' },
+    'blog-guardie-svizzere-2025-intenso': { name: 'Guardie svizzere', path: '/articoli-frontaliere/guardie-svizzere-2025-intenso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

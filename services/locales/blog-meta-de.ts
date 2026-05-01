@@ -4933,6 +4933,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-2026-svizzera-cortei.title': '1. Mai 2026 in der Schweiz: friedliche Proteste und Kapitalismuskritik',
     'blog.article.primo-maggio-2026-svizzera-cortei.excerpt': 'Tausende Demonstranten nahmen an den 1. Mai-Kundgebungen in der Schweiz teil, mit Vandalismus in Zürich und Kritik am G7 und am Kapitalismus.',
     'blog.article.primo-maggio-2026-svizzera-cortei.imageAlt': 'Maikundgebung auf einem Schweizer Stadtplatz, mit Menschen, die Schilder und Transparente halten.',
+    'blog.article.guardie-svizzere-2025-intenso.title': 'Schweizer Garde: 2025 mit Papst Franziskus\' Tod und Konklave',
+    'blog.article.guardie-svizzere-2025-intenso.excerpt': 'Das Jahr 2025 war für die Päpstliche Schweizergarde außergewöhnlich, geprägt durch den Tod von Papst Franziskus, das Konklave und das Jubiläum.',
+    'blog.article.guardie-svizzere-2025-intenso.imageAlt': 'Schweizer Garde in traditioneller Uniform vor dem Kastell Sant\'Angelo in Rom',
 };
 
 export default blogMetaDe;

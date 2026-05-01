@@ -4933,6 +4933,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-2026-svizzera-cortei.title': 'May Day 2026 in Switzerland: peaceful protests and capitalism criticism',
     'blog.article.primo-maggio-2026-svizzera-cortei.excerpt': 'Thousands of protesters took part in May Day marches across Switzerland, with vandalism in Zurich and criticism of the G7 and capitalism.',
     'blog.article.primo-maggio-2026-svizzera-cortei.imageAlt': 'May Day protest in a Swiss city square, with people holding signs and banners.',
+    'blog.article.guardie-svizzere-2025-intenso.title': 'Swiss Guards: 2025 marked by Pope Francis\' death and conclave',
+    'blog.article.guardie-svizzere-2025-intenso.excerpt': 'The year 2025 was exceptional for the Pontifical Swiss Guard, marked by the death of Pope Francis, the conclave, and the jubilee.',
+    'blog.article.guardie-svizzere-2025-intenso.imageAlt': 'Swiss Guards in traditional uniforms in front of Castel Sant\'Angelo in Rome',
 };
 
 export default blogMetaEn;

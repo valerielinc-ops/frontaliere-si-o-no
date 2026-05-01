@@ -34665,6 +34665,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guardie-svizzere-2025-intenso': {
+    title: 'Guardie svizzere: 2025 anno intenso con morte di Papa Francesco e conclave',
+    description: 'Il 2025 è stato un anno eccezionale per la Guardia svizzera pontificia, segnato dalla morte di Papa Francesco, il conclave e il giubileo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, guardie, svizzere, 2025, anno',
+    ogTitle: 'Guardie svizzere: 2025 anno intenso con morte di Papa Francesco e conclave',
+    ogDescription: 'Il 2025 è stato un anno eccezionale per la Guardia svizzera pontificia, segnato dalla morte di Papa Francesco, il conclave e il giubileo.',
+    canonicalPath: '/articoli-frontaliere/guardie-svizzere-2025-intenso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guardie svizzere: 2025 anno intenso con morte di Papa Francesco e conclave",
+      "description": "Il 2025 è stato un anno eccezionale per la Guardia svizzera pontificia, segnato dalla morte di Papa Francesco, il conclave e il giubileo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guardie-svizzere-2025-intenso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guardie svizzere in uniforme tradizionale davanti a Castel Sant'Angelo a Roma"
+      },
+      "datePublished": "2026-05-01T22:22:04+00:00",
+      "dateModified": "2026-05-01T22:22:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guardie-svizzere-2025-intenso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

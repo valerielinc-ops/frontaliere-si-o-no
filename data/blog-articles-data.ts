@@ -12524,4 +12524,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-2026-svizzera-cortei.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'guardie-svizzere-2025-intenso',
+ category: 'novita',
+ date: '2026-05-01T22:22:04.675Z',
+ image: '/images/blog/guardie-svizzere-2025-intenso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
