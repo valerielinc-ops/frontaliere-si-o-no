@@ -4681,6 +4681,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-aiuto-vittime-700-dossier.title': 'Crans-Montana: 700 Fälle von Beratungsstellen für Opfer',
     'blog.article.crans-montana-aiuto-vittime-700-dossier.excerpt': 'Fast 700 Fälle bearbeitet und 400\'000 Franken für die Opfer des Silvesterbrandes in Crans-Montana gezahlt.',
     'blog.article.crans-montana-aiuto-vittime-700-dossier.imageAlt': 'Luftaufnahme von Crans-Montana, Schweiz, mit seinen ikonischen Skipisten und Luxushotels, aufgenommen an einem klaren Wintertag.',
+    'blog.article.zanzara-tigre-losone-2026.title': 'Losone: Rückgang der Tigermücke im 2025',
+    'blog.article.zanzara-tigre-losone-2026.excerpt': 'Die Technik der sterilen Männchen hat das Auftreten der Tigermücke in Losone deutlich reduziert. Hier sind die Details.',
+    'blog.article.zanzara-tigre-losone-2026.imageAlt': 'Luftaufnahme des Luganersees mit Losone im Hintergrund, Schweizer-Italienische Grenze sichtbar',
 };
 
 export default blogMetaDe;

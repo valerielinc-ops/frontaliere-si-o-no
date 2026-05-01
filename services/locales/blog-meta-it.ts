@@ -4682,6 +4682,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-aiuto-vittime-700-dossier.title': 'Crans-Montana: 700 dossier gestiti dai consultori per le vittime',
     'blog.article.crans-montana-aiuto-vittime-700-dossier.excerpt': 'Quasi 700 dossier gestiti e 400\'000 franchi versati per le vittime dell\'incendio di Capodanno a Crans-Montana.',
     'blog.article.crans-montana-aiuto-vittime-700-dossier.imageAlt': 'Vista aerea di Crans-Montana, Svizzera, con le sue famose piste da sci e hotel di lusso, ripresa in una giornata invernale limpida.',
+    'blog.article.zanzara-tigre-losone-2026.title': 'Losone: calo zanzara tigre nel 2025',
+    'blog.article.zanzara-tigre-losone-2026.excerpt': 'La tecnica del maschio sterile ha ridotto significativamente la presenza della zanzara tigre a Losone. Ecco i dettagli.',
+    'blog.article.zanzara-tigre-losone-2026.imageAlt': 'Vista aerea del Lago di Lugano con Losone sullo sfondo, confine Svizzera-Italia visibile',
 };
 
 export default blogMetaIt;

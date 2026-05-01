@@ -32229,6 +32229,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zanzara-tigre-losone-2026': {
+    title: 'Losone: calo zanzara tigre nel 2025 | Frontaliere Ticino',
+    description: 'La tecnica del maschio sterile ha ridotto significativamente la presenza della zanzara tigre a Losone. Ecco i dettagli e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, losone, calo, zanzara, tigre',
+    ogTitle: 'Losone: calo zanzara tigre nel 2025',
+    ogDescription: 'La tecnica del maschio sterile ha ridotto significativamente la presenza della zanzara tigre a Losone. Ecco i dettagli e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/zanzara-tigre-losone-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Losone: calo zanzara tigre nel 2025",
+      "description": "La tecnica del maschio sterile ha ridotto significativamente la presenza della zanzara tigre a Losone. Ecco i dettagli e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/zanzara-tigre-losone-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con Losone sullo sfondo, confine Svizzera-Italia visibile"
+      },
+      "datePublished": "2026-05-01T09:15:48+00:00",
+      "dateModified": "2026-05-01T09:15:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/zanzara-tigre-losone-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

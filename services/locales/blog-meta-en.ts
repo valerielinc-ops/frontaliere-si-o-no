@@ -4681,6 +4681,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-aiuto-vittime-700-dossier.title': 'Crans-Montana: 700 cases handled by victim support centers',
     'blog.article.crans-montana-aiuto-vittime-700-dossier.excerpt': 'Almost 700 cases handled and 400,000 francs paid to victims of the New Year\'s Eve fire in Crans-Montana.',
     'blog.article.crans-montana-aiuto-vittime-700-dossier.imageAlt': 'Aerial view of Crans-Montana, Switzerland, with its iconic ski slopes and luxury hotels, captured on a clear winter day.',
+    'blog.article.zanzara-tigre-losone-2026.title': 'Losone: tiger mosquito decline in 2025',
+    'blog.article.zanzara-tigre-losone-2026.excerpt': 'The sterile male technique has significantly reduced the presence of the tiger mosquito in Losone. Here are the details.',
+    'blog.article.zanzara-tigre-losone-2026.imageAlt': 'Aerial view of Lake Lugano with Losone in the background, Switzerland-Italy border visible',
 };
 
 export default blogMetaEn;

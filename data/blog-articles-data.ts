@@ -11936,4 +11936,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-aiuto-vittime-700-dossier.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'zanzara-tigre-losone-2026',
+ category: 'novita',
+ date: '2026-05-01T09:15:48.490Z',
+ image: '/images/blog/zanzara-tigre-losone-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
