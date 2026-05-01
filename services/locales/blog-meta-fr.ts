@@ -4673,6 +4673,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.festa-fragole-camorino-beneficenza.title': 'Fête des fraises à Camorino: 70 ans de tradition et de solidarité',
     'blog.article.festa-fragole-camorino-beneficenza.excerpt': 'La fête des fraises de Camorino célèbre ses 70 ans avec des événements, de la joie et des dons annuels de 17\'000 francs aux associations locales',
     'blog.article.festa-fragole-camorino-beneficenza.imageAlt': 'Fête des fraises à Camorino, avec des gens profitant des événements et des fraises locales',
+    'blog.article.lite-notturna-brogeda-2026.title': 'Bagarre nocturne à Côme: trois personnes impliquées, deux hospitalisées',
+    'blog.article.lite-notturna-brogeda-2026.excerpt': 'Une bagarre nocturne dans la rue Brogeda à Côme a impliqué trois personnes, dont deux ont été hospitalisées.',
+    'blog.article.lite-notturna-brogeda-2026.imageAlt': 'Scène de nuit à Bellinzone avec des voitures de police et des lumières clignotantes, des personnes impliquées dans une altercation',
 };
 
 export default blogMetaFr;

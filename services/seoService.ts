@@ -2788,6 +2788,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iniziativa-10-milioni-sostenibile': { name: 'Iniziativa UDC', path: '/articoli-frontaliere/iniziativa-10-milioni-sostenibile', parent: 'blog' },
     'blog-click-fatture-servizio-hot': { name: 'Fatture ingiustificate', path: '/articoli-frontaliere/click-fatture-servizio-hot', parent: 'blog' },
     'blog-festa-fragole-camorino-beneficenza': { name: 'Festa fragole', path: '/articoli-frontaliere/festa-fragole-camorino-beneficenza', parent: 'blog' },
+    'blog-lite-notturna-brogeda-2026': { name: 'Lite notturna', path: '/articoli-frontaliere/lite-notturna-brogeda-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

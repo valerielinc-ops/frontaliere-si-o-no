@@ -4673,6 +4673,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.festa-fragole-camorino-beneficenza.title': 'Festa delle fragole a Camorino: 70 anni di tradizione e beneficenza',
     'blog.article.festa-fragole-camorino-beneficenza.excerpt': 'La festa delle fragole di Camorino celebra 70 anni con eventi, allegria e donazioni annuali di 17\'000 franchi alle associazioni locali',
     'blog.article.festa-fragole-camorino-beneficenza.imageAlt': 'Festa delle fragole a Camorino, con gente che partecipa agli eventi e assapora le fragole locali',
+    'blog.article.lite-notturna-brogeda-2026.title': 'Como, lite notturna in via Brogeda: tre persone coinvolte, due ricoverate',
+    'blog.article.lite-notturna-brogeda-2026.excerpt': 'Una lite notturna in via Brogeda a Como ha coinvolto tre persone, due delle quali sono state ricoverate in ospedale.',
+    'blog.article.lite-notturna-brogeda-2026.imageAlt': 'Notte a Bellinzona con auto della polizia e luci lampeggianti, persone coinvolte in una rissa',
 };
 
 export default blogMetaIt;

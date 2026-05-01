@@ -4672,6 +4672,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.festa-fragole-camorino-beneficenza.title': 'Strawberry Festival in Camorino: 70 years of tradition and charity',
     'blog.article.festa-fragole-camorino-beneficenza.excerpt': 'The Strawberry Festival in Camorino celebrates 70 years with events, joy, and annual donations of 17,000 francs to local associations',
     'blog.article.festa-fragole-camorino-beneficenza.imageAlt': 'Strawberry festival in Camorino, with people enjoying the events and local strawberries',
+    'blog.article.lite-notturna-brogeda-2026.title': 'Nighttime brawl in Como\'s via Brogeda, two hospitalized',
+    'blog.article.lite-notturna-brogeda-2026.excerpt': 'A nighttime brawl in via Brogeda, Como, involved three people, two of whom were hospitalized.',
+    'blog.article.lite-notturna-brogeda-2026.imageAlt': 'Night scene in Bellinzona with police cars and flashing lights, people involved in a brawl',
 };
 
 export default blogMetaEn;

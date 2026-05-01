@@ -4672,6 +4672,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.festa-fragole-camorino-beneficenza.title': 'Erdbeerfest Camorino: 70 Jahre Tradition und Wohltätigkeit',
     'blog.article.festa-fragole-camorino-beneficenza.excerpt': 'Das Erdbeerfest in Camorino feiert 70 Jahre mit Veranstaltungen, Freude und jährlichen Spenden von 17\'000 Franken an lokale Vereine',
     'blog.article.festa-fragole-camorino-beneficenza.imageAlt': 'Erdbeerfest in Camorino, mit Menschen, die an den Veranstaltungen und lokalen Erdbeeren teilnehmen',
+    'blog.article.lite-notturna-brogeda-2026.title': 'Nachtschlacht in Via Brogeda: Drei Beteiligte, zwei im Krankenhaus',
+    'blog.article.lite-notturna-brogeda-2026.excerpt': 'Eine Nachtschlacht in der Via Brogeda in Como hat drei Personen involviert, von denen zwei ins Krankenhaus eingeliefert wurden.',
+    'blog.article.lite-notturna-brogeda-2026.imageAlt': 'Nacht in Bellinzona mit Polizeiautos und blinkenden Lichtern, Personen in eine Schlägerei verwickelt',
 };
 
 export default blogMetaDe;

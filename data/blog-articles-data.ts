@@ -11915,4 +11915,11 @@ export const ARTICLES = [
  image: '/images/blog/festa-fragole-camorino-beneficenza.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lite-notturna-brogeda-2026',
+ category: 'novita',
+ date: '2026-05-01T08:54:01.408Z',
+ image: '/images/blog/lite-notturna-brogeda-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

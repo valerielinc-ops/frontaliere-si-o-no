@@ -32142,6 +32142,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lite-notturna-brogeda-2026': {
+    title: 'Como, lite notturna in via Brogeda: tre persone coinvolte, due ricoverate',
+    description: 'Una lite notturna in via Brogeda a Como ha coinvolto tre persone, due delle quali sono state ricoverate in ospedale. Ecco cosa sapere. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, lite, notturna, brogeda',
+    ogTitle: 'Lite notturna a Como in via Brogeda',
+    ogDescription: 'Una lite notturna in via Brogeda a Como ha coinvolto tre persone, due delle quali sono state ricoverate in ospedale. Ecco cosa sapere.',
+    canonicalPath: '/articoli-frontaliere/lite-notturna-brogeda-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lite notturna a Como in via Brogeda",
+      "description": "Una lite notturna in via Brogeda a Como ha coinvolto tre persone, due delle quali sono state ricoverate in ospedale. Ecco cosa sapere. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lite-notturna-brogeda-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Notte a Bellinzona con auto della polizia e luci lampeggianti, persone coinvolte in una rissa"
+      },
+      "datePublished": "2026-05-01T08:54:01+00:00",
+      "dateModified": "2026-05-01T08:54:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lite-notturna-brogeda-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
