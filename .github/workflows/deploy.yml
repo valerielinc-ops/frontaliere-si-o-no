@@ -344,18 +344,6 @@ jobs:
         with:
           path: dist
 
-      - name: Upload dist HTML + sitemaps for post-deploy validation
-        if: github.event.inputs.profile_sequential != 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist-html-${{ github.run_id }}
-          path: |
-            dist/**/*.html
-            dist/sitemap*.xml
-            dist/build-id.txt
-          retention-days: 7
-          if-no-files-found: warn
-
       - name: Upload write-collisions analysis
         if: always() && github.event.inputs.profile_sequential != 'true'
         uses: actions/upload-artifact@v4

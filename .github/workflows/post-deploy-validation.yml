@@ -12,9 +12,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Quick pre-check: was this a deployable run (has dist-html artifact)?
+  # Quick pre-check: was this a deployable run (has github-pages artifact)?
   # Profile-only runs (profile_sequential=true) skip the deploy steps and
-  # produce no artifact — we detect this and skip validation entirely.
+  # produce no Pages artifact — we detect this and skip validation entirely.
   pre-check:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -23,19 +23,19 @@ jobs:
     permissions:
       actions: read
     steps:
-      - name: Check for dist-html artifact
+      - name: Check for GitHub Pages artifact
         id: check
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           count=$(gh api \
             "repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}/artifacts" \
-            --jq "[.artifacts[] | select(.name == \"dist-html-${{ github.event.workflow_run.id }}\")] | length")
+            --jq "[.artifacts[] | select(.name == \"github-pages\")] | length")
           if [ "${count:-0}" -gt 0 ]; then
             echo "deployable=true" >> "$GITHUB_OUTPUT"
           else
             echo "deployable=false" >> "$GITHUB_OUTPUT"
-            echo "No dist-html artifact — profile-only run. Skipping validation."
+            echo "No github-pages artifact — profile-only run. Skipping validation."
           fi
 
   validate:
@@ -81,9 +81,9 @@ jobs:
           fi
 
       # Source validators (run on repo source, no dist/ needed) are launched in
-      # background while the dist-html artifact downloads in the foreground.
+      # background while the GitHub Pages artifact downloads in the foreground.
       # Saves 30-60s vs running them sequentially after the download.
-      - name: Source validators + download dist HTML artifact (parallel)
+      - name: Source validators + download GitHub Pages artifact (parallel)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
@@ -110,10 +110,14 @@ jobs:
           run_bg gate:seo-source /tmp/v27.log \
             npm run gate:seo-source
 
-          # Download dist HTML + sitemaps while validators run in background.
+          # Download the exact Pages artifact that was deployed, then expand
+          # artifact.tar back into dist/ for the file-based validators.
+          rm -rf /tmp/github-pages-artifact dist
+          mkdir -p /tmp/github-pages-artifact dist
           gh run download "$DEPLOY_RUN_ID" \
-            --name "dist-html-${DEPLOY_RUN_ID}" \
-            --dir dist/
+            --name "github-pages" \
+            --dir /tmp/github-pages-artifact/
+          tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
 
           # Also download the updated previous-slug winners produced by the build.
           gh run download "$DEPLOY_RUN_ID" \
@@ -133,7 +137,7 @@ jobs:
             done < /tmp/source-val-failures.txt
             exit 1
           fi
-          echo "✅ Source validators + dist download complete"
+          echo "✅ Source validators + Pages artifact download complete"
 
       - name: Cache Playwright browsers
         id: playwright-cache
@@ -239,7 +243,7 @@ jobs:
 
       - name: Build size summary
         run: |
-          echo "=== Validation artifact size summary ==="
+          echo "=== Recovered dist size summary ==="
           du -sh dist/
           echo "HTML files (top 10 by size):"
           find dist -name "*.html" -exec du -sh {} + | sort -rh | head -10
