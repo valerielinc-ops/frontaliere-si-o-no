@@ -11733,4 +11733,11 @@ export const ARTICLES = [
  image: '/images/blog/cina-turismo-interno-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mondiali-2026-iran-italia-fifa',
+ category: 'novita',
+ date: '2026-05-01T05:29:54.162Z',
+ image: '/images/blog/mondiali-2026-iran-italia-fifa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

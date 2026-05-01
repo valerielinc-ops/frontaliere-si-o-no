@@ -4594,6 +4594,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cina-turismo-interno-2026.title': 'China: Reiseboom und Tourismusausgaben steigen',
     'blog.article.cina-turismo-interno-2026.excerpt': 'Im ersten Quartal 2026 verzeichnet China 1,9 Milliarden Inlandsreisen und 271 Milliarden Dollar an Tourismusausgaben',
     'blog.article.cina-turismo-interno-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund',
+    'blog.article.mondiali-2026-iran-italia-fifa.title': 'WM 2026: Iran qualifiziert, Italien bleibt draußen',
+    'blog.article.mondiali-2026-iran-italia-fifa.excerpt': 'Die FIFA bestätigt die Teilnahme des Iran an der WM 2026 und schließt ein Nachrückspiel für Italien aus. Hier sind die Auswirkungen für die Fans und die Fußballwelt.',
+    'blog.article.mondiali-2026-iran-italia-fifa.imageAlt': 'Blick auf den Luganersee mit Bergen und modernen Gebäuden',
 };
 
 export default blogMetaDe;

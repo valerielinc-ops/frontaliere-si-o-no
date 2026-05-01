@@ -4594,6 +4594,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cina-turismo-interno-2026.title': 'China: surge in domestic travel and tourism spending',
     'blog.article.cina-turismo-interno-2026.excerpt': 'In the first quarter of 2026, China recorded 1.9 billion domestic trips and };71 billion in tourism expenditure',
     'blog.article.cina-turismo-interno-2026.imageAlt': 'View of Lake Lugano with the city in the background',
+    'blog.article.mondiali-2026-iran-italia-fifa.title': 'World Cup 2026: Iran in, Italy out of playoff',
+    'blog.article.mondiali-2026-iran-italia-fifa.excerpt': 'FIFA confirms Iran\'s participation in the 2026 World Cup, excluding Italy from the playoff. Here are the implications for fans and the football world.',
+    'blog.article.mondiali-2026-iran-italia-fifa.imageAlt': 'View of Lake Lugano with mountains and modern buildings',
 };
 
 export default blogMetaEn;

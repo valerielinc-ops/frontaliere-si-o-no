@@ -4595,6 +4595,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cina-turismo-interno-2026.title': 'Cina: boom di viaggi interni e spese per il turismo',
     'blog.article.cina-turismo-interno-2026.excerpt': 'Nel primo trimestre 2026, la Cina registra 1,9 miliardi di viaggi interni e 271 miliardi di dollari di spesa turistica',
     'blog.article.cina-turismo-interno-2026.imageAlt': 'Vista del lago di Lugano con la città sullo sfondo',
+    'blog.article.mondiali-2026-iran-italia-fifa.title': 'Mondiali 2026, l\'Iran giocherà: addio al ripescaggio dell\'Italia',
+    'blog.article.mondiali-2026-iran-italia-fifa.excerpt': 'La FIFA conferma la partecipazione dell\'Iran ai Mondiali 2026, escludendo il ripescaggio dell\'Italia. Ecco le implicazioni per i tifosi e il mondo del calcio.',
+    'blog.article.mondiali-2026-iran-italia-fifa.imageAlt': 'Vista del lago di Lugano con montagne e edifici moderni',
 };
 
 export default blogMetaIt;

@@ -31388,6 +31388,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mondiali-2026-iran-italia-fifa': {
+    title: 'Mondiali 2026, l\'Iran giocherà: addio al ripescaggio dell\'Italia',
+    description: 'La FIFA conferma la partecipazione dell\'Iran ai Mondiali 2026, escludendo il ripescaggio dell\'Italia. Ecco le implicazioni per i tifosi e il mondo del calcio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mondiali, iran, giocherà, addio',
+    ogTitle: 'Mondiali 2026, l\'Iran giocherà: addio al ripescaggio dell\'Italia',
+    ogDescription: 'La FIFA conferma la partecipazione dell\'Iran ai Mondiali 2026, escludendo il ripescaggio dell\'Italia. Ecco le implicazioni per i tifosi e il mondo del calcio.',
+    canonicalPath: '/articoli-frontaliere/mondiali-2026-iran-italia-fifa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mondiali 2026, l'Iran giocherà: addio al ripescaggio dell'Italia",
+      "description": "La FIFA conferma la partecipazione dell'Iran ai Mondiali 2026, escludendo il ripescaggio dell'Italia. Ecco le implicazioni per i tifosi e il mondo del calcio.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mondiali-2026-iran-italia-fifa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con montagne e edifici moderni"
+      },
+      "datePublished": "2026-05-01T05:29:54+00:00",
+      "dateModified": "2026-05-01T05:29:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mondiali-2026-iran-italia-fifa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4595,6 +4595,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cina-turismo-interno-2026.title': 'Chine : explosion des voyages et dépenses touristiques',
     'blog.article.cina-turismo-interno-2026.excerpt': 'Au premier trimestre 2026, la Chine enregistre 1,9 milliard de voyages internes et 271 milliards de dollars de dépenses touristiques',
     'blog.article.cina-turismo-interno-2026.imageAlt': 'Vue du lac de Lugano avec la ville en arrière-plan',
+    'blog.article.mondiali-2026-iran-italia-fifa.title': 'Mondial 2026 : l\'Iran qualifié, l\'Italie éliminée',
+    'blog.article.mondiali-2026-iran-italia-fifa.excerpt': 'La FIFA confirme la participation de l\'Iran au Mondial 2026, excluant le repêchage de l\'Italie. Voici les implications pour les supporters et le monde du football.',
+    'blog.article.mondiali-2026-iran-italia-fifa.imageAlt': 'Vue du lac de Lugano avec montagnes et bâtiments modernes',
 };
 
 export default blogMetaFr;
