@@ -12160,4 +12160,11 @@ export const ARTICLES = [
  image: '/images/blog/lavori-autostradali-a8-chiusure.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'festa-danzante-ticino-2026-spettacoli',
+ category: 'novita',
+ date: '2026-05-01T14:04:49.262Z',
+ image: '/images/blog/festa-danzante-ticino-2026-spettacoli.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

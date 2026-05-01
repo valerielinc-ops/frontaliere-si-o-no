@@ -4777,6 +4777,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-autostradali-a8-chiusure.title': 'A8: night closures between Busto and Gallarate, Castellanza entrance closed',
     'blog.article.lavori-autostradali-a8-chiusure.excerpt': 'New traffic changes on the A8 Milan-Varese for anti-noise barrier works. Night closures between Busto Arsizio and Gallarate and stop at Castellanza entrance.',
     'blog.article.lavori-autostradali-a8-chiusure.imageAlt': 'Aerial view of A8 highway between Busto Arsizio and Gallarate at night with roadworks and traffic diversions',
+    'blog.article.festa-danzante-ticino-2026-spettacoli.title': 'Dancing Festival 2026: Ticino moves with shows and participation',
+    'blog.article.festa-danzante-ticino-2026-spettacoli.excerpt': 'From May 6 to 10, 2026, over 40 Swiss cities host the 21st edition of the Dancing Festival, with Lugano as the beating heart of the events.',
+    'blog.article.festa-danzante-ticino-2026-spettacoli.imageAlt': 'Dance performance at LAC Lugano during the Festa Danzante 2026',
 };
 
 export default blogMetaEn;

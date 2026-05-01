@@ -33157,6 +33157,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-festa-danzante-ticino-2026-spettacoli': {
+    title: 'Festa Danzante 2026: il Ticino si muove tra spettacoli e partecipazione',
+    description: 'Dal 6 al 10 maggio 2026, oltre 40 città svizzere ospitano la 21ª edizione della Festa Danzante, con Lugano come cuore pulsante degli eventi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, festa, danzante, muove, spettacoli',
+    ogTitle: 'Festa Danzante 2026: il Ticino si muove tra spettacoli e partecipazione',
+    ogDescription: 'Dal 6 al 10 maggio 2026, oltre 40 città svizzere ospitano la 21ª edizione della Festa Danzante, con Lugano come cuore pulsante degli eventi.',
+    canonicalPath: '/articoli-frontaliere/festa-danzante-ticino-2026-spettacoli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festa Danzante 2026: il Ticino si muove tra spettacoli e partecipazione",
+      "description": "Dal 6 al 10 maggio 2026, oltre 40 città svizzere ospitano la 21ª edizione della Festa Danzante, con Lugano come cuore pulsante degli eventi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/festa-danzante-ticino-2026-spettacoli.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Spettacolo di danza al LAC di Lugano durante la Festa Danzante 2026"
+      },
+      "datePublished": "2026-05-01T14:04:49+00:00",
+      "dateModified": "2026-05-01T14:04:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festa-danzante-ticino-2026-spettacoli`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

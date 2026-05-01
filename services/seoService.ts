@@ -2823,6 +2823,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-processo-campione-dicembre-2026': { name: 'Processo Casino', path: '/articoli-frontaliere/processo-campione-dicembre-2026', parent: 'blog' },
     'blog-ingresso-gratuito-museo-costume-bagno': { name: 'Novità', path: '/articoli-frontaliere/ingresso-gratuito-museo-costume-bagno', parent: 'blog' },
     'blog-lavori-autostradali-a8-chiusure': { name: 'Novità', path: '/articoli-frontaliere/lavori-autostradali-a8-chiusure', parent: 'blog' },
+    'blog-festa-danzante-ticino-2026-spettacoli': { name: 'Eventi Ticino', path: '/articoli-frontaliere/festa-danzante-ticino-2026-spettacoli', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4777,6 +4777,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-autostradali-a8-chiusure.title': 'A8: Nachtschließungen Busto-Gallarate, Castellanza gesperrt',
     'blog.article.lavori-autostradali-a8-chiusure.excerpt': 'Neue Änderungen im Verkehrsfluss auf der A8 Mailand-Varese aufgrund von Lärmbarrierenarbeiten. Nachtschließungen zwischen Busto Arsizio und Gallarate und Sperrung des Castellanza-Eingangs.',
     'blog.article.lavori-autostradali-a8-chiusure.imageAlt': 'Luftaufnahme der Autobahn A8 zwischen Busto Arsizio und Gallarate in der Nacht mit Straßenarbeiten und Verkehrsumleitungen',
+    'blog.article.festa-danzante-ticino-2026-spettacoli.title': 'Festa Danzante 2026: Der Tessin tanzt zwischen Shows und Mitmachaktionen',
+    'blog.article.festa-danzante-ticino-2026-spettacoli.excerpt': 'Vom 6. bis 10. Mai 2026 beherbergen über 40 Schweizer Städte die 21. Ausgabe des Festa Danzante, mit Lugano als pulsierendem Zentrum der Veranstaltungen.',
+    'blog.article.festa-danzante-ticino-2026-spettacoli.imageAlt': 'Tanzaufführung am LAC in Lugano während der Festa Danzante 2026',
 };
 
 export default blogMetaDe;

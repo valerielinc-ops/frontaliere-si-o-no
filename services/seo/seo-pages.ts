@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1642,
+ "numberOfItems": 1643,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6277,7 +6277,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1639, "name": "Incidente con e-roller e e-bike a Lugano: donna...", "url": `${BASE_URL}/articoli-frontaliere/incidente-e-roller-lugano-2026` },
           { "@type": "ListItem", "position": 1640, "name": "Processo Casino Campione rinviato a dicembre 2026", "url": `${BASE_URL}/articoli-frontaliere/processo-campione-dicembre-2026` },
           { "@type": "ListItem", "position": 1641, "name": "Ingresso gratuito al museo in costume da bagno", "url": `${BASE_URL}/articoli-frontaliere/ingresso-gratuito-museo-costume-bagno` },
-          { "@type": "ListItem", "position": 1642, "name": "A8: chiusure notturne tra Busto e Gallarate e s...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostradali-a8-chiusure` }
+          { "@type": "ListItem", "position": 1642, "name": "A8: chiusure notturne tra Busto e Gallarate e s...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostradali-a8-chiusure` },
+          { "@type": "ListItem", "position": 1643, "name": "Festa Danzante 2026: il Ticino si muove tra spe...", "url": `${BASE_URL}/articoli-frontaliere/festa-danzante-ticino-2026-spettacoli` }
  ]
  },
  {
