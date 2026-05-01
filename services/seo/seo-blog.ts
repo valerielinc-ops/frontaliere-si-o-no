@@ -32316,6 +32316,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lago-maggiore-sale-ambiente-2026': {
+    title: 'Lago Maggiore sale: +15 cm, timori per l\'ambiente | Frontaliere Ticino',
+    description: 'L\'ADBPO innalza il livello massimo del lago a +1,40 metri. Timori per le località turistiche e gli ecosistemi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lago, maggiore, sale, timori',
+    ogTitle: 'Lago Maggiore sale: +15 cm, timori per l\'ambiente',
+    ogDescription: 'L\'ADBPO innalza il livello massimo del lago a +1,40 metri. Timori per le località turistiche e gli ecosistemi',
+    canonicalPath: '/articoli-frontaliere/lago-maggiore-sale-ambiente-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lago Maggiore sale: +15 cm, timori per l'ambiente",
+      "description": "L'ADBPO innalza il livello massimo del lago a +1,40 metri. Timori per le località turistiche e gli ecosistemi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lago-maggiore-sale-ambiente-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago Maggiore con le rive svizzere e italiane"
+      },
+      "datePublished": "2026-05-01T09:39:50+00:00",
+      "dateModified": "2026-05-01T09:39:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lago-maggiore-sale-ambiente-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

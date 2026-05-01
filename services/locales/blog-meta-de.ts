@@ -4690,6 +4690,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.berna-senza-pubblicita-iniziativa-2026.title': 'Berner Initiative gegen Werbung',
     'blog.article.berna-senza-pubblicita-iniziativa-2026.excerpt': 'Die Initiative \'Berner Initiative gegen Werbung\' zielt darauf ab, kommerzielle Anzeigen ohne lokale Bezüge im öffentlichen Raum zu verbieten.',
     'blog.article.berna-senza-pubblicita-iniziativa-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.lago-maggiore-sale-ambiente-2026.title': 'Lago Maggiore steigt: +15 cm, Sorgen für die Umwelt',
+    'blog.article.lago-maggiore-sale-ambiente-2026.excerpt': 'Die ADBPO erhöht den maximalen Wasserstand auf +1,40 Meter. Sorgen für Tourismusorte und Ökosysteme',
+    'blog.article.lago-maggiore-sale-ambiente-2026.imageAlt': 'Luftaufnahme des Lago Maggiore mit Schweizer und italienischen Ufern',
 };
 
 export default blogMetaDe;

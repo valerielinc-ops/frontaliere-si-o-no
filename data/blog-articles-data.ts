@@ -11957,4 +11957,11 @@ export const ARTICLES = [
  image: '/images/blog/berna-senza-pubblicita-iniziativa-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lago-maggiore-sale-ambiente-2026',
+ category: 'novita',
+ date: '2026-05-01T09:39:49.980Z',
+ image: '/images/blog/lago-maggiore-sale-ambiente-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

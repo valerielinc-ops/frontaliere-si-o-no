@@ -4691,6 +4691,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.berna-senza-pubblicita-iniziativa-2026.title': 'Berne sans publicité: l\'initiative pour interdire les annonces commerciales',
     'blog.article.berna-senza-pubblicita-iniziativa-2026.excerpt': 'L\'initiative \'Berne sans publicité\' vise à interdire les annonces commerciales sans références locales dans l\'espace public.',
     'blog.article.berna-senza-pubblicita-iniziativa-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.lago-maggiore-sale-ambiente-2026.title': 'Lac Majeur monte: +15 cm, craintes pour l\'environnement',
+    'blog.article.lago-maggiore-sale-ambiente-2026.excerpt': 'L\'ADBPO élève le niveau maximum du lac à +1,40 mètres. Craintes pour les localités touristiques et les écosystèmes',
+    'blog.article.lago-maggiore-sale-ambiente-2026.imageAlt': 'Vue aérienne du lac Majeur avec les rives suisses et italiennes',
 };
 
 export default blogMetaFr;

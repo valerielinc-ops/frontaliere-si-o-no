@@ -4691,6 +4691,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.berna-senza-pubblicita-iniziativa-2026.title': 'Berna senza pubblicità: l\'iniziativa per vietare gli annunci commerciali',
     'blog.article.berna-senza-pubblicita-iniziativa-2026.excerpt': 'L\'iniziativa \'Berna senza pubblicità\' mira a vietare gli annunci commerciali senza riferimenti locali nello spazio pubblico.',
     'blog.article.berna-senza-pubblicita-iniziativa-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.lago-maggiore-sale-ambiente-2026.title': 'Lago Maggiore sale: +15 cm, timori per l\'ambiente',
+    'blog.article.lago-maggiore-sale-ambiente-2026.excerpt': 'L\'ADBPO innalza il livello massimo del lago a +1,40 metri. Timori per le località turistiche e gli ecosistemi',
+    'blog.article.lago-maggiore-sale-ambiente-2026.imageAlt': 'Vista aerea del Lago Maggiore con le rive svizzere e italiane',
 };
 
 export default blogMetaIt;
