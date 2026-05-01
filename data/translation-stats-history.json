@@ -1,113 +1,5 @@
 [
   {
-    "timestamp": "2026-04-17T10:54:43.900Z",
-    "label": "before",
-    "total": 2921,
-    "needsRetranslation": 1256,
-    "incomplete": 93,
-    "complete": 2828,
-    "missingByLocale": {
-      "it": 32,
-      "en": 81,
-      "de": 62,
-      "fr": 78
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 47
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 4
-      },
-      {
-        "company": "Groupe Mutuel",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 3
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 2
-      },
-      {
-        "company": "Otis SA",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-17T11:58:10.257Z",
-    "label": "after",
-    "total": 2921,
-    "needsRetranslation": 71,
-    "incomplete": 12,
-    "complete": 2909,
-    "missingByLocale": {
-      "it": 7,
-      "en": 8,
-      "de": 5,
-      "fr": 8
-    },
-    "topPending": [
-      {
-        "company": "Groupe Mutuel",
-        "pending": 3
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 1
-      },
-      {
-        "company": "Hochgebirgsklinik Davos",
-        "pending": 1
-      },
-      {
-        "company": "Manor AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-17T13:50:25.163Z",
     "label": "before",
     "total": 2921,
@@ -8222,6 +8114,106 @@
     "needsRetranslation": 61,
     "incomplete": 29,
     "complete": 2639,
+    "missingByLocale": {
+      "it": 27,
+      "en": 7,
+      "de": 25,
+      "fr": 25
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-01T22:39:50.078Z",
+    "label": "before",
+    "total": 2664,
+    "needsRetranslation": 1110,
+    "incomplete": 55,
+    "complete": 2609,
+    "missingByLocale": {
+      "it": 41,
+      "en": 25,
+      "de": 41,
+      "fr": 44
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 3
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 3
+      },
+      {
+        "company": "Denner",
+        "pending": 2
+      },
+      {
+        "company": "Manor AG",
+        "pending": 2
+      },
+      {
+        "company": "Siegfried",
+        "pending": 2
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 2
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-01T23:37:00.125Z",
+    "label": "after",
+    "total": 2664,
+    "needsRetranslation": 77,
+    "incomplete": 29,
+    "complete": 2635,
     "missingByLocale": {
       "it": 27,
       "en": 7,

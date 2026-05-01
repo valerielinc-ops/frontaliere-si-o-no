@@ -141,7 +141,6 @@
         "banking-operations-officer-ubp-ch"
       ],
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -221,7 +220,6 @@
         "it-business-analyst-risk-management-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:18.243Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -301,7 +299,6 @@
         "it-business-analyst-credit-it-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:17.703Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -539,7 +536,6 @@
         "middle-officer-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:16.025Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -619,7 +615,6 @@
         "investment-advisor-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:15.483Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -868,7 +863,6 @@
         "corporate-actions-specialist-6-months-ubp-ch"
       ],
       "firstSeenAt": "2026-04-13T11:28:13.238Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1182,7 +1176,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:10.624Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1339,7 +1332,19 @@
       },
       "previousSlugs": [
         "tax-specialist-ubp-ch",
-        "tax-specialist-ubp-ch-3"
+        "tax-specialist-ubp-ch-3",
+        "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393r9",
+        "tax-spezialist-union-bancaire-privee-geneva-switzerland",
+        "specialiste-fiscal-union-bancaire-privee-geneva-switzerland",
+        "tax-specialist-ubp-ch-2",
+        "tax-specialista-union-bancaire-privee-geneva-switzerland",
+        "tax-spezialist-union-bancaire-privee-geneva-switzerland-53af7f",
+        "tax-specialiste-union-bancaire-privee-geneva-switzerland",
+        "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393wd",
+        "steuerspezialist-union-bancaire-privee-geneva-switzerland",
+        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393wd",
+        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9",
+        "specialista-fiscale-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-04-30T11:40:18.940Z",
       "salaryMin": 49500,
@@ -1500,7 +1505,6 @@
         "head-of-internal-audit-ubp-ch"
       ],
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1574,7 +1578,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:05.762Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1727,7 +1730,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:28:04.161Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1877,7 +1879,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2109,7 +2110,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2195,7 +2195,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubp-09f350a4712c",
@@ -2418,7 +2419,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:27:56.455Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2571,7 +2571,6 @@
         "investor-protection-ubp-ch"
       ],
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2725,7 +2724,8 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubp-9039bd9f2bce",
@@ -2866,7 +2866,6 @@
         "business-monitoring-officer-ubp-ch"
       ],
       "firstSeenAt": "2026-04-14T22:35:36.981Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3019,7 +3018,6 @@
         ]
       },
       "firstSeenAt": "2026-04-21T10:57:40.460Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3175,7 +3173,6 @@
         "investments-data-analyst-temporary-ubp-ch"
       ],
       "firstSeenAt": "2026-04-21T10:57:39.261Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3328,7 +3325,6 @@
         ]
       },
       "firstSeenAt": "2026-04-24T11:04:14.719Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3490,7 +3486,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubp-b14510298b0a",
@@ -3552,7 +3549,6 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:46:31.039Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3632,7 +3628,6 @@
         "receptionist-temporary-6-months-ubp-ch"
       ],
       "firstSeenAt": "2026-04-28T22:46:30.438Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3740,16 +3735,16 @@
       "title": "SYSTEM ENGINEER",
       "titleByLocale": {
         "en": "SYSTEM ENGINEER",
-        "it": "SYSTEM Ingegnere",
+        "it": "ENGINEER SISTEMA",
         "de": "SYSTEM Ingenieur",
-        "fr": "SYSTEM Ingénieur"
+        "fr": "ENGINEER DU SYSTÈME"
       },
       "description": "• Mission : \n \n As a Senior Systems Engineer, you will play a crucial role in managing and improving our Microsoft/Citrix based systems and infrastructure. Your expertise will be essential in ensuring high availability, performance, and security of our IT services. \n \n \n Challenges: \n\n• Evolve in a challenging, regulated environment for a fast and growing Private Bank. \n\n \n \n• Main responsibilities: \n\n• Design, implementation, and management of Microsoft-related technologies, including but not limited to Active Directory, DNS, DHCP, Microsoft PKI, DFS, MS Teams.\n\n• Design, implementation, and management of the Exchange infrastructure\n\n• Monitor and optimize email server performance, storage, and capacity planning\n\n• Manage the Archiving solution, based on Enterprise Vault, ensure retention and compliance rules are applied\n\n• Prepare and operate the transition to the Cloud Solution\n\n• Design, implementation, and management of Citrix-related technologies,\n\n• Provide production support for our Microsoft environments, ensuring optimal performance and reliability.\n\n• Manage and resolve complex incidents and problems, minimizing downtime and mitigating impacts on business operations.\n\n• Implement and maintain system monitoring solutions to pre-emptively identify potential issues (SCOM / NIMSOFT).\n\n• Collaborate with cross-functional teams for system enhancements and integration of new technologies.\n\n• Ensure compliance with security policies and procedures, including regular system audits and updates.\n\n• Conduct root cause analysis for major incidents and lead problem management processes.\n\n• Develop and maintain comprehensive documentation for system configurations, procedures, and service records.\n\n• Be part of an on-call service rotation one week per month (24/24-7j/7)\n \n \n\n• Must have with strong expertise in : \n\n• Microsoft Infra (AD, DHCP, SCOM)\n\n• Exchange 2019 and email security solutions\n\n• SCCM\n\n• Powershell scripting\n\n• MS Team\n\n• Ansible\n \n \n \n\n• Nice to have : \n\n• M365\n\n• Intune\n\n• Citrix\n\n• AirWatch MDM Mobility plateform\n \n \n• Others \n \n• Swiss Residence \n \n\n• Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
       "descriptionByLocale": {
-        "en": "• Mission : \n \n As a Senior Systems Engineer, you will play a crucial role in managing and improving our Microsoft/Citrix based systems and infrastructure. Your expertise will be essential in ensuring high availability, performance, and security of our IT services. \n \n \n Challenges: \n\n• Evolve in a challenging, regulated environment for a fast and growing Private Bank. \n\n \n \n• Main responsibilities: \n\n• Design, implementation, and management of Microsoft-related technologies, including but not limited to Active Directory, DNS, DHCP, Microsoft PKI, DFS, MS Teams.\n\n• Design, implementation, and management of the Exchange infrastructure\n\n• Monitor and optimize email server performance, storage, and capacity planning\n\n• Manage the Archiving solution, based on Enterprise Vault, ensure retention and compliance rules are applied\n\n• Prepare and operate the transition to the Cloud Solution\n\n• Design, implementation, and management of Citrix-related technologies,\n\n• Provide production support for our Microsoft environments, ensuring optimal performance and reliability.\n\n• Manage and resolve complex incidents and problems, minimizing downtime and mitigating impacts on business operations.\n\n• Implement and maintain system monitoring solutions to pre-emptively identify potential issues (SCOM / NIMSOFT).\n\n• Collaborate with cross-functional teams for system enhancements and integration of new technologies.\n\n• Ensure compliance with security policies and procedures, including regular system audits and updates.\n\n• Conduct root cause analysis for major incidents and lead problem management processes.\n\n• Develop and maintain comprehensive documentation for system configurations, procedures, and service records.\n\n• Be part of an on-call service rotation one week per month (24/24-7j/7)\n \n \n\n• Must have with strong expertise in : \n\n• Microsoft Infra (AD, DHCP, SCOM)\n\n• Exchange 2019 and email security solutions\n\n• SCCM\n\n• Powershell scripting\n\n• MS Team\n\n• Ansible\n \n \n \n\n• Nice to have : \n\n• M365\n\n• Intune\n\n• Citrix\n\n• AirWatch MDM Mobility plateform\n \n \n• Others \n \n• Swiss Residence \n \n\n• Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "it": "• Mission : \n \n As a Senior Systems Engineer, you will play a crucial role in managing and improving our Microsoft/Citrix based systems and infrastructure. Your expertise will be essential in ensuring high availability, performance, and security of our IT services. \n \n \n Challenges: \n\n• Evolve in a challenging, regulated environment for a fast and growing Private Bank. \n\n \n \n• Main responsibilities: \n\n• Design, implementation, and management of Microsoft-related technologies, including but not limited to Active Directory, DNS, DHCP, Microsoft PKI, DFS, MS Teams.\n\n• Design, implementation, and management of the Exchange infrastructure\n\n• Monitor and optimize email server performance, storage, and capacity planning\n\n• Manage the Archiving solution, based on Enterprise Vault, ensure retention and compliance rules are applied\n\n• Prepare and operate the transition to the Cloud Solution\n\n• Design, implementation, and management of Citrix-related technologies,\n\n• Provide production support for our Microsoft environments, ensuring optimal performance and reliability.\n\n• Manage and resolve complex incidents and problems, minimizing downtime and mitigating impacts on business operations.\n\n• Implement and maintain system monitoring solutions to pre-emptively identify potential issues (SCOM / NIMSOFT).\n\n• Collaborate with cross-functional teams for system enhancements and integration of new technologies.\n\n• Ensure compliance with security policies and procedures, including regular system audits and updates.\n\n• Conduct root cause analysis for major incidents and lead problem management processes.\n\n• Develop and maintain comprehensive documentation for system configurations, procedures, and service records.\n\n• Be part of an on-call service rotation one week per month (24/24-7j/7)\n \n \n\n• Must have with strong expertise in : \n\n• Microsoft Infra (AD, DHCP, SCOM)\n\n• Exchange 2019 and email security solutions\n\n• SCCM\n\n• Powershell scripting\n\n• MS Team\n\n• Ansible\n \n \n \n\n• Nice to have : \n\n• M365\n\n• Intune\n\n• Citrix\n\n• AirWatch MDM Mobility plateform\n \n \n• Others \n \n• Swiss Residence \n \n\n• Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "• Mission : \n \n As a Senior Systems Engineer, you will play a crucial role in managing and improving our Microsoft/Citrix based systems and infrastructure. Your expertise will be essential in ensuring high availability, performance, and security of our IT services. \n \n \n Challenges: \n\n• Evolve in a challenging, regulated environment for a fast and growing Private Bank. \n\n \n \n• Main responsibilities: \n\n• Design, implementation, and management of Microsoft-related technologies, including but not limited to Active Directory, DNS, DHCP, Microsoft PKI, DFS, MS Teams.\n\n• Design, implementation, and management of the Exchange infrastructure\n\n• Monitor and optimize email server performance, storage, and capacity planning\n\n• Manage the Archiving solution, based on Enterprise Vault, ensure retention and compliance rules are applied\n\n• Prepare and operate the transition to the Cloud Solution\n\n• Design, implementation, and management of Citrix-related technologies,\n\n• Provide production support for our Microsoft environments, ensuring optimal performance and reliability.\n\n• Manage and resolve complex incidents and problems, minimizing downtime and mitigating impacts on business operations.\n\n• Implement and maintain system monitoring solutions to pre-emptively identify potential issues (SCOM / NIMSOFT).\n\n• Collaborate with cross-functional teams for system enhancements and integration of new technologies.\n\n• Ensure compliance with security policies and procedures, including regular system audits and updates.\n\n• Conduct root cause analysis for major incidents and lead problem management processes.\n\n• Develop and maintain comprehensive documentation for system configurations, procedures, and service records.\n\n• Be part of an on-call service rotation one week per month (24/24-7j/7)\n \n \n\n• Must have with strong expertise in : \n\n• Microsoft Infra (AD, DHCP, SCOM)\n\n• Exchange 2019 and email security solutions\n\n• SCCM\n\n• Powershell scripting\n\n• MS Team\n\n• Ansible\n \n \n \n\n• Nice to have : \n\n• M365\n\n• Intune\n\n• Citrix\n\n• AirWatch MDM Mobility plateform\n \n \n• Others \n \n• Swiss Residence \n \n\n• Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "fr": "• Mission : \n \n As a Senior Systems Engineer, you will play a crucial role in managing and improving our Microsoft/Citrix based systems and infrastructure. Your expertise will be essential in ensuring high availability, performance, and security of our IT services. \n \n \n Challenges: \n\n• Evolve in a challenging, regulated environment for a fast and growing Private Bank. \n\n \n \n• Main responsibilities: \n\n• Design, implementation, and management of Microsoft-related technologies, including but not limited to Active Directory, DNS, DHCP, Microsoft PKI, DFS, MS Teams.\n\n• Design, implementation, and management of the Exchange infrastructure\n\n• Monitor and optimize email server performance, storage, and capacity planning\n\n• Manage the Archiving solution, based on Enterprise Vault, ensure retention and compliance rules are applied\n\n• Prepare and operate the transition to the Cloud Solution\n\n• Design, implementation, and management of Citrix-related technologies,\n\n• Provide production support for our Microsoft environments, ensuring optimal performance and reliability.\n\n• Manage and resolve complex incidents and problems, minimizing downtime and mitigating impacts on business operations.\n\n• Implement and maintain system monitoring solutions to pre-emptively identify potential issues (SCOM / NIMSOFT).\n\n• Collaborate with cross-functional teams for system enhancements and integration of new technologies.\n\n• Ensure compliance with security policies and procedures, including regular system audits and updates.\n\n• Conduct root cause analysis for major incidents and lead problem management processes.\n\n• Develop and maintain comprehensive documentation for system configurations, procedures, and service records.\n\n• Be part of an on-call service rotation one week per month (24/24-7j/7)\n \n \n\n• Must have with strong expertise in : \n\n• Microsoft Infra (AD, DHCP, SCOM)\n\n• Exchange 2019 and email security solutions\n\n• SCCM\n\n• Powershell scripting\n\n• MS Team\n\n• Ansible\n \n \n \n\n• Nice to have : \n\n• M365\n\n• Intune\n\n• Citrix\n\n• AirWatch MDM Mobility plateform\n \n \n• Others \n \n• Swiss Residence \n \n\n• Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+        "en": "## Missione\n\n- As a Senior Systems Engineer, you will play a crucial role in managing and improving our Microsoft/Citrix based systems and infrastructure. Your expertise will be essential in ensuring high availability, performance, and security of our IT services.\n\n## Sfide\n\n- Evolve in a challenging, regulated environment for a fast and growing Private Bank.\n\n## Principali responsabilità\n\n- Design, implementation, and management of Microsoft-related technologies, including but not limited to Active Directory, DNS, DHCP, Microsoft PKI, DFS, MS Teams.\n- Design, implementation, and management of the Exchange infrastructure\n- Monitor and optimize email server performance, storage, and capacity planning\n- Manage the Archiving solution, based on Enterprise Vault, ensure retention and compliance rules are applied\n- Prepare and operate the transition to the Cloud Solution\n- Design, implementation, and management of Citrix-related technologies,\n- Provide production support for our Microsoft environments, ensuring optimal performance and reliability.\n- Manage and resolve complex incidents and problems, minimizing downtime and mitigating impacts on business operations.\n- Implement and maintain system monitoring solutions to pre-emptively identify potential issues (SCOM / NIMSOFT).\n- Collaborate with cross-functional teams for system enhancements and integration of new technologies.\n- Ensure compliance with security policies and procedures, including regular system audits and updates.\n- Conduct root cause analysis for major incidents and lead problem management processes.\n- Develop and maintain comprehensive documentation for system configurations, procedures, and service records.\n- Be part of an on-call service rotation one week per month (24/24-7j/7)\n\n## Requisiti\n\n### Essenziali\n\n- Microsoft Infra (AD, DHCP, SCOM)\n- Exchange 2019 and email security solutions\n- SCCM\n- Powershell scripting\n- MS Team\n- Ansible\n\n### Facoltativi\n\n- M365\n- Intune\n- Citrix\n- AirWatch MDM Mobility plateform\n\n## Altri requisiti\n\n- Swiss Residence\n\n## Competenze chiave\n\n- Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility\n- Compliance with regulations and internal directives",
+        "it": "Missione - Come Senior Systems Engineer, si svolgerà un ruolo cruciale nella gestione e nel miglioramento dei nostri sistemi e infrastrutture basati su Microsoft/Citrix. La vostra esperienza sarà essenziale per garantire alta disponibilità, prestazioni e sicurezza dei nostri servizi IT. ## Sfide - Evolve in un ambiente impegnativo e regolamentato per una banca privata veloce e in crescita. ## Principali responsabilità - Progettazione, implementazione e gestione di tecnologie correlate a Microsoft, inclusi ma non limitati a Active Directory, DNS, DHCP, Microsoft PKI, DFS, MS Teams. - Progettazione, implementazione e gestione dell'infrastruttura di Exchange - Monitorare e ottimizzare le prestazioni del server e-mail, lo storage e la pianificazione delle capacità - Gestire la soluzione Archiving, basata su Enterprise Vault, garantire la conservazione e le regole di conformità sono applicate - Preparare e gestire la transizione alla soluzione Cloud - Progettazione, implementazione e gestione delle tecnologie correlate a Citrix, - Fornire supporto di produzione per i nostri ambienti Microsoft, garantendo prestazioni e affidabilità ottimali. - Gestire e risolvere complessi incidenti e problemi, minimizzare i tempi di fermo e mitigare gli impatti sulle operazioni aziendali. - Implementare e mantenere soluzioni di monitoraggio del sistema per identificare preventivamente potenziali problemi (SCOM / NIMSOFT). - Collaborare con team interfunzionali per il miglioramento del sistema e l'integrazione di nuove tecnologie. - Assicurare il rispetto delle politiche e delle procedure di sicurezza, inclusi controlli e aggiornamenti regolari del sistema. - Condurre l'analisi della causa principale per gravi incidenti e processi di gestione dei problemi di piombo. - Sviluppare e mantenere una documentazione completa per le configurazioni, le procedure e i registri dei servizi. - Fa parte di una rotazione di servizio on-call una settimana al mese (24/24-7j/7) ## Requisiti ## Esssenziali - Microsoft Infra (AD, DHCP, SCOM) - Exchange 2019 e soluzioni di sicurezza e-mail - SCCM - Powershell scripting - MS Team - Ansible ## Facoltativi - M365 - Intune - Citrix - AirWatch MDM Modulo di Mobilità ## Altri requisizione - Swiss Residence ## Competenze chiave - Aderenza ai valori dell'azienda: Dedicazione, Convizione, Agility e Responsabilità - Rispetto alle normative e alle direttive interne",
+        "de": "Missione - Als Senior Systems Engineer spielen Sie eine entscheidende Rolle bei der Verwaltung und Verbesserung unserer Microsoft/Citrix-basierten Systeme und Infrastruktur. Ihr Know-how wird wesentlich sein, um hohe Verfügbarkeit, Leistung und Sicherheit unserer IT-Dienste zu gewährleisten. Sfide - Entwickeln Sie in einem anspruchsvollen, geregelten Umfeld für eine schnelle und wachsende Privatbank. Â Principali responsabilità - Design, Implementierung und Management von Microsoft-bezogenen Technologien, einschließlich aber nicht beschränkt auf Active Directory, DNS, DHCP, Microsoft PKI, DFS, MS Teams. - Entwicklung, Implementierung und Verwaltung der Exchange-Infrastruktur - Überwachung und Optimierung der E-Mail-Server-Leistung, Speicherung und Kapazitätsplanung - Die auf Enterprise Vault basierende Archivierungslösung verwalten, sicherstellen, dass Retentions- und Compliance-Regeln angewendet werden - Bereiten und betreiben Sie den Übergang zur Cloud-Lösung - Design, Implementierung und Management von Citrix-bezogenen Technologien, - Bereitstellung von Produktionsunterstützung für unsere Microsoft-Umgebungen, um optimale Leistung und Zuverlässigkeit zu gewährleisten. - Verwalten und lösen komplexe Vorfälle und Probleme, minimieren Ausfallzeiten und mildern Auswirkungen auf den Geschäftsbetrieb. - Implementierung und Aufrechterhaltung von Systemüberwachungslösungen, um potenzielle Probleme vorab zu identifizieren (SCOM / NIMSOFT). - Zusammenarbeit mit funktionsübergreifenden Teams zur Systemverbesserung und Integration neuer Technologien. - Gewährleistung der Einhaltung von Sicherheitsrichtlinien und -verfahren, einschließlich regelmäßiger Systemprüfungen und Aktualisierungen. - Führen Sie Wurzel verursachen Analyse für große Vorfälle und führen Problemmanagement-Prozesse. - Entwicklung und Pflege umfassender Dokumentationen für Systemkonfigurationen, Verfahren und Service-Aufzeichnungen. - Seien Sie Teil einer On-Call-Service-Rotation eine Woche pro Monat (24/24-7j/7) Requisiti ### Essenziali - Microsoft Infra (AD, DHCP, SCOM) - Exchange 2019 und E-Mail-Sicherheitslösungen - SCCM - Powershell-Skripting - MS Team - Ansible ### Facoltativi - M365 - Intune - Citrix - AirWatch MDM Mobility plateform Â Altri requisiti - Swiss Residence Â Competenze chiave - Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Einhaltung von Vorschriften und internen Richtlinien",
+        "fr": "Missione - En tant qu'ingénieur principal en systèmes, vous jouerez un rôle crucial dans la gestion et l'amélioration de nos systèmes et infrastructures basés sur Microsoft/Citrix. Votre expertise sera essentielle pour assurer une grande disponibilité, performance et sécurité de nos services informatiques. ## Sfide - Évoluer dans un environnement difficile et réglementé pour une banque privée en croissance rapide. ## Principali responsabilità - Conception, mise en œuvre et gestion des technologies liées à Microsoft, y compris mais non limité à Active Directory, DNS, DHCP, Microsoft PKI, DFS, MS Teams. - Conception, mise en œuvre et gestion de l'infrastructure Exchange - Surveiller et optimiser les performances, le stockage et la planification des capacités des serveurs e-mail - Gérer la solution Archiving, basée sur Enterprise Vault, assurer l'application des règles de conservation et de conformité - Préparer et gérer la transition vers la solution Cloud - Conception, mise en œuvre et gestion des technologies liées à Citrix, - Fournir un support de production pour nos environnements Microsoft, assurant une performance et une fiabilité optimales. - Gérer et résoudre les incidents et les problèmes complexes, minimiser les temps d'arrêt et atténuer les impacts sur les opérations. - Mettre en œuvre et maintenir des solutions de surveillance du système pour identifier de façon préventive les problèmes potentiels (SCOM / NIMSOFT). - Collaborer avec des équipes interfonctionnelles pour améliorer les systèmes et intégrer les nouvelles technologies. - Assurer le respect des politiques et procédures de sécurité, y compris les vérifications et les mises à jour régulières du système. - Effectuer une analyse des causes profondes des incidents majeurs et des processus de gestion des problèmes. - Élaborer et tenir à jour une documentation complète pour la configuration du système, les procédures et les dossiers de service. - Faire partie d'une rotation de service sur appel une semaine par mois (24/24-7j/7) ## Requisiti ### Essenzali - Microsoft Infra (AD, DHCP, SCOM) - Échange 2019 et solutions de sécurité par courriel - SCCM - Powershell scripting - MS Team - Ansible ### Facoltativi - M365 - Intune - Citrix - AirWatch MDM Plaquette de mobilité ## Altri requisiti - Résidence suisse ## Competenze chiave - Adhérence aux valeurs de l'entreprise: Dédicace, Conviction, Agilité et Responsabilité - Conformité aux règlements et directives internes"
       },
       "location": "Geneva, Switzerland",
       "canton": "GE",
@@ -3775,7 +3770,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

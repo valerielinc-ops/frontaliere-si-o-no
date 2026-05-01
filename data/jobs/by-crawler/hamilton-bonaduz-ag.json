@@ -156,7 +156,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-05-01T10:18:28.710Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Assembly Operator 80 - 100 % (w/m/d)",
@@ -197,8 +198,8 @@
       },
       "slugByLocale": {
         "it": "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-        "en": "assembly-operator-80-100-w-m-d-jr-5751",
-        "de": "assembly-operator-80-100-w-m-d-jr-5751",
+        "en": "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
+        "de": "montagebediener-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "operateur-de-montage-80-100-m-j-hamilton-bonaduz-ag-bonaduz"
       },
       "crawledAt": "2026-05-01T21:45:17.961Z",
@@ -208,10 +209,12 @@
           "assembly-operator-80-100-w-m-d-jr-5755"
         ],
         "en": [
-          "assembly-operator-80-100-w-m-d-jr-5755"
+          "assembly-operator-80-100-w-m-d-jr-5755",
+          "assembly-operator-80-100-w-m-d-jr-5751"
         ],
         "de": [
-          "assembly-operator-80-100-w-m-d-jr-5755"
+          "assembly-operator-80-100-w-m-d-jr-5755",
+          "assembly-operator-80-100-w-m-d-jr-5751"
         ],
         "fr": [
           "assembly-operator-80-100-w-m-d-jr-5755",
@@ -240,7 +243,8 @@
       "streetAddress": "Via Crusch 8",
       "postalCode": "7402",
       "firstSeenAt": "2026-05-01T10:18:29.515Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Technical Leader Assembly 80 - 100 % (w/m/d)",
@@ -778,7 +782,8 @@
       "previousSlugs": [
         "lean-project-manager-80-100-w-m-d-jr-5560"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Inside Sales Specialist 80 - 100 % (w/m/d)",
@@ -1103,8 +1108,7 @@
       "previousSlugs": [
         "technical-product-owner-80-100-w-m-d-jr-5713"
       ],
-      "firstSeenAt": "2026-04-13T21:48:40.651Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-13T21:48:40.651Z"
     },
     {
       "title": "Automation Engineer (Software Specialisation) 80 - 100 % (w/m/d)",
@@ -1698,8 +1702,7 @@
           "chef-d-equipe-systemes-et-infrastructures-tic-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:48:40.651Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-13T21:48:40.651Z"
     },
     {
       "title": "Assembly Operator 80 - 100 % (w/m/d)",
@@ -1740,8 +1743,8 @@
       },
       "slugByLocale": {
         "it": "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-        "en": "assembly-operator-80-100-w-m-d-jr-5751",
-        "de": "assembly-operator-80-100-w-m-d-jr-5751",
+        "en": "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
+        "de": "montagebediener-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "fr": "operateur-de-montage-80-100-m-j-hamilton-bonaduz-ag-bonaduz"
       },
       "crawledAt": "2026-05-01T21:45:33.959Z",
@@ -1768,9 +1771,8 @@
         "assembly-operator-80-100-w-m-d-jr-5182",
         "assembly-operator-80-100-m-f-d-hamilton-bonaduz-ag-bonaduz",
         "assembly-operator-80-100-w-m-d-jr-5755",
-        "montagebediener-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-        "operateur-d-assemblage-80-100-h-f-d-hamilton-bonaduz-ag-bonaduz",
         "assembly-operator-80-100-w-m-d-jr-5751",
+        "operateur-d-assemblage-80-100-h-f-d-hamilton-bonaduz-ag-bonaduz",
         "operateur-de-montage-80-100-m-j-hamilton-bonaduz-ag-bonaduz-1e2249",
         "operateur-d-assemblage-80-100-p-m-j-hamilton-bonaduz-ag-bonaduz",
         "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-lyq1ba",
@@ -1792,7 +1794,8 @@
           "assembly-operateur-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
           "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-lyq5oy",
           "assembly-operator-80-100-m-f-d-hamilton-bonaduz-ag-bonaduz",
-          "assembly-operator-80-100-w-m-d-jr-5755"
+          "assembly-operator-80-100-w-m-d-jr-5755",
+          "assembly-operator-80-100-w-m-d-jr-5751"
         ],
         "de": [
           "operatore-di-montaggio-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
@@ -1801,7 +1804,7 @@
           "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-lyq5oy",
           "assembly-operator-80-100-w-m-d-jr-5182",
           "assembly-operator-80-100-w-m-d-jr-5755",
-          "montagebediener-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
+          "assembly-operator-80-100-w-m-d-jr-5751"
         ],
         "fr": [
           "operatore-di-montaggio-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
@@ -1815,7 +1818,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:48:40.651Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "ICT Engineer M365 / SharePoint / Power Platform 80 - 100 % (w/m/d)",
