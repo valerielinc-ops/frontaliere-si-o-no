@@ -4612,6 +4612,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.spasso-weekend-1-maggio-varese-2026.title': '1st May Weekend in Varese: Unmissable Events',
     'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'From the feast of San Vittore to the hot air balloon spectacle in Angera, here\'s what to do during the 1st May weekend in the province of Varese',
     'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Weekend events in Varese with hot air balloons over Lake Maggiore and families enjoying outdoor activities',
+    'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Addiction prevention: 1 CHF today to save 20 tomorrow',
+    'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Cuts to addiction prevention funds in Ticino, despite rising healthcare costs. The expert: a logic of immediate savings is being followed.',
+    'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'View of Lake Lugano with modern buildings and people walking',
 };
 
 export default blogMetaEn;

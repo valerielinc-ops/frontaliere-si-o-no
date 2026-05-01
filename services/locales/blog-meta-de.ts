@@ -4612,6 +4612,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.spasso-weekend-1-maggio-varese-2026.title': 'Wochenende am 1. Mai in Varese: Unverpassbare Ereignisse',
     'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'Von der Feier des San Vittore bis zur Ballonfahrt in Angera, hier ist, was man am Wochenende des 1. Mai in der Provinz Varese unternehmen kann',
     'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Wochenendveranstaltungen in Varese mit Heißluftballons über dem Lago Maggiore und Familien, die Outdoor-Aktivitäten genießen',
+    'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Suchtprävention: 1 Franken heute spart 20 morgen',
+    'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Kürzungen bei den Mitteln für die Suchtprävention im Tessin, trotz steigender Gesundheitskosten. Der Experte: Es wird eine Logik des sofortigen Sparens verfolgt.',
+    'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und spazierenden Menschen',
 };
 
 export default blogMetaDe;

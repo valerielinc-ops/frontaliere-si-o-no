@@ -4613,6 +4613,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.spasso-weekend-1-maggio-varese-2026.title': 'Week-end du 1er mai à Varèse : événements incontournables',
     'blog.article.spasso-weekend-1-maggio-varese-2026.excerpt': 'De la fête de Saint-Victor au spectacle des montgolfières d\'Angera, voici ce qu\'il faut faire le week-end du 1er mai dans la province de Varèse',
     'blog.article.spasso-weekend-1-maggio-varese-2026.imageAlt': 'Événements du week-end à Varèse avec des montgolfières sur le lac Majeur et des familles profitant des activités de plein air',
+    'blog.article.prevenzione-dipendenze-ticino-2026.title': 'Prévention des dépendances: 1 franc aujourd\'hui pour en économiser 20 demain',
+    'blog.article.prevenzione-dipendenze-ticino-2026.excerpt': 'Réduction des fonds pour la prévention des dépendances en Ticino, malgré l\'augmentation des coûts sanitaires. L\'expert: on suit une logique d\'économie immédiate.',
+    'blog.article.prevenzione-dipendenze-ticino-2026.imageAlt': 'Vue du lac de Lugano avec des bâtiments modernes et des personnes qui marchent',
 };
 
 export default blogMetaFr;

@@ -2768,6 +2768,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-primo-maggio-unita-sindacale-marghera': { name: 'Primo Maggio', path: '/articoli-frontaliere/primo-maggio-unita-sindacale-marghera', parent: 'blog' },
     'blog-primo-maggio-sindacati-piazza-2026': { name: 'Primo maggio', path: '/articoli-frontaliere/primo-maggio-sindacati-piazza-2026', parent: 'blog' },
     'blog-spasso-weekend-1-maggio-varese-2026': { name: 'Eventi Varese', path: '/articoli-frontaliere/spasso-weekend-1-maggio-varese-2026', parent: 'blog' },
+    'blog-prevenzione-dipendenze-ticino-2026': { name: 'Prevenzione dipendenze', path: '/articoli-frontaliere/prevenzione-dipendenze-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
