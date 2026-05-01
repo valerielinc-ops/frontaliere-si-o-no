@@ -30692,6 +30692,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dialogo-popoli-colori-mondo-busto-arsizio': {
+    title: 'Dialogo dei popoli, colori del mondo a Busto Arsizio',
+    description: 'Una giornata dedicata all\'incontro, all\'integrazione e alla valorizzazione delle diverse culture presenti sul territorio di Busto Arsizio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, dialogo, popoli, colori, mondo',
+    ogTitle: 'Dialogo dei popoli, colori del mondo a Busto Arsizio',
+    ogDescription: 'Una giornata dedicata all\'incontro, all\'integrazione e alla valorizzazione delle diverse culture presenti sul territorio di Busto Arsizio.',
+    canonicalPath: '/articoli-frontaliere/dialogo-popoli-colori-mondo-busto-arsizio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dialogo dei popoli, colori del mondo a Busto Arsizio",
+      "description": "Una giornata dedicata all'incontro, all'integrazione e alla valorizzazione delle diverse culture presenti sul territorio di Busto Arsizio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dialogo-popoli-colori-mondo-busto-arsizio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa interculturale a Busto Arsizio con persone di diverse culture"
+      },
+      "datePublished": "2026-05-01T01:01:16+00:00",
+      "dateModified": "2026-05-01T01:01:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dialogo-popoli-colori-mondo-busto-arsizio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

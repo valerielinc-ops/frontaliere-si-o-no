@@ -2738,6 +2738,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-furti-luoghi-culto-bellinzonese': { name: 'Furti nei luoghi di culto', path: '/articoli-frontaliere/furti-luoghi-culto-bellinzonese', parent: 'blog' },
     'blog-hockey-nl-psicodramma-davos-2025-2026-friborgogotteron': { name: 'Hockey Nl, Psicodramma Davos', path: '/articoli-frontaliere/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron', parent: 'blog' },
     'blog-made-in-switzerland-2026': { name: 'Novità', path: '/articoli-frontaliere/made-in-switzerland-2026', parent: 'blog' },
+    'blog-dialogo-popoli-colori-mondo-busto-arsizio': { name: 'Eventi interculturali', path: '/articoli-frontaliere/dialogo-popoli-colori-mondo-busto-arsizio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

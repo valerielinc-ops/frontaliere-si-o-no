@@ -11565,4 +11565,11 @@ export const ARTICLES = [
  image: '/images/blog/made-in-switzerland-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'dialogo-popoli-colori-mondo-busto-arsizio',
+ category: 'novita',
+ date: '2026-05-01T01:01:16.429Z',
+ image: '/images/blog/dialogo-popoli-colori-mondo-busto-arsizio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

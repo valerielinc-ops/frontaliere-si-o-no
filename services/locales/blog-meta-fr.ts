@@ -4523,6 +4523,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.made-in-switzerland-2026.title': 'Made in Suisse : changements en 2026',
     'blog.article.made-in-switzerland-2026.excerpt': 'Nouvelles règles pour l\'utilisation de la croix suisse et du label \'Swiss Made\' à partir de 2026. Voici ce qui change pour les produits et les consommateurs',
     'blog.article.made-in-switzerland-2026.imageAlt': 'Gros plan d\'un produit suisse avec l\'étiquette \'Swiss Made\' sur un marché du Tessin',
+    'blog.article.dialogo-popoli-colori-mondo-busto-arsizio.title': 'Dialogue des peuples, couleurs du monde à Busto Arsizio',
+    'blog.article.dialogo-popoli-colori-mondo-busto-arsizio.excerpt': 'Une journée dédiée à la rencontre, à l\'intégration et à la valorisation des différentes cultures présentes sur le territoire de Busto Arsizio.',
+    'blog.article.dialogo-popoli-colori-mondo-busto-arsizio.imageAlt': 'Festival interculturel à Busto Arsizio avec des personnes de divers horizons',
 };
 
 export default blogMetaFr;
