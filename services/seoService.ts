@@ -2741,6 +2741,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dialogo-popoli-colori-mondo-busto-arsizio': { name: 'Eventi interculturali', path: '/articoli-frontaliere/dialogo-popoli-colori-mondo-busto-arsizio', parent: 'blog' },
     'blog-cavalli-droni-esercito-svizzero-2026': { name: 'Novità', path: '/articoli-frontaliere/cavalli-droni-esercito-svizzero-2026', parent: 'blog' },
     'blog-raiffeisen-bioggio-rinnovo-2026': { name: 'Novità', path: '/articoli-frontaliere/raiffeisen-bioggio-rinnovo-2026', parent: 'blog' },
+    'blog-percorso-giubiasco-qui-allora-2026': { name: 'Novità', path: '/articoli-frontaliere/percorso-giubiasco-qui-allora-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

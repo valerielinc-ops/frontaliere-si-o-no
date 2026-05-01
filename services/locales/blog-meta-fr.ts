@@ -4532,6 +4532,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.raiffeisen-bioggio-rinnovo-2026.title': 'Raiffeisen Bioggio se renouvelle: inauguration le 9 mai',
     'blog.article.raiffeisen-bioggio-rinnovo-2026.excerpt': 'La filiale de Bioggio de la Banque Raiffeisen du Malcantone se renouvelle et invite la population à l\'inauguration le 9 mai 2026.',
     'blog.article.raiffeisen-bioggio-rinnovo-2026.imageAlt': 'Succursale bancaire moderne dans un village suisse historique',
+    'blog.article.percorso-giubiasco-qui-allora-2026.title': 'Parcours didactique \'Ici...alors\' à Giubiasco: un voyage dans le temps',
+    'blog.article.percorso-giubiasco-qui-allora-2026.excerpt': 'Un nouveau parcours didactique à Giubiasco compare le passé et le présent du bourg à travers des photographies d\'époque et des panneaux d\'exposition.',
+    'blog.article.percorso-giubiasco-qui-allora-2026.imageAlt': 'Vue du Borghetto à Giubiasco avec les panneaux du parcours éducatif \'Qui...allora\'',
 };
 
 export default blogMetaFr;

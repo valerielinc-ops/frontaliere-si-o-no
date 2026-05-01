@@ -30779,6 +30779,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-percorso-giubiasco-qui-allora-2026': {
+    title: 'Percorso didattico \'Qui...allora\' a Giubiasco: un viaggio nel tempo',
+    description: 'Scopri il nuovo percorso didattico a Giubiasco che confronta il passato e il presente del borgo attraverso fotografie d\'epoca e pannelli espositivi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, percorso, didattico, allora, giubiasco',
+    ogTitle: 'Percorso didattico \'Qui...allora\' a Giubiasco: un viaggio nel tempo',
+    ogDescription: 'Scopri il nuovo percorso didattico a Giubiasco che confronta il passato e il presente del borgo attraverso fotografie d\'epoca e pannelli espositivi.',
+    canonicalPath: '/articoli-frontaliere/percorso-giubiasco-qui-allora-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Percorso didattico 'Qui...allora' a Giubiasco: un viaggio nel tempo\",\"description\":\"Scopri il nuovo percorso didattico a Giubiasco che confronta il passato e il presente del borgo attraverso fotografie d'epoca e pannelli espositivi.\",\"datePublished\":\"2026-04-30T17:22:00+02:00\",\"image\":\"https://frontaliereticino.ch/percorso-giubiasco-qui-allora-2026/borghetto-giubiasco.webp\"}",
+      "description": "Scopri il nuovo percorso didattico a Giubiasco che confronta il passato e il presente del borgo attraverso fotografie d'epoca e pannelli espositivi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/percorso-giubiasco-qui-allora-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Borghetto di Giubiasco con i pannelli del percorso didattico 'Qui...allora'"
+      },
+      "datePublished": "2026-05-01T01:35:45+00:00",
+      "dateModified": "2026-05-01T01:35:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/percorso-giubiasco-qui-allora-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
