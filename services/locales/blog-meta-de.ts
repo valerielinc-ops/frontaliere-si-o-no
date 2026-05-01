@@ -4579,6 +4579,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riapre-ufficio-postale-casale-litta.title': 'Postamt in Casale Litta mit neuen Dienstleistungen wiedereröffnet',
     'blog.article.riapre-ufficio-postale-casale-litta.excerpt': 'Das Postamt in Casale Litta eröffnet nach der Renovierung mit erweiterten Dienstleistungen dank dem Projekt Polis.',
     'blog.article.riapre-ufficio-postale-casale-litta.imageAlt': 'Restauriertes Postamt in Casale Litta mit erweiterten Dienstleistungen',
+    'blog.article.furti-chiese-negozi-ticino-arresti.title': 'Diebstähle in Kirchen und Geschäften: Festnahmen und Aufruf zur Meldung',
+    'blog.article.furti-chiese-negozi-ticino-arresti.excerpt': 'Zwei Rumänen wurden wegen Diebstählen in Kirchen und Geschäften in Tessin und Graubünden festgenommen. Die Polizei fordert zur Meldung weiterer Vorfälle auf.',
+    'blog.article.furti-chiese-negozi-ticino-arresti.imageAlt': 'Luftaufnahme einer Kirche im Tessin mit einem daneben geparkten Polizeiauto, umgeben von üppiger Vegetation und Bergen.',
 };
 
 export default blogMetaDe;

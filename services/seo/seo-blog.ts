@@ -31243,6 +31243,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-chiese-negozi-ticino-arresti': {
+    title: 'Furti in chiese e negozi: arresti e appello a segnalare',
+    description: 'Due rumeni arrestati per furti in chiese e negozi in Ticino e Grigioni. La polizia invita a segnalare eventuali altri episodi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, chiese, negozi, arresti',
+    ogTitle: 'Furti in chiese e negozi: arresti e appello a segnalare',
+    ogDescription: 'Due rumeni arrestati per furti in chiese e negozi in Ticino e Grigioni. La polizia invita a segnalare eventuali altri episodi.',
+    canonicalPath: '/articoli-frontaliere/furti-chiese-negozi-ticino-arresti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furti in chiese e negozi: arresti e appello a segnalare",
+      "description": "Due rumeni arrestati per furti in chiese e negozi in Ticino e Grigioni. La polizia invita a segnalare eventuali altri episodi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furti-chiese-negozi-ticino-arresti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di una chiesa nel Ticino con un'auto della polizia parcheggiata vicino, circondata da verde lussureggiante e montagne."
+      },
+      "datePublished": "2026-05-01T04:49:50+00:00",
+      "dateModified": "2026-05-01T04:49:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-chiese-negozi-ticino-arresti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

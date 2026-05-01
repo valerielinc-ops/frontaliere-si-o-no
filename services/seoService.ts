@@ -2757,6 +2757,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-bilancio-2026-avanzo-record': { name: 'Bilancio Varese', path: '/articoli-frontaliere/varese-bilancio-2026-avanzo-record', parent: 'blog' },
     'blog-nuovo-direttore-controllo-finanze-ticino': { name: 'Novità', path: '/articoli-frontaliere/nuovo-direttore-controllo-finanze-ticino', parent: 'blog' },
     'blog-riapre-ufficio-postale-casale-litta': { name: 'Novità', path: '/articoli-frontaliere/riapre-ufficio-postale-casale-litta', parent: 'blog' },
+    'blog-furti-chiese-negozi-ticino-arresti': { name: 'Novità', path: '/articoli-frontaliere/furti-chiese-negozi-ticino-arresti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

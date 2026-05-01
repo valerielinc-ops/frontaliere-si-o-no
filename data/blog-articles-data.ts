@@ -11698,4 +11698,11 @@ export const ARTICLES = [
  image: '/images/blog/riapre-ufficio-postale-casale-litta.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'furti-chiese-negozi-ticino-arresti',
+ category: 'novita',
+ date: '2026-05-01T04:49:50.560Z',
+ image: '/images/blog/furti-chiese-negozi-ticino-arresti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

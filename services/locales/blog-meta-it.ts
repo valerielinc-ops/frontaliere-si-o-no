@@ -4580,6 +4580,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riapre-ufficio-postale-casale-litta.title': 'Riapre a Casale Litta l\'ufficio postale con nuovi servizi',
     'blog.article.riapre-ufficio-postale-casale-litta.excerpt': 'L\'ufficio postale di Casale Litta riapre dopo ristrutturazione con servizi ampliati grazie al progetto Polis',
     'blog.article.riapre-ufficio-postale-casale-litta.imageAlt': 'Ufficio postale rinnovato a Casale Litta con servizi ampliati',
+    'blog.article.furti-chiese-negozi-ticino-arresti.title': 'Furti in chiese e negozi: arresti e appello a segnalare',
+    'blog.article.furti-chiese-negozi-ticino-arresti.excerpt': 'Due rumeni arrestati per furti in chiese e negozi in Ticino e Grigioni. La polizia invita a segnalare eventuali altri episodi.',
+    'blog.article.furti-chiese-negozi-ticino-arresti.imageAlt': 'Vista aerea di una chiesa nel Ticino con un\'auto della polizia parcheggiata vicino, circondata da verde lussureggiante e montagne.',
 };
 
 export default blogMetaIt;

@@ -4579,6 +4579,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riapre-ufficio-postale-casale-litta.title': 'Casale Litta post office reopens with new services',
     'blog.article.riapre-ufficio-postale-casale-litta.excerpt': 'The post office in Casale Litta reopens after renovation with expanded services thanks to the Polis project',
     'blog.article.riapre-ufficio-postale-casale-litta.imageAlt': 'Renovated post office in Casale Litta with expanded services',
+    'blog.article.furti-chiese-negozi-ticino-arresti.title': 'Arrests for thefts in churches and shops',
+    'blog.article.furti-chiese-negozi-ticino-arresti.excerpt': 'Two Romanians arrested for thefts in churches and shops in Ticino and Grisons. The police invite to report any other incidents.',
+    'blog.article.furti-chiese-negozi-ticino-arresti.imageAlt': 'Aerial view of a church in Ticino with a police car parked nearby, surrounded by lush greenery and mountains.',
 };
 
 export default blogMetaEn;

@@ -4580,6 +4580,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riapre-ufficio-postale-casale-litta.title': 'Réouverture du bureau de poste de Casale Litta avec de nouveaux services',
     'blog.article.riapre-ufficio-postale-casale-litta.excerpt': 'Le bureau de poste de Casale Litta rouvre après rénovation avec des services élargis grâce au projet Polis',
     'blog.article.riapre-ufficio-postale-casale-litta.imageAlt': 'Bureau de poste rénové à Casale Litta avec des services élargis',
+    'blog.article.furti-chiese-negozi-ticino-arresti.title': 'Vols dans les églises et magasins: arrestations et appel à signaler',
+    'blog.article.furti-chiese-negozi-ticino-arresti.excerpt': 'Deux Roumains arrêtés pour des vols dans les églises et magasins en Tessin et Grisons. La police invite à signaler d\'éventuels autres épisodes.',
+    'blog.article.furti-chiese-negozi-ticino-arresti.imageAlt': 'Vue aérienne d\'une église au Tessin avec une voiture de police garée à proximité, entourée de verdure luxuriante et de montagnes.',
 };
 
 export default blogMetaFr;
