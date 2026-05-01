@@ -2782,6 +2782,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ufficio-postale-val-mara-chiusura': { name: 'Novità', path: '/articoli-frontaliere/ufficio-postale-val-mara-chiusura', parent: 'blog' },
     'blog-controversia-bandiera-svizzera-scarpe-on': { name: 'Novità', path: '/articoli-frontaliere/controversia-bandiera-svizzera-scarpe-on', parent: 'blog' },
     'blog-giovani-sigarette-elettroniche-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/giovani-sigarette-elettroniche-ticino-2026', parent: 'blog' },
+    'blog-frontalieri-disoccupazione-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-disoccupazione-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

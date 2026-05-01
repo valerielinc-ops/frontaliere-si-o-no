@@ -4654,6 +4654,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giovani-sigarette-elettroniche-ticino-2026.title': 'E-Zigaretten: Jugendliche rauchen sie wie herkömmliche',
     'blog.article.giovani-sigarette-elettroniche-ticino-2026.excerpt': '25,2% der Jugendlichen konsumieren sowohl herkömmliche als auch elektronische Zigaretten, ein Anstieg von 3% gegenüber 2023',
     'blog.article.giovani-sigarette-elettroniche-ticino-2026.imageAlt': 'Junge Menschen in Tessin, die E-Zigaretten verwenden',
+    'blog.article.frontalieri-disoccupazione-svizzera-2026.title': 'Grenzgänger und Arbeitslosigkeit: Die EU-Reform, die alles ändert',
+    'blog.article.frontalieri-disoccupazione-svizzera-2026.excerpt': 'Die neue EU-Regelung zur Arbeitslosenentschädigung für Grenzgänger: Was sich ändert und welche Auswirkungen das für Arbeitnehmer im Tessin hat',
+    'blog.article.frontalieri-disoccupazione-svizzera-2026.imageAlt': 'Grenzgänger in Lugano mit Seeblick',
 };
 
 export default blogMetaDe;

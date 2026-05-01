@@ -4654,6 +4654,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giovani-sigarette-elettroniche-ticino-2026.title': 'E-cigarettes: young people use them like traditional ones',
     'blog.article.giovani-sigarette-elettroniche-ticino-2026.excerpt': '25.2% of young people consume both traditional and electronic cigarettes, a 3% increase from 2023',
     'blog.article.giovani-sigarette-elettroniche-ticino-2026.imageAlt': 'Young people in Ticino using e-cigarettes',
+    'blog.article.frontalieri-disoccupazione-svizzera-2026.title': 'Cross-border workers and unemployment: the EU reform that changes everything',
+    'blog.article.frontalieri-disoccupazione-svizzera-2026.excerpt': 'The new EU regulation on unemployment benefits for cross-border workers: what changes and what are the implications for workers in Ticino',
+    'blog.article.frontalieri-disoccupazione-svizzera-2026.imageAlt': 'Frontalier worker in Lugano with lake view',
 };
 
 export default blogMetaEn;

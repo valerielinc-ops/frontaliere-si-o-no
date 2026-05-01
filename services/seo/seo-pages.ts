@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1601,
+ "numberOfItems": 1602,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6236,7 +6236,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1598, "name": "TicinoSentieri: nuove nomine per il 2026", "url": `${BASE_URL}/articoli-frontaliere/ticinosentieri-nuove-nomine-2026` },
           { "@type": "ListItem", "position": 1599, "name": "Chiusura ufficio postale Val Mara: mazzata ai s...", "url": `${BASE_URL}/articoli-frontaliere/ufficio-postale-val-mara-chiusura` },
           { "@type": "ListItem", "position": 1600, "name": "Controversia sull'uso della bandiera svizzera s...", "url": `${BASE_URL}/articoli-frontaliere/controversia-bandiera-svizzera-scarpe-on` },
-          { "@type": "ListItem", "position": 1601, "name": "Sigarette elettroniche: i giovani le consumano ...", "url": `${BASE_URL}/articoli-frontaliere/giovani-sigarette-elettroniche-ticino-2026` }
+          { "@type": "ListItem", "position": 1601, "name": "Sigarette elettroniche: i giovani le consumano ...", "url": `${BASE_URL}/articoli-frontaliere/giovani-sigarette-elettroniche-ticino-2026` },
+          { "@type": "ListItem", "position": 1602, "name": "Frontalieri e disoccupazione: la riforma UE che...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupazione-svizzera-2026` }
  ]
  },
  {

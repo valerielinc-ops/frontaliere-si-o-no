@@ -4655,6 +4655,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giovani-sigarette-elettroniche-ticino-2026.title': 'Sigarette elettroniche: i giovani le consumano come quelle tradizionali',
     'blog.article.giovani-sigarette-elettroniche-ticino-2026.excerpt': 'Il 25,2% dei giovani consuma sia sigarette tradizionali che elettroniche, con un aumento del 3% rispetto al 2023',
     'blog.article.giovani-sigarette-elettroniche-ticino-2026.imageAlt': 'Giovani in Ticino che usano sigarette elettroniche',
+    'blog.article.frontalieri-disoccupazione-svizzera-2026.title': 'Frontalieri e disoccupazione: la riforma UE che cambia tutto',
+    'blog.article.frontalieri-disoccupazione-svizzera-2026.excerpt': 'La nuova normativa UE sull\'indennità di disoccupazione per i frontalieri: cosa cambia e quali sono le implicazioni per i lavoratori in Ticino',
+    'blog.article.frontalieri-disoccupazione-svizzera-2026.imageAlt': 'Lavoratore frontaliere a Lugano con vista sul lago',
 };
 
 export default blogMetaIt;

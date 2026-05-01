@@ -31968,6 +31968,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-disoccupazione-svizzera-2026': {
+    title: 'Frontalieri e disoccupazione: la riforma UE che cambia tutto',
+    description: 'Scopri come la nuova riforma UE sull\'indennità di disoccupazione per i frontalieri cambierà le prestazioni per i lavoratori in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, riforma, cambia, tutto',
+    ogTitle: 'Frontalieri e disoccupazione: la riforma UE che cambia tutto',
+    ogDescription: 'Scopri come la nuova riforma UE sull\'indennità di disoccupazione per i frontalieri cambierà le prestazioni per i lavoratori in Ticino',
+    canonicalPath: '/articoli-frontaliere/frontalieri-disoccupazione-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e disoccupazione: la riforma UE che cambia tutto",
+      "description": "Scopri come la nuova riforma UE sull'indennità di disoccupazione per i frontalieri cambierà le prestazioni per i lavoratori in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-disoccupazione-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere a Lugano con vista sul lago"
+      },
+      "datePublished": "2026-05-01T08:10:33+00:00",
+      "dateModified": "2026-05-01T08:10:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupazione-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

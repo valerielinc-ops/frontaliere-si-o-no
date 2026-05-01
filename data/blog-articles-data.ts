@@ -11873,4 +11873,11 @@ export const ARTICLES = [
  image: '/images/blog/giovani-sigarette-elettroniche-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontalieri-disoccupazione-svizzera-2026',
+ category: 'novita',
+ date: '2026-05-01T08:10:33.789Z',
+ image: '/images/blog/frontalieri-disoccupazione-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
