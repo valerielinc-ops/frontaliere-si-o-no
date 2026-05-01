@@ -4744,6 +4744,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bellinzonesi-germania-karate-2026.title': 'Bellinzona karate team shines at German tournament',
     'blog.article.bellinzonesi-germania-karate-2026.excerpt': 'Young athletes from the Bellinzona karate club achieve excellent results at the Nagai Cup in Germany',
     'blog.article.bellinzonesi-germania-karate-2026.imageAlt': 'Karate athletes competing in an international tournament in Germany',
+    'blog.article.chiusura-notturna-a9-lomazzo-chiasso.title': 'A9 night closure: changes for cross-border workers',
+    'blog.article.chiusura-notturna-a9-lomazzo-chiasso.excerpt': 'From 10:00 PM on May 4th to 5:00 AM on May 5th, nighttime closure between Lomazzo Sud and Como Centro towards Chiasso. Mandatory detours for cross-border workers.',
+    'blog.article.chiusura-notturna-a9-lomazzo-chiasso.imageAlt': 'A9 highway at night with ongoing work between Lomazzo and Como, view from Lake Lugano',
 };
 
 export default blogMetaEn;

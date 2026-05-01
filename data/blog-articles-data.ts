@@ -12083,4 +12083,11 @@ export const ARTICLES = [
  image: '/images/blog/bellinzonesi-germania-karate-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiusura-notturna-a9-lomazzo-chiasso',
+ category: 'pratico',
+ date: '2026-05-01T12:17:04.088Z',
+ image: '/images/blog/chiusura-notturna-a9-lomazzo-chiasso.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

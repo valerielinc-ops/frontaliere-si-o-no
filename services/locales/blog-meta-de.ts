@@ -4744,6 +4744,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bellinzonesi-germania-karate-2026.title': 'Bellinzona glänzt beim Karate-Turnier in Deutschland',
     'blog.article.bellinzonesi-germania-karate-2026.excerpt': 'Die jungen Athleten des Karateclubs Bellinzona erzielen hervorragende Ergebnisse bei der Nagai Cup in Deutschland',
     'blog.article.bellinzonesi-germania-karate-2026.imageAlt': 'Karate-Athleten bei einem internationalen Turnier in Deutschland',
+    'blog.article.chiusura-notturna-a9-lomazzo-chiasso.title': 'A9: Nachtschließung zwischen Lomazzo und Chiasso – was für Grenzgänger gilt',
+    'blog.article.chiusura-notturna-a9-lomazzo-chiasso.excerpt': 'Von 22:00 Uhr am 4. Mai bis 5:00 Uhr am 5. Mai wird die A9 zwischen Lomazzo Süd und Como Zentrum in Richtung Chiasso gesperrt. Grenzgänger müssen Umleitungen nutzen.',
+    'blog.article.chiusura-notturna-a9-lomazzo-chiasso.imageAlt': 'Autobahn A9 in der Nacht mit laufenden Arbeiten zwischen Lomazzo und Como, Blick vom Luganersee',
 };
 
 export default blogMetaDe;

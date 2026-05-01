@@ -32838,6 +32838,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusura-notturna-a9-lomazzo-chiasso': {
+    title: 'A9, chiusura notturna tra Lomazzo e Chiasso: cosa cambia per i frontalieri',
+    description: 'Dalle 22:00 del 4 maggio alle 5:00 del 5 maggio, chiusura notturna tra Lomazzo sud e Como Centro verso Chiasso. Deviazioni obbligatorie per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusura, notturna, lomazzo, chiasso',
+    ogTitle: 'A9 chiusura notturna Lomazzo Chiasso: cosa cambia per i frontalieri',
+    ogDescription: 'Dalle 22:00 del 4 maggio alle 5:00 del 5 maggio, chiusura notturna tra Lomazzo sud e Como Centro verso Chiasso. Deviazioni obbligatorie per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/chiusura-notturna-a9-lomazzo-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A9 chiusura notturna Lomazzo Chiasso: cosa cambia per i frontalieri",
+      "description": "Dalle 22:00 del 4 maggio alle 5:00 del 5 maggio, chiusura notturna tra Lomazzo sud e Como Centro verso Chiasso. Deviazioni obbligatorie per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiusura-notturna-a9-lomazzo-chiasso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A9 di notte con lavori in corso tra Lomazzo e Como, vista dal Lago di Lugano"
+      },
+      "datePublished": "2026-05-01T12:17:04+00:00",
+      "dateModified": "2026-05-01T12:17:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-notturna-a9-lomazzo-chiasso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

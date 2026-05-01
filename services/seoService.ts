@@ -2812,6 +2812,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lago-maggiore-135-metri-frontalieri': { name: 'Lago Maggiore', path: '/articoli-frontaliere/lago-maggiore-135-metri-frontalieri', parent: 'blog' },
     'blog-anziani-truffati-arresto-como-ticino': { name: 'Anziani truffati', path: '/articoli-frontaliere/anziani-truffati-arresto-como-ticino', parent: 'blog' },
     'blog-bellinzonesi-germania-karate-2026': { name: 'Novità', path: '/articoli-frontaliere/bellinzonesi-germania-karate-2026', parent: 'blog' },
+    'blog-chiusura-notturna-a9-lomazzo-chiasso': { name: 'Chiusura notturna A9', path: '/articoli-frontaliere/chiusura-notturna-a9-lomazzo-chiasso', parent: 'blog' },
  };
 
  const info = sectionNames[section];
