@@ -13,36 +13,19 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-04-30T11:33:59.548Z",
+  "updatedAt": "2026-05-01T11:00:05.819Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando25_9005",
-    "https://www.supsi.ch/bando26_5013",
     "https://www.supsi.ch/bando26_1007",
     "https://www.supsi.ch/26_5001",
     "https://www.supsi.ch/bando26_5016",
+    "https://www.supsi.ch/bando26_5017",
+    "https://www.supsi.ch/bando26_5018",
     "https://www.supsi.ch/bando26_4004",
     "https://www.supsi.ch/bando26_9001",
     "https://www.supsi.ch/bando26_1008",
     "https://www.supsi.ch/bando26_4001"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando25_9005": {
-      "location": "USI SUPSInido del Campus Est di Viganello",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "expiresAt": "2026-04-30"
-    },
-    "https://www.supsi.ch/bando26_5013": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-04-30"
-    },
     "https://www.supsi.ch/bando26_1007": {
       "location": "Mendrisio",
       "canton": "TI",
@@ -67,6 +50,24 @@
       "companyDomain": "supsi.ch",
       "contract": "Full-time",
       "expiresAt": "2026-05-17"
+    },
+    "https://www.supsi.ch/bando26_5017": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-05-17"
+    },
+    "https://www.supsi.ch/bando26_5018": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-05-24"
     },
     "https://www.supsi.ch/bando26_4004": {
       "location": "Direzione SUPSI",
