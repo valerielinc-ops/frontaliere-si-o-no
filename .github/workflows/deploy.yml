@@ -334,9 +334,11 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
 
-      - name: Install Playwright system dependencies (cache hit)
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
+      # STEP rimosso su ubuntu-24.04 le system dependencies di Chromium 
+      # sono già sull'immagine runner 
+      # - name: Install Playwright system dependencies (cache hit)
+      #   if: steps.playwright-cache.outputs.cache-hit == 'true'
+      #   run: npx playwright install-deps chromium
 
       # Post-build validations + SEO audits + SPA render + E2E (all parallel).
       #
