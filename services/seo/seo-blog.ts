@@ -33650,6 +33650,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-balerna-consiglio-comunale-centenario': {
+    title: 'Balerna celebra 100 anni del Consiglio comunale | Frontaliere Ticino',
+    description: 'Balerna festeggia il centenario del suo Consiglio comunale con una celebrazione dedicata a chi ha lavorato per il paese. Scopri di più sugli eventi e le',
+    keywords: 'frontalieri, ticino, svizzera, italia, balerna, celebra, anni, consiglio',
+    ogTitle: 'Balerna celebra 100 anni del Consiglio comunale',
+    ogDescription: 'Balerna festeggia il centenario del suo Consiglio comunale con una celebrazione dedicata a chi ha lavorato per il paese. Scopri di più sugli eventi e le',
+    canonicalPath: '/articoli-frontaliere/balerna-consiglio-comunale-centenario',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Balerna celebra 100 anni del Consiglio comunale",
+      "description": "Balerna festeggia il centenario del suo Consiglio comunale con una celebrazione dedicata a chi ha lavorato per il paese. Scopri di più sugli eventi e le",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/balerna-consiglio-comunale-centenario.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio storico di Balerna con decorazioni per il centenario del consiglio comunale"
+      },
+      "datePublished": "2026-05-01T16:59:09+00:00",
+      "dateModified": "2026-05-01T16:59:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/balerna-consiglio-comunale-centenario`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

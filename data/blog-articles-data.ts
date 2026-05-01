@@ -12279,4 +12279,11 @@ export const ARTICLES = [
  image: '/images/blog/trump-dazi-ue-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'balerna-consiglio-comunale-centenario',
+ category: 'novita',
+ date: '2026-05-01T16:59:09.804Z',
+ image: '/images/blog/balerna-consiglio-comunale-centenario.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

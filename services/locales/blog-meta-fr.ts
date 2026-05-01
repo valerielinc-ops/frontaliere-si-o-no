@@ -4829,6 +4829,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trump-dazi-ue-frontalieri-ticino.title': 'Trump augmente les droits de douane sur les véhicules de l\'UE',
     'blog.article.trump-dazi-ue-frontalieri-ticino.excerpt': 'Le président américain annonce l\'augmentation des droits de douane sur les voitures et camions en provenance de l\'UE, accusant l\'Union européenne de ne pas respecter l\'accord commercial.',
     'blog.article.trump-dazi-ue-frontalieri-ticino.imageAlt': 'Lac de Lugano avec vue sur la frontière suisse-italienne',
+    'blog.article.balerna-consiglio-comunale-centenario.title': 'Balerna célèbre 100 ans du Conseil communal',
+    'blog.article.balerna-consiglio-comunale-centenario.excerpt': 'Le conseil communal de Balerna fête son centenaire avec une célébration dédiée à ceux qui ont travaillé pour la commune.',
+    'blog.article.balerna-consiglio-comunale-centenario.imageAlt': 'Bâtiment historique à Balerna avec des décorations pour le centenaire du conseil municipal',
 };
 
 export default blogMetaFr;

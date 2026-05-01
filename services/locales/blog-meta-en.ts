@@ -4828,6 +4828,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trump-dazi-ue-frontalieri-ticino.title': 'Trump raises EU car tariffs to 25%',
     'blog.article.trump-dazi-ue-frontalieri-ticino.excerpt': 'The US president announces increased tariffs on cars and trucks from the EU, accusing the European Union of not respecting the trade agreement.',
     'blog.article.trump-dazi-ue-frontalieri-ticino.imageAlt': 'Lake Lugano with a view of the Swiss-Italian border',
+    'blog.article.balerna-consiglio-comunale-centenario.title': 'Balerna celebrates 100 years of municipal council',
+    'blog.article.balerna-consiglio-comunale-centenario.excerpt': 'The municipal council of Balerna is celebrating its centenary with an event dedicated to those who have worked for the town.',
+    'blog.article.balerna-consiglio-comunale-centenario.imageAlt': 'Historic building in Balerna with decorations for the 100th anniversary of the municipal council',
 };
 
 export default blogMetaEn;

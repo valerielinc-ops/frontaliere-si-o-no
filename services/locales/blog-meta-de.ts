@@ -4828,6 +4828,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trump-dazi-ue-frontalieri-ticino.title': 'Trump erhöht Zölle auf EU-Autos auf 25%',
     'blog.article.trump-dazi-ue-frontalieri-ticino.excerpt': 'Der US-Präsident kündigt höhere Zölle auf Autos und LKWs aus der EU an und wirft der Europäischen Union vor, das Handelsabkommen nicht einzuhalten.',
     'blog.article.trump-dazi-ue-frontalieri-ticino.imageAlt': 'Luganersee mit Blick auf die Schweizer-Italienische Grenze',
+    'blog.article.balerna-consiglio-comunale-centenario.title': 'Balerna feiert 100 Jahre Gemeinderat',
+    'blog.article.balerna-consiglio-comunale-centenario.excerpt': 'Der Gemeinderat von Balerna feiert sein 100-jähriges Bestehen mit einer Feier zu Ehren derer, die für die Gemeinde gearbeitet haben.',
+    'blog.article.balerna-consiglio-comunale-centenario.imageAlt': 'Historisches Gebäude in Balerna mit Dekorationen zum 100. Jahrestag des Gemeinderats',
 };
 
 export default blogMetaDe;
