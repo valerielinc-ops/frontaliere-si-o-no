@@ -11929,4 +11929,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-fatture-ospedali-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-aiuto-vittime-700-dossier',
+ category: 'novita',
+ date: '2026-05-01T09:07:49.408Z',
+ image: '/images/blog/crans-montana-aiuto-vittime-700-dossier.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

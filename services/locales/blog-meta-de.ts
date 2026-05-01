@@ -4678,6 +4678,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-fatture-ospedali-2026.title': 'Crans-Montana: Nicht alle Spitäler haben Rechnungen geschickt',
     'blog.article.crans-montana-fatture-ospedali-2026.excerpt': 'Nicht alle Schweizer Spitäler haben den italienischen Patienten, die beim Brand in Crans-Montana verletzt wurden, Rechnungen geschickt.',
     'blog.article.crans-montana-fatture-ospedali-2026.imageAlt': 'Panoramablick auf den Luganersee mit Bergen und einem Boot',
+    'blog.article.crans-montana-aiuto-vittime-700-dossier.title': 'Crans-Montana: 700 Fälle von Beratungsstellen für Opfer',
+    'blog.article.crans-montana-aiuto-vittime-700-dossier.excerpt': 'Fast 700 Fälle bearbeitet und 400\'000 Franken für die Opfer des Silvesterbrandes in Crans-Montana gezahlt.',
+    'blog.article.crans-montana-aiuto-vittime-700-dossier.imageAlt': 'Luftaufnahme von Crans-Montana, Schweiz, mit seinen ikonischen Skipisten und Luxushotels, aufgenommen an einem klaren Wintertag.',
 };
 
 export default blogMetaDe;

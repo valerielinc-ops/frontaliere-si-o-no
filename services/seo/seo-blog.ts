@@ -32200,6 +32200,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-aiuto-vittime-700-dossier': {
+    title: 'Crans-Montana: 700 dossier gestiti dai consultori per le vittime',
+    description: 'Quasi 700 dossier gestiti e 400\'000 franchi versati per le vittime dell\'incendio di Capodanno a Crans-Montana. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, dossier, gestiti, consultori',
+    ogTitle: 'Crans-Montana: 700 dossier gestiti dai consultori per le vittime',
+    ogDescription: 'Quasi 700 dossier gestiti e 400\'000 franchi versati per le vittime dell\'incendio di Capodanno a Crans-Montana.',
+    canonicalPath: '/articoli-frontaliere/crans-montana-aiuto-vittime-700-dossier',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana: 700 dossier gestiti dai consultori per le vittime",
+      "description": "Quasi 700 dossier gestiti e 400'000 franchi versati per le vittime dell'incendio di Capodanno a Crans-Montana. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-aiuto-vittime-700-dossier.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Crans-Montana, Svizzera, con le sue famose piste da sci e hotel di lusso, ripresa in una giornata invernale limpida."
+      },
+      "datePublished": "2026-05-01T09:07:49+00:00",
+      "dateModified": "2026-05-01T09:07:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-aiuto-vittime-700-dossier`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

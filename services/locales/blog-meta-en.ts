@@ -4678,6 +4678,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-fatture-ospedali-2026.title': 'Crans-Montana, hospital bills: not all sent to Italian patients',
     'blog.article.crans-montana-fatture-ospedali-2026.excerpt': 'Not all Swiss hospitals have sent bills to Italian patients injured in the Crans-Montana fire.',
     'blog.article.crans-montana-fatture-ospedali-2026.imageAlt': 'Panoramic view of Lake Lugano with mountains and a boat',
+    'blog.article.crans-montana-aiuto-vittime-700-dossier.title': 'Crans-Montana: 700 cases handled by victim support centers',
+    'blog.article.crans-montana-aiuto-vittime-700-dossier.excerpt': 'Almost 700 cases handled and 400,000 francs paid to victims of the New Year\'s Eve fire in Crans-Montana.',
+    'blog.article.crans-montana-aiuto-vittime-700-dossier.imageAlt': 'Aerial view of Crans-Montana, Switzerland, with its iconic ski slopes and luxury hotels, captured on a clear winter day.',
 };
 
 export default blogMetaEn;

@@ -2790,6 +2790,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-festa-fragole-camorino-beneficenza': { name: 'Festa fragole', path: '/articoli-frontaliere/festa-fragole-camorino-beneficenza', parent: 'blog' },
     'blog-lite-notturna-brogeda-2026': { name: 'Lite notturna', path: '/articoli-frontaliere/lite-notturna-brogeda-2026', parent: 'blog' },
     'blog-crans-montana-fatture-ospedali-2026': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-fatture-ospedali-2026', parent: 'blog' },
+    'blog-crans-montana-aiuto-vittime-700-dossier': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-aiuto-vittime-700-dossier', parent: 'blog' },
  };
 
  const info = sectionNames[section];
