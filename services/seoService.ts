@@ -2857,6 +2857,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aranno-incidente-moto-ricoverato-uomo': { name: 'Incidente Aranno', path: '/articoli-frontaliere/aranno-incidente-moto-ricoverato-uomo', parent: 'blog' },
     'blog-como-viaggio-nel-tempo-2026': { name: 'Como, viaggio nel tempo', path: '/articoli-frontaliere/como-viaggio-nel-tempo-2026', parent: 'blog' },
     'blog-como-volta-faro-rapinese-6-milioni': { name: 'Novità', path: '/articoli-frontaliere/como-volta-faro-rapinese-6-milioni', parent: 'blog' },
+    'blog-controlli-velocita-ticino-maggio-2024': { name: 'Controlli velocità Ticino', path: '/articoli-frontaliere/controlli-velocita-ticino-maggio-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

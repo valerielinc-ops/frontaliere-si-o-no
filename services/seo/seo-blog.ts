@@ -34143,6 +34143,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-velocita-ticino-maggio-2024': {
+    title: 'Controlli velocità Ticino: ecco dove saranno i radar dal 4 al 10 maggio',
+    description: 'La Polizia cantonale e le polizie comunali comunicano i luoghi dei controlli della velocità mobili e semi-stazionari nel Canton Ticino dal 4 al 10 maggio 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, velocità, ecco, dove',
+    ogTitle: 'Controlli velocità Ticino: dove saranno i radar dal 4 al 10 maggio',
+    ogDescription: 'La Polizia cantonale e le polizie comunali comunicano i luoghi dei controlli della velocità mobili e semi-stazionari nel Canton Ticino dal 4 al 10 maggio 2024.',
+    canonicalPath: '/articoli-frontaliere/controlli-velocita-ticino-maggio-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli velocità Ticino: dove saranno i radar dal 4 al 10 maggio",
+      "description": "La Polizia cantonale e le polizie comunali comunicano i luoghi dei controlli della velocità mobili e semi-stazionari nel Canton Ticino dal 4 al 10 maggio 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-velocita-ticino-maggio-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con i paesi circostanti"
+      },
+      "datePublished": "2026-05-01T19:32:15+00:00",
+      "dateModified": "2026-05-01T19:32:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-velocita-ticino-maggio-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

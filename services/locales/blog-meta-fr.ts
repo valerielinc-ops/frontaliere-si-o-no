@@ -4880,6 +4880,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-volta-faro-rapinese-6-milioni.title': 'Como: Rapinese accuse Rome sur les fonds pour Volta. Réplique cinglante',
     'blog.article.como-volta-faro-rapinese-6-milioni.excerpt': 'Le maire de Como accuse Rome d\'avoir alloué 6 millions pour une sit-com sur Volta, zéro pour les monuments. Réplique du Comité National.',
     'blog.article.como-volta-faro-rapinese-6-milioni.imageAlt': 'Vue aérienne du Faro Voltiano à Côme, avec le lac de Côme et les montagnes environnantes.',
+    'blog.article.controlli-velocita-ticino-maggio-2024.title': 'Contrôles de vitesse au Tessin: voici où seront les radars du 4 au 10 mai',
+    'blog.article.controlli-velocita-ticino-maggio-2024.excerpt': 'La police cantonale et les polices communales communiquent les lieux des contrôles de vitesse mobiles et semi-stationnaires',
+    'blog.article.controlli-velocita-ticino-maggio-2024.imageAlt': 'Vue aérienne du lac de Lugano avec les villes environnantes',
 };
 
 export default blogMetaFr;

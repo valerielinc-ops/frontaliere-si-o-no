@@ -4879,6 +4879,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-volta-faro-rapinese-6-milioni.title': 'Como mayor accuses Rome over Volta funds',
     'blog.article.como-volta-faro-rapinese-6-milioni.excerpt': 'The mayor of Como accuses Rome of allocating 6 million for a sitcom on Volta, nothing for monuments. Rebuttal from the National Committee.',
     'blog.article.como-volta-faro-rapinese-6-milioni.imageAlt': 'Aerial view of Como\'s Faro Voltiano and Lake Como, with clear blue sky and surrounding mountains.',
+    'blog.article.controlli-velocita-ticino-maggio-2024.title': 'Ticino speed checks: radar locations 4-10 May',
+    'blog.article.controlli-velocita-ticino-maggio-2024.excerpt': 'The cantonal police and local police announce the locations of mobile and semi-stationary speed checks.',
+    'blog.article.controlli-velocita-ticino-maggio-2024.imageAlt': 'Aerial view of Lake Lugano with surrounding towns',
 };
 
 export default blogMetaEn;

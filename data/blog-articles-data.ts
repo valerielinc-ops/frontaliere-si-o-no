@@ -12398,4 +12398,11 @@ export const ARTICLES = [
  image: '/images/blog/como-volta-faro-rapinese-6-milioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'controlli-velocita-ticino-maggio-2024',
+ category: 'novita',
+ date: '2026-05-01T19:32:15.310Z',
+ image: '/images/blog/controlli-velocita-ticino-maggio-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

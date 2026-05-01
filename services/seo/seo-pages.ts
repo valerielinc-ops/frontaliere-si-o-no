@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1676,
+ "numberOfItems": 1677,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6311,7 +6311,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1673, "name": "Riapre il Circolo ad Albate: una piazza al cope...", "url": `${BASE_URL}/articoli-frontaliere/circolo-albate-riapertura-2026` },
           { "@type": "ListItem", "position": 1674, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/aranno-incidente-moto-ricoverato-uomo` },
           { "@type": "ListItem", "position": 1675, "name": "Como, viaggio nel tempo: Quinto, Caffè&Caffè, U...", "url": `${BASE_URL}/articoli-frontaliere/como-viaggio-nel-tempo-2026` },
-          { "@type": "ListItem", "position": 1676, "name": "Como: Rapinese accusa Roma su fondi per Volta. ...", "url": `${BASE_URL}/articoli-frontaliere/como-volta-faro-rapinese-6-milioni` }
+          { "@type": "ListItem", "position": 1676, "name": "Como: Rapinese accusa Roma su fondi per Volta. ...", "url": `${BASE_URL}/articoli-frontaliere/como-volta-faro-rapinese-6-milioni` },
+          { "@type": "ListItem", "position": 1677, "name": "Controlli velocità Ticino: dove saranno i radar...", "url": `${BASE_URL}/articoli-frontaliere/controlli-velocita-ticino-maggio-2024` }
  ]
  },
  {

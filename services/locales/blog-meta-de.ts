@@ -4879,6 +4879,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-volta-faro-rapinese-6-milioni.title': 'Como: Rapinese wirft Rom Volta-Gelder vor',
     'blog.article.como-volta-faro-rapinese-6-milioni.excerpt': 'Der Bürgermeister von Como wirft Rom vor, 6 Millionen für eine Sitcom über Volta bereitgestellt zu haben, aber nichts für Denkmäler. Antwort des Nationalkomitees.',
     'blog.article.como-volta-faro-rapinese-6-milioni.imageAlt': 'Luftaufnahme des Faro Voltiano in Como, mit dem Comer See und den umliegenden Bergen.',
+    'blog.article.controlli-velocita-ticino-maggio-2024.title': 'Geschwindigkeitskontrollen im Tessin: Radarstandorte vom 4. bis 10. Mai',
+    'blog.article.controlli-velocita-ticino-maggio-2024.excerpt': 'Die Kantonspolizei und die Gemeindepolizeien teilen die Standorte der mobilen und halb-stationären Geschwindigkeitskontrollen mit',
+    'blog.article.controlli-velocita-ticino-maggio-2024.imageAlt': 'Luftaufnahme des Luganersees mit den umliegenden Orten',
 };
 
 export default blogMetaDe;
