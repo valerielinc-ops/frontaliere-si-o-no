@@ -1,0 +1,534 @@
+name: Post-deploy Validation
+
+on:
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types: [completed]
+
+concurrency:
+  # Cancel any in-flight validation when a newer deploy completes — we only
+  # care about validating the latest live version.
+  group: post-deploy-validation
+  cancel-in-progress: true
+
+jobs:
+  # Quick pre-check: was this a deployable run (has dist-html artifact)?
+  # Profile-only runs (profile_sequential=true) skip the deploy steps and
+  # produce no artifact — we detect this and skip validation entirely.
+  pre-check:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    outputs:
+      deployable: ${{ steps.check.outputs.deployable }}
+    permissions:
+      actions: read
+    steps:
+      - name: Check for dist-html artifact
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          count=$(gh api \
+            "repos/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}/artifacts" \
+            --jq "[.artifacts[] | select(.name == \"dist-html-${{ github.event.workflow_run.id }}\")] | length")
+          if [ "${count:-0}" -gt 0 ]; then
+            echo "deployable=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deployable=false" >> "$GITHUB_OUTPUT"
+            echo "No dist-html artifact — profile-only run. Skipping validation."
+          fi
+
+  validate:
+    needs: pre-check
+    if: ${{ needs.pre-check.outputs.deployable == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # for git commit/push in sync-previous-slug-winners
+      actions: read     # for artifact download from triggering run
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+    steps:
+      - name: Checkout (same SHA as deploy)
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — registry operations will be skipped."
+          fi
+
+      # Source validators (run on repo source, no dist/ needed) are launched in
+      # background while the dist-html artifact downloads in the foreground.
+      # Saves 30-60s vs running them sequentially after the download.
+      - name: Source validators + download dist HTML artifact (parallel)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEPLOY_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          : > /tmp/source-val-failures.txt
+
+          run_bg() {
+            local name=$1 log=$2; shift 2
+            (
+              "$@" > "$log" 2>&1
+              rc=$?
+              if [ $rc -ne 0 ]; then
+                echo "$name $log" >> /tmp/source-val-failures.txt
+              fi
+            ) &
+          }
+
+          run_bg validate:translation-completeness /tmp/v10.log \
+            node scripts/validate-translation-completeness.mjs
+          run_bg validate:crawler-summaries /tmp/v11.log \
+            npm run validate:crawler-summaries
+          run_bg validate:third-party-secrets /tmp/v12.log \
+            npm run validate:third-party-secrets
+          run_bg gate:seo-source /tmp/v27.log \
+            npm run gate:seo-source
+
+          # Download dist HTML + sitemaps while validators run in background.
+          gh run download "$DEPLOY_RUN_ID" \
+            --name "dist-html-${DEPLOY_RUN_ID}" \
+            --dir dist/
+
+          # Also download the updated previous-slug winners produced by the build.
+          gh run download "$DEPLOY_RUN_ID" \
+            --name "winners-${DEPLOY_RUN_ID}" \
+            --dir /tmp/winners/ || true   # optional — file unchanged if no new slugs
+
+          if [ -f /tmp/winners/previous-slug-winners.json ]; then
+            cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
+          fi
+
+          wait
+
+          if [ -s /tmp/source-val-failures.txt ]; then
+            while read -r name logfile; do
+              echo "::error::$name failed"
+              cat "$logfile"
+            done < /tmp/source-val-failures.txt
+            exit 1
+          fi
+          echo "✅ Source validators + dist download complete"
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        with:
+          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      # Post-build validations pool.
+      # Runs all dist/ HTML walkers in capped parallel (MAX_PARALLEL=4, same
+      # tuning as the original deploy.yml pool — 4-way is optimal for 2-core
+      # runners where tasks are I/O-bound).
+      # test:e2e:smoke and validate:spa-render are NOT in this pool: both need
+      # the full JS/CSS bundle served via vite preview, which is unavailable here
+      # (we only have the HTML slice of dist/). They are replaced by test:e2e:live
+      # which runs against the deployed live site after CDN propagation.
+      - name: Post-build validations + SEO audits (capped parallel)
+        run: |
+          MAX_PARALLEL=4
+          : > /tmp/post-build-timings.txt
+          : > /tmp/post-build-failures.txt
+
+          wait_slot() {
+            while (( $(jobs -rp | wc -l) >= MAX_PARALLEL )); do
+              wait -n 2>/dev/null || true
+            done
+          }
+
+          spawn_capped() {
+            local name=$1; local logfile=$2; shift 2
+            wait_slot
+            (
+              start=$(date +%s.%N)
+              "$@" > "$logfile" 2>&1
+              rc=$?
+              end=$(date +%s.%N)
+              awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"$name\", $end-$start, $rc}" \
+                >> /tmp/post-build-timings.txt
+              if [ $rc -ne 0 ]; then
+                echo "$name $logfile" >> /tmp/post-build-failures.txt
+              fi
+            ) &
+          }
+
+          # LPT order: slowest tasks first so the tail is shorter.
+          spawn_capped audit:dist-multi-ratio     /tmp/g5.log \
+            env AUDIT_DIST_MULTI_GROUP=ratio npm run audit:dist-multi
+          spawn_capped audit:dist-multi-heavy     /tmp/g6.log \
+            env AUDIT_DIST_MULTI_GROUP=heavy npm run audit:dist-multi
+          spawn_capped audit:dist-multi-light     /tmp/g7.log \
+            env AUDIT_DIST_MULTI_GROUP=light npm run audit:dist-multi
+          spawn_capped audit:orphan-sitemap-pages /tmp/g9.log \
+            npm run audit:orphan-sitemap-pages -- --gate=baseline
+          spawn_capped validate:sitemap-pages     /tmp/spm.log \
+            npm run validate:sitemap-pages
+          spawn_capped validate:jobs-quality      /tmp/v2.log \
+            npm run validate:jobs-quality
+          spawn_capped validate:sitemap-links     /tmp/v3.log \
+            npm run validate:sitemap-links
+
+          wait
+
+          echo ""
+          echo "── Post-build per-task wall_s (MAX_PARALLEL=$MAX_PARALLEL, sorted DESC) ──"
+          sort -k2 -gr /tmp/post-build-timings.txt
+          echo "─────────────────────────────────────────────────────────────────────"
+
+          FAIL=0
+          if [ -s /tmp/post-build-failures.txt ]; then
+            while read -r name logfile; do
+              echo "::error::$name failed"
+              cat "$logfile"
+              FAIL=1
+            done < /tmp/post-build-failures.txt
+          fi
+
+          [ $FAIL -eq 0 ] || exit 1
+          echo "✅ All post-build validators + audits passed"
+
+      - name: E2E visual regression (if linux baselines present)
+        if: hashFiles('tests/e2e/seo-visual-regression.spec.ts-snapshots/*-linux.png') != ''
+        run: npm run test:e2e:visual
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
+
+      - name: Upload visual diffs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diffs
+          path: test-results/
+          retention-days: 14
+
+      - name: Build size summary
+        run: |
+          echo "=== Validation artifact size summary ==="
+          du -sh dist/
+          echo "HTML files (top 10 by size):"
+          find dist -name "*.html" -exec du -sh {} + | sort -rh | head -10
+          echo "Sitemaps:"
+          find dist -name "sitemap*.xml" -exec du -sh {} + | sort -rh
+
+      - name: Sync previous-slug winners registry
+        # The build in deploy.yml may update data/previous-slug-winners.json.
+        # The updated file is downloaded from the winners artifact above.
+        # If it changed relative to HEAD, commit and push it here.
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/previous-slug-winners.json; then
+            echo "[previous-slug-winners] no changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/previous-slug-winners.json
+          git commit -m "chore(seo): sync previous-slug winners registry"
+          git stash push --keep-index --include-untracked -m "validation-build-tree" || true
+          bash scripts/lib/git-push-with-retry.sh \
+            --in-place-resolver-cmd "node scripts/lib/resolve-winners-conflict.mjs && git add -A"
+          git stash pop || true
+
+      - name: Audit SPA bundle injection
+        # Verifies every per-slug dist/<path>/index.html contains the SPA
+        # hydration script. Runs post-deploy so a broken build triggers rollback
+        # rather than blocking the deploy outright.
+        run: npm run audit:spa-bundle-injection
+
+      - name: Upload write-collisions analysis
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: write-collisions-analysis
+          path: |
+            dist/.write-collisions.json
+            dist/.write-collisions-data/
+          retention-days: 7
+          if-no-files-found: ignore
+          include-hidden-files: true
+
+      - name: Wait for GitHub Pages CDN propagation
+        # Polls /build-id.txt on the live site until it matches the deployed
+        # build. Live E2E tests below must run against the new version, not the
+        # Fastly-cached previous one.
+        run: node scripts/wait-for-pages-propagation.mjs
+
+      - name: Post-deploy availability probe (4XX/5XX)
+        run: npm run probe:5xx
+
+      - name: Post-deploy rendering smoke (live E2E)
+        # Replaces both test:e2e:smoke (localhost) and validate:spa-render in the
+        # post-deploy context: runs the full smoke suite + the April-30 rendering
+        # guard against the live site where the JS bundle is available.
+        env:
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: npm run test:e2e:live
+
+      - name: Read deploy metadata from Firestore
+        id: deploy-meta
+        continue-on-error: true
+        run: |
+          DATA=$(node scripts/deploy-registry.mjs get \
+            --run-id="${{ github.event.workflow_run.id }}" 2>/dev/null || echo '{}')
+          echo "data=$DATA" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for live article metadata
+        if: |
+          success() &&
+          github.event.workflow_run.event == 'workflow_dispatch' &&
+          fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl != null
+        id: wait_live_meta
+        continue-on-error: true
+        env:
+          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
+          OG_IMAGE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogImage }}
+        run: |
+          node scripts/wait-for-live-article-meta.mjs \
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_IMAGE"
+
+      - name: Post to Facebook Page
+        if: |
+          success() &&
+          github.event.workflow_run.event == 'workflow_dispatch' &&
+          fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
+          steps.wait_live_meta.outcome == 'success'
+        continue-on-error: true
+        env:
+          ARTICLE_ID: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleId }}
+          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
+          OG_DESCRIPTION: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogDescription }}
+          ARTICLE_CATEGORY: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleCategory }}
+        run: |
+          node scripts/post-to-facebook.mjs \
+            "$ARTICLE_ID" \
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_DESCRIPTION" \
+            "$ARTICLE_CATEGORY"
+
+      - name: Post to LinkedIn Company Page
+        if: |
+          success() &&
+          github.event.workflow_run.event == 'workflow_dispatch' &&
+          fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
+          steps.wait_live_meta.outcome == 'success'
+        continue-on-error: true
+        env:
+          ARTICLE_ID: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleId }}
+          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
+          OG_DESCRIPTION: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogDescription }}
+          ARTICLE_CATEGORY: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleCategory }}
+        run: |
+          node scripts/post-to-linkedin.mjs \
+            "$ARTICLE_ID" \
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_DESCRIPTION" \
+            "$ARTICLE_CATEGORY"
+
+      - name: Restore indexing API daily tracker
+        id: indexing-cache
+        uses: actions/cache@v5
+        with:
+          path: /tmp/indexing-api-submitted-today.json
+          key: indexing-api-${{ github.run_id }}
+          restore-keys: |
+            indexing-api-
+
+      - name: Post-deploy indexing (parallel)
+        if: success()
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+        run: |
+          timeout 90 node scripts/submit-google-indexing-jobs.js &
+          PID_GOOGLE=$!
+          timeout 90 node scripts/submit-indexnow.js &
+          PID_INDEXNOW=$!
+          timeout 90 node scripts/submit-google-indexing.js &
+          PID_GSC=$!
+          timeout 90 node scripts/verify-post-deploy-seo.mjs &
+          PID_SEO=$!
+
+          FAIL=0
+          wait $PID_GOOGLE  || { echo "⚠️ Google Indexing API failed"; FAIL=1; }
+          wait $PID_INDEXNOW || { echo "⚠️ IndexNow submission failed"; FAIL=1; }
+          wait $PID_GSC     || { echo "⚠️ GSC submission failed"; FAIL=1; }
+          wait $PID_SEO     || { echo "⚠️ Post-deploy SEO verification failed"; FAIL=1; }
+
+          if [ $FAIL -ne 0 ]; then
+            echo "::warning::Some post-deploy indexing steps failed (non-blocking)"
+          fi
+          echo "✅ Post-deploy indexing complete"
+
+      - name: Mark deploy as last known good
+        if: success()
+        run: |
+          node scripts/deploy-registry.mjs set-good \
+            --run-id="${{ github.event.workflow_run.id }}" \
+            --sha="${{ github.event.workflow_run.head_sha }}"
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "Validation Failure: post-deploy-validation — run ${{ github.run_number }}" \
+            --description "## Validazione post-deploy fallita
+          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.event.workflow_run.head_branch }}
+          **SHA:** ${{ github.event.workflow_run.head_sha }}" \
+            --priority 1 \
+            --label Bug \
+            --workflow "Post-deploy Validation"
+
+  rollback:
+    needs: validate
+    if: ${{ needs.validate.result == 'failure' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      actions: read
+    environment:
+      name: github-pages
+      url: ${{ steps.rollback_deploy.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Get last known good deploy
+        id: last-good
+        run: |
+          DATA=$(node scripts/deploy-registry.mjs get-good 2>/dev/null || echo '{}')
+          RUN_ID=$(echo "$DATA" | node -e "process.stdin.resume();let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{console.log(JSON.parse(d).runId||'')}catch{console.log('')}})")
+          SHA=$(echo "$DATA" | node -e "process.stdin.resume();let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{console.log(JSON.parse(d).sha||'')}catch{console.log('')}})")
+          echo "run-id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          if [ -z "$RUN_ID" ]; then
+            echo "::warning::No last_known_good found in Firestore — cannot rollback."
+          else
+            echo "Rolling back to run $RUN_ID (sha $SHA)"
+          fi
+
+      - name: Fail if no last known good deploy is available
+        if: steps.last-good.outputs.run-id == ''
+        run: |
+          echo "::error::No last_known_good deploy found in Firestore. Cannot perform rollback."
+          exit 1
+
+      - name: Download last known good GitHub Pages artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh run download "${{ steps.last-good.outputs.run-id }}" \
+            --name github-pages \
+            --dir ./rollback-archive/
+
+      - name: Reconstruct rollback site from downloaded Pages artifact
+        run: |
+          test -f ./rollback-archive/artifact.tar
+          mkdir -p ./rollback-dist
+          tar -xf ./rollback-archive/artifact.tar -C ./rollback-dist
+
+      - name: Re-upload last known good artifact for Pages
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./rollback-dist
+
+      - name: Deploy last known good to GitHub Pages
+        id: rollback_deploy
+        uses: actions/deploy-pages@v5
+
+      - name: Report rollback to Linear
+        if: always()
+        continue-on-error: true
+        run: |
+          if [ "${{ steps.rollback_deploy.outcome }}" = "success" ]; then
+            MSG="## Rollback eseguito
+          **Rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
+          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          else
+            MSG="## Rollback fallito
+          **Tentato rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
+          **Deploy fallito:** https://github.com/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "Rollback: post-deploy-validation — run ${{ github.run_number }}" \
+            --description "$MSG" \
+            --priority 1 \
+            --label Bug \
+            --workflow "Post-deploy Validation Rollback"

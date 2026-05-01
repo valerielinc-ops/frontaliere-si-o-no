@@ -48,18 +48,12 @@ on:
         required: false
         type: boolean
         default: false
-      post_build_max_parallel:
-        description: 'Concurrency cap for the 8-task post-build pool. Default 4 — measured -33% wall vs =2 baseline (230s vs 345s) and -16% vs =3 (274s). The 4-way overlap masks I/O wait time; 2-core thrashing penalty is small because most tasks are I/O-bound (reading dist/). Override with 1/2/3 for one-off measurements.'
-        required: false
-        type: string
-        default: '4'
 
 permissions:
-  # contents: write so the "Sync previous-slug winners registry" step can
-  # commit data/previous-slug-winners.json back to main after the build
-  # populates it. The same pattern is used by every other data-refresh
-  # workflow in the repo (refresh-keyword-config.yml etc).
-  contents: write
+  # This workflow only needs repository read access: the previous-slug winners
+  # sync moved to post-deploy-validation.yml, while the deploy itself only
+  # uploads artifacts and publishes to GitHub Pages.
+  contents: read
   pages: write
   id-token: write
 
@@ -67,8 +61,8 @@ concurrency:
   # GitHub Pages allows only one active deployment at a time. Every trigger —
   # push to main, workflow_dispatch from articles/crawlers/etc. — must share a
   # single queue so deploys run strictly serially. cancel-in-progress is false
-  # to preserve post-deploy steps (social media posts, IndexNow) that happen
-  # after the Pages deployment succeeds.
+  # so each successful deploy can finish publishing and emit its artifacts for
+  # the downstream post-deploy validation workflow.
   #
   # Exception: a workflow_dispatch with profile_sequential=true is a build-only
   # investigation run that skips the deploy steps. It uses a per-run group so
@@ -76,9 +70,6 @@ concurrency:
   # next push to main, and without blocking real deploys behind it.
   group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-deploy-profile-{0}', github.run_id) || 'pages-deploy' }}
   cancel-in-progress: false
-
-env:
-  PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
 
 jobs:
   build-and-deploy:
@@ -108,15 +99,6 @@ jobs:
       - name: Install dependencies
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
-
-      # Gate — fast SEO source checks moved into post-build pool (run 25120909716
-      # showed 40s wall here; now runs as a 19th task in the capped-parallel pool
-      # below, where it overlaps with the other 18 tasks at zero added wall.
-      # Trade-off: a source-level SEO regression is now caught AFTER the build
-      # completes (~6 min later) instead of fail-fast before. Acceptable because
-      # the 29 tests in tests/seo/ only fail on human PRs that touch hreflang/
-      # brand-dedup/sitemap source — automated deploys (cron blog/translate)
-      # never trip them.
 
       - name: Prepare Firebase credentials
         env:
@@ -148,15 +130,6 @@ jobs:
         # Guarantees footer hrefs in WeeklyEmployersTeaser always point at
         # static pages that exist in dist/, eliminating SPA-shell 404s.
         run: node scripts/refresh-weekly-employers-top-pairs.mjs
-
-      - name: Validate translation completeness (blocking)
-        run: node scripts/validate-translation-completeness.mjs
-
-      - name: Validate crawler summary store (blocking)
-        run: npm run validate:crawler-summaries
-
-      - name: Validate third-party secrets are not committed (blocking)
-        run: npm run validate:third-party-secrets
 
       - name: Mine all job slugs for comprehensive 404 coverage
         run: node scripts/mine-all-job-slugs.mjs
@@ -333,287 +306,10 @@ jobs:
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
         run: cp dist/index.html dist/404.html
 
-      - name: Cache Playwright browsers
-        id: playwright-cache
-        uses: actions/cache@v5
-        with:
-          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
-          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Playwright browsers for SPA render validation
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
-
-      # STEP rimosso su ubuntu-24.04 le system dependencies di Chromium 
-      # sono già sull'immagine runner 
-      # - name: Install Playwright system dependencies (cache hit)
-      #   if: steps.playwright-cache.outputs.cache-hit == 'true'
-      #   run: npx playwright install-deps chromium
-
-      # Post-build validations + SEO audits + SPA render + E2E (all parallel).
-      #
-      # Combines what used to be 4 sequential steps:
-      #   - Validate SEO quality (7 file validators)
-      #   - SEO audit gates (7 dist/ walkers, ratcheted against baselines)
-      #   - Validate SPA render (canonical, schema, robots)
-      #   - E2E smoke tests (Playwright)
-      #
-      # All 8 jobs are read-only against dist/ and have no shared state, so
-      # wall-clock = max(durations) instead of sum. Real-run timing data
-      # (run #25028714773): 83s + 131s + 65s + 49s = 328s sequential vs ~131s
-      # parallel — saves ~197s per deploy.
-      #
-      # SPA render gets a 300s shell-level cap; Playwright gets 180s. These
-      # replace the previous step-level `timeout-minutes` fields (which only
-      # work on standalone steps, not background jobs).
-      #
-      # If any gate FAILS, its stderr is replayed. Playbook for the SEO gates:
-      #   - hreflang             → fix locale-aware <link rel="alternate"> tags
-      #   - title-uniqueness     → make every canonical URL emit a unique <title>
-      #   - content-duplicates   → diversify body copy on near-duplicate templates
-      #   - page-weight          → check <img width/height> + total bytes per page
-      #   - text-html-ratio      → CLAUDE.md "SEO content gate" playbook (≥10%
-      #                            visible-text/HTML, ratchet baseline)
-      #   - h1-title-duplicates  → never let <title> equal <h1> verbatim; keep a
-      #                            brand suffix or discriminator
-      #   - title-length         → shorten headline construction (≤90 char incl.
-      #                            " | Frontaliere Ticino" suffix); see
-      #                            truncateTitleCore in jobsSeoPagesPlugin.ts
-      #   - sitemap-canonicals   → HARD gate, no baseline. Every <loc> in every
-      #                            dist/sitemap-*.xml must self-canonicalize
-      #                            (page's <link rel="canonical"> = the loc).
-      #                            Fix the build plugin emitting the offending
-      #                            sitemap entry — never weaken the gate.
-      #   - orphan-sitemap-pages → CLAUDE.md "SEO content gate — orphaned pages
-      #                            in sitemaps" playbook. BFS reachability from
-      #                            homepage; ratchet baseline against
-      #                            data/orphan-pages-baseline.json. Default fix:
-      #                            add internal links — never noindex without
-      #                            explicit approval (CLAUDE.md non-negotiable #5).
-      - name: Post-build validations + SEO audits + SPA render + E2E (capped parallel)
-        run: |
-          # IMPORTANT: 8 fully-parallel Node processes on the 2-core ubuntu
-          # runner thrashed catastrophically — sum(per-task wall) ≈ step wall
-          # (566 s ≈ 567 s, run #25108605667). The CPU spent more time
-          # context-switching than actually executing audits. Theoretical
-          # 2-core lower bound is sum/2 = 283 s.
-          #
-          # Fix: cap concurrency at 2 (matches available cores). Tasks are
-          # dispatched in LPT (longest-processing-time-first) order so the
-          # tail end never sits with one slow task running alone. Per-task
-          # wall_s is still captured and summarised.
-          MAX_PARALLEL=${{ github.event.inputs.post_build_max_parallel || '4' }}
-          : > /tmp/post-build-timings.txt
-          : > /tmp/post-build-failures.txt
-
-          # Wait until fewer than MAX_PARALLEL background jobs are running.
-          # Bash 4.3+ `wait -n` blocks until ANY child completes — clean
-          # semaphore primitive that needs no external tools.
-          wait_slot() {
-            while (( $(jobs -rp | wc -l) >= MAX_PARALLEL )); do
-              wait -n 2>/dev/null || true
-            done
-          }
-
-          # Spawn one task subject to the concurrency cap. Records timing
-          # to /tmp/post-build-timings.txt and any non-zero rc to
-          # /tmp/post-build-failures.txt. Caller doesn't track PIDs — a
-          # single `wait` at the end drains all in-flight jobs.
-          spawn_capped() {
-            local name=$1; local logfile=$2; shift 2
-            wait_slot
-            (
-              start=$(date +%s.%N)
-              "$@" > "$logfile" 2>&1
-              rc=$?
-              end=$(date +%s.%N)
-              awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"$name\", $end-$start, $rc}" \
-                >> /tmp/post-build-timings.txt
-              if [ $rc -ne 0 ]; then
-                echo "$name $logfile" >> /tmp/post-build-failures.txt
-              fi
-            ) &
-          }
-
-          # Tasks dispatched LPT (longest first) per measurements from
-          # run #25108605667. Each line is one task with name + logfile +
-          # command. Slowest 4 are intentionally back-to-back so the tail
-          # is shorter and less expensive tasks fill the gaps.
-          # Gate first: dispatched at t=0 so its 40s vitest run completes
-          # while the 4 longest LPT tasks are still in flight, instead of
-          # tail-latency adding ~40s wall (run 25131629748: gate at the end
-          # of spawn order made wall 279s vs expected ~240s).
-          spawn_capped gate:seo-source              /tmp/gate.log npm run gate:seo-source
-          # PERF EXPERIMENT (T4): split audit:dist-multi into 2 parallel walkers.
-          # Heavy = text-html-ratio + h1-title-duplicates + content-duplicates +
-          # jobposting-schema (the 4 slowest checks).
-          # Light = title-length + page-weight + hreflang + title-uniqueness +
-          # structured-data (the 5 lighter checks).
-          # Each walker reads dist/ once; the 2 run in parallel.
-          # T5 EXPERIMENT: 3 walkers. ratio (slowest single check) isolated;
-          # heavy (h1+dup+jobposting) and light (title+pw+hl+tu+sd) split.
-          spawn_capped audit:dist-multi-ratio       /tmp/g5.log env AUDIT_DIST_MULTI_GROUP=ratio npm run audit:dist-multi
-          spawn_capped audit:dist-multi-heavy       /tmp/g6.log env AUDIT_DIST_MULTI_GROUP=heavy npm run audit:dist-multi
-          spawn_capped audit:dist-multi-light       /tmp/g7.log env AUDIT_DIST_MULTI_GROUP=light npm run audit:dist-multi
-          # Group C — SPA render validation (5 min internal budget)
-          spawn_capped validate:spa-render          /tmp/spa.log timeout 300 node scripts/validate-spa-render.mjs
-          # Group D — E2E smoke (3 min internal budget)
-          spawn_capped test:e2e:smoke               /tmp/e2e.log timeout 180 npx playwright test
-          # Gate — orphaned pages in sitemaps (BFS reachability from homepage;
-          # ratchet baseline in data/orphan-pages-baseline.json). Improvements
-          # accepted silently; any sitemap whose orphan count goes UP fails.
-          spawn_capped audit:orphan-sitemap-pages   /tmp/g9.log npm run audit:orphan-sitemap-pages -- --gate=baseline
-          spawn_capped validate:sitemap-pages       /tmp/spm.log npm run validate:sitemap-pages
-          spawn_capped validate:jobs-quality        /tmp/v2.log npm run validate:jobs-quality
-          spawn_capped validate:sitemap-links       /tmp/v3.log npm run validate:sitemap-links
-
-          # Drain remaining in-flight tasks.
-          wait
-
-          # Per-task wall-time summary (sorted DESC).
-          echo ""
-          echo "── Post-build per-task wall_s (MAX_PARALLEL=$MAX_PARALLEL, sorted DESC) ──"
-          sort -k2 -gr /tmp/post-build-timings.txt
-          echo "─────────────────────────────────────────────────────────────────────"
-
-          # Report failures from /tmp/post-build-failures.txt (each line:
-          # "<name> <logfile>"). Cat each failed task's stdout/stderr so the
-          # error context shows up in the workflow log just like before.
-          FAIL=0
-          if [ -s /tmp/post-build-failures.txt ]; then
-            while read -r name logfile; do
-              echo "::error::$name failed"
-              cat "$logfile"
-              FAIL=1
-            done < /tmp/post-build-failures.txt
-          fi
-
-          if [ $FAIL -ne 0 ]; then exit 1; fi
-          echo "✅ All 10 post-build validators+audits+SPA+E2E+gate passed"
-
-      # Visual regression baselines are OS-sensitive (darwin vs linux pixel
-      # diffs). We run them only when a linux-specific baseline has been
-      # committed. Generate with: `npm run test:e2e:visual:update` on Linux
-      # (or inside a linux container) and commit the PNGs.
-      - name: E2E visual regression (if linux baselines present)
-        if: hashFiles('tests/e2e/seo-visual-regression.spec.ts-snapshots/*-linux.png') != ''
-        run: npm run test:e2e:visual
-
-      - name: Upload Playwright report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 14
-
-      - name: Upload visual diffs on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: visual-diffs
-          path: test-results/
-          retention-days: 14
-
-      - name: Build size summary
-        run: |
-          echo "=== Build size summary ==="
-          du -sh dist/
-          echo "JS files:"
-          find dist -name "*.js" ! -name "*.gz" -exec du -sh {} + | sort -rh | head -10
-          echo "CSS files:"
-          find dist -name "*.css" ! -name "*.gz" -exec du -sh {} + | sort -rh
-
       - name: Capture pre-deploy sitemap URLs (for IndexNow diff)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
         run: node scripts/capture-deployed-sitemaps.mjs
-
-      - name: Sync previous-slug winners registry (commit data/previous-slug-winners.json)
-        # The previous-slug bridge dedup logic (Phase 4 case 1) chooses ONE
-        # canonical winner per `(locale, oldSlug)` claimed by multiple active
-        # jobs and persists the decision to data/previous-slug-winners.json.
-        # The file is read at the start of every build to keep URL→canonical
-        # mappings stable across builds (Google's link equity hangs on this
-        # being deterministic). If we don't commit the build's mutations back,
-        # every CI run starts with a stale or empty file and the heuristic
-        # silently re-elects winners on every build → URL flicker.
-        #
-        # Idempotency: if the build didn't touch the file (no contested
-        # prevSlugs added or removed since the last run), the diff is empty
-        # and this step is a no-op. The git-push-with-retry helper handles
-        # the race where another workflow (cron blog generator, GSC orphan
-        # import, etc.) pushed to main while we were building.
-        if: success() && github.event.inputs.profile_sequential != 'true'
-        shell: bash
-        run: |
-          set -euo pipefail
-          if git diff --quiet data/previous-slug-winners.json; then
-            echo "[previous-slug-winners] no changes to commit"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/previous-slug-winners.json
-          git commit -m "chore(seo): sync previous-slug winners registry"
-          # Stash everything else (dist artifacts + any other tracked files
-          # the build mutated) so a rebase-on-conflict has a clean working
-          # tree. The git-push-with-retry helper does `git pull --rebase`
-          # internally, which refuses to run on a dirty tree. We restore
-          # the stash AFTER push so subsequent steps (Audit SPA bundle,
-          # Upload artifact for GitHub Pages) still see dist/.
-          # --keep-index preserves our staged commit; --include-untracked
-          # also stashes dist/, which is gitignored but still confuses
-          # rebase if any file inside it is somehow tracked.
-          git stash push --keep-index --include-untracked -m "deploy-build-tree" || true
-          # Two concurrent deploys can both queue under the `pages-deploy`
-          # group; whichever pushes its winners commit second hits a JSON
-          # conflict on `data/previous-slug-winners.json` during rebase
-          # (run 25159195858 was exactly this). Provide an in-place resolver
-          # that unions both versions (ours wins on key collision, since our
-          # build's entries are the freshest computation). Same pattern as
-          # generate-article.yml's resolve_append_conflicts → keep the local
-          # commit, resolve inline, `rebase --continue`.
-          bash scripts/lib/git-push-with-retry.sh \
-            --in-place-resolver-cmd "node scripts/lib/resolve-winners-conflict.mjs && git add -A"
-          # Restore the stash so subsequent deploy steps see dist/.
-          git stash pop || true
-
-      - name: Audit SPA bundle injection (block broken deploys at the source)
-        # Verifies every per-slug `dist/<path>/index.html` contains the SPA
-        # hydration script. The 2026-04-30 incident showed write-registry
-        # collisions occasionally produce per-slug pages without the bundle —
-        # the live E2E test catches it post-deploy, but the broken HTML is
-        # already serving users by then. This static check on dist/ runs
-        # BEFORE upload-pages-artifact, so a broken build never reaches
-        # production. On failure, inspect `dist/.write-collisions.json`
-        # (uploaded as `write-collisions-analysis` artifact below).
-        if: github.event.inputs.profile_sequential != 'true'
-        run: npm run audit:spa-bundle-injection
-
-      - name: Upload write-collisions analysis (small artifact)
-        # Always upload (even when the audit above fails) so we have the
-        # registry data to diagnose the failure. Both targets are
-        # dotfile-filtered by GitHub Pages so they can't be served live; this
-        # artifact is the only way to retrieve them.
-        #   - dist/.write-collisions.json: per-path version history + summary
-        #   - dist/.write-collisions-data/<hash>.html: full content of every
-        #     version that competed for a colliding path (pruned by the
-        #     registry to ~tens of MB after the build).
-        # Download with: gh run download <run-id> -n write-collisions-analysis
-        # NOTE: include-hidden-files is required because both targets start
-        # with `.`; without it, actions/upload-artifact@v4 silently drops them
-        # and produces an empty artifact (this was the bug in run 25151657070).
-        if: always() && github.event.inputs.profile_sequential != 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: write-collisions-analysis
-          path: |
-            dist/.write-collisions.json
-            dist/.write-collisions-data/
-          retention-days: 7
-          if-no-files-found: ignore
-          include-hidden-files: true
 
       - name: Merge previous CSS/JS assets for Clarity recordings
         # Runs as the LAST mutation of dist/ before upload, on purpose.
@@ -648,6 +344,29 @@ jobs:
         with:
           path: dist
 
+      - name: Upload dist HTML + sitemaps for post-deploy validation
+        if: github.event.inputs.profile_sequential != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-html-${{ github.run_id }}
+          path: |
+            dist/**/*.html
+            dist/sitemap*.xml
+            dist/.write-collisions.json
+            dist/.write-collisions-data/
+          retention-days: 7
+          include-hidden-files: true
+          if-no-files-found: warn
+
+      - name: Upload previous-slug winners for post-deploy validation
+        if: github.event.inputs.profile_sequential != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: winners-${{ github.run_id }}
+          path: data/previous-slug-winners.json
+          retention-days: 7
+          if-no-files-found: ignore
+
       # GitHub Pages allows only one deployment at a time. When concurrent
       # pushes trigger this workflow, the second run can hit "in progress
       # deployment" errors. Retry once after a short wait to handle this.
@@ -672,133 +391,26 @@ jobs:
         if: github.event.inputs.profile_sequential != 'true' && steps.deployment_first.outcome == 'failure' && steps.deployment.outcome != 'success'
         run: exit 1
 
-      - name: Wait for GitHub Pages CDN propagation
-        # `actions/deploy-pages` returns success the moment the artifact is
-        # registered, but the Fastly edge in front of GitHub Pages can serve
-        # the previous HTML for ~1-2 minutes. Polls the live /build-id.txt and
-        # returns as soon as it matches the local dist/build-id.txt — usually
-        # 15-60s, instead of a blind sleep.
-        if: success() && github.event.inputs.profile_sequential != 'true'
-        run: node scripts/wait-for-pages-propagation.mjs
-
-      - name: Post-deploy availability probe (4XX/5XX)
-        # Same script as production-canary.yml — runs after every deploy so a
-        # bad slug change or removed plugin output blocks the workflow run
-        # (visible in the deploy status, not 15 min later in the canary).
-        if: success() && github.event.inputs.profile_sequential != 'true'
-        run: npm run probe:5xx
-
-      - name: Post-deploy rendering smoke (live E2E)
-        # Regression guard for the 2026-04-30 rendering incident: an
-        # intermittent build race condition occasionally shipped per-slug SEO
-        # pages without the SPA bundle script tag, leaving them stuck on
-        # pre-hydration static content — and on articles, it produced an
-        # infinite client-side loop with the no-slash flat-html-redirect
-        # bridge. The bug is non-deterministic and only reproduces end-to-end
-        # against the deployed pipeline, so this check runs against the LIVE
-        # site (not localhost). See `tests/e2e/post-deploy-rendering-live.spec.ts`
-        # for the full failure-mode docstring and the four URL targets.
+      - name: Save deploy metadata to Firestore
         if: success() && github.event.inputs.profile_sequential != 'true'
         env:
-          LIVE_BASE_URL: https://frontaliereticino.ch
-        run: npm run test:e2e:live
-
-      - name: Wait for live article metadata
-        if: success() && github.event.inputs.profile_sequential != 'true' && github.event_name == 'workflow_dispatch' && github.event.inputs.article_url != '' && github.event.inputs.og_title != ''
-        id: wait_live_meta
-        # Best-effort post-deploy verification: the GitHub Pages CDN can take
-        # several minutes to propagate the new HTML even after deploy-pages
-        # reports success. Don't fail the deploy job if the live URL hasn't
-        # caught up yet — the file IS uploaded; downstream social-posting
-        # steps already gate on `steps.wait_live_meta.outcome == 'success'`,
-        # so they correctly skip on timeout.
-        continue-on-error: true
-        # Pass dispatch inputs via env vars to avoid shell injection / escape issues
-        # when article titles contain smart quotes, apostrophes, backticks, or $.
-        env:
+          ARTICLE_ID: ${{ github.event.inputs.article_id }}
           ARTICLE_URL: ${{ github.event.inputs.article_url }}
           OG_TITLE: ${{ github.event.inputs.og_title }}
+          OG_DESCRIPTION: ${{ github.event.inputs.og_description }}
           OG_IMAGE: ${{ github.event.inputs.og_image }}
-        run: |
-          node scripts/wait-for-live-article-meta.mjs \
-            "$ARTICLE_URL" \
-            "$OG_TITLE" \
-            "$OG_IMAGE"
-
-      - name: Post to Facebook Page
-        if: success() && github.event.inputs.profile_sequential != 'true' && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
-        continue-on-error: true
-        env:
-          ARTICLE_ID: ${{ github.event.inputs.article_id }}
-          ARTICLE_URL: ${{ github.event.inputs.article_url }}
-          OG_TITLE: ${{ github.event.inputs.og_title }}
-          OG_DESCRIPTION: ${{ github.event.inputs.og_description }}
           ARTICLE_CATEGORY: ${{ github.event.inputs.article_category }}
         run: |
-          node scripts/post-to-facebook.mjs \
-            "$ARTICLE_ID" \
-            "$ARTICLE_URL" \
-            "$OG_TITLE" \
-            "$OG_DESCRIPTION" \
-            "$ARTICLE_CATEGORY"
-
-      - name: Post to LinkedIn Company Page
-        if: success() && github.event.inputs.profile_sequential != 'true' && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
-        continue-on-error: true
-        env:
-          ARTICLE_ID: ${{ github.event.inputs.article_id }}
-          ARTICLE_URL: ${{ github.event.inputs.article_url }}
-          OG_TITLE: ${{ github.event.inputs.og_title }}
-          OG_DESCRIPTION: ${{ github.event.inputs.og_description }}
-          ARTICLE_CATEGORY: ${{ github.event.inputs.article_category }}
-        run: |
-          node scripts/post-to-linkedin.mjs \
-            "$ARTICLE_ID" \
-            "$ARTICLE_URL" \
-            "$OG_TITLE" \
-            "$OG_DESCRIPTION" \
-            "$ARTICLE_CATEGORY"
-
-      - name: Restore indexing API daily tracker
-        if: github.event.inputs.profile_sequential != 'true'
-        id: indexing-cache
-        uses: actions/cache@v5
-        with:
-          path: /tmp/indexing-api-submitted-today.json
-          key: indexing-api-${{ github.run_id }}
-          restore-keys: |
-            indexing-api-
-
-      - name: Post-deploy indexing (parallel)
-        if: success() && github.event.inputs.profile_sequential != 'true'
-        continue-on-error: true
-        timeout-minutes: 5
-        env:
-          ARTICLE_URL: ${{ github.event.inputs.article_url }}
-        run: |
-          # Run all indexing submissions in parallel — saves ~2 min vs sequential.
-          # Each script gets a 90s shell-level cap so a slow API can't monopolize
-          # the 5min outer step-level timeout-minutes budget.
-          timeout 90 node scripts/submit-google-indexing-jobs.js &
-          PID_GOOGLE=$!
-          timeout 90 node scripts/submit-indexnow.js &
-          PID_INDEXNOW=$!
-          timeout 90 node scripts/submit-google-indexing.js &
-          PID_GSC=$!
-          timeout 90 node scripts/verify-post-deploy-seo.mjs &
-          PID_SEO=$!
-
-          # Wait for all and collect exit codes (continue-on-error at step level)
-          FAIL=0
-          wait $PID_GOOGLE  || { echo "⚠️ Google Indexing API failed"; FAIL=1; }
-          wait $PID_INDEXNOW || { echo "⚠️ IndexNow submission failed"; FAIL=1; }
-          wait $PID_GSC     || { echo "⚠️ GSC submission failed"; FAIL=1; }
-          wait $PID_SEO     || { echo "⚠️ Post-deploy SEO verification failed"; FAIL=1; }
-
-          if [ $FAIL -ne 0 ]; then
-            echo "::warning::Some post-deploy indexing steps failed (non-blocking)"
-          fi
-          echo "✅ Post-deploy indexing complete"
+          node scripts/deploy-registry.mjs save \
+            --run-id="${{ github.run_id }}" \
+            --sha="${{ github.sha }}" \
+            --trigger="${{ github.event_name }}" \
+            --article-id="${ARTICLE_ID}" \
+            --article-url="${ARTICLE_URL}" \
+            --og-title="${OG_TITLE}" \
+            --og-description="${OG_DESCRIPTION}" \
+            --og-image="${OG_IMAGE}" \
+            --article-category="${ARTICLE_CATEGORY}"
 
       - name: Report failure to Linear
         if: failure()
