@@ -33853,6 +33853,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riapre-villa-visconti-lainate-2026': {
+    title: 'Villa Visconti Borromeo Litta riapre a Lainate | Frontaliere Ticino',
+    description: 'Scopri la riapertura di Villa Visconti Borromeo Litta a Lainate con i suoi giochi d\'acqua e giardini monumentali. Un\'esperienza unica tra arte e natura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, villa, visconti, borromeo, litta',
+    ogTitle: 'Villa Visconti Borromeo Litta riapre a Lainate: giochi d\'acqua e giardini monumentali',
+    ogDescription: 'Scopri la riapertura di Villa Visconti Borromeo Litta a Lainate con i suoi giochi d\'acqua e giardini monumentali. Un\'esperienza unica tra arte e natura.',
+    canonicalPath: '/articoli-frontaliere/riapre-villa-visconti-lainate-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Villa Visconti Borromeo Litta riapre a Lainate: giochi d'acqua e giardini monumentali",
+      "description": "Scopri la riapertura di Villa Visconti Borromeo Litta a Lainate con i suoi giochi d'acqua e giardini monumentali. Un'esperienza unica tra arte e natura.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riapre-villa-visconti-lainate-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Visconti Borromeo Litta a Lainate, con giardini e fontane storiche"
+      },
+      "datePublished": "2026-05-01T18:00:48+00:00",
+      "dateModified": "2026-05-01T18:00:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riapre-villa-visconti-lainate-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

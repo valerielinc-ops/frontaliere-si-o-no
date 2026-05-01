@@ -12328,4 +12328,11 @@ export const ARTICLES = [
  image: '/images/blog/colosso-35-tonnellate-legnano.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'riapre-villa-visconti-lainate-2026',
+ category: 'novita',
+ date: '2026-05-01T18:00:48.799Z',
+ image: '/images/blog/riapre-villa-visconti-lainate-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

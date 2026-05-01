@@ -4850,6 +4850,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.colosso-35-tonnellate-legnano.title': 'Colosso da 35 tonnellate nato a Legnano',
     'blog.article.colosso-35-tonnellate-legnano.excerpt': 'La Camu Srl di Legnano presenta T-Mill, una macchina utensile CNC da 35 tonnellate per lavorazioni ad alta precisione.',
     'blog.article.colosso-35-tonnellate-legnano.imageAlt': 'Macchina utensile CNC da 35 tonnellate in un\'officina a Legnano',
+    'blog.article.riapre-villa-visconti-lainate-2026.title': 'Villa Visconti Borromeo Litta riapre a Lainate',
+    'blog.article.riapre-villa-visconti-lainate-2026.excerpt': 'La storica villa di Lainate riapre il 1° maggio con il suo celebre Ninfeo e giardini monumentali, offrendo un\'esperienza unica tra arte e natura.',
+    'blog.article.riapre-villa-visconti-lainate-2026.imageAlt': 'Villa Visconti Borromeo Litta a Lainate, con giardini e fontane storiche',
 };
 
 export default blogMetaIt;

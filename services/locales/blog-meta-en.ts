@@ -4849,6 +4849,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.colosso-35-tonnellate-legnano.title': '35-tonne giant born in Legnano',
     'blog.article.colosso-35-tonnellate-legnano.excerpt': 'Camu Srl of Legnano presents T-Mill, a 35-tonne CNC machine tool for high-precision machining.',
     'blog.article.colosso-35-tonnellate-legnano.imageAlt': '35-ton CNC machine in a workshop in Legnano',
+    'blog.article.riapre-villa-visconti-lainate-2026.title': 'Villa Visconti Borromeo Litta reopens in Lainate',
+    'blog.article.riapre-villa-visconti-lainate-2026.excerpt': 'The historic villa in Lainate reopens on May 1st with its famous Nymphaeum and monumental gardens, offering a unique experience between art and nature.',
+    'blog.article.riapre-villa-visconti-lainate-2026.imageAlt': 'Villa Visconti Borromeo Litta in Lainate, with historic gardens and fountains',
 };
 
 export default blogMetaEn;
