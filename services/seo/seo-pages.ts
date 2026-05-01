@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1698,
+ "numberOfItems": 1699,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6333,7 +6333,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1695, "name": "Guardie svizzere: 2025 anno intenso con morte d...", "url": `${BASE_URL}/articoli-frontaliere/guardie-svizzere-2025-intenso` },
           { "@type": "ListItem", "position": 1696, "name": "Siccità in Ticino: estate 2026 a rischio", "url": `${BASE_URL}/articoli-frontaliere/siccit-estate-2026-ticino` },
           { "@type": "ListItem", "position": 1697, "name": "Polizia unica in Ticino: Galusero vs Galli, il ...", "url": `${BASE_URL}/articoli-frontaliere/polizia-ticino-progetto-abbandono-2026` },
-          { "@type": "ListItem", "position": 1698, "name": "Nazionale respinge iniziativa per la democrazia", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-democrazia-respinta-nazionale` }
+          { "@type": "ListItem", "position": 1698, "name": "Nazionale respinge iniziativa per la democrazia", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-democrazia-respinta-nazionale` },
+          { "@type": "ListItem", "position": 1699, "name": "UISP alla scuola Dante di Varese per promuovere...", "url": `${BASE_URL}/articoli-frontaliere/uisp-scuola-dante-varese-2026` }
  ]
  },
  {

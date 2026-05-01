@@ -34781,6 +34781,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-uisp-scuola-dante-varese-2026': {
+    title: 'UISP alla scuola Dante di Varese per promuovere lo sport inclusivo',
+    description: 'L\'incontro tra UISP e Associazione Genitori alla scuola Dante di Varese ha promosso lo sport per tutti, con progetti inclusivi e attività per disabili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, uisp, alla, scuola, dante',
+    ogTitle: 'UISP alla scuola Dante di Varese per promuovere lo sport inclusivo',
+    ogDescription: 'L\'incontro tra UISP e Associazione Genitori alla scuola Dante di Varese ha promosso lo sport per tutti, con progetti inclusivi e attività per disabili.',
+    canonicalPath: '/articoli-frontaliere/uisp-scuola-dante-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UISP alla scuola Dante di Varese per promuovere lo sport inclusivo",
+      "description": "L'incontro tra UISP e Associazione Genitori alla scuola Dante di Varese ha promosso lo sport per tutti, con progetti inclusivi e attività per disabili.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/uisp-scuola-dante-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento scolastico a Varese con rappresentanti UISP che discutono di sport inclusivo"
+      },
+      "datePublished": "2026-05-01T22:57:20+00:00",
+      "dateModified": "2026-05-01T22:57:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/uisp-scuola-dante-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

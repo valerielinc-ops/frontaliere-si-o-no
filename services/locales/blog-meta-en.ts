@@ -4945,6 +4945,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iniziativa-democrazia-respinta-nazionale.title': 'National Council rejects democracy initiative',
     'blog.article.iniziativa-democrazia-respinta-nazionale.excerpt': 'The National Council has rejected the initiative to halve the time required for citizenship to 5 years. Here\'s what changes for cross-border workers.',
     'blog.article.iniziativa-democrazia-respinta-nazionale.imageAlt': 'Bellinzona old town with Ticino flag',
+    'blog.article.uisp-scuola-dante-varese-2026.title': 'UISP promotes inclusive sports at Dante School in Varese',
+    'blog.article.uisp-scuola-dante-varese-2026.excerpt': 'The meeting between UISP and the Parents\' Association at Dante School in Varese promoted sports for all, with inclusive projects and activities for people with disabilities.',
+    'blog.article.uisp-scuola-dante-varese-2026.imageAlt': 'School event in Varese with UISP representatives discussing inclusive sports',
 };
 
 export default blogMetaEn;

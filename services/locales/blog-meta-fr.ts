@@ -4946,6 +4946,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.iniziativa-democrazia-respinta-nazionale.title': 'Nationale rejette l\'initiative pour la démocratie',
     'blog.article.iniziativa-democrazia-respinta-nazionale.excerpt': 'Le Conseil national a rejeté l\'initiative pour réduire de moitié les délais pour l\'obtention de la citoyenneté à 5 ans. Voici ce qui change pour les travailleurs frontaliers.',
     'blog.article.iniziativa-democrazia-respinta-nazionale.imageAlt': 'Vieille ville de Bellinzone avec le drapeau du Tessin',
+    'blog.article.uisp-scuola-dante-varese-2026.title': 'UISP à l\'école Dante de Varese pour promouvoir le sport inclusif',
+    'blog.article.uisp-scuola-dante-varese-2026.excerpt': 'La rencontre entre l\'UISP et l\'Association des Parents à l\'école Dante de Varese a promu le sport pour tous, avec des projets inclusifs et des activités pour les personnes handicapées.',
+    'blog.article.uisp-scuola-dante-varese-2026.imageAlt': 'Événement scolaire à Varèse avec des représentants de l\'UISP discutant du sport inclusif',
 };
 
 export default blogMetaFr;

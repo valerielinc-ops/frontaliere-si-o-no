@@ -4946,6 +4946,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziativa-democrazia-respinta-nazionale.title': 'Nazionale respinge l\'iniziativa per la democrazia',
     'blog.article.iniziativa-democrazia-respinta-nazionale.excerpt': 'Il Consiglio nazionale ha respinto l\'iniziativa per dimezzare i tempi per la cittadinanza a 5 anni. Ecco cosa cambia per i frontalieri.',
     'blog.article.iniziativa-democrazia-respinta-nazionale.imageAlt': 'Bellinzona centro storico con bandiera ticinese',
+    'blog.article.uisp-scuola-dante-varese-2026.title': 'UISP alla scuola Dante di Varese per promuovere lo sport inclusivo',
+    'blog.article.uisp-scuola-dante-varese-2026.excerpt': 'L\'incontro tra UISP e Associazione Genitori alla scuola Dante di Varese ha promosso lo sport per tutti, con progetti inclusivi e attività per disabili.',
+    'blog.article.uisp-scuola-dante-varese-2026.imageAlt': 'Evento scolastico a Varese con rappresentanti UISP che discutono di sport inclusivo',
 };
 
 export default blogMetaIt;

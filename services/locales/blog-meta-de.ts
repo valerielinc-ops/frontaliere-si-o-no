@@ -4945,6 +4945,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iniziativa-democrazia-respinta-nazionale.title': 'Nationalrat lehnt Demokratie-Initiative ab',
     'blog.article.iniziativa-democrazia-respinta-nazionale.excerpt': 'Der Nationalrat hat die Initiative zur Halbierung der Einbürgerungsfrist auf 5 Jahre abgelehnt. Was sich für Grenzgänger ändert.',
     'blog.article.iniziativa-democrazia-respinta-nazionale.imageAlt': 'Bellinzona Altstadt mit Tessin-Flagge',
+    'blog.article.uisp-scuola-dante-varese-2026.title': 'UISP fördert inklusiven Sport an der Dante-Schule in Varese',
+    'blog.article.uisp-scuola-dante-varese-2026.excerpt': 'Das Treffen zwischen UISP und dem Elternverein an der Dante-Schule in Varese förderte Sport für alle, mit inklusiven Projekten und Aktivitäten für Menschen mit Behinderungen.',
+    'blog.article.uisp-scuola-dante-varese-2026.imageAlt': 'Schulveranstaltung in Varese mit UISP-Vertretern, die über inklusiven Sport diskutieren',
 };
 
 export default blogMetaDe;

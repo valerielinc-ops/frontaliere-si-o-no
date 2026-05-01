@@ -12552,4 +12552,11 @@ export const ARTICLES = [
  image: '/images/blog/iniziativa-democrazia-respinta-nazionale.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'uisp-scuola-dante-varese-2026',
+ category: 'novita',
+ date: '2026-05-01T22:57:20.308Z',
+ image: '/images/blog/uisp-scuola-dante-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

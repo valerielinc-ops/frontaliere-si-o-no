@@ -2879,6 +2879,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-siccit-estate-2026-ticino': { name: 'Novità', path: '/articoli-frontaliere/siccit-estate-2026-ticino', parent: 'blog' },
     'blog-polizia-ticino-progetto-abbandono-2026': { name: 'Polizia Ticino', path: '/articoli-frontaliere/polizia-ticino-progetto-abbandono-2026', parent: 'blog' },
     'blog-iniziativa-democrazia-respinta-nazionale': { name: 'Iniziativa respinta', path: '/articoli-frontaliere/iniziativa-democrazia-respinta-nazionale', parent: 'blog' },
+    'blog-uisp-scuola-dante-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/uisp-scuola-dante-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
