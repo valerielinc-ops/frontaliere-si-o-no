@@ -1,26 +1,25 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-04-30T22:26:43.406Z",
+  "generatedAt": "2026-05-01T10:51:23.385Z",
   "total": 17,
-  "newCount": 0,
-  "updatedCount": 17,
+  "newCount": 2,
+  "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 49482,
-  "avgDurationMs": 49482,
+  "durationMs": 55905,
+  "avgDurationMs": 55905,
   "durationHistory": [
-    49482
+    55905
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
-      "id": "sbb-a03826d7aa6e",
-      "slug": "responsabile-in-gestione-del-portafoglio-di-costruzione-regione-sud-ffs-officine-ferrovie-federali-bellinzona",
+      "id": "sbb-d0f346b625c6",
+      "slug": "meccanico-a-di-produzione-afc-bellinzona-ffs-officine-ferrovie-federali-bellinzona",
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
-      "companyDomain": "jobs.sbb.ch",
-      "title": "Leiter:in Bauportfoliomanagement Region Süd",
+      "companyDomain": "login.org",
+      "title": "Meccanico/a di produzione AFC, Bellinzona",
       "location": "Bellinzona",
       "canton": "TI",
       "addressLocality": "Bellinzona",
@@ -29,12 +28,11 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "sourceLang": "de",
-      "postedDate": "2026-04-16",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-bauportfoliomanagement-region-sued/2e4648a3-c84a-41ed-bb40-0c4379a07438",
+      "sourceLang": "it",
+      "postedDate": "2025-09-12",
+      "url": "https://www.login.org/it/2180-meccanicoa-di-produzione-afc",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:29.647Z",
-      "firstSeenAt": "2026-04-16T22:14:38.472Z",
+      "crawledAt": "2026-05-01T10:50:54.898Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -43,6 +41,36 @@
         "completeness": 14
       }
     },
+    {
+      "id": "sbb-9b64d91a6534",
+      "slug": "operatore-trice-tecnica-di-pulizia-afc-basel-ffs-officine-ferrovie-federali-basel",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "login.org",
+      "title": "Operatore/trice tecnica di pulizia AFC, Basel",
+      "location": "Basel",
+      "canton": "BS",
+      "addressLocality": "Basel",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "it",
+      "postedDate": "2025-07-25",
+      "url": "https://www.login.org/it/1974-fachfraumann-reinigungstechnik-efz",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-05-01T10:51:23.075Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "sbb-9474d7f15605",
       "slug": "responsabile-gestione-del-portafoglio-costruzioni-regione-sud-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
@@ -62,8 +90,37 @@
       "postedDate": "2026-04-16",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-gestione-del-portafoglio-costruzioni-regione-sud-m-f-d/137e71fe-cbe7-453c-bb6d-53bda7cd9a6b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:30.660Z",
+      "crawledAt": "2026-05-01T10:51:00.333Z",
       "firstSeenAt": "2026-04-16T22:14:34.492Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "sbb-a03826d7aa6e",
+      "slug": "responsabile-in-gestione-del-portafoglio-di-costruzione-regione-sud-ffs-officine-ferrovie-federali-bellinzona",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "jobs.sbb.ch",
+      "title": "Leiter:in Bauportfoliomanagement Region Süd",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "de",
+      "postedDate": "2026-04-16",
+      "url": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-bauportfoliomanagement-region-sued/2e4648a3-c84a-41ed-bb40-0c4379a07438",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-05-01T10:51:08.839Z",
+      "firstSeenAt": "2026-04-16T22:14:38.472Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,7 +148,7 @@
       "postedDate": "2026-04-16",
       "url": "https://www.login.org/it/2342-fachfraumann-bahntransport-efz",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:43.101Z",
+      "crawledAt": "2026-05-01T10:51:22.268Z",
       "firstSeenAt": "2026-04-29T22:32:00.999Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -120,7 +177,7 @@
       "postedDate": "2026-03-27",
       "url": "https://www.login.org/it/2564-vorlehre-gleisbau",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:32.556Z",
+      "crawledAt": "2026-05-01T10:51:13.819Z",
       "firstSeenAt": "2026-04-29T22:31:54.483Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -149,7 +206,7 @@
       "postedDate": "2026-03-17",
       "url": "https://www.login.org/it/1796-detailhandelsfachfraumann-offentlicher-verkehr-efz-kundenbegleitung",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:41.512Z",
+      "crawledAt": "2026-05-01T10:51:13.075Z",
       "firstSeenAt": "2026-04-29T22:31:57.723Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -178,7 +235,7 @@
       "postedDate": "2026-03-05",
       "url": "https://www.login.org/it/1840-detailhandelsfachfraumann-offentlicher-verkehr-efz-kundenberatung-aarau",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:30.973Z",
+      "crawledAt": "2026-05-01T10:51:06.843Z",
       "firstSeenAt": "2026-04-29T22:31:49.145Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -207,7 +264,7 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:21.849Z",
+      "crawledAt": "2026-05-01T10:50:58.317Z",
       "firstSeenAt": "2026-04-13T11:12:31.894Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -236,7 +293,7 @@
       "postedDate": "2026-01-28",
       "url": "https://www.login.org/it/1738-netzelektrikerin-efz-fahrleitungen",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:30.373Z",
+      "crawledAt": "2026-05-01T10:51:11.771Z",
       "firstSeenAt": "2026-04-29T22:31:56.428Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -265,7 +322,7 @@
       "postedDate": "2026-01-18",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-12-2026/487416de-186e-4114-81be-57d23b61e08b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:22.613Z",
+      "crawledAt": "2026-05-01T10:50:57.335Z",
       "firstSeenAt": "2026-04-13T11:12:22.576Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -294,7 +351,7 @@
       "postedDate": "2025-12-16",
       "url": "https://www.login.org/it/2346-operatoretrice-di-edifici-e-infrastrutture-afc",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:28.057Z",
+      "crawledAt": "2026-05-01T10:50:59.668Z",
       "firstSeenAt": "2026-04-29T22:31:42.771Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -323,41 +380,12 @@
       "postedDate": "2025-09-12",
       "url": "https://www.login.org/it/2242-praticante-ffs-infrastruttura-bellinzona",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:20.223Z",
+      "crawledAt": "2026-05-01T10:50:54.077Z",
       "firstSeenAt": "2026-04-29T22:31:23.533Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "sbb-d0f346b625c6",
-      "slug": "meccanico-a-di-produzione-afc-bellinzona-ffs-officine-ferrovie-federali-bellinzona",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "companyKey": "ffs-officine-ferrovie-federali",
-      "companyDomain": "login.org",
-      "title": "Meccanico/a di produzione AFC, Bellinzona",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "sourceLang": "it",
-      "postedDate": "2025-09-12",
-      "url": "https://www.login.org/it/2180-meccanicoa-di-produzione-afc",
-      "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:21.108Z",
-      "firstSeenAt": "2026-04-30T11:24:40.744Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 14
       }
@@ -381,7 +409,7 @@
       "postedDate": "2025-09-12",
       "url": "https://www.login.org/it/2181-meccanicoa-di-produzione-afc",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:27.144Z",
+      "crawledAt": "2026-05-01T10:50:59.778Z",
       "firstSeenAt": "2026-04-29T22:31:42.124Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -410,37 +438,8 @@
       "postedDate": "2025-07-25",
       "url": "https://www.login.org/it/2000-gleisbauerin-efz",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:35.381Z",
+      "crawledAt": "2026-05-01T10:51:13.421Z",
       "firstSeenAt": "2026-04-29T22:31:55.040Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "sbb-9b64d91a6534",
-      "slug": "operatore-trice-tecnica-di-pulizia-afc-basel-ffs-officine-ferrovie-federali-basel",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "companyKey": "ffs-officine-ferrovie-federali",
-      "companyDomain": "login.org",
-      "title": "Operatore/trice tecnica di pulizia AFC, Basel",
-      "location": "Basel",
-      "canton": "BS",
-      "addressLocality": "Basel",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "sourceLang": "it",
-      "postedDate": "2025-07-25",
-      "url": "https://www.login.org/it/1974-fachfraumann-reinigungstechnik-efz",
-      "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:41.698Z",
-      "firstSeenAt": "2026-04-29T22:32:05.415Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -468,7 +467,7 @@
       "postedDate": "2025-07-25",
       "url": "https://www.login.org/it/1969-fachfraumann-reinigungstechnik-efz",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:42.948Z",
+      "crawledAt": "2026-05-01T10:51:22.677Z",
       "firstSeenAt": "2026-04-30T11:24:50.219Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -497,7 +496,7 @@
       "postedDate": "2025-07-25",
       "url": "https://www.login.org/it/1744-netzelektrikerin-efz-fahrleitungen",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-30T22:26:43.283Z",
+      "crawledAt": "2026-05-01T10:51:23.229Z",
       "firstSeenAt": "2026-04-29T22:32:06.222Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
