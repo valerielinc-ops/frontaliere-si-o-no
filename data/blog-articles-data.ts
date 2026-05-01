@@ -11999,4 +11999,11 @@ export const ARTICLES = [
  image: '/images/blog/algerini-libici-auto-polizia-arresti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rete-stradale-mendrisio-interventi-urgenti',
+ category: 'novita',
+ date: '2026-05-01T10:33:47.501Z',
+ image: '/images/blog/rete-stradale-mendrisio-interventi-urgenti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

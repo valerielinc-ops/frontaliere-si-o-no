@@ -2800,6 +2800,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-como-napoli-sinigaglia-divieti-posteggi': { name: 'Novità', path: '/articoli-frontaliere/como-napoli-sinigaglia-divieti-posteggi', parent: 'blog' },
     'blog-primo-maggio-varese-2026-lavoro-diritti': { name: 'Primo Maggio Varese', path: '/articoli-frontaliere/primo-maggio-varese-2026-lavoro-diritti', parent: 'blog' },
     'blog-algerini-libici-auto-polizia-arresti': { name: 'Notizie', path: '/articoli-frontaliere/algerini-libici-auto-polizia-arresti', parent: 'blog' },
+    'blog-rete-stradale-mendrisio-interventi-urgenti': { name: 'Novità', path: '/articoli-frontaliere/rete-stradale-mendrisio-interventi-urgenti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

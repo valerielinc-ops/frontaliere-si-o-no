@@ -32490,6 +32490,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rete-stradale-mendrisio-interventi-urgenti': {
+    title: 'Rete stradale di Mendrisio sotto pressione: urgenti interventi richiesti',
+    description: 'Quattro consiglieri comunali del PLR chiedono maggiori interventi urgenti per la rete stradale di Mendrisio, criticando la mancanza di fondi cantonali e',
+    keywords: 'frontalieri, ticino, svizzera, italia, rete, stradale, mendrisio, sotto',
+    ogTitle: 'Rete stradale di Mendrisio sotto pressione: urgenti interventi richiesti',
+    ogDescription: 'Quattro consiglieri comunali del PLR chiedono maggiori interventi urgenti per la rete stradale di Mendrisio, criticando la mancanza di fondi cantonali e',
+    canonicalPath: '/articoli-frontaliere/rete-stradale-mendrisio-interventi-urgenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rete stradale di Mendrisio sotto pressione: urgenti interventi richiesti",
+      "description": "Quattro consiglieri comunali del PLR chiedono maggiori interventi urgenti per la rete stradale di Mendrisio, criticando la mancanza di fondi cantonali e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rete-stradale-mendrisio-interventi-urgenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio con lavori stradali in corso"
+      },
+      "datePublished": "2026-05-01T10:33:47+00:00",
+      "dateModified": "2026-05-01T10:33:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rete-stradale-mendrisio-interventi-urgenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4708,6 +4708,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.algerini-libici-auto-polizia-arresti.title': 'Algerians and Libyans caught stealing a car',
     'blog.article.algerini-libici-auto-polizia-arresti.excerpt': 'Three individuals, two Algerians and one Libyan, were arrested by the Ticino police while stealing a car in Locarno.',
     'blog.article.algerini-libici-auto-polizia-arresti.imageAlt': 'Ticino police arrest three individuals near a car in Locarno',
+    'blog.article.rete-stradale-mendrisio-interventi-urgenti.title': 'Mendrisio\'s road network under pressure: urgent action needed',
+    'blog.article.rete-stradale-mendrisio-interventi-urgenti.excerpt': 'Four PLR municipal councilors demand more urgent action for Mendrisio\'s road network, criticizing the lack of cantonal and federal funds.',
+    'blog.article.rete-stradale-mendrisio-interventi-urgenti.imageAlt': 'Aerial view of Mendrisio with roadworks in progress',
 };
 
 export default blogMetaEn;

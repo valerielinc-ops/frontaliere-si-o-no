@@ -4708,6 +4708,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.algerini-libici-auto-polizia-arresti.title': 'Algerier und Libyer stehlen Auto: Polizei erwischt sie auf frischer Tat',
     'blog.article.algerini-libici-auto-polizia-arresti.excerpt': 'Drei Personen, zwei Algerier und ein Libyer, wurden von der Tessiner Polizei festgenommen, als sie in Locarno ein Auto stahlen.',
     'blog.article.algerini-libici-auto-polizia-arresti.imageAlt': 'Polizei im Tessin verhaftet drei Personen neben einem Auto in Locarno',
+    'blog.article.rete-stradale-mendrisio-interventi-urgenti.title': 'Straßennetz von Mendrisio unter Druck: Dringende Maßnahmen gefordert',
+    'blog.article.rete-stradale-mendrisio-interventi-urgenti.excerpt': 'Vier Gemeinderäte der FDP fordern dringendere Maßnahmen für das Straßennetz von Mendrisio und kritisieren den Mangel an kantonalen und Bundesmitteln.',
+    'blog.article.rete-stradale-mendrisio-interventi-urgenti.imageAlt': 'Luftaufnahme von Mendrisio mit Straßenbauarbeiten',
 };
 
 export default blogMetaDe;

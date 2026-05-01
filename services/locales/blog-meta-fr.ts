@@ -4709,6 +4709,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.algerini-libici-auto-polizia-arresti.title': 'Algériens et Libyens volent une voiture: la police les arrête sur le fait',
     'blog.article.algerini-libici-auto-polizia-arresti.excerpt': 'Trois individus, deux Algériens et un Libyen, ont été arrêtés par la police tessinoise alors qu\'ils volaient une voiture à Locarno.',
     'blog.article.algerini-libici-auto-polizia-arresti.imageAlt': 'La police du Tessin arrête trois individus près d\'une voiture à Locarno',
+    'blog.article.rete-stradale-mendrisio-interventi-urgenti.title': 'Réseau routier de Mendrisio sous pression: interventions urgentes demandées',
+    'blog.article.rete-stradale-mendrisio-interventi-urgenti.excerpt': 'Quatre conseillers communaux du PLR demandent des interventions plus urgentes pour le réseau routier de Mendrisio, critiquant le manque de fonds cantonaux et fédéraux.',
+    'blog.article.rete-stradale-mendrisio-interventi-urgenti.imageAlt': 'Vue aérienne de Mendrisio avec des travaux routiers en cours',
 };
 
 export default blogMetaFr;
