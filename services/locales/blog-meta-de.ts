@@ -4753,6 +4753,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.denuncia-soccorsi-crans-montana-2026.title': 'Anzeige wegen mangelnder Ausrüstung bei Rettungseinsätzen in Crans-Montana',
     'blog.article.denuncia-soccorsi-crans-montana-2026.excerpt': 'Anwälte der Opfer zeigen die kantonale Organisation Wallis wegen Mängeln im Einsatz nach dem Brand im Bar Le Constellation an',
     'blog.article.denuncia-soccorsi-crans-montana-2026.imageAlt': 'Notfall in Crans-Montana nach dem Brand im Bar Le Constellation',
+    'blog.article.incidente-cantu-due-feriti.title': 'Unfall in Cantù: Auto gegen Mauer, zwei Verletzte',
+    'blog.article.incidente-cantu-due-feriti.excerpt': 'Ein Verkehrsunfall in Cantù hat zwei Frauen verletzt, die leichte Verletzungen erlitten haben. Der Unfall ereignete sich in der Via Como.',
+    'blog.article.incidente-cantu-due-feriti.imageAlt': 'Autounfall in Cantù mit zwei leichten Verletzungen',
 };
 
 export default blogMetaDe;

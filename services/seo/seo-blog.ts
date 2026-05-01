@@ -32925,6 +32925,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-cantu-due-feriti': {
+    title: 'Incidente a Cantù: auto contro muro, due feriti | Frontaliere Ticino',
+    description: 'Un incidente stradale a Cantù ha coinvolto due donne, che hanno riportato ferite lievi. L\'incidente è avvenuto in via Como. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, cantù, auto, contro',
+    ogTitle: 'Incidente a Cantù: auto contro muro, due feriti',
+    ogDescription: 'Un incidente stradale a Cantù ha coinvolto due donne, che hanno riportato ferite lievi. L\'incidente è avvenuto in via Como.',
+    canonicalPath: '/articoli-frontaliere/incidente-cantu-due-feriti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente a Cantù: auto contro muro, due feriti",
+      "description": "Un incidente stradale a Cantù ha coinvolto due donne, che hanno riportato ferite lievi. L'incidente è avvenuto in via Como. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-cantu-due-feriti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale a Cantù con due feriti lievi"
+      },
+      "datePublished": "2026-05-01T12:45:48+00:00",
+      "dateModified": "2026-05-01T12:45:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-cantu-due-feriti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

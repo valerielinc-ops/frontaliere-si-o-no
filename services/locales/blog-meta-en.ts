@@ -4753,6 +4753,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.denuncia-soccorsi-crans-montana-2026.title': 'Lack of equipment in Crans-Montana rescue',
     'blog.article.denuncia-soccorsi-crans-montana-2026.excerpt': 'Victims\' lawyers sue the Vaud Cantonese Organization for insufficient intervention equipment after the Le Constellation bar fire',
     'blog.article.denuncia-soccorsi-crans-montana-2026.imageAlt': 'Emergency situation in Crans-Montana after the fire at the bar Le Constellation',
+    'blog.article.incidente-cantu-due-feriti.title': 'Accident in Cantù: car hits wall, two injured',
+    'blog.article.incidente-cantu-due-feriti.excerpt': 'A road accident in Cantù involved two women, who sustained minor injuries. The incident occurred on Via Como.',
+    'blog.article.incidente-cantu-due-feriti.imageAlt': 'Car accident in Cantù with two minor injuries',
 };
 
 export default blogMetaEn;

@@ -12104,4 +12104,11 @@ export const ARTICLES = [
  image: '/images/blog/denuncia-soccorsi-crans-montana-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incidente-cantu-due-feriti',
+ category: 'pratico',
+ date: '2026-05-01T12:45:47.979Z',
+ image: '/images/blog/incidente-cantu-due-feriti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

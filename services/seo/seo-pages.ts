@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1634,
+ "numberOfItems": 1635,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6269,7 +6269,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1631, "name": "Bellinzonesi brillano in Germania al torneo di ...", "url": `${BASE_URL}/articoli-frontaliere/bellinzonesi-germania-karate-2026` },
           { "@type": "ListItem", "position": 1632, "name": "A9 chiusura notturna Lomazzo Chiasso: cosa camb...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-notturna-a9-lomazzo-chiasso` },
           { "@type": "ListItem", "position": 1633, "name": "Como, centinaia in piazza per la Festa del lavo...", "url": `${BASE_URL}/articoli-frontaliere/como-festa-lavoro-diritti-salari` },
-          { "@type": "ListItem", "position": 1634, "name": "Denuncia per mancanza di attrezzature ai soccor...", "url": `${BASE_URL}/articoli-frontaliere/denuncia-soccorsi-crans-montana-2026` }
+          { "@type": "ListItem", "position": 1634, "name": "Denuncia per mancanza di attrezzature ai soccor...", "url": `${BASE_URL}/articoli-frontaliere/denuncia-soccorsi-crans-montana-2026` },
+          { "@type": "ListItem", "position": 1635, "name": "Incidente a Cantù: auto contro muro, due feriti", "url": `${BASE_URL}/articoli-frontaliere/incidente-cantu-due-feriti` }
  ]
  },
  {

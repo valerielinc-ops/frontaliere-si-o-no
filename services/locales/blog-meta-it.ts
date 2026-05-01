@@ -4754,6 +4754,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.denuncia-soccorsi-crans-montana-2026.title': 'Denuncia per mancanza di attrezzature ai soccorsi di Crans-Montana',
     'blog.article.denuncia-soccorsi-crans-montana-2026.excerpt': 'Avvocati delle vittime denunciano l\'Organizzazione cantonale vallesana per insufficienze nel dispositivo di intervento dopo l\'incendio del bar Le Constellation',
     'blog.article.denuncia-soccorsi-crans-montana-2026.imageAlt': 'Emergenza a Crans-Montana dopo l\'incendio del bar Le Constellation',
+    'blog.article.incidente-cantu-due-feriti.title': 'Incidente a Cantù: auto contro muro, due feriti',
+    'blog.article.incidente-cantu-due-feriti.excerpt': 'Un incidente stradale a Cantù ha coinvolto due donne, che hanno riportato ferite lievi. L\'incidente è avvenuto in via Como.',
+    'blog.article.incidente-cantu-due-feriti.imageAlt': 'Incidente stradale a Cantù con due feriti lievi',
 };
 
 export default blogMetaIt;
