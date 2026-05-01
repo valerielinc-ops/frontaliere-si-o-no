@@ -12146,4 +12146,11 @@ export const ARTICLES = [
  image: '/images/blog/processo-campione-dicembre-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ingresso-gratuito-museo-costume-bagno',
+ category: 'novita',
+ date: '2026-05-01T13:53:02.072Z',
+ image: '/images/blog/ingresso-gratuito-museo-costume-bagno.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

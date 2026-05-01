@@ -4771,6 +4771,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.processo-campione-dicembre-2026.title': 'Campione Casino trial postponed to December 2026',
     'blog.article.processo-campione-dicembre-2026.excerpt': 'The president of the judicial panel decided to postpone due to other trials to be held first',
     'blog.article.processo-campione-dicembre-2026.imageAlt': 'Aerial view of Lake Lugano and the city',
+    'blog.article.ingresso-gratuito-museo-costume-bagno.title': 'Free museum entry in swimwear',
+    'blog.article.ingresso-gratuito-museo-costume-bagno.excerpt': 'The Beyeler Foundation in Riehen offers free entry to visitors in swimwear, inspired by the exhibition dedicated to Paule Cézanne.',
+    'blog.article.ingresso-gratuito-museo-costume-bagno.imageAlt': 'Family in swimsuits in front of the Beyeler Foundation Museum in Riehen, Switzerland',
 };
 
 export default blogMetaEn;

@@ -2821,6 +2821,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-primo-maggio-2026-traffico-gottardo': { name: 'Primo Maggio 2026', path: '/articoli-frontaliere/primo-maggio-2026-traffico-gottardo', parent: 'blog' },
     'blog-incidente-e-roller-lugano-2026': { name: 'Incidente Lugano', path: '/articoli-frontaliere/incidente-e-roller-lugano-2026', parent: 'blog' },
     'blog-processo-campione-dicembre-2026': { name: 'Processo Casino', path: '/articoli-frontaliere/processo-campione-dicembre-2026', parent: 'blog' },
+    'blog-ingresso-gratuito-museo-costume-bagno': { name: 'Novità', path: '/articoli-frontaliere/ingresso-gratuito-museo-costume-bagno', parent: 'blog' },
  };
 
  const info = sectionNames[section];

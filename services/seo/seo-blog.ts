@@ -33099,6 +33099,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ingresso-gratuito-museo-costume-bagno': {
+    title: 'Ingresso gratuito al museo in costume da bagno | Frontaliere Ticino',
+    description: 'La Fondazione Beyeler di Riehen offre ingresso gratuito ai visitatori in costume da bagno, ispirata dalla mostra di Paule Cézanne. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ingresso, gratuito, museo, costume',
+    ogTitle: 'Ingresso gratuito al museo in costume da bagno',
+    ogDescription: 'La Fondazione Beyeler di Riehen offre ingresso gratuito ai visitatori in costume da bagno, ispirata dalla mostra di Paule Cézanne.',
+    canonicalPath: '/articoli-frontaliere/ingresso-gratuito-museo-costume-bagno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ingresso gratuito al museo in costume da bagno",
+      "description": "La Fondazione Beyeler di Riehen offre ingresso gratuito ai visitatori in costume da bagno, ispirata dalla mostra di Paule Cézanne. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ingresso-gratuito-museo-costume-bagno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia in costume da bagno davanti al museo Beyeler a Riehen, Svizzera"
+      },
+      "datePublished": "2026-05-01T13:53:02+00:00",
+      "dateModified": "2026-05-01T13:53:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ingresso-gratuito-museo-costume-bagno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4772,6 +4772,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.processo-campione-dicembre-2026.title': 'Processo Casino Campione rinviato a dicembre 2026',
     'blog.article.processo-campione-dicembre-2026.excerpt': 'La presidente del collegio giudicante ha deciso il rinvio per altri processi da celebrare prima',
     'blog.article.processo-campione-dicembre-2026.imageAlt': 'Vista aerea del lago di Lugano e della città',
+    'blog.article.ingresso-gratuito-museo-costume-bagno.title': 'Ingresso gratuito al museo in costume da bagno',
+    'blog.article.ingresso-gratuito-museo-costume-bagno.excerpt': 'La Fondazione Beyeler di Riehen offre ingresso gratuito ai visitatori in costume da bagno, ispirata dalla mostra dedicata a Paule Cézanne.',
+    'blog.article.ingresso-gratuito-museo-costume-bagno.imageAlt': 'Famiglia in costume da bagno davanti al museo Beyeler a Riehen, Svizzera',
 };
 
 export default blogMetaIt;
