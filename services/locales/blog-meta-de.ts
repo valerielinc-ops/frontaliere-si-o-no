@@ -4555,6 +4555,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.title': 'E-Zigaretten: Das Laster der Tessiner Jugendlichen',
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.excerpt': 'Der Konsum von E-Zigaretten bei 15- bis 17-Jährigen im Tessin ist fast so hoch wie der von herkömmlichen Zigaretten.',
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.imageAlt': 'Jugendliche in Tessin mit E-Zigaretten in einem öffentlichen Park',
+    'blog.article.processo-bellinzona-merci-russia-2026.title': 'Prozess in Bellinzona wegen russischer Massenvernichtungswaffen',
+    'blog.article.processo-bellinzona-merci-russia-2026.excerpt': 'Ein 63-Jähriger wird angeklagt, weil er Material für ein russisches Massenvernichtungswaffenprogramm geliefert hat',
+    'blog.article.processo-bellinzona-merci-russia-2026.imageAlt': 'Luftansicht von Bellinzona mit seinen drei Burgen und dem Ticino-Fluss',
 };
 
 export default blogMetaDe;

@@ -4556,6 +4556,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.title': 'Sigarette elettroniche: il vizio preferito dagli adolescenti ticinesi',
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.excerpt': 'Il consumo di sigarette elettroniche tra i 15 e i 17 anni in Ticino è quasi pari a quello delle sigarette tradizionali.',
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.imageAlt': 'Adolescenti in Ticino con sigarette elettroniche in un parco pubblico',
+    'blog.article.processo-bellinzona-merci-russia-2026.title': 'Processo a Bellinzona per merci a programma russo di distruzione di massa',
+    'blog.article.processo-bellinzona-merci-russia-2026.excerpt': 'Un 63enne finisce sotto processo per aver fornito materiali a un programma russo di armamenti di distruzione di massa',
+    'blog.article.processo-bellinzona-merci-russia-2026.imageAlt': 'Vista aerea di Bellinzona con i suoi tre castelli e il fiume Ticino',
 };
 
 export default blogMetaIt;

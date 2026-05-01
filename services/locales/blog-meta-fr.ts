@@ -4556,6 +4556,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.title': 'Cigarettes électroniques: le vice préféré des adolescents tessinois',
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.excerpt': 'La consommation de cigarettes électroniques entre 15 et 17 ans au Tessin est presque égale à celle des cigarettes traditionnelles.',
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.imageAlt': 'Adolescents au Tessin avec des cigarettes électroniques dans un parc public',
+    'blog.article.processo-bellinzona-merci-russia-2026.title': 'Procès à Bellinzone pour armes russes',
+    'blog.article.processo-bellinzona-merci-russia-2026.excerpt': 'Un homme de 63 ans est jugé pour avoir fourni des matériaux à un programme russe d\'armement de destruction massive',
+    'blog.article.processo-bellinzona-merci-russia-2026.imageAlt': 'Vue aérienne de Bellinzone avec ses trois châteaux et la rivière du Tessin',
 };
 
 export default blogMetaFr;

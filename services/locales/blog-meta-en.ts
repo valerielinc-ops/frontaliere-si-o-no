@@ -4555,6 +4555,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.title': 'E-cigarettes: Ticino teens\' favorite vice',
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.excerpt': 'E-cigarette use among 15- to 17-year-olds in Ticino is almost equal to that of traditional cigarettes.',
     'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.imageAlt': 'Teenagers in Ticino with e-cigarettes in a public park',
+    'blog.article.processo-bellinzona-merci-russia-2026.title': 'Trial in Bellinzona for Russian WMD program supplies',
+    'blog.article.processo-bellinzona-merci-russia-2026.excerpt': 'A 63-year-old faces trial for providing materials to a Russian weapons of mass destruction program',
+    'blog.article.processo-bellinzona-merci-russia-2026.imageAlt': 'Aerial view of Bellinzona with its three castles and the Ticino river',
 };
 
 export default blogMetaEn;

@@ -31011,6 +31011,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-processo-bellinzona-merci-russia-2026': {
+    title: 'Processo a Bellinzona per merci a programma russo di distruzione di massa',
+    description: 'Un 63enne processato a Bellinzona per aver fornito materiali a programma russo di armamenti di distruzione di massa. Implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, bellinzona, merci, programma',
+    ogTitle: 'Processo Bellinzona merci Russia 2026',
+    ogDescription: 'Un 63enne processato a Bellinzona per aver fornito materiali a programma russo di armamenti di distruzione di massa. Implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/processo-bellinzona-merci-russia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Processo a Bellinzona per forniture a programma russo di armamenti di distruzione di massa",
+      "description": "Un 63enne processato a Bellinzona per aver fornito materiali a programma russo di armamenti di distruzione di massa. Implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/processo-bellinzona-merci-russia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona con i suoi tre castelli e il fiume Ticino"
+      },
+      "datePublished": "2026-05-01T03:02:11+00:00",
+      "dateModified": "2026-05-01T03:02:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/processo-bellinzona-merci-russia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

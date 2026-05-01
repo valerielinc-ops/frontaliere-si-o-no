@@ -11642,4 +11642,11 @@ export const ARTICLES = [
  image: '/images/blog/sigarette-elettroniche-adolescenti-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'processo-bellinzona-merci-russia-2026',
+ category: 'novita',
+ date: '2026-05-01T03:02:11.458Z',
+ image: '/images/blog/processo-bellinzona-merci-russia-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
