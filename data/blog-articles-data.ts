@@ -11971,4 +11971,11 @@ export const ARTICLES = [
  image: '/images/blog/25-centimetri-lago-maggiore-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lungolago-como-parapetti-rapinese-sertori',
+ category: 'novita',
+ date: '2026-05-01T09:53:53.736Z',
+ image: '/images/blog/lungolago-como-parapetti-rapinese-sertori.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

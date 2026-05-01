@@ -32374,6 +32374,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lungolago-como-parapetti-rapinese-sertori': {
+    title: 'Sertori a Rapinese: "Io faccio, non sto in TV" | Frontaliere Ticino',
+    description: 'L\'assessore regionale Massimo Sertori annuncia un incontro con il sindaco di Como Alessandro Rapinese per discutere dei parapetti del lungolago. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sertori, rapinese, faccio, assessore',
+    ogTitle: 'Lungolago Como, Sertori replica a Rapinese',
+    ogDescription: 'L\'assessore regionale Massimo Sertori annuncia un incontro con il sindaco di Como Alessandro Rapinese per discutere dei parapetti del lungolago.',
+    canonicalPath: '/articoli-frontaliere/lungolago-como-parapetti-rapinese-sertori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Lungolago Como, Sertori replica a Rapinese\",\"description\":\"L'assessore regionale Massimo Sertori annuncia un incontro con il sindaco di Como Alessandro Rapinese per discutere dei parapetti del lungolago.\",\"datePublished\":\"2026-04-30T19:19:00+02:00\",\"image\":\"https://frontaliereticino.ch/images/lago-como.webp\"}",
+      "description": "L'assessore regionale Massimo Sertori annuncia un incontro con il sindaco di Como Alessandro Rapinese per discutere dei parapetti del lungolago. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lungolago-como-parapetti-rapinese-sertori.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lungolago di Como con parapetti e persone che camminano"
+      },
+      "datePublished": "2026-05-01T09:53:53+00:00",
+      "dateModified": "2026-05-01T09:53:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lungolago-como-parapetti-rapinese-sertori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

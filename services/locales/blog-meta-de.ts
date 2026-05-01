@@ -4696,6 +4696,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.25-centimetri-lago-maggiore-frontalieri.title': '25 cm mehr für den Lago Maggiore: Was sich für Grenzgänger ändert',
     'blog.article.25-centimetri-lago-maggiore-frontalieri.excerpt': 'Ab dem nächsten Sommer kann der Höchststand des Lago Maggiore um 25 Zentimeter erhöht werden. Hier erfahren Sie, was sich für Grenzgänger ändert',
     'blog.article.25-centimetri-lago-maggiore-frontalieri.imageAlt': 'Lago Maggiore mit hohem Wasserstand, überflutete Strände, Seelandschaft',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.title': 'Sertori zu Rapinese: \'Ich handle, nicht im TV\'',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.excerpt': 'Der regionale Assessor Massimo Sertori kündigt ein Treffen mit dem Bürgermeister von Como Alessandro Rapinese an, um über die Brüstungen am Seeufer zu diskutieren.',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.imageAlt': 'Como Uferpromenade mit Barrieren und Spaziergängern',
 };
 
 export default blogMetaDe;

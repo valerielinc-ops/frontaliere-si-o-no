@@ -4697,6 +4697,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.25-centimetri-lago-maggiore-frontalieri.title': '25 cm in più per il Lago Maggiore: cosa cambia per i frontalieri',
     'blog.article.25-centimetri-lago-maggiore-frontalieri.excerpt': 'Dalla prossima estate il livello massimo del Lago Maggiore potrà essere innalzato di 25 centimetri. Ecco cosa cambia per i frontalieri',
     'blog.article.25-centimetri-lago-maggiore-frontalieri.imageAlt': 'Lago Maggiore con livello dell\'acqua alto, spiagge sommerse, paesaggio lacustre',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.title': 'Sertori a Rapinese: "Io faccio, non sto in TV"',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.excerpt': 'L\'assessore regionale Massimo Sertori annuncia un incontro con il sindaco di Como Alessandro Rapinese per discutere dei parapetti del lungolago.',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.imageAlt': 'Lungolago di Como con parapetti e persone che camminano',
 };
 
 export default blogMetaIt;

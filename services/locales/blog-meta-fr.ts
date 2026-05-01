@@ -4697,6 +4697,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.25-centimetri-lago-maggiore-frontalieri.title': '25 cm de plus pour le lac Majeur: ce qui change pour les frontaliers',
     'blog.article.25-centimetri-lago-maggiore-frontalieri.excerpt': 'Dès l\'été prochain, le niveau maximal du lac Majeur pourra être élevé de 25 centimètres. Voici ce qui change pour les frontaliers',
     'blog.article.25-centimetri-lago-maggiore-frontalieri.imageAlt': 'Lac Majeur avec niveau d\'eau élevé, plages submergées, paysage lacustre',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.title': 'Sertori à Rapinese : \'Je fais, pas à la télé\'',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.excerpt': 'L\'assesseur régional Massimo Sertori annonce une rencontre avec le maire de Côme Alessandro Rapinese pour discuter des parapets du lac.',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.imageAlt': 'Quai de Côme avec des barrières et des promeneurs',
 };
 
 export default blogMetaFr;

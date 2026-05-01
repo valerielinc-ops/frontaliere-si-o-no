@@ -4696,6 +4696,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.25-centimetri-lago-maggiore-frontalieri.title': '25 cm more for Lake Maggiore: what changes for cross-border workers',
     'blog.article.25-centimetri-lago-maggiore-frontalieri.excerpt': 'From next summer, the maximum level of Lake Maggiore can be raised by 25 centimeters. Here\'s what changes for cross-border workers',
     'blog.article.25-centimetri-lago-maggiore-frontalieri.imageAlt': 'Lake Maggiore with high water level, submerged beaches, lakeside landscape',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.title': 'Sertori to Rapinese: \'I act, not TV appearances\'',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.excerpt': 'Regional councillor Massimo Sertori announces a meeting with Como mayor Alessandro Rapinese to discuss the lakefront parapets.',
+    'blog.article.lungolago-como-parapetti-rapinese-sertori.imageAlt': 'Como waterfront with barriers and people walking',
 };
 
 export default blogMetaEn;
