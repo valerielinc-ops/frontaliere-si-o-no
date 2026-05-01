@@ -4534,6 +4534,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.percorso-giubiasco-qui-allora-2026.title': 'Educational trail \'Here...then\' in Giubiasco: a journey through time',
     'blog.article.percorso-giubiasco-qui-allora-2026.excerpt': 'A new educational trail in Giubiasco compares the past and present of the village through vintage photographs and display panels.',
     'blog.article.percorso-giubiasco-qui-allora-2026.imageAlt': 'View of Borghetto in Giubiasco with the educational path panels \'Qui...allora\'',
+    'blog.article.nomina-docenti-comunali-ticino-2026.title': 'Appointments for part-time municipal teachers too',
+    'blog.article.nomina-docenti-comunali-ticino-2026.excerpt': 'Cantonal legislative change extends appointments to teachers with less than 50% employment, job stability guaranteed from 1 August 2026',
+    'blog.article.nomina-docenti-comunali-ticino-2026.imageAlt': 'LAC Lugano lake view',
 };
 
 export default blogMetaEn;

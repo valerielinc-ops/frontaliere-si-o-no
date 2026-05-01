@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1561,
+ "numberOfItems": 1562,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6196,7 +6196,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1558, "name": "Dialogo dei popoli, colori del mondo a Busto Ar...", "url": `${BASE_URL}/articoli-frontaliere/dialogo-popoli-colori-mondo-busto-arsizio` },
           { "@type": "ListItem", "position": 1559, "name": "Cavalli e droni: la nuova unità speciale dell'e...", "url": `${BASE_URL}/articoli-frontaliere/cavalli-droni-esercito-svizzero-2026` },
           { "@type": "ListItem", "position": 1560, "name": "Raiffeisen Bioggio si rinnova: inaugurazione il...", "url": `${BASE_URL}/articoli-frontaliere/raiffeisen-bioggio-rinnovo-2026` },
-          { "@type": "ListItem", "position": 1561, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/percorso-giubiasco-qui-allora-2026` }
+          { "@type": "ListItem", "position": 1561, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/percorso-giubiasco-qui-allora-2026` },
+          { "@type": "ListItem", "position": 1562, "name": "Nomina docenti comunali Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/nomina-docenti-comunali-ticino-2026` }
  ]
  },
  {

@@ -2742,6 +2742,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cavalli-droni-esercito-svizzero-2026': { name: 'Novità', path: '/articoli-frontaliere/cavalli-droni-esercito-svizzero-2026', parent: 'blog' },
     'blog-raiffeisen-bioggio-rinnovo-2026': { name: 'Novità', path: '/articoli-frontaliere/raiffeisen-bioggio-rinnovo-2026', parent: 'blog' },
     'blog-percorso-giubiasco-qui-allora-2026': { name: 'Novità', path: '/articoli-frontaliere/percorso-giubiasco-qui-allora-2026', parent: 'blog' },
+    'blog-nomina-docenti-comunali-ticino-2026': { name: 'Nomina docenti', path: '/articoli-frontaliere/nomina-docenti-comunali-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

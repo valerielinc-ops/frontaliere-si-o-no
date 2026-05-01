@@ -4534,6 +4534,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.percorso-giubiasco-qui-allora-2026.title': 'Lehrpfad \'Hier...damals\' in Giubiasco: Eine Zeitreise',
     'blog.article.percorso-giubiasco-qui-allora-2026.excerpt': 'Ein neuer Lehrpfad in Giubiasco vergleicht die Vergangenheit und Gegenwart des Dorfes durch historische Fotografien und Ausstellungstafeln.',
     'blog.article.percorso-giubiasco-qui-allora-2026.imageAlt': 'Ansicht des Borghetto in Giubiasco mit den Bildungsweg-Paneelen \'Qui...allora\'',
+    'blog.article.nomina-docenti-comunali-ticino-2026.title': 'Auch Teilzeit-Lehrkräfte erhalten Anstellung',
+    'blog.article.nomina-docenti-comunali-ticino-2026.excerpt': 'Kantonale Gesetzesänderung ermöglicht Anstellung für Lehrkräfte mit weniger als 50% Beschäftigung, ab dem 1. August 2026 Arbeitsplatzsicherheit garantiert',
+    'blog.article.nomina-docenti-comunali-ticino-2026.imageAlt': 'LAC Lugano Seeblick',
 };
 
 export default blogMetaDe;

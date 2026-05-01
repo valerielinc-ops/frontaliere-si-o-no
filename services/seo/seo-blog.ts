@@ -30808,6 +30808,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nomina-docenti-comunali-ticino-2026': {
+    title: 'Nomina anche per i docenti comunali con impiego inferiore al 50%',
+    description: 'Modifica legislativa cantonale estende la nomina ai docenti con impiego sotto il 50%, stabilità lavorativa garantita dal 1° agosto 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, nomina, anche, docenti, comunali',
+    ogTitle: 'Nomina docenti comunali Ticino 2026',
+    ogDescription: 'Modifica legislativa cantonale estende la nomina ai docenti con impiego sotto il 50%, stabilità lavorativa garantita dal 1° agosto 2026',
+    canonicalPath: '/articoli-frontaliere/nomina-docenti-comunali-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nomina docenti comunali Ticino 2026",
+      "description": "Modifica legislativa cantonale estende la nomina ai docenti con impiego sotto il 50%, stabilità lavorativa garantita dal 1° agosto 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nomina-docenti-comunali-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "LAC Lugano vista lago"
+      },
+      "datePublished": "2026-05-01T01:47:47+00:00",
+      "dateModified": "2026-05-01T01:47:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nomina-docenti-comunali-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

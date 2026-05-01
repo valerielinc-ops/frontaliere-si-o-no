@@ -4535,6 +4535,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.percorso-giubiasco-qui-allora-2026.title': 'Parcours didactique \'Ici...alors\' à Giubiasco: un voyage dans le temps',
     'blog.article.percorso-giubiasco-qui-allora-2026.excerpt': 'Un nouveau parcours didactique à Giubiasco compare le passé et le présent du bourg à travers des photographies d\'époque et des panneaux d\'exposition.',
     'blog.article.percorso-giubiasco-qui-allora-2026.imageAlt': 'Vue du Borghetto à Giubiasco avec les panneaux du parcours éducatif \'Qui...allora\'',
+    'blog.article.nomina-docenti-comunali-ticino-2026.title': 'Nomination également pour les enseignants communaux à moins de 50%',
+    'blog.article.nomina-docenti-comunali-ticino-2026.excerpt': 'Modification législative cantonale étend la nomination aux enseignants avec un emploi inférieur à 50%, stabilité de l\'emploi garantie à partir du 1er août 2026',
+    'blog.article.nomina-docenti-comunali-ticino-2026.imageAlt': 'LAC Lugano vue sur le lac',
 };
 
 export default blogMetaFr;
