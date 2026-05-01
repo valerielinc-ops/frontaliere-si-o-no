@@ -4657,6 +4657,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-svizzera-2026.title': 'Grenzgänger und Arbeitslosigkeit: Die EU-Reform, die alles ändert',
     'blog.article.frontalieri-disoccupazione-svizzera-2026.excerpt': 'Die neue EU-Regelung zur Arbeitslosenentschädigung für Grenzgänger: Was sich ändert und welche Auswirkungen das für Arbeitnehmer im Tessin hat',
     'blog.article.frontalieri-disoccupazione-svizzera-2026.imageAlt': 'Grenzgänger in Lugano mit Seeblick',
+    'blog.article.cbt-italia-ciclisti-mercato.title': 'CBT Italia fordert den Markt heraus: Preise als Vertrauensbeweis für Radfahrer',
+    'blog.article.cbt-italia-ciclisti-mercato.excerpt': 'CBT Italia, ein Unternehmen aus Cuneo mit 75-jähriger Geschichte, betritt den italienischen Markt mit aggressiven Preisen und Transparenz und überrascht die Verbraucher.',
+    'blog.article.cbt-italia-ciclisti-mercato.imageAlt': 'Ein Radfahrer, der entlang der Ufer des Luganer Sees fährt, mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

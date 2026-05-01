@@ -4658,6 +4658,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-svizzera-2026.title': 'Frontalieri e disoccupazione: la riforma UE che cambia tutto',
     'blog.article.frontalieri-disoccupazione-svizzera-2026.excerpt': 'La nuova normativa UE sull\'indennità di disoccupazione per i frontalieri: cosa cambia e quali sono le implicazioni per i lavoratori in Ticino',
     'blog.article.frontalieri-disoccupazione-svizzera-2026.imageAlt': 'Lavoratore frontaliere a Lugano con vista sul lago',
+    'blog.article.cbt-italia-ciclisti-mercato.title': 'CBT Italia sfida il mercato: prezzi come patto di fiducia con i ciclisti',
+    'blog.article.cbt-italia-ciclisti-mercato.excerpt': 'CBT Italia, azienda cuneese con 75 anni di storia, entra nel mercato italiano con prezzi aggressivi e trasparenza, sorprendendo i consumatori',
+    'blog.article.cbt-italia-ciclisti-mercato.imageAlt': 'Un ciclista che pedala lungo le rive del Lago di Lugano, con il panorama cittadino sullo sfondo',
 };
 
 export default blogMetaIt;

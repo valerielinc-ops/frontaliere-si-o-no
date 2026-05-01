@@ -2783,6 +2783,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controversia-bandiera-svizzera-scarpe-on': { name: 'Novità', path: '/articoli-frontaliere/controversia-bandiera-svizzera-scarpe-on', parent: 'blog' },
     'blog-giovani-sigarette-elettroniche-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/giovani-sigarette-elettroniche-ticino-2026', parent: 'blog' },
     'blog-frontalieri-disoccupazione-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-disoccupazione-svizzera-2026', parent: 'blog' },
+    'blog-cbt-italia-ciclisti-mercato': { name: 'Novità', path: '/articoli-frontaliere/cbt-italia-ciclisti-mercato', parent: 'blog' },
  };
 
  const info = sectionNames[section];

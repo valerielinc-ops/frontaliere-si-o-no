@@ -11880,4 +11880,11 @@ export const ARTICLES = [
  image: '/images/blog/frontalieri-disoccupazione-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cbt-italia-ciclisti-mercato',
+ category: 'novita',
+ date: '2026-05-01T08:17:09.542Z',
+ image: '/images/blog/cbt-italia-ciclisti-mercato.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

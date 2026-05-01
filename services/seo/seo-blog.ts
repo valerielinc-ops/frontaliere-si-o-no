@@ -31997,6 +31997,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cbt-italia-ciclisti-mercato': {
+    title: 'CBT Italia sfida il mercato: prezzi come patto di fiducia con i ciclisti',
+    description: 'CBT Italia, azienda cuneese con 75 anni di storia, entra nel mercato italiano con prezzi aggressivi e trasparenza, sorprendendo i consumatori. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, sfida, mercato, prezzi, patto',
+    ogTitle: 'CBT Italia sfida il mercato: prezzi come patto di fiducia con i ciclisti',
+    ogDescription: 'CBT Italia, azienda cuneese con 75 anni di storia, entra nel mercato italiano con prezzi aggressivi e trasparenza, sorprendendo i consumatori',
+    canonicalPath: '/articoli-frontaliere/cbt-italia-ciclisti-mercato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CBT Italia sfida il mercato: prezzi come patto di fiducia con i ciclisti",
+      "description": "CBT Italia, azienda cuneese con 75 anni di storia, entra nel mercato italiano con prezzi aggressivi e trasparenza, sorprendendo i consumatori. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cbt-italia-ciclisti-mercato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ciclista che pedala lungo le rive del Lago di Lugano, con il panorama cittadino sullo sfondo"
+      },
+      "datePublished": "2026-05-01T08:17:09+00:00",
+      "dateModified": "2026-05-01T08:17:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cbt-italia-ciclisti-mercato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
