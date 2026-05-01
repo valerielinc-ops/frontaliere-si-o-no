@@ -1,53 +1,18 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-04-30T22:46:08.461Z",
+  "generatedAt": "2026-05-01T11:10:41.008Z",
   "total": 3,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 8199,
-  "avgDurationMs": 8199,
+  "unchangedCount": 1,
+  "durationMs": 8037,
+  "avgDurationMs": 8037,
   "durationHistory": [
-    8199
+    8037
   ],
-  "newJobs": [
-    {
-      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=267802502&Team=231361275",
-      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=267802502&Team=231361275",
-      "title": "Senior Legal Specialist",
-      "company": "Ermenegildo Zegna Group",
-      "companyKey": "ermenegildo-zegna-logistica",
-      "location": "Stabio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "senior-legal-specialist-zegna",
-      "department": "Corporate and Staff Functions/Legal, Compliance & Risk",
-      "category": "Corporate and Staff Functions/Legal, Compliance & Risk",
-      "datePosted": "2026-04-30",
-      "source": "zegna-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Legale",
-      "brand": "Zegna",
-      "contractType": "Permanent Job",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Stabio"
-      },
-      "sourceLang": "en",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 9
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=267752702&Team=231361275",
@@ -138,5 +103,50 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=267802502&Team=231361275",
+      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=267802502&Team=231361275",
+      "title": "Senior Legal Specialist",
+      "company": "Ermenegildo Zegna Group",
+      "companyKey": "ermenegildo-zegna-logistica",
+      "location": "Stabio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "senior-legal-specialista-ermenegildo-zegna-group-stabio",
+      "department": "Corporate and Staff Functions/Legal, Compliance & Risk",
+      "category": "Corporate and Staff Functions/Legal, Compliance & Risk",
+      "datePosted": "2026-04-30",
+      "source": "zegna-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Legale",
+      "brand": "Zegna",
+      "contractType": "Permanent Job",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Stabio"
+      },
+      "sourceLang": "en",
+      "crawledAt": "",
+      "id": "ermenegildo-zegna-logistica-988ba53f9546",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "streetAddress": "Via Lugano 13",
+      "postalCode": "6855",
+      "addressLocality": "Stabio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-04-30T22:46:08.461Z",
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ]
 }
