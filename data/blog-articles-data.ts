@@ -11866,4 +11866,11 @@ export const ARTICLES = [
  image: '/images/blog/controversia-bandiera-svizzera-scarpe-on.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'giovani-sigarette-elettroniche-ticino-2026',
+ category: 'novita',
+ date: '2026-05-01T08:05:41.958Z',
+ image: '/images/blog/giovani-sigarette-elettroniche-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

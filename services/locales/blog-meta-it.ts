@@ -4652,6 +4652,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controversia-bandiera-svizzera-scarpe-on.title': 'Controversia sull\'uso della bandiera svizzera sulle scarpe On',
     'blog.article.controversia-bandiera-svizzera-scarpe-on.excerpt': 'L\'Istituto Federale della Proprietà Intellettuale ha concesso a On di usare la bandiera svizzera sulle sue scarpe, nonostante la produzione avvenga all\'estero. La decisione ha suscitato polemiche.',
     'blog.article.controversia-bandiera-svizzera-scarpe-on.imageAlt': 'Paio di scarpe da corsa con bandiera svizzera esposte in vetrina a Foxtown, Mendrisio',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.title': 'Sigarette elettroniche: i giovani le consumano come quelle tradizionali',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.excerpt': 'Il 25,2% dei giovani consuma sia sigarette tradizionali che elettroniche, con un aumento del 3% rispetto al 2023',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.imageAlt': 'Giovani in Ticino che usano sigarette elettroniche',
 };
 
 export default blogMetaIt;

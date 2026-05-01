@@ -31939,6 +31939,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giovani-sigarette-elettroniche-ticino-2026': {
+    title: 'Sigarette elettroniche: i giovani le consumano come quelle tradizionali',
+    description: 'Il 25,2% dei giovani consuma sia sigarette tradizionali che elettroniche, con un aumento del 3% rispetto al 2023. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sigarette, elettroniche, giovani, consumano',
+    ogTitle: 'Sigarette elettroniche: i giovani le consumano come quelle tradizionali',
+    ogDescription: 'Il 25,2% dei giovani consuma sia sigarette tradizionali che elettroniche, con un aumento del 3% rispetto al 2023',
+    canonicalPath: '/articoli-frontaliere/giovani-sigarette-elettroniche-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sigarette elettroniche: i giovani le consumano come quelle tradizionali",
+      "description": "Il 25,2% dei giovani consuma sia sigarette tradizionali che elettroniche, con un aumento del 3% rispetto al 2023. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giovani-sigarette-elettroniche-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani in Ticino che usano sigarette elettroniche"
+      },
+      "datePublished": "2026-05-01T08:05:42+00:00",
+      "dateModified": "2026-05-01T08:05:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giovani-sigarette-elettroniche-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

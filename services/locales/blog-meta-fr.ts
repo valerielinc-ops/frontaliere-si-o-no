@@ -4652,6 +4652,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controversia-bandiera-svizzera-scarpe-on.title': 'Controverse sur l\'utilisation du drapeau suisse sur les chaussures On',
     'blog.article.controversia-bandiera-svizzera-scarpe-on.excerpt': 'L\'Institut fédéral de la propriété intellectuelle a accordé à On l\'utilisation du drapeau suisse sur ses chaussures, malgré une production à l\'étranger. La décision a suscité des polémiques.',
     'blog.article.controversia-bandiera-svizzera-scarpe-on.imageAlt': 'Paire de chaussures de course avec drapeau suisse exposée dans la vitrine de Foxtown, Mendrisio',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.title': 'Cigarettes électroniques : les jeunes les consomment comme les traditionnelles',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.excerpt': '25,2% des jeunes consomment à la fois des cigarettes traditionnelles et électroniques, une augmentation de 3% par rapport à 2023',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.imageAlt': 'Jeunes gens au Tessin utilisant des cigarettes électroniques',
 };
 
 export default blogMetaFr;

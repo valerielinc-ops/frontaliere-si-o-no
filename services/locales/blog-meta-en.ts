@@ -4651,6 +4651,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controversia-bandiera-svizzera-scarpe-on.title': 'Controversy over Swiss flag on On shoes',
     'blog.article.controversia-bandiera-svizzera-scarpe-on.excerpt': 'The Federal Institute of Intellectual Property has granted On the right to use the Swiss flag on its shoes, despite production taking place abroad. The decision has sparked controversy.',
     'blog.article.controversia-bandiera-svizzera-scarpe-on.imageAlt': 'Pair of running shoes with Swiss flag displayed in Foxtown, Mendrisio store window',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.title': 'E-cigarettes: young people use them like traditional ones',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.excerpt': '25.2% of young people consume both traditional and electronic cigarettes, a 3% increase from 2023',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.imageAlt': 'Young people in Ticino using e-cigarettes',
 };
 
 export default blogMetaEn;

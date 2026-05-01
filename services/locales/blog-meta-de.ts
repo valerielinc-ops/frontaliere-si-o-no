@@ -4651,6 +4651,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controversia-bandiera-svizzera-scarpe-on.title': 'Kontroverse um Schweizerfahne auf On-Schuhen',
     'blog.article.controversia-bandiera-svizzera-scarpe-on.excerpt': 'Das Eidgenössische Institut für geistiges Eigentum hat On erlaubt, die Schweizerfahne auf seinen Schuhen zu verwenden, obwohl diese im Ausland produziert werden. Die Entscheidung hat für Aufruhr gesorgt.',
     'blog.article.controversia-bandiera-svizzera-scarpe-on.imageAlt': 'Paar Laufschuhe mit Schweizer Flagge im Schaufenster von Foxtown, Mendrisio',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.title': 'E-Zigaretten: Jugendliche rauchen sie wie herkömmliche',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.excerpt': '25,2% der Jugendlichen konsumieren sowohl herkömmliche als auch elektronische Zigaretten, ein Anstieg von 3% gegenüber 2023',
+    'blog.article.giovani-sigarette-elettroniche-ticino-2026.imageAlt': 'Junge Menschen in Tessin, die E-Zigaretten verwenden',
 };
 
 export default blogMetaDe;
