@@ -1,57 +1,5 @@
 [
   {
-    "timestamp": "2026-04-17T08:16:39.308Z",
-    "label": "before",
-    "total": 2848,
-    "needsRetranslation": 47,
-    "incomplete": 3,
-    "complete": 2845,
-    "missingByLocale": {
-      "it": 2,
-      "en": 0,
-      "de": 1,
-      "fr": 3
-    },
-    "topPending": [
-      {
-        "company": "Hochgebirgsklinik Davos",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-17T08:41:23.453Z",
-    "label": "after",
-    "total": 2848,
-    "needsRetranslation": 52,
-    "incomplete": 2,
-    "complete": 2846,
-    "missingByLocale": {
-      "it": 1,
-      "en": 0,
-      "de": 1,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-17T10:54:43.900Z",
     "label": "before",
     "total": 2921,
@@ -8207,6 +8155,106 @@
       },
       {
         "company": "International School of Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-01T13:48:08.393Z",
+    "label": "before",
+    "total": 2668,
+    "needsRetranslation": 96,
+    "incomplete": 40,
+    "complete": 2628,
+    "missingByLocale": {
+      "it": 30,
+      "en": 15,
+      "de": 33,
+      "fr": 34
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 2
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Bosch Thermotechnik AG",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "International School of Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-01T14:32:52.365Z",
+    "label": "after",
+    "total": 2668,
+    "needsRetranslation": 61,
+    "incomplete": 29,
+    "complete": 2639,
+    "missingByLocale": {
+      "it": 27,
+      "en": 7,
+      "de": 25,
+      "fr": 25
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
         "pending": 1
       }
     ]

@@ -35,7 +35,7 @@
       },
       "descriptionByLocale": {
         "de": "## Descrizione\nStarte bestenfalls schon vor dem 1. Januar 2027 das\n\n## Mansioni\n- Du übernimmst die strukturierte Ersteinschätzung (Triage) von pädiatrischen Notfallpatientinnen / Notfallpatienten, leitest prioritätsgerechte Massnahmen ein und triffst fundierte klinische Entscheidungen\n- Du koordinierst und steuerst den Pflegeprozess bei komplexen und instabilen Patientensituationen, unterstützt aktiv bei notfallmedizinischen Interventionen und gewährleistest eine evidenzbasierte Pflegequalität\n- Du begleitest und unterstützt Familien in akuten Krisensituationen durch klare, alters- und situationsgerechte Kommunikation, förderst den Einbezug der Bezugspersonen in die Versorgung und übernimmst eine zentrale Rolle in der interprofessionellen Zusammenarbeit sowie in der Anleitung von Mitarbeitenden\n- Den praktischen Teil deiner Ausbildung absolvierst du primär auf der pädiatrischen Notfallstation des KSGR. Zusätzlich leistest du ein viermonatiges Praktikum am Kinderspital Zürich\n\n## Requisiti\n- Du verfügst über ein Diplom als Pflegefachfrau / Pflegefachmann HF oder FH\n- Idealerweise bringst du mindestens ein Jahr Berufserfahrung in der Pädiatrie mit\n- Du bist flexibel, arbeitest gerne teamorientiert und in einer dynamischen Arbeitsumgebung\n- Du triffst Entscheidungen verantwortungsbewusst, trägst sie mit und bleibst auch bei hoher Belastung resilient\n- Du hast Freude am kontinuierlichen Lernen und an deiner fachlichen Weiterentwicklung\n\n## Contatto\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
-        "en": "Descrizione Start at best before 1. In January 2027 the ## Mansioni - You take the structured rock estimate (triage) of paediatric emergency patients / emergency patients, introduce priority measures and meet well-founded clinical decisions - You coordinate and tax the care process in complex and unstable patient situations, actively assist in emergency medical interventions and ensure a centralized level of care In addition, do you have a four-month internship at the Kinderspital Zürich ## Requisiti - You have a diploma as a nurse / nursing professional HF or FH - Ideally you bring at least one year of professional experience in the pediatric with - You are flexible, you like to work team-oriented and in a dynamic working environment - You can meet decisions responsibly, you can wear them with and also stay resilient You make the difference? Then you belong to us!",
+        "en": "##STR1##\nStart at best before 1. January 2027\n\n# Mansioni\n- You take the structured rock estimate (triage) of paediatric emergency patients / emergency patients, conduct priority measures and meet sound clinical decisions\n- You coordinate and control the care process in complex and unstable patient situations, actively supporting emergency medical interventions and ensuring evidence-based care quality\n- You accompany and support families in acute crisis situations through clear, age-oriented and situation-oriented communication, promote the inclusion of reference persons in the supply and take a central role in interprofessional cooperation and in the guidance of employees\n- The practical part of your training is done primarily at the paediatric emergency station of the KSGR. In addition, you have a four-month internship at the Kinderspital Zürich\n\n##\n- You have a degree as a nursing professional / nursing professional HF or FH\n- Ideally you bring at least one year of professional experience in the paediatrics\n- You are flexible, you like to work team-oriented and in a dynamic working environment\n- You meet decisions responsibly, take them along and stay resilient even at high loads\n- You enjoy continuous learning and your professional development\n\n# Contatto\nYou can do something that others can't?\nYou make the difference?\nThen you belong to us!",
         "it": "Descrizione Iniziare al meglio prima 1. Nel gennaio 2027 il ## Mansioni - Si prende la stima strutturata della roccia (triage) di pazienti di emergenza pediatrico / pazienti di emergenza, introdurre misure prioritarie e soddisfare le decisioni cliniche ben fondate - Coordinate e tassate il processo di cura in situazioni complesse e instabili, assistete attivamente in interventi medici di emergenza e assicurate un livello centralizzato di assistenza Inoltre, hai uno stage di quattro mesi presso il Kinderspital Zürich ## Requisiti - Hai un diploma come infermiere / infermieristica HF o FH - Idealmente porti almeno un anno di esperienza professionale in pediatrico con - Sei flessibile, ti piace lavorare team-oriented e in un ambiente di lavoro dinamico - È possibile incontrare decisioni responsabilmente, è possibile indossarli e anche rimanere resiliente Fai la differenza? Allora appartieni a noi!",
         "fr": "Descrizione Commencez au mieux avant 1. En Janvier 2027 le ## Mansioni - Vous prenez l'estimation de roche structurée (triage) des patients d'urgence pédiatrique / les patients d'urgence, introduire des mesures prioritaires et répondre à des décisions cliniques bien fondées - Vous coordonnez et taxez le processus de soins dans des situations complexes et instables, aidez activement les interventions médicales d'urgence et assurez un niveau centralisé de soins En outre, avez-vous un stage de quatre mois au Kinderspital Zürich ## Requisiti - Vous avez un diplôme d'infirmière / infirmière professionnelle HF ou FH - Idéalement vous apportez au moins un an d'expérience professionnelle en pédiatrie avec - Vous êtes flexible, vous aimez travailler en équipe et dans un environnement de travail dynamique - Vous pouvez rencontrer les décisions de façon responsable, vous pouvez les porter avec et aussi rester résilient Tu fais la différence ? Alors tu nous appartiens !"
       },
@@ -510,12 +510,13 @@
           "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-20T21:51:49.023Z"
+      "firstSeenAt": "2026-04-20T21:51:49.023Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "10002111",
@@ -4945,7 +4946,8 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
