@@ -4942,6 +4942,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.polizia-ticino-progetto-abbandono-2026.title': 'Single police force in Ticino: Galusero vs Galli, debate heats up',
     'blog.article.polizia-ticino-progetto-abbandono-2026.excerpt': 'The State Council has decided to halt the \'Ticino Police\' project. Reactions from Galusero and Galli.',
     'blog.article.polizia-ticino-progetto-abbandono-2026.imageAlt': 'Aerial view of Lugano, Ticino, Switzerland',
+    'blog.article.iniziativa-democrazia-respinta-nazionale.title': 'National Council rejects democracy initiative',
+    'blog.article.iniziativa-democrazia-respinta-nazionale.excerpt': 'The National Council has rejected the initiative to halve the time required for citizenship to 5 years. Here\'s what changes for cross-border workers.',
+    'blog.article.iniziativa-democrazia-respinta-nazionale.imageAlt': 'Bellinzona old town with Ticino flag',
 };
 
 export default blogMetaEn;

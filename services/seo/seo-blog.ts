@@ -34752,6 +34752,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-democrazia-respinta-nazionale': {
+    title: 'Nazionale respinge l\'iniziativa per la democrazia | Frontaliere Ticino',
+    description: 'Il Consiglio nazionale ha respinto l\'iniziativa per dimezzare i tempi per la cittadinanza a 5 anni. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nazionale, respinge, iniziativa, democrazia',
+    ogTitle: 'Nazionale respinge iniziativa democrazia',
+    ogDescription: 'Il Consiglio nazionale ha respinto l\'iniziativa per dimezzare i tempi per la cittadinanza a 5 anni. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/iniziativa-democrazia-respinta-nazionale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nazionale respinge iniziativa per la democrazia",
+      "description": "Il Consiglio nazionale ha respinto l'iniziativa per dimezzare i tempi per la cittadinanza a 5 anni. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziativa-democrazia-respinta-nazionale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona centro storico con bandiera ticinese"
+      },
+      "datePublished": "2026-05-01T22:48:07+00:00",
+      "dateModified": "2026-05-01T22:48:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-democrazia-respinta-nazionale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

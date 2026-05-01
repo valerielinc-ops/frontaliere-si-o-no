@@ -12545,4 +12545,11 @@ export const ARTICLES = [
  image: '/images/blog/polizia-ticino-progetto-abbandono-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'iniziativa-democrazia-respinta-nazionale',
+ category: 'novita',
+ date: '2026-05-01T22:48:07.875Z',
+ image: '/images/blog/iniziativa-democrazia-respinta-nazionale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

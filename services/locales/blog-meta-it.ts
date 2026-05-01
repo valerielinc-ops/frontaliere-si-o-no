@@ -4943,6 +4943,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.polizia-ticino-progetto-abbandono-2026.title': 'Polizia unica in Ticino: Galusero vs Galli, il dibattito si accende',
     'blog.article.polizia-ticino-progetto-abbandono-2026.excerpt': 'Il Consiglio di Stato ha deciso di stoppare il progetto \'Polizia ticinese\'. Le reazioni di Galusero e Galli.',
     'blog.article.polizia-ticino-progetto-abbandono-2026.imageAlt': 'Veduta aerea di Lugano, Ticino, Svizzera',
+    'blog.article.iniziativa-democrazia-respinta-nazionale.title': 'Nazionale respinge l\'iniziativa per la democrazia',
+    'blog.article.iniziativa-democrazia-respinta-nazionale.excerpt': 'Il Consiglio nazionale ha respinto l\'iniziativa per dimezzare i tempi per la cittadinanza a 5 anni. Ecco cosa cambia per i frontalieri.',
+    'blog.article.iniziativa-democrazia-respinta-nazionale.imageAlt': 'Bellinzona centro storico con bandiera ticinese',
 };
 
 export default blogMetaIt;

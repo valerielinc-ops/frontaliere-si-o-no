@@ -4942,6 +4942,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.polizia-ticino-progetto-abbandono-2026.title': 'Einheitliche Polizei im Tessin: Galusero vs Galli, Debatte entbrennt',
     'blog.article.polizia-ticino-progetto-abbandono-2026.excerpt': 'Der Staatsrat hat beschlossen, das Projekt \'Polizei Ticino\' zu stoppen. Die Reaktionen von Galusero und Galli.',
     'blog.article.polizia-ticino-progetto-abbandono-2026.imageAlt': 'Luftaufnahme von Lugano, Tessin, Schweiz',
+    'blog.article.iniziativa-democrazia-respinta-nazionale.title': 'Nationalrat lehnt Demokratie-Initiative ab',
+    'blog.article.iniziativa-democrazia-respinta-nazionale.excerpt': 'Der Nationalrat hat die Initiative zur Halbierung der Einbürgerungsfrist auf 5 Jahre abgelehnt. Was sich für Grenzgänger ändert.',
+    'blog.article.iniziativa-democrazia-respinta-nazionale.imageAlt': 'Bellinzona Altstadt mit Tessin-Flagge',
 };
 
 export default blogMetaDe;
