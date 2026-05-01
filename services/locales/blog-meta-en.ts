@@ -4963,6 +4963,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agenzia-formativa-varese-dimissioni-2026.title': 'Varese training agency: board resigns',
     'blog.article.agenzia-formativa-varese-dimissioni-2026.excerpt': 'Ilaria Azzimonti announces her resignation from the board of the Varese Province Training Agency.',
     'blog.article.agenzia-formativa-varese-dimissioni-2026.imageAlt': 'Board meeting with a view of Lake Lugano',
+    'blog.article.presentazione-libro-odio-massacro-varese.title': 'Varese: book presentation on pacifist feminism',
+    'blog.article.presentazione-libro-odio-massacro-varese.excerpt': 'On Thursday, May 7th, in Sala Morselli in Varese, the book \'Above Hatred and Massacre\' by Lacaita and Suriano will be presented',
+    'blog.article.presentazione-libro-odio-massacro-varese.imageAlt': 'Sala Morselli Civic Library Varese book presentation',
 };
 
 export default blogMetaEn;

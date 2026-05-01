@@ -34955,6 +34955,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-presentazione-libro-odio-massacro-varese': {
+    title: 'Varese: presentazione libro sul femminismo pacifista',
+    description: 'Giovedì 7 maggio in Sala Morselli a Varese, presentazione libro \'Al di sopra dell’odio e del massacro\' di Lacaita e Suriano. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, presentazione, libro, femminismo',
+    ogTitle: 'Varese: presentazione libro sul femminismo pacifista',
+    ogDescription: 'Giovedì 7 maggio in Sala Morselli a Varese, presentazione libro \'Al di sopra dell’odio e del massacro\' di Lacaita e Suriano',
+    canonicalPath: '/articoli-frontaliere/presentazione-libro-odio-massacro-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: presentazione libro sul femminismo pacifista",
+      "description": "Giovedì 7 maggio in Sala Morselli a Varese, presentazione libro 'Al di sopra dell’odio e del massacro' di Lacaita e Suriano. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/presentazione-libro-odio-massacro-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala Morselli Biblioteca Civica Varese presentazione libro"
+      },
+      "datePublished": "2026-05-01T23:57:36+00:00",
+      "dateModified": "2026-05-01T23:57:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/presentazione-libro-odio-massacro-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

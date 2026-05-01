@@ -12594,4 +12594,11 @@ export const ARTICLES = [
  image: '/images/blog/agenzia-formativa-varese-dimissioni-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'presentazione-libro-odio-massacro-varese',
+ category: 'novita',
+ date: '2026-05-01T23:57:36.825Z',
+ image: '/images/blog/presentazione-libro-odio-massacro-varese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

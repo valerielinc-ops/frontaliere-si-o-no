@@ -4963,6 +4963,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agenzia-formativa-varese-dimissioni-2026.title': 'Bildungsagentur Varese: Rücktritt des Verwaltungsrats',
     'blog.article.agenzia-formativa-varese-dimissioni-2026.excerpt': 'Ilaria Azzimonti kündigt ihren Rücktritt aus dem Verwaltungsrat der Bildungsagentur der Provinz Varese an.',
     'blog.article.agenzia-formativa-varese-dimissioni-2026.imageAlt': 'Vorstandssitzung mit Blick auf den Luganersee',
+    'blog.article.presentazione-libro-odio-massacro-varese.title': 'Varese: Buchvorstellung über pazifistischen Feminismus',
+    'blog.article.presentazione-libro-odio-massacro-varese.excerpt': 'Donnerstag, 7. Mai, im Sala Morselli in Varese, Vorstellung des Buches \'Al di sopra dell’odio e del massacro\' von Lacaita und Suriano',
+    'blog.article.presentazione-libro-odio-massacro-varese.imageAlt': 'Sala Morselli Bibliothek Varese Buchvorstellung',
 };
 
 export default blogMetaDe;

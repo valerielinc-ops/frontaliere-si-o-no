@@ -4964,6 +4964,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agenzia-formativa-varese-dimissioni-2026.title': 'Agenzia formativa Varese: dimissioni del CDA',
     'blog.article.agenzia-formativa-varese-dimissioni-2026.excerpt': 'Ilaria Azzimonti annuncia le dimissioni dal consiglio di amministrazione dell\'Agenzia formativa della Provincia di Varese.',
     'blog.article.agenzia-formativa-varese-dimissioni-2026.imageAlt': 'Incontro del consiglio di amministrazione con vista sul Lago di Lugano',
+    'blog.article.presentazione-libro-odio-massacro-varese.title': 'Varese: presentazione libro sul femminismo pacifista',
+    'blog.article.presentazione-libro-odio-massacro-varese.excerpt': 'Giovedì 7 maggio in Sala Morselli a Varese, presentazione libro \'Al di sopra dell’odio e del massacro\' di Lacaita e Suriano',
+    'blog.article.presentazione-libro-odio-massacro-varese.imageAlt': 'Sala Morselli Biblioteca Civica Varese presentazione libro',
 };
 
 export default blogMetaIt;
