@@ -4793,6 +4793,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-canile-varese-duni-2026.title': 'Nouveau chenil de Varèse aux Duni: projet approuvé, réalisation par étapes',
     'blog.article.nuovo-canile-varese-duni-2026.excerpt': 'La Commission Environnement a approuvé le projet pour le nouveau chenil de Varèse aux Duni, mais les coûts augmentés imposent une réalisation en deux phases.',
     'blog.article.nuovo-canile-varese-duni-2026.imageAlt': 'Nouveau chenil de Varese aux Duni, zone naturelle avec possible chantier',
+    'blog.article.festa-fritti-glam-varese-2026.title': 'Fête des fritures au Glam de Varèse: gnocchi mardi, fritures jeudi',
+    'blog.article.festa-fritti-glam-varese-2026.excerpt': 'Du 30 avril 2026 au Glam Caffè de Varèse, via Manin, déjeuner avec gnocchi frit et fritures tous les mardi et jeudi. Digestif offert.',
+    'blog.article.festa-fritti-glam-varese-2026.imageAlt': 'Glam Caffè à Varèse, fête des fritures 2026',
 };
 
 export default blogMetaFr;

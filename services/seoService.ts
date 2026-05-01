@@ -2828,6 +2828,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-142-numero-aiuto-vittime-ticino': { name: '142 Ticino', path: '/articoli-frontaliere/142-numero-aiuto-vittime-ticino', parent: 'blog' },
     'blog-ponte-l-acqua-ticino-2026': { name: 'Meteo Ticino', path: '/articoli-frontaliere/ponte-l-acqua-ticino-2026', parent: 'blog' },
     'blog-nuovo-canile-varese-duni-2026': { name: 'Nuovo canile Varese', path: '/articoli-frontaliere/nuovo-canile-varese-duni-2026', parent: 'blog' },
+    'blog-festa-fritti-glam-varese-2026': { name: 'Eventi Varese', path: '/articoli-frontaliere/festa-fritti-glam-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

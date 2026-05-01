@@ -4792,6 +4792,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-canile-varese-duni-2026.title': 'Neues Tierheim Varese ai Duni: Projekt genehmigt, Umsetzung in Etappen',
     'blog.article.nuovo-canile-varese-duni-2026.excerpt': 'Die Umweltkommission hat das Projekt für das neue Tierheim Varese ai Duni genehmigt, aber die gestiegenen Kosten erfordern eine Umsetzung in zwei Phasen.',
     'blog.article.nuovo-canile-varese-duni-2026.imageAlt': 'Neues Hundezwinger in Varese bei Duni, Naturgebiet mit möglicher Baustelle',
+    'blog.article.festa-fritti-glam-varese-2026.title': 'Frittura-Fest im Glam Varese: Gnocchi & Fritto misto',
+    'blog.article.festa-fritti-glam-varese-2026.excerpt': 'Vom 30. April 2026 im Glam Caffè in Varese, Via Manin, jeden Dienstag und Donnerstag Mittagessen mit Gnocchi fritto und gemischtem frittiertem. Verdauungsschnaps offeriert.',
+    'blog.article.festa-fritti-glam-varese-2026.imageAlt': 'Glam Caffè in Varese, Frittierfest 2026',
 };
 
 export default blogMetaDe;

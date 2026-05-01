@@ -12195,4 +12195,11 @@ export const ARTICLES = [
  image: '/images/blog/nuovo-canile-varese-duni-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'festa-fritti-glam-varese-2026',
+ category: 'novita',
+ date: '2026-05-01T14:59:29.071Z',
+ image: '/images/blog/festa-fritti-glam-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

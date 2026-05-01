@@ -4793,6 +4793,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-canile-varese-duni-2026.title': 'Nuovo canile di Varese ai Duni: progetto approvato, realizzazione a tappe',
     'blog.article.nuovo-canile-varese-duni-2026.excerpt': 'La Commissione Ambiente ha approvato il progetto per il nuovo canile di Varese ai Duni, ma i costi aumentati impongono una realizzazione in due fasi.',
     'blog.article.nuovo-canile-varese-duni-2026.imageAlt': 'Nuovo canile di Varese ai Duni, area naturale con possibile cantiere',
+    'blog.article.festa-fritti-glam-varese-2026.title': 'Festa dei fritti al Glam di Varese: gnocco martedì, fritto misto giovedì',
+    'blog.article.festa-fritti-glam-varese-2026.excerpt': 'Dal 30 aprile 2026 al Glam Caffè di Varese via Manin ogni martedì e giovedì pranzo con gnocco fritto e fritto misto. Digestivo offerto.',
+    'blog.article.festa-fritti-glam-varese-2026.imageAlt': 'Glam Caffè a Varese, evento festa dei fritti 2026',
 };
 
 export default blogMetaIt;

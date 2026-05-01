@@ -33302,6 +33302,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-festa-fritti-glam-varese-2026': {
+    title: 'Festa dei fritti al Glam di Varese: gnocco martedì, fritto misto giovedì',
+    description: 'Dal 30 aprile 2026 al Glam Caffè di Varese via Manin ogni martedì e giovedì pranzo con gnocco fritto e fritto misto. Digestivo offerto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, festa, fritti, glam, varese',
+    ogTitle: 'Festa dei fritti al Glam di Varese: gnocco martedì, fritto misto giovedì',
+    ogDescription: 'Dal 30 aprile 2026 al Glam Caffè di Varese via Manin ogni martedì e giovedì pranzo con gnocco fritto e fritto misto. Digestivo offerto.',
+    canonicalPath: '/articoli-frontaliere/festa-fritti-glam-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festa dei fritti al Glam di Varese: gnocco martedì, fritto misto giovedì",
+      "description": "Dal 30 aprile 2026 al Glam Caffè di Varese via Manin ogni martedì e giovedì pranzo con gnocco fritto e fritto misto. Digestivo offerto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/festa-fritti-glam-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Glam Caffè a Varese, evento festa dei fritti 2026"
+      },
+      "datePublished": "2026-05-01T14:59:29+00:00",
+      "dateModified": "2026-05-01T14:59:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festa-fritti-glam-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

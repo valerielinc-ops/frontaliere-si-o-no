@@ -4792,6 +4792,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-canile-varese-duni-2026.title': 'New Varese ai Duni dog shelter: project approved, phased construction',
     'blog.article.nuovo-canile-varese-duni-2026.excerpt': 'The Environment Commission has approved the project for the new Varese ai Duni dog shelter, but increased costs require a two-phase construction.',
     'blog.article.nuovo-canile-varese-duni-2026.imageAlt': 'New dog shelter in Varese at Duni, natural area with possible construction site',
+    'blog.article.festa-fritti-glam-varese-2026.title': 'Fried feast at Glam in Varese: gnocco on Tuesday, mixed fry on Thursday',
+    'blog.article.festa-fritti-glam-varese-2026.excerpt': 'From April 30, 2026, every Tuesday and Thursday at Glam Caffè in Varese, via Manin, enjoy lunch with fried gnocco and mixed fry. Digestif on the house.',
+    'blog.article.festa-fritti-glam-varese-2026.imageAlt': 'Glam Caffè in Varese, fried food festival 2026',
 };
 
 export default blogMetaEn;
