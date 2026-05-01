@@ -4820,6 +4820,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-zurigo-basilea-2026.title': '1er mai 2026: des milliers en place à Zurich et Bâle',
     'blog.article.primo-maggio-zurigo-basilea-2026.excerpt': 'Manifestations pacifiques à Zurich et Bâle avec 15\'000 et 2\'500 participants, respectivement. Isolés actes de vandalisme et critiques à la gestion de la santé.',
     'blog.article.primo-maggio-zurigo-basilea-2026.imageAlt': 'Manifestation du 1er mai à Zurich avec des milliers de personnes en marche',
+    'blog.article.rive-libere-ascona-2026.title': 'Rives libres: Ascona ouvre en hiver',
+    'blog.article.rive-libere-ascona-2026.excerpt': 'L\'association Rives publiques de la Suisse italienne célèbre deux succès: l\'inclusion dans le groupe de travail pour le Sentier des Rives et l\'ouverture hivernale de la rive du Lido patricial d\'Ascona.',
+    'blog.article.rive-libere-ascona-2026.imageAlt': 'Promenade hivernale le long des rives libres d\'Ascona sur le Lac Majeur',
 };
 
 export default blogMetaFr;

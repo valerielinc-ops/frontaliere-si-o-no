@@ -4819,6 +4819,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-zurigo-basilea-2026.title': 'May 1st 2026: thousands protest in Zurich and Basel',
     'blog.article.primo-maggio-zurigo-basilea-2026.excerpt': 'Peaceful demonstrations in Zurich and Basel with 15,000 and 2,500 participants, respectively. Isolated acts of vandalism and criticism of healthcare management.',
     'blog.article.primo-maggio-zurigo-basilea-2026.imageAlt': 'May Day demonstration in Zurich with thousands of people marching',
+    'blog.article.rive-libere-ascona-2026.title': 'Free riverbanks: Ascona opens to public in winter',
+    'blog.article.rive-libere-ascona-2026.excerpt': 'The Rive pubbliche association of Italian-speaking Switzerland celebrates two successes: inclusion in the working group for the Riverbanks Path and the winter opening of the Lido patriziale riverbank in Ascona.',
+    'blog.article.rive-libere-ascona-2026.imageAlt': 'Winter walk along the free shores of Ascona on Lake Maggiore',
 };
 
 export default blogMetaEn;

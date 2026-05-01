@@ -4820,6 +4820,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-zurigo-basilea-2026.title': 'Primo maggio 2026: migliaia in piazza a Zurigo e Basilea',
     'blog.article.primo-maggio-zurigo-basilea-2026.excerpt': 'Manifestazioni pacifiche a Zurigo e Basilea con 15\'000 e 2\'500 partecipanti, rispettivamente. Isolati atti di vandalismo e critiche alla gestione della sanità.',
     'blog.article.primo-maggio-zurigo-basilea-2026.imageAlt': 'Manifestazione del Primo maggio a Zurigo con migliaia di persone in marcia',
+    'blog.article.rive-libere-ascona-2026.title': 'Rive libere: Ascona apre al pubblico d\'inverno',
+    'blog.article.rive-libere-ascona-2026.excerpt': 'L\'associazione Rive pubbliche della Svizzera italiana celebra due successi: l\'inclusione nel gruppo di lavoro per il Sentiero delle Rive e l\'apertura invernale della riva del Lido patriziale di Ascona.',
+    'blog.article.rive-libere-ascona-2026.imageAlt': 'Passeggiata invernale lungo le rive libere di Ascona sul Lago Maggiore',
 };
 
 export default blogMetaIt;

@@ -33563,6 +33563,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rive-libere-ascona-2026': {
+    title: 'Rive libere: Ascona apre al pubblico d\'inverno | Frontaliere Ticino',
+    description: 'L\'associazione Rive pubbliche della Svizzera italiana celebra due successi: l\'inclusione nel gruppo di lavoro per il Sentiero delle Rive e l\'apertura invernale',
+    keywords: 'frontalieri, ticino, svizzera, italia, rive, libere, ascona, apre',
+    ogTitle: 'Rive libere: Ascona apre al pubblico d\'inverno',
+    ogDescription: 'L\'associazione Rive pubbliche della Svizzera italiana celebra due successi: l\'inclusione nel gruppo di lavoro per il Sentiero delle Rive e l\'apertura invernale',
+    canonicalPath: '/articoli-frontaliere/rive-libere-ascona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rive libere: Ascona apre al pubblico d'inverno",
+      "description": "L'associazione Rive pubbliche della Svizzera italiana celebra due successi: l'inclusione nel gruppo di lavoro per il Sentiero delle Rive e l'apertura invernale",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rive-libere-ascona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passeggiata invernale lungo le rive libere di Ascona sul Lago Maggiore"
+      },
+      "datePublished": "2026-05-01T16:30:36+00:00",
+      "dateModified": "2026-05-01T16:30:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rive-libere-ascona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

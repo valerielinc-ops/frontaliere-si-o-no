@@ -12258,4 +12258,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-zurigo-basilea-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rive-libere-ascona-2026',
+ category: 'novita',
+ date: '2026-05-01T16:30:36.331Z',
+ image: '/images/blog/rive-libere-ascona-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

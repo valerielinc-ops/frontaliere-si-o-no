@@ -4819,6 +4819,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-zurigo-basilea-2026.title': '1. Mai 2026: Tausende auf den Straßen von Zürich und Basel',
     'blog.article.primo-maggio-zurigo-basilea-2026.excerpt': 'Friedliche Demonstrationen in Zürich und Basel mit 15\'000 bzw. 2\'500 Teilnehmern. Einzelfälle von Vandalismus und Kritik an der Gesundheitsversorgung.',
     'blog.article.primo-maggio-zurigo-basilea-2026.imageAlt': '1. Mai Demonstration in Zürich mit tausenden von Menschen',
+    'blog.article.rive-libere-ascona-2026.title': 'Freie Ufer: Ascona öffnet im Winter',
+    'blog.article.rive-libere-ascona-2026.excerpt': 'Der Verein Rive pubbliche der italienischen Schweiz feiert zwei Erfolge: die Aufnahme in die Arbeitsgruppe für den Sentiero delle Rive und die Winteröffnung der Uferpromenade des Lido patriziale in Ascona.',
+    'blog.article.rive-libere-ascona-2026.imageAlt': 'Winterspaziergang entlang der freien Ufer von Ascona am Lago Maggiore',
 };
 
 export default blogMetaDe;
