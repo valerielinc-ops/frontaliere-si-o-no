@@ -2859,6 +2859,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-como-volta-faro-rapinese-6-milioni': { name: 'Novità', path: '/articoli-frontaliere/como-volta-faro-rapinese-6-milioni', parent: 'blog' },
     'blog-controlli-velocita-ticino-maggio-2024': { name: 'Controlli velocità Ticino', path: '/articoli-frontaliere/controlli-velocita-ticino-maggio-2024', parent: 'blog' },
     'blog-primo-maggio-ticino-salari-2024': { name: 'Primo maggio Ticino', path: '/articoli-frontaliere/primo-maggio-ticino-salari-2024', parent: 'blog' },
+    'blog-sosta-selvaggia-moltrasio-2026': { name: 'Sosta selvaggia', path: '/articoli-frontaliere/sosta-selvaggia-moltrasio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

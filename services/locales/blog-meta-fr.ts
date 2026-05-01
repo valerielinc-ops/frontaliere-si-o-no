@@ -4886,6 +4886,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-ticino-salari-2024.title': '1er mai au Tessin: salaires et droits au cœur des protestations',
     'blog.article.primo-maggio-ticino-salari-2024.excerpt': 'Environ deux mille personnes ont défilé à Lugano pour demander des salaires dignes et dénoncer le dumping salarial',
     'blog.article.primo-maggio-ticino-salari-2024.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.sosta-selvaggia-moltrasio-2026.title': 'Abus de stationnement à Moltrasio sur le lac de Côme',
+    'blog.article.sosta-selvaggia-moltrasio-2026.excerpt': 'Le petit village de Moltrasio sur le lac de Côme est souvent victime de stationnement sauvage par des voitures étrangères. Voici ce qui se passe.',
+    'blog.article.sosta-selvaggia-moltrasio-2026.imageAlt': 'Vue aérienne du lac de Côme avec des voitures garées illégalement le long des rives de Moltrasio',
 };
 
 export default blogMetaFr;

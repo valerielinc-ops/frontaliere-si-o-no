@@ -4886,6 +4886,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-ticino-salari-2024.title': 'Primo maggio in Ticino: salari e diritti al centro delle proteste',
     'blog.article.primo-maggio-ticino-salari-2024.excerpt': 'Circa duemila persone hanno sfilato a Lugano per chiedere salari dignitosi e denunciare il dumping salariale',
     'blog.article.primo-maggio-ticino-salari-2024.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.sosta-selvaggia-moltrasio-2026.title': 'Abusi viabilistici a Moltrasio sul Lago di Como',
+    'blog.article.sosta-selvaggia-moltrasio-2026.excerpt': 'Il paesino di Moltrasio sul Lago di Como è spesso vittima di sosta selvaggia da parte di auto straniere. Ecco cosa sta succedendo.',
+    'blog.article.sosta-selvaggia-moltrasio-2026.imageAlt': 'Vista aerea del Lago di Como con auto parcheggiate illegalmente lungo le rive di Moltrasio',
 };
 
 export default blogMetaIt;

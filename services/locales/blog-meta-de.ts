@@ -4885,6 +4885,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-ticino-salari-2024.title': '1. Mai in Ticino: Löhne und Rechte im Fokus',
     'blog.article.primo-maggio-ticino-salari-2024.excerpt': 'Etwa zweitausend Menschen zogen in Lugano, um faire Löhne zu fordern und Lohn-Dumping anzuprangern',
     'blog.article.primo-maggio-ticino-salari-2024.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.sosta-selvaggia-moltrasio-2026.title': 'Verkehrsmissbrauch in Moltrasio am Comer See',
+    'blog.article.sosta-selvaggia-moltrasio-2026.excerpt': 'Das Dorf Moltrasio am Comer See ist häufig Opfer von wilder Parkerei durch ausländische Autos. Hier ist, was passiert.',
+    'blog.article.sosta-selvaggia-moltrasio-2026.imageAlt': 'Luftaufnahme des Comer Sees mit illegal geparkten Autos entlang der Ufer von Moltrasio',
 };
 
 export default blogMetaDe;

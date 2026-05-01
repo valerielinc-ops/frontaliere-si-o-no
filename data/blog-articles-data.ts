@@ -12412,4 +12412,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-ticino-salari-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sosta-selvaggia-moltrasio-2026',
+ category: 'pratico',
+ date: '2026-05-01T19:48:22.063Z',
+ image: '/images/blog/sosta-selvaggia-moltrasio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

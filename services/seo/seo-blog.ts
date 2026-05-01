@@ -34201,6 +34201,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sosta-selvaggia-moltrasio-2026': {
+    title: 'Abusi viabilistici a Moltrasio sul Lago di Como | Frontaliere Ticino',
+    description: 'Il paesino di Moltrasio sul Lago di Como è spesso vittima di sosta selvaggia da parte di auto straniere. Ecco cosa sta succedendo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, abusi, viabilistici, moltrasio, lago',
+    ogTitle: 'Sosta selvaggia a Moltrasio: il problema degli abusi viabilistici sul Lago di Como',
+    ogDescription: 'Il paesino di Moltrasio sul Lago di Como è spesso vittima di sosta selvaggia da parte di auto straniere. Ecco cosa sta succedendo.',
+    canonicalPath: '/articoli-frontaliere/sosta-selvaggia-moltrasio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sosta selvaggia a Moltrasio: il problema degli abusi viabilistici sul Lago di Como",
+      "description": "Il paesino di Moltrasio sul Lago di Como è spesso vittima di sosta selvaggia da parte di auto straniere. Ecco cosa sta succedendo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sosta-selvaggia-moltrasio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Como con auto parcheggiate illegalmente lungo le rive di Moltrasio"
+      },
+      "datePublished": "2026-05-01T19:48:22+00:00",
+      "dateModified": "2026-05-01T19:48:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sosta-selvaggia-moltrasio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
