@@ -4804,6 +4804,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.orso-valposchiavo-2026-ritorno.title': 'Bär in Valposchiavo gesichtet: Rückkehr nach Jahren',
     'blog.article.orso-valposchiavo-2026-ritorno.excerpt': 'Eine Fotofalle hat am 29. April einen Bären in den Wäldern zwischen Le Prese und Miralago festgehalten, was die Debatte über das Zusammenleben mit der Wildnis wieder aufbringt.',
     'blog.article.orso-valposchiavo-2026-ritorno.imageAlt': 'Ein Bär im Valposchiavo-Wald, fotografiert von einer Wildkamera',
+    'blog.article.gallarate-borse-studio-2026.title': '87 Schüler mit Stipendien in Gallarate ausgezeichnet',
+    'blog.article.gallarate-borse-studio-2026.excerpt': 'Die Zeremonie fand im Maga-Hic in Gallarate statt, wo 87 Schüler für ihre schulischen und außerschulischen Leistungen ausgezeichnet wurden.',
+    'blog.article.gallarate-borse-studio-2026.imageAlt': 'Zeremonie im Maga-Hic in Gallarate mit ausgezeichneten Schülern',
 };
 
 export default blogMetaDe;

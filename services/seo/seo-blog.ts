@@ -33418,6 +33418,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gallarate-borse-studio-2026': {
+    title: '87 studenti premiati con borse di studio a Gallarate',
+    description: 'La cerimonia si è svolta al Maga-Hic di Gallarate, dove 87 studenti sono stati premiati per i loro risultati scolastici ed extrascolastici. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, studenti, premiati, borse, studio',
+    ogTitle: '87 studenti premiati con borse di studio a Gallarate',
+    ogDescription: 'La cerimonia si è svolta al Maga-Hic di Gallarate, dove 87 studenti sono stati premiati per i loro risultati scolastici ed extrascolastici.',
+    canonicalPath: '/articoli-frontaliere/gallarate-borse-studio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "87 studenti premiati con borse di studio a Gallarate",
+      "description": "La cerimonia si è svolta al Maga-Hic di Gallarate, dove 87 studenti sono stati premiati per i loro risultati scolastici ed extrascolastici. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gallarate-borse-studio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cerimonia al Maga-Hic di Gallarate con studenti premiati"
+      },
+      "datePublished": "2026-05-01T15:42:10+00:00",
+      "dateModified": "2026-05-01T15:42:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gallarate-borse-studio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

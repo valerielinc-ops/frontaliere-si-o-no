@@ -4805,6 +4805,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.orso-valposchiavo-2026-ritorno.title': 'Orso ripreso in Valposchiavo: ritorno dopo anni',
     'blog.article.orso-valposchiavo-2026-ritorno.excerpt': 'Una fototrappola ha immortalato un orso il 29 aprile nei boschi tra Le Prese e Miralago, riaprendo il dibattito sulla convivenza con la fauna selvatica',
     'blog.article.orso-valposchiavo-2026-ritorno.imageAlt': 'Un orso nei boschi di Valposchiavo, ripreso da una fototrappola',
+    'blog.article.gallarate-borse-studio-2026.title': '87 studenti premiati con borse di studio a Gallarate',
+    'blog.article.gallarate-borse-studio-2026.excerpt': 'La cerimonia si è svolta al Maga-Hic di Gallarate, dove 87 studenti sono stati premiati per i loro risultati scolastici ed extrascolastici.',
+    'blog.article.gallarate-borse-studio-2026.imageAlt': 'Cerimonia al Maga-Hic di Gallarate con studenti premiati',
 };
 
 export default blogMetaIt;

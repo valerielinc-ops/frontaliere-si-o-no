@@ -4804,6 +4804,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.orso-valposchiavo-2026-ritorno.title': 'Bear spotted in Valposchiavo: return after years',
     'blog.article.orso-valposchiavo-2026-ritorno.excerpt': 'A camera trap captured a bear on April 29 in the woods between Le Prese and Miralago, reopening the debate on coexistence with wildlife',
     'blog.article.orso-valposchiavo-2026-ritorno.imageAlt': 'A bear in the Valposchiavo woods, photographed by a wildlife camera',
+    'blog.article.gallarate-borse-studio-2026.title': '87 students awarded scholarships in Gallarate',
+    'blog.article.gallarate-borse-studio-2026.excerpt': 'The ceremony took place at Maga-Hic in Gallarate, where 87 students were awarded for their academic and extracurricular achievements.',
+    'blog.article.gallarate-borse-studio-2026.imageAlt': 'Ceremony at Maga-Hic in Gallarate with awarded students',
 };
 
 export default blogMetaEn;
