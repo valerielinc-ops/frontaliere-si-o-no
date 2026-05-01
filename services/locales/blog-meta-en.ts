@@ -4780,6 +4780,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.festa-danzante-ticino-2026-spettacoli.title': 'Dancing Festival 2026: Ticino moves with shows and participation',
     'blog.article.festa-danzante-ticino-2026-spettacoli.excerpt': 'From May 6 to 10, 2026, over 40 Swiss cities host the 21st edition of the Dancing Festival, with Lugano as the beating heart of the events.',
     'blog.article.festa-danzante-ticino-2026-spettacoli.imageAlt': 'Dance performance at LAC Lugano during the Festa Danzante 2026',
+    'blog.article.pregassona-festa-400-fonio-iniziativa-udc.title': 'Fonio slams UDC initiative at Pregassona party',
+    'blog.article.pregassona-festa-400-fonio-iniziativa-udc.excerpt': 'Giorgio Fonio criticizes the UDC\'s \'No to a Switzerland of 10 million\' initiative over risks to jobs and wages. OCST celebrates with 400 people.',
+    'blog.article.pregassona-festa-400-fonio-iniziativa-udc.imageAlt': 'Festival in Pregassona with 400 people at the Pregassona Warehouse',
 };
 
 export default blogMetaEn;

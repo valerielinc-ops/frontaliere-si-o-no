@@ -33186,6 +33186,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pregassona-festa-400-fonio-iniziativa-udc': {
+    title: 'Festa a Pregassona: 400 persone e Fonio contro iniziativa UDC',
+    description: 'Giorgio Fonio critica l\'iniziativa UDC \'No a una Svizzera da 10 milioni\' per i rischi su lavoro e salari. OCST celebra con 400 persone. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, festa, pregassona, persone, fonio',
+    ogTitle: 'Festa a Pregassona: 400 persone e Fonio contro iniziativa UDC',
+    ogDescription: 'Giorgio Fonio critica l\'iniziativa UDC \'No a una Svizzera da 10 milioni\' per i rischi su lavoro e salari. OCST celebra con 400 persone.',
+    canonicalPath: '/articoli-frontaliere/pregassona-festa-400-fonio-iniziativa-udc',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festa a Pregassona: 400 persone e Fonio contro iniziativa UDC",
+      "description": "Giorgio Fonio critica l'iniziativa UDC 'No a una Svizzera da 10 milioni' per i rischi su lavoro e salari. OCST celebra con 400 persone. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pregassona-festa-400-fonio-iniziativa-udc.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa a Pregassona con 400 persone presso il Capannone di Pregassona"
+      },
+      "datePublished": "2026-05-01T14:21:18+00:00",
+      "dateModified": "2026-05-01T14:21:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pregassona-festa-400-fonio-iniziativa-udc`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

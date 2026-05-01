@@ -4781,6 +4781,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.festa-danzante-ticino-2026-spettacoli.title': 'Festa Danzante 2026: il Ticino si muove tra spettacoli e partecipazione',
     'blog.article.festa-danzante-ticino-2026-spettacoli.excerpt': 'Dal 6 al 10 maggio 2026, oltre 40 città svizzere ospitano la 21ª edizione della Festa Danzante, con Lugano come cuore pulsante degli eventi.',
     'blog.article.festa-danzante-ticino-2026-spettacoli.imageAlt': 'Spettacolo di danza al LAC di Lugano durante la Festa Danzante 2026',
+    'blog.article.pregassona-festa-400-fonio-iniziativa-udc.title': 'Festa a Pregassona: 400 persone e Fonio contro iniziativa UDC',
+    'blog.article.pregassona-festa-400-fonio-iniziativa-udc.excerpt': 'Giorgio Fonio critica l\'iniziativa UDC \'No a una Svizzera da 10 milioni\' per i rischi su lavoro e salari. OCST celebra con 400 persone.',
+    'blog.article.pregassona-festa-400-fonio-iniziativa-udc.imageAlt': 'Festa a Pregassona con 400 persone presso il Capannone di Pregassona',
 };
 
 export default blogMetaIt;

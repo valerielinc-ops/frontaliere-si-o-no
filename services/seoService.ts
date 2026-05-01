@@ -2824,6 +2824,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ingresso-gratuito-museo-costume-bagno': { name: 'Novità', path: '/articoli-frontaliere/ingresso-gratuito-museo-costume-bagno', parent: 'blog' },
     'blog-lavori-autostradali-a8-chiusure': { name: 'Novità', path: '/articoli-frontaliere/lavori-autostradali-a8-chiusure', parent: 'blog' },
     'blog-festa-danzante-ticino-2026-spettacoli': { name: 'Eventi Ticino', path: '/articoli-frontaliere/festa-danzante-ticino-2026-spettacoli', parent: 'blog' },
+    'blog-pregassona-festa-400-fonio-iniziativa-udc': { name: 'Festa Pregassona', path: '/articoli-frontaliere/pregassona-festa-400-fonio-iniziativa-udc', parent: 'blog' },
  };
 
  const info = sectionNames[section];

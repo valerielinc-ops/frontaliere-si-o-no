@@ -12167,4 +12167,11 @@ export const ARTICLES = [
  image: '/images/blog/festa-danzante-ticino-2026-spettacoli.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pregassona-festa-400-fonio-iniziativa-udc',
+ category: 'novita',
+ date: '2026-05-01T14:21:18.602Z',
+ image: '/images/blog/pregassona-festa-400-fonio-iniziativa-udc.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
