@@ -3819,6 +3819,13 @@ ${alternates}
  _md(np.dirname(flatFile));
  _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
+ // Alias: /cerca-lavoro-ticino/lavoro-infermieri/ → same content, canonical inside already points to infermieri-in-ticino
+ if (editorialCanton === 'TI' && locale === 'it') {
+ const aliasPath = withSlash(`/${sectionByLocale[locale]}/lavoro-infermieri`);
+ const aliasOutDir = np.join(distDir, aliasPath.slice(1));
+ _md(aliasOutDir);
+ _qw(np.join(aliasOutDir, 'index.html'), html);
+ }
  recordEmit('editorial-nurses', __tEdNurses);
  }
 

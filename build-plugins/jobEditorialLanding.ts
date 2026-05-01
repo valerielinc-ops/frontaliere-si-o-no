@@ -1390,7 +1390,7 @@ export function resolveEditorialJobLandingDescriptor(value: string): EditorialLa
  if (Object.values(JOB_OFFICIAL_GAZETTE_LANDING_SLUGS).includes(slug as (typeof JOB_OFFICIAL_GAZETTE_LANDING_SLUGS)[JobLandingLocale])) {
  return { kind: 'official-gazette' };
  }
- if (Object.values(JOB_NURSES_HUB_SLUGS).includes(slug as (typeof JOB_NURSES_HUB_SLUGS)[JobLandingLocale])) {
+ if (Object.values(JOB_NURSES_HUB_SLUGS).includes(slug as (typeof JOB_NURSES_HUB_SLUGS)[JobLandingLocale]) || slug === 'lavoro-infermieri') {
  return { kind: 'nurses-hub' };
  }
  if (Object.values(JOB_PART_TIME_LANDING_SLUGS).includes(slug as (typeof JOB_PART_TIME_LANDING_SLUGS)[JobLandingLocale])) {
