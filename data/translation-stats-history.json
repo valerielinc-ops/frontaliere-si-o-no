@@ -1,85 +1,5 @@
 [
   {
-    "timestamp": "2026-04-16T14:07:33.126Z",
-    "label": "before",
-    "total": 2917,
-    "needsRetranslation": 84,
-    "incomplete": 27,
-    "complete": 2890,
-    "missingByLocale": {
-      "it": 15,
-      "en": 15,
-      "de": 11,
-      "fr": 16
-    },
-    "topPending": [
-      {
-        "company": "PwC Switzerland",
-        "pending": 9
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 1
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 1
-      },
-      {
-        "company": "Manor AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-16T14:55:26.560Z",
-    "label": "after",
-    "total": 2917,
-    "needsRetranslation": 59,
-    "incomplete": 2,
-    "complete": 2915,
-    "missingByLocale": {
-      "it": 0,
-      "en": 0,
-      "de": 0,
-      "fr": 2
-    },
-    "topPending": [
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-16T22:36:22.197Z",
     "label": "before",
     "total": 2904,
@@ -8079,6 +7999,110 @@
       },
       {
         "company": "Hôpital du Valais",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-01T03:29:36.228Z",
+    "label": "before",
+    "total": 2696,
+    "needsRetranslation": 114,
+    "incomplete": 47,
+    "complete": 2649,
+    "missingByLocale": {
+      "it": 33,
+      "en": 21,
+      "de": 40,
+      "fr": 39
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 21
+      },
+      {
+        "company": "Graubündner Kantonalbank",
+        "pending": 8
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Center da Sanadad Engiadina Bassa",
+        "pending": 1
+      },
+      {
+        "company": "Ermenegildo Zegna Group",
+        "pending": 1
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-01T04:09:16.949Z",
+    "label": "after",
+    "total": 2696,
+    "needsRetranslation": 94,
+    "incomplete": 37,
+    "complete": 2659,
+    "missingByLocale": {
+      "it": 34,
+      "en": 16,
+      "de": 32,
+      "fr": 32
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Graubündner Kantonalbank",
+        "pending": 8
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Center da Sanadad Engiadina Bassa",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
         "pending": 1
       }
     ]
