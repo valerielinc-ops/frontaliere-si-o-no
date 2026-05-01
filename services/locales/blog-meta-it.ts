@@ -4529,6 +4529,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cavalli-droni-esercito-svizzero-2026.title': 'Cavalli e droni: la nuova unità speciale dell\'esercito svizzero',
     'blog.article.cavalli-droni-esercito-svizzero-2026.excerpt': 'L\'esercito svizzero sperimenta pattuglie a cavallo con droni per la sorveglianza di aree remote. Scopri come questa innovazione cambia la difesa nazionale.',
     'blog.article.cavalli-droni-esercito-svizzero-2026.imageAlt': 'Cavalli e droni dell\'esercito svizzero in Ticino',
+    'blog.article.raiffeisen-bioggio-rinnovo-2026.title': 'Raiffeisen Bioggio si rinnova: inaugurazione il 9 maggio',
+    'blog.article.raiffeisen-bioggio-rinnovo-2026.excerpt': 'La filiale di Bioggio della Banca Raiffeisen del Malcantone si rinnova e invita la popolazione all\'inaugurazione il 9 maggio 2026.',
+    'blog.article.raiffeisen-bioggio-rinnovo-2026.imageAlt': 'Filiale bancaria moderna in un villaggio svizzero storico',
 };
 
 export default blogMetaIt;

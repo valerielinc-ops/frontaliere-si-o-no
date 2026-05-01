@@ -11579,4 +11579,11 @@ export const ARTICLES = [
  image: '/images/blog/cavalli-droni-esercito-svizzero-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'raiffeisen-bioggio-rinnovo-2026',
+ category: 'novita',
+ date: '2026-05-01T01:22:15.698Z',
+ image: '/images/blog/raiffeisen-bioggio-rinnovo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

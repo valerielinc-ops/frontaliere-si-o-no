@@ -4528,6 +4528,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cavalli-droni-esercito-svizzero-2026.title': 'Swiss army\'s new special unit: horses and drones',
     'blog.article.cavalli-droni-esercito-svizzero-2026.excerpt': 'The Swiss army is experimenting with horse patrols and drones for remote area surveillance. Discover how this innovation is changing national defense.',
     'blog.article.cavalli-droni-esercito-svizzero-2026.imageAlt': 'Swiss Army horses and drones in Ticino',
+    'blog.article.raiffeisen-bioggio-rinnovo-2026.title': 'Raiffeisen Bioggio: grand opening on May 9th',
+    'blog.article.raiffeisen-bioggio-rinnovo-2026.excerpt': 'The Bioggio branch of Raiffeisen Bank Malcantone is being renovated and invites the public to the grand opening on May 9, 2026.',
+    'blog.article.raiffeisen-bioggio-rinnovo-2026.imageAlt': 'Modern bank branch in a historic Swiss village',
 };
 
 export default blogMetaEn;

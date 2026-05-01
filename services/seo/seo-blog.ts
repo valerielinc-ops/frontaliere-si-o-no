@@ -30750,6 +30750,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-raiffeisen-bioggio-rinnovo-2026': {
+    title: 'Raiffeisen Bioggio si rinnova: inaugurazione il 9 maggio',
+    description: 'Scopri il rinnovamento della filiale Raiffeisen di Bioggio e partecipa all\'inaugurazione il 9 maggio 2026. Evento aperto al pubblico con visite guidate.',
+    keywords: 'frontalieri, ticino, svizzera, italia, raiffeisen, bioggio, rinnova, inaugurazione',
+    ogTitle: 'Raiffeisen Bioggio si rinnova: inaugurazione il 9 maggio',
+    ogDescription: 'Scopri il rinnovamento della filiale Raiffeisen di Bioggio e partecipa all\'inaugurazione il 9 maggio 2026. Evento aperto al pubblico con visite guidate.',
+    canonicalPath: '/articoli-frontaliere/raiffeisen-bioggio-rinnovo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Raiffeisen Bioggio si rinnova: inaugurazione il 9 maggio",
+      "description": "Scopri il rinnovamento della filiale Raiffeisen di Bioggio e partecipa all'inaugurazione il 9 maggio 2026. Evento aperto al pubblico con visite guidate.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/raiffeisen-bioggio-rinnovo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Filiale bancaria moderna in un villaggio svizzero storico"
+      },
+      "datePublished": "2026-05-01T01:22:15+00:00",
+      "dateModified": "2026-05-01T01:22:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/raiffeisen-bioggio-rinnovo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
