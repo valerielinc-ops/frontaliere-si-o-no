@@ -34114,6 +34114,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-volta-faro-rapinese-6-milioni': {
+    title: 'Como: Rapinese accusa Roma su fondi per Volta. Replica durissima',
+    description: 'Il sindaco di Como accusa Roma di aver stanziato 6 milioni per una sit-com su Volta, zero per i monumenti. Replica del Comitato Nazionale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, rapinese, accusa, roma',
+    ogTitle: 'Como: Rapinese accusa Roma su fondi per Volta. Replica durissima',
+    ogDescription: 'Il sindaco di Como accusa Roma di aver stanziato 6 milioni per una sit-com su Volta, zero per i monumenti. Replica del Comitato Nazionale.',
+    canonicalPath: '/articoli-frontaliere/como-volta-faro-rapinese-6-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como: Rapinese accusa Roma su fondi per Volta. Replica durissima",
+      "description": "Il sindaco di Como accusa Roma di aver stanziato 6 milioni per una sit-com su Volta, zero per i monumenti. Replica del Comitato Nazionale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-volta-faro-rapinese-6-milioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Faro Voltiano a Como, con il lago di Como e le montagne circostanti."
+      },
+      "datePublished": "2026-05-01T19:17:20+00:00",
+      "dateModified": "2026-05-01T19:17:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-volta-faro-rapinese-6-milioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

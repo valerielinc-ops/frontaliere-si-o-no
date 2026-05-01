@@ -4876,6 +4876,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-viaggio-nel-tempo-2026.title': 'Como: Reise in die Vergangenheit: Quinto, Caffè&Caffè, Ul Pan de Comm',
     'blog.article.como-viaggio-nel-tempo-2026.excerpt': 'Entdecken Sie, wie einige Gegenden von Como ihren zeitlosen Charme bewahren, mit Orten, die von Einheimischen und nicht von Touristen frequentiert werden.',
     'blog.article.como-viaggio-nel-tempo-2026.imageAlt': 'Via Milano in Como, mit traditionellen Geschäften und Cafés',
+    'blog.article.como-volta-faro-rapinese-6-milioni.title': 'Como: Rapinese wirft Rom Volta-Gelder vor',
+    'blog.article.como-volta-faro-rapinese-6-milioni.excerpt': 'Der Bürgermeister von Como wirft Rom vor, 6 Millionen für eine Sitcom über Volta bereitgestellt zu haben, aber nichts für Denkmäler. Antwort des Nationalkomitees.',
+    'blog.article.como-volta-faro-rapinese-6-milioni.imageAlt': 'Luftaufnahme des Faro Voltiano in Como, mit dem Comer See und den umliegenden Bergen.',
 };
 
 export default blogMetaDe;

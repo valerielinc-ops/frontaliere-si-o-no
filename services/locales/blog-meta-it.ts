@@ -4877,6 +4877,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-viaggio-nel-tempo-2026.title': 'Como, viaggio nel tempo: Quinto, Caffè&Caffè, Ul Pan de Comm',
     'blog.article.como-viaggio-nel-tempo-2026.excerpt': 'Scopri come alcune zone di Como mantengono il fascino di un tempo, con locali frequentati da residenti e non da turisti.',
     'blog.article.como-viaggio-nel-tempo-2026.imageAlt': 'Via Milano a Como, con negozi e caffè tradizionali',
+    'blog.article.como-volta-faro-rapinese-6-milioni.title': 'Como: Rapinese accusa Roma su fondi per Volta. Replica durissima',
+    'blog.article.como-volta-faro-rapinese-6-milioni.excerpt': 'Il sindaco di Como accusa Roma di aver stanziato 6 milioni per una sit-com su Volta, zero per i monumenti. Replica del Comitato Nazionale.',
+    'blog.article.como-volta-faro-rapinese-6-milioni.imageAlt': 'Vista aerea del Faro Voltiano a Como, con il lago di Como e le montagne circostanti.',
 };
 
 export default blogMetaIt;

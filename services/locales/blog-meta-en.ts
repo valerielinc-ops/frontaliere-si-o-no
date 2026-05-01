@@ -4876,6 +4876,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-viaggio-nel-tempo-2026.title': 'Como, a journey through time: Quinto, Caffè&Caffè, Ul Pan de Comm',
     'blog.article.como-viaggio-nel-tempo-2026.excerpt': 'Discover how some areas of Como retain their timeless charm, with spots frequented by locals rather than tourists.',
     'blog.article.como-viaggio-nel-tempo-2026.imageAlt': 'Via Milano in Como, with traditional shops and cafes',
+    'blog.article.como-volta-faro-rapinese-6-milioni.title': 'Como mayor accuses Rome over Volta funds',
+    'blog.article.como-volta-faro-rapinese-6-milioni.excerpt': 'The mayor of Como accuses Rome of allocating 6 million for a sitcom on Volta, nothing for monuments. Rebuttal from the National Committee.',
+    'blog.article.como-volta-faro-rapinese-6-milioni.imageAlt': 'Aerial view of Como\'s Faro Voltiano and Lake Como, with clear blue sky and surrounding mountains.',
 };
 
 export default blogMetaEn;

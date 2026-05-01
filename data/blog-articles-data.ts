@@ -12391,4 +12391,11 @@ export const ARTICLES = [
  image: '/images/blog/como-viaggio-nel-tempo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-volta-faro-rapinese-6-milioni',
+ category: 'novita',
+ date: '2026-05-01T19:17:20.343Z',
+ image: '/images/blog/como-volta-faro-rapinese-6-milioni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
