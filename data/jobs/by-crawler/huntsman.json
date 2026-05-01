@@ -1,6 +1,6 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-04-30T21:58:40.167Z",
+  "assembledAt": "2026-05-01T10:23:12.278Z",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -47,7 +47,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:58:37.797Z",
+      "crawledAt": "2026-05-01T10:23:09.949Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch",
@@ -149,7 +149,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019429",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T21:58:37.077Z",
+      "crawledAt": "2026-05-01T10:23:09.308Z",
       "jobReqId": "J-019429",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -160,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:47.119Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -250,7 +251,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Technical-Service-Laboratory-Leader_J-019480",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:58:36.473Z",
+      "crawledAt": "2026-05-01T10:23:08.642Z",
       "jobReqId": "J-019480",
       "previousSlugs": [
         "technical-service-laboratory-leader-huntsman-ch",
@@ -262,6 +263,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:46.530Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -352,7 +354,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Team-Lead-Logistics_J-019430",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T21:58:35.770Z",
+      "crawledAt": "2026-05-01T10:23:07.988Z",
       "jobReqId": "J-019430",
       "previousSlugs": [
         "superviseur-de-la-logistique-et-de-l-entreposage-du-site-huntsman-corporation-monthey",
@@ -365,6 +367,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:46.029Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -455,7 +458,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-de-Conditionnement--en-quipe-de-jour_J-019425",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T21:58:35.038Z",
+      "crawledAt": "2026-05-01T10:23:07.339Z",
       "jobReqId": "J-019425",
       "previousSlugs": [
         "operateur-de-conditionnement-en-equipe-de-jour-huntsman-ch",
@@ -472,6 +475,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:45.451Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -562,7 +566,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-Pilote_J-019602",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-30T21:58:34.414Z",
+      "crawledAt": "2026-05-01T10:23:06.732Z",
       "jobReqId": "J-019602",
       "previousSlugsByLocale": {
         "fr": [
@@ -576,112 +580,7 @@
         "operateur-pilote-huntsman-ch"
       ],
       "firstSeenAt": "2026-04-13T10:44:44.868Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1870"
-    },
-    {
-      "id": "huntsman-9fd5b194306a",
-      "slug": "operatore-di-turno-rpl-retirement-o-250117-huntsman-corporation-monthey",
-      "slugByLocale": {
-        "it": "operatore-di-turno-rpl-retirement-o-250117-huntsman-corporation-monthey",
-        "en": "shift-operator-rpl-withdrawal-o-250117-huntsman-corporation-monthey",
-        "de": "schichtbetreuer-rpl-rente-huntsman-corporation-monthey",
-        "fr": "shift-operator-rpl-retirement-o-250117-huntsman-ch"
-      },
-      "company": "Huntsman Corporation",
-      "companyKey": "huntsman",
-      "companyDomain": "huntsman.com",
-      "title": "Shift Operator (RPL Retirement) (O-250117)",
-      "titleByLocale": {
-        "it": "Operatore di Scambio (RPL Pensionamento)",
-        "en": "Shift Operator (RPL Retirement)",
-        "de": "Schichtbetreuer (RPL-Rente)",
-        "fr": "Shift Operator (RPL Retirement) (O-250117)"
-      },
-      "description": "Job Description :\n \n PROFIL SOUHAITE \n \n \n• CFC (technique de préférence), CFC de technologue en production chimique, un plus\n\n• Expérience confirmée dans un environnement industriel, un avantage\n\n• Capacité d'adaptation, polyvalence et flexibilité\n\n• Attitude proactive et positive\n\n• Autonomie\n\n• Esprit ouvert aux changements\n\n• Aptitude à travailler en horaire 5 équipes (24h/24 – 7j/7)\n\n• Langue : français, parlé et écrit.\n \n TACHES PRINCIPALES \n \n \n• Conduite (pilotée par ordinateur et/ou automate) d’installations de production chimique dans le respect des standards de sécurité Huntsman et des procédures de fabrication\n\n• Montage/démontage d’installations chimiques, préparation pour intervention de maintenance\n\n• Tâches techniques diverses dans le cadre du soutien apporté aux agents techniques du secteur, aux mécaniciens et dépanneurs électriciens.\n \n \n \n \n Additional Locations:\n\nHuntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland.",
-      "descriptionByLocale": {
-        "it": "Profilo Desiderato - CFC (tecnica di preferenza), CFC di tecnologo in produzione chimica, un plus - Esperienza confermata in un ambiente industriale, un vantaggio - Capacità di adattamento, polivalenza e flessibilità - Attitudine proattiva e positiva - Autonomia - Spirito aperto ai cambiamenti - Abilità a lavorare in orario 5 squadre (24h/24 – 7g/7) - Lingua: italiano, parlato e scritto. ## Principali Attività - Conduzione (pilotata da computer e/o automatizzata) di impianti di produzione chimica nel rispetto dei standard di sicurezza Huntsman e delle procedure di fabbricazione - Montaggio/demontaggio di impianti chimici, preparazione per intervento di manutenzione - Attività tecniche diverse nel quadro del supporto offerto agli agenti tecnici del settore, ai meccanici e ai riparatori elettrici. ## Cosa Offriamo - Huntsman Corporation è una società globale di produttori di chimici differenziati e specializzati. - La società opera un importante sito di produzione a Monthey (Valais), Svizzera. ## Contatto - Huntsman Corporation",
-        "en": "Desired Profile - CFC (preference technique), CFC of chemical production technologist, a plus - Confirmed experience in an industrial environment, an advantage - Adaptability, versatility and flexibility - Proactive and positive attitude - Autonomy - Openness to change - Ability to work in 5 shift (24/7 – 7/7) - Language: French, spoken and written. ## Main Tasks - (Computer and/or automated) operation of chemical production facilities in accordance with Huntsman safety standards and manufacturing procedures - Installation/removal of chemical facilities, preparation for maintenance intervention - Various technical tasks in the context of support provided to technical agents of the sector, mechanics and electricians. ## What We Offer - Huntsman Corporation is a global company of differentiated and specialized chemical producers. - The company operates an important production site in Monthey (Valais), Switzerland. ## Contact - Huntsman Corporation",
-        "de": "Wunschprofil - CFC (technische Vorpräferenz), CFC von Chemietechnologen in der chemischen Produktion, ein Plus - Bestätigte Erfahrung in einem industriellen Umfeld, ein Vorteil - Anpassungsfähigkeit, Vielseitigkeit und Flexibilität - Proaktive und positive Einstellung - Autonomie - Offenheit für Veränderungen - Fähigkeit, in 5 Schichten (24/7 – 7/7) zu arbeiten - Sprache: Französisch, gesprochen und geschrieben. ## Hauptsächliche Aufgaben - (Computer- und/oder automatisierte) Betriebsführung von chemischen Produktionsanlagen im Einklang mit den Sicherheitsstandards von Huntsman und den Herstellungsverfahren - Montage/Abbau von chemischen Anlagen, Vorbereitung für Wartungsintervention - Verschiedene technische Aufgaben im Rahmen des Supports, das den technischen Agenten des Sektors, Mechanikern und Elektrikern angeboten wird. ## Was wir bieten - Huntsman Corporation ist ein globaler Chemiekonzern, der unterschiedliche und spezialisierte Chemikalien produziert. - Das Unternehmen betreibt ein wichtiges Produktionswerk in Monthey (Valais), Schweiz. ## Kontakt - Huntsman Corporation",
-        "fr": "Job Description : PROFIL SOUHAITE • CFC (technique de préférence), CFC de technologue en production chimique, un plus • Expérience confirmée dans un environnement industriel, un avantage • Capacité d'adaptation, polyvalence et flexibilité • Attitude proactive et positive • Autonomie • Esprit ouvert aux changements • Aptitude à travailler en horaire 5 équipes (24h/24 – 7j/7) • Langue : français, parlé et écrit. TACHES PRINCIPALES • Conduite (pilotée par ordinateur et/ou automate) d’installations de production chimique dans le respect des standards de sécurité Huntsman et des procédures de fabrication • Montage/démontage d’installations chimiques, préparation pour intervention de maintenance • Tâches techniques diverses dans le cadre du soutien apporté aux agents techniques du secteur, aux mécaniciens et dépanneurs électriciens. Additional Locations: Huntsman Corporation is a global manufacturer of differentiated and specialty chemicals. The company operates a major production site in Monthey (Valais), Switzerland."
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "CFC tecnico o tecnologo in produzione chimica",
-          "Esperienza in ambiente industriale",
-          "Capacità di adattamento e flessibilità",
-          "Attitudine proattiva e positiva",
-          "Autonomia operativa",
-          "Disponibilità al cambiamento",
-          "Disponibilità al lavoro su 5 turni (24/7)",
-          "Ottima conoscenza del francese"
-        ],
-        "en": [
-          "Technical CFC or chemical production technologist CFC",
-          "Proven industrial experience",
-          "Adaptability and flexibility",
-          "Proactive and positive attitude",
-          "Ability to work autonomously",
-          "Openness to change",
-          "Availability for 5-shift work (24/7)",
-          "Fluent in French"
-        ],
-        "de": [
-          "Technischer CFC oder CFC als Chemietechnologe",
-          "Erfahrung im industriellen Umfeld",
-          "Anpassungsfähigkeit und Flexibilität",
-          "Proaktive und positive Arbeitshaltung",
-          "Selbstständige Arbeitsweise",
-          "Offenheit für Veränderungen",
-          "Bereitschaft zur Arbeit im 5-Schicht-System (24/7)",
-          "Sehr gute Französischkenntnisse"
-        ]
-      },
-      "location": "Monthey",
-      "canton": "VS",
-      "addressLocality": "Monthey",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Chimica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Shift-Operator--RPL-Retirement---O-250117-_J-019426",
-      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Shift-Operator--RPL-Retirement---O-250117-_J-019426",
-      "source": "Huntsman Corporation Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-04-30T21:58:33.681Z",
-      "jobReqId": "J-019426",
-      "previousSlugs": [
-        "shift-operator-rpl-retirement-o-250117-huntsman-ch",
-        "schichtoperator-rpl-retirement-o-250117-huntsman-corporation-monthey",
-        "operatore-di-scambio-rpl-pensionamento-huntsman-corporation-monthey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "shift-operator-rpl-retirement-o-250117-huntsman-ch"
-        ],
-        "de": [
-          "schichtoperator-rpl-retirement-o-250117-huntsman-corporation-monthey"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:44:44.329Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -741,7 +640,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Germany---Bad-Sackingen/Junior-Project-Manager---Regional-Innovation--12-month-assignment-_J-019662",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-30T21:58:33.057Z",
+      "crawledAt": "2026-05-01T10:23:06.081Z",
       "jobReqId": "J-019662",
       "previousSlugs": [
         "junior-project-manager-regional-growth-projects-12-month-assignment-huntsman-ch"
