@@ -32954,6 +32954,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-torino-tensioni-askatasuna': {
+    title: 'Primo Maggio a Torino: tensioni tra manifestanti e forze dell\'ordine',
+    description: 'Un gruppo si stacca dal corteo principale verso l\'ex centro sociale Askatasuna, tensioni con la polizia. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, torino, tensioni',
+    ogTitle: 'Primo Maggio a Torino: tensioni tra manifestanti e forze dell\'ordine',
+    ogDescription: 'Un gruppo si stacca dal corteo principale verso l\'ex centro sociale Askatasuna, tensioni con la polizia.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-torino-tensioni-askatasuna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio a Torino: tensioni tra manifestanti e forze dell'ordine",
+      "description": "Un gruppo si stacca dal corteo principale verso l'ex centro sociale Askatasuna, tensioni con la polizia. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-torino-tensioni-askatasuna.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di manifestanti a Torino durante il Primo Maggio"
+      },
+      "datePublished": "2026-05-01T12:55:10+00:00",
+      "dateModified": "2026-05-01T12:55:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-torino-tensioni-askatasuna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2816,6 +2816,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-como-festa-lavoro-diritti-salari': { name: 'Festa del Lavoro', path: '/articoli-frontaliere/como-festa-lavoro-diritti-salari', parent: 'blog' },
     'blog-denuncia-soccorsi-crans-montana-2026': { name: 'Denuncia soccorsi', path: '/articoli-frontaliere/denuncia-soccorsi-crans-montana-2026', parent: 'blog' },
     'blog-incidente-cantu-due-feriti': { name: 'Incidente Cantù', path: '/articoli-frontaliere/incidente-cantu-due-feriti', parent: 'blog' },
+    'blog-primo-maggio-torino-tensioni-askatasuna': { name: 'Novità', path: '/articoli-frontaliere/primo-maggio-torino-tensioni-askatasuna', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -12111,4 +12111,11 @@ export const ARTICLES = [
  image: '/images/blog/incidente-cantu-due-feriti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-torino-tensioni-askatasuna',
+ category: 'novita',
+ date: '2026-05-01T12:55:10.270Z',
+ image: '/images/blog/primo-maggio-torino-tensioni-askatasuna.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

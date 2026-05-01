@@ -4757,6 +4757,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-cantu-due-feriti.title': 'Accident à Cantù: une voiture contre un mur, deux blessées',
     'blog.article.incidente-cantu-due-feriti.excerpt': 'Un accident de la route à Cantù a impliqué deux femmes, qui ont subi des blessures légères. L\'accident s\'est produit dans la rue Como.',
     'blog.article.incidente-cantu-due-feriti.imageAlt': 'Accident de voiture à Cantù avec deux blessés légers',
+    'blog.article.primo-maggio-torino-tensioni-askatasuna.title': '1er mai à Turin : tensions entre manifestants et police',
+    'blog.article.primo-maggio-torino-tensioni-askatasuna.excerpt': 'Un groupe se détache du cortège principal vers l\'ancien centre social Askatasuna, tensions avec la police.',
+    'blog.article.primo-maggio-torino-tensioni-askatasuna.imageAlt': 'Manifestants à Turin le Premier Mai',
 };
 
 export default blogMetaFr;
