@@ -4549,6 +4549,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fiera-asparago-cantello-2026.title': 'Asparagusmesse Cantello 2026: zwei Wochenenden voller Genuss',
     'blog.article.fiera-asparago-cantello-2026.excerpt': 'Vom 15. bis 24. Mai feiert Cantello den weißen Asparagus De.Co. mit Küche, Musik und Märkten. Hier ist das vollständige Programm.',
     'blog.article.fiera-asparago-cantello-2026.imageAlt': 'Spargelmesse Cantello 2026 mit Ständen lokaler Produkte und Live-Musik',
+    'blog.article.cinque-cose-asparago-cantello-2026.title': 'Cantello Spargel: 5 Fakten zum De.C.O.-Produkt',
+    'blog.article.cinque-cose-asparago-cantello-2026.excerpt': 'Entdecken Sie die einzigartigen Eigenschaften des weißen Spargels von Cantello, ein Produkt, das durch die Denominazione Comunale di Origine geschützt ist.',
+    'blog.article.cinque-cose-asparago-cantello-2026.imageAlt': 'Weißer Spargel aus Cantello mit rosa Spitzen, angebaut in der Region Cantello, Tessin',
 };
 
 export default blogMetaDe;

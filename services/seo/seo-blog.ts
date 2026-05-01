@@ -30953,6 +30953,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cinque-cose-asparago-cantello-2026': {
+    title: 'Asparago di Cantello: 5 cose da sapere sul prodotto De.C.O.',
+    description: 'Scopri le caratteristiche uniche dell\'asparago bianco di Cantello, un prodotto protetto dalla Denominazione Comunale di Origine. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, asparago, cantello, cose, sapere',
+    ogTitle: 'Asparago di Cantello: 5 cose da sapere sul prodotto De.C.O.',
+    ogDescription: 'Scopri le caratteristiche uniche dell\'asparago bianco di Cantello, un prodotto protetto dalla Denominazione Comunale di Origine.',
+    canonicalPath: '/articoli-frontaliere/cinque-cose-asparago-cantello-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asparago di Cantello: 5 cose da sapere sul prodotto De.C.O.",
+      "description": "Scopri le caratteristiche uniche dell'asparago bianco di Cantello, un prodotto protetto dalla Denominazione Comunale di Origine. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cinque-cose-asparago-cantello-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asparago bianco di Cantello con punte rosa, coltivato nella regione di Cantello, Ticino"
+      },
+      "datePublished": "2026-05-01T02:39:56+00:00",
+      "dateModified": "2026-05-01T02:39:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cinque-cose-asparago-cantello-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2747,6 +2747,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-grassi-liuc-sfide-complesse': { name: 'Novità', path: '/articoli-frontaliere/grassi-liuc-sfide-complesse', parent: 'blog' },
     'blog-ciclabile-saronno-rovello-porro-2026': { name: 'Ciclabile Saronno-Rovello Porro', path: '/articoli-frontaliere/ciclabile-saronno-rovello-porro-2026', parent: 'blog' },
     'blog-fiera-asparago-cantello-2026': { name: 'Eventi', path: '/articoli-frontaliere/fiera-asparago-cantello-2026', parent: 'blog' },
+    'blog-cinque-cose-asparago-cantello-2026': { name: 'Asparago di Cantello', path: '/articoli-frontaliere/cinque-cose-asparago-cantello-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

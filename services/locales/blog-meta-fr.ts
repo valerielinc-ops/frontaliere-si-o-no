@@ -4550,6 +4550,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fiera-asparago-cantello-2026.title': 'Foire de l\'Asperge de Cantello 2026: deux week-ends de fête et de saveurs',
     'blog.article.fiera-asparago-cantello-2026.excerpt': 'Du 15 au 24 mai, Cantello célèbre l\'asperge blanche De.Co. avec de la cuisine, de la musique et des marchés. Voici le programme complet.',
     'blog.article.fiera-asparago-cantello-2026.imageAlt': 'Foire de l\'Asperge de Cantello 2026 avec des stands de produits locaux et de la musique en direct',
+    'blog.article.cinque-cose-asparago-cantello-2026.title': 'Asperge de Cantello: 5 choses à savoir sur le produit De.C.O.',
+    'blog.article.cinque-cose-asparago-cantello-2026.excerpt': 'Découvrez les caractéristiques uniques de l\'asperge blanche de Cantello, un produit protégé par la Denomination Communale d\'Origine.',
+    'blog.article.cinque-cose-asparago-cantello-2026.imageAlt': 'Asperge blanche de Cantello avec des pointes roses, cultivée dans la région de Cantello, Tessin',
 };
 
 export default blogMetaFr;

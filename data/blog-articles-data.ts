@@ -11628,4 +11628,11 @@ export const ARTICLES = [
  image: '/images/blog/fiera-asparago-cantello-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cinque-cose-asparago-cantello-2026',
+ category: 'pratico',
+ date: '2026-05-01T02:39:56.191Z',
+ image: '/images/blog/cinque-cose-asparago-cantello-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

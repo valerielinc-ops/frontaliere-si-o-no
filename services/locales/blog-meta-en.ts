@@ -4549,6 +4549,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fiera-asparago-cantello-2026.title': 'Cantello Asparagus Fair 2026: two weekends of celebration and flavors',
     'blog.article.fiera-asparago-cantello-2026.excerpt': 'From May 15 to 24, Cantello celebrates the white De.Co. asparagus with food, music, and markets. Here is the complete program.',
     'blog.article.fiera-asparago-cantello-2026.imageAlt': 'Cantello Asparagus Fair 2026 with local produce stalls and live music',
+    'blog.article.cinque-cose-asparago-cantello-2026.title': 'Cantello Asparagus: 5 facts about the De.C.O. product',
+    'blog.article.cinque-cose-asparago-cantello-2026.excerpt': 'Discover the unique features of Cantello white asparagus, a product protected by the Communal Denomination of Origin.',
+    'blog.article.cinque-cose-asparago-cantello-2026.imageAlt': 'White asparagus from Cantello with pink tips, grown in the Cantello region, Ticino',
 };
 
 export default blogMetaEn;

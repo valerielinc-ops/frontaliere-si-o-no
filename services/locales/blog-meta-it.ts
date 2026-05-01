@@ -4550,6 +4550,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fiera-asparago-cantello-2026.title': 'Fiera dell\'Asparago di Cantello 2026: due weekend di festa e sapori',
     'blog.article.fiera-asparago-cantello-2026.excerpt': 'Dal 15 al 24 maggio, Cantello celebra l\'asparago bianco De.Co. con cucina, musica e mercatini. Ecco il programma completo.',
     'blog.article.fiera-asparago-cantello-2026.imageAlt': 'Fiera dell\'Asparago di Cantello 2026 con bancarelle di prodotti locali e musica dal vivo',
+    'blog.article.cinque-cose-asparago-cantello-2026.title': 'Asparago di Cantello: 5 cose da sapere sul prodotto De.C.O.',
+    'blog.article.cinque-cose-asparago-cantello-2026.excerpt': 'Scopri le caratteristiche uniche dell\'asparago bianco di Cantello, un prodotto protetto dalla Denominazione Comunale di Origine.',
+    'blog.article.cinque-cose-asparago-cantello-2026.imageAlt': 'Asparago bianco di Cantello con punte rosa, coltivato nella regione di Cantello, Ticino',
 };
 
 export default blogMetaIt;
