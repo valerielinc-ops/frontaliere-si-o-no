@@ -12587,4 +12587,11 @@ export const ARTICLES = [
  image: '/images/blog/angelo-custode-ia-colpo-sonno.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'agenzia-formativa-varese-dimissioni-2026',
+ category: 'novita',
+ date: '2026-05-01T23:46:37.350Z',
+ image: '/images/blog/agenzia-formativa-varese-dimissioni-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

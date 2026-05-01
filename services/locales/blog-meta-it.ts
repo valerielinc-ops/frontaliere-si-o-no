@@ -4961,6 +4961,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.angelo-custode-ia-colpo-sonno.title': 'L\'angelo custode della IA evita i colpi di sonno al volante?',
     'blog.article.angelo-custode-ia-colpo-sonno.excerpt': 'Il sistema svizzero Driver-Check in fase di test presso il CSEM di Neuchâtel misura battito cardiaco e altri parametri vitali per prevenire colpi di sonno alla guida',
     'blog.article.angelo-custode-ia-colpo-sonno.imageAlt': 'Automobilista che utilizza un sistema di monitoraggio IA in una vettura vicino a Lugano, Svizzera',
+    'blog.article.agenzia-formativa-varese-dimissioni-2026.title': 'Agenzia formativa Varese: dimissioni del CDA',
+    'blog.article.agenzia-formativa-varese-dimissioni-2026.excerpt': 'Ilaria Azzimonti annuncia le dimissioni dal consiglio di amministrazione dell\'Agenzia formativa della Provincia di Varese.',
+    'blog.article.agenzia-formativa-varese-dimissioni-2026.imageAlt': 'Incontro del consiglio di amministrazione con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

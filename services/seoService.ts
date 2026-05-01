@@ -2884,6 +2884,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-processo-quadroni-ex-capo-posto-contesta-accuse': { name: 'Processo Quadroni', path: '/articoli-frontaliere/processo-quadroni-ex-capo-posto-contesta-accuse', parent: 'blog' },
     'blog-docente-arrestato-giubiasco-proroga': { name: 'Novità', path: '/articoli-frontaliere/docente-arrestato-giubiasco-proroga', parent: 'blog' },
     'blog-angelo-custode-ia-colpo-sonno': { name: 'Novità', path: '/articoli-frontaliere/angelo-custode-ia-colpo-sonno', parent: 'blog' },
+    'blog-agenzia-formativa-varese-dimissioni-2026': { name: 'Novità', path: '/articoli-frontaliere/agenzia-formativa-varese-dimissioni-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

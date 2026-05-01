@@ -4960,6 +4960,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.angelo-custode-ia-colpo-sonno.title': 'Can AI guardian prevent drowsy driving?',
     'blog.article.angelo-custode-ia-colpo-sonno.excerpt': 'The Swiss Driver-Check system, being tested at CSEM in Neuchâtel, measures heart rate and other vital parameters to prevent drowsy driving',
     'blog.article.angelo-custode-ia-colpo-sonno.imageAlt': 'Driver using an AI monitoring system in a car near Lugano, Switzerland',
+    'blog.article.agenzia-formativa-varese-dimissioni-2026.title': 'Varese training agency: board resigns',
+    'blog.article.agenzia-formativa-varese-dimissioni-2026.excerpt': 'Ilaria Azzimonti announces her resignation from the board of the Varese Province Training Agency.',
+    'blog.article.agenzia-formativa-varese-dimissioni-2026.imageAlt': 'Board meeting with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

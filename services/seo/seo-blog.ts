@@ -34926,6 +34926,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agenzia-formativa-varese-dimissioni-2026': {
+    title: 'Agenzia formativa Varese: dimissioni del CDA | Frontaliere Ticino',
+    description: 'Ilaria Azzimonti annuncia le dimissioni dal consiglio di amministrazione dell\'Agenzia formativa della Provincia di Varese a causa di tensioni interne.',
+    keywords: 'frontalieri, ticino, svizzera, italia, agenzia, formativa, varese, dimissioni',
+    ogTitle: 'Agenzia formativa Varese: dimissioni del CDA',
+    ogDescription: 'Ilaria Azzimonti annuncia le dimissioni dal consiglio di amministrazione dell\'Agenzia formativa della Provincia di Varese a causa di tensioni interne.',
+    canonicalPath: '/articoli-frontaliere/agenzia-formativa-varese-dimissioni-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agenzia formativa Varese: dimissioni del CDA",
+      "description": "Ilaria Azzimonti annuncia le dimissioni dal consiglio di amministrazione dell'Agenzia formativa della Provincia di Varese a causa di tensioni interne.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/agenzia-formativa-varese-dimissioni-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro del consiglio di amministrazione con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-05-01T23:46:37+00:00",
+      "dateModified": "2026-05-01T23:46:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agenzia-formativa-varese-dimissioni-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

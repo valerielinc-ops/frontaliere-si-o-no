@@ -4961,6 +4961,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.angelo-custode-ia-colpo-sonno.title': 'L\'ange gardien de l\'IA évite les coups de somnolence au volant?',
     'blog.article.angelo-custode-ia-colpo-sonno.excerpt': 'Le système suisse Driver-Check en phase de test au CSEM de Neuchâtel mesure le rythme cardiaque et d\'autres paramètres vitaux pour prévenir les coups de somnolence au volant',
     'blog.article.angelo-custode-ia-colpo-sonno.imageAlt': 'Conducteur utilisant un système de surveillance IA dans une voiture près de Lugano, Suisse',
+    'blog.article.agenzia-formativa-varese-dimissioni-2026.title': 'Agence de formation Varèse : démission du CA',
+    'blog.article.agenzia-formativa-varese-dimissioni-2026.excerpt': 'Ilaria Azzimonti annonce sa démission du conseil d\'administration de l\'Agence de formation de la Province de Varèse.',
+    'blog.article.agenzia-formativa-varese-dimissioni-2026.imageAlt': 'Réunion du conseil d\'administration avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;
