@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-05-01T11:07:01.040Z",
-  "total": 4,
+  "generatedAt": "2026-05-01T22:33:29.039Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2916,
-  "avgDurationMs": 2916,
+  "durationMs": 2499,
+  "avgDurationMs": 2499,
   "durationHistory": [
-    2916
+    2499
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-01T11:06:58.759Z",
+      "crawledAt": "2026-05-01T22:33:26.854Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154146008?gh_jid=5154146008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-01T11:06:58.746Z",
+      "crawledAt": "2026-05-01T22:33:26.840Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-01T11:06:58.735Z",
+      "crawledAt": "2026-05-01T22:33:26.825Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -136,10 +136,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "vaxcyte-14efa24936cd",
-      "slug": "manager-quality-assurance-suppliers-and-audits-vaxcyte-ch",
+      "slug": "responsabile-assicurazione-qualita-fornitori-e-audit-vaxcyte-visp",
       "company": "Vaxcyte",
       "companyKey": "vaxcyte",
       "companyDomain": "vaxcyte.com",
@@ -170,15 +172,16 @@
         "location": "Visp"
       },
       "firstSeenAt": "2026-04-13T11:29:03.143Z",
-      "_qualityScore": 79,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
