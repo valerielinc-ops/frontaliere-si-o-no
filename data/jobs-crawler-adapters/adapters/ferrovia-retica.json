@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2152/",
     "https://www.rhb.ch/it/job/produktmanager-in-sortiment-und-preis-80-100_2026-2186/",
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2125/",
     "https://www.rhb.ch/it/job/hr-business-partner-60-80_2026-2191/",
@@ -16,10 +17,13 @@
     "https://www.rhb.ch/it/job/finanzspezialist-in-anlagebuchhaltung-80-100_2026-2160/",
     "https://www.rhb.ch/it/job/leiter-in-fachsupport-bahnapplikationen-50-60_2026-2190/",
     "https://www.rhb.ch/it/job/senior-it-supporter-in-50-80_2026-2189/",
-    "https://www.rhb.ch/it/job/betriebselektriker-in-50-100_2026-2120/",
-    "https://www.rhb.ch/it/job/sachbearbeiter-in-planung-disposition-80-100_2026-2187/"
+    "https://www.rhb.ch/it/job/betriebselektriker-in-50-100_2026-2120/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2152/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/produktmanager-in-sortiment-und-preis-80-100_2026-2186/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -55,12 +59,8 @@
     "https://www.rhb.ch/it/job/betriebselektriker-in-50-100_2026-2120/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/sachbearbeiter-in-planung-disposition-80-100_2026-2187/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-05-01T10:10:07.011Z"
+  "updatedAt": "2026-05-01T21:36:49.776Z"
 }
