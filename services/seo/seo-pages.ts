@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1604,
+ "numberOfItems": 1605,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6239,7 +6239,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1601, "name": "Sigarette elettroniche: i giovani le consumano ...", "url": `${BASE_URL}/articoli-frontaliere/giovani-sigarette-elettroniche-ticino-2026` },
           { "@type": "ListItem", "position": 1602, "name": "Frontalieri e disoccupazione: la riforma UE che...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupazione-svizzera-2026` },
           { "@type": "ListItem", "position": 1603, "name": "CBT Italia sfida il mercato: prezzi come patto ...", "url": `${BASE_URL}/articoli-frontaliere/cbt-italia-ciclisti-mercato` },
-          { "@type": "ListItem", "position": 1604, "name": "Maserati celebra 100 anni del Tridente e la leg...", "url": `${BASE_URL}/articoli-frontaliere/maserati-tridente-centenario-2026` }
+          { "@type": "ListItem", "position": 1604, "name": "Maserati celebra 100 anni del Tridente e la leg...", "url": `${BASE_URL}/articoli-frontaliere/maserati-tridente-centenario-2026` },
+          { "@type": "ListItem", "position": 1605, "name": "Iniziativa 'No a una Svizzera da 10 milioni': s...", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-sostenibile` }
  ]
  },
  {

@@ -32055,6 +32055,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-10-milioni-sostenibile': {
+    title: 'Iniziativa \'No a una Svizzera da 10 milioni\': sostenibile?',
+    description: 'Il dibattito sull\'iniziativa UDC mette in luce i rischi per economia e servizi legati a un freno dell\'immigrazione. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, milioni, sostenibile, dibattito',
+    ogTitle: 'Iniziativa \'No a una Svizzera da 10 milioni\': sostenibile?',
+    ogDescription: 'Il dibattito sull\'iniziativa UDC mette in luce i rischi per economia e servizi legati a un freno dell\'immigrazione',
+    canonicalPath: '/articoli-frontaliere/iniziativa-10-milioni-sostenibile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa 'No a una Svizzera da 10 milioni': sostenibile?",
+      "description": "Il dibattito sull'iniziativa UDC mette in luce i rischi per economia e servizi legati a un freno dell'immigrazione. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziativa-10-milioni-sostenibile.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con edifici moderni e un lungolago affollato"
+      },
+      "datePublished": "2026-05-01T08:31:35+00:00",
+      "dateModified": "2026-05-01T08:31:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-sostenibile`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

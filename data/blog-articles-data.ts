@@ -11894,4 +11894,11 @@ export const ARTICLES = [
  image: '/images/blog/maserati-tridente-centenario-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'iniziativa-10-milioni-sostenibile',
+ category: 'novita',
+ date: '2026-05-01T08:31:35.924Z',
+ image: '/images/blog/iniziativa-10-milioni-sostenibile.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

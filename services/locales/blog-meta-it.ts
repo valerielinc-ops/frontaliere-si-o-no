@@ -4664,6 +4664,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maserati-tridente-centenario-2026.title': 'Maserati celebra 100 anni del Tridente e la leggenda delle corse',
     'blog.article.maserati-tridente-centenario-2026.excerpt': 'Dal 1926 al 2026: Maserati festeggia il centenario del suo iconico logo e la prima vittoria sportiva alla Targa Florio',
     'blog.article.maserati-tridente-centenario-2026.imageAlt': 'Lago di Lugano e skyline al tramonto',
+    'blog.article.iniziativa-10-milioni-sostenibile.title': 'Iniziativa \'No a una Svizzera da 10 milioni\': sostenibile?',
+    'blog.article.iniziativa-10-milioni-sostenibile.excerpt': 'Il dibattito sull\'iniziativa UDC mette in luce i rischi per economia e servizi legati a un freno dell\'immigrazione',
+    'blog.article.iniziativa-10-milioni-sostenibile.imageAlt': 'Lago di Lugano con edifici moderni e un lungolago affollato',
 };
 
 export default blogMetaIt;

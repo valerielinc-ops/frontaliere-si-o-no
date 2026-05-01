@@ -2785,6 +2785,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-disoccupazione-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/frontalieri-disoccupazione-svizzera-2026', parent: 'blog' },
     'blog-cbt-italia-ciclisti-mercato': { name: 'Novità', path: '/articoli-frontaliere/cbt-italia-ciclisti-mercato', parent: 'blog' },
     'blog-maserati-tridente-centenario-2026': { name: 'Novità', path: '/articoli-frontaliere/maserati-tridente-centenario-2026', parent: 'blog' },
+    'blog-iniziativa-10-milioni-sostenibile': { name: 'Iniziativa UDC', path: '/articoli-frontaliere/iniziativa-10-milioni-sostenibile', parent: 'blog' },
  };
 
  const info = sectionNames[section];
