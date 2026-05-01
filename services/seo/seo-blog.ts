@@ -31069,6 +31069,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-whisky-scozzese-dazi-trump-carlo-camilla': {
+    title: 'Trump abolisce i dazi sul whisky scozzese: «Lo faccio per Carlo e Camilla»',
+    description: 'Donald Trump annuncia l\'abolizione dei dazi sul whisky scozzese in onore del re e della regina del Regno Unito, Carlo e Camilla. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, trump, abolisce, dazi, whisky',
+    ogTitle: 'Trump abolisce dazi whisky scozzese per Carlo e Camilla',
+    ogDescription: 'Donald Trump annuncia l\'abolizione dei dazi sul whisky scozzese in onore del re e della regina del Regno Unito, Carlo e Camilla.',
+    canonicalPath: '/articoli-frontaliere/whisky-scozzese-dazi-trump-carlo-camilla',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trump abolisce dazi whisky scozzese per Carlo e Camilla",
+      "description": "Donald Trump annuncia l'abolizione dei dazi sul whisky scozzese in onore del re e della regina del Regno Unito, Carlo e Camilla. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/whisky-scozzese-dazi-trump-carlo-camilla.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una strada affollata nel Canton Ticino con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-05-01T03:29:39+00:00",
+      "dateModified": "2026-05-01T03:29:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/whisky-scozzese-dazi-trump-carlo-camilla`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -11656,4 +11656,11 @@ export const ARTICLES = [
  image: '/images/blog/trump-riduce-truppe-italia-spagna.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'whisky-scozzese-dazi-trump-carlo-camilla',
+ category: 'novita',
+ date: '2026-05-01T03:29:39.430Z',
+ image: '/images/blog/whisky-scozzese-dazi-trump-carlo-camilla.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

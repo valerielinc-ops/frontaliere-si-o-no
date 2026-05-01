@@ -4561,6 +4561,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trump-riduce-truppe-italia-spagna.title': 'Trump prüft Truppenreduzierung in Italien und Spanien',
     'blog.article.trump-riduce-truppe-italia-spagna.excerpt': 'Donald Trump erwägt eine Reduzierung der US-Truppen in Italien und Spanien und kritisiert die Unterstützung durch diese Länder.',
     'blog.article.trump-riduce-truppe-italia-spagna.imageAlt': 'Luftaufnahme von Bellinzona mit seinen drei Burgen und der umliegenden Landschaft des Tessin',
+    'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.title': 'Trump storniert Whisky-Zölle für Schottland: «Ich tue es für Karl und Camilla»',
+    'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.excerpt': 'Donald Trump kündigt die Abschaffung der Zölle auf schottischen Whisky zu Ehren des Königs und der Königin des Vereinigten Königreichs an.',
+    'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.imageAlt': 'Eine belebte Straße im Tessin mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

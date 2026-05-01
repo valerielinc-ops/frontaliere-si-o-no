@@ -4561,6 +4561,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trump-riduce-truppe-italia-spagna.title': 'Trump considers reducing troops in Italy and Spain',
     'blog.article.trump-riduce-truppe-italia-spagna.excerpt': 'Donald Trump is considering reducing US troops in Italy and Spain, criticizing the support received from these countries.',
     'blog.article.trump-riduce-truppe-italia-spagna.imageAlt': 'Aerial view of Bellinzona with its three castles and the surrounding Ticino landscape',
+    'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.title': 'Trump scraps tariffs on Scotch whisky: \'I\'m doing it for Charles and Camilla\'',
+    'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.excerpt': 'Donald Trump announces the abolition of tariffs on Scotch whisky in honor of the King and Queen of the United Kingdom.',
+    'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.imageAlt': 'A busy street in Ticino with a view of Lake Lugano',
 };
 
 export default blogMetaEn;
