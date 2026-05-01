@@ -4930,6 +4930,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tentato-assassinio-chiasso-2026.title': '11 Jahre Haft für versuchten Mord in Chiasso',
     'blog.article.tentato-assassinio-chiasso-2026.excerpt': 'Ein 34-Jähriger wurde zu 11 Jahren Haft für den versuchten Mord an seiner Partnerin in Chiasso verurteilt. Das Gericht ordnete auch die Ausweisung an.',
     'blog.article.tentato-assassinio-chiasso-2026.imageAlt': 'Strafgericht in Chiasso',
+    'blog.article.primo-maggio-2026-svizzera-cortei.title': '1. Mai 2026 in der Schweiz: friedliche Proteste und Kapitalismuskritik',
+    'blog.article.primo-maggio-2026-svizzera-cortei.excerpt': 'Tausende Demonstranten nahmen an den 1. Mai-Kundgebungen in der Schweiz teil, mit Vandalismus in Zürich und Kritik am G7 und am Kapitalismus.',
+    'blog.article.primo-maggio-2026-svizzera-cortei.imageAlt': 'Maikundgebung auf einem Schweizer Stadtplatz, mit Menschen, die Schilder und Transparente halten.',
 };
 
 export default blogMetaDe;

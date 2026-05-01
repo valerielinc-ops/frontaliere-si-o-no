@@ -12517,4 +12517,11 @@ export const ARTICLES = [
  image: '/images/blog/tentato-assassinio-chiasso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-2026-svizzera-cortei',
+ category: 'novita',
+ date: '2026-05-01T22:08:30.230Z',
+ image: '/images/blog/primo-maggio-2026-svizzera-cortei.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

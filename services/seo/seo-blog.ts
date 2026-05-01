@@ -34636,6 +34636,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-2026-svizzera-cortei': {
+    title: 'Primo Maggio 2026 in Svizzera: cortei pacifici e critiche al capitalismo',
+    description: 'Migliaia di manifestanti hanno partecipato ai cortei del Primo Maggio in Svizzera, con episodi di vandalismo a Zurigo e critiche al G7 e al capitalismo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, cortei, pacifici',
+    ogTitle: 'Primo Maggio 2026 in Svizzera: cortei pacifici e critiche al capitalismo',
+    ogDescription: 'Migliaia di manifestanti hanno partecipato ai cortei del Primo Maggio in Svizzera, con episodi di vandalismo a Zurigo e critiche al G7 e al capitalismo.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-2026-svizzera-cortei',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio 2026 in Svizzera: cortei pacifici e critiche al capitalismo",
+      "description": "Migliaia di manifestanti hanno partecipato ai cortei del Primo Maggio in Svizzera, con episodi di vandalismo a Zurigo e critiche al G7 e al capitalismo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-2026-svizzera-cortei.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione del Primo Maggio in una piazza svizzera, con persone che tengono cartelli e striscioni."
+      },
+      "datePublished": "2026-05-01T22:08:30+00:00",
+      "dateModified": "2026-05-01T22:08:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-svizzera-cortei`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

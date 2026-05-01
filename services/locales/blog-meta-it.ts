@@ -4931,6 +4931,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tentato-assassinio-chiasso-2026.title': 'Condannato a 11 anni per tentato assassinio a Chiasso',
     'blog.article.tentato-assassinio-chiasso-2026.excerpt': 'Un 34enne è stato condannato a 11 anni per tentato assassinio della compagna a Chiasso. La corte ha ordinato anche l\'espulsione.',
     'blog.article.tentato-assassinio-chiasso-2026.imageAlt': 'Corte delle Assise Criminali a Chiasso',
+    'blog.article.primo-maggio-2026-svizzera-cortei.title': 'Primo Maggio 2026 in Svizzera: cortei pacifici e critiche al capitalismo',
+    'blog.article.primo-maggio-2026-svizzera-cortei.excerpt': 'Migliaia di manifestanti hanno partecipato ai cortei del Primo Maggio in Svizzera, con episodi di vandalismo a Zurigo e critiche al G7 e al capitalismo.',
+    'blog.article.primo-maggio-2026-svizzera-cortei.imageAlt': 'Manifestazione del Primo Maggio in una piazza svizzera, con persone che tengono cartelli e striscioni.',
 };
 
 export default blogMetaIt;

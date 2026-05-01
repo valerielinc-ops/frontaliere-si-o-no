@@ -4931,6 +4931,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tentato-assassinio-chiasso-2026.title': 'Condamné à 11 ans pour tentative de meurtre à Chiasso',
     'blog.article.tentato-assassinio-chiasso-2026.excerpt': 'Un homme de 34 ans a été condamné à 11 ans de prison pour tentative de meurtre de sa compagne à Chiasso. Le tribunal a également ordonné son expulsion.',
     'blog.article.tentato-assassinio-chiasso-2026.imageAlt': 'Tribunal pénal à Chiasso',
+    'blog.article.primo-maggio-2026-svizzera-cortei.title': '1er Mai 2026 en Suisse: manifestations pacifiques et critiques du capitalisme',
+    'blog.article.primo-maggio-2026-svizzera-cortei.excerpt': 'Des milliers de manifestants ont participé aux défilés du 1er Mai en Suisse, avec des épisodes de vandalisme à Zurich et des critiques du G7 et du capitalisme.',
+    'blog.article.primo-maggio-2026-svizzera-cortei.imageAlt': 'Manifestation du Premier Mai dans une place suisse, avec des personnes tenant des pancartes et des banderoles.',
 };
 
 export default blogMetaFr;

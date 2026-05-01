@@ -4930,6 +4930,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tentato-assassinio-chiasso-2026.title': '34-year-old sentenced to 11 years for attempted murder in Chiasso',
     'blog.article.tentato-assassinio-chiasso-2026.excerpt': 'A 34-year-old has been sentenced to 11 years for attempted murder of his partner in Chiasso. The court also ordered his expulsion.',
     'blog.article.tentato-assassinio-chiasso-2026.imageAlt': 'Criminal Court in Chiasso',
+    'blog.article.primo-maggio-2026-svizzera-cortei.title': 'May Day 2026 in Switzerland: peaceful protests and capitalism criticism',
+    'blog.article.primo-maggio-2026-svizzera-cortei.excerpt': 'Thousands of protesters took part in May Day marches across Switzerland, with vandalism in Zurich and criticism of the G7 and capitalism.',
+    'blog.article.primo-maggio-2026-svizzera-cortei.imageAlt': 'May Day protest in a Swiss city square, with people holding signs and banners.',
 };
 
 export default blogMetaEn;
