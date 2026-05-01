@@ -4853,6 +4853,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riapre-villa-visconti-lainate-2026.title': 'Villa Visconti Borromeo Litta rouvre à Lainate',
     'blog.article.riapre-villa-visconti-lainate-2026.excerpt': 'La villa historique de Lainate rouvre le 1er mai avec son célèbre Ninfeo et ses jardins monumentaux, offrant une expérience unique entre art et nature.',
     'blog.article.riapre-villa-visconti-lainate-2026.imageAlt': 'Villa Visconti Borromeo Litta à Lainate, avec des jardins et des fontaines historiques',
+    'blog.article.teheran-proposta-pakistan-mediatori.title': 'Téhéran propose une nouvelle offre de négociation aux médiateurs pakistanais',
+    'blog.article.teheran-proposta-pakistan-mediatori.excerpt': 'La diplomatie iranienne cherche de nouvelles voies pour mettre fin au conflit en impliquant des médiateurs pakistanais',
+    'blog.article.teheran-proposta-pakistan-mediatori.imageAlt': 'Rencontre diplomatique à Téhéran entre l\'Iran et le Pakistan pour une proposition de paix',
 };
 
 export default blogMetaFr;

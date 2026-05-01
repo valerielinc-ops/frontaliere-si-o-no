@@ -12335,4 +12335,11 @@ export const ARTICLES = [
  image: '/images/blog/riapre-villa-visconti-lainate-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'teheran-proposta-pakistan-mediatori',
+ category: 'novita',
+ date: '2026-05-01T18:10:47.410Z',
+ image: '/images/blog/teheran-proposta-pakistan-mediatori.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

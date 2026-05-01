@@ -2848,6 +2848,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cassis-aragchi-colloquio-iran': { name: 'Novità', path: '/articoli-frontaliere/cassis-aragchi-colloquio-iran', parent: 'blog' },
     'blog-colosso-35-tonnellate-legnano': { name: 'Novità', path: '/articoli-frontaliere/colosso-35-tonnellate-legnano', parent: 'blog' },
     'blog-riapre-villa-visconti-lainate-2026': { name: 'Villa Visconti Borromeo Litta', path: '/articoli-frontaliere/riapre-villa-visconti-lainate-2026', parent: 'blog' },
+    'blog-teheran-proposta-pakistan-mediatori': { name: 'Novità', path: '/articoli-frontaliere/teheran-proposta-pakistan-mediatori', parent: 'blog' },
  };
 
  const info = sectionNames[section];

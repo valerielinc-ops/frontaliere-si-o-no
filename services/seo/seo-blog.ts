@@ -33882,6 +33882,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-teheran-proposta-pakistan-mediatori': {
+    title: 'Teheran consegna nuova proposta negoziale ai mediatori pakistani',
+    description: 'La diplomazia iraniana cerca nuove vie per la fine del conflitto coinvolgendo mediatori pakistani. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, teheran, consegna, nuova, proposta',
+    ogTitle: 'Teheran consegna nuova proposta negoziale ai mediatori pakistani',
+    ogDescription: 'La diplomazia iraniana cerca nuove vie per la fine del conflitto coinvolgendo mediatori pakistani',
+    canonicalPath: '/articoli-frontaliere/teheran-proposta-pakistan-mediatori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Teheran consegna nuova proposta negoziale ai mediatori pakistani",
+      "description": "La diplomazia iraniana cerca nuove vie per la fine del conflitto coinvolgendo mediatori pakistani. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/teheran-proposta-pakistan-mediatori.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro diplomatico a Teheran tra Iran e Pakistan per proposta di pace"
+      },
+      "datePublished": "2026-05-01T18:10:47+00:00",
+      "dateModified": "2026-05-01T18:10:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/teheran-proposta-pakistan-mediatori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
