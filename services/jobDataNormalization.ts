@@ -154,6 +154,10 @@ for (const [slug, localPath] of Object.entries(
  CRAWLED_COMPANY_LOGOS[slug] = localPath;
 }
 
+// Alias keys used by orphan/GSC-enriched job data (slugified from company name)
+// that differ from the canonical crawler key in the registry above.
+CRAWLED_COMPANY_LOGOS['guess-europe-sagl'] ??= CRAWLED_COMPANY_LOGOS['guess-europe'];
+
 const CATEGORY_ALIASES: Record<string, CanonicalJobCategory> = {
  tech: 'tech',
  it: 'tech',
