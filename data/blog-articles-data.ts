@@ -11978,4 +11978,11 @@ export const ARTICLES = [
  image: '/images/blog/lungolago-como-parapetti-rapinese-sertori.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-napoli-sinigaglia-divieti-posteggi',
+ category: 'novita',
+ date: '2026-05-01T10:03:10.165Z',
+ image: '/images/blog/como-napoli-sinigaglia-divieti-posteggi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

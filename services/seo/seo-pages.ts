@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1616,
+ "numberOfItems": 1617,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6251,7 +6251,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1613, "name": "Berna senza pubblicità: l'iniziativa per vietar...", "url": `${BASE_URL}/articoli-frontaliere/berna-senza-pubblicita-iniziativa-2026` },
           { "@type": "ListItem", "position": 1614, "name": "Lago Maggiore sale: +15 cm, timori per l'ambiente", "url": `${BASE_URL}/articoli-frontaliere/lago-maggiore-sale-ambiente-2026` },
           { "@type": "ListItem", "position": 1615, "name": "25 cm in più per il Lago Maggiore: cosa cambia ...", "url": `${BASE_URL}/articoli-frontaliere/25-centimetri-lago-maggiore-frontalieri` },
-          { "@type": "ListItem", "position": 1616, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/lungolago-como-parapetti-rapinese-sertori` }
+          { "@type": "ListItem", "position": 1616, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/lungolago-como-parapetti-rapinese-sertori` },
+          { "@type": "ListItem", "position": 1617, "name": "Como-Napoli al Sinigaglia: divieti e posteggi p...", "url": `${BASE_URL}/articoli-frontaliere/como-napoli-sinigaglia-divieti-posteggi` }
  ]
  },
  {

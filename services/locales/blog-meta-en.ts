@@ -4699,6 +4699,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lungolago-como-parapetti-rapinese-sertori.title': 'Sertori to Rapinese: \'I act, not TV appearances\'',
     'blog.article.lungolago-como-parapetti-rapinese-sertori.excerpt': 'Regional councillor Massimo Sertori announces a meeting with Como mayor Alessandro Rapinese to discuss the lakefront parapets.',
     'blog.article.lungolago-como-parapetti-rapinese-sertori.imageAlt': 'Como waterfront with barriers and people walking',
+    'blog.article.como-napoli-sinigaglia-divieti-posteggi.title': 'Como-Napoli at Sinigaglia: restrictions and parking',
+    'blog.article.como-napoli-sinigaglia-divieti-posteggi.excerpt': 'Sold out for the match tomorrow at 18:00. No parking and traffic restrictions from 6:30. Anti-alcohol order from 15:00 to 21:00',
+    'blog.article.como-napoli-sinigaglia-divieti-posteggi.imageAlt': 'Stadio Sinigaglia, Como, Italy. Football match atmosphere, fans, security measures',
 };
 
 export default blogMetaEn;

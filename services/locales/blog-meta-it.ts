@@ -4700,6 +4700,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lungolago-como-parapetti-rapinese-sertori.title': 'Sertori a Rapinese: "Io faccio, non sto in TV"',
     'blog.article.lungolago-como-parapetti-rapinese-sertori.excerpt': 'L\'assessore regionale Massimo Sertori annuncia un incontro con il sindaco di Como Alessandro Rapinese per discutere dei parapetti del lungolago.',
     'blog.article.lungolago-como-parapetti-rapinese-sertori.imageAlt': 'Lungolago di Como con parapetti e persone che camminano',
+    'blog.article.como-napoli-sinigaglia-divieti-posteggi.title': 'Como-Napoli al Sinigaglia: divieti e posteggi per la sfida',
+    'blog.article.como-napoli-sinigaglia-divieti-posteggi.excerpt': 'Tutto esaurito per la partita di domani alle 18:00. Divieti di sosta e circolazione dalle 6:30. Ordinanza anti-alcol dalle 15:00 alle 21:00',
+    'blog.article.como-napoli-sinigaglia-divieti-posteggi.imageAlt': 'Stadio Sinigaglia, Como, Italia. Atmosfera di partita di calcio, tifosi, misure di sicurezza',
 };
 
 export default blogMetaIt;

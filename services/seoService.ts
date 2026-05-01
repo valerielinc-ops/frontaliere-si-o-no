@@ -2797,6 +2797,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lago-maggiore-sale-ambiente-2026': { name: 'Novità', path: '/articoli-frontaliere/lago-maggiore-sale-ambiente-2026', parent: 'blog' },
     'blog-25-centimetri-lago-maggiore-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/25-centimetri-lago-maggiore-frontalieri', parent: 'blog' },
     'blog-lungolago-como-parapetti-rapinese-sertori': { name: 'Lungolago Como', path: '/articoli-frontaliere/lungolago-como-parapetti-rapinese-sertori', parent: 'blog' },
+    'blog-como-napoli-sinigaglia-divieti-posteggi': { name: 'Novità', path: '/articoli-frontaliere/como-napoli-sinigaglia-divieti-posteggi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

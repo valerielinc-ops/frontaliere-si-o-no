@@ -32403,6 +32403,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-napoli-sinigaglia-divieti-posteggi': {
+    title: 'Como-Napoli al Sinigaglia: divieti e posteggi per la sfida',
+    description: 'Tutto esaurito per la partita di domani alle 18:00. Divieti di sosta e circolazione dalle 6:30. Ordinanza anti-alcol dalle 15:00 alle 21:00. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, como-napoli, sinigaglia, divieti, posteggi',
+    ogTitle: 'Como-Napoli al Sinigaglia: divieti e posteggi per la sfida',
+    ogDescription: 'Tutto esaurito per la partita di domani alle 18:00. Divieti di sosta e circolazione dalle 6:30. Ordinanza anti-alcol dalle 15:00 alle 21:00',
+    canonicalPath: '/articoli-frontaliere/como-napoli-sinigaglia-divieti-posteggi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como-Napoli al Sinigaglia: divieti e posteggi per la sfida",
+      "description": "Tutto esaurito per la partita di domani alle 18:00. Divieti di sosta e circolazione dalle 6:30. Ordinanza anti-alcol dalle 15:00 alle 21:00. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-napoli-sinigaglia-divieti-posteggi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio Sinigaglia, Como, Italia. Atmosfera di partita di calcio, tifosi, misure di sicurezza"
+      },
+      "datePublished": "2026-05-01T10:03:10+00:00",
+      "dateModified": "2026-05-01T10:03:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-napoli-sinigaglia-divieti-posteggi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
