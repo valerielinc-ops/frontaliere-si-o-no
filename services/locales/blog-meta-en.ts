@@ -4576,6 +4576,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-direttore-controllo-finanze-ticino.title': 'Ticino seeks new finance director',
     'blog.article.nuovo-direttore-controllo-finanze-ticino.excerpt': 'Giovanni Cavallero will retire in 2027. The Canton has opened the competition for his replacement.',
     'blog.article.nuovo-direttore-controllo-finanze-ticino.imageAlt': 'Palazzo del Governo in Bellinzona, headquarters of the Government of Canton Ticino',
+    'blog.article.riapre-ufficio-postale-casale-litta.title': 'Casale Litta post office reopens with new services',
+    'blog.article.riapre-ufficio-postale-casale-litta.excerpt': 'The post office in Casale Litta reopens after renovation with expanded services thanks to the Polis project',
+    'blog.article.riapre-ufficio-postale-casale-litta.imageAlt': 'Renovated post office in Casale Litta with expanded services',
 };
 
 export default blogMetaEn;

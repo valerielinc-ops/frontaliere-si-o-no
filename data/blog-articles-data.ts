@@ -11691,4 +11691,11 @@ export const ARTICLES = [
  image: '/images/blog/nuovo-direttore-controllo-finanze-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'riapre-ufficio-postale-casale-litta',
+ category: 'novita',
+ date: '2026-05-01T04:33:53.133Z',
+ image: '/images/blog/riapre-ufficio-postale-casale-litta.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -31214,6 +31214,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riapre-ufficio-postale-casale-litta': {
+    title: 'Riapre a Casale Litta l\'ufficio postale con nuovi servizi',
+    description: 'L\'ufficio postale di Casale Litta riapre dopo ristrutturazione con servizi ampliati grazie al progetto Polis. Scopri i nuovi servizi disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riapre, casale, litta, ufficio',
+    ogTitle: 'Riapre a Casale Litta l\'ufficio postale con nuovi servizi',
+    ogDescription: 'L\'ufficio postale di Casale Litta riapre dopo ristrutturazione con servizi ampliati grazie al progetto Polis. Scopri i nuovi servizi disponibili.',
+    canonicalPath: '/articoli-frontaliere/riapre-ufficio-postale-casale-litta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riapre a Casale Litta l'ufficio postale con nuovi servizi",
+      "description": "L'ufficio postale di Casale Litta riapre dopo ristrutturazione con servizi ampliati grazie al progetto Polis. Scopri i nuovi servizi disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riapre-ufficio-postale-casale-litta.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio postale rinnovato a Casale Litta con servizi ampliati"
+      },
+      "datePublished": "2026-05-01T04:33:53+00:00",
+      "dateModified": "2026-05-01T04:33:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riapre-ufficio-postale-casale-litta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

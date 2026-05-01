@@ -4577,6 +4577,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-direttore-controllo-finanze-ticino.title': 'Canton Ticino cerca nuovo direttore del Controllo cantonale delle finanze',
     'blog.article.nuovo-direttore-controllo-finanze-ticino.excerpt': 'Giovanni Cavallero andrà in pensione nel 2027. Il Cantone ha aperto il concorso per il suo sostituto.',
     'blog.article.nuovo-direttore-controllo-finanze-ticino.imageAlt': 'Palazzo del Governo a Bellinzona, sede del Consiglio di Stato del Canton Ticino',
+    'blog.article.riapre-ufficio-postale-casale-litta.title': 'Riapre a Casale Litta l\'ufficio postale con nuovi servizi',
+    'blog.article.riapre-ufficio-postale-casale-litta.excerpt': 'L\'ufficio postale di Casale Litta riapre dopo ristrutturazione con servizi ampliati grazie al progetto Polis',
+    'blog.article.riapre-ufficio-postale-casale-litta.imageAlt': 'Ufficio postale rinnovato a Casale Litta con servizi ampliati',
 };
 
 export default blogMetaIt;

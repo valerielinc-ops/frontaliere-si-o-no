@@ -2756,6 +2756,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-galleria-gottardo-secondo-tubo-2026': { name: 'Novità', path: '/articoli-frontaliere/galleria-gottardo-secondo-tubo-2026', parent: 'blog' },
     'blog-varese-bilancio-2026-avanzo-record': { name: 'Bilancio Varese', path: '/articoli-frontaliere/varese-bilancio-2026-avanzo-record', parent: 'blog' },
     'blog-nuovo-direttore-controllo-finanze-ticino': { name: 'Novità', path: '/articoli-frontaliere/nuovo-direttore-controllo-finanze-ticino', parent: 'blog' },
+    'blog-riapre-ufficio-postale-casale-litta': { name: 'Novità', path: '/articoli-frontaliere/riapre-ufficio-postale-casale-litta', parent: 'blog' },
  };
 
  const info = sectionNames[section];

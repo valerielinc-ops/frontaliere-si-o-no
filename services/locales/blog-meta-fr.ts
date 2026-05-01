@@ -4577,6 +4577,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-direttore-controllo-finanze-ticino.title': 'Le canton du Tessin cherche un nouveau directeur des finances',
     'blog.article.nuovo-direttore-controllo-finanze-ticino.excerpt': 'Giovanni Cavallero partira à la retraite en 2027. Le canton a lancé un concours pour son successeur.',
     'blog.article.nuovo-direttore-controllo-finanze-ticino.imageAlt': 'Palazzo del Governo à Bellinzona, siège du gouvernement du canton du Tessin',
+    'blog.article.riapre-ufficio-postale-casale-litta.title': 'Réouverture du bureau de poste de Casale Litta avec de nouveaux services',
+    'blog.article.riapre-ufficio-postale-casale-litta.excerpt': 'Le bureau de poste de Casale Litta rouvre après rénovation avec des services élargis grâce au projet Polis',
+    'blog.article.riapre-ufficio-postale-casale-litta.imageAlt': 'Bureau de poste rénové à Casale Litta avec des services élargis',
 };
 
 export default blogMetaFr;
