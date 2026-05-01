@@ -1,54 +1,18 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-30T21:41:16.215Z",
+  "generatedAt": "2026-05-01T10:04:28.171Z",
   "total": 167,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 164,
-  "durationMs": 418076,
-  "avgDurationMs": 418076,
+  "durationMs": 342754,
+  "avgDurationMs": 342754,
   "durationHistory": [
-    418076
+    342754
   ],
   "newJobs": [
-    {
-      "id": "company-4whh8x",
-      "slug": "mitarbeiter-in-inventuren-coop-grigioni",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Inventuren",
-      "location": "Basel",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-30",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/b2bb6416-11fe-402a-bd63-67e9988844c1",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-30T21:38:09.547Z",
-      "firstSeenAt": "2026-04-30T21:38:09.547Z",
-      "needsRetranslation": true,
-      "addressLocality": "Basel",
-      "sourceLang": "de",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 15,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "id": "company-g6dub0",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -70,19 +34,17 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-29T10:35:47.964Z",
-      "firstSeenAt": "2026-04-29T10:35:47.964Z",
+      "crawledAt": "2026-05-01T10:01:34.513Z",
+      "firstSeenAt": "2026-05-01T10:01:34.513Z",
+      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
+        "translation": 4,
+        "completeness": 14
       }
     },
     {
@@ -106,9 +68,45 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-29T10:35:47.964Z",
-      "firstSeenAt": "2026-04-29T10:35:47.964Z",
+      "crawledAt": "2026-05-01T10:01:34.513Z",
+      "firstSeenAt": "2026-05-01T10:01:34.513Z",
+      "needsRetranslation": true,
       "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
+      "id": "company-4whh8x",
+      "slug": "mitarbeiter-in-inventuren-coop-grigioni",
+      "company": "Coop Genossenschaft",
+      "title": "Mitarbeiter:in Inventuren",
+      "location": "Basel",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/b2bb6416-11fe-402a-bd63-67e9988844c1",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-30T21:38:09.547Z",
+      "firstSeenAt": "2026-04-30T21:38:09.547Z",
+      "addressLocality": "Basel",
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
