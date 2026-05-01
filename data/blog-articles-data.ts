@@ -12041,4 +12041,11 @@ export const ARTICLES = [
  image: '/images/blog/crans-montana-italia-parte-civile-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gysin-candidata-capogruppo-verdi',
+ category: 'novita',
+ date: '2026-05-01T11:28:48.932Z',
+ image: '/images/blog/gysin-candidata-capogruppo-verdi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

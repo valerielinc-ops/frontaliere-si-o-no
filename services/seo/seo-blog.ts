@@ -32664,6 +32664,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gysin-candidata-capogruppo-verdi': {
+    title: 'Greta Gysin si candida a capogruppo dei Verdi | Frontaliere Ticino',
+    description: 'Greta Gysin, consigliera nazionale ticinese, si candida alla presidenza del gruppo parlamentare dei Verdi. Elezione prevista per il 22 maggio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, greta, gysin, candida, capogruppo',
+    ogTitle: 'Greta Gysin si candida a capogruppo dei Verdi',
+    ogDescription: 'Greta Gysin, consigliera nazionale ticinese, si candida alla presidenza del gruppo parlamentare dei Verdi. Elezione prevista per il 22 maggio.',
+    canonicalPath: '/articoli-frontaliere/gysin-candidata-capogruppo-verdi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Greta Gysin si candida a capogruppo dei Verdi",
+      "description": "Greta Gysin, consigliera nazionale ticinese, si candida alla presidenza del gruppo parlamentare dei Verdi. Elezione prevista per il 22 maggio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gysin-candidata-capogruppo-verdi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Greta Gysin parla a un evento politico a Lugano"
+      },
+      "datePublished": "2026-05-01T11:28:48+00:00",
+      "dateModified": "2026-05-01T11:28:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gysin-candidata-capogruppo-verdi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

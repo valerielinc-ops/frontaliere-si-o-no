@@ -4726,6 +4726,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-italia-parte-civile-2026.title': 'Crans-Montana: Italy joins case as civil party',
     'blog.article.crans-montana-italia-parte-civile-2026.excerpt': 'Italy has joined the case as a civil party in the proceedings for the fire at the Le Constellation nightclub in Crans-Montana, which resulted in 41 deaths and 115 injuries',
     'blog.article.crans-montana-italia-parte-civile-2026.imageAlt': 'Crans-Montana after the fire, with emergency services and investigators on site',
+    'blog.article.gysin-candidata-capogruppo-verdi.title': 'Greta Gysin runs for Greens group leader',
+    'blog.article.gysin-candidata-capogruppo-verdi.excerpt': 'Ticino\'s national councillor Greta Gysin is running for the presidency of the Greens parliamentary group, succeeding Aline Trede.',
+    'blog.article.gysin-candidata-capogruppo-verdi.imageAlt': 'Greta Gysin speaking at a political event in Lugano',
 };
 
 export default blogMetaEn;

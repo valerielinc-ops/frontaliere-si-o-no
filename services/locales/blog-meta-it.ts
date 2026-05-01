@@ -4727,6 +4727,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-italia-parte-civile-2026.title': 'Crans-Montana: Italia si costituisce parte civile',
     'blog.article.crans-montana-italia-parte-civile-2026.excerpt': 'L\'Italia si costituisce parte civile nel procedimento per l\'incendio al disco-bar Le Constellation a Crans-Montana, con 41 morti e 115 feriti',
     'blog.article.crans-montana-italia-parte-civile-2026.imageAlt': 'Crans-Montana dopo l\'incendio, con i soccorsi e gli investigatori sul posto',
+    'blog.article.gysin-candidata-capogruppo-verdi.title': 'Greta Gysin si candida a capogruppo dei Verdi',
+    'blog.article.gysin-candidata-capogruppo-verdi.excerpt': 'La consigliera nazionale ticinese Greta Gysin si candida alla presidenza del gruppo parlamentare dei Verdi, succedendo ad Aline Trede.',
+    'blog.article.gysin-candidata-capogruppo-verdi.imageAlt': 'Greta Gysin parla a un evento politico a Lugano',
 };
 
 export default blogMetaIt;

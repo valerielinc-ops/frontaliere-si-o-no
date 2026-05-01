@@ -4726,6 +4726,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crans-montana-italia-parte-civile-2026.title': 'Crans-Montana: Italien tritt als Nebenkläger auf',
     'blog.article.crans-montana-italia-parte-civile-2026.excerpt': 'Italien tritt als Nebenkläger im Verfahren zum Brand im Diskotheken Le Constellation in Crans-Montana auf, bei dem 41 Menschen starben und 115 verletzt wurden',
     'blog.article.crans-montana-italia-parte-civile-2026.imageAlt': 'Crans-Montana nach dem Brand, mit Rettungsdiensten und Ermittlern vor Ort',
+    'blog.article.gysin-candidata-capogruppo-verdi.title': 'Greta Gysin kandidiert für die Grünen-Fraktion',
+    'blog.article.gysin-candidata-capogruppo-verdi.excerpt': 'Die Tessiner Nationalrätin Greta Gysin bewirbt sich um die Präsidentschaft der Grünen-Fraktion und folgt damit auf Aline Trede.',
+    'blog.article.gysin-candidata-capogruppo-verdi.imageAlt': 'Greta Gysin spricht bei einer politischen Veranstaltung in Lugano',
 };
 
 export default blogMetaDe;
