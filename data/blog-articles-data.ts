@@ -11831,4 +11831,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-2026-ticino-solidarieta.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'piano-freddo-como-200-persone-172-notti',
+ category: 'novita',
+ date: '2026-05-01T07:18:58.626Z',
+ image: '/images/blog/piano-freddo-como-200-persone-172-notti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

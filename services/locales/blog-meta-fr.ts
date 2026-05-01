@@ -4637,6 +4637,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-solidarieta.title': '1er mai 2026 : paix et solidarité au cœur des réflexions',
     'blog.article.primo-maggio-2026-ticino-solidarieta.excerpt': 'Matteo Muschietti invite à descendre dans la rue pour la paix et la solidarité, dans un monde marqué par trop de guerres.',
     'blog.article.primo-maggio-2026-ticino-solidarieta.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, journée ensoleillée',
+    'blog.article.piano-freddo-como-200-persone-172-notti.title': 'Plan Froid Como : 200 personnes accueillies pour 172 nuits',
+    'blog.article.piano-freddo-como-200-persone-172-notti.excerpt': 'Le Plan Froid de Como a accueilli 200 personnes sans abri pour 172 nuits, grâce à la collaboration de bénévoles et de donateurs.',
+    'blog.article.piano-freddo-como-200-persone-172-notti.imageAlt': 'Lac de Côme en hiver avec la ville de Côme recouverte de neige et des personnes marchant le long du lac',
 };
 
 export default blogMetaFr;

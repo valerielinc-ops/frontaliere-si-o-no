@@ -4637,6 +4637,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-solidarieta.title': 'Primo Maggio 2026: pace e solidarietà al centro delle riflessioni',
     'blog.article.primo-maggio-2026-ticino-solidarieta.excerpt': 'Matteo Muschietti invita a scendere in piazza per la pace e la solidarietà, in un mondo segnato da troppe guerre.',
     'blog.article.primo-maggio-2026-ticino-solidarieta.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, giornata di sole',
+    'blog.article.piano-freddo-como-200-persone-172-notti.title': 'Piano Freddo Como: 200 persone accolte per 172 notti',
+    'blog.article.piano-freddo-como-200-persone-172-notti.excerpt': 'Il Piano Freddo di Como ha accolto 200 persone senza dimora per 172 notti, grazie alla collaborazione di volontari e donatori.',
+    'blog.article.piano-freddo-como-200-persone-172-notti.imageAlt': 'Lago di Como d\'inverno con la città di Como coperta di neve e persone che camminano lungo il lungolago',
 };
 
 export default blogMetaIt;

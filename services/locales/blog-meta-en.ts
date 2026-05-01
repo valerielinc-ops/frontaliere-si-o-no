@@ -4636,6 +4636,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-solidarieta.title': 'May Day 2026: peace and solidarity at the heart of reflections',
     'blog.article.primo-maggio-2026-ticino-solidarieta.excerpt': 'Matteo Muschietti invites everyone to take to the streets for peace and solidarity in a world marked by too many wars.',
     'blog.article.primo-maggio-2026-ticino-solidarieta.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, sunny day',
+    'blog.article.piano-freddo-como-200-persone-172-notti.title': 'Como Cold Weather Plan: 200 people hosted for 172 nights',
+    'blog.article.piano-freddo-como-200-persone-172-notti.excerpt': 'Como\'s Cold Weather Plan has hosted 200 homeless people for 172 nights, thanks to the collaboration of volunteers and donors.',
+    'blog.article.piano-freddo-como-200-persone-172-notti.imageAlt': 'Lake Como in winter with the city of Como covered in snow and people walking along the lakeside',
 };
 
 export default blogMetaEn;

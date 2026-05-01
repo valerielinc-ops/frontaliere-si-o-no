@@ -31794,6 +31794,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-piano-freddo-como-200-persone-172-notti': {
+    title: 'Piano Freddo Como: 200 persone accolte per 172 notti',
+    description: 'Il Piano Freddo di Como ha accolto 200 persone senza dimora per 172 notti, grazie alla collaborazione di volontari e donatori. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, piano, freddo, como, persone',
+    ogTitle: 'Piano Freddo Como: 200 persone accolte per 172 notti',
+    ogDescription: 'Il Piano Freddo di Como ha accolto 200 persone senza dimora per 172 notti, grazie alla collaborazione di volontari e donatori.',
+    canonicalPath: '/articoli-frontaliere/piano-freddo-como-200-persone-172-notti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Piano Freddo Como: 200 persone accolte per 172 notti",
+      "description": "Il Piano Freddo di Como ha accolto 200 persone senza dimora per 172 notti, grazie alla collaborazione di volontari e donatori. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/piano-freddo-como-200-persone-172-notti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Como d'inverno con la città di Como coperta di neve e persone che camminano lungo il lungolago"
+      },
+      "datePublished": "2026-05-01T07:18:58+00:00",
+      "dateModified": "2026-05-01T07:18:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piano-freddo-como-200-persone-172-notti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

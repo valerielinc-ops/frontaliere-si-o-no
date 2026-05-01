@@ -4636,6 +4636,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-solidarieta.title': '1. Mai 2026: Frieden und Solidarität im Fokus',
     'blog.article.primo-maggio-2026-ticino-solidarieta.excerpt': 'Matteo Muschietti lädt ein, für Frieden und Solidarität auf die Straße zu gehen, in einer von zu vielen Kriegen geprägten Welt.',
     'blog.article.primo-maggio-2026-ticino-solidarieta.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund, sonniger Tag',
+    'blog.article.piano-freddo-como-200-persone-172-notti.title': 'Kältehilfe Como: 200 Personen in 172 Nächten',
+    'blog.article.piano-freddo-como-200-persone-172-notti.excerpt': 'Die Kältehilfe Como hat 200 obdachlose Personen für 172 Nächte aufgenommen, dank der Zusammenarbeit von Freiwilligen und Spendern.',
+    'blog.article.piano-freddo-como-200-persone-172-notti.imageAlt': 'Lago di Como im Winter mit der schneebedeckten Stadt Como und Menschen, die am Seeufer spazieren',
 };
 
 export default blogMetaDe;
