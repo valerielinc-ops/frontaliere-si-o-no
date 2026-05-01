@@ -4669,6 +4669,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.click-fatture-servizio-hot.title': 'Ein Klick und schon kommt die Rechnung für Hot-Services',
     'blog.article.click-fatture-servizio-hot.excerpt': 'Ein Teenager aus dem Tessin erhielt eine Rechnung über 166,80 CHF für ein Abonnement eines Erwachsenen-Dienstes, das versehentlich unterschrieben wurde. So sollten Sie reagieren',
     'blog.article.click-fatture-servizio-hot.imageAlt': 'Person in Lugano, Tessin, schaut besorgt auf Smartphone, umgeben von Finanzdokumenten und Laptop, Blick auf den Luganersee',
+    'blog.article.festa-fragole-camorino-beneficenza.title': 'Erdbeerfest Camorino: 70 Jahre Tradition und Wohltätigkeit',
+    'blog.article.festa-fragole-camorino-beneficenza.excerpt': 'Das Erdbeerfest in Camorino feiert 70 Jahre mit Veranstaltungen, Freude und jährlichen Spenden von 17\'000 Franken an lokale Vereine',
+    'blog.article.festa-fragole-camorino-beneficenza.imageAlt': 'Erdbeerfest in Camorino, mit Menschen, die an den Veranstaltungen und lokalen Erdbeeren teilnehmen',
 };
 
 export default blogMetaDe;

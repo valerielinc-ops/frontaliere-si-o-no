@@ -4670,6 +4670,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.click-fatture-servizio-hot.title': 'Un clic et des factures pour services hot',
     'blog.article.click-fatture-servizio-hot.excerpt': 'Un adolescent du Tessin a reçu une facture de 166,80 CHF pour un abonnement à un service pour adultes souscrit par erreur. Voici comment réagir',
     'blog.article.click-fatture-servizio-hot.imageAlt': 'Personne à Lugano, Tessin, regarde son smartphone avec inquiétude, entourée de documents financiers et d\'un ordinateur portable, vue sur le lac de Lugano',
+    'blog.article.festa-fragole-camorino-beneficenza.title': 'Fête des fraises à Camorino: 70 ans de tradition et de solidarité',
+    'blog.article.festa-fragole-camorino-beneficenza.excerpt': 'La fête des fraises de Camorino célèbre ses 70 ans avec des événements, de la joie et des dons annuels de 17\'000 francs aux associations locales',
+    'blog.article.festa-fragole-camorino-beneficenza.imageAlt': 'Fête des fraises à Camorino, avec des gens profitant des événements et des fraises locales',
 };
 
 export default blogMetaFr;

@@ -32113,6 +32113,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-festa-fragole-camorino-beneficenza': {
+    title: 'Festa delle fragole a Camorino: 70 anni di tradizione e beneficenza',
+    description: 'La festa delle fragole di Camorino celebra 70 anni con eventi, allegria e donazioni annuali di 17\'000 franchi alle associazioni locali. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, festa, fragole, camorino, anni',
+    ogTitle: 'Festa fragole Camorino 70 anni tradizione beneficenza',
+    ogDescription: 'La festa delle fragole di Camorino celebra 70 anni con eventi, allegria e donazioni annuali di 17\'000 franchi alle associazioni locali',
+    canonicalPath: '/articoli-frontaliere/festa-fragole-camorino-beneficenza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festa delle fragole di Camorino: 70 anni di tradizione e beneficenza",
+      "description": "La festa delle fragole di Camorino celebra 70 anni con eventi, allegria e donazioni annuali di 17'000 franchi alle associazioni locali. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/festa-fragole-camorino-beneficenza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa delle fragole a Camorino, con gente che partecipa agli eventi e assapora le fragole locali"
+      },
+      "datePublished": "2026-05-01T08:46:41+00:00",
+      "dateModified": "2026-05-01T08:46:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festa-fragole-camorino-beneficenza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

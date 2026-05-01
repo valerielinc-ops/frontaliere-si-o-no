@@ -4670,6 +4670,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.click-fatture-servizio-hot.title': 'Basta un click e arrivano fatture per servizi hot',
     'blog.article.click-fatture-servizio-hot.excerpt': 'Un adolescente del Ticino ha ricevuto una fattura da 166,80 CHF per un abbonamento a un servizio per adulti sottoscritto per errore. Ecco come reagire',
     'blog.article.click-fatture-servizio-hot.imageAlt': 'Persona a Lugano, Ticino, guarda smartphone preoccupata con documenti finanziari e laptop, vista Lago di Lugano',
+    'blog.article.festa-fragole-camorino-beneficenza.title': 'Festa delle fragole a Camorino: 70 anni di tradizione e beneficenza',
+    'blog.article.festa-fragole-camorino-beneficenza.excerpt': 'La festa delle fragole di Camorino celebra 70 anni con eventi, allegria e donazioni annuali di 17\'000 franchi alle associazioni locali',
+    'blog.article.festa-fragole-camorino-beneficenza.imageAlt': 'Festa delle fragole a Camorino, con gente che partecipa agli eventi e assapora le fragole locali',
 };
 
 export default blogMetaIt;

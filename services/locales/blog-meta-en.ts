@@ -4669,6 +4669,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.click-fatture-servizio-hot.title': 'One click and adult service bills arrive',
     'blog.article.click-fatture-servizio-hot.excerpt': 'A Ticino teenager received a 166.80 CHF bill for an adult service subscription mistakenly signed up for. Here\'s how to react',
     'blog.article.click-fatture-servizio-hot.imageAlt': 'Person in Lugano, Ticino, looking at smartphone with concern, surrounded by financial documents and laptop, view of Lake Lugano',
+    'blog.article.festa-fragole-camorino-beneficenza.title': 'Strawberry Festival in Camorino: 70 years of tradition and charity',
+    'blog.article.festa-fragole-camorino-beneficenza.excerpt': 'The Strawberry Festival in Camorino celebrates 70 years with events, joy, and annual donations of 17,000 francs to local associations',
+    'blog.article.festa-fragole-camorino-beneficenza.imageAlt': 'Strawberry festival in Camorino, with people enjoying the events and local strawberries',
 };
 
 export default blogMetaEn;

@@ -11908,4 +11908,11 @@ export const ARTICLES = [
  image: '/images/blog/click-fatture-servizio-hot.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'festa-fragole-camorino-beneficenza',
+ category: 'novita',
+ date: '2026-05-01T08:46:41.774Z',
+ image: '/images/blog/festa-fragole-camorino-beneficenza.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
