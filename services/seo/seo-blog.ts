@@ -31504,6 +31504,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-sindacati-piazza-2026': {
+    title: 'Primo maggio, sindacati in piazza per difendere salari e impieghi',
+    description: 'Una cinquantina di località svizzere ospitano manifestazioni per la giornata internazionale dei diritti delle lavoratrici e dei lavoratori. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, sindacati, piazza',
+    ogTitle: 'Primo maggio, sindacati in piazza per difendere salari e impieghi',
+    ogDescription: 'Una cinquantina di località svizzere ospitano manifestazioni per la giornata internazionale dei diritti delle lavoratrici e dei lavoratori.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-sindacati-piazza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo maggio, sindacati in piazza per difendere salari e impieghi",
+      "description": "Una cinquantina di località svizzere ospitano manifestazioni per la giornata internazionale dei diritti delle lavoratrici e dei lavoratori. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-sindacati-piazza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione del Primo Maggio a Bellinzona con striscioni e bandiere"
+      },
+      "datePublished": "2026-05-01T05:59:50+00:00",
+      "dateModified": "2026-05-01T05:59:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-sindacati-piazza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

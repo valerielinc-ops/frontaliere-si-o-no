@@ -4606,6 +4606,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-unita-sindacale-marghera.title': '1. Mai im Zeichen der Gewerkschaftseinheit in Marghera',
     'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl und Uil feiern den Tag der Arbeit mit Fokus auf würdige Arbeit.',
     'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'Eine Menschenmenge versammelt sich auf einem Platz in Lugano, Tessin, und feiert den Tag der Arbeit mit Transparenten und Fahnen unter einem klaren blauen Himmel.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.title': '1. Mai: Gewerkschaften demonstrieren für Löhne und Jobs',
+    'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Rund fünfzig Schweizer Orte beherbergen Kundgebungen zum internationalen Tag der Arbeiterrechte.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': '1. Mai Demonstration in Bellinzona mit Transparenten und Fahnen',
 };
 
 export default blogMetaDe;

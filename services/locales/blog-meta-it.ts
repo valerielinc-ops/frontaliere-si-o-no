@@ -4607,6 +4607,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-unita-sindacale-marghera.title': 'Primo Maggio all\'insegna dell\'unità sindacale a Marghera',
     'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl e Uil insieme per celebrare la Festa dei Lavoratori con un focus sul lavoro dignitoso.',
     'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'Una folla di persone riunite in una piazza a Lugano, Ticino, che celebrano il Primo Maggio con striscioni e bandiere, sotto un cielo azzurro limpido.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.title': 'Primo maggio, sindacati in piazza per difendere salari e impieghi',
+    'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Una cinquantina di località svizzere ospitano manifestazioni per la giornata internazionale dei diritti delle lavoratrici e dei lavoratori.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': 'Manifestazione del Primo Maggio a Bellinzona con striscioni e bandiere',
 };
 
 export default blogMetaIt;

@@ -4606,6 +4606,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-unita-sindacale-marghera.title': 'May Day united in Marghera',
     'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl and Uil together to celebrate Labour Day with a focus on dignified work.',
     'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'A crowd of people gathered in a square in Lugano, Ticino, celebrating May Day with banners and flags, under a clear blue sky.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.title': 'May Day: unions rally to defend wages and jobs',
+    'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Around fifty Swiss towns host demonstrations for International Workers\' Day.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': 'May 1st demonstration in Bellinzona with banners and flags',
 };
 
 export default blogMetaEn;

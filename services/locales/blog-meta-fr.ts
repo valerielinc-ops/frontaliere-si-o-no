@@ -4607,6 +4607,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-unita-sindacale-marghera.title': '1er Mai sous le signe de l\'unité syndicale à Marghera',
     'blog.article.primo-maggio-unita-sindacale-marghera.excerpt': 'Cgil, Cisl et Uil ensemble pour célébrer la Fête des Travailleurs avec un focus sur le travail digne.',
     'blog.article.primo-maggio-unita-sindacale-marghera.imageAlt': 'Une foule de personnes réunies sur une place à Lugano, Tessin, célébrant le Premier Mai avec des banderoles et des drapeaux, sous un ciel bleu dégagé.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.title': '1er mai, syndicats en place pour défendre salaires et emplois',
+    'blog.article.primo-maggio-sindacati-piazza-2026.excerpt': 'Une cinquantaine de localités suisses accueillent des manifestations pour la journée internationale des droits des travailleuses et des travailleurs.',
+    'blog.article.primo-maggio-sindacati-piazza-2026.imageAlt': 'Manifestation du 1er mai à Bellinzone avec des banderoles et des drapeaux',
 };
 
 export default blogMetaFr;

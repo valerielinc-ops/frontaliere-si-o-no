@@ -11761,4 +11761,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-unita-sindacale-marghera.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-sindacati-piazza-2026',
+ category: 'novita',
+ date: '2026-05-01T05:59:50.948Z',
+ image: '/images/blog/primo-maggio-sindacati-piazza-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
