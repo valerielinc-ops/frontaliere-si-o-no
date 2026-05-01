@@ -34056,6 +34056,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aranno-incidente-moto-ricoverato-uomo': {
+    title: 'Aranno, moto centra palo e finisce nella scarpata. Ricoverato un uomo',
+    description: 'Un incidente motociclistico ad Aranno: la moto centra un palo e finisce nella scarpata. Un uomo è stato ricoverato in ospedale. Ecco i dettagli. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, aranno, moto, centra, palo',
+    ogTitle: 'Incidente motociclistico ad Aranno: un uomo ricoverato',
+    ogDescription: 'Un incidente motociclistico ad Aranno: la moto centra un palo e finisce nella scarpata. Un uomo è stato ricoverato in ospedale. Ecco i dettagli.',
+    canonicalPath: '/articoli-frontaliere/aranno-incidente-moto-ricoverato-uomo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Incidente motociclistico ad Aranno: un uomo ricoverato\",\"description\":\"Un incidente motociclistico ad Aranno: la moto centra un palo e finisce nella scarpata. Un uomo è stato ricoverato in ospedale. Ecco i dettagli.\",\"datePublished\":\"2024-05-20\",\"image\":\"https://www.frontaliere ticino.ch/images/lago-lugano.webp\"}",
+      "description": "Un incidente motociclistico ad Aranno: la moto centra un palo e finisce nella scarpata. Un uomo è stato ricoverato in ospedale. Ecco i dettagli. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aranno-incidente-moto-ricoverato-uomo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente motociclistico in una zona montana del Ticino"
+      },
+      "datePublished": "2026-05-01T19:00:52+00:00",
+      "dateModified": "2026-05-01T19:00:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aranno-incidente-moto-ricoverato-uomo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -12377,4 +12377,11 @@ export const ARTICLES = [
  image: '/images/blog/circolo-albate-riapertura-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aranno-incidente-moto-ricoverato-uomo',
+ category: 'novita',
+ date: '2026-05-01T19:00:52.759Z',
+ image: '/images/blog/aranno-incidente-moto-ricoverato-uomo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

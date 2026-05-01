@@ -4871,6 +4871,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.circolo-albate-riapertura-2026.title': 'Riapre il Circolo ad Albate: una piazza al coperto per la comunità',
     'blog.article.circolo-albate-riapertura-2026.excerpt': 'Il mitico bar dell\'Unione dei Circoli Cooperativi ad Albate riapre i battenti il 1° maggio 2026, diventando un punto di aggregazione sociale e culturale.',
     'blog.article.circolo-albate-riapertura-2026.imageAlt': 'Bar Circolo ad Albate, Como, con persone che chiacchierano e bevono',
+    'blog.article.aranno-incidente-moto-ricoverato-uomo.title': 'Aranno, moto centra palo e finisce nella scarpata. Ricoverato un uomo',
+    'blog.article.aranno-incidente-moto-ricoverato-uomo.excerpt': 'Un incidente motociclistico ad Aranno: il conducente è stato ricoverato in ospedale. Ecco i dettagli.',
+    'blog.article.aranno-incidente-moto-ricoverato-uomo.imageAlt': 'Incidente motociclistico in una zona montana del Ticino',
 };
 
 export default blogMetaIt;

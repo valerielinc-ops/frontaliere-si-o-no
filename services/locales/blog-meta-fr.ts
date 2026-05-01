@@ -4871,6 +4871,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.circolo-albate-riapertura-2026.title': 'Réouverture du Cercle à Albate: une place couverte pour la communauté',
     'blog.article.circolo-albate-riapertura-2026.excerpt': 'Le mythique bar de l\'Union des Cercles Coopératifs à Albate rouvre ses portes le 1er mai 2026, devenant un point de rassemblement social et culturel.',
     'blog.article.circolo-albate-riapertura-2026.imageAlt': 'Bar Circolo à Albate, Côme, avec des personnes discutant et buvant',
+    'blog.article.aranno-incidente-moto-ricoverato-uomo.title': 'Aranno, une moto percute un poteau et finit dans un ravin. Un homme hospitalisé',
+    'blog.article.aranno-incidente-moto-ricoverato-uomo.excerpt': 'Un accident de moto à Aranno : le conducteur a été hospitalisé. Voici les détails.',
+    'blog.article.aranno-incidente-moto-ricoverato-uomo.imageAlt': 'Accident de moto dans une région montagneuse du Tessin',
 };
 
 export default blogMetaFr;

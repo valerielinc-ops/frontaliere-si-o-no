@@ -4870,6 +4870,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.circolo-albate-riapertura-2026.title': 'Der Kreis in Albate öffnet wieder: ein überdachter Platz für die Gemeinschaft',
     'blog.article.circolo-albate-riapertura-2026.excerpt': 'Die legendäre Bar der Genossenschaftskreise in Albate öffnet am 1. Mai 2026 wieder ihre Türen und wird zu einem sozialen und kulturellen Treffpunkt.',
     'blog.article.circolo-albate-riapertura-2026.imageAlt': 'Circolo Bar in Albate, Como, mit Menschen, die plaudern und trinken',
+    'blog.article.aranno-incidente-moto-ricoverato-uomo.title': 'Aranno: Motorrad prallt gegen Pfahl und stürzt ab. Ein Mann im Spital',
+    'blog.article.aranno-incidente-moto-ricoverato-uomo.excerpt': 'Ein Motorradunfall in Aranno: Der Fahrer wurde ins Krankenhaus eingeliefert. Hier sind die Details.',
+    'blog.article.aranno-incidente-moto-ricoverato-uomo.imageAlt': 'Motorradunfall in einer Bergregion des Tessin',
 };
 
 export default blogMetaDe;

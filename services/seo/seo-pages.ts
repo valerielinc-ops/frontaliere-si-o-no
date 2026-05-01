@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1673,
+ "numberOfItems": 1674,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6308,7 +6308,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1670, "name": "142: nuova linea d'aiuto per vittime di violenz...", "url": `${BASE_URL}/articoli-frontaliere/142-linea-aiuto-vittime-violenza-ticino` },
           { "@type": "ListItem", "position": 1671, "name": "Incidente a Cadegliano Viconago: ferito un 54enne", "url": `${BASE_URL}/articoli-frontaliere/collisione-cadegliano-varese-ferito-54enne` },
           { "@type": "ListItem", "position": 1672, "name": "Congresso record a Lugano contro il cancro alla...", "url": `${BASE_URL}/articoli-frontaliere/congresso-lugano-cancro-prostata-2024` },
-          { "@type": "ListItem", "position": 1673, "name": "Riapre il Circolo ad Albate: una piazza al cope...", "url": `${BASE_URL}/articoli-frontaliere/circolo-albate-riapertura-2026` }
+          { "@type": "ListItem", "position": 1673, "name": "Riapre il Circolo ad Albate: una piazza al cope...", "url": `${BASE_URL}/articoli-frontaliere/circolo-albate-riapertura-2026` },
+          { "@type": "ListItem", "position": 1674, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/aranno-incidente-moto-ricoverato-uomo` }
  ]
  },
  {
