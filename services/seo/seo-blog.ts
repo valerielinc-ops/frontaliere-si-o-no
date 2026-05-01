@@ -32809,6 +32809,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzonesi-germania-karate-2026': {
+    title: 'Bellinzonesi brillano in Germania al torneo di karate',
+    description: 'I giovani atleti del club di karate di Bellinzona ottengono ottimi risultati alla Nagai Cup in Germania. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzonesi, brillano, germania, torneo',
+    ogTitle: 'Bellinzonesi brillano in Germania al torneo di karate',
+    ogDescription: 'I giovani atleti del club di karate di Bellinzona ottengono ottimi risultati alla Nagai Cup in Germania',
+    canonicalPath: '/articoli-frontaliere/bellinzonesi-germania-karate-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzonesi brillano in Germania al torneo di karate",
+      "description": "I giovani atleti del club di karate di Bellinzona ottengono ottimi risultati alla Nagai Cup in Germania. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bellinzonesi-germania-karate-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Atleti di karate in competizione in un torneo internazionale in Germania"
+      },
+      "datePublished": "2026-05-01T12:11:34+00:00",
+      "dateModified": "2026-05-01T12:11:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzonesi-germania-karate-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

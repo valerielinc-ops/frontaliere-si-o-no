@@ -4742,6 +4742,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.anziani-truffati-arresto-como-ticino.title': 'Anziani truffati, arresto a Como. Collegamenti con Ticino',
     'blog.article.anziani-truffati-arresto-como-ticino.excerpt': 'Arresto di una 31enne ceca per truffe agli anziani. Metodi simili a casi recenti in Ticino. Scoperte prove a Como-San Giovanni.',
     'blog.article.anziani-truffati-arresto-como-ticino.imageAlt': 'Anziano preoccupato con telefono in mano, Locarno',
+    'blog.article.bellinzonesi-germania-karate-2026.title': 'Bellinzonesi brillano in Germania al torneo di karate',
+    'blog.article.bellinzonesi-germania-karate-2026.excerpt': 'I giovani atleti del club di karate di Bellinzona ottengono ottimi risultati alla Nagai Cup in Germania',
+    'blog.article.bellinzonesi-germania-karate-2026.imageAlt': 'Atleti di karate in competizione in un torneo internazionale in Germania',
 };
 
 export default blogMetaIt;

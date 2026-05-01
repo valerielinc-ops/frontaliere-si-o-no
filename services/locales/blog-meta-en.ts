@@ -4741,6 +4741,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.anziani-truffati-arresto-como-ticino.title': 'Elderly scammed, arrest in Como. Links to Ticino',
     'blog.article.anziani-truffati-arresto-como-ticino.excerpt': 'A 31-year-old Czech woman arrested for scamming the elderly. Similar methods to recent cases in Ticino. Evidence found in Como-San Giovanni.',
     'blog.article.anziani-truffati-arresto-como-ticino.imageAlt': 'Elderly person concerned with phone in hand, Locarno',
+    'blog.article.bellinzonesi-germania-karate-2026.title': 'Bellinzona karate team shines at German tournament',
+    'blog.article.bellinzonesi-germania-karate-2026.excerpt': 'Young athletes from the Bellinzona karate club achieve excellent results at the Nagai Cup in Germany',
+    'blog.article.bellinzonesi-germania-karate-2026.imageAlt': 'Karate athletes competing in an international tournament in Germany',
 };
 
 export default blogMetaEn;

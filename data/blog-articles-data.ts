@@ -12076,4 +12076,11 @@ export const ARTICLES = [
  image: '/images/blog/anziani-truffati-arresto-como-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bellinzonesi-germania-karate-2026',
+ category: 'novita',
+ date: '2026-05-01T12:11:34.752Z',
+ image: '/images/blog/bellinzonesi-germania-karate-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

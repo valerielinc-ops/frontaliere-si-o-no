@@ -4742,6 +4742,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.anziani-truffati-arresto-como-ticino.title': 'Arrestation à Côme pour escroqueries envers des personnes âgées',
     'blog.article.anziani-truffati-arresto-como-ticino.excerpt': 'Une femme tchèque de 31 ans arrêtée pour escroqueries envers des personnes âgées. Des méthodes similaires à des cas récents dans le canton du Tessin. Des preuves découvertes à Côme-San Giovanni.',
     'blog.article.anziani-truffati-arresto-como-ticino.imageAlt': 'Personne âgée inquiète avec téléphone à la main, Locarno',
+    'blog.article.bellinzonesi-germania-karate-2026.title': 'Les karatékas de Bellinzona brillent en Allemagne',
+    'blog.article.bellinzonesi-germania-karate-2026.excerpt': 'Les jeunes athlètes du club de karaté de Bellinzona obtiennent d\'excellents résultats à la Nagai Cup en Allemagne',
+    'blog.article.bellinzonesi-germania-karate-2026.imageAlt': 'Athlètes de karaté en compétition lors d\'un tournoi international en Allemagne',
 };
 
 export default blogMetaFr;

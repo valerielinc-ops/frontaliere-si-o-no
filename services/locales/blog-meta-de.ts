@@ -4741,6 +4741,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.anziani-truffati-arresto-como-ticino.title': 'Ältere Menschen betrogen, Festnahme in Como. Verbindungen zum Tessin',
     'blog.article.anziani-truffati-arresto-como-ticino.excerpt': 'Festnahme einer 31-jährigen Tschechin wegen Betrugs an älteren Menschen. Ähnliche Methoden wie bei aktuellen Fällen im Tessin. Beweise in Como-San Giovanni gefunden.',
     'blog.article.anziani-truffati-arresto-como-ticino.imageAlt': 'Ältere Person besorgt mit Telefon in der Hand, Locarno',
+    'blog.article.bellinzonesi-germania-karate-2026.title': 'Bellinzona glänzt beim Karate-Turnier in Deutschland',
+    'blog.article.bellinzonesi-germania-karate-2026.excerpt': 'Die jungen Athleten des Karateclubs Bellinzona erzielen hervorragende Ergebnisse bei der Nagai Cup in Deutschland',
+    'blog.article.bellinzonesi-germania-karate-2026.imageAlt': 'Karate-Athleten bei einem internationalen Turnier in Deutschland',
 };
 
 export default blogMetaDe;
