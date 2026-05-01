@@ -11992,4 +11992,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-varese-2026-lavoro-diritti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'algerini-libici-auto-polizia-arresti',
+ category: 'novita',
+ date: '2026-05-01T10:25:20.502Z',
+ image: '/images/blog/algerini-libici-auto-polizia-arresti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

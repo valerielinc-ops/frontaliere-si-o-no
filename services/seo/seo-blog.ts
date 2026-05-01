@@ -32461,6 +32461,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-algerini-libici-auto-polizia-arresti': {
+    title: 'Algerini e libici rubano auto: polizia li ferma sul fatto',
+    description: 'Tre individui, due algerini e un libico, sono stati arrestati dalla polizia ticinese mentre rubavano un\'auto a Locarno. Scopri di più su questa operazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, algerini, libici, rubano, auto',
+    ogTitle: 'Algerini e libici rubano auto: polizia li ferma sul fatto',
+    ogDescription: 'Tre individui, due algerini e un libico, sono stati arrestati dalla polizia ticinese mentre rubavano un\'auto a Locarno. Scopri di più su questa operazione.',
+    canonicalPath: '/articoli-frontaliere/algerini-libici-auto-polizia-arresti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Algerini e libici rubano auto: polizia li ferma sul fatto\",\"description\":\"Tre individui, due algerini e un libico, sono stati arrestati dalla polizia ticinese mentre rubavano un'auto a Locarno. Scopri di più su questa operazione.\",\"datePublished\":\"2024-06-01\",\"image\":\"https://frontaliereticino.ch/images/locarno.webp\"}",
+      "description": "Tre individui, due algerini e un libico, sono stati arrestati dalla polizia ticinese mentre rubavano un'auto a Locarno. Scopri di più su questa operazione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/algerini-libici-auto-polizia-arresti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia ticinese arresta tre individui vicino a un'auto a Locarno"
+      },
+      "datePublished": "2026-05-01T10:25:20+00:00",
+      "dateModified": "2026-05-01T10:25:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/algerini-libici-auto-polizia-arresti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

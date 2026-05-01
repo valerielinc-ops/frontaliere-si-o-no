@@ -4706,6 +4706,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-varese-2026-lavoro-diritti.title': '1er Mai à Varèse : travail et droits à l\'ère de l\'IA',
     'blog.article.primo-maggio-varese-2026-lavoro-diritti.excerpt': 'CGIL, CISL et UIL en place pour demander plus de droits, de sécurité et des salaires équitables à l\'ère de l\'intelligence artificielle. Ezio Cigna : le travail est le fondement de la dignité.',
     'blog.article.primo-maggio-varese-2026-lavoro-diritti.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.algerini-libici-auto-polizia-arresti.title': 'Algériens et Libyens volent une voiture: la police les arrête sur le fait',
+    'blog.article.algerini-libici-auto-polizia-arresti.excerpt': 'Trois individus, deux Algériens et un Libyen, ont été arrêtés par la police tessinoise alors qu\'ils volaient une voiture à Locarno.',
+    'blog.article.algerini-libici-auto-polizia-arresti.imageAlt': 'La police du Tessin arrête trois individus près d\'une voiture à Locarno',
 };
 
 export default blogMetaFr;
