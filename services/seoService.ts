@@ -2801,6 +2801,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-primo-maggio-varese-2026-lavoro-diritti': { name: 'Primo Maggio Varese', path: '/articoli-frontaliere/primo-maggio-varese-2026-lavoro-diritti', parent: 'blog' },
     'blog-algerini-libici-auto-polizia-arresti': { name: 'Notizie', path: '/articoli-frontaliere/algerini-libici-auto-polizia-arresti', parent: 'blog' },
     'blog-rete-stradale-mendrisio-interventi-urgenti': { name: 'Novità', path: '/articoli-frontaliere/rete-stradale-mendrisio-interventi-urgenti', parent: 'blog' },
+    'blog-lavori-autostradali-a8-milano-varese': { name: 'Novità', path: '/articoli-frontaliere/lavori-autostradali-a8-milano-varese', parent: 'blog' },
  };
 
  const info = sectionNames[section];

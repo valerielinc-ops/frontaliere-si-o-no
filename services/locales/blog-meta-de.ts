@@ -4711,6 +4711,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rete-stradale-mendrisio-interventi-urgenti.title': 'Straßennetz von Mendrisio unter Druck: Dringende Maßnahmen gefordert',
     'blog.article.rete-stradale-mendrisio-interventi-urgenti.excerpt': 'Vier Gemeinderäte der FDP fordern dringendere Maßnahmen für das Straßennetz von Mendrisio und kritisieren den Mangel an kantonalen und Bundesmitteln.',
     'blog.article.rete-stradale-mendrisio-interventi-urgenti.imageAlt': 'Luftaufnahme von Mendrisio mit Straßenbauarbeiten',
+    'blog.article.lavori-autostradali-a8-milano-varese.title': 'A8: Nachtschließungen zwischen Solbiate und Cavaria wegen Lärmbarrieren',
+    'blog.article.lavori-autostradali-a8-milano-varese.excerpt': 'Vom 4. bis 8. Mai Nachtschließungen zwischen Solbiate Arno und Cavaria wegen Lärmbarrieren',
+    'blog.article.lavori-autostradali-a8-milano-varese.imageAlt': 'Autobahn A8 Mailand-Varese mit nächtlichen Bauarbeiten',
 };
 
 export default blogMetaDe;

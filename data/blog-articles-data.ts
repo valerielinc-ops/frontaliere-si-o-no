@@ -12006,4 +12006,11 @@ export const ARTICLES = [
  image: '/images/blog/rete-stradale-mendrisio-interventi-urgenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavori-autostradali-a8-milano-varese',
+ category: 'novita',
+ date: '2026-05-01T10:44:31.873Z',
+ image: '/images/blog/lavori-autostradali-a8-milano-varese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

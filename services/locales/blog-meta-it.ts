@@ -4712,6 +4712,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rete-stradale-mendrisio-interventi-urgenti.title': 'Rete stradale di Mendrisio sotto pressione: urgenti interventi richiesti',
     'blog.article.rete-stradale-mendrisio-interventi-urgenti.excerpt': 'Quattro consiglieri comunali del PLR chiedono maggiori interventi urgenti per la rete stradale di Mendrisio, criticando la mancanza di fondi cantonali e federali.',
     'blog.article.rete-stradale-mendrisio-interventi-urgenti.imageAlt': 'Vista aerea di Mendrisio con lavori stradali in corso',
+    'blog.article.lavori-autostradali-a8-milano-varese.title': 'A8 Milano-Varese, chiusure notturne tra Solbiate e Cavaria per lavori',
+    'blog.article.lavori-autostradali-a8-milano-varese.excerpt': 'Dal 4 all\'8 maggio chiusure notturne tra Solbiate Arno e Cavaria per lavori alle barriere antirumore',
+    'blog.article.lavori-autostradali-a8-milano-varese.imageAlt': 'Autostrada A8 Milano-Varese con lavori notturni in corso',
 };
 
 export default blogMetaIt;

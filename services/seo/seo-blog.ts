@@ -32519,6 +32519,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-autostradali-a8-milano-varese': {
+    title: 'A8 Milano-Varese, chiusure notturne tra Solbiate e Cavaria per lavori',
+    description: 'Dal 4 all\'8 maggio chiusure notturne tra Solbiate Arno e Cavaria per lavori alle barriere antirumore. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, milano-varese, chiusure, notturne, solbiate',
+    ogTitle: 'A8 Milano-Varese, chiusure notturne tra Solbiate e Cavaria per lavori',
+    ogDescription: 'Dal 4 all\'8 maggio chiusure notturne tra Solbiate Arno e Cavaria per lavori alle barriere antirumore',
+    canonicalPath: '/articoli-frontaliere/lavori-autostradali-a8-milano-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A8 Milano-Varese, chiusure notturne tra Solbiate e Cavaria per lavori",
+      "description": "Dal 4 all'8 maggio chiusure notturne tra Solbiate Arno e Cavaria per lavori alle barriere antirumore. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavori-autostradali-a8-milano-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A8 Milano-Varese con lavori notturni in corso"
+      },
+      "datePublished": "2026-05-01T10:44:31+00:00",
+      "dateModified": "2026-05-01T10:44:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-autostradali-a8-milano-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
