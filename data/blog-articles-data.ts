@@ -12349,4 +12349,11 @@ export const ARTICLES = [
  image: '/images/blog/inflazione-svizzera-frontalieri-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: '142-linea-aiuto-vittime-violenza-ticino',
+ category: 'novita',
+ date: '2026-05-01T18:27:35.748Z',
+ image: '/images/blog/142-linea-aiuto-vittime-violenza-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

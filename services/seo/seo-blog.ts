@@ -33940,6 +33940,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-142-linea-aiuto-vittime-violenza-ticino': {
+    title: '142: nuova linea d\'aiuto per vittime di violenza in Ticino',
+    description: 'Il numero 142 è ora attivo in Ticino per supportare le vittime di violenza fisica, psichica o sessuale. Gratuito e anonimo, offre consulenza 24 ore su 24.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, linea, aiuto, vittime',
+    ogTitle: '142: nuova linea d\'aiuto per vittime di violenza in Ticino',
+    ogDescription: 'Il numero 142 è ora attivo in Ticino per supportare le vittime di violenza fisica, psichica o sessuale. Gratuito e anonimo, offre consulenza 24 ore su 24.',
+    canonicalPath: '/articoli-frontaliere/142-linea-aiuto-vittime-violenza-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "142: nuova linea d'aiuto per vittime di violenza in Ticino",
+      "description": "Il numero 142 è ora attivo in Ticino per supportare le vittime di violenza fisica, psichica o sessuale. Gratuito e anonimo, offre consulenza 24 ore su 24.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/142-linea-aiuto-vittime-violenza-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulla città"
+      },
+      "datePublished": "2026-05-01T18:27:35+00:00",
+      "dateModified": "2026-05-01T18:27:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/142-linea-aiuto-vittime-violenza-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

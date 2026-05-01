@@ -4859,6 +4859,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inflazione-svizzera-frontalieri-ticino.title': 'Inflazione in Svizzera: perché i frontalieri sentono il peso',
     'blog.article.inflazione-svizzera-frontalieri-ticino.excerpt': 'L\'inflazione ufficiale in Svizzera è bassa, ma i frontalieri in Ticino sentono il caro vita. Ecco perché.',
     'blog.article.inflazione-svizzera-frontalieri-ticino.imageAlt': 'Panorama di Lugano con il lago e le montagne',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.title': '142: nuova linea d\'aiuto per vittime di violenza in Ticino',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.excerpt': 'Il numero 142 è ora attivo in Ticino per supportare le vittime di violenza fisica, psichica o sessuale. Gratuito e anonimo, offre consulenza 24 ore su 24.',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.imageAlt': 'Lago di Lugano con vista sulla città',
 };
 
 export default blogMetaIt;

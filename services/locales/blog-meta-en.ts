@@ -4858,6 +4858,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inflazione-svizzera-frontalieri-ticino.title': 'Why Swiss inflation hits cross-border workers hard',
     'blog.article.inflazione-svizzera-frontalieri-ticino.excerpt': 'Switzerland\'s official inflation is low, but cross-border workers in Ticino feel the pinch. Here\'s why.',
     'blog.article.inflazione-svizzera-frontalieri-ticino.imageAlt': 'Lugano cityscape with Lake Lugano and mountains',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.title': '142: new helpline for violence victims in Ticino',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.excerpt': 'The number 142 is now active in Ticino to support victims of physical, psychological, or sexual violence. Free and anonymous, it offers 24/7 counseling.',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.imageAlt': 'Lake Lugano with city view',
 };
 
 export default blogMetaEn;

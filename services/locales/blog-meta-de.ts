@@ -4858,6 +4858,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inflazione-svizzera-frontalieri-ticino.title': 'Inflation in der Schweiz: Warum Grenzgänger betroffen sind',
     'blog.article.inflazione-svizzera-frontalieri-ticino.excerpt': 'Die offizielle Inflation in der Schweiz ist niedrig, aber die Grenzgänger im Tessin spüren die Teuerung. Hier ist der Grund.',
     'blog.article.inflazione-svizzera-frontalieri-ticino.imageAlt': 'Panorama von Lugano mit dem Luganersee und Bergen',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.title': '142: Neue Hilfslinie für Gewaltopfer im Tessin',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.excerpt': 'Die Nummer 142 ist nun im Tessin aktiv, um Opfer von körperlicher, psychischer oder sexueller Gewalt zu unterstützen. Kostenlos und anonym bietet sie 24-Stunden-Beratung.',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.imageAlt': 'Luganersee mit Stadtblick',
 };
 
 export default blogMetaDe;

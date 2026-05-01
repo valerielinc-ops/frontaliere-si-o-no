@@ -4859,6 +4859,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inflazione-svizzera-frontalieri-ticino.title': 'Inflation en Suisse : pourquoi les frontaliers souffrent',
     'blog.article.inflazione-svizzera-frontalieri-ticino.excerpt': 'L\'inflation officielle en Suisse est faible, mais les frontaliers du Tessin ressentent la hausse des prix. Voici pourquoi.',
     'blog.article.inflazione-svizzera-frontalieri-ticino.imageAlt': 'Panorama de Lugano avec le lac et les montagnes',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.title': '142: nouvelle ligne d\'aide pour les victimes de violence au Tessin',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.excerpt': 'Le numéro 142 est désormais actif au Tessin pour soutenir les victimes de violence physique, psychologique ou sexuelle. Gratuit et anonyme, il offre une consultation 24 heures sur 24.',
+    'blog.article.142-linea-aiuto-vittime-violenza-ticino.imageAlt': 'Lac de Lugano avec vue sur la ville',
 };
 
 export default blogMetaFr;

@@ -2850,6 +2850,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-riapre-villa-visconti-lainate-2026': { name: 'Villa Visconti Borromeo Litta', path: '/articoli-frontaliere/riapre-villa-visconti-lainate-2026', parent: 'blog' },
     'blog-teheran-proposta-pakistan-mediatori': { name: 'Novità', path: '/articoli-frontaliere/teheran-proposta-pakistan-mediatori', parent: 'blog' },
     'blog-inflazione-svizzera-frontalieri-ticino': { name: 'Inflazione Svizzera', path: '/articoli-frontaliere/inflazione-svizzera-frontalieri-ticino', parent: 'blog' },
+    'blog-142-linea-aiuto-vittime-violenza-ticino': { name: 'Novità', path: '/articoli-frontaliere/142-linea-aiuto-vittime-violenza-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
