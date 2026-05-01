@@ -11950,4 +11950,11 @@ export const ARTICLES = [
  image: '/images/blog/rive-libere-minusio-tenero-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'berna-senza-pubblicita-iniziativa-2026',
+ category: 'novita',
+ date: '2026-05-01T09:32:48.315Z',
+ image: '/images/blog/berna-senza-pubblicita-iniziativa-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

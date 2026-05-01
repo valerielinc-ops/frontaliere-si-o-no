@@ -4687,6 +4687,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rive-libere-minusio-tenero-2026.title': 'Freie Ufer: RPSI zufrieden mit der Arbeitsgruppe',
     'blog.article.rive-libere-minusio-tenero-2026.excerpt': 'RPSI tritt der Arbeitsgruppe für die Aufwertung der Ufer zwischen Minusio und Tenero-Contra bei. Petition für ganzjährigen freien Zugang.',
     'blog.article.rive-libere-minusio-tenero-2026.imageAlt': 'Winterlicher Luganersee-Uferbereich in Minusio, Tessin',
+    'blog.article.berna-senza-pubblicita-iniziativa-2026.title': 'Berner Initiative gegen Werbung',
+    'blog.article.berna-senza-pubblicita-iniziativa-2026.excerpt': 'Die Initiative \'Berner Initiative gegen Werbung\' zielt darauf ab, kommerzielle Anzeigen ohne lokale Bezüge im öffentlichen Raum zu verbieten.',
+    'blog.article.berna-senza-pubblicita-iniziativa-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

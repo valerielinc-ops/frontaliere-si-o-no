@@ -4688,6 +4688,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rive-libere-minusio-tenero-2026.title': 'Rives libres: RPSI satisfaite du groupe de travail',
     'blog.article.rive-libere-minusio-tenero-2026.excerpt': 'RPSI rejoint le groupe de travail pour la valorisation des rives entre Minusio et Tenero-Contra. Pétition pour l\'accès libre toute l\'année.',
     'blog.article.rive-libere-minusio-tenero-2026.imageAlt': 'Rive du lac de Lugano en hiver à Minusio, Tessin',
+    'blog.article.berna-senza-pubblicita-iniziativa-2026.title': 'Berne sans publicité: l\'initiative pour interdire les annonces commerciales',
+    'blog.article.berna-senza-pubblicita-iniziativa-2026.excerpt': 'L\'initiative \'Berne sans publicité\' vise à interdire les annonces commerciales sans références locales dans l\'espace public.',
+    'blog.article.berna-senza-pubblicita-iniziativa-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

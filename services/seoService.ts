@@ -2793,6 +2793,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-aiuto-vittime-700-dossier': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-aiuto-vittime-700-dossier', parent: 'blog' },
     'blog-zanzara-tigre-losone-2026': { name: 'Novità', path: '/articoli-frontaliere/zanzara-tigre-losone-2026', parent: 'blog' },
     'blog-rive-libere-minusio-tenero-2026': { name: 'Rive libere', path: '/articoli-frontaliere/rive-libere-minusio-tenero-2026', parent: 'blog' },
+    'blog-berna-senza-pubblicita-iniziativa-2026': { name: 'Iniziativa Berna senza pubblicità', path: '/articoli-frontaliere/berna-senza-pubblicita-iniziativa-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
