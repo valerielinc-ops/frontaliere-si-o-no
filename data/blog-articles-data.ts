@@ -12566,4 +12566,11 @@ export const ARTICLES = [
  image: '/images/blog/ricostruzione-capanna-soveltra-avanza.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'processo-quadroni-ex-capo-posto-contesta-accuse',
+ category: 'novita',
+ date: '2026-05-01T23:16:36.564Z',
+ image: '/images/blog/processo-quadroni-ex-capo-posto-contesta-accuse.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

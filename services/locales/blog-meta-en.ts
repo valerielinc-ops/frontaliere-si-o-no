@@ -4951,6 +4951,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ricostruzione-capanna-soveltra-avanza.title': 'Soveltra Hut Reconstruction Outpaces Legal Process',
     'blog.article.ricostruzione-capanna-soveltra-avanza.excerpt': 'The reconstruction of the hut in Val Maggia is progressing swiftly, while the appeal to the Federal Court is still being finalized.',
     'blog.article.ricostruzione-capanna-soveltra-avanza.imageAlt': 'Aerial view of Capanna Soveltra in Val Maggia, Ticino, Switzerland, showing the reconstruction work in progress, surrounded by the Alps.',
+    'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.title': 'Quadroni trial: former police chief disputes charges',
+    'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.excerpt': 'The former head of the Scuol police station disputes the charges of abuse of authority, unlawful confinement, and violation of domicile.',
+    'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.imageAlt': 'Courtroom with judge, defendant, and lawyers',
 };
 
 export default blogMetaEn;

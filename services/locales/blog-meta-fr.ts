@@ -4952,6 +4952,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ricostruzione-capanna-soveltra-avanza.title': 'Cabane Soveltra, la reconstruction avance plus vite que le procès',
     'blog.article.ricostruzione-capanna-soveltra-avanza.excerpt': 'Les travaux de reconstruction de la cabane dans la vallée de Maggia avancent rapidement, tandis que le recours au Tribunal fédéral est encore en cours de finalisation.',
     'blog.article.ricostruzione-capanna-soveltra-avanza.imageAlt': 'Vue aérienne de la Capanna Soveltra dans la Val Maggia, Tessin, Suisse, montrant les travaux de reconstruction en cours, entourée des Alpes.',
+    'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.title': 'Procès Quadroni : l\'ex chef de poste conteste les accusations',
+    'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.excerpt': 'L\'ex chef du poste de police de Scuol conteste les accusations d\'abus d\'autorité, de séquestration et de violation de domicile.',
+    'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.imageAlt': 'Salle d\'audience avec juge, accusé et avocats',
 };
 
 export default blogMetaFr;

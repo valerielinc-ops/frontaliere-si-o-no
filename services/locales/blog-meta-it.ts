@@ -4952,6 +4952,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ricostruzione-capanna-soveltra-avanza.title': 'Capanna Soveltra, la ricostruzione avanza più velocemente dell’iter giudiziario',
     'blog.article.ricostruzione-capanna-soveltra-avanza.excerpt': 'I lavori di ricostruzione della capanna in Val Maggia procedono speditamente, mentre il ricorso al Tribunale federale è ancora in fase di definizione.',
     'blog.article.ricostruzione-capanna-soveltra-avanza.imageAlt': 'Vista aerea della Capanna Soveltra in Val Maggia, Ticino, Svizzera, che mostra i lavori di ricostruzione in corso, circondata dalle Alpi.',
+    'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.title': 'Processo Quadroni: l\'ex capo posto contesta le accuse',
+    'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.excerpt': 'L\'ex capo del posto di polizia di Scuol contesta le accuse di abuso di autorità, sequestro di persona e violazione di domicilio.',
+    'blog.article.processo-quadroni-ex-capo-posto-contesta-accuse.imageAlt': 'Aula di tribunale con giudice, imputato e avvocati',
 };
 
 export default blogMetaIt;

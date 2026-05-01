@@ -34839,6 +34839,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-processo-quadroni-ex-capo-posto-contesta-accuse': {
+    title: 'Processo Quadroni: l\'ex capo posto contesta le accuse',
+    description: 'L\'ex capo del posto di polizia di Scuol contesta le accuse di abuso di autorità, sequestro di persona e violazione di domicilio. La Procura pubblica chiede una',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, quadroni, capo, posto',
+    ogTitle: 'Processo Quadroni: l\'ex capo posto contesta le accuse',
+    ogDescription: 'L\'ex capo del posto di polizia di Scuol contesta le accuse di abuso di autorità, sequestro di persona e violazione di domicilio. La Procura pubblica chiede una',
+    canonicalPath: '/articoli-frontaliere/processo-quadroni-ex-capo-posto-contesta-accuse',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Processo Quadroni: l'ex capo posto contesta le accuse",
+      "description": "L'ex capo del posto di polizia di Scuol contesta le accuse di abuso di autorità, sequestro di persona e violazione di domicilio. La Procura pubblica chiede una",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/processo-quadroni-ex-capo-posto-contesta-accuse.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula di tribunale con giudice, imputato e avvocati"
+      },
+      "datePublished": "2026-05-01T23:16:36+00:00",
+      "dateModified": "2026-05-01T23:16:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/processo-quadroni-ex-capo-posto-contesta-accuse`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
