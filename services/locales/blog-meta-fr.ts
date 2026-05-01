@@ -4724,6 +4724,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.indagine-soccorsi-crans-montana-2026.title': 'Enquête sur les secours à Crans-Montana: des lacunes signalées',
     'blog.article.indagine-soccorsi-crans-montana-2026.excerpt': 'Deux familles de victimes dénoncent de graves lacunes dans la gestion des secours lors de l\'incendie du Nouvel An à Crans-Montana.',
     'blog.article.indagine-soccorsi-crans-montana-2026.imageAlt': 'Vue de Crans-Montana avec les services d\'urgence en arrière-plan',
+    'blog.article.crans-montana-italia-parte-civile-2026.title': 'Crans-Montana : l\'Italie se constitue partie civile',
+    'blog.article.crans-montana-italia-parte-civile-2026.excerpt': 'L\'Italie se constitue partie civile dans la procédure pour l\'incendie de la discothèque Le Constellation à Crans-Montana, faisant 41 morts et 115 blessés',
+    'blog.article.crans-montana-italia-parte-civile-2026.imageAlt': 'Crans-Montana après l\'incendie, avec les services d\'urgence et les enquêteurs sur place',
 };
 
 export default blogMetaFr;

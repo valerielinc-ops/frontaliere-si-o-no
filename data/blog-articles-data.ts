@@ -12034,4 +12034,11 @@ export const ARTICLES = [
  image: '/images/blog/indagine-soccorsi-crans-montana-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-italia-parte-civile-2026',
+ category: 'novita',
+ date: '2026-05-01T11:18:20.664Z',
+ image: '/images/blog/crans-montana-italia-parte-civile-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

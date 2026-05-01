@@ -4723,6 +4723,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.indagine-soccorsi-crans-montana-2026.title': 'Investigation into Crans-Montana rescue efforts: shortcomings reported',
     'blog.article.indagine-soccorsi-crans-montana-2026.excerpt': 'Two families of the victims report serious shortcomings in the management of rescue efforts during the New Year\'s Eve fire in Crans-Montana.',
     'blog.article.indagine-soccorsi-crans-montana-2026.imageAlt': 'View of Crans-Montana with emergency services in the background',
+    'blog.article.crans-montana-italia-parte-civile-2026.title': 'Crans-Montana: Italy joins case as civil party',
+    'blog.article.crans-montana-italia-parte-civile-2026.excerpt': 'Italy has joined the case as a civil party in the proceedings for the fire at the Le Constellation nightclub in Crans-Montana, which resulted in 41 deaths and 115 injuries',
+    'blog.article.crans-montana-italia-parte-civile-2026.imageAlt': 'Crans-Montana after the fire, with emergency services and investigators on site',
 };
 
 export default blogMetaEn;

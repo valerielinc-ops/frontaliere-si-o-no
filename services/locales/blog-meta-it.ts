@@ -4724,6 +4724,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.indagine-soccorsi-crans-montana-2026.title': 'Indagine sui soccorsi a Crans-Montana: carenze segnalate',
     'blog.article.indagine-soccorsi-crans-montana-2026.excerpt': 'Due famiglie delle vittime denunciano gravi carenze nella gestione dei soccorsi durante l\'incendio di Capodanno a Crans-Montana.',
     'blog.article.indagine-soccorsi-crans-montana-2026.imageAlt': 'Vista di Crans-Montana con servizi di emergenza sullo sfondo',
+    'blog.article.crans-montana-italia-parte-civile-2026.title': 'Crans-Montana: Italia si costituisce parte civile',
+    'blog.article.crans-montana-italia-parte-civile-2026.excerpt': 'L\'Italia si costituisce parte civile nel procedimento per l\'incendio al disco-bar Le Constellation a Crans-Montana, con 41 morti e 115 feriti',
+    'blog.article.crans-montana-italia-parte-civile-2026.imageAlt': 'Crans-Montana dopo l\'incendio, con i soccorsi e gli investigatori sul posto',
 };
 
 export default blogMetaIt;

@@ -4723,6 +4723,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.indagine-soccorsi-crans-montana-2026.title': 'Untersuchung zu Rettungseinsätzen in Crans-Montana: Mängel gemeldet',
     'blog.article.indagine-soccorsi-crans-montana-2026.excerpt': 'Zwei Familien der Opfer melden schwere Mängel bei der Koordination der Rettungseinsätze während des Brandes an Silvester in Crans-Montana.',
     'blog.article.indagine-soccorsi-crans-montana-2026.imageAlt': 'Ansicht von Crans-Montana mit Rettungsdiensten im Hintergrund',
+    'blog.article.crans-montana-italia-parte-civile-2026.title': 'Crans-Montana: Italien tritt als Nebenkläger auf',
+    'blog.article.crans-montana-italia-parte-civile-2026.excerpt': 'Italien tritt als Nebenkläger im Verfahren zum Brand im Diskotheken Le Constellation in Crans-Montana auf, bei dem 41 Menschen starben und 115 verletzt wurden',
+    'blog.article.crans-montana-italia-parte-civile-2026.imageAlt': 'Crans-Montana nach dem Brand, mit Rettungsdiensten und Ermittlern vor Ort',
 };
 
 export default blogMetaDe;

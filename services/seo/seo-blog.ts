@@ -32635,6 +32635,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-italia-parte-civile-2026': {
+    title: 'Crans-Montana: Italia si costituisce parte civile | Frontaliere Ticino',
+    description: 'L\'Italia si costituisce parte civile nel procedimento per l\'incendio al disco-bar Le Constellation a Crans-Montana, con 41 morti e 115 feriti. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, costituisce, parte, civile',
+    ogTitle: 'Crans-Montana: Italia si costituisce parte civile',
+    ogDescription: 'L\'Italia si costituisce parte civile nel procedimento per l\'incendio al disco-bar Le Constellation a Crans-Montana, con 41 morti e 115 feriti',
+    canonicalPath: '/articoli-frontaliere/crans-montana-italia-parte-civile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana: Italia si costituisce parte civile",
+      "description": "L'Italia si costituisce parte civile nel procedimento per l'incendio al disco-bar Le Constellation a Crans-Montana, con 41 morti e 115 feriti. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-italia-parte-civile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Crans-Montana dopo l'incendio, con i soccorsi e gli investigatori sul posto"
+      },
+      "datePublished": "2026-05-01T11:18:20+00:00",
+      "dateModified": "2026-05-01T11:18:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-italia-parte-civile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
