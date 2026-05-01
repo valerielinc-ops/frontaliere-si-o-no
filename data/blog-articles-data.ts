@@ -12559,4 +12559,11 @@ export const ARTICLES = [
  image: '/images/blog/uisp-scuola-dante-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ricostruzione-capanna-soveltra-avanza',
+ category: 'novita',
+ date: '2026-05-01T23:05:08.342Z',
+ image: '/images/blog/ricostruzione-capanna-soveltra-avanza.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

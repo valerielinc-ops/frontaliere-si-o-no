@@ -2880,6 +2880,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-polizia-ticino-progetto-abbandono-2026': { name: 'Polizia Ticino', path: '/articoli-frontaliere/polizia-ticino-progetto-abbandono-2026', parent: 'blog' },
     'blog-iniziativa-democrazia-respinta-nazionale': { name: 'Iniziativa respinta', path: '/articoli-frontaliere/iniziativa-democrazia-respinta-nazionale', parent: 'blog' },
     'blog-uisp-scuola-dante-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/uisp-scuola-dante-varese-2026', parent: 'blog' },
+    'blog-ricostruzione-capanna-soveltra-avanza': { name: 'Novità', path: '/articoli-frontaliere/ricostruzione-capanna-soveltra-avanza', parent: 'blog' },
  };
 
  const info = sectionNames[section];

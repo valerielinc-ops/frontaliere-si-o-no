@@ -34810,6 +34810,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricostruzione-capanna-soveltra-avanza': {
+    title: 'Capanna Soveltra, la ricostruzione avanza più velocemente dell’iter giudiziario',
+    description: 'La ricostruzione della Capanna Soveltra in Val Maggia procede rapidamente, mentre il ricorso al Tribunale federale è ancora in fase di definizione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, capanna, soveltra, ricostruzione, avanza',
+    ogTitle: 'Capanna Soveltra, ricostruzione avanza più velocemente dell’iter giudiziario',
+    ogDescription: 'La ricostruzione della Capanna Soveltra in Val Maggia procede rapidamente, mentre il ricorso al Tribunale federale è ancora in fase di definizione.',
+    canonicalPath: '/articoli-frontaliere/ricostruzione-capanna-soveltra-avanza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Capanna Soveltra, la ricostruzione avanza più velocemente dell’iter giudiziario",
+      "description": "La ricostruzione della Capanna Soveltra in Val Maggia procede rapidamente, mentre il ricorso al Tribunale federale è ancora in fase di definizione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ricostruzione-capanna-soveltra-avanza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della Capanna Soveltra in Val Maggia, Ticino, Svizzera, che mostra i lavori di ricostruzione in corso, circondata dalle Alpi."
+      },
+      "datePublished": "2026-05-01T23:05:08+00:00",
+      "dateModified": "2026-05-01T23:05:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ricostruzione-capanna-soveltra-avanza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

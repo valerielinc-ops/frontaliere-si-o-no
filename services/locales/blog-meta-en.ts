@@ -4948,6 +4948,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.uisp-scuola-dante-varese-2026.title': 'UISP promotes inclusive sports at Dante School in Varese',
     'blog.article.uisp-scuola-dante-varese-2026.excerpt': 'The meeting between UISP and the Parents\' Association at Dante School in Varese promoted sports for all, with inclusive projects and activities for people with disabilities.',
     'blog.article.uisp-scuola-dante-varese-2026.imageAlt': 'School event in Varese with UISP representatives discussing inclusive sports',
+    'blog.article.ricostruzione-capanna-soveltra-avanza.title': 'Soveltra Hut Reconstruction Outpaces Legal Process',
+    'blog.article.ricostruzione-capanna-soveltra-avanza.excerpt': 'The reconstruction of the hut in Val Maggia is progressing swiftly, while the appeal to the Federal Court is still being finalized.',
+    'blog.article.ricostruzione-capanna-soveltra-avanza.imageAlt': 'Aerial view of Capanna Soveltra in Val Maggia, Ticino, Switzerland, showing the reconstruction work in progress, surrounded by the Alps.',
 };
 
 export default blogMetaEn;

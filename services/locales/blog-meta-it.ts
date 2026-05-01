@@ -4949,6 +4949,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.uisp-scuola-dante-varese-2026.title': 'UISP alla scuola Dante di Varese per promuovere lo sport inclusivo',
     'blog.article.uisp-scuola-dante-varese-2026.excerpt': 'L\'incontro tra UISP e Associazione Genitori alla scuola Dante di Varese ha promosso lo sport per tutti, con progetti inclusivi e attività per disabili.',
     'blog.article.uisp-scuola-dante-varese-2026.imageAlt': 'Evento scolastico a Varese con rappresentanti UISP che discutono di sport inclusivo',
+    'blog.article.ricostruzione-capanna-soveltra-avanza.title': 'Capanna Soveltra, la ricostruzione avanza più velocemente dell’iter giudiziario',
+    'blog.article.ricostruzione-capanna-soveltra-avanza.excerpt': 'I lavori di ricostruzione della capanna in Val Maggia procedono speditamente, mentre il ricorso al Tribunale federale è ancora in fase di definizione.',
+    'blog.article.ricostruzione-capanna-soveltra-avanza.imageAlt': 'Vista aerea della Capanna Soveltra in Val Maggia, Ticino, Svizzera, che mostra i lavori di ricostruzione in corso, circondata dalle Alpi.',
 };
 
 export default blogMetaIt;
