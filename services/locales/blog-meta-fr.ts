@@ -4520,6 +4520,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.title': 'Hockey NL / Psychodrame à Davos, le titre 2025-2026 au Gottéron',
     'blog.article.hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.excerpt': 'Le titre 2025-2026 de la Hockey NL a été attribué au Gottéron, avec Stefano Bottini de Lugano qui s\'est préparé pour le barrage.',
     'blog.article.hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.imageAlt': 'Locarno avec théâtre et lac',
+    'blog.article.made-in-switzerland-2026.title': 'Made in Suisse : changements en 2026',
+    'blog.article.made-in-switzerland-2026.excerpt': 'Nouvelles règles pour l\'utilisation de la croix suisse et du label \'Swiss Made\' à partir de 2026. Voici ce qui change pour les produits et les consommateurs',
+    'blog.article.made-in-switzerland-2026.imageAlt': 'Gros plan d\'un produit suisse avec l\'étiquette \'Swiss Made\' sur un marché du Tessin',
 };
 
 export default blogMetaFr;

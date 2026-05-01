@@ -2737,6 +2737,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ponte-maggio-villa-panza-laboratori-bambini': { name: 'Eventi culturali', path: '/articoli-frontaliere/ponte-maggio-villa-panza-laboratori-bambini', parent: 'blog' },
     'blog-furti-luoghi-culto-bellinzonese': { name: 'Furti nei luoghi di culto', path: '/articoli-frontaliere/furti-luoghi-culto-bellinzonese', parent: 'blog' },
     'blog-hockey-nl-psicodramma-davos-2025-2026-friborgogotteron': { name: 'Hockey Nl, Psicodramma Davos', path: '/articoli-frontaliere/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron', parent: 'blog' },
+    'blog-made-in-switzerland-2026': { name: 'Novità', path: '/articoli-frontaliere/made-in-switzerland-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

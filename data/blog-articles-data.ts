@@ -11558,4 +11558,11 @@ export const ARTICLES = [
  image: '/images/blog/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'made-in-switzerland-2026',
+ category: 'novita',
+ date: '2026-05-01T00:44:11.827Z',
+ image: '/images/blog/made-in-switzerland-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
