@@ -4568,6 +4568,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-fino-mornasco-30-aprile-2026.title': 'Incidente a Fino Mornasco: albero cade su auto, ferite mamma e bambina',
     'blog.article.incidente-fino-mornasco-30-aprile-2026.excerpt': 'Un albero marcio è caduto su un\'auto in corsa a Fino Mornasco, ferendo una mamma e sua figlia. Intervento dei vigili del fuoco e del 118.',
     'blog.article.incidente-fino-mornasco-30-aprile-2026.imageAlt': 'Incidente stradale con albero caduto su un\'auto a Fino Mornasco',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.title': 'Gottardo, caduto il primo diaframma del secondo tubo',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.excerpt': 'La fresa meccanica \'Alessandra\' ha abbattuto il primo diaframma a nord, a 4 km dall\'imbocco. Una pietra miliare per il progetto.',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.imageAlt': 'Vista aerea della regione del Gottardo in Ticino, Svizzera, con il paesaggio montano e le infrastrutture',
 };
 
 export default blogMetaIt;

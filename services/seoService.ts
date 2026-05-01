@@ -2753,6 +2753,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trump-riduce-truppe-italia-spagna': { name: 'Novità', path: '/articoli-frontaliere/trump-riduce-truppe-italia-spagna', parent: 'blog' },
     'blog-whisky-scozzese-dazi-trump-carlo-camilla': { name: 'Novità', path: '/articoli-frontaliere/whisky-scozzese-dazi-trump-carlo-camilla', parent: 'blog' },
     'blog-incidente-fino-mornasco-30-aprile-2026': { name: 'Incidente Fino Mornasco', path: '/articoli-frontaliere/incidente-fino-mornasco-30-aprile-2026', parent: 'blog' },
+    'blog-galleria-gottardo-secondo-tubo-2026': { name: 'Novità', path: '/articoli-frontaliere/galleria-gottardo-secondo-tubo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

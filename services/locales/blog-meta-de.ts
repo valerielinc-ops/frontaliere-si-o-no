@@ -4567,6 +4567,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-fino-mornasco-30-aprile-2026.title': 'Baum fällt auf Auto in Fino Mornasco: Mutter und Kind verletzt',
     'blog.article.incidente-fino-mornasco-30-aprile-2026.excerpt': 'Ein fauler Baum ist auf ein fahrendes Auto in Fino Mornasco gefallen und hat eine Mutter und ihre Tochter verletzt. Die Feuerwehr und der Rettungsdienst sind eingeschritten.',
     'blog.article.incidente-fino-mornasco-30-aprile-2026.imageAlt': 'Autounfall mit einem umgestürzten Baum auf einem Auto in Fino Mornasco',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.title': 'Gottardo: Erste Trennwand im zweiten Tunnel durchbrochen',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.excerpt': 'Die mechanische Fräse \'Alessandra\' hat die erste Trennwand im Norden, 4 km vom Eingang entfernt, durchbrochen. Ein Meilenstein für das Projekt.',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.imageAlt': 'Luftaufnahme der Gotthard-Region im Tessin, Schweiz, mit Berglandschaft und Infrastruktur',
 };
 
 export default blogMetaDe;

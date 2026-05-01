@@ -4567,6 +4567,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-fino-mornasco-30-aprile-2026.title': 'Tree falls on car in Fino Mornasco, injuring mother and child',
     'blog.article.incidente-fino-mornasco-30-aprile-2026.excerpt': 'A rotten tree fell on a moving car in Fino Mornasco, injuring a mother and her daughter. Firefighters and emergency services intervened.',
     'blog.article.incidente-fino-mornasco-30-aprile-2026.imageAlt': 'Car accident with a fallen tree on a car in Fino Mornasco',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.title': 'Gottardo, first diaphragm of second tube down',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.excerpt': 'The mechanical cutter \'Alessandra\' has demolished the first diaphragm to the north, 4 km from the entrance. A milestone for the project.',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.imageAlt': 'Aerial view of the Gotthard region in Ticino, Switzerland, with the mountain landscape and infrastructure',
 };
 
 export default blogMetaEn;

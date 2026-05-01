@@ -4568,6 +4568,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-fino-mornasco-30-aprile-2026.title': 'Un arbre tombe sur une voiture à Fino Mornasco, une mère et sa fille blessées',
     'blog.article.incidente-fino-mornasco-30-aprile-2026.excerpt': 'Un arbre pourri est tombé sur une voiture en mouvement à Fino Mornasco, blessant une mère et sa fille. Intervention des pompiers et du 118.',
     'blog.article.incidente-fino-mornasco-30-aprile-2026.imageAlt': 'Accident de voiture avec un arbre tombé sur une voiture à Fino Mornasco',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.title': 'Gottardo, premier diaphragme du deuxième tube abattu',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.excerpt': 'La fraise mécanique \'Alessandra\' a abattu le premier diaphragme au nord, à 4 km de l\'entrée. Une étape importante pour le projet.',
+    'blog.article.galleria-gottardo-secondo-tubo-2026.imageAlt': 'Vue aérienne de la région du Gothard au Tessin, Suisse, avec le paysage montagneux et les infrastructures',
 };
 
 export default blogMetaFr;

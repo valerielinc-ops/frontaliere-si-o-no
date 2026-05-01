@@ -31127,6 +31127,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-galleria-gottardo-secondo-tubo-2026': {
+    title: 'Gottardo, caduto il primo diaframma del secondo tubo',
+    description: 'La fresa meccanica \'Alessandra\' ha abbattuto il primo diaframma a nord, a 4 km dall\'imbocco. Una pietra miliare per il progetto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gottardo, caduto, primo, diaframma',
+    ogTitle: 'Gottardo, caduto il primo diaframma del secondo tubo',
+    ogDescription: 'La fresa meccanica \'Alessandra\' ha abbattuto il primo diaframma a nord, a 4 km dall\'imbocco. Una pietra miliare per il progetto.',
+    canonicalPath: '/articoli-frontaliere/galleria-gottardo-secondo-tubo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gottardo, caduto il primo diaframma del secondo tubo",
+      "description": "La fresa meccanica 'Alessandra' ha abbattuto il primo diaframma a nord, a 4 km dall'imbocco. Una pietra miliare per il progetto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/galleria-gottardo-secondo-tubo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della regione del Gottardo in Ticino, Svizzera, con il paesaggio montano e le infrastrutture"
+      },
+      "datePublished": "2026-05-01T03:53:08+00:00",
+      "dateModified": "2026-05-01T03:53:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/galleria-gottardo-secondo-tubo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

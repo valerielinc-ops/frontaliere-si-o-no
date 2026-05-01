@@ -11670,4 +11670,11 @@ export const ARTICLES = [
  image: '/images/blog/incidente-fino-mornasco-30-aprile-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'galleria-gottardo-secondo-tubo-2026',
+ category: 'novita',
+ date: '2026-05-01T03:53:08.605Z',
+ image: '/images/blog/galleria-gottardo-secondo-tubo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
