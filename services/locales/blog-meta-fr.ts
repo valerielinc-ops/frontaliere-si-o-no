@@ -4832,6 +4832,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.balerna-consiglio-comunale-centenario.title': 'Balerna célèbre 100 ans du Conseil communal',
     'blog.article.balerna-consiglio-comunale-centenario.excerpt': 'Le conseil communal de Balerna fête son centenaire avec une célébration dédiée à ceux qui ont travaillé pour la commune.',
     'blog.article.balerna-consiglio-comunale-centenario.imageAlt': 'Bâtiment historique à Balerna avec des décorations pour le centenaire du conseil municipal',
+    'blog.article.confsal-manifesto-lavoro-dignita-salari.title': 'Confsal lance un manifeste pour le travail : dignité et droits',
+    'blog.article.confsal-manifesto-lavoro-dignita-salari.excerpt': 'Le 1er mai, la Confsal a présenté son manifeste pour le travail à Naples, soulignant la nécessité de dignité, de salaires équitables et de droits pour les travailleurs.',
+    'blog.article.confsal-manifesto-lavoro-dignita-salari.imageAlt': 'Vue aérienne de Lugano, Suisse, avec le lac de Lugano et le paysage urbain en arrière-plan. Ciel bleu clair, journée ensoleillée.',
 };
 
 export default blogMetaFr;

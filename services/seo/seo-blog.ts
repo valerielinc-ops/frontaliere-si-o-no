@@ -33679,6 +33679,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confsal-manifesto-lavoro-dignita-salari': {
+    title: 'Confsal lancia manifesto del lavoro: dignità, salari e diritti al centro',
+    description: 'Il 1 maggio, la Confsal ha presentato il suo manifesto del lavoro a Napoli, evidenziando la necessità di dignità, salari equi e diritti per i lavoratori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, confsal, lancia, manifesto, lavoro',
+    ogTitle: 'Confsal lancia manifesto del lavoro: dignità, salari e diritti al centro',
+    ogDescription: 'Il 1 maggio, la Confsal ha presentato il suo manifesto del lavoro a Napoli, evidenziando la necessità di dignità, salari equi e diritti per i lavoratori.',
+    canonicalPath: '/articoli-frontaliere/confsal-manifesto-lavoro-dignita-salari',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confsal lancia manifesto del lavoro: dignità, salari e diritti al centro",
+      "description": "Il 1 maggio, la Confsal ha presentato il suo manifesto del lavoro a Napoli, evidenziando la necessità di dignità, salari equi e diritti per i lavoratori.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/confsal-manifesto-lavoro-dignita-salari.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano, Svizzera, con il lago di Lugano e il paesaggio urbano sullo sfondo. Cielo azzurro limpido, giornata di sole."
+      },
+      "datePublished": "2026-05-01T17:09:50+00:00",
+      "dateModified": "2026-05-01T17:09:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confsal-manifesto-lavoro-dignita-salari`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

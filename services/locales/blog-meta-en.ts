@@ -4831,6 +4831,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.balerna-consiglio-comunale-centenario.title': 'Balerna celebrates 100 years of municipal council',
     'blog.article.balerna-consiglio-comunale-centenario.excerpt': 'The municipal council of Balerna is celebrating its centenary with an event dedicated to those who have worked for the town.',
     'blog.article.balerna-consiglio-comunale-centenario.imageAlt': 'Historic building in Balerna with decorations for the 100th anniversary of the municipal council',
+    'blog.article.confsal-manifesto-lavoro-dignita-salari.title': 'Confsal unveils work manifesto: dignity, wages and rights at its core',
+    'blog.article.confsal-manifesto-lavoro-dignita-salari.excerpt': 'On May 1st, Confsal presented its work manifesto in Naples, highlighting the need for dignity, fair wages and rights for workers.',
+    'blog.article.confsal-manifesto-lavoro-dignita-salari.imageAlt': 'Aerial view of Lugano, Switzerland, with Lake Lugano and the cityscape in the background. Clear blue sky, sunny day.',
 };
 
 export default blogMetaEn;

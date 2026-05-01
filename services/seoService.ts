@@ -2841,6 +2841,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mezzi-pesanti-biandronno-2026': { name: 'Novità', path: '/articoli-frontaliere/mezzi-pesanti-biandronno-2026', parent: 'blog' },
     'blog-trump-dazi-ue-frontalieri-ticino': { name: 'Dazi Trump', path: '/articoli-frontaliere/trump-dazi-ue-frontalieri-ticino', parent: 'blog' },
     'blog-balerna-consiglio-comunale-centenario': { name: 'Novità', path: '/articoli-frontaliere/balerna-consiglio-comunale-centenario', parent: 'blog' },
+    'blog-confsal-manifesto-lavoro-dignita-salari': { name: 'Manifesto Confsal', path: '/articoli-frontaliere/confsal-manifesto-lavoro-dignita-salari', parent: 'blog' },
  };
 
  const info = sectionNames[section];

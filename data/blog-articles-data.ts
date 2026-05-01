@@ -12286,4 +12286,11 @@ export const ARTICLES = [
  image: '/images/blog/balerna-consiglio-comunale-centenario.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'confsal-manifesto-lavoro-dignita-salari',
+ category: 'novita',
+ date: '2026-05-01T17:09:50.309Z',
+ image: '/images/blog/confsal-manifesto-lavoro-dignita-salari.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
