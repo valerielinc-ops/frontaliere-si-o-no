@@ -4763,6 +4763,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.142-violenza-ticino-2026.title': 'Il 142 è attivo: una telefonata per rompere il silenzio sulla violenza',
     'blog.article.142-violenza-ticino-2026.excerpt': 'Da oggi in tutta la Svizzera è attivo il numero 142 per vittime di violenza. Scopri come funziona e chi può aiutarti.',
     'blog.article.142-violenza-ticino-2026.imageAlt': 'LAC Lugano Arts Center con vista sulla città',
+    'blog.article.primo-maggio-2026-traffico-gottardo.title': 'Primo Maggio 2026: 10 km di coda al Gottardo',
+    'blog.article.primo-maggio-2026-traffico-gottardo.excerpt': 'Code di 10 km al portale nord del San Gottardo, rallentamenti anche a Chiasso e Brogeda. Ecco cosa sapere per chi viaggia.',
+    'blog.article.primo-maggio-2026-traffico-gottardo.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

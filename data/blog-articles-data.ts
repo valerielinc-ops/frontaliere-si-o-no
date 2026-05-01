@@ -12125,4 +12125,11 @@ export const ARTICLES = [
  image: '/images/blog/142-violenza-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-2026-traffico-gottardo',
+ category: 'pratico',
+ date: '2026-05-01T13:16:11.143Z',
+ image: '/images/blog/primo-maggio-2026-traffico-gottardo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

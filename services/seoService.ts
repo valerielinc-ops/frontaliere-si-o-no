@@ -2818,6 +2818,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-cantu-due-feriti': { name: 'Incidente Cantù', path: '/articoli-frontaliere/incidente-cantu-due-feriti', parent: 'blog' },
     'blog-primo-maggio-torino-tensioni-askatasuna': { name: 'Novità', path: '/articoli-frontaliere/primo-maggio-torino-tensioni-askatasuna', parent: 'blog' },
     'blog-142-violenza-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/142-violenza-ticino-2026', parent: 'blog' },
+    'blog-primo-maggio-2026-traffico-gottardo': { name: 'Primo Maggio 2026', path: '/articoli-frontaliere/primo-maggio-2026-traffico-gottardo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

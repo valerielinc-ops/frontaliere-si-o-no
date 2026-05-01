@@ -4763,6 +4763,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.142-violenza-ticino-2026.title': 'Le 142 est actif : un appel pour briser le silence sur la violence',
     'blog.article.142-violenza-ticino-2026.excerpt': 'Dès aujourd\'hui, le numéro 142 est actif dans toute la Suisse pour les victimes de violence. Découvrez comment cela fonctionne et qui peut vous aider.',
     'blog.article.142-violenza-ticino-2026.imageAlt': 'LAC Lugano Arts Center avec vue sur la ville',
+    'blog.article.primo-maggio-2026-traffico-gottardo.title': '1er mai 2026 : 10 km d\'embouteillage au Gothard',
+    'blog.article.primo-maggio-2026-traffico-gottardo.excerpt': 'Embouteillages de 10 km au portail nord du Gothard, ralentissements également à Chiasso et Brogeda. Voici ce qu\'il faut savoir pour les voyageurs.',
+    'blog.article.primo-maggio-2026-traffico-gottardo.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
