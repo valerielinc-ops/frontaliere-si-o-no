@@ -33534,6 +33534,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-zurigo-basilea-2026': {
+    title: 'Primo maggio 2026: migliaia in piazza a Zurigo e Basilea',
+    description: 'Manifestazioni pacifiche a Zurigo e Basilea con 15\'000 e 2\'500 partecipanti, rispettivamente. Isolati atti di vandalismo e critiche alla gestione della sanità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, migliaia, piazza',
+    ogTitle: 'Primo maggio 2026: migliaia in piazza a Zurigo e Basilea',
+    ogDescription: 'Manifestazioni pacifiche a Zurigo e Basilea con 15\'000 e 2\'500 partecipanti, rispettivamente. Isolati atti di vandalismo e critiche alla gestione della sanità.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-zurigo-basilea-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Manifestazioni del Primo maggio 2026 a Zurigo e Basilea: migliaia in piazza, critiche alla sanità e alla gestione della manodopera",
+      "description": "Manifestazioni pacifiche a Zurigo e Basilea con 15'000 e 2'500 partecipanti, rispettivamente. Isolati atti di vandalismo e critiche alla gestione della sanità.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-zurigo-basilea-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione del Primo maggio a Zurigo con migliaia di persone in marcia"
+      },
+      "datePublished": "2026-05-01T16:20:47+00:00",
+      "dateModified": "2026-05-01T16:20:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-zurigo-basilea-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

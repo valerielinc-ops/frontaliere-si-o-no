@@ -4817,6 +4817,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.radar-ticino-velocita-2026.title': 'Radars actifs: où du 4 au 10 mai',
     'blog.article.radar-ticino-velocita-2026.excerpt': 'La police cantonale annonce des contrôles de vitesse dans diverses localités du Tessin du 4 au 10 mai 2026.',
     'blog.article.radar-ticino-velocita-2026.imageAlt': 'Radars routiers au Tessin, contrôle de vitesse',
+    'blog.article.primo-maggio-zurigo-basilea-2026.title': '1er mai 2026: des milliers en place à Zurich et Bâle',
+    'blog.article.primo-maggio-zurigo-basilea-2026.excerpt': 'Manifestations pacifiques à Zurich et Bâle avec 15\'000 et 2\'500 participants, respectivement. Isolés actes de vandalisme et critiques à la gestion de la santé.',
+    'blog.article.primo-maggio-zurigo-basilea-2026.imageAlt': 'Manifestation du 1er mai à Zurich avec des milliers de personnes en marche',
 };
 
 export default blogMetaFr;

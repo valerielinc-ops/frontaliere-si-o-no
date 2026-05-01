@@ -4817,6 +4817,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.radar-ticino-velocita-2026.title': 'Radar sempre attivi: ecco dove dal 4 al 10 maggio',
     'blog.article.radar-ticino-velocita-2026.excerpt': 'La Polizia cantonale annuncia controlli della velocità in diverse località del Ticino dal 4 al 10 maggio 2026.',
     'blog.article.radar-ticino-velocita-2026.imageAlt': 'Radar stradali in Ticino, controllo velocità',
+    'blog.article.primo-maggio-zurigo-basilea-2026.title': 'Primo maggio 2026: migliaia in piazza a Zurigo e Basilea',
+    'blog.article.primo-maggio-zurigo-basilea-2026.excerpt': 'Manifestazioni pacifiche a Zurigo e Basilea con 15\'000 e 2\'500 partecipanti, rispettivamente. Isolati atti di vandalismo e critiche alla gestione della sanità.',
+    'blog.article.primo-maggio-zurigo-basilea-2026.imageAlt': 'Manifestazione del Primo maggio a Zurigo con migliaia di persone in marcia',
 };
 
 export default blogMetaIt;

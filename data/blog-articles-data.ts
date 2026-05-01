@@ -12251,4 +12251,11 @@ export const ARTICLES = [
  image: '/images/blog/radar-ticino-velocita-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-zurigo-basilea-2026',
+ category: 'novita',
+ date: '2026-05-01T16:20:47.042Z',
+ image: '/images/blog/primo-maggio-zurigo-basilea-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

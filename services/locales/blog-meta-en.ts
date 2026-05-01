@@ -4816,6 +4816,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.radar-ticino-velocita-2026.title': 'Radar always active: where from 4 to 10 May',
     'blog.article.radar-ticino-velocita-2026.excerpt': 'The cantonal police announce speed checks in various locations in Ticino from 4 to 10 May 2026.',
     'blog.article.radar-ticino-velocita-2026.imageAlt': 'Road radars in Ticino, speed control',
+    'blog.article.primo-maggio-zurigo-basilea-2026.title': 'May 1st 2026: thousands protest in Zurich and Basel',
+    'blog.article.primo-maggio-zurigo-basilea-2026.excerpt': 'Peaceful demonstrations in Zurich and Basel with 15,000 and 2,500 participants, respectively. Isolated acts of vandalism and criticism of healthcare management.',
+    'blog.article.primo-maggio-zurigo-basilea-2026.imageAlt': 'May Day demonstration in Zurich with thousands of people marching',
 };
 
 export default blogMetaEn;
