@@ -12496,4 +12496,11 @@ export const ARTICLES = [
  image: '/images/blog/tragedia-vico-morcote-bimbo-piscina.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'crans-montana-soccorso-denunciato',
+ category: 'novita',
+ date: '2026-05-01T21:41:24.360Z',
+ image: '/images/blog/crans-montana-soccorso-denunciato.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4922,6 +4922,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tragedia-vico-morcote-bimbo-piscina.title': 'Tragedia a Vico Morcote: bimbo di due anni annega in piscina',
     'blog.article.tragedia-vico-morcote-bimbo-piscina.excerpt': 'Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La tragedia si è verificata in una villa privata.',
     'blog.article.tragedia-vico-morcote-bimbo-piscina.imageAlt': 'Villa a Vico Morcote con piscina e vista sul Lago di Lugano',
+    'blog.article.crans-montana-soccorso-denunciato.title': 'Crans-Montana, denunciata l\'Organizzazione cantonale di soccorso',
+    'blog.article.crans-montana-soccorso-denunciato.excerpt': 'Indagine aperta sul dispositivo di intervento dopo l\'incendio del bar Le Constellation. Avvocati delle vittime denunciano carenze',
+    'blog.article.crans-montana-soccorso-denunciato.imageAlt': 'Vista aerea di Crans-Montana, Svizzera, con i soccorsi attivi dopo l\'incendio',
 };
 
 export default blogMetaIt;

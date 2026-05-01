@@ -4921,6 +4921,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tragedia-vico-morcote-bimbo-piscina.title': 'Tragedy in Vico Morcote: 2-year-old drowns in pool',
     'blog.article.tragedia-vico-morcote-bimbo-piscina.excerpt': 'A two-year-old child has lost their life in a pool accident in Vico Morcote. The tragedy occurred in a private villa.',
     'blog.article.tragedia-vico-morcote-bimbo-piscina.imageAlt': 'Villa in Vico Morcote with pool and view of Lake Lugano',
+    'blog.article.crans-montana-soccorso-denunciato.title': 'Crans-Montana, rescue organization reported',
+    'blog.article.crans-montana-soccorso-denunciato.excerpt': 'Investigation opened into response system after Le Constellation bar fire. Victims\' lawyers report shortcomings',
+    'blog.article.crans-montana-soccorso-denunciato.imageAlt': 'Aerial view of Crans-Montana, Switzerland, with emergency services active after the fire',
 };
 
 export default blogMetaEn;

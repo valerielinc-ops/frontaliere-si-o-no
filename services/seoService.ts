@@ -2871,6 +2871,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sindacati-ticino-1-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/sindacati-ticino-1-maggio-2026', parent: 'blog' },
     'blog-polizia-ticino-abbandono-progetto-2026': { name: 'Novità', path: '/articoli-frontaliere/polizia-ticino-abbandono-progetto-2026', parent: 'blog' },
     'blog-tragedia-vico-morcote-bimbo-piscina': { name: 'Tragedia Vico Morcote', path: '/articoli-frontaliere/tragedia-vico-morcote-bimbo-piscina', parent: 'blog' },
+    'blog-crans-montana-soccorso-denunciato': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-soccorso-denunciato', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -34549,6 +34549,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-soccorso-denunciato': {
+    title: 'Crans-Montana, denunciata l\'Organizzazione cantonale di soccorso',
+    description: 'Indagine aperta sul dispositivo di intervento dopo l\'incendio del bar Le Constellation. Avvocati delle vittime denunciano carenze. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, denunciata, organizzazione, cantonale',
+    ogTitle: 'Crans-Montana, denunciata l\'Organizzazione cantonale di soccorso',
+    ogDescription: 'Indagine aperta sul dispositivo di intervento dopo l\'incendio del bar Le Constellation. Avvocati delle vittime denunciano carenze',
+    canonicalPath: '/articoli-frontaliere/crans-montana-soccorso-denunciato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana, denunciata l'Organizzazione cantonale di soccorso",
+      "description": "Indagine aperta sul dispositivo di intervento dopo l'incendio del bar Le Constellation. Avvocati delle vittime denunciano carenze. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-soccorso-denunciato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Crans-Montana, Svizzera, con i soccorsi attivi dopo l'incendio"
+      },
+      "datePublished": "2026-05-01T21:41:24+00:00",
+      "dateModified": "2026-05-01T21:41:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-soccorso-denunciato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
