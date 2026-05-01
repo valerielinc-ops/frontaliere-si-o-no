@@ -11600,4 +11600,11 @@ export const ARTICLES = [
  image: '/images/blog/nomina-docenti-comunali-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cardano-settimana-ecologica-raee-2026',
+ category: 'pratico',
+ date: '2026-05-01T01:58:00.058Z',
+ image: '/images/blog/cardano-settimana-ecologica-raee-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

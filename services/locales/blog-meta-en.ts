@@ -4537,6 +4537,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nomina-docenti-comunali-ticino-2026.title': 'Appointments for part-time municipal teachers too',
     'blog.article.nomina-docenti-comunali-ticino-2026.excerpt': 'Cantonal legislative change extends appointments to teachers with less than 50% employment, job stability guaranteed from 1 August 2026',
     'blog.article.nomina-docenti-comunali-ticino-2026.imageAlt': 'LAC Lugano lake view',
+    'blog.article.cardano-settimana-ecologica-raee-2026.title': 'Cardano al Campo: 2026 Eco Week focuses on WEEE recycling',
+    'blog.article.cardano-settimana-ecologica-raee-2026.excerpt': 'From May 5th to 9th, Cardano al Campo promotes the recycling of electrical waste with events and collections. Goal: to improve WEEE collection, currently below 1%.',
+    'blog.article.cardano-settimana-ecologica-raee-2026.imageAlt': 'Volunteers and residents in Cardano al Campo collecting electronic waste during the 2026 Ecological Week',
 };
 
 export default blogMetaEn;

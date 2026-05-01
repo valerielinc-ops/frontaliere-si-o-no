@@ -30837,6 +30837,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cardano-settimana-ecologica-raee-2026': {
+    title: 'Cardano al Campo: Settimana Ecologica 2026 punta sul riciclo dei Raee',
+    description: 'Dal 5 al 9 maggio 2026, Cardano al Campo promuove il riciclo dei rifiuti elettrici con eventi e raccolte. Focus sui Raee, obiettivo: migliorare la raccolta',
+    keywords: 'frontalieri, ticino, svizzera, italia, cardano, campo, settimana, ecologica',
+    ogTitle: 'Cardano al Campo: Settimana Ecologica 2026 sul riciclo Raee',
+    ogDescription: 'Dal 5 al 9 maggio 2026, Cardano al Campo promuove il riciclo dei rifiuti elettrici con eventi e raccolte. Focus sui Raee, obiettivo: migliorare la raccolta',
+    canonicalPath: '/articoli-frontaliere/cardano-settimana-ecologica-raee-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cardano al Campo: Settimana Ecologica 2026 sul riciclo Raee",
+      "description": "Dal 5 al 9 maggio 2026, Cardano al Campo promuove il riciclo dei rifiuti elettrici con eventi e raccolte. Focus sui Raee, obiettivo: migliorare la raccolta",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cardano-settimana-ecologica-raee-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Volontari e residenti a Cardano al Campo raccolgono rifiuti elettronici durante la Settimana Ecologica 2026"
+      },
+      "datePublished": "2026-05-01T01:58:00+00:00",
+      "dateModified": "2026-05-01T01:58:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cardano-settimana-ecologica-raee-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

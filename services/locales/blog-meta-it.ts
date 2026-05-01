@@ -4538,6 +4538,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nomina-docenti-comunali-ticino-2026.title': 'Nomina anche per i docenti comunali con impiego inferiore al 50%',
     'blog.article.nomina-docenti-comunali-ticino-2026.excerpt': 'Modifica legislativa cantonale estende la nomina ai docenti con impiego sotto il 50%, stabilità lavorativa garantita dal 1° agosto 2026',
     'blog.article.nomina-docenti-comunali-ticino-2026.imageAlt': 'LAC Lugano vista lago',
+    'blog.article.cardano-settimana-ecologica-raee-2026.title': 'Cardano al Campo: Settimana Ecologica 2026 punta sul riciclo dei Raee',
+    'blog.article.cardano-settimana-ecologica-raee-2026.excerpt': 'Dal 5 al 9 maggio, Cardano al Campo promuove il riciclo dei rifiuti elettrici con eventi e raccolte. Obiettivo: migliorare la raccolta Raee, oggi sotto l\'1%.',
+    'blog.article.cardano-settimana-ecologica-raee-2026.imageAlt': 'Volontari e residenti a Cardano al Campo raccolgono rifiuti elettronici durante la Settimana Ecologica 2026',
 };
 
 export default blogMetaIt;

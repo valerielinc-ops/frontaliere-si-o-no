@@ -4537,6 +4537,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nomina-docenti-comunali-ticino-2026.title': 'Auch Teilzeit-Lehrkräfte erhalten Anstellung',
     'blog.article.nomina-docenti-comunali-ticino-2026.excerpt': 'Kantonale Gesetzesänderung ermöglicht Anstellung für Lehrkräfte mit weniger als 50% Beschäftigung, ab dem 1. August 2026 Arbeitsplatzsicherheit garantiert',
     'blog.article.nomina-docenti-comunali-ticino-2026.imageAlt': 'LAC Lugano Seeblick',
+    'blog.article.cardano-settimana-ecologica-raee-2026.title': 'Cardano al Campo: Ökologische Woche 2026 fördert Elektroschrott-Recycling',
+    'blog.article.cardano-settimana-ecologica-raee-2026.excerpt': 'Vom 5. bis 9. Mai fördert Cardano al Campo das Recycling von Elektroschrott mit Veranstaltungen und Sammelaktionen. Ziel ist es, die Sammlung von Elektroschrott zu verbessern, die derzeit unter 1% liegt.',
+    'blog.article.cardano-settimana-ecologica-raee-2026.imageAlt': 'Frewillige und Einwohner von Cardano al Campo sammeln Elektronikschrott während der ökologischen Woche 2026',
 };
 
 export default blogMetaDe;

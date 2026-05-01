@@ -4538,6 +4538,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nomina-docenti-comunali-ticino-2026.title': 'Nomination également pour les enseignants communaux à moins de 50%',
     'blog.article.nomina-docenti-comunali-ticino-2026.excerpt': 'Modification législative cantonale étend la nomination aux enseignants avec un emploi inférieur à 50%, stabilité de l\'emploi garantie à partir du 1er août 2026',
     'blog.article.nomina-docenti-comunali-ticino-2026.imageAlt': 'LAC Lugano vue sur le lac',
+    'blog.article.cardano-settimana-ecologica-raee-2026.title': 'Cardano al Campo: Semaine écologique 2026 mise sur le recyclage des DEEE',
+    'blog.article.cardano-settimana-ecologica-raee-2026.excerpt': 'Du 5 au 9 mai, Cardano al Campo promeut le recyclage des déchets électriques avec des événements et des collectes. Objectif: améliorer la collecte des DEEE, aujourd\'hui inférieure à 1%.',
+    'blog.article.cardano-settimana-ecologica-raee-2026.imageAlt': 'Bénévoles et résidents de Cardano al Campo collectent des déchets électroniques lors de la Semaine Écologique 2026',
 };
 
 export default blogMetaFr;
