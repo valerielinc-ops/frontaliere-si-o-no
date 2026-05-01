@@ -4909,6 +4909,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.villaggio-angelo-busto-arsizio.title': 'Pain and closeness for Matteo and his family',
     'blog.article.villaggio-angelo-busto-arsizio.excerpt': 'The village of Busto Arsizio gathers around the family of Matteo, a 4-year-old boy who has gone missing, with pain and affection.',
     'blog.article.villaggio-angelo-busto-arsizio.imageAlt': 'Village of Busto Arsizio with a church and people gathered around',
+    'blog.article.chiese-ticino-derubate-2026.title': 'Two Romanians arrested for church thefts in Ticino and Graubünden',
+    'blog.article.chiese-ticino-derubate-2026.excerpt': 'Two Romanians arrested for thefts in six churches between Ticino and Graubünden. Learn about the investigation details and what to do if you\'ve been a victim of theft.',
+    'blog.article.chiese-ticino-derubate-2026.imageAlt': 'Aerial view of Claro and surrounding churches in Ticino',
 };
 
 export default blogMetaEn;

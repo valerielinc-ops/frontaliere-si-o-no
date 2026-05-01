@@ -4910,6 +4910,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.villaggio-angelo-busto-arsizio.title': 'Douleur et proximité pour Matteo et sa famille',
     'blog.article.villaggio-angelo-busto-arsizio.excerpt': 'Le village de Busto Arsizio se serre autour de la famille de Matteo, un enfant de 4 ans disparu, avec douleur et affection.',
     'blog.article.villaggio-angelo-busto-arsizio.imageAlt': 'Village de Busto Arsizio avec une église et des gens rassemblés',
+    'blog.article.chiese-ticino-derubate-2026.title': 'Deux Roumains arrêtés pour des vols dans des églises en Suisse',
+    'blog.article.chiese-ticino-derubate-2026.excerpt': 'Deux Roumains arrêtés pour des vols dans six églises entre le Tessin et les Grisons. Découvrez les détails de l\'enquête et ce qu\'il faut faire si vous avez été victime d\'un vol.',
+    'blog.article.chiese-ticino-derubate-2026.imageAlt': 'Vue aérienne de Claro et des églises environnantes dans le Tessin',
 };
 
 export default blogMetaFr;

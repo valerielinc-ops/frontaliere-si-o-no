@@ -34433,6 +34433,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiese-ticino-derubate-2026': {
+    title: 'Chiese derubate in Ticino e Graubünden: due rumeni arrestati',
+    description: 'Due rumeni arrestati per furti in sei chiese tra Ticino e Graubünden. Scopri i dettagli delle indagini e cosa fare se sei stato vittima di un furto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiese, derubate, graubünden, rumeni',
+    ogTitle: 'Chiese derubate in Ticino e Graubünden: due rumeni arrestati',
+    ogDescription: 'Due rumeni arrestati per furti in sei chiese tra Ticino e Graubünden. Scopri i dettagli delle indagini e cosa fare se sei stato vittima di un furto.',
+    canonicalPath: '/articoli-frontaliere/chiese-ticino-derubate-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiese derubate in Ticino e Graubünden: due rumeni arrestati",
+      "description": "Due rumeni arrestati per furti in sei chiese tra Ticino e Graubünden. Scopri i dettagli delle indagini e cosa fare se sei stato vittima di un furto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiese-ticino-derubate-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Claro e delle chiese circostanti in Ticino"
+      },
+      "datePublished": "2026-05-01T21:03:46+00:00",
+      "dateModified": "2026-05-01T21:03:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiese-ticino-derubate-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -12468,4 +12468,11 @@ export const ARTICLES = [
  image: '/images/blog/villaggio-angelo-busto-arsizio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'chiese-ticino-derubate-2026',
+ category: 'novita',
+ date: '2026-05-01T21:03:46.156Z',
+ image: '/images/blog/chiese-ticino-derubate-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4909,6 +4909,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.villaggio-angelo-busto-arsizio.title': 'Schmerz und Nähe für Matteo und seine Familie',
     'blog.article.villaggio-angelo-busto-arsizio.excerpt': 'Das Dorf Busto Arsizio schließt sich mit Schmerz und Zuneigung um die Familie von Matteo, einem verschwundenen 4-jährigen Jungen.',
     'blog.article.villaggio-angelo-busto-arsizio.imageAlt': 'Dorf Busto Arsizio mit einer Kirche und Menschen versammelt',
+    'blog.article.chiese-ticino-derubate-2026.title': 'Zwei Rumänen nach Kirchenraub in Ticino und Graubünden verhaftet',
+    'blog.article.chiese-ticino-derubate-2026.excerpt': 'Zwei Rumänen wurden wegen Diebstählen in sechs Kirchen zwischen Ticino und Graubünden festgenommen. Erfahren Sie mehr über die Ermittlungen und was zu tun ist, wenn Sie Opfer eines Diebstahls geworden sind.',
+    'blog.article.chiese-ticino-derubate-2026.imageAlt': 'Luftaufnahme von Claro und den umliegenden Kirchen in Ticino',
 };
 
 export default blogMetaDe;

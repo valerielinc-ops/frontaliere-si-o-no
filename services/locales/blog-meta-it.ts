@@ -4910,6 +4910,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.villaggio-angelo-busto-arsizio.title': 'Dolore e vicinanza per Matteo e la sua famiglia',
     'blog.article.villaggio-angelo-busto-arsizio.excerpt': 'Il villaggio di Busto Arsizio si stringe intorno alla famiglia di Matteo, un bambino di 4 anni scomparso, con dolore e affetto.',
     'blog.article.villaggio-angelo-busto-arsizio.imageAlt': 'Villaggio di Busto Arsizio con una chiesa e persone riunite intorno',
+    'blog.article.chiese-ticino-derubate-2026.title': 'Chiese derubate in Ticino e Graubünden: due rumeni arrestati',
+    'blog.article.chiese-ticino-derubate-2026.excerpt': 'Due rumeni arrestati per furti in sei chiese tra Ticino e Graubünden. Scopri i dettagli delle indagini e cosa fare se sei stato vittima di un furto.',
+    'blog.article.chiese-ticino-derubate-2026.imageAlt': 'Veduta aerea di Claro e delle chiese circostanti in Ticino',
 };
 
 export default blogMetaIt;
