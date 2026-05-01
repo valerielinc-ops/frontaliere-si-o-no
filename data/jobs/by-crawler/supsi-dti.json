@@ -1,10 +1,10 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-05-01T11:01:16.636Z",
+  "assembledAt": "2026-05-01T22:42:21.113Z",
   "jobs": [
     {
       "id": "company-l4u53j",
-      "slug": "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-lugano",
+      "slug": "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore nell’area delle architetture software per sistemi multi-agente",
       "location": "Lugano",
@@ -61,42 +61,12 @@
           "Il possesso di un Dottorato di ricerca (PhD) in Informatica, Ingegneria del Software o campo affine costituisce titolo preferenziale.",
           "La conoscenza di framework per lo sviluppo di backend quali Spring Boot, NestJS, FastAPI/Flask costituisce titolo preferenziale."
         ],
-        "en": [
-          "Master in Informatica, Ingegneria del Software, Computer Science o in un campo affine.",
-          "Buona conoscenza di almeno un linguaggio di programmazione tra Python, Java o TypeScript, con capacità di sviluppare software funzionale e manutenibile.",
-          "Buona conoscenza dei principi fondamentali di ingegneria del software, inclusi design pattern e architetture software.",
-          "Conoscenza o esperienza concreta con framework per sistemi multi-agente quali LangGraph, AutoGen, LangChain o equivalenti, e familiarità con i modelli linguistici di grandi dimensioni (LLM).",
-          "Familiarità con strumenti di versionamento (es. Git) e pratiche di sviluppo collaborativo del software.",
-          "Capacità di lavorare in modo autonomo e di gestire le attività in maniera efficiente per rispettare le scadenze di progetto.",
-          "Capacità di lavorare in modo collaborativo all’interno di team multidisciplinari e di apprendere autonomamente nuove tecnologie.",
-          "Il possesso di un Dottorato di ricerca (PhD) in Informatica, Ingegneria del Software o campo affine costituisce titolo preferenziale.",
-          "La conoscenza di framework per lo sviluppo di backend quali Spring Boot, NestJS, FastAPI/Flask costituisce titolo preferenziale."
-        ],
-        "de": [
-          "Master in Informatica, Ingegneria del Software, Computer Science o in un campo affine.",
-          "Buona conoscenza di almeno un linguaggio di programmazione tra Python, Java o TypeScript, con capacità di sviluppare software funzionale e manutenibile.",
-          "Buona conoscenza dei principi fondamentali di ingegneria del software, inclusi design pattern e architetture software.",
-          "Conoscenza o esperienza concreta con framework per sistemi multi-agente quali LangGraph, AutoGen, LangChain o equivalenti, e familiarità con i modelli linguistici di grandi dimensioni (LLM).",
-          "Familiarità con strumenti di versionamento (es. Git) e pratiche di sviluppo collaborativo del software.",
-          "Capacità di lavorare in modo autonomo e di gestire le attività in maniera efficiente per rispettare le scadenze di progetto.",
-          "Capacità di lavorare in modo collaborativo all’interno di team multidisciplinari e di apprendere autonomamente nuove tecnologie.",
-          "Il possesso di un Dottorato di ricerca (PhD) in Informatica, Ingegneria del Software o campo affine costituisce titolo preferenziale.",
-          "La conoscenza di framework per lo sviluppo di backend quali Spring Boot, NestJS, FastAPI/Flask costituisce titolo preferenziale."
-        ],
-        "fr": [
-          "Master in Informatica, Ingegneria del Software, Computer Science o in un campo affine.",
-          "Buona conoscenza di almeno un linguaggio di programmazione tra Python, Java o TypeScript, con capacità di sviluppare software funzionale e manutenibile.",
-          "Buona conoscenza dei principi fondamentali di ingegneria del software, inclusi design pattern e architetture software.",
-          "Conoscenza o esperienza concreta con framework per sistemi multi-agente quali LangGraph, AutoGen, LangChain o equivalenti, e familiarità con i modelli linguistici di grandi dimensioni (LLM).",
-          "Familiarità con strumenti di versionamento (es. Git) e pratiche di sviluppo collaborativo del software.",
-          "Capacità di lavorare in modo autonomo e di gestire le attività in maniera efficiente per rispettare le scadenze di progetto.",
-          "Capacità di lavorare in modo collaborativo all’interno di team multidisciplinari e di apprendere autonomamente nuove tecnologie.",
-          "Il possesso di un Dottorato di ricerca (PhD) in Informatica, Ingegneria del Software o campo affine costituisce titolo preferenziale.",
-          "La conoscenza di framework per lo sviluppo di backend quali Spring Boot, NestJS, FastAPI/Flask costituisce titolo preferenziale."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
-        "it": "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-lugano",
+        "it": "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-manno",
         "en": "researcher-researcher-in-the-area-of-software-architectures-for-multi-agent-systems-supsi-dti-lugano",
         "de": "forscher-forscher-im-bereich-softwarearchitekturen-fur-multiagente-systeme-supsi-dti-lugano",
         "fr": "chercheur-chercheur-dans-le-domaine-des-architectures-logicielles-pour-les-systemes-multi-agents-supsi-dti-lugano"
@@ -120,11 +90,19 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-lugano"
+      ]
     },
     {
       "id": "company-l4u53k",
-      "slug": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano",
+      "slug": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Assistente con Master nell’area del controllo intelligente per sistemi e reti",
       "location": "Lugano",
@@ -183,21 +161,11 @@
           "Experimental Master thesis.",
           "Open-source software development."
         ],
-        "de": [
-          "Background tecnico e competenze:",
-          "Laurea magistrale già conseguita in ingegneria meccanica, automazione o in un campo correlato, con una forte attenzione agli esoscheletri.",
-          "Competenza nelle aree indicate (design e controllo di esoscheletri, machine learning, visione artificiale, robotica).",
-          "Dimostrate capacità di programmazione in Python ed esperienza con librerie/framework pertinenti (ad esempio PyTorch, TensorFlow, ROS2)."
-        ],
-        "fr": [
-          "Background tecnico e competenze:",
-          "Laurea magistrale già conseguita in ingegneria meccanica, automazione o in un campo correlato, con una forte attenzione agli esoscheletri.",
-          "Competenza nelle aree indicate (design e controllo di esoscheletri, machine learning, visione artificiale, robotica).",
-          "Dimostrate capacità di programmazione in Python ed esperienza con librerie/framework pertinenti (ad esempio PyTorch, TensorFlow, ROS2)."
-        ]
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
-        "it": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano",
+        "it": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-manno",
         "en": "assistant-with-master-s-degree-in-the-area-of-intelligent-control-of-networked-systems-supsi-dti-lugano",
         "de": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano",
         "fr": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano"
@@ -221,7 +189,16 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano"
+      ]
     },
     {
       "id": "company-l4rl4l",
@@ -262,7 +239,7 @@
         "it": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
         "en": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-manno",
         "de": "doktorand-im-bereich-dynamik-fortgeschrittener-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio-grado-d",
-        "fr": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d"
+        "fr": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-manno"
       },
       "titleByLocale": {
         "en": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
@@ -306,28 +283,8 @@
           "Developing your skills to perform long-term scientific research, from literature research, over project planning, execution, data analysis and publication.",
           "Opportunities to present results at international conferences."
         ],
-        "de": [
-          "Requisiti essenziali",
-          "Laurea magistrale in Ingegneria Meccanica, Scienza dei materiali, Fisica, Ingegneria Civile, Ingegneria Strutturale o in una disciplina strettamente correlata.",
-          "Spiccato interesse per il comportamento dei materiali in condizioni dinamiche (ad esempio Split Hopkinson Bar).",
-          "Esperienza o attitudine nell’esecuzione di prove sperimentali, acquisizione/analisi dati, nella modellazione numerica (ad esempio Abaqus) e nella programmazione (ad esempio Matlab).",
-          "Curiosità scientifica, capacità di analisi e problem solving, e attitudine a lavorare sia in modo autonomo sia all’interno di un ambiente di ricerca interdisciplinare e internazionale.",
-          "Eccellente conoscenza della lingua inglese (scritta e parlata).",
-          "Requisiti preferenziali",
-          "La conoscenza di altre lingue costituisce un titolo preferenziale; la conoscenza dell’italiano è un vantaggio per la comunicazione all’interno del consorzio di progetto.",
-          "L’esperienza o la conoscenza nell’utilizzo della Split Hopkinson Tensile Bar (SHTB) è considerata un requisito aggiuntivo di valore."
-        ],
-        "fr": [
-          "Requisiti essenziali",
-          "Laurea magistrale in Ingegneria Meccanica, Scienza dei materiali, Fisica, Ingegneria Civile, Ingegneria Strutturale o in una disciplina strettamente correlata.",
-          "Spiccato interesse per il comportamento dei materiali in condizioni dinamiche (ad esempio Split Hopkinson Bar).",
-          "Esperienza o attitudine nell’esecuzione di prove sperimentali, acquisizione/analisi dati, nella modellazione numerica (ad esempio Abaqus) e nella programmazione (ad esempio Matlab).",
-          "Curiosità scientifica, capacità di analisi e problem solving, e attitudine a lavorare sia in modo autonomo sia all’interno di un ambiente di ricerca interdisciplinare e internazionale.",
-          "Eccellente conoscenza della lingua inglese (scritta e parlata).",
-          "Requisiti preferenziali",
-          "La conoscenza di altre lingue costituisce un titolo preferenziale; la conoscenza dell’italiano è un vantaggio per la comunicazione all’interno del consorzio di progetto.",
-          "L’esperienza o la conoscenza nell’utilizzo della Split Hopkinson Tensile Bar (SHTB) è considerata un requisito aggiuntivo di valore."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -358,7 +315,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl4k",
@@ -430,24 +388,8 @@
           "Excellent knowledge of the Italian language (spoken and written).",
           "Good knowledge of a second national language and English."
         ],
-        "de": [
-          "Master in ingegneria o scienze ambientali, Geo-scienze o discipline affini conseguito al massimo da tre anni.",
-          "Esperienza lavorativa nell’ambito dell’idrologia o delle scienze acquatiche o la tesi di master in tali discipline costituisce titolo preferenziale.",
-          "Buone conoscenze dei Sistemi Informativi Territoriali (GIS), ottime conoscenze del pacchetto office.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione ed alla multidisciplinarietà.",
-          "Flessibilità per il raggiungimento degli obiettivi e capacità di lavorare rispettando le scadenze stabilite.",
-          "Ottima conoscenza della lingua italiana (parlato e scritto).",
-          "Buona conoscenza della lingua di una seconda lingua nazionale e dell’inglese."
-        ],
-        "fr": [
-          "Master in ingegneria o scienze ambientali, Geo-scienze o discipline affini conseguito al massimo da tre anni.",
-          "Esperienza lavorativa nell’ambito dell’idrologia o delle scienze acquatiche o la tesi di master in tali discipline costituisce titolo preferenziale.",
-          "Buone conoscenze dei Sistemi Informativi Territoriali (GIS), ottime conoscenze del pacchetto office.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione ed alla multidisciplinarietà.",
-          "Flessibilità per il raggiungimento degli obiettivi e capacità di lavorare rispettando le scadenze stabilite.",
-          "Ottima conoscenza della lingua italiana (parlato e scritto).",
-          "Buona conoscenza della lingua di una seconda lingua nazionale e dell’inglese."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -479,7 +421,8 @@
         "it": [
           "assistente-con-master-in-idrologia-supsi-dti-mendrisio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-hm5vuy",
@@ -550,45 +493,9 @@
           "Conoscenza e relazioni con il settore disciplinare e professionale di riferimento a livello locale e/o nazionale.",
           "Esperienze e responsabilità nella ricerca nel settore disciplinare di riferimento."
         ],
-        "en": [
-          "Master in Ingegneria gestionale o discipline affini con almeno 5 anni di esperienza professionale dopo la fine degli studi, distribuita tra il settore aziendale e/o l’ambito accademico. Il dottorato di ricerca (PhD) nel settore disciplinare in oggetto costituisce titolo preferenziale.",
-          "Conoscenza dello stato dell’arte tecnico-scientifico e del contesto professionale delle discipline di riferimento.",
-          "Ottima conoscenza del sistema universitario e di formazione svizzero,",
-          "Comprovate esperienze nell’insegnamento e ottime valutazioni delle proprie attività di insegnamento.",
-          "Qualifica didattica o disponibilità a conseguirla entro 3 anni dall’entrata in servizio.",
-          "Autonomia, capacità di ascolto, ottime doti organizzative e gestionali.",
-          "Capacità relazionali, comunicative e di lavoro in team.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Ottima conoscenza dell’italiano e dell’inglese necessaria. La buona conoscenza del tedesco e/o del francese costituisce requisito preferenziale.",
-          "Conoscenza e relazioni con il settore disciplinare e professionale di riferimento a livello locale e/o nazionale.",
-          "Esperienze e responsabilità nella ricerca nel settore disciplinare di riferimento."
-        ],
-        "de": [
-          "Master in Ingegneria gestionale o discipline affini con almeno 5 anni di esperienza professionale dopo la fine degli studi, distribuita tra il settore aziendale e/o l’ambito accademico. Il dottorato di ricerca (PhD) nel settore disciplinare in oggetto costituisce titolo preferenziale.",
-          "Conoscenza dello stato dell’arte tecnico-scientifico e del contesto professionale delle discipline di riferimento.",
-          "Ottima conoscenza del sistema universitario e di formazione svizzero,",
-          "Comprovate esperienze nell’insegnamento e ottime valutazioni delle proprie attività di insegnamento.",
-          "Qualifica didattica o disponibilità a conseguirla entro 3 anni dall’entrata in servizio.",
-          "Autonomia, capacità di ascolto, ottime doti organizzative e gestionali.",
-          "Capacità relazionali, comunicative e di lavoro in team.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Ottima conoscenza dell’italiano e dell’inglese necessaria. La buona conoscenza del tedesco e/o del francese costituisce requisito preferenziale.",
-          "Conoscenza e relazioni con il settore disciplinare e professionale di riferimento a livello locale e/o nazionale.",
-          "Esperienze e responsabilità nella ricerca nel settore disciplinare di riferimento."
-        ],
-        "fr": [
-          "Master in Ingegneria gestionale o discipline affini con almeno 5 anni di esperienza professionale dopo la fine degli studi, distribuita tra il settore aziendale e/o l’ambito accademico. Il dottorato di ricerca (PhD) nel settore disciplinare in oggetto costituisce titolo preferenziale.",
-          "Conoscenza dello stato dell’arte tecnico-scientifico e del contesto professionale delle discipline di riferimento.",
-          "Ottima conoscenza del sistema universitario e di formazione svizzero,",
-          "Comprovate esperienze nell’insegnamento e ottime valutazioni delle proprie attività di insegnamento.",
-          "Qualifica didattica o disponibilità a conseguirla entro 3 anni dall’entrata in servizio.",
-          "Autonomia, capacità di ascolto, ottime doti organizzative e gestionali.",
-          "Capacità relazionali, comunicative e di lavoro in team.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Ottima conoscenza dell’italiano e dell’inglese necessaria. La buona conoscenza del tedesco e/o del francese costituisce requisito preferenziale.",
-          "Conoscenza e relazioni con il settore disciplinare e professionale di riferimento a livello locale e/o nazionale.",
-          "Esperienze e responsabilità nella ricerca nel settore disciplinare di riferimento."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -697,30 +604,8 @@
           "Strong publication record in fields such as privacy, machine learning, and/or natural language processing.",
           "Demonstrated ability to collaborate effectively in interdisciplinary and international teams."
         ],
-        "de": [
-          "Il/La candidato/a ideale soddisferà i seguenti requisiti essenziali:",
-          "Dottorato di Ricerca in Informatica, Data Science, Machine Learning o ambiti affini.",
-          "Esperienza comprovata con privacy-enhancing technologies e loro applicazione a modelli di machine learning.",
-          "Solida esperienza con framework di deep learning (es. PyTorch, TensorFlow) e strumenti di data science (es. NumPy, Pandas, Scikit-learn).",
-          "Ottima padronanza di linguaggi di programmazione, in particolare in Python, con familiarità con sistemi di controllo versione (es. Git).",
-          "Solida preparazione matematica, inclusi algebra lineare, teoria della probabilità, ottimizzazione e crittografia.",
-          "Conoscenza approfondita degli algoritmi di machine learning, con particolare attenzione ai modelli basati su transformer.",
-          "Capacità di lavorare in autonomia e di gestire scadenze e deliverable di progetto.",
-          "Storico di pubblicazioni in ambiti quali privacy, machine learning e/o elaborazione del linguaggio naturale.",
-          "Comprovata capacità di collaborare efficacemente in team interdisciplinari e internazionali."
-        ],
-        "fr": [
-          "Il/La candidato/a ideale soddisferà i seguenti requisiti essenziali:",
-          "Dottorato di Ricerca in Informatica, Data Science, Machine Learning o ambiti affini.",
-          "Esperienza comprovata con privacy-enhancing technologies e loro applicazione a modelli di machine learning.",
-          "Solida esperienza con framework di deep learning (es. PyTorch, TensorFlow) e strumenti di data science (es. NumPy, Pandas, Scikit-learn).",
-          "Ottima padronanza di linguaggi di programmazione, in particolare in Python, con familiarità con sistemi di controllo versione (es. Git).",
-          "Solida preparazione matematica, inclusi algebra lineare, teoria della probabilità, ottimizzazione e crittografia.",
-          "Conoscenza approfondita degli algoritmi di machine learning, con particolare attenzione ai modelli basati su transformer.",
-          "Capacità di lavorare in autonomia e di gestire scadenze e deliverable di progetto.",
-          "Storico di pubblicazioni in ambiti quali privacy, machine learning e/o elaborazione del linguaggio naturale.",
-          "Comprovata capacità di collaborare efficacemente in team interdisciplinari e internazionali."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -749,7 +634,8 @@
       },
       "previousSlugs": [
         "ricercatrice-ricercatore-con-phd-nell-area-del-privacy-preserving-data-processing-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti32",
@@ -810,30 +696,9 @@
           "dispone di consolidata reputazione personale e profonda conoscenza del territorio ticinese e del contesto politico-istituzionale di riferimento;",
           "è di lingua madre italiana e possiede un’ottima padronanza del francese e del tedesco; buone conoscenze dell’inglese."
         ],
-        "en": [
-          "possiede una laurea universitaria a livello master; il dottorato di ricerca costituisce titolo preferenziale;",
-          "vanta una significativa esperienza nella didattica e nella gestione accademica a livello terziario, in Svizzera e/o all’estero;",
-          "conosce in modo approfondito il sistema universitario svizzero, con particolare attenzione alle Scuole universitarie professionali e/o alle Alte scuole pedagogiche;",
-          "dimostra autorevolezza, capacità relazionali e di leadership in contesti pluridisciplinari, complessi e a responsabilità distribuite;",
-          "dispone di consolidata reputazione personale e profonda conoscenza del territorio ticinese e del contesto politico-istituzionale di riferimento;",
-          "è di lingua madre italiana e possiede un’ottima padronanza del francese e del tedesco; buone conoscenze dell’inglese."
-        ],
-        "de": [
-          "possiede una laurea universitaria a livello master; il dottorato di ricerca costituisce titolo preferenziale;",
-          "vanta una significativa esperienza nella didattica e nella gestione accademica a livello terziario, in Svizzera e/o all’estero;",
-          "conosce in modo approfondito il sistema universitario svizzero, con particolare attenzione alle Scuole universitarie professionali e/o alle Alte scuole pedagogiche;",
-          "dimostra autorevolezza, capacità relazionali e di leadership in contesti pluridisciplinari, complessi e a responsabilità distribuite;",
-          "dispone di consolidata reputazione personale e profonda conoscenza del territorio ticinese e del contesto politico-istituzionale di riferimento;",
-          "è di lingua madre italiana e possiede un’ottima padronanza del francese e del tedesco; buone conoscenze dell’inglese."
-        ],
-        "fr": [
-          "possiede una laurea universitaria a livello master; il dottorato di ricerca costituisce titolo preferenziale;",
-          "vanta una significativa esperienza nella didattica e nella gestione accademica a livello terziario, in Svizzera e/o all’estero;",
-          "conosce in modo approfondito il sistema universitario svizzero, con particolare attenzione alle Scuole universitarie professionali e/o alle Alte scuole pedagogiche;",
-          "dimostra autorevolezza, capacità relazionali e di leadership in contesti pluridisciplinari, complessi e a responsabilità distribuite;",
-          "dispone di consolidata reputazione personale e profonda conoscenza del territorio ticinese e del contesto politico-istituzionale di riferimento;",
-          "è di lingua madre italiana e possiede un’ottima padronanza del francese e del tedesco; buone conoscenze dell’inglese."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -907,9 +772,9 @@
       "firstSeenAt": "2026-04-15T10:45:06.975Z",
       "slugByLocale": {
         "it": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
-        "en": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
-        "de": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
-        "fr": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino"
+        "en": "apprentice-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
+        "de": "lernende-r-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
+        "fr": "apprenti-e-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno"
       },
       "titleByLocale": {
         "it": "Apprendista Operatrice Informatica / Operatore Informatico AFC",
@@ -932,38 +797,14 @@
           "buone capacità di comprensione, spirito metodico, accuratezza e precisione",
           "capacità di seguire istruzioni e portare a termine compiti"
         ],
-        "en": [
-          "licenza di scuola media",
-          "spiccato interesse per le materie scientifiche e ottimi risultati scolastici",
-          "attitudine al contatto con l’utente, capacità comunicative e orientamento al servizio",
-          "predisposizione al ragionamento logico, senso tecnico e buone capacità pratiche",
-          "buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "capacità di seguire istruzioni e portare a termine compiti"
-        ],
-        "de": [
-          "licenza di scuola media",
-          "spiccato interesse per le materie scientifiche e ottimi risultati scolastici",
-          "attitudine al contatto con l’utente, capacità comunicative e orientamento al servizio",
-          "predisposizione al ragionamento logico, senso tecnico e buone capacità pratiche",
-          "buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "capacità di seguire istruzioni e portare a termine compiti"
-        ],
-        "fr": [
-          "licenza di scuola media",
-          "spiccato interesse per le materie scientifiche e ottimi risultati scolastici",
-          "attitudine al contatto con l’utente, capacità comunicative e orientamento al servizio",
-          "predisposizione al ragionamento logico, senso tecnico e buone capacità pratiche",
-          "buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "capacità di seguire istruzioni e portare a termine compiti"
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "previousSlugs": [
         "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m",
         "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
-        "lernende-r-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m",
-        "apprentice-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
-        "lernende-r-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
-        "apprenti-e-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno"
+        "lernende-r-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m"
       ],
       "country": "CH",
       "sourceLang": "it",
@@ -987,18 +828,22 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m"
+          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m",
+          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino"
         ],
         "de": [
-          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m"
+          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m",
+          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino"
         ],
         "fr": [
-          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m"
+          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m",
+          "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino"
         ],
         "it": [
           "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti2z",
@@ -1062,36 +907,9 @@
           "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
           "Flessibilità rivolta al buon funzionamento del Servizio."
         ],
-        "en": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "de": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "fr": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",

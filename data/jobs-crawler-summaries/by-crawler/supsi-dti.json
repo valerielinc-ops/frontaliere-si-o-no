@@ -1,21 +1,21 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-05-01T11:01:16.638Z",
+  "generatedAt": "2026-05-01T22:42:21.114Z",
   "total": 9,
   "newCount": 9,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 73630,
-  "avgDurationMs": 73630,
+  "durationMs": 953032,
+  "avgDurationMs": 953032,
   "durationHistory": [
-    73630
+    953032
   ],
   "newJobs": [
     {
       "id": "company-l4u53j",
-      "slug": "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-lugano",
+      "slug": "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore nell’area delle architetture software per sistemi multi-agente",
       "location": "Lugano",
@@ -36,7 +36,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-05-01T11:00:24.529Z",
       "firstSeenAt": "2026-05-01T11:00:24.529Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -47,17 +46,17 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "company-l4u53k",
-      "slug": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano",
+      "slug": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Assistente con Master nell’area del controllo intelligente per sistemi e reti",
       "location": "Lugano",
@@ -78,7 +77,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-05-01T11:00:24.529Z",
       "firstSeenAt": "2026-05-01T11:00:24.529Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -89,6 +87,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -131,11 +130,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -214,7 +213,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -298,12 +296,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -382,12 +379,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-03-31T21:47:14.853Z",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     }
