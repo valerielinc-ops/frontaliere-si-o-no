@@ -12209,4 +12209,11 @@ export const ARTICLES = [
  image: '/images/blog/alta-mesolcina-sfida-movimento-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'flotilla-gaza-varese-presidio-montegrappa',
+ category: 'novita',
+ date: '2026-05-01T15:22:43.304Z',
+ image: '/images/blog/flotilla-gaza-varese-presidio-montegrappa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

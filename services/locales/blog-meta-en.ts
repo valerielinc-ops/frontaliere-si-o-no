@@ -4798,6 +4798,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.alta-mesolcina-sfida-movimento-2026.title': 'Lostallo, Soazza and Mesocco vie for most active municipality',
     'blog.article.alta-mesolcina-sfida-movimento-2026.excerpt': 'The three municipalities of Alta Mesolcina are participating in the \'Coop municipal challenge\' to promote physical activity during the month of May 2026.',
     'blog.article.alta-mesolcina-sfida-movimento-2026.imageAlt': 'Aerial view of the Alta Mesolcina region in Ticino, Switzerland, with mountains and valleys, clear blue sky, and people engaging in outdoor activities.',
+    'blog.article.flotilla-gaza-varese-presidio-montegrappa.title': 'Gaza flotilla intercepted, Varese solidarity protest',
+    'blog.article.flotilla-gaza-varese-presidio-montegrappa.excerpt': 'Solidarity protest in Varese for the flotilla intercepted by Israel. Turkey and Spain speak of piracy.',
+    'blog.article.flotilla-gaza-varese-presidio-montegrappa.imageAlt': 'Solidarity protest in Piazza Montegrappa, Varese',
 };
 
 export default blogMetaEn;

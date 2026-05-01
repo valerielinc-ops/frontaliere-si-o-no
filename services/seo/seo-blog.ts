@@ -33360,6 +33360,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-flotilla-gaza-varese-presidio-montegrappa': {
+    title: 'Flottila per Gaza intercettata, presidio a Varese | Frontaliere Ticino',
+    description: 'Presidio di solidarietà a Varese per la Flottila intercettata da Israele. Turchia e Spagna parlano di pirateria. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, flottila, gaza, intercettata, presidio',
+    ogTitle: 'Flottila per Gaza intercettata, presidio a Varese',
+    ogDescription: 'Presidio di solidarietà a Varese per la Flottila intercettata da Israele. Turchia e Spagna parlano di pirateria.',
+    canonicalPath: '/articoli-frontaliere/flotilla-gaza-varese-presidio-montegrappa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Flottila per Gaza intercettata, presidio a Varese",
+      "description": "Presidio di solidarietà a Varese per la Flottila intercettata da Israele. Turchia e Spagna parlano di pirateria. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/flotilla-gaza-varese-presidio-montegrappa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Presidio di solidarietà in piazza Montegrappa, Varese"
+      },
+      "datePublished": "2026-05-01T15:22:43+00:00",
+      "dateModified": "2026-05-01T15:22:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/flotilla-gaza-varese-presidio-montegrappa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

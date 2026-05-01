@@ -2830,6 +2830,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-canile-varese-duni-2026': { name: 'Nuovo canile Varese', path: '/articoli-frontaliere/nuovo-canile-varese-duni-2026', parent: 'blog' },
     'blog-festa-fritti-glam-varese-2026': { name: 'Eventi Varese', path: '/articoli-frontaliere/festa-fritti-glam-varese-2026', parent: 'blog' },
     'blog-alta-mesolcina-sfida-movimento-2026': { name: 'Novità', path: '/articoli-frontaliere/alta-mesolcina-sfida-movimento-2026', parent: 'blog' },
+    'blog-flotilla-gaza-varese-presidio-montegrappa': { name: 'Novità', path: '/articoli-frontaliere/flotilla-gaza-varese-presidio-montegrappa', parent: 'blog' },
  };
 
  const info = sectionNames[section];

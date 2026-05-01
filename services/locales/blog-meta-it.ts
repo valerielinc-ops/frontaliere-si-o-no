@@ -4799,6 +4799,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.alta-mesolcina-sfida-movimento-2026.title': 'Lostallo, Soazza e Mesocco per il titolo di comune più attivo',
     'blog.article.alta-mesolcina-sfida-movimento-2026.excerpt': 'I tre comuni dell\'Alta Mesolcina partecipano alla "Coop sfida fra comuni" per promuovere l\'attività fisica durante il mese di maggio 2026.',
     'blog.article.alta-mesolcina-sfida-movimento-2026.imageAlt': 'Vista aerea della regione dell\'Alta Mesolcina in Ticino, Svizzera, con montagne e valli, cielo azzurro limpido e persone che praticano attività all\'aperto.',
+    'blog.article.flotilla-gaza-varese-presidio-montegrappa.title': 'Flottila per Gaza intercettata, presidio a Varese',
+    'blog.article.flotilla-gaza-varese-presidio-montegrappa.excerpt': 'Presidio di solidarietà a Varese per la Flottila intercettata da Israele. Turchia e Spagna parlano di pirateria.',
+    'blog.article.flotilla-gaza-varese-presidio-montegrappa.imageAlt': 'Presidio di solidarietà in piazza Montegrappa, Varese',
 };
 
 export default blogMetaIt;

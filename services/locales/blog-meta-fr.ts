@@ -4799,6 +4799,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.alta-mesolcina-sfida-movimento-2026.title': 'Lostallo, Soazza et Mesocco pour le titre de commune la plus active',
     'blog.article.alta-mesolcina-sfida-movimento-2026.excerpt': 'Les trois communes de la Haute Mesolcina participent au défi "Coop défi entre communes" pour promouvoir l\'activité physique pendant le mois de mai 2026.',
     'blog.article.alta-mesolcina-sfida-movimento-2026.imageAlt': 'Vue aérienne de la région de l\'Alta Mesolcina dans le Tessin, Suisse, avec des montagnes et des vallées, un ciel bleu clair et des personnes pratiquant des activités de plein air.',
+    'blog.article.flotilla-gaza-varese-presidio-montegrappa.title': 'Flottille pour Gaza interceptée, rassemblement à Varèse',
+    'blog.article.flotilla-gaza-varese-presidio-montegrappa.excerpt': 'Rassemblement de solidarité à Varèse pour la flottille interceptée par Israël. La Turquie et l\'Espagne parlent de piraterie.',
+    'blog.article.flotilla-gaza-varese-presidio-montegrappa.imageAlt': 'Manifestation de solidarité à Piazza Montegrappa, Varese',
 };
 
 export default blogMetaFr;
