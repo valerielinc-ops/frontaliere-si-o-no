@@ -4736,6 +4736,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.jans-udc-iniziativa-10-milioni.title': 'Jans critique l\'initiative UDC: \'Risque pour la Suisse\'',
     'blog.article.jans-udc-iniziativa-10-milioni.excerpt': 'Le conseiller fédéral Jans critique l\'initiative UDC \'Non à une Suisse de 10 millions\', avertissant de graves conséquences pour le pays.',
     'blog.article.jans-udc-iniziativa-10-milioni.imageAlt': 'Le conseiller fédéral Beat Jans parle lors d\'une conférence de presse à Berne',
+    'blog.article.lago-maggiore-135-metri-frontalieri.title': 'Lac Majeur à +1,35 mètre: Gobbi, solution équilibrée',
+    'blog.article.lago-maggiore-135-metri-frontalieri.excerpt': 'Le conseiller d\'État tessinois Norman Gobbi commente l\'élévation du niveau maximal du lac Majeur à +1,35 mètre.',
+    'blog.article.lago-maggiore-135-metri-frontalieri.imageAlt': 'Vue du lac Majeur depuis la vallée de Verzasca, Tessin',
 };
 
 export default blogMetaFr;

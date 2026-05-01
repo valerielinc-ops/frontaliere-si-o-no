@@ -12062,4 +12062,11 @@ export const ARTICLES = [
  image: '/images/blog/jans-udc-iniziativa-10-milioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lago-maggiore-135-metri-frontalieri',
+ category: 'novita',
+ date: '2026-05-01T11:54:32.322Z',
+ image: '/images/blog/lago-maggiore-135-metri-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

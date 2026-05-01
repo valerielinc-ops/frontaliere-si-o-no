@@ -32751,6 +32751,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lago-maggiore-135-metri-frontalieri': {
+    title: 'Lago Maggiore a +1,35 metri: Gobbi, soluzione equilibrata',
+    description: 'Il consigliere di Stato ticinese Norman Gobbi commenta l\'innalzamento del livello massimo del lago Maggiore a +1,35 metri, definendolo una soluzione',
+    keywords: 'frontalieri, ticino, svizzera, italia, lago, maggiore, metri, gobbi',
+    ogTitle: 'Lago Maggiore a +1,35 metri: Gobbi, soluzione equilibrata',
+    ogDescription: 'Il consigliere di Stato ticinese Norman Gobbi commenta l\'innalzamento del livello massimo del lago Maggiore a +1,35 metri, definendolo una soluzione',
+    canonicalPath: '/articoli-frontaliere/lago-maggiore-135-metri-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lago Maggiore a +1,35 metri: Gobbi, soluzione equilibrata",
+      "description": "Il consigliere di Stato ticinese Norman Gobbi commenta l'innalzamento del livello massimo del lago Maggiore a +1,35 metri, definendolo una soluzione",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lago-maggiore-135-metri-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Maggiore vista da Valle Verzasca, Canton Ticino"
+      },
+      "datePublished": "2026-05-01T11:54:32+00:00",
+      "dateModified": "2026-05-01T11:54:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lago-maggiore-135-metri-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

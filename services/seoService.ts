@@ -2809,6 +2809,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gysin-candidata-capogruppo-verdi': { name: 'Novità', path: '/articoli-frontaliere/gysin-candidata-capogruppo-verdi', parent: 'blog' },
     'blog-sesto-calende-strade-cantieri-2026': { name: 'Pratico', path: '/articoli-frontaliere/sesto-calende-strade-cantieri-2026', parent: 'blog' },
     'blog-jans-udc-iniziativa-10-milioni': { name: 'Novità', path: '/articoli-frontaliere/jans-udc-iniziativa-10-milioni', parent: 'blog' },
+    'blog-lago-maggiore-135-metri-frontalieri': { name: 'Lago Maggiore', path: '/articoli-frontaliere/lago-maggiore-135-metri-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
