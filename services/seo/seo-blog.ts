@@ -30576,6 +30576,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ponte-maggio-villa-panza-laboratori-bambini': {
+    title: 'Ponte del Primo Maggio a Villa Panza: visite guidate e laboratori per bambini',
+    description: 'Dal 1 al 3 maggio 2026, Villa Panza di Varese ospita visite guidate e laboratori creativi per bambini ispirati all\'artista Josef Albers. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, ponte, primo, maggio, villa',
+    ogTitle: 'Ponte del Primo Maggio a Villa Panza: visite guidate e laboratori per bambini',
+    ogDescription: 'Dal 1 al 3 maggio 2026, Villa Panza di Varese ospita visite guidate e laboratori creativi per bambini ispirati all\'artista Josef Albers.',
+    canonicalPath: '/articoli-frontaliere/ponte-maggio-villa-panza-laboratori-bambini',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ponte del Primo Maggio a Villa Panza: visite guidate e laboratori per bambini",
+      "description": "Dal 1 al 3 maggio 2026, Villa Panza di Varese ospita visite guidate e laboratori creativi per bambini ispirati all'artista Josef Albers. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ponte-maggio-villa-panza-laboratori-bambini.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Panza di Varese con bambini che partecipano a laboratori artistici"
+      },
+      "datePublished": "2026-05-01T00:01:31+00:00",
+      "dateModified": "2026-05-01T00:01:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ponte-maggio-villa-panza-laboratori-bambini`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -4511,6 +4511,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ponte-brivio-cantiere-14-milioni.title': 'Pont de Brivio : 14 millions pour la rénovation, retards jusqu\'à 40 minutes',
     'blog.article.ponte-brivio-cantiere-14-milioni.excerpt': 'Le chantier du pont de Brivio, avec un investissement de 14 millions, causera des désagréments allant jusqu\'à 40 minutes de retard pour les déplacements.',
     'blog.article.ponte-brivio-cantiere-14-milioni.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bâtiments',
+    'blog.article.ponte-maggio-villa-panza-laboratori-bambini.title': 'Pont du 1er mai à Villa Panza: visites guidées et ateliers pour enfants',
+    'blog.article.ponte-maggio-villa-panza-laboratori-bambini.excerpt': 'Du 1er au 3 mai 2026, Villa Panza de Varèse accueille des visites guidées et des ateliers créatifs pour enfants inspirés par l\'artiste Josef Albers.',
+    'blog.article.ponte-maggio-villa-panza-laboratori-bambini.imageAlt': 'Villa Panza à Varèse avec des enfants participant à des ateliers d\'art',
 };
 
 export default blogMetaFr;

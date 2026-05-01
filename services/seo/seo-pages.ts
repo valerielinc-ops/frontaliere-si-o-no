@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1553,
+ "numberOfItems": 1554,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6188,7 +6188,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1550, "name": "Piano Casa Meloni: via libera al decreto per l'...", "url": `${BASE_URL}/articoli-frontaliere/piano-casa-meloni-emergenza-abitativa` },
           { "@type": "ListItem", "position": 1551, "name": "Targhe personalizzabili in Svizzera: approvata ...", "url": `${BASE_URL}/articoli-frontaliere/targhe-personalizzabili-quadri-approvazione` },
           { "@type": "ListItem", "position": 1552, "name": "Trenord, 17 linee con diritto all'indennizzo: p...", "url": `${BASE_URL}/articoli-frontaliere/trenord-indennizzi-pendolari-como-2026` },
-          { "@type": "ListItem", "position": 1553, "name": "Ponte di Brivio, 14 milioni per la riqualificaz...", "url": `${BASE_URL}/articoli-frontaliere/ponte-brivio-cantiere-14-milioni` }
+          { "@type": "ListItem", "position": 1553, "name": "Ponte di Brivio, 14 milioni per la riqualificaz...", "url": `${BASE_URL}/articoli-frontaliere/ponte-brivio-cantiere-14-milioni` },
+          { "@type": "ListItem", "position": 1554, "name": "Ponte del Primo Maggio a Villa Panza: visite gu...", "url": `${BASE_URL}/articoli-frontaliere/ponte-maggio-villa-panza-laboratori-bambini` }
  ]
  },
  {

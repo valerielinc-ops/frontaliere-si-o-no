@@ -4510,6 +4510,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ponte-brivio-cantiere-14-milioni.title': 'Brivio Bridge: 14 million for refurbishment, up to 40-minute delays',
     'blog.article.ponte-brivio-cantiere-14-milioni.excerpt': 'The Brivio Bridge construction site, with a 14 million investment, will cause up to 40 minutes of delay for travelers.',
     'blog.article.ponte-brivio-cantiere-14-milioni.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
+    'blog.article.ponte-maggio-villa-panza-laboratori-bambini.title': 'May Day Bridge at Villa Panza: guided tours and children\'s workshops',
+    'blog.article.ponte-maggio-villa-panza-laboratori-bambini.excerpt': 'From May 1 to 3, 2026, Villa Panza in Varese hosts guided tours and creative workshops for children inspired by artist Josef Albers.',
+    'blog.article.ponte-maggio-villa-panza-laboratori-bambini.imageAlt': 'Villa Panza in Varese with children participating in art workshops',
 };
 
 export default blogMetaEn;

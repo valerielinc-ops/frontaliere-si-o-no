@@ -11537,4 +11537,11 @@ export const ARTICLES = [
  image: '/images/blog/ponte-brivio-cantiere-14-milioni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ponte-maggio-villa-panza-laboratori-bambini',
+ category: 'novita',
+ date: '2026-05-01T00:01:31.748Z',
+ image: '/images/blog/ponte-maggio-villa-panza-laboratori-bambini.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4511,6 +4511,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ponte-brivio-cantiere-14-milioni.title': 'Ponte di Brivio, 14 milioni per la riqualificazione: ritardi fino a 40 minuti',
     'blog.article.ponte-brivio-cantiere-14-milioni.excerpt': 'Il cantiere per il ponte di Brivio, con un investimento di 14 milioni, causerà disagi fino a 40 minuti di ritardo per chi si sposta.',
     'blog.article.ponte-brivio-cantiere-14-milioni.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
+    'blog.article.ponte-maggio-villa-panza-laboratori-bambini.title': 'Ponte del Primo Maggio a Villa Panza: visite guidate e laboratori per bambini',
+    'blog.article.ponte-maggio-villa-panza-laboratori-bambini.excerpt': 'Dal 1 al 3 maggio 2026, Villa Panza di Varese ospita visite guidate e laboratori creativi per bambini ispirati all\'artista Josef Albers.',
+    'blog.article.ponte-maggio-villa-panza-laboratori-bambini.imageAlt': 'Villa Panza di Varese con bambini che partecipano a laboratori artistici',
 };
 
 export default blogMetaIt;
