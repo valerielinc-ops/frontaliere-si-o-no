@@ -34491,6 +34491,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-polizia-ticino-abbandono-progetto-2026': {
+    title: 'Polizia Ticino: progetto abbandonato dopo opposizioni',
+    description: 'Il progetto di riforma della polizia ticinese è stato abbandonato dopo 12 mesi di consultazione e forti opposizioni. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, progetto, abbandonato, dopo',
+    ogTitle: 'Polizia Ticino: progetto abbandonato dopo opposizioni',
+    ogDescription: 'Il progetto di riforma della polizia ticinese è stato abbandonato dopo 12 mesi di consultazione e forti opposizioni',
+    canonicalPath: '/articoli-frontaliere/polizia-ticino-abbandono-progetto-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Polizia Ticino: progetto abbandonato dopo opposizioni",
+      "description": "Il progetto di riforma della polizia ticinese è stato abbandonato dopo 12 mesi di consultazione e forti opposizioni. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/polizia-ticino-abbandono-progetto-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago Ceresio"
+      },
+      "datePublished": "2026-05-01T21:23:32+00:00",
+      "dateModified": "2026-05-01T21:23:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-ticino-abbandono-progetto-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

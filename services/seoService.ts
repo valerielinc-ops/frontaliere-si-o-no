@@ -2869,6 +2869,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-villaggio-angelo-busto-arsizio': { name: 'Novità', path: '/articoli-frontaliere/villaggio-angelo-busto-arsizio', parent: 'blog' },
     'blog-chiese-ticino-derubate-2026': { name: 'Novità', path: '/articoli-frontaliere/chiese-ticino-derubate-2026', parent: 'blog' },
     'blog-sindacati-ticino-1-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/sindacati-ticino-1-maggio-2026', parent: 'blog' },
+    'blog-polizia-ticino-abbandono-progetto-2026': { name: 'Novità', path: '/articoli-frontaliere/polizia-ticino-abbandono-progetto-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

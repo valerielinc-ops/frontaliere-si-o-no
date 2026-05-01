@@ -4915,6 +4915,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sindacati-ticino-1-maggio-2026.title': '1st May: Ticino unions protest UDC and right-wing initiatives',
     'blog.article.sindacati-ticino-1-maggio-2026.excerpt': '3,000 people in a parade in Lugano. Criticism of proposals deemed racist and xenophobic. Fonio: working conditions at risk.',
     'blog.article.sindacati-ticino-1-maggio-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.title': 'Ticino Police: reform project abandoned after opposition',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.excerpt': 'The reform project of the Ticino police has been abandoned after 12 months of consultation and strong opposition',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.imageAlt': 'Aerial view of Lugano with Lake Ceresio',
 };
 
 export default blogMetaEn;

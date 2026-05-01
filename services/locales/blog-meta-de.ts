@@ -4915,6 +4915,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sindacati-ticino-1-maggio-2026.title': '1. Mai: Gewerkschaften im Tessin gegen UDC-Initiativen und Rechte',
     'blog.article.sindacati-ticino-1-maggio-2026.excerpt': '3.000 Personen am Umzug in Lugano. Kritik an als rassistisch und fremdenfeindlich eingestuften Vorschlägen. Fonio: Arbeitsbedingungen gefährdet.',
     'blog.article.sindacati-ticino-1-maggio-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.title': 'Polizei Tessin: Projekt nach Widerstand aufgegeben',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.excerpt': 'Das Reformprojekt der Tessiner Polizei wurde nach 12 Monaten Konsultation und starken Widerständen aufgegeben',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee',
 };
 
 export default blogMetaDe;

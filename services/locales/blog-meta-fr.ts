@@ -4916,6 +4916,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sindacati-ticino-1-maggio-2026.title': '1er mai: syndicats du Tessin contre les initiatives UDC et la droite',
     'blog.article.sindacati-ticino-1-maggio-2026.excerpt': '3.000 personnes en cortège à Lugano. Critiques contre des propositions jugées racistes et xénophobes. Fonio: les conditions de travail en danger.',
     'blog.article.sindacati-ticino-1-maggio-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.title': 'Police du Tessin : projet abandonné après des oppositions',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.excerpt': 'Le projet de réforme de la police tessinoise a été abandonné après 12 mois de consultation et de fortes oppositions',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -4916,6 +4916,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sindacati-ticino-1-maggio-2026.title': '1° maggio: sindacati Ticino contro iniziative UDC e destra',
     'blog.article.sindacati-ticino-1-maggio-2026.excerpt': '3.000 persone in corteo a Lugano. Critiche a proposte considerate razziste e xenofobe. Fonio: condizioni di lavoro a rischio.',
     'blog.article.sindacati-ticino-1-maggio-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.title': 'Polizia Ticino: progetto abbandonato dopo opposizioni',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.excerpt': 'Il progetto di riforma della polizia ticinese è stato abbandonato dopo 12 mesi di consultazione e forti opposizioni',
+    'blog.article.polizia-ticino-abbandono-progetto-2026.imageAlt': 'Vista aerea di Lugano con il lago Ceresio',
 };
 
 export default blogMetaIt;
