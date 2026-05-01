@@ -12307,4 +12307,11 @@ export const ARTICLES = [
  image: '/images/blog/sicurezza-locali-pubblici-convegno-ville-ponti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sospetta-fuga-gas-londra-metro-chiusa',
+ category: 'novita',
+ date: '2026-05-01T17:36:01.678Z',
+ image: '/images/blog/sospetta-fuga-gas-londra-metro-chiusa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

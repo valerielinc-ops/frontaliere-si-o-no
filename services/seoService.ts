@@ -2844,6 +2844,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-confsal-manifesto-lavoro-dignita-salari': { name: 'Manifesto Confsal', path: '/articoli-frontaliere/confsal-manifesto-lavoro-dignita-salari', parent: 'blog' },
     'blog-usa-iran-nucleare-sanzioni-2026': { name: 'Novità', path: '/articoli-frontaliere/usa-iran-nucleare-sanzioni-2026', parent: 'blog' },
     'blog-sicurezza-locali-pubblici-convegno-ville-ponti': { name: 'Convegno sicurezza', path: '/articoli-frontaliere/sicurezza-locali-pubblici-convegno-ville-ponti', parent: 'blog' },
+    'blog-sospetta-fuga-gas-londra-metro-chiusa': { name: 'Novità', path: '/articoli-frontaliere/sospetta-fuga-gas-londra-metro-chiusa', parent: 'blog' },
  };
 
  const info = sectionNames[section];

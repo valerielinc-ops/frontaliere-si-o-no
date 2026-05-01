@@ -4840,6 +4840,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.title': 'Public venue safety conference in Ville Ponti on June 29',
     'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.excerpt': 'Conference on public venue safety in Ville Ponti on June 29, 2026. Focus on fire prevention and regulations.',
     'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.imageAlt': 'Ville Ponti Congress Center, Varese, public venues safety conference',
+    'blog.article.sospetta-fuga-gas-londra-metro-chiusa.title': 'Suspected gas leak, metro station temporarily closed',
+    'blog.article.sospetta-fuga-gas-londra-metro-chiusa.excerpt': 'Farringdon station in London evacuated and closed to traffic due to an accidental suspected gas leak',
+    'blog.article.sospetta-fuga-gas-londra-metro-chiusa.imageAlt': 'London Underground station with emergency services attending to a gas leak',
 };
 
 export default blogMetaEn;

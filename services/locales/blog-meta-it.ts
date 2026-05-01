@@ -4841,6 +4841,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.title': 'Sicurezza nei locali pubblici, convegno a Ville Ponti il 29 giugno',
     'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.excerpt': 'Convegno sulla sicurezza nei locali pubblici a Ville Ponti il 29 giugno 2026. Focus su prevenzione incendi e normative.',
     'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.imageAlt': 'Centro Congressi Ville Ponti, Varese, convegno sicurezza locali pubblici',
+    'blog.article.sospetta-fuga-gas-londra-metro-chiusa.title': 'Sospetta fuga di gas, stazione metro temporaneamente chiusa',
+    'blog.article.sospetta-fuga-gas-londra-metro-chiusa.excerpt': 'La stazione di Farringdon a Londra evacuata e chiusa al traffico a causa di una sospetta fuga di gas accidentale',
+    'blog.article.sospetta-fuga-gas-londra-metro-chiusa.imageAlt': 'Stazione della metropolitana di Londra con servizi di emergenza per una fuga di gas',
 };
 
 export default blogMetaIt;

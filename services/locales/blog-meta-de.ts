@@ -4840,6 +4840,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.title': 'Sicherheit in öffentlichen Räumen: Konferenz in Ville Ponti am 29. Juni',
     'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.excerpt': 'Konferenz zur Sicherheit in öffentlichen Räumen in Ville Ponti am 29. Juni 2026. Schwerpunkt auf Brandprävention und Vorschriften.',
     'blog.article.sicurezza-locali-pubblici-convegno-ville-ponti.imageAlt': 'Kongresszentrum Ville Ponti, Varese, Konferenz zur Sicherheit öffentlicher Räume',
+    'blog.article.sospetta-fuga-gas-londra-metro-chiusa.title': 'Verdacht auf Gasleck: U-Bahn-Station vorübergehend geschlossen',
+    'blog.article.sospetta-fuga-gas-londra-metro-chiusa.excerpt': 'Die Station Farringdon in London wurde wegen eines mutmaßlichen Gaslecks evakuiert und für den Verkehr gesperrt',
+    'blog.article.sospetta-fuga-gas-londra-metro-chiusa.imageAlt': 'U-Bahn-Station in London mit Rettungsdiensten bei einem Gasleck',
 };
 
 export default blogMetaDe;
