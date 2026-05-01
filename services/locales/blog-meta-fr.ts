@@ -4619,6 +4619,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.concertone-primo-maggio-roma-artisti-2026.title': 'Concert du Premier Mai à Rome: les artistes à l\'affiche',
     'blog.article.concertone-primo-maggio-roma-artisti-2026.excerpt': 'L\'événement traditionnel pour la Fête des Travailleurs à Rome avec Arisa, Pierpaolo Spollon et BigMama. Tous les artistes à l\'affiche',
     'blog.article.concertone-primo-maggio-roma-artisti-2026.imageAlt': 'Scène de concert du Premier Mai à Rome avec des artistes en performance',
+    'blog.article.mondo-radio-piange-alberto-davoli.title': 'Le monde de la radio pleure Alberto Davoli',
+    'blog.article.mondo-radio-piange-alberto-davoli.excerpt': 'Le pionnier des stations privées est décédé à 60 ans après une longue maladie. Funérailles demain à la Brunella.',
+    'blog.article.mondo-radio-piange-alberto-davoli.imageAlt': 'Microphone de radio sur un bureau dans un studio à Ticino',
 };
 
 export default blogMetaFr;

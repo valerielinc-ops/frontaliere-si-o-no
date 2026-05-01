@@ -31620,6 +31620,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mondo-radio-piange-alberto-davoli': {
+    title: 'Il mondo della radio piange Alberto Davoli | Frontaliere Ticino',
+    description: 'Il pioniere delle emittenti private è mancato a 60 anni dopo una lunga malattia. Funerali domani alla Brunella. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mondo, radio, piange, alberto',
+    ogTitle: 'Il mondo della radio piange Alberto Davoli',
+    ogDescription: 'Il pioniere delle emittenti private è mancato a 60 anni dopo una lunga malattia. Funerali domani alla Brunella.',
+    canonicalPath: '/articoli-frontaliere/mondo-radio-piange-alberto-davoli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il mondo della radio piange Alberto Davoli",
+      "description": "Il pioniere delle emittenti private è mancato a 60 anni dopo una lunga malattia. Funerali domani alla Brunella. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mondo-radio-piange-alberto-davoli.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Microfono da studio radiofonico su una scrivania in Ticino"
+      },
+      "datePublished": "2026-05-01T06:34:41+00:00",
+      "dateModified": "2026-05-01T06:34:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mondo-radio-piange-alberto-davoli`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

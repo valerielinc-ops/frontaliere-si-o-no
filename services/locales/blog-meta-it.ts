@@ -4619,6 +4619,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.concertone-primo-maggio-roma-artisti-2026.title': 'Concertone del Primo Maggio a Roma: gli artisti in scaletta',
     'blog.article.concertone-primo-maggio-roma-artisti-2026.excerpt': 'Il tradizionale evento per la Festa dei Lavoratori a Roma con Arisa, Pierpaolo Spollon e BigMama. Tutti gli artisti in scaletta',
     'blog.article.concertone-primo-maggio-roma-artisti-2026.imageAlt': 'Palco del Concertone del Primo Maggio a Roma con artisti in esibizione',
+    'blog.article.mondo-radio-piange-alberto-davoli.title': 'Il mondo della radio piange Alberto Davoli',
+    'blog.article.mondo-radio-piange-alberto-davoli.excerpt': 'Il pioniere delle emittenti private è mancato a 60 anni dopo una lunga malattia. Funerali domani alla Brunella.',
+    'blog.article.mondo-radio-piange-alberto-davoli.imageAlt': 'Microfono da studio radiofonico su una scrivania in Ticino',
 };
 
 export default blogMetaIt;
