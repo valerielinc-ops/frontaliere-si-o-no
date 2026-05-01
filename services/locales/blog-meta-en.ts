@@ -4564,6 +4564,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.title': 'Trump scraps tariffs on Scotch whisky: \'I\'m doing it for Charles and Camilla\'',
     'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.excerpt': 'Donald Trump announces the abolition of tariffs on Scotch whisky in honor of the King and Queen of the United Kingdom.',
     'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.imageAlt': 'A busy street in Ticino with a view of Lake Lugano',
+    'blog.article.incidente-fino-mornasco-30-aprile-2026.title': 'Tree falls on car in Fino Mornasco, injuring mother and child',
+    'blog.article.incidente-fino-mornasco-30-aprile-2026.excerpt': 'A rotten tree fell on a moving car in Fino Mornasco, injuring a mother and her daughter. Firefighters and emergency services intervened.',
+    'blog.article.incidente-fino-mornasco-30-aprile-2026.imageAlt': 'Car accident with a fallen tree on a car in Fino Mornasco',
 };
 
 export default blogMetaEn;

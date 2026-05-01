@@ -4564,6 +4564,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.title': 'Trump storniert Whisky-Zölle für Schottland: «Ich tue es für Karl und Camilla»',
     'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.excerpt': 'Donald Trump kündigt die Abschaffung der Zölle auf schottischen Whisky zu Ehren des Königs und der Königin des Vereinigten Königreichs an.',
     'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.imageAlt': 'Eine belebte Straße im Tessin mit Blick auf den Luganersee',
+    'blog.article.incidente-fino-mornasco-30-aprile-2026.title': 'Baum fällt auf Auto in Fino Mornasco: Mutter und Kind verletzt',
+    'blog.article.incidente-fino-mornasco-30-aprile-2026.excerpt': 'Ein fauler Baum ist auf ein fahrendes Auto in Fino Mornasco gefallen und hat eine Mutter und ihre Tochter verletzt. Die Feuerwehr und der Rettungsdienst sind eingeschritten.',
+    'blog.article.incidente-fino-mornasco-30-aprile-2026.imageAlt': 'Autounfall mit einem umgestürzten Baum auf einem Auto in Fino Mornasco',
 };
 
 export default blogMetaDe;

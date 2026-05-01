@@ -31098,6 +31098,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-fino-mornasco-30-aprile-2026': {
+    title: 'Incidente a Fino Mornasco: albero cade su auto, ferite mamma e bambina',
+    description: 'Un albero marcio è caduto su un\'auto in corsa a Fino Mornasco, ferendo una mamma e sua figlia. Intervento dei vigili del fuoco e del 118. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, fino, mornasco, albero',
+    ogTitle: 'Incidente a Fino Mornasco: albero cade su auto, ferite mamma e bambina',
+    ogDescription: 'Un albero marcio è caduto su un\'auto in corsa a Fino Mornasco, ferendo una mamma e sua figlia. Intervento dei vigili del fuoco e del 118.',
+    canonicalPath: '/articoli-frontaliere/incidente-fino-mornasco-30-aprile-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente a Fino Mornasco: albero cade su auto, ferite mamma e bambina",
+      "description": "Un albero marcio è caduto su un'auto in corsa a Fino Mornasco, ferendo una mamma e sua figlia. Intervento dei vigili del fuoco e del 118. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-fino-mornasco-30-aprile-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente stradale con albero caduto su un'auto a Fino Mornasco"
+      },
+      "datePublished": "2026-05-01T03:42:54+00:00",
+      "dateModified": "2026-05-01T03:42:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-fino-mornasco-30-aprile-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -11663,4 +11663,11 @@ export const ARTICLES = [
  image: '/images/blog/whisky-scozzese-dazi-trump-carlo-camilla.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incidente-fino-mornasco-30-aprile-2026',
+ category: 'novita',
+ date: '2026-05-01T03:42:54.328Z',
+ image: '/images/blog/incidente-fino-mornasco-30-aprile-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

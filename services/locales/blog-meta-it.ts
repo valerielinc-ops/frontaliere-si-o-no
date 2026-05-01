@@ -4565,6 +4565,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.title': 'Trump abolisce i dazi sul whisky scozzese: «Lo faccio per Carlo e Camilla»',
     'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.excerpt': 'Donald Trump annuncia l\'abolizione dei dazi sul whisky scozzese in onore del re e della regina del Regno Unito.',
     'blog.article.whisky-scozzese-dazi-trump-carlo-camilla.imageAlt': 'Una strada affollata nel Canton Ticino con vista sul Lago di Lugano',
+    'blog.article.incidente-fino-mornasco-30-aprile-2026.title': 'Incidente a Fino Mornasco: albero cade su auto, ferite mamma e bambina',
+    'blog.article.incidente-fino-mornasco-30-aprile-2026.excerpt': 'Un albero marcio è caduto su un\'auto in corsa a Fino Mornasco, ferendo una mamma e sua figlia. Intervento dei vigili del fuoco e del 118.',
+    'blog.article.incidente-fino-mornasco-30-aprile-2026.imageAlt': 'Incidente stradale con albero caduto su un\'auto a Fino Mornasco',
 };
 
 export default blogMetaIt;
