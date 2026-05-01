@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1594,
+ "numberOfItems": 1595,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6229,7 +6229,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1591, "name": "Rendiconto annuale banca: come interpretarlo", "url": `${BASE_URL}/articoli-frontaliere/rendiconto-banca-interpretazione-2026` },
           { "@type": "ListItem", "position": 1592, "name": "Inchiesta arbitri, dal caso Inter-Roma alla spi...", "url": `${BASE_URL}/articoli-frontaliere/inchiesta-arbitri-roccchi-inter-roma` },
           { "@type": "ListItem", "position": 1593, "name": "Dramma in Canton Ticino: bimbo di due anni anne...", "url": `${BASE_URL}/articoli-frontaliere/dramma-canton-ticino-bimbo-annega-piscina` },
-          { "@type": "ListItem", "position": 1594, "name": "Gioco dell'oca su rischi e disastri a Giornico", "url": `${BASE_URL}/articoli-frontaliere/gioco-oca-giornico-rischi-disastri` }
+          { "@type": "ListItem", "position": 1594, "name": "Gioco dell'oca su rischi e disastri a Giornico", "url": `${BASE_URL}/articoli-frontaliere/gioco-oca-giornico-rischi-disastri` },
+          { "@type": "ListItem", "position": 1595, "name": "Primo Maggio 2026: pace e solidarietà al centro...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-ticino-solidarieta` }
  ]
  },
  {

@@ -2775,6 +2775,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-inchiesta-arbitri-roccchi-inter-roma': { name: 'Inchiesta arbitri', path: '/articoli-frontaliere/inchiesta-arbitri-roccchi-inter-roma', parent: 'blog' },
     'blog-dramma-canton-ticino-bimbo-annega-piscina': { name: 'Dramma Ticino', path: '/articoli-frontaliere/dramma-canton-ticino-bimbo-annega-piscina', parent: 'blog' },
     'blog-gioco-oca-giornico-rischi-disastri': { name: 'Novità', path: '/articoli-frontaliere/gioco-oca-giornico-rischi-disastri', parent: 'blog' },
+    'blog-primo-maggio-2026-ticino-solidarieta': { name: 'Primo Maggio 2026', path: '/articoli-frontaliere/primo-maggio-2026-ticino-solidarieta', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4634,6 +4634,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gioco-oca-giornico-rischi-disastri.title': 'À Giornico, un jeu de l\'oie sur les risques et les catastrophes',
     'blog.article.gioco-oca-giornico-rischi-disastri.excerpt': 'Au Musée de Leventina à Giornico, un jeu de l\'oie interactif raconte les catastrophes du Moyen Âge au Covid.',
     'blog.article.gioco-oca-giornico-rischi-disastri.imageAlt': 'Musée de Leventina à Giornico, Tessin, avec un jeu de l\'oie interactif sur les risques et les catastrophes',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.title': '1er mai 2026 : paix et solidarité au cœur des réflexions',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.excerpt': 'Matteo Muschietti invite à descendre dans la rue pour la paix et la solidarité, dans un monde marqué par trop de guerres.',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan, journée ensoleillée',
 };
 
 export default blogMetaFr;

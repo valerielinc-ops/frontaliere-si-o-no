@@ -4634,6 +4634,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gioco-oca-giornico-rischi-disastri.title': 'A Giornico un gioco dell\'oca per riflettere su rischi e disastri',
     'blog.article.gioco-oca-giornico-rischi-disastri.excerpt': 'Al Museo di Leventina di Giornico, un gioco dell\'oca interattivo racconta i disastri dal Medioevo al Covid.',
     'blog.article.gioco-oca-giornico-rischi-disastri.imageAlt': 'Museo di Leventina a Giornico, Ticino, con gioco dell\'oca interattivo su rischi e disastri',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.title': 'Primo Maggio 2026: pace e solidarietà al centro delle riflessioni',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.excerpt': 'Matteo Muschietti invita a scendere in piazza per la pace e la solidarietà, in un mondo segnato da troppe guerre.',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo, giornata di sole',
 };
 
 export default blogMetaIt;

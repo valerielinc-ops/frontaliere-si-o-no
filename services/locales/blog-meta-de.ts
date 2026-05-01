@@ -4633,6 +4633,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gioco-oca-giornico-rischi-disastri.title': 'In Giornico ein Brettspiel über Risiken und Katastrophen',
     'blog.article.gioco-oca-giornico-rischi-disastri.excerpt': 'Im Museum Leventina in Giornico erzählt ein interaktives Brettspiel von Katastrophen vom Mittelalter bis zum Covid.',
     'blog.article.gioco-oca-giornico-rischi-disastri.imageAlt': 'Leventina-Museum in Giornico, Tessin, mit einem interaktiven Brettspiel über Risiken und Katastrophen',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.title': '1. Mai 2026: Frieden und Solidarität im Fokus',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.excerpt': 'Matteo Muschietti lädt ein, für Frieden und Solidarität auf die Straße zu gehen, in einer von zu vielen Kriegen geprägten Welt.',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund, sonniger Tag',
 };
 
 export default blogMetaDe;

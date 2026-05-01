@@ -4633,6 +4633,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gioco-oca-giornico-rischi-disastri.title': 'A Giornico, a board game to reflect on risks and disasters',
     'blog.article.gioco-oca-giornico-rischi-disastri.excerpt': 'At the Leventina Museum in Giornico, an interactive board game tells the story of disasters from the Middle Ages to Covid.',
     'blog.article.gioco-oca-giornico-rischi-disastri.imageAlt': 'Leventina Museum in Giornico, Ticino, with an interactive game of the goose about risks and disasters',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.title': 'May Day 2026: peace and solidarity at the heart of reflections',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.excerpt': 'Matteo Muschietti invites everyone to take to the streets for peace and solidarity in a world marked by too many wars.',
+    'blog.article.primo-maggio-2026-ticino-solidarieta.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, sunny day',
 };
 
 export default blogMetaEn;

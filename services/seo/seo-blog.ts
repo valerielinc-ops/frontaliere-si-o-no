@@ -31765,6 +31765,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-2026-ticino-solidarieta': {
+    title: 'Primo Maggio 2026: pace e solidarietà al centro delle riflessioni',
+    description: 'Matteo Muschietti invita a scendere in piazza per la pace e la solidarietà, in un mondo segnato da troppe guerre. Scopri di più. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, primo, maggio, pace, solidarietà',
+    ogTitle: 'Primo Maggio 2026: pace e solidarietà al centro delle riflessioni',
+    ogDescription: 'Matteo Muschietti invita a scendere in piazza per la pace e la solidarietà, in un mondo segnato da troppe guerre. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-2026-ticino-solidarieta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Primo Maggio 2026: pace e solidarietà al centro delle riflessioni",
+      "description": "Matteo Muschietti invita a scendere in piazza per la pace e la solidarietà, in un mondo segnato da troppe guerre. Scopri di più. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-2026-ticino-solidarieta.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne sullo sfondo, giornata di sole"
+      },
+      "datePublished": "2026-05-01T07:09:06+00:00",
+      "dateModified": "2026-05-01T07:09:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-2026-ticino-solidarieta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

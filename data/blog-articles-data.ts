@@ -11824,4 +11824,11 @@ export const ARTICLES = [
  image: '/images/blog/gioco-oca-giornico-rischi-disastri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-2026-ticino-solidarieta',
+ category: 'novita',
+ date: '2026-05-01T07:09:06.806Z',
+ image: '/images/blog/primo-maggio-2026-ticino-solidarieta.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
