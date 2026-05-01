@@ -4546,6 +4546,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ciclabile-saronno-rovello-porro-2026.title': 'Saronno-Rovello Porro cycle path: when will it be ready?',
     'blog.article.ciclabile-saronno-rovello-porro-2026.excerpt': 'Three years after the ghost bike was installed, Fiab Saronno Ciclocittà urges the municipalities to build the protected cycle path between Saronno and Rovello Porro.',
     'blog.article.ciclabile-saronno-rovello-porro-2026.imageAlt': 'A cyclist on a protected bike path along a lake in Ticino, with the Swiss-Italian border in the background.',
+    'blog.article.fiera-asparago-cantello-2026.title': 'Cantello Asparagus Fair 2026: two weekends of celebration and flavors',
+    'blog.article.fiera-asparago-cantello-2026.excerpt': 'From May 15 to 24, Cantello celebrates the white De.Co. asparagus with food, music, and markets. Here is the complete program.',
+    'blog.article.fiera-asparago-cantello-2026.imageAlt': 'Cantello Asparagus Fair 2026 with local produce stalls and live music',
 };
 
 export default blogMetaEn;

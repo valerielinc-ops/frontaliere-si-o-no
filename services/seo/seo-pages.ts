@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1565,
+ "numberOfItems": 1566,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6200,7 +6200,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1562, "name": "Nomina docenti comunali Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/nomina-docenti-comunali-ticino-2026` },
           { "@type": "ListItem", "position": 1563, "name": "Cardano al Campo: Settimana Ecologica 2026 sul ...", "url": `${BASE_URL}/articoli-frontaliere/cardano-settimana-ecologica-raee-2026` },
           { "@type": "ListItem", "position": 1564, "name": "Grassi: «Sfide complesse, ma la Liuc è pronta»", "url": `${BASE_URL}/articoli-frontaliere/grassi-liuc-sfide-complesse` },
-          { "@type": "ListItem", "position": 1565, "name": "Ciclabile Saronno-Rovello Porro: quando sarà pr...", "url": `${BASE_URL}/articoli-frontaliere/ciclabile-saronno-rovello-porro-2026` }
+          { "@type": "ListItem", "position": 1565, "name": "Ciclabile Saronno-Rovello Porro: quando sarà pr...", "url": `${BASE_URL}/articoli-frontaliere/ciclabile-saronno-rovello-porro-2026` },
+          { "@type": "ListItem", "position": 1566, "name": "Fiera Asparago Cantello 2026: programma e preno...", "url": `${BASE_URL}/articoli-frontaliere/fiera-asparago-cantello-2026` }
  ]
  },
  {

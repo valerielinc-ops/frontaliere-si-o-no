@@ -4547,6 +4547,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ciclabile-saronno-rovello-porro-2026.title': 'Ciclabile Saronno-Rovello Porro: quando sarà pronta?',
     'blog.article.ciclabile-saronno-rovello-porro-2026.excerpt': 'A tre anni dalla posa della ghost bike, Fiab Saronno Ciclocittà sollecita i Comuni per la realizzazione della ciclabile protetta tra Saronno e Rovello Porro.',
     'blog.article.ciclabile-saronno-rovello-porro-2026.imageAlt': 'Un ciclista su una pista ciclabile protetta lungo un lago in Ticino, con il confine svizzero-italiano sullo sfondo.',
+    'blog.article.fiera-asparago-cantello-2026.title': 'Fiera dell\'Asparago di Cantello 2026: due weekend di festa e sapori',
+    'blog.article.fiera-asparago-cantello-2026.excerpt': 'Dal 15 al 24 maggio, Cantello celebra l\'asparago bianco De.Co. con cucina, musica e mercatini. Ecco il programma completo.',
+    'blog.article.fiera-asparago-cantello-2026.imageAlt': 'Fiera dell\'Asparago di Cantello 2026 con bancarelle di prodotti locali e musica dal vivo',
 };
 
 export default blogMetaIt;

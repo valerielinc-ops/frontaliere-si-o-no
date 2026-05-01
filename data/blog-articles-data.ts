@@ -11621,4 +11621,11 @@ export const ARTICLES = [
  image: '/images/blog/ciclabile-saronno-rovello-porro-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fiera-asparago-cantello-2026',
+ category: 'novita',
+ date: '2026-05-01T02:27:46.993Z',
+ image: '/images/blog/fiera-asparago-cantello-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -30924,6 +30924,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fiera-asparago-cantello-2026': {
+    title: 'Fiera dell\'Asparago di Cantello 2026: due weekend di festa e sapori',
+    description: 'Dal 15 al 24 maggio, Cantello celebra l\'asparago bianco De.Co. con cucina, musica e mercatini. Scopri il programma completo e come prenotare. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiera, dell, asparago, cantello',
+    ogTitle: 'Fiera Asparago Cantello 2026: programma e prenotazioni',
+    ogDescription: 'Dal 15 al 24 maggio, Cantello celebra l\'asparago bianco De.Co. con cucina, musica e mercatini. Scopri il programma completo e come prenotare.',
+    canonicalPath: '/articoli-frontaliere/fiera-asparago-cantello-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiera Asparago Cantello 2026: programma e prenotazioni",
+      "description": "Dal 15 al 24 maggio, Cantello celebra l'asparago bianco De.Co. con cucina, musica e mercatini. Scopri il programma completo e come prenotare. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fiera-asparago-cantello-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fiera dell'Asparago di Cantello 2026 con bancarelle di prodotti locali e musica dal vivo"
+      },
+      "datePublished": "2026-05-01T02:27:47+00:00",
+      "dateModified": "2026-05-01T02:27:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fiera-asparago-cantello-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

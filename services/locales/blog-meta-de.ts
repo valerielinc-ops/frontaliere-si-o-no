@@ -4546,6 +4546,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ciclabile-saronno-rovello-porro-2026.title': 'Radweg Saronno-Rovello Porro: Wann wird er fertig?',
     'blog.article.ciclabile-saronno-rovello-porro-2026.excerpt': 'Drei Jahre nach der Aufstellung des Ghost Bikes fordert Fiab Saronno Ciclocittà die Gemeinden zur Umsetzung des geschützten Radwegs zwischen Saronno und Rovello Porro auf.',
     'blog.article.ciclabile-saronno-rovello-porro-2026.imageAlt': 'Ein Radfahrer auf einem geschützten Fahrradweg entlang eines Sees in Tessin, mit der Schweizer-Italienischen Grenze im Hintergrund.',
+    'blog.article.fiera-asparago-cantello-2026.title': 'Asparagusmesse Cantello 2026: zwei Wochenenden voller Genuss',
+    'blog.article.fiera-asparago-cantello-2026.excerpt': 'Vom 15. bis 24. Mai feiert Cantello den weißen Asparagus De.Co. mit Küche, Musik und Märkten. Hier ist das vollständige Programm.',
+    'blog.article.fiera-asparago-cantello-2026.imageAlt': 'Spargelmesse Cantello 2026 mit Ständen lokaler Produkte und Live-Musik',
 };
 
 export default blogMetaDe;
