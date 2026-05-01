@@ -4625,6 +4625,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rendiconto-banca-interpretazione-2026.title': 'Comprendre le compte annuel de votre banque',
     'blog.article.rendiconto-banca-interpretazione-2026.excerpt': 'Découvrez comment lire le compte annuel sur les coûts et les dépenses de votre banque et ce que cela signifie pour vos investissements.',
     'blog.article.rendiconto-banca-interpretazione-2026.imageAlt': 'Vue panoramique du lac de Lugano avec le centre-ville en arrière-plan',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.title': 'Enquête arbitres, de l\'affaire Inter-Roma à l\'explication de Rocchi',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.excerpt': 'Gianluca Rocchi est sous enquête pour fraude sportive. Nouvelles sur l\'enquête des arbitres en Italie.',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.imageAlt': 'Match de football à Lugano, avec des supporters dans les gradins',
 };
 
 export default blogMetaFr;

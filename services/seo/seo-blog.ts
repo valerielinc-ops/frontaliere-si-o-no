@@ -31678,6 +31678,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inchiesta-arbitri-roccchi-inter-roma': {
+    title: 'Inchiesta arbitri, dal caso Inter-Roma alla spiegazione di Rocchi',
+    description: 'Gianluca Rocchi indagato per frode sportiva. Novità sull\'inchiesta arbitri in Italia. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, inchiesta, arbitri, caso, inter-roma',
+    ogTitle: 'Inchiesta arbitri, dal caso Inter-Roma alla spiegazione di Rocchi',
+    ogDescription: 'Gianluca Rocchi indagato per frode sportiva. Novità sull\'inchiesta arbitri in Italia. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/inchiesta-arbitri-roccchi-inter-roma',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inchiesta arbitri, dal caso Inter-Roma alla spiegazione di Rocchi",
+      "description": "Gianluca Rocchi indagato per frode sportiva. Novità sull'inchiesta arbitri in Italia. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inchiesta-arbitri-roccchi-inter-roma.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di calcio a Lugano, con tifosi negli spalti"
+      },
+      "datePublished": "2026-05-01T06:47:51+00:00",
+      "dateModified": "2026-05-01T06:47:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inchiesta-arbitri-roccchi-inter-roma`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

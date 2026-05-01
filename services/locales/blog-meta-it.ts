@@ -4625,6 +4625,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rendiconto-banca-interpretazione-2026.title': 'Rendiconto annuale banca: come interpretarlo',
     'blog.article.rendiconto-banca-interpretazione-2026.excerpt': 'Scopri come leggere il rendiconto annuale su costi e oneri della tua banca e cosa significa per i tuoi investimenti.',
     'blog.article.rendiconto-banca-interpretazione-2026.imageAlt': 'Vista panoramica del Lago di Lugano con il centro città sullo sfondo',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.title': 'Inchiesta arbitri, dal caso Inter-Roma alla spiegazione di Rocchi',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.excerpt': 'Gianluca Rocchi indagato per frode sportiva. Novità sull\'inchiesta arbitri in Italia.',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.imageAlt': 'Partita di calcio a Lugano, con tifosi negli spalti',
 };
 
 export default blogMetaIt;

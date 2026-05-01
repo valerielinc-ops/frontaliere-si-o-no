@@ -4624,6 +4624,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rendiconto-banca-interpretazione-2026.title': 'Jahresabrechnung der Bank: So liest du sie',
     'blog.article.rendiconto-banca-interpretazione-2026.excerpt': 'Erfahre, wie du die Jahresabrechnung über Kosten und Gebühren deiner Bank liest und was das für deine Investitionen bedeutet.',
     'blog.article.rendiconto-banca-interpretazione-2026.imageAlt': 'Panoramablick auf den Luganersee mit der Innenstadt im Hintergrund',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.title': 'Schiedsrichter-Skandal: Rocchi und Inter-Roma-Fall',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.excerpt': 'Gianluca Rocchi wird wegen Sportbetrugs untersucht. Neue Entwicklungen im italienischen Schiedsrichter-Skandal.',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.imageAlt': 'Fußballspiel in Lugano, mit Fans auf den Tribünen',
 };
 
 export default blogMetaDe;

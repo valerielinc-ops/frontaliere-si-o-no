@@ -11803,4 +11803,11 @@ export const ARTICLES = [
  image: '/images/blog/rendiconto-banca-interpretazione-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'inchiesta-arbitri-roccchi-inter-roma',
+ category: 'novita',
+ date: '2026-05-01T06:47:51.389Z',
+ image: '/images/blog/inchiesta-arbitri-roccchi-inter-roma.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

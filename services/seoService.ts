@@ -2772,6 +2772,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-concertone-primo-maggio-roma-artisti-2026': { name: 'Concertone Primo Maggio', path: '/articoli-frontaliere/concertone-primo-maggio-roma-artisti-2026', parent: 'blog' },
     'blog-mondo-radio-piange-alberto-davoli': { name: 'Novità', path: '/articoli-frontaliere/mondo-radio-piange-alberto-davoli', parent: 'blog' },
     'blog-rendiconto-banca-interpretazione-2026': { name: 'Rendiconto banca', path: '/articoli-frontaliere/rendiconto-banca-interpretazione-2026', parent: 'blog' },
+    'blog-inchiesta-arbitri-roccchi-inter-roma': { name: 'Inchiesta arbitri', path: '/articoli-frontaliere/inchiesta-arbitri-roccchi-inter-roma', parent: 'blog' },
  };
 
  const info = sectionNames[section];

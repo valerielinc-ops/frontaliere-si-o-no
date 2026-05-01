@@ -4624,6 +4624,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rendiconto-banca-interpretazione-2026.title': 'How to read your bank\'s annual financial report',
     'blog.article.rendiconto-banca-interpretazione-2026.excerpt': 'Learn how to read your bank\'s annual report on costs and expenses and what it means for your investments.',
     'blog.article.rendiconto-banca-interpretazione-2026.imageAlt': 'Panoramic view of Lake Lugano with the city center in the background',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.title': 'Referees investigation: Inter-Roma case to Rocchi\'s explanation',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.excerpt': 'Gianluca Rocchi under investigation for sports fraud. Updates on the referees inquiry in Italy.',
+    'blog.article.inchiesta-arbitri-roccchi-inter-roma.imageAlt': 'Football match in Lugano, with fans in the stands',
 };
 
 export default blogMetaEn;
