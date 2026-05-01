@@ -12531,4 +12531,11 @@ export const ARTICLES = [
  image: '/images/blog/guardie-svizzere-2025-intenso.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'siccit-estate-2026-ticino',
+ category: 'novita',
+ date: '2026-05-01T22:29:58.780Z',
+ image: '/images/blog/siccit-estate-2026-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

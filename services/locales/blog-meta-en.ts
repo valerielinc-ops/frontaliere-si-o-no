@@ -4936,6 +4936,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guardie-svizzere-2025-intenso.title': 'Swiss Guards: 2025 marked by Pope Francis\' death and conclave',
     'blog.article.guardie-svizzere-2025-intenso.excerpt': 'The year 2025 was exceptional for the Pontifical Swiss Guard, marked by the death of Pope Francis, the conclave, and the jubilee.',
     'blog.article.guardie-svizzere-2025-intenso.imageAlt': 'Swiss Guards in traditional uniforms in front of Castel Sant\'Angelo in Rome',
+    'blog.article.siccit-estate-2026-ticino.title': 'Drought in Ticino: summer 2026 at risk',
+    'blog.article.siccit-estate-2026-ticino.excerpt': 'April 2026 was the driest in recent years, with precipitation at 10% of the average. Fire risk and critical water basins.',
+    'blog.article.siccit-estate-2026-ticino.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and dry landscapes',
 };
 
 export default blogMetaEn;

@@ -4936,6 +4936,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guardie-svizzere-2025-intenso.title': 'Schweizer Garde: 2025 mit Papst Franziskus\' Tod und Konklave',
     'blog.article.guardie-svizzere-2025-intenso.excerpt': 'Das Jahr 2025 war für die Päpstliche Schweizergarde außergewöhnlich, geprägt durch den Tod von Papst Franziskus, das Konklave und das Jubiläum.',
     'blog.article.guardie-svizzere-2025-intenso.imageAlt': 'Schweizer Garde in traditioneller Uniform vor dem Kastell Sant\'Angelo in Rom',
+    'blog.article.siccit-estate-2026-ticino.title': 'Dürre im Tessin: Risiko für den Sommer 2026',
+    'blog.article.siccit-estate-2026-ticino.excerpt': 'April 2026 war der trockenste der letzten Jahre, mit Niederschlägen bei nur 10 % des Durchschnitts. Brandgefahr und kritische Wasserreserven.',
+    'blog.article.siccit-estate-2026-ticino.imageAlt': 'Luftaufnahme des Luganersees mit umliegenden Bergen und trockenen Landschaften',
 };
 
 export default blogMetaDe;

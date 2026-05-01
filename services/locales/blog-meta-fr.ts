@@ -4937,6 +4937,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guardie-svizzere-2025-intenso.title': 'Gardes suisses : 2025, année intense avec la mort du pape François et conclave',
     'blog.article.guardie-svizzere-2025-intenso.excerpt': 'L\'année 2025 a été exceptionnelle pour la Garde suisse pontificale, marquée par la mort du pape François, le conclave et le jubilé.',
     'blog.article.guardie-svizzere-2025-intenso.imageAlt': 'Gardes suisses en uniforme traditionnelle devant le château Saint-Ange à Rome',
+    'blog.article.siccit-estate-2026-ticino.title': 'Sécheresse au Tessin: été 2026 en danger',
+    'blog.article.siccit-estate-2026-ticino.excerpt': 'Avril 2026 a été le plus sec des dernières années, avec des précipitations à 10% de la moyenne. Risque d\'incendies et bassins hydriques critiques.',
+    'blog.article.siccit-estate-2026-ticino.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes et des paysages secs',
 };
 
 export default blogMetaFr;

@@ -34694,6 +34694,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-siccit-estate-2026-ticino': {
+    title: 'Siccità in Ticino: estate 2026 a rischio | Frontaliere Ticino',
+    description: 'Aprile 2026 è stato il più secco degli ultimi anni, con precipitazioni al 10% della media. Rischio incendi e bacini idrici critici. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, estate, rischio, aprile',
+    ogTitle: 'Siccità in Ticino: estate 2026 a rischio',
+    ogDescription: 'Aprile 2026 è stato il più secco degli ultimi anni, con precipitazioni al 10% della media. Rischio incendi e bacini idrici critici.',
+    canonicalPath: '/articoli-frontaliere/siccit-estate-2026-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità in Ticino: estate 2026 a rischio",
+      "description": "Aprile 2026 è stato il più secco degli ultimi anni, con precipitazioni al 10% della media. Rischio incendi e bacini idrici critici. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/siccit-estate-2026-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne circostanti e paesaggi secchi"
+      },
+      "datePublished": "2026-05-01T22:29:58+00:00",
+      "dateModified": "2026-05-01T22:29:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/siccit-estate-2026-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
