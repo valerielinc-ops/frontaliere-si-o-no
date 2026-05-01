@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-05-01T10:45:43.955Z",
+  "assembledAt": "2026-05-01T22:12:32.746Z",
   "jobs": [
     {
       "title": "Intonacatore e Gessatore",
@@ -649,7 +649,8 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-04-27T11:27:21.629Z"
+      "firstSeenAt": "2026-04-27T11:27:21.629Z",
+      "needsRetranslation": true
     },
     {
       "title": "Casseratore",
@@ -1804,124 +1805,6 @@
       ]
     },
     {
-      "title": "MONTATORE DI PANNELLI SOLARI",
-      "slug": "montatore-di-pannelli-solari-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2670651/",
-      "applyUrl": "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2670651/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "meccanica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-16",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-01",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di montatore di pannelli solari\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·        esperienza su cantiere svizzeri\n·        capacità di lavoro in squadra \n·        Installazione e fissaggio di pannelli solari\n·        Installazione e montaggio di strutture fotovoltaiche su diversi tipi di tetti\n·        non soffrire di vertigini\n·        disponibilità immediata\n·        flessibile a spostamenti\n·        automunito",
-      "titleByLocale": {
-        "it": "MONTATORE DI PANNELLI SOLARI",
-        "en": "SOLAR PANNELLI",
-        "de": "SOLAR PANNELLI",
-        "fr": "PANNELLI SOLAIRE"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di montatore di pannelli solari ## Missione : - missione lunga durata nel Sopraceneri ## Profilo : · esperienza su cantiere svizzeri · capacità di lavoro in squadra · Installazione e fissaggio di pannelli solari · Installazione e montaggio di strutture fotovoltaiche su diversi tipi di tetti · non soffrire di vertigini · disponibilità immediata · flessibile a spostamenti · automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. Therefore, if you are a motivated and enthusiastic person, join the clan for the position of solar panel editor ## Mission : - long-lasting mission in the Sopraceneri ## Profile : · experience on Swiss construction site · teamwork ability · Installation and fixing of solar panels · Installation and installation of photovoltaic structures on different types of roofs · do not suffer from dizziness · immediate availability · flexible displacement · self-munito",
-        "de": "Wollen Sie die Freiheit der vorübergehenden Arbeit und die Sicherheit eines dauerhaften? Seit 30 Jahren haben wir Hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz erlebt und bieten ihnen die besten Talente. Wir lügen dich nicht an, aber wir fordern. Daher, wenn Sie eine motivierte und begeisterte Person sind, schließen Sie sich an den Clan für die Position des Solarpaneleditors: - langjährige Mission in der Sopraceneri Profil : · Erfahrung auf Schweizer Baustelle · Teamfähigkeit · Installation und Befestigung von Solarpaneelen · Installation und Installation von Photovoltaik-Strukturen auf verschiedenen Arten von Dächern · nicht unter Schwindel leiden · sofortige Verfügbarkeit · flexible Verschiebung · selbst-munito",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Par conséquent, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste d'éditeur de panneaux solaires ## Mission : - mission de longue durée dans le Sopraceneri ## Profil : · expérience sur le chantier suisse · capacité de travail d'équipe · Installation et fixation de panneaux solaires · Installation et installation de structures photovoltaïques sur différents types de toits · ne souffrent pas de vertiges · disponibilité immédiate · déplacement flexible · auto-munito"
-      },
-      "slugByLocale": {
-        "it": "montatore-di-pannelli-solari-pemsa-locarno",
-        "en": "solar-pannelli-pemsa-locarno",
-        "de": "solar-pannelli-pemsa-locarno",
-        "fr": "pannelli-solaire-pemsa-locarno"
-      },
-      "id": "pemsa-d56ea4f98fb5",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-04-16T22:09:35.390Z"
-    },
-    {
-      "title": "RULLISTA STRADALE",
-      "slug": "rullista-stradale-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/rullista-stradale-2670636/",
-      "applyUrl": "https://www.pemsa.ch/it/job/rullista-stradale-2670636/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "cantiere",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-16",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-01",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di rullista stradale\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·        esperienza su cantieri svizzeri\n·        in possesso delle patenti idonee per la manovra di rulli stradali anche di grandi dimensioni\n·        preparazione del fondo stradale e supporto ai lavori di asfaltatura\n·        manutenzione dei mezzi\n·        conoscenza preparazione materiali\n·        disponibilità immediata\n·        flessibile a spostamenti\n·        automunito",
-      "titleByLocale": {
-        "it": "RULLISTA STRADALE",
-        "en": "STRADAL RULLIST",
-        "de": "STRAGLICHER RULLIST",
-        "fr": "RULLISTE STRADAL"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di rullista stradale ## Missione : - missione lunga durata nel Sopraceneri ## Profilo : · esperienza su cantieri svizzeri · in possesso delle patenti idonee per la manovra di rulli stradali anche di grandi dimensioni · preparazione del fondo stradale e supporto ai lavori di asfaltatura · manutenzione dei mezzi · conoscenza preparazione materiali · disponibilità immediata · flessibile a spostamenti · automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. Therefore, if you are a motivated and enthusiastic person, join the clan for the position of road roller player ## Mission : - long-term mission in the Sopraceneri ## Profile : · experience on Swiss yards · in possession of the licenses suitable for the maneuver of road rollers also of large size · preparation of the road background and support to the work of asphalt · maintenance of the means · knowledge preparation materials · flexible availability to drive ·",
-        "de": "Wollen Sie die Freiheit der vorübergehenden Arbeit und die Sicherheit eines dauerhaften? Seit 30 Jahren haben wir Hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz erlebt und bieten ihnen die besten Talente. Wir lügen dich nicht an, aber wir fordern. Daher, wenn Sie ein motivierter und enthusiastischer Mensch sind, schließen Sie sich an den Clan für die Position des Straßenrollenspielers: - langfristige Mission im Sopraceneri Profil : · Erfahrung auf Schweizer Werften · im Besitz der Lizenzen geeignet für das Manöver von Straßenrollen auch von großer Größe · Vorbereitung der Straßenhintergrund und Unterstützung der Arbeit von Asphalt · Wartung der Mittel · Wissensvorbereitungsmaterialien · flexible Verfügbarkeit zu fahren ·",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Par conséquent, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position du roller ## Mission : - mission à long terme dans le Sopraceneri ## Profil : · expérience sur les chantiers suisses · en possession des licences appropriées pour la manœuvre de rouleaux de route aussi grande taille · préparation du fond de route et support au travail de l'asphalte · maintenance des moyens · matériaux de préparation des connaissances · disponibilité flexible pour conduire ·"
-      },
-      "slugByLocale": {
-        "it": "rullista-stradale-pemsa-locarno",
-        "en": "stradal-rullist-pemsa-locarno",
-        "de": "straglicher-rullist-pemsa-locarno",
-        "fr": "rulliste-stradal-pemsa-locarno"
-      },
-      "id": "pemsa-210e4a6369ed",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-04-16T10:31:11.659Z"
-    },
-    {
       "title": "Operaio con attestato Imbracatura",
       "slug": "operaio-con-attestato-imbracatura-pemsa-bellinzona",
       "url": "https://www.pemsa.ch/it/job/operaio-con-attestato-imbracatura-2670464/",
@@ -2626,7 +2509,8 @@
           "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lattoniere",
@@ -2929,7 +2813,8 @@
           "garten-pemsa-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     }
   ]
 }
