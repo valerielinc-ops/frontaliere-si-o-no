@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-05-01T10:56:02.440Z",
+  "assembledAt": "2026-05-01T22:22:36.425Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:56:00.011Z",
+      "crawledAt": "2026-05-01T22:22:34.020Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -130,7 +131,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:59.142Z",
+      "crawledAt": "2026-05-01T22:22:33.129Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -191,6 +192,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -235,7 +237,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:58.246Z",
+      "crawledAt": "2026-05-01T22:22:32.236Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -287,6 +289,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -331,7 +334,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:57.391Z",
+      "crawledAt": "2026-05-01T22:22:31.333Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -389,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -425,7 +429,7 @@
       "descriptionByLocale": {
         "it": "Descrizione - Centro di insegnamento per la cura delle persone EFZ, area di infanzia | Gestione delle applicazioni Spital Davos — Spital Davos, Davos",
         "en": "Descrizione - Teaching Centre for Person Care EFZ, Childcare Area | Application Management Spital Davos — Spital Davos, Davos",
-        "de": "## Descrizione\n- Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
+        "de": "Lehrstelle zur Fachperson Betreuung EFZ, Bereich Kinderbetreuung | Bewerbungsmanagement Spital Davos — Spital Davos, Davos",
         "fr": "Descrizione - Centre d'enseignement pour les soins aux personnes EFZ, zone de garde d'enfants"
       },
       "location": "Davos",
@@ -433,7 +437,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/568/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:56.518Z",
+      "crawledAt": "2026-05-01T22:22:30.463Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -482,8 +486,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "spital-davos-e72119e3765f",
@@ -516,7 +519,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/674/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:55.156Z",
+      "crawledAt": "2026-05-01T22:22:28.986Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -554,6 +557,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -598,7 +602,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/702/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:54.303Z",
+      "crawledAt": "2026-05-01T22:22:28.125Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -634,6 +638,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -678,7 +683,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/703/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:53.414Z",
+      "crawledAt": "2026-05-01T22:22:27.263Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -761,7 +766,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:52.572Z",
+      "crawledAt": "2026-05-01T22:22:26.397Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -794,6 +799,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -838,7 +844,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/705/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:51.747Z",
+      "crawledAt": "2026-05-01T22:22:25.512Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -918,7 +924,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/700/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:51.106Z",
+      "crawledAt": "2026-05-01T22:22:24.645Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -973,6 +979,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.937Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1017,7 +1024,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/701/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:50.263Z",
+      "crawledAt": "2026-05-01T22:22:23.777Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1052,6 +1059,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1096,7 +1104,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:49.414Z",
+      "crawledAt": "2026-05-01T22:22:22.923Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1126,6 +1134,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1170,7 +1179,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:48.564Z",
+      "crawledAt": "2026-05-01T22:22:22.050Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1217,84 +1226,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-davos-6d242afb1d65",
-      "slug": "fachperson-gesundheit-cfc-langzeitpflege-per-nachtwache-50-90-spital-davos-davos",
-      "slugByLocale": {
-        "it": "fachperson-gesundheit-cfc-langzeitpflege-per-nachtwache-50-90-spital-davos-davos",
-        "en": "healthcare-assistant-efz-for-long-term-care-for-night-shift-50-90-spital-davos-davos",
-        "de": "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch",
-        "fr": "sante-professionnelle-efz-soins-de-longue-duree-pour-la-veille-nocturne-50-90-spital-davos-davos"
-      },
-      "company": "Spital Davos",
-      "companyKey": "spital-davos",
-      "companyDomain": "spitaldavos.ch",
-      "title": "Fachperson Gesundheit EFZ Langzeitpflege für Nachtwache (50-90%)",
-      "titleByLocale": {
-        "it": "Fachperson Gesundheit CFC Langzeitpflege per Nachtwache (50-90%)",
-        "en": "Professional Health EFZ Long-term care for night watch (50-90%)",
-        "de": "Fachperson Gesundheit EFZ Langzeitpflege für Nachtwache (50-90%)",
-        "fr": "Santé professionnelle EFZ Soins de longue durée pour la veille nocturne (50-90%)"
-      },
-      "description": "Mit Ihrem Fachwissen in der Kranken- oder Alterspflege und Ihrer gewinnenden Art sind Sie eine wichtige Stütze für die Bewohnerinnen und Bewohner unseres Pflegeheims. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für die Nachtwache in unserem Pflegeheim Alberti suchen wir nach Vereinbarung eine | • Freudvolle und wertschätzende Betreuung und Pflege der Bewohnenden unseres Pflegeheims in der Nacht • Wachsames Auge auf das Wohlbefinden der Bewohnenden während der Nacht und Einsatz der richtigen pflegerischen Handgriffe nach Bedarf • Gewährleistung einer präzisen und vollständigen elektronischen Pflegedokumentation • In anspruchsvollen Situationen verantwortungsvolle Entscheidungen treffen • Erste Ansprechperson in Notfallsituationen für Bewohnende, Angehörige und die Ärzteschaft | • Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung mit SRK-Anerkennung • Fundiertes Fachwissen und mehrjährige Berufserfahrung in der Langzeitpflege, um die besonderen Anforderungen in der Nacht kompetent und mit Ruhe zu meistern • Selbständigkeit, Verantwortungsbewusstsein und Flexibilität • Sehr gute mündliche und schriftliche Deutschkenntnisse • Hohe Sozialkompetenz, Begeisterung und Engagement für die Arbeit mit den Bewohnenden • Ruhe, Empathie und die Fähigkeit, allein sicher und besonnen zu handeln • Ein Herz für ältere Menschen und ihre Geschichten | • Selbständigkeit mit viel Eigenveranwortung und Vertrauen • Sinnerfüllte Aufgabe: Sie schenken unseren Bewohnenden Geborgenheit in der Nacht • Sorgfältige Einführung und angenehme Zusammenarbeit im Pflegeteam • Attraktive Anstellungsbedingungen sowie gute Sozialleistungen | Für weitere Auskünfte stehen Ihnen Frau Bea Heeb, Leitung Pflege und Querschnittsdisziplinen, unter +41 81 414 82 50 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Descrizione Con le tue conoscenze specialistiche nell'assistenza sanitaria o agli anziani e il tuo modo vincente, sei un supporto importante per gli ospiti della nostra casa di cura. In qualità di ospedale regionale/ospedale acuto con servizio di soccorso, casa di cura e Spitex, siamo responsabili dell'assistenza medica di base per la popolazione e gli ospiti di Davos. Altrettanto importante per noi è il benessere dei nostri dipendenti. Con noi lavori in un'azienda gestibile, ma importante per la regione, manteniamo un clima di lavoro collegiale e apprezziamo la vicinanza alla natura e le numerose attività sportive e ricreative di Davos. ## Mansioni - Assistenza e cura gioiosa e premurosa degli ospiti della nostra casa di cura durante la notte - Occhio vigile al benessere degli ospiti durante la notte e uso delle giuste maniglie infermieristiche secondo necessità - Garanzia di una documentazione di assistenza elettronica precisa e completa - Prendere decisioni responsabili in situazioni difficili - Primo referente in situazioni di emergenza per residenti, parenti e personale medico ## # Requisiti - Formazione completa come specialista in salute AFC o formazione equivalente con riconoscimento CRS - Profonda competenza ed esperienza professionale pluriennale nell'assistenza a lungo termine per padroneggiare con competenza e tranquillità le particolari esigenze notturne - Autonomia, senso di responsabilità e",
-        "en": "Descrizione With your expertise in nursing or old-age care and your winning nature, you are an important support for the residents of our nursing home. As a regional hospital/acute care hospital with ambulance service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. But the well-being of our employees is just as important to us. With us, you work in a manageable, but for the region important business, we maintain a collegial working atmosphere and appreciate the proximity to nature as well as the numerous sports and leisure opportunities of Davos. ## Mansioni - Joyful and appreciative care and care of the residents of our nursing home at night - Watchful eye on the well-being of the residents during the night and use of the right nursing handles as needed - Ensuring precise and complete electronic nursing documentation - Making responsible decisions in demanding situations - First contact person in emergency situations for residents, relatives and the medical profession ## Requisiti - Completed training as a specialist in health EFZ or equivalent training with SRK recognition - In-depth expertise and several years of professional experience in long-term care to master the special requirements at night competently and calmly - Independence, sense of responsibility and",
-        "de": "Mit Ihrem Fachwissen in der Kranken- oder Alterspflege und Ihrer gewinnenden Art sind Sie eine wichtige Stütze für die Bewohnerinnen und Bewohner unseres Pflegeheims. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch wichtigen Betrieb, wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für die Nachtwache in unserem Pflegeheim Alberti suchen wir nach Vereinbarung eine | • Freudvolle und wertschätzende Betreuung und Pflege der Bewohnenden unseres Pflegeheims in der Nacht • Wachsames Auge auf das Wohlbefinden der Bewohnenden während der Nacht und Einsatz der richtigen pflegerischen Handgriffe nach Bedarf • Gewährleistung einer präzisen und vollständigen elektronischen Pflegedokumentation • In anspruchsvollen Situationen verantwortungsvolle Entscheidungen treffen • Erste Ansprechperson in Notfallsituationen für Bewohnende, Angehörige und die Ärzteschaft | • Abgeschlossene Ausbildung als Fachperson Gesundheit EFZ oder gleichwertige Ausbildung mit SRK-Anerkennung • Fundiertes Fachwissen und mehrjährige Berufserfahrung in der Langzeitpflege, um die besonderen Anforderungen in der Nacht kompetent und mit Ruhe zu meistern • Selbständigkeit, Verantwortungsbewusstsein und Flexibilität • Sehr gute mündliche und schriftliche Deutschkenntnisse • Hohe Sozialkompetenz, Begeisterung und Engagement für die Arbeit mit den Bewohnenden • Ruhe, Empathie und die Fähigkeit, allein sicher und besonnen zu handeln • Ein Herz für ältere Menschen und ihre Geschichten | • Selbständigkeit mit viel Eigenveranwortung und Vertrauen • Sinnerfüllte Aufgabe: Sie schenken unseren Bewohnenden Geborgenheit in der Nacht • Sorgfältige Einführung und angenehme Zusammenarbeit im Pflegeteam • Attraktive Anstellungsbedingungen sowie gute Sozialleistungen | Für weitere Auskünfte stehen Ihnen Frau Bea Heeb, Leitung Pflege und Querschnittsdisziplinen, unter +41 81 414 82 50 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
-        "fr": "Descrizione Avec votre expertise dans le domaine des soins aux personnes âgées ou malades et votre nature gagnante, vous êtes un soutien important pour les résidents de notre maison de soins infirmiers. En tant qu'hôpital régional/hôpital de soins aigus avec service de secours, maison de soins infirmiers et soins à domicile, nous sommes responsables des soins médicaux de base pour la population de Davos et ses hôtes. Mais le bien-être de nos employés est tout aussi important pour nous. Chez nous, vous travaillez dans une entreprise à taille humaine, mais importante pour la région, nous entretenons un climat de travail collégial et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sport et de loisirs de Davos. ## Mansioni - Prise en charge et soins joyeux et valorisants des résidents de notre maison de retraite la nuit - Veille vigilante sur le bien-être des résidents pendant la nuit et utilisation des gestes de soins appropriés selon les besoins - Garantie d'une documentation de soins électronique précise et complète - Prendre des décisions responsables dans des situations exigeantes - Première personne de contact dans les situations d'urgence pour les résidents, les proches et le corps médical ## Requisiti - Formation complète en tant que professionnel de la santé CFC ou formation équivalente avec reconnaissance de la CRS - Expertise approfondie et plusieurs années d'expérience professionnelle dans les soins de longue durée pour maîtriser les exigences particulières de la nuit de manière compétente et sereine - Autonomie, sens des responsabilités et"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://recruitingapp-2966.umantis.com/Vacancies/679/Description/1",
-      "source": "Spital Davos Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:47.721Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Assistenza",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/679/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pflegeheim",
-      "contractDuration": "permanent",
-      "pensumMin": 50,
-      "pensumMax": 90,
-      "pensum": "50 - 90%",
-      "previousSlugs": [
-        "assistente-sanitario-efz-per-la-cura-a-lungo-termine-per-il-turno-di-notte-50-90-spital-davos-davos",
-        "assistant-de-sante-efz-pour-la-prise-en-charge-a-long-terme-pour-le-service-de-nuit-50-90-spital-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-sanitario-efz-per-la-cura-a-lungo-termine-per-il-turno-di-notte-50-90-spital-davos-davos"
-        ],
-        "fr": [
-          "assistant-de-sante-efz-pour-la-prise-en-charge-a-long-terme-pour-le-service-de-nuit-50-90-spital-davos-davos"
-        ]
-      },
-      "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1339,7 +1271,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/655/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:46.865Z",
+      "crawledAt": "2026-05-01T22:22:21.193Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1362,81 +1294,6 @@
       "pensum": "60 - 80%",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-16T10:41:19.705Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "retranslationAttempts": 1
-    },
-    {
-      "id": "spital-davos-e84ba21560a0",
-      "slug": "diploma-expertisein-experte-notfallpflege-nds-hf-60-90-spital-davos-davos",
-      "slugByLocale": {
-        "it": "diploma-expertisein-experte-notfallpflege-nds-hf-60-90-spital-davos-davos",
-        "en": "dipl-expertin-experte-notfallpflege-nds-hf-60-90-spital-davos-ch",
-        "de": "dipl-expertin-experte-notfallpflege-nds-hf-60-90-spital-davos-ch",
-        "fr": "expert-experte-en-soins-d-urgence-nds-hf-60-90-spital-davos-davos"
-      },
-      "company": "Spital Davos",
-      "companyKey": "spital-davos",
-      "companyDomain": "spitaldavos.ch",
-      "title": "Dipl. Expertin/Experte Notfallpflege NDS/HF (60-90%)",
-      "titleByLocale": {
-        "it": "Diploma Expertisein/Experte Notfallpflege NDS/HF (60-90%)",
-        "en": "Dipl. Expertin/Experte Notfallpflege NDS/HF (60-90%)",
-        "de": "Dipl. Expertin/Experte Notfallpflege NDS/HF (60-90%)",
-        "fr": "Dipl. Expertin/Experte Notfallpflege NDS/HF (60-90 %)"
-      },
-      "description": "Expertinnen und Experten Notfallpflege NDS HF können mit schnell wechselnden Situationen und komplexen Fragestellungen umgehen. Sie haben Freude an der selbständigen und interdisziplinären pflegerischen Betreuung von Personen aller Altersgruppen mit unterschiedlicher sozio-kultureller Herkunft und verschiedenen Erkrankungs- und Verletzungsgraden. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Wir suchen nach Vereinbarung eine:n | • Erfassung der klinischen Patientensituation und Einleiten von Sofortmassnahmen, selbständige Triage und Priorisierung der Patientinnen und Patienten • Fachgerechte Pflege und Betreuung von ambulanten und stationären Patientinnen und Patienten im Notfall • Interdisziplinäre Zusammenarbeit im Team • Selbständige Durchführung von und Unterstützung bei therapeutischen und diagnostischen Massnahmen inkl. POCT und Gips • Fachkompetente Übergabe von Patientinnen und Patienten in die nachgelagerten Einheiten • Kompenter Umgang mit pflegerischen und medizinischen Standards • Bei Bedarf Übernehmen von Teilen der Patientenadministration wie Aufnahme und Entlassung | • Dipl. Experte/Expertin Notfallpflege NDS oder Dipl. Pflegefachperson HF mit Notfallerfahrung • Interesse an einem saisonalen, regen und abwechslungsreichen Betrieb • Berufserfahrung von mindestens 12 Monaten in der Notfallaufnahme • Belastbarkeit, Teamfähigkeit, Ausgeglichenheit und Freude an sich schnell verändernden Situationen • Hohes Verantwortungsbewusstsein, sorgfältige Arbeitsweise, Freude an selbständiger Tätigkeit • Sehr gute Deutschkenntnisse, gute Englischkenntnisse, jede weitere Sprache von Vorteil • Bereitschaft zur Arbeit in allen Schichten | • Abwechslungsreiche, verantwortungsvolle Tätigkeit • Aufgestelltes, engagiertes, dynamisches und kollegiales Team • Attraktive Anstellungsbedingungen und Sozialleistungen, spitaleigene Kinderkrippe • Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte stehen Ihnen Frau Monika Kühne, Leiterin Notfallpflege, unter +41 81 414 83 30 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder jobs@spitaldavos.ch gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "L'assistenza di emergenza NDS HF può gestire situazioni in rapida evoluzione e problemi complessi. Essi godono della cura infermieristica indipendente e interdisciplinare di persone di tutte le età con diverse origini socio-culturali e diversi gradi di malattia e lesioni. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. Ci preoccupiamo anche del benessere dei nostri dipendenti. Con noi lavori in un'operazione gestibile ma estremamente importante per la regione. Manteniamo un ambiente di lavoro collegiale e godiamo della vicinanza alla natura così come le numerose opportunità sportive e di svago di Davos. ## Mansioni - Rilevamento della Situazione Clinica e Iniziazione delle Misure Immediate - Triage e Priorizzazione Auto-Occupata dei Pazienti - Cura e Cura Professionale dei Pazienti Espaziali e Inpatici in Emergenza - Cooperazione Interdisciplinare in Squadra - Auto-Employment of and Support in Therapeutic and Diagnostic Measures incl. POCT e gypsum - Trasferimento Competent di pazienti a unità a valle - Gestione compensata degli standard di allattamento e medici - Se necessario, prendere parti di somministrazione del paziente come la ricezione e licenziamento ## Requisiti - Dipl. Expert/Expert Emergency Care NDS o Dipl. Carriera HF con esperienza di emergenza - Interessi in un'operazione stagionale, rigenerativa e varia - Esperienza professionale di almeno 12 mesi in assunzione di emergenza - Loadability, capacità di squadra, equivalenza e gioia in situazioni in rapida evoluzione - Alto senso di responsabilità, lavoro attento, piacere nell'autooccupazione - Conoscenza molto buona del tedesco, buona conoscenza dell'inglese, qualsiasi ulteriore lingua di vantaggio - disponibilità a lavorare in tutti i livelli.",
-        "en": "Descrizione experts Emergency care NDS HF can handle quickly changing situations and complex issues. They enjoy the independent and interdisciplinary nursing care of people of all ages with different socio-cultural origins and different degrees of illness and injury. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but extremely important operation for the region. We maintain a collegial working environment and enjoy the proximity to nature as well as the numerous sports and leisure opportunities of Davos. ## Mansioni - Detection of Clinical Patient Situation and Initiation of Immediate Measures - Self-Employed Triage and Priorization of Patients - Professional Care and Care of Outpatient and Inpatient Patients in Emergency - Interdisciplinary Cooperation in Team - Self-Employment of and Support in Therapeutic and Diagnostic Measures incl. POCT and gypsum - Competent transfer of patients to downstream units - Compensated handling of nursing and medical standards - If necessary, take parts of patient administration such as reception and dismissal ## Requisiti - Dipl. Expert/Expert Emergency Care NDS or Dipl. Career HF with emergency experience - Interest in a seasonal, regenerative and varied operation - Professional experience of at least 12 months in emergency intake - Loadability, team capacity, equivalence and joy in rapidly changing situations - High sense of responsibility, careful working, pleasure in self-employment - Very good knowledge of German, good knowledge of English, any further language of advantage - readiness to work in all layers.",
-        "de": "Expertinnen und Experten Notfallpflege NDS HF können mit schnell wechselnden Situationen und komplexen Fragestellungen umgehen. Sie haben Freude an der selbständigen und interdisziplinären pflegerischen Betreuung von Personen aller Altersgruppen mit unterschiedlicher sozio-kultureller Herkunft und verschiedenen Erkrankungs- und Verletzungsgraden. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Wir suchen nach Vereinbarung eine:n | • Erfassung der klinischen Patientensituation und Einleiten von Sofortmassnahmen, selbständige Triage und Priorisierung der Patientinnen und Patienten • Fachgerechte Pflege und Betreuung von ambulanten und stationären Patientinnen und Patienten im Notfall • Interdisziplinäre Zusammenarbeit im Team • Selbständige Durchführung von und Unterstützung bei therapeutischen und diagnostischen Massnahmen inkl. POCT und Gips • Fachkompetente Übergabe von Patientinnen und Patienten in die nachgelagerten Einheiten • Kompenter Umgang mit pflegerischen und medizinischen Standards • Bei Bedarf Übernehmen von Teilen der Patientenadministration wie Aufnahme und Entlassung | • Dipl. Experte/Expertin Notfallpflege NDS oder Dipl. Pflegefachperson HF mit Notfallerfahrung • Interesse an einem saisonalen, regen und abwechslungsreichen Betrieb • Berufserfahrung von mindestens 12 Monaten in der Notfallaufnahme • Belastbarkeit, Teamfähigkeit, Ausgeglichenheit und Freude an sich schnell verändernden Situationen • Hohes Verantwortungsbewusstsein, sorgfältige Arbeitsweise, Freude an selbständiger Tätigkeit • Sehr gute Deutschkenntnisse, gute Englischkenntnisse, jede weitere Sprache von Vorteil • Bereitschaft zur Arbeit in allen Schichten | • Abwechslungsreiche, verantwortungsvolle Tätigkeit • Aufgestelltes, engagiertes, dynamisches und kollegiales Team • Attraktive Anstellungsbedingungen und Sozialleistungen, spitaleigene Kinderkrippe • Interessante Fort- und Weiterbildungsmöglichkeiten | Für weitere Auskünfte stehen Ihnen Frau Monika Kühne, Leiterin Notfallpflege, unter +41 81 414 83 30 wie auch das HRM-Rekrutierungsteam unter +41 81 414 84 12 oder jobs@spitaldavos.ch gerne zur Verfügung.",
-        "fr": "Descrizione experts Soins d'urgence NDS HF peut gérer rapidement des situations changeantes et des problèmes complexes. Ils bénéficient des soins infirmiers indépendants et interdisciplinaires de personnes de tous âges ayant des origines socioculturelles et des degrés de maladie et de blessure différents. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais extrêmement importante pour la région. Nous maintenons un environnement de travail collégial et profitons de la proximité de la nature ainsi que des nombreuses possibilités de sports et de loisirs de Davos. ## Mansioni - Détection de la situation clinique des patients et lancement de mesures immédiates - Triage auto-employé et hiérarchisation des patients - Soins professionnels et soins aux patients hospitalisés et externes en situation d'urgence - Coopération interdisciplinaire en équipe - Self-Employment and Support in Therapeutic and Diagnostic Measures incl. POCT et gypse - Transfert compétent des patients vers les unités aval - Traitement compensatoire des soins infirmiers et des normes médicales - Si nécessaire, prendre des parties de l'administration du patient comme la réception et le congédiement ## Requisiti - Dipl. Expert/Expert Emergency Care NDS ou Dipl. Carrière HF avec expérience d'urgence - Intérêt pour une opération saisonnière, régénératrice et variée - Expérience professionnelle d'au moins 12 mois en prise d'urgence - Chargeabilité, capacité d'équipe, équivalence et joie dans des situations en évolution rapide - Hautes responsabilités, travail attentif, plaisir dans le travail indépendant - Très bonne connaissance de l'allemand, bonne connaissance de l'anglais, toute autre langue d'avantage - préparation au travail dans toutes les couches."
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://recruitingapp-2966.umantis.com/Vacancies/654/Description/1",
-      "source": "Spital Davos Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:46.002Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Assistenza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://recruitingapp-2966.umantis.com/Vacancies/654/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Notfall",
-      "contractDuration": "permanent",
-      "pensumMin": 60,
-      "pensumMax": 90,
-      "pensum": "60 - 90%",
-      "previousSlugs": [
-        "esperta-esperto-di-emergenza-nds-hf-60-90-spital-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "esperta-esperto-di-emergenza-nds-hf-60-90-spital-davos-davos"
-        ]
-      },
-      "firstSeenAt": "2026-04-16T10:41:18.819Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1481,7 +1338,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/697/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:45.161Z",
+      "crawledAt": "2026-05-01T22:22:20.300Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1517,6 +1374,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.960Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1561,7 +1419,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/597/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:44.297Z",
+      "crawledAt": "2026-05-01T22:22:19.396Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1591,6 +1449,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.067Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1635,7 +1494,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/677/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:43.421Z",
+      "crawledAt": "2026-05-01T22:22:18.514Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1668,6 +1527,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:16.213Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1712,7 +1572,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/660/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:42.565Z",
+      "crawledAt": "2026-05-01T22:22:17.652Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1798,7 +1658,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/706/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:41.718Z",
+      "crawledAt": "2026-05-01T22:22:16.804Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1834,6 +1694,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T10:53:46.703Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1878,7 +1739,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/707/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:40.869Z",
+      "crawledAt": "2026-05-01T22:22:15.955Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1908,6 +1769,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T11:37:05.341Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1952,7 +1814,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:39.982Z",
+      "crawledAt": "2026-05-01T22:22:15.096Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2002,6 +1864,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2046,7 +1909,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:39.099Z",
+      "crawledAt": "2026-05-01T22:22:14.214Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2107,6 +1970,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2151,7 +2015,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/671/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:38.254Z",
+      "crawledAt": "2026-05-01T22:22:13.365Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2209,6 +2073,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.142Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2253,7 +2118,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:55:37.594Z",
+      "crawledAt": "2026-05-01T22:22:12.484Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2298,6 +2163,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
