@@ -30982,6 +30982,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sigarette-elettroniche-adolescenti-ticino-2026': {
+    title: 'Sigarette elettroniche: il vizio preferito dagli adolescenti ticinesi',
+    description: 'Il consumo di sigarette elettroniche tra i 15 e i 17 anni in Ticino è quasi pari a quello delle sigarette tradizionali. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sigarette, elettroniche, vizio, preferito',
+    ogTitle: 'Sigarette elettroniche: il vizio preferito dagli adolescenti ticinesi',
+    ogDescription: 'Il consumo di sigarette elettroniche tra i 15 e i 17 anni in Ticino è quasi pari a quello delle sigarette tradizionali.',
+    canonicalPath: '/articoli-frontaliere/sigarette-elettroniche-adolescenti-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sigarette elettroniche: il vizio preferito dagli adolescenti ticinesi",
+      "description": "Il consumo di sigarette elettroniche tra i 15 e i 17 anni in Ticino è quasi pari a quello delle sigarette tradizionali. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sigarette-elettroniche-adolescenti-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Adolescenti in Ticino con sigarette elettroniche in un parco pubblico"
+      },
+      "datePublished": "2026-05-01T02:49:52+00:00",
+      "dateModified": "2026-05-01T02:49:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sigarette-elettroniche-adolescenti-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

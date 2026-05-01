@@ -4553,6 +4553,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cinque-cose-asparago-cantello-2026.title': 'Asparago di Cantello: 5 cose da sapere sul prodotto De.C.O.',
     'blog.article.cinque-cose-asparago-cantello-2026.excerpt': 'Scopri le caratteristiche uniche dell\'asparago bianco di Cantello, un prodotto protetto dalla Denominazione Comunale di Origine.',
     'blog.article.cinque-cose-asparago-cantello-2026.imageAlt': 'Asparago bianco di Cantello con punte rosa, coltivato nella regione di Cantello, Ticino',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.title': 'Sigarette elettroniche: il vizio preferito dagli adolescenti ticinesi',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.excerpt': 'Il consumo di sigarette elettroniche tra i 15 e i 17 anni in Ticino è quasi pari a quello delle sigarette tradizionali.',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.imageAlt': 'Adolescenti in Ticino con sigarette elettroniche in un parco pubblico',
 };
 
 export default blogMetaIt;

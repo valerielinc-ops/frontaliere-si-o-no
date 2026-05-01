@@ -11635,4 +11635,11 @@ export const ARTICLES = [
  image: '/images/blog/cinque-cose-asparago-cantello-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'sigarette-elettroniche-adolescenti-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-01T02:49:52.323Z',
+ image: '/images/blog/sigarette-elettroniche-adolescenti-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

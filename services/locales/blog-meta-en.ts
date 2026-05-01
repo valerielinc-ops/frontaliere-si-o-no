@@ -4552,6 +4552,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cinque-cose-asparago-cantello-2026.title': 'Cantello Asparagus: 5 facts about the De.C.O. product',
     'blog.article.cinque-cose-asparago-cantello-2026.excerpt': 'Discover the unique features of Cantello white asparagus, a product protected by the Communal Denomination of Origin.',
     'blog.article.cinque-cose-asparago-cantello-2026.imageAlt': 'White asparagus from Cantello with pink tips, grown in the Cantello region, Ticino',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.title': 'E-cigarettes: Ticino teens\' favorite vice',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.excerpt': 'E-cigarette use among 15- to 17-year-olds in Ticino is almost equal to that of traditional cigarettes.',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.imageAlt': 'Teenagers in Ticino with e-cigarettes in a public park',
 };
 
 export default blogMetaEn;

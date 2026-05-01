@@ -4552,6 +4552,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cinque-cose-asparago-cantello-2026.title': 'Cantello Spargel: 5 Fakten zum De.C.O.-Produkt',
     'blog.article.cinque-cose-asparago-cantello-2026.excerpt': 'Entdecken Sie die einzigartigen Eigenschaften des weißen Spargels von Cantello, ein Produkt, das durch die Denominazione Comunale di Origine geschützt ist.',
     'blog.article.cinque-cose-asparago-cantello-2026.imageAlt': 'Weißer Spargel aus Cantello mit rosa Spitzen, angebaut in der Region Cantello, Tessin',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.title': 'E-Zigaretten: Das Laster der Tessiner Jugendlichen',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.excerpt': 'Der Konsum von E-Zigaretten bei 15- bis 17-Jährigen im Tessin ist fast so hoch wie der von herkömmlichen Zigaretten.',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.imageAlt': 'Jugendliche in Tessin mit E-Zigaretten in einem öffentlichen Park',
 };
 
 export default blogMetaDe;

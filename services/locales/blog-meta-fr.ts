@@ -4553,6 +4553,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cinque-cose-asparago-cantello-2026.title': 'Asperge de Cantello: 5 choses à savoir sur le produit De.C.O.',
     'blog.article.cinque-cose-asparago-cantello-2026.excerpt': 'Découvrez les caractéristiques uniques de l\'asperge blanche de Cantello, un produit protégé par la Denomination Communale d\'Origine.',
     'blog.article.cinque-cose-asparago-cantello-2026.imageAlt': 'Asperge blanche de Cantello avec des pointes roses, cultivée dans la région de Cantello, Tessin',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.title': 'Cigarettes électroniques: le vice préféré des adolescents tessinois',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.excerpt': 'La consommation de cigarettes électroniques entre 15 et 17 ans au Tessin est presque égale à celle des cigarettes traditionnelles.',
+    'blog.article.sigarette-elettroniche-adolescenti-ticino-2026.imageAlt': 'Adolescents au Tessin avec des cigarettes électroniques dans un parc public',
 };
 
 export default blogMetaFr;
