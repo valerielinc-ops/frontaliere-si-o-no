@@ -1,18 +1,55 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-05-01T11:05:31.051Z",
+  "generatedAt": "2026-05-01T22:31:56.380Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 12254,
-  "avgDurationMs": 12254,
+  "durationMs": 12178,
+  "avgDurationMs": 12178,
   "durationHistory": [
-    12254
+    12178
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "tschuggen-b8ea0b25f793",
+      "slug": "haustechniker-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "company": "Tschuggen Collection",
+      "companyKey": "tschuggen",
+      "companyDomain": "tschuggencollection.ch",
+      "title": "Haustechniker (m/w/d) Wintersaison 2026/2027",
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
+      "source": "Tschuggen Collection Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-01T22:31:46.831Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-01",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
+      "department": "Technik",
+      "hotelName": "Carlton Hotel St. Moritz",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "tschuggen-0efcd13d4564",
@@ -26,7 +63,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1320/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T11:05:21.607Z",
+      "crawledAt": "2026-05-01T22:31:47.733Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -63,7 +100,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1344/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T11:05:22.303Z",
+      "crawledAt": "2026-05-01T22:31:48.636Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -100,7 +137,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1308/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T11:05:20.693Z",
+      "crawledAt": "2026-05-01T22:31:45.937Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -137,7 +174,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T11:05:23.210Z",
+      "crawledAt": "2026-05-01T22:31:49.524Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -174,7 +211,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1341/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T11:05:24.134Z",
+      "crawledAt": "2026-05-01T22:31:50.421Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -211,7 +248,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1340/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T11:05:25.051Z",
+      "crawledAt": "2026-05-01T22:31:51.318Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -248,7 +285,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1315/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T11:05:25.979Z",
+      "crawledAt": "2026-05-01T22:31:52.216Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -285,7 +322,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T11:05:26.887Z",
+      "crawledAt": "2026-05-01T22:31:53.092Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -322,7 +359,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1339/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T11:05:27.799Z",
+      "crawledAt": "2026-05-01T22:31:53.972Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -346,7 +383,9 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "tschuggen-f6bf7211a6a1",
       "slug": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
@@ -376,15 +415,16 @@
       "department": "Front Office",
       "hotelName": "Carlton Hotel St. Moritz",
       "firstSeenAt": "2026-04-20T22:27:37.876Z",
-      "_qualityScore": 85,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
