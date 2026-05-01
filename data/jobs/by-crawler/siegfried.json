@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-05-01T10:52:56.012Z",
+  "assembledAt": "2026-05-01T22:19:39.845Z",
   "jobs": [
     {
       "id": "siegfried-bda06d917747",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician-R-D---Flow-Chemistry_R25_593",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-01T10:52:53.694Z",
+      "crawledAt": "2026-05-01T22:19:37.210Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -88,6 +88,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -133,7 +134,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R25_632",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:52:53.141Z",
+      "crawledAt": "2026-05-01T22:19:36.517Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -194,6 +195,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.288Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -239,7 +241,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-01T10:52:52.582Z",
+      "crawledAt": "2026-05-01T22:19:35.813Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -314,7 +316,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:52:52.032Z",
+      "crawledAt": "2026-05-01T22:19:34.841Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -344,6 +346,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:40.883Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -389,7 +392,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Process-Safety-Engineer_R26_215",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-01T10:52:51.484Z",
+      "crawledAt": "2026-05-01T22:19:34.012Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -421,6 +424,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:40.286Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -466,7 +470,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsleiter_R26_236",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:52:50.934Z",
+      "crawledAt": "2026-05-01T22:19:33.263Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -525,6 +529,7 @@
         "betriebsleiter-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-13T11:14:39.669Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -570,7 +575,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-01T10:52:49.901Z",
+      "crawledAt": "2026-05-01T22:19:31.318Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,6 +626,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:38.458Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -666,7 +672,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production_R26_247",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:52:49.354Z",
+      "crawledAt": "2026-05-01T22:19:30.603Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -696,6 +702,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:37.862Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -741,7 +748,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Schlieren/Procurement-Manager_R25_605",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-01T10:52:48.802Z",
+      "crawledAt": "2026-05-01T22:19:29.894Z",
       "addressLocality": "Schlieren",
       "addressCountry": "CH",
       "country": "CH",
@@ -815,7 +822,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Officer-Process-Assistant-50-_R26_312",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-01T10:52:48.246Z",
+      "crawledAt": "2026-05-01T22:19:29.170Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -877,6 +884,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:36.725Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -922,7 +930,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Operations-support-specialist_R26_313",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-01T10:52:47.700Z",
+      "crawledAt": "2026-05-01T22:19:28.470Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -955,6 +963,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:36.115Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1000,7 +1009,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-01T10:52:47.152Z",
+      "crawledAt": "2026-05-01T22:19:27.713Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1056,6 +1065,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1101,7 +1111,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Teamleiter-Werkschutz_R26_305",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:52:46.593Z",
+      "crawledAt": "2026-05-01T22:19:26.957Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1152,6 +1162,7 @@
         "teamleiter-werkschutz-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-13T11:14:34.800Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1197,7 +1208,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:52:46.014Z",
+      "crawledAt": "2026-05-01T22:19:26.189Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1223,6 +1234,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1268,7 +1280,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker--m-w-d-_R26_349",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:52:45.465Z",
+      "crawledAt": "2026-05-01T22:19:25.496Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1305,6 +1317,7 @@
         "ingegnere-m-w-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1350,7 +1363,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Kalibriertechniker--in_R26_347",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-01T10:52:44.916Z",
+      "crawledAt": "2026-05-01T22:19:24.769Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1387,6 +1400,7 @@
         "kalibriertechniker-m-w-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1432,7 +1446,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Site-HR-Head_R26_379",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-01T10:52:44.358Z",
+      "crawledAt": "2026-05-01T22:19:24.048Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1484,6 +1498,138 @@
         }
       },
       "postalCode": "1950"
+    },
+    {
+      "id": "siegfried-b89b211a3520",
+      "slug": "administrative-assistent-in-analytik-60-m-w-d-siegfried-ch",
+      "slugByLocale": {
+        "de": "administrative-assistent-in-analytik-60-m-w-d-siegfried-ch",
+        "it": "administrative-assistent-in-analytik-60-m-w-d-siegfried-ch",
+        "en": "administrative-assistent-in-analytik-60-m-w-d-siegfried-ch",
+        "fr": "administrative-assistent-in-analytik-60-m-w-d-siegfried-ch"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Administrative Assistent/in Analytik (60%) (m/w/d)",
+      "titleByLocale": {
+        "de": "Administrative Assistent/in Analytik (60%) (m/w/d)",
+        "it": "Administrative Assistent/in Analytik (60%) (m/w/d)",
+        "en": "Administrative Assistent/in Analytik (60%) (m/w/d)",
+        "fr": "Administrative Assistent/in Analytik (60%) (m/w/d)"
+      },
+      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn dieser abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Als zentrale Ansprechperson sorgen Sie für reibungslose Abläufe im Arbeitsalltag und unterstützen die Mitarbeitenden der Abteilung Analytik im Tagesgeschäft. Ihr Engagement trägt damit massgeblich zum Erfolg der Abteilung bei. \n Your Profile: \n Ihre Rolle \n \n• Administrative und organisatorische Unterstützung der Teamleiter im Bereich Analytical Development\n\n• Betreuen und Koordinieren des Onboarding-Prozesses für neue Mitarbeitende\n\n• Verantwortung für das Materialmanagement im Labor (Bestellung, Wareneingang, Lagerbewirtschaftung inkl. Erfassung in Labware LIMS)\n\n• Pflegen und Verwalten von Stammdaten in Labware LIMS\n\n• Verwaltung von Rollen und Berechtigungen in der Cornerstone-Plattform (Schulungsplattform)\n\n• Organisieren und Verwalten der Garderoben\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Ausbildung, idealerweise im Laborumfeld (z. B. Laborant/in), mit erster Berufserfahrung von Vorteil\n\n• Du bist IT-affin und hast idealerweise Erfahrung im Umgang mit LIMS und / oder SAP\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse\n\n• Bereitschaft für leichte körperliche Tätigkeiten (z. B. Heben und Transportieren von Materialien)\n \n\n Persönliche Stärken \n \n• Ausgeprägte Dienstleistungsorientierung und proaktive Arbeitsweise\n\n• Organisationstalent mit strukturierter und lösungsorientierter Herangehensweise\n\n• Hohe Eigeninitiative und Zuverlässigkeit\n\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit verschiedenen Schnittstellen\n\n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.–Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn dieser abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Als zentrale Ansprechperson sorgen Sie für reibungslose Abläufe im Arbeitsalltag und unterstützen die Mitarbeitenden der Abteilung Analytik im Tagesgeschäft. Ihr Engagement trägt damit massgeblich zum Erfolg der Abteilung bei. \n Your Profile: \n Ihre Rolle \n \n• Administrative und organisatorische Unterstützung der Teamleiter im Bereich Analytical Development\n\n• Betreuen und Koordinieren des Onboarding-Prozesses für neue Mitarbeitende\n\n• Verantwortung für das Materialmanagement im Labor (Bestellung, Wareneingang, Lagerbewirtschaftung inkl. Erfassung in Labware LIMS)\n\n• Pflegen und Verwalten von Stammdaten in Labware LIMS\n\n• Verwaltung von Rollen und Berechtigungen in der Cornerstone-Plattform (Schulungsplattform)\n\n• Organisieren und Verwalten der Garderoben\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Ausbildung, idealerweise im Laborumfeld (z. B. Laborant/in), mit erster Berufserfahrung von Vorteil\n\n• Du bist IT-affin und hast idealerweise Erfahrung im Umgang mit LIMS und / oder SAP\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse\n\n• Bereitschaft für leichte körperliche Tätigkeiten (z. B. Heben und Transportieren von Materialien)\n \n\n Persönliche Stärken \n \n• Ausgeprägte Dienstleistungsorientierung und proaktive Arbeitsweise\n\n• Organisationstalent mit strukturierter und lösungsorientierter Herangehensweise\n\n• Hohe Eigeninitiative und Zuverlässigkeit\n\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit verschiedenen Schnittstellen\n\n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.–Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "it": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn dieser abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Als zentrale Ansprechperson sorgen Sie für reibungslose Abläufe im Arbeitsalltag und unterstützen die Mitarbeitenden der Abteilung Analytik im Tagesgeschäft. Ihr Engagement trägt damit massgeblich zum Erfolg der Abteilung bei. \n Your Profile: \n Ihre Rolle \n \n• Administrative und organisatorische Unterstützung der Teamleiter im Bereich Analytical Development\n\n• Betreuen und Koordinieren des Onboarding-Prozesses für neue Mitarbeitende\n\n• Verantwortung für das Materialmanagement im Labor (Bestellung, Wareneingang, Lagerbewirtschaftung inkl. Erfassung in Labware LIMS)\n\n• Pflegen und Verwalten von Stammdaten in Labware LIMS\n\n• Verwaltung von Rollen und Berechtigungen in der Cornerstone-Plattform (Schulungsplattform)\n\n• Organisieren und Verwalten der Garderoben\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Ausbildung, idealerweise im Laborumfeld (z. B. Laborant/in), mit erster Berufserfahrung von Vorteil\n\n• Du bist IT-affin und hast idealerweise Erfahrung im Umgang mit LIMS und / oder SAP\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse\n\n• Bereitschaft für leichte körperliche Tätigkeiten (z. B. Heben und Transportieren von Materialien)\n \n\n Persönliche Stärken \n \n• Ausgeprägte Dienstleistungsorientierung und proaktive Arbeitsweise\n\n• Organisationstalent mit strukturierter und lösungsorientierter Herangehensweise\n\n• Hohe Eigeninitiative und Zuverlässigkeit\n\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit verschiedenen Schnittstellen\n\n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.–Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "en": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn dieser abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Als zentrale Ansprechperson sorgen Sie für reibungslose Abläufe im Arbeitsalltag und unterstützen die Mitarbeitenden der Abteilung Analytik im Tagesgeschäft. Ihr Engagement trägt damit massgeblich zum Erfolg der Abteilung bei. \n Your Profile: \n Ihre Rolle \n \n• Administrative und organisatorische Unterstützung der Teamleiter im Bereich Analytical Development\n\n• Betreuen und Koordinieren des Onboarding-Prozesses für neue Mitarbeitende\n\n• Verantwortung für das Materialmanagement im Labor (Bestellung, Wareneingang, Lagerbewirtschaftung inkl. Erfassung in Labware LIMS)\n\n• Pflegen und Verwalten von Stammdaten in Labware LIMS\n\n• Verwaltung von Rollen und Berechtigungen in der Cornerstone-Plattform (Schulungsplattform)\n\n• Organisieren und Verwalten der Garderoben\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Ausbildung, idealerweise im Laborumfeld (z. B. Laborant/in), mit erster Berufserfahrung von Vorteil\n\n• Du bist IT-affin und hast idealerweise Erfahrung im Umgang mit LIMS und / oder SAP\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse\n\n• Bereitschaft für leichte körperliche Tätigkeiten (z. B. Heben und Transportieren von Materialien)\n \n\n Persönliche Stärken \n \n• Ausgeprägte Dienstleistungsorientierung und proaktive Arbeitsweise\n\n• Organisationstalent mit strukturierter und lösungsorientierter Herangehensweise\n\n• Hohe Eigeninitiative und Zuverlässigkeit\n\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit verschiedenen Schnittstellen\n\n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.–Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn dieser abwechslungsreichen Funktion erwartet Sie ein spannender Mix aus administrativen, koordinativen und organisatorischen Aufgaben. Als zentrale Ansprechperson sorgen Sie für reibungslose Abläufe im Arbeitsalltag und unterstützen die Mitarbeitenden der Abteilung Analytik im Tagesgeschäft. Ihr Engagement trägt damit massgeblich zum Erfolg der Abteilung bei. \n Your Profile: \n Ihre Rolle \n \n• Administrative und organisatorische Unterstützung der Teamleiter im Bereich Analytical Development\n\n• Betreuen und Koordinieren des Onboarding-Prozesses für neue Mitarbeitende\n\n• Verantwortung für das Materialmanagement im Labor (Bestellung, Wareneingang, Lagerbewirtschaftung inkl. Erfassung in Labware LIMS)\n\n• Pflegen und Verwalten von Stammdaten in Labware LIMS\n\n• Verwaltung von Rollen und Berechtigungen in der Cornerstone-Plattform (Schulungsplattform)\n\n• Organisieren und Verwalten der Garderoben\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Ausbildung, idealerweise im Laborumfeld (z. B. Laborant/in), mit erster Berufserfahrung von Vorteil\n\n• Du bist IT-affin und hast idealerweise Erfahrung im Umgang mit LIMS und / oder SAP\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse\n\n• Bereitschaft für leichte körperliche Tätigkeiten (z. B. Heben und Transportieren von Materialien)\n \n\n Persönliche Stärken \n \n• Ausgeprägte Dienstleistungsorientierung und proaktive Arbeitsweise\n\n• Organisationstalent mit strukturierter und lösungsorientierter Herangehensweise\n\n• Hohe Eigeninitiative und Zuverlässigkeit\n\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit verschiedenen Schnittstellen\n\n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.–Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Administrative-Assistent-in-Analytik--60----m-w-d-_R26_406",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-01T22:19:23.354Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-01",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Administrative-Assistent-in-Analytik--60----m-w-d-_R26_406",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobReqId": "R26_406",
+      "hiringOrganization": "Siegfried AG",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "5000",
+      "firstSeenAt": "2026-05-01T22:19:23.354Z"
+    },
+    {
+      "id": "siegfried-4e6b28045494",
+      "slug": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
+      "slugByLocale": {
+        "de": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
+        "it": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
+        "en": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
+        "fr": "senior-lab-technician-metrologie-m-w-d-siegfried-ch"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Senior Lab Technician Metrologie (m/w/d)",
+      "titleByLocale": {
+        "de": "Senior Lab Techniker Metrologie (m/w/d)",
+        "en": "Senior Lab Technician Metrologie (m/w/d)",
+        "it": "Senior Lab Technician Metrologie (m/w/d)",
+        "fr": "Senior Lab Technicien Metrologie (m/w/d)"
+      },
+      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung. Als Senior Lab Technician Metrologie sorgen Sie für den zuverlässigen Betrieb, die Wartung und den Unterhalt unserer Labor-Systeme. \n Your Profile: \n Ihre Rolle \n \n• Eigenständige und termingerechte Durchführung von Qualifizierungen, Wartungen und Reparaturen an Analysengeräten (HPLC, GC, GCH) \n\n• Support und Fehlerbehebung sowie Durchführung von Schulungen für betreute Laborsysteme\n\n• cGMP-konforme Dokumentation analytischer Arbeiten sowie Überprüfung relevanter Dokumente\n\n• Erstellung und Pflege von SOPs und Qualifizierungsdokumentationen für die Laborsysteme\n\n• Erfassung und Pflege von Daten im Labordatensystem (LIMS)\n\n• Planung, Koordination und Kommunikation des Arbeitsfortschritts mit internen Partnern\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Berufsausbildung als Chemielaborant/in EFZ, Bachelor in Life Sciences oder vergleichbare Ausbildung\n\n• Praktische Erfahrung im Umgang mit Labor- Systemen in der Analytik im GxP-Umfeld\n\n• Erfahrung in Qualifizierung und Reparatur von Laborsystemen von Vorteil\n\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\n Persönliche Stärken \n \n• Strukturierte, präzise und qualitätsbewusste Arbeitsweise \n\n• Dienstleistungsorientiertes Denken und Handeln\n\n• Ausgeprägte Problemlösungskompetenz\n\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n\n \n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– \n\n• Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung. Als Senior Lab Technician Metrologie sorgen Sie für den zuverlässigen Betrieb, die Wartung und den Unterhalt unserer Labor-Systeme. \n Your Profile: \n Ihre Rolle \n \n• Eigenständige und termingerechte Durchführung von Qualifizierungen, Wartungen und Reparaturen an Analysengeräten (HPLC, GC, GCH) \n\n• Support und Fehlerbehebung sowie Durchführung von Schulungen für betreute Laborsysteme\n\n• cGMP-konforme Dokumentation analytischer Arbeiten sowie Überprüfung relevanter Dokumente\n\n• Erstellung und Pflege von SOPs und Qualifizierungsdokumentationen für die Laborsysteme\n\n• Erfassung und Pflege von Daten im Labordatensystem (LIMS)\n\n• Planung, Koordination und Kommunikation des Arbeitsfortschritts mit internen Partnern\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Berufsausbildung als Chemielaborant/in EFZ, Bachelor in Life Sciences oder vergleichbare Ausbildung\n\n• Praktische Erfahrung im Umgang mit Labor- Systemen in der Analytik im GxP-Umfeld\n\n• Erfahrung in Qualifizierung und Reparatur von Laborsystemen von Vorteil\n\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\n Persönliche Stärken \n \n• Strukturierte, präzise und qualitätsbewusste Arbeitsweise \n\n• Dienstleistungsorientiertes Denken und Handeln\n\n• Ausgeprägte Problemlösungskompetenz\n\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n\n \n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– \n\n• Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "it": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung. Als Senior Lab Technician Metrologie sorgen Sie für den zuverlässigen Betrieb, die Wartung und den Unterhalt unserer Labor-Systeme. \n Your Profile: \n Ihre Rolle \n \n• Eigenständige und termingerechte Durchführung von Qualifizierungen, Wartungen und Reparaturen an Analysengeräten (HPLC, GC, GCH) \n\n• Support und Fehlerbehebung sowie Durchführung von Schulungen für betreute Laborsysteme\n\n• cGMP-konforme Dokumentation analytischer Arbeiten sowie Überprüfung relevanter Dokumente\n\n• Erstellung und Pflege von SOPs und Qualifizierungsdokumentationen für die Laborsysteme\n\n• Erfassung und Pflege von Daten im Labordatensystem (LIMS)\n\n• Planung, Koordination und Kommunikation des Arbeitsfortschritts mit internen Partnern\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Berufsausbildung als Chemielaborant/in EFZ, Bachelor in Life Sciences oder vergleichbare Ausbildung\n\n• Praktische Erfahrung im Umgang mit Labor- Systemen in der Analytik im GxP-Umfeld\n\n• Erfahrung in Qualifizierung und Reparatur von Laborsystemen von Vorteil\n\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\n Persönliche Stärken \n \n• Strukturierte, präzise und qualitätsbewusste Arbeitsweise \n\n• Dienstleistungsorientiertes Denken und Handeln\n\n• Ausgeprägte Problemlösungskompetenz\n\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n\n \n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– \n\n• Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "en": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung. Als Senior Lab Technician Metrologie sorgen Sie für den zuverlässigen Betrieb, die Wartung und den Unterhalt unserer Labor-Systeme. \n Your Profile: \n Ihre Rolle \n \n• Eigenständige und termingerechte Durchführung von Qualifizierungen, Wartungen und Reparaturen an Analysengeräten (HPLC, GC, GCH) \n\n• Support und Fehlerbehebung sowie Durchführung von Schulungen für betreute Laborsysteme\n\n• cGMP-konforme Dokumentation analytischer Arbeiten sowie Überprüfung relevanter Dokumente\n\n• Erstellung und Pflege von SOPs und Qualifizierungsdokumentationen für die Laborsysteme\n\n• Erfassung und Pflege von Daten im Labordatensystem (LIMS)\n\n• Planung, Koordination und Kommunikation des Arbeitsfortschritts mit internen Partnern\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Berufsausbildung als Chemielaborant/in EFZ, Bachelor in Life Sciences oder vergleichbare Ausbildung\n\n• Praktische Erfahrung im Umgang mit Labor- Systemen in der Analytik im GxP-Umfeld\n\n• Erfahrung in Qualifizierung und Reparatur von Laborsystemen von Vorteil\n\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\n Persönliche Stärken \n \n• Strukturierte, präzise und qualitätsbewusste Arbeitsweise \n\n• Dienstleistungsorientiertes Denken und Handeln\n\n• Ausgeprägte Problemlösungskompetenz\n\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n\n \n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– \n\n• Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung. Als Senior Lab Technician Metrologie sorgen Sie für den zuverlässigen Betrieb, die Wartung und den Unterhalt unserer Labor-Systeme. \n Your Profile: \n Ihre Rolle \n \n• Eigenständige und termingerechte Durchführung von Qualifizierungen, Wartungen und Reparaturen an Analysengeräten (HPLC, GC, GCH) \n\n• Support und Fehlerbehebung sowie Durchführung von Schulungen für betreute Laborsysteme\n\n• cGMP-konforme Dokumentation analytischer Arbeiten sowie Überprüfung relevanter Dokumente\n\n• Erstellung und Pflege von SOPs und Qualifizierungsdokumentationen für die Laborsysteme\n\n• Erfassung und Pflege von Daten im Labordatensystem (LIMS)\n\n• Planung, Koordination und Kommunikation des Arbeitsfortschritts mit internen Partnern\n\n \n Ihr Profil \n Fachkenntnisse \n \n• Abgeschlossene Berufsausbildung als Chemielaborant/in EFZ, Bachelor in Life Sciences oder vergleichbare Ausbildung\n\n• Praktische Erfahrung im Umgang mit Labor- Systemen in der Analytik im GxP-Umfeld\n\n• Erfahrung in Qualifizierung und Reparatur von Laborsystemen von Vorteil\n\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\n Persönliche Stärken \n \n• Strukturierte, präzise und qualitätsbewusste Arbeitsweise \n\n• Dienstleistungsorientiertes Denken und Handeln\n\n• Ausgeprägte Problemlösungskompetenz\n\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n\n \n \n Your Benefits: \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– \n\n• Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern \n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar \n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+      },
+      "location": "Zofingen",
+      "canton": "AG",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-Metrologie_R26_401",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-01T22:19:22.405Z",
+      "addressLocality": "Zofingen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-01",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-Metrologie_R26_401",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobReqId": "R26_401",
+      "hiringOrganization": "Siegfried AG",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "5000",
+      "firstSeenAt": "2026-05-01T22:19:22.405Z"
     }
   ]
 }
