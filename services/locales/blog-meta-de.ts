@@ -4774,6 +4774,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ingresso-gratuito-museo-costume-bagno.title': 'Kostenloser Eintritt ins Museum im Badeanzug',
     'blog.article.ingresso-gratuito-museo-costume-bagno.excerpt': 'Die Fondation Beyeler in Riehen gewährt kostenlosen Eintritt für Besucher im Badeanzug, inspiriert von der Ausstellung, die Paule Cézanne gewidmet ist.',
     'blog.article.ingresso-gratuito-museo-costume-bagno.imageAlt': 'Familie in Badeanzügen vor dem Beyeler-Museum in Riehen, Schweiz',
+    'blog.article.lavori-autostradali-a8-chiusure.title': 'A8: Nachtschließungen Busto-Gallarate, Castellanza gesperrt',
+    'blog.article.lavori-autostradali-a8-chiusure.excerpt': 'Neue Änderungen im Verkehrsfluss auf der A8 Mailand-Varese aufgrund von Lärmbarrierenarbeiten. Nachtschließungen zwischen Busto Arsizio und Gallarate und Sperrung des Castellanza-Eingangs.',
+    'blog.article.lavori-autostradali-a8-chiusure.imageAlt': 'Luftaufnahme der Autobahn A8 zwischen Busto Arsizio und Gallarate in der Nacht mit Straßenarbeiten und Verkehrsumleitungen',
 };
 
 export default blogMetaDe;

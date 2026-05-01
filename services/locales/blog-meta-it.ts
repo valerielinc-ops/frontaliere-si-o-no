@@ -4775,6 +4775,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ingresso-gratuito-museo-costume-bagno.title': 'Ingresso gratuito al museo in costume da bagno',
     'blog.article.ingresso-gratuito-museo-costume-bagno.excerpt': 'La Fondazione Beyeler di Riehen offre ingresso gratuito ai visitatori in costume da bagno, ispirata dalla mostra dedicata a Paule Cézanne.',
     'blog.article.ingresso-gratuito-museo-costume-bagno.imageAlt': 'Famiglia in costume da bagno davanti al museo Beyeler a Riehen, Svizzera',
+    'blog.article.lavori-autostradali-a8-chiusure.title': 'A8: chiusure notturne tra Busto e Gallarate e stop all’ingresso di Castellanza',
+    'blog.article.lavori-autostradali-a8-chiusure.excerpt': 'Nuove modifiche alla viabilità sulla A8 Milano-Varese per lavori alle barriere antirumore. Chiusure notturne tra Busto Arsizio e Gallarate e stop all’ingresso di Castellanza.',
+    'blog.article.lavori-autostradali-a8-chiusure.imageAlt': 'Vista aerea dell\'autostrada A8 tra Busto Arsizio e Gallarate di notte con lavori in corso e deviazioni del traffico',
 };
 
 export default blogMetaIt;

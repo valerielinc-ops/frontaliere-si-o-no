@@ -33128,6 +33128,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-autostradali-a8-chiusure': {
+    title: 'A8: chiusure notturne tra Busto e Gallarate e stop all’ingresso di Castellanza',
+    description: 'Nuove modifiche alla viabilità sulla A8 Milano-Varese per lavori alle barriere antirumore. Chiusure notturne tra Busto Arsizio e Gallarate e stop all’ingresso',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, busto, gallarate',
+    ogTitle: 'A8: chiusure notturne tra Busto e Gallarate e stop all’ingresso di Castellanza',
+    ogDescription: 'Nuove modifiche alla viabilità sulla A8 Milano-Varese per lavori alle barriere antirumore. Chiusure notturne tra Busto Arsizio e Gallarate e stop all’ingresso',
+    canonicalPath: '/articoli-frontaliere/lavori-autostradali-a8-chiusure',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A8: chiusure notturne tra Busto e Gallarate e stop all’ingresso di Castellanza",
+      "description": "Nuove modifiche alla viabilità sulla A8 Milano-Varese per lavori alle barriere antirumore. Chiusure notturne tra Busto Arsizio e Gallarate e stop all’ingresso",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavori-autostradali-a8-chiusure.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'autostrada A8 tra Busto Arsizio e Gallarate di notte con lavori in corso e deviazioni del traffico"
+      },
+      "datePublished": "2026-05-01T13:58:38+00:00",
+      "dateModified": "2026-05-01T13:58:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-autostradali-a8-chiusure`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

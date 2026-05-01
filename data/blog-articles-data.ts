@@ -12153,4 +12153,11 @@ export const ARTICLES = [
  image: '/images/blog/ingresso-gratuito-museo-costume-bagno.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lavori-autostradali-a8-chiusure',
+ category: 'novita',
+ date: '2026-05-01T13:58:38.266Z',
+ image: '/images/blog/lavori-autostradali-a8-chiusure.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4775,6 +4775,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ingresso-gratuito-museo-costume-bagno.title': 'Entrée gratuite au musée en maillot de bain',
     'blog.article.ingresso-gratuito-museo-costume-bagno.excerpt': 'La Fondation Beyeler de Riehen offre une entrée gratuite aux visiteurs en maillot de bain, inspirée par l\'exposition dédiée à Paule Cézanne.',
     'blog.article.ingresso-gratuito-museo-costume-bagno.imageAlt': 'Famille en maillot de bain devant le musée de la Fondation Beyeler à Riehen, Suisse',
+    'blog.article.lavori-autostradali-a8-chiusure.title': 'A8: Fermetures nocturnes entre Busto et Gallarate',
+    'blog.article.lavori-autostradali-a8-chiusure.excerpt': 'Nouvelles modifications de la circulation sur l\'A8 Milan-Varèse pour travaux sur les écrans anti-bruit. Fermetures nocturnes entre Busto Arsizio et Gallarate et entrée de Castellanza fermée.',
+    'blog.article.lavori-autostradali-a8-chiusure.imageAlt': 'Vue aérienne de l\'autoroute A8 entre Busto Arsizio et Gallarate la nuit avec des travaux routiers et des détours de circulation',
 };
 
 export default blogMetaFr;
