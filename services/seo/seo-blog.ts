@@ -33215,6 +33215,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-142-numero-aiuto-vittime-ticino': {
+    title: '142: il numero che combatte la violenza in Ticino | Frontaliere Ticino',
+    description: 'Da oggi attivo il numero 142 per l\'aiuto alle vittime di violenza in Ticino e in tutta la Svizzera, gratuito e disponibile 24/7. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, numero, combatte, violenza, oggi',
+    ogTitle: '142: il numero che combatte la violenza in Ticino',
+    ogDescription: 'Da oggi attivo il numero 142 per l\'aiuto alle vittime di violenza in Ticino e in tutta la Svizzera, gratuito e disponibile 24/7.',
+    canonicalPath: '/articoli-frontaliere/142-numero-aiuto-vittime-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "142: il numero che combatte la violenza in Ticino",
+      "description": "Da oggi attivo il numero 142 per l'aiuto alle vittime di violenza in Ticino e in tutta la Svizzera, gratuito e disponibile 24/7. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/142-numero-aiuto-vittime-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con il numero 142 visualizzato su uno smartphone"
+      },
+      "datePublished": "2026-05-01T14:29:48+00:00",
+      "dateModified": "2026-05-01T14:29:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/142-numero-aiuto-vittime-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

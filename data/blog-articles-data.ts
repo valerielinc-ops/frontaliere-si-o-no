@@ -12174,4 +12174,11 @@ export const ARTICLES = [
  image: '/images/blog/pregassona-festa-400-fonio-iniziativa-udc.jpg',
  hasCalculator: true,
  },
+ {
+ id: '142-numero-aiuto-vittime-ticino',
+ category: 'novita',
+ date: '2026-05-01T14:29:48.076Z',
+ image: '/images/blog/142-numero-aiuto-vittime-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

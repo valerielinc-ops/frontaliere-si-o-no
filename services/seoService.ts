@@ -2825,6 +2825,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavori-autostradali-a8-chiusure': { name: 'Novità', path: '/articoli-frontaliere/lavori-autostradali-a8-chiusure', parent: 'blog' },
     'blog-festa-danzante-ticino-2026-spettacoli': { name: 'Eventi Ticino', path: '/articoli-frontaliere/festa-danzante-ticino-2026-spettacoli', parent: 'blog' },
     'blog-pregassona-festa-400-fonio-iniziativa-udc': { name: 'Festa Pregassona', path: '/articoli-frontaliere/pregassona-festa-400-fonio-iniziativa-udc', parent: 'blog' },
+    'blog-142-numero-aiuto-vittime-ticino': { name: '142 Ticino', path: '/articoli-frontaliere/142-numero-aiuto-vittime-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

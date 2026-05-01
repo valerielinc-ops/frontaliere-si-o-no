@@ -4783,6 +4783,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pregassona-festa-400-fonio-iniziativa-udc.title': 'Fonio slams UDC initiative at Pregassona party',
     'blog.article.pregassona-festa-400-fonio-iniziativa-udc.excerpt': 'Giorgio Fonio criticizes the UDC\'s \'No to a Switzerland of 10 million\' initiative over risks to jobs and wages. OCST celebrates with 400 people.',
     'blog.article.pregassona-festa-400-fonio-iniziativa-udc.imageAlt': 'Festival in Pregassona with 400 people at the Pregassona Warehouse',
+    'blog.article.142-numero-aiuto-vittime-ticino.title': '142: the number fighting violence in Ticino',
+    'blog.article.142-numero-aiuto-vittime-ticino.excerpt': 'From today, the 142 number is active for helping victims of violence in Ticino and throughout Switzerland, free and available 24/7.',
+    'blog.article.142-numero-aiuto-vittime-ticino.imageAlt': 'Lake Lugano with the number 142 displayed on a smartphone',
 };
 
 export default blogMetaEn;

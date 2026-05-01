@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1644,
+ "numberOfItems": 1645,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6279,7 +6279,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1641, "name": "Ingresso gratuito al museo in costume da bagno", "url": `${BASE_URL}/articoli-frontaliere/ingresso-gratuito-museo-costume-bagno` },
           { "@type": "ListItem", "position": 1642, "name": "A8: chiusure notturne tra Busto e Gallarate e s...", "url": `${BASE_URL}/articoli-frontaliere/lavori-autostradali-a8-chiusure` },
           { "@type": "ListItem", "position": 1643, "name": "Festa Danzante 2026: il Ticino si muove tra spe...", "url": `${BASE_URL}/articoli-frontaliere/festa-danzante-ticino-2026-spettacoli` },
-          { "@type": "ListItem", "position": 1644, "name": "Festa a Pregassona: 400 persone e Fonio contro ...", "url": `${BASE_URL}/articoli-frontaliere/pregassona-festa-400-fonio-iniziativa-udc` }
+          { "@type": "ListItem", "position": 1644, "name": "Festa a Pregassona: 400 persone e Fonio contro ...", "url": `${BASE_URL}/articoli-frontaliere/pregassona-festa-400-fonio-iniziativa-udc` },
+          { "@type": "ListItem", "position": 1645, "name": "142: il numero che combatte la violenza in Ticino", "url": `${BASE_URL}/articoli-frontaliere/142-numero-aiuto-vittime-ticino` }
  ]
  },
  {
