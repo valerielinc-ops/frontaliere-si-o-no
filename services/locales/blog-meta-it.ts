@@ -4718,6 +4718,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-sindacati.title': 'Primo Maggio 2026: sindacati in piazza contro l\'iniziativa UDC',
     'blog.article.primo-maggio-2026-ticino-sindacati.excerpt': 'Sindacati in piazza per difendere salari e impieghi e contro l\'iniziativa UDC \'No a una Svizzera da 10 milioni di abitanti\'',
     'blog.article.primo-maggio-2026-ticino-sindacati.imageAlt': 'Locarno durante la Festa dei Lavori, con persone che sfilano e tengono cartelli sui diritti del lavoro e salari equi',
+    'blog.article.como-arresto-frontaliere-tunisino.title': 'Arresto di un frontaliere tunisino a Como per resistenza a pubblico ufficiale',
+    'blog.article.como-arresto-frontaliere-tunisino.excerpt': 'Un 19enne tunisino, regolare in Italia ma senza fissa dimora, è stato arrestato per violenza e resistenza a pubblico ufficiale.',
+    'blog.article.como-arresto-frontaliere-tunisino.imageAlt': 'Polizia di Como durante un\'operazione di controllo',
 };
 
 export default blogMetaIt;

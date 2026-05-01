@@ -32577,6 +32577,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-arresto-frontaliere-tunisino': {
+    title: 'Arresto di un frontaliere tunisino a Como per resistenza a pubblico ufficiale',
+    description: 'Un 19enne tunisino, regolare in Italia ma senza fissa dimora, è stato arrestato per violenza e resistenza a pubblico ufficiale a Como. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, arresto, tunisino, como, resistenza',
+    ogTitle: 'Arresto di un frontaliere tunisino a Como per resistenza a pubblico ufficiale',
+    ogDescription: 'Un 19enne tunisino, regolare in Italia ma senza fissa dimora, è stato arrestato per violenza e resistenza a pubblico ufficiale a Como.',
+    canonicalPath: '/articoli-frontaliere/como-arresto-frontaliere-tunisino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Arresto di un frontaliere tunisino a Como per resistenza a pubblico ufficiale",
+      "description": "Un 19enne tunisino, regolare in Italia ma senza fissa dimora, è stato arrestato per violenza e resistenza a pubblico ufficiale a Como. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-arresto-frontaliere-tunisino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia di Como durante un'operazione di controllo"
+      },
+      "datePublished": "2026-05-01T11:00:26+00:00",
+      "dateModified": "2026-05-01T11:00:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-arresto-frontaliere-tunisino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

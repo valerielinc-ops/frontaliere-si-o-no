@@ -4717,6 +4717,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-sindacati.title': 'May Day 2026: unions protest UDC initiative',
     'blog.article.primo-maggio-2026-ticino-sindacati.excerpt': 'Unions take to the streets to defend wages and jobs against the UDC\'s \'No to a Switzerland of 10 million inhabitants\' initiative',
     'blog.article.primo-maggio-2026-ticino-sindacati.imageAlt': 'Locarno during the Labor Day celebration, with people marching and holding signs about labor rights and fair wages',
+    'blog.article.como-arresto-frontaliere-tunisino.title': 'Tunisian cross-border worker arrested in Como for resisting police',
+    'blog.article.como-arresto-frontaliere-tunisino.excerpt': 'A 19-year-old Tunisian man, legally in Italy but homeless, was arrested for violence and resisting a public official.',
+    'blog.article.como-arresto-frontaliere-tunisino.imageAlt': 'Como police during a control operation',
 };
 
 export default blogMetaEn;

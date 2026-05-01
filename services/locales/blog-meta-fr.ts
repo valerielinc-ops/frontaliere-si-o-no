@@ -4718,6 +4718,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-sindacati.title': '1er mai 2026 : syndicats contre l\'initiative UDC',
     'blog.article.primo-maggio-2026-ticino-sindacati.excerpt': 'Les syndicats descendent dans la rue pour défendre les salaires et les emplois et contre l\'initiative UDC \'Non à une Suisse de 10 millions d\'habitants\'',
     'blog.article.primo-maggio-2026-ticino-sindacati.imageAlt': 'Locarno pendant la Fête du Travail, avec des personnes défilant et tenant des pancartes sur les droits des travailleurs et les salaires équitables',
+    'blog.article.como-arresto-frontaliere-tunisino.title': 'Un Tunisien arrêté à Côme pour résistance à un agent',
+    'blog.article.como-arresto-frontaliere-tunisino.excerpt': 'Un Tunisien de 19 ans, en règle en Italie mais sans domicile fixe, a été arrêté pour violence et résistance à un agent.',
+    'blog.article.como-arresto-frontaliere-tunisino.imageAlt': 'Police à Côme lors d\'une opération de contrôle',
 };
 
 export default blogMetaFr;

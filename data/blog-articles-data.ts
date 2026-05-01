@@ -12020,4 +12020,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-2026-ticino-sindacati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-arresto-frontaliere-tunisino',
+ category: 'novita',
+ date: '2026-05-01T11:00:25.991Z',
+ image: '/images/blog/como-arresto-frontaliere-tunisino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

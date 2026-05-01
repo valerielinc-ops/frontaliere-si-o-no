@@ -4717,6 +4717,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-2026-ticino-sindacati.title': '1. Mai 2026: Gewerkschaften gegen SVP-Initiative',
     'blog.article.primo-maggio-2026-ticino-sindacati.excerpt': 'Gewerkschaften demonstrieren für Löhne und Arbeitsplätze und gegen die SVP-Initiative \'Nein zu einer Schweiz mit 10 Millionen Einwohnern\'',
     'blog.article.primo-maggio-2026-ticino-sindacati.imageAlt': 'Locarno während des Tag der Arbeit, mit Menschen, die marschieren und Schilder über Arbeitsrechte und faire Löhne halten',
+    'blog.article.como-arresto-frontaliere-tunisino.title': 'Tunesier in Como wegen Widerstands gegen Beamte festgenommen',
+    'blog.article.como-arresto-frontaliere-tunisino.excerpt': 'Ein 19-jähriger Tunesier, der in Italien legal lebt, aber ohne festen Wohnsitz ist, wurde wegen Gewalt und Widerstands gegen Beamte festgenommen.',
+    'blog.article.como-arresto-frontaliere-tunisino.imageAlt': 'Polizei in Como während einer Kontrollaktion',
 };
 
 export default blogMetaDe;
