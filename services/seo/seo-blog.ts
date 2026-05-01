@@ -31330,6 +31330,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zonaprotetta-40-anni-sessualita-consapevole': {
+    title: 'Zonaprotetta festeggia 40 anni: da lotta all\'Aids a sessualità consapevole',
+    description: 'Zonaprotetta celebra 40 anni di attività, passando dalla lotta all\'Aids alla promozione della sessualità consapevole in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, zonaprotetta, festeggia, anni, lotta',
+    ogTitle: 'Zonaprotetta festeggia 40 anni: da lotta all\'Aids a sessualità consapevole',
+    ogDescription: 'Zonaprotetta celebra 40 anni di attività, passando dalla lotta all\'Aids alla promozione della sessualità consapevole in Ticino.',
+    canonicalPath: '/articoli-frontaliere/zonaprotetta-40-anni-sessualita-consapevole',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zonaprotetta festeggia 40 anni: da lotta all'Aids a sessualità consapevole",
+      "description": "Zonaprotetta celebra 40 anni di attività, passando dalla lotta all'Aids alla promozione della sessualità consapevole in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/zonaprotetta-40-anni-sessualita-consapevole.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di consulenza per la salute sessuale a Lugano, Ticino"
+      },
+      "datePublished": "2026-05-01T05:13:18+00:00",
+      "dateModified": "2026-05-01T05:13:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/zonaprotetta-40-anni-sessualita-consapevole`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

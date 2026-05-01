@@ -4589,6 +4589,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.title': 'Taxe santé frontalier : la Lombardie insiste, le Piémont refuse',
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.excerpt': 'La Lombardie insiste sur l\'application de la taxe santé aux travailleurs frontaliers, tandis que le Piémont confirme son opposition. Voici ce qui change',
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.imageAlt': 'Vue aérienne du lac de Lugano avec la frontière suisse-italienne au premier plan',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.title': 'Zonaprotetta fête ses 40 ans : lutte contre le Sida et sexualité',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.excerpt': 'L\'association Zonaprotetta célèbre ses 40 ans, marquant le passage de la lutte contre le Sida à la promotion de la sexualité consciente en Ticino.',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.imageAlt': 'Centre de consultation pour la santé sexuelle à Lugano, Tessin',
 };
 
 export default blogMetaFr;

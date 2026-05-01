@@ -4588,6 +4588,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.title': 'Gesundheitssteuer für Grenzgänger: Lombardei will Anpassung, Piemont sagt nein',
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.excerpt': 'Die Lombardei besteht auf die Anwendung der Gesundheitssteuer für Grenzgänger, während das Piemont seine Ablehnung bestätigt. Hier erfahren Sie, was sich ändert',
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.imageAlt': 'Luftansicht des Luganer Sees mit dem Schweizer-Italienischen Grenzgebiet im Fokus',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.title': 'Zonaprotetta feiert 40 Jahre: Vom Kampf gegen Aids zu bewusster Sexualität',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.excerpt': 'Der Verein Zonaprotetta wird 40 Jahre alt und feiert den Übergang vom Kampf gegen Aids zur Förderung bewusster Sexualität im Tessin.',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.imageAlt': 'Gesundheitsberatungszentrum für sexuelle Gesundheit in Lugano, Tessin',
 };
 
 export default blogMetaDe;

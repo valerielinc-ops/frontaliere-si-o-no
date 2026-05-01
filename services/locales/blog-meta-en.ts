@@ -4588,6 +4588,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.title': 'Lombardy demands health tax alignment, Piedmont says no',
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.excerpt': 'Lombardy insists on applying the health tax to cross-border workers, while Piedmont confirms its opposition. Here\'s what changes',
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.imageAlt': 'Aerial view of Lake Lugano with Swiss-Italian border in focus',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.title': 'Zonaprotetta celebrates 40 years: from AIDS fight to aware sexuality',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.excerpt': 'The Zonaprotetta association turns 40, marking the shift from the fight against AIDS to promoting aware sexuality in Ticino.',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.imageAlt': 'Sexual health consultation center in Lugano, Ticino',
 };
 
 export default blogMetaEn;

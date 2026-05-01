@@ -11719,4 +11719,11 @@ export const ARTICLES = [
  image: '/images/blog/tassa-salute-frontalieri-lombardia-piemonte.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'zonaprotetta-40-anni-sessualita-consapevole',
+ category: 'novita',
+ date: '2026-05-01T05:13:18.934Z',
+ image: '/images/blog/zonaprotetta-40-anni-sessualita-consapevole.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

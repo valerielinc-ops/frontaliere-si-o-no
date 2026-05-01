@@ -4589,6 +4589,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.title': 'Tassa salute frontalieri: Lombardia richiede allineamento, Piemonte dice no',
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.excerpt': 'La Lombardia insiste sull\'applicazione della tassa salute ai frontalieri, mentre il Piemonte conferma la propria contrarietà. Ecco cosa cambia',
     'blog.article.tassa-salute-frontalieri-lombardia-piemonte.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.title': 'Zonaprotetta festeggia 40 anni: da lotta all\'Aids a sessualità consapevole',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.excerpt': 'L\'associazione Zonaprotetta compie 40 anni, celebrando il passaggio dalla lotta all\'Aids alla promozione della sessualità consapevole in Ticino.',
+    'blog.article.zonaprotetta-40-anni-sessualita-consapevole.imageAlt': 'Centro di consulenza per la salute sessuale a Lugano, Ticino',
 };
 
 export default blogMetaIt;
