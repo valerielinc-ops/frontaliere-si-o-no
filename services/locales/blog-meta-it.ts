@@ -4526,6 +4526,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dialogo-popoli-colori-mondo-busto-arsizio.title': 'Dialogo dei popoli, colori del mondo a Busto Arsizio',
     'blog.article.dialogo-popoli-colori-mondo-busto-arsizio.excerpt': 'Una giornata dedicata all\'incontro, all\'integrazione e alla valorizzazione delle diverse culture presenti sul territorio di Busto Arsizio.',
     'blog.article.dialogo-popoli-colori-mondo-busto-arsizio.imageAlt': 'Festa interculturale a Busto Arsizio con persone di diverse culture',
+    'blog.article.cavalli-droni-esercito-svizzero-2026.title': 'Cavalli e droni: la nuova unità speciale dell\'esercito svizzero',
+    'blog.article.cavalli-droni-esercito-svizzero-2026.excerpt': 'L\'esercito svizzero sperimenta pattuglie a cavallo con droni per la sorveglianza di aree remote. Scopri come questa innovazione cambia la difesa nazionale.',
+    'blog.article.cavalli-droni-esercito-svizzero-2026.imageAlt': 'Cavalli e droni dell\'esercito svizzero in Ticino',
 };
 
 export default blogMetaIt;

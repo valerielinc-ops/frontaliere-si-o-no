@@ -11572,4 +11572,11 @@ export const ARTICLES = [
  image: '/images/blog/dialogo-popoli-colori-mondo-busto-arsizio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cavalli-droni-esercito-svizzero-2026',
+ category: 'novita',
+ date: '2026-05-01T01:13:40.994Z',
+ image: '/images/blog/cavalli-droni-esercito-svizzero-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

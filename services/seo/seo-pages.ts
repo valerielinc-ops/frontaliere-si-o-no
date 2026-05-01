@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1558,
+ "numberOfItems": 1559,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6193,7 +6193,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1555, "name": "Furti nei luoghi di culto: due arresti nel Bell...", "url": `${BASE_URL}/articoli-frontaliere/furti-luoghi-culto-bellinzonese` },
           { "@type": "ListItem", "position": 1556, "name": "Hockey Nl / Psicodramma Davos, il titolo 2025-2...", "url": `${BASE_URL}/articoli-frontaliere/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron` },
           { "@type": "ListItem", "position": 1557, "name": "Made in Switzerland: cosa cambia nel 2026", "url": `${BASE_URL}/articoli-frontaliere/made-in-switzerland-2026` },
-          { "@type": "ListItem", "position": 1558, "name": "Dialogo dei popoli, colori del mondo a Busto Ar...", "url": `${BASE_URL}/articoli-frontaliere/dialogo-popoli-colori-mondo-busto-arsizio` }
+          { "@type": "ListItem", "position": 1558, "name": "Dialogo dei popoli, colori del mondo a Busto Ar...", "url": `${BASE_URL}/articoli-frontaliere/dialogo-popoli-colori-mondo-busto-arsizio` },
+          { "@type": "ListItem", "position": 1559, "name": "Cavalli e droni: la nuova unità speciale dell'e...", "url": `${BASE_URL}/articoli-frontaliere/cavalli-droni-esercito-svizzero-2026` }
  ]
  },
  {

@@ -30721,6 +30721,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cavalli-droni-esercito-svizzero-2026': {
+    title: 'Cavalli e droni: la nuova unità speciale dell\'esercito svizzero',
+    description: 'Scopri come l\'esercito svizzero combina cavalli e droni per pattuglie speciali. Implicazioni per la sicurezza e la difesa nazionale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cavalli, droni, nuova, unità',
+    ogTitle: 'Cavalli e droni: la nuova unità speciale dell\'esercito svizzero',
+    ogDescription: 'Scopri come l\'esercito svizzero combina cavalli e droni per pattuglie speciali. Implicazioni per la sicurezza e la difesa nazionale.',
+    canonicalPath: '/articoli-frontaliere/cavalli-droni-esercito-svizzero-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cavalli e droni: la nuova unità speciale dell'esercito svizzero",
+      "description": "Scopri come l'esercito svizzero combina cavalli e droni per pattuglie speciali. Implicazioni per la sicurezza e la difesa nazionale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cavalli-droni-esercito-svizzero-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cavalli e droni dell'esercito svizzero in Ticino"
+      },
+      "datePublished": "2026-05-01T01:13:41+00:00",
+      "dateModified": "2026-05-01T01:13:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cavalli-droni-esercito-svizzero-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

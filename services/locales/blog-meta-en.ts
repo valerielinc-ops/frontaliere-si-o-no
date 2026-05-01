@@ -4525,6 +4525,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dialogo-popoli-colori-mondo-busto-arsizio.title': 'People\'s dialogue, world colors in Busto Arsizio',
     'blog.article.dialogo-popoli-colori-mondo-busto-arsizio.excerpt': 'A day dedicated to meeting, integration, and the enhancement of the diverse cultures present in the territory of Busto Arsizio.',
     'blog.article.dialogo-popoli-colori-mondo-busto-arsizio.imageAlt': 'Intercultural festival in Busto Arsizio with people from diverse backgrounds',
+    'blog.article.cavalli-droni-esercito-svizzero-2026.title': 'Swiss army\'s new special unit: horses and drones',
+    'blog.article.cavalli-droni-esercito-svizzero-2026.excerpt': 'The Swiss army is experimenting with horse patrols and drones for remote area surveillance. Discover how this innovation is changing national defense.',
+    'blog.article.cavalli-droni-esercito-svizzero-2026.imageAlt': 'Swiss Army horses and drones in Ticino',
 };
 
 export default blogMetaEn;
