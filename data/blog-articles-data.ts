@@ -13021,4 +13021,11 @@ export const ARTICLES = [
  image: '/images/blog/aiuti-svizzera-ucraina-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bus-elettrici-lugano-problemi-utenti',
+ category: 'novita',
+ date: '2026-05-02T11:37:13.780Z',
+ image: '/images/blog/bus-elettrici-lugano-problemi-utenti.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -5146,6 +5146,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aiuti-svizzera-ucraina-2026.title': 'Vom Generator zur Wiederaufbau: Schweizer Maxiplan für Kiew',
     'blog.article.aiuti-svizzera-ucraina-2026.excerpt': 'Der Delegierte des Bundesrates für die Ukraine, Jacques Gerber, stellt das Hilfsprogramm von 1,5 Milliarden Franken vor.',
     'blog.article.aiuti-svizzera-ucraina-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Vordergrund, mit dem Kulturzentrum LAC und der modernen Architektur der Stadt.',
+    'blog.article.bus-elettrici-lugano-problemi-utenti.title': 'Elektrobusse in Lugano: Probleme und Verzögerungen',
+    'blog.article.bus-elettrici-lugano-problemi-utenti.excerpt': 'Leere Batterien, hohe Sitze und häufige Verspätungen: Die von den Nutzern der neuen Elektrobusse in Lugano gemeldeten Probleme',
+    'blog.article.bus-elettrici-lugano-problemi-utenti.imageAlt': 'Elektrobusse in Lugano mit Fahrgästen am Haltestelle',
 };
 
 export default blogMetaDe;

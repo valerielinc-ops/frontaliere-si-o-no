@@ -5146,6 +5146,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aiuti-svizzera-ucraina-2026.title': 'From generators to reconstruction: Switzerland\'s 1.5 billion CHF plan for Kyiv',
     'blog.article.aiuti-svizzera-ucraina-2026.excerpt': 'Jacques Gerber, the Swiss federal councilor for Ukraine, outlines the aid program worth 1.5 billion francs.',
     'blog.article.aiuti-svizzera-ucraina-2026.imageAlt': 'Aerial view of Lugano with Lake Lugano in the foreground, featuring the LAC cultural center and the city\'s modern architecture.',
+    'blog.article.bus-elettrici-lugano-problemi-utenti.title': 'Electric buses in Lugano: issues and delays',
+    'blog.article.bus-elettrici-lugano-problemi-utenti.excerpt': 'Discharged batteries, high seats and frequent delays: the problems reported by users of Lugano\'s new electric buses',
+    'blog.article.bus-elettrici-lugano-problemi-utenti.imageAlt': 'Electric buses in Lugano with passengers waiting at the stop',
 };
 
 export default blogMetaEn;

@@ -36724,6 +36724,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bus-elettrici-lugano-problemi-utenti': {
+    title: 'Bus elettrici a Lugano: problemi e ritardi | Frontaliere Ticino',
+    description: 'Scopri i problemi tecnici dei nuovi bus elettrici di Lugano e le soluzioni per migliorare il servizio di trasporto pubblico. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, elettrici, lugano, problemi, ritardi',
+    ogTitle: 'Bus elettrici a Lugano: problemi e ritardi',
+    ogDescription: 'Scopri i problemi tecnici dei nuovi bus elettrici di Lugano e le soluzioni per migliorare il servizio di trasporto pubblico.',
+    canonicalPath: '/articoli-frontaliere/bus-elettrici-lugano-problemi-utenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bus elettrici a Lugano: problemi e ritardi",
+      "description": "Scopri i problemi tecnici dei nuovi bus elettrici di Lugano e le soluzioni per migliorare il servizio di trasporto pubblico. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bus-elettrici-lugano-problemi-utenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autobus elettrici a Lugano con passeggeri in attesa alla fermata"
+      },
+      "datePublished": "2026-05-02T11:37:13+00:00",
+      "dateModified": "2026-05-02T11:37:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bus-elettrici-lugano-problemi-utenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
