@@ -65,6 +65,7 @@ import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandings
 import { faqHubPlugin } from './build-plugins/faqHubPlugin';
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
+import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
 import { withProfile, profileSummaryPlugin } from './build-plugins/profilePlugin';
 
@@ -151,6 +152,10 @@ export default defineConfig(({ mode }) => {
  // (Semrush CH 880/mo). Self-contained: no router edit, no SPA route. The
  // static HTML serves SEO/first-paint; SPA fallback hydrates on /fr/calculer-salaire/.
  frSalaireNetLandingPlugin(__dirname),
+ // C3 — Google News compliance section pages: 7 topic areas × 4 locales = 28
+ // static HTML aggregator pages listing the latest 20 matching blog
+ // articles per section. Static-only (no SPA route, no nav-tab impact).
+ ...(process.env.SKIP_SECTION_PAGES !== '1' ? [sectionPagesPlugin()] : []),
  orphanQueryLandingPlugin(__dirname),
  staticPagesPlugin(__dirname),
  salaryHubPlugin(__dirname),

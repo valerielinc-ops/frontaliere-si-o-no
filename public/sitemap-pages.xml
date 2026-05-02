@@ -1676,4 +1676,314 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- C3 Google News compliance — 7 section pages × 4 locales = 28 entries.
+       Each section aggregates the latest 20 matching blog articles by topic. -->
+  <url>
+    <loc>https://frontaliereticino.ch/fisco/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/fisco/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/tax/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/steuern/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/fiscalite/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/fisco/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/en/tax/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/fisco/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/tax/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/steuern/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/fiscalite/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/fisco/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/de/steuern/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/fisco/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/tax/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/steuern/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/fiscalite/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/fisco/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/fr/fiscalite/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/fisco/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/tax/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/steuern/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/fiscalite/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/fisco/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/lavoro-frontaliere/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/lavoro-frontaliere/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-work/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-arbeit/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/travail-frontalier/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/lavoro-frontaliere/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/en/cross-border-work/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/lavoro-frontaliere/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-work/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-arbeit/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/travail-frontalier/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/lavoro-frontaliere/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/de/grenzgaenger-arbeit/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/lavoro-frontaliere/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-work/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-arbeit/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/travail-frontalier/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/lavoro-frontaliere/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/fr/travail-frontalier/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/lavoro-frontaliere/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-work/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-arbeit/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/travail-frontalier/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/lavoro-frontaliere/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/salari/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/salari/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/salaries/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/loehne/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/salaires/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/salari/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/en/salaries/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/salari/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/salaries/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/loehne/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/salaires/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/salari/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/de/loehne/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/salari/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/salaries/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/loehne/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/salaires/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/salari/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/fr/salaires/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/salari/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/salaries/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/loehne/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/salaires/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/salari/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/cambio-valuta/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/cambio-valuta/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/currency-exchange/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/waehrung/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/change/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/cambio-valuta/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/en/currency-exchange/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/cambio-valuta/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/currency-exchange/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/waehrung/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/change/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/cambio-valuta/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/de/waehrung/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/cambio-valuta/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/currency-exchange/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/waehrung/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/change/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/cambio-valuta/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/fr/change/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/cambio-valuta/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/currency-exchange/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/waehrung/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/change/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/cambio-valuta/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/trasporti/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/trasporti/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/transport/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/verkehr/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/transports/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/trasporti/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/en/transport/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/trasporti/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/transport/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/verkehr/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/transports/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/trasporti/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/de/verkehr/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/trasporti/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/transport/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/verkehr/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/transports/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/trasporti/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/fr/transports/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/trasporti/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/transport/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/verkehr/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/transports/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/trasporti/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/pensioni/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/pensioni/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/pensions/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/renten/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/retraites/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/pensioni/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/en/pensions/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/pensioni/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/pensions/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/renten/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/retraites/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/pensioni/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/de/renten/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/pensioni/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/pensions/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/renten/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/retraites/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/pensioni/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/fr/retraites/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/pensioni/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/pensions/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/renten/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/retraites/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/pensioni/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/dogana/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/dogana/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/customs/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/zoll/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/douane/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/dogana/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/en/customs/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/dogana/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/customs/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/zoll/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/douane/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/dogana/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/de/zoll/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/dogana/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/customs/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/zoll/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/douane/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/dogana/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://frontaliereticino.ch/fr/douane/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/dogana/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/customs/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/zoll/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/douane/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/dogana/" />
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
