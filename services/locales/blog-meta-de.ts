@@ -5197,6 +5197,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.marcia-zurigo-disabilita-uguaglianza.title': 'Von Tessin nach Zürich: Gleichheit für Menschen mit Behinderungen',
     'blog.article.marcia-zurigo-disabilita-uguaglianza.excerpt': 'Etwa zwanzig Personen aus dem Tessin nehmen an der nationalen Demonstration für die Gleichstellung von Menschen mit Behinderungen in Zürich teil',
     'blog.article.marcia-zurigo-disabilita-uguaglianza.imageAlt': 'Eine Gruppe von Demonstranten marschiert in Zürich mit Schildern, die Gleichberechtigung für Menschen mit Behinderungen fordern',
+    'blog.article.nuovi-posti-moto-lago-como.title': 'Neue Motorradparkplätze in Como: Parkverbot während der Spiele des Como',
+    'blog.article.nuovi-posti-moto-lago-como.excerpt': 'Die lokale Polizei hat den Abschleppdienst aktiviert, um während der Spiele des Como illegal geparkte Motorräder zu entfernen.',
+    'blog.article.nuovi-posti-moto-lago-como.imageAlt': 'Neue Motorradparkplätze am Comer See mit Blick auf den See und die Berge',
 };
 
 export default blogMetaDe;

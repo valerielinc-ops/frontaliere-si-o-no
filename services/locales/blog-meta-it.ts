@@ -5198,6 +5198,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.marcia-zurigo-disabilita-uguaglianza.title': 'In marcia dal Ticino a Zurigo: la voce della disabilità chiede uguaglianza',
     'blog.article.marcia-zurigo-disabilita-uguaglianza.excerpt': 'Una ventina di persone dal Ticino partecipano alla manifestazione nazionale per l\'uguaglianza delle persone con disabilità a Zurigo',
     'blog.article.marcia-zurigo-disabilita-uguaglianza.imageAlt': 'Un gruppo di manifestanti marcia a Zurigo con cartelli che chiedono uguaglianza per le persone con disabilità',
+    'blog.article.nuovi-posti-moto-lago-como.title': 'Nuovi posti moto a Como: sosta vietata durante le partite del Como',
+    'blog.article.nuovi-posti-moto-lago-como.excerpt': 'La polizia locale ha attivato il carro attrezzi per rimuovere le moto parcheggiate illegalmente durante le partite del Como.',
+    'blog.article.nuovi-posti-moto-lago-como.imageAlt': 'Nuovi posti moto fronte lago a Como con vista sul lago e montagne',
 };
 
 export default blogMetaIt;

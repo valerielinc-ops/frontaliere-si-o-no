@@ -13140,4 +13140,11 @@ export const ARTICLES = [
  image: '/images/blog/marcia-zurigo-disabilita-uguaglianza.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuovi-posti-moto-lago-como',
+ category: 'novita',
+ date: '2026-05-02T14:35:05.566Z',
+ image: '/images/blog/nuovi-posti-moto-lago-como.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

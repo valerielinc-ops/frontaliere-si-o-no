@@ -5198,6 +5198,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.marcia-zurigo-disabilita-uguaglianza.title': 'Manifestation pour l\'égalité des personnes handicapées',
     'blog.article.marcia-zurigo-disabilita-uguaglianza.excerpt': 'Une vingtaine de personnes du Tessin participent à la manifestation nationale pour l\'égalité des personnes handicapées à Zurich',
     'blog.article.marcia-zurigo-disabilita-uguaglianza.imageAlt': 'Un groupe de manifestants marche à Zurich avec des pancartes exigeant l\'égalité pour les personnes handicapées',
+    'blog.article.nuovi-posti-moto-lago-como.title': 'Nouveaux emplacements pour motos à Côme: sosta vietata durante le partite',
+    'blog.article.nuovi-posti-moto-lago-como.excerpt': 'La police locale a activé la dépanneuse pour enlever les motos garées illégalement pendant les matchs du Como.',
+    'blog.article.nuovi-posti-moto-lago-como.imageAlt': 'Nouveaux parkings pour motos au bord du lac de Côme avec vue sur le lac et les montagnes',
 };
 
 export default blogMetaFr;

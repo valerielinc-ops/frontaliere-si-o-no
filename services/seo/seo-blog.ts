@@ -37217,6 +37217,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovi-posti-moto-lago-como': {
+    title: 'Nuovi posti moto a Como: sosta vietata durante le partite del Como',
+    description: 'La polizia locale ha attivato il carro attrezzi per rimuovere le moto parcheggiate illegalmente durante le partite del Como. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovi, posti, moto, como',
+    ogTitle: 'Nuovi posti moto a Como: sosta vietata durante le partite del Como',
+    ogDescription: 'La polizia locale ha attivato il carro attrezzi per rimuovere le moto parcheggiate illegalmente durante le partite del Como.',
+    canonicalPath: '/articoli-frontaliere/nuovi-posti-moto-lago-como',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi posti moto a Como: sosta vietata durante le partite del Como",
+      "description": "La polizia locale ha attivato il carro attrezzi per rimuovere le moto parcheggiate illegalmente durante le partite del Como. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovi-posti-moto-lago-como.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nuovi posti moto fronte lago a Como con vista sul lago e montagne"
+      },
+      "datePublished": "2026-05-02T14:35:05+00:00",
+      "dateModified": "2026-05-02T14:35:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovi-posti-moto-lago-como`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

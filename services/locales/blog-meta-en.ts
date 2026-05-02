@@ -5197,6 +5197,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.marcia-zurigo-disabilita-uguaglianza.title': 'March from Ticino to Zurich: Disability Equality Demands',
     'blog.article.marcia-zurigo-disabilita-uguaglianza.excerpt': 'About twenty people from Ticino participate in the national demonstration for equality of people with disabilities in Zurich',
     'blog.article.marcia-zurigo-disabilita-uguaglianza.imageAlt': 'A group of protesters marching in Zurich with signs demanding equality for people with disabilities',
+    'blog.article.nuovi-posti-moto-lago-como.title': 'New motorcycle parking in Como: no parking during matches',
+    'blog.article.nuovi-posti-moto-lago-como.excerpt': 'Local police have activated the tow truck to remove illegally parked motorcycles during Como\'s matches.',
+    'blog.article.nuovi-posti-moto-lago-como.imageAlt': 'New motorcycle parking spots by Lake Como with a view of the lake and mountains',
 };
 
 export default blogMetaEn;
