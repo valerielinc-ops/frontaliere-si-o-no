@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1760,
+ "numberOfItems": 1761,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6395,7 +6395,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1757, "name": "Carenza carburante Svizzera: rischio alto, ecco...", "url": `${BASE_URL}/articoli-frontaliere/carenza-carburante-svizzera-2026` },
           { "@type": "ListItem", "position": 1758, "name": "Ermotti respinge accuse lobbying UBS: 'Diritto ...", "url": `${BASE_URL}/articoli-frontaliere/ermotti-respinge-accuse-lobbying-ubs` },
           { "@type": "ListItem", "position": 1759, "name": "Addio ad Alex Zanardi: l'incidente del 2001 che...", "url": `${BASE_URL}/articoli-frontaliere/addio-alex-zanardi-2001-incidente-vita` },
-          { "@type": "ListItem", "position": 1760, "name": "Caronno Varesino inaugura il nuovo campetto in ...", "url": `${BASE_URL}/articoli-frontaliere/caronno-varesino-campetto-dante-mercanti-2026` }
+          { "@type": "ListItem", "position": 1760, "name": "Caronno Varesino inaugura il nuovo campetto in ...", "url": `${BASE_URL}/articoli-frontaliere/caronno-varesino-campetto-dante-mercanti-2026` },
+          { "@type": "ListItem", "position": 1761, "name": "Confederazione valuta sistemi difesa aerea alte...", "url": `${BASE_URL}/articoli-frontaliere/confederazione-valuta-sistemi-difesa-aerea` }
  ]
  },
  {

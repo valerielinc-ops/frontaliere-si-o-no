@@ -5132,6 +5132,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caronno-varesino-campetto-dante-mercanti-2026.title': 'Caronno Varesino inaugura il nuovo campetto in memoria di Dante Mercanti',
     'blog.article.caronno-varesino-campetto-dante-mercanti-2026.excerpt': 'Sabato 9 maggio alle 16 l\'inaugurazione del nuovo campo sportivo di via Macchi a Caronno Varesino, intitolato a Dante Mercanti.',
     'blog.article.caronno-varesino-campetto-dante-mercanti-2026.imageAlt': 'Inaugurazione del nuovo campetto sportivo a Caronno Varesino',
+    'blog.article.confederazione-valuta-sistemi-difesa-aerea.title': 'Confederazione valuta sistemi difesa aerea alternativi',
+    'blog.article.confederazione-valuta-sistemi-difesa-aerea.excerpt': 'Ritardi nei sistemi Patriot spingono la Svizzera a valutare nuove soluzioni di difesa aerea.',
+    'blog.article.confederazione-valuta-sistemi-difesa-aerea.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti',
 };
 
 export default blogMetaIt;

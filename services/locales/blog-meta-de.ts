@@ -5131,6 +5131,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caronno-varesino-campetto-dante-mercanti-2026.title': 'Caronno Varesino eröffnet neuen Sportplatz zu Ehren von Dante Mercanti',
     'blog.article.caronno-varesino-campetto-dante-mercanti-2026.excerpt': 'Am Samstag, dem 9. Mai, um 16 Uhr wird der neue Sportplatz in der Via Macchi in Caronno Varesino eingeweiht, der Dante Mercanti gewidmet ist.',
     'blog.article.caronno-varesino-campetto-dante-mercanti-2026.imageAlt': 'Einweihung des neuen Sportplatzes in Caronno Varesino',
+    'blog.article.confederazione-valuta-sistemi-difesa-aerea.title': 'Schweiz prüft alternative Luftverteidigungssysteme',
+    'blog.article.confederazione-valuta-sistemi-difesa-aerea.excerpt': 'Verzögerungen bei den Patriot-Systemen veranlassen die Schweiz, neue Lösungen für die Luftverteidigung zu prüfen.',
+    'blog.article.confederazione-valuta-sistemi-difesa-aerea.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

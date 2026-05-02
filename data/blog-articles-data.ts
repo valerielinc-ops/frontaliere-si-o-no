@@ -12986,4 +12986,11 @@ export const ARTICLES = [
  image: '/images/blog/caronno-varesino-campetto-dante-mercanti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'confederazione-valuta-sistemi-difesa-aerea',
+ category: 'novita',
+ date: '2026-05-02T10:53:44.175Z',
+ image: '/images/blog/confederazione-valuta-sistemi-difesa-aerea.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

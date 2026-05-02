@@ -36579,6 +36579,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confederazione-valuta-sistemi-difesa-aerea': {
+    title: 'Confederazione valuta sistemi difesa aerea alternativi',
+    description: 'La Confederazione svizzera valuta sistemi di difesa aerea alternativi a causa dei ritardi nei sistemi Patriot statunitensi. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, confederazione, valuta, sistemi, difesa',
+    ogTitle: 'Confederazione valuta sistemi difesa aerea alternativi',
+    ogDescription: 'La Confederazione svizzera valuta sistemi di difesa aerea alternativi a causa dei ritardi nei sistemi Patriot statunitensi.',
+    canonicalPath: '/articoli-frontaliere/confederazione-valuta-sistemi-difesa-aerea',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confederazione valuta sistemi difesa aerea alternativi",
+      "description": "La Confederazione svizzera valuta sistemi di difesa aerea alternativi a causa dei ritardi nei sistemi Patriot statunitensi. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/confederazione-valuta-sistemi-difesa-aerea.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago di Lugano e le montagne circostanti"
+      },
+      "datePublished": "2026-05-02T10:53:44+00:00",
+      "dateModified": "2026-05-02T10:53:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confederazione-valuta-sistemi-difesa-aerea`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
