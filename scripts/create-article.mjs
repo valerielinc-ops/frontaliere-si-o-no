@@ -2870,27 +2870,16 @@ ${terminologyByLang[targetLang] || ''}`;
   console.error(`  ✅ Articolo assemblato — ${Object.keys(data.content).length} lingue`);
 }
 
-// ── Anti-clickbait title validation (Google Discover compliance) ──
-
-const CLICKBAIT_PATTERNS = [
-  { re: /\b(shock|clamoroso|incredibile|ecco perch[eé]|tutto cambia|scopri cosa|non crederai|assurdo|pazzesco)\b/i, label: 'sensational_word' },
-  { re: /\b(segreto|trucco|metodo che|svela|rivela il)\b/i, label: 'curiosity_gap' },
-  { re: /^\s*[A-ZÀ-Ú\s!]{10,}\s*:/, label: 'all_caps_prefix' },
-  { re: /\?$/, label: 'rhetorical_question' },
-  { re: /\.{3}$/, label: 'trailing_ellipsis' },
-  { re: /\b(ecco cosa|ecco come|ecco quando|ecco chi)\b/i, label: 'ecco_pattern' },
-];
-
 /**
  * Validate a title against clickbait patterns. Returns { valid, reason } where
  * reason is the label of the first matching pattern (or null if valid).
  */
 function validateTitle(title) {
   if (!title) return { valid: false, reason: 'empty' };
-  for (const { re, label } of CLICKBAIT_PATTERNS) {
+  for (const re of CLICKBAIT_PATTERNS) {
     if (re.test(title)) {
-      console.warn(`  ⚠️ [anti-clickbait] Titolo sospetto: "${title}" — pattern: ${label}`);
-      return { valid: false, reason: label };
+      console.warn(`  ⚠️ [anti-clickbait] Titolo sospetto: "${title}"`);
+      return { valid: false, reason: 'clickbait_pattern' };
     }
   }
   return { valid: true, reason: null };
@@ -2907,9 +2896,7 @@ function validateTitle(title) {
 //  - 2-22 whitespace-separated tokens
 //  - Must NOT start with a digit
 //  - Must NOT match any clickbait pattern from A5_CLICKBAIT_PATTERNS
-//    (Italian + English variants, kept independent of the legacy
-//    CLICKBAIT_PATTERNS list above so the stricter A5 ruleset can evolve
-//    without affecting the existing soft warning).
+//    (Italian + English variants).
 //
 // Returns an array of human-readable error strings (empty = pass).
 //
@@ -3431,79 +3418,6 @@ function enforceStrongInternalLinks(data) {
   }
 
   return data;
-}
-
-// ──────────────────────────────────────────────────────────────────────────
-// Headline validation (Google News compliance — task A5)
-//
-// Rules (per docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 FASE 1 A5):
-//  - Length 10–110 characters
-//  - 2–22 whitespace-separated tokens
-//  - Must NOT start with a digit (Google News penalizes "57 reasons …" stubs)
-//  - Must NOT match any clickbait pattern (italian + english variants)
-//
-// `validateHeadline` returns an array of human-readable errors. Empty array
-// means the headline passes. Used in two places downstream:
-//   1. `generateAndValidateArticle` — fails the run if a generated headline
-//      cannot be made compliant after one retry, per CLAUDE.md non-negotiable
-//      rule #1 (never silently publish a non-conformant article).
-//   2. `tests/blog-headline-validation.test.ts` — unit + integration tests
-//      that walk over every published article in `services/locales/blog-meta-it.ts`.
-// ──────────────────────────────────────────────────────────────────────────
-
-/**
- * Clickbait phrases / patterns we refuse to publish, in IT + EN.
- *
- * Sources for the pattern list:
- *  - Google News content quality guidelines (no exaggerated language)
- *  - Italian editorial style guides (Repubblica, Corriere)
- *  - Common anti-clickbait research (Hong & Liu 2018, Chakraborty et al. 2016)
- */
-export const CLICKBAIT_PATTERNS = [
-  // Italian
-  /non\s+crederai/i,
-  /scioccante/i,
-  /incredibile/i,
-  /sconvolgente/i,
-  /ti\s+lascer[àa]\s+senza\s+parole/i,
-  /clamoroso/i,
-  /pazzesco/i,
-  /\bspoiler\b/i,
-  /quello\s+che\s+(non\s+)?sai/i,
-  /ecco\s+(perch[ée]|cosa)\s+non\s+(crederai|immagini)/i,
-  // English
-  /you\s+won['’]?t\s+believe/i,
-  /shocking/i,
-  /mind[-\s]?blowing/i,
-  /this\s+one\s+(weird\s+)?trick/i,
-  // Punctuation tells (clickbait stubs)
-  /\?\?\?$/,
-  /!{2,}$/,
-];
-
-/**
- * Validate a single headline string against the A5 ruleset.
- * Returns the array of error messages (empty array = pass).
- *
- * Pure function — no side effects, safe to call from tests.
- *
- * @param {string} headline
- * @returns {string[]}
- */
-export function validateHeadline(headline) {
-  const errs = [];
-  if (typeof headline !== 'string' || headline.length === 0) {
-    return ['Headline mancante o non stringa'];
-  }
-  if (headline.length < 10) errs.push('Headline troppo corto (min 10 char)');
-  if (headline.length > 110) errs.push('Headline troppo lungo (max 110 char)');
-  const wc = headline.trim().split(/\s+/).filter(Boolean).length;
-  if (wc < 2 || wc > 22) errs.push(`Headline ${wc} parole, range 2-22`);
-  if (/^\d/.test(headline.trim())) errs.push('Headline non deve iniziare con numero');
-  if (CLICKBAIT_PATTERNS.some((p) => p.test(headline))) {
-    errs.push('Pattern clickbait rilevato');
-  }
-  return errs;
 }
 
 function optimizeSeoMetadata(data) {
