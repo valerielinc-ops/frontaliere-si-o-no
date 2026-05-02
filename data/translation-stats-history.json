@@ -1,105 +1,5 @@
 [
   {
-    "timestamp": "2026-04-17T22:31:52.711Z",
-    "label": "before",
-    "total": 2941,
-    "needsRetranslation": 1259,
-    "incomplete": 68,
-    "complete": 2873,
-    "missingByLocale": {
-      "it": 55,
-      "en": 21,
-      "de": 45,
-      "fr": 60
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 33
-      },
-      {
-        "company": "Lonza",
-        "pending": 5
-      },
-      {
-        "company": "Denner",
-        "pending": 4
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 2
-      },
-      {
-        "company": "PEMSA",
-        "pending": 2
-      },
-      {
-        "company": "TALLY WEiJL",
-        "pending": 2
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-17T23:44:26.369Z",
-    "label": "after",
-    "total": 2941,
-    "needsRetranslation": 87,
-    "incomplete": 29,
-    "complete": 2912,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 25,
-      "fr": 29
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 22
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 2
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-18T02:29:24.663Z",
     "label": "before",
     "total": 2941,
@@ -8216,6 +8116,94 @@
     "label": "after",
     "total": 2664,
     "needsRetranslation": 57,
+    "incomplete": 29,
+    "complete": 2635,
+    "missingByLocale": {
+      "it": 27,
+      "en": 7,
+      "de": 25,
+      "fr": 25
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-02T03:57:14.264Z",
+    "label": "before",
+    "total": 2664,
+    "needsRetranslation": 57,
+    "incomplete": 29,
+    "complete": 2635,
+    "missingByLocale": {
+      "it": 27,
+      "en": 7,
+      "de": 25,
+      "fr": 25
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-02T04:15:02.455Z",
+    "label": "after",
+    "total": 2664,
+    "needsRetranslation": 20,
     "incomplete": 29,
     "complete": 2635,
     "missingByLocale": {
