@@ -13028,4 +13028,11 @@ export const ARTICLES = [
  image: '/images/blog/bus-elettrici-lugano-problemi-utenti.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gala-sorriso-solidarieta-ospedale-del-ponte',
+ category: 'novita',
+ date: '2026-05-02T11:47:49.909Z',
+ image: '/images/blog/gala-sorriso-solidarieta-ospedale-del-ponte.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -36753,6 +36753,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gala-sorriso-solidarieta-ospedale-del-ponte': {
+    title: 'Il Galà del Sorriso incanta: magia e solidarietà per l’Ospedale Del Ponte',
+    description: 'Grande successo per il Galà del Sorriso a Varese, con spettacoli di magia e raccolte fondi per le sale parto dell\'Ospedale Del Ponte. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, galà, sorriso, incanta, magia',
+    ogTitle: 'Galà del Sorriso incanta Varese con magia e solidarietà',
+    ogDescription: 'Grande successo per il Galà del Sorriso a Varese, con spettacoli di magia e raccolte fondi per le sale parto dell\'Ospedale Del Ponte',
+    canonicalPath: '/articoli-frontaliere/gala-sorriso-solidarieta-ospedale-del-ponte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Galà del Sorriso incanta Varese con magia e solidarietà",
+      "description": "Grande successo per il Galà del Sorriso a Varese, con spettacoli di magia e raccolte fondi per le sale parto dell'Ospedale Del Ponte. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gala-sorriso-solidarieta-ospedale-del-ponte.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento serale magico all'Ospedale Del Ponte a Varese con artisti sul palco e pubblico"
+      },
+      "datePublished": "2026-05-02T11:47:49+00:00",
+      "dateModified": "2026-05-02T11:47:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gala-sorriso-solidarieta-ospedale-del-ponte`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

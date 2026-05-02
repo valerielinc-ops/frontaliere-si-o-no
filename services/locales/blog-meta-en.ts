@@ -5149,6 +5149,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bus-elettrici-lugano-problemi-utenti.title': 'Electric buses in Lugano: issues and delays',
     'blog.article.bus-elettrici-lugano-problemi-utenti.excerpt': 'Discharged batteries, high seats and frequent delays: the problems reported by users of Lugano\'s new electric buses',
     'blog.article.bus-elettrici-lugano-problemi-utenti.imageAlt': 'Electric buses in Lugano with passengers waiting at the stop',
+    'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.title': 'The Smile Gala enchants: magic and solidarity for Del Ponte Hospital',
+    'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.excerpt': 'Great success for the charity event in Varese, with magic shows and fundraisers for the hospital\'s delivery rooms',
+    'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.imageAlt': 'Magical evening event at Ospedale Del Ponte in Varese with performers on stage and audience',
 };
 
 export default blogMetaEn;
