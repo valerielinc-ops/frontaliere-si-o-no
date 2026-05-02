@@ -2894,6 +2894,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ippodromo-varese-svicc-allenatori': { name: 'Novità', path: '/articoli-frontaliere/ippodromo-varese-svicc-allenatori', parent: 'blog' },
     'blog-luigi-bignami-insubria-scienza-2026': { name: 'Novità', path: '/articoli-frontaliere/luigi-bignami-insubria-scienza-2026', parent: 'blog' },
     'blog-busto-arsizio-carcere-denuncia-strada': { name: 'Denuncia carcere', path: '/articoli-frontaliere/busto-arsizio-carcere-denuncia-strada', parent: 'blog' },
+    'blog-bracconaggio-ittico-lago-maggiore-ispra-2026': { name: 'Bracconaggio ittico', path: '/articoli-frontaliere/bracconaggio-ittico-lago-maggiore-ispra-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

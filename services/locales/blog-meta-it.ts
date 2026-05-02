@@ -4991,6 +4991,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.busto-arsizio-carcere-denuncia-strada.title': 'Carcere di Busto Arsizio: denuncia di Cecilia Strada al Parlamento europeo',
     'blog.article.busto-arsizio-carcere-denuncia-strada.excerpt': 'Sovraffollamento oltre il 200%, condizioni disumane e suicidi: la situazione critica del carcere di Busto Arsizio denunciata in Europa.',
     'blog.article.busto-arsizio-carcere-denuncia-strada.imageAlt': 'Veduta aerea del carcere di Busto Arsizio, Italia',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.title': 'Bracconaggio ittico sul Lago Maggiore: denunciato pescatore con fiocina',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.excerpt': 'Operazione dei Carabinieri Forestali nel Varesotto: sequestri e denuncia penale per pesca illegale di lucioperca in periodo di fermo biologico',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.imageAlt': 'Vista aerea del Lago Maggiore con acque cristalline e montagne circostanti',
 };
 
 export default blogMetaIt;

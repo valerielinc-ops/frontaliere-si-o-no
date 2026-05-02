@@ -4991,6 +4991,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.busto-arsizio-carcere-denuncia-strada.title': 'Prison de Busto Arsizio : dénonciation de Cecilia Strada au Parlement européen',
     'blog.article.busto-arsizio-carcere-denuncia-strada.excerpt': 'Surpopulation de plus de 200 %, conditions inhumaines et suicides : la situation critique de la prison de Busto Arsizio dénoncée en Europe.',
     'blog.article.busto-arsizio-carcere-denuncia-strada.imageAlt': 'Vue aérienne de la prison de Busto Arsizio, Italie',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.title': 'Braconnage de poissons dans le lac Majeur: un pêcheur à la harpon dénoncé',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.excerpt': 'Opération des Carabiniers Forestiers dans le Varesotto: saisies et dénonciation pénale pour la pêche illégale de perches en période de fermeture biologique',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.imageAlt': 'Vue aérienne du Lac Majeur avec de l\'eau bleue claire et des montagnes environnantes',
 };
 
 export default blogMetaFr;

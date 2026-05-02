@@ -4990,6 +4990,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.busto-arsizio-carcere-denuncia-strada.title': 'Gefängnis Busto Arsizio: Cecilia Stradas Klage im EU-Parlament',
     'blog.article.busto-arsizio-carcere-denuncia-strada.excerpt': 'Überbelegung von über 200%, unmenschliche Bedingungen und Suizide: Die kritische Situation des Gefängnisses Busto Arsizio in Europa angezeigt.',
     'blog.article.busto-arsizio-carcere-denuncia-strada.imageAlt': 'Luftaufnahme des Gefängnisses in Busto Arsizio, Italien',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.title': 'Wildfischen im Lago Maggiore: Speerfischer angezeigt',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.excerpt': 'Einsatz der Carabinieri Forestali im Varesotto: Beschlagnahmungen und Strafanzeige wegen illegalem Fischfang von Zander in der Schonzeit',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.imageAlt': 'Luftansicht des Lago Maggiore mit klarem blauem Wasser und umliegenden Bergen',
 };
 
 export default blogMetaDe;

@@ -4990,6 +4990,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.busto-arsizio-carcere-denuncia-strada.title': 'Busto Arsizio prison: Cecilia Strada\'s EU Parliament complaint',
     'blog.article.busto-arsizio-carcere-denuncia-strada.excerpt': 'Overcrowding exceeding 200%, inhuman conditions, and suicides: the critical situation of Busto Arsizio prison reported in Europe.',
     'blog.article.busto-arsizio-carcere-denuncia-strada.imageAlt': 'Aerial view of Busto Arsizio prison, Italy',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.title': 'Illegal fishing on Lake Maggiore: spear fisherman reported',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.excerpt': 'Carabinieri Forestali operation in Varesotto: seizures and criminal complaint for illegal pikeperch fishing during biological closure',
+    'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.imageAlt': 'Aerial view of Lake Maggiore with clear blue water and surrounding mountains',
 };
 
 export default blogMetaEn;
