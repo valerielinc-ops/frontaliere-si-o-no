@@ -5243,6 +5243,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cavalli-esercito-svizzero-costi.title': 'Cavalli esercito svizzero: costi in aumento',
     'blog.article.cavalli-esercito-svizzero-costi.excerpt': 'L\'esercito svizzero spenderà 3,8 milioni di franchi per i cavalli dal 2026 al 2028, con critiche alla gestione delle risorse',
     'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Cavalli dell\'esercito svizzero in addestramento al Centro Equestre Nazionale di Berna',
+    'blog.article.agricoltura-ticino-priorita-2026.title': 'Agricoltura ticinese: priorità a prodotti locali, superfici e formazione',
+    'blog.article.agricoltura-ticino-priorita-2026.excerpt': 'La Camera cantonale dell’agricoltura del Ticino approva risoluzioni per valorizzare i prodotti locali e gestire le superfici agricole.',
+    'blog.article.agricoltura-ticino-priorita-2026.imageAlt': 'Paesaggio agricolo del Ticino con campi e vigneti',
 };
 
 export default blogMetaIt;

@@ -13245,4 +13245,11 @@ export const ARTICLES = [
  image: '/images/blog/cavalli-esercito-svizzero-costi.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'agricoltura-ticino-priorita-2026',
+ category: 'novita',
+ date: '2026-05-02T16:48:27.769Z',
+ image: '/images/blog/agricoltura-ticino-priorita-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

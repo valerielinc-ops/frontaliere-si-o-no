@@ -5243,6 +5243,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cavalli-esercito-svizzero-costi.title': 'L\'armée suisse et ses chevaux: des coûts en hausse',
     'blog.article.cavalli-esercito-svizzero-costi.excerpt': 'L\'armée suisse dépensera 3,8 millions de francs pour les chevaux de 2026 à 2028, sous les critiques de la gestion des ressources.',
     'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Chevaux militaires suisses en entraînement au Centre Équestre National de Berne',
+    'blog.article.agricoltura-ticino-priorita-2026.title': 'Agriculture tessinoise: priorité aux produits locaux, surfaces et formation',
+    'blog.article.agricoltura-ticino-priorita-2026.excerpt': 'La Chambre cantonale de l\'agriculture du Tessin approuve des résolutions pour valoriser les produits locaux et gérer les surfaces agricoles.',
+    'blog.article.agricoltura-ticino-priorita-2026.imageAlt': 'Paysage agricole du Tessin avec des champs et des vignobles',
 };
 
 export default blogMetaFr;

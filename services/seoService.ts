@@ -2978,6 +2978,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-beatificazione-don-roberto-malgesini-2026': { name: 'Beatificazione don Roberto Malgesini', path: '/articoli-frontaliere/beatificazione-don-roberto-malgesini-2026', parent: 'blog' },
     'blog-lago-segrino-camper-2026': { name: 'Novità', path: '/articoli-frontaliere/lago-segrino-camper-2026', parent: 'blog' },
     'blog-cavalli-esercito-svizzero-costi': { name: 'Novità', path: '/articoli-frontaliere/cavalli-esercito-svizzero-costi', parent: 'blog' },
+    'blog-agricoltura-ticino-priorita-2026': { name: 'Agricoltura Ticino', path: '/articoli-frontaliere/agricoltura-ticino-priorita-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

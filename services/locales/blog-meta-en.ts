@@ -5242,6 +5242,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cavalli-esercito-svizzero-costi.title': 'Swiss army horses: rising costs',
     'blog.article.cavalli-esercito-svizzero-costi.excerpt': 'The Swiss army will spend 3.8 million francs on horses from 2026 to 2028, amid criticism over resource management',
     'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Swiss military horses training at the National Equestrian Center in Bern',
+    'blog.article.agricoltura-ticino-priorita-2026.title': 'Ticino farming: focus on local produce, land and training',
+    'blog.article.agricoltura-ticino-priorita-2026.excerpt': 'The Ticino Chamber of Agriculture approves resolutions to promote local products and manage agricultural land.',
+    'blog.article.agricoltura-ticino-priorita-2026.imageAlt': 'Agricultural landscape in Ticino with fields and vineyards',
 };
 
 export default blogMetaEn;

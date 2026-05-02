@@ -5242,6 +5242,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cavalli-esercito-svizzero-costi.title': 'Schweizer Armee: Kosten für Pferde steigen',
     'blog.article.cavalli-esercito-svizzero-costi.excerpt': 'Die Schweizer Armee wird von 2026 bis 2028 3,8 Millionen Franken für Pferde ausgeben, was zu Kritik an der Ressourcenverwaltung führt.',
     'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Schweizer Militärpferde im Training am Nationalen Reitzentrum in Bern',
+    'blog.article.agricoltura-ticino-priorita-2026.title': 'Tessin: Fokus auf lokale Produkte, Flächen und Bildung',
+    'blog.article.agricoltura-ticino-priorita-2026.excerpt': 'Die Landwirtschaftskammer des Kantons Tessin hat Resolutionen verabschiedet, um lokale Produkte zu fördern und landwirtschaftliche Flächen zu verwalten.',
+    'blog.article.agricoltura-ticino-priorita-2026.imageAlt': 'Landwirtschaftliche Landschaft im Tessin mit Feldern und Weinbergen',
 };
 
 export default blogMetaDe;
