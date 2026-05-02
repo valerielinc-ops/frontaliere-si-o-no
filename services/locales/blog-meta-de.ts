@@ -5035,6 +5035,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.concerto-luino-vivaldi-bach-2026.title': 'Konzert in Luino: Vivaldi und Bach im Santuario del Carmine',
     'blog.article.concerto-luino-vivaldi-bach-2026.excerpt': 'Am Samstag, den 2. Mai 2026 tritt die Milano Festival Chamber Orchestra in Luino mit einem Programm klassischer Musik auf.',
     'blog.article.concerto-luino-vivaldi-bach-2026.imageAlt': 'Konzert im Santuario del Carmine in Luino',
+    'blog.article.musica-antica-san-cassiano-2026.title': 'Fünf Konzerte in San Cassiano entdecken und retten',
+    'blog.article.musica-antica-san-cassiano-2026.excerpt': 'Vom 9. Mai bis 6. Juni 2026 finden fünf Konzerte mit alter Musik in der Kapelle San Cassiano in Varese statt, um die Restaurierung des Ortes zu unterstützen',
+    'blog.article.musica-antica-san-cassiano-2026.imageAlt': 'Kirche San Cassiano in Varese, Italien, mit einer Luftaufnahme der grünen Umgebung und Innenraumdetails mit Fresken und einer Konzertbühne',
 };
 
 export default blogMetaDe;

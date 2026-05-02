@@ -35651,6 +35651,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-musica-antica-san-cassiano-2026': {
+    title: 'Cinque concerti a San Cassiano per riscoprire un gioiello da salvare',
+    description: 'Dal 9 maggio al 6 giugno 2026, cinque concerti di musica antica nella chiesetta di San Cassiano a Varese per sostenere il restauro del luogo. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cinque, concerti, cassiano, riscoprire',
+    ogTitle: 'Cinque concerti a San Cassiano per riscoprire un gioiello da salvare',
+    ogDescription: 'Dal 9 maggio al 6 giugno 2026, cinque concerti di musica antica nella chiesetta di San Cassiano a Varese per sostenere il restauro del luogo',
+    canonicalPath: '/articoli-frontaliere/musica-antica-san-cassiano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Cinque concerti a San Cassiano per riscoprire un gioiello da salvare\",\"description\":\"Dal 9 maggio al 6 giugno 2026, cinque concerti di musica antica nella chiesetta di San Cassiano a Varese per sostenere il restauro del luogo\",\"datePublished\":\"2026-05-09\",\"image\":\"https://frontaliereticino.ch/images/chiesa-san-cassiano.webp\"}",
+      "description": "Dal 9 maggio al 6 giugno 2026, cinque concerti di musica antica nella chiesetta di San Cassiano a Varese per sostenere il restauro del luogo. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/musica-antica-san-cassiano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiesa di San Cassiano a Varese, con vista aerea del luogo immerso nel verde e dettagli dell'interno con affreschi e palco per concerti"
+      },
+      "datePublished": "2026-05-02T04:30:23+00:00",
+      "dateModified": "2026-05-02T04:30:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/musica-antica-san-cassiano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

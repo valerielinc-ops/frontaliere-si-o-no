@@ -5036,6 +5036,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.concerto-luino-vivaldi-bach-2026.title': 'Concerto a Luino: Vivaldi e Bach al Santuario del Carmine',
     'blog.article.concerto-luino-vivaldi-bach-2026.excerpt': 'Sabato 2 maggio 2026 la Milano Festival Chamber Orchestra si esibisce a Luino con un programma di musica classica.',
     'blog.article.concerto-luino-vivaldi-bach-2026.imageAlt': 'Concerto al Santuario del Carmine a Luino',
+    'blog.article.musica-antica-san-cassiano-2026.title': 'Cinque concerti a San Cassiano per riscoprire un gioiello da salvare',
+    'blog.article.musica-antica-san-cassiano-2026.excerpt': 'Dal 9 maggio al 6 giugno 2026, cinque concerti di musica antica nella chiesetta di San Cassiano a Varese per sostenere il restauro del luogo',
+    'blog.article.musica-antica-san-cassiano-2026.imageAlt': 'Chiesa di San Cassiano a Varese, con vista aerea del luogo immerso nel verde e dettagli dell\'interno con affreschi e palco per concerti',
 };
 
 export default blogMetaIt;
