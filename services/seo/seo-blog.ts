@@ -36202,6 +36202,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-papa-paperino-cuasso-monte': {
+    title: 'La storia di Paperino passa da Cuasso al Monte | Frontaliere Ticino',
+    description: 'Scopri il legame tra il padre italiano di Paperino e il Ticino durante la Seconda Guerra Mondiale. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, storia, paperino, passa, cuasso',
+    ogTitle: 'La storia di Paperino passa da Cuasso al Monte',
+    ogDescription: 'Scopri il legame tra il padre italiano di Paperino e il Ticino durante la Seconda Guerra Mondiale',
+    canonicalPath: '/articoli-frontaliere/papa-paperino-cuasso-monte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La storia di Paperino passa da Cuasso al Monte",
+      "description": "Scopri il legame tra il padre italiano di Paperino e il Ticino durante la Seconda Guerra Mondiale. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/papa-paperino-cuasso-monte.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con Cuasso al Monte sullo sfondo"
+      },
+      "datePublished": "2026-05-02T08:08:34+00:00",
+      "dateModified": "2026-05-02T08:08:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/papa-paperino-cuasso-monte`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

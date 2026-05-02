@@ -2928,6 +2928,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-limiti-eta-smartphone-social-media': { name: 'Novità', path: '/articoli-frontaliere/limiti-eta-smartphone-social-media', parent: 'blog' },
     'blog-volandia-battesimo-volo-elicottero-2026': { name: 'Volandia 2026', path: '/articoli-frontaliere/volandia-battesimo-volo-elicottero-2026', parent: 'blog' },
     'blog-banche-golfo-preparano-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/banche-golfo-preparano-frontalieri', parent: 'blog' },
+    'blog-papa-paperino-cuasso-monte': { name: 'Novità', path: '/articoli-frontaliere/papa-paperino-cuasso-monte', parent: 'blog' },
  };
 
  const info = sectionNames[section];

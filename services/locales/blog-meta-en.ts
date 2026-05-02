@@ -5092,6 +5092,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.banche-golfo-preparano-frontalieri.title': 'Swiss banks prepare for Gulf clients',
     'blog.article.banche-golfo-preparano-frontalieri.excerpt': 'Fund transfers underway to Switzerland from Gulf countries due to the war in Iran. Here\'s what changes for cross-border workers.',
     'blog.article.banche-golfo-preparano-frontalieri.imageAlt': 'Lake Lugano with view of the financial district',
+    'blog.article.papa-paperino-cuasso-monte.title': 'Donald Duck\'s story moves from Cuasso to the Monte',
+    'blog.article.papa-paperino-cuasso-monte.excerpt': 'Discover the link between Donald Duck\'s Italian father and Ticino during World War II',
+    'blog.article.papa-paperino-cuasso-monte.imageAlt': 'Aerial view of Lake Lugano with Cuasso al Monte in the background',
 };
 
 export default blogMetaEn;

@@ -12895,4 +12895,11 @@ export const ARTICLES = [
  image: '/images/blog/banche-golfo-preparano-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'papa-paperino-cuasso-monte',
+ category: 'novita',
+ date: '2026-05-02T08:08:34.071Z',
+ image: '/images/blog/papa-paperino-cuasso-monte.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

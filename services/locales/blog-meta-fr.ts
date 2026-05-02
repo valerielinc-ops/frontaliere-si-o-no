@@ -5093,6 +5093,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.banche-golfo-preparano-frontalieri.title': 'Les banques suisses préparent l\'accueil des clients du Golfe',
     'blog.article.banche-golfo-preparano-frontalieri.excerpt': 'Transfert de fonds en cours vers la Suisse depuis les pays du Golfe en raison de la guerre en Iran. Voici ce qui change pour les frontaliers.',
     'blog.article.banche-golfo-preparano-frontalieri.imageAlt': 'Lac de Lugano avec vue sur le quartier financier',
+    'blog.article.papa-paperino-cuasso-monte.title': 'L\'histoire de Donald passe de Cuasso au Monte',
+    'blog.article.papa-paperino-cuasso-monte.excerpt': 'Découvrez le lien entre le père italien de Donald et le Tessin pendant la Seconde Guerre mondiale',
+    'blog.article.papa-paperino-cuasso-monte.imageAlt': 'Vue aérienne du lac de Lugano avec Cuasso al Monte en arrière-plan',
 };
 
 export default blogMetaFr;
