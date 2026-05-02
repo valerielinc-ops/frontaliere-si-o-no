@@ -13126,4 +13126,11 @@ export const ARTICLES = [
  image: '/images/blog/protezione-vittime-142-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'golasecca-esplorazione-passeggiata-2026',
+ category: 'novita',
+ date: '2026-05-02T14:07:12.974Z',
+ image: '/images/blog/golasecca-esplorazione-passeggiata-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

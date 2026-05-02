@@ -5192,6 +5192,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.protezione-vittime-142-ticino-2026.title': 'Le 142 est actif : nouveau service pour les victimes de violence',
     'blog.article.protezione-vittime-142-ticino-2026.excerpt': 'Depuis le 1er mai 2026, le numéro 142 est opérationnel pour les victimes de violence en Ticino. Découvrez comment cela fonctionne et ce qui change.',
     'blog.article.protezione-vittime-142-ticino-2026.imageAlt': 'LAC Lugano Arts Center avec vue sur le lac',
+    'blog.article.golasecca-esplorazione-passeggiata-2026.title': 'Golasecca: 140 randonneurs à la découverte des plus beaux lieux',
+    'blog.article.golasecca-esplorazione-passeggiata-2026.excerpt': 'Une journée de marche de 13 km à travers les lieux les plus suggestifs de Golasecca, avec apéritif, déjeuner et collation. Les participants reçoivent des goodies et un défibrillateur offert.',
+    'blog.article.golasecca-esplorazione-passeggiata-2026.imageAlt': 'Un groupe de personnes en randonnée dans les paysages pittoresques de Golasecca, avec les ruines historiques de l\'Ipposidra en arrière-plan.',
 };
 
 export default blogMetaFr;

@@ -37159,6 +37159,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-golasecca-esplorazione-passeggiata-2026': {
+    title: 'Golasecca: 140 escursionisti alla scoperta dei luoghi più belli',
+    description: 'Una giornata di cammino di 13 km attraverso i luoghi più suggestivi di Golasecca, con aperitivo, pranzo e merenda. Partecipanti ricevono gadget e defibrillatore',
+    keywords: 'frontalieri, ticino, svizzera, italia, golasecca, escursionisti, alla, scoperta',
+    ogTitle: 'Golasecca: 140 escursionisti alla scoperta dei luoghi più belli',
+    ogDescription: 'Una giornata di cammino di 13 km attraverso i luoghi più suggestivi di Golasecca, con aperitivo, pranzo e merenda. Partecipanti ricevono gadget e defibrillatore',
+    canonicalPath: '/articoli-frontaliere/golasecca-esplorazione-passeggiata-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Golasecca: 140 escursionisti alla scoperta dei luoghi più belli",
+      "description": "Una giornata di cammino di 13 km attraverso i luoghi più suggestivi di Golasecca, con aperitivo, pranzo e merenda. Partecipanti ricevono gadget e defibrillatore",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/golasecca-esplorazione-passeggiata-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone in escursione nei paesaggi suggestivi di Golasecca, con le rovine dell'Ipposidra sullo sfondo."
+      },
+      "datePublished": "2026-05-02T14:07:13+00:00",
+      "dateModified": "2026-05-02T14:07:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/golasecca-esplorazione-passeggiata-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

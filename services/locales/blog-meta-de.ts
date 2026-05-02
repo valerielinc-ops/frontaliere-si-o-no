@@ -5191,6 +5191,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.protezione-vittime-142-ticino-2026.title': '142 aktiv: Neuer Dienst für Gewaltopfer',
     'blog.article.protezione-vittime-142-ticino-2026.excerpt': 'Ab dem 1. Mai 2026 ist die Nummer 142 für Gewaltopfer im Tessin in Betrieb. Erfahren Sie, wie es funktioniert und was sich ändert.',
     'blog.article.protezione-vittime-142-ticino-2026.imageAlt': 'LAC Lugano Arts Center mit Blick auf den See',
+    'blog.article.golasecca-esplorazione-passeggiata-2026.title': 'Golasecca: 140 Wanderer entdecken die schönsten Orte',
+    'blog.article.golasecca-esplorazione-passeggiata-2026.excerpt': 'Ein Tag voller Wandern auf 13 km durch die malerischsten Orte von Golasecca, mit Aperitif, Mittagessen und Snack. Teilnehmer erhalten Gadgets und einen gespendeten Defibrillator.',
+    'blog.article.golasecca-esplorazione-passeggiata-2026.imageAlt': 'Eine Gruppe von Menschen wandert durch die malerischen Landschaften von Golasecca, mit den historischen Ruinen des Ipposidra im Hintergrund.',
 };
 
 export default blogMetaDe;
