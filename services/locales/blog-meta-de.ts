@@ -5140,6 +5140,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vittoria-bagatin-tappa-turchia.title': 'Christian Bagatin gewinnt die Königsetappe der Türkei-Rundfahrt',
     'blog.article.vittoria-bagatin-tappa-turchia.excerpt': 'Der 23-jährige Oriner holt seinen ersten Profisieg bei der sechsten Etappe der Türkei-Rundfahrt',
     'blog.article.vittoria-bagatin-tappa-turchia.imageAlt': 'Christian Bagatin feiert seinen Sieg an der Spitze der Königinsetappe der Türkei-Rundfahrt',
+    'blog.article.taglio-accise-carburanti-22-maggio.title': 'Kraftstoffsteuersenkung bis 22. Mai verlängert',
+    'blog.article.taglio-accise-carburanti-22-maggio.excerpt': 'Der Ministerrat hat die Senkung der Kraftstoffsteuern bis zum 22. Mai 2026 verlängert. Hier erfahren Grenzgänger, was sich ändert.',
+    'blog.article.taglio-accise-carburanti-22-maggio.imageAlt': 'Eine Tankstelle in Lugano mit den Kraftstoffpreisen im Vordergrund',
 };
 
 export default blogMetaDe;

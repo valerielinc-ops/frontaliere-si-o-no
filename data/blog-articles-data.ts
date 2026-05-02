@@ -13007,4 +13007,11 @@ export const ARTICLES = [
  image: '/images/blog/vittoria-bagatin-tappa-turchia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'taglio-accise-carburanti-22-maggio',
+ category: 'novita',
+ date: '2026-05-02T11:18:55.983Z',
+ image: '/images/blog/taglio-accise-carburanti-22-maggio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

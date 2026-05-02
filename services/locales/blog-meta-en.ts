@@ -5140,6 +5140,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vittoria-bagatin-tappa-turchia.title': 'Christian Bagatin wins the queen stage of the Tour of Turkey',
     'blog.article.vittoria-bagatin-tappa-turchia.excerpt': 'The 23-year-old from Orino secures his first professional victory in the sixth stage of the Tour of Turkey',
     'blog.article.vittoria-bagatin-tappa-turchia.imageAlt': 'Christian Bagatin celebrates his victory at the top of the queen stage of the Tour of Turkey',
+    'blog.article.taglio-accise-carburanti-22-maggio.title': 'Fuel tax cut extended to May 22',
+    'blog.article.taglio-accise-carburanti-22-maggio.excerpt': 'The Council of Ministers has extended the fuel tax cut until May 22, 2026. Here\'s what changes for cross-border workers',
+    'blog.article.taglio-accise-carburanti-22-maggio.imageAlt': 'A gas station in Lugano with fuel prices displayed prominently',
 };
 
 export default blogMetaEn;

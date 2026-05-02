@@ -2944,6 +2944,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-confederazione-valuta-sistemi-difesa-aerea': { name: 'Novità', path: '/articoli-frontaliere/confederazione-valuta-sistemi-difesa-aerea', parent: 'blog' },
     'blog-penuria-carburante-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/penuria-carburante-svizzera-2026', parent: 'blog' },
     'blog-vittoria-bagatin-tappa-turchia': { name: 'Sport', path: '/articoli-frontaliere/vittoria-bagatin-tappa-turchia', parent: 'blog' },
+    'blog-taglio-accise-carburanti-22-maggio': { name: 'Novità', path: '/articoli-frontaliere/taglio-accise-carburanti-22-maggio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

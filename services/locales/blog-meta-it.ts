@@ -5141,6 +5141,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vittoria-bagatin-tappa-turchia.title': 'Christian Bagatin trionfa nella tappa regina del Giro di Turchia',
     'blog.article.vittoria-bagatin-tappa-turchia.excerpt': 'Il 23enne di Orino conquista la prima vittoria da professionista nella sesta tappa del Giro di Turchia',
     'blog.article.vittoria-bagatin-tappa-turchia.imageAlt': 'Christian Bagatin celebra la vittoria in cima alla tappa regina del Giro di Turchia',
+    'blog.article.taglio-accise-carburanti-22-maggio.title': 'Taglio accise carburanti prorogato al 22 maggio',
+    'blog.article.taglio-accise-carburanti-22-maggio.excerpt': 'Il Consiglio dei ministri ha prorogato il taglio delle accise sui carburanti fino al 22 maggio 2026. Ecco cosa cambia per i frontalieri',
+    'blog.article.taglio-accise-carburanti-22-maggio.imageAlt': 'Una stazione di servizio a Lugano con i prezzi dei carburanti in evidenza',
 };
 
 export default blogMetaIt;

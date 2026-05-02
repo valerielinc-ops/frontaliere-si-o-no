@@ -36666,6 +36666,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-taglio-accise-carburanti-22-maggio': {
+    title: 'Taglio accise carburanti prorogato al 22 maggio | Frontaliere Ticino',
+    description: 'Il Consiglio dei ministri ha prorogato il taglio delle accise sui carburanti fino al 22 maggio 2026. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglio, accise, carburanti, prorogato',
+    ogTitle: 'Taglio accise carburanti prorogato al 22 maggio',
+    ogDescription: 'Il Consiglio dei ministri ha prorogato il taglio delle accise sui carburanti fino al 22 maggio 2026. Ecco cosa cambia per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/taglio-accise-carburanti-22-maggio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Taglio accise carburanti prorogato al 22 maggio",
+      "description": "Il Consiglio dei ministri ha prorogato il taglio delle accise sui carburanti fino al 22 maggio 2026. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/taglio-accise-carburanti-22-maggio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una stazione di servizio a Lugano con i prezzi dei carburanti in evidenza"
+      },
+      "datePublished": "2026-05-02T11:18:56+00:00",
+      "dateModified": "2026-05-02T11:18:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/taglio-accise-carburanti-22-maggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

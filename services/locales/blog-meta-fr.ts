@@ -5141,6 +5141,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vittoria-bagatin-tappa-turchia.title': 'Christian Bagatin triomphe dans l\'étape reine du Tour de Turquie',
     'blog.article.vittoria-bagatin-tappa-turchia.excerpt': 'Le jeune homme de 23 ans d\'Orino remporte sa première victoire en tant que professionnel lors de la sixième étape du Tour de Turquie',
     'blog.article.vittoria-bagatin-tappa-turchia.imageAlt': 'Christian Bagatin célèbre sa victoire en haut de l\'étape reine du Tour de Turquie',
+    'blog.article.taglio-accise-carburanti-22-maggio.title': 'Réduction des taxes sur le carburant prolongée jusqu\'au 22 mai',
+    'blog.article.taglio-accise-carburanti-22-maggio.excerpt': 'Le Conseil des ministres a prolongé la réduction des taxes sur les carburants jusqu\'au 22 mai 2026. Voici ce qui change pour les frontaliers',
+    'blog.article.taglio-accise-carburanti-22-maggio.imageAlt': 'Une station-service à Lugano avec les prix des carburants bien en évidence',
 };
 
 export default blogMetaFr;
