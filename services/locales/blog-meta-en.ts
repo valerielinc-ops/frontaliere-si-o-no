@@ -5152,6 +5152,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.title': 'The Smile Gala enchants: magic and solidarity for Del Ponte Hospital',
     'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.excerpt': 'Great success for the charity event in Varese, with magic shows and fundraisers for the hospital\'s delivery rooms',
     'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.imageAlt': 'Magical evening event at Ospedale Del Ponte in Varese with performers on stage and audience',
+    'blog.article.varese-incendio-palazzo-frontalieri.title': 'Fire at top floor of Varese building, no injuries',
+    'blog.article.varese-incendio-palazzo-frontalieri.excerpt': 'Apartment fire at the top floor of a building in Varese, no injuries thanks to the timely intervention of firefighters',
+    'blog.article.varese-incendio-palazzo-frontalieri.imageAlt': 'Fire in a building in Varese, with firefighters responding to the scene',
 };
 
 export default blogMetaEn;

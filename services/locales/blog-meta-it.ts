@@ -5153,6 +5153,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.title': 'Il Galà del Sorriso incanta: magia e solidarietà per l’Ospedale Del Ponte',
     'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.excerpt': 'Grande successo per l\'evento benefico a Varese, con spettacoli di magia e raccolte fondi per le sale parto dell\'ospedale',
     'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.imageAlt': 'Evento serale magico all\'Ospedale Del Ponte a Varese con artisti sul palco e pubblico',
+    'blog.article.varese-incendio-palazzo-frontalieri.title': 'Varese, rogo all\'ultimo piano di un palazzo: fiamme domate, nessun ferito',
+    'blog.article.varese-incendio-palazzo-frontalieri.excerpt': 'Incendio in un appartamento al piano sommitale di un palazzo a Varese, nessun ferito grazie all\'intervento tempestivo dei vigili del fuoco',
+    'blog.article.varese-incendio-palazzo-frontalieri.imageAlt': 'Incendio in un palazzo a Varese, con vigili del fuoco in azione',
 };
 
 export default blogMetaIt;

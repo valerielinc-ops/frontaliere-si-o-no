@@ -5152,6 +5152,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.title': 'Galà del Sorriso begeistert: Magie und Solidarität fürs Spital Del Ponte',
     'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.excerpt': 'Großer Erfolg für die Benefizveranstaltung in Varese mit Magievorführungen und Spendensammlungen für die Kreißsäle des Spitals',
     'blog.article.gala-sorriso-solidarieta-ospedale-del-ponte.imageAlt': 'Magischer Abendveranstaltung im Ospedale Del Ponte in Varese mit Künstlern auf der Bühne und Publikum',
+    'blog.article.varese-incendio-palazzo-frontalieri.title': 'Brand im obersten Stockwerk eines Gebäudes in Varese',
+    'blog.article.varese-incendio-palazzo-frontalieri.excerpt': 'Ein Feuer in einer Wohnung im obersten Stockwerk eines Gebäudes in Varese, keine Verletzten dank des schnellen Eingreifens der Feuerwehr',
+    'blog.article.varese-incendio-palazzo-frontalieri.imageAlt': 'Brand in einem Gebäude in Varese, mit Feuerwehr im Einsatz',
 };
 
 export default blogMetaDe;

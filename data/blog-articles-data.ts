@@ -13035,4 +13035,11 @@ export const ARTICLES = [
  image: '/images/blog/gala-sorriso-solidarieta-ospedale-del-ponte.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-incendio-palazzo-frontalieri',
+ category: 'novita',
+ date: '2026-05-02T11:54:45.390Z',
+ image: '/images/blog/varese-incendio-palazzo-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
