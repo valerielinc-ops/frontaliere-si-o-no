@@ -5240,6 +5240,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lago-segrino-camper-2026.title': 'Lago Segrino: No alle 105 piazzole per camper, distesa d\'asfalto',
     'blog.article.lago-segrino-camper-2026.excerpt': 'Il Circolo Ambiente \'Ilaria Alpi\' si oppone al progetto di 105 piazzole per camper a Canzo, vicino al Lago di Segrino, un sito di importanza comunitaria.',
     'blog.article.lago-segrino-camper-2026.imageAlt': 'Vista serena del Lago di Segrino in provincia di Como, Italia, con un focus sui dintorni naturali e sulle acque chiare del lago.',
+    'blog.article.cavalli-esercito-svizzero-costi.title': 'Cavalli esercito svizzero: costi in aumento',
+    'blog.article.cavalli-esercito-svizzero-costi.excerpt': 'L\'esercito svizzero spenderà 3,8 milioni di franchi per i cavalli dal 2026 al 2028, con critiche alla gestione delle risorse',
+    'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Cavalli dell\'esercito svizzero in addestramento al Centro Equestre Nazionale di Berna',
 };
 
 export default blogMetaIt;

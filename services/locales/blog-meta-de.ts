@@ -5239,6 +5239,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lago-segrino-camper-2026.title': 'Lago Segrino: Nein zu 105 Stellplätzen für Wohnmobile, Asphaltfläche',
     'blog.article.lago-segrino-camper-2026.excerpt': 'Der Umweltkreis \'Ilaria Alpi\' widersetzt sich dem Projekt von 105 Stellplätzen für Wohnmobile in Canzo, nahe dem Lago di Segrino, einem Ort von gemeinschaftlicher Bedeutung.',
     'blog.article.lago-segrino-camper-2026.imageAlt': 'Ruhevolle Aussicht auf den Segrino-See in der Provinz Como, Italien, mit Fokus auf die natürliche Umgebung und die klaren Gewässer des Sees.',
+    'blog.article.cavalli-esercito-svizzero-costi.title': 'Schweizer Armee: Kosten für Pferde steigen',
+    'blog.article.cavalli-esercito-svizzero-costi.excerpt': 'Die Schweizer Armee wird von 2026 bis 2028 3,8 Millionen Franken für Pferde ausgeben, was zu Kritik an der Ressourcenverwaltung führt.',
+    'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Schweizer Militärpferde im Training am Nationalen Reitzentrum in Bern',
 };
 
 export default blogMetaDe;

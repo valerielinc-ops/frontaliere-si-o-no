@@ -5240,6 +5240,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lago-segrino-camper-2026.title': 'Lac de Segrino: Non aux 105 emplacements pour camping-cars',
     'blog.article.lago-segrino-camper-2026.excerpt': 'Le Cercle Environnement \'Ilaria Alpi\' s\'oppose au projet de 105 emplacements pour camping-cars à Canzo, près du Lac de Segrino, un site d\'importance communautaire.',
     'blog.article.lago-segrino-camper-2026.imageAlt': 'Vue sereine du lac de Segrino dans la province de Côme, en Italie, avec un accent sur les environs naturels et les eaux claires du lac.',
+    'blog.article.cavalli-esercito-svizzero-costi.title': 'L\'armée suisse et ses chevaux: des coûts en hausse',
+    'blog.article.cavalli-esercito-svizzero-costi.excerpt': 'L\'armée suisse dépensera 3,8 millions de francs pour les chevaux de 2026 à 2028, sous les critiques de la gestion des ressources.',
+    'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Chevaux militaires suisses en entraînement au Centre Équestre National de Berne',
 };
 
 export default blogMetaFr;

@@ -2977,6 +2977,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vino-amaro-vallese-2026': { name: 'Vino amaro in Vallese', path: '/articoli-frontaliere/vino-amaro-vallese-2026', parent: 'blog' },
     'blog-beatificazione-don-roberto-malgesini-2026': { name: 'Beatificazione don Roberto Malgesini', path: '/articoli-frontaliere/beatificazione-don-roberto-malgesini-2026', parent: 'blog' },
     'blog-lago-segrino-camper-2026': { name: 'Novità', path: '/articoli-frontaliere/lago-segrino-camper-2026', parent: 'blog' },
+    'blog-cavalli-esercito-svizzero-costi': { name: 'Novità', path: '/articoli-frontaliere/cavalli-esercito-svizzero-costi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

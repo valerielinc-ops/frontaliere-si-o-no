@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1796,
+ "numberOfItems": 1797,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6431,7 +6431,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1793, "name": "Gordola, nuovo ricorso blocca Santa Maria", "url": `${BASE_URL}/articoli-frontaliere/gordola-santa-maria-ricorso-2026` },
           { "@type": "ListItem", "position": 1794, "name": "Vino amaro in Vallese: Provins SA annuncia perd...", "url": `${BASE_URL}/articoli-frontaliere/vino-amaro-vallese-2026` },
           { "@type": "ListItem", "position": 1795, "name": "{\"it\":\"Beatificazione don Roberto Malgesini: av...", "url": `${BASE_URL}/articoli-frontaliere/beatificazione-don-roberto-malgesini-2026` },
-          { "@type": "ListItem", "position": 1796, "name": "Lago Segrino: No alle 105 piazzole per camper, ...", "url": `${BASE_URL}/articoli-frontaliere/lago-segrino-camper-2026` }
+          { "@type": "ListItem", "position": 1796, "name": "Lago Segrino: No alle 105 piazzole per camper, ...", "url": `${BASE_URL}/articoli-frontaliere/lago-segrino-camper-2026` },
+          { "@type": "ListItem", "position": 1797, "name": "Cavalli esercito svizzero: costi in aumento", "url": `${BASE_URL}/articoli-frontaliere/cavalli-esercito-svizzero-costi` }
  ]
  },
  {

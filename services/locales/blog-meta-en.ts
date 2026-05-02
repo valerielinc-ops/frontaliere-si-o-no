@@ -5239,6 +5239,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lago-segrino-camper-2026.title': 'Lake Segrino: No to 105 camper pitches, asphalt area',
     'blog.article.lago-segrino-camper-2026.excerpt': 'The \'Ilaria Alpi\' Environment Circle opposes the project of 105 camper pitches in Canzo, near Lake Segrino, a community site of importance.',
     'blog.article.lago-segrino-camper-2026.imageAlt': 'Serene view of Lake Segrino in Como, Italy, focusing on the natural surroundings and the lake\'s clear waters.',
+    'blog.article.cavalli-esercito-svizzero-costi.title': 'Swiss army horses: rising costs',
+    'blog.article.cavalli-esercito-svizzero-costi.excerpt': 'The Swiss army will spend 3.8 million francs on horses from 2026 to 2028, amid criticism over resource management',
+    'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Swiss military horses training at the National Equestrian Center in Bern',
 };
 
 export default blogMetaEn;

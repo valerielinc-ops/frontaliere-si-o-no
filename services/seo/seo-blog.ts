@@ -37623,6 +37623,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cavalli-esercito-svizzero-costi': {
+    title: 'Cavalli esercito svizzero: costi in aumento | Frontaliere Ticino',
+    description: 'L\'esercito svizzero spenderà 3,8 milioni di franchi per i cavalli dal 2026 al 2028, con critiche alla gestione delle risorse. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cavalli, esercito, svizzero, costi',
+    ogTitle: 'Cavalli esercito svizzero: costi in aumento',
+    ogDescription: 'L\'esercito svizzero spenderà 3,8 milioni di franchi per i cavalli dal 2026 al 2028, con critiche alla gestione delle risorse',
+    canonicalPath: '/articoli-frontaliere/cavalli-esercito-svizzero-costi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cavalli esercito svizzero: costi in aumento",
+      "description": "L'esercito svizzero spenderà 3,8 milioni di franchi per i cavalli dal 2026 al 2028, con critiche alla gestione delle risorse. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cavalli-esercito-svizzero-costi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cavalli dell'esercito svizzero in addestramento al Centro Equestre Nazionale di Berna"
+      },
+      "datePublished": "2026-05-02T16:41:16+00:00",
+      "dateModified": "2026-05-02T16:41:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cavalli-esercito-svizzero-costi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

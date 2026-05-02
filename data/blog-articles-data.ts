@@ -13238,4 +13238,11 @@ export const ARTICLES = [
  image: '/images/blog/lago-segrino-camper-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cavalli-esercito-svizzero-costi',
+ category: 'novita',
+ date: '2026-05-02T16:41:16.210Z',
+ image: '/images/blog/cavalli-esercito-svizzero-costi.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
