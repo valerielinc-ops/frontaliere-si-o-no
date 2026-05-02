@@ -5182,6 +5182,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.title': 'Einzelhandel: leichter Umsatzrückgang im März',
     'blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.excerpt': 'März 2026: Stabilität für Schweizer Geschäfte, aber 0,1 % weniger Umsatz als 2025. Daten des UST.',
     'blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.imageAlt': 'Belebter Einkaufsviertel in Lugano, Tessin',
+    'blog.article.rissa-lugano-pensilina-botta-feriti-2026.title': 'Schlägerei in Lugano: Zwei Verletzte an der Pensilina Botta',
+    'blog.article.rissa-lugano-pensilina-botta-feriti-2026.excerpt': 'Ein von der Polizei beruhigter Tumult hat zwei Personen in einem Unfall an der Pensilina Botta in Lugano verletzt.',
+    'blog.article.rissa-lugano-pensilina-botta-feriti-2026.imageAlt': 'Aussicht auf den Luganersee mit der Skyline der Stadt',
 };
 
 export default blogMetaDe;

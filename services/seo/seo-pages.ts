@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1777,
+ "numberOfItems": 1778,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6412,7 +6412,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1774, "name": "Taglio accise carburanti: diesel a sconto pieno...", "url": `${BASE_URL}/articoli-frontaliere/taglio-accise-carburanti-maggio-2026` },
           { "@type": "ListItem", "position": 1775, "name": "Como: yoga, meditazione e passeggiate nella vil...", "url": `${BASE_URL}/articoli-frontaliere/yoga-meditazione-villa-lago-como` },
           { "@type": "ListItem", "position": 1776, "name": "Como e Cantù uniscono le forze per la Lake Como...", "url": `${BASE_URL}/articoli-frontaliere/como-cantu-creativity-week-2026` },
-          { "@type": "ListItem", "position": 1777, "name": "Commercio al dettaglio: mini-flessione dei rica...", "url": `${BASE_URL}/articoli-frontaliere/commercio-al-dettaglio-mini-flessione-marzo-2026` }
+          { "@type": "ListItem", "position": 1777, "name": "Commercio al dettaglio: mini-flessione dei rica...", "url": `${BASE_URL}/articoli-frontaliere/commercio-al-dettaglio-mini-flessione-marzo-2026` },
+          { "@type": "ListItem", "position": 1778, "name": "Rissa a Lugano: due feriti alla Pensilina Botta", "url": `${BASE_URL}/articoli-frontaliere/rissa-lugano-pensilina-botta-feriti-2026` }
  ]
  },
  {

@@ -13105,4 +13105,11 @@ export const ARTICLES = [
  image: '/images/blog/commercio-al-dettaglio-mini-flessione-marzo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rissa-lugano-pensilina-botta-feriti-2026',
+ category: 'novita',
+ date: '2026-05-02T13:32:00.572Z',
+ image: '/images/blog/rissa-lugano-pensilina-botta-feriti-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

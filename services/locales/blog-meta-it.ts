@@ -5183,6 +5183,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.title': 'Commercio al dettaglio: mini-flessione dei ricavi in marzo',
     'blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.excerpt': 'Marzo 2026: stabilità per i negozi svizzeri, ma calo dello 0,1% del giro d\'affari rispetto al 2025. Dati UST.',
     'blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.imageAlt': 'Distretto commerciale affollato a Lugano, Ticino',
+    'blog.article.rissa-lugano-pensilina-botta-feriti-2026.title': 'Rissa a Lugano: due feriti alla Pensilina Botta',
+    'blog.article.rissa-lugano-pensilina-botta-feriti-2026.excerpt': 'Un tumulto sedato dalla polizia ha coinvolto due persone ferite in un incidente alla Pensilina Botta di Lugano.',
+    'blog.article.rissa-lugano-pensilina-botta-feriti-2026.imageAlt': 'Vista del lago di Lugano con lo skyline cittadino',
 };
 
 export default blogMetaIt;
