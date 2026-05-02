@@ -35535,6 +35535,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-luna-park-schiranna-2026': {
+    title: 'Luna Park Schiranna: vita tra giostre e carovane | Frontaliere Ticino',
+    description: 'Scopri la vita dei giostrai e delle giostraie che ogni anno portano musica e luci alla Schiranna di Varese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, luna, park, schiranna, vita',
+    ogTitle: 'Luna Park Schiranna: vita tra giostre e carovane',
+    ogDescription: 'Scopri la vita dei giostrai e delle giostraie che ogni anno portano musica e luci alla Schiranna di Varese',
+    canonicalPath: '/articoli-frontaliere/varese-luna-park-schiranna-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luna Park Schiranna: vita tra giostre e carovane",
+      "description": "Scopri la vita dei giostrai e delle giostraie che ogni anno portano musica e luci alla Schiranna di Varese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-luna-park-schiranna-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica del Luna Park della Schiranna a Varese"
+      },
+      "datePublished": "2026-05-02T03:47:12+00:00",
+      "dateModified": "2026-05-02T03:47:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-luna-park-schiranna-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

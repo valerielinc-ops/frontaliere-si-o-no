@@ -5023,6 +5023,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cioccolato-illumina-bellinzona-2026.title': 'Chocolat Stella opens new store in Bellinzona',
     'blog.article.cioccolato-illumina-bellinzona-2026.excerpt': 'The famous Chocolat Stella returns to the center of Bellinzona with a new store in Piazza Nosetto, Palazzo Civico.',
     'blog.article.cioccolato-illumina-bellinzona-2026.imageAlt': 'Bellinzona city center illuminated with chocolate theme',
+    'blog.article.varese-luna-park-schiranna-2026.title': 'Luna Park Schiranna: life among rides and caravans',
+    'blog.article.varese-luna-park-schiranna-2026.excerpt': 'Discover the lives of showmen and showwomen who bring music and lights to Schiranna in Varese every year',
+    'blog.article.varese-luna-park-schiranna-2026.imageAlt': 'Aerial view of Schiranna amusement park in Varese',
 };
 
 export default blogMetaEn;

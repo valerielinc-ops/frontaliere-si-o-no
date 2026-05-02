@@ -12734,4 +12734,11 @@ export const ARTICLES = [
  image: '/images/blog/cioccolato-illumina-bellinzona-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-luna-park-schiranna-2026',
+ category: 'pratico',
+ date: '2026-05-02T03:47:12.532Z',
+ image: '/images/blog/varese-luna-park-schiranna-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
