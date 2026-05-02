@@ -458,6 +458,8 @@ const translations: Record<string, string> = {
  'traffic.subtitle': 'Controlla i tempi di attesa ai valichi di confine CH-IT',
  'traffic.fastest': 'Valico più veloce',
  'traffic.slowest': 'Valico più congestionato',
+ 'traffic.regionAll': 'Tutti',
+ 'traffic.filterBy': 'Zona',
  'traffic.mapView': 'Vista Mappa',
  'traffic.listView': 'Vista Lista',
  'traffic.statusGreen': 'Traffico scorrevole',
@@ -924,6 +926,7 @@ const translations: Record<string, string> = {
  'traffic.wait': 'Attesa',
  'traffic.yes': 'Sì',
  'traffic.zone': 'Zona',
+ 'traffic.viewCrossingPage': 'Scheda valico',
  // --- Banks ---
  'email.didYouMean': 'Intendevi',
  'newsletter.invalidEmail': 'Inserisci un indirizzo email valido',
