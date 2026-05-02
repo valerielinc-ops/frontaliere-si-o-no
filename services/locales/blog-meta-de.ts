@@ -5068,6 +5068,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vino-alto-ticino-scudellate-2026.title': 'Der höchste Wein des Tessin wird in Scudellate produziert',
     'blog.article.vino-alto-ticino-scudellate-2026.excerpt': 'Wir entdecken den Wein \'909\', der in 909 Metern Höhe im Muggiotal produziert wird, und seine einzigartigen Eigenschaften',
     'blog.article.vino-alto-ticino-scudellate-2026.imageAlt': 'Weinberge von Scudellate im Muggiotal, Tessin, mit Blick auf den Monte Generoso',
+    'blog.article.corteo-pro-palestina-lungolago-lugano.title': 'Pro-Palästina-Demonstration blockiert Luganos Seeufer',
+    'blog.article.corteo-pro-palestina-lungolago-lugano.excerpt': 'Etwa fünfzig Demonstranten zogen durch die Via Nassa und dann entlang des Seeufers, blockierten den Verkehr und lösten unterschiedliche Reaktionen aus.',
+    'blog.article.corteo-pro-palestina-lungolago-lugano.imageAlt': 'Demonstranten am Seeufer in Lugano mit palästinensischen Flaggen',
 };
 
 export default blogMetaDe;

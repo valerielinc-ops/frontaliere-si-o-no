@@ -5069,6 +5069,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vino-alto-ticino-scudellate-2026.title': 'Il vino più alto del Ticino prodotto a Scudellate',
     'blog.article.vino-alto-ticino-scudellate-2026.excerpt': 'Scopriamo il vino \'909\', prodotto a 909 metri di altitudine in Valle di Muggio, e le sue caratteristiche uniche',
     'blog.article.vino-alto-ticino-scudellate-2026.imageAlt': 'Vigneti di Scudellate in Valle di Muggio, Ticino, con vista sul Monte Generoso',
+    'blog.article.corteo-pro-palestina-lungolago-lugano.title': 'Corteo pro Palestina invade il lungolago di Lugano',
+    'blog.article.corteo-pro-palestina-lungolago-lugano.excerpt': 'Una cinquantina di manifestanti ha sfilato in via Nassa e poi lungo il lungolago, bloccando il traffico e suscitando reazioni contrastanti.',
+    'blog.article.corteo-pro-palestina-lungolago-lugano.imageAlt': 'Manifestanti lungo il lungolago di Lugano con bandiere palestinesi',
 };
 
 export default blogMetaIt;

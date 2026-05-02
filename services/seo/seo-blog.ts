@@ -35970,6 +35970,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-corteo-pro-palestina-lungolago-lugano': {
+    title: 'Corteo pro Palestina invade il lungolago di Lugano',
+    description: 'Una cinquantina di manifestanti ha sfilato in via Nassa e poi lungo il lungolago, bloccando il traffico e suscitando reazioni contrastanti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, corteo, palestina, invade, lungolago',
+    ogTitle: 'Corteo pro Palestina invade il lungolago di Lugano',
+    ogDescription: 'Una cinquantina di manifestanti ha sfilato in via Nassa e poi lungo il lungolago, bloccando il traffico e suscitando reazioni contrastanti.',
+    canonicalPath: '/articoli-frontaliere/corteo-pro-palestina-lungolago-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Corteo pro Palestina invade il lungolago di Lugano",
+      "description": "Una cinquantina di manifestanti ha sfilato in via Nassa e poi lungo il lungolago, bloccando il traffico e suscitando reazioni contrastanti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/corteo-pro-palestina-lungolago-lugano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestanti lungo il lungolago di Lugano con bandiere palestinesi"
+      },
+      "datePublished": "2026-05-02T06:56:00+00:00",
+      "dateModified": "2026-05-02T06:56:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/corteo-pro-palestina-lungolago-lugano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

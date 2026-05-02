@@ -12839,4 +12839,11 @@ export const ARTICLES = [
  image: '/images/blog/vino-alto-ticino-scudellate-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'corteo-pro-palestina-lungolago-lugano',
+ category: 'novita',
+ date: '2026-05-02T06:56:00.334Z',
+ image: '/images/blog/corteo-pro-palestina-lungolago-lugano.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

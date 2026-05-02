@@ -2920,6 +2920,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cure-domicilio-pensionati-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/cure-domicilio-pensionati-ticino-2026', parent: 'blog' },
     'blog-libriamoci-varese-studenti-2026': { name: 'Concorso Libriamoci', path: '/articoli-frontaliere/libriamoci-varese-studenti-2026', parent: 'blog' },
     'blog-vino-alto-ticino-scudellate-2026': { name: 'Novità Ticino', path: '/articoli-frontaliere/vino-alto-ticino-scudellate-2026', parent: 'blog' },
+    'blog-corteo-pro-palestina-lungolago-lugano': { name: 'Manifestazione Lugano', path: '/articoli-frontaliere/corteo-pro-palestina-lungolago-lugano', parent: 'blog' },
  };
 
  const info = sectionNames[section];
