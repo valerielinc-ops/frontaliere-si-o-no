@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-05-02T10:41:50.527Z",
+  "assembledAt": "2026-05-02T22:24:49.966Z",
   "jobs": [
     {
       "id": "company-hkdide",
@@ -173,7 +173,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jnoz9i",
