@@ -13070,4 +13070,11 @@ export const ARTICLES = [
  image: '/images/blog/movieri-traffico-ss340-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'doppietta-frontalieri-santonino-2026',
+ category: 'novita',
+ date: '2026-05-02T12:41:12.262Z',
+ image: '/images/blog/doppietta-frontalieri-santonino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

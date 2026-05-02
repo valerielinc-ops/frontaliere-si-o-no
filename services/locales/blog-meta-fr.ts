@@ -5168,6 +5168,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.movieri-traffico-ss340-2026.title': 'Agents en action dimanche pour le trafic record sur le Lac de Côme',
     'blog.article.movieri-traffico-ss340-2026.excerpt': 'Service extraordinaire dimanche 3 mai le long de la SS 340 Regina pour gérer l\'afflux touristique prévu',
     'blog.article.movieri-traffico-ss340-2026.imageAlt': 'Observateurs de trafic en action le long de la route d\'État du lac de Côme',
+    'blog.article.doppietta-frontalieri-santonino-2026.title': 'Double emploi frontalier à Sant\'Antonino : ce qui change',
+    'blog.article.doppietta-frontalieri-santonino-2026.excerpt': 'À Sant\'Antonino, de plus en plus de frontaliers optent pour le double emploi : travail en Suisse et résidence en Italie. Voici ce qu\'il faut savoir.',
+    'blog.article.doppietta-frontalieri-santonino-2026.imageAlt': 'Une rue animée à Mendrisio, Tessin, avec des personnes qui marchent et font du shopping, par une journée ensoleillée avec un ciel bleu clair.',
 };
 
 export default blogMetaFr;

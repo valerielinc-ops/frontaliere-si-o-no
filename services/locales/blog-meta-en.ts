@@ -5167,6 +5167,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.movieri-traffico-ss340-2026.title': 'Traffic wardens on duty Sunday for record Lake Como traffic',
     'blog.article.movieri-traffico-ss340-2026.excerpt': 'Extra service Sunday 3 May along the SS 340 Regina to manage the expected tourist influx',
     'blog.article.movieri-traffico-ss340-2026.imageAlt': 'Traffic observers in action along the Lake Como State Road',
+    'blog.article.doppietta-frontalieri-santonino-2026.title': 'Cross-border workers in Sant\'Antonino: what changes with the double option',
+    'blog.article.doppietta-frontalieri-santonino-2026.excerpt': 'In Sant\'Antonino, more and more cross-border workers are opting for the double option: working in Switzerland and living in Italy. Here\'s what you need to know.',
+    'blog.article.doppietta-frontalieri-santonino-2026.imageAlt': 'A bustling street in Mendrisio, Ticino, with people walking and shopping, set in a sunny day with clear blue skies.',
 };
 
 export default blogMetaEn;

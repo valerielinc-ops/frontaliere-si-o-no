@@ -2953,6 +2953,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-scontro-polizia-lugano-spray-urticante': { name: 'Novità', path: '/articoli-frontaliere/scontro-polizia-lugano-spray-urticante', parent: 'blog' },
     'blog-saronno-bar-licenza-sospesa-rissa': { name: 'Novità', path: '/articoli-frontaliere/saronno-bar-licenza-sospesa-rissa', parent: 'blog' },
     'blog-movieri-traffico-ss340-2026': { name: 'Novità', path: '/articoli-frontaliere/movieri-traffico-ss340-2026', parent: 'blog' },
+    'blog-doppietta-frontalieri-santonino-2026': { name: 'Doppietta frontalieri', path: '/articoli-frontaliere/doppietta-frontalieri-santonino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

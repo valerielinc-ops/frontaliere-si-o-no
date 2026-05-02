@@ -5167,6 +5167,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.movieri-traffico-ss340-2026.title': 'Movieri im Einsatz für Rekordverkehr auf dem Comer See',
     'blog.article.movieri-traffico-ss340-2026.excerpt': 'Sonderdienst am Sonntag, 3. Mai, entlang der SS 340 Regina, um den erwarteten Touristenansturm zu bewältigen',
     'blog.article.movieri-traffico-ss340-2026.imageAlt': 'Verkehrsbeobachter im Einsatz entlang der Staatsstraße am Comer See',
+    'blog.article.doppietta-frontalieri-santonino-2026.title': 'Doppio lavoro a Sant\'Antonino: cosa cambia per i frontalieri',
+    'blog.article.doppietta-frontalieri-santonino-2026.excerpt': 'A Sant\'Antonino, sempre più frontalieri scelgono la doppietta: lavoro in Svizzera e residenza in Italia. Ecco cosa sapere.',
+    'blog.article.doppietta-frontalieri-santonino-2026.imageAlt': 'Eine belebte Straße in Mendrisio, Tessin, mit Menschen, die spazieren gehen und einkaufen, an einem sonnigen Tag mit klarem blauen Himmel.',
 };
 
 export default blogMetaDe;

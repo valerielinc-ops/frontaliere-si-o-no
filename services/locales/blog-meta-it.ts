@@ -5168,6 +5168,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.movieri-traffico-ss340-2026.title': 'Movieri in azione domenica per il traffico record sul Lago di Como',
     'blog.article.movieri-traffico-ss340-2026.excerpt': 'Servizio straordinario domenica 3 maggio lungo la SS 340 Regina per gestire l\'afflusso turistico previsto',
     'blog.article.movieri-traffico-ss340-2026.imageAlt': 'Osservatori del traffico in azione lungo la Statale del Lago di Como',
+    'blog.article.doppietta-frontalieri-santonino-2026.title': 'Doppietta frontalieri a Sant\'Antonino: cosa cambia',
+    'blog.article.doppietta-frontalieri-santonino-2026.excerpt': 'A Sant\'Antonino, sempre più frontalieri scelgono la doppietta: lavoro in Svizzera e residenza in Italia. Ecco cosa sapere.',
+    'blog.article.doppietta-frontalieri-santonino-2026.imageAlt': 'Una strada affollata a Mendrisio, Ticino, con persone che camminano e fanno shopping, in una giornata di sole con cieli blu limpidi.',
 };
 
 export default blogMetaIt;
