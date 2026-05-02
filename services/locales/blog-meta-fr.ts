@@ -5138,6 +5138,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.penuria-carburante-svizzera-2026.title': 'Pénurie de carburant en Suisse : risque très élevé',
     'blog.article.penuria-carburante-svizzera-2026.excerpt': 'Florence Schurch de Suissenégoce avertit : les réserves stratégiques de carburant pourraient s\'épuiser bientôt, avec des conséquences graves pour la Suisse.',
     'blog.article.penuria-carburante-svizzera-2026.imageAlt': 'Lac de Lugano avec une station-service au premier plan, des pompes à essence et une voiture en train de faire le plein',
+    'blog.article.vittoria-bagatin-tappa-turchia.title': 'Christian Bagatin triomphe dans l\'étape reine du Tour de Turquie',
+    'blog.article.vittoria-bagatin-tappa-turchia.excerpt': 'Le jeune homme de 23 ans d\'Orino remporte sa première victoire en tant que professionnel lors de la sixième étape du Tour de Turquie',
+    'blog.article.vittoria-bagatin-tappa-turchia.imageAlt': 'Christian Bagatin célèbre sa victoire en haut de l\'étape reine du Tour de Turquie',
 };
 
 export default blogMetaFr;

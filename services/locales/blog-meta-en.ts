@@ -5137,6 +5137,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.penuria-carburante-svizzera-2026.title': 'High risk of fuel shortage in Switzerland',
     'blog.article.penuria-carburante-svizzera-2026.excerpt': 'Florence Schurch of Suissenégoce warns: strategic fuel reserves could run out soon, with serious consequences for Switzerland.',
     'blog.article.penuria-carburante-svizzera-2026.imageAlt': 'Lake Lugano with a gas station in the foreground, fuel pumps and a car refueling',
+    'blog.article.vittoria-bagatin-tappa-turchia.title': 'Christian Bagatin wins the queen stage of the Tour of Turkey',
+    'blog.article.vittoria-bagatin-tappa-turchia.excerpt': 'The 23-year-old from Orino secures his first professional victory in the sixth stage of the Tour of Turkey',
+    'blog.article.vittoria-bagatin-tappa-turchia.imageAlt': 'Christian Bagatin celebrates his victory at the top of the queen stage of the Tour of Turkey',
 };
 
 export default blogMetaEn;

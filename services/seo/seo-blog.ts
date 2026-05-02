@@ -36637,6 +36637,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vittoria-bagatin-tappa-turchia': {
+    title: 'Christian Bagatin trionfa nella tappa regina del Giro di Turchia',
+    description: 'Christian Bagatin, 23enne di Orino, conquista la prima vittoria da professionista nella sesta tappa del Giro di Turchia, arrivando in solitaria sul traguardo di',
+    keywords: 'frontalieri, ticino, svizzera, italia, christian, bagatin, trionfa, nella',
+    ogTitle: 'Christian Bagatin vince la tappa regina del Giro di Turchia',
+    ogDescription: 'Christian Bagatin, 23enne di Orino, conquista la prima vittoria da professionista nella sesta tappa del Giro di Turchia, arrivando in solitaria sul traguardo di',
+    canonicalPath: '/articoli-frontaliere/vittoria-bagatin-tappa-turchia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Christian Bagatin vince la tappa regina del Giro di Turchia",
+      "description": "Christian Bagatin, 23enne di Orino, conquista la prima vittoria da professionista nella sesta tappa del Giro di Turchia, arrivando in solitaria sul traguardo di",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vittoria-bagatin-tappa-turchia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Christian Bagatin celebra la vittoria in cima alla tappa regina del Giro di Turchia"
+      },
+      "datePublished": "2026-05-02T11:10:54+00:00",
+      "dateModified": "2026-05-02T11:10:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vittoria-bagatin-tappa-turchia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

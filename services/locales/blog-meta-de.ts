@@ -5137,6 +5137,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.penuria-carburante-svizzera-2026.title': 'Brennstoffmangel in der Schweiz: sehr hohes Risiko',
     'blog.article.penuria-carburante-svizzera-2026.excerpt': 'Florence Schurch von Suissenégoce warnt: Die strategischen Brennstoffreserven könnten bald erschöpft sein, mit schweren Folgen für die Schweiz.',
     'blog.article.penuria-carburante-svizzera-2026.imageAlt': 'Luganersee mit einer Tankstelle im Vordergrund, Kraftstoffpumpen und ein Auto, das betankt wird',
+    'blog.article.vittoria-bagatin-tappa-turchia.title': 'Christian Bagatin gewinnt die Königsetappe der Türkei-Rundfahrt',
+    'blog.article.vittoria-bagatin-tappa-turchia.excerpt': 'Der 23-jährige Oriner holt seinen ersten Profisieg bei der sechsten Etappe der Türkei-Rundfahrt',
+    'blog.article.vittoria-bagatin-tappa-turchia.imageAlt': 'Christian Bagatin feiert seinen Sieg an der Spitze der Königinsetappe der Türkei-Rundfahrt',
 };
 
 export default blogMetaDe;

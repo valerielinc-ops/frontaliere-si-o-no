@@ -13000,4 +13000,11 @@ export const ARTICLES = [
  image: '/images/blog/penuria-carburante-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vittoria-bagatin-tappa-turchia',
+ category: 'novita',
+ date: '2026-05-02T11:10:54.231Z',
+ image: '/images/blog/vittoria-bagatin-tappa-turchia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
