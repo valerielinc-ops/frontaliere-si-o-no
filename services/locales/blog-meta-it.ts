@@ -4994,6 +4994,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.title': 'Bracconaggio ittico sul Lago Maggiore: denunciato pescatore con fiocina',
     'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.excerpt': 'Operazione dei Carabinieri Forestali nel Varesotto: sequestri e denuncia penale per pesca illegale di lucioperca in periodo di fermo biologico',
     'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.imageAlt': 'Vista aerea del Lago Maggiore con acque cristalline e montagne circostanti',
+    'blog.article.maggiolone-social-park-cassano-magnago.title': 'Maggiolone Social Park: un mese di feste a Cassano Magnago',
+    'blog.article.maggiolone-social-park-cassano-magnago.excerpt': 'Dal 1° maggio, Cassano Magnago ospita il nuovo Maggiolone Social Park con eventi gratuiti per tutte le età.',
+    'blog.article.maggiolone-social-park-cassano-magnago.imageAlt': 'Vista aerea dello spazio eventi Maggiolone Social Park a Cassano Magnago',
 };
 
 export default blogMetaIt;

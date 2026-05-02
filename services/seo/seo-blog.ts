@@ -35245,6 +35245,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maggiolone-social-park-cassano-magnago': {
+    title: 'Maggiolone Social Park: un mese di feste a Cassano Magnago',
+    description: 'Dal 1° maggio, Cassano Magnago ospita il nuovo Maggiolone Social Park con eventi gratuiti per tutte le età. Scopri il programma e come partecipare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggiolone, social, park, mese',
+    ogTitle: 'Maggiolone Social Park: un mese di feste a Cassano Magnago',
+    ogDescription: 'Dal 1° maggio, Cassano Magnago ospita il nuovo Maggiolone Social Park con eventi gratuiti per tutte le età. Scopri il programma e come partecipare.',
+    canonicalPath: '/articoli-frontaliere/maggiolone-social-park-cassano-magnago',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maggiolone Social Park: un mese di feste a Cassano Magnago",
+      "description": "Dal 1° maggio, Cassano Magnago ospita il nuovo Maggiolone Social Park con eventi gratuiti per tutte le età. Scopri il programma e come partecipare.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maggiolone-social-park-cassano-magnago.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dello spazio eventi Maggiolone Social Park a Cassano Magnago"
+      },
+      "datePublished": "2026-05-02T02:14:43+00:00",
+      "dateModified": "2026-05-02T02:14:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maggiolone-social-park-cassano-magnago`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

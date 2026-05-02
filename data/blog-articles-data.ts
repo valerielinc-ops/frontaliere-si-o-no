@@ -12664,4 +12664,11 @@ export const ARTICLES = [
  image: '/images/blog/bracconaggio-ittico-lago-maggiore-ispra-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'maggiolone-social-park-cassano-magnago',
+ category: 'novita',
+ date: '2026-05-02T02:14:43.030Z',
+ image: '/images/blog/maggiolone-social-park-cassano-magnago.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

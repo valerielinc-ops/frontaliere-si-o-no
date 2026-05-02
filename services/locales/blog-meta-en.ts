@@ -4993,6 +4993,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.title': 'Illegal fishing on Lake Maggiore: spear fisherman reported',
     'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.excerpt': 'Carabinieri Forestali operation in Varesotto: seizures and criminal complaint for illegal pikeperch fishing during biological closure',
     'blog.article.bracconaggio-ittico-lago-maggiore-ispra-2026.imageAlt': 'Aerial view of Lake Maggiore with clear blue water and surrounding mountains',
+    'blog.article.maggiolone-social-park-cassano-magnago.title': 'Maggiolone Social Park: a month of parties in Cassano Magnago',
+    'blog.article.maggiolone-social-park-cassano-magnago.excerpt': 'From May 1st, Cassano Magnago hosts the new Maggiolone Social Park with free events for all ages.',
+    'blog.article.maggiolone-social-park-cassano-magnago.imageAlt': 'Aerial view of Maggiolone Social Park event space in Cassano Magnago',
 };
 
 export default blogMetaEn;

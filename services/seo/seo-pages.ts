@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1714,
+ "numberOfItems": 1715,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6349,7 +6349,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1711, "name": "Sfratto agli allenatori: la Svicc chiude le scu...", "url": `${BASE_URL}/articoli-frontaliere/ippodromo-varese-svicc-allenatori` },
           { "@type": "ListItem", "position": 1712, "name": "Luigi Bignami all'Insubria: l'arte di comunicar...", "url": `${BASE_URL}/articoli-frontaliere/luigi-bignami-insubria-scienza-2026` },
           { "@type": "ListItem", "position": 1713, "name": "Denuncia di Cecilia Strada al Parlamento europe...", "url": `${BASE_URL}/articoli-frontaliere/busto-arsizio-carcere-denuncia-strada` },
-          { "@type": "ListItem", "position": 1714, "name": "Bracconaggio ittico sul Lago Maggiore: denuncia...", "url": `${BASE_URL}/articoli-frontaliere/bracconaggio-ittico-lago-maggiore-ispra-2026` }
+          { "@type": "ListItem", "position": 1714, "name": "Bracconaggio ittico sul Lago Maggiore: denuncia...", "url": `${BASE_URL}/articoli-frontaliere/bracconaggio-ittico-lago-maggiore-ispra-2026` },
+          { "@type": "ListItem", "position": 1715, "name": "Maggiolone Social Park: un mese di feste a Cass...", "url": `${BASE_URL}/articoli-frontaliere/maggiolone-social-park-cassano-magnago` }
  ]
  },
  {
