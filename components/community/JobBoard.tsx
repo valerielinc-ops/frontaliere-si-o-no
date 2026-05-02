@@ -734,7 +734,7 @@ function splitFlatTextIntoItems(text: string): string[] {
 }
 
 /** Parse crawled markdown-like job description into structured JSX blocks. */
-function renderFormattedDescription(raw: string): React.ReactNode {
+export function renderFormattedDescription(raw: string): React.ReactNode {
  const text = String(raw || '').trim();
  if (!text) return null;
 
@@ -762,6 +762,12 @@ function renderFormattedDescription(raw: string): React.ReactNode {
  for (const line of lines) {
  if (!line) {
  // blank line — flush bullets, skip
+ flushBullets();
+ continue;
+ }
+
+ // Bare ## marker with no content (e.g. "##" or "## ") — skip silently
+ if (/^#{1,3}\s*$/.test(line)) {
  flushBullets();
  continue;
  }
@@ -794,6 +800,32 @@ function renderFormattedDescription(raw: string): React.ReactNode {
  ))}
  </ul>
  );
+ }
+ continue;
+ }
+
+ // A-bis) Italian infinitive pattern: lowercase items after dash (" - lowercase")
+ const dashHitsLc = [...headingFull.matchAll(/ - [a-zà-öù-ü]/g)];
+ if (dashHitsLc.length >= 3 && (dashHitsLc[0].index ?? 0) > 5) {
+ const splitAt = dashHitsLc[0].index!;
+ const title = headingFull.substring(0, splitAt).trim();
+ const items = headingFull.substring(splitAt)
+   .split(/ - /)
+   .map(s => s.trim())
+   .filter(s => s.length > 0);
+ blocks.push(
+   <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-accent pl-3 mt-4 mb-1 first:mt-0">
+     {title}
+   </h3>
+ );
+ if (items.length > 0) {
+   blocks.push(
+     <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-accent">
+       {items.map((item, i) => (
+         <li key={i} className="text-sm leading-relaxed text-body">{item}</li>
+       ))}
+     </ul>
+   );
  }
  continue;
  }

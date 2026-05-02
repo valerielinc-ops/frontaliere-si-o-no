@@ -13,6 +13,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { fetchLaderachJobUrls, fetchLaderachDetailPage, slugify, inferEmploymentType } from './lib/laderach-job-parser.mjs';
+import { inferAnyCanton, isKnownSwissMunicipality } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -59,6 +60,16 @@ async function main() {
     const detail = await fetchLaderachDetailPage(raw.url);
     if (!detail?.description || detail.description.length < 120) { console.log(`  ⚠️  ${raw.title}: too short — skipping`); continue; }
     const description = detail.description;
+    // Validate that this is a Swiss location.
+    // Use isKnownSwissMunicipality (BFS-authoritative) as the gate to avoid
+    // permissive substring matches like "Freiburg im Breisgau" → FR canton.
+    const rawLocation = String(raw.location || '');
+    const inferredCanton = inferAnyCanton(rawLocation);
+    const isSwiss = isKnownSwissMunicipality(rawLocation);
+    if (!isSwiss) {
+      console.log(`  ⚠️  Non-Swiss location (${raw.location}) — skipping: ${raw.title}`);
+      continue;
+    }
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-laderach-${raw.location}`);
     parsedJobs.push({
@@ -69,7 +80,7 @@ async function main() {
       description, descriptionByLocale: { de: description },
       sourceLang: detectLang(description || raw.title, 'de'),
       requirements: [], requirementsByLocale: { de: [] },
-      location: raw.location || 'Ennenda', canton: 'GR',
+      location: raw.location || 'Ennenda', canton: inferredCanton || 'GL',
       addressLocality: raw.location || 'Ennenda', addressCountry: 'CH',
       category: 'manufacturing', contract: 'full-time',
       employmentType: inferEmploymentType(raw.title, description),
