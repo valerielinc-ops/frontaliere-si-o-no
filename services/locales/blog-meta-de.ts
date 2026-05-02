@@ -5104,6 +5104,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.abbonamento-newsletter-ticino.title': 'Kostenloser Newsletter: Abonnieren Sie für Updates über den Tessin',
     'blog.article.abbonamento-newsletter-ticino.excerpt': 'Erfahren Sie, wie Sie täglich, wöchentlich und monatlich Nachrichten über die Schweiz und den Kanton Tessin erhalten',
     'blog.article.abbonamento-newsletter-ticino.imageAlt': 'Panoramablick auf Lugano vom See, klarer blauer Himmel',
+    'blog.article.varese-arrampicata-salewa-cube-2026.title': 'Varese: 109 Athleten bei der Coppa Italia Lead',
+    'blog.article.varese-arrampicata-salewa-cube-2026.excerpt': 'Am Samstag, den 2. und Sonntag, den 3. Mai, findet in der Salewa Cube in Varese die zweite Etappe der Coppa Italia Lead mit 109 Athleten, den besten der Nation, statt.',
+    'blog.article.varese-arrampicata-salewa-cube-2026.imageAlt': 'Kletterer in der Salewa Cube in Varese',
 };
 
 export default blogMetaDe;

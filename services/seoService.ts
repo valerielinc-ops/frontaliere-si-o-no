@@ -2932,6 +2932,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-venezia-serie-a-promozione-2026': { name: 'Novità', path: '/articoli-frontaliere/venezia-serie-a-promozione-2026', parent: 'blog' },
     'blog-meloni-governo-longevo-2026': { name: 'Novità', path: '/articoli-frontaliere/meloni-governo-longevo-2026', parent: 'blog' },
     'blog-abbonamento-newsletter-ticino': { name: 'Newsletter Ticino', path: '/articoli-frontaliere/abbonamento-newsletter-ticino', parent: 'blog' },
+    'blog-varese-arrampicata-salewa-cube-2026': { name: 'Novità', path: '/articoli-frontaliere/varese-arrampicata-salewa-cube-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

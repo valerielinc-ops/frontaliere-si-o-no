@@ -5105,6 +5105,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.abbonamento-newsletter-ticino.title': 'Newsletter gratuita: iscriviti per aggiornamenti su Ticino',
     'blog.article.abbonamento-newsletter-ticino.excerpt': 'Scopri come ricevere notizie quotidiane, settimanali e mensili sulla Svizzera e il Canton Ticino',
     'blog.article.abbonamento-newsletter-ticino.imageAlt': 'Vista panoramica di Lugano dal lago, cielo azzurro limpido',
+    'blog.article.varese-arrampicata-salewa-cube-2026.title': 'Varese: 100 atleti alla Salewa Cube per la Coppa Italia Lead',
+    'blog.article.varese-arrampicata-salewa-cube-2026.excerpt': 'Sabato 2 e domenica 3 maggio, la Salewa Cube di Varese ospita la seconda tappa della Coppa Italia Lead con 109 atleti tra i migliori della nazione.',
+    'blog.article.varese-arrampicata-salewa-cube-2026.imageAlt': 'Atleti di arrampicata alla Salewa Cube di Varese',
 };
 
 export default blogMetaIt;

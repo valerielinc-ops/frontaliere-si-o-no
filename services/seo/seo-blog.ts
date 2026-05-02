@@ -36318,6 +36318,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-arrampicata-salewa-cube-2026': {
+    title: 'Varese: 100 atleti alla Salewa Cube per la Coppa Italia Lead',
+    description: 'Sabato 2 e domenica 3 maggio, la Salewa Cube di Varese ospita la seconda tappa della Coppa Italia Lead con 109 atleti tra i migliori della nazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, atleti, alla, salewa',
+    ogTitle: 'Varese: 100 atleti alla Salewa Cube per la Coppa Italia Lead',
+    ogDescription: 'Sabato 2 e domenica 3 maggio, la Salewa Cube di Varese ospita la seconda tappa della Coppa Italia Lead con 109 atleti tra i migliori della nazione.',
+    canonicalPath: '/articoli-frontaliere/varese-arrampicata-salewa-cube-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: 100 atleti alla Salewa Cube per la Coppa Italia Lead",
+      "description": "Sabato 2 e domenica 3 maggio, la Salewa Cube di Varese ospita la seconda tappa della Coppa Italia Lead con 109 atleti tra i migliori della nazione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-arrampicata-salewa-cube-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Atleti di arrampicata alla Salewa Cube di Varese"
+      },
+      "datePublished": "2026-05-02T08:58:38+00:00",
+      "dateModified": "2026-05-02T08:58:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-arrampicata-salewa-cube-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

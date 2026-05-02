@@ -5104,6 +5104,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.abbonamento-newsletter-ticino.title': 'Free newsletter: subscribe for Ticino updates',
     'blog.article.abbonamento-newsletter-ticino.excerpt': 'Discover how to receive daily, weekly, and monthly news about Switzerland and the Canton of Ticino',
     'blog.article.abbonamento-newsletter-ticino.imageAlt': 'Panoramic view of Lugano from the lake, clear blue sky',
+    'blog.article.varese-arrampicata-salewa-cube-2026.title': 'Varese: 109 athletes at Salewa Cube for Italian Lead Cup',
+    'blog.article.varese-arrampicata-salewa-cube-2026.excerpt': 'On Saturday 2nd and Sunday 3rd May, Salewa Cube in Varese hosts the second stage of the Italian Lead Cup with 109 athletes among the best in the nation.',
+    'blog.article.varese-arrampicata-salewa-cube-2026.imageAlt': 'Climbers at the Salewa Cube in Varese',
 };
 
 export default blogMetaEn;

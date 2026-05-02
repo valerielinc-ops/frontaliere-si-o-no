@@ -12923,4 +12923,11 @@ export const ARTICLES = [
  image: '/images/blog/abbonamento-newsletter-ticino.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'varese-arrampicata-salewa-cube-2026',
+ category: 'novita',
+ date: '2026-05-02T08:58:38.183Z',
+ image: '/images/blog/varese-arrampicata-salewa-cube-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
