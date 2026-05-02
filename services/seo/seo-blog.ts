@@ -35390,6 +35390,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gallarate-fondazione-scuole-materne-2026': {
+    title: 'Gallarate: Fondazione Scuole Materne, scontro in consiglio comunale',
+    description: 'Il consiglio comunale di Gallarate si infiamma nuovamente sulla Fondazione Scuole Materne, con dimissioni del presidente e polemiche sui verbali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate, fondazione, scuole, materne',
+    ogTitle: 'Gallarate: Fondazione Scuole Materne, scontro in consiglio comunale',
+    ogDescription: 'Il consiglio comunale di Gallarate si infiamma nuovamente sulla Fondazione Scuole Materne, con dimissioni del presidente e polemiche sui verbali.',
+    canonicalPath: '/articoli-frontaliere/gallarate-fondazione-scuole-materne-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gallarate: Fondazione Scuole Materne, scontro in consiglio comunale",
+      "description": "Il consiglio comunale di Gallarate si infiamma nuovamente sulla Fondazione Scuole Materne, con dimissioni del presidente e polemiche sui verbali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gallarate-fondazione-scuole-materne-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consiglio comunale di Gallarate durante un dibattito acceso"
+      },
+      "datePublished": "2026-05-02T03:04:48+00:00",
+      "dateModified": "2026-05-02T03:04:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gallarate-fondazione-scuole-materne-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

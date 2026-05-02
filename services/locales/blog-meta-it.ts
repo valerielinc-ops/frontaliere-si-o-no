@@ -5009,6 +5009,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giovani-agenti-como-polizia-locale.title': 'Giovani agenti con la polizia locale a Como: monopattini, droghe e alcol',
     'blog.article.giovani-agenti-como-polizia-locale.excerpt': 'Dieci studenti diventano agenti per un giorno con la polizia locale di Como, segnalando violazioni e promuovendo la legalità.',
     'blog.article.giovani-agenti-como-polizia-locale.imageAlt': 'Giovani agenti con la polizia locale a Como',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.title': 'Gallarate: Fondazione Scuole Materne, scontro in consiglio comunale',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.excerpt': 'Il consiglio comunale di Gallarate si infiamma nuovamente sulla Fondazione Scuole Materne, con dimissioni del presidente e polemiche sui verbali.',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.imageAlt': 'Consiglio comunale di Gallarate durante un dibattito acceso',
 };
 
 export default blogMetaIt;

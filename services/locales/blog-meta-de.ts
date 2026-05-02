@@ -5008,6 +5008,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giovani-agenti-como-polizia-locale.title': 'Junge Agenten mit der lokalen Polizei in Como: Tretroller, Drogen und Alkohol',
     'blog.article.giovani-agenti-como-polizia-locale.excerpt': 'Zehn Schüler werden für einen Tag zu Agenten mit der lokalen Polizei von Como, melden Verstöße und fördern die Legalität.',
     'blog.article.giovani-agenti-como-polizia-locale.imageAlt': 'Junge Agenten mit der lokalen Polizei in Como',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.title': 'Gallarate: Streit um Kindergartenstiftung im Gemeinderat',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.excerpt': 'Der Gemeinderat von Gallarate entzündet sich erneut an der Fondazione Scuole Materne, mit Rücktritt des Präsidenten und Polemiken zu den Protokollen.',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.imageAlt': 'Gemeinderat von Gallarate während einer hitzigen Debatte',
 };
 
 export default blogMetaDe;

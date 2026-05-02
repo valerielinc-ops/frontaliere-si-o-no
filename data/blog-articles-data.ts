@@ -12699,4 +12699,11 @@ export const ARTICLES = [
  image: '/images/blog/giovani-agenti-como-polizia-locale.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gallarate-fondazione-scuole-materne-2026',
+ category: 'novita',
+ date: '2026-05-02T03:04:48.496Z',
+ image: '/images/blog/gallarate-fondazione-scuole-materne-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

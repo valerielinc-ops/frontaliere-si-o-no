@@ -5009,6 +5009,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giovani-agenti-como-polizia-locale.title': 'Jeunes agents avec la police locale à Côme',
     'blog.article.giovani-agenti-como-polizia-locale.excerpt': 'Dix étudiants deviennent agents pour une journée avec la police locale de Côme, signalant des infractions et promouvant la légalité.',
     'blog.article.giovani-agenti-como-polizia-locale.imageAlt': 'Jeunes agents avec la police locale à Côme',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.title': 'Gallarate: Fondazione Scuole Materne, tensioni in consiglio comunale',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.excerpt': 'Le conseil communal de Gallarate s\'enflamme à nouveau sur la Fondation des Écoles Maternelles, avec la démission du président et des polémiques sur les procès-verbaux.',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.imageAlt': 'Conseil municipal de Gallarate pendant un débat animé',
 };
 
 export default blogMetaFr;

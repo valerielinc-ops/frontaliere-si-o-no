@@ -5008,6 +5008,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giovani-agenti-como-polizia-locale.title': 'Young agents with Como local police: scooters, drugs and alcohol',
     'blog.article.giovani-agenti-como-polizia-locale.excerpt': 'Ten students become agents for a day with Como\'s local police, reporting violations and promoting legality.',
     'blog.article.giovani-agenti-como-polizia-locale.imageAlt': 'Young agents with local police in Como',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.title': 'Gallarate: Foundation for Nursery Schools, council clash',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.excerpt': 'Gallarate city council heats up again over the Foundation for Nursery Schools, with president\'s resignation and disputes over minutes.',
+    'blog.article.gallarate-fondazione-scuole-materne-2026.imageAlt': 'Gallarate city council during a heated debate',
 };
 
 export default blogMetaEn;
