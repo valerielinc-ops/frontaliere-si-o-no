@@ -5123,6 +5123,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carenza-carburante-svizzera-2026.title': 'Carenza carburante Svizzera: rischio alto, ecco perché',
     'blog.article.carenza-carburante-svizzera-2026.excerpt': 'Florence Schurch, Segretaria generale di Suissenégoce, avverte di un rischio elevato di carenza di carburante in Svizzera. Ecco i dettagli.',
     'blog.article.carenza-carburante-svizzera-2026.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.title': 'Ermotti: UBS ha diritto al dibattito',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.excerpt': 'Il CEO di UBS Sergio Ermotti difende la banca dalle accuse di pressioni aggressive sul dibattito sui fondi propri.',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.imageAlt': 'Vista del lago di Lugano con i grattacieli del distretto finanziario',
 };
 
 export default blogMetaIt;

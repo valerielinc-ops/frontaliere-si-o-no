@@ -5123,6 +5123,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carenza-carburante-svizzera-2026.title': 'Pénurie de carburant en Suisse: risque élevé, voici pourquoi',
     'blog.article.carenza-carburante-svizzera-2026.excerpt': 'Florence Schurch, secrétaire générale de Suissenégoce, avertit d\'un risque élevé de pénurie de carburant en Suisse. Voici les détails.',
     'blog.article.carenza-carburante-svizzera-2026.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.title': 'Ermotti: UBS a droit au débat',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.excerpt': 'Le PDG de UBS Sergio Ermotti défend la banque des accusations de pressions agressives sur le débat sur les fonds propres.',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.imageAlt': 'Vue du lac de Lugano avec les gratte-ciel du quartier financier',
 };
 
 export default blogMetaFr;

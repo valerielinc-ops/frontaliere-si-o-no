@@ -5122,6 +5122,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carenza-carburante-svizzera-2026.title': 'Benzinknappheit in der Schweiz: hohes Risiko, Gründe',
     'blog.article.carenza-carburante-svizzera-2026.excerpt': 'Florence Schurch, Generalsekretärin von Suissenégoce, warnt vor einem hohen Risiko eines Benzinmangels in der Schweiz. Hier sind die Details.',
     'blog.article.carenza-carburante-svizzera-2026.imageAlt': 'Luganersee mit Bergen im Hintergrund',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.title': 'Ermotti: UBS hat Recht auf Debatte',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.excerpt': 'Der UBS-Chef Sergio Ermotti wehrt sich gegen Vorwürfe, die Bank habe aggressiv auf die Debatte über Eigenkapital gedrückt.',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.imageAlt': 'Seeblick von Lugano mit Wolkenkratzern des Finanzdistrikts',
 };
 
 export default blogMetaDe;

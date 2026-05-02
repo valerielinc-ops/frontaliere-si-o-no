@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1757,
+ "numberOfItems": 1758,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6392,7 +6392,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1754, "name": "Nuova viabilità per mezzi pesanti a Travedona M...", "url": `${BASE_URL}/articoli-frontaliere/nuova-viabilit-travedona-monate-2026` },
           { "@type": "ListItem", "position": 1755, "name": "GrAudio Flash del 2 maggio 2026: notizie dal Ca...", "url": `${BASE_URL}/articoli-frontaliere/graudio-flash-2-maggio-2026` },
           { "@type": "ListItem", "position": 1756, "name": "Il 60% degli investimenti immobiliari in Italia...", "url": `${BASE_URL}/articoli-frontaliere/investimenti-immobiliari-italia-estero-2026` },
-          { "@type": "ListItem", "position": 1757, "name": "Carenza carburante Svizzera: rischio alto, ecco...", "url": `${BASE_URL}/articoli-frontaliere/carenza-carburante-svizzera-2026` }
+          { "@type": "ListItem", "position": 1757, "name": "Carenza carburante Svizzera: rischio alto, ecco...", "url": `${BASE_URL}/articoli-frontaliere/carenza-carburante-svizzera-2026` },
+          { "@type": "ListItem", "position": 1758, "name": "Ermotti respinge accuse lobbying UBS: 'Diritto ...", "url": `${BASE_URL}/articoli-frontaliere/ermotti-respinge-accuse-lobbying-ubs` }
  ]
  },
  {

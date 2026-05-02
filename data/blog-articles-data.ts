@@ -12965,4 +12965,11 @@ export const ARTICLES = [
  image: '/images/blog/carenza-carburante-svizzera-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'ermotti-respinge-accuse-lobbying-ubs',
+ category: 'novita',
+ date: '2026-05-02T09:47:16.995Z',
+ image: '/images/blog/ermotti-respinge-accuse-lobbying-ubs.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

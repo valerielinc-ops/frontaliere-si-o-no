@@ -36492,6 +36492,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ermotti-respinge-accuse-lobbying-ubs': {
+    title: 'Ermotti: UBS ha diritto al dibattito | Frontaliere Ticino',
+    description: 'Il CEO di UBS Sergio Ermotti respinge le accuse di lobbying aggressivo e difende il diritto della banca a partecipare al dibattito sui fondi propri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ermotti, diritto, dibattito, sergio',
+    ogTitle: 'Ermotti respinge accuse lobbying UBS: \'Diritto di partecipare al dibattito\'',
+    ogDescription: 'Il CEO di UBS Sergio Ermotti respinge le accuse di lobbying aggressivo e difende il diritto della banca a partecipare al dibattito sui fondi propri.',
+    canonicalPath: '/articoli-frontaliere/ermotti-respinge-accuse-lobbying-ubs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ermotti respinge accuse lobbying UBS: 'Diritto di partecipare al dibattito'",
+      "description": "Il CEO di UBS Sergio Ermotti respinge le accuse di lobbying aggressivo e difende il diritto della banca a partecipare al dibattito sui fondi propri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ermotti-respinge-accuse-lobbying-ubs.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con i grattacieli del distretto finanziario"
+      },
+      "datePublished": "2026-05-02T09:47:17+00:00",
+      "dateModified": "2026-05-02T09:47:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ermotti-respinge-accuse-lobbying-ubs`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

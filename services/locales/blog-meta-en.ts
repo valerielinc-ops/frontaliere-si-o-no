@@ -5122,6 +5122,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carenza-carburante-svizzera-2026.title': 'High risk of fuel shortage in Switzerland: here\'s why',
     'blog.article.carenza-carburante-svizzera-2026.excerpt': 'Florence Schurch, Secretary General of Suissenégoce, warns of a high risk of fuel shortage in Switzerland. Here are the details.',
     'blog.article.carenza-carburante-svizzera-2026.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.title': 'Ermotti: UBS deserves debate',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.excerpt': 'UBS CEO Sergio Ermotti defends the bank from accusations of aggressive pressure on the debate about own funds.',
+    'blog.article.ermotti-respinge-accuse-lobbying-ubs.imageAlt': 'Lake Lugano view with financial district skyscrapers',
 };
 
 export default blogMetaEn;
