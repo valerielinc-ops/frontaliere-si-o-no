@@ -36173,6 +36173,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banche-golfo-preparano-frontalieri': {
+    title: 'Banche svizzere preparano accoglienza per clienti del Golfo',
+    description: 'Trasferimenti di fondi in corso verso la Svizzera da Paesi del Golfo a causa della guerra in Iran. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, preparano, accoglienza',
+    ogTitle: 'Banche svizzere preparano accoglienza clienti Golfo',
+    ogDescription: 'Trasferimenti di fondi in corso verso la Svizzera da Paesi del Golfo a causa della guerra in Iran. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/banche-golfo-preparano-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banche svizzere preparano accoglienza clienti Golfo",
+      "description": "Trasferimenti di fondi in corso verso la Svizzera da Paesi del Golfo a causa della guerra in Iran. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/banche-golfo-preparano-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sul centro finanziario"
+      },
+      "datePublished": "2026-05-02T07:59:45+00:00",
+      "dateModified": "2026-05-02T07:59:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banche-golfo-preparano-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

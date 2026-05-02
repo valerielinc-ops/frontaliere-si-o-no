@@ -5089,6 +5089,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.volandia-battesimo-volo-elicottero-2026.title': 'Volandia: helicopter flight baptism returns in 2026',
     'blog.article.volandia-battesimo-volo-elicottero-2026.excerpt': 'From May 1 to 3, 2026, Volandia offers helicopter flights for adults and children, with prices set at 65 euros for adults and 45 euros for children.',
     'blog.article.volandia-battesimo-volo-elicottero-2026.imageAlt': 'Aerial view of Lake Lugano with a helicopter over Volandia',
+    'blog.article.banche-golfo-preparano-frontalieri.title': 'Swiss banks prepare for Gulf clients',
+    'blog.article.banche-golfo-preparano-frontalieri.excerpt': 'Fund transfers underway to Switzerland from Gulf countries due to the war in Iran. Here\'s what changes for cross-border workers.',
+    'blog.article.banche-golfo-preparano-frontalieri.imageAlt': 'Lake Lugano with view of the financial district',
 };
 
 export default blogMetaEn;

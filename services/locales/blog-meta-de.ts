@@ -5089,6 +5089,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.volandia-battesimo-volo-elicottero-2026.title': 'Volandia: Hubschrauberflug-Taufe kehrt 2026 zurück',
     'blog.article.volandia-battesimo-volo-elicottero-2026.excerpt': 'Vom 1. bis 3. Mai 2026 bietet Volandia Hubschrauberflüge für Erwachsene und Kinder an, mit Preisen von 65 Euro für Erwachsene und 45 Euro für Kinder.',
     'blog.article.volandia-battesimo-volo-elicottero-2026.imageAlt': 'Luftaufnahme des Luganersees mit einem Hubschrauber über Volandia',
+    'blog.article.banche-golfo-preparano-frontalieri.title': 'Schweizer Banken bereiten sich auf Kunden aus dem Golf vor',
+    'blog.article.banche-golfo-preparano-frontalieri.excerpt': 'Geldtransfers aus den Golfstaaten in die Schweiz aufgrund des Krieges im Iran. Was sich für Grenzgänger ändert.',
+    'blog.article.banche-golfo-preparano-frontalieri.imageAlt': 'Luganersee mit Blick auf das Finanzzentrum',
 };
 
 export default blogMetaDe;

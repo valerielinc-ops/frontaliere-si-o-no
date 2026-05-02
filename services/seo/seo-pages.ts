@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1746,
+ "numberOfItems": 1747,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6381,7 +6381,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1743, "name": "Migros: Immigrazione necessaria per garantire l...", "url": `${BASE_URL}/articoli-frontaliere/migros-immigrazione-necessaria-offerta` },
           { "@type": "ListItem", "position": 1744, "name": "Tragedia a Vico Morcote: bambino muore in pisci...", "url": `${BASE_URL}/articoli-frontaliere/vico-morcote-tragedia-bambino-pool` },
           { "@type": "ListItem", "position": 1745, "name": "Limiti età smartphone e social media: Unicef sp...", "url": `${BASE_URL}/articoli-frontaliere/limiti-eta-smartphone-social-media` },
-          { "@type": "ListItem", "position": 1746, "name": "Volandia: battesimo del volo in elicottero torn...", "url": `${BASE_URL}/articoli-frontaliere/volandia-battesimo-volo-elicottero-2026` }
+          { "@type": "ListItem", "position": 1746, "name": "Volandia: battesimo del volo in elicottero torn...", "url": `${BASE_URL}/articoli-frontaliere/volandia-battesimo-volo-elicottero-2026` },
+          { "@type": "ListItem", "position": 1747, "name": "Banche svizzere preparano accoglienza clienti G...", "url": `${BASE_URL}/articoli-frontaliere/banche-golfo-preparano-frontalieri` }
  ]
  },
  {

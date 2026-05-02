@@ -12888,4 +12888,11 @@ export const ARTICLES = [
  image: '/images/blog/volandia-battesimo-volo-elicottero-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'banche-golfo-preparano-frontalieri',
+ category: 'novita',
+ date: '2026-05-02T07:59:45.249Z',
+ image: '/images/blog/banche-golfo-preparano-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -5090,6 +5090,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.volandia-battesimo-volo-elicottero-2026.title': 'Volandia: battesimo del volo in elicottero torna nel 2026',
     'blog.article.volandia-battesimo-volo-elicottero-2026.excerpt': 'Dal 1 al 3 maggio 2026, Volandia offre voli in elicottero per adulti e bambini, con prezzi fissati a 65 euro per gli adulti e 45 euro per i bambini.',
     'blog.article.volandia-battesimo-volo-elicottero-2026.imageAlt': 'Vista aerea del Lago di Lugano con un elicottero sopra Volandia',
+    'blog.article.banche-golfo-preparano-frontalieri.title': 'Banche svizzere preparano accoglienza per clienti del Golfo',
+    'blog.article.banche-golfo-preparano-frontalieri.excerpt': 'Trasferimenti di fondi in corso verso la Svizzera da Paesi del Golfo a causa della guerra in Iran. Ecco cosa cambia per i frontalieri.',
+    'blog.article.banche-golfo-preparano-frontalieri.imageAlt': 'Lago di Lugano con vista sul centro finanziario',
 };
 
 export default blogMetaIt;

@@ -5090,6 +5090,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.volandia-battesimo-volo-elicottero-2026.title': 'Volandia: baptême de vol en hélicoptère en 2026',
     'blog.article.volandia-battesimo-volo-elicottero-2026.excerpt': 'Du 1 au 3 mai 2026, Volandia propose des vols en hélicoptère pour adultes et enfants, avec des prix fixés à 65 euros pour les adultes et 45 euros pour les enfants.',
     'blog.article.volandia-battesimo-volo-elicottero-2026.imageAlt': 'Vue aérienne du lac de Lugano avec un hélicoptère au-dessus de Volandia',
+    'blog.article.banche-golfo-preparano-frontalieri.title': 'Les banques suisses préparent l\'accueil des clients du Golfe',
+    'blog.article.banche-golfo-preparano-frontalieri.excerpt': 'Transfert de fonds en cours vers la Suisse depuis les pays du Golfe en raison de la guerre en Iran. Voici ce qui change pour les frontaliers.',
+    'blog.article.banche-golfo-preparano-frontalieri.imageAlt': 'Lac de Lugano avec vue sur le quartier financier',
 };
 
 export default blogMetaFr;
