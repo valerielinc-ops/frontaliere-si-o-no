@@ -37188,6 +37188,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-marcia-zurigo-disabilita-uguaglianza': {
+    title: 'In marcia dal Ticino a Zurigo: la voce della disabilità chiede uguaglianza',
+    description: 'Una ventina di persone dal Ticino partecipano alla manifestazione nazionale per l\'uguaglianza delle persone con disabilità a Zurigo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, marcia, zurigo, voce, disabilità',
+    ogTitle: 'In marcia dal Ticino a Zurigo: la voce della disabilità chiede uguaglianza',
+    ogDescription: 'Una ventina di persone dal Ticino partecipano alla manifestazione nazionale per l\'uguaglianza delle persone con disabilità a Zurigo',
+    canonicalPath: '/articoli-frontaliere/marcia-zurigo-disabilita-uguaglianza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "In marcia dal Ticino a Zurigo: la voce della disabilità chiede uguaglianza",
+      "description": "Una ventina di persone dal Ticino partecipano alla manifestazione nazionale per l'uguaglianza delle persone con disabilità a Zurigo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/marcia-zurigo-disabilita-uguaglianza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un gruppo di manifestanti marcia a Zurigo con cartelli che chiedono uguaglianza per le persone con disabilità"
+      },
+      "datePublished": "2026-05-02T14:25:12+00:00",
+      "dateModified": "2026-05-02T14:25:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/marcia-zurigo-disabilita-uguaglianza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

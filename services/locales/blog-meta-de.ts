@@ -5194,6 +5194,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.golasecca-esplorazione-passeggiata-2026.title': 'Golasecca: 140 Wanderer entdecken die schönsten Orte',
     'blog.article.golasecca-esplorazione-passeggiata-2026.excerpt': 'Ein Tag voller Wandern auf 13 km durch die malerischsten Orte von Golasecca, mit Aperitif, Mittagessen und Snack. Teilnehmer erhalten Gadgets und einen gespendeten Defibrillator.',
     'blog.article.golasecca-esplorazione-passeggiata-2026.imageAlt': 'Eine Gruppe von Menschen wandert durch die malerischen Landschaften von Golasecca, mit den historischen Ruinen des Ipposidra im Hintergrund.',
+    'blog.article.marcia-zurigo-disabilita-uguaglianza.title': 'Von Tessin nach Zürich: Gleichheit für Menschen mit Behinderungen',
+    'blog.article.marcia-zurigo-disabilita-uguaglianza.excerpt': 'Etwa zwanzig Personen aus dem Tessin nehmen an der nationalen Demonstration für die Gleichstellung von Menschen mit Behinderungen in Zürich teil',
+    'blog.article.marcia-zurigo-disabilita-uguaglianza.imageAlt': 'Eine Gruppe von Demonstranten marschiert in Zürich mit Schildern, die Gleichberechtigung für Menschen mit Behinderungen fordern',
 };
 
 export default blogMetaDe;

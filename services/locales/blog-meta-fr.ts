@@ -5195,6 +5195,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.golasecca-esplorazione-passeggiata-2026.title': 'Golasecca: 140 randonneurs à la découverte des plus beaux lieux',
     'blog.article.golasecca-esplorazione-passeggiata-2026.excerpt': 'Une journée de marche de 13 km à travers les lieux les plus suggestifs de Golasecca, avec apéritif, déjeuner et collation. Les participants reçoivent des goodies et un défibrillateur offert.',
     'blog.article.golasecca-esplorazione-passeggiata-2026.imageAlt': 'Un groupe de personnes en randonnée dans les paysages pittoresques de Golasecca, avec les ruines historiques de l\'Ipposidra en arrière-plan.',
+    'blog.article.marcia-zurigo-disabilita-uguaglianza.title': 'Manifestation pour l\'égalité des personnes handicapées',
+    'blog.article.marcia-zurigo-disabilita-uguaglianza.excerpt': 'Une vingtaine de personnes du Tessin participent à la manifestation nationale pour l\'égalité des personnes handicapées à Zurich',
+    'blog.article.marcia-zurigo-disabilita-uguaglianza.imageAlt': 'Un groupe de manifestants marche à Zurich avec des pancartes exigeant l\'égalité pour les personnes handicapées',
 };
 
 export default blogMetaFr;

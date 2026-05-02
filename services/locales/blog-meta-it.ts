@@ -5195,6 +5195,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.golasecca-esplorazione-passeggiata-2026.title': 'Golasecca: 140 escursionisti alla scoperta dei luoghi più belli',
     'blog.article.golasecca-esplorazione-passeggiata-2026.excerpt': 'Una giornata di cammino di 13 km attraverso i luoghi più suggestivi di Golasecca, con aperitivo, pranzo e merenda. Partecipanti ricevono gadget e defibrillatore donato.',
     'blog.article.golasecca-esplorazione-passeggiata-2026.imageAlt': 'Gruppo di persone in escursione nei paesaggi suggestivi di Golasecca, con le rovine dell\'Ipposidra sullo sfondo.',
+    'blog.article.marcia-zurigo-disabilita-uguaglianza.title': 'In marcia dal Ticino a Zurigo: la voce della disabilità chiede uguaglianza',
+    'blog.article.marcia-zurigo-disabilita-uguaglianza.excerpt': 'Una ventina di persone dal Ticino partecipano alla manifestazione nazionale per l\'uguaglianza delle persone con disabilità a Zurigo',
+    'blog.article.marcia-zurigo-disabilita-uguaglianza.imageAlt': 'Un gruppo di manifestanti marcia a Zurigo con cartelli che chiedono uguaglianza per le persone con disabilità',
 };
 
 export default blogMetaIt;

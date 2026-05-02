@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1781,
+ "numberOfItems": 1782,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6416,7 +6416,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1778, "name": "Rissa a Lugano: due feriti alla Pensilina Botta", "url": `${BASE_URL}/articoli-frontaliere/rissa-lugano-pensilina-botta-feriti-2026` },
           { "@type": "ListItem", "position": 1779, "name": "Rissa a Lugano durante il Primo Maggio: spray u...", "url": `${BASE_URL}/articoli-frontaliere/rissa-lugano-primo-maggio-2026` },
           { "@type": "ListItem", "position": 1780, "name": "Attivo il 142: nuovo servizio per le vittime di...", "url": `${BASE_URL}/articoli-frontaliere/protezione-vittime-142-ticino-2026` },
-          { "@type": "ListItem", "position": 1781, "name": "Golasecca: 140 escursionisti alla scoperta dei ...", "url": `${BASE_URL}/articoli-frontaliere/golasecca-esplorazione-passeggiata-2026` }
+          { "@type": "ListItem", "position": 1781, "name": "Golasecca: 140 escursionisti alla scoperta dei ...", "url": `${BASE_URL}/articoli-frontaliere/golasecca-esplorazione-passeggiata-2026` },
+          { "@type": "ListItem", "position": 1782, "name": "In marcia dal Ticino a Zurigo: la voce della di...", "url": `${BASE_URL}/articoli-frontaliere/marcia-zurigo-disabilita-uguaglianza` }
  ]
  },
  {

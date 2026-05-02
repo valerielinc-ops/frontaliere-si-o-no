@@ -13133,4 +13133,11 @@ export const ARTICLES = [
  image: '/images/blog/golasecca-esplorazione-passeggiata-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'marcia-zurigo-disabilita-uguaglianza',
+ category: 'novita',
+ date: '2026-05-02T14:25:12.422Z',
+ image: '/images/blog/marcia-zurigo-disabilita-uguaglianza.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

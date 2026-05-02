@@ -2962,6 +2962,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rissa-lugano-primo-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/rissa-lugano-primo-maggio-2026', parent: 'blog' },
     'blog-protezione-vittime-142-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/protezione-vittime-142-ticino-2026', parent: 'blog' },
     'blog-golasecca-esplorazione-passeggiata-2026': { name: 'Golasecca', path: '/articoli-frontaliere/golasecca-esplorazione-passeggiata-2026', parent: 'blog' },
+    'blog-marcia-zurigo-disabilita-uguaglianza': { name: 'Novità', path: '/articoli-frontaliere/marcia-zurigo-disabilita-uguaglianza', parent: 'blog' },
  };
 
  const info = sectionNames[section];
