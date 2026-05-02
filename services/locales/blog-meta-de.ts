@@ -5206,6 +5206,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.panchina-bianca-varese-2026.title': 'Varese: Erste weiße Bank gegen Kindesmissbrauch',
     'blog.article.panchina-bianca-varese-2026.excerpt': 'In Varese wurde die erste weiße Bank zu Ehren der Nummer 114 für den Schutz von Kindern eingeweiht, anlässlich des Nationalen Tages gegen Pädophilie und Kinderpornografie.',
     'blog.article.panchina-bianca-varese-2026.imageAlt': 'Eine weiße Bank in einem öffentlichen Garten mit einem blauen Telefon in der Nähe, die Unterstützung für gefährdete Kinder symbolisiert',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.title': 'Einbrüche in Kirchen: Zwei Rumänen im Bellinzonese festgenommen',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.excerpt': 'Zwei rumänische Staatsbürger wurden wegen Einbrüchen in Kirchen im Bellinzonese verhaftet. Erfahren Sie mehr über die Operation und was zu tun ist, wenn Sie Opfer eines ähnlichen Diebstahls geworden sind.',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.imageAlt': 'Polizeieinsatz in Bellinzona mit der Burg Castelgrande im Hintergrund',
 };
 
 export default blogMetaDe;

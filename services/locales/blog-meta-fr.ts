@@ -5207,6 +5207,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.panchina-bianca-varese-2026.title': 'Varese, premier banc blanc contre les abus sur mineurs',
     'blog.article.panchina-bianca-varese-2026.excerpt': 'Inauguré à Varese le premier banc blanc dédié au numéro 114 pour la protection des mineurs, à l\'occasion de la Journée nationale contre la pédophilie et la pédopornographie.',
     'blog.article.panchina-bianca-varese-2026.imageAlt': 'Un banc blanc dans un jardin public avec un téléphone bleu à proximité, symbolisant le soutien pour les enfants en danger',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.title': 'Vols dans les églises : deux Roumains arrêtés dans le Bellinzonese',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.excerpt': 'Deux citoyens roumains ont été arrêtés pour des vols dans des églises dans le Bellinzonese. Découvrez les détails de l\'opération et ce qu\'il faut faire si vous avez été victime d\'un vol similaire.',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.imageAlt': 'Opération de police à Bellinzone avec le château de Castelgrande en arrière-plan',
 };
 
 export default blogMetaFr;

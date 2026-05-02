@@ -5206,6 +5206,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.panchina-bianca-varese-2026.title': 'Varese, first white bench against child abuse',
     'blog.article.panchina-bianca-varese-2026.excerpt': 'The first white bench dedicated to the number 114 for the protection of minors was inaugurated in Varese, on the occasion of the National Day against pedophilia and child pornography.',
     'blog.article.panchina-bianca-varese-2026.imageAlt': 'A white bench in a public garden with a blue telephone nearby, symbolizing support for children in danger',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.title': 'Two Romanians arrested for church thefts in Bellinzona area',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.excerpt': 'Two Romanian citizens were arrested for thefts in churches in the Bellinzona area. Discover the details of the operation and what to do if you have been a victim of a similar theft.',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.imageAlt': 'Police operation in Bellinzona with Castelgrande in the background',
 };
 
 export default blogMetaEn;

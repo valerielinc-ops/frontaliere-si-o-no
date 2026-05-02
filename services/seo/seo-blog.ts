@@ -37304,6 +37304,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-chiese-bellinzonese-arresti-2026': {
+    title: 'Furti in chiese: arrestati due rumeni nel Bellinzonese',
+    description: 'Due cittadini rumeni sono stati arrestati per furti in chiese nel Bellinzonese. Scopri i dettagli dell\'operazione e cosa fare se sei stato vittima di un furto',
+    keywords: 'frontalieri, ticino, svizzera, italia, furti, chiese, arrestati, rumeni',
+    ogTitle: 'Furti in chiese: arrestati due rumeni nel Bellinzonese',
+    ogDescription: 'Due cittadini rumeni sono stati arrestati per furti in chiese nel Bellinzonese. Scopri i dettagli dell\'operazione e cosa fare se sei stato vittima di un furto',
+    canonicalPath: '/articoli-frontaliere/furti-chiese-bellinzonese-arresti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Furti in chiese: arrestati due rumeni nel Bellinzonese",
+      "description": "Due cittadini rumeni sono stati arrestati per furti in chiese nel Bellinzonese. Scopri i dettagli dell'operazione e cosa fare se sei stato vittima di un furto",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furti-chiese-bellinzonese-arresti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operazione di polizia a Bellinzona con Castelgrande sullo sfondo"
+      },
+      "datePublished": "2026-05-02T14:58:31+00:00",
+      "dateModified": "2026-05-02T14:58:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-chiese-bellinzonese-arresti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

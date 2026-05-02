@@ -5207,6 +5207,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.panchina-bianca-varese-2026.title': 'Varese, prima panchina bianca contro abusi minori',
     'blog.article.panchina-bianca-varese-2026.excerpt': 'Inaugurata a Varese la prima panchina bianca dedicata al numero 114 per la protezione dei minori, in occasione della Giornata nazionale contro la pedofilia e la pedopornografia.',
     'blog.article.panchina-bianca-varese-2026.imageAlt': 'Una panchina bianca nei giardini pubblici con un telefono azzurro vicino, simbolo di supporto per i minori in pericolo',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.title': 'Furti in chiese: arrestati due rumeni nel Bellinzonese',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.excerpt': 'Due cittadini rumeni sono stati arrestati per furti in chiese nel Bellinzonese. Scopri i dettagli dell\'operazione e cosa fare se sei stato vittima di un furto simile.',
+    'blog.article.furti-chiese-bellinzonese-arresti-2026.imageAlt': 'Operazione di polizia a Bellinzona con Castelgrande sullo sfondo',
 };
 
 export default blogMetaIt;
