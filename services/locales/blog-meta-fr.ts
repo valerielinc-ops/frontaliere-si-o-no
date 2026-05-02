@@ -4973,6 +4973,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arco-e-frecce-per-far-centro.title': 'Arc et flèches pour toucher le cœur des passionnés',
     'blog.article.arco-e-frecce-per-far-centro.excerpt': 'Une nouvelle société d\'archers voit le jour. La présidente Rita De Franco : ‘Nous sommes au Vallone, mais nous espérons un terrain fixe’.',
     'blog.article.arco-e-frecce-per-far-centro.imageAlt': 'Bellinzona',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.title': 'Musée du Paysage de Verbania: entrée gratuite pour les résidents',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.excerpt': 'Le 8 mai 2026, entrée gratuite au Musée du Paysage de Verbania pour les résidents à l\'occasion de la fête patronale de San Vittore.',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.imageAlt': 'Musée du Paysage de Verbania, œuvres d\'art exposées',
 };
 
 export default blogMetaFr;

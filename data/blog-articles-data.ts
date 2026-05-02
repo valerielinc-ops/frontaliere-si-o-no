@@ -12615,4 +12615,11 @@ export const ARTICLES = [
  image: '/images/blog/arco-e-frecce-per-far-centro.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'museo-paesaggio-verbania-gratis-2026',
+ category: 'novita',
+ date: '2026-05-02T00:54:13.874Z',
+ image: '/images/blog/museo-paesaggio-verbania-gratis-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -35042,6 +35042,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-museo-paesaggio-verbania-gratis-2026': {
+    title: 'Museo del Paesaggio di Verbania: ingresso gratuito per i residenti',
+    description: 'L\'8 maggio 2026 ingresso gratuito al Museo del Paesaggio di Verbania per i residenti in occasione della festa patronale di San Vittore. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, museo, paesaggio, verbania, ingresso',
+    ogTitle: 'Museo del Paesaggio di Verbania: ingresso gratuito per i residenti',
+    ogDescription: 'L\'8 maggio 2026 ingresso gratuito al Museo del Paesaggio di Verbania per i residenti in occasione della festa patronale di San Vittore.',
+    canonicalPath: '/articoli-frontaliere/museo-paesaggio-verbania-gratis-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Museo del Paesaggio di Verbania: ingresso gratuito per i residenti",
+      "description": "L'8 maggio 2026 ingresso gratuito al Museo del Paesaggio di Verbania per i residenti in occasione della festa patronale di San Vittore. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/museo-paesaggio-verbania-gratis-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Museo del Paesaggio di Verbania, opere d'arte in mostra"
+      },
+      "datePublished": "2026-05-02T00:54:13+00:00",
+      "dateModified": "2026-05-02T00:54:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/museo-paesaggio-verbania-gratis-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

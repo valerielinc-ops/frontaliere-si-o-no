@@ -4973,6 +4973,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arco-e-frecce-per-far-centro.title': 'Arco e frecce per far centro nel cuore degli appassionati',
     'blog.article.arco-e-frecce-per-far-centro.excerpt': 'Nasce una nuova società di arcieri. La presidente Rita De Franco: ‘Siamo al Vallone, ma speriamo in un campo fisso’.',
     'blog.article.arco-e-frecce-per-far-centro.imageAlt': 'Bellinzona',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.title': 'Museo del Paesaggio di Verbania: ingresso gratuito per i residenti',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.excerpt': 'L\'8 maggio 2026 ingresso gratuito al Museo del Paesaggio di Verbania per i residenti in occasione della festa patronale di San Vittore.',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.imageAlt': 'Museo del Paesaggio di Verbania, opere d\'arte in mostra',
 };
 
 export default blogMetaIt;

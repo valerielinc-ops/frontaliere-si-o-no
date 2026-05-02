@@ -4972,6 +4972,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arco-e-frecce-per-far-centro.title': 'Bogen und Pfeile für das Herz der Fans',
     'blog.article.arco-e-frecce-per-far-centro.excerpt': 'Eine neue Bogenschützengesellschaft entsteht. Die Präsidentin Rita De Franco: \'Wir sind im Vallone, aber wir hoffen auf ein festes Gelände.\'',
     'blog.article.arco-e-frecce-per-far-centro.imageAlt': 'Bellinzona',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.title': 'Museo del Paesaggio: ingresso gratuito per i residenti',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.excerpt': 'L\'8 maggio 2026 ingresso gratuito al Museo del Paesaggio di Verbania per i residenti in occasione della festa patronale di San Vittore.',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.imageAlt': 'Landschaftsmuseum Verbania, Kunstwerke ausgestellt',
 };
 
 export default blogMetaDe;

@@ -4972,6 +4972,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arco-e-frecce-per-far-centro.title': 'Bows and arrows to win over enthusiasts\' hearts',
     'blog.article.arco-e-frecce-per-far-centro.excerpt': 'A new archery society has been founded. President Rita De Franco: \'We\'re at Vallone, but we hope for a permanent field.\'',
     'blog.article.arco-e-frecce-per-far-centro.imageAlt': 'Bellinzona',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.title': 'Verbania Landscape Museum: free entry for residents',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.excerpt': 'On May 8, 2026, residents can enjoy free entry to the Verbania Landscape Museum to celebrate the patron saint\'s day of San Vittore.',
+    'blog.article.museo-paesaggio-verbania-gratis-2026.imageAlt': 'Verbania Landscape Museum, artworks on display',
 };
 
 export default blogMetaEn;
