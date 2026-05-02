@@ -90,7 +90,8 @@ function listCompanyPages(): string[] {
       }
       if (!st.isDirectory()) continue;
       const indexFile = join(full, 'index.html');
-      if (existsSync(indexFile)) out.push(indexFile);
+      // Skip zero-byte files: they are OOM crash artifacts, not real pages.
+      if (existsSync(indexFile) && statSync(indexFile).size > 0) out.push(indexFile);
     }
   }
   return out;

@@ -3076,11 +3076,22 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // Persist the canonical company slugs so employerLinks.ts can resolve
  // `/cerca-lavoro-ticino/azienda-{slug}/` hrefs without relying on the
  // stale `azienda-*` keys in all-known-job-slugs.json.
+ // Ratchet: only write if the new set is at least as large as the existing one
+ // to prevent fixture-data local builds from corrupting the production list.
  {
  const companySlugs = [...companyMap.keys()].sort();
  const companySlugsPath = np.resolve(rootDir, 'data/known-company-slugs.json');
- fs.writeFileSync(companySlugsPath, JSON.stringify(companySlugs, null, 2) + '\n', 'utf-8');
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Wrote ${companySlugs.length} company slugs to known-company-slugs.json`);
+ let existingCount = 0;
+ try {
+   const existing = JSON.parse(fs.readFileSync(companySlugsPath, 'utf-8'));
+   existingCount = Array.isArray(existing) ? existing.length : 0;
+ } catch { /* file doesn't exist yet */ }
+ if (companySlugs.length >= existingCount) {
+   fs.writeFileSync(companySlugsPath, JSON.stringify(companySlugs, null, 2) + '\n', 'utf-8');
+   console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Wrote ${companySlugs.length} company slugs to known-company-slugs.json`);
+ } else {
+   console.log(`\x1b[33m[jobs-seo-pages]\x1b[0m Skipped writing known-company-slugs.json (${companySlugs.length} < existing ${existingCount}) — using fixture data, keeping production list`);
+ }
  }
 
  const editorialLocations = ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'] as const;
