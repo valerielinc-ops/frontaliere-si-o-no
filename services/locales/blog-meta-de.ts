@@ -5215,6 +5215,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.editto-canonizzazione-don-roberto-malgesini.title': 'Erlass zur Heiligsprechung von Don Roberto Malgesini: Was passiert jetzt?',
     'blog.article.editto-canonizzazione-don-roberto-malgesini.excerpt': 'Der Erlass zur Heiligsprechung von Don Roberto Malgesini, der 2020 ermordet wurde, wurde veröffentlicht. Hier sind die nächsten Schritte und was das Bistum Como verlangt.',
     'blog.article.editto-canonizzazione-don-roberto-malgesini.imageAlt': 'Feierliche Zeremonie in Como mit Fokus auf die Diözesankurie und religiöse Artefakte',
+    'blog.article.beat-jans-10-milioni-comunicazione.title': 'Beat Jans und die Initiative 10 Millionen: Alles korrekt?',
+    'blog.article.beat-jans-10-milioni-comunicazione.excerpt': 'Der Bundesrat Beat Jans steht unter Untersuchung wegen mutmaßlicher Verstöße gegen die Regeln der institutionellen Kommunikation in der Kampagne gegen die UDC-Initiative.',
+    'blog.article.beat-jans-10-milioni-comunicazione.imageAlt': 'Ein professioneller Journalist, der ein politisches Ereignis in Lugano, Tessin, mit Fokus auf die schweizerisch-italienische Grenzarbeit abdeckt.',
 };
 
 export default blogMetaDe;

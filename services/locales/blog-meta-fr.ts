@@ -5216,6 +5216,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.editto-canonizzazione-don-roberto-malgesini.title': 'Canonisation de Roberto Malgesini : et maintenant ?',
     'blog.article.editto-canonizzazione-don-roberto-malgesini.excerpt': 'Le décret pour la canonisation du père Roberto Malgesini, tué en 2020, a été publié. Voici les prochaines étapes et ce que demande le diocèse de Côme.',
     'blog.article.editto-canonizzazione-don-roberto-malgesini.imageAlt': 'Cérémonie solennelle à Côme avec focus sur la Curie diocésaine et des artefacts religieux',
+    'blog.article.beat-jans-10-milioni-comunicazione.title': 'Beat Jans et l\'initiative 10 millions: tout en règle?',
+    'blog.article.beat-jans-10-milioni-comunicazione.excerpt': 'Le conseiller fédéral Beat Jans fait l\'objet d\'une enquête pour des présumées violations des règles de la communication institutionnelle dans la campagne contre l\'initiative UDC.',
+    'blog.article.beat-jans-10-milioni-comunicazione.imageAlt': 'Un journaliste professionnel couvrant un événement politique à Lugano, Tessin, axé sur le travail transfrontalier suisse-italien.',
 };
 
 export default blogMetaFr;

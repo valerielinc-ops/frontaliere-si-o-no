@@ -37391,6 +37391,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-beat-jans-10-milioni-comunicazione': {
+    title: 'Beat Jans e l’iniziativa 10 milioni: tutto in regola?',
+    description: 'Il consigliere federale Beat Jans è sotto indagine per presunte violazioni delle regole della comunicazione istituzionale nella campagna contro l’iniziativa',
+    keywords: 'frontalieri, ticino, svizzera, italia, beat, jans, iniziativa, milioni',
+    ogTitle: 'Beat Jans e l’iniziativa 10 milioni: tutto in regola?',
+    ogDescription: 'Il consigliere federale Beat Jans è sotto indagine per presunte violazioni delle regole della comunicazione istituzionale nella campagna contro l’iniziativa',
+    canonicalPath: '/articoli-frontaliere/beat-jans-10-milioni-comunicazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Beat Jans e l’iniziativa 10 milioni: tutto in regola?",
+      "description": "Il consigliere federale Beat Jans è sotto indagine per presunte violazioni delle regole della comunicazione istituzionale nella campagna contro l’iniziativa",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/beat-jans-10-milioni-comunicazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giornalista professionista che copre un evento politico a Lugano, Ticino, con focus sul lavoro transfrontaliero svizzero-italiano."
+      },
+      "datePublished": "2026-05-02T15:28:33+00:00",
+      "dateModified": "2026-05-02T15:28:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/beat-jans-10-milioni-comunicazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

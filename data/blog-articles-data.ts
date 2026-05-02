@@ -13182,4 +13182,11 @@ export const ARTICLES = [
  image: '/images/blog/editto-canonizzazione-don-roberto-malgesini.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'beat-jans-10-milioni-comunicazione',
+ category: 'novita',
+ date: '2026-05-02T15:28:33.611Z',
+ image: '/images/blog/beat-jans-10-milioni-comunicazione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

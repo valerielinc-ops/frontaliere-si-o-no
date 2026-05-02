@@ -5216,6 +5216,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.editto-canonizzazione-don-roberto-malgesini.title': 'Editto canonizzazione Don Roberto Malgesini: cosa succede ora',
     'blog.article.editto-canonizzazione-don-roberto-malgesini.excerpt': 'Pubblicato l\'editto per la canonizzazione di Don Roberto Malgesini, ucciso nel 2020. Ecco i prossimi passi e cosa chiede la Diocesi di Como',
     'blog.article.editto-canonizzazione-don-roberto-malgesini.imageAlt': 'Cerimonia solenne a Como con focus sulla Curia Vescovile e oggetti religiosi',
+    'blog.article.beat-jans-10-milioni-comunicazione.title': 'Beat Jans e l’iniziativa 10 milioni: tutto in regola?',
+    'blog.article.beat-jans-10-milioni-comunicazione.excerpt': 'Il consigliere federale Beat Jans è sotto indagine per presunte violazioni delle regole della comunicazione istituzionale nella campagna contro l’iniziativa UDC.',
+    'blog.article.beat-jans-10-milioni-comunicazione.imageAlt': 'Giornalista professionista che copre un evento politico a Lugano, Ticino, con focus sul lavoro transfrontaliero svizzero-italiano.',
 };
 
 export default blogMetaIt;

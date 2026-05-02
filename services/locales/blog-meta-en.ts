@@ -5215,6 +5215,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.editto-canonizzazione-don-roberto-malgesini.title': 'Decree on canonization of Don Roberto Malgesini: what happens now',
     'blog.article.editto-canonizzazione-don-roberto-malgesini.excerpt': 'The decree for the canonization of Don Roberto Malgesini, killed in 2020, has been published. Here are the next steps and what the Diocese of Como asks',
     'blog.article.editto-canonizzazione-don-roberto-malgesini.imageAlt': 'Solemn ceremony in Como with focus on the Diocesan Curia and religious artifacts',
+    'blog.article.beat-jans-10-milioni-comunicazione.title': 'Beat Jans and the 10 million initiative: all in order?',
+    'blog.article.beat-jans-10-milioni-comunicazione.excerpt': 'Federal Councillor Beat Jans is under investigation for alleged violations of institutional communication rules in the campaign against the UDC initiative.',
+    'blog.article.beat-jans-10-milioni-comunicazione.imageAlt': 'Professional journalist covering a political event in Lugano, Ticino, focusing on Swiss-Italian cross-border work.',
 };
 
 export default blogMetaEn;

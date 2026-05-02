@@ -2969,6 +2969,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-furti-chiese-bellinzonese-arresti-2026': { name: 'Furti in chiese', path: '/articoli-frontaliere/furti-chiese-bellinzonese-arresti-2026', parent: 'blog' },
     'blog-a4-milano-brescia-diviazione-obbligatoria-2026': { name: 'Viabilità', path: '/articoli-frontaliere/a4-milano-brescia-diviazione-obbligatoria-2026', parent: 'blog' },
     'blog-editto-canonizzazione-don-roberto-malgesini': { name: 'Editto canonizzazione', path: '/articoli-frontaliere/editto-canonizzazione-don-roberto-malgesini', parent: 'blog' },
+    'blog-beat-jans-10-milioni-comunicazione': { name: 'Novità', path: '/articoli-frontaliere/beat-jans-10-milioni-comunicazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];
