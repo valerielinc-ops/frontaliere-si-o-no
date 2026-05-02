@@ -5095,6 +5095,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.papa-paperino-cuasso-monte.title': 'Donald Duck\'s story moves from Cuasso to the Monte',
     'blog.article.papa-paperino-cuasso-monte.excerpt': 'Discover the link between Donald Duck\'s Italian father and Ticino during World War II',
     'blog.article.papa-paperino-cuasso-monte.imageAlt': 'Aerial view of Lake Lugano with Cuasso al Monte in the background',
+    'blog.article.venezia-serie-a-promozione-2026.title': 'Venezia promoted to Serie A with a draw against Spezia',
+    'blog.article.venezia-serie-a-promozione-2026.excerpt': 'Venezia secures Serie A promotion with a 2-2 draw against Spezia, thanks to Monza\'s defeat',
+    'blog.article.venezia-serie-a-promozione-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;

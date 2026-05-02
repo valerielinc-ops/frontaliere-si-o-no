@@ -2929,6 +2929,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-volandia-battesimo-volo-elicottero-2026': { name: 'Volandia 2026', path: '/articoli-frontaliere/volandia-battesimo-volo-elicottero-2026', parent: 'blog' },
     'blog-banche-golfo-preparano-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/banche-golfo-preparano-frontalieri', parent: 'blog' },
     'blog-papa-paperino-cuasso-monte': { name: 'Novità', path: '/articoli-frontaliere/papa-paperino-cuasso-monte', parent: 'blog' },
+    'blog-venezia-serie-a-promozione-2026': { name: 'Novità', path: '/articoli-frontaliere/venezia-serie-a-promozione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

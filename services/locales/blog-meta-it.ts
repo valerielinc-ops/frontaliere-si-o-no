@@ -5096,6 +5096,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.papa-paperino-cuasso-monte.title': 'La storia di Paperino passa da Cuasso al Monte',
     'blog.article.papa-paperino-cuasso-monte.excerpt': 'Scopri il legame tra il padre italiano di Paperino e il Ticino durante la Seconda Guerra Mondiale',
     'blog.article.papa-paperino-cuasso-monte.imageAlt': 'Vista aerea del Lago di Lugano con Cuasso al Monte sullo sfondo',
+    'blog.article.venezia-serie-a-promozione-2026.title': 'Venezia torna in Serie A con un pareggio contro lo Spezia',
+    'blog.article.venezia-serie-a-promozione-2026.excerpt': 'Il Venezia ottiene la promozione in Serie A con un pareggio 2-2 contro lo Spezia, grazie alla sconfitta del Monza',
+    'blog.article.venezia-serie-a-promozione-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;

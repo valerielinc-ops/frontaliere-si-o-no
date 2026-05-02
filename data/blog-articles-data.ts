@@ -12902,4 +12902,11 @@ export const ARTICLES = [
  image: '/images/blog/papa-paperino-cuasso-monte.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'venezia-serie-a-promozione-2026',
+ category: 'novita',
+ date: '2026-05-02T08:24:56.978Z',
+ image: '/images/blog/venezia-serie-a-promozione-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

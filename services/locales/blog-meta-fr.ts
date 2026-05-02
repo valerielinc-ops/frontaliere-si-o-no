@@ -5096,6 +5096,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.papa-paperino-cuasso-monte.title': 'L\'histoire de Donald passe de Cuasso au Monte',
     'blog.article.papa-paperino-cuasso-monte.excerpt': 'Découvrez le lien entre le père italien de Donald et le Tessin pendant la Seconde Guerre mondiale',
     'blog.article.papa-paperino-cuasso-monte.imageAlt': 'Vue aérienne du lac de Lugano avec Cuasso al Monte en arrière-plan',
+    'blog.article.venezia-serie-a-promozione-2026.title': 'Le Venise remonte en Serie A avec un match nul contre La Spezia',
+    'blog.article.venezia-serie-a-promozione-2026.excerpt': 'Le Venise obtient la promotion en Serie A avec un match nul 2-2 contre La Spezia, grâce à la défaite du Monza',
+    'blog.article.venezia-serie-a-promozione-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes et les bâtiments environnants',
 };
 
 export default blogMetaFr;

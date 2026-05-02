@@ -36231,6 +36231,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-venezia-serie-a-promozione-2026': {
+    title: 'Venezia torna in Serie A con un pareggio contro lo Spezia',
+    description: 'Il Venezia ottiene la promozione in Serie A con un pareggio 2-2 contro lo Spezia, grazie alla sconfitta del Monza. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, venezia, torna, serie, pareggio',
+    ogTitle: 'Venezia torna in Serie A con un pareggio contro lo Spezia',
+    ogDescription: 'Il Venezia ottiene la promozione in Serie A con un pareggio 2-2 contro lo Spezia, grazie alla sconfitta del Monza',
+    canonicalPath: '/articoli-frontaliere/venezia-serie-a-promozione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Venezia torna in Serie A con un pareggio contro lo Spezia",
+      "description": "Il Venezia ottiene la promozione in Serie A con un pareggio 2-2 contro lo Spezia, grazie alla sconfitta del Monza. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/venezia-serie-a-promozione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici circostanti"
+      },
+      "datePublished": "2026-05-02T08:24:57+00:00",
+      "dateModified": "2026-05-02T08:24:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/venezia-serie-a-promozione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
