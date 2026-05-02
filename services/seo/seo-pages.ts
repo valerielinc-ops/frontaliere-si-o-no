@@ -70,7 +70,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  {
  "@context": "https://schema.org",
- "@type": "Organization",
+ "@type": "NewsMediaOrganization",
  "@id": "https://frontaliereticino.ch/#organization",
  "name": "Frontaliere Ticino",
  "url": BASE_URL,
@@ -104,7 +104,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "CHF EUR exchange rates",
  "Permit G Permit B",
  "Canton Ticino employment"
- ]
+ ],
+ "correctionsPolicy": `${BASE_URL}/correzioni/`,
+ "ethicsPolicy": `${BASE_URL}/chi-siamo/#standard-giornalistici`,
+ "ownershipFundingInfo": `${BASE_URL}/chi-siamo/#finanziamento`,
+ "masthead": `${BASE_URL}/chi-siamo/#team`,
+ "verificationFactCheckingPolicy": `${BASE_URL}/metodologia/#fact-checking`
  },
  {
  "@context": "https://schema.org",
@@ -8151,7 +8156,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  {
  "@context": "https://schema.org",
- "@type": "Organization",
+ "@type": "NewsMediaOrganization",
  "@id": `${BASE_URL}/#organization`,
  "name": "Frontaliere Ticino",
  "url": BASE_URL,
@@ -8168,7 +8173,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "Assicurazione malattia LAMal/CMB",
  "Permesso G e permesso B",
  "Mercato del lavoro Ticino"
- ]
+ ],
+ "correctionsPolicy": `${BASE_URL}/correzioni/`,
+ "ethicsPolicy": `${BASE_URL}/chi-siamo/#standard-giornalistici`,
+ "ownershipFundingInfo": `${BASE_URL}/chi-siamo/#finanziamento`,
+ "masthead": `${BASE_URL}/chi-siamo/#team`,
+ "verificationFactCheckingPolicy": `${BASE_URL}/metodologia/#fact-checking`
  }
  ],
  },
