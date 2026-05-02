@@ -1,71 +1,259 @@
 #!/usr/bin/env node
 /**
- * Cleanup sitemap-news.xml — keep only articles from the last 48 hours.
- * 
- * Google News Sitemap spec: only articles published in the last 2 days
- * should be included. Older entries are ignored by Google anyway.
- * 
- * Usage: node scripts/cleanup-news-sitemap.mjs
+ * News Sitemap Whitelist Cleanup (Google News C1).
+ *
+ * Filters `dist/sitemap-news.xml` (and the source `public/sitemap-news.xml`
+ * when --apply is passed) to keep only articles that:
+ *   1. Were published in the last 48 hours (Google News window).
+ *   2. Match the topic whitelist in `data/news-sitemap-whitelist.ts`
+ *      (5 + 1 macro-themes: fisco, AVS/LPP, LAMal, dogana/lavoro, FX,
+ *      trasporti). Case-insensitive substring match.
+ *
+ * The build pipeline (`scripts/create-article.mjs` + `htmlTemplate` copy of
+ * public/* into dist/) already integrates the whitelist inline at emit-time
+ * via the same module — this script is the verification + cleanup fallback
+ * for legacy entries already in the sitemap.
+ *
+ * Usage:
+ *   node scripts/cleanup-news-sitemap.mjs              # default: read dist/, dry-run
+ *   node scripts/cleanup-news-sitemap.mjs --dry-run    # explicit dry-run, no writes
+ *   node scripts/cleanup-news-sitemap.mjs --apply      # rewrite both public/ and dist/
+ *   node scripts/cleanup-news-sitemap.mjs --source=public   # operate on public/ only
+ *
+ * Per CLAUDE.md non-negotiable rule #5 + memory `feedback_never_noindex`:
+ * filtered URLs stay in `sitemap-blog.xml` and remain reachable. We never
+ * noindex, never delete article HTML — we only narrow the news sitemap.
  */
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SITEMAP_PATH = resolve(__dirname, '..', 'public', 'sitemap-news.xml');
-const MAX_AGE_HOURS = 48;
+const REPO_ROOT = resolve(__dirname, '..');
 
-const src = readFileSync(SITEMAP_PATH, 'utf-8');
+// CLI flags
+const args = new Set(process.argv.slice(2));
+const APPLY = args.has('--apply');
+const DRY_RUN = !APPLY || args.has('--dry-run');
+const SOURCE_FLAG = [...args].find((a) => a.startsWith('--source='))?.slice(9);
 
-// Extract all <url>...</url> blocks
-const urlBlocks = [...src.matchAll(/<url>\s*[\s\S]*?<\/url>/g)].map(m => m[0]);
+const PUBLIC_PATH = resolve(REPO_ROOT, 'public', 'sitemap-news.xml');
+const DIST_PATH = resolve(REPO_ROOT, 'dist', 'sitemap-news.xml');
 
-const now = Date.now();
-const cutoff = now - MAX_AGE_HOURS * 60 * 60 * 1000;
-
-let kept = 0;
-let removed = 0;
-
-const freshBlocks = urlBlocks.filter(block => {
-  const dateMatch = block.match(/<news:publication_date>([^<]+)<\/news:publication_date>/);
-  if (!dateMatch) return true; // keep if no date found (safety)
-  
-  const pubDate = new Date(dateMatch[1]).getTime();
-  if (isNaN(pubDate)) return true; // keep if unparseable
-  if (pubDate >= cutoff) {
-    kept++;
-    return true;
-  } else {
-    removed++;
-    return false;
+/** Decide which file(s) we act on. */
+function resolveTargets() {
+  if (SOURCE_FLAG === 'public') return [PUBLIC_PATH];
+  if (SOURCE_FLAG === 'dist') return [DIST_PATH];
+  // Default: when applying, rewrite both (public is source-of-truth, dist is built artifact).
+  // When dry-running, prefer dist if available, else public.
+  if (APPLY) {
+    return [PUBLIC_PATH, DIST_PATH].filter(existsSync);
   }
-});
-
-// Strip deprecated <news:keywords> tags (removed from Google spec in 2023)
-const hasKeywords = freshBlocks.some(b => b.includes('<news:keywords>'));
-const strippedBlocks = freshBlocks.map(block =>
-  block.replace(/\s*<news:keywords>[^<]*<\/news:keywords>/g, '')
-);
-
-if (removed === 0 && !hasKeywords) {
-  console.log(`ℹ️  sitemap-news.xml: all ${kept} articles are fresh (< ${MAX_AGE_HOURS}h), no deprecated tags — no cleanup needed`);
-  process.exit(0);
+  return [existsSync(DIST_PATH) ? DIST_PATH : PUBLIC_PATH].filter(existsSync);
 }
 
-// Rebuild the XML — preserve original namespaces
-const nsMatch = src.match(/<urlset[^>]*>/);
-const header = nsMatch?.[0] || `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">`;
+/** Dynamically import the TS whitelist via tsx if available, else fall back to a JS shim.
+ *  tsx is already a dev dep used by other scripts in scripts/. */
+async function loadWhitelist() {
+  const tsPath = resolve(REPO_ROOT, 'data', 'news-sitemap-whitelist.ts');
+  // Prefer tsx, which is how every other script in this repo imports TS modules.
+  try {
+    const { register } = await import('tsx/esm/api');
+    register();
+    const mod = await import(pathToFileURL(tsPath).href);
+    return mod;
+  } catch {
+    // Fallback: parse the .ts file with a regex to extract the whitelist array.
+    const src = readFileSync(tsPath, 'utf-8');
+    const match = src.match(/NEWS_SITEMAP_WHITELIST[^=]*=\s*Object\.freeze\(\s*\[([\s\S]*?)\]\s*\)/);
+    if (!match) throw new Error('Could not parse NEWS_SITEMAP_WHITELIST from .ts file');
+    const tokens = [...match[1].matchAll(/'([^']+)'|"([^"]+)"/g)].map((m) => m[1] || m[2]);
+    const NEWS_SITEMAP_WHITELIST = tokens;
+    const NEWS_SITEMAP_WINDOW_HOURS = 48;
+    /** @param {{slug?:string,title?:string,articleSection?:string,tags?:string[],keywords?:string,publishedAt?:string|Date}} a */
+    function isArticleNewsEligible(a, now = Date.now()) {
+      if (a.publishedAt !== undefined) {
+        const ts = a.publishedAt instanceof Date
+          ? a.publishedAt.getTime()
+          : new Date(a.publishedAt).getTime();
+        if (Number.isNaN(ts)) return false;
+        const age = now - ts;
+        if (age < 0 || age > NEWS_SITEMAP_WINDOW_HOURS * 3600_000) return false;
+      }
+      const lower = (v) => (v == null ? '' : String(v).toLowerCase());
+      const hay = [
+        lower(a.slug), lower(a.title), lower(a.articleSection), lower(a.keywords),
+        ...(a.tags ?? []).map(lower),
+      ].join('  ');
+      return NEWS_SITEMAP_WHITELIST.some((t) => hay.includes(t.toLowerCase()));
+    }
+    return { NEWS_SITEMAP_WHITELIST, NEWS_SITEMAP_WINDOW_HOURS, isArticleNewsEligible };
+  }
+}
 
-const xmlDecl = src.includes('<?xml') ? '<?xml version="1.0" encoding="UTF-8"?>\n' : '';
-const output = xmlDecl + header + '\n\n' + strippedBlocks.map(b => '  ' + b.replace(/^  /gm, '  ')).join('\n\n') + '\n\n</urlset>\n';
+/** Extract slug from a `<loc>` URL like `.../articoli-frontaliere/<slug>/`. */
+function slugFromLoc(loc) {
+  const m = loc.match(/\/articoli-frontaliere\/([^/?#]+)/);
+  return m ? m[1] : '';
+}
 
-writeFileSync(SITEMAP_PATH, output, 'utf-8');
-const parts = [];
-if (removed > 0) parts.push(`removed ${removed} articles older than ${MAX_AGE_HOURS}h`);
-if (hasKeywords) parts.push('stripped deprecated <news:keywords> tags');
-console.log(`✅ sitemap-news.xml: kept ${kept}${parts.length ? ', ' + parts.join(', ') : ''}`);
+/** Parse a single <url>...</url> block into a structured record. */
+function parseUrlBlock(block) {
+  const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1] || '';
+  const date = block.match(/<news:publication_date>([^<]+)<\/news:publication_date>/)?.[1];
+  const title = block.match(/<news:title>([^<]+)<\/news:title>/)?.[1];
+  const keywordsTag = block.match(/<news:keywords>([^<]+)<\/news:keywords>/)?.[1];
+  return {
+    block,
+    loc,
+    slug: slugFromLoc(loc),
+    title: title ? decodeXml(title) : undefined,
+    publishedAt: date,
+    keywords: keywordsTag,
+  };
+}
+
+function decodeXml(s) {
+  return s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&apos;/g, "'");
+}
+
+/** Read SEO metadata for a slug from services/seo/seo-blog.ts (best-effort regex parse). */
+function loadSeoBySlug() {
+  const seoPath = resolve(REPO_ROOT, 'services', 'seo', 'seo-blog.ts');
+  if (!existsSync(seoPath)) return new Map();
+  const src = readFileSync(seoPath, 'utf-8');
+  const map = new Map();
+  // Per-entry: 'blog-<id>': { ... canonicalPath: '/articoli-frontaliere/<slug>' ... articleSection: 'X' ... keywords: '...' }
+  const entryRe = /'(blog-[^']+)':\s*\{([\s\S]*?)\n\s*\},?\s*\n/g;
+  for (const m of src.matchAll(entryRe)) {
+    const body = m[2];
+    const canonical = body.match(/canonicalPath:\s*'([^']+)'/)?.[1] || '';
+    const slug = canonical.split('/articoli-frontaliere/')[1]?.replace(/\/$/, '') || '';
+    if (!slug) continue;
+    const keywords = body.match(/keywords:\s*'([^']*)'/)?.[1];
+    const articleSection = body.match(/"articleSection":\s*"([^"]*)"/)?.[1];
+    map.set(slug, { keywords, articleSection });
+  }
+  return map;
+}
+
+async function processFile(filePath, ctx) {
+  const src = readFileSync(filePath, 'utf-8');
+  const urlBlocks = [...src.matchAll(/<url>[\s\S]*?<\/url>/g)].map((m) => m[0]);
+
+  const seoBySlug = ctx.seoBySlug;
+  const kept = [];
+  const removed = [];
+
+  for (const block of urlBlocks) {
+    const parsed = parseUrlBlock(block);
+    const seo = seoBySlug.get(parsed.slug) || {};
+    const article = {
+      slug: parsed.slug,
+      title: parsed.title,
+      keywords: seo.keywords,
+      articleSection: seo.articleSection,
+      publishedAt: parsed.publishedAt,
+    };
+    const eligible = ctx.isArticleNewsEligible(article);
+    if (eligible) {
+      kept.push(parsed);
+    } else {
+      // Determine reason: stale window vs off-topic.
+      const ts = parsed.publishedAt ? new Date(parsed.publishedAt).getTime() : NaN;
+      const age = Number.isNaN(ts) ? null : (Date.now() - ts) / 3600_000;
+      const stale = age != null && age > ctx.NEWS_SITEMAP_WINDOW_HOURS;
+      removed.push({
+        slug: parsed.slug,
+        loc: parsed.loc,
+        title: parsed.title,
+        publishedAt: parsed.publishedAt,
+        ageHours: age != null ? Math.round(age * 10) / 10 : null,
+        reason: stale ? 'stale-48h-window' : 'off-topic-not-in-whitelist',
+      });
+    }
+  }
+
+  return { filePath, kept, removed, originalCount: urlBlocks.length };
+}
+
+function rewriteFile(filePath, keptBlocks) {
+  const src = readFileSync(filePath, 'utf-8');
+  const headerMatch = src.match(/^[\s\S]*?<urlset[^>]*>/);
+  const header = headerMatch ? headerMatch[0] : '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">';
+  const body = keptBlocks.map((b) => '  ' + b.block.replace(/^\s+/, '')).join('\n\n');
+  const out = `${header}\n\n${body}\n\n</urlset>\n`;
+  writeFileSync(filePath, out, 'utf-8');
+}
+
+function writeSummary(report) {
+  const ts = new Date().toISOString().replace(/[:.]/g, '-');
+  const dataDir = resolve(REPO_ROOT, 'data');
+  if (!existsSync(dataDir)) mkdirSync(dataDir, { recursive: true });
+  const file = resolve(dataDir, `news-sitemap-cleanup-${ts}.json`);
+  writeFileSync(file, JSON.stringify(report, null, 2), 'utf-8');
+  return file;
+}
+
+async function main() {
+  const targets = resolveTargets();
+  if (targets.length === 0) {
+    console.error('cleanup-news-sitemap: no sitemap-news.xml found in dist/ or public/. Skipping.');
+    process.exit(0);
+  }
+
+  const wl = await loadWhitelist();
+  const seoBySlug = loadSeoBySlug();
+  const ctx = {
+    isArticleNewsEligible: wl.isArticleNewsEligible,
+    NEWS_SITEMAP_WINDOW_HOURS: wl.NEWS_SITEMAP_WINDOW_HOURS,
+    seoBySlug,
+  };
+
+  const report = {
+    timestamp: new Date().toISOString(),
+    mode: APPLY ? 'apply' : 'dry-run',
+    whitelistTokens: wl.NEWS_SITEMAP_WHITELIST.length,
+    files: [],
+  };
+
+  for (const filePath of targets) {
+    const result = await processFile(filePath, ctx);
+    const fileReport = {
+      file: filePath.replace(REPO_ROOT + '/', ''),
+      originalCount: result.originalCount,
+      keptCount: result.kept.length,
+      removedCount: result.removed.length,
+      removed: result.removed,
+    };
+    report.files.push(fileReport);
+
+    console.log(`\n${fileReport.file}`);
+    console.log(`  original: ${fileReport.originalCount}`);
+    console.log(`  kept:     ${fileReport.keptCount}`);
+    console.log(`  removed:  ${fileReport.removedCount}`);
+    const stale = result.removed.filter((r) => r.reason === 'stale-48h-window').length;
+    const off = result.removed.filter((r) => r.reason === 'off-topic-not-in-whitelist').length;
+    if (stale) console.log(`    - stale (>48h):  ${stale}`);
+    if (off) console.log(`    - off-topic:     ${off}`);
+
+    if (APPLY && result.removed.length > 0) {
+      rewriteFile(filePath, result.kept);
+      console.log(`  ✅ rewrote ${fileReport.file}`);
+    }
+  }
+
+  const summaryFile = writeSummary(report);
+  console.log(`\nSummary written to ${summaryFile.replace(REPO_ROOT + '/', '')}`);
+  if (DRY_RUN && !APPLY) {
+    console.log('(dry-run — no files modified; use --apply to rewrite)');
+  }
+}
+
+main().catch((err) => {
+  console.error('cleanup-news-sitemap: FAILED');
+  console.error(err);
+  process.exit(1);
+});
