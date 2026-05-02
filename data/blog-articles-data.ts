@@ -13168,4 +13168,11 @@ export const ARTICLES = [
  image: '/images/blog/furti-chiese-bellinzonese-arresti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'a4-milano-brescia-diviazione-obbligatoria-2026',
+ category: 'novita',
+ date: '2026-05-02T15:06:56.267Z',
+ image: '/images/blog/a4-milano-brescia-diviazione-obbligatoria-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

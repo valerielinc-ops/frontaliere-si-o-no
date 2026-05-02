@@ -37333,6 +37333,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a4-milano-brescia-diviazione-obbligatoria-2026': {
+    title: 'A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026',
+    description: 'Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, milano-brescia, deviazione, obbligatoria, verso',
+    ogTitle: 'A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026',
+    ogDescription: 'Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/a4-milano-brescia-diviazione-obbligatoria-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026\",\"description\":\"Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri.\",\"datePublished\":\"2026-05-02\",\"image\":\"https://frontaliereticino.ch/images/lac-lugano.webp\"}",
+      "description": "Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/a4-milano-brescia-diviazione-obbligatoria-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A4 Milano-Brescia con deviazione obbligatoria verso Varese"
+      },
+      "datePublished": "2026-05-02T15:06:56+00:00",
+      "dateModified": "2026-05-02T15:06:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a4-milano-brescia-diviazione-obbligatoria-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

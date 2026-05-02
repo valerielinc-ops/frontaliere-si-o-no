@@ -5209,6 +5209,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furti-chiese-bellinzonese-arresti-2026.title': 'Two Romanians arrested for church thefts in Bellinzona area',
     'blog.article.furti-chiese-bellinzonese-arresti-2026.excerpt': 'Two Romanian citizens were arrested for thefts in churches in the Bellinzona area. Discover the details of the operation and what to do if you have been a victim of a similar theft.',
     'blog.article.furti-chiese-bellinzonese-arresti-2026.imageAlt': 'Police operation in Bellinzona with Castelgrande in the background',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.title': 'A4 Milan-Brescia: mandatory detour to Varese May 5-6, 2026',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.excerpt': 'From the night between May 5 and 6, 2026, the A4 Milan-Brescia will be closed for works. Here\'s what changes for cross-border workers.',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.imageAlt': 'A4 Milan-Brescia highway with mandatory diversion towards Varese',
 };
 
 export default blogMetaEn;

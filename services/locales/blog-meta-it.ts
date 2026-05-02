@@ -5210,6 +5210,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furti-chiese-bellinzonese-arresti-2026.title': 'Furti in chiese: arrestati due rumeni nel Bellinzonese',
     'blog.article.furti-chiese-bellinzonese-arresti-2026.excerpt': 'Due cittadini rumeni sono stati arrestati per furti in chiese nel Bellinzonese. Scopri i dettagli dell\'operazione e cosa fare se sei stato vittima di un furto simile.',
     'blog.article.furti-chiese-bellinzonese-arresti-2026.imageAlt': 'Operazione di polizia a Bellinzona con Castelgrande sullo sfondo',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.title': 'A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.excerpt': 'Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri.',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.imageAlt': 'Autostrada A4 Milano-Brescia con deviazione obbligatoria verso Varese',
 };
 
 export default blogMetaIt;

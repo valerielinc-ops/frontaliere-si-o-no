@@ -5210,6 +5210,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furti-chiese-bellinzonese-arresti-2026.title': 'Vols dans les églises : deux Roumains arrêtés dans le Bellinzonese',
     'blog.article.furti-chiese-bellinzonese-arresti-2026.excerpt': 'Deux citoyens roumains ont été arrêtés pour des vols dans des églises dans le Bellinzonese. Découvrez les détails de l\'opération et ce qu\'il faut faire si vous avez été victime d\'un vol similaire.',
     'blog.article.furti-chiese-bellinzonese-arresti-2026.imageAlt': 'Opération de police à Bellinzone avec le château de Castelgrande en arrière-plan',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.title': 'A4 Milan-Brescia: détournement obligatoire vers Varèse du 5 au 6 mai 2026',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.excerpt': 'Dans la nuit du 5 au 6 mai 2026, l\'A4 Milan-Brescia sera fermée pour travaux. Voici ce qui change pour les frontaliers.',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.imageAlt': 'Autoroute A4 Milan-Brescia avec déviation obligatoire vers Varèse',
 };
 
 export default blogMetaFr;

@@ -5209,6 +5209,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furti-chiese-bellinzonese-arresti-2026.title': 'Einbrüche in Kirchen: Zwei Rumänen im Bellinzonese festgenommen',
     'blog.article.furti-chiese-bellinzonese-arresti-2026.excerpt': 'Zwei rumänische Staatsbürger wurden wegen Einbrüchen in Kirchen im Bellinzonese verhaftet. Erfahren Sie mehr über die Operation und was zu tun ist, wenn Sie Opfer eines ähnlichen Diebstahls geworden sind.',
     'blog.article.furti-chiese-bellinzonese-arresti-2026.imageAlt': 'Polizeieinsatz in Bellinzona mit der Burg Castelgrande im Hintergrund',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.title': 'A4 Milano-Brescia: Umleitung nach Varese vom 5. bis 6. Mai 2026',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.excerpt': 'In der Nacht vom 5. auf den 6. Mai 2026 wird die A4 Milano-Brescia wegen Bauarbeiten gesperrt. Was sich für Grenzgänger ändert.',
+    'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.imageAlt': 'Autobahn A4 Mailand-Brescia mit obligatorischer Umleitung nach Varese',
 };
 
 export default blogMetaDe;
