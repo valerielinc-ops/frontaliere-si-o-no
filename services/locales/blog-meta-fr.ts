@@ -5021,6 +5021,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.isola-artica-islanda-pugliese.title': 'Vivre aux confins du monde sur l\'île arctique d\'Islande',
     'blog.article.isola-artica-islanda-pugliese.excerpt': 'L\'histoire de Leonardo Piccione, un Puglièse qui a passé des mois sur l\'île de Grímsey, en Islande, en travaillant et en écrivant un livre sur son expérience.',
     'blog.article.isola-artica-islanda-pugliese.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes environnantes',
+    'blog.article.cioccolato-illumina-bellinzona-2026.title': 'Chocolat Stella revient à Bellinzone avec une nouvelle boutique',
+    'blog.article.cioccolato-illumina-bellinzona-2026.excerpt': 'Le célèbre chocolat Chocolat Stella revient au centre de Bellinzone avec un nouveau point de vente en Piazza Nosetto, Palazzo civico.',
+    'blog.article.cioccolato-illumina-bellinzona-2026.imageAlt': 'Centre-ville de Bellinzone illuminé sur le thème du chocolat',
 };
 
 export default blogMetaFr;

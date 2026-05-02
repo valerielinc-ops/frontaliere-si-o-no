@@ -35506,6 +35506,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cioccolato-illumina-bellinzona-2026': {
+    title: 'Chocolat Stella torna a Bellinzona con nuovo negozio',
+    description: 'Chocolat Stella apre nuovo punto vendita in piazza Nosetto, Palazzo civico, Bellinzona. Apertura prevista nei prossimi mesi del 2026. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, chocolat, stella, torna, bellinzona',
+    ogTitle: 'Chocolat Stella torna a Bellinzona con nuovo negozio',
+    ogDescription: 'Chocolat Stella apre nuovo punto vendita in piazza Nosetto, Palazzo civico, Bellinzona. Apertura prevista nei prossimi mesi del 2026.',
+    canonicalPath: '/articoli-frontaliere/cioccolato-illumina-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chocolat Stella torna a Bellinzona con nuovo negozio",
+      "description": "Chocolat Stella apre nuovo punto vendita in piazza Nosetto, Palazzo civico, Bellinzona. Apertura prevista nei prossimi mesi del 2026. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cioccolato-illumina-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di Bellinzona illuminato a tema cioccolato"
+      },
+      "datePublished": "2026-05-02T03:37:50+00:00",
+      "dateModified": "2026-05-02T03:37:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cioccolato-illumina-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

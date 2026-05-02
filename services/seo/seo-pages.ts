@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1723,
+ "numberOfItems": 1724,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6358,7 +6358,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1720, "name": "Gallarate: Fondazione Scuole Materne, scontro i...", "url": `${BASE_URL}/articoli-frontaliere/gallarate-fondazione-scuole-materne-2026` },
           { "@type": "ListItem", "position": 1721, "name": "Formula 1 riparte fra rischi e polemiche", "url": `${BASE_URL}/articoli-frontaliere/formula-1-riparte-rischi-polemiche` },
           { "@type": "ListItem", "position": 1722, "name": "Unitalsi Busto e Varese: sollievo spirituale e ...", "url": `${BASE_URL}/articoli-frontaliere/unitalsi-busto-varese-malati-spiritualita` },
-          { "@type": "ListItem", "position": 1723, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/isola-artica-islanda-pugliese` }
+          { "@type": "ListItem", "position": 1723, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/isola-artica-islanda-pugliese` },
+          { "@type": "ListItem", "position": 1724, "name": "Chocolat Stella torna a Bellinzona con nuovo ne...", "url": `${BASE_URL}/articoli-frontaliere/cioccolato-illumina-bellinzona-2026` }
  ]
  },
  {

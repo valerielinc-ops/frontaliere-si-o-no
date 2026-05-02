@@ -12727,4 +12727,11 @@ export const ARTICLES = [
  image: '/images/blog/isola-artica-islanda-pugliese.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cioccolato-illumina-bellinzona-2026',
+ category: 'novita',
+ date: '2026-05-02T03:37:50.038Z',
+ image: '/images/blog/cioccolato-illumina-bellinzona-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

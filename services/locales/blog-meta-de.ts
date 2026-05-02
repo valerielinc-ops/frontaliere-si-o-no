@@ -5020,6 +5020,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.isola-artica-islanda-pugliese.title': 'Leben am Ende der Welt auf der Insel Grímsey',
     'blog.article.isola-artica-islanda-pugliese.excerpt': 'Die Geschichte von Leonardo Piccione, einem Apulier, der Monate auf der Insel Grímsey in Island verbracht hat, wo er gearbeitet und ein Buch über seine Erfahrungen geschrieben hat.',
     'blog.article.isola-artica-islanda-pugliese.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
+    'blog.article.cioccolato-illumina-bellinzona-2026.title': 'Chocolat Stella eröffnet neues Geschäft in Bellinzona',
+    'blog.article.cioccolato-illumina-bellinzona-2026.excerpt': 'Der berühmte Chocolat Stella kehrt ins Zentrum von Bellinzona zurück mit einem neuen Verkaufspunkt in der Piazza Nosetto, Palazzo civico.',
+    'blog.article.cioccolato-illumina-bellinzona-2026.imageAlt': 'Bellinzona Stadtzentrum mit Schokoladenthema beleuchtet',
 };
 
 export default blogMetaDe;

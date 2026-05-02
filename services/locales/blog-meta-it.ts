@@ -5021,6 +5021,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.isola-artica-islanda-pugliese.title': 'Vita ai confini del mondo sull\'isola artica d\'Islanda',
     'blog.article.isola-artica-islanda-pugliese.excerpt': 'La storia di Leonardo Piccione, un pugliese che ha trascorso mesi sull\'isola di Grímsey, in Islanda, lavorando e scrivendo un libro sulla sua esperienza.',
     'blog.article.isola-artica-islanda-pugliese.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
+    'blog.article.cioccolato-illumina-bellinzona-2026.title': 'Chocolat Stella torna a Bellinzona con nuovo negozio',
+    'blog.article.cioccolato-illumina-bellinzona-2026.excerpt': 'Il famoso cioccolato Chocolat Stella ritorna nel centro di Bellinzona con un nuovo punto vendita in piazza Nosetto, Palazzo civico.',
+    'blog.article.cioccolato-illumina-bellinzona-2026.imageAlt': 'Centro di Bellinzona illuminato a tema cioccolato',
 };
 
 export default blogMetaIt;
