@@ -196,8 +196,16 @@ export function buildBoggiJobFromApi(offer = {}) {
   const descHtml = combinedHtml || itTrans.description || offer.description || '';
   const description = stripHtml(descHtml);
 
-  // Build location from first Swiss location
-  const swissLoc = (offer.locations || []).find((l) => l.country_code === 'CH') || offer.locations?.[0] || {};
+  // Build location from the first Swiss location only. We must NOT fall back to
+  // a non-Swiss location (Italy, etc.) — this is a Swiss frontaliere board, and
+  // a non-CH location would propagate misleading city/state into downstream
+  // SEO and canton inference.
+  const swissLoc = (offer.locations || []).find((l) => l.country_code === 'CH');
+  if (!swissLoc) {
+    const offerTitle = normalizeSpace(itTrans.title || offer.title || '');
+    console.log(`  ⏭️  No Swiss location — skipping: ${offerTitle}`);
+    return null;
+  }
   const city = normalizeSpace(swissLoc.city || offer.city || 'Mendrisio');
   const state = normalizeSpace(swissLoc.state || offer.state_name || 'Ticino');
   const locationStr = `${city}, ${state}`;

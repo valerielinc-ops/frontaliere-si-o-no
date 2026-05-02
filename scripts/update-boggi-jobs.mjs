@@ -143,6 +143,7 @@ async function fetchAllOffers() {
 
 function buildBoggiJob(offer) {
   const parsed = buildBoggiJobFromApi(offer);
+  if (!parsed) return null;
   const localized = buildBoggiLocalizedContent(parsed);
 
   return {
@@ -404,7 +405,7 @@ async function main() {
     console.log(`🔄 Deduplicated: ${ticinoOffers.length} → ${deduplicated.length} unique offers`);
   }
 
-  const jobs = deduplicated.map(buildBoggiJob);
+  const jobs = deduplicated.map(buildBoggiJob).filter(Boolean);
 
   const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);

@@ -251,9 +251,16 @@ export function parseDetailPage(html) {
     ? (applyMatch[1].startsWith('http') ? applyMatch[1] : `${BASE_URL}${applyMatch[1]}`)
     : '';
 
-  // Extract location if present on detail page
-  const locMatch = html.match(/(?:Ort|Standort|Location)\s*:?\s*([^<\n,]+)/i);
-  const location = locMatch ? normalizeSpace(locMatch[1]) : '';
+  // Extract location from HTML — strip tags first so attribute strings like
+  // `content="width=device-width"` or serialised `Location":""` payloads cannot
+  // bleed into the capture group.
+  const strippedHtml = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
+  const locMatch = strippedHtml.match(/(?:Ort|Standort|Location)\s*:?\s*([A-ZÀ-Ü][A-Za-zÀ-ÿ\s\-/]{2,40}?)(?:\s*(?:,|\n|$))/i);
+  let location = locMatch ? normalizeSpace(locMatch[1]).replace(/^"|"$/g, '').trim() : '';
+  // Reject HTML/attribute garbage that survived stripping
+  if (location && /[<="']|viewport|content|width/i.test(location)) {
+    location = '';
+  }
 
   return {
     title,

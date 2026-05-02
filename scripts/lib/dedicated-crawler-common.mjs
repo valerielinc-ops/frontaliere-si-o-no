@@ -4427,6 +4427,8 @@ export function isLocationExplicitlyForeign(locationField) {
     'frankfurt', 'hamburg', 'vienna', 'wien', 'madrid', 'barcelona',
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
     'lisbon', 'dublin', 'helsinki', 'athens',
+    'luxembourg', 'jersey',
+    'england', 'scotland', 'wales',
     // Eastern Europe
     'warsaw', 'prague', 'budapest', 'bucharest', 'sofia', 'belgrade',
     'tallinn', 'zagreb', 'nicosia', 'yerevan', 'tbilisi',
@@ -4438,6 +4440,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'new york', 'los angeles', 'san francisco', 'toronto', 'mexico city',
     'buenos aires', 'sao paulo', 'são paulo', 'rio de janeiro',
     'bogota', 'bogotá', 'medellin', 'medellín', 'montevideo',
+    'dallas', 'west hartford', 'durham',
     // Oceania & Africa
     'sydney', 'melbourne', 'cape town', 'johannesburg',
     // Liechtenstein & micro-states

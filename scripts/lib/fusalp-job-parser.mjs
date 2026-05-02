@@ -223,6 +223,12 @@ export async function fetchAllFusalpJobs() {
 
       const canton = country === 'CH' ? (inferAnyCanton(city) || 'VS') : '';
 
+      // Skip non-Swiss jobs — this is a Swiss frontaliere board
+      if (country !== 'CH') {
+        console.log(`  ⏭️  Skipped non-Swiss: ${listing.title} in ${city}, ${country || '?'}`);
+        continue;
+      }
+
       // Description from JSON-LD
       const rawDescription = jsonLd?.description || '';
       const qualifications = jsonLd?.qualifications || '';
@@ -256,7 +262,7 @@ export async function fetchAllFusalpJobs() {
         description: descriptionText || `${title} — Fusalp`,
         descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Fusalp` },
         location: city || 'Crans-Montana',
-        canton: canton || 'VS',
+        canton,
         url: publicUrl,
         source: 'Fusalp Dedicated Parser',
         sourceLang,
