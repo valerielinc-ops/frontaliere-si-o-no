@@ -37826,6 +37826,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parcheggio-abusivo-como-villa-olmo': {
+    title: 'Como, parcheggio abusivo nel parco di Villa Olmo | Frontaliere Ticino',
+    description: 'Numerose auto, tra cui una ticinese, parcheggiate illegalmente nel parco di Villa Olmo e sui marciapiedi di Como. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, parcheggio, abusivo, parco',
+    ogTitle: 'Parcheggio abusivo a Como nel parco di Villa Olmo',
+    ogDescription: 'Numerose auto, tra cui una ticinese, parcheggiate illegalmente nel parco di Villa Olmo e sui marciapiedi di Como.',
+    canonicalPath: '/articoli-frontaliere/parcheggio-abusivo-como-villa-olmo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Parcheggio abusivo a Como nel parco di Villa Olmo\",\"description\":\"Numerose auto, tra cui una ticinese, parcheggiate illegalmente nel parco di Villa Olmo e sui marciapiedi di Como.\",\"datePublished\":\"2026-05-02\",\"image\":\"https://frontaliereticino.ch/images/villa-olmo.webp\"}",
+      "description": "Numerose auto, tra cui una ticinese, parcheggiate illegalmente nel parco di Villa Olmo e sui marciapiedi di Como. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/parcheggio-abusivo-como-villa-olmo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Olmo a Como con auto parcheggiate illegalmente nel parco e sul marciapiede"
+      },
+      "datePublished": "2026-05-02T17:33:25+00:00",
+      "dateModified": "2026-05-02T17:33:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parcheggio-abusivo-como-villa-olmo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

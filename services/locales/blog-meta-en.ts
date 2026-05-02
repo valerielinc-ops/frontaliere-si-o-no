@@ -5260,6 +5260,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.title': 'Fire at Malpensa Terminal 1: Firefighters\' Intervention',
     'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.excerpt': 'A short circuit caused a small fire at Malpensa Airport\'s Terminal 1 on May 2, 2026. No injuries reported.',
     'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.imageAlt': 'Aerial view of Malpensa Airport Terminal 1 with emergency vehicles and smoke',
+    'blog.article.parcheggio-abusivo-como-villa-olmo.title': 'Illegal parking in Como\'s Villa Olmo Park',
+    'blog.article.parcheggio-abusivo-como-villa-olmo.excerpt': 'Several cars, including one from Ticino, illegally parked in Villa Olmo Park and on Como\'s sidewalks.',
+    'blog.article.parcheggio-abusivo-como-villa-olmo.imageAlt': 'Villa Olmo in Como with cars parked illegally in the park and on the sidewalk',
 };
 
 export default blogMetaEn;

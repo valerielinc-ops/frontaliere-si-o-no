@@ -2984,6 +2984,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-patriot-ritardo-svizzera-valuta-alternative': { name: 'Novità', path: '/articoli-frontaliere/patriot-ritardo-svizzera-valuta-alternative', parent: 'blog' },
     'blog-bambini-carabinieri-como-2026': { name: 'Novità', path: '/articoli-frontaliere/bambini-carabinieri-como-2026', parent: 'blog' },
     'blog-incendio-malpensa-terminal-1-2-maggio-2026': { name: 'Incendio Malpensa', path: '/articoli-frontaliere/incendio-malpensa-terminal-1-2-maggio-2026', parent: 'blog' },
+    'blog-parcheggio-abusivo-como-villa-olmo': { name: 'Novità', path: '/articoli-frontaliere/parcheggio-abusivo-como-villa-olmo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

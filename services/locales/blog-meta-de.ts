@@ -5260,6 +5260,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.title': 'Brand im Terminal 1 des Flughafens Malpensa',
     'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.excerpt': 'Ein Kurzschluss verursachte einen kleinen Brand im Terminal 1 des Flughafens Malpensa am 2. Mai 2026. Es gab keine Verletzten.',
     'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.imageAlt': 'Luftaufnahme von Terminal 1 des Flughafens Malpensa mit Rettungsfahrzeugen und Rauch',
+    'blog.article.parcheggio-abusivo-como-villa-olmo.title': 'Illegale Parkplätze im Park von Villa Olmo in Como',
+    'blog.article.parcheggio-abusivo-como-villa-olmo.excerpt': 'Mehrere Autos, darunter eines aus dem Tessin, illegal im Park von Villa Olmo und auf den Gehwegen von Como geparkt.',
+    'blog.article.parcheggio-abusivo-como-villa-olmo.imageAlt': 'Villa Olmo in Como mit illegal geparkten Autos im Park und auf dem Gehweg',
 };
 
 export default blogMetaDe;

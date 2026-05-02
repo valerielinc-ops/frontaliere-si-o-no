@@ -17041,4 +17041,11 @@ export const ARTICLES = [
  image: '/images/blog/incendio-malpensa-terminal-1-2-maggio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'parcheggio-abusivo-como-villa-olmo',
+ category: 'novita',
+ date: '2026-05-02T17:33:25.013Z',
+ image: '/images/blog/parcheggio-abusivo-como-villa-olmo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
