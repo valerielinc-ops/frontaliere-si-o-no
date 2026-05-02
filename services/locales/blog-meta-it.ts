@@ -5099,6 +5099,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.venezia-serie-a-promozione-2026.title': 'Venezia torna in Serie A con un pareggio contro lo Spezia',
     'blog.article.venezia-serie-a-promozione-2026.excerpt': 'Il Venezia ottiene la promozione in Serie A con un pareggio 2-2 contro lo Spezia, grazie alla sconfitta del Monza',
     'blog.article.venezia-serie-a-promozione-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici circostanti',
+    'blog.article.meloni-governo-longevo-2026.title': 'Meloni: il mio Governo è il secondo più longevo della Repubblica',
+    'blog.article.meloni-governo-longevo-2026.excerpt': 'Il Governo Meloni supera i 1.000 giorni di durata, diventando il secondo più longevo della storia repubblicana.',
+    'blog.article.meloni-governo-longevo-2026.imageAlt': 'Vista panoramica del Lago di Lugano con montagne e barche',
 };
 
 export default blogMetaIt;

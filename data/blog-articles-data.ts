@@ -12909,4 +12909,11 @@ export const ARTICLES = [
  image: '/images/blog/venezia-serie-a-promozione-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'meloni-governo-longevo-2026',
+ category: 'novita',
+ date: '2026-05-02T08:35:21.574Z',
+ image: '/images/blog/meloni-governo-longevo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

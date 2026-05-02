@@ -5098,6 +5098,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.venezia-serie-a-promozione-2026.title': 'Venezia promoted to Serie A with a draw against Spezia',
     'blog.article.venezia-serie-a-promozione-2026.excerpt': 'Venezia secures Serie A promotion with a 2-2 draw against Spezia, thanks to Monza\'s defeat',
     'blog.article.venezia-serie-a-promozione-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and buildings',
+    'blog.article.meloni-governo-longevo-2026.title': 'Meloni: my Government is the second longest-serving in the Republic',
+    'blog.article.meloni-governo-longevo-2026.excerpt': 'The Meloni Government surpasses 1,000 days in office, becoming the second longest-serving in republican history.',
+    'blog.article.meloni-governo-longevo-2026.imageAlt': 'Panoramic view of Lake Lugano with mountains and boats',
 };
 
 export default blogMetaEn;

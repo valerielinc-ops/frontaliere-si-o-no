@@ -5098,6 +5098,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.venezia-serie-a-promozione-2026.title': 'Venezia steigt mit Unentschieden gegen Spezia in die Serie A auf',
     'blog.article.venezia-serie-a-promozione-2026.excerpt': 'Venezia sichert sich den Aufstieg in die Serie A mit einem 2-2-Unentschieden gegen Spezia, dank der Niederlage des Monza',
     'blog.article.venezia-serie-a-promozione-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Bergen und Gebäuden',
+    'blog.article.meloni-governo-longevo-2026.title': 'Meloni: Meine Regierung ist die zweitlängste der Republik',
+    'blog.article.meloni-governo-longevo-2026.excerpt': 'Die Regierung Meloni übertrifft 1.000 Tage und wird zur zweitlängsten der republikanischen Geschichte.',
+    'blog.article.meloni-governo-longevo-2026.imageAlt': 'Panoramablick auf den Luganersee mit Bergen und Booten',
 };
 
 export default blogMetaDe;
