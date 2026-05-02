@@ -752,6 +752,8 @@ interface SlugTable {
  admin: string;
  // About / Chi Siamo page (E-E-A-T)
  chiSiamo: string;
+ // Public corrections policy + log (Google News compliance B1)
+ correzioni: string;
  // Trade unions guide
  sindacati: string;
  // Definitive guide page (SEO pillar content)
@@ -860,6 +862,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  newsletterPreferences: 'preferenze-newsletter',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'chi-siamo',
+ correzioni: 'correzioni',
  costs: 'costi-pendolarismo',
  salarySurvey: 'sondaggio-stipendi',
  comparatori: 'comparatori',
@@ -956,6 +959,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  newsletterPreferences: 'newsletter-preferences',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'about-us',
+ correzioni: 'corrections',
  sindacati: 'trade-unions-cross-border-workers',
  guidaCompleta: 'complete-guide-cross-border-work-switzerland-2026',
  tassazioneHub: 'cross-border-taxation-guide-2026',
@@ -1055,6 +1059,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  newsletterPreferences: 'newsletter-einstellungen',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'ueber-uns',
+ correzioni: 'korrekturen',
  sindacati: 'gewerkschaften-grenzgaenger',
  guidaCompleta: 'komplettanleitung-grenzgaenger-arbeit-schweiz-2026',
  tassazioneHub: 'grenzgaenger-besteuerung-leitfaden-2026',
