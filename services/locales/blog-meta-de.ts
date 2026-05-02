@@ -5173,6 +5173,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.taglio-accise-carburanti-maggio-2026.title': 'Kraftstoffsteuer: Diesel voll im Rabatt, Benzin reduziert',
     'blog.article.taglio-accise-carburanti-maggio-2026.excerpt': 'Die Regierung verlängert die Senkung der Kraftstoffsteuern, aber mit einem Unterschied zwischen Diesel und Benzin. Erfahren Sie, was sich ändert und wie es Sie betrifft.',
     'blog.article.taglio-accise-carburanti-maggio-2026.imageAlt': 'Luganersee mit einer Tankstelle im Vordergrund',
+    'blog.article.yoga-meditazione-villa-lago-como.title': 'Como: Yoga, Meditation und Spaziergänge in der Villa am See',
+    'blog.article.yoga-meditazione-villa-lago-como.excerpt': 'Die Veranstaltung \'Coltiviamo l’Energia\' kehrt mit Yoga, Meditation und Spaziergängen im historischen Park mit Seeblick nach Villa del Grumello zurück.',
+    'blog.article.yoga-meditazione-villa-lago-como.imageAlt': 'Villa del Grumello, Como, Seeblick, Yoga, Meditation',
 };
 
 export default blogMetaDe;

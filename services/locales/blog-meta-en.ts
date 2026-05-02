@@ -5173,6 +5173,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.taglio-accise-carburanti-maggio-2026.title': 'Fuel duty cut extended: full diesel discount, reduced petrol',
     'blog.article.taglio-accise-carburanti-maggio-2026.excerpt': 'The government extends the fuel duty cut, but with a distinction between diesel and petrol. Find out what changes and how it affects you.',
     'blog.article.taglio-accise-carburanti-maggio-2026.imageAlt': 'Lake Lugano with a gas station in the foreground',
+    'blog.article.yoga-meditazione-villa-lago-como.title': 'Como: yoga, meditation and walks in the lakeside villa',
+    'blog.article.yoga-meditazione-villa-lago-como.excerpt': 'The \'Coltiviamo l’Energia\' event returns to Villa del Grumello with yoga, meditation and walks in the historic park overlooking the lake.',
+    'blog.article.yoga-meditazione-villa-lago-como.imageAlt': 'Villa del Grumello, Como, lake view, yoga, meditation',
 };
 
 export default blogMetaEn;

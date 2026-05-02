@@ -13084,4 +13084,11 @@ export const ARTICLES = [
  image: '/images/blog/taglio-accise-carburanti-maggio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'yoga-meditazione-villa-lago-como',
+ category: 'novita',
+ date: '2026-05-02T12:59:45.058Z',
+ image: '/images/blog/yoga-meditazione-villa-lago-como.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

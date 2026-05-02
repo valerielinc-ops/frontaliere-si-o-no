@@ -36985,6 +36985,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-yoga-meditazione-villa-lago-como': {
+    title: 'Como: yoga, meditazione e passeggiate nella villa sul lago',
+    description: 'La rassegna \'Coltiviamo l’Energia\' torna a Villa del Grumello con yoga, meditazione e passeggiate nel parco storico affacciato sul lago. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, yoga, meditazione, passeggiate',
+    ogTitle: 'Como: yoga, meditazione e passeggiate nella villa sul lago',
+    ogDescription: 'La rassegna \'Coltiviamo l’Energia\' torna a Villa del Grumello con yoga, meditazione e passeggiate nel parco storico affacciato sul lago.',
+    canonicalPath: '/articoli-frontaliere/yoga-meditazione-villa-lago-como',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como: yoga, meditazione e passeggiate nella villa sul lago",
+      "description": "La rassegna 'Coltiviamo l’Energia' torna a Villa del Grumello con yoga, meditazione e passeggiate nel parco storico affacciato sul lago. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/yoga-meditazione-villa-lago-como.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa del Grumello, Como, vista sul lago, yoga, meditazione"
+      },
+      "datePublished": "2026-05-02T12:59:45+00:00",
+      "dateModified": "2026-05-02T12:59:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/yoga-meditazione-villa-lago-como`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

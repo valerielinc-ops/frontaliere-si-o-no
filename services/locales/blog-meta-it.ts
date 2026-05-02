@@ -5174,6 +5174,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.taglio-accise-carburanti-maggio-2026.title': 'Taglio accise carburanti: diesel a sconto pieno, benzina ridotto',
     'blog.article.taglio-accise-carburanti-maggio-2026.excerpt': 'Il governo proroga il taglio delle accise sui carburanti, ma con una distinzione tra diesel e benzina. Scopri cosa cambia e come ti riguarda.',
     'blog.article.taglio-accise-carburanti-maggio-2026.imageAlt': 'Lago di Lugano con un distributore di carburante in primo piano',
+    'blog.article.yoga-meditazione-villa-lago-como.title': 'Como: yoga, meditazione e passeggiate nella villa sul lago',
+    'blog.article.yoga-meditazione-villa-lago-como.excerpt': 'La rassegna \'Coltiviamo l’Energia\' torna a Villa del Grumello con yoga, meditazione e passeggiate nel parco storico affacciato sul lago.',
+    'blog.article.yoga-meditazione-villa-lago-como.imageAlt': 'Villa del Grumello, Como, vista sul lago, yoga, meditazione',
 };
 
 export default blogMetaIt;
