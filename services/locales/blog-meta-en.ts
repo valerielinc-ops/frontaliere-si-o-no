@@ -5011,6 +5011,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gallarate-fondazione-scuole-materne-2026.title': 'Gallarate: Foundation for Nursery Schools, council clash',
     'blog.article.gallarate-fondazione-scuole-materne-2026.excerpt': 'Gallarate city council heats up again over the Foundation for Nursery Schools, with president\'s resignation and disputes over minutes.',
     'blog.article.gallarate-fondazione-scuole-materne-2026.imageAlt': 'Gallarate city council during a heated debate',
+    'blog.article.formula-1-riparte-rischi-polemiche.title': 'Formula 1 resumes amid risks and controversies',
+    'blog.article.formula-1-riparte-rischi-polemiche.excerpt': 'The World Championship resumes in Miami after the interruption due to the wars in the Middle East. Criticism of the regulation that penalizes drivers and single-seaters.',
+    'blog.article.formula-1-riparte-rischi-polemiche.imageAlt': 'Formula 1 in Miami, modern grandstands, blue sky',
 };
 
 export default blogMetaEn;

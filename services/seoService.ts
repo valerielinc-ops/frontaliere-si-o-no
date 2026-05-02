@@ -2901,6 +2901,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-progettare-sala-riunioni-ufficio': { name: 'Progettazione sala riunioni', path: '/articoli-frontaliere/progettare-sala-riunioni-ufficio', parent: 'blog' },
     'blog-giovani-agenti-como-polizia-locale': { name: 'Novità', path: '/articoli-frontaliere/giovani-agenti-como-polizia-locale', parent: 'blog' },
     'blog-gallarate-fondazione-scuole-materne-2026': { name: 'Novità', path: '/articoli-frontaliere/gallarate-fondazione-scuole-materne-2026', parent: 'blog' },
+    'blog-formula-1-riparte-rischi-polemiche': { name: 'Formula 1', path: '/articoli-frontaliere/formula-1-riparte-rischi-polemiche', parent: 'blog' },
  };
 
  const info = sectionNames[section];

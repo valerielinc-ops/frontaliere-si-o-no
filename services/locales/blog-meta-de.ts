@@ -5011,6 +5011,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gallarate-fondazione-scuole-materne-2026.title': 'Gallarate: Streit um Kindergartenstiftung im Gemeinderat',
     'blog.article.gallarate-fondazione-scuole-materne-2026.excerpt': 'Der Gemeinderat von Gallarate entzündet sich erneut an der Fondazione Scuole Materne, mit Rücktritt des Präsidenten und Polemiken zu den Protokollen.',
     'blog.article.gallarate-fondazione-scuole-materne-2026.imageAlt': 'Gemeinderat von Gallarate während einer hitzigen Debatte',
+    'blog.article.formula-1-riparte-rischi-polemiche.title': 'Formel 1 startet mit Risiken und Kontroversen',
+    'blog.article.formula-1-riparte-rischi-polemiche.excerpt': 'Die Weltmeisterschaft geht in Miami nach der Unterbrechung wegen der Kriege im Nahen Osten weiter. Kritik am Reglement, das Fahrer und Monoposto benachteiligt.',
+    'blog.article.formula-1-riparte-rischi-polemiche.imageAlt': 'Formel 1 in Miami, moderne Tribünen, blauer Himmel',
 };
 
 export default blogMetaDe;

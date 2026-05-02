@@ -5012,6 +5012,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gallarate-fondazione-scuole-materne-2026.title': 'Gallarate: Fondazione Scuole Materne, tensioni in consiglio comunale',
     'blog.article.gallarate-fondazione-scuole-materne-2026.excerpt': 'Le conseil communal de Gallarate s\'enflamme à nouveau sur la Fondation des Écoles Maternelles, avec la démission du président et des polémiques sur les procès-verbaux.',
     'blog.article.gallarate-fondazione-scuole-materne-2026.imageAlt': 'Conseil municipal de Gallarate pendant un débat animé',
+    'blog.article.formula-1-riparte-rischi-polemiche.title': 'La Formule 1 reprend entre risques et polémiques',
+    'blog.article.formula-1-riparte-rischi-polemiche.excerpt': 'Le Mondial reprend à Miami après l\'interruption pour les guerres au Moyen-Orient. Critiques du règlement qui pénalise les pilotes et les monoplaces.',
+    'blog.article.formula-1-riparte-rischi-polemiche.imageAlt': 'Formule 1 à Miami, tribunes modernes, ciel bleu',
 };
 
 export default blogMetaFr;

@@ -35419,6 +35419,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formula-1-riparte-rischi-polemiche': {
+    title: 'Formula 1 riparte fra rischi e polemiche | Frontaliere Ticino',
+    description: 'Il Mondiale di Formula 1 riprende a Miami dopo un mese di stop. Critiche al nuovo regolamento che penalizza piloti e monoposto. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, formula, riparte, rischi, polemiche',
+    ogTitle: 'Formula 1 riparte fra rischi e polemiche',
+    ogDescription: 'Il Mondiale di Formula 1 riprende a Miami dopo un mese di stop. Critiche al nuovo regolamento che penalizza piloti e monoposto.',
+    canonicalPath: '/articoli-frontaliere/formula-1-riparte-rischi-polemiche',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formula 1 riparte fra rischi e polemiche",
+      "description": "Il Mondiale di Formula 1 riprende a Miami dopo un mese di stop. Critiche al nuovo regolamento che penalizza piloti e monoposto. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/formula-1-riparte-rischi-polemiche.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Formula 1 a Miami, tribune moderne, cielo azzurro"
+      },
+      "datePublished": "2026-05-02T03:14:18+00:00",
+      "dateModified": "2026-05-02T03:14:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/formula-1-riparte-rischi-polemiche`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

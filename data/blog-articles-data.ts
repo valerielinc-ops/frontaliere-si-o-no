@@ -12706,4 +12706,11 @@ export const ARTICLES = [
  image: '/images/blog/gallarate-fondazione-scuole-materne-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'formula-1-riparte-rischi-polemiche',
+ category: 'novita',
+ date: '2026-05-02T03:14:18.440Z',
+ image: '/images/blog/formula-1-riparte-rischi-polemiche.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
