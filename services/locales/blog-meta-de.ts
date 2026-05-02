@@ -4999,6 +4999,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grassi-1925-marchio-storico.title': 'Grassi 1925 im Register der historischen Marken',
     'blog.article.grassi-1925-marchio-storico.excerpt': 'Das Unternehmen aus Varese, gegründet 1925, erhält die Anerkennung des Ministeriums für Unternehmen und Made in Italy für die kontinuierliche Nutzung der Marke.',
     'blog.article.grassi-1925-marchio-storico.imageAlt': 'Luftaufnahme des Industriegebiets von Lonate Pozzolo mit modernen Fabriken und grünen Feldern im Tessin',
+    'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.title': 'LATI gewinnt Intesa Sanpaolo-Award für Spitzenunternehmen',
+    'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.excerpt': 'Das varesische Unternehmen LATI Industria Termoplastici wird Teil des Netzwerks der exzellenten KMUs für Solidität, Innovation und internationale Vision',
+    'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.imageAlt': 'Preisverleihung von Intesa Sanpaolo mit schweizerischen und italienischen Führungskräften',
 };
 
 export default blogMetaDe;

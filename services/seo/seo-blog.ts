@@ -35303,6 +35303,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lati-industria-termoplastici-premiata-intesanpaolo': {
+    title: 'LATI premiata tra le Imprese Vincenti di Intesa Sanpaolo',
+    description: 'LATI Industria Termoplastici premiata tra le Imprese Vincenti di Intesa Sanpaolo per solidità, innovazione e visione internazionale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lati, premiata, imprese, vincenti',
+    ogTitle: 'LATI premiata tra le Imprese Vincenti di Intesa Sanpaolo',
+    ogDescription: 'LATI Industria Termoplastici premiata tra le Imprese Vincenti di Intesa Sanpaolo per solidità, innovazione e visione internazionale',
+    canonicalPath: '/articoli-frontaliere/lati-industria-termoplastici-premiata-intesanpaolo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LATI premiata tra le Imprese Vincenti di Intesa Sanpaolo",
+      "description": "LATI Industria Termoplastici premiata tra le Imprese Vincenti di Intesa Sanpaolo per solidità, innovazione e visione internazionale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lati-industria-termoplastici-premiata-intesanpaolo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cerimonia di premiazione Intesa Sanpaolo con dirigenti svizzeri e italiani"
+      },
+      "datePublished": "2026-05-02T02:34:32+00:00",
+      "dateModified": "2026-05-02T02:34:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lati-industria-termoplastici-premiata-intesanpaolo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

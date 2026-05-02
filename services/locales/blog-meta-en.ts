@@ -4999,6 +4999,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.grassi-1925-marchio-storico.title': 'Grassi 1925 enters the Special Register of Historical Brands',
     'blog.article.grassi-1925-marchio-storico.excerpt': 'The Varese-based company, founded in 1925, receives recognition from the Ministry of Enterprises and Made in Italy for the continuous use of its brand.',
     'blog.article.grassi-1925-marchio-storico.imageAlt': 'Aerial view of Lonate Pozzolo industrial area with modern factories and green fields in Ticino',
+    'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.title': 'LATI wins Intesa Sanpaolo\'s Best Business Award',
+    'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.excerpt': 'The Varese-based company LATI Industria Termoplastici joins the network of outstanding SMEs for its solidity, innovation, and international vision',
+    'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.imageAlt': 'Intesa Sanpaolo award ceremony with Swiss and Italian executives',
 };
 
 export default blogMetaEn;

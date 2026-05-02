@@ -12678,4 +12678,11 @@ export const ARTICLES = [
  image: '/images/blog/grassi-1925-marchio-storico.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lati-industria-termoplastici-premiata-intesanpaolo',
+ category: 'novita',
+ date: '2026-05-02T02:34:32.937Z',
+ image: '/images/blog/lati-industria-termoplastici-premiata-intesanpaolo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
