@@ -12608,4 +12608,11 @@ export const ARTICLES = [
  image: '/images/blog/fattura-miliardaria-energia-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'arco-e-frecce-per-far-centro',
+ category: 'novita',
+ date: '2026-05-02T00:39:09.561Z',
+ image: '/images/blog/arco-e-frecce-per-far-centro.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4970,6 +4970,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fattura-miliardaria-energia-2026.title': 'Energia: la fattura miliardaria del conflitto in Medio Oriente',
     'blog.article.fattura-miliardaria-energia-2026.excerpt': 'Il prezzo del diesel supera i 2 franchi al litro in Svizzera a causa del conflitto in Medio Oriente, con costi aggiuntivi per famiglie e imprese',
     'blog.article.fattura-miliardaria-energia-2026.imageAlt': 'Lago di Lugano con vista sulla città, barche sull\'acqua, persone che camminano lungo la riva',
+    'blog.article.arco-e-frecce-per-far-centro.title': 'Arco e frecce per far centro nel cuore degli appassionati',
+    'blog.article.arco-e-frecce-per-far-centro.excerpt': 'Nasce una nuova società di arcieri. La presidente Rita De Franco: ‘Siamo al Vallone, ma speriamo in un campo fisso’.',
+    'blog.article.arco-e-frecce-per-far-centro.imageAlt': 'Bellinzona',
 };
 
 export default blogMetaIt;

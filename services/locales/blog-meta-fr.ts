@@ -4970,6 +4970,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fattura-miliardaria-energia-2026.title': 'Énergie: la facture milliardaire du conflit au Moyen-Orient',
     'blog.article.fattura-miliardaria-energia-2026.excerpt': 'Le prix du diesel dépasse 2 francs le litre en Suisse à cause du conflit au Moyen-Orient, avec des coûts supplémentaires pour les familles et les entreprises',
     'blog.article.fattura-miliardaria-energia-2026.imageAlt': 'Lac de Lugano avec vue sur la ville, bateaux sur l\'eau, personnes marchant le long de la rive',
+    'blog.article.arco-e-frecce-per-far-centro.title': 'Arc et flèches pour toucher le cœur des passionnés',
+    'blog.article.arco-e-frecce-per-far-centro.excerpt': 'Une nouvelle société d\'archers voit le jour. La présidente Rita De Franco : ‘Nous sommes au Vallone, mais nous espérons un terrain fixe’.',
+    'blog.article.arco-e-frecce-per-far-centro.imageAlt': 'Bellinzona',
 };
 
 export default blogMetaFr;

@@ -4969,6 +4969,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fattura-miliardaria-energia-2026.title': 'Energy: the billion-dollar Middle East conflict bill',
     'blog.article.fattura-miliardaria-energia-2026.excerpt': 'Diesel prices exceed 2 francs per litre in Switzerland due to the Middle East conflict, adding extra costs for families and businesses',
     'blog.article.fattura-miliardaria-energia-2026.imageAlt': 'Lake Lugano with a view of the city, boats on the water, people walking along the shore',
+    'blog.article.arco-e-frecce-per-far-centro.title': 'Bows and arrows to win over enthusiasts\' hearts',
+    'blog.article.arco-e-frecce-per-far-centro.excerpt': 'A new archery society has been founded. President Rita De Franco: \'We\'re at Vallone, but we hope for a permanent field.\'',
+    'blog.article.arco-e-frecce-per-far-centro.imageAlt': 'Bellinzona',
 };
 
 export default blogMetaEn;

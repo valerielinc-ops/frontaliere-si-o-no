@@ -4969,6 +4969,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fattura-miliardaria-energia-2026.title': 'Energie: Die milliardenschwere Rechnung des Nahost-Konflikts',
     'blog.article.fattura-miliardaria-energia-2026.excerpt': 'Der Dieselpreis übersteigt in der Schweiz 2 Franken pro Liter aufgrund des Nahost-Konflikts, mit zusätzlichen Kosten für Familien und Unternehmen',
     'blog.article.fattura-miliardaria-energia-2026.imageAlt': 'Luganersee mit Blick auf die Stadt, Boote auf dem Wasser, Menschen spazieren am Ufer entlang',
+    'blog.article.arco-e-frecce-per-far-centro.title': 'Bogen und Pfeile für das Herz der Fans',
+    'blog.article.arco-e-frecce-per-far-centro.excerpt': 'Eine neue Bogenschützengesellschaft entsteht. Die Präsidentin Rita De Franco: \'Wir sind im Vallone, aber wir hoffen auf ein festes Gelände.\'',
+    'blog.article.arco-e-frecce-per-far-centro.imageAlt': 'Bellinzona',
 };
 
 export default blogMetaDe;

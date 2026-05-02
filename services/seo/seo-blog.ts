@@ -35013,6 +35013,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arco-e-frecce-per-far-centro': {
+    title: 'Arco e frecce per far centro nel cuore degli appassionati',
+    description: 'Una nuova società di arcieri è stata fondata a Bellinzona. La presidente Rita De Franco: ‘Siamo al Vallone, ma speriamo in un campo fisso’. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, arco, frecce, centro, cuore',
+    ogTitle: 'Arco e frecce per far centro nel cuore degli appassionati',
+    ogDescription: 'Una nuova società di arcieri è stata fondata a Bellinzona. La presidente Rita De Franco: ‘Siamo al Vallone, ma speriamo in un campo fisso’.',
+    canonicalPath: '/articoli-frontaliere/arco-e-frecce-per-far-centro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Arco e frecce per far centro nel cuore degli appassionati\", \"datePublished\": \"2026-05-03\", \"author\": {\"@type\": \"Person\", \"name\": \"Sebastiano Storelli\"}}",
+      "description": "Una nuova società di arcieri è stata fondata a Bellinzona. La presidente Rita De Franco: ‘Siamo al Vallone, ma speriamo in un campo fisso’. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/arco-e-frecce-per-far-centro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona"
+      },
+      "datePublished": "2026-05-02T00:39:09+00:00",
+      "dateModified": "2026-05-02T00:39:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arco-e-frecce-per-far-centro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
