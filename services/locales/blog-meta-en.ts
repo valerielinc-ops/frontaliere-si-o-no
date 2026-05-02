@@ -5212,6 +5212,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.title': 'A4 Milan-Brescia: mandatory detour to Varese May 5-6, 2026',
     'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.excerpt': 'From the night between May 5 and 6, 2026, the A4 Milan-Brescia will be closed for works. Here\'s what changes for cross-border workers.',
     'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.imageAlt': 'A4 Milan-Brescia highway with mandatory diversion towards Varese',
+    'blog.article.editto-canonizzazione-don-roberto-malgesini.title': 'Decree on canonization of Don Roberto Malgesini: what happens now',
+    'blog.article.editto-canonizzazione-don-roberto-malgesini.excerpt': 'The decree for the canonization of Don Roberto Malgesini, killed in 2020, has been published. Here are the next steps and what the Diocese of Como asks',
+    'blog.article.editto-canonizzazione-don-roberto-malgesini.imageAlt': 'Solemn ceremony in Como with focus on the Diocesan Curia and religious artifacts',
 };
 
 export default blogMetaEn;

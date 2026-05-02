@@ -37362,6 +37362,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-editto-canonizzazione-don-roberto-malgesini': {
+    title: 'Editto canonizzazione Don Roberto Malgesini: cosa succede ora',
+    description: 'Pubblicato l\'editto per la canonizzazione di Don Roberto Malgesini, ucciso nel 2020. Ecco i prossimi passi e cosa chiede la Diocesi di Como. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, editto, canonizzazione, roberto, malgesini',
+    ogTitle: 'Editto canonizzazione Don Roberto Malgesini: cosa succede ora',
+    ogDescription: 'Pubblicato l\'editto per la canonizzazione di Don Roberto Malgesini, ucciso nel 2020. Ecco i prossimi passi e cosa chiede la Diocesi di Como',
+    canonicalPath: '/articoli-frontaliere/editto-canonizzazione-don-roberto-malgesini',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Editto canonizzazione Don Roberto Malgesini: cosa succede ora",
+      "description": "Pubblicato l'editto per la canonizzazione di Don Roberto Malgesini, ucciso nel 2020. Ecco i prossimi passi e cosa chiede la Diocesi di Como. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/editto-canonizzazione-don-roberto-malgesini.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cerimonia solenne a Como con focus sulla Curia Vescovile e oggetti religiosi"
+      },
+      "datePublished": "2026-05-02T15:19:34+00:00",
+      "dateModified": "2026-05-02T15:19:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/editto-canonizzazione-don-roberto-malgesini`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

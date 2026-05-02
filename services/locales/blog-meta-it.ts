@@ -5213,6 +5213,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.title': 'A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026',
     'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.excerpt': 'Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri.',
     'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.imageAlt': 'Autostrada A4 Milano-Brescia con deviazione obbligatoria verso Varese',
+    'blog.article.editto-canonizzazione-don-roberto-malgesini.title': 'Editto canonizzazione Don Roberto Malgesini: cosa succede ora',
+    'blog.article.editto-canonizzazione-don-roberto-malgesini.excerpt': 'Pubblicato l\'editto per la canonizzazione di Don Roberto Malgesini, ucciso nel 2020. Ecco i prossimi passi e cosa chiede la Diocesi di Como',
+    'blog.article.editto-canonizzazione-don-roberto-malgesini.imageAlt': 'Cerimonia solenne a Como con focus sulla Curia Vescovile e oggetti religiosi',
 };
 
 export default blogMetaIt;

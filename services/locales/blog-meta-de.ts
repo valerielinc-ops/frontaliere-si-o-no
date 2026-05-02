@@ -5212,6 +5212,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.title': 'A4 Milano-Brescia: Umleitung nach Varese vom 5. bis 6. Mai 2026',
     'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.excerpt': 'In der Nacht vom 5. auf den 6. Mai 2026 wird die A4 Milano-Brescia wegen Bauarbeiten gesperrt. Was sich für Grenzgänger ändert.',
     'blog.article.a4-milano-brescia-diviazione-obbligatoria-2026.imageAlt': 'Autobahn A4 Mailand-Brescia mit obligatorischer Umleitung nach Varese',
+    'blog.article.editto-canonizzazione-don-roberto-malgesini.title': 'Erlass zur Heiligsprechung von Don Roberto Malgesini: Was passiert jetzt?',
+    'blog.article.editto-canonizzazione-don-roberto-malgesini.excerpt': 'Der Erlass zur Heiligsprechung von Don Roberto Malgesini, der 2020 ermordet wurde, wurde veröffentlicht. Hier sind die nächsten Schritte und was das Bistum Como verlangt.',
+    'blog.article.editto-canonizzazione-don-roberto-malgesini.imageAlt': 'Feierliche Zeremonie in Como mit Fokus auf die Diözesankurie und religiöse Artefakte',
 };
 
 export default blogMetaDe;

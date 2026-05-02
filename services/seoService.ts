@@ -2968,6 +2968,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-panchina-bianca-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/panchina-bianca-varese-2026', parent: 'blog' },
     'blog-furti-chiese-bellinzonese-arresti-2026': { name: 'Furti in chiese', path: '/articoli-frontaliere/furti-chiese-bellinzonese-arresti-2026', parent: 'blog' },
     'blog-a4-milano-brescia-diviazione-obbligatoria-2026': { name: 'Viabilità', path: '/articoli-frontaliere/a4-milano-brescia-diviazione-obbligatoria-2026', parent: 'blog' },
+    'blog-editto-canonizzazione-don-roberto-malgesini': { name: 'Editto canonizzazione', path: '/articoli-frontaliere/editto-canonizzazione-don-roberto-malgesini', parent: 'blog' },
  };
 
  const info = sectionNames[section];

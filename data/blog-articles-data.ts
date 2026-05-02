@@ -13175,4 +13175,11 @@ export const ARTICLES = [
  image: '/images/blog/a4-milano-brescia-diviazione-obbligatoria-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'editto-canonizzazione-don-roberto-malgesini',
+ category: 'novita',
+ date: '2026-05-02T15:19:34.689Z',
+ image: '/images/blog/editto-canonizzazione-don-roberto-malgesini.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
