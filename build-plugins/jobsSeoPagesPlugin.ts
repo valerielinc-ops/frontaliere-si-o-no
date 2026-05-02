@@ -3140,6 +3140,8 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
      featured?: boolean;
      logo?: string | null;
      addressLocality?: string;
+     companyDomain?: string;
+     url?: string;
    }>,
  ) => {
    if (items.length === 0) {
@@ -3161,6 +3163,8 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
          logo: item.logo,
          addressLocality: item.addressLocality,
          datePosted: item.datePosted,
+         companyDomain: item.companyDomain,
+         url: item.url,
        };
        return { job, href: item.href };
      }),
