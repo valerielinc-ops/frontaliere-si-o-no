@@ -2780,6 +2780,69 @@ function validateTitle(title) {
   return { valid: true, reason: null };
 }
 
+// ──────────────────────────────────────────────────────────────────────────
+// A5 — Headline validation (Google News compliance)
+//
+// Stricter, BLOCKING gate complementary to the legacy `validateTitle`
+// (which is a non-blocking Google-Discover anti-clickbait check). The A5
+// validator enforces:
+//
+//  - Length 10-110 characters
+//  - 2-22 whitespace-separated tokens
+//  - Must NOT start with a digit
+//  - Must NOT match any clickbait pattern from A5_CLICKBAIT_PATTERNS
+//    (Italian + English variants, kept independent of the legacy
+//    CLICKBAIT_PATTERNS list above so the stricter A5 ruleset can evolve
+//    without affecting the existing soft warning).
+//
+// Returns an array of human-readable error strings (empty = pass).
+//
+// Spec: docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 FASE 1 A5.
+// Tests: tests/blog-headline-validation.test.ts.
+// ──────────────────────────────────────────────────────────────────────────
+
+export const A5_CLICKBAIT_PATTERNS = [
+  // Italian
+  /non\s+crederai/i,
+  /scioccante/i,
+  /incredibile/i,
+  /sconvolgente/i,
+  /ti\s+lascer[àa]\s+senza\s+parole/i,
+  /clamoroso/i,
+  /pazzesco/i,
+  /\bspoiler\b/i,
+  /quello\s+che\s+(non\s+)?sai/i,
+  /ecco\s+(perch[ée]|cosa)\s+non\s+(crederai|immagini)/i,
+  // English
+  /you\s+won['’]?t\s+believe/i,
+  /shocking/i,
+  /mind[-\s]?blowing/i,
+  /this\s+one\s+(weird\s+)?trick/i,
+  // Punctuation tells (clickbait stubs)
+  /\?\?\?$/,
+  /!{2,}$/,
+];
+
+/**
+ * @param {string} headline
+ * @returns {string[]} Array of error messages (empty = pass).
+ */
+export function validateHeadline(headline) {
+  const errs = [];
+  if (typeof headline !== 'string' || headline.length === 0) {
+    return ['Headline mancante o non stringa'];
+  }
+  if (headline.length < 10) errs.push('Headline troppo corto (min 10 char)');
+  if (headline.length > 110) errs.push('Headline troppo lungo (max 110 char)');
+  const wc = headline.trim().split(/\s+/).filter(Boolean).length;
+  if (wc < 2 || wc > 22) errs.push(`Headline ${wc} parole, range 2-22`);
+  if (/^\d/.test(headline.trim())) errs.push('Headline non deve iniziare con numero');
+  if (A5_CLICKBAIT_PATTERNS.some((p) => p.test(headline))) {
+    errs.push('Pattern clickbait rilevato');
+  }
+  return errs;
+}
+
 // ── Step 3: Validate Gemini response ────────────────────────
 function validate(data) {
   // `content` is the only truly irreplaceable field — everything else can be
@@ -5300,9 +5363,11 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   let data = null;
   let lastWordCount = 0;
 
-  // A5 headline retry budget — spec: retry once with refined prompt, then hard-fail.
-  // We track this OUTSIDE the per-attempt loop so the budget survives across the
-  // existing model-rotation retries used for min-word failures.
+  // A5 headline retry budget — spec: retry once with a refined prompt, then
+  // hard-fail. We track this OUTSIDE the per-attempt loop so the budget
+  // survives across the existing model-rotation retries used for min-word
+  // failures (those use up to CREATE_ARTICLE_MIN_WORDS_RETRIES attempts; we
+  // don't want the headline check to silently consume more than one of them).
   let headlineRetryBudget = 1;
   /** @type {string|null} */
   let lastHeadlineErrors = null;
@@ -5404,7 +5469,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       // seo.title with the suffix stripped — matches it.title byte-for-byte.
       const TITLE_SUFFIX = ' | Frontaliere Ticino';
       const seoTitleCore = String(data.seo?.title || '')
-        .replace(new RegExp(`\\s*\\|\\s*Frontaliere\\s+Ticino\\s*$`, 'i'), '')
+        .replace(/\s*\|\s*Frontaliere\s+Ticino\s*$/i, '')
         .trim();
       if (seoTitleCore !== itTitle) {
         // Fix it: the canonical source is content.it.title (it's what becomes
