@@ -1,6 +1,7 @@
 import React from 'react';
-import { Users, BookOpen, Shield, Globe, ArrowLeft, CheckCircle2, Newspaper, BarChart3, FileSearch } from 'lucide-react';
+import { Users, BookOpen, Shield, Globe, ArrowLeft, CheckCircle2, Newspaper, BarChart3, FileSearch, UserCircle } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
+import { AUTHORS } from '@/data/authors';
 
 /**
  * ChiSiamo — /chi-siamo/ About page.
@@ -140,6 +141,39 @@ export const ChiSiamo: React.FC = () => {
  </div>
  ))}
  </div>
+ </Section>
+
+ {/* Editorial Team — links to author profile pages (Google News A1 / E-E-A-T) */}
+ <Section icon={UserCircle} title="Redazione e firme">
+ <p>
+ Le firme editoriali di Frontaliere Ticino. Ogni articolo è attribuito a un
+ autore con responsabilità sui contenuti pubblicati.
+ </p>
+ <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+ {AUTHORS.map((author) => (
+ <li key={author.slug}>
+ <a
+ href={`/autori/${author.slug}/`}
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('autore' as any, author.slug); }}
+ className="flex items-center gap-3 p-3 rounded-xl bg-info/10 hover:bg-info/20 transition-colors no-underline"
+ >
+ <img
+ src={author.photoPath}
+ alt={`Foto di ${author.name}`}
+ width={48}
+ height={48}
+ loading="lazy"
+ decoding="async"
+ className="w-12 h-12 rounded-full object-cover border border-edge shrink-0"
+ />
+ <span className="min-w-0">
+ <span className="block text-sm font-semibold text-strong truncate">{author.name}</span>
+ <span className="block text-xs text-muted truncate">{author.role}</span>
+ </span>
+ </a>
+ </li>
+ ))}
+ </ul>
  </Section>
 
  {/* Privacy & Trust */}
