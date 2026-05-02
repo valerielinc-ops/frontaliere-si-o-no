@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-04-18T03:33:13.271Z",
-    "label": "before",
-    "total": 2941,
-    "needsRetranslation": 81,
-    "incomplete": 23,
-    "complete": 2918,
-    "missingByLocale": {
-      "it": 22,
-      "en": 1,
-      "de": 22,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 22
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-18T03:54:10.831Z",
-    "label": "after",
-    "total": 2941,
-    "needsRetranslation": 41,
-    "incomplete": 23,
-    "complete": 2918,
-    "missingByLocale": {
-      "it": 22,
-      "en": 1,
-      "de": 22,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 22
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-18T05:19:25.865Z",
     "label": "before",
     "total": 2941,
@@ -8226,6 +8178,94 @@
     "needsRetranslation": 52,
     "incomplete": 29,
     "complete": 2635,
+    "missingByLocale": {
+      "it": 27,
+      "en": 7,
+      "de": 25,
+      "fr": 25
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-02T08:10:54.053Z",
+    "label": "before",
+    "total": 2596,
+    "needsRetranslation": 50,
+    "incomplete": 29,
+    "complete": 2567,
+    "missingByLocale": {
+      "it": 27,
+      "en": 7,
+      "de": 25,
+      "fr": 25
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-02T08:31:41.495Z",
+    "label": "after",
+    "total": 2596,
+    "needsRetranslation": 54,
+    "incomplete": 29,
+    "complete": 2567,
     "missingByLocale": {
       "it": 27,
       "en": 7,
