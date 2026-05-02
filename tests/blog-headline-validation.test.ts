@@ -203,7 +203,7 @@ describe('validateHeadline — A5 Google News compliance unit tests', () => {
 
     it('accepts the exact 110-char boundary', () => {
       const headline = 'Stipendi e tasse dei frontalieri ticinesi nel 2026: guida pratica al nuovo accordo fiscale Italia-Svizzera';
-      expect(headline.length).toBe(108);
+      expect(headline.length).toBe(106);
       expect(validateHeadline(headline)).toEqual([]);
     });
   });
