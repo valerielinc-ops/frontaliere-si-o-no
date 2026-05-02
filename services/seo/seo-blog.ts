@@ -37014,6 +37014,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-cantu-creativity-week-2026': {
+    title: 'Como e Cantù uniscono le forze per la Lake Como Creativity Week',
+    description: 'I comuni di Como e Cantù collaborano per la Lake Como Creativity Week, con un accordo triennale firmato il 7 maggio 2026. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, cantù, uniscono, forze',
+    ogTitle: 'Como e Cantù uniscono le forze per la Lake Como Creativity Week',
+    ogDescription: 'I comuni di Como e Cantù collaborano per la Lake Como Creativity Week, con un accordo triennale firmato il 7 maggio 2026',
+    canonicalPath: '/articoli-frontaliere/como-cantu-creativity-week-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como e Cantù uniscono le forze per la Lake Como Creativity Week",
+      "description": "I comuni di Como e Cantù collaborano per la Lake Como Creativity Week, con un accordo triennale firmato il 7 maggio 2026. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-cantu-creativity-week-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento Lake Como Creativity Week a Como, Italia, con artigiani e creazioni artistiche lungo il lungolago"
+      },
+      "datePublished": "2026-05-02T13:12:33+00:00",
+      "dateModified": "2026-05-02T13:12:33+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-cantu-creativity-week-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

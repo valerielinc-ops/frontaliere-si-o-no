@@ -2956,6 +2956,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-doppietta-frontalieri-santonino-2026': { name: 'Doppietta frontalieri', path: '/articoli-frontaliere/doppietta-frontalieri-santonino-2026', parent: 'blog' },
     'blog-taglio-accise-carburanti-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/taglio-accise-carburanti-maggio-2026', parent: 'blog' },
     'blog-yoga-meditazione-villa-lago-como': { name: 'Yoga e meditazione', path: '/articoli-frontaliere/yoga-meditazione-villa-lago-como', parent: 'blog' },
+    'blog-como-cantu-creativity-week-2026': { name: 'Novità', path: '/articoli-frontaliere/como-cantu-creativity-week-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

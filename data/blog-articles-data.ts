@@ -13091,4 +13091,11 @@ export const ARTICLES = [
  image: '/images/blog/yoga-meditazione-villa-lago-como.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'como-cantu-creativity-week-2026',
+ category: 'novita',
+ date: '2026-05-02T13:12:33.363Z',
+ image: '/images/blog/como-cantu-creativity-week-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

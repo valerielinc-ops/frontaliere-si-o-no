@@ -5176,6 +5176,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.yoga-meditazione-villa-lago-como.title': 'Como: yoga, meditation and walks in the lakeside villa',
     'blog.article.yoga-meditazione-villa-lago-como.excerpt': 'The \'Coltiviamo l’Energia\' event returns to Villa del Grumello with yoga, meditation and walks in the historic park overlooking the lake.',
     'blog.article.yoga-meditazione-villa-lago-como.imageAlt': 'Villa del Grumello, Como, lake view, yoga, meditation',
+    'blog.article.como-cantu-creativity-week-2026.title': 'Como and Cantù join forces for Lake Como Creativity Week',
+    'blog.article.como-cantu-creativity-week-2026.excerpt': 'The municipalities of Como and Cantù are collaborating for the Lake Como Creativity Week, with a three-year agreement signed on May 7, 2026',
+    'blog.article.como-cantu-creativity-week-2026.imageAlt': 'Lake Como Creativity Week event in Como, Italy, with artisans and artistic creations along the lakeside',
 };
 
 export default blogMetaEn;
