@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1802,
+ "numberOfItems": 1803,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6437,7 +6437,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1799, "name": "Svizzera sconfitta dalla Finlandia nell'Euro Ho...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-hockey-sconfitta-finlandia` },
           { "@type": "ListItem", "position": 1800, "name": "Pd Como insiste sulla sfiducia a Maccabeo: \"Man...", "url": `${BASE_URL}/articoli-frontaliere/pd-como-sfiducia-maccabeo-2026` },
           { "@type": "ListItem", "position": 1801, "name": "Patriot in ritardo, Berna valuta altri sistemi", "url": `${BASE_URL}/articoli-frontaliere/patriot-ritardo-svizzera-valuta-alternative` },
-          { "@type": "ListItem", "position": 1802, "name": "Bambini in visita dai Carabinieri di Como", "url": `${BASE_URL}/articoli-frontaliere/bambini-carabinieri-como-2026` }
+          { "@type": "ListItem", "position": 1802, "name": "Bambini in visita dai Carabinieri di Como", "url": `${BASE_URL}/articoli-frontaliere/bambini-carabinieri-como-2026` },
+          { "@type": "ListItem", "position": 1803, "name": "Incendio Malpensa Terminal 1: intervento Vigili...", "url": `${BASE_URL}/articoli-frontaliere/incendio-malpensa-terminal-1-2-maggio-2026` }
  ]
  },
  {

@@ -13280,4 +13280,11 @@ export const ARTICLES = [
  image: '/images/blog/bambini-carabinieri-como-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'incendio-malpensa-terminal-1-2-maggio-2026',
+ category: 'novita',
+ date: '2026-05-02T17:26:20.064Z',
+ image: '/images/blog/incendio-malpensa-terminal-1-2-maggio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -5257,6 +5257,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bambini-carabinieri-como-2026.title': 'Grundschüler besuchen die Carabinieri in Como',
     'blog.article.bambini-carabinieri-como-2026.excerpt': '38 Schüler der Primarschule Nazario Sauro besuchten im Rahmen der Kampagne \'Kultur der Legalität\' die Kaserne der Carabinieri in Como.',
     'blog.article.bambini-carabinieri-como-2026.imageAlt': 'Kinder besuchen die Carabinieri-Station in Como',
+    'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.title': 'Brand im Terminal 1 des Flughafens Malpensa',
+    'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.excerpt': 'Ein Kurzschluss verursachte einen kleinen Brand im Terminal 1 des Flughafens Malpensa am 2. Mai 2026. Es gab keine Verletzten.',
+    'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.imageAlt': 'Luftaufnahme von Terminal 1 des Flughafens Malpensa mit Rettungsfahrzeugen und Rauch',
 };
 
 export default blogMetaDe;

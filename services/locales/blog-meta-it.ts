@@ -5258,6 +5258,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bambini-carabinieri-como-2026.title': 'Bambini delle elementari in visita dai Carabinieri di Como',
     'blog.article.bambini-carabinieri-como-2026.excerpt': '38 alunni della scuola primaria Nazario Sauro hanno visitato la caserma dei Carabinieri di Como nell\'ambito della campagna \'Cultura della Legalità\'.',
     'blog.article.bambini-carabinieri-como-2026.imageAlt': 'Bambini in visita alla caserma dei Carabinieri di Como',
+    'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.title': 'Incendio a Malpensa Terminal 1: intervento dei Vigili del Fuoco',
+    'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.excerpt': 'Un corto circuito ha causato un principio di incendio al Terminal 1 dell\'aeroporto di Malpensa il 2 maggio 2026. Nessun ferito.',
+    'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.imageAlt': 'Vista aerea del Terminal 1 dell\'aeroporto di Malpensa con veicoli di emergenza e fumo',
 };
 
 export default blogMetaIt;

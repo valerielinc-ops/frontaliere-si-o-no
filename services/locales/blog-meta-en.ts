@@ -5257,6 +5257,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bambini-carabinieri-como-2026.title': 'Primary school kids visit Como Carabinieri',
     'blog.article.bambini-carabinieri-como-2026.excerpt': '38 pupils from Nazario Sauro primary school visited the Como Carabinieri barracks as part of the \'Culture of Legality\' campaign.',
     'blog.article.bambini-carabinieri-como-2026.imageAlt': 'Children visiting the Carabinieri station in Como',
+    'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.title': 'Fire at Malpensa Terminal 1: Firefighters\' Intervention',
+    'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.excerpt': 'A short circuit caused a small fire at Malpensa Airport\'s Terminal 1 on May 2, 2026. No injuries reported.',
+    'blog.article.incendio-malpensa-terminal-1-2-maggio-2026.imageAlt': 'Aerial view of Malpensa Airport Terminal 1 with emergency vehicles and smoke',
 };
 
 export default blogMetaEn;
