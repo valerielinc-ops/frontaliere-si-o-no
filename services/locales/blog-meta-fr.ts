@@ -5126,6 +5126,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ermotti-respinge-accuse-lobbying-ubs.title': 'Ermotti: UBS a droit au débat',
     'blog.article.ermotti-respinge-accuse-lobbying-ubs.excerpt': 'Le PDG de UBS Sergio Ermotti défend la banque des accusations de pressions agressives sur le débat sur les fonds propres.',
     'blog.article.ermotti-respinge-accuse-lobbying-ubs.imageAlt': 'Vue du lac de Lugano avec les gratte-ciel du quartier financier',
+    'blog.article.addio-alex-zanardi-2001-incidente-vita.title': 'Adieu à Alex Zanardi : l\'accident de 2001 qui a changé sa vie',
+    'blog.article.addio-alex-zanardi-2001-incidente-vita.excerpt': 'Retraçons la vie extraordinaire d\'Alex Zanardi, de l\'effroyable accident de 2001 à sa renaissance sportive.',
+    'blog.article.addio-alex-zanardi-2001-incidente-vita.imageAlt': 'Course en handbike au Tessin avec un focus sur l\'athlète et le paysage pittoresque',
 };
 
 export default blogMetaFr;

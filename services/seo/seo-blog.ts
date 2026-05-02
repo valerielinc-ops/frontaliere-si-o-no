@@ -36521,6 +36521,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-addio-alex-zanardi-2001-incidente-vita': {
+    title: 'Addio ad Alex Zanardi: l\'incidente del 2001 che cambiò la sua vita',
+    description: 'Ripercorriamo la vita straordinaria di Alex Zanardi, dal terribile incidente del 2001 alla sua rinascita sportiva. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, addio, alex, zanardi, incidente',
+    ogTitle: 'Addio ad Alex Zanardi: l\'incidente del 2001 che cambiò la sua vita',
+    ogDescription: 'Ripercorriamo la vita straordinaria di Alex Zanardi, dal terribile incidente del 2001 alla sua rinascita sportiva.',
+    canonicalPath: '/articoli-frontaliere/addio-alex-zanardi-2001-incidente-vita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Addio ad Alex Zanardi: l'incidente del 2001 che cambiò la sua vita",
+      "description": "Ripercorriamo la vita straordinaria di Alex Zanardi, dal terribile incidente del 2001 alla sua rinascita sportiva. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/addio-alex-zanardi-2001-incidente-vita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Handbike race in Ticino with a focus on the athlete and the scenic landscape"
+      },
+      "datePublished": "2026-05-02T10:00:18+00:00",
+      "dateModified": "2026-05-02T10:00:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/addio-alex-zanardi-2001-incidente-vita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

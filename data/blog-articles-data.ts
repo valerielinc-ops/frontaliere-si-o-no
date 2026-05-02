@@ -12972,4 +12972,11 @@ export const ARTICLES = [
  image: '/images/blog/ermotti-respinge-accuse-lobbying-ubs.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'addio-alex-zanardi-2001-incidente-vita',
+ category: 'novita',
+ date: '2026-05-02T10:00:18.148Z',
+ image: '/images/blog/addio-alex-zanardi-2001-incidente-vita.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
