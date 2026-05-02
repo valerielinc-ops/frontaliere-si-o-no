@@ -35071,6 +35071,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-biandronno-incontro-astuti-licata-2026': {
+    title: 'Biandronno: incontro pubblico con Astuti e Licata su sanità e trasporti',
+    description: 'Biandronno Più organizza un incontro pubblico con i consiglieri regionali Astuti e Licata per discutere di sanità e trasporti nel Varesotto. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, biandronno, incontro, pubblico, astuti',
+    ogTitle: 'Biandronno: incontro pubblico con Astuti e Licata su sanità e trasporti',
+    ogDescription: 'Biandronno Più organizza un incontro pubblico con i consiglieri regionali Astuti e Licata per discutere di sanità e trasporti nel Varesotto.',
+    canonicalPath: '/articoli-frontaliere/biandronno-incontro-astuti-licata-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Biandronno: incontro pubblico con Astuti e Licata su sanità e trasporti",
+      "description": "Biandronno Più organizza un incontro pubblico con i consiglieri regionali Astuti e Licata per discutere di sanità e trasporti nel Varesotto. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/biandronno-incontro-astuti-licata-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro pubblico a Biandronno con i consiglieri regionali Astuti e Licata"
+      },
+      "datePublished": "2026-05-02T01:10:43+00:00",
+      "dateModified": "2026-05-02T01:10:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/biandronno-incontro-astuti-licata-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

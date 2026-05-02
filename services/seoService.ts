@@ -2889,6 +2889,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fattura-miliardaria-energia-2026': { name: 'Novità', path: '/articoli-frontaliere/fattura-miliardaria-energia-2026', parent: 'blog' },
     'blog-arco-e-frecce-per-far-centro': { name: 'Arco e frecce per far centro nel cuore', path: '/articoli-frontaliere/arco-e-frecce-per-far-centro', parent: 'blog' },
     'blog-museo-paesaggio-verbania-gratis-2026': { name: 'Museo del Paesaggio', path: '/articoli-frontaliere/museo-paesaggio-verbania-gratis-2026', parent: 'blog' },
+    'blog-biandronno-incontro-astuti-licata-2026': { name: 'Incontro pubblico Biandronno', path: '/articoli-frontaliere/biandronno-incontro-astuti-licata-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

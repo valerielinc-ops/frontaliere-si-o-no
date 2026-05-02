@@ -12622,4 +12622,11 @@ export const ARTICLES = [
  image: '/images/blog/museo-paesaggio-verbania-gratis-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'biandronno-incontro-astuti-licata-2026',
+ category: 'novita',
+ date: '2026-05-02T01:10:43.087Z',
+ image: '/images/blog/biandronno-incontro-astuti-licata-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4976,6 +4976,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.museo-paesaggio-verbania-gratis-2026.title': 'Musée du Paysage de Verbania: entrée gratuite pour les résidents',
     'blog.article.museo-paesaggio-verbania-gratis-2026.excerpt': 'Le 8 mai 2026, entrée gratuite au Musée du Paysage de Verbania pour les résidents à l\'occasion de la fête patronale de San Vittore.',
     'blog.article.museo-paesaggio-verbania-gratis-2026.imageAlt': 'Musée du Paysage de Verbania, œuvres d\'art exposées',
+    'blog.article.biandronno-incontro-astuti-licata-2026.title': 'Biandronno: santé et transports avec Astuti et Licata',
+    'blog.article.biandronno-incontro-astuti-licata-2026.excerpt': 'Biandronno Più organise une réunion publique avec les conseillers régionaux Astuti et Licata pour discuter de la santé et des transports dans le Varesotto.',
+    'blog.article.biandronno-incontro-astuti-licata-2026.imageAlt': 'Réunion publique à Biandronno avec les conseillers régionaux Astuti et Licata',
 };
 
 export default blogMetaFr;
