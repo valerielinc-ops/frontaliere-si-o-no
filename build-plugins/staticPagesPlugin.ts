@@ -1424,6 +1424,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/mappa-del-sito', label: 'Mappa del Sito' },
  { href: '/chi-siamo', label: 'Chi Siamo' },
  { href: '/correzioni', label: 'Correzioni' },
+ { href: '/metodologia', label: 'Metodologia' },
  { href: '/contattaci', label: 'Contattaci' },
  { href: '/privacy', label: 'Privacy' },
  { href: '/about/', label: 'About' },
@@ -1617,6 +1618,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'buongiorno-frontaliere': 'Buongiorno',
  'chi-siamo': 'Chi Siamo',
  'correzioni': 'Correzioni',
+ 'metodologia': 'Metodologia',
  'community': 'Community',
  'contattaci': 'Contatti',
  'supporto': 'Supporto',
@@ -2659,6 +2661,20 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Indipendenza editoriale</h2>`,
  `Frontaliere Ticino è una piattaforma indipendente: non riceviamo compensi da banche, casse malati o datori di lavoro citati negli articoli. Le correzioni vengono effettuate solo sulla base di prove verificabili. La storia delle modifiche è sempre tracciata in questa pagina pubblica, sincronizzata con il file <code>data/corrections-log.json</code> versionato nel repository pubblico del progetto.`,
  `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Riferimenti: <a href="/chi-siamo/" style="color:#2563eb;text-decoration:none;">Chi Siamo</a> · <a href="/privacy/" style="color:#2563eb;text-decoration:none;">Privacy</a></p>`,
+ );
+ } else if (canonicalPath === '/metodologia' || canonicalPath === '/metodologia/') {
+ editorialBlocks.push(
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come scriviamo gli articoli — metodologia editoriale</h2>`,
+ `Frontaliere Ticino pubblica guide, simulazioni e notizie destinate ai lavoratori frontalieri italo-svizzeri. Ogni articolo segue una pipeline editoriale a cinque fasi — raccolta delle fonti primarie, bozza assistita da intelligenza artificiale, revisione redazionale, fact-checking e pubblicazione tracciata. La trasparenza sul metodo è parte integrante della qualità: ogni lettore deve poter capire come è stato prodotto il testo che sta leggendo, quali fonti sono state usate e in che modo l'IA e la redazione collaborano.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Strumenti di intelligenza artificiale e revisione umana</h2>`,
+ `Usiamo modelli linguistici di nuova generazione (Claude di Anthropic e GPT di OpenAI) per produrre bozze iniziali, suggerire strutture e tradurre i contenuti tra italiano, inglese, tedesco e francese. L'IA è un assistente, non un autore autonomo: ogni articolo è revisionato dalla redazione prima della pubblicazione.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Fonti primarie utilizzate</h2>`,
+ `Per ogni argomento usiamo esclusivamente fonti primarie e verificabili: Amministrazione federale delle contribuzioni (AFC/ESTV), comunicati stampa di Cantone Ticino, Confederazione e MEF, Ufficio federale di statistica (UST/BFS), USTAT, sentenze del Tribunale federale, Gazzetta Ufficiale italiana e Foglio federale svizzero, Agenzia delle Entrate, INPS. Le fonti utilizzate per ciascun articolo sono linkate direttamente nel testo.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Standard giornalistici</h2>`,
+ `Aderiamo agli standard di riferimento del giornalismo economico-finanziario: separazione netta tra fatti e opinioni, attribuzione esplicita di ogni dato numerico, citazioni verbatim, verificabilità di ogni affermazione importante, imparzialità rispetto a banche, casse malati e datori di lavoro, trasparenza sugli autori.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Politica di aggiornamento e correzioni</h2>`,
+ `<p>Gli articoli vengono aggiornati ogni volta che cambiano i fatti, entro 48 ore lavorative. Le correzioni sono registrate in modo permanente nel <a href="/correzioni/" style="color:#2563eb;text-decoration:none;">registro delle correzioni</a>. Per segnalare un errore scrivere a redazione@frontaliereticino.ch.</p>`,
+ `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Pagine collegate: <a href="/chi-siamo/" style="color:#2563eb;text-decoration:none;">Chi siamo</a> · <a href="/correzioni/" style="color:#2563eb;text-decoration:none;">Registro delle correzioni</a></p>`,
  );
  } else if (canonicalPath === '/contattaci' || canonicalPath === '/contattaci/') {
  editorialBlocks.push(

@@ -8198,6 +8198,32 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ],
  },
 
+ 'metodologia': {
+ title: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
+ description: "Pipeline editoriale di Frontaliere Ticino: bozze assistite da IA, revisione redazionale, fonti primarie (AFC, UST, Agenzia delle Entrate), politica di aggiornamento e correzioni.",
+ keywords: 'metodologia editoriale, intelligenza artificiale giornalismo, frontaliere ticino, fonti primarie, fact checking, politica correzioni, trasparenza editoriale',
+ ogTitle: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
+ ogDescription: 'Come usiamo IA generativa, fonti primarie e revisione redazionale per garantire accuratezza e trasparenza.',
+ canonicalPath: '/metodologia',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Metodologia editoriale — Come scriviamo gli articoli",
+ "url": `${BASE_URL}/metodologia/`,
+ "description": "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
+ "lastReviewed": BUILD_DATE_ISO.slice(0, 10),
+ "inLanguage": "it",
+ "isPartOf": { "@id": `${BASE_URL}/#website` },
+ "about": {
+ "@type": "CreativeWork",
+ "name": "Editorial methodology and AI-assistance disclosure"
+ },
+ "publisher": { "@id": `${BASE_URL}/#organization` }
+ }
+ ],
+ },
+
  // ─── English E-E-A-T alias pages ─────────────────────────────────────────
  // Root-level English paths so SEO crawlers (squirrelscan, Bing) find
  // About / Contact / Privacy pages using English URL heuristics.
