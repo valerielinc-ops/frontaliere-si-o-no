@@ -5002,6 +5002,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.title': 'LATI wins Intesa Sanpaolo\'s Best Business Award',
     'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.excerpt': 'The Varese-based company LATI Industria Termoplastici joins the network of outstanding SMEs for its solidity, innovation, and international vision',
     'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.imageAlt': 'Intesa Sanpaolo award ceremony with Swiss and Italian executives',
+    'blog.article.progettare-sala-riunioni-ufficio.title': 'How to design a functional meeting room',
+    'blog.article.progettare-sala-riunioni-ufficio.excerpt': 'Discover how to design a functional and welcoming meeting room, with tips on furniture, technology, and comfort',
+    'blog.article.progettare-sala-riunioni-ufficio.imageAlt': 'A modern meeting room in a Ticino office with ergonomic chairs, a large oval table, and natural lighting',
 };
 
 export default blogMetaEn;

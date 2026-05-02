@@ -5003,6 +5003,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.title': 'LATI premiata tra le Imprese Vincenti di Intesa Sanpaolo',
     'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.excerpt': 'L\'azienda varesina LATI Industria Termoplastici entra nel network delle PMI d\'eccellenza per solidità, innovazione e visione internazionale',
     'blog.article.lati-industria-termoplastici-premiata-intesanpaolo.imageAlt': 'Cerimonia di premiazione Intesa Sanpaolo con dirigenti svizzeri e italiani',
+    'blog.article.progettare-sala-riunioni-ufficio.title': 'Come progettare una sala riunioni funzionale',
+    'blog.article.progettare-sala-riunioni-ufficio.excerpt': 'Scopri come progettare una sala riunioni funzionale e accogliente, con consigli su arredamento, tecnologia e comfort',
+    'blog.article.progettare-sala-riunioni-ufficio.imageAlt': 'Una moderna sala riunioni in un ufficio del Ticino con sedie ergonomiche, un grande tavolo ovale e illuminazione naturale',
 };
 
 export default blogMetaIt;

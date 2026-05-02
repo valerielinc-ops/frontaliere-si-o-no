@@ -35332,6 +35332,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-progettare-sala-riunioni-ufficio': {
+    title: 'Come progettare una sala riunioni funzionale | Frontaliere Ticino',
+    description: 'Scopri come progettare una sala riunioni funzionale e accogliente, con consigli su arredamento, tecnologia e comfort. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, progettare, sala, riunioni, funzionale',
+    ogTitle: 'Come progettare una sala riunioni funzionale',
+    ogDescription: 'Scopri come progettare una sala riunioni funzionale e accogliente, con consigli su arredamento, tecnologia e comfort',
+    canonicalPath: '/articoli-frontaliere/progettare-sala-riunioni-ufficio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come progettare una sala riunioni funzionale",
+      "description": "Scopri come progettare una sala riunioni funzionale e accogliente, con consigli su arredamento, tecnologia e comfort. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/progettare-sala-riunioni-ufficio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una moderna sala riunioni in un ufficio del Ticino con sedie ergonomiche, un grande tavolo ovale e illuminazione naturale"
+      },
+      "datePublished": "2026-05-02T02:43:24+00:00",
+      "dateModified": "2026-05-02T02:43:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/progettare-sala-riunioni-ufficio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

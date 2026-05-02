@@ -12685,4 +12685,11 @@ export const ARTICLES = [
  image: '/images/blog/lati-industria-termoplastici-premiata-intesanpaolo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'progettare-sala-riunioni-ufficio',
+ category: 'pratico',
+ date: '2026-05-02T02:43:23.975Z',
+ image: '/images/blog/progettare-sala-riunioni-ufficio.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
