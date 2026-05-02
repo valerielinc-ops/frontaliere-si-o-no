@@ -12783,4 +12783,11 @@ export const ARTICLES = [
  image: '/images/blog/mal-dislanda-materia-castronno-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'frontaliere-pensione-avs-inps-2026-errori-comuni',
+ category: 'pensione',
+ date: '2026-05-02T05:11:19.330Z',
+ image: '/images/blog/frontaliere-pensione-avs-inps-2026-errori-comuni.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

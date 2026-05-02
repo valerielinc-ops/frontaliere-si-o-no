@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1731,
+ "numberOfItems": 1732,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6366,7 +6366,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1728, "name": "Concerto a Luino: Vivaldi e Bach al Santuario d...", "url": `${BASE_URL}/articoli-frontaliere/concerto-luino-vivaldi-bach-2026` },
           { "@type": "ListItem", "position": 1729, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/musica-antica-san-cassiano-2026` },
           { "@type": "ListItem", "position": 1730, "name": "Cinque mostre da non perdere a maggio in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/cinque-mostre-maggio-gallarate-verbania-2026` },
-          { "@type": "ListItem", "position": 1731, "name": "Mal d’Islanda a Materia: storie dal Circolo Pol...", "url": `${BASE_URL}/articoli-frontaliere/mal-dislanda-materia-castronno-2026` }
+          { "@type": "ListItem", "position": 1731, "name": "Mal d’Islanda a Materia: storie dal Circolo Pol...", "url": `${BASE_URL}/articoli-frontaliere/mal-dislanda-materia-castronno-2026` },
+          { "@type": "ListItem", "position": 1732, "name": "Frontaliere: pensione AVS/INPS 2026, errori com...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-errori-comuni` }
  ]
  },
  {

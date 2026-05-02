@@ -5044,6 +5044,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mal-dislanda-materia-castronno-2026.title': 'Island-Fieber in Materia: Geschichten aus dem Polarkreis',
     'blog.article.mal-dislanda-materia-castronno-2026.excerpt': 'Samstag, 9. Mai, um 17.30 Uhr in Castronno: Treffen mit Leonardo Piccione über die Insel Grímsey und das \'Island-Fieber\'',
     'blog.article.mal-dislanda-materia-castronno-2026.imageAlt': 'Panoramablick auf den Luganersee mit Stadtpanorama im Hintergrund',
+    'blog.article.frontaliere-pensione-avs-inps-2026-errori-comuni.title': 'Grenzgänger: AHV/INPS-Rente 2026, häufige Fehler und Checkliste',
+    'blog.article.frontaliere-pensione-avs-inps-2026-errori-comuni.excerpt': 'Erfahren Sie mehr über häufige Fehler bei der Koordination von AHV/INPS für Grenzgänger im Tessin und wie Sie diese mit einer operativen Checkliste vermeiden können',
+    'blog.article.frontaliere-pensione-avs-inps-2026-errori-comuni.imageAlt': 'Luganersee mit Blick auf die Berge und ein Boot im Vordergrund',
 };
 
 export default blogMetaDe;

@@ -35738,6 +35738,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-pensione-avs-inps-2026-errori-comuni': {
+    title: 'Frontaliere: pensione AVS/INPS 2026, errori comuni e checklist',
+    description: 'Scopri gli errori comuni nel coordinamento AVS/INPS per i frontalieri Ticino e come evitarli con una checklist operativa. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, inps, errori, comuni',
+    ogTitle: 'Frontaliere: pensione AVS/INPS 2026, errori comuni e checklist',
+    ogDescription: 'Scopri gli errori comuni nel coordinamento AVS/INPS per i frontalieri Ticino e come evitarli con una checklist operativa',
+    canonicalPath: '/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-errori-comuni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere: pensione AVS/INPS 2026, errori comuni e checklist",
+      "description": "Scopri gli errori comuni nel coordinamento AVS/INPS per i frontalieri Ticino e come evitarli con una checklist operativa. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontaliere-pensione-avs-inps-2026-errori-comuni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulle montagne e una barca in primo piano"
+      },
+      "datePublished": "2026-05-02T05:11:19+00:00",
+      "dateModified": "2026-05-02T05:11:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-errori-comuni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
