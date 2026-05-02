@@ -17153,5 +17153,7 @@ export const ARTICLES = [
  date: '2026-05-02T17:33:25.013Z',
  image: '/images/blog/parcheggio-abusivo-como-villa-olmo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
 ] satisfies Article[];
