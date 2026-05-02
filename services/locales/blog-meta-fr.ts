@@ -5156,6 +5156,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-incendio-palazzo-frontalieri.title': 'Incendie à Varèse, un appartement en feu',
     'blog.article.varese-incendio-palazzo-frontalieri.excerpt': 'Un incendie s\'est déclaré dans un appartement au dernier étage d\'un immeuble à Varèse. Aucun blessé grâce à l\'intervention rapide des pompiers.',
     'blog.article.varese-incendio-palazzo-frontalieri.imageAlt': 'Incendie dans un immeuble à Varese, avec les pompiers en action',
+    'blog.article.carenza-carburante-svizzera-frontalieri.title': 'Pénurie de carburant en Suisse: risque concret pour les frontaliers',
+    'blog.article.carenza-carburante-svizzera-frontalieri.excerpt': 'Florence Schurch de Suissenégoce lance l\'alerte: prix du pétrole à 150 dollars le baril et risques pour l\'approvisionnement énergétique',
+    'blog.article.carenza-carburante-svizzera-frontalieri.imageAlt': 'Une station-service au Tessin avec de longues files de voitures, sur fond des Alpes suisses',
 };
 
 export default blogMetaFr;

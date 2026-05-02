@@ -36811,6 +36811,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carenza-carburante-svizzera-frontalieri': {
+    title: 'Carenza carburante Svizzera: rischio concreto per frontalieri',
+    description: 'Florence Schurch di Suissenégoce lancia l\'allarme: prezzo petrolio a 150 dollari al barile e rischi per l\'approvvigionamento energetico. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, carenza, carburante, rischio, concreto',
+    ogTitle: 'Carenza carburante Svizzera: rischio concreto per frontalieri',
+    ogDescription: 'Florence Schurch di Suissenégoce lancia l\'allarme: prezzo petrolio a 150 dollari al barile e rischi per l\'approvvigionamento energetico',
+    canonicalPath: '/articoli-frontaliere/carenza-carburante-svizzera-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carenza carburante Svizzera: rischio concreto per frontalieri",
+      "description": "Florence Schurch di Suissenégoce lancia l'allarme: prezzo petrolio a 150 dollari al barile e rischi per l'approvvigionamento energetico. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carenza-carburante-svizzera-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una stazione di servizio in Ticino con lunghe code di auto, sullo sfondo delle Alpi svizzere"
+      },
+      "datePublished": "2026-05-02T11:59:48+00:00",
+      "dateModified": "2026-05-02T11:59:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carenza-carburante-svizzera-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

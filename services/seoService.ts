@@ -2949,6 +2949,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-bus-elettrici-lugano-problemi-utenti': { name: 'Novità', path: '/articoli-frontaliere/bus-elettrici-lugano-problemi-utenti', parent: 'blog' },
     'blog-gala-sorriso-solidarieta-ospedale-del-ponte': { name: 'Galà del Sorriso', path: '/articoli-frontaliere/gala-sorriso-solidarieta-ospedale-del-ponte', parent: 'blog' },
     'blog-varese-incendio-palazzo-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/varese-incendio-palazzo-frontalieri', parent: 'blog' },
+    'blog-carenza-carburante-svizzera-frontalieri': { name: 'Carenza carburante', path: '/articoli-frontaliere/carenza-carburante-svizzera-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

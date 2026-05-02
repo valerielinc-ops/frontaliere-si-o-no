@@ -5156,6 +5156,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-incendio-palazzo-frontalieri.title': 'Varese, rogo all\'ultimo piano di un palazzo: fiamme domate, nessun ferito',
     'blog.article.varese-incendio-palazzo-frontalieri.excerpt': 'Incendio in un appartamento al piano sommitale di un palazzo a Varese, nessun ferito grazie all\'intervento tempestivo dei vigili del fuoco',
     'blog.article.varese-incendio-palazzo-frontalieri.imageAlt': 'Incendio in un palazzo a Varese, con vigili del fuoco in azione',
+    'blog.article.carenza-carburante-svizzera-frontalieri.title': 'Carenza carburante Svizzera: rischio concreto per frontalieri',
+    'blog.article.carenza-carburante-svizzera-frontalieri.excerpt': 'Florence Schurch di Suissenégoce lancia l\'allarme: prezzo petrolio a 150 dollari al barile e rischi per l\'approvvigionamento energetico',
+    'blog.article.carenza-carburante-svizzera-frontalieri.imageAlt': 'Una stazione di servizio in Ticino con lunghe code di auto, sullo sfondo delle Alpi svizzere',
 };
 
 export default blogMetaIt;

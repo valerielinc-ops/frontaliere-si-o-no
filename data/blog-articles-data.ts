@@ -13042,4 +13042,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-incendio-palazzo-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'carenza-carburante-svizzera-frontalieri',
+ category: 'pratico',
+ date: '2026-05-02T11:59:48.917Z',
+ image: '/images/blog/carenza-carburante-svizzera-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

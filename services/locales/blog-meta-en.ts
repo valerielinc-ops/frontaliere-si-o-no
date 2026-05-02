@@ -5155,6 +5155,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-incendio-palazzo-frontalieri.title': 'Fire at top floor of Varese building, no injuries',
     'blog.article.varese-incendio-palazzo-frontalieri.excerpt': 'Apartment fire at the top floor of a building in Varese, no injuries thanks to the timely intervention of firefighters',
     'blog.article.varese-incendio-palazzo-frontalieri.imageAlt': 'Fire in a building in Varese, with firefighters responding to the scene',
+    'blog.article.carenza-carburante-svizzera-frontalieri.title': 'Fuel shortage in Switzerland: real risk for cross-border workers',
+    'blog.article.carenza-carburante-svizzera-frontalieri.excerpt': 'Florence Schurch of Suissenégoce raises the alarm: oil price at 150 dollars per barrel and risks for energy supply',
+    'blog.article.carenza-carburante-svizzera-frontalieri.imageAlt': 'A gas station in Ticino with long queues of cars, set against the backdrop of the Swiss Alps',
 };
 
 export default blogMetaEn;
