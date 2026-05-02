@@ -808,7 +808,12 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ HES-SO Valais-Wallis crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+// Only run when executed directly, not when imported by tests
+const _isMain = process.argv[1] &&
+  fileURLToPath(import.meta.url) === fs.realpathSync(process.argv[1]);
+if (_isMain) {
+  main().catch((err) => {
+    console.error(`❌ HES-SO Valais-Wallis crawler failed: ${err?.message || err}`);
+    process.exit(1);
+  });
+}

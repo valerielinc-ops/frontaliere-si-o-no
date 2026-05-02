@@ -1783,11 +1783,7 @@ function renderLeafPage(inp: LeafInputs): string {
     : locale === 'en' ? `${ageShort} — ${cantonLabel}: LAMal premiums ${year}`
     : locale === 'de' ? `${ageShort} — ${cantonLabel}: KVG-Prämien ${year}`
     : `${ageShort} — ${cantonLabel}: primes LAMal ${year}`;
-  const h1 =
-    locale === 'it' ? `Confronto premi LAMal in ${cantonLabel} per la fascia ${ageLabel}`
-    : locale === 'en' ? `LAMal premium comparison in ${cantonLabel} for ${ageLabel}`
-    : locale === 'de' ? `KVG-Prämienvergleich in ${cantonLabel} für ${ageLabel}`
-    : `Comparatif des primes LAMal à ${cantonLabel} pour ${ageLabel}`;
+  const h1 = copy.h1(cantonLabel, ageLabel);
   const intro = copy.intro(cantonLabel, ageLabel, medFmt, minFmt, maxFmt, year);
 
   // Top-20 table

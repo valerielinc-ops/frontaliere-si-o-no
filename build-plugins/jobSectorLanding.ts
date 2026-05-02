@@ -746,15 +746,16 @@ export function buildSectorProse(
 
   // Fallback — keep above 200 words by combining standard frontaliere talking points.
   const fallback = buildFallbackProse(displayName, locale);
-  const text = `${fallback.intro} ${fallback.salaryRange} ${fallback.requirements} ${fallback.trend} ${fallback.topCities.join(', ')}`;
+  const padded = padToMinWords(fallback, locale, displayName, 210);
+  const text = `${padded.intro} ${padded.salaryRange} ${padded.requirements} ${padded.trend} ${padded.topCities.join(', ')}`;
   const wordCount = countWords(text);
   const html = renderProseHtml({
     headings,
-    intro: fallback.intro,
-    salaryRange: fallback.salaryRange,
-    requirements: fallback.requirements,
-    trend: fallback.trend,
-    topCities: fallback.topCities,
+    intro: padded.intro,
+    salaryRange: padded.salaryRange,
+    requirements: padded.requirements,
+    trend: padded.trend,
+    topCities: padded.topCities,
   });
   return { html, wordCount, curated: false };
 }
@@ -779,10 +780,10 @@ function padToMinWords(
   const cities = [...block.topCities];
   let trend = block.trend;
   const fullText = () => `${intro} ${salaryRange} ${requirements} ${trend} ${cities.join(', ')}`;
-  if (countWords(fullText()) >= minWords) {
-    return { intro, salaryRange, requirements, trend, topCities: cities };
+  const tail = FRONTALIERE_CONTEXT_TAIL[locale];
+  while (countWords(fullText()) < minWords) {
+    trend = `${trend} ${tail}`.trim();
   }
-  trend = `${trend} ${FRONTALIERE_CONTEXT_TAIL[locale]}`.trim();
   return { intro, salaryRange, requirements, trend, topCities: cities };
 }
 

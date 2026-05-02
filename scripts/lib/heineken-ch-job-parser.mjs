@@ -253,10 +253,11 @@ export function parseDetailPage(html) {
     ? (applyMatch[1].startsWith('http') ? applyMatch[1] : `${BASE_URL}${applyMatch[1]}`)
     : '';
 
-  // Extract location from HTML — strip tags first so attribute strings like
-  // `content="width=device-width"` or serialised `Location":""` payloads cannot
-  // bleed into the capture group.
-  const strippedHtml = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
+  // Extract location from HTML — replace tags with newlines to preserve line
+  // structure (so "Ort: Chur</div>" becomes "Ort: Chur\n"), then collapse
+  // non-newline whitespace. This keeps \n as a natural line terminator in the
+  // regex below and prevents attribute strings from bleeding into the capture group.
+  const strippedHtml = html.replace(/<[^>]*>/g, '\n').replace(/[^\S\n]+/g, ' ');
   const locMatch = strippedHtml.match(/(?:Ort|Standort|Location)\s*:?\s*([A-ZÀ-Ü][A-Za-zÀ-ÿ\s\-/]{2,40}?)(?:\s*(?:,|\n|$))/i);
   let location = locMatch ? normalizeSpace(locMatch[1]).replace(/^"|"$/g, '').trim() : '';
   // Reject HTML/attribute garbage that survived stripping

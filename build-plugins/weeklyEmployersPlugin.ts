@@ -1641,6 +1641,8 @@ const LINKING_COPY: Record<
   WeeklyEmployersLocale,
   {
     topHubTitle: string;
+    /** H1 for the top hub page — intentionally different from topHubTitle to satisfy Semrush W3 (H1 ≠ title). */
+    topHubH1: string;
     cityHubsTitle: string;
     leavesTitle: (city: string) => string;
     localeSwitchTitle: string;
@@ -1650,6 +1652,7 @@ const LINKING_COPY: Record<
 > = {
   it: {
     topHubTitle: 'Aziende che assumono in Ticino',
+    topHubH1: 'Indice delle aziende che assumono in Ticino',
     cityHubsTitle: 'Tutte le città',
     leavesTitle: (c) => `Schede aziendali settimanali a ${c}`,
     localeSwitchTitle: 'Disponibile anche in',
@@ -1658,6 +1661,7 @@ const LINKING_COPY: Record<
   },
   en: {
     topHubTitle: 'Companies hiring in Ticino',
+    topHubH1: 'Index of companies hiring in Ticino',
     cityHubsTitle: 'All cities',
     leavesTitle: (c) => `Weekly company snapshots in ${c}`,
     localeSwitchTitle: 'Also available in',
@@ -1666,6 +1670,7 @@ const LINKING_COPY: Record<
   },
   de: {
     topHubTitle: 'Unternehmen, die im Tessin einstellen',
+    topHubH1: 'Index der einstellenden Unternehmen im Tessin',
     cityHubsTitle: 'Alle Städte',
     leavesTitle: (c) => `Wöchentliche Unternehmensseiten in ${c}`,
     localeSwitchTitle: 'Auch verfügbar in',
@@ -1674,6 +1679,7 @@ const LINKING_COPY: Record<
   },
   fr: {
     topHubTitle: 'Entreprises qui recrutent au Tessin',
+    topHubH1: 'Index des entreprises qui recrutent au Tessin',
     cityHubsTitle: 'Toutes les villes',
     leavesTitle: (c) => `Fiches entreprises hebdomadaires à ${c}`,
     localeSwitchTitle: 'Disponible aussi en',
@@ -1901,7 +1907,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   </nav>
   <header style="margin-bottom:22px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.kickerCurrent)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
-    <h1 style="${H1_STYLE}">${esc(t.topHubTitle)}</h1>
+    <h1 style="${H1_STYLE}">${esc(t.topHubH1)}</h1>
     <p style="${LEDE_STYLE}">${esc(lede[locale])}</p>
   </header>
   ${renderCityHubsListBlock(locale)}

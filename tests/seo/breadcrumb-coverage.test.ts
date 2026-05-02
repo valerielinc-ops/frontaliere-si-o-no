@@ -106,6 +106,11 @@ describe('SEO: breadcrumb coverage (D.2)', () => {
   for (const f of files) {
     const url = fileToUrlPath(f, DIST_ROOT);
     if (ALLOWED_MISSING.has(url)) continue;
+    // Zero-byte files are corrupted artifacts (e.g. from an OOM crash mid-build),
+    // not real indexable pages — skip them rather than counting as coverage gaps.
+    let st;
+    try { st = statSync(f); } catch { continue; }
+    if (st.size === 0) continue;
     const html = readFileSync(f, 'utf-8');
     // Noindex pages never surface BreadcrumbList in SERPs — skip by design.
     if (NOINDEX_RE.test(html)) continue;
