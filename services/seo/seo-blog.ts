@@ -37130,6 +37130,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-protezione-vittime-142-ticino-2026': {
+    title: 'Attivo il 142: nuovo servizio per le vittime di violenza',
+    description: 'Dal 1° maggio 2026 è operativo il numero 142 per le vittime di violenza in Ticino. Scopri come funziona e cosa cambia. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, attivo, nuovo, servizio, vittime',
+    ogTitle: 'Attivo il 142: nuovo servizio per le vittime di violenza',
+    ogDescription: 'Dal 1° maggio 2026 è operativo il numero 142 per le vittime di violenza in Ticino. Scopri come funziona e cosa cambia.',
+    canonicalPath: '/articoli-frontaliere/protezione-vittime-142-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attivo il 142: nuovo servizio per le vittime di violenza",
+      "description": "Dal 1° maggio 2026 è operativo il numero 142 per le vittime di violenza in Ticino. Scopri come funziona e cosa cambia. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/protezione-vittime-142-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "LAC Lugano Arts Center con vista sul lago"
+      },
+      "datePublished": "2026-05-02T13:52:58+00:00",
+      "dateModified": "2026-05-02T13:52:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/protezione-vittime-142-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

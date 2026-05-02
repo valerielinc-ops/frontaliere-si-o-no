@@ -5189,6 +5189,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rissa-lugano-primo-maggio-2026.title': 'Rissa a Lugano durante il Primo Maggio: spray urticante per calmare i disordini',
     'blog.article.rissa-lugano-primo-maggio-2026.excerpt': 'Disordini nella serata del Primo Maggio a Lugano, con due feriti lievi e intervento della polizia con spray urticante.',
     'blog.article.rissa-lugano-primo-maggio-2026.imageAlt': 'Vista aerea di Lugano di notte con le luci della città riflesse sul Lago di Lugano, in Svizzera.',
+    'blog.article.protezione-vittime-142-ticino-2026.title': 'Attivo il 142: nuovo servizio per le vittime di violenza',
+    'blog.article.protezione-vittime-142-ticino-2026.excerpt': 'Dal 1° maggio 2026 è operativo il numero 142 per le vittime di violenza in Ticino. Scopri come funziona e cosa cambia.',
+    'blog.article.protezione-vittime-142-ticino-2026.imageAlt': 'LAC Lugano Arts Center con vista sul lago',
 };
 
 export default blogMetaIt;

@@ -2960,6 +2960,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-commercio-al-dettaglio-mini-flessione-marzo-2026': { name: 'Novità', path: '/articoli-frontaliere/commercio-al-dettaglio-mini-flessione-marzo-2026', parent: 'blog' },
     'blog-rissa-lugano-pensilina-botta-feriti-2026': { name: 'Novità', path: '/articoli-frontaliere/rissa-lugano-pensilina-botta-feriti-2026', parent: 'blog' },
     'blog-rissa-lugano-primo-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/rissa-lugano-primo-maggio-2026', parent: 'blog' },
+    'blog-protezione-vittime-142-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/protezione-vittime-142-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

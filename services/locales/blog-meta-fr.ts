@@ -5189,6 +5189,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rissa-lugano-primo-maggio-2026.title': 'Bagarre à Lugano lors du 1er Mai: gaz poivre pour calmer les troubles',
     'blog.article.rissa-lugano-primo-maggio-2026.excerpt': 'Des troubles ont eu lieu dans la soirée du 1er Mai à Lugano, avec deux blessés légers et l\'intervention de la police avec du gaz poivre.',
     'blog.article.rissa-lugano-primo-maggio-2026.imageAlt': 'Vue aérienne de Lugano la nuit avec les lumières de la ville se reflétant sur le lac de Lugano, Suisse.',
+    'blog.article.protezione-vittime-142-ticino-2026.title': 'Le 142 est actif : nouveau service pour les victimes de violence',
+    'blog.article.protezione-vittime-142-ticino-2026.excerpt': 'Depuis le 1er mai 2026, le numéro 142 est opérationnel pour les victimes de violence en Ticino. Découvrez comment cela fonctionne et ce qui change.',
+    'blog.article.protezione-vittime-142-ticino-2026.imageAlt': 'LAC Lugano Arts Center avec vue sur le lac',
 };
 
 export default blogMetaFr;

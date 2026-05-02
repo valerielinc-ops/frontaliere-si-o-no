@@ -5188,6 +5188,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rissa-lugano-primo-maggio-2026.title': 'Clashes in Lugano on May Day: Police Use Pepper Spray',
     'blog.article.rissa-lugano-primo-maggio-2026.excerpt': 'Disturbances on May Day evening in Lugano, with two minor injuries and police intervention using pepper spray.',
     'blog.article.rissa-lugano-primo-maggio-2026.imageAlt': 'Aerial view of Lugano at night with the city lights reflecting on Lake Lugano, Switzerland.',
+    'blog.article.protezione-vittime-142-ticino-2026.title': '142 active: new service for violence victims',
+    'blog.article.protezione-vittime-142-ticino-2026.excerpt': 'As of May 1, 2026, the number 142 is operational for violence victims in Ticino. Learn how it works and what changes.',
+    'blog.article.protezione-vittime-142-ticino-2026.imageAlt': 'LAC Lugano Arts Center with a view of the lake',
 };
 
 export default blogMetaEn;

@@ -5188,6 +5188,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rissa-lugano-primo-maggio-2026.title': 'Ausschreitungen in Lugano am 1. Mai: Polizei setzt Reizspray ein',
     'blog.article.rissa-lugano-primo-maggio-2026.excerpt': 'Am Abend des 1. Mai kam es in Lugano zu Ausschreitungen, bei denen zwei Personen leicht verletzt wurden. Die Polizei setzte Reizspray ein, um die Lage zu beruhigen.',
     'blog.article.rissa-lugano-primo-maggio-2026.imageAlt': 'Luftaufnahme von Lugano bei Nacht mit den Lichtern der Stadt, die sich im Luganersee spiegeln, Schweiz.',
+    'blog.article.protezione-vittime-142-ticino-2026.title': '142 aktiv: Neuer Dienst für Gewaltopfer',
+    'blog.article.protezione-vittime-142-ticino-2026.excerpt': 'Ab dem 1. Mai 2026 ist die Nummer 142 für Gewaltopfer im Tessin in Betrieb. Erfahren Sie, wie es funktioniert und was sich ändert.',
+    'blog.article.protezione-vittime-142-ticino-2026.imageAlt': 'LAC Lugano Arts Center mit Blick auf den See',
 };
 
 export default blogMetaDe;
