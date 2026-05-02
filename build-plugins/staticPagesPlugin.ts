@@ -1423,6 +1423,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/articoli-frontaliere', label: 'Articoli' },
  { href: '/mappa-del-sito', label: 'Mappa del Sito' },
  { href: '/chi-siamo', label: 'Chi Siamo' },
+ { href: '/correzioni', label: 'Correzioni' },
  { href: '/contattaci', label: 'Contattaci' },
  { href: '/privacy', label: 'Privacy' },
  { href: '/about/', label: 'About' },
@@ -1615,6 +1616,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'primo-giorno-frontaliere': 'Primo Giorno',
  'buongiorno-frontaliere': 'Buongiorno',
  'chi-siamo': 'Chi Siamo',
+ 'correzioni': 'Correzioni',
  'community': 'Community',
  'contattaci': 'Contatti',
  'supporto': 'Supporto',
@@ -2591,7 +2593,72 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Competenza e indipendenza</h2>`,
  `Tutti i contenuti sono basati esclusivamente su fonti ufficiali: tabelle fiscali dell'AFC, parametri contributivi UFAS/BSV, dati statistici dell'Ufficio federale di statistica (UST/BFS), normative SECO e pubblicazioni dell'Agenzia delle Entrate. La piattaforma è completamente indipendente da banche, assicurazioni e datori di lavoro — le informazioni fornite sono imparziali e verificabili.`,
  `Il sito è disponibile in quattro lingue (italiano, inglese, tedesco, francese) e viene aggiornato quotidianamente con le ultime novità legislative, offerte di lavoro verificate e dati di mercato. Oltre 700 articoli di approfondimento coprono ogni aspetto della vita del frontaliere, dalla prima assunzione alla pianificazione pensionistica.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Le firme della redazione</h2>`,
+ `<ul style="list-style:none;padding:0;margin:0">` +
+ `<li style="margin:.25rem 0"><a href="/autori/marco-ferrari/" style="color:#2563eb;text-decoration:none;" rel="author">Marco Ferrari</a> — Esperto fiscalità frontaliera (730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026).</li>` +
+ `<li style="margin:.25rem 0"><a href="/autori/laura-bianchi/" style="color:#2563eb;text-decoration:none;" rel="author">Laura Bianchi</a> — Specialista previdenza svizzera (AVS, LPP, LAMal, pensioni, assicurazioni sociali).</li>` +
+ `<li style="margin:.25rem 0"><a href="/autori/redazione/" style="color:#2563eb;text-decoration:none;" rel="author">Redazione Frontaliere Ticino</a> — Lavoro frontaliere, salari, trasporti transfrontalieri, dogana.</li>` +
+ `</ul>`,
  `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">AFC</a> · <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">UST/BFS</a> · <a href="https://www.agenziaentrate.gov.it" style="color:#2563eb;text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
+ );
+ } else if (canonicalPath.startsWith('/autori/') && canonicalPath !== '/autori/' && canonicalPath !== '/autori') {
+ // Author profile pages (Google News A1) — render bio + expertise + links
+ // back to chi-siamo and other author pages so the static HTML has rich
+ // crawl-discoverable text and the page is reachable from the site graph.
+ const authorSlug = canonicalPath.replace(/^\/autori\//, '').replace(/\/$/, '');
+ const authorMeta: Record<string, { name: string; role: string; bio: string; expertise: string[]; linkedin: string }> = {
+ 'marco-ferrari': {
+ name: 'Marco Ferrari',
+ role: 'Esperto fiscalità frontaliera',
+ bio: "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri del Canton Ticino. Si occupa quotidianamente di dichiarazione dei redditi modello 730 e Redditi PF, di imposta alla fonte cantonale e federale, di ristorni IRPEF e di applicazione pratica del nuovo accordo Italia-Svizzera del 2026 sui frontalieri.",
+ expertise: ['fiscalità frontaliera', '730', 'dichiarazione redditi', 'imposta alla fonte', 'accordo Italia-Svizzera 2026'],
+ linkedin: 'https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/',
+ },
+ 'laura-bianchi': {
+ name: 'Laura Bianchi',
+ role: 'Specialista previdenza svizzera',
+ bio: "Laura Bianchi è specialista in previdenza sociale svizzera applicata ai lavoratori frontalieri italiani in Canton Ticino. Si occupa di AVS (1° pilastro), LPP (2° pilastro), assicurazione contro gli infortuni LAINF e copertura sanitaria LAMal, includendo l'opzione del diritto di scelta verso la cassa malati italiana per i frontalieri.",
+ expertise: ['AVS', 'LPP', 'LAMal', 'pensioni', 'assicurazioni sociali svizzere'],
+ linkedin: 'https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/',
+ },
+ 'redazione': {
+ name: 'Redazione Frontaliere Ticino',
+ role: 'Team editoriale',
+ bio: "La Redazione di Frontaliere Ticino è il team editoriale dedicato alla copertura quotidiana dei temi rilevanti per i lavoratori frontalieri italiani in Canton Ticino. Cura aggiornamenti su mercato del lavoro ticinese, livelli salariali per settore, contratti collettivi nazionali (CCNL) svizzeri, mobilità transfrontaliera e politiche doganali ai principali valichi.",
+ expertise: ['lavoro frontaliere', 'salari', 'trasporti transfrontalieri', 'dogana'],
+ linkedin: 'https://www.linkedin.com/company/frontaliere-ticino/',
+ },
+ };
+ const meta = authorMeta[authorSlug];
+ if (meta) {
+ const tagsHtml = meta.expertise.map((t) => `<li style="display:inline-block;margin:.15rem .25rem;padding:.25rem .6rem;background:#dbeafe;color:#1e3a8a;border-radius:9999px;font-size:.75rem;font-weight:600">${t}</li>`).join('');
+ const otherAuthorsHtml = Object.entries(authorMeta)
+ .filter(([s]) => s !== authorSlug)
+ .map(([s, m]) => `<li style="margin:.25rem 0"><a href="/autori/${s}/" style="color:#2563eb;text-decoration:none;" rel="author">${m.name}</a> — ${m.role}.</li>`)
+ .join('');
+ editorialBlocks.push(
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">${meta.name} — ${meta.role}</h2>`,
+ `<p style="margin:.5rem 0">${meta.bio}</p>`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Aree di competenza</h2>`,
+ `<ul style="list-style:none;padding:0;margin:0">${tagsHtml}</ul>`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Profilo pubblico e contatti</h2>`,
+ `<p style="margin:.5rem 0">Profilo pubblico LinkedIn: <a href="${meta.linkedin}" style="color:#2563eb;text-decoration:none;" rel="noopener me" target="_blank">${meta.linkedin}</a>. Per scrivere alla redazione: <a href="mailto:redazione@frontaliereticino.ch" style="color:#2563eb;text-decoration:none;">redazione@frontaliereticino.ch</a>.</p>`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Altre firme di Frontaliere Ticino</h2>`,
+ `<ul style="list-style:none;padding:0;margin:0">${otherAuthorsHtml}</ul>`,
+ `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Riferimenti: <a href="/chi-siamo/" style="color:#2563eb;text-decoration:none;">Chi Siamo</a> · <a href="/correzioni/" style="color:#2563eb;text-decoration:none;">Correzioni</a></p>`,
+ );
+ }
+ } else if (canonicalPath === '/correzioni' || canonicalPath === '/correzioni/') {
+ editorialBlocks.push(
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Correzioni — Politica di rettifica e registro pubblico</h2>`,
+ `La trasparenza editoriale è uno dei pilastri di Frontaliere Ticino. Quando un dato numerico, una citazione o un'affermazione pubblicata sulla piattaforma si rivela errata, la correggiamo entro 48 ore dalla segnalazione e ne registriamo la traccia in questa pagina, con data, articolo interessato, tipologia (errore fattuale, refuso, chiarimento) e una descrizione sintetica della modifica. Questo registro pubblico serve sia ai lettori — che possono verificare in qualsiasi momento la nostra storia editoriale — sia ai motori di ricerca che valutano l'affidabilità dei contenuti YMYL (your money your life) nei domini fiscale e previdenziale.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come segnalare un errore</h2>`,
+ `Per segnalare un errore scrivi a <a href="mailto:redazione@frontaliereticino.ch?subject=Segnalazione%20correzione" style="color:#2563eb;text-decoration:none;">redazione@frontaliereticino.ch</a> indicando l'URL della pagina o il titolo dell'articolo, la frase o il dato contestato (citato verbatim) e una fonte ufficiale che dimostri l'errore (link a ESTV, Agenzia delle Entrate, BFS, INPS, gazzetta ufficiale o altra amministrazione competente). Risponderemo entro 48 ore lavorative: se la segnalazione è fondata l'articolo viene aggiornato immediatamente, l'entry viene registrata qui sotto in ordine cronologico inverso e — se la correzione è sostanziale — aggiungiamo una nota visibile in cima all'articolo originale.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Tipologie di correzione accettate</h2>`,
+ `Accettiamo tre tipologie di rettifica: <strong>errore fattuale</strong> (dato numerico, citazione o affermazione errata che modifica la sostanza dell'articolo — per esempio un'aliquota fiscale, un parametro contributivo o una scadenza), <strong>refuso</strong> (errore di battitura, ortografico o di formattazione che non modifica il significato del testo) e <strong>chiarimento</strong> (aggiunta di contesto o precisazione che migliora la comprensione senza correggere un errore). Ogni segnalazione fondata viene registrata indipendentemente dalla tipologia, perché anche un refuso può cambiare il senso percepito di una frase.`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Indipendenza editoriale</h2>`,
+ `Frontaliere Ticino è una piattaforma indipendente: non riceviamo compensi da banche, casse malati o datori di lavoro citati negli articoli. Le correzioni vengono effettuate solo sulla base di prove verificabili. La storia delle modifiche è sempre tracciata in questa pagina pubblica, sincronizzata con il file <code>data/corrections-log.json</code> versionato nel repository pubblico del progetto.`,
+ `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Riferimenti: <a href="/chi-siamo/" style="color:#2563eb;text-decoration:none;">Chi Siamo</a> · <a href="/privacy/" style="color:#2563eb;text-decoration:none;">Privacy</a></p>`,
  );
  } else if (canonicalPath === '/contattaci' || canonicalPath === '/contattaci/') {
  editorialBlocks.push(
