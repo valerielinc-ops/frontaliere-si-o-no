@@ -12951,4 +12951,11 @@ export const ARTICLES = [
  image: '/images/blog/graudio-flash-2-maggio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'investimenti-immobiliari-italia-estero-2026',
+ category: 'fiscale',
+ date: '2026-05-02T09:27:26.248Z',
+ image: '/images/blog/investimenti-immobiliari-italia-estero-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

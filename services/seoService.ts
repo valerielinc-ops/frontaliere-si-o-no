@@ -2936,6 +2936,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-migros-immigrazione-necessaria-2026': { name: 'Novità', path: '/articoli-frontaliere/migros-immigrazione-necessaria-2026', parent: 'blog' },
     'blog-nuova-viabilit-travedona-monate-2026': { name: 'Viabilità Travedona Monate', path: '/articoli-frontaliere/nuova-viabilit-travedona-monate-2026', parent: 'blog' },
     'blog-graudio-flash-2-maggio-2026': { name: 'Notizie Canton Ticino', path: '/articoli-frontaliere/graudio-flash-2-maggio-2026', parent: 'blog' },
+    'blog-investimenti-immobiliari-italia-estero-2026': { name: 'Investimenti immobiliari', path: '/articoli-frontaliere/investimenti-immobiliari-italia-estero-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

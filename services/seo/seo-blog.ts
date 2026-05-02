@@ -36434,6 +36434,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-investimenti-immobiliari-italia-estero-2026': {
+    title: 'Il 60% degli investimenti immobiliari in Italia viene dall’estero',
+    description: 'Secondo Roberto Giovenco, COO di RINA Prime, il 60% degli investimenti immobiliari in Italia proviene dall\'estero, segnale di resilienza del Paese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, investimenti, immobiliari, viene, dall',
+    ogTitle: 'Il 60% degli investimenti immobiliari in Italia viene dall’estero',
+    ogDescription: 'Secondo Roberto Giovenco, COO di RINA Prime, il 60% degli investimenti immobiliari in Italia proviene dall\'estero, segnale di resilienza del Paese.',
+    canonicalPath: '/articoli-frontaliere/investimenti-immobiliari-italia-estero-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il 60% degli investimenti immobiliari in Italia viene dall’estero",
+      "description": "Secondo Roberto Giovenco, COO di RINA Prime, il 60% degli investimenti immobiliari in Italia proviene dall'estero, segnale di resilienza del Paese.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/investimenti-immobiliari-italia-estero-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-02T09:27:26+00:00",
+      "dateModified": "2026-05-02T09:27:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/investimenti-immobiliari-italia-estero-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

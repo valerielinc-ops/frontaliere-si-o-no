@@ -5116,6 +5116,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.graudio-flash-2-maggio-2026.title': 'GrAudio Flash vom 2. Mai 2026: Nachrichten aus dem Kanton Tessin',
     'blog.article.graudio-flash-2-maggio-2026.excerpt': 'Die neuesten Nachrichten aus dem Kanton Tessin und Umgebung: Unfälle, Sportereignisse und vieles mehr.',
     'blog.article.graudio-flash-2-maggio-2026.imageAlt': 'Panoramablick auf Lugano mit dem See und den Bergen',
+    'blog.article.investimenti-immobiliari-italia-estero-2026.title': '60% der Immobilieninvestitionen in Italien kommen aus dem Ausland',
+    'blog.article.investimenti-immobiliari-italia-estero-2026.excerpt': 'Laut Roberto Giovenco, COO von RINA Prime, stammen 60% der Immobilieninvestitionen in Italien aus dem Ausland, ein Zeichen für die Resilienz des Landes.',
+    'blog.article.investimenti-immobiliari-italia-estero-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

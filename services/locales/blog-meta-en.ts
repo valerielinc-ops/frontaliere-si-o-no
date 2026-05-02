@@ -5116,6 +5116,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.graudio-flash-2-maggio-2026.title': 'GrAudio Flash May 2, 2026: Ticino News',
     'blog.article.graudio-flash-2-maggio-2026.excerpt': 'Latest news from Canton Ticino and surrounding areas: accidents, sports events, and more.',
     'blog.article.graudio-flash-2-maggio-2026.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
+    'blog.article.investimenti-immobiliari-italia-estero-2026.title': '60% of Italian real estate investments come from abroad',
+    'blog.article.investimenti-immobiliari-italia-estero-2026.excerpt': 'According to Roberto Giovenco, COO of RINA Prime, 60% of real estate investments in Italy come from abroad, a sign of the country\'s resilience.',
+    'blog.article.investimenti-immobiliari-italia-estero-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

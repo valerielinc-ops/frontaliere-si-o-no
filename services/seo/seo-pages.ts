@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1755,
+ "numberOfItems": 1756,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6390,7 +6390,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1752, "name": "Varese: 100 atleti alla Salewa Cube per la Copp...", "url": `${BASE_URL}/articoli-frontaliere/varese-arrampicata-salewa-cube-2026` },
           { "@type": "ListItem", "position": 1753, "name": "Migros: «L'immigrazione è necessaria per il Tic...", "url": `${BASE_URL}/articoli-frontaliere/migros-immigrazione-necessaria-2026` },
           { "@type": "ListItem", "position": 1754, "name": "Nuova viabilità per mezzi pesanti a Travedona M...", "url": `${BASE_URL}/articoli-frontaliere/nuova-viabilit-travedona-monate-2026` },
-          { "@type": "ListItem", "position": 1755, "name": "GrAudio Flash del 2 maggio 2026: notizie dal Ca...", "url": `${BASE_URL}/articoli-frontaliere/graudio-flash-2-maggio-2026` }
+          { "@type": "ListItem", "position": 1755, "name": "GrAudio Flash del 2 maggio 2026: notizie dal Ca...", "url": `${BASE_URL}/articoli-frontaliere/graudio-flash-2-maggio-2026` },
+          { "@type": "ListItem", "position": 1756, "name": "Il 60% degli investimenti immobiliari in Italia...", "url": `${BASE_URL}/articoli-frontaliere/investimenti-immobiliari-italia-estero-2026` }
  ]
  },
  {

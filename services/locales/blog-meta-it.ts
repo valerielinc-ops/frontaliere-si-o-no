@@ -5117,6 +5117,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.graudio-flash-2-maggio-2026.title': 'GrAudio Flash del 2 maggio 2026: notizie dal Canton Ticino',
     'blog.article.graudio-flash-2-maggio-2026.excerpt': 'Le ultime notizie dal Canton Ticino e dintorni: incidenti, eventi sportivi e molto altro.',
     'blog.article.graudio-flash-2-maggio-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.investimenti-immobiliari-italia-estero-2026.title': 'Il 60% degli investimenti immobiliari in Italia viene dall’estero',
+    'blog.article.investimenti-immobiliari-italia-estero-2026.excerpt': 'Secondo Roberto Giovenco, COO di RINA Prime, il 60% degli investimenti immobiliari in Italia proviene dall\'estero, segnale di resilienza del Paese.',
+    'blog.article.investimenti-immobiliari-italia-estero-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;
