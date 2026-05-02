@@ -37420,6 +37420,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a4-milano-brescia-chiusura-notturna-2026': {
+    title: 'A4 chiusa tra Sesto e Monza: notti interessate | Frontaliere Ticino',
+    description: 'Chiusura notturna del tratto tra Sesto San Giovanni e Monza per lavori alle barriere di sicurezza. Percorsi alternativi segnalati. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusa, sesto, monza, notti',
+    ogTitle: 'A4 Milano-Brescia chiusa tra Sesto San Giovanni e Monza: tutte le notti interessate',
+    ogDescription: 'Chiusura notturna del tratto tra Sesto San Giovanni e Monza per lavori alle barriere di sicurezza. Percorsi alternativi segnalati.',
+    canonicalPath: '/articoli-frontaliere/a4-milano-brescia-chiusura-notturna-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A4 Milano-Brescia chiusa tra Sesto San Giovanni e Monza: tutte le notti interessate",
+      "description": "Chiusura notturna del tratto tra Sesto San Giovanni e Monza per lavori alle barriere di sicurezza. Percorsi alternativi segnalati. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/a4-milano-brescia-chiusura-notturna-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A4 di notte con lavori in corso e veicoli in coda"
+      },
+      "datePublished": "2026-05-02T15:37:44+00:00",
+      "dateModified": "2026-05-02T15:37:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a4-milano-brescia-chiusura-notturna-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

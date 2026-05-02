@@ -5219,6 +5219,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.beat-jans-10-milioni-comunicazione.title': 'Beat Jans e l’iniziativa 10 milioni: tutto in regola?',
     'blog.article.beat-jans-10-milioni-comunicazione.excerpt': 'Il consigliere federale Beat Jans è sotto indagine per presunte violazioni delle regole della comunicazione istituzionale nella campagna contro l’iniziativa UDC.',
     'blog.article.beat-jans-10-milioni-comunicazione.imageAlt': 'Giornalista professionista che copre un evento politico a Lugano, Ticino, con focus sul lavoro transfrontaliero svizzero-italiano.',
+    'blog.article.a4-milano-brescia-chiusura-notturna-2026.title': 'A4 chiusa tra Sesto e Monza: notti interessate',
+    'blog.article.a4-milano-brescia-chiusura-notturna-2026.excerpt': 'Chiusura notturna del tratto tra Sesto San Giovanni e Monza per lavori alle barriere di sicurezza. Percorsi alternativi segnalati.',
+    'blog.article.a4-milano-brescia-chiusura-notturna-2026.imageAlt': 'Autostrada A4 di notte con lavori in corso e veicoli in coda',
 };
 
 export default blogMetaIt;

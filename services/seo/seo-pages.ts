@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1789,
+ "numberOfItems": 1790,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6424,7 +6424,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1786, "name": "Furti in chiese: arrestati due rumeni nel Belli...", "url": `${BASE_URL}/articoli-frontaliere/furti-chiese-bellinzonese-arresti-2026` },
           { "@type": "ListItem", "position": 1787, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/a4-milano-brescia-diviazione-obbligatoria-2026` },
           { "@type": "ListItem", "position": 1788, "name": "Editto canonizzazione Don Roberto Malgesini: co...", "url": `${BASE_URL}/articoli-frontaliere/editto-canonizzazione-don-roberto-malgesini` },
-          { "@type": "ListItem", "position": 1789, "name": "Beat Jans e l’iniziativa 10 milioni: tutto in r...", "url": `${BASE_URL}/articoli-frontaliere/beat-jans-10-milioni-comunicazione` }
+          { "@type": "ListItem", "position": 1789, "name": "Beat Jans e l’iniziativa 10 milioni: tutto in r...", "url": `${BASE_URL}/articoli-frontaliere/beat-jans-10-milioni-comunicazione` },
+          { "@type": "ListItem", "position": 1790, "name": "A4 Milano-Brescia chiusa tra Sesto San Giovanni...", "url": `${BASE_URL}/articoli-frontaliere/a4-milano-brescia-chiusura-notturna-2026` }
  ]
  },
  {

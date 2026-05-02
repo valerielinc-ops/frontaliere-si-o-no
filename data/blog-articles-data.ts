@@ -13189,4 +13189,11 @@ export const ARTICLES = [
  image: '/images/blog/beat-jans-10-milioni-comunicazione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'a4-milano-brescia-chiusura-notturna-2026',
+ category: 'novita',
+ date: '2026-05-02T15:37:43.993Z',
+ image: '/images/blog/a4-milano-brescia-chiusura-notturna-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

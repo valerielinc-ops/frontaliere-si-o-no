@@ -5218,6 +5218,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.beat-jans-10-milioni-comunicazione.title': 'Beat Jans und die Initiative 10 Millionen: Alles korrekt?',
     'blog.article.beat-jans-10-milioni-comunicazione.excerpt': 'Der Bundesrat Beat Jans steht unter Untersuchung wegen mutmaßlicher Verstöße gegen die Regeln der institutionellen Kommunikation in der Kampagne gegen die UDC-Initiative.',
     'blog.article.beat-jans-10-milioni-comunicazione.imageAlt': 'Ein professioneller Journalist, der ein politisches Ereignis in Lugano, Tessin, mit Fokus auf die schweizerisch-italienische Grenzarbeit abdeckt.',
+    'blog.article.a4-milano-brescia-chiusura-notturna-2026.title': 'A4 zwischen Sesto und Monza gesperrt: betroffene Nächte',
+    'blog.article.a4-milano-brescia-chiusura-notturna-2026.excerpt': 'Nachtschließung des Abschnitts zwischen Sesto San Giovanni und Monza für Sicherheitsarbeiten. Ausweichrouten werden angezeigt.',
+    'blog.article.a4-milano-brescia-chiusura-notturna-2026.imageAlt': 'A4 Autobahn nachts mit laufenden Bauarbeiten und Stau',
 };
 
 export default blogMetaDe;

@@ -5218,6 +5218,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.beat-jans-10-milioni-comunicazione.title': 'Beat Jans and the 10 million initiative: all in order?',
     'blog.article.beat-jans-10-milioni-comunicazione.excerpt': 'Federal Councillor Beat Jans is under investigation for alleged violations of institutional communication rules in the campaign against the UDC initiative.',
     'blog.article.beat-jans-10-milioni-comunicazione.imageAlt': 'Professional journalist covering a political event in Lugano, Ticino, focusing on Swiss-Italian cross-border work.',
+    'blog.article.a4-milano-brescia-chiusura-notturna-2026.title': 'A4 closed between Sesto and Monza: affected nights',
+    'blog.article.a4-milano-brescia-chiusura-notturna-2026.excerpt': 'Nighttime closure of the stretch between Sesto San Giovanni and Monza for safety barrier work. Alternative routes indicated.',
+    'blog.article.a4-milano-brescia-chiusura-notturna-2026.imageAlt': 'A4 highway at night with ongoing construction and traffic jam',
 };
 
 export default blogMetaEn;
