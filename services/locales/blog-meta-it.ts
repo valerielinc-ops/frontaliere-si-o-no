@@ -5006,6 +5006,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.progettare-sala-riunioni-ufficio.title': 'Come progettare una sala riunioni funzionale',
     'blog.article.progettare-sala-riunioni-ufficio.excerpt': 'Scopri come progettare una sala riunioni funzionale e accogliente, con consigli su arredamento, tecnologia e comfort',
     'blog.article.progettare-sala-riunioni-ufficio.imageAlt': 'Una moderna sala riunioni in un ufficio del Ticino con sedie ergonomiche, un grande tavolo ovale e illuminazione naturale',
+    'blog.article.giovani-agenti-como-polizia-locale.title': 'Giovani agenti con la polizia locale a Como: monopattini, droghe e alcol',
+    'blog.article.giovani-agenti-como-polizia-locale.excerpt': 'Dieci studenti diventano agenti per un giorno con la polizia locale di Como, segnalando violazioni e promuovendo la legalità.',
+    'blog.article.giovani-agenti-como-polizia-locale.imageAlt': 'Giovani agenti con la polizia locale a Como',
 };
 
 export default blogMetaIt;

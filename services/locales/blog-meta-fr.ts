@@ -5006,6 +5006,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.progettare-sala-riunioni-ufficio.title': 'Comment concevoir une salle de réunion fonctionnelle',
     'blog.article.progettare-sala-riunioni-ufficio.excerpt': 'Découvrez comment concevoir une salle de réunion fonctionnelle et accueillante, avec des conseils sur l\'ameublement, la technologie et le confort',
     'blog.article.progettare-sala-riunioni-ufficio.imageAlt': 'Une salle de réunion moderne dans un bureau du Tessin avec des chaises ergonomiques, une grande table ovale et un éclairage naturel',
+    'blog.article.giovani-agenti-como-polizia-locale.title': 'Jeunes agents avec la police locale à Côme',
+    'blog.article.giovani-agenti-como-polizia-locale.excerpt': 'Dix étudiants deviennent agents pour une journée avec la police locale de Côme, signalant des infractions et promouvant la légalité.',
+    'blog.article.giovani-agenti-como-polizia-locale.imageAlt': 'Jeunes agents avec la police locale à Côme',
 };
 
 export default blogMetaFr;

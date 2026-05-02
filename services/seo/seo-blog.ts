@@ -35361,6 +35361,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giovani-agenti-como-polizia-locale': {
+    title: 'Giovani agenti con la polizia locale a Como: monopattini, droghe e alcol',
+    description: 'Dieci studenti diventano agenti per un giorno con la polizia locale di Como, segnalando violazioni e promuovendo la legalità. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovani, agenti, polizia, locale',
+    ogTitle: 'Giovani agenti con la polizia locale a Como',
+    ogDescription: 'Dieci studenti diventano agenti per un giorno con la polizia locale di Como, segnalando violazioni e promuovendo la legalità.',
+    canonicalPath: '/articoli-frontaliere/giovani-agenti-como-polizia-locale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giovani agenti con la polizia locale a Como: monopattini, droghe e alcol",
+      "description": "Dieci studenti diventano agenti per un giorno con la polizia locale di Como, segnalando violazioni e promuovendo la legalità. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giovani-agenti-como-polizia-locale.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani agenti con la polizia locale a Como"
+      },
+      "datePublished": "2026-05-02T02:53:07+00:00",
+      "dateModified": "2026-05-02T02:53:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giovani-agenti-como-polizia-locale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

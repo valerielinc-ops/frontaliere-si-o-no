@@ -5005,6 +5005,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.progettare-sala-riunioni-ufficio.title': 'How to design a functional meeting room',
     'blog.article.progettare-sala-riunioni-ufficio.excerpt': 'Discover how to design a functional and welcoming meeting room, with tips on furniture, technology, and comfort',
     'blog.article.progettare-sala-riunioni-ufficio.imageAlt': 'A modern meeting room in a Ticino office with ergonomic chairs, a large oval table, and natural lighting',
+    'blog.article.giovani-agenti-como-polizia-locale.title': 'Young agents with Como local police: scooters, drugs and alcohol',
+    'blog.article.giovani-agenti-como-polizia-locale.excerpt': 'Ten students become agents for a day with Como\'s local police, reporting violations and promoting legality.',
+    'blog.article.giovani-agenti-como-polizia-locale.imageAlt': 'Young agents with local police in Como',
 };
 
 export default blogMetaEn;

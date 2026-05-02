@@ -2899,6 +2899,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-grassi-1925-marchio-storico': { name: 'Novità', path: '/articoli-frontaliere/grassi-1925-marchio-storico', parent: 'blog' },
     'blog-lati-industria-termoplastici-premiata-intesanpaolo': { name: 'Novità', path: '/articoli-frontaliere/lati-industria-termoplastici-premiata-intesanpaolo', parent: 'blog' },
     'blog-progettare-sala-riunioni-ufficio': { name: 'Progettazione sala riunioni', path: '/articoli-frontaliere/progettare-sala-riunioni-ufficio', parent: 'blog' },
+    'blog-giovani-agenti-como-polizia-locale': { name: 'Novità', path: '/articoli-frontaliere/giovani-agenti-como-polizia-locale', parent: 'blog' },
  };
 
  const info = sectionNames[section];

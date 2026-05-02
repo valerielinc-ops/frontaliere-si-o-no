@@ -12692,4 +12692,11 @@ export const ARTICLES = [
  image: '/images/blog/progettare-sala-riunioni-ufficio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'giovani-agenti-como-polizia-locale',
+ category: 'novita',
+ date: '2026-05-02T02:53:07.756Z',
+ image: '/images/blog/giovani-agenti-como-polizia-locale.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

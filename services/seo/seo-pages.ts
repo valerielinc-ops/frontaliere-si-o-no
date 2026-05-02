@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1718,
+ "numberOfItems": 1719,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6353,7 +6353,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1715, "name": "Maggiolone Social Park: un mese di feste a Cass...", "url": `${BASE_URL}/articoli-frontaliere/maggiolone-social-park-cassano-magnago` },
           { "@type": "ListItem", "position": 1716, "name": "Grassi 1925 entra nel Registro Speciale dei Mar...", "url": `${BASE_URL}/articoli-frontaliere/grassi-1925-marchio-storico` },
           { "@type": "ListItem", "position": 1717, "name": "LATI premiata tra le Imprese Vincenti di Intesa...", "url": `${BASE_URL}/articoli-frontaliere/lati-industria-termoplastici-premiata-intesanpaolo` },
-          { "@type": "ListItem", "position": 1718, "name": "Come progettare una sala riunioni funzionale", "url": `${BASE_URL}/articoli-frontaliere/progettare-sala-riunioni-ufficio` }
+          { "@type": "ListItem", "position": 1718, "name": "Come progettare una sala riunioni funzionale", "url": `${BASE_URL}/articoli-frontaliere/progettare-sala-riunioni-ufficio` },
+          { "@type": "ListItem", "position": 1719, "name": "Giovani agenti con la polizia locale a Como: mo...", "url": `${BASE_URL}/articoli-frontaliere/giovani-agenti-como-polizia-locale` }
  ]
  },
  {

@@ -5005,6 +5005,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.progettare-sala-riunioni-ufficio.title': 'Wie man einen funktionalen Besprechungsraum gestaltet',
     'blog.article.progettare-sala-riunioni-ufficio.excerpt': 'Erfahren Sie, wie Sie einen funktionalen und einladenden Besprechungsraum gestalten, mit Tipps zu Möbeln, Technologie und Komfort',
     'blog.article.progettare-sala-riunioni-ufficio.imageAlt': 'Ein modernes Besprechungszimmer in einem Büro im Tessin mit ergonomischen Stühlen, einem großen ovalen Tisch und natürlichem Licht',
+    'blog.article.giovani-agenti-como-polizia-locale.title': 'Junge Agenten mit der lokalen Polizei in Como: Tretroller, Drogen und Alkohol',
+    'blog.article.giovani-agenti-como-polizia-locale.excerpt': 'Zehn Schüler werden für einen Tag zu Agenten mit der lokalen Polizei von Como, melden Verstöße und fördern die Legalität.',
+    'blog.article.giovani-agenti-como-polizia-locale.imageAlt': 'Junge Agenten mit der lokalen Polizei in Como',
 };
 
 export default blogMetaDe;
