@@ -5051,6 +5051,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.attivisti-flotilla-israele-interrogati.title': 'Due attivisti Flotilla portati in Israele per interrogatorio',
     'blog.article.attivisti-flotilla-israele-interrogati.excerpt': 'Saif Abu Keshek e Thiago Ávila, attivisti pro-Palestina, saranno interrogati dalle autorità israeliane dopo l\'intercettazione della Flotilla.',
     'blog.article.attivisti-flotilla-israele-interrogati.imageAlt': 'LAC Lugano, centro culturale moderno con vista sulla città',
+    'blog.article.massiccio-intervento-polizia-lugano-2026.title': 'Intervento di polizia in Pensilina a Lugano',
+    'blog.article.massiccio-intervento-polizia-lugano-2026.excerpt': 'Massiccio intervento della polizia a Lugano con uso di spray lacrimogeno contro un gruppo di persone esagitate',
+    'blog.article.massiccio-intervento-polizia-lugano-2026.imageAlt': 'Vista aerea di Lugano di notte con intervento della polizia',
 };
 
 export default blogMetaIt;

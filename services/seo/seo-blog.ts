@@ -35796,6 +35796,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-massiccio-intervento-polizia-lugano-2026': {
+    title: 'Intervento di polizia in Pensilina a Lugano | Frontaliere Ticino',
+    description: 'Massiccio intervento della polizia a Lugano con uso di spray lacrimogeno contro un gruppo di persone esagitate. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, intervento, polizia, pensilina, lugano',
+    ogTitle: 'Intervento di polizia a Lugano in Pensilina',
+    ogDescription: 'Massiccio intervento della polizia a Lugano con uso di spray lacrimogeno contro un gruppo di persone esagitate',
+    canonicalPath: '/articoli-frontaliere/massiccio-intervento-polizia-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Massiccio intervento di polizia a Lugano in Pensilina",
+      "description": "Massiccio intervento della polizia a Lugano con uso di spray lacrimogeno contro un gruppo di persone esagitate. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/massiccio-intervento-polizia-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano di notte con intervento della polizia"
+      },
+      "datePublished": "2026-05-02T05:38:34+00:00",
+      "dateModified": "2026-05-02T05:38:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/massiccio-intervento-polizia-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

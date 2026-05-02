@@ -5051,6 +5051,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.attivisti-flotilla-israele-interrogati.title': 'Deux militants de la Flotille emmenés en Israël pour interrogatoire',
     'blog.article.attivisti-flotilla-israele-interrogati.excerpt': 'Saif Abu Keshek et Thiago Ávila, militants pro-palestiniens, seront interrogés par les autorités israéliennes après l\'interception de la Flotille.',
     'blog.article.attivisti-flotilla-israele-interrogati.imageAlt': 'LAC Lugano, centre culturel moderne avec vue sur la ville',
+    'blog.article.massiccio-intervento-polizia-lugano-2026.title': 'Intervention policière à la Pensilina à Lugano',
+    'blog.article.massiccio-intervento-polizia-lugano-2026.excerpt': 'Importante intervention de la police à Lugano avec utilisation de gaz lacrymogène contre un groupe de personnes excitées',
+    'blog.article.massiccio-intervento-polizia-lugano-2026.imageAlt': 'Vue aérienne de Lugano la nuit avec intervention de la police',
 };
 
 export default blogMetaFr;

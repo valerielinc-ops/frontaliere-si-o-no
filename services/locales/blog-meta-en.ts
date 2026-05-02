@@ -5050,6 +5050,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.attivisti-flotilla-israele-interrogati.title': 'Two Flotilla activists taken to Israel for questioning',
     'blog.article.attivisti-flotilla-israele-interrogati.excerpt': 'Saif Abu Keshek and Thiago Ávila, pro-Palestinian activists, will be questioned by Israeli authorities after the Flotilla interception.',
     'blog.article.attivisti-flotilla-israele-interrogati.imageAlt': 'LAC Lugano, modern cultural center with city view',
+    'blog.article.massiccio-intervento-polizia-lugano-2026.title': 'Police intervention in Lugano\'s Pensilina',
+    'blog.article.massiccio-intervento-polizia-lugano-2026.excerpt': 'Massive police operation in Lugano with tear gas against a group of agitated people',
+    'blog.article.massiccio-intervento-polizia-lugano-2026.imageAlt': 'Aerial view of Lugano at night with police intervention',
 };
 
 export default blogMetaEn;

@@ -12797,4 +12797,11 @@ export const ARTICLES = [
  image: '/images/blog/attivisti-flotilla-israele-interrogati.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'massiccio-intervento-polizia-lugano-2026',
+ category: 'novita',
+ date: '2026-05-02T05:38:34.134Z',
+ image: '/images/blog/massiccio-intervento-polizia-lugano-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
