@@ -5086,6 +5086,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.limiti-eta-smartphone-social-media.title': 'Unicef: Age limits for smartphones and social media aren\'t enough',
     'blog.article.limiti-eta-smartphone-social-media.excerpt': 'According to Unicef, age limits for smartphones and social media are not enough. Here\'s why regulation should target the platforms themselves.',
     'blog.article.limiti-eta-smartphone-social-media.imageAlt': 'Teenagers using smartphones in a park in Locarno',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.title': 'Volandia: helicopter flight baptism returns in 2026',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.excerpt': 'From May 1 to 3, 2026, Volandia offers helicopter flights for adults and children, with prices set at 65 euros for adults and 45 euros for children.',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.imageAlt': 'Aerial view of Lake Lugano with a helicopter over Volandia',
 };
 
 export default blogMetaEn;

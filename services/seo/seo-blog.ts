@@ -36144,6 +36144,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-volandia-battesimo-volo-elicottero-2026': {
+    title: 'Volandia: battesimo del volo in elicottero torna nel 2026',
+    description: 'Dal 1 al 3 maggio 2026, Volandia offre voli in elicottero per adulti e bambini, con prezzi fissati a 65 euro per gli adulti e 45 euro per i bambini.',
+    keywords: 'frontalieri, ticino, svizzera, italia, volandia, battesimo, volo, elicottero',
+    ogTitle: 'Volandia: battesimo del volo in elicottero torna nel 2026',
+    ogDescription: 'Dal 1 al 3 maggio 2026, Volandia offre voli in elicottero per adulti e bambini, con prezzi fissati a 65 euro per gli adulti e 45 euro per i bambini.',
+    canonicalPath: '/articoli-frontaliere/volandia-battesimo-volo-elicottero-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Volandia: battesimo del volo in elicottero torna nel 2026",
+      "description": "Dal 1 al 3 maggio 2026, Volandia offre voli in elicottero per adulti e bambini, con prezzi fissati a 65 euro per gli adulti e 45 euro per i bambini.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/volandia-battesimo-volo-elicottero-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con un elicottero sopra Volandia"
+      },
+      "datePublished": "2026-05-02T07:50:57+00:00",
+      "dateModified": "2026-05-02T07:50:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/volandia-battesimo-volo-elicottero-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

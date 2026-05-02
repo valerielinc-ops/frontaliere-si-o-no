@@ -5086,6 +5086,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.limiti-eta-smartphone-social-media.title': 'Altersbeschränkungen für Smartphones: Unicef erklärt, warum sie nicht ausreichen',
     'blog.article.limiti-eta-smartphone-social-media.excerpt': 'Laut Unicef reichen Altersbeschränkungen für Smartphones und soziale Medien nicht aus. Hier erklärt die Organisation, warum die Regulierung direkt bei den Plattformen ansetzen muss.',
     'blog.article.limiti-eta-smartphone-social-media.imageAlt': 'Jugendliche nutzen Smartphones in einem Park in Locarno',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.title': 'Volandia: Hubschrauberflug-Taufe kehrt 2026 zurück',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.excerpt': 'Vom 1. bis 3. Mai 2026 bietet Volandia Hubschrauberflüge für Erwachsene und Kinder an, mit Preisen von 65 Euro für Erwachsene und 45 Euro für Kinder.',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.imageAlt': 'Luftaufnahme des Luganersees mit einem Hubschrauber über Volandia',
 };
 
 export default blogMetaDe;

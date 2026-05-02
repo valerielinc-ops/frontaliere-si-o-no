@@ -5087,6 +5087,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.limiti-eta-smartphone-social-media.title': 'Limites d\'âge pour smartphones et réseaux sociaux : pourquoi ils ne suffisent pas',
     'blog.article.limiti-eta-smartphone-social-media.excerpt': 'Selon l\'Unicef, les limites d\'âge pour les smartphones et les réseaux sociaux ne sont pas suffisantes. Voici pourquoi la réglementation doit intervenir sur les plateformes elles-mêmes.',
     'blog.article.limiti-eta-smartphone-social-media.imageAlt': 'Des adolescents utilisant des smartphones dans un parc à Locarno',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.title': 'Volandia: baptême de vol en hélicoptère en 2026',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.excerpt': 'Du 1 au 3 mai 2026, Volandia propose des vols en hélicoptère pour adultes et enfants, avec des prix fixés à 65 euros pour les adultes et 45 euros pour les enfants.',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.imageAlt': 'Vue aérienne du lac de Lugano avec un hélicoptère au-dessus de Volandia',
 };
 
 export default blogMetaFr;

@@ -2926,6 +2926,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-migros-immigrazione-necessaria-offerta': { name: 'Novità', path: '/articoli-frontaliere/migros-immigrazione-necessaria-offerta', parent: 'blog' },
     'blog-vico-morcote-tragedia-bambino-pool': { name: 'Novità', path: '/articoli-frontaliere/vico-morcote-tragedia-bambino-pool', parent: 'blog' },
     'blog-limiti-eta-smartphone-social-media': { name: 'Novità', path: '/articoli-frontaliere/limiti-eta-smartphone-social-media', parent: 'blog' },
+    'blog-volandia-battesimo-volo-elicottero-2026': { name: 'Volandia 2026', path: '/articoli-frontaliere/volandia-battesimo-volo-elicottero-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

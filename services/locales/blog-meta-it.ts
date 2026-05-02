@@ -5087,6 +5087,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.limiti-eta-smartphone-social-media.title': 'Limiti età smartphone e social media: Unicef spiega perché non bastano',
     'blog.article.limiti-eta-smartphone-social-media.excerpt': 'Secondo Unicef, i limiti di età per smartphone e social media non sono sufficienti. Ecco perché la regolamentazione deve intervenire sulle piattaforme stesse.',
     'blog.article.limiti-eta-smartphone-social-media.imageAlt': 'Ragazzi che usano smartphone in un parco a Locarno',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.title': 'Volandia: battesimo del volo in elicottero torna nel 2026',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.excerpt': 'Dal 1 al 3 maggio 2026, Volandia offre voli in elicottero per adulti e bambini, con prezzi fissati a 65 euro per gli adulti e 45 euro per i bambini.',
+    'blog.article.volandia-battesimo-volo-elicottero-2026.imageAlt': 'Vista aerea del Lago di Lugano con un elicottero sopra Volandia',
 };
 
 export default blogMetaIt;
