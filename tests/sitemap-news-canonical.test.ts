@@ -39,6 +39,10 @@ const ALLOWED_REFERENCES = new Set<string>([
   'scripts/validate-sitemap-pages.mjs',
   'tests/sitemap-auto-index.test.ts',
   'tests/sitemap-news-canonical.test.ts',
+  // AdminPanel checks for legacy filename existence as a health-check diagnostic
+  'components/pages/AdminPanel.tsx',
+  // thin-content-guard excludes legacy sitemap_news.xml from content-gap checks
+  'tests/post-build/thin-content-guard.test.ts',
 ]);
 
 /**

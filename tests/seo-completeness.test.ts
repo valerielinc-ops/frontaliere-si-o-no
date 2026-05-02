@@ -29,6 +29,7 @@ import {
   ALL_BORDER_CROSSING_IDS,
 } from '@/services/router';
 import { ALL_BLOG_ARTICLE_IDS } from '@/services/routerBlogData';
+import { AUTHORS } from '@/data/authors';
 import type { AppRoute } from '@/services/router';
 
 // Preload blog data so buildPath can resolve blog slugs
@@ -109,6 +110,8 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
     'email-confirmed',
     'chi-siamo',
     'tassazione-hub',
+    'correzioni',
+    'metodologia',
   ];
   for (const tab of standalones) {
     routes.push({ route: { activeTab: tab }, label: tab });
@@ -147,6 +150,14 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
     });
   }
 
+  // Author profile pages
+  for (const author of AUTHORS) {
+    routes.push({
+      route: { activeTab: 'autore', author: author.slug } as AppRoute,
+      label: `autore/${author.slug}`,
+    });
+  }
+
   return routes;
 }
 
@@ -173,8 +184,10 @@ const VALID_SCHEMA_TYPES = new Set([
   // Domain-specific Schema.org types used by a small number of landings:
   // - ExchangeRateSpecification: confronti/exchange (currency exchange hub)
   // - Place: guida/border-map (geographic border crossings map)
-  // Both are first-class Schema.org types recognised by Google.
-  'ExchangeRateSpecification', 'Place',
+  // - ProfilePage: author profile pages (A1/A2 Google News compliance)
+  // - Person: embedded inside ProfilePage structuredData for author profiles
+  // All are first-class Schema.org types recognised by Google.
+  'ExchangeRateSpecification', 'Place', 'ProfilePage', 'Person',
 ]);
 
 // ── Tests ────────────────────────────────────────────────────────────────────

@@ -2722,6 +2722,8 @@ export function getSeoSection(route: AppRoute): string {
  return 'newsletter-preferences';
  case 'tassazione-hub':
  return 'tassazione-hub';
+ case 'autore':
+ return route.author ? `autore-${route.author}` : 'autore';
  default:
  return route.activeTab;
  }
