@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-04-18T07:34:24.892Z",
-    "label": "before",
-    "total": 2887,
-    "needsRetranslation": 46,
-    "incomplete": 23,
-    "complete": 2864,
-    "missingByLocale": {
-      "it": 22,
-      "en": 1,
-      "de": 22,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 22
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-18T07:52:46.824Z",
-    "label": "after",
-    "total": 2887,
-    "needsRetranslation": 53,
-    "incomplete": 23,
-    "complete": 2864,
-    "missingByLocale": {
-      "it": 22,
-      "en": 1,
-      "de": 22,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 22
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-18T10:24:44.638Z",
     "label": "before",
     "total": 2940,
@@ -8359,6 +8311,98 @@
       },
       {
         "company": "Union Bancaire Privée",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-02T13:41:20.113Z",
+    "label": "before",
+    "total": 2647,
+    "needsRetranslation": 75,
+    "incomplete": 34,
+    "complete": 2613,
+    "missingByLocale": {
+      "it": 27,
+      "en": 11,
+      "de": 30,
+      "fr": 30
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "International School of Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-02T14:09:56.871Z",
+    "label": "after",
+    "total": 2647,
+    "needsRetranslation": 75,
+    "incomplete": 28,
+    "complete": 2619,
+    "missingByLocale": {
+      "it": 26,
+      "en": 7,
+      "de": 24,
+      "fr": 24
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 20
+      },
+      {
+        "company": "Fusalp",
+        "pending": 3
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
         "pending": 1
       }
     ]
