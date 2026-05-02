@@ -5054,6 +5054,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.massiccio-intervento-polizia-lugano-2026.title': 'Intervento di polizia in Pensilina a Lugano',
     'blog.article.massiccio-intervento-polizia-lugano-2026.excerpt': 'Massiccio intervento della polizia a Lugano con uso di spray lacrimogeno contro un gruppo di persone esagitate',
     'blog.article.massiccio-intervento-polizia-lugano-2026.imageAlt': 'Vista aerea di Lugano di notte con intervento della polizia',
+    'blog.article.giovani-rematori-ceresio-2026.title': 'Giovani rematori protagonisti sul Ceresio',
+    'blog.article.giovani-rematori-ceresio-2026.excerpt': 'La 22ª Regata giovanile organizzata dalla Canottieri Ceresio Castagnola si è tenuta venerdì 1° maggio 2026',
+    'blog.article.giovani-rematori-ceresio-2026.imageAlt': 'Giovani rematori in gara sul Lago di Lugano, Ticino',
 };
 
 export default blogMetaIt;

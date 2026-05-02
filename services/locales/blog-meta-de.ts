@@ -5053,6 +5053,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.massiccio-intervento-polizia-lugano-2026.title': 'Polizeieinsatz in der Pensilina in Lugano',
     'blog.article.massiccio-intervento-polizia-lugano-2026.excerpt': 'Große Polizeiaktion in Lugano mit Tränengas gegen eine aufgebrachte Gruppe',
     'blog.article.massiccio-intervento-polizia-lugano-2026.imageAlt': 'Luftaufnahme von Lugano in der Nacht mit Polizeieinsatz',
+    'blog.article.giovani-rematori-ceresio-2026.title': 'Junge Ruderer im Rampenlicht am Ceresio',
+    'blog.article.giovani-rematori-ceresio-2026.excerpt': 'Die 22. Jugendregatta, organisiert vom Ruderverein Ceresio Castagnola, fand am Freitag, dem 1. Mai 2026, statt',
+    'blog.article.giovani-rematori-ceresio-2026.imageAlt': 'Junge Ruderer im Wettkampf auf dem Luganersee, Tessin',
 };
 
 export default blogMetaDe;

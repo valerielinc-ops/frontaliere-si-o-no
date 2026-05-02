@@ -5053,6 +5053,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.massiccio-intervento-polizia-lugano-2026.title': 'Police intervention in Lugano\'s Pensilina',
     'blog.article.massiccio-intervento-polizia-lugano-2026.excerpt': 'Massive police operation in Lugano with tear gas against a group of agitated people',
     'blog.article.massiccio-intervento-polizia-lugano-2026.imageAlt': 'Aerial view of Lugano at night with police intervention',
+    'blog.article.giovani-rematori-ceresio-2026.title': 'Young rowers shine on Lake Lugano',
+    'blog.article.giovani-rematori-ceresio-2026.excerpt': 'The 22nd Youth Regatta organized by Canottieri Ceresio Castagnola took place on Friday, May 1st, 2026',
+    'blog.article.giovani-rematori-ceresio-2026.imageAlt': 'Young rowers competing on Lake Lugano, Ticino',
 };
 
 export default blogMetaEn;

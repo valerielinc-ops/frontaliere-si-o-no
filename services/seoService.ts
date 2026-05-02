@@ -2915,6 +2915,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-pensione-avs-inps-2026-errori-comuni': { name: 'Pensione Frontalieri', path: '/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-errori-comuni', parent: 'blog' },
     'blog-attivisti-flotilla-israele-interrogati': { name: 'Novità', path: '/articoli-frontaliere/attivisti-flotilla-israele-interrogati', parent: 'blog' },
     'blog-massiccio-intervento-polizia-lugano-2026': { name: 'Intervento polizia', path: '/articoli-frontaliere/massiccio-intervento-polizia-lugano-2026', parent: 'blog' },
+    'blog-giovani-rematori-ceresio-2026': { name: 'Novità', path: '/articoli-frontaliere/giovani-rematori-ceresio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

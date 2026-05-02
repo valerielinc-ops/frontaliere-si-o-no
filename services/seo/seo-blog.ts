@@ -35825,6 +35825,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giovani-rematori-ceresio-2026': {
+    title: 'Giovani rematori protagonisti sul Ceresio | Frontaliere Ticino',
+    description: 'La 22ª Regata giovanile organizzata dalla Canottieri Ceresio Castagnola si è tenuta venerdì 1° maggio 2026 sul Lago Ceresio. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovani, rematori, protagonisti, ceresio',
+    ogTitle: 'Giovani rematori protagonisti sul Ceresio',
+    ogDescription: 'La 22ª Regata giovanile organizzata dalla Canottieri Ceresio Castagnola si è tenuta venerdì 1° maggio 2026 sul Lago Ceresio.',
+    canonicalPath: '/articoli-frontaliere/giovani-rematori-ceresio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giovani rematori protagonisti sul Ceresio",
+      "description": "La 22ª Regata giovanile organizzata dalla Canottieri Ceresio Castagnola si è tenuta venerdì 1° maggio 2026 sul Lago Ceresio. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giovani-rematori-ceresio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani rematori in gara sul Lago di Lugano, Ticino"
+      },
+      "datePublished": "2026-05-02T05:50:48+00:00",
+      "dateModified": "2026-05-02T05:50:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giovani-rematori-ceresio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
