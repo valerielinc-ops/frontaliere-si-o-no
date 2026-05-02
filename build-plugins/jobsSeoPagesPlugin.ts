@@ -2823,6 +2823,12 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
 
  const parts: string[] = [];
 
+ // Job list first — most relevant content for landing visitors
+ parts.push(`<section style="margin-top:20px"><h2>${locale === 'it' ? 'Posizioni aperte' : locale === 'en' ? 'Open positions' : locale === 'de' ? 'Offene Stellen' : 'Postes ouverts'}</h2>`);
+ parts.push(`<ul style="list-style:none;padding:0;margin:16px 0">${jobListHtml}</ul>`);
+ parts.push(`<p><a href="${listingUrl}">${esc(copy.viewAll)}</a></p>`);
+ parts.push('</section>');
+
  // Company info section. When locationListStr / companySectors are empty
  // (small employers with 1-2 listings or thinly-classified sources), append
  // a fallback paragraph so the page still carries substantive context
@@ -2873,12 +2879,6 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
  parts.push('</section>');
  }
-
- // Job list
- parts.push(`<section style="margin-top:20px"><h2>${locale === 'it' ? 'Posizioni aperte' : locale === 'en' ? 'Open positions' : locale === 'de' ? 'Offene Stellen' : 'Postes ouverts'}</h2>`);
- parts.push(`<ul style="list-style:none;padding:0;margin:16px 0">${jobListHtml}</ul>`);
- parts.push(`<p><a href="${listingUrl}">${esc(copy.viewAll)}</a></p>`);
- parts.push('</section>');
 
  // Internal-linking chips (city + sector hubs)
  const hubChips = renderHubChipsHtml(companyJobs, locale);

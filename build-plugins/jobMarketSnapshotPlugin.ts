@@ -75,6 +75,7 @@ import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
+import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { JOB_RECENCY_LANDING_SLUGS } from './jobRecencyLanding';
 import { adSlotHtml } from './lib/adSlotHtml';
@@ -1059,7 +1060,10 @@ function renderTopList(
   const rows = items
     .map((item, idx) => {
       const logoSlug = isEmployerList ? slugifyEmployer(item.name) : '';
-      const logoUrl = rootDir && isEmployerList ? resolveBrandLogoUrl(rootDir, logoSlug) : null;
+      const logoUrl = isEmployerList
+        ? ((CRAWLED_COMPANY_LOGOS[logoSlug] as string | undefined) ??
+            (rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null))
+        : null;
       const card = renderEntityCard({
         href: item.url,
         title: `#${idx + 1} · ${item.name}`,

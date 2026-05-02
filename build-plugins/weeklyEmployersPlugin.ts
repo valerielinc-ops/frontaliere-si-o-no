@@ -86,7 +86,7 @@ import {
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
-import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
+import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
 import { renderJobCardHtml, type JobCardJob } from './shared/jobCardHtml';
 // Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
 // via the canonical `buildJobPostingSchema` builder.
@@ -166,6 +166,8 @@ export interface WeeklyCountableJob {
   };
   streetAddress?: string;
   postalCode?: string;
+  companyDomain?: string;
+  url?: string;
 }
 
 /** Minimal shape persisted to data/jobs-snapshots-history/{YYYY-WW}.json. */
@@ -560,6 +562,8 @@ export interface CompanyCityStats {
   topRoles: Array<{ role: string; count: number }>;
   /** Average advertised salary in CHF (rounded) when jobs expose a baseSalary. */
   avgSalary?: number;
+  /** Company domain (e.g. "lonza.com") for favicon-based logo fallback. */
+  companyDomain?: string;
 }
 
 /**
@@ -818,6 +822,7 @@ export function buildCompanyCityStats(opts: {
     previousCount,
     topRoles,
     avgSalary,
+    companyDomain: String(matching[0]?.companyDomain || '').trim() || undefined,
   };
 }
 
@@ -2564,7 +2569,12 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   const brandLogoSlug = stats.employerKey || slugifyEmployer(employer);
   const brandLogoUrl =
     (CRAWLED_COMPANY_LOGOS[brandLogoSlug] as string | undefined) ??
-    (rootDir ? resolveBrandLogoUrl(rootDir, brandLogoSlug) : null);
+    (rootDir ? resolveBrandLogoUrl(rootDir, brandLogoSlug) : null) ??
+    resolveCompanyLogoUrl({
+      company: employer,
+      companyKey: stats.employerKey,
+      companyDomain: stats.companyDomain,
+    });
   // Static-page mirror of `services/logoService.ts` `handleCompanyLogoError`:
   // Clearbit → Google favicon → /icons/company-placeholder.svg, guarded
   // against infinite loops via `data-lf`. Inline because static HTML cannot
@@ -2609,6 +2619,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
               postedDate: job.postedDate,
               salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : undefined,
               salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : undefined,
+              companyDomain: stats.companyDomain,
             };
             const card = renderJobCardHtml(cardJob, {
               href: job.detailPath,
