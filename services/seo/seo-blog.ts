@@ -36463,6 +36463,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carenza-carburante-svizzera-2026': {
+    title: 'Carenza carburante Svizzera: rischio alto, ecco perché',
+    description: 'Florence Schurch, Segretaria generale di Suissenégoce, avverte di un rischio elevato di carenza di carburante in Svizzera. Ecco i dettagli. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, carenza, carburante, rischio, alto',
+    ogTitle: 'Carenza carburante Svizzera: rischio alto, ecco perché',
+    ogDescription: 'Florence Schurch, Segretaria generale di Suissenégoce, avverte di un rischio elevato di carenza di carburante in Svizzera. Ecco i dettagli.',
+    canonicalPath: '/articoli-frontaliere/carenza-carburante-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carenza carburante Svizzera: rischio alto, ecco perché",
+      "description": "Florence Schurch, Segretaria generale di Suissenégoce, avverte di un rischio elevato di carenza di carburante in Svizzera. Ecco i dettagli. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carenza-carburante-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-02T09:36:25+00:00",
+      "dateModified": "2026-05-02T09:36:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carenza-carburante-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -5119,6 +5119,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.investimenti-immobiliari-italia-estero-2026.title': '60% der Immobilieninvestitionen in Italien kommen aus dem Ausland',
     'blog.article.investimenti-immobiliari-italia-estero-2026.excerpt': 'Laut Roberto Giovenco, COO von RINA Prime, stammen 60% der Immobilieninvestitionen in Italien aus dem Ausland, ein Zeichen für die Resilienz des Landes.',
     'blog.article.investimenti-immobiliari-italia-estero-2026.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.carenza-carburante-svizzera-2026.title': 'Benzinknappheit in der Schweiz: hohes Risiko, Gründe',
+    'blog.article.carenza-carburante-svizzera-2026.excerpt': 'Florence Schurch, Generalsekretärin von Suissenégoce, warnt vor einem hohen Risiko eines Benzinmangels in der Schweiz. Hier sind die Details.',
+    'blog.article.carenza-carburante-svizzera-2026.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

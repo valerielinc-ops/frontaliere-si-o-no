@@ -12958,4 +12958,11 @@ export const ARTICLES = [
  image: '/images/blog/investimenti-immobiliari-italia-estero-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'carenza-carburante-svizzera-2026',
+ category: 'novita',
+ date: '2026-05-02T09:36:25.900Z',
+ image: '/images/blog/carenza-carburante-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

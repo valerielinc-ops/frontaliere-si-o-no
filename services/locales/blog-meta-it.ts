@@ -5120,6 +5120,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.investimenti-immobiliari-italia-estero-2026.title': 'Il 60% degli investimenti immobiliari in Italia viene dall’estero',
     'blog.article.investimenti-immobiliari-italia-estero-2026.excerpt': 'Secondo Roberto Giovenco, COO di RINA Prime, il 60% degli investimenti immobiliari in Italia proviene dall\'estero, segnale di resilienza del Paese.',
     'blog.article.investimenti-immobiliari-italia-estero-2026.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.carenza-carburante-svizzera-2026.title': 'Carenza carburante Svizzera: rischio alto, ecco perché',
+    'blog.article.carenza-carburante-svizzera-2026.excerpt': 'Florence Schurch, Segretaria generale di Suissenégoce, avverte di un rischio elevato di carenza di carburante in Svizzera. Ecco i dettagli.',
+    'blog.article.carenza-carburante-svizzera-2026.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

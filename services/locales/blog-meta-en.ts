@@ -5119,6 +5119,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.investimenti-immobiliari-italia-estero-2026.title': '60% of Italian real estate investments come from abroad',
     'blog.article.investimenti-immobiliari-italia-estero-2026.excerpt': 'According to Roberto Giovenco, COO of RINA Prime, 60% of real estate investments in Italy come from abroad, a sign of the country\'s resilience.',
     'blog.article.investimenti-immobiliari-italia-estero-2026.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.carenza-carburante-svizzera-2026.title': 'High risk of fuel shortage in Switzerland: here\'s why',
+    'blog.article.carenza-carburante-svizzera-2026.excerpt': 'Florence Schurch, Secretary General of Suissenégoce, warns of a high risk of fuel shortage in Switzerland. Here are the details.',
+    'blog.article.carenza-carburante-svizzera-2026.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

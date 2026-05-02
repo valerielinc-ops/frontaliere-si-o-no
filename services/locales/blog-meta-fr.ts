@@ -5120,6 +5120,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.investimenti-immobiliari-italia-estero-2026.title': '60% des investissements immobiliers en Italie viennent de l\'étranger',
     'blog.article.investimenti-immobiliari-italia-estero-2026.excerpt': 'Selon Roberto Giovenco, COO de RINA Prime, 60% des investissements immobiliers en Italie proviennent de l\'étranger, signe de la résilience du pays.',
     'blog.article.investimenti-immobiliari-italia-estero-2026.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.carenza-carburante-svizzera-2026.title': 'Pénurie de carburant en Suisse: risque élevé, voici pourquoi',
+    'blog.article.carenza-carburante-svizzera-2026.excerpt': 'Florence Schurch, secrétaire générale de Suissenégoce, avertit d\'un risque élevé de pénurie de carburant en Suisse. Voici les détails.',
+    'blog.article.carenza-carburante-svizzera-2026.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
