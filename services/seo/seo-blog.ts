@@ -37594,6 +37594,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lago-segrino-camper-2026': {
+    title: 'Lago Segrino: No alle 105 piazzole per camper, distesa d\'asfalto',
+    description: 'Il Circolo Ambiente \'Ilaria Alpi\' si oppone al progetto di 105 piazzole per camper a Canzo vicino al Lago di Segrino, un sito di importanza comunitaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lago, segrino, alle, piazzole',
+    ogTitle: 'Lago Segrino: No alle 105 piazzole per camper, distesa d\'asfalto',
+    ogDescription: 'Il Circolo Ambiente \'Ilaria Alpi\' si oppone al progetto di 105 piazzole per camper a Canzo vicino al Lago di Segrino, un sito di importanza comunitaria.',
+    canonicalPath: '/articoli-frontaliere/lago-segrino-camper-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lago Segrino: No alle 105 piazzole per camper, distesa d'asfalto",
+      "description": "Il Circolo Ambiente 'Ilaria Alpi' si oppone al progetto di 105 piazzole per camper a Canzo vicino al Lago di Segrino, un sito di importanza comunitaria.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lago-segrino-camper-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena del Lago di Segrino in provincia di Como, Italia, con un focus sui dintorni naturali e sulle acque chiare del lago."
+      },
+      "datePublished": "2026-05-02T16:33:18+00:00",
+      "dateModified": "2026-05-02T16:33:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lago-segrino-camper-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

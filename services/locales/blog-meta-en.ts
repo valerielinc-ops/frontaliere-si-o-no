@@ -5236,6 +5236,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.beatificazione-don-roberto-malgesini-2026.title': 'Beatification process for Don Roberto Malgesini begins',
     'blog.article.beatificazione-don-roberto-malgesini-2026.excerpt': 'The Diocese of Como has started the process for the beatification of Don Roberto Malgesini, who was killed in 2020.',
     'blog.article.beatificazione-don-roberto-malgesini-2026.imageAlt': 'Lake Lugano with a church in the background',
+    'blog.article.lago-segrino-camper-2026.title': 'Lake Segrino: No to 105 camper pitches, asphalt area',
+    'blog.article.lago-segrino-camper-2026.excerpt': 'The \'Ilaria Alpi\' Environment Circle opposes the project of 105 camper pitches in Canzo, near Lake Segrino, a community site of importance.',
+    'blog.article.lago-segrino-camper-2026.imageAlt': 'Serene view of Lake Segrino in Como, Italy, focusing on the natural surroundings and the lake\'s clear waters.',
 };
 
 export default blogMetaEn;

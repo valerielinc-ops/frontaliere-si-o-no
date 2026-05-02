@@ -5237,6 +5237,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.beatificazione-don-roberto-malgesini-2026.title': 'Béatification de don Roberto Malgesini: la Diocèse de Côme lance la procédure',
     'blog.article.beatificazione-don-roberto-malgesini-2026.excerpt': 'La Diocèse de Côme a lancé le processus de béatification de don Roberto Malgesini, tué en 2020.',
     'blog.article.beatificazione-don-roberto-malgesini-2026.imageAlt': 'Lac de Lugano avec une église en arrière-plan',
+    'blog.article.lago-segrino-camper-2026.title': 'Lac de Segrino: Non aux 105 emplacements pour camping-cars',
+    'blog.article.lago-segrino-camper-2026.excerpt': 'Le Cercle Environnement \'Ilaria Alpi\' s\'oppose au projet de 105 emplacements pour camping-cars à Canzo, près du Lac de Segrino, un site d\'importance communautaire.',
+    'blog.article.lago-segrino-camper-2026.imageAlt': 'Vue sereine du lac de Segrino dans la province de Côme, en Italie, avec un accent sur les environs naturels et les eaux claires du lac.',
 };
 
 export default blogMetaFr;

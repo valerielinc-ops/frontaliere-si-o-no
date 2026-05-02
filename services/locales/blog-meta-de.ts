@@ -5236,6 +5236,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.beatificazione-don-roberto-malgesini-2026.title': 'Seligsprechung von Don Roberto Malgesini: Prozess gestartet',
     'blog.article.beatificazione-don-roberto-malgesini-2026.excerpt': 'Die Diözese Como hat das Verfahren zur Seligsprechung von Don Roberto Malgesini, der 2020 ermordet wurde, eingeleitet.',
     'blog.article.beatificazione-don-roberto-malgesini-2026.imageAlt': 'Luganersee mit einer Kirche im Hintergrund',
+    'blog.article.lago-segrino-camper-2026.title': 'Lago Segrino: Nein zu 105 Stellplätzen für Wohnmobile, Asphaltfläche',
+    'blog.article.lago-segrino-camper-2026.excerpt': 'Der Umweltkreis \'Ilaria Alpi\' widersetzt sich dem Projekt von 105 Stellplätzen für Wohnmobile in Canzo, nahe dem Lago di Segrino, einem Ort von gemeinschaftlicher Bedeutung.',
+    'blog.article.lago-segrino-camper-2026.imageAlt': 'Ruhevolle Aussicht auf den Segrino-See in der Provinz Como, Italien, mit Fokus auf die natürliche Umgebung und die klaren Gewässer des Sees.',
 };
 
 export default blogMetaDe;

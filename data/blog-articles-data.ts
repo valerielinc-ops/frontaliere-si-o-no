@@ -13231,4 +13231,11 @@ export const ARTICLES = [
  image: '/images/blog/beatificazione-don-roberto-malgesini-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lago-segrino-camper-2026',
+ category: 'novita',
+ date: '2026-05-02T16:33:18.777Z',
+ image: '/images/blog/lago-segrino-camper-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

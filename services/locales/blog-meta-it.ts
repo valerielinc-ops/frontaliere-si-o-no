@@ -5237,6 +5237,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.beatificazione-don-roberto-malgesini-2026.title': 'Beatificazione di don Roberto Malgesini: avvia l\'iter la Diocesi di Como',
     'blog.article.beatificazione-don-roberto-malgesini-2026.excerpt': 'La Diocesi di Como ha avviato il processo per la beatificazione di don Roberto Malgesini, ucciso nel 2020.',
     'blog.article.beatificazione-don-roberto-malgesini-2026.imageAlt': 'Lago di Lugano con una chiesa sullo sfondo',
+    'blog.article.lago-segrino-camper-2026.title': 'Lago Segrino: No alle 105 piazzole per camper, distesa d\'asfalto',
+    'blog.article.lago-segrino-camper-2026.excerpt': 'Il Circolo Ambiente \'Ilaria Alpi\' si oppone al progetto di 105 piazzole per camper a Canzo, vicino al Lago di Segrino, un sito di importanza comunitaria.',
+    'blog.article.lago-segrino-camper-2026.imageAlt': 'Vista serena del Lago di Segrino in provincia di Como, Italia, con un focus sui dintorni naturali e sulle acque chiare del lago.',
 };
 
 export default blogMetaIt;
