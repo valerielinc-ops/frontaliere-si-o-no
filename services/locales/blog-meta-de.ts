@@ -5047,6 +5047,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026-errori-comuni.title': 'Grenzgänger: AHV/INPS-Rente 2026, häufige Fehler und Checkliste',
     'blog.article.frontaliere-pensione-avs-inps-2026-errori-comuni.excerpt': 'Erfahren Sie mehr über häufige Fehler bei der Koordination von AHV/INPS für Grenzgänger im Tessin und wie Sie diese mit einer operativen Checkliste vermeiden können',
     'blog.article.frontaliere-pensione-avs-inps-2026-errori-comuni.imageAlt': 'Luganersee mit Blick auf die Berge und ein Boot im Vordergrund',
+    'blog.article.attivisti-flotilla-israele-interrogati.title': 'Zwei Aktivisten der Flotilla nach Israel gebracht',
+    'blog.article.attivisti-flotilla-israele-interrogati.excerpt': 'Saif Abu Keshek und Thiago Ávila, pro-palästinensische Aktivisten, werden nach der Abfangung der Flotilla von den israelischen Behörden verhört.',
+    'blog.article.attivisti-flotilla-israele-interrogati.imageAlt': 'LAC Lugano, modernes Kulturzentrum mit Stadtblick',
 };
 
 export default blogMetaDe;

@@ -35767,6 +35767,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attivisti-flotilla-israele-interrogati': {
+    title: 'Due attivisti Flotilla portati in Israele per interrogatorio',
+    description: 'Saif Abu Keshek e Thiago Ávila, attivisti pro-Palestina, saranno interrogati dalle autorità israeliane dopo l\'intercettazione della Flotilla. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, attivisti, flotilla, portati, israele',
+    ogTitle: 'Due attivisti Flotilla portati in Israele per interrogatorio',
+    ogDescription: 'Saif Abu Keshek e Thiago Ávila, attivisti pro-Palestina, saranno interrogati dalle autorità israeliane dopo l\'intercettazione della Flotilla.',
+    canonicalPath: '/articoli-frontaliere/attivisti-flotilla-israele-interrogati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Due attivisti Flotilla portati in Israele per interrogatorio",
+      "description": "Saif Abu Keshek e Thiago Ávila, attivisti pro-Palestina, saranno interrogati dalle autorità israeliane dopo l'intercettazione della Flotilla. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/attivisti-flotilla-israele-interrogati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "LAC Lugano, centro culturale moderno con vista sulla città"
+      },
+      "datePublished": "2026-05-02T05:26:05+00:00",
+      "dateModified": "2026-05-02T05:26:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/attivisti-flotilla-israele-interrogati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

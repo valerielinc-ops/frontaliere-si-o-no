@@ -2913,6 +2913,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cinque-mostre-maggio-gallarate-verbania-2026': { name: 'Mostre maggio 2026', path: '/articoli-frontaliere/cinque-mostre-maggio-gallarate-verbania-2026', parent: 'blog' },
     'blog-mal-dislanda-materia-castronno-2026': { name: 'Eventi', path: '/articoli-frontaliere/mal-dislanda-materia-castronno-2026', parent: 'blog' },
     'blog-frontaliere-pensione-avs-inps-2026-errori-comuni': { name: 'Pensione Frontalieri', path: '/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-errori-comuni', parent: 'blog' },
+    'blog-attivisti-flotilla-israele-interrogati': { name: 'Novità', path: '/articoli-frontaliere/attivisti-flotilla-israele-interrogati', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -12790,4 +12790,11 @@ export const ARTICLES = [
  image: '/images/blog/frontaliere-pensione-avs-inps-2026-errori-comuni.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'attivisti-flotilla-israele-interrogati',
+ category: 'novita',
+ date: '2026-05-02T05:26:05.188Z',
+ image: '/images/blog/attivisti-flotilla-israele-interrogati.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

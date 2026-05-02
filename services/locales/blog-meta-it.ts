@@ -5048,6 +5048,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026-errori-comuni.title': 'Frontaliere: pensione AVS/INPS 2026, errori comuni e checklist',
     'blog.article.frontaliere-pensione-avs-inps-2026-errori-comuni.excerpt': 'Scopri gli errori comuni nel coordinamento AVS/INPS per i frontalieri Ticino e come evitarli con una checklist operativa',
     'blog.article.frontaliere-pensione-avs-inps-2026-errori-comuni.imageAlt': 'Lago di Lugano con vista sulle montagne e una barca in primo piano',
+    'blog.article.attivisti-flotilla-israele-interrogati.title': 'Due attivisti Flotilla portati in Israele per interrogatorio',
+    'blog.article.attivisti-flotilla-israele-interrogati.excerpt': 'Saif Abu Keshek e Thiago Ávila, attivisti pro-Palestina, saranno interrogati dalle autorità israeliane dopo l\'intercettazione della Flotilla.',
+    'blog.article.attivisti-flotilla-israele-interrogati.imageAlt': 'LAC Lugano, centro culturale moderno con vista sulla città',
 };
 
 export default blogMetaIt;
