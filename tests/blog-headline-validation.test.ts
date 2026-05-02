@@ -192,9 +192,7 @@ describe('validateHeadline — A5 Google News compliance unit tests', () => {
     });
 
     it('returns a single error for non-string input', () => {
-      // @ts-expect-error — intentional bad type for the runtime check
       expect(validateHeadline(undefined)).toEqual(['Headline mancante o non stringa']);
-      // @ts-expect-error
       expect(validateHeadline(123)).toEqual(['Headline mancante o non stringa']);
     });
 
