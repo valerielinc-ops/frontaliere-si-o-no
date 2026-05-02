@@ -37768,6 +37768,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bambini-carabinieri-como-2026': {
+    title: 'Bambini delle elementari in visita dai Carabinieri di Como',
+    description: '38 alunni della scuola primaria Nazario Sauro hanno visitato la caserma dei Carabinieri di Como nell\'ambito della campagna \'Cultura della Legalità\'.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bambini, elementari, visita, carabinieri',
+    ogTitle: 'Bambini in visita dai Carabinieri di Como',
+    ogDescription: '38 alunni della scuola primaria Nazario Sauro hanno visitato la caserma dei Carabinieri di Como nell\'ambito della campagna \'Cultura della Legalità\'.',
+    canonicalPath: '/articoli-frontaliere/bambini-carabinieri-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bambini in visita dai Carabinieri di Como",
+      "description": "38 alunni della scuola primaria Nazario Sauro hanno visitato la caserma dei Carabinieri di Como nell'ambito della campagna 'Cultura della Legalità'.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bambini-carabinieri-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bambini in visita alla caserma dei Carabinieri di Como"
+      },
+      "datePublished": "2026-05-02T17:20:15+00:00",
+      "dateModified": "2026-05-02T17:20:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bambini-carabinieri-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

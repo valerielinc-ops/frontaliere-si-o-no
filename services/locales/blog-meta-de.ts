@@ -5254,6 +5254,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.patriot-ritardo-svizzera-valuta-alternative.title': 'Patriot-Systeme: Berna sucht Alternativen',
     'blog.article.patriot-ritardo-svizzera-valuta-alternative.excerpt': 'Die Schweiz sucht nach Alternativen zu den verspäteten Patriot-Systemen und konsultiert Deutschland, Frankreich, Israel und Südkorea.',
     'blog.article.patriot-ritardo-svizzera-valuta-alternative.imageAlt': 'Luftverteidigungssystem in Ticino',
+    'blog.article.bambini-carabinieri-como-2026.title': 'Grundschüler besuchen die Carabinieri in Como',
+    'blog.article.bambini-carabinieri-como-2026.excerpt': '38 Schüler der Primarschule Nazario Sauro besuchten im Rahmen der Kampagne \'Kultur der Legalität\' die Kaserne der Carabinieri in Como.',
+    'blog.article.bambini-carabinieri-como-2026.imageAlt': 'Kinder besuchen die Carabinieri-Station in Como',
 };
 
 export default blogMetaDe;

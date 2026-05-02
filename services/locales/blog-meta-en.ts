@@ -5254,6 +5254,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.patriot-ritardo-svizzera-valuta-alternative.title': 'Patriot delayed, Bern seeks alternatives',
     'blog.article.patriot-ritardo-svizzera-valuta-alternative.excerpt': 'Switzerland looks for alternatives to delayed Patriot systems, consulting Germany, France, Israel, and South Korea.',
     'blog.article.patriot-ritardo-svizzera-valuta-alternative.imageAlt': 'Air defense system in Ticino',
+    'blog.article.bambini-carabinieri-como-2026.title': 'Primary school kids visit Como Carabinieri',
+    'blog.article.bambini-carabinieri-como-2026.excerpt': '38 pupils from Nazario Sauro primary school visited the Como Carabinieri barracks as part of the \'Culture of Legality\' campaign.',
+    'blog.article.bambini-carabinieri-como-2026.imageAlt': 'Children visiting the Carabinieri station in Como',
 };
 
 export default blogMetaEn;

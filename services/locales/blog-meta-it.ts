@@ -5255,6 +5255,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.patriot-ritardo-svizzera-valuta-alternative.title': 'Patriot in ritardo, Berna valuta altri sistemi',
     'blog.article.patriot-ritardo-svizzera-valuta-alternative.excerpt': 'La Svizzera cerca alternative ai sistemi Patriot in ritardo, interpellando Germania, Francia, Israele e Corea del Sud.',
     'blog.article.patriot-ritardo-svizzera-valuta-alternative.imageAlt': 'Sistema di difesa aerea in Ticino',
+    'blog.article.bambini-carabinieri-como-2026.title': 'Bambini delle elementari in visita dai Carabinieri di Como',
+    'blog.article.bambini-carabinieri-como-2026.excerpt': '38 alunni della scuola primaria Nazario Sauro hanno visitato la caserma dei Carabinieri di Como nell\'ambito della campagna \'Cultura della Legalità\'.',
+    'blog.article.bambini-carabinieri-como-2026.imageAlt': 'Bambini in visita alla caserma dei Carabinieri di Como',
 };
 
 export default blogMetaIt;

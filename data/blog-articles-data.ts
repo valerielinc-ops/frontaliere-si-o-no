@@ -13273,4 +13273,11 @@ export const ARTICLES = [
  image: '/images/blog/patriot-ritardo-svizzera-valuta-alternative.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'bambini-carabinieri-como-2026',
+ category: 'novita',
+ date: '2026-05-02T17:20:15.711Z',
+ image: '/images/blog/bambini-carabinieri-como-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

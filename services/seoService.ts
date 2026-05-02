@@ -2982,6 +2982,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-hockey-sconfitta-finlandia': { name: 'Novità', path: '/articoli-frontaliere/svizzera-hockey-sconfitta-finlandia', parent: 'blog' },
     'blog-pd-como-sfiducia-maccabeo-2026': { name: 'Novità', path: '/articoli-frontaliere/pd-como-sfiducia-maccabeo-2026', parent: 'blog' },
     'blog-patriot-ritardo-svizzera-valuta-alternative': { name: 'Novità', path: '/articoli-frontaliere/patriot-ritardo-svizzera-valuta-alternative', parent: 'blog' },
+    'blog-bambini-carabinieri-como-2026': { name: 'Novità', path: '/articoli-frontaliere/bambini-carabinieri-como-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
