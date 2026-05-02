@@ -151,9 +151,11 @@ export function parseSearchResults(html) {
 
     // Extract title from the first cell (may be inside the <a> tag)
     const titleFromLink = rowHtml.match(/<a[^>]+href="\/Switzerland\/job\/[^"]*"[^>]*>([\s\S]*?)<\/a>/i);
-    const title = titleFromLink
+    const rawTitle = titleFromLink
       ? normalizeSpace(stripHtml(titleFromLink[1]))
       : cells[0];
+    // SuccessFactors occasionally prefixes with a language label ("Title:", "Titre:", "Bezeichnung:")
+    const title = rawTitle.replace(/^(?:Title|Titre|Bezeichnung|Titolo|Titulo)\s*:\s*/i, '').trim();
 
     if (!title || title.length < 3) continue;
 
