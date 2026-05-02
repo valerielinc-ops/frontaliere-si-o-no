@@ -70,7 +70,11 @@ export default function AdSenseBanner({
  className = '',
  adLayoutKey,
  adLayout,
- label,
+ // Italian "Advertisement" disclosure label — required by Google Publisher
+ // Policies and Italian consumer-transparency rules. Always rendered above
+ // the ad slot once it fills (hidden via wrapper opacity while collapsed).
+ // Pass an explicit empty string to opt out (not recommended).
+ label = 'Pubblicità',
  enabled = true,
  reserveSpace = false,
 }: AdSenseBannerProps) {

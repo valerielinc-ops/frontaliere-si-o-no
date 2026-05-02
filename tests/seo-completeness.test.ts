@@ -165,7 +165,7 @@ const VALID_SCHEMA_TYPES = new Set([
   'Article', 'BlogPosting', 'NewsArticle', 'HowTo', 'FAQPage', 'Dataset', 'Quiz',
   'CollectionPage', 'ContactPage', 'ItemList', 'AboutPage',
   'Service', 'DiscussionForum', 'BreadcrumbList',
-  'Organization', 'FinancialService', 'DefinedTermSet', 'DefinedTerm',
+  'Organization', 'NewsMediaOrganization', 'FinancialService', 'DefinedTermSet', 'DefinedTerm',
   'Product', 'Offer', 'Event', 'Review', 'AggregateRating',
   // ClaimReview: fact-check markup emitted by services/seo/claim-review.ts on pillar pages
   // (AE-8). Verifiable factual claims are paired with AFC/AdE/UFAS/UFSP/bilateral-accord sources.
