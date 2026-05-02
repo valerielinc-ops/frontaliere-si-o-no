@@ -12601,4 +12601,11 @@ export const ARTICLES = [
  image: '/images/blog/presentazione-libro-odio-massacro-varese.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'fattura-miliardaria-energia-2026',
+ category: 'novita',
+ date: '2026-05-02T00:06:32.051Z',
+ image: '/images/blog/fattura-miliardaria-energia-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

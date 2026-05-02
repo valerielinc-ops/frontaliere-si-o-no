@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1705,
+ "numberOfItems": 1706,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6340,7 +6340,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1702, "name": "Docente arrestato a Giubiasco, richiesta prorog...", "url": `${BASE_URL}/articoli-frontaliere/docente-arrestato-giubiasco-proroga` },
           { "@type": "ListItem", "position": 1703, "name": "L'angelo custode della IA evita i colpi di sonn...", "url": `${BASE_URL}/articoli-frontaliere/angelo-custode-ia-colpo-sonno` },
           { "@type": "ListItem", "position": 1704, "name": "Agenzia formativa Varese: dimissioni del CDA", "url": `${BASE_URL}/articoli-frontaliere/agenzia-formativa-varese-dimissioni-2026` },
-          { "@type": "ListItem", "position": 1705, "name": "Varese: presentazione libro sul femminismo paci...", "url": `${BASE_URL}/articoli-frontaliere/presentazione-libro-odio-massacro-varese` }
+          { "@type": "ListItem", "position": 1705, "name": "Varese: presentazione libro sul femminismo paci...", "url": `${BASE_URL}/articoli-frontaliere/presentazione-libro-odio-massacro-varese` },
+          { "@type": "ListItem", "position": 1706, "name": "Energia: la fattura miliardaria del conflitto i...", "url": `${BASE_URL}/articoli-frontaliere/fattura-miliardaria-energia-2026` }
  ]
  },
  {

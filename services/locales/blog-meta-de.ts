@@ -4966,6 +4966,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.presentazione-libro-odio-massacro-varese.title': 'Varese: Buchvorstellung über pazifistischen Feminismus',
     'blog.article.presentazione-libro-odio-massacro-varese.excerpt': 'Donnerstag, 7. Mai, im Sala Morselli in Varese, Vorstellung des Buches \'Al di sopra dell’odio e del massacro\' von Lacaita und Suriano',
     'blog.article.presentazione-libro-odio-massacro-varese.imageAlt': 'Sala Morselli Bibliothek Varese Buchvorstellung',
+    'blog.article.fattura-miliardaria-energia-2026.title': 'Energie: Die milliardenschwere Rechnung des Nahost-Konflikts',
+    'blog.article.fattura-miliardaria-energia-2026.excerpt': 'Der Dieselpreis übersteigt in der Schweiz 2 Franken pro Liter aufgrund des Nahost-Konflikts, mit zusätzlichen Kosten für Familien und Unternehmen',
+    'blog.article.fattura-miliardaria-energia-2026.imageAlt': 'Luganersee mit Blick auf die Stadt, Boote auf dem Wasser, Menschen spazieren am Ufer entlang',
 };
 
 export default blogMetaDe;

@@ -2886,6 +2886,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-angelo-custode-ia-colpo-sonno': { name: 'Novità', path: '/articoli-frontaliere/angelo-custode-ia-colpo-sonno', parent: 'blog' },
     'blog-agenzia-formativa-varese-dimissioni-2026': { name: 'Novità', path: '/articoli-frontaliere/agenzia-formativa-varese-dimissioni-2026', parent: 'blog' },
     'blog-presentazione-libro-odio-massacro-varese': { name: 'Eventi culturali', path: '/articoli-frontaliere/presentazione-libro-odio-massacro-varese', parent: 'blog' },
+    'blog-fattura-miliardaria-energia-2026': { name: 'Novità', path: '/articoli-frontaliere/fattura-miliardaria-energia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

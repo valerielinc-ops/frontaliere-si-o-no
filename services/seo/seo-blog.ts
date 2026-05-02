@@ -34984,6 +34984,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fattura-miliardaria-energia-2026': {
+    title: 'Energia: la fattura miliardaria del conflitto in Medio Oriente',
+    description: 'Il prezzo del diesel supera i 2 franchi al litro in Svizzera a causa del conflitto in Medio Oriente, con costi aggiuntivi per famiglie e imprese. Dati',
+    keywords: 'frontalieri, ticino, svizzera, italia, energia, fattura, miliardaria, conflitto',
+    ogTitle: 'Energia: la fattura miliardaria del conflitto in Medio Oriente',
+    ogDescription: 'Il prezzo del diesel supera i 2 franchi al litro in Svizzera a causa del conflitto in Medio Oriente, con costi aggiuntivi per famiglie e imprese',
+    canonicalPath: '/articoli-frontaliere/fattura-miliardaria-energia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Energia: la fattura miliardaria del conflitto in Medio Oriente",
+      "description": "Il prezzo del diesel supera i 2 franchi al litro in Svizzera a causa del conflitto in Medio Oriente, con costi aggiuntivi per famiglie e imprese. Dati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fattura-miliardaria-energia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulla città, barche sull'acqua, persone che camminano lungo la riva"
+      },
+      "datePublished": "2026-05-02T00:06:32+00:00",
+      "dateModified": "2026-05-02T00:06:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fattura-miliardaria-energia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

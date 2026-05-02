@@ -4966,6 +4966,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.presentazione-libro-odio-massacro-varese.title': 'Varese: book presentation on pacifist feminism',
     'blog.article.presentazione-libro-odio-massacro-varese.excerpt': 'On Thursday, May 7th, in Sala Morselli in Varese, the book \'Above Hatred and Massacre\' by Lacaita and Suriano will be presented',
     'blog.article.presentazione-libro-odio-massacro-varese.imageAlt': 'Sala Morselli Civic Library Varese book presentation',
+    'blog.article.fattura-miliardaria-energia-2026.title': 'Energy: the billion-dollar Middle East conflict bill',
+    'blog.article.fattura-miliardaria-energia-2026.excerpt': 'Diesel prices exceed 2 francs per litre in Switzerland due to the Middle East conflict, adding extra costs for families and businesses',
+    'blog.article.fattura-miliardaria-energia-2026.imageAlt': 'Lake Lugano with a view of the city, boats on the water, people walking along the shore',
 };
 
 export default blogMetaEn;

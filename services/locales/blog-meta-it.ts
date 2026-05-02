@@ -4967,6 +4967,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.presentazione-libro-odio-massacro-varese.title': 'Varese: presentazione libro sul femminismo pacifista',
     'blog.article.presentazione-libro-odio-massacro-varese.excerpt': 'Giovedì 7 maggio in Sala Morselli a Varese, presentazione libro \'Al di sopra dell’odio e del massacro\' di Lacaita e Suriano',
     'blog.article.presentazione-libro-odio-massacro-varese.imageAlt': 'Sala Morselli Biblioteca Civica Varese presentazione libro',
+    'blog.article.fattura-miliardaria-energia-2026.title': 'Energia: la fattura miliardaria del conflitto in Medio Oriente',
+    'blog.article.fattura-miliardaria-energia-2026.excerpt': 'Il prezzo del diesel supera i 2 franchi al litro in Svizzera a causa del conflitto in Medio Oriente, con costi aggiuntivi per famiglie e imprese',
+    'blog.article.fattura-miliardaria-energia-2026.imageAlt': 'Lago di Lugano con vista sulla città, barche sull\'acqua, persone che camminano lungo la riva',
 };
 
 export default blogMetaIt;
