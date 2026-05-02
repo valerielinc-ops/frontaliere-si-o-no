@@ -35941,6 +35941,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vino-alto-ticino-scudellate-2026': {
+    title: 'Il vino più alto del Ticino prodotto a Scudellate | Frontaliere Ticino',
+    description: 'Scopri il vino \'909\', prodotto a 909 metri in Valle di Muggio, e le sue caratteristiche uniche. Presentazione ufficiale il 3 maggio 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vino, alto, prodotto, scudellate',
+    ogTitle: 'Il vino più alto del Ticino prodotto a Scudellate',
+    ogDescription: 'Scopri il vino \'909\', prodotto a 909 metri in Valle di Muggio, e le sue caratteristiche uniche. Presentazione ufficiale il 3 maggio 2026.',
+    canonicalPath: '/articoli-frontaliere/vino-alto-ticino-scudellate-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Il vino più alto del Ticino prodotto a Scudellate\",\"description\":\"Scopri il vino '909', prodotto a 909 metri in Valle di Muggio, e le sue caratteristiche uniche. Presentazione ufficiale il 3 maggio 2026.\",\"datePublished\":\"2026-05-02\",\"image\":\"https://frontaliereticino.ch/images/monte-generoso.webp\"}",
+      "description": "Scopri il vino '909', prodotto a 909 metri in Valle di Muggio, e le sue caratteristiche uniche. Presentazione ufficiale il 3 maggio 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vino-alto-ticino-scudellate-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vigneti di Scudellate in Valle di Muggio, Ticino, con vista sul Monte Generoso"
+      },
+      "datePublished": "2026-05-02T06:43:35+00:00",
+      "dateModified": "2026-05-02T06:43:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vino-alto-ticino-scudellate-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

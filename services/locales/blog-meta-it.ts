@@ -5066,6 +5066,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.libriamoci-varese-studenti-2026.title': 'Oltre mille studenti in gara per il concorso Libriamoci a Varese',
     'blog.article.libriamoci-varese-studenti-2026.excerpt': 'La diciottesima edizione del concorso Libriamoci a Varese vede la partecipazione di quasi mille studenti con testi narrativi ed elaborati grafico-pittorici.',
     'blog.article.libriamoci-varese-studenti-2026.imageAlt': 'Studenti presentano i loro lavori al concorso Libriamoci a Varese',
+    'blog.article.vino-alto-ticino-scudellate-2026.title': 'Il vino più alto del Ticino prodotto a Scudellate',
+    'blog.article.vino-alto-ticino-scudellate-2026.excerpt': 'Scopriamo il vino \'909\', prodotto a 909 metri di altitudine in Valle di Muggio, e le sue caratteristiche uniche',
+    'blog.article.vino-alto-ticino-scudellate-2026.imageAlt': 'Vigneti di Scudellate in Valle di Muggio, Ticino, con vista sul Monte Generoso',
 };
 
 export default blogMetaIt;

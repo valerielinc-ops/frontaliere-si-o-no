@@ -5066,6 +5066,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.libriamoci-varese-studenti-2026.title': 'Près de mille élèves en lice pour le concours Libriamoci à Varèse',
     'blog.article.libriamoci-varese-studenti-2026.excerpt': 'La dix-huitième édition du concours Libriamoci à Varèse compte près de mille élèves participants avec des textes narratifs et des travaux graphico-picturaux.',
     'blog.article.libriamoci-varese-studenti-2026.imageAlt': 'Des élèves présentent leurs travaux lors du concours Libriamoci à Varese',
+    'blog.article.vino-alto-ticino-scudellate-2026.title': 'Le vin le plus élevé du Tessin produit à Scudellate',
+    'blog.article.vino-alto-ticino-scudellate-2026.excerpt': 'Découvrez le vin \'909\', produit à 909 mètres d\'altitude dans la vallée de Muggio, et ses caractéristiques uniques',
+    'blog.article.vino-alto-ticino-scudellate-2026.imageAlt': 'Vignobles de Scudellate dans la vallée de Muggio, Tessin, avec vue sur le Monte Generoso',
 };
 
 export default blogMetaFr;

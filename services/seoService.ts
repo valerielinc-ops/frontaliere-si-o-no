@@ -2919,6 +2919,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-permesso-g-b-2026-20km-frontalieri': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/permesso-g-b-2026-20km-frontalieri', parent: 'blog' },
     'blog-cure-domicilio-pensionati-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/cure-domicilio-pensionati-ticino-2026', parent: 'blog' },
     'blog-libriamoci-varese-studenti-2026': { name: 'Concorso Libriamoci', path: '/articoli-frontaliere/libriamoci-varese-studenti-2026', parent: 'blog' },
+    'blog-vino-alto-ticino-scudellate-2026': { name: 'Novità Ticino', path: '/articoli-frontaliere/vino-alto-ticino-scudellate-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -12832,4 +12832,11 @@ export const ARTICLES = [
  image: '/images/blog/libriamoci-varese-studenti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vino-alto-ticino-scudellate-2026',
+ category: 'novita',
+ date: '2026-05-02T06:43:35.480Z',
+ image: '/images/blog/vino-alto-ticino-scudellate-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
