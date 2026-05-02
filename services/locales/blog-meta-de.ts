@@ -5233,6 +5233,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vino-amaro-vallese-2026.title': 'Bitterer Wein im Wallis: Provins SA meldet Verluste und drastische Maßnahmen',
     'blog.article.vino-amaro-vallese-2026.excerpt': 'Provins SA, ein Schlüsselunternehmen des Walliser Weinbaus, kündigt für 2025 einen Verlust von 6 Millionen Franken und drastische Maßnahmen zur Anpassung an die Krise des Sektors an.',
     'blog.article.vino-amaro-vallese-2026.imageAlt': 'Weinberg in Tessin mit Arbeiter und Bergen im Hintergrund',
+    'blog.article.beatificazione-don-roberto-malgesini-2026.title': 'Seligsprechung von Don Roberto Malgesini: Prozess gestartet',
+    'blog.article.beatificazione-don-roberto-malgesini-2026.excerpt': 'Die Diözese Como hat das Verfahren zur Seligsprechung von Don Roberto Malgesini, der 2020 ermordet wurde, eingeleitet.',
+    'blog.article.beatificazione-don-roberto-malgesini-2026.imageAlt': 'Luganersee mit einer Kirche im Hintergrund',
 };
 
 export default blogMetaDe;

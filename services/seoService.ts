@@ -2975,6 +2975,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-scontri-lugano-pensilina-2024': { name: 'Scontri Lugano', path: '/articoli-frontaliere/scontri-lugano-pensilina-2024', parent: 'blog' },
     'blog-gordola-santa-maria-ricorso-2026': { name: 'Novità Gordola', path: '/articoli-frontaliere/gordola-santa-maria-ricorso-2026', parent: 'blog' },
     'blog-vino-amaro-vallese-2026': { name: 'Vino amaro in Vallese', path: '/articoli-frontaliere/vino-amaro-vallese-2026', parent: 'blog' },
+    'blog-beatificazione-don-roberto-malgesini-2026': { name: 'Beatificazione don Roberto Malgesini', path: '/articoli-frontaliere/beatificazione-don-roberto-malgesini-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -37565,6 +37565,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-beatificazione-don-roberto-malgesini-2026': {
+    title: 'Beatificazione di don Roberto Malgesini: avvia l\'iter la Diocesi di Como',
+    description: 'La Diocesi di Como ha avviato il processo per la beatificazione di don Roberto Malgesini, ucciso nel 2020. Scopri come contribuire. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, beatificazione, roberto, malgesini, avvia',
+    ogTitle: 'Beatificazione don Roberto Malgesini: avvia l\'iter la Diocesi di Como',
+    ogDescription: 'La Diocesi di Como ha avviato il processo per la beatificazione di don Roberto Malgesini, ucciso nel 2020. Scopri come contribuire.',
+    canonicalPath: '/articoli-frontaliere/beatificazione-don-roberto-malgesini-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"it\":\"Beatificazione don Roberto Malgesini: avvia l'iter la Diocesi di Como\"}",
+      "description": "La Diocesi di Como ha avviato il processo per la beatificazione di don Roberto Malgesini, ucciso nel 2020. Scopri come contribuire. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/beatificazione-don-roberto-malgesini-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con una chiesa sullo sfondo"
+      },
+      "datePublished": "2026-05-02T16:27:10+00:00",
+      "dateModified": "2026-05-02T16:27:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/beatificazione-don-roberto-malgesini-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

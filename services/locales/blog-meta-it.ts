@@ -5234,6 +5234,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vino-amaro-vallese-2026.title': 'Vino amaro in Vallese: Provins SA annuncia perdite e misure drastiche',
     'blog.article.vino-amaro-vallese-2026.excerpt': 'Provins SA, azienda chiave della viticoltura vallesana, annuncia una perdita di 6 milioni di franchi per il 2025 e misure drastiche per adattarsi alla crisi del settore.',
     'blog.article.vino-amaro-vallese-2026.imageAlt': 'Vigneto in Ticino con lavoratore e montagne in sfondo',
+    'blog.article.beatificazione-don-roberto-malgesini-2026.title': 'Beatificazione di don Roberto Malgesini: avvia l\'iter la Diocesi di Como',
+    'blog.article.beatificazione-don-roberto-malgesini-2026.excerpt': 'La Diocesi di Como ha avviato il processo per la beatificazione di don Roberto Malgesini, ucciso nel 2020.',
+    'blog.article.beatificazione-don-roberto-malgesini-2026.imageAlt': 'Lago di Lugano con una chiesa sullo sfondo',
 };
 
 export default blogMetaIt;

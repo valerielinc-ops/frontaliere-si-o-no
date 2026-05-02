@@ -13224,4 +13224,11 @@ export const ARTICLES = [
  image: '/images/blog/vino-amaro-vallese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'beatificazione-don-roberto-malgesini-2026',
+ category: 'novita',
+ date: '2026-05-02T16:27:10.818Z',
+ image: '/images/blog/beatificazione-don-roberto-malgesini-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

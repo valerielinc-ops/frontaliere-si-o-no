@@ -5233,6 +5233,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vino-amaro-vallese-2026.title': 'Bitter wine in Valais: Provins SA announces losses and drastic measures',
     'blog.article.vino-amaro-vallese-2026.excerpt': 'Provins SA, a key player in Valais viticulture, announces a loss of 6 million francs for 2025 and drastic measures to adapt to the sector\'s crisis.',
     'blog.article.vino-amaro-vallese-2026.imageAlt': 'Vineyard in Ticino with worker and mountains in the background',
+    'blog.article.beatificazione-don-roberto-malgesini-2026.title': 'Beatification process for Don Roberto Malgesini begins',
+    'blog.article.beatificazione-don-roberto-malgesini-2026.excerpt': 'The Diocese of Como has started the process for the beatification of Don Roberto Malgesini, who was killed in 2020.',
+    'blog.article.beatificazione-don-roberto-malgesini-2026.imageAlt': 'Lake Lugano with a church in the background',
 };
 
 export default blogMetaEn;
