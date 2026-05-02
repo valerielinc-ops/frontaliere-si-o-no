@@ -4981,6 +4981,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gratis-museo-costume-bagno-2026.title': 'Kostenlos im Museum im Badeanzug: Initiative der Fondation Beyeler',
     'blog.article.gratis-museo-costume-bagno-2026.excerpt': 'Die Fondation Beyeler in Riehen bietet freien Eintritt im Badeanzug für einen Tag, der Paul Cézanne und seinen Gemälden von Badenden gewidmet ist.',
     'blog.article.gratis-museo-costume-bagno-2026.imageAlt': 'Fondation Beyeler Museum in Riehen, Schweiz',
+    'blog.article.ippodromo-varese-svicc-allenatori.title': 'Räumung für Trainer: Svicc schließt Reitanlagen in Varese',
+    'blog.article.ippodromo-varese-svicc-allenatori.excerpt': 'Die Svicc setzt Trainer der Reitanlagen in Varese innerhalb von 60 Tagen vor die Tür. Projekt zur Demolition und Renovierung',
+    'blog.article.ippodromo-varese-svicc-allenatori.imageAlt': 'Rennbahn Varese mit Pferden in den Stallungen',
 };
 
 export default blogMetaDe;

@@ -4981,6 +4981,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gratis-museo-costume-bagno-2026.title': 'Free Museum Entry in Swimwear at Beyeler Foundation',
     'blog.article.gratis-museo-costume-bagno-2026.excerpt': 'The Beyeler Foundation in Riehen offers free entry in swimwear for a day dedicated to Paul Cézanne and his paintings of bathers.',
     'blog.article.gratis-museo-costume-bagno-2026.imageAlt': 'Fondation Beyeler Museum in Riehen, Switzerland',
+    'blog.article.ippodromo-varese-svicc-allenatori.title': 'Svicc evicts trainers, closes Varese stables',
+    'blog.article.ippodromo-varese-svicc-allenatori.excerpt': 'Svicc evicts trainers from Varese stables within 60 days. Demolition and renovation project underway.',
+    'blog.article.ippodromo-varese-svicc-allenatori.imageAlt': 'Varese racetrack with horses in stables',
 };
 
 export default blogMetaEn;
