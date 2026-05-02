@@ -12720,4 +12720,11 @@ export const ARTICLES = [
  image: '/images/blog/unitalsi-busto-varese-malati-spiritualita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'isola-artica-islanda-pugliese',
+ category: 'novita',
+ date: '2026-05-02T03:32:20.160Z',
+ image: '/images/blog/isola-artica-islanda-pugliese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

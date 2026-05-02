@@ -35477,6 +35477,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-isola-artica-islanda-pugliese': {
+    title: 'Vita ai confini del mondo sull\'isola artica d\'Islanda',
+    description: 'Scopri la storia di Leonardo Piccione, un pugliese che ha trascorso mesi sull\'isola di Grímsey in Islanda, lavorando e scrivendo un libro sulla sua esperienza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vita, confini, mondo, sull',
+    ogTitle: 'Vita ai confini del mondo sull\'isola artica d\'Islanda',
+    ogDescription: 'Scopri la storia di Leonardo Piccione, un pugliese che ha trascorso mesi sull\'isola di Grímsey in Islanda, lavorando e scrivendo un libro sulla sua esperienza.',
+    canonicalPath: '/articoli-frontaliere/isola-artica-islanda-pugliese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Vita ai confini del mondo sull'isola artica d'Islanda\",\"description\":\"Scopri la storia di Leonardo Piccione, un pugliese che ha trascorso mesi sull'isola di Grímsey in Islanda, lavorando e scrivendo un libro sulla sua esperienza.\",\"datePublished\":\"2026-05-15\",\"dateModified\":\"2026-05-15\",\"author\":{\"@type\":\"Organization\",\"name\":\"Frontaliere Ticino\"}}",
+      "description": "Scopri la storia di Leonardo Piccione, un pugliese che ha trascorso mesi sull'isola di Grímsey in Islanda, lavorando e scrivendo un libro sulla sua esperienza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/isola-artica-islanda-pugliese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con le montagne circostanti"
+      },
+      "datePublished": "2026-05-02T03:32:20+00:00",
+      "dateModified": "2026-05-02T03:32:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/isola-artica-islanda-pugliese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

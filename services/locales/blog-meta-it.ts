@@ -5018,6 +5018,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.unitalsi-busto-varese-malati-spiritualita.title': 'Unitalsi Busto e Varese: sollievo spirituale e miracoli per i malati',
     'blog.article.unitalsi-busto-varese-malati-spiritualita.excerpt': 'Scopri come l\'Unitalsi di Busto Arsizio e Varese offre supporto ai malati attraverso pellegrinaggi e assistenza spirituale.',
     'blog.article.unitalsi-busto-varese-malati-spiritualita.imageAlt': 'Volontari Unitalsi assistono malati vicino al Lago di Lugano',
+    'blog.article.isola-artica-islanda-pugliese.title': 'Vita ai confini del mondo sull\'isola artica d\'Islanda',
+    'blog.article.isola-artica-islanda-pugliese.excerpt': 'La storia di Leonardo Piccione, un pugliese che ha trascorso mesi sull\'isola di Grímsey, in Islanda, lavorando e scrivendo un libro sulla sua esperienza.',
+    'blog.article.isola-artica-islanda-pugliese.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

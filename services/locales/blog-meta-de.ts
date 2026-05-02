@@ -5017,6 +5017,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.unitalsi-busto-varese-malati-spiritualita.title': 'Unitalsi Busto und Varese: spirituelle Hilfe und Wunder für Kranke',
     'blog.article.unitalsi-busto-varese-malati-spiritualita.excerpt': 'Entdecken Sie, wie die Unitalsi von Busto Arsizio und Varese Kranken durch Pilgerfahrten und spirituelle Unterstützung hilft.',
     'blog.article.unitalsi-busto-varese-malati-spiritualita.imageAlt': 'Unitalsi-Freiwillige helfen Patienten in der Nähe des Luganer Sees',
+    'blog.article.isola-artica-islanda-pugliese.title': 'Leben am Ende der Welt auf der Insel Grímsey',
+    'blog.article.isola-artica-islanda-pugliese.excerpt': 'Die Geschichte von Leonardo Piccione, einem Apulier, der Monate auf der Insel Grímsey in Island verbracht hat, wo er gearbeitet und ein Buch über seine Erfahrungen geschrieben hat.',
+    'blog.article.isola-artica-islanda-pugliese.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaDe;

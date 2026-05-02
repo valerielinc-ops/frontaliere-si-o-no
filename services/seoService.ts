@@ -2903,6 +2903,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-gallarate-fondazione-scuole-materne-2026': { name: 'Novità', path: '/articoli-frontaliere/gallarate-fondazione-scuole-materne-2026', parent: 'blog' },
     'blog-formula-1-riparte-rischi-polemiche': { name: 'Formula 1', path: '/articoli-frontaliere/formula-1-riparte-rischi-polemiche', parent: 'blog' },
     'blog-unitalsi-busto-varese-malati-spiritualita': { name: 'Unitalsi Busto e Varese', path: '/articoli-frontaliere/unitalsi-busto-varese-malati-spiritualita', parent: 'blog' },
+    'blog-isola-artica-islanda-pugliese': { name: 'Novità', path: '/articoli-frontaliere/isola-artica-islanda-pugliese', parent: 'blog' },
  };
 
  const info = sectionNames[section];
