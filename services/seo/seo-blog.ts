@@ -36115,6 +36115,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-limiti-eta-smartphone-social-media': {
+    title: 'Limiti età smartphone e social media: Unicef spiega perché non bastano',
+    description: 'Secondo Unicef, i limiti di età per smartphone e social media non sono sufficienti. Ecco perché la regolamentazione deve intervenire sulle piattaforme stesse.',
+    keywords: 'frontalieri, ticino, svizzera, italia, limiti, smartphone, social, media',
+    ogTitle: 'Limiti età smartphone e social media: Unicef spiega perché non bastano',
+    ogDescription: 'Secondo Unicef, i limiti di età per smartphone e social media non sono sufficienti. Ecco perché la regolamentazione deve intervenire sulle piattaforme stesse.',
+    canonicalPath: '/articoli-frontaliere/limiti-eta-smartphone-social-media',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Limiti età smartphone e social media: Unicef spiega perché non bastano",
+      "description": "Secondo Unicef, i limiti di età per smartphone e social media non sono sufficienti. Ecco perché la regolamentazione deve intervenire sulle piattaforme stesse.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/limiti-eta-smartphone-social-media.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ragazzi che usano smartphone in un parco a Locarno"
+      },
+      "datePublished": "2026-05-02T07:39:47+00:00",
+      "dateModified": "2026-05-02T07:39:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/limiti-eta-smartphone-social-media`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

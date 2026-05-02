@@ -2925,6 +2925,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-primo-maggio-baume-schneider-sanita-avs': { name: '1° maggio', path: '/articoli-frontaliere/primo-maggio-baume-schneider-sanita-avs', parent: 'blog' },
     'blog-migros-immigrazione-necessaria-offerta': { name: 'Novità', path: '/articoli-frontaliere/migros-immigrazione-necessaria-offerta', parent: 'blog' },
     'blog-vico-morcote-tragedia-bambino-pool': { name: 'Novità', path: '/articoli-frontaliere/vico-morcote-tragedia-bambino-pool', parent: 'blog' },
+    'blog-limiti-eta-smartphone-social-media': { name: 'Novità', path: '/articoli-frontaliere/limiti-eta-smartphone-social-media', parent: 'blog' },
  };
 
  const info = sectionNames[section];

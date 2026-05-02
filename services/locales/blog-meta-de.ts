@@ -5083,6 +5083,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vico-morcote-tragedia-bambino-pool.title': 'Tragödie in Vico Morcote: Kind stirbt im Privatpool',
     'blog.article.vico-morcote-tragedia-bambino-pool.excerpt': 'Ein zweijähriges Kind ist in einem Pool-Unfall in Vico Morcote ums Leben gekommen. Die Familie erhält psychologische Unterstützung.',
     'blog.article.vico-morcote-tragedia-bambino-pool.imageAlt': 'Ruhevolle Aussicht auf den Luganersee mit klarem blauem Wasser und umliegenden Bergen',
+    'blog.article.limiti-eta-smartphone-social-media.title': 'Altersbeschränkungen für Smartphones: Unicef erklärt, warum sie nicht ausreichen',
+    'blog.article.limiti-eta-smartphone-social-media.excerpt': 'Laut Unicef reichen Altersbeschränkungen für Smartphones und soziale Medien nicht aus. Hier erklärt die Organisation, warum die Regulierung direkt bei den Plattformen ansetzen muss.',
+    'blog.article.limiti-eta-smartphone-social-media.imageAlt': 'Jugendliche nutzen Smartphones in einem Park in Locarno',
 };
 
 export default blogMetaDe;

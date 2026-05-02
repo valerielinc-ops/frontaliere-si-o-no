@@ -12874,4 +12874,11 @@ export const ARTICLES = [
  image: '/images/blog/vico-morcote-tragedia-bambino-pool.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'limiti-eta-smartphone-social-media',
+ category: 'novita',
+ date: '2026-05-02T07:39:47.289Z',
+ image: '/images/blog/limiti-eta-smartphone-social-media.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

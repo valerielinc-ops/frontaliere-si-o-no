@@ -5084,6 +5084,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vico-morcote-tragedia-bambino-pool.title': 'Tragédie à Vico Morcote: un enfant meurt dans une piscine privée',
     'blog.article.vico-morcote-tragedia-bambino-pool.excerpt': 'Un enfant de deux ans a perdu la vie dans un accident de piscine à Vico Morcote. La famille reçoit un soutien psychologique.',
     'blog.article.vico-morcote-tragedia-bambino-pool.imageAlt': 'Vue sereine du lac de Lugano avec une eau bleue cristalline et des montagnes environnantes',
+    'blog.article.limiti-eta-smartphone-social-media.title': 'Limites d\'âge pour smartphones et réseaux sociaux : pourquoi ils ne suffisent pas',
+    'blog.article.limiti-eta-smartphone-social-media.excerpt': 'Selon l\'Unicef, les limites d\'âge pour les smartphones et les réseaux sociaux ne sont pas suffisantes. Voici pourquoi la réglementation doit intervenir sur les plateformes elles-mêmes.',
+    'blog.article.limiti-eta-smartphone-social-media.imageAlt': 'Des adolescents utilisant des smartphones dans un parc à Locarno',
 };
 
 export default blogMetaFr;

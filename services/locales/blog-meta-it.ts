@@ -5084,6 +5084,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vico-morcote-tragedia-bambino-pool.title': 'Tragedia a Vico Morcote: bambino muore in piscina privata',
     'blog.article.vico-morcote-tragedia-bambino-pool.excerpt': 'Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La famiglia riceve supporto psicologico.',
     'blog.article.vico-morcote-tragedia-bambino-pool.imageAlt': 'Vista serena del Lago di Lugano con acqua blu cristallina e montagne circostanti',
+    'blog.article.limiti-eta-smartphone-social-media.title': 'Limiti età smartphone e social media: Unicef spiega perché non bastano',
+    'blog.article.limiti-eta-smartphone-social-media.excerpt': 'Secondo Unicef, i limiti di età per smartphone e social media non sono sufficienti. Ecco perché la regolamentazione deve intervenire sulle piattaforme stesse.',
+    'blog.article.limiti-eta-smartphone-social-media.imageAlt': 'Ragazzi che usano smartphone in un parco a Locarno',
 };
 
 export default blogMetaIt;
