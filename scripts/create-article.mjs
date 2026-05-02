@@ -290,6 +290,122 @@ function findBestFallbackImage(data) {
 }
 
 const CATEGORIES = ['fiscale', 'pratico', 'novita', 'pensione'];
+
+// ── Author registry (mirror of data/authors.ts for byline + Person JSON-LD) ──
+// Keep slug/name/expertise/linkedin in sync with data/authors.ts. The TS file
+// is the source of truth for the React app + author pages; this inline copy is
+// used because create-article.mjs is a Node ESM script that cannot import .ts.
+// Spec: docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 — FASE 1, A2.
+const AUTHORS = Object.freeze([
+  Object.freeze({
+    slug: 'marco-ferrari',
+    name: 'Marco Ferrari',
+    linkedinUrl: 'https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/',
+    expertise: Object.freeze([
+      'fiscalità frontaliera',
+      '730',
+      'dichiarazione redditi',
+      'imposta alla fonte',
+      'accordo italia-svizzera 2026',
+      'fiscale',
+      'tasse',
+      'irpef',
+      'doppia imposizione',
+      'ristorni',
+    ]),
+  }),
+  Object.freeze({
+    slug: 'laura-bianchi',
+    name: 'Laura Bianchi',
+    linkedinUrl: 'https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/',
+    expertise: Object.freeze([
+      'avs',
+      'lpp',
+      'lamal',
+      'pensioni',
+      'pensione',
+      'assicurazioni sociali svizzere',
+      'previdenza',
+      '3a',
+      'libero passaggio',
+      'salute',
+      'sanità',
+      'cmi',
+    ]),
+  }),
+  Object.freeze({
+    slug: 'redazione',
+    name: 'Redazione Frontaliere Ticino',
+    linkedinUrl: 'https://www.linkedin.com/company/frontaliere-ticino/',
+    expertise: Object.freeze([
+      'lavoro frontaliere',
+      'salari',
+      'salario',
+      'trasporti transfrontalieri',
+      'dogana',
+      'novita',
+      'pratico',
+      'attualità',
+    ]),
+  }),
+]);
+
+let _authorRoundRobinIdx = 0;
+
+/**
+ * Pick an author for an article based on its category/section + identifier.
+ *
+ * Strategy:
+ *   1. Score each author by how many of their `expertise` keywords appear
+ *      in the haystack (category + title/keywords/id) — case-insensitive
+ *      substring match. Highest score wins.
+ *   2. On a tie or zero matches, fall back to a deterministic bucket using
+ *      `articleId` (FNV-style hash mod authors.length) so the same article
+ *      always gets the same author across re-runs, while still spreading
+ *      bylines across the team for generic content.
+ *
+ * Returns `{ slug, name, linkedinUrl }` — never `null`.
+ */
+function pickAuthorForTopic(articleSection, articleId) {
+  const haystack = String(articleSection || '').toLowerCase();
+  const scored = AUTHORS.map((author) => {
+    const score = author.expertise.reduce((acc, kw) => {
+      return acc + (haystack.includes(kw) ? 1 : 0);
+    }, 0);
+    return { author, score };
+  });
+  const maxScore = scored.reduce((m, s) => (s.score > m ? s.score : m), 0);
+  if (maxScore > 0) {
+    const winners = scored.filter((s) => s.score === maxScore).map((s) => s.author);
+    if (winners.length === 1) {
+      const a = winners[0];
+      return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+    }
+    // Tied — pick deterministically by articleId hash if provided, else round-robin.
+    const idx = articleId
+      ? Math.abs(_hashString(String(articleId))) % winners.length
+      : _authorRoundRobinIdx++ % winners.length;
+    const a = winners[idx];
+    return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+  }
+  // No keyword match — deterministic round-robin keyed by articleId.
+  const idx = articleId
+    ? Math.abs(_hashString(String(articleId))) % AUTHORS.length
+    : _authorRoundRobinIdx++ % AUTHORS.length;
+  const a = AUTHORS[idx];
+  return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+}
+
+/** Tiny FNV-1a-ish hash for stable author bucketing. Not cryptographic. */
+function _hashString(s) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h | 0;
+}
+
 const SOURCE_QUOTA_FILE = 'data/article-source-quotas.json';
 const SOURCE_URLS_FILE = 'data/article-source-urls.json';
 const CREATE_ARTICLE_REPORT_FILE = process.env.CREATE_ARTICLE_REPORT_FILE || '.tmp/create-article-run-report.json';
@@ -4622,15 +4738,23 @@ function modifyBlogArticlesTsx(data) {
   // Object-level indent is one level less (or same if single-space)
   const objIndent = propIndent.length > 1 ? propIndent.slice(0, -1) : propIndent;
 
-  const newEntry = [
+  const entryLines = [
     `${objIndent}{`,
     `${propIndent}id: '${data.id}',`,
     `${propIndent}category: '${data.category}',`,
     `${propIndent}date: '${today}',`,
     `${propIndent}image: '${imagePath}',`,
     `${propIndent}hasCalculator: ${data.hasCalculator ? 'true' : 'false'},`,
-    `${objIndent}},`,
-  ].join('\n');
+  ];
+  // A2: persist byline so BlogArticles.tsx can render an author link.
+  if (data.author?.slug) {
+    entryLines.push(`${propIndent}authorSlug: '${escapeForSingleQuoteTS(data.author.slug)}',`);
+  }
+  if (data.author?.name) {
+    entryLines.push(`${propIndent}authorName: '${escapeForSingleQuoteTS(data.author.name)}',`);
+  }
+  entryLines.push(`${objIndent}},`);
+  const newEntry = entryLines.join('\n');
 
   // Insert before the array terminator. Handles both bare `];` and the
   // typed variant `] satisfies Article[];` (FRO-328+ type annotation).
@@ -4796,7 +4920,12 @@ function modifySeoService(data) {
       "datePublished": "${publishedAt}",
       "dateModified": "${modifiedAt}",
       "inLanguage": "it",
-      "author": {"@id": "${BASE_URL}/#organization"},
+      "author": {
+        "@type": "Person",
+        "@id": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/#person",
+        "name": "${String(data.author?.name || 'Redazione Frontaliere Ticino').replace(/"/g, '\\"')}",
+        "url": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/"
+      },
       "publisher": {"@id": "${BASE_URL}/#organization"},
       "mainEntityOfPage": \`\${BASE_URL}/articoli-frontaliere/${data.slugs.it}\`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
@@ -5484,6 +5613,21 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       }
     }
 
+    // Step 3a.0-pre: Assign byline author from the registry. Topic-based when
+    // category/keywords match an author's expertise; otherwise deterministic
+    // hash on data.id so the same article always picks the same author.
+    {
+      const sectionHaystack = [
+        data.category || '',
+        data.seo?.keywords || '',
+        data.seo?.headline || '',
+        data.content?.it?.title || '',
+        data.id || '',
+      ].join(' ');
+      data.author = pickAuthorForTopic(sectionHaystack, data.id);
+      console.error(`  ✍️  Byline assegnata: ${data.author.name} (${data.author.slug})`);
+    }
+
     // Step 3a.0: Sanitize bold on IT content
     console.error('✂️  Sanitizzazione grassetto (IT):');
     sanitizeBoldFormatting(data);
@@ -5796,6 +5940,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   RUN_REPORT.article.id = data.id;
   RUN_REPORT.article.url = `${BASE_URL}/articoli-frontaliere/${data.id}/`;
   RUN_REPORT.article.sourceDomain = sourceDomain || null;
+  RUN_REPORT.article.title = data.content?.it?.title || null;
+  RUN_REPORT.article.authorSlug = data.author?.slug || null;
+  RUN_REPORT.article.authorName = data.author?.name || null;
 
   // Write GitHub Actions outputs for downstream steps (Facebook posting, etc.)
   // Always use data.id (not data.slugs.it) — the router key is the article ID.
@@ -5819,6 +5966,19 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     appendFileSync(ghOutput, `og_description=${data.seo.ogDescription}\n`);
     appendFileSync(ghOutput, `og_image=${BASE_URL}/${ogImagePath}\n`);
     appendFileSync(ghOutput, `category=${data.category}\n`);
+    // Author byline metadata (A2): used by the commit step to write a
+    // descriptive `feat(article): <title>` message + Reviewed-by trailer.
+    if (data.author?.slug) {
+      appendFileSync(ghOutput, `author_slug=${data.author.slug}\n`);
+    }
+    if (data.author?.name) {
+      // Strip newlines defensively — author names should never contain them.
+      appendFileSync(ghOutput, `author_name=${String(data.author.name).replace(/\r?\n/g, ' ')}\n`);
+    }
+    if (data.content?.it?.title) {
+      // Single-line title for commit subject. Strip newlines.
+      appendFileSync(ghOutput, `article_title=${String(data.content.it.title).replace(/\r?\n/g, ' ')}\n`);
+    }
     appendFileSync(ghOutput, `create_article_report=${CREATE_ARTICLE_REPORT_FILE}\n`);
     console.error('   📤 GitHub Actions outputs written');
   }

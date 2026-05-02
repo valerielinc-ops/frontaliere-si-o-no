@@ -201,7 +201,25 @@ jobs:
           fi
 
           git add -A
-          git commit -m "📰 Auto-generated blog article"
+          # A2: descriptive commit message with article title + Reviewed-by
+          # trailer pointing to the assigned author from the registry.
+          # Falls back to the generic message when the create-article step
+          # didn't emit byline outputs (older runs / generation failure).
+          ARTICLE_TITLE="${{ steps.generate.outputs.article_title }}"
+          AUTHOR_SLUG="${{ steps.generate.outputs.author_slug }}"
+          AUTHOR_NAME="${{ steps.generate.outputs.author_name }}"
+          if [ -n "$ARTICLE_TITLE" ]; then
+            COMMIT_SUBJECT="feat(article): ${ARTICLE_TITLE}"
+            if [ -n "$AUTHOR_SLUG" ] && [ -n "$AUTHOR_NAME" ]; then
+              git commit -m "$COMMIT_SUBJECT" -m "Reviewed-by: ${AUTHOR_NAME} <${AUTHOR_SLUG}@frontaliereticino.ch>"
+            elif [ -n "$AUTHOR_SLUG" ]; then
+              git commit -m "$COMMIT_SUBJECT" -m "Reviewed-by: ${AUTHOR_SLUG}"
+            else
+              git commit -m "$COMMIT_SUBJECT"
+            fi
+          else
+            git commit -m "📰 Auto-generated blog article"
+          fi
 
           # Push with centralized rebase-retry helper. The append-only files
           # the article generator touches can conflict with concurrent main
