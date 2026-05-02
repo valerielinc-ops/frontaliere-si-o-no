@@ -5144,6 +5144,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.taglio-accise-carburanti-22-maggio.title': 'Réduction des taxes sur le carburant prolongée jusqu\'au 22 mai',
     'blog.article.taglio-accise-carburanti-22-maggio.excerpt': 'Le Conseil des ministres a prolongé la réduction des taxes sur les carburants jusqu\'au 22 mai 2026. Voici ce qui change pour les frontaliers',
     'blog.article.taglio-accise-carburanti-22-maggio.imageAlt': 'Une station-service à Lugano avec les prix des carburants bien en évidence',
+    'blog.article.aiuti-svizzera-ucraina-2026.title': 'De générateurs à la reconstruction : le maxi-plan suisse pour Kiev',
+    'blog.article.aiuti-svizzera-ucraina-2026.excerpt': 'Le délégué du Conseil fédéral pour l\'Ukraine, Jacques Gerber, illustre le programme d\'aides de 1,5 milliard de francs.',
+    'blog.article.aiuti-svizzera-ucraina-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano au premier plan, présentant le centre culturel LAC et l\'architecture moderne de la ville.',
 };
 
 export default blogMetaFr;

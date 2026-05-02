@@ -5144,6 +5144,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.taglio-accise-carburanti-22-maggio.title': 'Taglio accise carburanti prorogato al 22 maggio',
     'blog.article.taglio-accise-carburanti-22-maggio.excerpt': 'Il Consiglio dei ministri ha prorogato il taglio delle accise sui carburanti fino al 22 maggio 2026. Ecco cosa cambia per i frontalieri',
     'blog.article.taglio-accise-carburanti-22-maggio.imageAlt': 'Una stazione di servizio a Lugano con i prezzi dei carburanti in evidenza',
+    'blog.article.aiuti-svizzera-ucraina-2026.title': 'Dai generatori alla ricostruzione: il maxi piano svizzero per Kiev',
+    'blog.article.aiuti-svizzera-ucraina-2026.excerpt': 'Il delegato del Consiglio federale per l\'Ucraina, Jacques Gerber, illustra il programma di aiuti da 1,5 miliardi di franchi.',
+    'blog.article.aiuti-svizzera-ucraina-2026.imageAlt': 'Vista aerea di Lugano con il Lago di Lugano in primo piano, con il centro culturale LAC e l\'architettura moderna della città.',
 };
 
 export default blogMetaIt;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1764,
+ "numberOfItems": 1765,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6399,7 +6399,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1761, "name": "Confederazione valuta sistemi difesa aerea alte...", "url": `${BASE_URL}/articoli-frontaliere/confederazione-valuta-sistemi-difesa-aerea` },
           { "@type": "ListItem", "position": 1762, "name": "Penuria di carburante in Svizzera: rischio molt...", "url": `${BASE_URL}/articoli-frontaliere/penuria-carburante-svizzera-2026` },
           { "@type": "ListItem", "position": 1763, "name": "Christian Bagatin vince la tappa regina del Gir...", "url": `${BASE_URL}/articoli-frontaliere/vittoria-bagatin-tappa-turchia` },
-          { "@type": "ListItem", "position": 1764, "name": "Taglio accise carburanti prorogato al 22 maggio", "url": `${BASE_URL}/articoli-frontaliere/taglio-accise-carburanti-22-maggio` }
+          { "@type": "ListItem", "position": 1764, "name": "Taglio accise carburanti prorogato al 22 maggio", "url": `${BASE_URL}/articoli-frontaliere/taglio-accise-carburanti-22-maggio` },
+          { "@type": "ListItem", "position": 1765, "name": "Dai generatori alla ricostruzione: il maxi pian...", "url": `${BASE_URL}/articoli-frontaliere/aiuti-svizzera-ucraina-2026` }
  ]
  },
  {

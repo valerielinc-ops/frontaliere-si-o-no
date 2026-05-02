@@ -5143,6 +5143,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.taglio-accise-carburanti-22-maggio.title': 'Kraftstoffsteuersenkung bis 22. Mai verlängert',
     'blog.article.taglio-accise-carburanti-22-maggio.excerpt': 'Der Ministerrat hat die Senkung der Kraftstoffsteuern bis zum 22. Mai 2026 verlängert. Hier erfahren Grenzgänger, was sich ändert.',
     'blog.article.taglio-accise-carburanti-22-maggio.imageAlt': 'Eine Tankstelle in Lugano mit den Kraftstoffpreisen im Vordergrund',
+    'blog.article.aiuti-svizzera-ucraina-2026.title': 'Vom Generator zur Wiederaufbau: Schweizer Maxiplan für Kiew',
+    'blog.article.aiuti-svizzera-ucraina-2026.excerpt': 'Der Delegierte des Bundesrates für die Ukraine, Jacques Gerber, stellt das Hilfsprogramm von 1,5 Milliarden Franken vor.',
+    'blog.article.aiuti-svizzera-ucraina-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Vordergrund, mit dem Kulturzentrum LAC und der modernen Architektur der Stadt.',
 };
 
 export default blogMetaDe;

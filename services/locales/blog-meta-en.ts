@@ -5143,6 +5143,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.taglio-accise-carburanti-22-maggio.title': 'Fuel tax cut extended to May 22',
     'blog.article.taglio-accise-carburanti-22-maggio.excerpt': 'The Council of Ministers has extended the fuel tax cut until May 22, 2026. Here\'s what changes for cross-border workers',
     'blog.article.taglio-accise-carburanti-22-maggio.imageAlt': 'A gas station in Lugano with fuel prices displayed prominently',
+    'blog.article.aiuti-svizzera-ucraina-2026.title': 'From generators to reconstruction: Switzerland\'s 1.5 billion CHF plan for Kyiv',
+    'blog.article.aiuti-svizzera-ucraina-2026.excerpt': 'Jacques Gerber, the Swiss federal councilor for Ukraine, outlines the aid program worth 1.5 billion francs.',
+    'blog.article.aiuti-svizzera-ucraina-2026.imageAlt': 'Aerial view of Lugano with Lake Lugano in the foreground, featuring the LAC cultural center and the city\'s modern architecture.',
 };
 
 export default blogMetaEn;

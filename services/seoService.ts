@@ -2945,6 +2945,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-penuria-carburante-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/penuria-carburante-svizzera-2026', parent: 'blog' },
     'blog-vittoria-bagatin-tappa-turchia': { name: 'Sport', path: '/articoli-frontaliere/vittoria-bagatin-tappa-turchia', parent: 'blog' },
     'blog-taglio-accise-carburanti-22-maggio': { name: 'Novità', path: '/articoli-frontaliere/taglio-accise-carburanti-22-maggio', parent: 'blog' },
+    'blog-aiuti-svizzera-ucraina-2026': { name: 'Novità', path: '/articoli-frontaliere/aiuti-svizzera-ucraina-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

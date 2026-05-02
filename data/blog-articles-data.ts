@@ -13014,4 +13014,11 @@ export const ARTICLES = [
  image: '/images/blog/taglio-accise-carburanti-22-maggio.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'aiuti-svizzera-ucraina-2026',
+ category: 'novita',
+ date: '2026-05-02T11:27:17.934Z',
+ image: '/images/blog/aiuti-svizzera-ucraina-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
