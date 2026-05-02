@@ -12979,4 +12979,11 @@ export const ARTICLES = [
  image: '/images/blog/addio-alex-zanardi-2001-incidente-vita.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'caronno-varesino-campetto-dante-mercanti-2026',
+ category: 'novita',
+ date: '2026-05-02T10:44:00.469Z',
+ image: '/images/blog/caronno-varesino-campetto-dante-mercanti-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

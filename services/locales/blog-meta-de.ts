@@ -5128,6 +5128,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.addio-alex-zanardi-2001-incidente-vita.title': 'Abschied von Alex Zanardi: Der Unfall 2001, der sein Leben veränderte',
     'blog.article.addio-alex-zanardi-2001-incidente-vita.excerpt': 'Wir blicken auf das außergewöhnliche Leben von Alex Zanardi zurück, vom schrecklichen Unfall 2001 bis zu seinem sportlichen Comeback.',
     'blog.article.addio-alex-zanardi-2001-incidente-vita.imageAlt': 'Handbike-Rennen in Tessin mit Fokus auf den Athleten und der malerischen Landschaft',
+    'blog.article.caronno-varesino-campetto-dante-mercanti-2026.title': 'Caronno Varesino eröffnet neuen Sportplatz zu Ehren von Dante Mercanti',
+    'blog.article.caronno-varesino-campetto-dante-mercanti-2026.excerpt': 'Am Samstag, dem 9. Mai, um 16 Uhr wird der neue Sportplatz in der Via Macchi in Caronno Varesino eingeweiht, der Dante Mercanti gewidmet ist.',
+    'blog.article.caronno-varesino-campetto-dante-mercanti-2026.imageAlt': 'Einweihung des neuen Sportplatzes in Caronno Varesino',
 };
 
 export default blogMetaDe;

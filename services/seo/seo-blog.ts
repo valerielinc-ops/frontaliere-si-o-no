@@ -36550,6 +36550,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caronno-varesino-campetto-dante-mercanti-2026': {
+    title: 'Caronno Varesino inaugura il nuovo campetto in memoria di Dante Mercanti',
+    description: 'Sabato 9 maggio alle 16 l\'inaugurazione del nuovo campo sportivo di via Macchi a Caronno Varesino, intitolato a Dante Mercanti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, caronno, varesino, inaugura, nuovo',
+    ogTitle: 'Caronno Varesino inaugura il nuovo campetto in memoria di Dante Mercanti',
+    ogDescription: 'Sabato 9 maggio alle 16 l\'inaugurazione del nuovo campo sportivo di via Macchi a Caronno Varesino, intitolato a Dante Mercanti.',
+    canonicalPath: '/articoli-frontaliere/caronno-varesino-campetto-dante-mercanti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caronno Varesino inaugura il nuovo campetto in memoria di Dante Mercanti",
+      "description": "Sabato 9 maggio alle 16 l'inaugurazione del nuovo campo sportivo di via Macchi a Caronno Varesino, intitolato a Dante Mercanti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/caronno-varesino-campetto-dante-mercanti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Inaugurazione del nuovo campetto sportivo a Caronno Varesino"
+      },
+      "datePublished": "2026-05-02T10:44:00+00:00",
+      "dateModified": "2026-05-02T10:44:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caronno-varesino-campetto-dante-mercanti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

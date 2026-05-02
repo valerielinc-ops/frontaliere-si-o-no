@@ -2940,6 +2940,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-carenza-carburante-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/carenza-carburante-svizzera-2026', parent: 'blog' },
     'blog-ermotti-respinge-accuse-lobbying-ubs': { name: 'Novità', path: '/articoli-frontaliere/ermotti-respinge-accuse-lobbying-ubs', parent: 'blog' },
     'blog-addio-alex-zanardi-2001-incidente-vita': { name: 'Novità', path: '/articoli-frontaliere/addio-alex-zanardi-2001-incidente-vita', parent: 'blog' },
+    'blog-caronno-varesino-campetto-dante-mercanti-2026': { name: 'Novità', path: '/articoli-frontaliere/caronno-varesino-campetto-dante-mercanti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

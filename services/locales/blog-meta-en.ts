@@ -5128,6 +5128,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.addio-alex-zanardi-2001-incidente-vita.title': 'Farewell to Alex Zanardi: the 2001 accident that changed his life',
     'blog.article.addio-alex-zanardi-2001-incidente-vita.excerpt': 'We look back at the extraordinary life of Alex Zanardi, from the terrible 2001 accident to his sporting rebirth.',
     'blog.article.addio-alex-zanardi-2001-incidente-vita.imageAlt': 'Handbike race in Ticino with a focus on the athlete and the scenic landscape',
+    'blog.article.caronno-varesino-campetto-dante-mercanti-2026.title': 'Caronno Varesino unveils new pitch in memory of Dante Mercanti',
+    'blog.article.caronno-varesino-campetto-dante-mercanti-2026.excerpt': 'On Saturday, May 9th at 4 PM, the inauguration of the new sports field in via Macchi, Caronno Varesino, dedicated to Dante Mercanti.',
+    'blog.article.caronno-varesino-campetto-dante-mercanti-2026.imageAlt': 'Inauguration of the new sports field in Caronno Varesino',
 };
 
 export default blogMetaEn;
