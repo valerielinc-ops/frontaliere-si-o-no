@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-05-01T22:33:29.039Z",
+  "generatedAt": "2026-05-02T10:39:12.975Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2499,
-  "avgDurationMs": 2499,
+  "durationMs": 2265,
+  "avgDurationMs": 2265,
   "durationHistory": [
-    2499
+    2265
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-01T22:33:26.854Z",
+      "crawledAt": "2026-05-02T10:39:10.970Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154146008?gh_jid=5154146008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-01T22:33:26.840Z",
+      "crawledAt": "2026-05-02T10:39:10.954Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-01T22:33:26.825Z",
+      "crawledAt": "2026-05-02T10:39:10.938Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -138,50 +138,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "vaxcyte-14efa24936cd",
-      "slug": "responsabile-assicurazione-qualita-fornitori-e-audit-vaxcyte-visp",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Manager, Quality Assurance Suppliers and Audits",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5062469008?gh_jid=5062469008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-01T11:06:58.744Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "1950",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-16",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5062469008?gh_jid=5062469008",
-      "department": "Quality",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.143Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
