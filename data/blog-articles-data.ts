@@ -16,6 +16,16 @@ export interface Article {
  updatedAt?: string;
  image: string;
  hasCalculator: boolean;
+ /**
+  * A2 — author registry slug (`marco-ferrari`, `laura-bianchi`, `redazione`).
+  * When present, the byline links to `/autori/{authorSlug}/` and the
+  * NewsArticle JSON-LD uses a Person `@type` for that author. Optional for
+  * backward compatibility with pre-A2 articles; the byline component falls
+  * back to "Redazione Frontaliere Ticino" when missing.
+  */
+ authorSlug?: string;
+ /** A2 — full display name for the byline. Mirrors `data/authors.ts`. */
+ authorName?: string;
 }
 
 export const ARTICLES = [
@@ -26,1073 +36,1382 @@ export const ARTICLES = [
  updatedAt: '2026-04-03',
  image: '/images/places/lugano-view.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'lamal-vs-cmi',
  category: 'pratico',
  date: '2026-01-05',
  updatedAt: '2026-04-03',
  image: '/images/places/mendrisio.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'primo-giorno-frontaliere',
  category: 'pratico',
  date: '2025-12-20',
  updatedAt: '2026-04-03',
  image: '/images/places/castelgrande.webp',
  hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tredicesima-frontaliere',
  category: 'fiscale',
  date: '2025-12-15',
  updatedAt: '2026-04-03',
  image: '/images/places/locarno.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'pilastro-3a-frontaliere',
  category: 'pensione',
  date: '2025-12-10',
  updatedAt: '2026-04-03',
  image: '/images/places/monte-bre.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'comuni-migliori-frontalieri',
  category: 'pratico',
  date: '2026-03-01',
  updatedAt: '2026-04-30',
  image: '/images/places/gandria.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'costo-vita-ticino-vs-lombardia',
  category: 'pratico',
  date: '2025-11-28',
  image: '/images/places/foxtown.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-salute-tensioni-ticino',
  category: 'fiscale',
  date: '2026-02-17T10:00:00Z',
  image: '/images/places/bellinzona.webp',
  hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'casa-oltre-confine-ticino',
  category: 'pratico',
  date: '2026-02-17T14:00:00Z',
  image: '/images/places/gandria.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'franco-forte-stipendio-frontalieri',
  category: 'fiscale',
  date: '2026-02-18T08:00:00Z',
  image: '/images/places/lac-lugano.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cu-2026-novita-frontalieri',
  category: 'fiscale',
  date: '2026-02-18T10:30:00Z',
  image: '/images/places/lugano-view.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'telelavoro-italia-svizzera-ratifica',
  category: 'fiscale',
  date: '2026-02-18T11:00:00Z',
  image: '/images/blog/telelavoro-italia-svizzera-ratifica.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'telelavoro-accordo-definitivo-italia',
  category: 'novita',
  date: '2026-02-18T11:17:51.792Z',
  image: '/images/blog/telelavoro-accordo-definitivo-italia.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'stop-ristorni-tassa-salute',
  category: 'fiscale',
  date: '2026-02-18T11:45:01.224Z',
  image: '/images/blog/stop-ristorni-tassa-salute.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cu-telelavoro-regole-frontalieri',
  category: 'fiscale',
  date: '2026-02-18T11:49:14.807Z',
  updatedAt: '2026-04-24',
  image: '/images/blog/cu-telelavoro-regole-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'smood-chiusura-impatto-lavoro',
  category: 'novita',
  date: '2026-02-18T12:32:10.601Z',
  image: '/images/blog/smood-chiusura-impatto-lavoro.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'disoccupazione-svizzera-ticino-gennaio',
  category: 'novita',
  date: '2026-02-18T13:19:30.600Z',
  image: '/images/blog/disoccupazione-svizzera-ticino-gennaio.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'riscaldamento-casa-ticino-norme',
  category: 'pratico',
  date: '2026-02-18T14:14:43.727Z',
  image: '/images/places/lugano-view.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sostituzione-caldaia-ticino-2026',
  category: 'pratico',
  date: '2026-02-18T15:16:44.519Z',
  image: '/images/blog/sostituzione-caldaia-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'hic-sunt-leones-confini-ticino',
  category: 'pratico',
  date: '2026-02-18T15:41:20.568Z',
  image: '/images/blog/hic-sunt-leones-confini-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'carnevale-bambini-lugano-2026',
  category: 'pratico',
  date: '2026-02-18T15:57:39.007Z',
  image: '/images/blog/carnevale-bambini-lugano-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'arte-anima-ticino-frontalieri',
  category: 'pratico',
  date: '2026-02-18T17:02:30.798Z',
  image: '/images/blog/arte-anima-ticino-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'arca-russa-chiasso-cultura-frontaliere',
  category: 'novita',
  date: '2026-02-18T17:18:57.528Z',
  image: '/images/blog/arca-russa-chiasso-cultura-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'rsi-mostra-storia-ticino',
  category: 'novita',
  date: '2026-02-18T17:57:03.502Z',
  image: '/images/blog/rsi-mostra-storia-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'carnevale-bambini-lugano-tinguely',
  category: 'pratico',
  date: '2026-02-18T18:15:16.796Z',
  image: '/images/blog/carnevale-bambini-lugano-tinguely.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'daniela-rebuzzi-mostra-caslano',
  category: 'novita',
  date: '2026-02-18T19:17:30.046Z',
  image: '/images/blog/daniela-rebuzzi-mostra-caslano.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'corpi-in-prestito-arte-agno',
  category: 'pratico',
  date: '2026-02-18T19:46:21.242Z',
  image: '/images/blog/corpi-in-prestito-arte-agno.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'rsi-storia-svizzera-italiana-mostra',
  category: 'novita',
  date: '2026-02-18T20:35:40.243Z',
  image: '/images/blog/rsi-storia-svizzera-italiana-mostra.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rauschenberg-arte-mendrisiotto',
  category: 'novita',
  date: '2026-02-18T21:13:16.363Z',
  image: '/images/blog/rauschenberg-arte-mendrisiotto.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nakba-mostra-giubiasco-ticino',
  category: 'novita',
  date: '2026-02-18T23:07:21.471Z',
  image: '/images/blog/nakba-mostra-giubiasco-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'de-andre-anime-salve-locarno',
  category: 'novita',
  date: '2026-02-19T05:54:01.838Z',
  image: '/images/blog/de-andre-anime-salve-locarno.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sentimento-osservazione-masi-lugano',
  category: 'novita',
  date: '2026-02-19T06:22:47.222Z',
  image: '/images/blog/sentimento-osservazione-masi-lugano.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'rsi-archivio-gottardo-2026',
  category: 'novita',
  date: '2026-02-19T07:58:11.134Z',
  image: '/images/blog/rsi-archivio-gottardo-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'carnevale-blenio-chiescia-bosc',
  category: 'novita',
  date: '2026-02-19T08:09:11.433Z',
  image: '/images/blog/carnevale-blenio-chiescia-bosc.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tf-permesso-integrazione-ticino',
  category: 'pratico',
  date: '2026-02-19T08:18:46.464Z',
  image: '/images/blog/tf-permesso-integrazione-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tassazione-individuale-lavoro-ticino',
  category: 'fiscale',
  date: '2026-02-19T08:34:53.901Z',
  image: '/images/blog/tassazione-individuale-lavoro-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ristorni-scontro-gobbi-berna',
  category: 'fiscale',
  date: '2026-02-19T09:01:08.138Z',
  image: '/images/blog/ristorni-scontro-gobbi-berna.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'pendolarismo-affitto-tempo-ticino',
  category: 'pratico',
  date: '2026-02-19T15:37:29.161Z',
  image: '/images/blog/pendolarismo-affitto-tempo-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'centrodestra-stop-ristorni-2026',
  category: 'fiscale',
  date: '2026-02-19T18:38:51.406Z',
  image: '/images/blog/centrodestra-stop-ristorni-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-ticino-dati-q4-2025',
  category: 'novita',
  date: '2026-02-19T20:04:59.619Z',
  image: '/images/blog/frontalieri-ticino-dati-q4-2025.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'calo-entrate-irregolari-chiasso',
  category: 'novita',
  date: '2026-02-19T22:03:34.072Z',
  image: '/images/blog/calo-entrate-irregolari-chiasso.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontalieri-salari-polemica-ticino',
  category: 'novita',
  date: '2026-02-20T07:43:35.803Z',
  image: '/images/blog/frontalieri-salari-polemica-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ristorni-frontalieri-scontro-ticino-lombardia',
  category: 'fiscale',
  date: '2026-02-20T10:05:49.880Z',
  image: '/images/blog/ristorni-frontalieri-scontro-ticino-lombardia.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tredicesima-avs-iva-contributi',
  category: 'pensione',
  date: '2026-02-20T12:00:34.203Z',
  image: '/images/blog/tredicesima-avs-iva-contributi.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tredicesima-avs-finanziamento-misto',
  category: 'pensione',
  date: '2026-02-20T14:30:35.209Z',
  image: '/images/blog/tredicesima-avs-finanziamento-misto.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tredicesima-avs-finanziamento-scontro',
  category: 'pensione',
  date: '2026-02-20T17:11:47.619Z',
  image: '/images/blog/tredicesima-avs-finanziamento-scontro.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ristorni-imprese-allarme-ticino',
  category: 'fiscale',
  date: '2026-02-20T19:52:04.066Z',
  image: '/images/blog/ristorni-imprese-allarme-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'denaro-non-dichiarato-dogana-brogeda',
  category: 'pratico',
  date: '2026-02-20T21:03:16.144Z',
  image: '/images/blog/denaro-non-dichiarato-dogana-brogeda.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-salari-dibattito-ticino',
  category: 'novita',
  date: '2026-02-20T21:55:14.891Z',
  image: '/images/blog/frontalieri-salari-dibattito-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tredicesima-avs-stipendio-iva',
  category: 'pensione',
  date: '2026-02-20T23:03:48.224Z',
  image: '/images/blog/tredicesima-avs-stipendio-iva.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'stop-ristorni-mozione-partiti',
  category: 'fiscale',
  date: '2026-02-21T07:09:49.433Z',
  image: '/images/blog/stop-ristorni-mozione-partiti.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'partiti-ticino-stop-ristorni',
  category: 'fiscale',
  date: '2026-02-21T09:03:05.590Z',
  image: '/images/blog/partiti-ticino-stop-ristorni.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'conti-federali-aumento-iva-ticino',
  category: 'fiscale',
  date: '2026-02-21T10:57:40.158Z',
  image: '/images/blog/conti-federali-aumento-iva-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tredicesima-avs-stipendi-iva',
  category: 'pensione',
  date: '2026-02-21T11:45:56.948Z',
  image: '/images/blog/tredicesima-avs-stipendi-iva.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ristorni-lombardia-reazione',
  category: 'fiscale',
  date: '2026-02-21T13:56:39.111Z',
  image: '/images/blog/ristorni-lombardia-reazione.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'truffa-falso-bancario-ticino',
  category: 'pratico',
  date: '2026-02-21T14:58:59.331Z',
  image: '/images/blog/truffa-falso-bancario-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'dazi-usa-impatto-ticino',
  category: 'fiscale',
  date: '2026-02-21T15:53:40.225Z',
  image: '/images/blog/dazi-usa-impatto-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sanita-ticino-tagli-orselina',
  category: 'novita',
  date: '2026-02-21T17:02:47.738Z',
  image: '/images/blog/sanita-ticino-tagli-orselina.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'dumping-salari-architetti-ticino',
  category: 'pratico',
  date: '2026-02-21T17:56:15.988Z',
  image: '/images/blog/dumping-salari-architetti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tredicesima-avs-finanziamento-contributi',
  category: 'pensione',
  date: '2026-02-21T19:07:17.903Z',
  image: '/images/blog/tredicesima-avs-finanziamento-contributi.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tredicesima-avs-stipendio-trattenute',
  category: 'pensione',
  date: '2026-02-21T20:53:03.123Z',
  image: '/images/blog/tredicesima-avs-stipendio-trattenute.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'scambio-dati-polizia-ticino',
  category: 'novita',
  date: '2026-02-21T21:50:37.214Z',
  image: '/images/blog/scambio-dati-polizia-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tredicesima-avs-finanziamento-misto-proposta',
  category: 'pensione',
  date: '2026-02-21T22:59:27.045Z',
  image: '/images/blog/tredicesima-avs-finanziamento-misto-proposta.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-ticino-dati-ingannevoli',
  category: 'novita',
  date: '2026-02-22T07:27:00.350Z',
  image: '/images/blog/frontalieri-ticino-dati-ingannevoli.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tredicesima-avs-finanziamento-busta-paga',
  category: 'pensione',
  date: '2026-02-22T09:05:06.560Z',
  image: '/images/blog/tredicesima-avs-finanziamento-busta-paga.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'permesso-s-salari-bassi-ticino',
  category: 'novita',
  date: '2026-02-22T11:01:28.664Z',
  image: '/images/blog/permesso-s-salari-bassi-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ristorni-reazione-lombardia',
  category: 'fiscale',
  date: '2026-02-22T11:45:15.273Z',
  image: '/images/blog/ristorni-reazione-lombardia.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tredicesima-avs-busta-paga-frontaliere',
  category: 'pensione',
  date: '2026-02-22T13:58:05.912Z',
  image: '/images/blog/tredicesima-avs-busta-paga-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'acqua-mendrisiotto-prezzi-2026',
  category: 'pratico',
  date: '2026-02-22T15:02:49.982Z',
  image: '/images/blog/acqua-mendrisiotto-prezzi-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cooperazione-giudiziaria-svizzera-italia',
  category: 'novita',
  date: '2026-02-22T16:00:11.052Z',
  image: '/images/blog/cooperazione-giudiziaria-svizzera-italia.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sanita-locarnese-licenziamenti',
  category: 'novita',
  date: '2026-02-22T17:06:32.862Z',
  image: '/images/blog/sanita-locarnese-licenziamenti.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'legionellosi-ticino-allarme',
  category: 'pratico',
  date: '2026-02-22T20:59:43.581Z',
  image: '/images/blog/legionellosi-ticino-allarme.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'prezzi-dinamici-ticino-futuro',
  category: 'novita',
  date: '2026-02-22T21:55:58.732Z',
  image: '/images/blog/prezzi-dinamici-ticino-futuro.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lugano-manifestazioni-regole-polemica',
  category: 'novita',
  date: '2026-02-22T23:02:18.445Z',
  image: '/images/blog/lugano-manifestazioni-regole-polemica.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'addizionale-irpef-mappa-comuni',
  category: 'fiscale',
  date: '2026-02-23T11:05:18.906Z',
  image: '/images/blog/addizionale-irpef-mappa-comuni.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'mappa-fiscale-comuni-frontiera',
  category: 'fiscale',
  date: '2026-02-23T11:59:46.609Z',
  image: '/images/blog/mappa-fiscale-comuni-frontiera.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'maternita-paternita-frontaliere-guida',
  category: 'pratico',
  date: '2026-02-23T13:10:14.450Z',
  image: '/images/blog/maternita-paternita-frontaliere-guida.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'guida-contributi-sociali-svizzera',
  category: 'pratico',
  date: '2026-02-23T13:27:25.360Z',
  image: '/images/blog/guida-contributi-sociali-svizzera.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'costo-vivere-lugano-trasferirsi',
  category: 'pratico',
  date: '2026-02-23T13:54:52.885Z',
  image: '/images/blog/costo-vivere-lugano-trasferirsi.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'permesso-g-pro-contro-2026',
  category: 'pratico',
  date: '2026-02-23T14:40:40.514Z',
  image: '/images/blog/permesso-g-pro-contro-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'calcolo-pensione-avs-inps',
  category: 'pensione',
  date: '2026-02-23T15:28:19.421Z',
  image: '/images/blog/calcolo-pensione-avs-inps.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'simulazione-fiscale-frontaliere-2026',
  category: 'fiscale',
  date: '2026-02-23T15:48:03.684Z',
  image: '/images/blog/simulazione-fiscale-frontaliere-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lamal-cmi-scelta-frontaliere-2026',
  category: 'pratico',
  date: '2026-02-23T15:56:13.506Z',
  image: '/images/blog/lamal-cmi-scelta-frontaliere-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'credito-imposta-doppia-tassazione',
  category: 'fiscale',
  date: '2026-02-23T16:13:02.045Z',
  image: '/images/blog/credito-imposta-doppia-tassazione.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'costo-reale-auto-frontaliere',
  category: 'pratico',
  date: '2026-02-23T16:47:34.331Z',
  image: '/images/blog/costo-reale-auto-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'congedo-genitori-frontaliere-ticino',
  category: 'pratico',
  date: '2026-02-23T16:59:09.385Z',
  image: '/images/blog/congedo-genitori-frontaliere-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'costo-pendolare-auto-ticino-2026',
  category: 'pratico',
  date: '2026-02-23T17:24:52.754Z',
  image: '/images/blog/costo-pendolare-auto-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guida-dichiarazione-redditi-frontalieri',
  category: 'fiscale',
  date: '2026-02-23T17:37:11.718Z',
  image: '/images/blog/guida-dichiarazione-redditi-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'checklist-documenti-lavoro-svizzera',
  category: 'pratico',
  date: '2026-02-23T18:07:26.447Z',
  image: '/images/blog/checklist-documenti-lavoro-svizzera.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'asilo-nido-frontaliere-ticino',
  category: 'pratico',
  date: '2026-02-23T18:20:25.212Z',
  image: '/images/blog/asilo-nido-frontaliere-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'locarno-stop-residenze-secondarie',
  category: 'novita',
  date: '2026-02-23T20:35:03.529Z',
  image: '/images/blog/locarno-stop-residenze-secondarie.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'costo-vita-svizzera-mappa',
  category: 'pratico',
  date: '2026-02-23T21:32:02.760Z',
  image: '/images/blog/costo-vita-svizzera-mappa.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sicurezza-lavoro-audit-suva',
  category: 'novita',
  date: '2026-02-23T23:48:53.355Z',
  image: '/images/blog/sicurezza-lavoro-audit-suva.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'costo-vivere-mappa-comuni',
  category: 'pratico',
  date: '2026-02-24T05:16:42.336Z',
  image: '/images/blog/costo-vivere-mappa-comuni.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'architetti-sottopagati-ticino',
  category: 'novita',
  date: '2026-02-24T06:01:43.889Z',
  image: '/images/blog/architetti-sottopagati-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'calo-frontalieri-non-tassa-salute',
  category: 'novita',
  date: '2026-02-24T06:46:38.447Z',
  image: '/images/blog/calo-frontalieri-non-tassa-salute.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'maternita-cassazione-diritti-frontalieri',
  category: 'novita',
  date: '2026-02-24T08:06:58.406Z',
  image: '/images/blog/maternita-cassazione-diritti-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'galenica-bichsel-ristrutturazione-lavoro',
  category: 'novita',
  date: '2026-02-24T08:18:36.627Z',
  image: '/images/blog/galenica-bichsel-ristrutturazione-lavoro.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'dazi-trump-export-ticinese',
  category: 'novita',
  date: '2026-02-24T08:39:10.896Z',
  image: '/images/blog/dazi-trump-export-ticinese.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'campione-italia-fine-dissesto',
  category: 'novita',
  date: '2026-02-24T08:51:53.997Z',
  image: '/images/blog/campione-italia-fine-dissesto.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'gavetta-tossica-architetti-ticino',
  category: 'novita',
  date: '2026-02-24T09:01:38.250Z',
  image: '/images/blog/gavetta-tossica-architetti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'eurocity-bloccato-caos-pendolari',
  category: 'pratico',
  date: '2026-02-24T09:58:00.895Z',
  image: '/images/blog/eurocity-bloccato-caos-pendolari.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sicurezza-lavoro-controlli-svizzera',
  category: 'novita',
  date: '2026-02-24T10:45:46.842Z',
  image: '/images/blog/sicurezza-lavoro-controlli-svizzera.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'startup-investimenti-boom-ticino',
  category: 'novita',
  date: '2026-02-24T11:05:14.743Z',
  image: '/images/blog/startup-investimenti-boom-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'long-covid-malattia-professionale',
  category: 'novita',
  date: '2026-02-24T11:31:42.798Z',
  image: '/images/blog/long-covid-malattia-professionale.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'accordo-ue-svizzera-mercato-interno',
  category: 'novita',
  date: '2026-02-24T12:28:45.188Z',
  image: '/images/blog/accordo-ue-svizzera-mercato-interno.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'fonderie-svizzere-crisi-2025',
  category: 'novita',
  date: '2026-02-24T12:36:45.561Z',
  image: '/images/blog/fonderie-svizzere-crisi-2025.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salario-minimo-ticino-accordo',
  category: 'novita',
  date: '2026-02-24T13:52:52.649Z',
  image: '/images/blog/salario-minimo-ticino-accordo.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'trasporti-pubblici-crescita-svizzera',
  category: 'novita',
  date: '2026-02-24T15:04:24.521Z',
  image: '/images/blog/trasporti-pubblici-crescita-svizzera.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cantieri-notturni-lugano-marzo-2026',
  category: 'pratico',
  date: '2026-02-24T15:15:37.969Z',
  image: '/images/blog/cantieri-notturni-lugano-marzo-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'supsi-nuova-direttrice-formazione',
  category: 'novita',
  date: '2026-02-24T15:59:45.978Z',
  image: '/images/blog/supsi-nuova-direttrice-formazione.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bps-suisse-risultati-bper',
  category: 'novita',
  date: '2026-02-24T17:59:04.738Z',
  image: '/images/blog/bps-suisse-risultati-bper.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aiuti-energia-proroga-taglio',
  category: 'novita',
  date: '2026-02-24T18:36:28.492Z',
  image: '/images/blog/aiuti-energia-proroga-taglio.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salario-minimo-sociale-ticino-dibattito',
  category: 'novita',
  date: '2026-02-24T19:07:37.332Z',
  image: '/images/blog/salario-minimo-sociale-ticino-dibattito.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bps-suisse-utili-consigli-crisi',
  category: 'pratico',
  date: '2026-02-24T19:19:54.940Z',
  image: '/images/blog/bps-suisse-utili-consigli-crisi.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'accordo-ue-voto-obbligatorio-ticino',
  category: 'novita',
  date: '2026-02-24T19:33:47.591Z',
  image: '/images/blog/accordo-ue-voto-obbligatorio-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'accordo-ue-svizzera-impatto-frontalieri',
  category: 'novita',
  date: '2026-02-24T21:28:50.490Z',
  image: '/images/blog/accordo-ue-svizzera-impatto-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'locarno-stop-case-vacanza',
  category: 'novita',
  date: '2026-02-24T21:41:03.972Z',
  image: '/images/blog/locarno-stop-case-vacanza.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bilaterali-ue-svizzera-firma',
  category: 'novita',
  date: '2026-02-24T21:54:10.426Z',
  image: '/images/blog/bilaterali-ue-svizzera-firma.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'aumento-iva-esercito-impatto-spesa',
  category: 'fiscale',
  date: '2026-02-24T23:09:00.951Z',
  image: '/images/blog/aumento-iva-esercito-impatto-spesa.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'maternita-paternita-ticino',
  category: 'pratico',
  date: '2026-02-25T05:05:22.918Z',
  image: '/images/blog/maternita-paternita-ticino.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'valposchiavo-turismo-2025',
  category: 'novita',
  date: '2026-02-25T06:49:18.739Z',
  image: '/images/blog/valposchiavo-turismo-2025.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontalieri-economia-ticino',
  category: 'novita',
  date: '2026-02-25T06:59:26.721Z',
  image: '/images/places/mendrisio.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'inflazione-frontalieri-ticino',
  category: 'fiscale',
  date: '2026-02-25T07:06:08.112Z',
  image: '/images/blog/inflazione-frontalieri-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aprire-conto-bancario-frontaliere',
  category: 'pratico',
  date: '2026-02-25T07:38:10.866Z',
  image: '/images/blog/aprire-conto-bancario-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ristorni-fiscali-ticino',
  category: 'fiscale',
  date: '2026-02-25T07:56:29.739Z',
  image: '/images/blog/ristorni-fiscali-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'contributi-sociali-busta-paga',
  category: 'pratico',
  date: '2026-02-25T08:10:22.085Z',
  image: '/images/blog/contributi-sociali-busta-paga.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'strada-incidenti-vezia-cureglia',
  category: 'novita',
  date: '2026-02-25T08:29:27.169Z',
  image: '/images/blog/strada-incidenti-vezia-cureglia.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'assicurazione-malattia-famiglia',
  category: 'pratico',
  date: '2026-02-25T08:50:41.055Z',
  image: '/images/blog/assicurazione-malattia-famiglia.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'frontalieri-calo-economia-ticinese',
  category: 'novita',
  date: '2026-02-25T09:29:53.271Z',
  image: '/images/blog/frontalieri-calo-economia-ticinese.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'usi-startup-centre-ranking',
  category: 'novita',
  date: '2026-02-25T10:21:49.348Z',
  image: '/images/blog/usi-startup-centre-ranking.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sciopero-treni-tilo-febbraio-2026',
  category: 'pratico',
  date: '2026-02-25T11:19:57.628Z',
  image: '/images/blog/sciopero-treni-tilo-febbraio-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'piscina-chiasso-copertura-2026',
  category: 'novita',
  date: '2026-02-25T11:52:20.679Z',
  image: '/images/blog/piscina-chiasso-copertura-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'centrale-elettrica-grono-attiva',
  category: 'novita',
  date: '2026-02-25T12:18:40.785Z',
  image: '/images/blog/centrale-elettrica-grono-attiva.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'naspi-frontaliere-italia-requisiti',
  category: 'pratico',
  date: '2026-02-25T12:47:55.911Z',
  image: '/images/blog/naspi-frontaliere-italia-requisiti.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'prelievo-secondo-pilastro-frontaliere',
  category: 'pensione',
  date: '2026-02-25T13:11:38.175Z',
  image: '/images/blog/prelievo-secondo-pilastro-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'accordo-ue-frontalieri-ticino',
  category: 'novita',
  date: '2026-02-25T13:42:33.526Z',
  image: '/images/blog/accordo-ue-frontalieri-ticino.png',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ristorni-congelati-ticino-italia',
  category: 'fiscale',
  date: '2026-02-25T14:45:52.152Z',
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'naspi-ex-frontalieri-2026',
  category: 'pratico',
  date: '2026-02-25T15:02:54.047Z',
  image: '/images/places/lugano-view.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'mutuo-casa-frontalieri-italia',
  category: 'pratico',
  date: '2026-02-25T15:40:21.209Z',
  image: '/images/blog/mutuo-casa-frontalieri-italia.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'piscina-chiasso-investimento',
  category: 'novita',
  date: '2026-02-25T18:18:15.456Z',
  image: '/images/blog/piscina-chiasso-investimento.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ristorni-congelati-gobbi-2026',
  category: 'fiscale',
  date: '2026-02-25T18:47:23.929Z',
  image: '/images/blog/ristorni-congelati-gobbi-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'asilo-nido-ticino-guida-2026',
  category: 'pratico',
  date: '2026-02-25T19:16:16.072Z',
  image: '/images/blog/asilo-nido-ticino-guida-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ristorni-salute-2026-ticino',
  category: 'fiscale',
  date: '2026-02-25T21:09:36.292Z',
  image: '/images/blog/ristorni-salute-2026-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-salute-scontro-ticino-berna',
  category: 'fiscale',
  date: '2026-02-25T21:33:28.883Z',
  image: '/images/blog/tassa-salute-scontro-ticino-berna.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'piscina-chiasso-rinnovo-sicurezza',
  category: 'novita',
  date: '2026-02-25T23:56:02.037Z',
  image: '/images/blog/piscina-chiasso-rinnovo-sicurezza.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'disagi-tilo-sciopero-italia',
  category: 'novita',
  date: '2026-02-26T04:50:36.885Z',
  image: '/images/blog/disagi-tilo-sciopero-italia.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'abbonamenti-sconti-treni-ticino',
  category: 'pratico',
  date: '2026-02-26T05:43:23.910Z',
  image: '/images/blog/abbonamenti-sconti-treni-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bonus-famiglia-frontalieri-2026',
  category: 'pratico',
  date: '2026-02-26T06:13:15.917Z',
  image: '/images/blog/bonus-famiglia-frontalieri-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'smart-working-frontalieri-2026',
  category: 'pratico',
  date: '2026-02-26T06:33:25.219Z',
  image: '/images/blog/smart-working-frontalieri-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'confronto-assicurazioni-auto',
  category: 'pratico',
  date: '2026-02-26T08:07:38.633Z',
  image: '/images/blog/confronto-assicurazioni-auto.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'permesso-b-vs-g-differenze',
  category: 'pratico',
  date: '2026-02-26T10:55:41.941Z',
  image: '/images/blog/permesso-b-vs-g-differenze.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'spese-sanitarie-frontalieri',
  category: 'pratico',
  date: '2026-02-26T11:12:45.096Z',
  image: '/images/blog/spese-sanitarie-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
  // A.4 — naspi-disoccupazione-frontalieri retired; canonical hub is
  // naspi-ex-frontalieri-2026 (legacy 301 via legacyRedirectsPlugin).
@@ -1102,1576 +1421,2042 @@ export const ARTICLES = [
  date: '2026-02-26T13:36:25.627Z',
  image: '/images/blog/dichiarazione-redditi-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cantieri-traffico-a9-ticino',
  category: 'novita',
  date: '2026-02-26T14:42:47.487Z',
  image: '/images/blog/cantieri-traffico-a9-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'migranti-seghezzone-risparmi',
  category: 'novita',
  date: '2026-02-26T17:55:05.502Z',
  image: '/images/blog/migranti-seghezzone-risparmi.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cantieri-traffico-frontiera',
  category: 'pratico',
  date: '2026-02-26T20:30:48.251Z',
  image: '/images/blog/cantieri-traffico-frontiera.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'salario-minimo-ps-compromesso',
  category: 'novita',
  date: '2026-02-27T05:10:08.873Z',
  image: '/images/blog/salario-minimo-ps-compromesso.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cocaina-lusso-perquisizioni-ticino',
  category: 'novita',
  date: '2026-02-27T06:11:51.617Z',
  image: '/images/blog/cocaina-lusso-perquisizioni-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'calcolo-tasse-entro-confine',
  category: 'fiscale',
  date: '2026-02-27T06:19:48.213Z',
  image: '/images/blog/calcolo-tasse-entro-confine.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'riforma-giustizia-pace-ticino',
  category: 'novita',
  date: '2026-02-27T10:11:45.408Z',
  image: '/images/blog/riforma-giustizia-pace-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cantieri-a9-disagi-frontiera',
  category: 'pratico',
  date: '2026-02-27T14:13:03.792Z',
  image: '/images/blog/cantieri-a9-disagi-frontiera.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'revoca-uso-acqua-magliaso',
  category: 'novita',
  date: '2026-02-27T17:02:40.912Z',
  image: '/images/blog/revoca-uso-acqua-magliaso.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'malattie-rare-ticino-2026',
  category: 'novita',
  date: '2026-02-27T18:09:17.520Z',
  image: '/images/blog/malattie-rare-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontaliers-sabotage-varese',
  category: 'novita',
  date: '2026-02-27T19:35:50.698Z',
  image: '/images/blog/frontaliers-sabotage-varese.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ristorni-congelati-scontro-ticino',
  category: 'novita',
  date: '2026-02-27T20:02:09.739Z',
  image: '/images/blog/ristorni-congelati-scontro-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassazione-individuale-lavoro-donne',
  category: 'fiscale',
  date: '2026-02-27T21:01:10.515Z',
  image: '/images/blog/tassazione-individuale-lavoro-donne.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'diversita-religiosa-ticino-2026',
  category: 'novita',
  date: '2026-02-27T22:03:04.239Z',
  image: '/images/blog/diversita-religiosa-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'voto-corrispondenza-ticino-2026',
  category: 'novita',
  date: '2026-02-27T22:57:44.502Z',
  image: '/images/blog/voto-corrispondenza-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cantiere-viale-geno-como',
  category: 'novita',
  date: '2026-02-27T23:45:47.200Z',
  image: '/images/blog/cantiere-viale-geno-como.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controlli-velocita-ticino-2026',
  category: 'pratico',
  date: '2026-02-28T04:40:12.044Z',
  image: '/images/blog/controlli-velocita-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sanremo-2026-aiello-gassmann',
  category: 'novita',
  date: '2026-02-28T06:02:12.802Z',
  image: '/images/blog/sanremo-2026-aiello-gassmann.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'violenza-adolescenti-ticino',
  category: 'novita',
  date: '2026-02-28T07:09:07.366Z',
  image: '/images/blog/violenza-adolescenti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'comuni-frontalieri-distanza',
  category: 'fiscale',
  date: '2026-02-28T08:58:42.082Z',
  image: '/images/blog/comuni-frontalieri-distanza.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'elezioni-comunali-ticino',
  category: 'novita',
  date: '2026-02-28T11:21:53.511Z',
  image: '/images/blog/elezioni-comunali-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'eroina-auto-chiasso-brogeda',
  category: 'novita',
  date: '2026-02-28T11:43:07.346Z',
  image: '/images/blog/eroina-auto-chiasso-brogeda.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'olio-chimica-produzione',
  category: 'novita',
  date: '2026-02-28T13:53:07.665Z',
  image: '/images/blog/olio-chimica-produzione.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'incidente-mortale-frontaliere',
  category: 'novita',
  date: '2026-02-28T14:50:37.144Z',
  image: '/images/blog/incidente-mortale-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzera-mediazione-iran-2026',
  category: 'novita',
  date: '2026-02-28T15:45:23.911Z',
  image: '/images/blog/svizzera-mediazione-iran-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sanremo-frontalieri-impatti',
  category: 'novita',
  date: '2026-02-28T16:16:34.440Z',
  image: '/images/blog/sanremo-frontalieri-impatti.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavorare-germania-educatori',
  category: 'pratico',
  date: '2026-02-28T16:25:31.596Z',
  image: '/images/blog/lavorare-germania-educatori.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'porto-ceresio-lungolago-lavori',
  category: 'novita',
  date: '2026-02-28T16:55:46.254Z',
  image: '/images/blog/porto-ceresio-lungolago-lavori.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'casa-hockey-ticino-2026',
  category: 'novita',
  date: '2026-02-28T17:44:21.995Z',
  image: '/images/blog/casa-hockey-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassazione-individuale-svizzera',
  category: 'fiscale',
  date: '2026-02-28T19:01:56.807Z',
  image: '/images/blog/tassazione-individuale-svizzera.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cinema-frontaliers-ticino-varese',
  category: 'novita',
  date: '2026-02-28T19:43:26.633Z',
  image: '/images/blog/cinema-frontaliers-ticino-varese.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'minimo-salariale-ticino-accordo-ps',
  category: 'novita',
  date: '2026-03-01T08:59:12.110Z',
  image: '/images/blog/minimo-salariale-ticino-accordo-ps.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiasso-fede-adulti-integrazione',
  category: 'novita',
  date: '2026-03-01T09:57:39.350Z',
  image: '/images/blog/chiasso-fede-adulti-integrazione.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sicurezza-confine-ticino-brogeda',
  category: 'novita',
  date: '2026-03-01T10:09:54.413Z',
  image: '/images/blog/sicurezza-confine-ticino-brogeda.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'stipendi-manager-energia-ticino',
  category: 'novita',
  date: '2026-03-01T10:32:27.959Z',
  image: '/images/blog/stipendi-manager-energia-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavoro-educatori-germania-alternativa',
  category: 'pratico',
  date: '2026-03-01T10:56:08.144Z',
  image: '/images/blog/lavoro-educatori-germania-alternativa.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'gandria-lusso-immobiliare-ticino',
  category: 'novita',
  date: '2026-03-01T11:35:22.791Z',
  image: '/images/blog/gandria-lusso-immobiliare-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'vandalismo-bus-frontalieri-ticino',
  category: 'pratico',
  date: '2026-03-01T11:44:50.275Z',
  image: '/images/blog/vandalismo-bus-frontalieri-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ticino-voto-anti-dumping',
  category: 'novita',
  date: '2026-03-01T13:54:26.375Z',
  image: '/images/blog/ticino-voto-anti-dumping.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'controlli-stradali-ticino-frontalieri',
  category: 'pratico',
  date: '2026-03-01T14:55:24.016Z',
  image: '/images/blog/controlli-stradali-ticino-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'comuni-confine-nuove-regole',
  category: 'fiscale',
  date: '2026-03-01T16:07:24.576Z',
  image: '/images/blog/comuni-confine-nuove-regole.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tragedia-stradale-frontaliere',
  category: 'pratico',
  date: '2026-03-01T16:37:37.528Z',
  image: '/images/blog/tragedia-stradale-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'chiasso-como-cantieri-a9-disagi',
  category: 'pratico',
  date: '2026-03-01T16:48:27.604Z',
  image: '/images/blog/chiasso-como-cantieri-a9-disagi.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiasso-comunita-evoluzione-sociale',
  category: 'novita',
  date: '2026-03-01T18:21:49.851Z',
  image: '/images/blog/chiasso-comunita-evoluzione-sociale.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tragedia-pendolare-ticino',
  category: 'novita',
  date: '2026-03-01T18:45:12.772Z',
  image: '/images/blog/tragedia-pendolare-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'a9-como-chiasso-disagi-notturni',
  category: 'novita',
  date: '2026-03-01T19:09:16.774Z',
  image: '/images/blog/a9-como-chiasso-disagi-notturni.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'economia-svizzera-ripresa-2026',
  category: 'novita',
  date: '2026-03-01T20:12:40.237Z',
  image: '/images/blog/economia-svizzera-ripresa-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'confine-fiscale-nuovi-comuni',
  category: 'fiscale',
  date: '2026-03-01T20:33:06.540Z',
  image: '/images/blog/confine-fiscale-nuovi-comuni.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'confine-a9-disagi-marzo',
  category: 'pratico',
  date: '2026-03-01T20:47:16.687Z',
  image: '/images/blog/confine-a9-disagi-marzo.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'autostrada-a9-disagi-frontalieri',
  category: 'pratico',
  date: '2026-03-01T21:09:14.838Z',
  image: '/images/blog/autostrada-a9-disagi-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiusure-a9-trasporti-speciali',
  category: 'novita',
  date: '2026-03-01T21:48:11.487Z',
  image: '/images/blog/chiusure-a9-trasporti-speciali.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'iniziativa-salari-ticino',
  category: 'novita',
  date: '2026-03-01T22:10:14.795Z',
  image: '/images/blog/iniziativa-salari-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salari-ticino-voto-frontalieri',
  category: 'novita',
  date: '2026-03-01T22:29:48.743Z',
  image: '/images/blog/salari-ticino-voto-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lutto-porlezza-frontaliere',
  category: 'novita',
  date: '2026-03-01T22:56:19.592Z',
  image: '/images/blog/lutto-porlezza-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'frontalieri-confine-disparita-fiscale',
  category: 'fiscale',
  date: '2026-03-01T23:18:17.186Z',
  image: '/images/blog/frontalieri-confine-disparita-fiscale.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'iniziativa-anti-dumping-voto',
  category: 'novita',
  date: '2026-03-01T23:45:46.848Z',
  image: '/images/blog/iniziativa-anti-dumping-voto.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nestle-bonus-lombardia-welfare',
  category: 'novita',
  date: '2026-03-02T01:17:57.850Z',
  image: '/images/blog/nestle-bonus-lombardia-welfare.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'frontiera-a9-disagi-marzo-2026',
  category: 'pratico',
  date: '2026-03-02T04:17:25.040Z',
  image: '/images/blog/frontiera-a9-disagi-marzo-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'mercato-lavoro-ticino-frena-2025',
  category: 'novita',
  date: '2026-03-02T05:26:02.929Z',
  image: '/images/blog/mercato-lavoro-ticino-frena-2025.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'confini-comunali-impatto-fiscale',
  category: 'fiscale',
  date: '2026-03-02T05:54:09.212Z',
  image: '/images/blog/confini-comunali-impatto-fiscale.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'franco-forte-impatto-frontalieri',
  category: 'pratico',
  date: '2026-03-02T06:31:44.207Z',
  image: '/images/blog/franco-forte-impatto-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'incidente-giovane-frontaliere',
  category: 'novita',
  date: '2026-03-02T06:53:59.199Z',
  image: '/images/blog/incidente-giovane-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'a9-chiasso-como-cantieri-frontalieri',
  category: 'pratico',
  date: '2026-03-02T07:03:43.654Z',
  image: '/images/blog/a9-chiasso-como-cantieri-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'salario-minimo-compromesso-ticino',
  category: 'novita',
  date: '2026-03-02T07:29:12.631Z',
  image: '/images/blog/salario-minimo-compromesso-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'compromesso-salario-minimo-condizioni',
  category: 'novita',
  date: '2026-03-02T07:52:00.760Z',
  image: '/images/blog/compromesso-salario-minimo-condizioni.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiasso-comunita-cambiamento-valori',
  category: 'novita',
  date: '2026-03-02T08:07:09.799Z',
  image: '/images/blog/chiasso-comunita-cambiamento-valori.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'pendolarismo-fatale-frontaliere-porlezza',
  category: 'pratico',
  date: '2026-03-02T08:20:07.580Z',
  image: '/images/blog/pendolarismo-fatale-frontaliere-porlezza.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salario-minimo-ticino-trattative',
  category: 'novita',
  date: '2026-03-02T08:32:26.999Z',
  image: '/images/blog/salario-minimo-ticino-trattative.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'trevano-campus-riqualifica',
  category: 'novita',
  date: '2026-03-02T09:01:11.073Z',
  image: '/images/blog/trevano-campus-riqualifica.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavena-sagrato-nuovo-investimento',
  category: 'novita',
  date: '2026-03-02T09:21:13.862Z',
  image: '/images/blog/lavena-sagrato-nuovo-investimento.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sportello-lavoro-varese-frontalieri-ticino',
  category: 'pratico',
  date: '2026-03-02T09:43:02.775Z',
  image: '/images/blog/sportello-lavoro-varese-frontalieri-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'controlli-stradali-intensivi-frontiera',
  category: 'pratico',
  date: '2026-03-02T10:14:54.340Z',
  image: '/images/blog/controlli-stradali-intensivi-frontiera.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'radar-confine-ticino-marzo',
  category: 'pratico',
  date: '2026-03-02T10:24:07.195Z',
  image: '/images/blog/radar-confine-ticino-marzo.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controlli-frontiera-ticino-rafforzati',
  category: 'novita',
  date: '2026-03-02T11:11:03.213Z',
  image: '/images/blog/controlli-frontiera-ticino-rafforzati.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavori-risanamento-a13-cadenazzo-2026',
  category: 'novita',
  date: '2026-03-02T11:30:02.301Z',
  image: '/images/blog/lavori-risanamento-a13-cadenazzo-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'salario-minimo-ticino-intesa-storica',
  category: 'novita',
  date: '2026-03-02T12:42:37.587Z',
  image: '/images/blog/salario-minimo-ticino-intesa-storica.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sicurezza-stradale-ticino-marzo',
  category: 'pratico',
  date: '2026-03-02T13:02:20.076Z',
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'a13-cantieri-frontalieri-ticino',
  category: 'pratico',
  date: '2026-03-02T13:23:18.350Z',
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bns-utile-calo-2025-impatto-ticino',
  category: 'novita',
  date: '2026-03-02T15:52:24.195Z',
  image: '/images/places/lugano-view.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'polizia-cantonale-nuovi-gendarmi',
  category: 'novita',
  date: '2026-03-02T17:34:53.483Z',
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'competenze-tecniche-frontalieri-ticino',
  category: 'novita',
  date: '2026-03-02T18:19:47.172Z',
  image: '/images/places/mendrisio.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'polizia-cantonale-reclutamento-2026',
  category: 'novita',
  date: '2026-03-02T18:42:09.440Z',
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'mercato-auto-febbraio-2026',
  category: 'novita',
  date: '2026-03-02T19:17:12.691Z',
  image: '/images/places/lago-lugano.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'como-nuovi-poliziotti-2026',
  category: 'novita',
  date: '2026-03-02T19:35:31.209Z',
  image: '/images/blog/como-nuovi-poliziotti-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sesto-calende-sicurezza-frontalieri',
  category: 'novita',
  date: '2026-03-02T19:56:10.332Z',
  image: '/images/blog/sesto-calende-sicurezza-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nessun-prelievo-avs-sulle-mance',
  category: 'novita',
  date: '2026-03-02T20:23:12.389Z',
  image: '/images/blog/nessun-prelievo-avs-sulle-mance.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'imposizione-individuale-donne-ticino',
  category: 'fiscale',
  date: '2026-03-02T21:09:04.931Z',
  image: '/images/blog/imposizione-individuale-donne-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-salute-frontalieri-vantaggio-ticino',
  category: 'fiscale',
  date: '2026-03-02T21:37:28.656Z',
  image: '/images/blog/tassa-salute-frontalieri-vantaggio-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'docenti-frontalieri-permesso-lavoro',
  category: 'novita',
  date: '2026-03-02T21:59:50.389Z',
  image: '/images/blog/docenti-frontalieri-permesso-lavoro.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'iniziativa-anti-dumping-ticino-2026',
  category: 'novita',
  date: '2026-03-02T22:16:35.095Z',
  image: '/images/blog/iniziativa-anti-dumping-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'comuni-confine-fiscalita-disparita',
  category: 'fiscale',
  date: '2026-03-02T22:48:09.708Z',
  image: '/images/blog/comuni-confine-fiscalita-disparita.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'tassa-salute-berna-ticino',
  category: 'novita',
  date: '2026-03-02T23:22:43.121Z',
  image: '/images/blog/tassa-salute-berna-ticino.webp',
  hasCalculator: true,
- }, {
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'ai-lombardia-impatto-ticino',
  category: 'novita',
  date: '2026-03-03T04:45:59.353Z',
  image: '/images/blog/ai-lombardia-impatto-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'crisi-golfo-carburanti-ticino',
  category: 'novita',
  date: '2026-03-03T05:10:59.337Z',
  image: '/images/blog/crisi-golfo-carburanti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'rincari-benzina-frontalieri-ticino',
  category: 'novita',
  date: '2026-03-03T05:38:48.666Z',
  image: '/images/blog/rincari-benzina-frontalieri-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'crisi-olio-prezzi-benzina-ticino',
  category: 'novita',
  date: '2026-03-03T06:15:45.888Z',
  image: '/images/blog/crisi-olio-prezzi-benzina-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'benzina-ticino-oriente',
  category: 'novita',
  date: '2026-03-03T06:26:08.049Z',
  image: '/images/blog/benzina-ticino-oriente.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ai-lombardia-ticino-frontaliere-2026',
  category: 'novita',
  date: '2026-03-03T06:42:20.217Z',
  image: '/images/blog/ai-lombardia-ticino-frontaliere-2026.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'kuhne-nagel-tagli-posti-ticino-2026',
  category: 'novita',
  date: '2026-03-03T09:15:24.889Z',
  image: '/images/blog/kuhne-nagel-tagli-posti-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'vini-ticinesi-collaborazione',
  category: 'novita',
  date: '2026-03-03T10:05:27.288Z',
  image: '/images/blog/vini-ticinesi-collaborazione.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'hockey-chiasso-wild-boars-bis',
  category: 'novita',
  date: '2026-03-03T10:45:58.656Z',
  image: '/images/blog/hockey-chiasso-wild-boars-bis.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svincolo-a2-biasca-rischi-frontaliere',
  category: 'pratico',
  date: '2026-03-03T11:32:33.500Z',
  image: '/images/blog/svincolo-a2-biasca-rischi-frontaliere.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'accordi-svizzera-ue-parmelin-bruxelles',
  category: 'novita',
  date: '2026-03-03T12:07:44.808Z',
  image: '/images/blog/accordi-svizzera-ue-parmelin-bruxelles.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lavori-linea-locarno-cadenazzo-2026',
  category: 'pratico',
  date: '2026-03-03T13:07:32.024Z',
  image: '/images/blog/lavori-linea-locarno-cadenazzo-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'spirit-varesini-valico-tassa-2026',
  category: 'novita',
  date: '2026-03-03T13:39:09.417Z',
  image: '/images/blog/spirit-varesini-valico-tassa-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'borse-in-rosso-prezzo-petrolio-ticino',
  category: 'novita',
  date: '2026-03-03T14:39:51.004Z',
  image: '/images/blog/borse-in-rosso-prezzo-petrolio-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontaliers-sabotage-varese-successo',
  category: 'novita',
  date: '2026-03-04T07:43:28.064Z',
  image: '/images/blog/frontaliers-sabotage-varese-successo.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'disoccupazione-svizzera-2026',
  category: 'novita',
  date: '2026-03-04T08:11:51.668Z',
  image: '/images/blog/disoccupazione-svizzera-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'infermieri-svizzera-frontalieri-ticino',
  category: 'novita',
  date: '2026-03-04T10:17:08.333Z',
  image: '/images/blog/infermieri-svizzera-frontalieri-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'successo-farmaceutica-ticino',
  category: 'novita',
  date: '2026-03-04T12:09:08.086Z',
  image: '/images/blog/successo-farmaceutica-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'utile-bns-2025-ticino',
  category: 'novita',
  date: '2026-03-04T14:22:12.294Z',
  image: '/images/blog/utile-bns-2025-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'banche-ticino-disoccupazione',
  category: 'novita',
  date: '2026-03-04T17:38:10.346Z',
  image: '/images/blog/banche-ticino-disoccupazione.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'medio-vedeggio-gruppo-lavoro-aggregazione',
  category: 'novita',
  date: '2026-03-04T20:08:46.365Z',
  image: '/images/blog/medio-vedeggio-gruppo-lavoro-aggregazione.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lugano-airport-fondi-salvati-2026',
  category: 'novita',
  date: '2026-03-04T21:05:31.643Z',
  image: '/images/blog/lugano-airport-fondi-salvati-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'made-in-italy-doganali-ticino-2026',
  category: 'novita',
  date: '2026-03-04T23:07:46.491Z',
  image: '/images/blog/made-in-italy-doganali-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'mercato-lavoro-ticino-q4-2025',
  category: 'novita',
  date: '2026-03-05T05:06:52.935Z',
  image: '/images/blog/mercato-lavoro-ticino-q4-2025.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'dichiarazione-imposta-digitale-ticino-26',
  category: 'fiscale',
  date: '2026-03-05T08:01:20.370Z',
  image: '/images/blog/dichiarazione-imposta-digitale-ticino-26.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tilo-25-milioni-passeggeri-2025',
  category: 'novita',
  date: '2026-03-05T10:11:48.534Z',
  image: '/images/blog/tilo-25-milioni-passeggeri-2025.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tassa-salute-lombardia-rinvio',
  category: 'fiscale',
  date: '2026-03-05T12:12:19.104Z',
  image: '/images/blog/tassa-salute-lombardia-rinvio.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tilo-record-passeggeri-2025',
  category: 'novita',
  date: '2026-03-05T14:46:54.511Z',
  image: '/images/blog/tilo-record-passeggeri-2025.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'trasporti-lombardia-ticino-record-tilo',
  category: 'pratico',
  date: '2026-03-05T21:55:24.813Z',
  image: '/images/blog/trasporti-lombardia-ticino-record-tilo.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'confusione-tassa-salute-frontalieri',
  category: 'fiscale',
  date: '2026-03-06T00:03:53.612Z',
  image: '/images/blog/confusione-tassa-salute-frontalieri.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'carburante-ticino-costo-aumenti',
  category: 'pratico',
  date: '2026-03-06T10:00:10.939Z',
  image: '/images/blog/carburante-ticino-costo-aumenti.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cpi-caso-hospita-rivalutazione-periti',
  category: 'pratico',
  date: '2026-03-06T11:19:03.572Z',
  image: '/images/blog/cpi-caso-hospita-rivalutazione-periti.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'casellario-giudiziale-ue-ticino',
  category: 'novita',
  date: '2026-03-06T14:11:24.215Z',
  image: '/images/blog/casellario-giudiziale-ue-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'salario-minimo-per-il-controprogetto-la-strada-e-in-discesa',
  category: 'novita',
  date: '2026-03-06T16:10:57.694Z',
  image: '/images/blog/salario-minimo-per-il-controprogetto-la-strada-e-in-discesa.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-salute-lombardia-frontalieri',
  category: 'fiscale',
  date: '2026-03-06T18:10:25.014Z',
  image: '/images/blog/tassa-salute-lombardia-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'franco-forte-problemi-economici',
  category: 'novita',
  date: '2026-03-06T20:06:08.856Z',
  image: '/images/blog/franco-forte-problemi-economici.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'carburante-prezzo-salito-opportunismo',
  category: 'novita',
  date: '2026-03-06T21:06:25.150Z',
  image: '/images/blog/carburante-prezzo-salito-opportunismo.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'frontalieri-tassa-salute-teatro',
  category: 'novita',
  date: '2026-03-06T22:04:08.262Z',
  image: '/images/blog/frontalieri-tassa-salute-teatro.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'disoccupazione-stabile-svizzera-2026',
  category: 'novita',
  date: '2026-03-06T23:12:41.977Z',
  image: '/images/blog/disoccupazione-stabile-svizzera-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'dazi-usa-rimborsi-ritardi',
  category: 'fiscale',
  date: '2026-03-06T23:56:51.634Z',
  image: '/images/blog/dazi-usa-rimborsi-ritardi.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'votazioni-8-marzo-iniziativa-ssr-aperto',
  category: 'novita',
  date: '2026-03-07T04:47:30.663Z',
  image: '/images/blog/votazioni-8-marzo-iniziativa-ssr-aperto.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ticino-spitex-contributo-pressione',
  category: 'pratico',
  date: '2026-03-07T06:05:59.953Z',
  image: '/images/blog/ticino-spitex-contributo-pressione.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'stalking-swiss-2026-ticino',
  category: 'novita',
  date: '2026-03-07T07:52:55.740Z',
  image: '/images/blog/stalking-swiss-2026-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'pirati-strada-ticino-italiani-2026',
  category: 'pratico',
  date: '2026-03-07T09:01:01.606Z',
  image: '/images/blog/pirati-strada-ticino-italiani-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'comuni-locarno-futuro-aggregazione',
  category: 'pratico',
  date: '2026-03-07T09:56:43.987Z',
  image: '/images/blog/comuni-locarno-futuro-aggregazione.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'costi-cure-domicilio-ticino-2026',
  category: 'novita',
  date: '2026-03-07T10:53:30.400Z',
  image: '/images/blog/costi-cure-domicilio-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lugano-park-ride-bus-sovvenzioni-2026',
  category: 'novita',
  date: '2026-03-07T11:41:11.265Z',
  image: '/images/blog/lugano-park-ride-bus-sovvenzioni-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'crisi-turismo-golfo-persico',
  category: 'novita',
  date: '2026-03-07T13:54:36.736Z',
  image: '/images/blog/crisi-turismo-golfo-persico.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'turisti-ticinesi-bloccati-medio-oriente',
  category: 'novita',
  date: '2026-03-07T14:54:22.392Z',
  image: '/images/blog/turisti-ticinesi-bloccati-medio-oriente.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzeri-bloccati-medio-oriente',
  category: 'novita',
  date: '2026-03-07T15:51:15.277Z',
  image: '/images/blog/svizzeri-bloccati-medio-oriente.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ticino-prevenzione-incendi-scuole-2026',
  category: 'novita',
  date: '2026-03-07T17:00:20.170Z',
  image: '/images/blog/ticino-prevenzione-incendi-scuole-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'varese-india-export-2026',
  category: 'novita',
  date: '2026-03-07T17:48:07.853Z',
  image: '/images/blog/varese-india-export-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'autotrasporto-rincari-confine-2026',
  category: 'novita',
  date: '2026-03-08T10:57:24.335Z',
  image: '/images/blog/autotrasporto-rincari-confine-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'carburanti-rincari-confine-ticino',
  category: 'novita',
  date: '2026-03-08T11:45:19.593Z',
  image: '/images/blog/carburanti-rincari-confine-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'votazioni-imposizione-ticino-2026',
  category: 'fiscale',
  date: '2026-03-08T13:59:41.134Z',
  image: '/images/blog/votazioni-imposizione-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'imposizione-individuale-ticino-2026',
  category: 'fiscale',
  date: '2026-03-08T15:03:13.485Z',
  image: '/images/blog/imposizione-individuale-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'no-iniziativa-antidumping-ticino',
  category: 'novita',
  date: '2026-03-08T15:50:38.951Z',
  image: '/images/blog/no-iniziativa-antidumping-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'dumping-salariale-ticino-no-iniziativa',
  category: 'novita',
  date: '2026-03-08T17:03:19.531Z',
  image: '/images/blog/dumping-salariale-ticino-no-iniziativa.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'incidente-viadotto-brogeda-como',
  category: 'pratico',
  date: '2026-03-08T19:05:48.044Z',
  image: '/images/blog/incidente-viadotto-brogeda-como.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'iniziativa-contro-dumping-ticino',
  category: 'novita',
  date: '2026-03-08T21:04:20.822Z',
  image: '/images/blog/iniziativa-contro-dumping-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'dumping-salariale-iniziativa-mps',
  category: 'novita',
  date: '2026-03-08T21:54:21.008Z',
  image: '/images/blog/dumping-salariale-iniziativa-mps.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'imposizione-individuale-rivoluzione-fiscale',
  category: 'fiscale',
  date: '2026-03-08T23:01:39.701Z',
  image: '/images/blog/imposizione-individuale-rivoluzione-fiscale.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'votazioni-federali-tassazione-individuale',
  category: 'fiscale',
  date: '2026-03-09T05:29:39.611Z',
  image: '/images/blog/votazioni-federali-tassazione-individuale.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'universita-ticino-frontalieri',
  category: 'novita',
  date: '2026-03-09T08:04:18.054Z',
  image: '/images/blog/universita-ticino-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'franco-svizzero-frontalieri-ricchi-2026',
  category: 'novita',
  date: '2026-03-09T17:22:58.501Z',
  image: '/images/blog/franco-svizzero-frontalieri-ricchi-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'energia-costi-ticino-rincari-2026',
  category: 'novita',
  date: '2026-03-09T17:41:19.014Z',
  image: '/images/blog/energia-costi-ticino-rincari-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ticino-carburante-alle-stelle-quadri-berna-riduca-tasse',
  category: 'fiscale',
  date: '2026-03-09T20:02:22.336Z',
  image: '/images/blog/ticino-carburante-alle-stelle-quadri-berna-riduca-tasse.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'un-test-per-dare-un-nome-al-dolore',
  category: 'pratico',
  date: '2026-03-09T21:11:13.027Z',
  image: '/images/blog/un-test-per-dare-un-nome-al-dolore.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'aumentare-gia-il-prezzo-della-benzina',
  category: 'pratico',
  date: '2026-03-09T23:08:47.845Z',
  image: '/images/blog/aumentare-gia-il-prezzo-della-benzina.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'furti-supermercati-ponte-tresa',
  category: 'pratico',
  date: '2026-03-10T00:03:12.408Z',
  image: '/images/blog/furti-supermercati-ponte-tresa.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ladri-intercettati-lavena-ponte-tresa',
  category: 'novita',
  date: '2026-03-10T05:05:56.252Z',
  image: '/images/blog/ladri-intercettati-lavena-ponte-tresa.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'dumping-salariale-ticino-no',
  category: 'fiscale',
  date: '2026-03-10T07:33:26.062Z',
  image: '/images/blog/dumping-salariale-ticino-no.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sospensione-costi-utenti-ticino',
  category: 'fiscale',
  date: '2026-03-10T10:09:52.058Z',
  image: '/images/blog/sospensione-costi-utenti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'investimento-pedone-bioggio',
  category: 'pratico',
  date: '2026-03-10T12:03:12.243Z',
  image: '/images/blog/investimento-pedone-bioggio.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'tir-colonna-disagi-valico-brogeda',
  category: 'pratico',
  date: '2026-03-10T17:41:02.640Z',
  image: '/images/blog/tir-colonna-disagi-valico-brogeda.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'iniziative-cassa-malati-costituzionalista-ticino',
  category: 'novita',
  date: '2026-03-10T19:57:37.221Z',
  image: '/images/blog/iniziative-cassa-malati-costituzionalista-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'investimenti-sicurezza-turismo-valsolda-26',
  category: 'novita',
  date: '2026-03-10T21:07:05.146Z',
  image: '/images/blog/investimenti-sicurezza-turismo-valsolda-26.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'premio-la-rondine-2026-ticino',
  category: 'novita',
  date: '2026-03-10T23:02:11.090Z',
  image: '/images/blog/premio-la-rondine-2026-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassi-ipotecari-ticino-medio-oriente-2026',
  category: 'novita',
  date: '2026-03-10T23:57:24.721Z',
  image: '/images/blog/tassi-ipotecari-ticino-medio-oriente-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aumento-export-bellico-svizzero-ticino',
  category: 'novita',
  date: '2026-03-11T05:06:52.522Z',
  image: '/images/blog/aumento-export-bellico-svizzero-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'assicurazione-auto-rincari-2026',
  category: 'fiscale',
  date: '2026-03-11T08:08:50.903Z',
  image: '/images/blog/assicurazione-auto-rincari-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ticino-biglietti-senza-contanti',
  category: 'novita',
  date: '2026-03-11T10:16:30.280Z',
  image: '/images/blog/ticino-biglietti-senza-contanti.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aziende-como-assumono-lavoratori',
  category: 'novita',
  date: '2026-03-11T12:16:45.031Z',
  image: '/images/blog/aziende-como-assumono-lavoratori.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'a2-giornico-cantiere-disagi-frontalieri',
  category: 'pratico',
  date: '2026-03-11T14:56:52.398Z',
  image: '/images/blog/a2-giornico-cantiere-disagi-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-traffico-pesante-camion-elettrici',
  category: 'fiscale',
  date: '2026-03-11T17:48:13.666Z',
  image: '/images/blog/tassa-traffico-pesante-camion-elettrici.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'logistica-sostenibile-a22',
  category: 'novita',
  date: '2026-03-11T20:01:10.417Z',
  image: '/images/blog/logistica-sostenibile-a22.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'problemi-rotaia-bellinzona-lugano',
  category: 'pratico',
  date: '2026-03-11T21:10:14.170Z',
  image: '/images/blog/problemi-rotaia-bellinzona-lugano.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'carpooling-aziendale-ticino',
  category: 'novita',
  date: '2026-03-11T23:00:52.131Z',
  image: '/images/blog/carpooling-aziendale-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'energia-ets-von-der-leyen',
  category: 'novita',
  date: '2026-03-11T23:59:02.439Z',
  image: '/images/blog/energia-ets-von-der-leyen.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'permesso-g-apprendisti-frontali',
  category: 'pratico',
  date: '2026-03-12T05:10:57.442Z',
  image: '/images/blog/permesso-g-apprendisti-frontali.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'assegni-familiari-frontalieri-ticino',
  category: 'novita',
  date: '2026-03-12T08:15:36.089Z',
  image: '/images/blog/assegni-familiari-frontalieri-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'dagatra-incontro-migranti-chiasso',
  category: 'novita',
  date: '2026-03-12T10:24:00.089Z',
  image: '/images/blog/dagatra-incontro-migranti-chiasso.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ufficio-postale-chiasso-trasloco',
  category: 'pratico',
  date: '2026-03-12T17:43:54.025Z',
  image: '/images/blog/ufficio-postale-chiasso-trasloco.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'confine-tesissimo-assegni-familiari',
  category: 'pratico',
  date: '2026-03-12T20:04:30.152Z',
  image: '/images/blog/confine-tesissimo-assegni-familiari.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'chiasso-jazz-festival-2026',
  category: 'novita',
  date: '2026-03-12T21:11:40.435Z',
  image: '/images/blog/chiasso-jazz-festival-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'apprendisti-frontalieri-riforma-permesso-g',
  category: 'novita',
  date: '2026-03-12T23:06:54.740Z',
  image: '/images/blog/apprendisti-frontalieri-riforma-permesso-g.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiasso-piano-regolatore-telefonia',
  category: 'pratico',
  date: '2026-03-12T23:58:37.083Z',
  image: '/images/blog/chiasso-piano-regolatore-telefonia.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'pensione-et-ticino-sentiero',
  category: 'pensione',
  date: '2026-03-13T05:09:19.716Z',
  image: '/images/blog/pensione-et-ticino-sentiero.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'paradosso-ticino-lavoro',
  category: 'pratico',
  date: '2026-03-13T08:07:04.502Z',
  image: '/images/blog/paradosso-ticino-lavoro.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavena-ponte-tresa-giro-spaccio',
  category: 'pratico',
  date: '2026-03-13T10:07:51.178Z',
  image: '/images/blog/lavena-ponte-tresa-giro-spaccio.webp',
  hasCalculator: true,
- }, {
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'apertura-pesca-ticino',
  category: 'novita',
  date: '2026-03-13T14:35:03.915Z',
  image: '/images/blog/apertura-pesca-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cassa-malati-franchigia-minima-ticino',
  category: 'pratico',
  date: '2026-03-13T17:44:42.623Z',
  image: '/images/blog/cassa-malati-franchigia-minima-ticino.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'trin-tunnel-grave-frontalieri',
  category: 'fiscale',
  date: '2026-03-13T20:31:24.357Z',
  image: '/images/blog/trin-tunnel-grave-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'chiasso-verde-sufficiente',
  category: 'pratico',
  date: '2026-03-13T21:29:50.232Z',
  image: '/images/blog/chiasso-verde-sufficiente.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'comitati-malpensa-cuv-2026',
  category: 'novita',
  date: '2026-03-13T22:26:58.739Z',
  image: '/images/blog/comitati-malpensa-cuv-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta',
  category: 'fiscale',
  date: '2026-03-13T23:25:47.849Z',
  image: '/images/blog/borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'iran-tajani-non-tratta-navi',
  category: 'novita',
  date: '2026-03-14T01:25:04.062Z',
  image: '/images/blog/iran-tajani-non-tratta-navi.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'accordi-bilaterali-3-parlamento',
  category: 'novita',
  date: '2026-03-14T04:10:54.170Z',
  image: '/images/blog/accordi-bilaterali-3-parlamento.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'viaggio-delle-batterie-verso-seconda-vita',
  category: 'pratico',
  date: '2026-03-14T05:50:27.012Z',
  image: '/images/blog/viaggio-delle-batterie-verso-seconda-vita.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bilaterali-iii-parlamento-ticino-2026',
  category: 'novita',
  date: '2026-03-14T06:42:07.542Z',
  image: '/images/blog/bilaterali-iii-parlamento-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'affitti-rialzo-crisi-ticino-2026',
  category: 'novita',
  date: '2026-03-14T07:35:43.882Z',
  image: '/images/blog/affitti-rialzo-crisi-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bilaterali-iii-ticino-parlamento-2026',
  category: 'novita',
  date: '2026-03-14T08:31:53.085Z',
  image: '/images/blog/bilaterali-iii-ticino-parlamento-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'truffa-lavoro-svizzera-anticipo-2026',
  category: 'novita',
  date: '2026-03-14T09:31:01.207Z',
  image: '/images/blog/truffa-lavoro-svizzera-anticipo-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ticino-carburanti-prezzo-potere-acquisto',
  category: 'fiscale',
  date: '2026-03-14T10:25:32.580Z',
  image: '/images/blog/ticino-carburanti-prezzo-potere-acquisto.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'aumento-franchigia-minima',
  category: 'pratico',
  date: '2026-03-14T11:39:29.764Z',
  image: '/images/blog/aumento-franchigia-minima.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ticino-swissminiatur-inaugura-miniera-doro-sessa',
  category: 'novita',
  date: '2026-03-14T17:34:47.553Z',
  image: '/images/blog/ticino-swissminiatur-inaugura-miniera-doro-sessa.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lavena-ponte-tresa-addio-antonio-cannavale',
  category: 'novita',
  date: '2026-03-14T18:31:29.011Z',
  image: '/images/blog/lavena-ponte-tresa-addio-antonio-cannavale.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gravincidente-stradale-regina-feriti',
  category: 'novita',
  date: '2026-03-14T19:25:28.259Z',
  image: '/images/blog/gravincidente-stradale-regina-feriti.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'scende-limite-nevicate-ticino',
  category: 'novita',
  date: '2026-03-14T20:24:20.004Z',
  image: '/images/blog/scende-limite-nevicate-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ticino-no-anti-dumping',
  category: 'novita',
  date: '2026-03-14T21:24:38.432Z',
  image: '/images/blog/ticino-no-anti-dumping.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiusa-val-bedretto',
  category: 'novita',
  date: '2026-03-14T22:23:51.709Z',
  image: '/images/blog/chiusa-val-bedretto.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'un-passaporto-di-fedelt',
  category: 'novita',
  date: '2026-03-14T23:24:29.903Z',
  image: '/images/blog/un-passaporto-di-fedelt.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'chiusure-autostrada-confine-ticino-2026',
  category: 'pratico',
  date: '2026-03-15T04:31:21.107Z',
  image: '/images/blog/chiusure-autostrada-confine-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'swissminiatur-miniera-doro-sessa',
  category: 'novita',
  date: '2026-03-15T06:18:06.018Z',
  image: '/images/blog/swissminiatur-miniera-doro-sessa.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sondaggio-tamedia-iva-esercito-avs',
  category: 'fiscale',
  date: '2026-03-15T07:50:20.368Z',
  image: '/images/blog/sondaggio-tamedia-iva-esercito-avs.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'inverno-ticino-nevicate-2026',
  category: 'pratico',
  date: '2026-03-15T09:51:02.127Z',
  image: '/images/blog/inverno-ticino-nevicate-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'franchigia-minima-sanitario-ticino',
  category: 'novita',
  date: '2026-03-15T11:25:53.875Z',
  image: '/images/blog/franchigia-minima-sanitario-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzera-recessione-cieslakiewicz',
  category: 'novita',
  date: '2026-03-15T12:41:17.157Z',
  image: '/images/blog/svizzera-recessione-cieslakiewicz.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'nevicate-strade-bloccate-ticino',
  category: 'pratico',
  date: '2026-03-15T14:32:27.268Z',
  image: '/images/blog/nevicate-strade-bloccate-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bilaterali-terza-fase-parlamento-ticino',
  category: 'novita',
  date: '2026-03-15T15:29:43.594Z',
  image: '/images/blog/bilaterali-terza-fase-parlamento-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cane-morto-binarie-campo-calcio',
  category: 'novita',
  date: '2026-03-15T16:48:29.694Z',
  image: '/images/blog/cane-morto-binarie-campo-calcio.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'swissminiatur-miniera-sessa-2026',
  category: 'novita',
  date: '2026-03-15T17:40:16.269Z',
  image: '/images/blog/swissminiatur-miniera-sessa-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'crescita-misera-libera-circolazione',
  category: 'pratico',
  date: '2026-03-15T18:59:29.744Z',
  image: '/images/blog/crescita-misera-libera-circolazione.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'treni-varese-milano-ceresio-express',
  category: 'pratico',
  date: '2026-03-15T19:50:07.288Z',
  image: '/images/blog/treni-varese-milano-ceresio-express.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
 
  // Evergreen SEO articles — March 2026
@@ -2681,1028 +3466,1341 @@ export const ARTICLES = [
  date: '2026-03-15T20:00:00.000Z',
  image: '/images/places/lugano-view.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guida-pensione-frontaliere-avs-lpp',
  category: 'pensione',
  date: '2026-03-15T20:01:00.000Z',
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'vivere-svizzera-vs-italia-frontaliere',
  category: 'pratico',
  date: '2026-03-15T20:02:00.000Z',
  image: '/images/places/locarno.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'dumping-salariale-diritti-lavoratore-ticino',
  category: 'fiscale',
  date: '2026-03-15T20:03:00.000Z',
  image: '/images/places/mendrisio.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'malattia-frontaliere-guida-assicurazione',
  category: 'pratico',
  date: '2026-03-15T20:04:00.000Z',
  image: '/images/places/castelgrande.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'strumenti-frontaliere-guida-comparatori',
  category: 'pratico',
  date: '2026-03-15T20:05:00.000Z',
  image: '/images/places/lugano-view.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'caro-carburante-benzina-ticino',
  category: 'fiscale',
  date: '2026-03-15T20:50:49.464Z',
  image: '/images/blog/caro-carburante-benzina-ticino.webp',
 
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bilaterali-iii-cassis-ticino',
  category: 'pratico',
  date: '2026-03-16T06:20:08.711Z',
  image: '/images/blog/bilaterali-iii-cassis-ticino.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'fermato-brogeda-cocaina',
  category: 'fiscale',
  date: '2026-03-16T10:02:17.162Z',
  image: '/images/blog/fermato-brogeda-cocaina.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'dominicano-auto-svizzera-arresto',
  category: 'pratico',
  date: '2026-03-16T10:58:26.365Z',
  image: '/images/blog/dominicano-auto-svizzera-arresto.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'salari-bassi-rischio-povert',
  category: 'pratico',
  date: '2026-03-16T12:06:50.997Z',
  image: '/images/blog/salari-bassi-rischio-povert.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ticino-svolta-per-apprendisti',
  category: 'novita',
  date: '2026-03-16T20:06:55.092Z',
  image: '/images/blog/ticino-svolta-per-apprendisti.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bellinzona-crescita-qualita-vita',
  category: 'novita',
  date: '2026-03-16T20:55:08.714Z',
  image: '/images/blog/bellinzona-crescita-qualita-vita.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'crisi-spermatozoi-svizzera-ticino',
  category: 'pratico',
  date: '2026-03-16T21:56:27.390Z',
  image: '/images/blog/crisi-spermatozoi-svizzera-ticino.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'droga-brogeda-sequestro-cocaina',
  category: 'novita',
  date: '2026-03-16T23:52:14.059Z',
  image: '/images/blog/droga-brogeda-sequestro-cocaina.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bellinzona-auscultazione-2026',
  category: 'novita',
  date: '2026-03-17T08:12:10.828Z',
  image: '/images/blog/bellinzona-auscultazione-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lombardia-affitto-famiglie-varesine',
  category: 'pratico',
  date: '2026-03-17T11:07:59.097Z',
  image: '/images/blog/lombardia-affitto-famiglie-varesine.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'malcantone-fai-di-primavera-2026',
  category: 'novita',
  date: '2026-03-17T12:08:54.968Z',
  image: '/images/blog/malcantone-fai-di-primavera-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sicurezza-privata-chiasso-nebiopoli',
  category: 'novita',
  date: '2026-03-17T15:30:59.954Z',
  image: '/images/blog/sicurezza-privata-chiasso-nebiopoli.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sfruttamento-corsieri-ticino-2026',
  category: 'pratico',
  date: '2026-03-17T17:29:41.230Z',
  image: '/images/blog/sfruttamento-corsieri-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavoro-economia-2026',
  category: 'novita',
  date: '2026-03-17T19:27:49.808Z',
  image: '/images/blog/lavoro-economia-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sequestro-cocaina-brogeda-2026',
  category: 'novita',
  date: '2026-03-17T21:08:34.195Z',
  image: '/images/blog/sequestro-cocaina-brogeda-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'infiltrazioni-criminali-ticino-grigioni',
  category: 'fiscale',
  date: '2026-03-17T22:02:23.349Z',
  image: '/images/blog/infiltrazioni-criminali-ticino-grigioni.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'turismo-luganese-formazione',
  category: 'novita',
  date: '2026-03-17T23:01:33.852Z',
  image: '/images/blog/turismo-luganese-formazione.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'walter-bonatti-in-capo-al-mondo',
  category: 'novita',
  date: '2026-03-18T02:45:15.133Z',
  image: '/images/blog/walter-bonatti-in-capo-al-mondo.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sargans-teenage-robbery-catch',
  category: 'pratico',
  date: '2026-03-18T07:12:46.300Z',
  image: '/images/blog/sargans-teenage-robbery-catch.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'com-aziende-lavoro-como',
  category: 'novita',
  date: '2026-03-18T10:06:52.910Z',
  image: '/images/blog/com-aziende-lavoro-como.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cabov-precipita-forte-vento',
  category: 'novita',
  date: '2026-03-18T15:12:29.976Z',
  image: '/images/blog/cabov-precipita-forte-vento.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'gadda-incalza-governo-frontalieri',
  category: 'fiscale',
  date: '2026-03-18T20:58:59.476Z',
  image: '/images/blog/gadda-incalza-governo-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'centovallina-riapertura-treni',
  category: 'novita',
  date: '2026-03-18T21:50:39.228Z',
  image: '/images/blog/centovallina-riapertura-treni.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'truffe-chiamate-shock-ticino',
  category: 'novita',
  date: '2026-03-18T22:48:22.156Z',
  image: '/images/blog/truffe-chiamate-shock-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'spazi-verdi-in-citta-rilassamento',
  category: 'pratico',
  date: '2026-03-18T23:45:16.640Z',
  image: '/images/blog/spazi-verdi-in-citta-rilassamento.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'camedo-buffet-eventi-ticino',
  category: 'novita',
  date: '2026-03-19T06:08:27.867Z',
  image: '/images/blog/camedo-buffet-eventi-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'berna-discute-approvvigionamento-economico-e-13esima-avs',
  category: 'novita',
  date: '2026-03-19T07:11:48.069Z',
  image: '/images/blog/berna-discute-approvvigionamento-economico-e-13esima-avs.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'visita-ticinese-coira-criminalita-organizzata',
  category: 'novita',
  date: '2026-03-19T08:11:13.394Z',
  image: '/images/blog/visita-ticinese-coira-criminalita-organizzata.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'annunci-lavoro-dumping-ticino-governo',
  category: 'novita',
  date: '2026-03-19T09:31:19.588Z',
  image: '/images/blog/annunci-lavoro-dumping-ticino-governo.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controlli-cantieri-mendrisio',
  category: 'pratico',
  date: '2026-03-19T10:12:32.565Z',
  image: '/images/blog/controlli-cantieri-mendrisio.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'catastrofi-ticino-prontezza-2026',
  category: 'novita',
  date: '2026-03-19T11:28:32.300Z',
  image: '/images/blog/catastrofi-ticino-prontezza-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tredicesima-avs-soluzione-mista-stati',
  category: 'pensione',
  date: '2026-03-19T12:13:35.350Z',
  image: '/images/blog/tredicesima-avs-soluzione-mista-stati.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lo-statuto-s-non-deve-trasformarsi-in-permesso-b',
  category: 'pratico',
  date: '2026-03-19T13:18:43.623Z',
  image: '/images/blog/lo-statuto-s-non-deve-trasformarsi-in-permesso-b.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'consiglio-stati-soluzione-mista-13esima-avs',
  category: 'pensione',
  date: '2026-03-19T14:35:12.413Z',
  image: '/images/blog/consiglio-stati-soluzione-mista-13esima-avs.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'frode-cassa-compensazione-avs-ticino',
  category: 'pratico',
  date: '2026-03-19T15:23:24.887Z',
  image: '/images/blog/frode-cassa-compensazione-avs-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'deputazione-ticinese-italofoni-2024',
  category: 'fiscale',
  date: '2026-03-19T17:52:19.898Z',
  image: '/images/blog/deputazione-ticinese-italofoni-2024.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'kebab-case-turismo-ticino',
  category: 'novita',
  date: '2026-03-19T19:06:05.860Z',
  image: '/images/blog/kebab-case-turismo-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'droga-al-confine-ticino-2025',
  category: 'novita',
  date: '2026-03-19T19:51:12.225Z',
  image: '/images/blog/droga-al-confine-ticino-2025.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'incidente-stradale-laghi',
  category: 'pratico',
  date: '2026-03-19T21:11:01.676Z',
  image: '/images/blog/incidente-stradale-laghi.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'vivere-piu-lungo-ticino',
  category: 'pratico',
  date: '2026-03-19T21:46:55.330Z',
  image: '/images/blog/vivere-piu-lungo-ticino.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'giustizia-in-bilico-2026',
  category: 'novita',
  date: '2026-03-19T23:03:50.305Z',
  image: '/images/blog/giustizia-in-bilico-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ampliamento-parco-eolico-san-gottardo-digital-2026',
  category: 'novita',
  date: '2026-03-19T23:41:40.330Z',
  image: '/images/blog/ampliamento-parco-eolico-san-gottardo-digital-2026.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'eolico-gottardo-ampliamento-2026',
  category: 'novita',
  date: '2026-03-20T02:46:46.318Z',
  image: '/images/blog/eolico-gottardo-ampliamento-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'contrabbando-ai-confine-aumentano-droga-e-sigarette',
  category: 'pratico',
  date: '2026-03-20T03:22:57.912Z',
  image: '/images/blog/contrabbando-ai-confine-aumentano-droga-e-sigarette.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'salute-prevenzione-burocrazia-svizzera',
  category: 'novita',
  date: '2026-03-20T06:02:30.053Z',
  image: '/images/blog/salute-prevenzione-burocrazia-svizzera.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'telefonate-choc-truffa-anziani-ticino',
  category: 'pratico',
  date: '2026-03-20T06:36:45.725Z',
  image: '/images/blog/telefonate-choc-truffa-anziani-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ubs-fusione-credit-suisse-ticino',
  category: 'novita',
  date: '2026-03-20T07:09:05.333Z',
  image: '/images/blog/ubs-fusione-credit-suisse-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salari-minimi-ccl-ticino-2026',
  category: 'fiscale',
  date: '2026-03-20T07:34:50.409Z',
  image: '/images/blog/salari-minimi-ccl-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'strutture-dedicate-migranti-ticino',
  category: 'pratico',
  date: '2026-03-20T07:56:20.962Z',
  image: '/images/blog/strutture-dedicate-migranti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'contratti-collettivi-salari-ticino',
  category: 'novita',
  date: '2026-03-20T08:08:37.700Z',
  image: '/images/blog/contratti-collettivi-salari-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tutela-sovranita-dati-sanitari',
  category: 'novita',
  date: '2026-03-20T08:54:54.483Z',
  image: '/images/blog/tutela-sovranita-dati-sanitari.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nomine-annullate-sims-tram',
  category: 'novita',
  date: '2026-03-20T09:13:04.394Z',
  image: '/images/blog/nomine-annullate-sims-tram.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-automobilisti-svizzera',
  category: 'fiscale',
  date: '2026-03-20T09:55:23.904Z',
  image: '/images/blog/tassa-automobilisti-svizzera.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lavoro-richiedenti-asilo-ucraini-ticino',
  category: 'novita',
  date: '2026-03-20T10:11:17.021Z',
  image: '/images/blog/lavoro-richiedenti-asilo-ucraini-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'riforma-scolastica-ticino-difficolta',
  category: 'novita',
  date: '2026-03-20T10:52:35.225Z',
  image: '/images/blog/riforma-scolastica-ticino-difficolta.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-transito-parlamento-ticino',
  category: 'fiscale',
  date: '2026-03-20T11:11:29.556Z',
  image: '/images/blog/tassa-transito-parlamento-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'inclusione-migranti-ticino',
  category: 'novita',
  date: '2026-03-20T11:42:04.126Z',
  image: '/images/blog/inclusione-migranti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'franco-svizzero-impatti-ticino',
  category: 'fiscale',
  date: '2026-03-20T13:19:14.359Z',
  image: '/images/blog/franco-svizzero-impatti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-transito-automobilisti-ticino',
  category: 'fiscale',
  date: '2026-03-20T13:49:13.780Z',
  image: '/images/blog/tassa-transito-automobilisti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nubifragio-coira-mesolcina-ristoro',
  category: 'novita',
  date: '2026-03-20T14:55:43.713Z',
  image: '/images/blog/nubifragio-coira-mesolcina-ristoro.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lotta-violenza-di-genere-ticino',
  category: 'novita',
  date: '2026-03-20T15:29:12.946Z',
  image: '/images/blog/lotta-violenza-di-genere-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-transito-svizzera-2023',
  category: 'novita',
  date: '2026-03-20T15:59:52.990Z',
  image: '/images/blog/tassa-transito-svizzera-2023.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controlli-cantieri-mendrisiotto',
  category: 'fiscale',
  date: '2026-03-20T16:14:46.964Z',
  image: '/images/blog/controlli-cantieri-mendrisiotto.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'acinque-lancia-piano-genitorialita',
  category: 'novita',
  date: '2026-03-20T17:04:05.420Z',
  image: '/images/blog/acinque-lancia-piano-genitorialita.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'danni-riparati-centovallina',
  category: 'novita',
  date: '2026-03-20T17:31:42.961Z',
  image: '/images/blog/danni-riparati-centovallina.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'porrentruy-piscina-comunale-divieto',
  category: 'novita',
  date: '2026-03-20T17:50:17.309Z',
  image: '/images/blog/porrentruy-piscina-comunale-divieto.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sanita-fontana-fedriga',
  category: 'novita',
  date: '2026-03-20T18:15:00.043Z',
  image: '/images/blog/sanita-fontana-fedriga.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ampliamento-parco-eolico-san-gottardo',
  category: 'novita',
  date: '2026-03-20T19:20:07.949Z',
  image: '/images/blog/ampliamento-parco-eolico-san-gottardo.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'cure-a-domicilio-tassa-ticino',
  category: 'novita',
  date: '2026-03-20T21:04:34.954Z',
  image: '/images/blog/cure-a-domicilio-tassa-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'kebab-case-ticino-nubifragio-grigioni',
  category: 'pratico',
  date: '2026-03-20T21:58:42.386Z',
  image: '/images/blog/kebab-case-ticino-nubifragio-grigioni.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'kebab-case-rossi-bruxelles-ticino',
  category: 'fiscale',
  date: '2026-03-20T22:58:17.294Z',
  image: '/images/blog/kebab-case-rossi-bruxelles-ticino.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'rinnovo-concessioni-snl-2026',
  category: 'novita',
  date: '2026-03-21T03:13:32.605Z',
  image: '/images/blog/rinnovo-concessioni-snl-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'globalisti-fuga-medio-oriente-ticino',
  category: 'novita',
  date: '2026-03-21T04:49:46.161Z',
  image: '/images/blog/globalisti-fuga-medio-oriente-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'guasto-tra-parabiago-e-rho',
  category: 'pratico',
  date: '2026-03-21T05:52:27.782Z',
  image: '/images/blog/guasto-tra-parabiago-e-rho.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tassa-transito-ticino-pedemontana',
  category: 'fiscale',
  date: '2026-03-21T06:12:12.156Z',
  image: '/images/blog/tassa-transito-ticino-pedemontana.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'franco-svizzero-a-valori-record-2026',
  category: 'fiscale',
  date: '2026-03-21T07:02:06.128Z',
  image: '/images/blog/franco-svizzero-a-valori-record-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi',
  category: 'fiscale',
  date: '2026-03-21T07:27:46.207Z',
  image: '/images/blog/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'farmaci-competitiva-europa',
  category: 'pratico',
  date: '2026-03-21T07:40:32.381Z',
  image: '/images/blog/farmaci-competitiva-europa.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'controlli-cantieri-mendrisiotto-2026',
  category: 'novita',
  date: '2026-03-21T08:02:26.303Z',
  image: '/images/blog/controlli-cantieri-mendrisiotto-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'byd-expansion-ticino-2026',
  category: 'novita',
  date: '2026-03-21T08:47:56.314Z',
  image: '/images/blog/byd-expansion-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controllo-affitti-nazionale-ticino',
  category: 'novita',
  date: '2026-03-21T09:07:48.153Z',
  image: '/images/blog/controllo-affitti-nazionale-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cioccolato-meno-ma-pagato-di-piu',
  category: 'novita',
  date: '2026-03-21T09:45:15.892Z',
  image: '/images/blog/cioccolato-meno-ma-pagato-di-piu.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'diesel-aumento-prezzi-svizzera-2026',
  category: 'novita',
  date: '2026-03-21T10:03:22.205Z',
  image: '/images/blog/diesel-aumento-prezzi-svizzera-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sanita-manifesto-varese-2026',
  category: 'novita',
  date: '2026-03-21T10:40:36.290Z',
  image: '/images/blog/sanita-manifesto-varese-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'iva-bassa-svizzera-immagine-ingannevole',
  category: 'fiscale',
  date: '2026-03-21T11:01:59.120Z',
  image: '/images/blog/iva-bassa-svizzera-immagine-ingannevole.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'divieto-smartphone-scuola-ticino',
  category: 'novita',
  date: '2026-03-21T11:44:36.863Z',
  image: '/images/blog/divieto-smartphone-scuola-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'la-navigazione-rafforza-offerta-2026',
  category: 'novita',
  date: '2026-03-21T13:09:21.150Z',
  image: '/images/blog/la-navigazione-rafforza-offerta-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sanita-integrativa-lombardia-ticino',
  category: 'novita',
  date: '2026-03-21T13:38:10.050Z',
  image: '/images/blog/sanita-integrativa-lombardia-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'fatture-mediche-gonfiate-ticino',
  category: 'pratico',
  date: '2026-03-21T13:54:29.953Z',
  image: '/images/blog/fatture-mediche-gonfiate-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'divieto-cellulari-scuola-ticino',
  category: 'novita',
  date: '2026-03-21T14:48:58.860Z',
  image: '/images/blog/divieto-cellulari-scuola-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'violenza-donne-consiglio-europa-ticino',
  category: 'novita',
  date: '2026-03-21T15:10:47.926Z',
  image: '/images/blog/violenza-donne-consiglio-europa-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'trojani-capo-servizi-esercito-ticino',
  category: 'novita',
  date: '2026-03-21T15:43:34.878Z',
  image: '/images/blog/trojani-capo-servizi-esercito-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'funivia-monteviasco-orari-corsi',
  category: 'pratico',
  date: '2026-03-21T16:13:56.502Z',
  image: '/images/blog/funivia-monteviasco-orari-corsi.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ricchi-fuga-medio-oriente-ticino',
  category: 'novita',
  date: '2026-03-21T16:41:51.578Z',
  image: '/images/blog/ricchi-fuga-medio-oriente-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'divieto-cellulari-scuola-ticino-2024',
  category: 'novita',
  date: '2026-03-21T17:01:21.915Z',
  image: '/images/blog/divieto-cellulari-scuola-ticino-2024.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sindacati-contro-snl-ticino-2026',
  category: 'novita',
  date: '2026-03-21T17:36:16.270Z',
  image: '/images/blog/sindacati-contro-snl-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'aumento-iva-costo-ticino-2026',
  category: 'fiscale',
  date: '2026-03-21T17:56:57.517Z',
  image: '/images/blog/aumento-iva-costo-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'acquarossa-nuovo-polo-filovia-2026',
  category: 'novita',
  date: '2026-03-21T18:50:30.483Z',
  image: '/images/blog/acquarossa-nuovo-polo-filovia-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ritardo-sconto-carburante-ticino-2026',
  category: 'novita',
  date: '2026-03-21T19:07:13.999Z',
  image: '/images/blog/ritardo-sconto-carburante-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavori-a8-castellanza-notturni-2026',
  category: 'pratico',
  date: '2026-03-21T19:38:54.409Z',
  image: '/images/blog/lavori-a8-castellanza-notturni-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'quanto-costa-la-discriminazione',
  category: 'pratico',
  date: '2026-03-21T19:55:19.399Z',
  image: '/images/blog/quanto-costa-la-discriminazione.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'divieto-smartphone-scuola-ticino-2026',
  category: 'pratico',
  date: '2026-03-21T20:42:50.803Z',
  image: '/images/blog/divieto-smartphone-scuola-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'carenza-farmaci-ticino',
  category: 'pratico',
  date: '2026-03-21T21:00:53.977Z',
  image: '/images/blog/carenza-farmaci-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lago-maggiore-accesso-tutto-l-anno',
  category: 'pratico',
  date: '2026-03-21T21:37:14.417Z',
  image: '/images/blog/lago-maggiore-accesso-tutto-l-anno.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'spiagge-libere-sul-lago-maggiore',
  category: 'pratico',
  date: '2026-03-21T22:39:14.445Z',
  image: '/images/blog/spiagge-libere-sul-lago-maggiore.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'snl-stagione-green-concessione',
  category: 'novita',
  date: '2026-03-21T23:01:25.287Z',
  image: '/images/blog/snl-stagione-green-concessione.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'smartphone-a-scuola-e-nuove-direttive',
  category: 'novita',
  date: '2026-03-21T23:36:39.323Z',
  image: '/images/blog/smartphone-a-scuola-e-nuove-direttive.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'infortuni-sul-lavoro-protesi-hi-tech',
  category: 'pratico',
  date: '2026-03-21T23:59:46.152Z',
  image: '/images/blog/infortuni-sul-lavoro-protesi-hi-tech.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bellinzona-scomparsa-ricerche-ticino-piemonte',
  category: 'pratico',
  date: '2026-03-22T03:08:23.413Z',
  image: '/images/blog/bellinzona-scomparsa-ricerche-ticino-piemonte.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cure-domicilio-ticino-politica',
  category: 'novita',
  date: '2026-03-22T03:39:29.140Z',
  image: '/images/blog/cure-domicilio-ticino-politica.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'navigazione-lago-lugano-2026',
  category: 'novita',
  date: '2026-03-22T05:02:39.305Z',
  image: '/images/blog/navigazione-lago-lugano-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'parco-vedeggio-comuni-firman',
  category: 'novita',
  date: '2026-03-22T06:01:07.566Z',
  image: '/images/blog/parco-vedeggio-comuni-firman.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'stop-export-materiale-bellico',
  category: 'novita',
  date: '2026-03-22T06:32:27.277Z',
  image: '/images/blog/stop-export-materiale-bellico.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'gestione-scontri-frontali-ticino',
  category: 'novita',
  date: '2026-03-22T07:03:41.393Z',
  image: '/images/blog/gestione-scontri-frontali-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'auto-intrusione-frontalieri-ticino',
  category: 'pratico',
  date: '2026-03-22T07:29:11.119Z',
  image: '/images/blog/auto-intrusione-frontalieri-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rischio-lugano-young-boys',
  category: 'novita',
  date: '2026-03-22T07:44:04.068Z',
  image: '/images/blog/rischio-lugano-young-boys.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bossi-morto-ticino-frontalieri',
  category: 'novita',
  date: '2026-03-22T08:03:38.584Z',
  image: '/images/blog/bossi-morto-ticino-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ogm-fallimento-ticino',
  category: 'novita',
  date: '2026-03-22T08:49:32.012Z',
  image: '/images/blog/ogm-fallimento-ticino.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'passaggio-statuto-s-permesso-b',
  category: 'pratico',
  date: '2026-03-22T09:44:18.179Z',
  image: '/images/blog/passaggio-statuto-s-permesso-b.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiusure-notturne-autostrada',
  category: 'pratico',
  date: '2026-03-22T10:07:25.106Z',
  image: '/images/blog/chiusure-notturne-autostrada.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'morte-bimbo-efamilia-ticino',
  category: 'pratico',
  date: '2026-03-22T10:45:15.114Z',
  image: '/images/blog/morte-bimbo-efamilia-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'fondi-hcap-restituiti',
  category: 'novita',
  date: '2026-03-22T11:06:11.007Z',
  image: '/images/blog/fondi-hcap-restituiti.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bellinzona-paese-dormitorio',
  category: 'pratico',
  date: '2026-03-22T11:41:52.879Z',
  image: '/images/blog/bellinzona-paese-dormitorio.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'ticino-attenti-ai-radar-2026',
  category: 'pratico',
  date: '2026-03-22T14:25:10.266Z',
  image: '/images/blog/ticino-attenti-ai-radar-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sequestro-stupefacenti-ecuador',
  category: 'novita',
  date: '2026-03-22T14:54:43.183Z',
  image: '/images/blog/sequestro-stupefacenti-ecuador.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nuovi-radar-ticino-multe',
  category: 'novita',
  date: '2026-03-22T16:06:40.417Z',
  image: '/images/blog/nuovi-radar-ticino-multe.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'rifugiati-ucraini-assistenza-2027',
  category: 'novita',
  date: '2026-03-22T23:13:50.805Z',
  image: '/images/blog/rifugiati-ucraini-assistenza-2027.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cannabis-sequestro-ticino',
  category: 'novita',
  date: '2026-03-23T00:01:56.031Z',
  image: '/images/blog/cannabis-sequestro-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'pfaffikon-kanton-schwyz-franzosi-einbrecher',
  category: 'novita',
  date: '2026-03-23T02:56:26.885Z',
  image: '/images/blog/pfaffikon-kanton-schwyz-franzosi-einbrecher.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'riapertura-casetta-chiosco-davesco',
  category: 'pratico',
  date: '2026-03-23T03:40:26.200Z',
  image: '/images/blog/riapertura-casetta-chiosco-davesco.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'giovani-ticino-comuni-innovazioni',
  category: 'pratico',
  date: '2026-03-23T05:14:57.952Z',
  image: '/images/blog/giovani-ticino-comuni-innovazioni.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'domeniche-senza-auto-ticino-2026',
  category: 'novita',
  date: '2026-03-23T05:27:38.220Z',
  image: '/images/blog/domeniche-senza-auto-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiusure-notturne-a4-ticino',
  category: 'pratico',
  date: '2026-03-23T06:54:37.648Z',
  image: '/images/blog/chiusure-notturne-a4-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzera-frontalieri-franco-lavoro',
  category: 'novita',
  date: '2026-03-23T07:27:30.977Z',
  image: '/images/blog/svizzera-frontalieri-franco-lavoro.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'svizzera-cern-ricerca-chip',
  category: 'novita',
  date: '2026-03-23T08:35:02.770Z',
  image: '/images/blog/svizzera-cern-ricerca-chip.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cannabis-sequestro-ticino-2026',
  category: 'novita',
  date: '2026-03-23T09:13:01.365Z',
  image: '/images/blog/cannabis-sequestro-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzeri-dubitano-difesa-paese',
  category: 'novita',
  date: '2026-03-23T09:55:12.891Z',
  image: '/images/blog/svizzeri-dubitano-difesa-paese.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controlli-radar-ticino',
  category: 'pratico',
  date: '2026-03-23T11:53:10.280Z',
  image: '/images/blog/controlli-radar-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-casa-zurigo',
  category: 'pratico',
  date: '2026-03-23T12:40:56.176Z',
  image: '/images/blog/frontalieri-casa-zurigo.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lugano-sicurezza-2025',
  category: 'novita',
  date: '2026-03-23T13:37:16.108Z',
  image: '/images/blog/lugano-sicurezza-2025.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'chiasso-ora-terra-2026',
  category: 'novita',
  date: '2026-03-23T15:49:32.848Z',
  image: '/images/blog/chiasso-ora-terra-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'radar-ticino-riduzione',
  category: 'pratico',
  date: '2026-03-23T16:14:32.093Z',
  image: '/images/blog/radar-ticino-riduzione.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
  // Evergreen SEO articles — March 2026
  {
@@ -3711,9210 +4809,11866 @@ export const ARTICLES = [
  date: '2026-03-15T20:00:00.000Z',
  image: '/images/places/lugano-view.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'guida-pensione-frontaliere-avs-lpp',
  category: 'pensione',
  date: '2026-03-15T20:01:00.000Z',
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'vivere-svizzera-vs-italia-frontaliere',
  category: 'pratico',
  date: '2026-03-15T20:02:00.000Z',
  image: '/images/places/locarno.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'dumping-salariale-diritti-lavoratore-ticino',
  category: 'fiscale',
  date: '2026-03-15T20:03:00.000Z',
  image: '/images/places/mendrisio.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'malattia-frontaliere-guida-assicurazione',
  category: 'pratico',
  date: '2026-03-15T20:04:00.000Z',
  image: '/images/places/castelgrande.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'strumenti-frontaliere-guida-comparatori',
  category: 'pratico',
  date: '2026-03-15T20:05:00.000Z',
  image: '/images/places/lugano-view.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'caro-carburante-benzina-ticino',
  category: 'fiscale',
  date: '2026-03-15T20:50:49.464Z',
  image: '/images/blog/caro-carburante-benzina-ticino.webp',
 
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bilaterali-iii-cassis-ticino',
  category: 'pratico',
  date: '2026-03-16T06:20:08.711Z',
  image: '/images/blog/bilaterali-iii-cassis-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
-{
+  {
  id: 'fermato-brogeda-cocaina',
  category: 'fiscale',
  date: '2026-03-16T10:02:17.162Z',
  image: '/images/blog/fermato-brogeda-cocaina.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'dominicano-auto-svizzera-arresto',
  category: 'pratico',
  date: '2026-03-16T10:58:26.365Z',
  image: '/images/blog/dominicano-auto-svizzera-arresto.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salari-bassi-rischio-povert',
  category: 'pratico',
  date: '2026-03-16T12:06:50.997Z',
  image: '/images/blog/salari-bassi-rischio-povert.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ticino-svolta-per-apprendisti',
  category: 'novita',
  date: '2026-03-16T20:06:55.092Z',
  image: '/images/blog/ticino-svolta-per-apprendisti.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bellinzona-crescita-qualita-vita',
  category: 'novita',
  date: '2026-03-16T20:55:08.714Z',
  image: '/images/blog/bellinzona-crescita-qualita-vita.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'crisi-spermatozoi-svizzera-ticino',
  category: 'pratico',
  date: '2026-03-16T21:56:27.390Z',
  image: '/images/blog/crisi-spermatozoi-svizzera-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
-{
+  {
  id: 'droga-brogeda-sequestro-cocaina',
  category: 'novita',
  date: '2026-03-16T23:52:14.059Z',
  image: '/images/blog/droga-brogeda-sequestro-cocaina.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bellinzona-auscultazione-2026',
  category: 'novita',
  date: '2026-03-17T08:12:10.828Z',
  image: '/images/blog/bellinzona-auscultazione-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lombardia-affitto-famiglie-varesine',
  category: 'pratico',
  date: '2026-03-17T11:07:59.097Z',
  image: '/images/blog/lombardia-affitto-famiglie-varesine.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'malcantone-fai-di-primavera-2026',
  category: 'novita',
  date: '2026-03-17T12:08:54.968Z',
  image: '/images/blog/malcantone-fai-di-primavera-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sicurezza-privata-chiasso-nebiopoli',
  category: 'novita',
  date: '2026-03-17T15:30:59.954Z',
  image: '/images/blog/sicurezza-privata-chiasso-nebiopoli.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sfruttamento-corsieri-ticino-2026',
  category: 'pratico',
  date: '2026-03-17T17:29:41.230Z',
  image: '/images/blog/sfruttamento-corsieri-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavoro-economia-2026',
  category: 'novita',
  date: '2026-03-17T19:27:49.808Z',
  image: '/images/blog/lavoro-economia-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sequestro-cocaina-brogeda-2026',
  category: 'novita',
  date: '2026-03-17T21:08:34.195Z',
  image: '/images/blog/sequestro-cocaina-brogeda-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'infiltrazioni-criminali-ticino-grigioni',
  category: 'fiscale',
  date: '2026-03-17T22:02:23.349Z',
  image: '/images/blog/infiltrazioni-criminali-ticino-grigioni.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'turismo-luganese-formazione',
  category: 'novita',
  date: '2026-03-17T23:01:33.852Z',
  image: '/images/blog/turismo-luganese-formazione.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
-{
+  {
  id: 'walter-bonatti-in-capo-al-mondo',
  category: 'novita',
  date: '2026-03-18T02:45:15.133Z',
  image: '/images/blog/walter-bonatti-in-capo-al-mondo.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sargans-teenage-robbery-catch',
  category: 'pratico',
  date: '2026-03-18T07:12:46.300Z',
  image: '/images/blog/sargans-teenage-robbery-catch.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
-{
+  {
  id: 'com-aziende-lavoro-como',
  category: 'novita',
  date: '2026-03-18T10:06:52.910Z',
  image: '/images/blog/com-aziende-lavoro-como.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cabov-precipita-forte-vento',
  category: 'novita',
  date: '2026-03-18T15:12:29.976Z',
  image: '/images/blog/cabov-precipita-forte-vento.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
-{
+  {
  id: 'gadda-incalza-governo-frontalieri',
  category: 'fiscale',
  date: '2026-03-18T20:58:59.476Z',
  image: '/images/blog/gadda-incalza-governo-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'centovallina-riapertura-treni',
  category: 'novita',
  date: '2026-03-18T21:50:39.228Z',
  image: '/images/blog/centovallina-riapertura-treni.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'truffe-chiamate-shock-ticino',
  category: 'novita',
  date: '2026-03-18T22:48:22.156Z',
  image: '/images/blog/truffe-chiamate-shock-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'spazi-verdi-in-citta-rilassamento',
  category: 'pratico',
  date: '2026-03-18T23:45:16.640Z',
  image: '/images/blog/spazi-verdi-in-citta-rilassamento.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'camedo-buffet-eventi-ticino',
  category: 'novita',
  date: '2026-03-19T06:08:27.867Z',
  image: '/images/blog/camedo-buffet-eventi-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'berna-discute-approvvigionamento-economico-e-13esima-avs',
  category: 'novita',
  date: '2026-03-19T07:11:48.069Z',
  image: '/images/blog/berna-discute-approvvigionamento-economico-e-13esima-avs.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'visita-ticinese-coira-criminalita-organizzata',
  category: 'novita',
  date: '2026-03-19T08:11:13.394Z',
  image: '/images/blog/visita-ticinese-coira-criminalita-organizzata.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'annunci-lavoro-dumping-ticino-governo',
  category: 'novita',
  date: '2026-03-19T09:31:19.588Z',
  image: '/images/blog/annunci-lavoro-dumping-ticino-governo.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'controlli-cantieri-mendrisio',
  category: 'pratico',
  date: '2026-03-19T10:12:32.565Z',
  image: '/images/blog/controlli-cantieri-mendrisio.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'catastrofi-ticino-prontezza-2026',
  category: 'novita',
  date: '2026-03-19T11:28:32.300Z',
  image: '/images/blog/catastrofi-ticino-prontezza-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tredicesima-avs-soluzione-mista-stati',
  category: 'pensione',
  date: '2026-03-19T12:13:35.350Z',
  image: '/images/blog/tredicesima-avs-soluzione-mista-stati.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lo-statuto-s-non-deve-trasformarsi-in-permesso-b',
  category: 'pratico',
  date: '2026-03-19T13:18:43.623Z',
  image: '/images/blog/lo-statuto-s-non-deve-trasformarsi-in-permesso-b.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'consiglio-stati-soluzione-mista-13esima-avs',
  category: 'pensione',
  date: '2026-03-19T14:35:12.413Z',
  image: '/images/blog/consiglio-stati-soluzione-mista-13esima-avs.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frode-cassa-compensazione-avs-ticino',
  category: 'pratico',
  date: '2026-03-19T15:23:24.887Z',
  image: '/images/blog/frode-cassa-compensazione-avs-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'deputazione-ticinese-italofoni-2024',
  category: 'fiscale',
  date: '2026-03-19T17:52:19.898Z',
  image: '/images/blog/deputazione-ticinese-italofoni-2024.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'kebab-case-turismo-ticino',
  category: 'novita',
  date: '2026-03-19T19:06:05.860Z',
  image: '/images/blog/kebab-case-turismo-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'droga-al-confine-ticino-2025',
  category: 'novita',
  date: '2026-03-19T19:51:12.225Z',
  image: '/images/blog/droga-al-confine-ticino-2025.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
-{
+  {
  id: 'incidente-stradale-laghi',
  category: 'pratico',
  date: '2026-03-19T21:11:01.676Z',
  image: '/images/blog/incidente-stradale-laghi.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'vivere-piu-lungo-ticino',
  category: 'pratico',
  date: '2026-03-19T21:46:55.330Z',
  image: '/images/blog/vivere-piu-lungo-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
-{
+  {
  id: 'giustizia-in-bilico-2026',
  category: 'novita',
  date: '2026-03-19T23:03:50.305Z',
  image: '/images/blog/giustizia-in-bilico-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ampliamento-parco-eolico-san-gottardo-digital-2026',
  category: 'novita',
  date: '2026-03-19T23:41:40.330Z',
  image: '/images/blog/ampliamento-parco-eolico-san-gottardo-digital-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
-{
+  {
  id: 'eolico-gottardo-ampliamento-2026',
  category: 'novita',
  date: '2026-03-20T02:46:46.318Z',
  image: '/images/blog/eolico-gottardo-ampliamento-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'contrabbando-ai-confine-aumentano-droga-e-sigarette',
  category: 'pratico',
  date: '2026-03-20T03:22:57.912Z',
  image: '/images/blog/contrabbando-ai-confine-aumentano-droga-e-sigarette.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
-{
+  {
  id: 'salute-prevenzione-burocrazia-svizzera',
  category: 'novita',
  date: '2026-03-20T06:02:30.053Z',
  image: '/images/blog/salute-prevenzione-burocrazia-svizzera.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'telefonate-choc-truffa-anziani-ticino',
  category: 'pratico',
  date: '2026-03-20T06:36:45.725Z',
  image: '/images/blog/telefonate-choc-truffa-anziani-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ubs-fusione-credit-suisse-ticino',
  category: 'novita',
  date: '2026-03-20T07:09:05.333Z',
  image: '/images/blog/ubs-fusione-credit-suisse-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'salari-minimi-ccl-ticino-2026',
  category: 'fiscale',
  date: '2026-03-20T07:34:50.409Z',
  image: '/images/blog/salari-minimi-ccl-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'strutture-dedicate-migranti-ticino',
  category: 'pratico',
  date: '2026-03-20T07:56:20.962Z',
  image: '/images/blog/strutture-dedicate-migranti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'contratti-collettivi-salari-ticino',
  category: 'novita',
  date: '2026-03-20T08:08:37.700Z',
  image: '/images/blog/contratti-collettivi-salari-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tutela-sovranita-dati-sanitari',
  category: 'novita',
  date: '2026-03-20T08:54:54.483Z',
  image: '/images/blog/tutela-sovranita-dati-sanitari.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nomine-annullate-sims-tram',
  category: 'novita',
  date: '2026-03-20T09:13:04.394Z',
  image: '/images/blog/nomine-annullate-sims-tram.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-automobilisti-svizzera',
  category: 'fiscale',
  date: '2026-03-20T09:55:23.904Z',
  image: '/images/blog/tassa-automobilisti-svizzera.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavoro-richiedenti-asilo-ucraini-ticino',
  category: 'novita',
  date: '2026-03-20T10:11:17.021Z',
  image: '/images/blog/lavoro-richiedenti-asilo-ucraini-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'riforma-scolastica-ticino-difficolta',
  category: 'novita',
  date: '2026-03-20T10:52:35.225Z',
  image: '/images/blog/riforma-scolastica-ticino-difficolta.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-transito-parlamento-ticino',
  category: 'fiscale',
  date: '2026-03-20T11:11:29.556Z',
  image: '/images/blog/tassa-transito-parlamento-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'inclusione-migranti-ticino',
  category: 'novita',
  date: '2026-03-20T11:42:04.126Z',
  image: '/images/blog/inclusione-migranti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'franco-svizzero-impatti-ticino',
  category: 'fiscale',
  date: '2026-03-20T13:19:14.359Z',
  image: '/images/blog/franco-svizzero-impatti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-transito-automobilisti-ticino',
  category: 'fiscale',
  date: '2026-03-20T13:49:13.780Z',
  image: '/images/blog/tassa-transito-automobilisti-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nubifragio-coira-mesolcina-ristoro',
  category: 'novita',
  date: '2026-03-20T14:55:43.713Z',
  image: '/images/blog/nubifragio-coira-mesolcina-ristoro.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lotta-violenza-di-genere-ticino',
  category: 'novita',
  date: '2026-03-20T15:29:12.946Z',
  image: '/images/blog/lotta-violenza-di-genere-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-transito-svizzera-2023',
  category: 'novita',
  date: '2026-03-20T15:59:52.990Z',
  image: '/images/blog/tassa-transito-svizzera-2023.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'controlli-cantieri-mendrisiotto',
  category: 'fiscale',
  date: '2026-03-20T16:14:46.964Z',
  image: '/images/blog/controlli-cantieri-mendrisiotto.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'acinque-lancia-piano-genitorialita',
  category: 'novita',
  date: '2026-03-20T17:04:05.420Z',
  image: '/images/blog/acinque-lancia-piano-genitorialita.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'danni-riparati-centovallina',
  category: 'novita',
  date: '2026-03-20T17:31:42.961Z',
  image: '/images/blog/danni-riparati-centovallina.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'porrentruy-piscina-comunale-divieto',
  category: 'novita',
  date: '2026-03-20T17:50:17.309Z',
  image: '/images/blog/porrentruy-piscina-comunale-divieto.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sanita-fontana-fedriga',
  category: 'novita',
  date: '2026-03-20T18:15:00.043Z',
  image: '/images/blog/sanita-fontana-fedriga.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ampliamento-parco-eolico-san-gottardo',
  category: 'novita',
  date: '2026-03-20T19:20:07.949Z',
  image: '/images/blog/ampliamento-parco-eolico-san-gottardo.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
-{
+  {
  id: 'cure-a-domicilio-tassa-ticino',
  category: 'novita',
  date: '2026-03-20T21:04:34.954Z',
  image: '/images/blog/cure-a-domicilio-tassa-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'kebab-case-ticino-nubifragio-grigioni',
  category: 'pratico',
  date: '2026-03-20T21:58:42.386Z',
  image: '/images/blog/kebab-case-ticino-nubifragio-grigioni.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'kebab-case-rossi-bruxelles-ticino',
  category: 'fiscale',
  date: '2026-03-20T22:58:17.294Z',
  image: '/images/blog/kebab-case-rossi-bruxelles-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
-{
+  {
  id: 'rinnovo-concessioni-snl-2026',
  category: 'novita',
  date: '2026-03-21T03:13:32.605Z',
  image: '/images/blog/rinnovo-concessioni-snl-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'globalisti-fuga-medio-oriente-ticino',
  category: 'novita',
  date: '2026-03-21T04:49:46.161Z',
  image: '/images/blog/globalisti-fuga-medio-oriente-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guasto-tra-parabiago-e-rho',
  category: 'pratico',
  date: '2026-03-21T05:52:27.782Z',
  image: '/images/blog/guasto-tra-parabiago-e-rho.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-transito-ticino-pedemontana',
  category: 'fiscale',
  date: '2026-03-21T06:12:12.156Z',
  image: '/images/blog/tassa-transito-ticino-pedemontana.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'franco-svizzero-a-valori-record-2026',
  category: 'fiscale',
  date: '2026-03-21T07:02:06.128Z',
  image: '/images/blog/franco-svizzero-a-valori-record-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi',
  category: 'fiscale',
  date: '2026-03-21T07:27:46.207Z',
  image: '/images/blog/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'farmaci-competitiva-europa',
  category: 'pratico',
  date: '2026-03-21T07:40:32.381Z',
  image: '/images/blog/farmaci-competitiva-europa.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controlli-cantieri-mendrisiotto-2026',
  category: 'novita',
  date: '2026-03-21T08:02:26.303Z',
  image: '/images/blog/controlli-cantieri-mendrisiotto-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'byd-expansion-ticino-2026',
  category: 'novita',
  date: '2026-03-21T08:47:56.314Z',
  image: '/images/blog/byd-expansion-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'controllo-affitti-nazionale-ticino',
  category: 'novita',
  date: '2026-03-21T09:07:48.153Z',
  image: '/images/blog/controllo-affitti-nazionale-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cioccolato-meno-ma-pagato-di-piu',
  category: 'novita',
  date: '2026-03-21T09:45:15.892Z',
  image: '/images/blog/cioccolato-meno-ma-pagato-di-piu.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'diesel-aumento-prezzi-svizzera-2026',
  category: 'novita',
  date: '2026-03-21T10:03:22.205Z',
  image: '/images/blog/diesel-aumento-prezzi-svizzera-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sanita-manifesto-varese-2026',
  category: 'novita',
  date: '2026-03-21T10:40:36.290Z',
  image: '/images/blog/sanita-manifesto-varese-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'iva-bassa-svizzera-immagine-ingannevole',
  category: 'fiscale',
  date: '2026-03-21T11:01:59.120Z',
  image: '/images/blog/iva-bassa-svizzera-immagine-ingannevole.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'divieto-smartphone-scuola-ticino',
  category: 'novita',
  date: '2026-03-21T11:44:36.863Z',
  image: '/images/blog/divieto-smartphone-scuola-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'la-navigazione-rafforza-offerta-2026',
  category: 'novita',
  date: '2026-03-21T13:09:21.150Z',
  image: '/images/blog/la-navigazione-rafforza-offerta-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sanita-integrativa-lombardia-ticino',
  category: 'novita',
  date: '2026-03-21T13:38:10.050Z',
  image: '/images/blog/sanita-integrativa-lombardia-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fatture-mediche-gonfiate-ticino',
  category: 'pratico',
  date: '2026-03-21T13:54:29.953Z',
  image: '/images/blog/fatture-mediche-gonfiate-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'divieto-cellulari-scuola-ticino',
  category: 'novita',
  date: '2026-03-21T14:48:58.860Z',
  image: '/images/blog/divieto-cellulari-scuola-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'violenza-donne-consiglio-europa-ticino',
  category: 'novita',
  date: '2026-03-21T15:10:47.926Z',
  image: '/images/blog/violenza-donne-consiglio-europa-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'trojani-capo-servizi-esercito-ticino',
  category: 'novita',
  date: '2026-03-21T15:43:34.878Z',
  image: '/images/blog/trojani-capo-servizi-esercito-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'funivia-monteviasco-orari-corsi',
  category: 'pratico',
  date: '2026-03-21T16:13:56.502Z',
  image: '/images/blog/funivia-monteviasco-orari-corsi.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ricchi-fuga-medio-oriente-ticino',
  category: 'novita',
  date: '2026-03-21T16:41:51.578Z',
  image: '/images/blog/ricchi-fuga-medio-oriente-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'divieto-cellulari-scuola-ticino-2024',
  category: 'novita',
  date: '2026-03-21T17:01:21.915Z',
  image: '/images/blog/divieto-cellulari-scuola-ticino-2024.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sindacati-contro-snl-ticino-2026',
  category: 'novita',
  date: '2026-03-21T17:36:16.270Z',
  image: '/images/blog/sindacati-contro-snl-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'aumento-iva-costo-ticino-2026',
  category: 'fiscale',
  date: '2026-03-21T17:56:57.517Z',
  image: '/images/blog/aumento-iva-costo-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'acquarossa-nuovo-polo-filovia-2026',
  category: 'novita',
  date: '2026-03-21T18:50:30.483Z',
  image: '/images/blog/acquarossa-nuovo-polo-filovia-2026.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ritardo-sconto-carburante-ticino-2026',
  category: 'novita',
  date: '2026-03-21T19:07:13.999Z',
  image: '/images/blog/ritardo-sconto-carburante-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lavori-a8-castellanza-notturni-2026',
  category: 'pratico',
  date: '2026-03-21T19:38:54.409Z',
  image: '/images/blog/lavori-a8-castellanza-notturni-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'quanto-costa-la-discriminazione',
  category: 'pratico',
  date: '2026-03-21T19:55:19.399Z',
  image: '/images/blog/quanto-costa-la-discriminazione.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'divieto-smartphone-scuola-ticino-2026',
  category: 'pratico',
  date: '2026-03-21T20:42:50.803Z',
  image: '/images/blog/divieto-smartphone-scuola-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'carenza-farmaci-ticino',
  category: 'pratico',
  date: '2026-03-21T21:00:53.977Z',
  image: '/images/blog/carenza-farmaci-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lago-maggiore-accesso-tutto-l-anno',
  category: 'pratico',
  date: '2026-03-21T21:37:14.417Z',
  image: '/images/blog/lago-maggiore-accesso-tutto-l-anno.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
-{
+  {
  id: 'spiagge-libere-sul-lago-maggiore',
  category: 'pratico',
  date: '2026-03-21T22:39:14.445Z',
  image: '/images/blog/spiagge-libere-sul-lago-maggiore.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'snl-stagione-green-concessione',
  category: 'novita',
  date: '2026-03-21T23:01:25.287Z',
  image: '/images/blog/snl-stagione-green-concessione.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'smartphone-a-scuola-e-nuove-direttive',
  category: 'novita',
  date: '2026-03-21T23:36:39.323Z',
  image: '/images/blog/smartphone-a-scuola-e-nuove-direttive.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'infortuni-sul-lavoro-protesi-hi-tech',
  category: 'pratico',
  date: '2026-03-21T23:59:46.152Z',
  image: '/images/blog/infortuni-sul-lavoro-protesi-hi-tech.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bellinzona-scomparsa-ricerche-ticino-piemonte',
  category: 'pratico',
  date: '2026-03-22T03:08:23.413Z',
  image: '/images/blog/bellinzona-scomparsa-ricerche-ticino-piemonte.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cure-domicilio-ticino-politica',
  category: 'novita',
  date: '2026-03-22T03:39:29.140Z',
  image: '/images/blog/cure-domicilio-ticino-politica.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'navigazione-lago-lugano-2026',
  category: 'novita',
  date: '2026-03-22T05:02:39.305Z',
  image: '/images/blog/navigazione-lago-lugano-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'parco-vedeggio-comuni-firman',
  category: 'novita',
  date: '2026-03-22T06:01:07.566Z',
  image: '/images/blog/parco-vedeggio-comuni-firman.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'stop-export-materiale-bellico',
  category: 'novita',
  date: '2026-03-22T06:32:27.277Z',
  image: '/images/blog/stop-export-materiale-bellico.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'gestione-scontri-frontali-ticino',
  category: 'novita',
  date: '2026-03-22T07:03:41.393Z',
  image: '/images/blog/gestione-scontri-frontali-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'auto-intrusione-frontalieri-ticino',
  category: 'pratico',
  date: '2026-03-22T07:29:11.119Z',
  image: '/images/blog/auto-intrusione-frontalieri-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'rischio-lugano-young-boys',
  category: 'novita',
  date: '2026-03-22T07:44:04.068Z',
  image: '/images/blog/rischio-lugano-young-boys.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bossi-morto-ticino-frontalieri',
  category: 'novita',
  date: '2026-03-22T08:03:38.584Z',
  image: '/images/blog/bossi-morto-ticino-frontalieri.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ogm-fallimento-ticino',
  category: 'novita',
  date: '2026-03-22T08:49:32.012Z',
  image: '/images/blog/ogm-fallimento-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
-{
+  {
  id: 'passaggio-statuto-s-permesso-b',
  category: 'pratico',
  date: '2026-03-22T09:44:18.179Z',
  image: '/images/blog/passaggio-statuto-s-permesso-b.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'chiusure-notturne-autostrada',
  category: 'pratico',
  date: '2026-03-22T10:07:25.106Z',
  image: '/images/blog/chiusure-notturne-autostrada.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'morte-bimbo-efamilia-ticino',
  category: 'pratico',
  date: '2026-03-22T10:45:15.114Z',
  image: '/images/blog/morte-bimbo-efamilia-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fondi-hcap-restituiti',
  category: 'novita',
  date: '2026-03-22T11:06:11.007Z',
  image: '/images/blog/fondi-hcap-restituiti.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bellinzona-paese-dormitorio',
  category: 'pratico',
  date: '2026-03-22T11:41:52.879Z',
  image: '/images/blog/bellinzona-paese-dormitorio.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
-{
+  {
  id: 'ticino-attenti-ai-radar-2026',
  category: 'pratico',
  date: '2026-03-22T14:25:10.266Z',
  image: '/images/blog/ticino-attenti-ai-radar-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sequestro-stupefacenti-ecuador',
  category: 'novita',
  date: '2026-03-22T14:54:43.183Z',
  image: '/images/blog/sequestro-stupefacenti-ecuador.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nuovi-radar-ticino-multe',
  category: 'novita',
  date: '2026-03-22T16:06:40.417Z',
  image: '/images/blog/nuovi-radar-ticino-multe.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'rifugiati-ucraini-assistenza-2027',
  category: 'novita',
  date: '2026-03-22T23:13:50.805Z',
  image: '/images/blog/rifugiati-ucraini-assistenza-2027.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cannabis-sequestro-ticino',
  category: 'novita',
  date: '2026-03-23T00:01:56.031Z',
  image: '/images/blog/cannabis-sequestro-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'pfaffikon-kanton-schwyz-franzosi-einbrecher',
  category: 'novita',
  date: '2026-03-23T02:56:26.885Z',
  image: '/images/blog/pfaffikon-kanton-schwyz-franzosi-einbrecher.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'riapertura-casetta-chiosco-davesco',
  category: 'pratico',
  date: '2026-03-23T03:40:26.200Z',
  image: '/images/blog/riapertura-casetta-chiosco-davesco.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'giovani-ticino-comuni-innovazioni',
  category: 'pratico',
  date: '2026-03-23T05:14:57.952Z',
  image: '/images/blog/giovani-ticino-comuni-innovazioni.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'domeniche-senza-auto-ticino-2026',
  category: 'novita',
  date: '2026-03-23T05:27:38.220Z',
  image: '/images/blog/domeniche-senza-auto-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiusure-notturne-a4-ticino',
  category: 'pratico',
  date: '2026-03-23T06:54:37.648Z',
  image: '/images/blog/chiusure-notturne-a4-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-frontalieri-franco-lavoro',
  category: 'novita',
  date: '2026-03-23T07:27:30.977Z',
  image: '/images/blog/svizzera-frontalieri-franco-lavoro.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzera-cern-ricerca-chip',
  category: 'novita',
  date: '2026-03-23T08:35:02.770Z',
  image: '/images/blog/svizzera-cern-ricerca-chip.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cannabis-sequestro-ticino-2026',
  category: 'novita',
  date: '2026-03-23T09:13:01.365Z',
  image: '/images/blog/cannabis-sequestro-ticino-2026.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzeri-dubitano-difesa-paese',
  category: 'novita',
  date: '2026-03-23T09:55:12.891Z',
  image: '/images/blog/svizzeri-dubitano-difesa-paese.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'controlli-radar-ticino',
  category: 'pratico',
  date: '2026-03-23T11:53:10.280Z',
  image: '/images/blog/controlli-radar-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontalieri-casa-zurigo',
  category: 'pratico',
  date: '2026-03-23T12:40:56.176Z',
  image: '/images/blog/frontalieri-casa-zurigo.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lugano-sicurezza-2025',
  category: 'novita',
  date: '2026-03-23T13:37:16.108Z',
  image: '/images/blog/lugano-sicurezza-2025.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
-{
+  {
  id: 'chiasso-ora-terra-2026',
  category: 'novita',
  date: '2026-03-23T15:49:32.848Z',
  image: '/images/blog/chiasso-ora-terra-2026.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'radar-ticino-riduzione',
  category: 'pratico',
  date: '2026-03-23T16:14:32.093Z',
  image: '/images/blog/radar-ticino-riduzione.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nomine-sims-illegittime',
  category: 'pratico',
  date: '2026-03-23T17:11:03.536Z',
  image: '/images/blog/nomine-sims-illegittime.webp',
  hasCalculator: true,
- }, {
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'funivia-monte-lema-stagione-2026',
  category: 'novita',
  date: '2026-03-23T18:01:12.067Z',
  image: '/images/blog/funivia-monte-lema-stagione-2026.webp',
  hasCalculator: true,
- }, {
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'crescita-economica-ticino-2026',
  category: 'novita',
  date: '2026-03-23T19:09:10.943Z',
  image: '/images/blog/crescita-economica-ticino-2026.webp',
  hasCalculator: true,
- }, {
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'giustizia-referendum-ticino',
  category: 'novita',
  date: '2026-03-24T05:01:49.744Z',
  image: '/images/blog/giustizia-referendum-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ora-legale-permanente-ticino',
  category: 'novita',
  date: '2026-03-24T05:14:22.877Z',
  image: '/images/blog/ora-legale-permanente-ticino.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'como-asfaltature-war-costs',
  category: 'pratico',
  date: '2026-03-24T06:43:25.963Z',
  image: '/images/blog/como-asfaltature-war-costs.webp',
  hasCalculator: true,
- },{
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'apprendisti-frontalieri-permessi-g',
  category: 'novita',
  date: '2026-03-24T09:02:37.653Z',
  image: '/images/blog/apprendisti-frontalieri-permessi-g.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'crescita-sicurezza-ticino-2025',
  category: 'novita',
  date: '2026-03-24T09:35:48.268Z',
  image: '/images/blog/crescita-sicurezza-ticino-2025.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sesto-calende-centro-sportivo',
  category: 'novita',
  date: '2026-03-24T13:47:29.815Z',
  image: '/images/blog/sesto-calende-centro-sportivo.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiasso-missione-emergenza',
  category: 'novita',
  date: '2026-03-24T16:16:10.216Z',
  image: '/images/blog/chiasso-missione-emergenza.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio',
  category: 'novita',
  date: '2026-03-24T19:18:58.586Z',
  image: '/images/blog/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lavena-ponte-tresa-verde',
  category: 'novita',
  date: '2026-03-24T21:51:51.047Z',
  image: '/images/blog/lavena-ponte-tresa-verde.webp',
  hasCalculator: true,
- }, {
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'chiasso-missione-emergenza-luci-blu',
  category: 'novita',
  date: '2026-03-25T05:07:20.675Z',
  image: '/images/blog/chiasso-missione-emergenza-luci-blu.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica',
  category: 'novita',
  date: '2026-03-25T07:18:18.711Z',
  image: '/images/blog/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'carburanti-prezzo-rialzo-ticino',
  category: 'novita',
  date: '2026-03-25T10:07:18.643Z',
  image: '/images/blog/carburanti-prezzo-rialzo-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guida-michelin-ticino',
  category: 'novita',
  date: '2026-03-25T13:45:35.530Z',
  image: '/images/blog/guida-michelin-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'eurospin-luino-occhio-al-cambio',
  category: 'fiscale',
  date: '2026-03-25T16:21:08.708Z',
  image: '/images/blog/eurospin-luino-occhio-al-cambio.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lavena-ponte-tresa-territorio-poroso',
  category: 'fiscale',
  date: '2026-03-25T19:10:24.973Z',
  image: '/images/blog/lavena-ponte-tresa-territorio-poroso.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fusione-valle-calanca-comuni',
  category: 'pratico',
  date: '2026-03-26T03:22:49.892Z',
  image: '/images/blog/fusione-valle-calanca-comuni.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavoro-carceri-ticino',
  category: 'pratico',
  date: '2026-03-26T07:27:47.273Z',
  image: '/images/blog/lavoro-carceri-ticino.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'lavena-ponte-tresa-annaffiatoi',
  category: 'novita',
  date: '2026-03-26T13:53:07.230Z',
  image: '/images/blog/lavena-ponte-tresa-annaffiatoi.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bossi-commemorazione-bagarrata',
  category: 'pratico',
  date: '2026-03-26T19:24:12.215Z',
  image: '/images/blog/bossi-commemorazione-bagarrata.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'corsi-a-b-scuola-media-ticino',
  category: 'novita',
  date: '2026-03-27T03:25:32.612Z',
  image: '/images/blog/corsi-a-b-scuola-media-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ticino-confine-droga',
  category: 'pratico',
  date: '2026-03-27T07:23:58.816Z',
  image: '/images/blog/ticino-confine-droga.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'franco-svizzero-minimi-euro',
  category: 'novita',
  date: '2026-03-27T10:06:30.949Z',
  image: '/images/blog/franco-svizzero-minimi-euro.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'benzina-conveniente',
  category: 'pratico',
  date: '2026-03-27T13:48:53.380Z',
  image: '/images/blog/benzina-conveniente.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'piu-interventi-soccorso-meno-vittime-montagna-ticino-2025',
  category: 'novita',
  date: '2026-03-27T16:02:39.364Z',
  image: '/images/blog/piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nei-test-neonati-ticinesi',
  category: 'pratico',
  date: '2026-03-27T19:09:09.534Z',
  image: '/images/blog/nei-test-neonati-ticinesi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aggregazione-rischio-basso-mendrisiotto',
  category: 'novita',
  date: '2026-03-27T21:49:07.741Z',
  image: '/images/blog/aggregazione-rischio-basso-mendrisiotto.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'congresso-svizzera-italia-varese-2026',
  category: 'fiscale',
  date: '2026-03-28T02:56:51.896Z',
  image: '/images/blog/congresso-svizzera-italia-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'processo-mendrisio-19-capit',
  category: 'pratico',
  date: '2026-03-28T05:03:13.606Z',
  image: '/images/blog/processo-mendrisio-19-capit.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'prezzi-carburanti-ticino-marzo-2026',
  category: 'novita',
  date: '2026-03-28T07:12:30.467Z',
  image: '/images/blog/prezzi-carburanti-ticino-marzo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'via-francisca-cammino',
  category: 'novita',
  date: '2026-03-28T09:50:39.637Z',
  image: '/images/blog/via-francisca-cammino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavoro-sommerso-varesotto',
  category: 'novita',
  date: '2026-03-28T15:41:57.319Z',
  image: '/images/blog/lavoro-sommerso-varesotto.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rissa-lavena-ponte-tres',
  category: 'novita',
  date: '2026-03-28T21:46:20.358Z',
  image: '/images/blog/rissa-lavena-ponte-tres.jpg',
  hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'magliaso-zona-educativa-ripresa',
  category: 'novita',
  date: '2026-03-29T03:33:28.161Z',
  image: '/images/blog/magliaso-zona-educativa-ripresa.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cassa-malati-leghista-applicata-subito',
  category: 'novita',
  date: '2026-03-29T07:20:23.594Z',
  image: '/images/blog/cassa-malati-leghista-applicata-subito.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ronte-tresa-rissa',
  category: 'pratico',
  date: '2026-03-29T09:51:18.167Z',
  image: '/images/blog/ronte-tresa-rissa.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'a9-chiasso-como-chiusure-frontalieri',
  category: 'pratico',
  date: '2026-03-29T13:24:43.039Z',
  image: '/images/blog/a9-chiasso-como-chiusure-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'code-nord-san-gottardo',
  category: 'pratico',
  date: '2026-03-29T15:45:09.712Z',
  image: '/images/blog/code-nord-san-gottardo.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'trattative-acordo-usa-oltre-31-marzo',
  category: 'novita',
  date: '2026-03-29T19:06:40.989Z',
  image: '/images/blog/trattative-acordo-usa-oltre-31-marzo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'occhiali-intelligenti-ticino-innovazione',
  category: 'novita',
  date: '2026-03-29T21:49:32.590Z',
  image: '/images/blog/occhiali-intelligenti-ticino-innovazione.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'trattative-dazi-non-valido-31-marzo',
  category: 'novita',
  date: '2026-03-30T03:33:59.827Z',
  image: '/images/blog/trattative-dazi-non-valido-31-marzo.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'trippa-dogana-novazzano',
  category: 'pratico',
  date: '2026-03-30T10:31:31.856Z',
  image: '/images/blog/trippa-dogana-novazzano.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lavori-rete-ferroviaria-tilo',
  category: 'novita',
  date: '2026-03-30T13:56:29.417Z',
  image: '/images/blog/lavori-rete-ferroviaria-tilo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-mensa-asilo-chiasso',
  category: 'fiscale',
  date: '2026-03-30T16:13:03.827Z',
  image: '/images/blog/tassa-mensa-asilo-chiasso.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sindacati-ticino-leonardo-cascina-costa',
  category: 'novita',
  date: '2026-03-30T19:15:02.146Z',
  image: '/images/blog/sindacati-ticino-leonardo-cascina-costa.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiasso-tassa-refezione-scuola-infanzia',
  category: 'novita',
  date: '2026-03-30T21:53:29.148Z',
  image: '/images/blog/chiasso-tassa-refezione-scuola-infanzia.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ict-reatto-commissione-tri',
  category: 'novita',
  date: '2026-03-31T03:25:42.172Z',
  image: '/images/blog/ict-reatto-commissione-tri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'furbata-dogana-argento',
  category: 'fiscale',
  date: '2026-03-31T07:46:01.846Z',
  image: '/images/blog/furbata-dogana-argento.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'best-cross-border-worker-calculator-switzerland',
  category: 'pratico',
  date: '2026-03-31T10:00:00+01:00',
  image: '/images/blog/calcolo-tasse-entro-confine.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ambasciatore-italiano-ritorno-berna',
  category: 'novita',
  date: '2026-04-01T03:37:37.850Z',
  image: '/images/blog/ambasciatore-italiano-ritorno-berna.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'aumento-contingente-uova-svizzera',
  category: 'novita',
  date: '2026-04-01T10:16:07.575Z',
  image: '/images/blog/aumento-contingente-uova-svizzera.jpg',
  hasCalculator: true,
- }, {
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'lavori-notturni-via-lavizzari',
  category: 'novita',
  date: '2026-04-01T21:55:31.506Z',
  image: '/images/blog/lavori-notturni-via-lavizzari.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'limite-popolazione-10-milioni-ticino',
  category: 'pratico',
  date: '2026-04-02T03:21:20.111Z',
  image: '/images/blog/limite-popolazione-10-milioni-ticino.jpg',
  hasCalculator: true,
- }, {
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'settanta-chili-di-mozzarella',
  category: 'novita',
  date: '2026-04-02T10:15:12.482Z',
  image: '/images/blog/settanta-chili-di-mozzarella.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'contrabbando-ticino-2026',
  category: 'fiscale',
  date: '2026-04-02T13:53:44.235Z',
  image: '/images/blog/contrabbando-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'mobilita-infermieri-ticino',
  category: 'novita',
  date: '2026-04-02T16:09:37.164Z',
  image: '/images/blog/mobilita-infermieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'san-gottardo-code-giovedi-santo',
  category: 'pratico',
  date: '2026-04-02T19:11:02.300Z',
  image: '/images/blog/san-gottardo-code-giovedi-santo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'como-lago-pasqua-boom-prenotazioni',
  category: 'novita',
  date: '2026-04-02T21:51:49.106Z',
  image: '/images/blog/como-lago-pasqua-boom-prenotazioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'camion-panne-san-gottardo-traffico-bloccato',
  category: 'fiscale',
  date: '2026-04-03T03:23:23.315Z',
  image: '/images/blog/camion-panne-san-gottardo-traffico-bloccato.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aumento-inchieste-penali-2025',
  category: 'novita',
  date: '2026-04-03T10:03:04.988Z',
  image: '/images/blog/aumento-inchieste-penali-2025.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'dogana-chiasso-centro-tecnologico',
  category: 'novita',
  date: '2026-04-03T13:27:44.156Z',
  image: '/images/blog/dogana-chiasso-centro-tecnologico.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'permessi-dubbi-roveredo-insoddisfatta',
  category: 'novita',
  date: '2026-04-03T14:31:21.058Z',
  image: '/images/blog/permessi-dubbi-roveredo-insoddisfatta.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'permesso-g-vantaggi-svantaggi',
  category: 'pratico',
  date: '2026-04-03',
  image: '/images/places/mendrisio.webp',
  hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lamal-vs-ssn-decisione',
  category: 'pratico',
  date: '2026-04-03',
  image: '/images/places/lac-lugano.webp',
  hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'trovare-lavoro-ticino',
  category: 'pratico',
  date: '2026-04-03',
  image: '/images/places/lugano-view.webp',
  hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'guida-completa-frontaliere',
  category: 'pratico',
  date: '2026-04-03',
  image: '/images/places/castelgrande.webp',
  hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'permessi-dimora-diversi-opinioni',
  category: 'pratico',
  date: '2026-04-03T15:22:15.059Z',
  image: '/images/blog/permessi-dimora-diversi-opinioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiasso-zanzara-tigre-strategia-2026',
  category: 'pratico',
  date: '2026-04-03T16:07:43.564Z',
  image: '/images/blog/chiasso-zanzara-tigre-strategia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'trasferimento-ufficio-postale-chiasso',
  category: 'novita',
  date: '2026-04-03T16:56:10.603Z',
  image: '/images/blog/trasferimento-ufficio-postale-chiasso.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'esame-complementare-passerella-aperte-pre-iscrizioni',
  category: 'novita',
  date: '2026-04-03T19:01:37.721Z',
  image: '/images/blog/esame-complementare-passerella-aperte-pre-iscrizioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gasolio-costi-pullman-ticino-lago-como',
  category: 'pratico',
  date: '2026-04-03T19:53:52.166Z',
  image: '/images/blog/gasolio-costi-pullman-ticino-lago-como.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'turismo-pasquale-ticino-2026',
  category: 'novita',
  date: '2026-04-03T21:49:27.052Z',
  image: '/images/blog/turismo-pasquale-ticino-2026.jpg',
  hasCalculator: true,
- }, {
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'mozzarella-clandestina-2026-ricerca',
  category: 'fiscale',
  date: '2026-04-03T23:46:50.097Z',
  image: '/images/blog/mozzarella-clandestina-2026-ricerca.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+  {
  id: 'accordi-svizzera-ue-2026',
  category: 'novita',
  date: '2026-04-04T05:01:34.224Z',
  image: '/images/blog/accordi-svizzera-ue-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'vacanze-di-pasqua-san-gottardo',
  category: 'novita',
  date: '2026-04-04T06:05:52.535Z',
  image: '/images/blog/vacanze-di-pasqua-san-gottardo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'medici-manca-verbano-ticino-2026',
  category: 'novita',
  date: '2026-04-04T07:17:08.660Z',
  image: '/images/blog/medici-manca-verbano-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'italia-taglia-accise-benzinai-preoccupati',
  category: 'novita',
  date: '2026-04-04T08:10:06.262Z',
  image: '/images/blog/italia-taglia-accise-benzinai-preoccupati.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aumento-mezzi-pubblici-ticino',
  category: 'pratico',
  date: '2026-04-04T08:59:43.094Z',
  image: '/images/blog/aumento-mezzi-pubblici-ticino.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'ladri-di-auto-scappano-con-40-chiavi-e-una-skoda',
  category: 'fiscale',
  date: '2026-04-04T13:23:20.870Z',
  image: '/images/blog/ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'incendi-boschivi-ticino-2026',
  category: 'novita',
  date: '2026-04-04T14:11:00.588Z',
  image: '/images/blog/incendi-boschivi-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'benzina-ticino-taglio-accise',
  category: 'novita',
  date: '2026-04-04T14:53:03.811Z',
  image: '/images/blog/benzina-ticino-taglio-accise.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'abolizione-imposta-valore-locativo-2029',
  category: 'fiscale',
  date: '2026-04-04T16:59:11.648Z',
  image: '/images/blog/abolizione-imposta-valore-locativo-2029.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'contrabbando-pokemon-ticino',
  category: 'fiscale',
  date: '2026-04-04T17:43:44.962Z',
  image: '/images/blog/contrabbando-pokemon-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sconto-benzina-ticino',
  category: 'fiscale',
  date: '2026-04-04T18:59:11.303Z',
  image: '/images/blog/sconto-benzina-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare',
  category: 'novita',
  date: '2026-04-04T20:51:23.959Z',
  image: '/images/blog/anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'supsi-bachelor-sostenibilita-2027',
  category: 'novita',
  date: '2026-04-04T22:50:20.495Z',
  image: '/images/blog/supsi-bachelor-sostenibilita-2027.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavena-ponte-tresa-bicicletta-grave',
  category: 'pratico',
  date: '2026-04-04T23:45:06.383Z',
  image: '/images/blog/lavena-ponte-tresa-bicicletta-grave.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'roveredo-permessi-anticrimine',
  category: 'fiscale',
  date: '2026-04-05T03:34:27.220Z',
  image: '/images/blog/roveredo-permessi-anticrimine.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'pasqua-messaggio-di-avvenire',
  category: 'novita',
  date: '2026-04-05T05:28:47.639Z',
  image: '/images/blog/pasqua-messaggio-di-avvenire.jpg',
  hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tramonto-a-cadenazzo',
  category: 'novita',
  date: '2026-04-05T07:03:12.457Z',
  image: '/images/blog/tramonto-a-cadenazzo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'traffico-san-gottardo-2026',
  category: 'novita',
  date: '2026-04-05T09:02:26.136Z',
  image: '/images/blog/traffico-san-gottardo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate',
  category: 'novita',
  date: '2026-04-05T09:54:32.858Z',
  image: '/images/blog/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nestle-200-posti-lombardia',
  category: 'novita',
  date: '2026-04-05T10:53:36.899Z',
  image: '/images/blog/nestle-200-posti-lombardia.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'la-quinta-svizzera-che-ha-un-debole-per-milano',
  category: 'novita',
  date: '2026-04-05T11:42:47.756Z',
  image: '/images/blog/la-quinta-svizzera-che-ha-un-debole-per-milano.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'comuni-investono-turismo-ticino',
  category: 'novita',
  date: '2026-04-05T13:27:30.590Z',
  image: '/images/blog/comuni-investono-turismo-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'agriscambio',
  category: 'pensione',
  date: '2026-04-05T14:13:44.864Z',
  image: '/images/blog/agriscambio.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'galleria-del-ceneri-chiusa-per-problemi-tecnici',
  category: 'pratico',
  date: '2026-04-05T17:43:48.541Z',
  image: '/images/blog/galleria-del-ceneri-chiusa-per-problemi-tecnici.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'corso-pastori-ticino',
  category: 'novita',
  date: '2026-04-05T19:00:43.944Z',
  image: '/images/blog/corso-pastori-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'diventare-pastore-ticino',
  category: 'novita',
  date: '2026-04-05T19:42:23.581Z',
  image: '/images/blog/diventare-pastore-ticino.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'trump-intesa-o-inferno',
  category: 'novita',
  date: '2026-04-05T21:49:52.642Z',
  image: '/images/blog/trump-intesa-o-inferno.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'coop-richiama-formaggi-salmonelle',
  category: 'novita',
  date: '2026-04-05T23:46:19.813Z',
  image: '/images/blog/coop-richiama-formaggi-salmonelle.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'scambio-abiti-bellinzona',
  category: 'novita',
  date: '2026-04-06T03:37:09.733Z',
  image: '/images/blog/scambio-abiti-bellinzona.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'protesta-costi-cure-domicilio',
  category: 'pratico',
  date: '2026-04-06T05:41:17.505Z',
  image: '/images/blog/protesta-costi-cure-domicilio.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'acqua-non-potabile-lavizzara',
  category: 'novita',
  date: '2026-04-06T08:01:59.598Z',
  image: '/images/blog/acqua-non-potabile-lavizzara.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nuova-direttrice-servizi-sociali-bellinzona',
  category: 'novita',
  date: '2026-04-06T09:21:15.809Z',
  image: '/images/blog/nuova-direttrice-servizi-sociali-bellinzona.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'riaperta-galleria-monte-ceneri',
  category: 'novita',
  date: '2026-04-06T10:41:42.841Z',
  image: '/images/blog/riaperta-galleria-monte-ceneri.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ucraini-in-ticino-aiuti-incognite',
  category: 'novita',
  date: '2026-04-06T11:57:25.930Z',
  image: '/images/blog/ucraini-in-ticino-aiuti-incognite.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'fuga-da-dubai-ticino-alternativa',
  category: 'novita',
  date: '2026-04-06T13:43:52.055Z',
  image: '/images/blog/fuga-da-dubai-ticino-alternativa.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'tax-free-come-cresce',
  category: 'fiscale',
  date: '2026-04-06T16:04:35.632Z',
  image: '/images/blog/tax-free-come-cresce.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'traffico-san-gottardo-pasquetta-2026',
  category: 'pratico',
  date: '2026-04-06T17:12:31.814Z',
  image: '/images/blog/traffico-san-gottardo-pasquetta-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'controlli-auto-immatricolate-grigioni',
  category: 'fiscale',
  date: '2026-04-06T18:01:26.849Z',
  image: '/images/blog/controlli-auto-immatricolate-grigioni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'locarno-magadino-trasporto',
  category: 'novita',
  date: '2026-04-06T19:15:36.327Z',
  image: '/images/blog/locarno-magadino-trasporto.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'prezzi-benzina-ticino',
  category: 'pratico',
  date: '2026-04-06T20:09:35.706Z',
  image: '/images/blog/prezzi-benzina-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone',
  category: 'pratico',
  date: '2026-04-06T20:55:16.722Z',
  image: '/images/blog/lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'raffica-chiusure-a9-2026',
  category: 'pratico',
  date: '2026-04-06T21:51:21.831Z',
  image: '/images/blog/raffica-chiusure-a9-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'conflitto-medio-oriente-energia-ticino',
  category: 'novita',
  date: '2026-04-06T22:51:35.657Z',
  image: '/images/blog/conflitto-medio-oriente-energia-ticino.jpg',
  hasCalculator: true,
- }, {
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+  {
  id: 'lavoro-notte-lincendio-laveno-mombello',
  category: 'novita',
  date: '2026-04-07T03:25:56.716Z',
  image: '/images/blog/lavoro-notte-lincendio-laveno-mombello.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'prevenzione-maschile-centro-beccaria',
  category: 'pratico',
  date: '2026-04-07T05:29:50.266Z',
  image: '/images/blog/prevenzione-maschile-centro-beccaria.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'controlli-varese-esposto-espulsione',
  category: 'fiscale',
  date: '2026-04-07T06:58:22.765Z',
  image: '/images/blog/controlli-varese-esposto-espulsione.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'incidente-arogno-31enne-gravi-condizioni',
  category: 'pratico',
  date: '2026-04-07T08:21:30.383Z',
  image: '/images/blog/incidente-arogno-31enne-gravi-condizioni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'carburanti-ticino-aumento-prezzi',
  category: 'fiscale',
  date: '2026-04-07T09:55:25.056Z',
  image: '/images/blog/carburanti-ticino-aumento-prezzi.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026',
  category: 'pratico',
  date: '2026-04-07T11:12:19.625Z',
  image: '/images/blog/provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'turisti-in-como-ztl',
  category: 'pratico',
  date: '2026-04-07T12:13:06.856Z',
  image: '/images/blog/turisti-in-como-ztl.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'niederlander-droga-ticino',
  category: 'novita',
  date: '2026-04-07T14:11:49.566Z',
  image: '/images/blog/niederlander-droga-ticino.jpg',
  hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'stop-agli-artigiani-per-caso',
  category: 'novita',
  date: '2026-04-07T16:08:21.953Z',
  image: '/images/blog/stop-agli-artigiani-per-caso.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'incendi-nel-luganese-arrestato-un-piromane',
  category: 'novita',
  date: '2026-04-07T17:18:39.539Z',
  image: '/images/blog/incendi-nel-luganese-arrestato-un-piromane.jpg',
  hasCalculator: true,
- },{
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+  {
  id: 'front-alieri-soci-sagl-nodi-fiscali-2026',
  category: 'fiscale',
  date: '2026-04-08T07:05:08.270Z',
  image: '/images/blog/front-alieri-soci-sagl-nodi-fiscali-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'benzina-cara-ticino',
  category: 'fiscale',
  date: '2026-04-08T08:20:42.856Z',
  image: '/images/blog/benzina-cara-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'incidente-rampa-a9-chiasso-2026',
  category: 'novita',
  date: '2026-04-08T14:45:09.117Z',
  image: '/images/blog/incidente-rampa-a9-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tilo-s50-lavori-mal-pensa-varese-2026',
  category: 'pratico',
  date: '2026-04-08T17:25:00.463Z',
  image: '/images/blog/tilo-s50-lavori-mal-pensa-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tilo-s50-modifiche-aprile',
  category: 'pratico',
  date: '2026-04-08T18:02:01.051Z',
  image: '/images/blog/tilo-s50-modifiche-aprile.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'consiglio-federale-ferma-perequazione-2030',
  category: 'fiscale',
  date: '2026-04-08T22:08:38.278Z',
  image: '/images/blog/consiglio-federale-ferma-perequazione-2030.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'camionisti-furbetti-governo-ticino-2026',
  category: 'novita',
  date: '2026-04-09T03:39:08.053Z',
  image: '/images/blog/camionisti-furbetti-governo-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'multe-vignetta-chiasso-2024',
  category: 'novita',
  date: '2026-04-09T08:40:19.499Z',
  image: '/images/blog/multe-vignetta-chiasso-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'petizione-aromat-svizzera',
  category: 'novita',
  date: '2026-04-09T10:08:05.730Z',
  image: '/images/blog/petizione-aromat-svizzera.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontalieri-tassa-salute-scontro',
  category: 'fiscale',
  date: '2026-04-09T14:30:14.074Z',
  image: '/images/blog/frontalieri-tassa-salute-scontro.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'multe-vignetta-chiasso-pasqua-2026',
  category: 'pratico',
  date: '2026-04-09T16:23:22.367Z',
  image: '/images/blog/multe-vignetta-chiasso-pasqua-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tasse-ticino-frontalieri-perequazione-2026',
  category: 'fiscale',
  date: '2026-04-09T18:39:31.763Z',
  image: '/images/blog/tasse-ticino-frontalieri-perequazione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'asili-bellinzona-progetto-pilota-orario-prolungato-2027',
  category: 'pratico',
  date: '2026-04-09T21:12:51.292Z',
  image: '/images/blog/asili-bellinzona-progetto-pilota-orario-prolungato-2027.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'multe-vignetta-chiasso-2026',
  category: 'novita',
  date: '2026-04-09T22:03:26.061Z',
  image: '/images/blog/multe-vignetta-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'servizio-trasfusionale-locarno-chiusura-24-giugno',
  category: 'pratico',
  date: '2026-04-10T03:40:57.577Z',
  image: '/images/blog/servizio-trasfusionale-locarno-chiusura-24-giugno.jpg',
  hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ritardi-disoccupazione-ticino',
  category: 'pratico',
  date: '2026-04-10T05:44:30.464Z',
  image: '/images/blog/ritardi-disoccupazione-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'benzina-lombardia-frontalieri-ticinesi-2026',
  category: 'pratico',
  date: '2026-04-10T09:38:38.012Z',
  image: '/images/blog/benzina-lombardia-frontalieri-ticinesi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'diploma-usa-non-riconosciuto-ticino',
  category: 'pratico',
  date: '2026-04-10T14:07:59.385Z',
  image: '/images/blog/diploma-usa-non-riconosciuto-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'discover-eu-2026-frontalieri-ticino',
  category: 'novita',
  date: '2026-04-10T18:09:55.266Z',
  image: '/images/blog/discover-eu-2026-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'banche-svizzere-pronti-clienti-golfo-2026',
  category: 'fiscale',
  date: '2026-04-10T19:44:10.923Z',
  image: '/images/blog/banche-svizzere-pronti-clienti-golfo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'fertilizzanti-crisi-hormuz-rincari-ticino-40',
  category: 'novita',
  date: '2026-04-10T20:19:36.144Z',
  image: '/images/blog/fertilizzanti-crisi-hormuz-rincari-ticino-40.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tassa-salute-frontalieri-lombardia-isola-2026',
  category: 'fiscale',
  date: '2026-04-10T20:56:32.924Z',
  image: '/images/blog/tassa-salute-frontalieri-lombardia-isola-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'reclutamento-infermieri-lombardia',
  category: 'novita',
  date: '2026-04-10T23:08:27.559Z',
  image: '/images/blog/reclutamento-infermieri-lombardia.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'autostrada-a9-chiude-de-notti-2026',
  category: 'pratico',
  date: '2026-04-11T00:09:11.184Z',
  image: '/images/blog/autostrada-a9-chiude-de-notti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'multa-vignetta-pasqua-chiasso-2024',
  category: 'pratico',
  date: '2026-04-11T03:08:49.850Z',
  image: '/images/blog/multa-vignetta-pasqua-chiasso-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'salva-venti-anni-monito-infarti',
  category: 'pratico',
  date: '2026-04-11T05:25:28.707Z',
  image: '/images/blog/salva-venti-anni-monito-infarti.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'marchi-migros-riduzione-frontalieri-ticino',
  category: 'novita',
  date: '2026-04-11T07:48:10.238Z',
  image: '/images/blog/marchi-migros-riduzione-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'disagi-tilo-mendrisio-malpensa-2026',
  category: 'pratico',
  date: '2026-04-11T08:27:54.581Z',
  image: '/images/blog/disagi-tilo-mendrisio-malpensa-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cpb-forfettario-semplificato-soglia-150mila',
  category: 'fiscale',
  date: '2026-04-11T09:19:45.186Z',
  image: '/images/blog/cpb-forfettario-semplificato-soglia-150mila.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'verbano-livello-max-accordo-ticino-2026',
  category: 'novita',
  date: '2026-04-11T13:26:32.759Z',
  image: '/images/blog/verbano-livello-max-accordo-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tassa-salute-frontalieri-lombardia-minacce-ticino',
  category: 'fiscale',
  date: '2026-04-11T14:10:36.678Z',
  image: '/images/blog/tassa-salute-frontalieri-lombardia-minacce-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavoro-frontalieri-ticino-scarse-incastri',
  category: 'novita',
  date: '2026-04-11T17:00:31.428Z',
  image: '/images/blog/lavoro-frontalieri-ticino-scarse-incastri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'visione-politica-fuga-giovani-ticino',
  category: 'pratico',
  date: '2026-04-11T19:27:59.339Z',
  image: '/images/blog/visione-politica-fuga-giovani-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cure-a-domicilio-atlas-protesta-18-aprile',
  category: 'pratico',
  date: '2026-04-11T20:00:44.003Z',
  image: '/images/blog/cure-a-domicilio-atlas-protesta-18-aprile.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-salari-perequazione-ricchezza-2026',
  category: 'fiscale',
  date: '2026-04-11T20:53:46.091Z',
  image: '/images/blog/frontalieri-salari-perequazione-ricchezza-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'acqua-potabile-lavizzara-piano-peccia-monti-rima',
  category: 'pratico',
  date: '2026-04-12T00:03:37.784Z',
  image: '/images/blog/acqua-potabile-lavizzara-piano-peccia-monti-rima.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'giovani-fuga-ticino',
  category: 'novita',
  date: '2026-04-12T04:05:57.452Z',
  image: '/images/blog/giovani-fuga-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-alleanza-porti-europei-anti-droga',
  category: 'novita',
  date: '2026-04-12T08:51:20.036Z',
  image: '/images/blog/svizzera-alleanza-porti-europei-anti-droga.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'glarona-domeniche-senzauto-ticino-frontalieri',
  category: 'pratico',
  date: '2026-04-12T09:55:21.267Z',
  image: '/images/blog/glarona-domeniche-senzauto-ticino-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controlli-frontalieri-ponte-chiasso-2025',
  category: 'pratico',
  date: '2026-04-12T22:03:31.630Z',
  image: '/images/blog/controlli-frontalieri-ponte-chiasso-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-ticino-dati-ust-2025',
  category: 'novita',
  date: '2026-04-13T14:07:06.853Z',
  image: '/images/blog/frontalieri-ticino-dati-ust-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bibo-app-mezzi-pubblici-2026',
  category: 'pratico',
  date: '2026-04-13T15:57:02.666Z',
  image: '/images/blog/bibo-app-mezzi-pubblici-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'varese-frontalieri-7000-postivacanti-2026',
  category: 'pratico',
  date: '2026-04-13T17:21:00.462Z',
  image: '/images/blog/varese-frontalieri-7000-postivacanti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps',
  category: 'novita',
  date: '2026-04-13T22:03:17.734Z',
  image: '/images/blog/iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'fermo-treni-gallarate-sesto-aprile-2026',
  category: 'pratico',
  date: '2026-04-14T00:25:43.063Z',
  image: '/images/blog/fermo-treni-gallarate-sesto-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bibo-sistema-biglietti-digitali-mezzi-2026',
  category: 'pratico',
  date: '2026-04-14T08:16:38.640Z',
  image: '/images/blog/bibo-sistema-biglietti-digitali-mezzi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'infermieri-ticinesi-ricerca-lavoro-milano',
  category: 'pratico',
  date: '2026-04-14T09:53:43.857Z',
  image: '/images/blog/infermieri-ticinesi-ricerca-lavoro-milano.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tappa-campione-ditalia-2025-commissione',
  category: 'novita',
  date: '2026-04-14T12:46:16.460Z',
  image: '/images/blog/tappa-campione-ditalia-2025-commissione.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nuova-strategia-zanzara-tigre-chiasso-2026',
  category: 'pratico',
  date: '2026-04-14T20:31:36.692Z',
  image: '/images/blog/nuova-strategia-zanzara-tigre-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lombardia-7mln-talenti-pmi-frontalieri',
  category: 'novita',
  date: '2026-04-14T21:10:37.559Z',
  image: '/images/blog/lombardia-7mln-talenti-pmi-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'slowup-ticino-2026-giornata-senz-auto',
  category: 'pratico',
  date: '2026-04-14T22:01:22.366Z',
  image: '/images/blog/slowup-ticino-2026-giornata-senz-auto.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bike-sharing-como-riapre-30-aprile',
  category: 'pratico',
  date: '2026-04-14T22:57:04.071Z',
  image: '/images/blog/bike-sharing-como-riapre-30-aprile.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'progetto-ticosa-parcheggi-acinque-frontalieri',
  category: 'novita',
  date: '2026-04-14T23:55:08.289Z',
  image: '/images/blog/progetto-ticosa-parcheggi-acinque-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'asili-nido-bellinzona-iniziativa-firme-2026',
  category: 'pratico',
  date: '2026-04-15T03:35:07.764Z',
  image: '/images/blog/asili-nido-bellinzona-iniziativa-firme-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cannabis-medica-rimborsi-casse-malati-ticino',
  category: 'pratico',
  date: '2026-04-15T05:41:07.056Z',
  image: '/images/blog/cannabis-medica-rimborsi-casse-malati-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'asili-nido-pubblici-ticino-iniziativa-popolare-2026',
  category: 'pratico',
  date: '2026-04-15T08:15:37.727Z',
  image: '/images/blog/asili-nido-pubblici-ticino-iniziativa-popolare-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'berna-limita-acquisto-immobili-stranieri-2026',
  category: 'novita',
  date: '2026-04-15T09:48:19.923Z',
  image: '/images/blog/berna-limita-acquisto-immobili-stranieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'riforma-cassa-malati-ticino-2029',
  category: 'fiscale',
  date: '2026-04-15T11:14:49.537Z',
  image: '/images/blog/riforma-cassa-malati-ticino-2029.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'slowup-strade-trasporti-limiti-2026',
  category: 'pratico',
  date: '2026-04-15T13:01:49.887Z',
  image: '/images/blog/slowup-strade-trasporti-limiti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'petrolio-e-gas-svizzera-approvvigionamento-2026',
  category: 'pratico',
  date: '2026-04-15T15:05:01.477Z',
  image: '/images/blog/petrolio-e-gas-svizzera-approvvigionamento-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'fuochi-allaperto-ticino-grazie-normativa-2024',
  category: 'pratico',
  date: '2026-04-15T16:23:27.766Z',
  image: '/images/blog/fuochi-allaperto-ticino-grazie-normativa-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'governo-limita-acquisti-immobiliari-estero-2026',
  category: 'pratico',
  date: '2026-04-15T17:43:22.681Z',
  image: '/images/blog/governo-limita-acquisti-immobiliari-estero-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'incidente-cassano-magnago-frontalieri-ticinesi',
  category: 'pratico',
  date: '2026-04-15T19:54:34.417Z',
  image: '/images/blog/incidente-cassano-magnago-frontalieri-ticinesi.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'wirt-sorpreso-einbrecher-marokkaner-ticino',
  category: 'pratico',
  date: '2026-04-15T21:14:15.590Z',
  image: '/images/blog/wirt-sorpreso-einbrecher-marokkaner-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'irania-nazionale-italia-riqualifica-2026',
  category: 'novita',
  date: '2026-04-15T22:21:31.948Z',
  image: '/images/blog/irania-nazionale-italia-riqualifica-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'collaborazione-imprese-istituzioni-frontalieri-ticino',
  category: 'novita',
  date: '2026-04-15T23:15:38.545Z',
  image: '/images/blog/collaborazione-imprese-istituzioni-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ribaltone-mps-lovaglio-frontalieri-ticino',
  category: 'novita',
  date: '2026-04-15T23:55:30.013Z',
  image: '/images/blog/ribaltone-mps-lovaglio-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'giro-italia-2026-bellinzona-cari-tappa',
  category: 'pratico',
  date: '2026-04-16T04:22:24.609Z',
  image: '/images/blog/giro-italia-2026-bellinzona-cari-tappa.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'infortunio-locarnese-operaio-frontaliero-decede',
  category: 'pratico',
  date: '2026-04-16T06:13:33.777Z',
  image: '/images/blog/infortunio-locarnese-operaio-frontaliero-decede.jpg',
  hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'film-swiss-sabotage-frontalieri-ticinesi',
  category: 'novita',
  date: '2026-04-16T08:17:41.427Z',
  image: '/images/blog/film-swiss-sabotage-frontalieri-ticinesi.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'pendolare-inverso-altdorf-lugano-problemi',
  category: 'pratico',
  date: '2026-04-16T10:11:40.179Z',
  image: '/images/blog/pendolare-inverso-altdorf-lugano-problemi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'centro-breggia-risparmio-casa-arriva-balerna',
  category: 'novita',
  date: '2026-04-16T11:33:57.639Z',
  image: '/images/blog/centro-breggia-risparmio-casa-arriva-balerna.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'blocco-droga-confine-brogeda-2026',
  category: 'pratico',
  date: '2026-04-16T13:01:29.265Z',
  image: '/images/blog/blocco-droga-confine-brogeda-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ffs-collegamenti-estivi-rimini-francia-2026',
  category: 'pratico',
  date: '2026-04-16T15:27:17.081Z',
  image: '/images/blog/ffs-collegamenti-estivi-rimini-francia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'strumenti-comune-chiasso-assunzione-residenti',
  category: 'novita',
  date: '2026-04-16T17:11:31.086Z',
  image: '/images/blog/strumenti-comune-chiasso-assunzione-residenti.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'petizione-chiasso-ritorno-alla-natura-2025',
  category: 'novita',
  date: '2026-04-16T18:25:42.922Z',
  image: '/images/blog/petizione-chiasso-ritorno-alla-natura-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'congresso-varese-2026-fisco-lavoro-ticino',
  category: 'fiscale',
  date: '2026-04-16T19:57:09.256Z',
  image: '/images/blog/congresso-varese-2026-fisco-lavoro-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'psicoterapia-digitale-deprexis-rimborsata-2026',
  category: 'novita',
  date: '2026-04-16T21:06:12.022Z',
  image: '/images/blog/psicoterapia-digitale-deprexis-rimborsata-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'deputato-varesino-ferrara-forno-massacro-2026',
  category: 'novita',
  date: '2026-04-16T22:01:10.504Z',
  image: '/images/blog/deputato-varesino-ferrara-forno-massacro-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-salute-ticino-riforme-invece-aggravi',
  category: 'fiscale',
  date: '2026-04-16T23:11:03.751Z',
  image: '/images/blog/tassa-salute-ticino-riforme-invece-aggravi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'chiassolitteratura-venti-anniversario-2026',
  category: 'novita',
  date: '2026-04-17T00:14:36.230Z',
  image: '/images/blog/chiassolitteratura-venti-anniversario-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'finanze-2025-fragile-ticino',
  category: 'fiscale',
  date: '2026-04-17T03:42:16.165Z',
  image: '/images/blog/finanze-2025-fragile-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-salute-frontalieri-lombardia-rinvio-2026',
  category: 'fiscale',
  date: '2026-04-17T05:53:09.275Z',
  image: '/images/blog/tassa-salute-frontalieri-lombardia-rinvio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'arresto-droga-confine-brogeda-2026',
  category: 'pratico',
  date: '2026-04-17T08:11:48.730Z',
  image: '/images/blog/arresto-droga-confine-brogeda-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'manutenzione-ustat-servizi-chiusure-31-12-2025',
  category: 'pratico',
  date: '2026-04-17T09:45:06.716Z',
  image: '/images/blog/manutenzione-ustat-servizi-chiusure-31-12-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'confine-italia-svizzera-6-regole-doganali',
  category: 'pratico',
  date: '2026-04-17T11:11:08.751Z',
  image: '/images/blog/confine-italia-svizzera-6-regole-doganali.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'due-arresti-brogeda-smuggling-droga-2024',
  category: 'novita',
  date: '2026-04-17T12:02:52.439Z',
  image: '/images/blog/due-arresti-brogeda-smuggling-droga-2024.jpg',
  hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tutela-frontalieri-specie-invasive-ticino-2026',
  category: 'pratico',
  date: '2026-04-17T14:17:08.316Z',
  image: '/images/blog/tutela-frontalieri-specie-invasive-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'usi-supsi-25-milioni-casse-malati',
  category: 'pratico',
  date: '2026-04-17T15:17:40.036Z',
  image: '/images/blog/usi-supsi-25-milioni-casse-malati.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lega-ticino-solidarieta-casa-propria-2026',
  category: 'novita',
  date: '2026-04-17T17:31:41.088Z',
  image: '/images/blog/lega-ticino-solidarieta-casa-propria-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'moon-stars-resident-discount-locarno-card',
  category: 'pratico',
  date: '2026-04-17T18:33:12.083Z',
  image: '/images/blog/moon-stars-resident-discount-locarno-card.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'scoperta-quantita-marijuana-colverde-confine-ticino',
  category: 'novita',
  date: '2026-04-17T19:50:20.042Z',
  image: '/images/blog/scoperta-quantita-marijuana-colverde-confine-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'controlli-serali-lavena-ponte-tresa-15-aprile-2026',
  category: 'pratico',
  date: '2026-04-17T21:03:21.406Z',
  image: '/images/blog/controlli-serali-lavena-ponte-tresa-15-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'svizzera-canada-mercati-alternativi-trump',
  category: 'novita',
  date: '2026-04-17T21:59:58.849Z',
  image: '/images/blog/svizzera-canada-mercati-alternativi-trump.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'iniziative-casse-malati-61-milioni-ticino',
  category: 'fiscale',
  date: '2026-04-17T22:58:42.372Z',
  image: '/images/blog/iniziative-casse-malati-61-milioni-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'allentamenti-affitti-brevi-ticino-2025',
  category: 'novita',
  date: '2026-04-17T23:53:27.435Z',
  image: '/images/blog/allentamenti-affitti-brevi-ticino-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'fuoriuscita-ammoniaca-rapelli-stabio',
  category: 'pratico',
  date: '2026-04-18T03:28:19.326Z',
  image: '/images/blog/fuoriuscita-ammoniaca-rapelli-stabio.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ia-selezione-personale-ticino',
  category: 'pratico',
  date: '2026-04-18T05:31:03.792Z',
  image: '/images/blog/ia-selezione-personale-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'swiss-market-index-vedi-breve-rimbalzo',
  category: 'novita',
  date: '2026-04-18T07:09:32.771Z',
  image: '/images/blog/swiss-market-index-vedi-breve-rimbalzo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sussidi-cassa-malati-mendrisio-rallentamenti',
  category: 'fiscale',
  date: '2026-04-18T08:10:46.310Z',
  image: '/images/blog/sussidi-cassa-malati-mendrisio-rallentamenti.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sussidi-cassa-malati-mendrisio-ritardi',
  category: 'fiscale',
  date: '2026-04-18T09:04:37.087Z',
  image: '/images/blog/sussidi-cassa-malati-mendrisio-ritardi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'varese-economia-frontalieri-ticino-2026',
  category: 'novita',
  date: '2026-04-18T10:11:13.457Z',
  image: '/images/blog/varese-economia-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lombardia-investimento-moda-ticinesi-next-fashion',
  category: 'pratico',
  date: '2026-04-18T11:18:17.000Z',
  image: '/images/blog/lombardia-investimento-moda-ticinesi-next-fashion.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-usa-nuovi-negoziati-commerciali-2026',
  category: 'novita',
  date: '2026-04-18T11:46:45.577Z',
  image: '/images/blog/svizzera-usa-nuovi-negoziati-commerciali-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aumento-kerosene-voli-cancellati-frontalieri-ticino',
  category: 'pratico',
  date: '2026-04-18T13:39:29.414Z',
  image: '/images/blog/aumento-kerosene-voli-cancellati-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'radar-controlli-velocita-ticino-aprile-2026',
  category: 'pratico',
  date: '2026-04-18T14:17:06.006Z',
  image: '/images/blog/radar-controlli-velocita-ticino-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nuove-tratte-estive-ffs-ticino-2026',
  category: 'pratico',
  date: '2026-04-18T15:12:40.590Z',
  image: '/images/blog/nuove-tratte-estive-ffs-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'malpensa-carburante-rischio-frontalieri-2026',
  category: 'pratico',
  date: '2026-04-18T16:41:32.551Z',
  image: '/images/blog/malpensa-carburante-rischio-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nuovo-potabilizzatore-mobile-emergenza-ticino',
  category: 'pratico',
  date: '2026-04-18T17:24:03.915Z',
  image: '/images/blog/nuovo-potabilizzatore-mobile-emergenza-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nuovo-potabilizzatore-mobile-ticino-emergenza',
  category: 'pratico',
  date: '2026-04-18T17:48:54.510Z',
  image: '/images/blog/nuovo-potabilizzatore-mobile-ticino-emergenza.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'palaraiffeisen-porta-aperte-lugano-2026',
  category: 'novita',
  date: '2026-04-18T19:10:42.172Z',
  image: '/images/blog/palaraiffeisen-porta-aperte-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'fashion-outlet-landquart-15-nuovi-negozi-expansion',
  category: 'pratico',
  date: '2026-04-18T19:55:14.032Z',
  image: '/images/blog/fashion-outlet-landquart-15-nuovi-negozi-expansion.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'salario-minimo-25-chf-ticino',
  category: 'novita',
  date: '2026-04-18T21:02:23.299Z',
  image: '/images/blog/salario-minimo-25-chf-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'confindustria-varese-paciaroni-2026',
  category: 'novita',
  date: '2026-04-18T21:54:57.262Z',
  image: '/images/blog/confindustria-varese-paciaroni-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'finanza-ticino-si-reinventa-economia-dati',
  category: 'novita',
  date: '2026-04-18T22:49:30.493Z',
  image: '/images/blog/finanza-ticino-si-reinventa-economia-dati.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'coppa-del-mondo-orientamento-locarnese-2026',
  category: 'pratico',
  date: '2026-04-18T23:56:42.787Z',
  image: '/images/blog/coppa-del-mondo-orientamento-locarnese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'grigioni-governo-2026-nove-candidati',
  category: 'novita',
  date: '2026-04-19T03:50:28.108Z',
  image: '/images/blog/grigioni-governo-2026-nove-candidati.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'svizzera-usa-accordo-commerciale-2026',
  category: 'novita',
  date: '2026-04-19T06:09:51.775Z',
  image: '/images/blog/svizzera-usa-accordo-commerciale-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'risoluzione-federviti-vino-ticinese-2025',
  category: 'novita',
  date: '2026-04-19T07:55:00.850Z',
  image: '/images/blog/risoluzione-federviti-vino-ticinese-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'iniziative-cassa-malati-piano-lega-ticino',
  category: 'fiscale',
  date: '2026-04-19T09:08:36.809Z',
  image: '/images/blog/iniziative-cassa-malati-piano-lega-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiusura-ramo-a8-a9-notte-lavori-2026',
  category: 'pratico',
  date: '2026-04-19T11:05:29.442Z',
  image: '/images/blog/chiusura-ramo-a8-a9-notte-lavori-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ia-swiss-re-produttivita-ceo-berger',
  category: 'novita',
  date: '2026-04-19T12:07:42.489Z',
  image: '/images/blog/ia-swiss-re-produttivita-ceo-berger.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rinascita-praterie-sommerse-laghi-ticino',
  category: 'novita',
  date: '2026-04-19T14:28:10.522Z',
  image: '/images/blog/rinascita-praterie-sommerse-laghi-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'fuga-ammoniaca-stabio-rapelli-allerta-ticino',
  category: 'pratico',
  date: '2026-04-19T15:37:53.690Z',
  image: '/images/blog/fuga-ammoniaca-stabio-rapelli-allerta-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'inaugurazione-ail-arena-lugano-30-31-maggio',
  category: 'pratico',
  date: '2026-04-19T16:25:18.093Z',
  image: '/images/blog/inaugurazione-ail-arena-lugano-30-31-maggio.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sussidi-cassa-malati-mendrisio-ritardi-2026',
  category: 'pratico',
  date: '2026-04-19T16:57:27.722Z',
  image: '/images/blog/sussidi-cassa-malati-mendrisio-ritardi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'alloggi-frontalieri-ticino-crisi-2025',
  category: 'pratico',
  date: '2026-04-19T18:04:52.349Z',
  image: '/images/blog/alloggi-frontalieri-ticino-crisi-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026',
  category: 'pratico',
  date: '2026-04-19T19:05:49.198Z',
  image: '/images/blog/grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026.jpg',
  hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sportello-dipendenze-digitali-ticino-2024',
  category: 'pratico',
  date: '2026-04-19T19:52:18.211Z',
  image: '/images/blog/sportello-dipendenze-digitali-ticino-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tasse-agevolate-milionari-ticino-golfo',
  category: 'novita',
  date: '2026-04-19T20:53:37.635Z',
  image: '/images/blog/tasse-agevolate-milionari-ticino-golfo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'infermiere-pratiche-avanzate-ticino-2024',
  category: 'novita',
  date: '2026-04-19T21:58:32.931Z',
  image: '/images/blog/infermiere-pratiche-avanzate-ticino-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'caos-medioriente-e-impatti-costruzione-ticino',
  category: 'pratico',
  date: '2026-04-19T23:19:19.628Z',
  image: '/images/blog/caos-medioriente-e-impatti-costruzione-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'parmelin-washington-dazi-usa-2026',
  category: 'novita',
  date: '2026-04-20T00:04:53.891Z',
  image: '/images/blog/parmelin-washington-dazi-usa-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gang-colombiani-verbano-arresti-ticino-2026',
  category: 'novita',
  date: '2026-04-20T03:52:38.240Z',
  image: '/images/blog/gang-colombiani-verbano-arresti-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'parmelin-accordo-investimenti-bahrein-2026',
  category: 'novita',
  date: '2026-04-20T06:40:25.853Z',
  image: '/images/blog/parmelin-accordo-investimenti-bahrein-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'palazzo-civico-collegiata-accessibilita-bellinzona-2026',
  category: 'pratico',
  date: '2026-04-20T09:03:51.667Z',
  image: '/images/blog/palazzo-civico-collegiata-accessibilita-bellinzona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'roche-farmaci-obesita-ticino-2026',
  category: 'novita',
  date: '2026-04-20T10:28:24.787Z',
  image: '/images/blog/roche-farmaci-obesita-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'chiusure-autostrada-a9-lombardia-2026',
  category: 'novita',
  date: '2026-04-20T11:56:35.646Z',
  image: '/images/blog/chiusure-autostrada-a9-lombardia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'capre-dogana-gandria-incidenti-2026',
  category: 'novita',
  date: '2026-04-20T14:08:40.798Z',
  image: '/images/blog/capre-dogana-gandria-incidenti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavori-autostrade-ticino-aprile-2026',
  category: 'pratico',
  date: '2026-04-20T15:29:33.794Z',
  image: '/images/blog/lavori-autostrade-ticino-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'militari-treni-ticino-20-euro',
  category: 'novita',
  date: '2026-04-20T16:46:26.706Z',
  image: '/images/blog/militari-treni-ticino-20-euro.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'just-eat-migros-ticino-consegna-2026',
  category: 'novita',
  date: '2026-04-20T18:09:53.016Z',
  image: '/images/blog/just-eat-migros-ticino-consegna-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'capre-dogana-gandria-intervento-30-marzo',
  category: 'novita',
  date: '2026-04-20T19:22:26.842Z',
  image: '/images/blog/capre-dogana-gandria-intervento-30-marzo.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'costi-cure-domocilio-ticino-2026',
  category: 'novita',
  date: '2026-04-20T20:14:54.737Z',
  image: '/images/blog/costi-cure-domocilio-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salario-minimo-ticino-2027-2029',
  category: 'pratico',
  date: '2026-04-20T21:30:21.419Z',
  image: '/images/blog/salario-minimo-ticino-2027-2029.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cure-domocilio-ticino-2026',
  category: 'novita',
  date: '2026-04-20T22:17:21.927Z',
  image: '/images/blog/cure-domocilio-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'asili-nido-bellinzona-sussidi-2026',
  category: 'pratico',
  date: '2026-04-20T23:28:38.689Z',
  image: '/images/blog/asili-nido-bellinzona-sussidi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'giovani-scomparsi-7-cantoni',
  category: 'novita',
  date: '2026-04-21T00:12:55.443Z',
  image: '/images/blog/giovani-scomparsi-7-cantoni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzeri-italiani-cucina-preferita',
  category: 'novita',
  date: '2026-04-21T03:59:22.927Z',
  image: '/images/blog/svizzeri-italiani-cucina-preferita.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzera-chiude-investitori-immobiliari-stranieri',
  category: 'novita',
  date: '2026-04-21T06:21:57.710Z',
  image: '/images/blog/svizzera-chiude-investitori-immobiliari-stranieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salario-minimo-ticino-2027-2029-nuove-regole',
  category: 'novita',
  date: '2026-04-21T08:25:59.165Z',
  image: '/images/blog/salario-minimo-ticino-2027-2029-nuove-regole.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cybercrimepolice-ticino-italiano-2026',
  category: 'novita',
  date: '2026-04-21T10:12:35.617Z',
  image: '/images/blog/cybercrimepolice-ticino-italiano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'azienda-assume-autisti-lombardia-800-euro',
  category: 'novita',
  date: '2026-04-21T11:23:54.416Z',
  image: '/images/blog/azienda-assume-autisti-lombardia-800-euro.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bancastato-walking-mendrisio-2026',
  category: 'novita',
  date: '2026-04-21T12:50:08.230Z',
  image: '/images/blog/bancastato-walking-mendrisio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'whp-premia-aziende-ticino-2026',
  category: 'pratico',
  date: '2026-04-21T14:54:15.809Z',
  image: '/images/blog/whp-premia-aziende-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rapina-milano-frontaliere-ticino-2026',
  category: 'novita',
  date: '2026-04-21T16:20:10.661Z',
  image: '/images/blog/rapina-milano-frontaliere-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontalieri-contributo-sanitario-2026',
  category: 'novita',
  date: '2026-04-21T17:39:48.468Z',
  image: '/images/blog/frontalieri-contributo-sanitario-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bellinzona-calcio-licenza-negata-finanze',
  category: 'novita',
  date: '2026-04-21T18:45:52.419Z',
  image: '/images/blog/bellinzona-calcio-licenza-negata-finanze.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'mozione-salute-vigili-fuoco-lombardia',
  category: 'novita',
  date: '2026-04-21T20:16:25.439Z',
  image: '/images/blog/mozione-salute-vigili-fuoco-lombardia.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cuasso-monte-ospedale-frontalieri-chiusura',
  category: 'novita',
  date: '2026-04-21T21:32:30.749Z',
  image: '/images/blog/cuasso-monte-ospedale-frontalieri-chiusura.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-salute-frontalieri-lombardia-2026',
  category: 'fiscale',
  date: '2026-04-21T22:14:55.003Z',
  image: '/images/blog/tassa-salute-frontalieri-lombardia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'donne-arte-chiasso-2026',
  category: 'novita',
  date: '2026-04-21T23:16:34.673Z',
  image: '/images/blog/donne-arte-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cameradi-commercio-2026-integrazione',
  category: 'novita',
  date: '2026-04-22T00:24:05.869Z',
  image: '/images/blog/cameradi-commercio-2026-integrazione.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'basiletti-main-draw-chiasso-2026',
  category: 'novita',
  date: '2026-04-22T03:43:21.468Z',
  image: '/images/blog/basiletti-main-draw-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ticino-trasporto-pubblico-priorita',
  category: 'pratico',
  date: '2026-04-22T05:44:35.132Z',
  image: '/images/blog/ticino-trasporto-pubblico-priorita.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'omaggio-angeli-ponte-chiasso',
  category: 'novita',
  date: '2026-04-22T08:10:25.220Z',
  image: '/images/blog/omaggio-angeli-ponte-chiasso.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'dogana-chiasso-traffico-2026',
  category: 'pratico',
  date: '2026-04-22T09:51:11.934Z',
  image: '/images/blog/dogana-chiasso-traffico-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'integrazione-lavoro-stranieri-ticino-2026',
  category: 'novita',
  date: '2026-04-22T11:22:18.642Z',
  image: '/images/blog/integrazione-lavoro-stranieri-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salario-minimo-ticino-2029-4000-franchi',
  category: 'novita',
  date: '2026-04-22T12:51:12.131Z',
  image: '/images/blog/salario-minimo-ticino-2029-4000-franchi.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guasti-trenord-aprile-2026',
  category: 'pratico',
  date: '2026-04-22T15:19:04.078Z',
  image: '/images/blog/guasti-trenord-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ponte-chiasso-sanita-2026',
  category: 'novita',
  date: '2026-04-22T16:25:00.422Z',
  image: '/images/blog/ponte-chiasso-sanita-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'soloaffitti-como-frontalieri-ticino',
  category: 'pratico',
  date: '2026-04-22T17:55:22.389Z',
  image: '/images/blog/soloaffitti-como-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'aumenti-stipendi-medici-infermieri-lombardia',
  category: 'novita',
  date: '2026-04-22T18:57:31.758Z',
  image: '/images/blog/aumenti-stipendi-medici-infermieri-lombardia.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svincolo-a2-sigirino-ritardo',
  category: 'novita',
  date: '2026-04-22T20:46:14.744Z',
  image: '/images/blog/svincolo-a2-sigirino-ritardo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salari-svizzera-aumentati-2025',
  category: 'novita',
  date: '2026-04-22T21:52:56.635Z',
  image: '/images/blog/salari-svizzera-aumentati-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'academy-fnma-autisti-bus-2026',
  category: 'novita',
  date: '2026-04-22T22:37:09.035Z',
  image: '/images/blog/academy-fnma-autisti-bus-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'patentino-digitale-lombardia-2026',
  category: 'novita',
  date: '2026-04-22T23:38:37.535Z',
  image: '/images/blog/patentino-digitale-lombardia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiamate-shock-arresti-locarnese-2024',
  category: 'novita',
  date: '2026-04-23T00:25:14.811Z',
  image: '/images/blog/chiamate-shock-arresti-locarnese-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore',
  category: 'novita',
  date: '2026-04-23T04:03:56.607Z',
  image: '/images/blog/valbianca-in-forti-difficolta-airolo-mette-1-5-milioni-e-aumenta-il-moltiplicatore.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aumento-stipendi-frontalieri-lombardia-2026',
  category: 'novita',
  date: '2026-04-23T06:21:45.817Z',
  image: '/images/blog/aumento-stipendi-frontalieri-lombardia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cantieri-sottoceneri-estate-2024',
  category: 'novita',
  date: '2026-04-23T08:32:48.319Z',
  image: '/images/blog/cantieri-sottoceneri-estate-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ricarica-auto-elettriche-campione-2026',
  category: 'novita',
  date: '2026-04-23T10:12:44.225Z',
  image: '/images/blog/ricarica-auto-elettriche-campione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cena-spring-avsi-libano-castiglione',
  category: 'novita',
  date: '2026-04-23T11:48:32.418Z',
  image: '/images/blog/cena-spring-avsi-libano-castiglione.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'permessi-dimora-grigioni-cambia-prassi',
  category: 'novita',
  date: '2026-04-23T14:18:54.894Z',
  image: '/images/blog/permessi-dimora-grigioni-cambia-prassi.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'divario-salariale-frontalieri-ticino-2026',
  category: 'novita',
  date: '2026-04-23T16:05:48.097Z',
  image: '/images/blog/divario-salariale-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bandecchi-quarti-chiasso-2026',
  category: 'novita',
  date: '2026-04-23T17:45:12.917Z',
  image: '/images/blog/bandecchi-quarti-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cantello-peduncolo-gaggiolo-2026',
  category: 'novita',
  date: '2026-04-23T19:33:56.612Z',
  image: '/images/blog/cantello-peduncolo-gaggiolo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'assegno-educativo-mendrisio-2026',
  category: 'pratico',
  date: '2026-04-23T20:41:29.509Z',
  image: '/images/blog/assegno-educativo-mendrisio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'grigioni-permessi-dimora-2026',
  category: 'novita',
  date: '2026-04-23T21:32:48.344Z',
  image: '/images/blog/grigioni-permessi-dimora-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'aumento-stipendi-medici-infermieri-lombardia-2026',
  category: 'novita',
  date: '2026-04-23T22:13:11.387Z',
  image: '/images/blog/aumento-stipendi-medici-infermieri-lombardia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'dividere-lavoratori-salari-2026',
  category: 'novita',
  date: '2026-04-23T23:31:00.285Z',
  image: '/images/blog/dividere-lavoratori-salari-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lufthansa-bagaglio-gratuito-eliminato',
  category: 'novita',
  date: '2026-04-24T00:17:36.208Z',
  image: '/images/blog/lufthansa-bagaglio-gratuito-eliminato.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano',
  category: 'novita',
  date: '2026-04-24T04:08:29.991Z',
  image: '/images/blog/como-frazione-tavernola-banditi-assaltano-gioielleria-e-si-dileguano.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'regione-lombardia-aumento-stipendi-medici-infermieri',
  category: 'novita',
  date: '2026-04-24T06:26:28.031Z',
  image: '/images/blog/regione-lombardia-aumento-stipendi-medici-infermieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'divario-salari-ticino-frontalieri-2026',
  category: 'novita',
  date: '2026-04-24T08:38:21.054Z',
  image: '/images/blog/divario-salari-ticino-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'aufenthaltsbewilligung-b-quellensteuer-2026',
  category: 'fiscale',
  date: '2026-04-24',
  updatedAt: '2026-04-24',
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'g-bewilligung-leitfaden-grenzgaenger-2026',
  category: 'pratico',
  date: '2026-04-24',
  updatedAt: '2026-04-24',
  image: '/images/places/lac-lugano.webp',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'quellensteuer-schweiz-2026-hub',
  category: 'fiscale',
  date: '2026-04-24',
  updatedAt: '2026-04-24',
  image: '/images/places/bellinzona.webp',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'assistente-ai-frontalieri',
  category: 'pratico',
  date: '2026-04-24',
  updatedAt: '2026-04-24',
  image: '/images/places/lac-lugano.webp',
  hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'economia-svizzera-rischio-burocrazia',
  category: 'novita',
  date: '2026-04-24T15:26:40.949Z',
  image: '/images/blog/economia-svizzera-rischio-burocrazia.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'samira-de-stefano-semifinale-chiasso',
  category: 'novita',
  date: '2026-04-24T16:43:57.656Z',
  image: '/images/blog/samira-de-stefano-semifinale-chiasso.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'omaggio-angeli-ponte-chiasso-2026',
  category: 'novita',
  date: '2026-04-24T17:44:29.104Z',
  image: '/images/blog/omaggio-angeli-ponte-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'polizia-stabio-futuro-incerto',
  category: 'novita',
  date: '2026-04-24T18:22:02.680Z',
  image: '/images/blog/polizia-stabio-futuro-incerto.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'settimana-corta-ticino-2026',
  category: 'novita',
  date: '2026-04-24T19:41:18.374Z',
  image: '/images/blog/settimana-corta-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'comco-ia-criteri-2026',
  category: 'novita',
  date: '2026-04-24T20:25:40.540Z',
  image: '/images/blog/comco-ia-criteri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'autista-belga-20-ore-thurgau-intervento',
  category: 'novita',
  date: '2026-04-24T21:36:30.636Z',
  image: '/images/blog/autista-belga-20-ore-thurgau-intervento.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ust-neuchatel-telelavoro-300-dipendenti',
  category: 'novita',
  date: '2026-04-24T22:24:45.436Z',
  image: '/images/blog/ust-neuchatel-telelavoro-300-dipendenti.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cartaelettronica-varese-2026',
  category: 'novita',
  date: '2026-04-24T23:21:23.212Z',
  image: '/images/blog/cartaelettronica-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frode-crediti-covid-ticino-3334-casi',
  category: 'pratico',
  date: '2026-04-25T00:32:44.729Z',
  image: '/images/blog/frode-crediti-covid-ticino-3334-casi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'frontalieri-tassa-salute-lombardia',
  category: 'fiscale',
  date: '2026-04-25T03:45:13.425Z',
  image: '/images/blog/frontalieri-tassa-salute-lombardia.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'casa-ticino-2026-piu-difficile',
  category: 'pratico',
  date: '2026-04-25T06:06:49.390Z',
  image: '/images/blog/casa-ticino-2026-piu-difficile.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sicurezza-frontalieri-ticino-2024',
  category: 'novita',
  date: '2026-04-25T07:56:42.763Z',
  image: '/images/blog/sicurezza-frontalieri-ticino-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'vacanze-estive-2026-costi-guerra',
  category: 'pratico',
  date: '2026-04-25T09:22:22.134Z',
  image: '/images/blog/vacanze-estive-2026-costi-guerra.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'irb-bellinzona-valore-aggiunto-ticino',
  category: 'novita',
  date: '2026-04-25T10:19:42.868Z',
  image: '/images/blog/irb-bellinzona-valore-aggiunto-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'incentivo-remigrazione-frontalieri-ticino',
  category: 'novita',
  date: '2026-04-25T11:04:43.718Z',
  image: '/images/blog/incentivo-remigrazione-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'confederazione-cantoni-ridiscutono-compiti-2026',
  category: 'novita',
  date: '2026-04-25T11:59:46.795Z',
  image: '/images/blog/confederazione-cantoni-ridiscutono-compiti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'asili-nido-bellinzona-asp-2026',
  category: 'pratico',
  date: '2026-04-25T13:36:17.345Z',
  image: '/images/blog/asili-nido-bellinzona-asp-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavena-ponte-tresa-battesimo-civico-2026',
  category: 'novita',
  date: '2026-04-25T14:35:01.539Z',
  image: '/images/blog/lavena-ponte-tresa-battesimo-civico-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ferrovia-tilo-s40-fermi-italia-personale',
  category: 'pratico',
  date: '2026-04-25T15:28:07.312Z',
  image: '/images/blog/ferrovia-tilo-s40-fermi-italia-personale.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'grigioni-stretta-permessi-dimora-2026',
  category: 'novita',
  date: '2026-04-25T16:21:51.853Z',
  image: '/images/blog/grigioni-stretta-permessi-dimora-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'spese-cura-frontalieri-ufas-2026',
  category: 'novita',
  date: '2026-04-25T17:09:39.850Z',
  image: '/images/blog/spese-cura-frontalieri-ufas-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'miliardari-dubai-svizzera-lugano',
  category: 'novita',
  date: '2026-04-25T18:00:44.404Z',
  image: '/images/blog/miliardari-dubai-svizzera-lugano.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'crans-montana-spese-cura-italiani-ufas-2026',
  category: 'novita',
  date: '2026-04-25T19:26:40.220Z',
  image: '/images/blog/crans-montana-spese-cura-italiani-ufas-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'alleanza-clima-ticino-comuni',
  category: 'novita',
  date: '2026-04-25T20:04:38.146Z',
  image: '/images/blog/alleanza-clima-ticino-comuni.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'marketing-territoriale-varese-35000-euro',
  category: 'novita',
  date: '2026-04-25T21:14:03.044Z',
  image: '/images/blog/marketing-territoriale-varese-35000-euro.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nuova-tassa-frontalieri-2026',
  category: 'fiscale',
  date: '2026-04-25T21:54:02.334Z',
  image: '/images/blog/nuova-tassa-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'crans-montana-fatture-cure-italiani-2026',
  category: 'novita',
  date: '2026-04-25T23:07:28.535Z',
  image: '/images/blog/crans-montana-fatture-cure-italiani-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzeri-shopping-como-700-milioni',
  category: 'novita',
  date: '2026-04-25T23:57:27.134Z',
  image: '/images/blog/svizzeri-shopping-como-700-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'apprendisti-ticino-incidenti-2026',
  category: 'novita',
  date: '2026-04-26T04:03:40.243Z',
  image: '/images/blog/apprendisti-ticino-incidenti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica',
  category: 'novita',
  date: '2026-04-26T06:21:52.586Z',
  image: '/images/blog/fiorenzo-dado-le-sue-tre-p-e-gli-statali-nella-morsa-politica.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'medici-senza-permesso-svizzera-2026',
  category: 'novita',
  date: '2026-04-26T08:17:18.425Z',
  image: '/images/blog/medici-senza-permesso-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'crans-montana-spese-cura-italiani-2026',
  category: 'novita',
  date: '2026-04-26T09:22:40.403Z',
  image: '/images/blog/crans-montana-spese-cura-italiani-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lombardia-aumenta-stipendi-sanitari-2026',
  category: 'novita',
  date: '2026-04-26T10:28:13.652Z',
  image: '/images/blog/lombardia-aumenta-stipendi-sanitari-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'petizione-gioventu-comunista-tassa-esenzione-militare',
  category: 'novita',
  date: '2026-04-26T11:31:15.087Z',
  image: '/images/blog/petizione-gioventu-comunista-tassa-esenzione-militare.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'petizione-tassa-esenzione-militare-ticino',
  category: 'novita',
  date: '2026-04-26T12:14:16.026Z',
  image: '/images/blog/petizione-tassa-esenzione-militare-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'immigrazione-svizzera-60-anni-2026',
  category: 'novita',
  date: '2026-04-26T13:52:08.644Z',
  image: '/images/blog/immigrazione-svizzera-60-anni-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'supermercati-ticino-2026',
  category: 'novita',
  date: '2026-04-26T15:04:10.980Z',
  image: '/images/blog/supermercati-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'latte-ticino-crisi-politica-ritardo',
  category: 'novita',
  date: '2026-04-26T15:59:49.369Z',
  image: '/images/blog/latte-ticino-crisi-politica-ritardo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'maria-timofeeva-trionfa-chiasso-2026',
  category: 'novita',
  date: '2026-04-26T17:02:37.201Z',
  image: '/images/blog/maria-timofeeva-trionfa-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'crans-montana-cure-italiani-2026',
  category: 'pratico',
  date: '2026-04-26T17:57:57.046Z',
  image: '/images/blog/crans-montana-cure-italiani-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'costi-salute-svizzera-frontalieri-2026',
  category: 'fiscale',
  date: '2026-04-26T19:22:08.114Z',
  image: '/images/blog/costi-salute-svizzera-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'imposta-ocse-multinazionali-obiettivi-lontani',
  category: 'fiscale',
  date: '2026-04-26T20:09:36.324Z',
  image: '/images/blog/imposta-ocse-multinazionali-obiettivi-lontani.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'settimana-corta-svizzera-frontalieri',
  category: 'novita',
  date: '2026-04-26T20:57:28.380Z',
  image: '/images/blog/settimana-corta-svizzera-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'adulti-genitori-sostegno-finanziario-ticino-2026',
  category: 'pratico',
  date: '2026-04-26T21:17:04.930Z',
  image: '/images/blog/adulti-genitori-sostegno-finanziario-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'swiss-lufthansa-economy-basic-2026',
  category: 'novita',
  date: '2026-04-26T21:35:41.658Z',
  image: '/images/blog/swiss-lufthansa-economy-basic-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'twint-account-frode-frontalieri',
  category: 'pratico',
  date: '2026-04-26T21:51:02.710Z',
  image: '/images/blog/twint-account-frode-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'costi-sanitari-ticino-2024-4-percento',
  category: 'novita',
  date: '2026-04-26T22:11:47.444Z',
  image: '/images/blog/costi-sanitari-ticino-2024-4-percento.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cybersicurezza-industriale-ticino-2026',
  category: 'novita',
  date: '2026-04-26T22:29:15.059Z',
  image: '/images/blog/cybersicurezza-industriale-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'redditi-varesotti-2024-luvinate',
  category: 'fiscale',
  date: '2026-04-26T22:44:19.115Z',
  image: '/images/blog/redditi-varesotti-2024-luvinate.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiusure-autostrade-ticino-2026',
  category: 'pratico',
  date: '2026-04-26T23:02:11.596Z',
  image: '/images/blog/chiusure-autostrade-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'accordo-navigazione-costanza-2026',
  category: 'novita',
  date: '2026-04-26T23:17:55.329Z',
  image: '/images/blog/accordo-navigazione-costanza-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'comunita-energetica-rinnovabile-luinese-400-kw',
  category: 'novita',
  date: '2026-04-26T23:39:02.348Z',
  image: '/images/blog/comunita-energetica-rinnovabile-luinese-400-kw.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiusura-notturna-a8-gallarate-29-aprile-2026',
  category: 'pratico',
  date: '2026-04-26T23:56:16.661Z',
  image: '/images/blog/chiusura-notturna-a8-gallarate-29-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sovranita-latte-ticino',
  category: 'fiscale',
  date: '2026-04-27T00:10:50.604Z',
  image: '/images/blog/sovranita-latte-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'chiasso-scoperta-enti-primo-intervento',
  category: 'novita',
  date: '2026-04-27T00:35:22.934Z',
  image: '/images/blog/chiasso-scoperta-enti-primo-intervento.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo',
  category: 'novita',
  date: '2026-04-27T00:52:53.648Z',
  image: '/images/blog/tennis-donne-open-di-chiasso-a-marija-glebovna-timofeeva-il-titolo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'foreste-sommerse-lago-como-lugano',
  category: 'novita',
  date: '2026-04-27T01:07:52.733Z',
  image: '/images/blog/foreste-sommerse-lago-como-lugano.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'grigioni-viabilita-olimpica-2026',
  category: 'novita',
  date: '2026-04-27T01:21:18.403Z',
  image: '/images/blog/grigioni-viabilita-olimpica-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'mobilita-sostenibile-citta-vivibili-2026',
  category: 'novita',
  date: '2026-04-27T01:40:03.938Z',
  image: '/images/blog/mobilita-sostenibile-citta-vivibili-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'relazioni-italo-svizzere-2026',
  category: 'novita',
  date: '2026-04-27T01:53:55.917Z',
  image: '/images/blog/relazioni-italo-svizzere-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'integrazione-inclusione-ticino-2026',
  category: 'novita',
  date: '2026-04-27T02:04:31.397Z',
  image: '/images/blog/integrazione-inclusione-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'reddito-como-2024-frontalieri',
  category: 'novita',
  date: '2026-04-27T02:18:14.659Z',
  image: '/images/blog/reddito-como-2024-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'st-moritz-case-accessibili-2026',
  category: 'novita',
  date: '2026-04-27T02:31:02.943Z',
  image: '/images/blog/st-moritz-case-accessibili-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ex-gas-macello-residenze-secondarie',
  category: 'novita',
  date: '2026-04-27T02:45:46.695Z',
  image: '/images/blog/ex-gas-macello-residenze-secondarie.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'contratto-lago-lands-lake-2026',
  category: 'novita',
  date: '2026-04-27T03:02:55.661Z',
  image: '/images/blog/contratto-lago-lands-lake-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'controlli-velocita-ticino-aprile-maggio',
  category: 'novita',
  date: '2026-04-27T03:19:20.459Z',
  image: '/images/blog/controlli-velocita-ticino-aprile-maggio.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'finanze-pubbliche-ticino-2026-preoccupazioni',
  category: 'fiscale',
  date: '2026-04-27T03:34:55.435Z',
  image: '/images/blog/finanze-pubbliche-ticino-2026-preoccupazioni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'premi-non-oltre-10-percento',
  category: 'fiscale',
  date: '2026-04-27T03:51:52.851Z',
  image: '/images/blog/premi-non-oltre-10-percento.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guerra-iran-industria-alimentare-svizzera',
  category: 'novita',
  date: '2026-04-27T04:06:00.242Z',
  image: '/images/blog/guerra-iran-industria-alimentare-svizzera.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bollini-rossi-traffico-san-gottardo-2026',
  category: 'novita',
  date: '2026-04-27T04:21:32.666Z',
  image: '/images/blog/bollini-rossi-traffico-san-gottardo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'treno-guasto-bellinzona-2026',
  category: 'novita',
  date: '2026-04-27T04:40:54.725Z',
  image: '/images/blog/treno-guasto-bellinzona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'elezioni-como-frontalieri-2026',
  category: 'novita',
  date: '2026-04-27T04:58:00.562Z',
  image: '/images/blog/elezioni-como-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'teatro-architettura-mendrisio-stagione-2026',
  category: 'novita',
  date: '2026-04-27T05:20:53.462Z',
  image: '/images/blog/teatro-architettura-mendrisio-stagione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontalieri-arresto-maggia-truffa',
  category: 'novita',
  date: '2026-04-27T05:40:25.587Z',
  image: '/images/blog/frontalieri-arresto-maggia-truffa.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'study-china-ticino-frontalieri',
  category: 'novita',
  date: '2026-04-27T05:54:39.987Z',
  image: '/images/blog/study-china-ticino-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'treno-senza-biglietto-frontalieri-ticino',
  category: 'novita',
  date: '2026-04-27T06:08:43.714Z',
  image: '/images/blog/treno-senza-biglietto-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'polizia-stradale-varese-1600-patenti',
  category: 'novita',
  date: '2026-04-27T06:22:41.976Z',
  image: '/images/blog/polizia-stradale-varese-1600-patenti.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'agricoltori-varesini-sfide-burocrazia',
  category: 'novita',
  date: '2026-04-27T06:34:31.686Z',
  image: '/images/blog/agricoltori-varesini-sfide-burocrazia.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nuove-banconote-euro-restyling-2026',
  category: 'novita',
  date: '2026-04-27T06:46:35.062Z',
  image: '/images/blog/nuove-banconote-euro-restyling-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'amazon-made-in-italy-days-2026-ticino',
  category: 'novita',
  date: '2026-04-27T09:08:27.710Z',
  image: '/images/blog/amazon-made-in-italy-days-2026-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'carburanti-ticino-confronto-2024',
  category: 'pratico',
  date: '2026-04-27T09:12:47.619Z',
  image: '/images/blog/carburanti-ticino-confronto-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nuovo-contratto-edilizia-ticino-2026-2031',
  category: 'novita',
  date: '2026-04-27T09:16:27.073Z',
  image: '/images/blog/nuovo-contratto-edilizia-ticino-2026-2031.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'primo-maggio-varese-2026-lavoro-dignitoso',
  category: 'novita',
  date: '2026-04-27T09:22:57.014Z',
  image: '/images/blog/primo-maggio-varese-2026-lavoro-dignitoso.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fallimenti-fotovoltaico-clienti-ticino',
  category: 'novita',
  date: '2026-04-27T09:30:03.315Z',
  image: '/images/blog/fallimenti-fotovoltaico-clienti-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'coop-svizzera-insetti-commestibili-2026',
  category: 'novita',
  date: '2026-04-27T09:42:49.554Z',
  image: '/images/blog/coop-svizzera-insetti-commestibili-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controlli-frontalieri-airolo-2026',
  category: 'novita',
  date: '2026-04-27T09:47:57.212Z',
  image: '/images/blog/controlli-frontalieri-airolo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fallimenti-startup-svizzera-2026',
  category: 'novita',
  date: '2026-04-27T09:53:37.902Z',
  image: '/images/blog/fallimenti-startup-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'limite-velocita-30-ticino-inquinamento-acustico',
  category: 'novita',
  date: '2026-04-27T09:58:54.897Z',
  image: '/images/blog/limite-velocita-30-ticino-inquinamento-acustico.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'varese-parcheggi-ospedale-sette-laghi-2026',
  category: 'pratico',
  date: '2026-04-27T10:02:41.533Z',
  image: '/images/blog/varese-parcheggi-ospedale-sette-laghi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'zecche-ticino-2026-18000-punture',
  category: 'novita',
  date: '2026-04-27T10:08:41.703Z',
  image: '/images/blog/zecche-ticino-2026-18000-punture.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavoratori-pensionati-ticino-2026',
  category: 'novita',
  date: '2026-04-27T10:13:22.447Z',
  image: '/images/blog/lavoratori-pensionati-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'calcio-dnb-bellinzona-vittoria-stade-nyonnais',
  category: 'novita',
  date: '2026-04-27T10:19:24.373Z',
  image: '/images/blog/calcio-dnb-bellinzona-vittoria-stade-nyonnais.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-indipendenza-energetica-importazioni-2026',
  category: 'novita',
  date: '2026-04-27T10:25:09.224Z',
  image: '/images/blog/svizzera-indipendenza-energetica-importazioni-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nuove-misure-violenza-domestica-svizzera',
  category: 'novita',
  date: '2026-04-27T10:33:12.452Z',
  image: '/images/blog/nuove-misure-violenza-domestica-svizzera.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ruag-ia-svizzera-difesa-2026',
  category: 'novita',
  date: '2026-04-27T10:40:48.462Z',
  image: '/images/blog/ruag-ia-svizzera-difesa-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nuove-leggi-violenza-domestica-2027',
  category: 'novita',
  date: '2026-04-27T10:47:26.049Z',
  image: '/images/blog/nuove-leggi-violenza-domestica-2027.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'regione-lombardia-casa-popolari-6-4-milioni',
  category: 'novita',
  date: '2026-04-27T10:56:28.209Z',
  image: '/images/blog/regione-lombardia-casa-popolari-6-4-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'prevenzione-violenza-domestica-san-gallo-2026',
  category: 'novita',
  date: '2026-04-27T11:01:41.901Z',
  image: '/images/blog/prevenzione-violenza-domestica-san-gallo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'zurigo-economia-svizzera-crescita-media-2026',
  category: 'novita',
  date: '2026-04-27T11:08:34.045Z',
  image: '/images/blog/zurigo-economia-svizzera-crescita-media-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'swisscom-minacce-cyber-2026',
  category: 'novita',
  date: '2026-04-27T11:19:14.158Z',
  image: '/images/blog/swisscom-minacce-cyber-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'svizzera-istruzioni-uso-2026',
  category: 'novita',
  date: '2026-04-27T11:23:55.415Z',
  image: '/images/blog/svizzera-istruzioni-uso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'reparto-securizzato-pasture-consenso-cantone-comuni',
  category: 'novita',
  date: '2026-04-27T11:30:31.245Z',
  image: '/images/blog/reparto-securizzato-pasture-consenso-cantone-comuni.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nuovo-ccnl-edilizia-ticino-2026-2031',
  category: 'novita',
  date: '2026-04-27T11:38:54.203Z',
  image: '/images/blog/nuovo-ccnl-edilizia-ticino-2026-2031.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'morcote-eventi-2026-scalinata-caccia-tesoro',
  category: 'novita',
  date: '2026-04-27T11:45:42.595Z',
  image: '/images/blog/morcote-eventi-2026-scalinata-caccia-tesoro.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-credito-energetico-2026',
  category: 'novita',
  date: '2026-04-27T11:53:37.890Z',
  image: '/images/blog/svizzera-credito-energetico-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'oftalmologi-svizzeri-messico-vista',
  category: 'novita',
  date: '2026-04-27T11:59:41.712Z',
  image: '/images/blog/oftalmologi-svizzeri-messico-vista.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'rumore-traffico-svizzera-frontalieri',
  category: 'novita',
  date: '2026-04-27T12:04:47.470Z',
  image: '/images/blog/rumore-traffico-svizzera-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bandiera-svizzera-scarpe-on-controversia',
  category: 'novita',
  date: '2026-04-27T12:13:38.275Z',
  image: '/images/blog/bandiera-svizzera-scarpe-on-controversia.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'incontro-solidarieta-sicurezza-bioggio',
  category: 'novita',
  date: '2026-04-27T12:18:05.024Z',
  image: '/images/blog/incontro-solidarieta-sicurezza-bioggio.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'infermieri-ticino-frontalieri-2026',
  category: 'novita',
  date: '2026-04-27T12:23:18.262Z',
  image: '/images/blog/infermieri-ticino-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'deepfake-legge-svizzera-2026',
  category: 'novita',
  date: '2026-04-27T12:30:07.098Z',
  image: '/images/blog/deepfake-legge-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ticinesi-missione-ucraina-2026',
  category: 'novita',
  date: '2026-04-27T12:38:18.752Z',
  image: '/images/blog/ticinesi-missione-ucraina-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontalieri-massagno-salario-scandaloso',
  category: 'novita',
  date: '2026-04-27T12:42:32.656Z',
  image: '/images/blog/frontalieri-massagno-salario-scandaloso.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cure-infermieristiche-190mila-firme-2026',
  category: 'novita',
  date: '2026-04-27T12:51:29.276Z',
  image: '/images/blog/cure-infermieristiche-190mila-firme-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'maxi-spiegamento-fiamme-gialle-comasco-2026',
  category: 'novita',
  date: '2026-04-27T12:59:03.761Z',
  image: '/images/blog/maxi-spiegamento-fiamme-gialle-comasco-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'riforma-medici-famiglia-sumai-organizzazione',
  category: 'novita',
  date: '2026-04-27T13:07:01.184Z',
  image: '/images/blog/riforma-medici-famiglia-sumai-organizzazione.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavoratori-pensionati-ticino-2026-2046',
  category: 'novita',
  date: '2026-04-27T13:13:51.518Z',
  image: '/images/blog/lavoratori-pensionati-ticino-2026-2046.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'universita-varese-intelligenza-artificiale-2026',
  category: 'novita',
  date: '2026-04-27T13:22:17.437Z',
  image: '/images/blog/universita-varese-intelligenza-artificiale-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'visite-gratuite-prevenzione-tumore-seno-gallarate-lilt',
  category: 'novita',
  date: '2026-04-27T13:30:07.164Z',
  image: '/images/blog/visite-gratuite-prevenzione-tumore-seno-gallarate-lilt.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-mozione-sirica-ticino-2024',
  category: 'novita',
  date: '2026-04-27T13:35:13.002Z',
  image: '/images/blog/frontalieri-mozione-sirica-ticino-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'corsi-gratuiti-varese-sociale-2026',
  category: 'pratico',
  date: '2026-04-27T13:44:20.395Z',
  image: '/images/blog/corsi-gratuiti-varese-sociale-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'solaro-rifiuti-differenziata-tariffazione-puntuale',
  category: 'pratico',
  date: '2026-04-27T13:54:18.243Z',
  image: '/images/blog/solaro-rifiuti-differenziata-tariffazione-puntuale.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-disoccupazione-frontalieri-quadri',
  category: 'novita',
  date: '2026-04-27T14:00:33.574Z',
  image: '/images/blog/svizzera-disoccupazione-frontalieri-quadri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'corteo-maggio-lugano-traffico-2024',
  category: 'pratico',
  date: '2026-04-27T14:12:56.382Z',
  image: '/images/blog/corteo-maggio-lugano-traffico-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'incidenti-mortali-lavoro-svizzera-2026',
  category: 'novita',
  date: '2026-04-27T14:23:25.539Z',
  image: '/images/blog/incidenti-mortali-lavoro-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'coldiretti-brennero-made-italy-2026',
  category: 'novita',
  date: '2026-04-27T14:29:16.726Z',
  image: '/images/blog/coldiretti-brennero-made-italy-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ticino-tedeschi-turismo-2026',
  category: 'novita',
  date: '2026-04-27T14:35:03.019Z',
  image: '/images/blog/ticino-tedeschi-turismo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'universita-ticino-tagli-contributi-2026',
  category: 'novita',
  date: '2026-04-27T14:48:18.574Z',
  image: '/images/blog/universita-ticino-tagli-contributi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiasso-arresti-furto-biciclette-2026',
  category: 'novita',
  date: '2026-04-27T14:56:19.279Z',
  image: '/images/blog/chiasso-arresti-furto-biciclette-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sicurezza-lavoro-ats-insubria-2026',
  category: 'novita',
  date: '2026-04-27T15:01:02.221Z',
  image: '/images/blog/sicurezza-lavoro-ats-insubria-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'furto-biciclette-giubiasco-2026',
  category: 'novita',
  date: '2026-04-27T15:08:16.419Z',
  image: '/images/blog/furto-biciclette-giubiasco-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'osservatori-traffico-lago-como-2026',
  category: 'novita',
  date: '2026-04-27T15:19:20.035Z',
  image: '/images/blog/osservatori-traffico-lago-como-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sicurezza-lavoro-ats-insubria-varese-como-2026',
  category: 'pratico',
  date: '2026-04-27T15:25:50.667Z',
  image: '/images/blog/sicurezza-lavoro-ats-insubria-varese-como-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'furto-biciclette-benzina-chiasso-2026',
  category: 'pratico',
  date: '2026-04-27T15:31:15.825Z',
  image: '/images/blog/furto-biciclette-benzina-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bando-formazione-professionale-plr-2026',
  category: 'novita',
  date: '2026-04-27T15:37:24.973Z',
  image: '/images/blog/bando-formazione-professionale-plr-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavoratori-pensionati-svizzera-2026',
  category: 'novita',
  date: '2026-04-27T15:43:26.061Z',
  image: '/images/blog/lavoratori-pensionati-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'met-svizzera-insoddisfatta-sistema-2026',
  category: 'novita',
  date: '2026-04-27T15:48:26.373Z',
  image: '/images/blog/met-svizzera-insoddisfatta-sistema-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nuovi-esperti-gestione-energia-varese',
  category: 'novita',
  date: '2026-04-27T15:54:40.240Z',
  image: '/images/blog/nuovi-esperti-gestione-energia-varese.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'negoziati-falliti-stretto-hormuz-2026',
  category: 'novita',
  date: '2026-04-27T16:01:03.060Z',
  image: '/images/blog/negoziati-falliti-stretto-hormuz-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'roadmap-violenza-domestica-bilancio-positivo',
  category: 'novita',
  date: '2026-04-27T16:06:35.899Z',
  image: '/images/blog/roadmap-violenza-domestica-bilancio-positivo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'benessere-integrita-allievi-bellinzona-2026',
  category: 'novita',
  date: '2026-04-27T16:14:03.960Z',
  image: '/images/blog/benessere-integrita-allievi-bellinzona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cosa-significa-made-switzerland',
  category: 'novita',
  date: '2026-04-27T16:19:45.021Z',
  image: '/images/blog/cosa-significa-made-switzerland.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'equans-licenziamenti-monteceneri-19-dipendenti',
  category: 'novita',
  date: '2026-04-27T16:24:19.232Z',
  image: '/images/blog/equans-licenziamenti-monteceneri-19-dipendenti.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'verdi-ticino-cantonali-2026',
  category: 'novita',
  date: '2026-04-27T16:32:24.852Z',
  image: '/images/blog/verdi-ticino-cantonali-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'borse-studio-bracco-lombardia-2026',
  category: 'novita',
  date: '2026-04-27T16:40:46.316Z',
  image: '/images/blog/borse-studio-bracco-lombardia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sportello-me-te-cunardo-marchirolo-2026',
  category: 'pratico',
  date: '2026-04-27T16:49:10.905Z',
  image: '/images/blog/sportello-me-te-cunardo-marchirolo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'accordo-edilizia-ticino-2026-2031',
  category: 'novita',
  date: '2026-04-27T16:57:13.144Z',
  image: '/images/blog/accordo-edilizia-ticino-2026-2031.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'equans-rivera-19-licenziamenti',
  category: 'novita',
  date: '2026-04-27T17:05:35.275Z',
  image: '/images/blog/equans-rivera-19-licenziamenti.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'controlli-finanza-comasco-226-persone',
  category: 'novita',
  date: '2026-04-27T17:12:00.344Z',
  image: '/images/blog/controlli-finanza-comasco-226-persone.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'auto-cinesi-svizzera-2026',
  category: 'novita',
  date: '2026-04-27T17:20:56.384Z',
  image: '/images/blog/auto-cinesi-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'dengue-sistema-rapido-individuazione',
  category: 'novita',
  date: '2026-04-27T17:30:48.730Z',
  image: '/images/blog/dengue-sistema-rapido-individuazione.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'aprile-secco-siccita-ticino-2026',
  category: 'novita',
  date: '2026-04-27T17:39:06.967Z',
  image: '/images/blog/aprile-secco-siccita-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'multa-svapo-stazioni-ticino-2026',
  category: 'novita',
  date: '2026-04-27T17:54:27.773Z',
  image: '/images/blog/multa-svapo-stazioni-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzera-disoccupazione-frontalieri-quadri-2026',
  category: 'novita',
  date: '2026-04-27T17:58:27.299Z',
  image: '/images/blog/svizzera-disoccupazione-frontalieri-quadri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'allerta-gialla-temporali-varese-2026',
  category: 'novita',
  date: '2026-04-27T18:04:25.081Z',
  image: '/images/blog/allerta-gialla-temporali-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ostetriche-eoc-mendrisio-2026',
  category: 'novita',
  date: '2026-04-27T18:09:02.371Z',
  image: '/images/blog/ostetriche-eoc-mendrisio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'modello-zurigo-violenza-domestica',
  category: 'novita',
  date: '2026-04-27T18:13:39.007Z',
  image: '/images/blog/modello-zurigo-violenza-domestica.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sepolti-con-animali-domestici-berna-2026',
  category: 'novita',
  date: '2026-04-27T18:19:17.630Z',
  image: '/images/blog/sepolti-con-animali-domestici-berna-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'swiss-guasti-voli-frontalieri-ticino-2026',
  category: 'novita',
  date: '2026-04-27T18:23:36.487Z',
  image: '/images/blog/swiss-guasti-voli-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'banca-ditalia-varese-10-anni-dopo',
  category: 'novita',
  date: '2026-04-27T18:29:40.806Z',
  image: '/images/blog/banca-ditalia-varese-10-anni-dopo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'svizzeri-contributo-clima-acquisti-online-2026',
  category: 'novita',
  date: '2026-04-27T18:36:46.901Z',
  image: '/images/blog/svizzeri-contributo-clima-acquisti-online-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'passeggiata-lago-inverno-ascona-2026',
  category: 'novita',
  date: '2026-04-27T18:42:22.084Z',
  image: '/images/blog/passeggiata-lago-inverno-ascona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'notifiche-frontalieri-ticino-2026',
  category: 'pratico',
  date: '2026-04-27T18:48:16.493Z',
  image: '/images/blog/notifiche-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'minacce-informatiche-svizzera-2026',
  category: 'novita',
  date: '2026-04-27T18:52:11.830Z',
  image: '/images/blog/minacce-informatiche-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gamberetti-torneo-madrid-2026',
  category: 'novita',
  date: '2026-04-27T18:57:27.304Z',
  image: '/images/blog/gamberetti-torneo-madrid-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'carburanti-tpl-ticino-2026',
  category: 'pratico',
  date: '2026-04-27T19:01:21.210Z',
  image: '/images/blog/carburanti-tpl-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'scoperta-africa-materia-castronno-2026',
  category: 'novita',
  date: '2026-04-27T19:10:58.937Z',
  image: '/images/blog/scoperta-africa-materia-castronno-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'universita-ticino-numero-chiuso-2026',
  category: 'novita',
  date: '2026-04-27T19:29:00.020Z',
  image: '/images/blog/universita-ticino-numero-chiuso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'pedaggi-autostrada-lombardia-frontalieri',
  category: 'novita',
  date: '2026-04-27T20:16:55.595Z',
  image: '/images/blog/pedaggi-autostrada-lombardia-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'semaforo-paradiso-melide-2026',
  category: 'pratico',
  date: '2026-04-27T20:28:22.641Z',
  image: '/images/blog/semaforo-paradiso-melide-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'zurigo-economia-svizzera-crescita',
  category: 'novita',
  date: '2026-04-27T20:38:42.174Z',
  image: '/images/blog/zurigo-economia-svizzera-crescita.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'frontalieri-trottinetti-velocita-polizia',
  category: 'novita',
  date: '2026-04-27T20:46:54.413Z',
  image: '/images/blog/frontalieri-trottinetti-velocita-polizia.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ats-insubria-soluzioni-ospedali-2026',
  category: 'novita',
  date: '2026-04-27T20:55:00.743Z',
  image: '/images/blog/ats-insubria-soluzioni-ospedali-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'avis-lombardia-dono-sangue-privati-2026',
  category: 'novita',
  date: '2026-04-27T21:00:48.689Z',
  image: '/images/blog/avis-lombardia-dono-sangue-privati-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'varese-moto-storiche-2026',
  category: 'novita',
  date: '2026-04-27T21:06:35.793Z',
  image: '/images/blog/varese-moto-storiche-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nuovo-contratto-edilizia-ticino-2026',
  category: 'novita',
  date: '2026-04-27T21:12:16.028Z',
  image: '/images/blog/nuovo-contratto-edilizia-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'viabilita-varese-racordo-chiuso-2026',
  category: 'novita',
  date: '2026-04-27T21:19:04.863Z',
  image: '/images/blog/viabilita-varese-racordo-chiuso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'furti-biciclette-mendrisiotto-2026',
  category: 'novita',
  date: '2026-04-27T21:25:53.515Z',
  image: '/images/blog/furti-biciclette-mendrisiotto-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'per-giumai-acquisti-monte-piaroi-2026',
  category: 'novita',
  date: '2026-04-27T21:33:11.724Z',
  image: '/images/blog/per-giumai-acquisti-monte-piaroi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'rovine-magliaso-scuole-nuove-2026',
  category: 'novita',
  date: '2026-04-27T21:39:17.167Z',
  image: '/images/blog/rovine-magliaso-scuole-nuove-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bns-ubs-misure-non-estreme-2026',
  category: 'novita',
  date: '2026-04-27T21:46:02.035Z',
  image: '/images/blog/bns-ubs-misure-non-estreme-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nuovi-maestri-lavoro-varese-leonardo-2026',
  category: 'novita',
  date: '2026-04-27T21:52:00.487Z',
  image: '/images/blog/nuovi-maestri-lavoro-varese-leonardo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cambio-guardia-pro-velo-ticino-sabbadini-vitali',
  category: 'novita',
  date: '2026-04-27T22:00:12.077Z',
  image: '/images/blog/cambio-guardia-pro-velo-ticino-sabbadini-vitali.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nuovo-ambulatorio-ecocardiografia-busto-arsizio',
  category: 'novita',
  date: '2026-04-27T22:05:20.075Z',
  image: '/images/blog/nuovo-ambulatorio-ecocardiografia-busto-arsizio.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'velafrica-bici-usate-lugano-2026',
  category: 'novita',
  date: '2026-04-27T22:10:56.450Z',
  image: '/images/blog/velafrica-bici-usate-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ospedale-varese-acqua-calda-oncologia',
  category: 'novita',
  date: '2026-04-27T22:19:02.073Z',
  image: '/images/blog/ospedale-varese-acqua-calda-oncologia.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cinque-nordafricani-festnati-auto-aarau',
  category: 'novita',
  date: '2026-04-27T22:26:10.409Z',
  image: '/images/blog/cinque-nordafricani-festnati-auto-aarau.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'doppio-sequestro-discariche-abusive-varese',
  category: 'novita',
  date: '2026-04-27T22:32:29.818Z',
  image: '/images/blog/doppio-sequestro-discariche-abusive-varese.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sfida-comuni-coop-2026-attivita-fisica',
  category: 'novita',
  date: '2026-04-27T22:45:57.567Z',
  image: '/images/blog/sfida-comuni-coop-2026-attivita-fisica.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cina-tutela-lavoratori-nuove-occupazioni',
  category: 'novita',
  date: '2026-04-27T22:50:54.328Z',
  image: '/images/blog/cina-tutela-lavoratori-nuove-occupazioni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'usi-ticino-tagli-bilancio-2026',
  category: 'novita',
  date: '2026-04-27T22:55:56.511Z',
  image: '/images/blog/usi-ticino-tagli-bilancio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'campione-ditalia-elezioni-sindaco-2026',
  category: 'novita',
  date: '2026-04-27T23:01:26.648Z',
  image: '/images/blog/campione-ditalia-elezioni-sindaco-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'gioventu-dibatte-500-studenti-gara',
  category: 'novita',
  date: '2026-04-27T23:08:25.854Z',
  image: '/images/blog/gioventu-dibatte-500-studenti-gara.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tallero-doro-80-anni-nuovo-design',
  category: 'novita',
  date: '2026-04-27T23:13:53.076Z',
  image: '/images/blog/tallero-doro-80-anni-nuovo-design.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'conservatorio-bellinzona-valori-musicali',
  category: 'novita',
  date: '2026-04-27T23:18:43.323Z',
  image: '/images/blog/conservatorio-bellinzona-valori-musicali.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'national-geographic-scuola-einaudi-varese',
  category: 'novita',
  date: '2026-04-27T23:25:10.771Z',
  image: '/images/blog/national-geographic-scuola-einaudi-varese.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'benessere-scolastico-bellinzona-2026',
  category: 'novita',
  date: '2026-04-27T23:36:33.136Z',
  image: '/images/blog/benessere-scolastico-bellinzona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'mendrisio-capitale-culturale-opportunita',
  category: 'novita',
  date: '2026-04-27T23:42:37.215Z',
  image: '/images/blog/mendrisio-capitale-culturale-opportunita.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'pro-velo-ticino-cambiamento-presidenza-2026',
  category: 'novita',
  date: '2026-04-27T23:50:17.666Z',
  image: '/images/blog/pro-velo-ticino-cambiamento-presidenza-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nomine-sims-fallimento',
  category: 'fiscale',
  date: '2026-04-28T04:17:38.196Z',
  image: '/images/blog/nomine-sims-fallimento.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'crans-montana-fatture-scontro-roma-2026',
  category: 'novita',
  date: '2026-04-28T04:26:38.357Z',
  image: '/images/blog/crans-montana-fatture-scontro-roma-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ticino-calimero-sindrome-2026',
  category: 'novita',
  date: '2026-04-28T04:41:58.151Z',
  image: '/images/blog/ticino-calimero-sindrome-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'salario-minimo-mediano-ticino-2026',
  category: 'fiscale',
  date: '2026-04-28T04:55:14.953Z',
  image: '/images/blog/salario-minimo-mediano-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'padroncini-lavoratori-stabili-bassi-2025',
  category: 'novita',
  date: '2026-04-28T05:00:16.244Z',
  image: '/images/blog/padroncini-lavoratori-stabili-bassi-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bcc-busto-garolfo-2-milioni-territorio',
  category: 'novita',
  date: '2026-04-28T05:10:53.475Z',
  image: '/images/blog/bcc-busto-garolfo-2-milioni-territorio.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nuova-legge-polizia-ticino-controllo-periodico',
  category: 'novita',
  date: '2026-04-28T05:22:06.805Z',
  image: '/images/blog/nuova-legge-polizia-ticino-controllo-periodico.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'malpensa-parigi-galline-frontalieri',
  category: 'pratico',
  date: '2026-04-28T05:31:04.195Z',
  image: '/images/blog/malpensa-parigi-galline-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'borsa-zurigo-frontalieri-27-aprile-2026',
  category: 'novita',
  date: '2026-04-28T05:37:51.799Z',
  image: '/images/blog/borsa-zurigo-frontalieri-27-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'colpi-arma-da-fuoco-como-ferito-frontaliere',
  category: 'novita',
  date: '2026-04-28T05:42:57.873Z',
  image: '/images/blog/colpi-arma-da-fuoco-como-ferito-frontaliere.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'disagi-trenord-tilo-s40-25-aprile-2024',
  category: 'novita',
  date: '2026-04-28T05:48:32.683Z',
  image: '/images/blog/disagi-trenord-tilo-s40-25-aprile-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'scommesse-guerra-trump-prediction-market',
  category: 'novita',
  date: '2026-04-28T05:53:44.099Z',
  image: '/images/blog/scommesse-guerra-trump-prediction-market.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'furti-lusso-murten-2026',
  category: 'novita',
  date: '2026-04-28T05:58:15.218Z',
  image: '/images/blog/furti-lusso-murten-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gestione-illecita-rifiuti-varese-arcisate-2026',
  category: 'pratico',
  date: '2026-04-28T06:04:46.382Z',
  image: '/images/blog/gestione-illecita-rifiuti-varese-arcisate-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'frontalieri-ticino-crescita-2026',
  category: 'novita',
  date: '2026-04-28T06:08:57.280Z',
  image: '/images/blog/frontalieri-ticino-crescita-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'trasparenza-iniziative-popolari-ticino-2026',
  category: 'novita',
  date: '2026-04-28T06:14:22.537Z',
  image: '/images/blog/trasparenza-iniziative-popolari-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tristan-brenn-fischer-decisione',
  category: 'novita',
  date: '2026-04-28T06:21:31.770Z',
  image: '/images/blog/tristan-brenn-fischer-decisione.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'svizzera-brevetti-innovazione-2026',
  category: 'novita',
  date: '2026-04-28T06:26:55.998Z',
  image: '/images/blog/svizzera-brevetti-innovazione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'frontalieri-rega-boglia-intervento',
  category: 'novita',
  date: '2026-04-28T06:35:15.960Z',
  image: '/images/blog/frontalieri-rega-boglia-intervento.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'equans-licenziamenti-monteceneri-2026',
  category: 'novita',
  date: '2026-04-28T06:41:22.050Z',
  image: '/images/blog/equans-licenziamenti-monteceneri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'momenti-paura-velivolo-swiss-2026',
  category: 'novita',
  date: '2026-04-28T06:47:41.595Z',
  image: '/images/blog/momenti-paura-velivolo-swiss-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'allerta-meteo-ticino-lombardia-2026',
  category: 'novita',
  date: '2026-04-28T06:54:02.030Z',
  image: '/images/blog/allerta-meteo-ticino-lombardia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'rottamazione-quinquies-scadenza-30-aprile',
  category: 'fiscale',
  date: '2026-04-28T06:59:44.515Z',
  image: '/images/blog/rottamazione-quinquies-scadenza-30-aprile.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'architettura-sostenibile-ticino-2026',
  category: 'novita',
  date: '2026-04-28T07:05:10.251Z',
  image: '/images/blog/architettura-sostenibile-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sisa-contro-tagli-governo-2024',
  category: 'novita',
  date: '2026-04-28T07:12:28.660Z',
  image: '/images/blog/sisa-contro-tagli-governo-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'pista-ciclopedonale-bodio-giornico-2026',
  category: 'novita',
  date: '2026-04-28T07:18:27.065Z',
  image: '/images/blog/pista-ciclopedonale-bodio-giornico-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'momoride-carpooling-benefico-ticino-2026',
  category: 'novita',
  date: '2026-04-28T07:25:43.952Z',
  image: '/images/blog/momoride-carpooling-benefico-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'kit-escursionisti-montagna-pulita',
  category: 'pratico',
  date: '2026-04-28T07:32:05.217Z',
  image: '/images/blog/kit-escursionisti-montagna-pulita.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'moda-sostenibile-bellinzona-9-maggio',
  category: 'novita',
  date: '2026-04-28T07:38:10.428Z',
  image: '/images/blog/moda-sostenibile-bellinzona-9-maggio.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'fuga-ammoniaca-chiasso-controllo',
  category: 'novita',
  date: '2026-04-28T07:42:56.464Z',
  image: '/images/blog/fuga-ammoniaca-chiasso-controllo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiasso-ammoniaca-stadio-ghiaccio',
  category: 'novita',
  date: '2026-04-28T09:59:33.153Z',
  image: '/images/blog/chiasso-ammoniaca-stadio-ghiaccio.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fuga-ammoniaca-chiasso-pista-ghiaccio',
  category: 'novita',
  date: '2026-04-28T10:05:40.401Z',
  image: '/images/blog/fuga-ammoniaca-chiasso-pista-ghiaccio.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'biglietto-trenord-whatsapp-ticino',
  category: 'novita',
  date: '2026-04-28T10:11:12.093Z',
  image: '/images/blog/biglietto-trenord-whatsapp-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tassa-aerei-sostegno-treni',
  category: 'novita',
  date: '2026-04-28T10:17:16.654Z',
  image: '/images/blog/tassa-aerei-sostegno-treni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'comune-como-appuntamenti-cie-2026',
  category: 'novita',
  date: '2026-04-28T10:22:10.317Z',
  image: '/images/blog/comune-como-appuntamenti-cie-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'auto-elettriche-ricarica-breganzona',
  category: 'novita',
  date: '2026-04-28T10:28:49.053Z',
  image: '/images/blog/auto-elettriche-ricarica-breganzona.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'universita-insubria-4-4-milioni-ricerca',
  category: 'novita',
  date: '2026-04-28T10:33:11.263Z',
  image: '/images/blog/universita-insubria-4-4-milioni-ricerca.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'airpack-lombardia-41-lavoratori',
  category: 'novita',
  date: '2026-04-28T10:44:19.549Z',
  image: '/images/blog/airpack-lombardia-41-lavoratori.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-aerei-trasporto-pubblico',
  category: 'novita',
  date: '2026-04-28T10:51:14.826Z',
  image: '/images/blog/tassa-aerei-trasporto-pubblico.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'settimanaprofessionale-ticino-2024',
  category: 'novita',
  date: '2026-04-28T10:57:34.916Z',
  image: '/images/blog/settimanaprofessionale-ticino-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'colazione-equo-ticino-9-maggio-2026',
  category: 'novita',
  date: '2026-04-28T11:02:58.058Z',
  image: '/images/blog/colazione-equo-ticino-9-maggio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'costo-energia-varese-impatti-frontalieri',
  category: 'novita',
  date: '2026-04-28T11:12:16.365Z',
  image: '/images/blog/costo-energia-varese-impatti-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ospedali-varesini-cambiamenti-20-anni',
  category: 'novita',
  date: '2026-04-28T11:18:36.417Z',
  image: '/images/blog/ospedali-varesini-cambiamenti-20-anni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sunrise-integra-hbb-ssr-2026',
  category: 'novita',
  date: '2026-04-28T11:25:45.011Z',
  image: '/images/blog/sunrise-integra-hbb-ssr-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'infermieri-lavoro-ore-settimanali',
  category: 'novita',
  date: '2026-04-28T11:31:32.242Z',
  image: '/images/blog/infermieri-lavoro-ore-settimanali.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sorveglianza-telecomunicazioni-ticino-2026',
  category: 'novita',
  date: '2026-04-28T11:39:54.056Z',
  image: '/images/blog/sorveglianza-telecomunicazioni-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'spese-bancarie-titoli-frontalieri',
  category: 'pratico',
  date: '2026-04-28T11:48:07.375Z',
  image: '/images/blog/spese-bancarie-titoli-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bicicletta-insubria-varese-2026',
  category: 'pratico',
  date: '2026-04-28T11:54:51.858Z',
  image: '/images/blog/bicicletta-insubria-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'montessori-green-food-week-2026',
  category: 'novita',
  date: '2026-04-28T12:02:41.798Z',
  image: '/images/blog/montessori-green-food-week-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'passi-solidarieta-porto-ceresio-2026',
  category: 'novita',
  date: '2026-04-28T12:09:54.882Z',
  image: '/images/blog/passi-solidarieta-porto-ceresio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'processo-karimova-archiviazione-parziale',
  category: 'novita',
  date: '2026-04-28T12:20:10.262Z',
  image: '/images/blog/processo-karimova-archiviazione-parziale.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cardiocentro-lugano-ristrutturazione-2026',
  category: 'novita',
  date: '2026-04-28T12:25:30.038Z',
  image: '/images/blog/cardiocentro-lugano-ristrutturazione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ex-capo-esercito-kaiser-partner-privatbank',
  category: 'novita',
  date: '2026-04-28T12:31:58.247Z',
  image: '/images/blog/ex-capo-esercito-kaiser-partner-privatbank.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'nuove-regole-centri-estivi-saronno-2026',
  category: 'novita',
  date: '2026-04-28T12:37:47.802Z',
  image: '/images/blog/nuove-regole-centri-estivi-saronno-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ex-sede-banca-ditalia-vendita-varese',
  category: 'novita',
  date: '2026-04-28T12:46:47.868Z',
  image: '/images/blog/ex-sede-banca-ditalia-vendita-varese.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: '139-frontalieri-ticino-special-olympics',
  category: 'novita',
  date: '2026-04-28T13:01:39.278Z',
  image: '/images/blog/139-frontalieri-ticino-special-olympics.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'gastrobellinzona-andrea-giuliani',
  category: 'novita',
  date: '2026-04-28T13:09:55.186Z',
  image: '/images/blog/gastrobellinzona-andrea-giuliani.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'infermieri-ticino-ore-lavorative-2026',
  category: 'novita',
  date: '2026-04-28T13:17:30.065Z',
  image: '/images/blog/infermieri-ticino-ore-lavorative-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'dezonare-terreni-blenio-2026',
  category: 'novita',
  date: '2026-04-28T13:25:43.416Z',
  image: '/images/blog/dezonare-terreni-blenio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'dfp-bankitalia-margini-debito-ue-2026',
  category: 'fiscale',
  date: '2026-04-28T13:38:03.513Z',
  image: '/images/blog/dfp-bankitalia-margini-debito-ue-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'momoride-carpooling-benefico-ticino-2024',
  category: 'novita',
  date: '2026-04-28T13:47:13.799Z',
  image: '/images/blog/momoride-carpooling-benefico-ticino-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'borse-zurigo-flessione-2026',
  category: 'fiscale',
  date: '2026-04-28T13:58:44.687Z',
  image: '/images/blog/borse-zurigo-flessione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'traffico-droga-arresti-svizzera-estero-2026',
  category: 'novita',
  date: '2026-04-28T14:04:21.172Z',
  image: '/images/blog/traffico-droga-arresti-svizzera-estero-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'caslano-2025-bilancio-avanzamento',
  category: 'novita',
  date: '2026-04-28T14:10:04.095Z',
  image: '/images/blog/caslano-2025-bilancio-avanzamento.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lombardia-piano-ciclabile-115-milioni',
  category: 'pratico',
  date: '2026-04-28T14:44:00.800Z',
  image: '/images/blog/lombardia-piano-ciclabile-115-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sam-mendrisiotto-25-anni-emergenze',
  category: 'pratico',
  date: '2026-04-28T14:58:50.765Z',
  image: '/images/blog/sam-mendrisiotto-25-anni-emergenze.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nidi-extrascolastico-ticino-un-servizio',
  category: 'pratico',
  date: '2026-04-28T15:11:28.284Z',
  image: '/images/blog/nidi-extrascolastico-ticino-un-servizio.jpg',
  hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ticinesi-parigi-roland-garros',
  category: 'novita',
  date: '2026-04-28T15:22:44.512Z',
  image: '/images/blog/ticinesi-parigi-roland-garros.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'locarno-landquart-rifiuti-1000-tonnellate',
  category: 'novita',
  date: '2026-04-28T15:29:17.767Z',
  image: '/images/blog/locarno-landquart-rifiuti-1000-tonnellate.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'stipendi-svizzeri-crescono-2025',
  category: 'novita',
  date: '2026-04-28T15:35:16.763Z',
  image: '/images/blog/stipendi-svizzeri-crescono-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tassa-traffico-pesante-lacune-controlli',
  category: 'fiscale',
  date: '2026-04-28T15:41:07.686Z',
  image: '/images/blog/tassa-traffico-pesante-lacune-controlli.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'quadri-interpella-consiglio-frontiere-tasse',
  category: 'fiscale',
  date: '2026-04-28T15:46:35.284Z',
  image: '/images/blog/quadri-interpella-consiglio-frontiere-tasse.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'fenealuil-decreto-lavoro-2026',
  category: 'novita',
  date: '2026-04-28T15:54:28.191Z',
  image: '/images/blog/fenealuil-decreto-lavoro-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bilancio-val-mara-2025-avanzamento-616mila',
  category: 'novita',
  date: '2026-04-28T16:03:27.683Z',
  image: '/images/blog/bilancio-val-mara-2025-avanzamento-616mila.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ambulatorio-cardio-metabolico-villa-san-giuseppe',
  category: 'novita',
  date: '2026-04-28T16:09:16.732Z',
  image: '/images/blog/ambulatorio-cardio-metabolico-villa-san-giuseppe.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'riforma-ue-disoccupazione-frontalieri',
  category: 'novita',
  date: '2026-04-28T16:15:40.903Z',
  image: '/images/blog/riforma-ue-disoccupazione-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'casse-malati-dado-scissione-dossier',
  category: 'novita',
  date: '2026-04-28T16:22:11.302Z',
  image: '/images/blog/casse-malati-dado-scissione-dossier.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'iliad-piu-veloci-rete-mobili',
  category: 'novita',
  date: '2026-04-28T16:29:26.653Z',
  image: '/images/blog/iliad-piu-veloci-rete-mobili.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'formazione-ferrero-ministero-2026',
  category: 'novita',
  date: '2026-04-28T16:40:53.955Z',
  image: '/images/blog/formazione-ferrero-ministero-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-bellinzonese-truffe-16-mesi',
  category: 'novita',
  date: '2026-04-28T16:56:16.500Z',
  image: '/images/blog/frontalieri-bellinzonese-truffe-16-mesi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'decreto-lavoro-meloni-2026-frontalieri',
  category: 'novita',
  date: '2026-04-28T17:09:36.688Z',
  image: '/images/blog/decreto-lavoro-meloni-2026-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'calcio-dnb-belli-crisi',
  category: 'novita',
  date: '2026-04-28T17:16:58.561Z',
  image: '/images/blog/calcio-dnb-belli-crisi.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'berset-sostegno-reynard-crans-montana',
  category: 'novita',
  date: '2026-04-28T17:22:05.198Z',
  image: '/images/blog/berset-sostegno-reynard-crans-montana.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'biasca-roller-hockey-uttigen-2026',
  category: 'novita',
  date: '2026-04-28T17:37:26.507Z',
  image: '/images/blog/biasca-roller-hockey-uttigen-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'vuoto-ginevra-olympic-basket',
  category: 'novita',
  date: '2026-04-28T17:45:45.927Z',
  image: '/images/blog/vuoto-ginevra-olympic-basket.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nuova-pista-ciclopedonale-bodio-giornico-2026',
  category: 'novita',
  date: '2026-04-28T17:51:13.855Z',
  image: '/images/blog/nuova-pista-ciclopedonale-bodio-giornico-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lago-como-edition-hotel-lusso',
  category: 'novita',
  date: '2026-04-28T18:01:15.148Z',
  image: '/images/blog/lago-como-edition-hotel-lusso.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'momoride-carpooling-sfida-collettiva',
  category: 'pratico',
  date: '2026-04-28T18:06:31.240Z',
  image: '/images/blog/momoride-carpooling-sfida-collettiva.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nuove-scuole-vernate-neggio-2026',
  category: 'novita',
  date: '2026-04-28T18:11:55.868Z',
  image: '/images/blog/nuove-scuole-vernate-neggio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'casse-malati-ticino-divise-2026',
  category: 'novita',
  date: '2026-04-28T18:18:24.265Z',
  image: '/images/blog/casse-malati-ticino-divise-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cina-spostamenti-frontalieri-primo-maggio',
  category: 'novita',
  date: '2026-04-28T18:23:40.400Z',
  image: '/images/blog/cina-spostamenti-frontalieri-primo-maggio.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lugano-cultura-digitale-2024',
  category: 'novita',
  date: '2026-04-28T18:29:07.502Z',
  image: '/images/blog/lugano-cultura-digitale-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'fondazione-xenia-patto-generazionale',
  category: 'novita',
  date: '2026-04-28T18:33:16.096Z',
  image: '/images/blog/fondazione-xenia-patto-generazionale.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'europa-dal-basso-regioni-podcast-bianchi',
  category: 'novita',
  date: '2026-04-28T18:38:38.747Z',
  image: '/images/blog/europa-dal-basso-regioni-podcast-bianchi.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'viggi-bando-giovani-comunit-2026',
  category: 'novita',
  date: '2026-04-28T18:43:37.583Z',
  image: '/images/blog/viggi-bando-giovani-comunit-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'furti-centro-pacchi-cadenazzo',
  category: 'novita',
  date: '2026-04-28T18:48:40.439Z',
  image: '/images/blog/furti-centro-pacchi-cadenazzo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'fattura-miliardaria-energia-medio-oriente',
  category: 'novita',
  date: '2026-04-28T18:53:41.145Z',
  image: '/images/blog/fattura-miliardaria-energia-medio-oriente.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'riforma-infermieri-ticino-2026',
  category: 'novita',
  date: '2026-04-28T18:58:12.471Z',
  image: '/images/blog/riforma-infermieri-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'emergenza-casa-como-analisi',
  category: 'novita',
  date: '2026-04-28T19:04:11.307Z',
  image: '/images/blog/emergenza-casa-como-analisi.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'iniziativa-f-35-ticino-2026',
  category: 'novita',
  date: '2026-04-28T19:14:54.498Z',
  image: '/images/blog/iniziativa-f-35-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'giro-e-angera-verbania-2026',
  category: 'novita',
  date: '2026-04-28T19:21:12.422Z',
  image: '/images/blog/giro-e-angera-verbania-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'iniziative-casse-malati-dado-scissione-dossier',
  category: 'novita',
  date: '2026-04-28T19:27:21.030Z',
  image: '/images/blog/iniziative-casse-malati-dado-scissione-dossier.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'moschea-pregassona-udc-interroga-municipio',
  category: 'novita',
  date: '2026-04-28T19:34:24.578Z',
  image: '/images/blog/moschea-pregassona-udc-interroga-municipio.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'como-area-camper-26-posti-lavori',
  category: 'novita',
  date: '2026-04-28T19:40:18.521Z',
  image: '/images/blog/como-area-camper-26-posti-lavori.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'caricabatteria-unico-portatili-2024',
  category: 'novita',
  date: '2026-04-28T19:49:01.896Z',
  image: '/images/blog/caricabatteria-unico-portatili-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ufficio-open-space-stress-frontalieri',
  category: 'pratico',
  date: '2026-04-28T19:53:16.262Z',
  image: '/images/blog/ufficio-open-space-stress-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'estival-pagamento-caduta-stile-lugano',
  category: 'novita',
  date: '2026-04-28T19:59:25.792Z',
  image: '/images/blog/estival-pagamento-caduta-stile-lugano.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'giornata-contro-rumore-lugano-2024',
  category: 'pratico',
  date: '2026-04-28T20:04:20.424Z',
  image: '/images/blog/giornata-contro-rumore-lugano-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'estival-jazz-lugano-pagamento-2024',
  category: 'novita',
  date: '2026-04-28T20:08:44.426Z',
  image: '/images/blog/estival-jazz-lugano-pagamento-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'varese-sostenibilita-csr-camera-commercio',
  category: 'novita',
  date: '2026-04-28T20:15:06.671Z',
  image: '/images/blog/varese-sostenibilita-csr-camera-commercio.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lombardia-30-milioni-quartiere-efficientamento',
  category: 'novita',
  date: '2026-04-28T20:20:15.653Z',
  image: '/images/blog/lombardia-30-milioni-quartiere-efficientamento.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'moschea-lugano-pregassona-2026',
  category: 'novita',
  date: '2026-04-28T20:28:04.367Z',
  image: '/images/blog/moschea-lugano-pregassona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fuga-ammoniaca-chiasso-causa-trovata',
  category: 'novita',
  date: '2026-04-28T20:32:52.097Z',
  image: '/images/blog/fuga-ammoniaca-chiasso-causa-trovata.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'unitas-80-anni-innovazione-inclusione',
  category: 'novita',
  date: '2026-04-28T20:37:55.115Z',
  image: '/images/blog/unitas-80-anni-innovazione-inclusione.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'dfp-giorgetti-deficit-ridotto',
  category: 'fiscale',
  date: '2026-04-28T20:43:05.563Z',
  image: '/images/blog/dfp-giorgetti-deficit-ridotto.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'castiglione-olona-ufficio-postale-riaperto',
  category: 'novita',
  date: '2026-04-28T20:51:06.938Z',
  image: '/images/blog/castiglione-olona-ufficio-postale-riaperto.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'programmi-educativi-bellinzona-2026',
  category: 'novita',
  date: '2026-04-28T20:58:03.991Z',
  image: '/images/blog/programmi-educativi-bellinzona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'aeroporti-milano-boom-fatturato-197-milioni',
  category: 'novita',
  date: '2026-04-28T21:02:25.638Z',
  image: '/images/blog/aeroporti-milano-boom-fatturato-197-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'servizio-clienti-bancario-promossi-bocciati',
  category: 'pratico',
  date: '2026-04-28T21:07:06.912Z',
  image: '/images/blog/servizio-clienti-bancario-promossi-bocciati.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'agricoltura-spaziale-svizzera-ricerca',
  category: 'novita',
  date: '2026-04-28T21:13:16.271Z',
  image: '/images/blog/agricoltura-spaziale-svizzera-ricerca.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ubs-lobbying-parlamento-ticino-2026',
  category: 'novita',
  date: '2026-04-28T21:19:46.952Z',
  image: '/images/blog/ubs-lobbying-parlamento-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nuovo-presidente-gastro-bellinzona',
  category: 'novita',
  date: '2026-04-28T21:25:58.531Z',
  image: '/images/blog/nuovo-presidente-gastro-bellinzona.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'varese-ospedale-parcheggi-personale-2026',
  category: 'novita',
  date: '2026-04-28T21:33:28.346Z',
  image: '/images/blog/varese-ospedale-parcheggi-personale-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'coalizione-sanitario-volonta-calpestata',
  category: 'novita',
  date: '2026-04-28T21:40:16.605Z',
  image: '/images/blog/coalizione-sanitario-volonta-calpestata.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'volo-swiss-evacuato-passeggeri-bagaglio',
  category: 'novita',
  date: '2026-04-28T21:45:17.953Z',
  image: '/images/blog/volo-swiss-evacuato-passeggeri-bagaglio.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'banche-golfo-frontalieri-ticino-2026',
  category: 'novita',
  date: '2026-04-28T21:50:14.467Z',
  image: '/images/blog/banche-golfo-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'rilanciare-commercio-saronno-2026',
  category: 'novita',
  date: '2026-04-28T21:56:48.994Z',
  image: '/images/blog/rilanciare-commercio-saronno-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lugano-aggressione-abitazione-2024',
  category: 'novita',
  date: '2026-04-28T22:02:57.995Z',
  image: '/images/blog/lugano-aggressione-abitazione-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'furti-chiese-ticino-rumeni-fermati',
  category: 'novita',
  date: '2026-04-28T22:13:24.791Z',
  image: '/images/blog/furti-chiese-ticino-rumeni-fermati.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'attentato-washington-trump-2026',
  category: 'novita',
  date: '2026-04-28T22:20:38.966Z',
  image: '/images/blog/attentato-washington-trump-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'casa-montana-nante-governo-regolare',
  category: 'novita',
  date: '2026-04-28T22:25:50.903Z',
  image: '/images/blog/casa-montana-nante-governo-regolare.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'neuchatel-palloncini-lanterne-vietati',
  category: 'novita',
  date: '2026-04-28T22:30:52.873Z',
  image: '/images/blog/neuchatel-palloncini-lanterne-vietati.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'vaud-parlamento-dimissioni-dittli',
  category: 'novita',
  date: '2026-04-28T22:34:58.485Z',
  image: '/images/blog/vaud-parlamento-dimissioni-dittli.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'rogo-san-fermo-battaglia-2024',
  category: 'novita',
  date: '2026-04-28T22:39:23.129Z',
  image: '/images/blog/rogo-san-fermo-battaglia-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'terremoto-san-gallo-2026',
  category: 'novita',
  date: '2026-04-28T22:46:21.089Z',
  image: '/images/blog/terremoto-san-gallo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'infermieri-indipendenti-ticino-2026',
  category: 'novita',
  date: '2026-04-28T22:53:56.901Z',
  image: '/images/blog/infermieri-indipendenti-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'deposito-carrozzeria-sequestrato-como-2026',
  category: 'pratico',
  date: '2026-04-28T23:03:22.588Z',
  image: '/images/blog/deposito-carrozzeria-sequestrato-como-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'agesp-rifiuti-primo-maggio-2026',
  category: 'pratico',
  date: '2026-04-28T23:17:13.992Z',
  image: '/images/blog/agesp-rifiuti-primo-maggio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'stop-cinese-acquisizione-manus-implicazioni',
  category: 'novita',
  date: '2026-04-28T23:21:54.345Z',
  image: '/images/blog/stop-cinese-acquisizione-manus-implicazioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gita-cuore-soncino-saronno-point',
  category: 'novita',
  date: '2026-04-28T23:27:40.136Z',
  image: '/images/blog/gita-cuore-soncino-saronno-point.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'decreto-lavoro-meloni-frontalieri-ticino',
  category: 'novita',
  date: '2026-04-28T23:35:34.665Z',
  image: '/images/blog/decreto-lavoro-meloni-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'othermovie-lugano-2026-god-witness',
  category: 'novita',
  date: '2026-04-28T23:44:35.390Z',
  image: '/images/blog/othermovie-lugano-2026-god-witness.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'emporio-solidarieta-olgiate-olona',
  category: 'novita',
  date: '2026-04-28T23:49:42.248Z',
  image: '/images/blog/emporio-solidarieta-olgiate-olona.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'estival-jazz-lugano-cambia-formula-2026',
  category: 'novita',
  date: '2026-04-28T23:55:25.022Z',
  image: '/images/blog/estival-jazz-lugano-cambia-formula-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'eurovision-ballad-ticino-2026',
  category: 'novita',
  date: '2026-04-29T00:05:37.510Z',
  image: '/images/blog/eurovision-ballad-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'unitas-ottantesimo-futuro-ticino',
  category: 'novita',
  date: '2026-04-29T00:41:13.160Z',
  image: '/images/blog/unitas-ottantesimo-futuro-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere',
  category: 'novita',
  date: '2026-04-29T00:50:47.806Z',
  image: '/images/blog/como-io-ho-segnalato-ma-il-comune-non-ne-vuole-sapere.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ucraina-russia-droni-2026',
  category: 'novita',
  date: '2026-04-29T00:58:26.446Z',
  image: '/images/blog/ucraina-russia-droni-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'play-suisse-novita-streaming-2026',
  category: 'novita',
  date: '2026-04-29T01:04:38.590Z',
  image: '/images/blog/play-suisse-novita-streaming-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'dehors-como-ricorso-tar-20-maggio',
  category: 'novita',
  date: '2026-04-29T01:12:48.975Z',
  image: '/images/blog/dehors-como-ricorso-tar-20-maggio.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bruno-breguet-scomparsa-ufficializzata',
  category: 'novita',
  date: '2026-04-29T01:22:42.827Z',
  image: '/images/blog/bruno-breguet-scomparsa-ufficializzata.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'profumo-prato-tagliato-grido-aiuto-piante',
  category: 'novita',
  date: '2026-04-29T01:34:45.329Z',
  image: '/images/blog/profumo-prato-tagliato-grido-aiuto-piante.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'novartis-calo-utile-2026',
  category: 'novita',
  date: '2026-04-29T01:43:34.557Z',
  image: '/images/blog/novartis-calo-utile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'taglio-accise-proroga-meloni-2026',
  category: 'novita',
  date: '2026-04-29T01:54:07.483Z',
  image: '/images/blog/taglio-accise-proroga-meloni-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fedpol-arresto-corruzione-2026',
  category: 'novita',
  date: '2026-04-29T02:07:34.640Z',
  image: '/images/blog/fedpol-arresto-corruzione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'momoride-benefico-mendrisiotto-2024',
  category: 'novita',
  date: '2026-04-29T02:14:59.110Z',
  image: '/images/blog/momoride-benefico-mendrisiotto-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'uzbekistan-oro-gas-ticino-implicazioni',
  category: 'novita',
  date: '2026-04-29T02:23:40.969Z',
  image: '/images/blog/uzbekistan-oro-gas-ticino-implicazioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'attentato-washington-trump-2026-analisi',
  category: 'novita',
  date: '2026-04-29T02:30:01.424Z',
  image: '/images/blog/attentato-washington-trump-2026-analisi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'spese-militari-2025-aumento-2900-miliardi',
  category: 'novita',
  date: '2026-04-29T02:37:20.382Z',
  image: '/images/blog/spese-militari-2025-aumento-2900-miliardi.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'karimova-processo-bellinzona-2026',
  category: 'novita',
  date: '2026-04-29T02:44:09.671Z',
  image: '/images/blog/karimova-processo-bellinzona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'truffe-sentimentali-zurigo-2026',
  category: 'novita',
  date: '2026-04-29T02:53:45.344Z',
  image: '/images/blog/truffe-sentimentali-zurigo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'esposizione-segughi-malvaglia-2026',
  category: 'novita',
  date: '2026-04-29T03:02:19.820Z',
  image: '/images/blog/esposizione-segughi-malvaglia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ragazza-morta-campo-perquisita-casa-amico',
  category: 'novita',
  date: '2026-04-29T03:11:08.670Z',
  image: '/images/blog/ragazza-morta-campo-perquisita-casa-amico.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'violenza-domestica-misure-urgenti',
  category: 'novita',
  date: '2026-04-29T03:17:15.871Z',
  image: '/images/blog/violenza-domestica-misure-urgenti.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'robot-umanoidi-maratona-fascinazione',
  category: 'novita',
  date: '2026-04-29T03:26:04.678Z',
  image: '/images/blog/robot-umanoidi-maratona-fascinazione.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'guida-svizzera-frontalieri-ticino',
  category: 'pratico',
  date: '2026-04-29T03:39:57.685Z',
  image: '/images/blog/guida-svizzera-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'commesse-pubbliche-servizi-essenziali-2026',
  category: 'novita',
  date: '2026-04-29T03:45:48.643Z',
  image: '/images/blog/commesse-pubbliche-servizi-essenziali-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'frontalieri-ticino-sentono-criminali',
  category: 'novita',
  date: '2026-04-29T03:52:25.176Z',
  image: '/images/blog/frontalieri-ticino-sentono-criminali.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'esubero-leventina-zone-edificabili-2026',
  category: 'novita',
  date: '2026-04-29T03:58:01.418Z',
  image: '/images/blog/esubero-leventina-zone-edificabili-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'varese-corsi-net-opportunita-rete-sinergie-2026',
  category: 'novita',
  date: '2026-04-29T04:03:13.718Z',
  image: '/images/blog/varese-corsi-net-opportunita-rete-sinergie-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'centri-responsabilita-frontalieri-ticino',
  category: 'novita',
  date: '2026-04-29T04:08:18.131Z',
  image: '/images/blog/centri-responsabilita-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'incontro-sem-cantone-comuni-annullato',
  category: 'novita',
  date: '2026-04-29T04:15:09.514Z',
  image: '/images/blog/incontro-sem-cantone-comuni-annullato.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'centrosinistra-varese-patto-2027',
  category: 'novita',
  date: '2026-04-29T04:23:19.156Z',
  image: '/images/blog/centrosinistra-varese-patto-2027.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'magadino-parco-giochi-nuova-area-ludica',
  category: 'novita',
  date: '2026-04-29T04:28:44.489Z',
  image: '/images/blog/magadino-parco-giochi-nuova-area-ludica.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'incidente-valle-verzasca-2026',
  category: 'novita',
  date: '2026-04-29T04:33:12.949Z',
  image: '/images/blog/incidente-valle-verzasca-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guida-affettuosa-separazione-ticino-2026',
  category: 'pratico',
  date: '2026-04-29T04:38:23.055Z',
  image: '/images/blog/guida-affettuosa-separazione-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'processo-tentato-omicidio-chiasso-2026',
  category: 'novita',
  date: '2026-04-29T04:43:29.788Z',
  image: '/images/blog/processo-tentato-omicidio-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'varese-cultura-2030-ecosistema-culturale',
  category: 'novita',
  date: '2026-04-29T04:49:16.617Z',
  image: '/images/blog/varese-cultura-2030-ecosistema-culturale.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'casa-montana-nante-ricorso-tram',
  category: 'novita',
  date: '2026-04-29T04:56:26.056Z',
  image: '/images/blog/casa-montana-nante-ricorso-tram.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'atleti-ticinesi-vittoria-arcegno-ascona',
  category: 'novita',
  date: '2026-04-29T05:07:14.743Z',
  image: '/images/blog/atleti-ticinesi-vittoria-arcegno-ascona.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'malnate-comitati-quartiere-bilancio-partecipativo',
  category: 'novita',
  date: '2026-04-29T05:13:24.023Z',
  image: '/images/blog/malnate-comitati-quartiere-bilancio-partecipativo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'casa-montana-nante-voto-validato',
  category: 'novita',
  date: '2026-04-29T05:19:03.558Z',
  image: '/images/blog/casa-montana-nante-voto-validato.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'furti-cantine-luganese-condannato',
  category: 'novita',
  date: '2026-04-29T05:26:21.579Z',
  image: '/images/blog/furti-cantine-luganese-condannato.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'varese-corsi-parlare-pubblico-2026',
  category: 'pratico',
  date: '2026-04-29T05:33:35.559Z',
  image: '/images/blog/varese-corsi-parlare-pubblico-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-10-milioni-votazione-ticino',
  category: 'novita',
  date: '2026-04-29T05:37:36.064Z',
  image: '/images/blog/svizzera-10-milioni-votazione-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lombardia-tassa-sanitaria-frontalieri-2026',
  category: 'fiscale',
  date: '2026-04-29T07:30:39.794Z',
  image: '/images/blog/lombardia-tassa-sanitaria-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: '730-precompilato-frontalieri-ticino-2026',
  category: 'fiscale',
  date: '2026-04-29T07:35:07.514Z',
  image: '/images/blog/730-precompilato-frontalieri-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'tosatura-pecore-riparazione-vestiti-bellinzona-2026',
  category: 'novita',
  date: '2026-04-29T07:39:13.262Z',
  image: '/images/blog/tosatura-pecore-riparazione-vestiti-bellinzona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'geopolitica-sindacato-nuovi-equilibri-varese',
  category: 'pratico',
  date: '2026-04-29T07:44:37.705Z',
  image: '/images/blog/geopolitica-sindacato-nuovi-equilibri-varese.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ferrara-m5s-beko-cassinetta-verifica',
  category: 'novita',
  date: '2026-04-29T07:49:56.464Z',
  image: '/images/blog/ferrara-m5s-beko-cassinetta-verifica.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'azienda-comasca-fotovoltaico-25-tonnellate-co2',
  category: 'novita',
  date: '2026-04-29T07:54:04.778Z',
  image: '/images/blog/azienda-comasca-fotovoltaico-25-tonnellate-co2.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'citta-fiore-orticolario-tricolore-2026',
  category: 'novita',
  date: '2026-04-29T07:58:07.448Z',
  image: '/images/blog/citta-fiore-orticolario-tricolore-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'friborgogotteron-spareggio-titolo-hockey',
  category: 'novita',
  date: '2026-04-29T08:02:11.964Z',
  image: '/images/blog/friborgogotteron-spareggio-titolo-hockey.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'como-verdi-elogio-rapinese-alberi',
  category: 'novita',
  date: '2026-04-29T08:06:37.814Z',
  image: '/images/blog/como-verdi-elogio-rapinese-alberi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'petrolio-gas-svizzera-approvvigionamento-sicuro',
  category: 'novita',
  date: '2026-04-29T08:12:29.743Z',
  image: '/images/blog/petrolio-gas-svizzera-approvvigionamento-sicuro.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'von-der-leyen-ue-energia-500-milioni-giorno',
  category: 'novita',
  date: '2026-04-29T08:16:25.295Z',
  image: '/images/blog/von-der-leyen-ue-energia-500-milioni-giorno.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-cashless-bns-sistema-equo',
  category: 'novita',
  date: '2026-04-29T08:21:20.677Z',
  image: '/images/blog/svizzera-cashless-bns-sistema-equo.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'avs-dati-digitale-frontalieri',
  category: 'novita',
  date: '2026-04-29T08:25:36.342Z',
  image: '/images/blog/avs-dati-digitale-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'scorte-carburante-svizzera-2026',
  category: 'novita',
  date: '2026-04-29T08:33:21.281Z',
  image: '/images/blog/scorte-carburante-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'swiss-duty-free-addio-30-settembre',
  category: 'novita',
  date: '2026-04-29T08:40:20.296Z',
  image: '/images/blog/swiss-duty-free-addio-30-settembre.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'momoride-carpooling-frontalieri-benefici',
  category: 'pratico',
  date: '2026-04-29T08:45:27.095Z',
  image: '/images/blog/momoride-carpooling-frontalieri-benefici.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'swiss-duty-free-fine-vendite-bordo',
  category: 'novita',
  date: '2026-04-29T08:50:10.475Z',
  image: '/images/blog/swiss-duty-free-fine-vendite-bordo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'incidente-aarau-18enne-frontaliere',
  category: 'novita',
  date: '2026-04-29T08:55:31.413Z',
  image: '/images/blog/incidente-aarau-18enne-frontaliere.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'san-gallo-vince-thun-ritardo-festa',
  category: 'novita',
  date: '2026-04-29T09:02:26.540Z',
  image: '/images/blog/san-gallo-vince-thun-ritardo-festa.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'hupac-busto-utile-positivo-collegamenti',
  category: 'novita',
  date: '2026-04-29T09:08:33.778Z',
  image: '/images/blog/hupac-busto-utile-positivo-collegamenti.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'hupac-bilancio-positivo-2025',
  category: 'novita',
  date: '2026-04-29T09:14:52.381Z',
  image: '/images/blog/hupac-bilancio-positivo-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'infermieri-orario-lavoro-ticino-2026',
  category: 'novita',
  date: '2026-04-29T09:21:03.961Z',
  image: '/images/blog/infermieri-orario-lavoro-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'rumore-traffico-svizzera-500-morti-anno',
  category: 'novita',
  date: '2026-04-29T09:25:10.054Z',
  image: '/images/blog/rumore-traffico-svizzera-500-morti-anno.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-ticino-parchi-vandalismo-2026',
  category: 'pratico',
  date: '2026-04-29T09:31:58.838Z',
  image: '/images/blog/frontalieri-ticino-parchi-vandalismo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'spacchettamento-casse-malati-2026',
  category: 'novita',
  date: '2026-04-29T09:38:16.620Z',
  image: '/images/blog/spacchettamento-casse-malati-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'athora-italia-previdenza-complementare-2026',
  category: 'pensione',
  date: '2026-04-29T09:43:18.557Z',
  image: '/images/blog/athora-italia-previdenza-complementare-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'annuario-impresari-2026-ticino',
  category: 'novita',
  date: '2026-04-29T09:51:40.884Z',
  image: '/images/blog/annuario-impresari-2026-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'via-francisca-10-anni-turismo-ticino',
  category: 'novita',
  date: '2026-04-29T09:55:36.988Z',
  image: '/images/blog/via-francisca-10-anni-turismo-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'scuola-viganello-gaza-gemellaggio-2026',
  category: 'novita',
  date: '2026-04-29T10:02:08.959Z',
  image: '/images/blog/scuola-viganello-gaza-gemellaggio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'digitalizzazione-avs-ai-frontalieri',
  category: 'novita',
  date: '2026-04-29T10:06:34.949Z',
  image: '/images/blog/digitalizzazione-avs-ai-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'celti-tradate-parco-pineta-2026',
  category: 'novita',
  date: '2026-04-29T10:15:34.459Z',
  image: '/images/blog/celti-tradate-parco-pineta-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'canapa-losanna-bilancio-positivo-2026',
  category: 'novita',
  date: '2026-04-29T10:23:05.072Z',
  image: '/images/blog/canapa-losanna-bilancio-positivo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'estival-jazz-marti-ritiro-2026',
  category: 'novita',
  date: '2026-04-29T10:27:46.866Z',
  image: '/images/blog/estival-jazz-marti-ritiro-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'licata-lombardia-bulgaria-opportunita',
  category: 'novita',
  date: '2026-04-29T10:32:17.858Z',
  image: '/images/blog/licata-lombardia-bulgaria-opportunita.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'maroggia-servizi-postali-2026',
  category: 'novita',
  date: '2026-04-29T10:36:57.714Z',
  image: '/images/blog/maroggia-servizi-postali-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gemellaggio-scuole-viganello-gaza-2026',
  category: 'novita',
  date: '2026-04-29T10:42:09.109Z',
  image: '/images/blog/gemellaggio-scuole-viganello-gaza-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'laurent-morel-nominato-direttore-ef-svizzera',
  category: 'novita',
  date: '2026-04-29T10:46:48.789Z',
  image: '/images/blog/laurent-morel-nominato-direttore-ef-svizzera.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'san-gottardo-secondo-tubo-caduto-diaframma',
  category: 'novita',
  date: '2026-04-29T10:50:34.297Z',
  image: '/images/blog/san-gottardo-secondo-tubo-caduto-diaframma.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'venditti-estival-lugano-2026',
  category: 'novita',
  date: '2026-04-29T10:56:29.598Z',
  image: '/images/blog/venditti-estival-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'accordo-syndicom-vsm-2026',
  category: 'novita',
  date: '2026-04-29T11:02:04.291Z',
  image: '/images/blog/accordo-syndicom-vsm-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'philipp-plein-mendrisio-interrogazione',
  category: 'novita',
  date: '2026-04-29T11:05:57.713Z',
  image: '/images/blog/philipp-plein-mendrisio-interrogazione.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'mercatino-primavera-lugano-2026',
  category: 'novita',
  date: '2026-04-29T11:12:26.887Z',
  image: '/images/blog/mercatino-primavera-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'italia-svizzera-ricerca-2026',
  category: 'novita',
  date: '2026-04-29T11:19:22.840Z',
  image: '/images/blog/italia-svizzera-ricerca-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ricerca-italiana-ginevra-2026',
  category: 'novita',
  date: '2026-04-29T11:23:46.915Z',
  image: '/images/blog/ricerca-italiana-ginevra-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-serbia-cooperazione-2026',
  category: 'novita',
  date: '2026-04-29T11:28:31.702Z',
  image: '/images/blog/svizzera-serbia-cooperazione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'chi-finanzia-politica-svizzera-2026',
  category: 'fiscale',
  date: '2026-04-29T11:33:53.782Z',
  image: '/images/blog/chi-finanzia-politica-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'accordo-lago-maggiore-italia-svizzera-2026',
  category: 'novita',
  date: '2026-04-29T11:37:40.183Z',
  image: '/images/blog/accordo-lago-maggiore-italia-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'webinar-ai-azienda-strategia-casi-concreti',
  category: 'novita',
  date: '2026-04-29T11:42:09.701Z',
  image: '/images/blog/webinar-ai-azienda-strategia-casi-concreti.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'comunita-montana-valli-verbano-incontri-natura-cambia',
  category: 'novita',
  date: '2026-04-29T11:47:00.256Z',
  image: '/images/blog/comunita-montana-valli-verbano-incontri-natura-cambia.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'innalzamento-lago-maggiore-140-metri',
  category: 'novita',
  date: '2026-04-29T11:52:42.968Z',
  image: '/images/blog/innalzamento-lago-maggiore-140-metri.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guardie-svizzere-giuramento-vaticano-2026',
  category: 'novita',
  date: '2026-04-29T12:04:47.839Z',
  image: '/images/blog/guardie-svizzere-giuramento-vaticano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'apprendistato-varese-2-7-ingressi-lavoro',
  category: 'novita',
  date: '2026-04-29T12:09:31.540Z',
  image: '/images/blog/apprendistato-varese-2-7-ingressi-lavoro.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'casa-hockey-lugano-ambri-2026',
  category: 'novita',
  date: '2026-04-29T12:17:28.056Z',
  image: '/images/blog/casa-hockey-lugano-ambri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'swiss-duty-free-cambia-vendite-2026',
  category: 'novita',
  date: '2026-04-29T12:27:13.449Z',
  image: '/images/blog/swiss-duty-free-cambia-vendite-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tutor-sapiens-apprendistato-terzo-livello',
  category: 'novita',
  date: '2026-04-29T12:37:43.307Z',
  image: '/images/blog/tutor-sapiens-apprendistato-terzo-livello.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'tunnel-tonale-viabilita-lombardia',
  category: 'novita',
  date: '2026-04-29T12:47:08.861Z',
  image: '/images/blog/tunnel-tonale-viabilita-lombardia.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'spring-giubiasco-sport-convivialita-2026',
  category: 'novita',
  date: '2026-04-29T12:59:54.979Z',
  image: '/images/blog/spring-giubiasco-sport-convivialita-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'carnago-forza-italia-pendolarismo',
  category: 'novita',
  date: '2026-04-29T13:08:16.354Z',
  image: '/images/blog/carnago-forza-italia-pendolarismo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'usa-svizzera-frizioni-commerciali-2026',
  category: 'novita',
  date: '2026-04-29T13:15:55.307Z',
  image: '/images/blog/usa-svizzera-frizioni-commerciali-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'terremoto-gottardo-frontalieri',
  category: 'novita',
  date: '2026-04-29T13:26:38.902Z',
  image: '/images/blog/terremoto-gottardo-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'benzina-record-annuale-svizzera-2026',
  category: 'novita',
  date: '2026-04-29T13:32:00.551Z',
  image: '/images/blog/benzina-record-annuale-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'giovane-gambizzato-como-2026',
  category: 'novita',
  date: '2026-04-29T13:42:04.795Z',
  image: '/images/blog/giovane-gambizzato-como-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'andre-wyss-nuovo-presidente-ffs',
  category: 'novita',
  date: '2026-04-29T13:51:23.977Z',
  image: '/images/blog/andre-wyss-nuovo-presidente-ffs.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'moncucco-risultati-positivi-2025',
  category: 'novita',
  date: '2026-04-29T14:04:37.784Z',
  image: '/images/blog/moncucco-risultati-positivi-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bellinzona-datore-lavoro-conciliabilita',
  category: 'novita',
  date: '2026-04-29T14:18:50.060Z',
  image: '/images/blog/bellinzona-datore-lavoro-conciliabilita.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'mendrisio-conti-positivi-2025',
  category: 'fiscale',
  date: '2026-04-29T14:29:49.037Z',
  image: '/images/blog/mendrisio-conti-positivi-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'criminalita-organizzata-svizzera-2026',
  category: 'novita',
  date: '2026-04-29T14:37:51.421Z',
  image: '/images/blog/criminalita-organizzata-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'stazioni-sciistiche-ticino-contributi-2026',
  category: 'novita',
  date: '2026-04-29T14:48:14.413Z',
  image: '/images/blog/stazioni-sciistiche-ticino-contributi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ubs-keller-sutter-lobbismo-2026',
  category: 'novita',
  date: '2026-04-29T14:56:06.175Z',
  image: '/images/blog/ubs-keller-sutter-lobbismo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'daverio-gazzada-assistenza-medica-2026',
  category: 'novita',
  date: '2026-04-29T15:12:50.607Z',
  image: '/images/blog/daverio-gazzada-assistenza-medica-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'trivella-san-gottardo-zona-faglia',
  category: 'novita',
  date: '2026-04-29T15:39:53.630Z',
  image: '/images/blog/trivella-san-gottardo-zona-faglia.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ambulatori-medici-temporanei-varese-2026',
  category: 'novita',
  date: '2026-04-29T15:51:47.927Z',
  image: '/images/blog/ambulatori-medici-temporanei-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'copernicus-clima-2025-europa',
  category: 'novita',
  date: '2026-04-29T16:02:01.646Z',
  image: '/images/blog/copernicus-clima-2025-europa.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'credinvest-bank-crescita-2026',
  category: 'novita',
  date: '2026-04-29T16:24:32.316Z',
  image: '/images/blog/credinvest-bank-crescita-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'riforma-frontalieri-costi-svizzera',
  category: 'novita',
  date: '2026-04-29T17:39:37.887Z',
  image: '/images/blog/riforma-frontalieri-costi-svizzera.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'conciliabilita-vita-lavoro-bellinzona-2026',
  category: 'pratico',
  date: '2026-04-29T17:56:03.570Z',
  image: '/images/blog/conciliabilita-vita-lavoro-bellinzona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiasso-assassinio-mancato-15-anni-carcere',
  category: 'novita',
  date: '2026-04-29T18:07:58.186Z',
  image: '/images/blog/chiasso-assassinio-mancato-15-anni-carcere.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lite-dogana-ponte-chiasso-ferito-contuso',
  category: 'novita',
  date: '2026-04-29T18:21:35.713Z',
  image: '/images/blog/lite-dogana-ponte-chiasso-ferito-contuso.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'intesa-sanpaolo-premia-10-imprese-vincenti',
  category: 'novita',
  date: '2026-04-29T18:32:36.690Z',
  image: '/images/blog/intesa-sanpaolo-premia-10-imprese-vincenti.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'pillola-giorno-dopo-consulenza-nazionale',
  category: 'novita',
  date: '2026-04-29T18:43:17.696Z',
  image: '/images/blog/pillola-giorno-dopo-consulenza-nazionale.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sindaci-verbania-baveno-cannobio-opposizione',
  category: 'novita',
  date: '2026-04-29T18:54:56.604Z',
  image: '/images/blog/sindaci-verbania-baveno-cannobio-opposizione.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'mendrisio-bilancio-positivo-2025',
  category: 'novita',
  date: '2026-04-29T19:03:30.592Z',
  image: '/images/blog/mendrisio-bilancio-positivo-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'terzo-frigo-tenero-anti-spreco',
  category: 'novita',
  date: '2026-04-29T19:17:15.558Z',
  image: '/images/blog/terzo-frigo-tenero-anti-spreco.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-disoccupazione-stato-lavoro',
  category: 'novita',
  date: '2026-04-29T19:22:05.412Z',
  image: '/images/blog/frontalieri-disoccupazione-stato-lavoro.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavoro-openjobmetis-2026-opportunita',
  category: 'novita',
  date: '2026-04-29T19:27:19.503Z',
  image: '/images/blog/lavoro-openjobmetis-2026-opportunita.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'openjobmetis-materia-castronno-2026',
  category: 'pratico',
  date: '2026-04-29T19:35:30.967Z',
  image: '/images/blog/openjobmetis-materia-castronno-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'vaiolo-delle-scimmie-ticino-2026',
  category: 'novita',
  date: '2026-04-29T19:46:18.404Z',
  image: '/images/blog/vaiolo-delle-scimmie-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'maroggia-postale-domestico-2024',
  category: 'pratico',
  date: '2026-04-29T19:52:51.018Z',
  image: '/images/blog/maroggia-postale-domestico-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'convegno-milano-mafia-italia-svizzera-2026',
  category: 'novita',
  date: '2026-04-29T20:03:56.022Z',
  image: '/images/blog/convegno-milano-mafia-italia-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gruppo-moncucco-2025-risultati',
  category: 'novita',
  date: '2026-04-29T20:15:18.726Z',
  image: '/images/blog/gruppo-moncucco-2025-risultati.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'distretto-benessere-campo-fiori-2026',
  category: 'fiscale',
  date: '2026-04-29T20:28:53.949Z',
  image: '/images/blog/distretto-benessere-campo-fiori-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiusure-ospedale-circolo-varese-2026',
  category: 'novita',
  date: '2026-04-29T20:42:49.538Z',
  image: '/images/blog/chiusure-ospedale-circolo-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-overtourism-lucerna-grindelwald',
  category: 'novita',
  date: '2026-04-29T20:53:37.337Z',
  image: '/images/blog/svizzera-overtourism-lucerna-grindelwald.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'alluvione-lavizzara-piano-pericoli-approvato',
  category: 'novita',
  date: '2026-04-29T20:59:31.223Z',
  image: '/images/blog/alluvione-lavizzara-piano-pericoli-approvato.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bedretto-lab-microterremoti-ricerca',
  category: 'novita',
  date: '2026-04-29T21:11:01.649Z',
  image: '/images/blog/bedretto-lab-microterremoti-ricerca.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'microterremoto-ticino-successo-test',
  category: 'novita',
  date: '2026-04-29T21:22:19.285Z',
  image: '/images/blog/microterremoto-ticino-successo-test.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'festa-famiglie-lugano-2026',
  category: 'novita',
  date: '2026-04-29T21:37:50.499Z',
  image: '/images/blog/festa-famiglie-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'stop-milioni-casse-malati-club-sportivi',
  category: 'novita',
  date: '2026-04-29T21:53:24.770Z',
  image: '/images/blog/stop-milioni-casse-malati-club-sportivi.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'delusi-svizzera-frontalieri-abbandonati',
  category: 'novita',
  date: '2026-04-29T21:58:11.943Z',
  image: '/images/blog/delusi-svizzera-frontalieri-abbandonati.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'separazioni-ticino-famiglie-monoparentali',
  category: 'pratico',
  date: '2026-04-29T22:11:28.626Z',
  image: '/images/blog/separazioni-ticino-famiglie-monoparentali.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'dichiarazione-precompilata-2026-disponibile',
  category: 'fiscale',
  date: '2026-04-29T22:17:32.536Z',
  image: '/images/blog/dichiarazione-precompilata-2026-disponibile.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'moncucco-utile-raddoppiato-2026',
  category: 'novita',
  date: '2026-04-29T22:30:13.105Z',
  image: '/images/blog/moncucco-utile-raddoppiato-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'domenica-natura-spazio-tradate-2026',
  category: 'novita',
  date: '2026-04-29T22:42:35.991Z',
  image: '/images/blog/domenica-natura-spazio-tradate-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lago-maggiore-innalzamento-2026',
  category: 'novita',
  date: '2026-04-29T22:52:15.123Z',
  image: '/images/blog/lago-maggiore-innalzamento-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'usa-critica-svizzera-bio-duopolio',
  category: 'novita',
  date: '2026-04-29T22:59:24.778Z',
  image: '/images/blog/usa-critica-svizzera-bio-duopolio.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'dl-bollette-novita-consumatori-2026',
  category: 'novita',
  date: '2026-04-29T23:04:17.977Z',
  image: '/images/blog/dl-bollette-novita-consumatori-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bonus-sicurezza-2026-frontalieri-ticino',
  category: 'fiscale',
  date: '2026-04-29T23:10:14.769Z',
  image: '/images/blog/bonus-sicurezza-2026-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'palma-muralto-ristrutturazione-strategia-2024',
  category: 'novita',
  date: '2026-04-29T23:15:43.733Z',
  image: '/images/blog/palma-muralto-ristrutturazione-strategia-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'gev-ticino-ambiente-2026',
  category: 'pratico',
  date: '2026-04-29T23:20:52.100Z',
  image: '/images/blog/gev-ticino-ambiente-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'siccita-lombardia-riserve-idriche-2026',
  category: 'novita',
  date: '2026-04-29T23:28:51.845Z',
  image: '/images/blog/siccita-lombardia-riserve-idriche-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fed-powell-addio-tassi-invariati',
  category: 'novita',
  date: '2026-04-29T23:36:13.523Z',
  image: '/images/blog/fed-powell-addio-tassi-invariati.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ubs-utile-3-miliardi-2026',
  category: 'novita',
  date: '2026-04-29T23:47:42.274Z',
  image: '/images/blog/ubs-utile-3-miliardi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'borse-europee-zurigo-trimestrali',
  category: 'novita',
  date: '2026-04-29T23:56:09.604Z',
  image: '/images/blog/borse-europee-zurigo-trimestrali.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'supsi-20-nuovi-professori-2026',
  category: 'novita',
  date: '2026-04-30T00:01:44.147Z',
  image: '/images/blog/supsi-20-nuovi-professori-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'italian-e-bike-tragedy-bern',
  category: 'pratico',
  date: '2026-04-30T00:19:03.167Z',
  image: '/images/blog/italian-e-bike-tragedy-bern.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'violenza-sessuale-conseguenze-ticino',
  category: 'novita',
  date: '2026-04-30T00:37:28.933Z',
  image: '/images/blog/violenza-sessuale-conseguenze-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'mendrisio-bilancio-positivo-2025-analisi',
  category: 'fiscale',
  date: '2026-04-30T00:46:59.231Z',
  image: '/images/blog/mendrisio-bilancio-positivo-2025-analisi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ubs-credit-suisse-integrazione-risultati-2026',
  category: 'novita',
  date: '2026-04-30T00:59:25.271Z',
  image: '/images/blog/ubs-credit-suisse-integrazione-risultati-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'varese-digitale-3d-visita',
  category: 'novita',
  date: '2026-04-30T01:11:24.457Z',
  image: '/images/blog/varese-digitale-3d-visita.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'varesotto-paperoni-lago-maggiore-2026',
  category: 'fiscale',
  date: '2026-04-30T01:28:30.713Z',
  image: '/images/blog/varesotto-paperoni-lago-maggiore-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'regione-lombardia-4-4-milioni-insubria',
  category: 'novita',
  date: '2026-04-30T01:36:37.390Z',
  image: '/images/blog/regione-lombardia-4-4-milioni-insubria.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'luve-hyperscaler-ai-accordo-100-milioni',
  category: 'novita',
  date: '2026-04-30T01:44:54.667Z',
  image: '/images/blog/luve-hyperscaler-ai-accordo-100-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'social-media-frontalieri-ticino',
  category: 'pratico',
  date: '2026-04-30T02:02:41.639Z',
  image: '/images/blog/social-media-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'stazioni-sciistiche-ticino-credito-dati-2026',
  category: 'pratico',
  date: '2026-04-30T02:14:52.545Z',
  image: '/images/blog/stazioni-sciistiche-ticino-credito-dati-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lavori-notturni-via-clemente-maraini',
  category: 'novita',
  date: '2026-04-30T02:20:44.536Z',
  image: '/images/blog/lavori-notturni-via-clemente-maraini.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'parcheggi-ospedale-circolo-varese-2026',
  category: 'pratico',
  date: '2026-04-30T02:31:19.564Z',
  image: '/images/blog/parcheggi-ospedale-circolo-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'mani-pulite-vite-salvate-asst-iniziativa',
  category: 'novita',
  date: '2026-04-30T02:43:22.681Z',
  image: '/images/blog/mani-pulite-vite-salvate-asst-iniziativa.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'manager-insubria-rasizza-battioni-4-maggio',
  category: 'novita',
  date: '2026-04-30T02:50:43.494Z',
  image: '/images/blog/manager-insubria-rasizza-battioni-4-maggio.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lavoro-etico-convegno-liuc-ucid',
  category: 'pratico',
  date: '2026-04-30T03:00:04.184Z',
  image: '/images/blog/lavoro-etico-convegno-liuc-ucid.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: '1maggio-eremo-monastero-legge-varese',
  category: 'novita',
  date: '2026-04-30T03:11:51.458Z',
  image: '/images/blog/1maggio-eremo-monastero-legge-varese.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'vergiate-color-run-2026-non-competitiva',
  category: 'novita',
  date: '2026-04-30T03:23:26.192Z',
  image: '/images/blog/vergiate-color-run-2026-non-competitiva.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'due-scuole-due-mondi-un-solo-legame',
  category: 'novita',
  date: '2026-04-30T03:33:37.565Z',
  image: '/images/blog/due-scuole-due-mondi-un-solo-legame.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'camion-incastrato-grantola-2026',
  category: 'novita',
  date: '2026-04-30T03:42:37.499Z',
  image: '/images/blog/camion-incastrato-grantola-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'vedano-olona-medici-servizio-instabile',
  category: 'novita',
  date: '2026-04-30T03:52:30.261Z',
  image: '/images/blog/vedano-olona-medici-servizio-instabile.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'elmec-innovation-summit-brunello-2026',
  category: 'novita',
  date: '2026-04-30T04:06:36.423Z',
  image: '/images/blog/elmec-innovation-summit-brunello-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'scuola-austriaca-bitcoin-lugano-2026',
  category: 'novita',
  date: '2026-04-30T04:17:28.089Z',
  image: '/images/blog/scuola-austriaca-bitcoin-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'domus-san-donato-autonomia-terza-eta',
  category: 'novita',
  date: '2026-04-30T04:24:38.236Z',
  image: '/images/blog/domus-san-donato-autonomia-terza-eta.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'moda-sostenibile-varese-2026',
  category: 'novita',
  date: '2026-04-30T04:35:07.812Z',
  image: '/images/blog/moda-sostenibile-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sciopero-fame-timoc-terreno-conteso',
  category: 'novita',
  date: '2026-04-30T04:47:11.590Z',
  image: '/images/blog/sciopero-fame-timoc-terreno-conteso.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ispra-pranzo-solidale-oratorio-2026',
  category: 'novita',
  date: '2026-04-30T04:57:05.272Z',
  image: '/images/blog/ispra-pranzo-solidale-oratorio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'malpensa-contanti-sequestri-370mila-euro',
  category: 'novita',
  date: '2026-04-30T05:08:39.382Z',
  image: '/images/blog/malpensa-contanti-sequestri-370mila-euro.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'grigioni-stretta-permessi-mafia-roveredo',
  category: 'novita',
  date: '2026-04-30T05:13:23.804Z',
  image: '/images/blog/grigioni-stretta-permessi-mafia-roveredo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'restringimento-a2-ritardi-2026',
  category: 'novita',
  date: '2026-04-30T05:19:41.471Z',
  image: '/images/blog/restringimento-a2-ritardi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'repressione-cinese-svizzera-ong-critiche',
  category: 'novita',
  date: '2026-04-30T05:25:04.504Z',
  image: '/images/blog/repressione-cinese-svizzera-ong-critiche.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'traffico-intenso-a2-lugano-ritardi',
  category: 'pratico',
  date: '2026-04-30T05:34:05.691Z',
  image: '/images/blog/traffico-intenso-a2-lugano-ritardi.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ritardi-a2-tra-chiasso-lugano',
  category: 'novita',
  date: '2026-04-30T05:41:06.839Z',
  image: '/images/blog/ritardi-a2-tra-chiasso-lugano.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'a2-corsia-ritardi-lugano-2026',
  category: 'novita',
  date: '2026-04-30T05:48:08.534Z',
  image: '/images/blog/a2-corsia-ritardi-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'aquanexa-visita-acquedotto-alfa-laveno',
  category: 'novita',
  date: '2026-04-30T05:59:06.394Z',
  image: '/images/blog/aquanexa-visita-acquedotto-alfa-laveno.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bollino-rosso-a2-chiasso-lugano-2026',
  category: 'novita',
  date: '2026-04-30T06:05:20.158Z',
  image: '/images/blog/bollino-rosso-a2-chiasso-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'pnrr-disabilita-medio-olona-715mila-euro',
  category: 'novita',
  date: '2026-04-30T06:13:38.145Z',
  image: '/images/blog/pnrr-disabilita-medio-olona-715mila-euro.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'problemi-casellario-giudiziale-varese-2026',
  category: 'novita',
  date: '2026-04-30T06:21:39.291Z',
  image: '/images/blog/problemi-casellario-giudiziale-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'comco-inchieste-pubblicita-online-2026',
  category: 'novita',
  date: '2026-04-30T06:30:06.174Z',
  image: '/images/blog/comco-inchieste-pubblicita-online-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'glaciazione-demografica-ticino-2026',
  category: 'novita',
  date: '2026-04-30T06:37:54.482Z',
  image: '/images/blog/glaciazione-demografica-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'a2-traffico-ritardi-lugano-2026',
  category: 'novita',
  date: '2026-04-30T06:46:25.602Z',
  image: '/images/blog/a2-traffico-ritardi-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'roberto-grassi-nuovo-presidente-liuc-castellanza',
  category: 'novita',
  date: '2026-04-30T06:54:24.925Z',
  image: '/images/blog/roberto-grassi-nuovo-presidente-liuc-castellanza.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ia-selezione-personale-rischi-ticino',
  category: 'novita',
  date: '2026-04-30T07:00:33.235Z',
  image: '/images/blog/ia-selezione-personale-rischi-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'denatalita-ticino-azione-urgente-2026',
  category: 'novita',
  date: '2026-04-30T07:10:51.231Z',
  image: '/images/blog/denatalita-ticino-azione-urgente-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'beko-cassinetta-risultati-2026',
  category: 'novita',
  date: '2026-04-30T07:18:52.735Z',
  image: '/images/blog/beko-cassinetta-risultati-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'samantha-bourgoin-apisuisse-2026',
  category: 'novita',
  date: '2026-04-30T07:30:07.117Z',
  image: '/images/blog/samantha-bourgoin-apisuisse-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'birdwatching-monteviasco-2026',
  category: 'novita',
  date: '2026-04-30T07:38:07.471Z',
  image: '/images/blog/birdwatching-monteviasco-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'gallarate-bilancio-cassani-2026',
  category: 'fiscale',
  date: '2026-04-30T07:47:19.593Z',
  image: '/images/blog/gallarate-bilancio-cassani-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'certificazione-greco-antico-lombardia-2026',
  category: 'novita',
  date: '2026-04-30T07:55:18.137Z',
  image: '/images/blog/certificazione-greco-antico-lombardia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rokj-lugano-serata-solidale',
  category: 'novita',
  date: '2026-04-30T08:06:30.656Z',
  image: '/images/blog/rokj-lugano-serata-solidale.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'varese-fogliaro-san-giuseppe-2026',
  category: 'novita',
  date: '2026-04-30T08:15:58.389Z',
  image: '/images/blog/varese-fogliaro-san-giuseppe-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'polizia-ticinese-fase-progettuale-conclusa',
  category: 'novita',
  date: '2026-04-30T08:24:48.192Z',
  image: '/images/blog/polizia-ticinese-fase-progettuale-conclusa.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'a2-melide-chiusure-notturne-lavori',
  category: 'novita',
  date: '2026-04-30T08:33:55.835Z',
  image: '/images/blog/a2-melide-chiusure-notturne-lavori.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sanzioni-ue-imprese-italiane-2026',
  category: 'novita',
  date: '2026-04-30T08:42:34.699Z',
  image: '/images/blog/sanzioni-ue-imprese-italiane-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'varese-lavoro-specializzato-paradosso-2026',
  category: 'novita',
  date: '2026-04-30T08:51:18.494Z',
  image: '/images/blog/varese-lavoro-specializzato-paradosso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'varese-competenze-lavoro-2026',
  category: 'novita',
  date: '2026-04-30T08:56:02.350Z',
  image: '/images/blog/varese-competenze-lavoro-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'kof-barometro-ripresa-economica-2026',
  category: 'novita',
  date: '2026-04-30T09:03:29.065Z',
  image: '/images/blog/kof-barometro-ripresa-economica-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'parita-paura-frontalieri-ticino',
  category: 'novita',
  date: '2026-04-30T09:19:33.209Z',
  image: '/images/blog/parita-paura-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'presunti-maltrattamenti-asilo-chiasso',
  category: 'novita',
  date: '2026-04-30T09:28:59.074Z',
  image: '/images/blog/presunti-maltrattamenti-asilo-chiasso.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'commercio-dettaglio-ricavi-ticino-2026',
  category: 'novita',
  date: '2026-04-30T09:35:16.553Z',
  image: '/images/blog/commercio-dettaglio-ricavi-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'contibellinzona-2025-risultati',
  category: 'fiscale',
  date: '2026-04-30T09:45:43.897Z',
  image: '/images/blog/contibellinzona-2025-risultati.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'italia-inadempiente-crediti-sanitari',
  category: 'novita',
  date: '2026-04-30T09:54:32.119Z',
  image: '/images/blog/italia-inadempiente-crediti-sanitari.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'settore-alberghiero-ricavi-2025',
  category: 'novita',
  date: '2026-04-30T10:04:13.656Z',
  image: '/images/blog/settore-alberghiero-ricavi-2025.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'berna-skopje-scambi-economici-2026',
  category: 'novita',
  date: '2026-04-30T10:12:55.073Z',
  image: '/images/blog/berna-skopje-scambi-economici-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'conti-bellinzona-2025-balzo-11-milioni',
  category: 'fiscale',
  date: '2026-04-30T10:21:55.691Z',
  image: '/images/blog/conti-bellinzona-2025-balzo-11-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'contibellinzona2025risultati',
  category: 'fiscale',
  date: '2026-04-30T10:28:35.933Z',
  image: '/images/blog/contibellinzona2025risultati.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'disoccupazione-ticino-usi-2026',
  category: 'novita',
  date: '2026-04-30T10:34:25.577Z',
  image: '/images/blog/disoccupazione-ticino-usi-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cessione-bper-bcc-varese-2026',
  category: 'novita',
  date: '2026-04-30T10:39:22.003Z',
  image: '/images/blog/cessione-bper-bcc-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'innalzamento-livello-verbano-impatti-economici',
  category: 'novita',
  date: '2026-04-30T10:48:22.333Z',
  image: '/images/blog/innalzamento-livello-verbano-impatti-economici.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'barometro-kof-ripresa-modesta-2026',
  category: 'novita',
  date: '2026-04-30T10:56:05.423Z',
  image: '/images/blog/barometro-kof-ripresa-modesta-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'inflazione-aprile-2026-italia',
  category: 'novita',
  date: '2026-04-30T11:02:45.017Z',
  image: '/images/blog/inflazione-aprile-2026-italia.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'azienda-bardello-cerca-operatore-cnc',
  category: 'novita',
  date: '2026-04-30T11:13:42.901Z',
  image: '/images/blog/azienda-bardello-cerca-operatore-cnc.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'divario-irpef-pensionati-2026',
  category: 'fiscale',
  date: '2026-04-30T11:19:47.372Z',
  image: '/images/blog/divario-irpef-pensionati-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'comco-inchieste-keyword-bidding-2026',
  category: 'novita',
  date: '2026-04-30T11:28:33.869Z',
  image: '/images/blog/comco-inchieste-keyword-bidding-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'dezonamenti-ticino-2026-confronti',
  category: 'pratico',
  date: '2026-04-30T11:40:26.700Z',
  image: '/images/blog/dezonamenti-ticino-2026-confronti.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'pizza-bibita-costi-citta',
  category: 'pratico',
  date: '2026-04-30T11:47:58.963Z',
  image: '/images/blog/pizza-bibita-costi-citta.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'education-day-confindustria-varese-2026',
  category: 'novita',
  date: '2026-04-30T12:00:27.437Z',
  image: '/images/blog/education-day-confindustria-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'riforma-polizia-ticino-progetto-fermo',
  category: 'novita',
  date: '2026-04-30T12:14:53.755Z',
  image: '/images/blog/riforma-polizia-ticino-progetto-fermo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ffs-siemens-nuovi-treni-ticino',
  category: 'novita',
  date: '2026-04-30T12:26:02.216Z',
  image: '/images/blog/ffs-siemens-nuovi-treni-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'passaporto-poste-italiane-uffici',
  category: 'novita',
  date: '2026-04-30T12:32:54.141Z',
  image: '/images/blog/passaporto-poste-italiane-uffici.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'comco-indaga-pubblicita-motori-ricerca',
  category: 'novita',
  date: '2026-04-30T12:40:25.133Z',
  image: '/images/blog/comco-indaga-pubblicita-motori-ricerca.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'record-passeggeri-treni-svizzera-2026',
  category: 'novita',
  date: '2026-04-30T12:50:07.101Z',
  image: '/images/blog/record-passeggeri-treni-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ferrovia-svizzera-300-progetti-2026',
  category: 'novita',
  date: '2026-04-30T13:03:35.411Z',
  image: '/images/blog/ferrovia-svizzera-300-progetti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bce-tassi-invariati-30-aprile-2026',
  category: 'novita',
  date: '2026-04-30T13:12:23.654Z',
  image: '/images/blog/bce-tassi-invariati-30-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'aumenti-tariffe-sunrise-2026',
  category: 'novita',
  date: '2026-04-30T13:19:08.096Z',
  image: '/images/blog/aumenti-tariffe-sunrise-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'settore-ict-ticino-riconoscimento-istituzioni',
  category: 'novita',
  date: '2026-04-30T13:32:09.594Z',
  image: '/images/blog/settore-ict-ticino-riconoscimento-istituzioni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bce-tassi-inflazione-ticino-2026',
  category: 'fiscale',
  date: '2026-04-30T13:39:56.499Z',
  image: '/images/blog/bce-tassi-inflazione-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'microterremoto-artificiale-ticino-2026',
  category: 'novita',
  date: '2026-04-30T13:58:29.710Z',
  image: '/images/blog/microterremoto-artificiale-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'flotilla-svizzera-gaza-2026',
  category: 'novita',
  date: '2026-04-30T14:08:33.618Z',
  image: '/images/blog/flotilla-svizzera-gaza-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'clausole-sunrise-illegittime-2026',
  category: 'novita',
  date: '2026-04-30T14:28:09.327Z',
  image: '/images/blog/clausole-sunrise-illegittime-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lidl-formazione-duale-gdo-ticino',
  category: 'novita',
  date: '2026-04-30T14:34:23.025Z',
  image: '/images/blog/lidl-formazione-duale-gdo-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lugano-red-carpet-contribuenti-2026',
  category: 'fiscale',
  date: '2026-04-30T14:42:23.522Z',
  image: '/images/blog/lugano-red-carpet-contribuenti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'trenord-disservizi-frontalieri-2026',
  category: 'novita',
  date: '2026-04-30T14:51:42.948Z',
  image: '/images/blog/trenord-disservizi-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'pulmino-elettrico-granello-cislago-2026',
  category: 'novita',
  date: '2026-04-30T15:05:42.252Z',
  image: '/images/blog/pulmino-elettrico-granello-cislago-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ambrogio-castiglioni-digital-industries-world',
  category: 'novita',
  date: '2026-04-30T15:10:22.808Z',
  image: '/images/blog/ambrogio-castiglioni-digital-industries-world.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'aumento-spese-carburante-air-france-2026',
  category: 'novita',
  date: '2026-04-30T15:32:26.960Z',
  image: '/images/blog/aumento-spese-carburante-air-france-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'trenord-ritardi-frontalieri-2026',
  category: 'novita',
  date: '2026-04-30T15:38:40.014Z',
  image: '/images/blog/trenord-ritardi-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'polizia-ticinese-progetto-concluso',
  category: 'novita',
  date: '2026-04-30T15:51:25.573Z',
  image: '/images/blog/polizia-ticinese-progetto-concluso.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bike-sharing-como-gratis-giugno',
  category: 'novita',
  date: '2026-04-30T16:01:30.510Z',
  image: '/images/blog/bike-sharing-como-gratis-giugno.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guerra-iran-industria-alimentare-2026',
  category: 'novita',
  date: '2026-04-30T16:06:25.175Z',
  image: '/images/blog/guerra-iran-industria-alimentare-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rientro-a2-incubo-30-aprile-2026',
  category: 'novita',
  date: '2026-04-30T16:10:45.832Z',
  image: '/images/blog/rientro-a2-incubo-30-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ultimo-giorno-funivia-santis-2026',
  category: 'novita',
  date: '2026-04-30T16:25:56.134Z',
  image: '/images/blog/ultimo-giorno-funivia-santis-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'primo-maggio-varese-acli-lavoro-dignitoso',
  category: 'novita',
  date: '2026-04-30T16:31:55.271Z',
  image: '/images/blog/primo-maggio-varese-acli-lavoro-dignitoso.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'crans-montana-700-dossier-consultori',
  category: 'novita',
  date: '2026-04-30T16:45:34.775Z',
  image: '/images/blog/crans-montana-700-dossier-consultori.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'perequazione-ticino-frontalieri-2026',
  category: 'fiscale',
  date: '2026-04-30T16:59:42.393Z',
  image: '/images/blog/perequazione-ticino-frontalieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'viabilita-camion-travedona-2026',
  category: 'novita',
  date: '2026-04-30T17:10:28.453Z',
  image: '/images/blog/viabilita-camion-travedona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'casa-comunita-luino-punto-unico-accesso',
  category: 'novita',
  date: '2026-04-30T17:16:51.369Z',
  image: '/images/blog/casa-comunita-luino-punto-unico-accesso.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bellinzona-2025-consuntivo-risultati',
  category: 'fiscale',
  date: '2026-04-30T17:25:43.252Z',
  image: '/images/blog/bellinzona-2025-consuntivo-risultati.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'iniziativa-democrazia-respinta-2026',
  category: 'novita',
  date: '2026-04-30T17:31:01.046Z',
  image: '/images/blog/iniziativa-democrazia-respinta-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'primo-maggio-varese-2026-storia-e-trasformazioni',
  category: 'novita',
  date: '2026-04-30T17:37:02.770Z',
  image: '/images/blog/primo-maggio-varese-2026-storia-e-trasformazioni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'primo-bilancio-centri-violenza-2026',
  category: 'pratico',
  date: '2026-04-30T17:44:20.804Z',
  image: '/images/blog/primo-bilancio-centri-violenza-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'addio-giovanni-salandin-cgil-frontalieri',
  category: 'novita',
  date: '2026-04-30T17:51:40.647Z',
  image: '/images/blog/addio-giovanni-salandin-cgil-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'guardia-medica-como-ponte-maggio-2026',
  category: 'novita',
  date: '2026-04-30T17:58:51.888Z',
  image: '/images/blog/guardia-medica-como-ponte-maggio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bilancio-provincia-varese-1-5-milioni',
  category: 'novita',
  date: '2026-04-30T18:06:09.500Z',
  image: '/images/blog/bilancio-provincia-varese-1-5-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'varese-citta-piu-verde-2026',
  category: 'novita',
  date: '2026-04-30T18:12:38.359Z',
  image: '/images/blog/varese-citta-piu-verde-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'denuncia-strisce-pedonali-como-2026',
  category: 'novita',
  date: '2026-04-30T18:21:39.844Z',
  image: '/images/blog/denuncia-strisce-pedonali-como-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'emergenza-acqua-lombardia-2026',
  category: 'novita',
  date: '2026-04-30T18:31:52.895Z',
  image: '/images/blog/emergenza-acqua-lombardia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'bambino-annegato-morcote-30-aprile-2026',
  category: 'novita',
  date: '2026-04-30T18:40:55.665Z',
  image: '/images/blog/bambino-annegato-morcote-30-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'solaro-chiude-ambulatorio-medico',
  category: 'novita',
  date: '2026-04-30T18:48:46.103Z',
  image: '/images/blog/solaro-chiude-ambulatorio-medico.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'piano-pandemico-2025-2029-approvato',
  category: 'novita',
  date: '2026-04-30T18:55:56.847Z',
  image: '/images/blog/piano-pandemico-2025-2029-approvato.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'polizia-ticino-progetto-zali-comuni',
  category: 'novita',
  date: '2026-04-30T19:05:21.653Z',
  image: '/images/blog/polizia-ticino-progetto-zali-comuni.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ffs-siemens-116-treni-suburbani-ticino-2026',
  category: 'novita',
  date: '2026-04-30T19:54:26.911Z',
  image: '/images/blog/ffs-siemens-116-treni-suburbani-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'chiusure-melide-autostrada-2026',
  category: 'novita',
  date: '2026-04-30T20:02:36.368Z',
  image: '/images/blog/chiusure-melide-autostrada-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'webuild-csc-rinnovo-sede-onu-ginevra',
  category: 'novita',
  date: '2026-04-30T20:09:43.663Z',
  image: '/images/blog/webuild-csc-rinnovo-sede-onu-ginevra.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'migranti-pasture-progetto-congelato',
  category: 'novita',
  date: '2026-04-30T20:23:21.495Z',
  image: '/images/blog/migranti-pasture-progetto-congelato.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ricavi-alberghi-ticino-2025-crescita',
  category: 'novita',
  date: '2026-04-30T20:31:59.663Z',
  image: '/images/blog/ricavi-alberghi-ticino-2025-crescita.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'controllo-finanze-ticino-2026',
  category: 'novita',
  date: '2026-04-30T20:40:06.166Z',
  image: '/images/blog/controllo-finanze-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'swiss-market-index-verde-2026',
  category: 'novita',
  date: '2026-04-30T20:47:57.398Z',
  image: '/images/blog/swiss-market-index-verde-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bcc-crowdfunding-100mila-euro',
  category: 'novita',
  date: '2026-04-30T20:54:32.164Z',
  image: '/images/blog/bcc-crowdfunding-100mila-euro.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'truffatrice-seriale-como-lecco-2026',
  category: 'novita',
  date: '2026-04-30T21:04:14.599Z',
  image: '/images/blog/truffatrice-seriale-como-lecco-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'passaporto-musei-svizzera-30-anni-record',
  category: 'novita',
  date: '2026-04-30T21:14:06.017Z',
  image: '/images/blog/passaporto-musei-svizzera-30-anni-record.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'confindustria-como-arte-cultura-salute-13-maggio',
  category: 'novita',
  date: '2026-04-30T21:23:48.727Z',
  image: '/images/blog/confindustria-como-arte-cultura-salute-13-maggio.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'sunrise-pratiche-abusive-fermate-2026',
  category: 'novita',
  date: '2026-04-30T21:31:14.353Z',
  image: '/images/blog/sunrise-pratiche-abusive-fermate-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'proroga-accise-carburanti-2026',
  category: 'novita',
  date: '2026-04-30T21:37:18.255Z',
  image: '/images/blog/proroga-accise-carburanti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'polizia-ticinese-progetto-abbandonato-2026',
  category: 'novita',
  date: '2026-04-30T21:43:33.465Z',
  image: '/images/blog/polizia-ticinese-progetto-abbandonato-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'summer-camp-malnate-tenuta-novella',
  category: 'novita',
  date: '2026-04-30T22:00:25.444Z',
  image: '/images/blog/summer-camp-malnate-tenuta-novella.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'liuc-golf-frontalieri-accordo-2026',
  category: 'novita',
  date: '2026-04-30T22:13:45.132Z',
  image: '/images/blog/liuc-golf-frontalieri-accordo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'pillola-giorno-dopo-vendita-libera-2026',
  category: 'novita',
  date: '2026-04-30T22:22:39.148Z',
  image: '/images/blog/pillola-giorno-dopo-vendita-libera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'isolino-virginia-riapre-2026',
  category: 'novita',
  date: '2026-04-30T22:31:45.397Z',
  image: '/images/blog/isolino-virginia-riapre-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sostenibilita-salone-csr-varese-2026',
  category: 'novita',
  date: '2026-04-30T22:41:52.895Z',
  image: '/images/blog/sostenibilita-salone-csr-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'film-the-sea-varese-gaza-2026',
  category: 'novita',
  date: '2026-04-30T22:52:31.689Z',
  image: '/images/blog/film-the-sea-varese-gaza-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'crans-montana-nuovo-solco-italia-svizzera-2026',
  category: 'novita',
  date: '2026-04-30T23:01:56.627Z',
  image: '/images/blog/crans-montana-nuovo-solco-italia-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'eurodreams-vincita-rendita-22mila-franchi',
  category: 'novita',
  date: '2026-04-30T23:09:22.201Z',
  image: '/images/blog/eurodreams-vincita-rendita-22mila-franchi.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'piano-casa-meloni-emergenza-abitativa',
  category: 'novita',
  date: '2026-04-30T23:19:03.331Z',
  image: '/images/blog/piano-casa-meloni-emergenza-abitativa.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'targhe-personalizzabili-quadri-approvazione',
  category: 'novita',
  date: '2026-04-30T23:32:55.881Z',
  image: '/images/blog/targhe-personalizzabili-quadri-approvazione.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'trenord-indennizzi-pendolari-como-2026',
  category: 'novita',
  date: '2026-04-30T23:42:19.523Z',
  image: '/images/blog/trenord-indennizzi-pendolari-como-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ponte-brivio-cantiere-14-milioni',
  category: 'novita',
  date: '2026-04-30T23:50:50.785Z',
  image: '/images/blog/ponte-brivio-cantiere-14-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ponte-maggio-villa-panza-laboratori-bambini',
  category: 'novita',
  date: '2026-05-01T00:01:31.748Z',
  image: '/images/blog/ponte-maggio-villa-panza-laboratori-bambini.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'furti-luoghi-culto-bellinzonese',
  category: 'fiscale',
  date: '2026-05-01T00:18:09.449Z',
  image: '/images/blog/furti-luoghi-culto-bellinzonese.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'hockey-nl-psicodramma-davos-2025-2026-friborgogotteron',
  category: 'novita',
  date: '2026-05-01T00:28:45.986Z',
  image: '/images/blog/hockey-nl-psicodramma-davos-2025-2026-friborgogotteron.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'made-in-switzerland-2026',
  category: 'novita',
  date: '2026-05-01T00:44:11.827Z',
  image: '/images/blog/made-in-switzerland-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'dialogo-popoli-colori-mondo-busto-arsizio',
  category: 'novita',
  date: '2026-05-01T01:01:16.429Z',
  image: '/images/blog/dialogo-popoli-colori-mondo-busto-arsizio.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cavalli-droni-esercito-svizzero-2026',
  category: 'novita',
  date: '2026-05-01T01:13:40.994Z',
  image: '/images/blog/cavalli-droni-esercito-svizzero-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'raiffeisen-bioggio-rinnovo-2026',
  category: 'novita',
  date: '2026-05-01T01:22:15.698Z',
  image: '/images/blog/raiffeisen-bioggio-rinnovo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'percorso-giubiasco-qui-allora-2026',
  category: 'novita',
  date: '2026-05-01T01:35:45.894Z',
  image: '/images/blog/percorso-giubiasco-qui-allora-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'nomina-docenti-comunali-ticino-2026',
  category: 'novita',
  date: '2026-05-01T01:47:47.739Z',
  image: '/images/blog/nomina-docenti-comunali-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cardano-settimana-ecologica-raee-2026',
  category: 'pratico',
  date: '2026-05-01T01:58:00.058Z',
  image: '/images/blog/cardano-settimana-ecologica-raee-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'grassi-liuc-sfide-complesse',
  category: 'novita',
  date: '2026-05-01T02:10:02.187Z',
  image: '/images/blog/grassi-liuc-sfide-complesse.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ciclabile-saronno-rovello-porro-2026',
  category: 'pratico',
  date: '2026-05-01T02:19:00.879Z',
  image: '/images/blog/ciclabile-saronno-rovello-porro-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'fiera-asparago-cantello-2026',
  category: 'novita',
  date: '2026-05-01T02:27:46.993Z',
  image: '/images/blog/fiera-asparago-cantello-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cinque-cose-asparago-cantello-2026',
  category: 'pratico',
  date: '2026-05-01T02:39:56.191Z',
  image: '/images/blog/cinque-cose-asparago-cantello-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sigarette-elettroniche-adolescenti-ticino-2026',
  category: 'pratico',
  date: '2026-05-01T02:49:52.323Z',
  image: '/images/blog/sigarette-elettroniche-adolescenti-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'processo-bellinzona-merci-russia-2026',
  category: 'novita',
  date: '2026-05-01T03:02:11.458Z',
  image: '/images/blog/processo-bellinzona-merci-russia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'trump-riduce-truppe-italia-spagna',
  category: 'novita',
  date: '2026-05-01T03:16:46.054Z',
  image: '/images/blog/trump-riduce-truppe-italia-spagna.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'whisky-scozzese-dazi-trump-carlo-camilla',
  category: 'novita',
  date: '2026-05-01T03:29:39.430Z',
  image: '/images/blog/whisky-scozzese-dazi-trump-carlo-camilla.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'incidente-fino-mornasco-30-aprile-2026',
  category: 'novita',
  date: '2026-05-01T03:42:54.328Z',
  image: '/images/blog/incidente-fino-mornasco-30-aprile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'galleria-gottardo-secondo-tubo-2026',
  category: 'novita',
  date: '2026-05-01T03:53:08.605Z',
  image: '/images/blog/galleria-gottardo-secondo-tubo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'varese-bilancio-2026-avanzo-record',
  category: 'fiscale',
  date: '2026-05-01T04:08:20.498Z',
  image: '/images/blog/varese-bilancio-2026-avanzo-record.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nuovo-direttore-controllo-finanze-ticino',
  category: 'novita',
  date: '2026-05-01T04:20:27.331Z',
  image: '/images/blog/nuovo-direttore-controllo-finanze-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'riapre-ufficio-postale-casale-litta',
  category: 'novita',
  date: '2026-05-01T04:33:53.133Z',
  image: '/images/blog/riapre-ufficio-postale-casale-litta.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'furti-chiese-negozi-ticino-arresti',
  category: 'novita',
  date: '2026-05-01T04:49:50.560Z',
  image: '/images/blog/furti-chiese-negozi-ticino-arresti.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'audit-polizia-ticino-2026',
  category: 'novita',
  date: '2026-05-01T04:58:57.119Z',
  image: '/images/blog/audit-polizia-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tassa-salute-frontalieri-lombardia-piemonte',
  category: 'fiscale',
  date: '2026-05-01T05:05:16.381Z',
  image: '/images/blog/tassa-salute-frontalieri-lombardia-piemonte.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'zonaprotetta-40-anni-sessualita-consapevole',
  category: 'novita',
  date: '2026-05-01T05:13:18.934Z',
  image: '/images/blog/zonaprotetta-40-anni-sessualita-consapevole.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cina-turismo-interno-2026',
  category: 'novita',
  date: '2026-05-01T05:21:28.511Z',
  image: '/images/blog/cina-turismo-interno-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'mondiali-2026-iran-italia-fifa',
  category: 'novita',
  date: '2026-05-01T05:29:54.162Z',
  image: '/images/blog/mondiali-2026-iran-italia-fifa.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'crystal-palace-finale-conference-rayo',
  category: 'novita',
  date: '2026-05-01T05:36:13.835Z',
  image: '/images/blog/crystal-palace-finale-conference-rayo.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'trump-cina-russia-patto-2026',
  category: 'novita',
  date: '2026-05-01T05:44:34.050Z',
  image: '/images/blog/trump-cina-russia-patto-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'primo-maggio-unita-sindacale-marghera',
  category: 'novita',
  date: '2026-05-01T05:50:44.542Z',
  image: '/images/blog/primo-maggio-unita-sindacale-marghera.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'primo-maggio-sindacati-piazza-2026',
  category: 'novita',
  date: '2026-05-01T05:59:50.948Z',
  image: '/images/blog/primo-maggio-sindacati-piazza-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'spasso-weekend-1-maggio-varese-2026',
  category: 'novita',
  date: '2026-05-01T06:06:15.261Z',
  image: '/images/blog/spasso-weekend-1-maggio-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'prevenzione-dipendenze-ticino-2026',
  category: 'novita',
  date: '2026-05-01T06:14:58.470Z',
  image: '/images/blog/prevenzione-dipendenze-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'concertone-primo-maggio-roma-artisti-2026',
  category: 'novita',
  date: '2026-05-01T06:23:53.376Z',
  image: '/images/blog/concertone-primo-maggio-roma-artisti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'mondo-radio-piange-alberto-davoli',
  category: 'novita',
  date: '2026-05-01T06:34:41.079Z',
  image: '/images/blog/mondo-radio-piange-alberto-davoli.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rendiconto-banca-interpretazione-2026',
  category: 'fiscale',
  date: '2026-05-01T06:41:20.556Z',
  image: '/images/blog/rendiconto-banca-interpretazione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'inchiesta-arbitri-roccchi-inter-roma',
  category: 'novita',
  date: '2026-05-01T06:47:51.389Z',
  image: '/images/blog/inchiesta-arbitri-roccchi-inter-roma.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'dramma-canton-ticino-bimbo-annega-piscina',
  category: 'novita',
  date: '2026-05-01T06:57:48.277Z',
  image: '/images/blog/dramma-canton-ticino-bimbo-annega-piscina.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'gioco-oca-giornico-rischi-disastri',
  category: 'novita',
  date: '2026-05-01T07:04:26.800Z',
  image: '/images/blog/gioco-oca-giornico-rischi-disastri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'primo-maggio-2026-ticino-solidarieta',
  category: 'novita',
  date: '2026-05-01T07:09:06.806Z',
  image: '/images/blog/primo-maggio-2026-ticino-solidarieta.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'piano-freddo-como-200-persone-172-notti',
  category: 'novita',
  date: '2026-05-01T07:18:58.626Z',
  image: '/images/blog/piano-freddo-como-200-persone-172-notti.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'como-studenti-polizia-on-road-2026',
  category: 'novita',
  date: '2026-05-01T07:27:58.460Z',
  image: '/images/blog/como-studenti-polizia-on-road-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ticinosentieri-nuove-nomine-2026',
  category: 'novita',
  date: '2026-05-01T07:37:51.485Z',
  image: '/images/blog/ticinosentieri-nuove-nomine-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ufficio-postale-val-mara-chiusura',
  category: 'novita',
  date: '2026-05-01T07:45:26.211Z',
  image: '/images/blog/ufficio-postale-val-mara-chiusura.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'controversia-bandiera-svizzera-scarpe-on',
  category: 'novita',
  date: '2026-05-01T07:57:06.549Z',
  image: '/images/blog/controversia-bandiera-svizzera-scarpe-on.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'giovani-sigarette-elettroniche-ticino-2026',
  category: 'novita',
  date: '2026-05-01T08:05:41.958Z',
  image: '/images/blog/giovani-sigarette-elettroniche-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'frontalieri-disoccupazione-svizzera-2026',
  category: 'novita',
  date: '2026-05-01T08:10:33.789Z',
  image: '/images/blog/frontalieri-disoccupazione-svizzera-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cbt-italia-ciclisti-mercato',
  category: 'novita',
  date: '2026-05-01T08:17:09.542Z',
  image: '/images/blog/cbt-italia-ciclisti-mercato.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'maserati-tridente-centenario-2026',
  category: 'novita',
  date: '2026-05-01T08:26:53.636Z',
  image: '/images/blog/maserati-tridente-centenario-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'iniziativa-10-milioni-sostenibile',
  category: 'novita',
  date: '2026-05-01T08:31:35.924Z',
  image: '/images/blog/iniziativa-10-milioni-sostenibile.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'click-fatture-servizio-hot',
  category: 'pratico',
  date: '2026-05-01T08:39:26.129Z',
  image: '/images/blog/click-fatture-servizio-hot.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'festa-fragole-camorino-beneficenza',
  category: 'novita',
  date: '2026-05-01T08:46:41.774Z',
  image: '/images/blog/festa-fragole-camorino-beneficenza.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lite-notturna-brogeda-2026',
  category: 'novita',
  date: '2026-05-01T08:54:01.408Z',
  image: '/images/blog/lite-notturna-brogeda-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'crans-montana-fatture-ospedali-2026',
  category: 'novita',
  date: '2026-05-01T09:01:00.384Z',
  image: '/images/blog/crans-montana-fatture-ospedali-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'crans-montana-aiuto-vittime-700-dossier',
  category: 'novita',
  date: '2026-05-01T09:07:49.408Z',
  image: '/images/blog/crans-montana-aiuto-vittime-700-dossier.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'zanzara-tigre-losone-2026',
  category: 'novita',
  date: '2026-05-01T09:15:48.490Z',
  image: '/images/blog/zanzara-tigre-losone-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rive-libere-minusio-tenero-2026',
  category: 'pratico',
  date: '2026-05-01T09:23:59.332Z',
  image: '/images/blog/rive-libere-minusio-tenero-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'berna-senza-pubblicita-iniziativa-2026',
  category: 'novita',
  date: '2026-05-01T09:32:48.315Z',
  image: '/images/blog/berna-senza-pubblicita-iniziativa-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lago-maggiore-sale-ambiente-2026',
  category: 'novita',
  date: '2026-05-01T09:39:49.980Z',
  image: '/images/blog/lago-maggiore-sale-ambiente-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: '25-centimetri-lago-maggiore-frontalieri',
  category: 'novita',
  date: '2026-05-01T09:47:40.019Z',
  image: '/images/blog/25-centimetri-lago-maggiore-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'lungolago-como-parapetti-rapinese-sertori',
  category: 'novita',
  date: '2026-05-01T09:53:53.736Z',
  image: '/images/blog/lungolago-como-parapetti-rapinese-sertori.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'como-napoli-sinigaglia-divieti-posteggi',
  category: 'novita',
  date: '2026-05-01T10:03:10.165Z',
  image: '/images/blog/como-napoli-sinigaglia-divieti-posteggi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'primo-maggio-varese-2026-lavoro-diritti',
  category: 'novita',
  date: '2026-05-01T10:15:02.734Z',
  image: '/images/blog/primo-maggio-varese-2026-lavoro-diritti.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'algerini-libici-auto-polizia-arresti',
  category: 'novita',
  date: '2026-05-01T10:25:20.502Z',
  image: '/images/blog/algerini-libici-auto-polizia-arresti.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'rete-stradale-mendrisio-interventi-urgenti',
  category: 'novita',
  date: '2026-05-01T10:33:47.501Z',
  image: '/images/blog/rete-stradale-mendrisio-interventi-urgenti.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavori-autostradali-a8-milano-varese',
  category: 'novita',
  date: '2026-05-01T10:44:31.873Z',
  image: '/images/blog/lavori-autostradali-a8-milano-varese.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'primo-maggio-2026-ticino-sindacati',
  category: 'novita',
  date: '2026-05-01T10:51:36.010Z',
  image: '/images/blog/primo-maggio-2026-ticino-sindacati.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'como-arresto-frontaliere-tunisino',
  category: 'novita',
  date: '2026-05-01T11:00:25.991Z',
  image: '/images/blog/como-arresto-frontaliere-tunisino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'indagine-soccorsi-crans-montana-2026',
  category: 'novita',
  date: '2026-05-01T11:09:43.099Z',
  image: '/images/blog/indagine-soccorsi-crans-montana-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'crans-montana-italia-parte-civile-2026',
  category: 'novita',
  date: '2026-05-01T11:18:20.664Z',
  image: '/images/blog/crans-montana-italia-parte-civile-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gysin-candidata-capogruppo-verdi',
  category: 'novita',
  date: '2026-05-01T11:28:48.932Z',
  image: '/images/blog/gysin-candidata-capogruppo-verdi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sesto-calende-strade-cantieri-2026',
  category: 'pratico',
  date: '2026-05-01T11:36:42.974Z',
  image: '/images/blog/sesto-calende-strade-cantieri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'jans-udc-iniziativa-10-milioni',
  category: 'novita',
  date: '2026-05-01T11:46:27.965Z',
  image: '/images/blog/jans-udc-iniziativa-10-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'lago-maggiore-135-metri-frontalieri',
  category: 'novita',
  date: '2026-05-01T11:54:32.322Z',
  image: '/images/blog/lago-maggiore-135-metri-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'anziani-truffati-arresto-como-ticino',
  category: 'novita',
  date: '2026-05-01T12:04:25.811Z',
  image: '/images/blog/anziani-truffati-arresto-como-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'bellinzonesi-germania-karate-2026',
  category: 'novita',
  date: '2026-05-01T12:11:34.752Z',
  image: '/images/blog/bellinzonesi-germania-karate-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'chiusura-notturna-a9-lomazzo-chiasso',
  category: 'pratico',
  date: '2026-05-01T12:17:04.088Z',
  image: '/images/blog/chiusura-notturna-a9-lomazzo-chiasso.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'como-festa-lavoro-diritti-salari',
  category: 'novita',
  date: '2026-05-01T12:27:50.000Z',
  image: '/images/blog/como-festa-lavoro-diritti-salari.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'denuncia-soccorsi-crans-montana-2026',
  category: 'novita',
  date: '2026-05-01T12:34:09.747Z',
  image: '/images/blog/denuncia-soccorsi-crans-montana-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'incidente-cantu-due-feriti',
  category: 'pratico',
  date: '2026-05-01T12:45:47.979Z',
  image: '/images/blog/incidente-cantu-due-feriti.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'primo-maggio-torino-tensioni-askatasuna',
  category: 'novita',
  date: '2026-05-01T12:55:10.270Z',
  image: '/images/blog/primo-maggio-torino-tensioni-askatasuna.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: '142-violenza-ticino-2026',
  category: 'novita',
  date: '2026-05-01T13:06:26.802Z',
  image: '/images/blog/142-violenza-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'primo-maggio-2026-traffico-gottardo',
  category: 'pratico',
  date: '2026-05-01T13:16:11.143Z',
  image: '/images/blog/primo-maggio-2026-traffico-gottardo.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'incidente-e-roller-lugano-2026',
  category: 'novita',
  date: '2026-05-01T13:29:14.633Z',
  image: '/images/blog/incidente-e-roller-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'processo-campione-dicembre-2026',
  category: 'novita',
  date: '2026-05-01T13:43:30.929Z',
  image: '/images/blog/processo-campione-dicembre-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ingresso-gratuito-museo-costume-bagno',
  category: 'novita',
  date: '2026-05-01T13:53:02.072Z',
  image: '/images/blog/ingresso-gratuito-museo-costume-bagno.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavori-autostradali-a8-chiusure',
  category: 'novita',
  date: '2026-05-01T13:58:38.266Z',
  image: '/images/blog/lavori-autostradali-a8-chiusure.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'festa-danzante-ticino-2026-spettacoli',
  category: 'novita',
  date: '2026-05-01T14:04:49.262Z',
  image: '/images/blog/festa-danzante-ticino-2026-spettacoli.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'pregassona-festa-400-fonio-iniziativa-udc',
  category: 'novita',
  date: '2026-05-01T14:21:18.602Z',
  image: '/images/blog/pregassona-festa-400-fonio-iniziativa-udc.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: '142-numero-aiuto-vittime-ticino',
  category: 'novita',
  date: '2026-05-01T14:29:48.076Z',
  image: '/images/blog/142-numero-aiuto-vittime-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ponte-l-acqua-ticino-2026',
  category: 'novita',
  date: '2026-05-01T14:41:42.445Z',
  image: '/images/blog/ponte-l-acqua-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'nuovo-canile-varese-duni-2026',
  category: 'novita',
  date: '2026-05-01T14:49:08.497Z',
  image: '/images/blog/nuovo-canile-varese-duni-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'festa-fritti-glam-varese-2026',
  category: 'novita',
  date: '2026-05-01T14:59:29.071Z',
  image: '/images/blog/festa-fritti-glam-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'alta-mesolcina-sfida-movimento-2026',
  category: 'novita',
  date: '2026-05-01T15:10:10.641Z',
  image: '/images/blog/alta-mesolcina-sfida-movimento-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'flotilla-gaza-varese-presidio-montegrappa',
  category: 'novita',
  date: '2026-05-01T15:22:43.304Z',
  image: '/images/blog/flotilla-gaza-varese-presidio-montegrappa.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'orso-valposchiavo-2026-ritorno',
  category: 'novita',
  date: '2026-05-01T15:34:58.585Z',
  image: '/images/blog/orso-valposchiavo-2026-ritorno.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'gallarate-borse-studio-2026',
  category: 'novita',
  date: '2026-05-01T15:42:10.821Z',
  image: '/images/blog/gallarate-borse-studio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'primo-maggio-2026-ticino-sindacati-iniziativa-udc',
  category: 'novita',
  date: '2026-05-01T15:50:24.804Z',
  image: '/images/blog/primo-maggio-2026-ticino-sindacati-iniziativa-udc.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lavoro-scende-piazza-lugano-2026',
  category: 'novita',
  date: '2026-05-01T16:01:37.892Z',
  image: '/images/blog/lavoro-scende-piazza-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'radar-ticino-velocita-2026',
  category: 'pratico',
  date: '2026-05-01T16:12:47.938Z',
  image: '/images/blog/radar-ticino-velocita-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'primo-maggio-zurigo-basilea-2026',
  category: 'novita',
  date: '2026-05-01T16:20:47.042Z',
  image: '/images/blog/primo-maggio-zurigo-basilea-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'rive-libere-ascona-2026',
  category: 'novita',
  date: '2026-05-01T16:30:36.331Z',
  image: '/images/blog/rive-libere-ascona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'mezzi-pesanti-biandronno-2026',
  category: 'novita',
  date: '2026-05-01T16:40:09.331Z',
  image: '/images/blog/mezzi-pesanti-biandronno-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'trump-dazi-ue-frontalieri-ticino',
  category: 'fiscale',
  date: '2026-05-01T16:49:39.141Z',
  image: '/images/blog/trump-dazi-ue-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'balerna-consiglio-comunale-centenario',
  category: 'novita',
  date: '2026-05-01T16:59:09.804Z',
  image: '/images/blog/balerna-consiglio-comunale-centenario.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'confsal-manifesto-lavoro-dignita-salari',
  category: 'novita',
  date: '2026-05-01T17:09:50.309Z',
  image: '/images/blog/confsal-manifesto-lavoro-dignita-salari.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'usa-iran-nucleare-sanzioni-2026',
  category: 'novita',
  date: '2026-05-01T17:17:51.770Z',
  image: '/images/blog/usa-iran-nucleare-sanzioni-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'sicurezza-locali-pubblici-convegno-ville-ponti',
  category: 'novita',
  date: '2026-05-01T17:26:56.905Z',
  image: '/images/blog/sicurezza-locali-pubblici-convegno-ville-ponti.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sospetta-fuga-gas-londra-metro-chiusa',
  category: 'novita',
  date: '2026-05-01T17:36:01.678Z',
  image: '/images/blog/sospetta-fuga-gas-londra-metro-chiusa.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cassis-aragchi-colloquio-iran',
  category: 'novita',
  date: '2026-05-01T17:43:07.384Z',
  image: '/images/blog/cassis-aragchi-colloquio-iran.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'colosso-35-tonnellate-legnano',
  category: 'novita',
  date: '2026-05-01T17:51:35.336Z',
  image: '/images/blog/colosso-35-tonnellate-legnano.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'riapre-villa-visconti-lainate-2026',
  category: 'novita',
  date: '2026-05-01T18:00:48.799Z',
  image: '/images/blog/riapre-villa-visconti-lainate-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'teheran-proposta-pakistan-mediatori',
  category: 'novita',
  date: '2026-05-01T18:10:47.410Z',
  image: '/images/blog/teheran-proposta-pakistan-mediatori.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'inflazione-svizzera-frontalieri-ticino',
  category: 'fiscale',
  date: '2026-05-01T18:18:23.371Z',
  image: '/images/blog/inflazione-svizzera-frontalieri-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: '142-linea-aiuto-vittime-violenza-ticino',
  category: 'novita',
  date: '2026-05-01T18:27:35.748Z',
  image: '/images/blog/142-linea-aiuto-vittime-violenza-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'collisione-cadegliano-varese-ferito-54enne',
  category: 'novita',
  date: '2026-05-01T18:38:34.733Z',
  image: '/images/blog/collisione-cadegliano-varese-ferito-54enne.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'congresso-lugano-cancro-prostata-2024',
  category: 'novita',
  date: '2026-05-01T18:48:05.860Z',
  image: '/images/blog/congresso-lugano-cancro-prostata-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'circolo-albate-riapertura-2026',
  category: 'novita',
  date: '2026-05-01T18:55:36.154Z',
  image: '/images/blog/circolo-albate-riapertura-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'aranno-incidente-moto-ricoverato-uomo',
  category: 'novita',
  date: '2026-05-01T19:00:52.759Z',
  image: '/images/blog/aranno-incidente-moto-ricoverato-uomo.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'como-viaggio-nel-tempo-2026',
  category: 'novita',
  date: '2026-05-01T19:08:00.420Z',
  image: '/images/blog/como-viaggio-nel-tempo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'como-volta-faro-rapinese-6-milioni',
  category: 'novita',
  date: '2026-05-01T19:17:20.343Z',
  image: '/images/blog/como-volta-faro-rapinese-6-milioni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'controlli-velocita-ticino-maggio-2024',
  category: 'novita',
  date: '2026-05-01T19:32:15.310Z',
  image: '/images/blog/controlli-velocita-ticino-maggio-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'primo-maggio-ticino-salari-2024',
  category: 'novita',
  date: '2026-05-01T19:39:05.732Z',
  image: '/images/blog/primo-maggio-ticino-salari-2024.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sosta-selvaggia-moltrasio-2026',
  category: 'pratico',
  date: '2026-05-01T19:48:22.063Z',
  image: '/images/blog/sosta-selvaggia-moltrasio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'svizzera-hockey-sconfitta-svezia',
  category: 'novita',
  date: '2026-05-01T19:56:29.257Z',
  image: '/images/blog/svizzera-hockey-sconfitta-svezia.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lambrugo-incidente-74enne-ospedale',
  category: 'novita',
  date: '2026-05-01T20:03:25.908Z',
  image: '/images/blog/lambrugo-incidente-74enne-ospedale.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'delia-bella-ciao-concertone-2026',
  category: 'novita',
  date: '2026-05-01T20:10:56.738Z',
  image: '/images/blog/delia-bella-ciao-concertone-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'funivia-santis-ammodernamento-2026',
  category: 'novita',
  date: '2026-05-01T20:19:03.896Z',
  image: '/images/blog/funivia-santis-ammodernamento-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'cinque-curiosita-brevetti-svizzeri-2026',
  category: 'novita',
  date: '2026-05-01T20:29:38.408Z',
  image: '/images/blog/cinque-curiosita-brevetti-svizzeri-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'liberta-stampa-minimi-25-anni',
  category: 'novita',
  date: '2026-05-01T20:38:28.742Z',
  image: '/images/blog/liberta-stampa-minimi-25-anni.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'villaggio-angelo-busto-arsizio',
  category: 'novita',
  date: '2026-05-01T20:52:33.492Z',
  image: '/images/blog/villaggio-angelo-busto-arsizio.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'chiese-ticino-derubate-2026',
  category: 'novita',
  date: '2026-05-01T21:03:46.156Z',
  image: '/images/blog/chiese-ticino-derubate-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'sindacati-ticino-1-maggio-2026',
  category: 'novita',
  date: '2026-05-01T21:14:17.634Z',
  image: '/images/blog/sindacati-ticino-1-maggio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'polizia-ticino-abbandono-progetto-2026',
  category: 'novita',
  date: '2026-05-01T21:23:32.597Z',
  image: '/images/blog/polizia-ticino-abbandono-progetto-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tragedia-vico-morcote-bimbo-piscina',
  category: 'novita',
  date: '2026-05-01T21:33:30.021Z',
  image: '/images/blog/tragedia-vico-morcote-bimbo-piscina.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'crans-montana-soccorso-denunciato',
  category: 'novita',
  date: '2026-05-01T21:41:24.360Z',
  image: '/images/blog/crans-montana-soccorso-denunciato.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'ia-meteo-eventi-estremi',
  category: 'novita',
  date: '2026-05-01T21:50:27.108Z',
  image: '/images/blog/ia-meteo-eventi-estremi.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'tentato-assassinio-chiasso-2026',
  category: 'novita',
  date: '2026-05-01T21:58:31.700Z',
  image: '/images/blog/tentato-assassinio-chiasso-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'primo-maggio-2026-svizzera-cortei',
  category: 'novita',
  date: '2026-05-01T22:08:30.230Z',
  image: '/images/blog/primo-maggio-2026-svizzera-cortei.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'guardie-svizzere-2025-intenso',
  category: 'novita',
  date: '2026-05-01T22:22:04.675Z',
  image: '/images/blog/guardie-svizzere-2025-intenso.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'siccit-estate-2026-ticino',
  category: 'novita',
  date: '2026-05-01T22:29:58.780Z',
  image: '/images/blog/siccit-estate-2026-ticino.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'polizia-ticino-progetto-abbandono-2026',
  category: 'novita',
  date: '2026-05-01T22:39:51.715Z',
  image: '/images/blog/polizia-ticino-progetto-abbandono-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'iniziativa-democrazia-respinta-nazionale',
  category: 'novita',
  date: '2026-05-01T22:48:07.875Z',
  image: '/images/blog/iniziativa-democrazia-respinta-nazionale.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'uisp-scuola-dante-varese-2026',
  category: 'novita',
  date: '2026-05-01T22:57:20.308Z',
  image: '/images/blog/uisp-scuola-dante-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'ricostruzione-capanna-soveltra-avanza',
  category: 'novita',
  date: '2026-05-01T23:05:08.342Z',
  image: '/images/blog/ricostruzione-capanna-soveltra-avanza.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'processo-quadroni-ex-capo-posto-contesta-accuse',
  category: 'novita',
  date: '2026-05-01T23:16:36.564Z',
  image: '/images/blog/processo-quadroni-ex-capo-posto-contesta-accuse.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'docente-arrestato-giubiasco-proroga',
  category: 'novita',
  date: '2026-05-01T23:27:17.337Z',
  image: '/images/blog/docente-arrestato-giubiasco-proroga.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'angelo-custode-ia-colpo-sonno',
  category: 'novita',
  date: '2026-05-01T23:38:25.833Z',
  image: '/images/blog/angelo-custode-ia-colpo-sonno.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'agenzia-formativa-varese-dimissioni-2026',
  category: 'novita',
  date: '2026-05-01T23:46:37.350Z',
  image: '/images/blog/agenzia-formativa-varese-dimissioni-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'presentazione-libro-odio-massacro-varese',
  category: 'novita',
  date: '2026-05-01T23:57:36.825Z',
  image: '/images/blog/presentazione-libro-odio-massacro-varese.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'fattura-miliardaria-energia-2026',
  category: 'novita',
  date: '2026-05-02T00:06:32.051Z',
  image: '/images/blog/fattura-miliardaria-energia-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'arco-e-frecce-per-far-centro',
  category: 'novita',
  date: '2026-05-02T00:39:09.561Z',
  image: '/images/blog/arco-e-frecce-per-far-centro.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'museo-paesaggio-verbania-gratis-2026',
  category: 'novita',
  date: '2026-05-02T00:54:13.874Z',
  image: '/images/blog/museo-paesaggio-verbania-gratis-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'biandronno-incontro-astuti-licata-2026',
  category: 'novita',
  date: '2026-05-02T01:10:43.087Z',
  image: '/images/blog/biandronno-incontro-astuti-licata-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'gratis-museo-costume-bagno-2026',
  category: 'novita',
  date: '2026-05-02T01:26:52.789Z',
  image: '/images/blog/gratis-museo-costume-bagno-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'ippodromo-varese-svicc-allenatori',
  category: 'novita',
  date: '2026-05-02T01:36:12.014Z',
  image: '/images/blog/ippodromo-varese-svicc-allenatori.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'luigi-bignami-insubria-scienza-2026',
  category: 'novita',
  date: '2026-05-02T01:44:31.549Z',
  image: '/images/blog/luigi-bignami-insubria-scienza-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'busto-arsizio-carcere-denuncia-strada',
  category: 'novita',
  date: '2026-05-02T01:53:54.889Z',
  image: '/images/blog/busto-arsizio-carcere-denuncia-strada.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'bracconaggio-ittico-lago-maggiore-ispra-2026',
  category: 'novita',
  date: '2026-05-02T02:04:14.039Z',
  image: '/images/blog/bracconaggio-ittico-lago-maggiore-ispra-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'maggiolone-social-park-cassano-magnago',
  category: 'novita',
  date: '2026-05-02T02:14:43.030Z',
  image: '/images/blog/maggiolone-social-park-cassano-magnago.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'grassi-1925-marchio-storico',
  category: 'novita',
  date: '2026-05-02T02:23:24.525Z',
  image: '/images/blog/grassi-1925-marchio-storico.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'lati-industria-termoplastici-premiata-intesanpaolo',
  category: 'novita',
  date: '2026-05-02T02:34:32.937Z',
  image: '/images/blog/lati-industria-termoplastici-premiata-intesanpaolo.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'progettare-sala-riunioni-ufficio',
  category: 'pratico',
  date: '2026-05-02T02:43:23.975Z',
  image: '/images/blog/progettare-sala-riunioni-ufficio.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'giovani-agenti-como-polizia-locale',
  category: 'novita',
  date: '2026-05-02T02:53:07.756Z',
  image: '/images/blog/giovani-agenti-como-polizia-locale.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'gallarate-fondazione-scuole-materne-2026',
  category: 'novita',
  date: '2026-05-02T03:04:48.496Z',
  image: '/images/blog/gallarate-fondazione-scuole-materne-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'formula-1-riparte-rischi-polemiche',
  category: 'novita',
  date: '2026-05-02T03:14:18.440Z',
  image: '/images/blog/formula-1-riparte-rischi-polemiche.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'unitalsi-busto-varese-malati-spiritualita',
  category: 'novita',
  date: '2026-05-02T03:23:09.921Z',
  image: '/images/blog/unitalsi-busto-varese-malati-spiritualita.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'isola-artica-islanda-pugliese',
  category: 'novita',
  date: '2026-05-02T03:32:20.160Z',
  image: '/images/blog/isola-artica-islanda-pugliese.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cioccolato-illumina-bellinzona-2026',
  category: 'novita',
  date: '2026-05-02T03:37:50.038Z',
  image: '/images/blog/cioccolato-illumina-bellinzona-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'varese-luna-park-schiranna-2026',
  category: 'pratico',
  date: '2026-05-02T03:47:12.532Z',
  image: '/images/blog/varese-luna-park-schiranna-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'mera-longhi-130-anni-dolcezza-varese',
  category: 'novita',
  date: '2026-05-02T03:55:34.438Z',
  image: '/images/blog/mera-longhi-130-anni-dolcezza-varese.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'girometta-doro-andrea-chiodi-varese-2026',
  category: 'novita',
  date: '2026-05-02T04:06:44.957Z',
  image: '/images/blog/girometta-doro-andrea-chiodi-varese-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'concerto-luino-vivaldi-bach-2026',
  category: 'novita',
  date: '2026-05-02T04:17:50.723Z',
  image: '/images/blog/concerto-luino-vivaldi-bach-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'musica-antica-san-cassiano-2026',
  category: 'novita',
  date: '2026-05-02T04:30:23.661Z',
  image: '/images/blog/musica-antica-san-cassiano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'cinque-mostre-maggio-gallarate-verbania-2026',
  category: 'novita',
  date: '2026-05-02T04:37:35.549Z',
  image: '/images/blog/cinque-mostre-maggio-gallarate-verbania-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'mal-dislanda-materia-castronno-2026',
  category: 'novita',
  date: '2026-05-02T04:44:58.800Z',
  image: '/images/blog/mal-dislanda-materia-castronno-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'frontaliere-pensione-avs-inps-2026-errori-comuni',
  category: 'pensione',
  date: '2026-05-02T05:11:19.330Z',
  image: '/images/blog/frontaliere-pensione-avs-inps-2026-errori-comuni.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'attivisti-flotilla-israele-interrogati',
  category: 'novita',
  date: '2026-05-02T05:26:05.188Z',
  image: '/images/blog/attivisti-flotilla-israele-interrogati.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'massiccio-intervento-polizia-lugano-2026',
  category: 'novita',
  date: '2026-05-02T05:38:34.134Z',
  image: '/images/blog/massiccio-intervento-polizia-lugano-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'giovani-rematori-ceresio-2026',
  category: 'novita',
  date: '2026-05-02T05:50:48.797Z',
  image: '/images/blog/giovani-rematori-ceresio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'permesso-g-b-2026-20km-frontalieri',
  category: 'fiscale',
  date: '2026-05-02T06:17:12.621Z',
  image: '/images/blog/permesso-g-b-2026-20km-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'cure-domicilio-pensionati-ticino-2026',
  category: 'novita',
  date: '2026-05-02T06:25:49.880Z',
  image: '/images/blog/cure-domicilio-pensionati-ticino-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'libriamoci-varese-studenti-2026',
  category: 'novita',
  date: '2026-05-02T06:38:08.581Z',
  image: '/images/blog/libriamoci-varese-studenti-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'vino-alto-ticino-scudellate-2026',
  category: 'novita',
  date: '2026-05-02T06:43:35.480Z',
  image: '/images/blog/vino-alto-ticino-scudellate-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'corteo-pro-palestina-lungolago-lugano',
  category: 'novita',
  date: '2026-05-02T06:56:00.334Z',
  image: '/images/blog/corteo-pro-palestina-lungolago-lugano.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'divieti-social-media-minori',
  category: 'pratico',
  date: '2026-05-02T07:05:18.780Z',
  image: '/images/blog/divieti-social-media-minori.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'primo-maggio-baume-schneider-sanita-avs',
  category: 'novita',
  date: '2026-05-02T07:09:44.786Z',
  image: '/images/blog/primo-maggio-baume-schneider-sanita-avs.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'migros-immigrazione-necessaria-offerta',
  category: 'novita',
  date: '2026-05-02T07:15:46.449Z',
  image: '/images/blog/migros-immigrazione-necessaria-offerta.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'vico-morcote-tragedia-bambino-pool',
  category: 'novita',
  date: '2026-05-02T07:30:23.524Z',
  image: '/images/blog/vico-morcote-tragedia-bambino-pool.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'limiti-eta-smartphone-social-media',
  category: 'novita',
  date: '2026-05-02T07:39:47.289Z',
  image: '/images/blog/limiti-eta-smartphone-social-media.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'volandia-battesimo-volo-elicottero-2026',
  category: 'novita',
  date: '2026-05-02T07:50:57.427Z',
  image: '/images/blog/volandia-battesimo-volo-elicottero-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'banche-golfo-preparano-frontalieri',
  category: 'novita',
  date: '2026-05-02T07:59:45.249Z',
  image: '/images/blog/banche-golfo-preparano-frontalieri.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
- {
+  {
  id: 'papa-paperino-cuasso-monte',
  category: 'novita',
  date: '2026-05-02T08:08:34.071Z',
  image: '/images/blog/papa-paperino-cuasso-monte.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
- {
+  {
  id: 'venezia-serie-a-promozione-2026',
  category: 'novita',
  date: '2026-05-02T08:24:56.978Z',
  image: '/images/blog/venezia-serie-a-promozione-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
- {
+  {
  id: 'meloni-governo-longevo-2026',
  category: 'novita',
  date: '2026-05-02T08:35:21.574Z',
  image: '/images/blog/meloni-governo-longevo-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
  {
  id: 'abbonamento-newsletter-ticino',

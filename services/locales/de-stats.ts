@@ -300,6 +300,7 @@ const deStats: Record<string, string> = {
  'blog.contentType.guide': 'Ratgeber',
  'blog.contentType.news': 'Nachricht',
  'blog.byline': 'Redaktion Frontaliere Ticino',
+ 'blog.bylinePrefix': 'Von',
  'blog.authorBio': 'Grenzgänger-Steuerexperte Schweiz-Italien seit 2020. Spezialisiert auf Nettolohnberechnung, Grenzgängerbesteuerung und Schweizer Sozialversicherung. Daten verifiziert mit offiziellen BFS-, Agenzia delle Entrate- und Kanton Tessin-Quellen.',
  'blog.newsBanner.title': 'Aktuelle Nachricht',
  'blog.newsBanner.desc': 'Dieser Artikel berichtet über aktuelle Neuigkeiten. Entdecken Sie auch unsere stets aktuellen praktischen Ratgeber für Grenzgänger.',
