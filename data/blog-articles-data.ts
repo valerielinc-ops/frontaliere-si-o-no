@@ -13049,4 +13049,11 @@ export const ARTICLES = [
  image: '/images/blog/carenza-carburante-svizzera-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'scontro-polizia-lugano-spray-urticante',
+ category: 'novita',
+ date: '2026-05-02T12:07:46.874Z',
+ image: '/images/blog/scontro-polizia-lugano-spray-urticante.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

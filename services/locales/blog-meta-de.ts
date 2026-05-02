@@ -5158,6 +5158,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carenza-carburante-svizzera-frontalieri.title': 'Treibstoffmangel in der Schweiz: Risiko für Grenzgänger',
     'blog.article.carenza-carburante-svizzera-frontalieri.excerpt': 'Florence Schurch von Suissenégoce schlägt Alarm: Ölpreis bei 150 Dollar pro Barrel und Risiken für die Energieversorgung',
     'blog.article.carenza-carburante-svizzera-frontalieri.imageAlt': 'Eine Tankstelle in Tessin mit langen Schlangen von Autos, vor den Schweizer Alpen',
+    'blog.article.scontro-polizia-lugano-spray-urticante.title': 'Zusammenstoß und Polizeieinsatz mit Reizgas in Lugano',
+    'blog.article.scontro-polizia-lugano-spray-urticante.excerpt': 'Zwei Gruppen von Jugendlichen sind in der Innenstadt von Lugano aneinandergeraten, was den Einsatz der Polizei mit Reizgas zur Folge hatte. Zwei Personen wurden verletzt.',
+    'blog.article.scontro-polizia-lugano-spray-urticante.imageAlt': 'Lugano Stadtzentrum bei Nacht mit Seeblick',
 };
 
 export default blogMetaDe;

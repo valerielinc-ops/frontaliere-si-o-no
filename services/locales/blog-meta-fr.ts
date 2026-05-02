@@ -5159,6 +5159,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carenza-carburante-svizzera-frontalieri.title': 'Pénurie de carburant en Suisse: risque concret pour les frontaliers',
     'blog.article.carenza-carburante-svizzera-frontalieri.excerpt': 'Florence Schurch de Suissenégoce lance l\'alerte: prix du pétrole à 150 dollars le baril et risques pour l\'approvisionnement énergétique',
     'blog.article.carenza-carburante-svizzera-frontalieri.imageAlt': 'Une station-service au Tessin avec de longues files de voitures, sur fond des Alpes suisses',
+    'blog.article.scontro-polizia-lugano-spray-urticante.title': 'Affrontements et intervention policière à Lugano',
+    'blog.article.scontro-polizia-lugano-spray-urticante.excerpt': 'Deux groupes de jeunes se sont affrontés au centre de Lugano, provoquant l\'intervention de la police avec du spray urticant. Deux personnes blessées.',
+    'blog.article.scontro-polizia-lugano-spray-urticante.imageAlt': 'Centre-ville de Lugano de nuit avec vue sur le lac',
 };
 
 export default blogMetaFr;

@@ -5158,6 +5158,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carenza-carburante-svizzera-frontalieri.title': 'Fuel shortage in Switzerland: real risk for cross-border workers',
     'blog.article.carenza-carburante-svizzera-frontalieri.excerpt': 'Florence Schurch of Suissenégoce raises the alarm: oil price at 150 dollars per barrel and risks for energy supply',
     'blog.article.carenza-carburante-svizzera-frontalieri.imageAlt': 'A gas station in Ticino with long queues of cars, set against the backdrop of the Swiss Alps',
+    'blog.article.scontro-polizia-lugano-spray-urticante.title': 'Clash and police intervention with pepper spray in central Lugano',
+    'blog.article.scontro-polizia-lugano-spray-urticante.excerpt': 'Two groups of young people clashed in central Lugano, leading to police intervention with pepper spray. Two people injured.',
+    'blog.article.scontro-polizia-lugano-spray-urticante.imageAlt': 'Lugano city center at night with lake view',
 };
 
 export default blogMetaEn;

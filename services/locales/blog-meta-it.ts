@@ -5159,6 +5159,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carenza-carburante-svizzera-frontalieri.title': 'Carenza carburante Svizzera: rischio concreto per frontalieri',
     'blog.article.carenza-carburante-svizzera-frontalieri.excerpt': 'Florence Schurch di Suissenégoce lancia l\'allarme: prezzo petrolio a 150 dollari al barile e rischi per l\'approvvigionamento energetico',
     'blog.article.carenza-carburante-svizzera-frontalieri.imageAlt': 'Una stazione di servizio in Ticino con lunghe code di auto, sullo sfondo delle Alpi svizzere',
+    'blog.article.scontro-polizia-lugano-spray-urticante.title': 'Scontro e intervento di polizia con spray urticante in centro Lugano',
+    'blog.article.scontro-polizia-lugano-spray-urticante.excerpt': 'Due gruppi di ragazzi si sono scontrati in centro Lugano, causando l\'intervento della polizia con spray urticante. Due persone ferite.',
+    'blog.article.scontro-polizia-lugano-spray-urticante.imageAlt': 'Centro di Lugano di notte con vista sul lago',
 };
 
 export default blogMetaIt;

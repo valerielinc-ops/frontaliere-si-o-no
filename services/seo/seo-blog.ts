@@ -36840,6 +36840,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scontro-polizia-lugano-spray-urticante': {
+    title: 'Scontro e intervento di polizia con spray urticante in centro Lugano',
+    description: 'Due gruppi di ragazzi si sono scontrati in centro Lugano, causando l\'intervento della polizia con spray urticante. Due persone ferite e soccorse.',
+    keywords: 'frontalieri, ticino, svizzera, italia, scontro, intervento, polizia, spray',
+    ogTitle: 'Scontro e intervento di polizia con spray urticante in centro Lugano',
+    ogDescription: 'Due gruppi di ragazzi si sono scontrati in centro Lugano, causando l\'intervento della polizia con spray urticante. Due persone ferite e soccorse.',
+    canonicalPath: '/articoli-frontaliere/scontro-polizia-lugano-spray-urticante',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scontro e intervento di polizia con spray urticante in centro Lugano",
+      "description": "Due gruppi di ragazzi si sono scontrati in centro Lugano, causando l'intervento della polizia con spray urticante. Due persone ferite e soccorse.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scontro-polizia-lugano-spray-urticante.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di Lugano di notte con vista sul lago"
+      },
+      "datePublished": "2026-05-02T12:07:46+00:00",
+      "dateModified": "2026-05-02T12:07:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontro-polizia-lugano-spray-urticante`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
