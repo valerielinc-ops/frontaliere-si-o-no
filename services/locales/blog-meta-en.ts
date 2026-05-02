@@ -5080,6 +5080,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.migros-immigrazione-necessaria-offerta.title': 'Migros: Immigration vital for supply guarantee',
     'blog.article.migros-immigrazione-necessaria-offerta.excerpt': 'The CEO of Migros emphasizes the importance of immigration for the food and retail sectors in Switzerland.',
     'blog.article.migros-immigrazione-necessaria-offerta.imageAlt': 'Migros supermarket in Ticino with employees and shoppers',
+    'blog.article.vico-morcote-tragedia-bambino-pool.title': 'Tragedy in Vico Morcote: child dies in private pool',
+    'blog.article.vico-morcote-tragedia-bambino-pool.excerpt': 'A two-year-old child lost their life in a pool accident in Vico Morcote. The family is receiving psychological support.',
+    'blog.article.vico-morcote-tragedia-bambino-pool.imageAlt': 'Serene view of Lake Lugano with clear blue water and surrounding mountains',
 };
 
 export default blogMetaEn;

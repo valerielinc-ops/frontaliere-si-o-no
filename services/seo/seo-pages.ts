@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1743,
+ "numberOfItems": 1744,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6378,7 +6378,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1740, "name": "Corteo pro Palestina invade il lungolago di Lugano", "url": `${BASE_URL}/articoli-frontaliere/corteo-pro-palestina-lungolago-lugano` },
           { "@type": "ListItem", "position": 1741, "name": "Social media e minori: i divieti non bastano", "url": `${BASE_URL}/articoli-frontaliere/divieti-social-media-minori` },
           { "@type": "ListItem", "position": 1742, "name": "Baume-Schneider: sanità, AVS e immigrazione al ...", "url": `${BASE_URL}/articoli-frontaliere/primo-maggio-baume-schneider-sanita-avs` },
-          { "@type": "ListItem", "position": 1743, "name": "Migros: Immigrazione necessaria per garantire l...", "url": `${BASE_URL}/articoli-frontaliere/migros-immigrazione-necessaria-offerta` }
+          { "@type": "ListItem", "position": 1743, "name": "Migros: Immigrazione necessaria per garantire l...", "url": `${BASE_URL}/articoli-frontaliere/migros-immigrazione-necessaria-offerta` },
+          { "@type": "ListItem", "position": 1744, "name": "Tragedia a Vico Morcote: bambino muore in pisci...", "url": `${BASE_URL}/articoli-frontaliere/vico-morcote-tragedia-bambino-pool` }
  ]
  },
  {

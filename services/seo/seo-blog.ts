@@ -36086,6 +36086,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vico-morcote-tragedia-bambino-pool': {
+    title: 'Tragedia a Vico Morcote: bambino muore in piscina privata',
+    description: 'Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La famiglia riceve supporto psicologico. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, tragedia, vico, morcote, bambino',
+    ogTitle: 'Tragedia a Vico Morcote: bambino muore in piscina privata',
+    ogDescription: 'Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La famiglia riceve supporto psicologico.',
+    canonicalPath: '/articoli-frontaliere/vico-morcote-tragedia-bambino-pool',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tragedia a Vico Morcote: bambino muore in piscina privata",
+      "description": "Un bambino di due anni ha perso la vita in un incidente in piscina a Vico Morcote. La famiglia riceve supporto psicologico. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vico-morcote-tragedia-bambino-pool.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena del Lago di Lugano con acqua blu cristallina e montagne circostanti"
+      },
+      "datePublished": "2026-05-02T07:30:23+00:00",
+      "dateModified": "2026-05-02T07:30:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vico-morcote-tragedia-bambino-pool`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

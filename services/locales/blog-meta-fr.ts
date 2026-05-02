@@ -5081,6 +5081,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.migros-immigrazione-necessaria-offerta.title': 'Migros: l\'immigration nécessaire pour garantir l\'offre',
     'blog.article.migros-immigrazione-necessaria-offerta.excerpt': 'Le PDG de Migros souligne l\'importance de l\'immigration pour le secteur alimentaire et le commerce de détail en Suisse.',
     'blog.article.migros-immigrazione-necessaria-offerta.imageAlt': 'Supermarché Migros au Tessin avec des employés et des clients',
+    'blog.article.vico-morcote-tragedia-bambino-pool.title': 'Tragédie à Vico Morcote: un enfant meurt dans une piscine privée',
+    'blog.article.vico-morcote-tragedia-bambino-pool.excerpt': 'Un enfant de deux ans a perdu la vie dans un accident de piscine à Vico Morcote. La famille reçoit un soutien psychologique.',
+    'blog.article.vico-morcote-tragedia-bambino-pool.imageAlt': 'Vue sereine du lac de Lugano avec une eau bleue cristalline et des montagnes environnantes',
 };
 
 export default blogMetaFr;

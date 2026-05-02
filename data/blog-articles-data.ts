@@ -12867,4 +12867,11 @@ export const ARTICLES = [
  image: '/images/blog/migros-immigrazione-necessaria-offerta.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vico-morcote-tragedia-bambino-pool',
+ category: 'novita',
+ date: '2026-05-02T07:30:23.524Z',
+ image: '/images/blog/vico-morcote-tragedia-bambino-pool.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
