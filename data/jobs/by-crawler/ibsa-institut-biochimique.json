@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-05-02T09:55:37.191Z",
+  "assembledAt": "2026-05-02T21:38:53.372Z",
   "jobs": [
     {
       "id": "company-bm0ep4",
@@ -42,7 +42,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "responsabile-cmo-ibsa-institut-biochimique-montagnola",
-        "en": "cmo-manager-ibsa-institut-biochimique-montagnola",
+        "en": "cmo-manager-ibsa-institut-biochimique-grancia",
         "de": "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4",
         "fr": "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area"
       },
@@ -54,13 +54,15 @@
           "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4"
         ],
         "en": [
-          "cmo-manager-ibsa-institut-biochimique-6916-working-area"
+          "cmo-manager-ibsa-institut-biochimique-6916-working-area",
+          "cmo-manager-ibsa-institut-biochimique-montagnola"
         ]
       },
       "previousSlugs": [
         "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho",
         "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
-        "cmo-manager-ibsa-institut-biochimique-6916-working-area"
+        "cmo-manager-ibsa-institut-biochimique-6916-working-area",
+        "cmo-manager-ibsa-institut-biochimique-montagnola"
       ],
       "salaryMin": 82500,
       "salaryMax": 127000,
@@ -181,7 +183,8 @@
           "clinical-recherche-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-stud-u7vkyi"
         ]
       },
-      "firstSeenAt": "2026-04-09T21:37:33.940Z"
+      "firstSeenAt": "2026-04-09T21:37:33.940Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-um2f7f",
@@ -277,7 +280,8 @@
           "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area"
         ]
       },
-      "firstSeenAt": "2026-04-09T21:37:33.940Z"
+      "firstSeenAt": "2026-04-09T21:37:33.940Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-dbsgw8",
@@ -307,7 +311,7 @@
       "crawledAt": "2026-03-31T21:23:52.685Z",
       "slugByLocale": {
         "it": "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-6916-working-area",
-        "en": "customer-business-support-specialist-ibsa-institut-biochimique-montagnola",
+        "en": "customer-business-support-specialist-ibsa-institut-biochimique-grancia",
         "de": "kunden-und-geschaftsbeauftragter-ibsa-institut-biochimique-6916-working-area",
         "fr": "customer-business-support-specialiste-ibsa-institut-biochimique-6916-working-area-dbsgw8"
       },
@@ -339,6 +343,7 @@
         "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area",
         "specialista-supporto-cliente-e-affari-ibsa-institut-biochimique-montagnola",
         "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
+        "customer-business-support-specialist-ibsa-institut-biochimique-montagnola",
         "specialista-supporto-clienti-e-business-ibsa-institut-biochimique-montagnola"
       ],
       "salaryMin": 72500,
@@ -368,7 +373,8 @@
         ],
         "en": [
           "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
-          "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area-dbsgw8"
+          "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
+          "customer-business-support-specialist-ibsa-institut-biochimique-montagnola"
         ],
         "de": [
           "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8"
@@ -377,7 +383,8 @@
           "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:23:52.685Z"
+      "firstSeenAt": "2026-03-31T21:23:52.685Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-q2u6mq",
@@ -405,7 +412,7 @@
       "crawledAt": "2026-03-31T21:23:52.685Z",
       "slugByLocale": {
         "it": "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area",
-        "en": "procurement-category-specialist-ibsa-institut-biochimique-montagnola",
+        "en": "procurement-category-specialist-ibsa-institut-biochimique-grancia",
         "de": "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area",
         "fr": "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area"
       },
@@ -431,6 +438,7 @@
         "procurement-category-specialista-ibsa-institut-biochimique-montagnola",
         "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
         "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area",
+        "procurement-category-specialist-ibsa-institut-biochimique-montagnola",
         "specialista-categoria-acquisti-ibsa-institut-biochimique-montagnola",
         "specialista-dell-applicazione-ibsa-institut-biochimique-montagnola"
       ],
@@ -463,7 +471,8 @@
           "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
           "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area",
           "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
-          "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq"
+          "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq",
+          "procurement-category-specialist-ibsa-institut-biochimique-montagnola"
         ],
         "de": [
           "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
@@ -478,7 +487,7 @@
     },
     {
       "id": "company-e3ivbg",
-      "slug": "meccatronico-ibsa-institut-biochimique-montagnola",
+      "slug": "meccatronico-ibsa-institut-biochimique-pazzallo",
       "company": "IBSA Institut Biochimique",
       "title": "Meccatronico",
       "location": "Pazzallo",
@@ -501,7 +510,7 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
       "slugByLocale": {
-        "it": "meccatronico-ibsa-institut-biochimique-montagnola",
+        "it": "meccatronico-ibsa-institut-biochimique-pazzallo",
         "en": "mechatronic-ibsa-institut-biochimique-6912-working-area",
         "de": "mechatroniker-ibsa-institut-biochimique-6912-working-area",
         "fr": "mecatronicien-ibsa-institut-biochimique-6912-working-area"
@@ -525,6 +534,7 @@
         "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
         "meccatronico-ibsa-institut-biochimique-6912-working-area",
         "mechatronic-technician-ibsa-institut-biochimique-6912-working-area",
+        "meccatronico-ibsa-institut-biochimique-montagnola",
         "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-montagnola"
       ],
       "salaryMin": 58000,
@@ -549,7 +559,8 @@
         "it": [
           "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
           "meccatronico-ibsa-institut-biochimique-6912-working-area",
-          "mechatronic-technician-ibsa-institut-biochimique-6912-working-area"
+          "mechatronic-technician-ibsa-institut-biochimique-6912-working-area",
+          "meccatronico-ibsa-institut-biochimique-montagnola"
         ],
         "en": [
           "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
@@ -987,7 +998,8 @@
           "ot-sicherheitsspezialist-ibsa-institut-biochimique-6926-working-area"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:23:52.685Z"
+      "firstSeenAt": "2026-03-31T21:23:52.685Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-399kaj",
@@ -1076,7 +1088,8 @@
           "jr-drug-safety-unit-specialist-ibsa-institut-biochimique-6926-working-area"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:23:52.685Z"
+      "firstSeenAt": "2026-03-31T21:23:52.685Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-toyw1a",
