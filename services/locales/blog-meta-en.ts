@@ -5224,6 +5224,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.title': 'Giannino Landoni Street in Fagnano Olona: inauguration soon',
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.excerpt': 'The administrative process for naming the street after Giannino Landoni is complete. The official ceremony date is awaited.',
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.imageAlt': 'A street named after Giannino Landoni in Fagnano Olona, with local shops and people walking.',
+    'blog.article.scontri-lugano-pensilina-2024.title': 'Clashes in Lugano Bus Stop: Valenzano Rossi, \'There\'s Much Concern\'',
+    'blog.article.scontri-lugano-pensilina-2024.excerpt': 'Two minor injuries, but the political background of the clashes worries Lugano authorities. Karin Valenzano Rossi: \'It has nothing to do with nightlife\'',
+    'blog.article.scontri-lugano-pensilina-2024.imageAlt': 'Aerial view of Lugano\'s Pensilina during a peaceful protest',
 };
 
 export default blogMetaEn;

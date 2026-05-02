@@ -5224,6 +5224,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.title': 'Straße Giannino Landoni in Fagnano Olona: bald eröffnet',
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.excerpt': 'Der Verwaltungsprozess zur Benennung der Straße nach Giannino Landoni ist abgeschlossen. Das offizielle Datum der Zeremonie steht noch aus.',
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.imageAlt': 'Eine Straße, die nach Giannino Landoni in Fagnano Olona benannt ist, mit lokalen Geschäften und Menschen, die spazieren gehen.',
+    'blog.article.scontri-lugano-pensilina-2024.title': 'Auseinandersetzungen in Lugano: Valenzano Rossi, «Es gibt große Sorge»',
+    'blog.article.scontri-lugano-pensilina-2024.excerpt': 'Zwei leicht Verletzte, aber die politische Ursache der Auseinandersetzungen beunruhigt die Luganer Behörden. Karin Valenzano Rossi: «Es geht nicht um das Nachtleben»',
+    'blog.article.scontri-lugano-pensilina-2024.imageAlt': 'Luftaufnahme von Luganos Pensilina während einer friedlichen Demonstration',
 };
 
 export default blogMetaDe;

@@ -5225,6 +5225,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.title': 'Vers l\'inauguration de la via Giannino Landoni à Fagnano Olona',
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.excerpt': 'La procédure administrative pour l\'intitulation de la via à Giannino Landoni est terminée. On attend la date officielle de la cérémonie.',
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.imageAlt': 'Une rue nommée Giannino Landoni à Fagnano Olona, avec des magasins locaux et des personnes qui marchent.',
+    'blog.article.scontri-lugano-pensilina-2024.title': 'Affrontements à Lugano en abri-bus: Valenzano Rossi, «Inquiétude»',
+    'blog.article.scontri-lugano-pensilina-2024.excerpt': 'Deux blessés légers, mais la matrice politique des affrontements inquiète les autorités luganaises. Karin Valenzano Rossi: «Ça n’a rien à voir avec la vie nocturne»',
+    'blog.article.scontri-lugano-pensilina-2024.imageAlt': 'Vue aérienne de la Pensilina à Lugano pendant une manifestation pacifique',
 };
 
 export default blogMetaFr;

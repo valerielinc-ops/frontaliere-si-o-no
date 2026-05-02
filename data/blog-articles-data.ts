@@ -13203,4 +13203,11 @@ export const ARTICLES = [
  image: '/images/blog/via-giannino-landoni-fagnano-olona-inaugurazione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'scontri-lugano-pensilina-2024',
+ category: 'novita',
+ date: '2026-05-02T15:59:37.478Z',
+ image: '/images/blog/scontri-lugano-pensilina-2024.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

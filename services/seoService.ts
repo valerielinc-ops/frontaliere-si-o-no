@@ -2972,6 +2972,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-beat-jans-10-milioni-comunicazione': { name: 'Novità', path: '/articoli-frontaliere/beat-jans-10-milioni-comunicazione', parent: 'blog' },
     'blog-a4-milano-brescia-chiusura-notturna-2026': { name: 'Novità', path: '/articoli-frontaliere/a4-milano-brescia-chiusura-notturna-2026', parent: 'blog' },
     'blog-via-giannino-landoni-fagnano-olona-inaugurazione': { name: 'Novità', path: '/articoli-frontaliere/via-giannino-landoni-fagnano-olona-inaugurazione', parent: 'blog' },
+    'blog-scontri-lugano-pensilina-2024': { name: 'Scontri Lugano', path: '/articoli-frontaliere/scontri-lugano-pensilina-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];

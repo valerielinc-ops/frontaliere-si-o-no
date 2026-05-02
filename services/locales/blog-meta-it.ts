@@ -5225,6 +5225,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.title': 'Via Giannino Landoni a Fagnano Olona: verso l\'inaugurazione',
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.excerpt': 'L\'iter amministrativo per l\'intitolazione della via a Giannino Landoni è concluso. Si attende la data ufficiale della cerimonia.',
     'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.imageAlt': 'Una via intitolata a Giannino Landoni a Fagnano Olona, con negozi locali e persone che camminano.',
+    'blog.article.scontri-lugano-pensilina-2024.title': 'Scontri a Lugano in Pensilina: Valenzano Rossi, «C\'è molta preoccupazione»',
+    'blog.article.scontri-lugano-pensilina-2024.excerpt': 'Due feriti lievi, ma la matrice politica degli scontri preoccupa le autorità luganesi. Karin Valenzano Rossi: «Non c\'entra la movida»',
+    'blog.article.scontri-lugano-pensilina-2024.imageAlt': 'Vista aerea della Pensilina a Lugano durante una manifestazione pacifica',
 };
 
 export default blogMetaIt;
