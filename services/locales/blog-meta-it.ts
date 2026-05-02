@@ -5231,6 +5231,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gordola-santa-maria-ricorso-2026.title': 'Gordola, nuovo ricorso blocca Santa Maria',
     'blog.article.gordola-santa-maria-ricorso-2026.excerpt': 'Il Municipio di Gordola prepara la difesa contro il ricorso che blocca il piano del comparto Santa Maria, approvato dopo 30 anni',
     'blog.article.gordola-santa-maria-ricorso-2026.imageAlt': 'Vista aerea di Gordola, Ticino, con l\'area di Santa Maria in primo piano',
+    'blog.article.vino-amaro-vallese-2026.title': 'Vino amaro in Vallese: Provins SA annuncia perdite e misure drastiche',
+    'blog.article.vino-amaro-vallese-2026.excerpt': 'Provins SA, azienda chiave della viticoltura vallesana, annuncia una perdita di 6 milioni di franchi per il 2025 e misure drastiche per adattarsi alla crisi del settore.',
+    'blog.article.vino-amaro-vallese-2026.imageAlt': 'Vigneto in Ticino con lavoratore e montagne in sfondo',
 };
 
 export default blogMetaIt;

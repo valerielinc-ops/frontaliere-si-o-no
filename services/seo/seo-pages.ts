@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1793,
+ "numberOfItems": 1794,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6428,7 +6428,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1790, "name": "A4 Milano-Brescia chiusa tra Sesto San Giovanni...", "url": `${BASE_URL}/articoli-frontaliere/a4-milano-brescia-chiusura-notturna-2026` },
           { "@type": "ListItem", "position": 1791, "name": "Via Giannino Landoni a Fagnano Olona: verso l'i...", "url": `${BASE_URL}/articoli-frontaliere/via-giannino-landoni-fagnano-olona-inaugurazione` },
           { "@type": "ListItem", "position": 1792, "name": "Scontri a Lugano in Pensilina: Valenzano Rossi,...", "url": `${BASE_URL}/articoli-frontaliere/scontri-lugano-pensilina-2024` },
-          { "@type": "ListItem", "position": 1793, "name": "Gordola, nuovo ricorso blocca Santa Maria", "url": `${BASE_URL}/articoli-frontaliere/gordola-santa-maria-ricorso-2026` }
+          { "@type": "ListItem", "position": 1793, "name": "Gordola, nuovo ricorso blocca Santa Maria", "url": `${BASE_URL}/articoli-frontaliere/gordola-santa-maria-ricorso-2026` },
+          { "@type": "ListItem", "position": 1794, "name": "Vino amaro in Vallese: Provins SA annuncia perd...", "url": `${BASE_URL}/articoli-frontaliere/vino-amaro-vallese-2026` }
  ]
  },
  {

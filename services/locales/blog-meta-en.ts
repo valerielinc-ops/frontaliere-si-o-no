@@ -5230,6 +5230,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gordola-santa-maria-ricorso-2026.title': 'Gordola: appeal halts Santa Maria project',
     'blog.article.gordola-santa-maria-ricorso-2026.excerpt': 'The Municipality of Gordola is preparing its defense against the appeal that blocks the Santa Maria area plan, approved after 30 years',
     'blog.article.gordola-santa-maria-ricorso-2026.imageAlt': 'Aerial view of Gordola, Ticino, with the Santa Maria area in focus',
+    'blog.article.vino-amaro-vallese-2026.title': 'Bitter wine in Valais: Provins SA announces losses and drastic measures',
+    'blog.article.vino-amaro-vallese-2026.excerpt': 'Provins SA, a key player in Valais viticulture, announces a loss of 6 million francs for 2025 and drastic measures to adapt to the sector\'s crisis.',
+    'blog.article.vino-amaro-vallese-2026.imageAlt': 'Vineyard in Ticino with worker and mountains in the background',
 };
 
 export default blogMetaEn;

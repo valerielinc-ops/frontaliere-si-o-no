@@ -5231,6 +5231,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gordola-santa-maria-ricorso-2026.title': 'Gordola, un recours bloque Santa Maria',
     'blog.article.gordola-santa-maria-ricorso-2026.excerpt': 'Le Conseil municipal de Gordola prépare sa défense contre le recours qui bloque le plan du secteur Santa Maria, approuvé après 30 ans',
     'blog.article.gordola-santa-maria-ricorso-2026.imageAlt': 'Vue aérienne de Gordola, Tessin, avec la zone de Santa Maria en premier plan',
+    'blog.article.vino-amaro-vallese-2026.title': 'Vin amer en Valais: Provins SA annonce des pertes et des mesures drastiques',
+    'blog.article.vino-amaro-vallese-2026.excerpt': 'Provins SA, entreprise clé de la viticulture valaisanne, annonce une perte de 6 millions de francs pour 2025 et des mesures drastiques pour s\'adapter à la crise du secteur.',
+    'blog.article.vino-amaro-vallese-2026.imageAlt': 'Vignoble en Tessin avec travailleur et montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

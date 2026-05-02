@@ -37536,6 +37536,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vino-amaro-vallese-2026': {
+    title: 'Vino amaro in Vallese: Provins SA annuncia perdite e misure drastiche',
+    description: 'Provins SA, azienda chiave della viticoltura vallesana, annuncia una perdita di 6 milioni di franchi per il 2025 e misure drastiche per adattarsi alla crisi del',
+    keywords: 'frontalieri, ticino, svizzera, italia, vino, amaro, vallese, provins',
+    ogTitle: 'Vino amaro in Vallese: Provins SA annuncia perdite e misure drastiche',
+    ogDescription: 'Provins SA, azienda chiave della viticoltura vallesana, annuncia una perdita di 6 milioni di franchi per il 2025 e misure drastiche per adattarsi alla crisi del',
+    canonicalPath: '/articoli-frontaliere/vino-amaro-vallese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vino amaro in Vallese: Provins SA annuncia perdite e misure drastiche",
+      "description": "Provins SA, azienda chiave della viticoltura vallesana, annuncia una perdita di 6 milioni di franchi per il 2025 e misure drastiche per adattarsi alla crisi del",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vino-amaro-vallese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vigneto in Ticino con lavoratore e montagne in sfondo"
+      },
+      "datePublished": "2026-05-02T16:18:56+00:00",
+      "dateModified": "2026-05-02T16:18:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vino-amaro-vallese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

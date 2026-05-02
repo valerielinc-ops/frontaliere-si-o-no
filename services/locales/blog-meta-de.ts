@@ -5230,6 +5230,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gordola-santa-maria-ricorso-2026.title': 'Gordola: Neuer Rekurs blockiert Santa Maria',
     'blog.article.gordola-santa-maria-ricorso-2026.excerpt': 'Der Gemeinderat von Gordola bereitet die Verteidigung gegen den Rekurs vor, der den Plan für das Santa Maria-Areal blockiert, der nach 30 Jahren genehmigt wurde.',
     'blog.article.gordola-santa-maria-ricorso-2026.imageAlt': 'Luftaufnahme von Gordola, Tessin, mit dem Santa Maria-Gebiet im Fokus',
+    'blog.article.vino-amaro-vallese-2026.title': 'Bitterer Wein im Wallis: Provins SA meldet Verluste und drastische Maßnahmen',
+    'blog.article.vino-amaro-vallese-2026.excerpt': 'Provins SA, ein Schlüsselunternehmen des Walliser Weinbaus, kündigt für 2025 einen Verlust von 6 Millionen Franken und drastische Maßnahmen zur Anpassung an die Krise des Sektors an.',
+    'blog.article.vino-amaro-vallese-2026.imageAlt': 'Weinberg in Tessin mit Arbeiter und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

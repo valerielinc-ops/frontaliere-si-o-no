@@ -13217,4 +13217,11 @@ export const ARTICLES = [
  image: '/images/blog/gordola-santa-maria-ricorso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'vino-amaro-vallese-2026',
+ category: 'novita',
+ date: '2026-05-02T16:18:56.424Z',
+ image: '/images/blog/vino-amaro-vallese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
