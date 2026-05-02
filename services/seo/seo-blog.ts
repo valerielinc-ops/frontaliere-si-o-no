@@ -36405,6 +36405,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-graudio-flash-2-maggio-2026': {
+    title: 'GrAudio Flash del 2 maggio 2026: notizie dal Canton Ticino',
+    description: 'Le ultime notizie dal Canton Ticino e dintorni: eventi sportivi, cronaca locale e molto altro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, graudio, flash, maggio, notizie',
+    ogTitle: 'GrAudio Flash del 2 maggio 2026: notizie dal Canton Ticino',
+    ogDescription: 'Le ultime notizie dal Canton Ticino e dintorni: eventi sportivi, cronaca locale e molto altro.',
+    canonicalPath: '/articoli-frontaliere/graudio-flash-2-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "GrAudio Flash del 2 maggio 2026: notizie dal Canton Ticino",
+      "description": "Le ultime notizie dal Canton Ticino e dintorni: eventi sportivi, cronaca locale e molto altro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/graudio-flash-2-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-05-02T09:22:58+00:00",
+      "dateModified": "2026-05-02T09:22:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/graudio-flash-2-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

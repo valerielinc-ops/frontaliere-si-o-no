@@ -5113,6 +5113,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuova-viabilit-travedona-monate-2026.title': 'New heavy vehicle traffic in Travedona Monate',
     'blog.article.nuova-viabilit-travedona-monate-2026.excerpt': 'From May 7, 2026, trucks will no longer be allowed to circulate in the center of Travedona Monate. Here\'s what changes.',
     'blog.article.nuova-viabilit-travedona-monate-2026.imageAlt': 'Aerial view of Travedona Monate with new road signs for heavy traffic',
+    'blog.article.graudio-flash-2-maggio-2026.title': 'GrAudio Flash May 2, 2026: Ticino News',
+    'blog.article.graudio-flash-2-maggio-2026.excerpt': 'Latest news from Canton Ticino and surrounding areas: accidents, sports events, and more.',
+    'blog.article.graudio-flash-2-maggio-2026.imageAlt': 'Panoramic view of Lugano with the lake and mountains',
 };
 
 export default blogMetaEn;

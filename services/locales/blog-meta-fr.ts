@@ -5114,6 +5114,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuova-viabilit-travedona-monate-2026.title': 'Nouvelle circulation pour les poids lourds à Travedona Monate',
     'blog.article.nuova-viabilit-travedona-monate-2026.excerpt': 'À partir du 7 mai 2026, les camions ne pourront plus circuler dans le centre de Travedona Monate. Voici ce qui change.',
     'blog.article.nuova-viabilit-travedona-monate-2026.imageAlt': 'Vue aérienne de Travedona Monate avec de nouveaux panneaux de signalisation pour le trafic lourd',
+    'blog.article.graudio-flash-2-maggio-2026.title': 'GrAudio Flash du 2 mai 2026: infos du Tessin',
+    'blog.article.graudio-flash-2-maggio-2026.excerpt': 'Dernières nouvelles du canton du Tessin et des environs: accidents, événements sportifs et bien plus encore.',
+    'blog.article.graudio-flash-2-maggio-2026.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaFr;

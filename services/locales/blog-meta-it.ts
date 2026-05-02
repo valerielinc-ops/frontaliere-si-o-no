@@ -5114,6 +5114,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuova-viabilit-travedona-monate-2026.title': 'Nuova viabilità per mezzi pesanti a Travedona Monate',
     'blog.article.nuova-viabilit-travedona-monate-2026.excerpt': 'Dal 7 maggio 2026, i camion non potranno più circolare nel centro di Travedona Monate. Ecco cosa cambia.',
     'blog.article.nuova-viabilit-travedona-monate-2026.imageAlt': 'Vista aerea di Travedona Monate con nuove segnaletiche per il traffico pesante',
+    'blog.article.graudio-flash-2-maggio-2026.title': 'GrAudio Flash del 2 maggio 2026: notizie dal Canton Ticino',
+    'blog.article.graudio-flash-2-maggio-2026.excerpt': 'Le ultime notizie dal Canton Ticino e dintorni: incidenti, eventi sportivi e molto altro.',
+    'blog.article.graudio-flash-2-maggio-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;

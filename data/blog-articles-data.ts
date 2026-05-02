@@ -12944,4 +12944,11 @@ export const ARTICLES = [
  image: '/images/blog/nuova-viabilit-travedona-monate-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'graudio-flash-2-maggio-2026',
+ category: 'novita',
+ date: '2026-05-02T09:22:58.342Z',
+ image: '/images/blog/graudio-flash-2-maggio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
