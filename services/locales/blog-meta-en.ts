@@ -5245,6 +5245,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agricoltura-ticino-priorita-2026.title': 'Ticino farming: focus on local produce, land and training',
     'blog.article.agricoltura-ticino-priorita-2026.excerpt': 'The Ticino Chamber of Agriculture approves resolutions to promote local products and manage agricultural land.',
     'blog.article.agricoltura-ticino-priorita-2026.imageAlt': 'Agricultural landscape in Ticino with fields and vineyards',
+    'blog.article.svizzera-hockey-sconfitta-finlandia.title': 'Switzerland loses to Finland in Euro Hockey Tour',
+    'blog.article.svizzera-hockey-sconfitta-finlandia.excerpt': 'The Swiss national team loses 5-3 against Finland. Next opponent the Czech Republic.',
+    'blog.article.svizzera-hockey-sconfitta-finlandia.imageAlt': 'Ice hockey game in progress at a professional arena in Switzerland.',
 };
 
 export default blogMetaEn;

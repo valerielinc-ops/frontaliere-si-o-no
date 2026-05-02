@@ -13252,4 +13252,11 @@ export const ARTICLES = [
  image: '/images/blog/agricoltura-ticino-priorita-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'svizzera-hockey-sconfitta-finlandia',
+ category: 'novita',
+ date: '2026-05-02T16:56:09.954Z',
+ image: '/images/blog/svizzera-hockey-sconfitta-finlandia.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

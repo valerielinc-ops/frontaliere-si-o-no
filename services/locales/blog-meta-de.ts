@@ -5245,6 +5245,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agricoltura-ticino-priorita-2026.title': 'Tessin: Fokus auf lokale Produkte, Flächen und Bildung',
     'blog.article.agricoltura-ticino-priorita-2026.excerpt': 'Die Landwirtschaftskammer des Kantons Tessin hat Resolutionen verabschiedet, um lokale Produkte zu fördern und landwirtschaftliche Flächen zu verwalten.',
     'blog.article.agricoltura-ticino-priorita-2026.imageAlt': 'Landwirtschaftliche Landschaft im Tessin mit Feldern und Weinbergen',
+    'blog.article.svizzera-hockey-sconfitta-finlandia.title': 'Schweiz verliert gegen Finnland im Euro Hockey Tour',
+    'blog.article.svizzera-hockey-sconfitta-finlandia.excerpt': 'Die Schweizer Nationalmannschaft verliert 5-3 gegen Finnland. Nächster Gegner ist die Tschechische Republik.',
+    'blog.article.svizzera-hockey-sconfitta-finlandia.imageAlt': 'Eishockeyspiel im Gange in einer professionellen Arena in der Schweiz.',
 };
 
 export default blogMetaDe;

@@ -37681,6 +37681,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-hockey-sconfitta-finlandia': {
+    title: 'Svizzera sconfitta dalla Finlandia nell\'Euro Hockey Tour',
+    description: 'La nazionale svizzera di hockey su ghiaccio perde 5-3 contro la Finlandia. Prossimo avversario la Repubblica Ceca. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, sconfitta, dalla, finlandia, nell',
+    ogTitle: 'Svizzera sconfitta dalla Finlandia nell\'Euro Hockey Tour',
+    ogDescription: 'La nazionale svizzera di hockey su ghiaccio perde 5-3 contro la Finlandia. Prossimo avversario la Repubblica Ceca.',
+    canonicalPath: '/articoli-frontaliere/svizzera-hockey-sconfitta-finlandia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera sconfitta dalla Finlandia nell'Euro Hockey Tour",
+      "description": "La nazionale svizzera di hockey su ghiaccio perde 5-3 contro la Finlandia. Prossimo avversario la Repubblica Ceca. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-hockey-sconfitta-finlandia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di hockey su ghiaccio in corso in un'arena professionale in Svizzera."
+      },
+      "datePublished": "2026-05-02T16:56:09+00:00",
+      "dateModified": "2026-05-02T16:56:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-hockey-sconfitta-finlandia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

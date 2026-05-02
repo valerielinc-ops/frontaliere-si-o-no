@@ -2979,6 +2979,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lago-segrino-camper-2026': { name: 'Novità', path: '/articoli-frontaliere/lago-segrino-camper-2026', parent: 'blog' },
     'blog-cavalli-esercito-svizzero-costi': { name: 'Novità', path: '/articoli-frontaliere/cavalli-esercito-svizzero-costi', parent: 'blog' },
     'blog-agricoltura-ticino-priorita-2026': { name: 'Agricoltura Ticino', path: '/articoli-frontaliere/agricoltura-ticino-priorita-2026', parent: 'blog' },
+    'blog-svizzera-hockey-sconfitta-finlandia': { name: 'Novità', path: '/articoli-frontaliere/svizzera-hockey-sconfitta-finlandia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

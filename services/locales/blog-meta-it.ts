@@ -5246,6 +5246,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agricoltura-ticino-priorita-2026.title': 'Agricoltura ticinese: priorità a prodotti locali, superfici e formazione',
     'blog.article.agricoltura-ticino-priorita-2026.excerpt': 'La Camera cantonale dell’agricoltura del Ticino approva risoluzioni per valorizzare i prodotti locali e gestire le superfici agricole.',
     'blog.article.agricoltura-ticino-priorita-2026.imageAlt': 'Paesaggio agricolo del Ticino con campi e vigneti',
+    'blog.article.svizzera-hockey-sconfitta-finlandia.title': 'Svizzera sconfitta dalla Finlandia nell\'Euro Hockey Tour',
+    'blog.article.svizzera-hockey-sconfitta-finlandia.excerpt': 'La nazionale elvetica perde 5-3 contro la Finlandia. Prossimo avversario la Repubblica Ceca.',
+    'blog.article.svizzera-hockey-sconfitta-finlandia.imageAlt': 'Partita di hockey su ghiaccio in corso in un\'arena professionale in Svizzera.',
 };
 
 export default blogMetaIt;
