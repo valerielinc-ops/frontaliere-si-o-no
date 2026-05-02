@@ -5134,6 +5134,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.confederazione-valuta-sistemi-difesa-aerea.title': 'Schweiz prüft alternative Luftverteidigungssysteme',
     'blog.article.confederazione-valuta-sistemi-difesa-aerea.excerpt': 'Verzögerungen bei den Patriot-Systemen veranlassen die Schweiz, neue Lösungen für die Luftverteidigung zu prüfen.',
     'blog.article.confederazione-valuta-sistemi-difesa-aerea.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee und den umliegenden Bergen',
+    'blog.article.penuria-carburante-svizzera-2026.title': 'Brennstoffmangel in der Schweiz: sehr hohes Risiko',
+    'blog.article.penuria-carburante-svizzera-2026.excerpt': 'Florence Schurch von Suissenégoce warnt: Die strategischen Brennstoffreserven könnten bald erschöpft sein, mit schweren Folgen für die Schweiz.',
+    'blog.article.penuria-carburante-svizzera-2026.imageAlt': 'Luganersee mit einer Tankstelle im Vordergrund, Kraftstoffpumpen und ein Auto, das betankt wird',
 };
 
 export default blogMetaDe;

@@ -5134,6 +5134,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.confederazione-valuta-sistemi-difesa-aerea.title': 'Switzerland explores alternative air defense systems',
     'blog.article.confederazione-valuta-sistemi-difesa-aerea.excerpt': 'Delays in Patriot systems prompt Switzerland to consider new air defense solutions.',
     'blog.article.confederazione-valuta-sistemi-difesa-aerea.imageAlt': 'Aerial view of Lugano with Lake Lugano and surrounding mountains',
+    'blog.article.penuria-carburante-svizzera-2026.title': 'High risk of fuel shortage in Switzerland',
+    'blog.article.penuria-carburante-svizzera-2026.excerpt': 'Florence Schurch of Suissenégoce warns: strategic fuel reserves could run out soon, with serious consequences for Switzerland.',
+    'blog.article.penuria-carburante-svizzera-2026.imageAlt': 'Lake Lugano with a gas station in the foreground, fuel pumps and a car refueling',
 };
 
 export default blogMetaEn;

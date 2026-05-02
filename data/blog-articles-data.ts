@@ -12993,4 +12993,11 @@ export const ARTICLES = [
  image: '/images/blog/confederazione-valuta-sistemi-difesa-aerea.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'penuria-carburante-svizzera-2026',
+ category: 'novita',
+ date: '2026-05-02T10:58:15.430Z',
+ image: '/images/blog/penuria-carburante-svizzera-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

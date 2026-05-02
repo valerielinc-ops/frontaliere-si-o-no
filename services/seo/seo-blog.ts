@@ -36608,6 +36608,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-penuria-carburante-svizzera-2026': {
+    title: 'Penuria di carburante in Svizzera: rischio molto elevato',
+    description: 'Florence Schurch di Suissenégoce avverte: le riserve strategiche di carburante potrebbero esaurirsi presto, con conseguenze gravi per la Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, penuria, carburante, rischio, molto',
+    ogTitle: 'Penuria di carburante in Svizzera: rischio molto elevato',
+    ogDescription: 'Florence Schurch di Suissenégoce avverte: le riserve strategiche di carburante potrebbero esaurirsi presto, con conseguenze gravi per la Svizzera.',
+    canonicalPath: '/articoli-frontaliere/penuria-carburante-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Penuria di carburante in Svizzera: rischio molto elevato",
+      "description": "Florence Schurch di Suissenégoce avverte: le riserve strategiche di carburante potrebbero esaurirsi presto, con conseguenze gravi per la Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/penuria-carburante-svizzera-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con una stazione di servizio in primo piano, pompe di carburante e un'auto che fa rifornimento"
+      },
+      "datePublished": "2026-05-02T10:58:15+00:00",
+      "dateModified": "2026-05-02T10:58:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/penuria-carburante-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

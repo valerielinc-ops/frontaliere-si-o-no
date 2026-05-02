@@ -2942,6 +2942,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-addio-alex-zanardi-2001-incidente-vita': { name: 'Novità', path: '/articoli-frontaliere/addio-alex-zanardi-2001-incidente-vita', parent: 'blog' },
     'blog-caronno-varesino-campetto-dante-mercanti-2026': { name: 'Novità', path: '/articoli-frontaliere/caronno-varesino-campetto-dante-mercanti-2026', parent: 'blog' },
     'blog-confederazione-valuta-sistemi-difesa-aerea': { name: 'Novità', path: '/articoli-frontaliere/confederazione-valuta-sistemi-difesa-aerea', parent: 'blog' },
+    'blog-penuria-carburante-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/penuria-carburante-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

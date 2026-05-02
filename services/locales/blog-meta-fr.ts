@@ -5135,6 +5135,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.confederazione-valuta-sistemi-difesa-aerea.title': 'La Confédération étudie des alternatives de défense aérienne',
     'blog.article.confederazione-valuta-sistemi-difesa-aerea.excerpt': 'Les retards dans les systèmes Patriot poussent la Suisse à évaluer de nouvelles solutions de défense aérienne.',
     'blog.article.confederazione-valuta-sistemi-difesa-aerea.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano et les montagnes environnantes',
+    'blog.article.penuria-carburante-svizzera-2026.title': 'Pénurie de carburant en Suisse : risque très élevé',
+    'blog.article.penuria-carburante-svizzera-2026.excerpt': 'Florence Schurch de Suissenégoce avertit : les réserves stratégiques de carburant pourraient s\'épuiser bientôt, avec des conséquences graves pour la Suisse.',
+    'blog.article.penuria-carburante-svizzera-2026.imageAlt': 'Lac de Lugano avec une station-service au premier plan, des pompes à essence et une voiture en train de faire le plein',
 };
 
 export default blogMetaFr;
