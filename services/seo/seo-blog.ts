@@ -36057,6 +36057,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-migros-immigrazione-necessaria-offerta': {
+    title: 'Migros: Immigrazione necessaria per garantire l\'offerta',
+    description: 'Il CEO di Migros sottolinea l\'importanza dell\'immigrazione per il settore alimentare e del commercio al dettaglio in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, immigrazione, necessaria, garantire',
+    ogTitle: 'Migros: Immigrazione necessaria per garantire l\'offerta',
+    ogDescription: 'Il CEO di Migros sottolinea l\'importanza dell\'immigrazione per il settore alimentare e del commercio al dettaglio in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/migros-immigrazione-necessaria-offerta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros: Immigrazione necessaria per garantire l'offerta",
+      "description": "Il CEO di Migros sottolinea l'importanza dell'immigrazione per il settore alimentare e del commercio al dettaglio in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/migros-immigrazione-necessaria-offerta.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Supermercato Migros in Ticino con dipendenti e clienti"
+      },
+      "datePublished": "2026-05-02T07:15:46+00:00",
+      "dateModified": "2026-05-02T07:15:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/migros-immigrazione-necessaria-offerta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

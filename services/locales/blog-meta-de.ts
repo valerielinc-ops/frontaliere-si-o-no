@@ -5077,6 +5077,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.primo-maggio-baume-schneider-sanita-avs.title': 'Baume-Schneider: Gesundheit, AHV und Einwanderung im Mittelpunkt der 1.-Mai-Rede',
     'blog.article.primo-maggio-baume-schneider-sanita-avs.excerpt': 'Bundesrätin Elisabeth Baume-Schneider sprach über Gesundheitsversorgung, AHV und Beziehungen zu Europa in ihrer 1.-Mai-Rede in Liestal.',
     'blog.article.primo-maggio-baume-schneider-sanita-avs.imageAlt': 'Elisabeth Baume-Schneider spricht in Liestal',
+    'blog.article.migros-immigrazione-necessaria-offerta.title': 'Migros: Einwanderung sichert das Angebot',
+    'blog.article.migros-immigrazione-necessaria-offerta.excerpt': 'Der CEO von Migros betont die Bedeutung der Einwanderung für den Lebensmittel- und Einzelhandelssektor in der Schweiz.',
+    'blog.article.migros-immigrazione-necessaria-offerta.imageAlt': 'Migros Supermarkt in Tessin mit Mitarbeitern und Einkaufenden',
 };
 
 export default blogMetaDe;

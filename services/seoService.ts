@@ -2923,6 +2923,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-corteo-pro-palestina-lungolago-lugano': { name: 'Manifestazione Lugano', path: '/articoli-frontaliere/corteo-pro-palestina-lungolago-lugano', parent: 'blog' },
     'blog-divieti-social-media-minori': { name: 'Social media e minori', path: '/articoli-frontaliere/divieti-social-media-minori', parent: 'blog' },
     'blog-primo-maggio-baume-schneider-sanita-avs': { name: '1° maggio', path: '/articoli-frontaliere/primo-maggio-baume-schneider-sanita-avs', parent: 'blog' },
+    'blog-migros-immigrazione-necessaria-offerta': { name: 'Novità', path: '/articoli-frontaliere/migros-immigrazione-necessaria-offerta', parent: 'blog' },
  };
 
  const info = sectionNames[section];

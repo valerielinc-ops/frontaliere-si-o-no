@@ -12860,4 +12860,11 @@ export const ARTICLES = [
  image: '/images/blog/primo-maggio-baume-schneider-sanita-avs.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'migros-immigrazione-necessaria-offerta',
+ category: 'novita',
+ date: '2026-05-02T07:15:46.449Z',
+ image: '/images/blog/migros-immigrazione-necessaria-offerta.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

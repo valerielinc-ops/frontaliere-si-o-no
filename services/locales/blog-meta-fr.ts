@@ -5078,6 +5078,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.primo-maggio-baume-schneider-sanita-avs.title': 'Baume-Schneider: santé, AVS et immigration au cœur du discours du 1er mai',
     'blog.article.primo-maggio-baume-schneider-sanita-avs.excerpt': 'La conseillère fédérale Elisabeth Baume-Schneider a parlé des soins, de l\'AVS et des relations avec l\'Europe dans son discours du 1er mai à Liestal.',
     'blog.article.primo-maggio-baume-schneider-sanita-avs.imageAlt': 'Elisabeth Baume-Schneider parle à Liestal',
+    'blog.article.migros-immigrazione-necessaria-offerta.title': 'Migros: l\'immigration nécessaire pour garantir l\'offre',
+    'blog.article.migros-immigrazione-necessaria-offerta.excerpt': 'Le PDG de Migros souligne l\'importance de l\'immigration pour le secteur alimentaire et le commerce de détail en Suisse.',
+    'blog.article.migros-immigrazione-necessaria-offerta.imageAlt': 'Supermarché Migros au Tessin avec des employés et des clients',
 };
 
 export default blogMetaFr;
