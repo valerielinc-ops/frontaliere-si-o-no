@@ -5200,6 +5200,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovi-posti-moto-lago-como.title': 'Neue Motorradparkplätze in Como: Parkverbot während der Spiele des Como',
     'blog.article.nuovi-posti-moto-lago-como.excerpt': 'Die lokale Polizei hat den Abschleppdienst aktiviert, um während der Spiele des Como illegal geparkte Motorräder zu entfernen.',
     'blog.article.nuovi-posti-moto-lago-como.imageAlt': 'Neue Motorradparkplätze am Comer See mit Blick auf den See und die Berge',
+    'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.title': 'Notdienst Somma Lombardo zieht nach Lonate Pozzolo um',
+    'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.excerpt': 'Der Notfalldienst wird bis Juli vorübergehend nach Lonate Pozzolo verlegt, da Renovierungsarbeiten anstehen.',
+    'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.imageAlt': 'Blick auf den Luganersee mit Bergen und einem Boot',
 };
 
 export default blogMetaDe;

@@ -37246,6 +37246,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guardia-medica-somma-lombardo-lonate-pozzolo': {
+    title: 'Guardia medica Somma Lombardo si sposta a Lonate Pozzolo',
+    description: 'Il servizio di continuità assistenziale si trasferisce temporaneamente a Lonate Pozzolo fino a luglio per lavori. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, guardia, medica, somma, lombardo',
+    ogTitle: 'Guardia medica Somma Lombardo si sposta a Lonate Pozzolo',
+    ogDescription: 'Il servizio di continuità assistenziale si trasferisce temporaneamente a Lonate Pozzolo fino a luglio per lavori.',
+    canonicalPath: '/articoli-frontaliere/guardia-medica-somma-lombardo-lonate-pozzolo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guardia medica Somma Lombardo si sposta a Lonate Pozzolo",
+      "description": "Il servizio di continuità assistenziale si trasferisce temporaneamente a Lonate Pozzolo fino a luglio per lavori. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guardia-medica-somma-lombardo-lonate-pozzolo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con montagne e barca"
+      },
+      "datePublished": "2026-05-02T14:42:24+00:00",
+      "dateModified": "2026-05-02T14:42:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guardia-medica-somma-lombardo-lonate-pozzolo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

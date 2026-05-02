@@ -5201,6 +5201,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovi-posti-moto-lago-como.title': 'Nuovi posti moto a Como: sosta vietata durante le partite del Como',
     'blog.article.nuovi-posti-moto-lago-como.excerpt': 'La polizia locale ha attivato il carro attrezzi per rimuovere le moto parcheggiate illegalmente durante le partite del Como.',
     'blog.article.nuovi-posti-moto-lago-como.imageAlt': 'Nuovi posti moto fronte lago a Como con vista sul lago e montagne',
+    'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.title': 'Guardia medica Somma Lombardo si sposta a Lonate Pozzolo',
+    'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.excerpt': 'Il servizio di continuità assistenziale si trasferisce temporaneamente a Lonate Pozzolo fino a luglio per lavori.',
+    'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.imageAlt': 'Vista del Lago di Lugano con montagne e barca',
 };
 
 export default blogMetaIt;

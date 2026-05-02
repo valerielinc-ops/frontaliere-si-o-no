@@ -5200,6 +5200,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovi-posti-moto-lago-como.title': 'New motorcycle parking in Como: no parking during matches',
     'blog.article.nuovi-posti-moto-lago-como.excerpt': 'Local police have activated the tow truck to remove illegally parked motorcycles during Como\'s matches.',
     'blog.article.nuovi-posti-moto-lago-como.imageAlt': 'New motorcycle parking spots by Lake Como with a view of the lake and mountains',
+    'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.title': 'Somma Lombardo medical service moves to Lonate Pozzolo',
+    'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.excerpt': 'The emergency medical service temporarily moves to Lonate Pozzolo until July for renovations.',
+    'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.imageAlt': 'View of Lake Lugano with mountains and a boat',
 };
 
 export default blogMetaEn;

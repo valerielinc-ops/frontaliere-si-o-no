@@ -13147,4 +13147,11 @@ export const ARTICLES = [
  image: '/images/blog/nuovi-posti-moto-lago-como.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'guardia-medica-somma-lombardo-lonate-pozzolo',
+ category: 'novita',
+ date: '2026-05-02T14:42:24.062Z',
+ image: '/images/blog/guardia-medica-somma-lombardo-lonate-pozzolo.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
