@@ -12713,4 +12713,11 @@ export const ARTICLES = [
  image: '/images/blog/formula-1-riparte-rischi-polemiche.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'unitalsi-busto-varese-malati-spiritualita',
+ category: 'novita',
+ date: '2026-05-02T03:23:09.921Z',
+ image: '/images/blog/unitalsi-busto-varese-malati-spiritualita.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

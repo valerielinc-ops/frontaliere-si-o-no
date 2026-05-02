@@ -35448,6 +35448,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-unitalsi-busto-varese-malati-spiritualita': {
+    title: 'Unitalsi Busto e Varese: sollievo spirituale e miracoli per i malati',
+    description: 'Scopri come l\'Unitalsi di Busto Arsizio e Varese offre supporto ai malati attraverso pellegrinaggi e assistenza spirituale. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, unitalsi, busto, varese, sollievo',
+    ogTitle: 'Unitalsi Busto e Varese: sollievo spirituale e miracoli per i malati',
+    ogDescription: 'Scopri come l\'Unitalsi di Busto Arsizio e Varese offre supporto ai malati attraverso pellegrinaggi e assistenza spirituale.',
+    canonicalPath: '/articoli-frontaliere/unitalsi-busto-varese-malati-spiritualita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Unitalsi Busto e Varese: sollievo spirituale e miracoli per i malati",
+      "description": "Scopri come l'Unitalsi di Busto Arsizio e Varese offre supporto ai malati attraverso pellegrinaggi e assistenza spirituale. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/unitalsi-busto-varese-malati-spiritualita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Volontari Unitalsi assistono malati vicino al Lago di Lugano"
+      },
+      "datePublished": "2026-05-02T03:23:09+00:00",
+      "dateModified": "2026-05-02T03:23:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/unitalsi-busto-varese-malati-spiritualita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

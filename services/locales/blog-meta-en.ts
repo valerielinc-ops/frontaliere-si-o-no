@@ -5014,6 +5014,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.formula-1-riparte-rischi-polemiche.title': 'Formula 1 resumes amid risks and controversies',
     'blog.article.formula-1-riparte-rischi-polemiche.excerpt': 'The World Championship resumes in Miami after the interruption due to the wars in the Middle East. Criticism of the regulation that penalizes drivers and single-seaters.',
     'blog.article.formula-1-riparte-rischi-polemiche.imageAlt': 'Formula 1 in Miami, modern grandstands, blue sky',
+    'blog.article.unitalsi-busto-varese-malati-spiritualita.title': 'Unitalsi Busto and Varese: spiritual relief and miracles for the sick',
+    'blog.article.unitalsi-busto-varese-malati-spiritualita.excerpt': 'Discover how Unitalsi of Busto Arsizio and Varese supports the sick through pilgrimages and spiritual assistance.',
+    'blog.article.unitalsi-busto-varese-malati-spiritualita.imageAlt': 'Unitalsi volunteers helping patients near Lake Lugano',
 };
 
 export default blogMetaEn;

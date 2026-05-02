@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1721,
+ "numberOfItems": 1722,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6356,7 +6356,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1718, "name": "Come progettare una sala riunioni funzionale", "url": `${BASE_URL}/articoli-frontaliere/progettare-sala-riunioni-ufficio` },
           { "@type": "ListItem", "position": 1719, "name": "Giovani agenti con la polizia locale a Como: mo...", "url": `${BASE_URL}/articoli-frontaliere/giovani-agenti-como-polizia-locale` },
           { "@type": "ListItem", "position": 1720, "name": "Gallarate: Fondazione Scuole Materne, scontro i...", "url": `${BASE_URL}/articoli-frontaliere/gallarate-fondazione-scuole-materne-2026` },
-          { "@type": "ListItem", "position": 1721, "name": "Formula 1 riparte fra rischi e polemiche", "url": `${BASE_URL}/articoli-frontaliere/formula-1-riparte-rischi-polemiche` }
+          { "@type": "ListItem", "position": 1721, "name": "Formula 1 riparte fra rischi e polemiche", "url": `${BASE_URL}/articoli-frontaliere/formula-1-riparte-rischi-polemiche` },
+          { "@type": "ListItem", "position": 1722, "name": "Unitalsi Busto e Varese: sollievo spirituale e ...", "url": `${BASE_URL}/articoli-frontaliere/unitalsi-busto-varese-malati-spiritualita` }
  ]
  },
  {
