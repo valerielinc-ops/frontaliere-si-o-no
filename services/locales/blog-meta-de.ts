@@ -5110,6 +5110,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.migros-immigrazione-necessaria-2026.title': 'Migros: «Die Einwanderung ist für den Tessin notwendig»',
     'blog.article.migros-immigrazione-necessaria-2026.excerpt': 'Mario Irminger, CEO von Migros, stellt sich gegen die UDC-Initiative gegen die Einwanderung und betont deren Bedeutung für den Einzelhandel im Tessin.',
     'blog.article.migros-immigrazione-necessaria-2026.imageAlt': 'Migros-Supermarkt in Lugano mit Kunden und Mitarbeitern',
+    'blog.article.nuova-viabilit-travedona-monate-2026.title': 'Neue Verkehrsregelung für LKW in Travedona Monate',
+    'blog.article.nuova-viabilit-travedona-monate-2026.excerpt': 'Ab dem 7. Mai 2026 dürfen LKW nicht mehr im Zentrum von Travedona Monate fahren. Hier sind die Änderungen.',
+    'blog.article.nuova-viabilit-travedona-monate-2026.imageAlt': 'Luftaufnahme von Travedona Monate mit neuen Verkehrsschildern für den Schwerverkehr',
 };
 
 export default blogMetaDe;

@@ -5110,6 +5110,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.migros-immigrazione-necessaria-2026.title': 'Migros: \'Immigration is vital for Ticino\'',
     'blog.article.migros-immigrazione-necessaria-2026.excerpt': 'Mario Irminger, CEO of Migros, opposes the UDC initiative against immigration, emphasizing its importance for retail in Ticino.',
     'blog.article.migros-immigrazione-necessaria-2026.imageAlt': 'Migros supermarket in Lugano with customers and employees',
+    'blog.article.nuova-viabilit-travedona-monate-2026.title': 'New heavy vehicle traffic in Travedona Monate',
+    'blog.article.nuova-viabilit-travedona-monate-2026.excerpt': 'From May 7, 2026, trucks will no longer be allowed to circulate in the center of Travedona Monate. Here\'s what changes.',
+    'blog.article.nuova-viabilit-travedona-monate-2026.imageAlt': 'Aerial view of Travedona Monate with new road signs for heavy traffic',
 };
 
 export default blogMetaEn;

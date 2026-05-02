@@ -12937,4 +12937,11 @@ export const ARTICLES = [
  image: '/images/blog/migros-immigrazione-necessaria-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuova-viabilit-travedona-monate-2026',
+ category: 'pratico',
+ date: '2026-05-02T09:11:48.284Z',
+ image: '/images/blog/nuova-viabilit-travedona-monate-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

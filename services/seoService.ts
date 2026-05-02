@@ -2934,6 +2934,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-abbonamento-newsletter-ticino': { name: 'Newsletter Ticino', path: '/articoli-frontaliere/abbonamento-newsletter-ticino', parent: 'blog' },
     'blog-varese-arrampicata-salewa-cube-2026': { name: 'Novità', path: '/articoli-frontaliere/varese-arrampicata-salewa-cube-2026', parent: 'blog' },
     'blog-migros-immigrazione-necessaria-2026': { name: 'Novità', path: '/articoli-frontaliere/migros-immigrazione-necessaria-2026', parent: 'blog' },
+    'blog-nuova-viabilit-travedona-monate-2026': { name: 'Viabilità Travedona Monate', path: '/articoli-frontaliere/nuova-viabilit-travedona-monate-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
