@@ -5165,6 +5165,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.saronno-bar-licenza-sospesa-rissa.title': 'Saronno: permis suspendu pour un bar après une bagarre',
     'blog.article.saronno-bar-licenza-sospesa-rissa.excerpt': 'Le permis d\'un bar à Saronno a été suspendu après une bagarre. Voici ce qui s\'est passé et les implications pour la zone.',
     'blog.article.saronno-bar-licenza-sospesa-rissa.imageAlt': 'Bar à Saronno avec présence policière après une rixe',
+    'blog.article.movieri-traffico-ss340-2026.title': 'Agents en action dimanche pour le trafic record sur le Lac de Côme',
+    'blog.article.movieri-traffico-ss340-2026.excerpt': 'Service extraordinaire dimanche 3 mai le long de la SS 340 Regina pour gérer l\'afflux touristique prévu',
+    'blog.article.movieri-traffico-ss340-2026.imageAlt': 'Observateurs de trafic en action le long de la route d\'État du lac de Côme',
 };
 
 export default blogMetaFr;

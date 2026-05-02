@@ -13063,4 +13063,11 @@ export const ARTICLES = [
  image: '/images/blog/saronno-bar-licenza-sospesa-rissa.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'movieri-traffico-ss340-2026',
+ category: 'novita',
+ date: '2026-05-02T12:29:21.173Z',
+ image: '/images/blog/movieri-traffico-ss340-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

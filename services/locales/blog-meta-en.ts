@@ -5164,6 +5164,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.saronno-bar-licenza-sospesa-rissa.title': 'Saronno: bar license suspended after brawl',
     'blog.article.saronno-bar-licenza-sospesa-rissa.excerpt': 'A bar\'s license in Saronno was suspended after a brawl. Here\'s what happened and the implications for the area.',
     'blog.article.saronno-bar-licenza-sospesa-rissa.imageAlt': 'Bar in Saronno with police presence after a brawl',
+    'blog.article.movieri-traffico-ss340-2026.title': 'Traffic wardens on duty Sunday for record Lake Como traffic',
+    'blog.article.movieri-traffico-ss340-2026.excerpt': 'Extra service Sunday 3 May along the SS 340 Regina to manage the expected tourist influx',
+    'blog.article.movieri-traffico-ss340-2026.imageAlt': 'Traffic observers in action along the Lake Como State Road',
 };
 
 export default blogMetaEn;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1771,
+ "numberOfItems": 1772,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6406,7 +6406,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1768, "name": "Varese, rogo all'ultimo piano di un palazzo: fi...", "url": `${BASE_URL}/articoli-frontaliere/varese-incendio-palazzo-frontalieri` },
           { "@type": "ListItem", "position": 1769, "name": "Carenza carburante Svizzera: rischio concreto p...", "url": `${BASE_URL}/articoli-frontaliere/carenza-carburante-svizzera-frontalieri` },
           { "@type": "ListItem", "position": 1770, "name": "Scontro e intervento di polizia con spray urtic...", "url": `${BASE_URL}/articoli-frontaliere/scontro-polizia-lugano-spray-urticante` },
-          { "@type": "ListItem", "position": 1771, "name": "Saronno: licenza sospesa per bar dopo rissa", "url": `${BASE_URL}/articoli-frontaliere/saronno-bar-licenza-sospesa-rissa` }
+          { "@type": "ListItem", "position": 1771, "name": "Saronno: licenza sospesa per bar dopo rissa", "url": `${BASE_URL}/articoli-frontaliere/saronno-bar-licenza-sospesa-rissa` },
+          { "@type": "ListItem", "position": 1772, "name": "Movieri in azione domenica per il traffico reco...", "url": `${BASE_URL}/articoli-frontaliere/movieri-traffico-ss340-2026` }
  ]
  },
  {

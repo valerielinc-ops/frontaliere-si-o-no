@@ -5165,6 +5165,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.saronno-bar-licenza-sospesa-rissa.title': 'Saronno: licenza sospesa per bar dopo rissa',
     'blog.article.saronno-bar-licenza-sospesa-rissa.excerpt': 'La licenza di un bar a Saronno è stata sospesa dopo una rissa. Ecco cosa è successo e le implicazioni per la zona.',
     'blog.article.saronno-bar-licenza-sospesa-rissa.imageAlt': 'Bar a Saronno con presenza di polizia dopo una rissa',
+    'blog.article.movieri-traffico-ss340-2026.title': 'Movieri in azione domenica per il traffico record sul Lago di Como',
+    'blog.article.movieri-traffico-ss340-2026.excerpt': 'Servizio straordinario domenica 3 maggio lungo la SS 340 Regina per gestire l\'afflusso turistico previsto',
+    'blog.article.movieri-traffico-ss340-2026.imageAlt': 'Osservatori del traffico in azione lungo la Statale del Lago di Como',
 };
 
 export default blogMetaIt;

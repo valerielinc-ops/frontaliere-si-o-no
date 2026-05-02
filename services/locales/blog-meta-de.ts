@@ -5164,6 +5164,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.saronno-bar-licenza-sospesa-rissa.title': 'Saronno: Bar-Lizenz nach Schlägerei ausgesetzt',
     'blog.article.saronno-bar-licenza-sospesa-rissa.excerpt': 'Die Lizenz eines Bars in Saronno wurde nach einer Schlägerei ausgesetzt. Hier ist, was passiert ist und die Auswirkungen auf die Gegend.',
     'blog.article.saronno-bar-licenza-sospesa-rissa.imageAlt': 'Bar in Saronno mit Polizeianwesenheit nach einer Schlägerei',
+    'blog.article.movieri-traffico-ss340-2026.title': 'Movieri im Einsatz für Rekordverkehr auf dem Comer See',
+    'blog.article.movieri-traffico-ss340-2026.excerpt': 'Sonderdienst am Sonntag, 3. Mai, entlang der SS 340 Regina, um den erwarteten Touristenansturm zu bewältigen',
+    'blog.article.movieri-traffico-ss340-2026.imageAlt': 'Verkehrsbeobachter im Einsatz entlang der Staatsstraße am Comer See',
 };
 
 export default blogMetaDe;
