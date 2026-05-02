@@ -37043,6 +37043,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commercio-al-dettaglio-mini-flessione-marzo-2026': {
+    title: 'Commercio al dettaglio: mini-flessione dei ricavi in marzo',
+    description: 'Marzo 2026: stabilità per i negozi svizzeri, ma calo dello 0,1% del giro d\'affari rispetto al 2025. Dati UST. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, commercio, dettaglio, mini-flessione, ricavi',
+    ogTitle: 'Commercio al dettaglio: mini-flessione dei ricavi in marzo',
+    ogDescription: 'Marzo 2026: stabilità per i negozi svizzeri, ma calo dello 0,1% del giro d\'affari rispetto al 2025. Dati UST.',
+    canonicalPath: '/articoli-frontaliere/commercio-al-dettaglio-mini-flessione-marzo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commercio al dettaglio: mini-flessione dei ricavi in marzo",
+      "description": "Marzo 2026: stabilità per i negozi svizzeri, ma calo dello 0,1% del giro d'affari rispetto al 2025. Dati UST. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/commercio-al-dettaglio-mini-flessione-marzo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Distretto commerciale affollato a Lugano, Ticino"
+      },
+      "datePublished": "2026-05-02T13:22:04+00:00",
+      "dateModified": "2026-05-02T13:22:04+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/commercio-al-dettaglio-mini-flessione-marzo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

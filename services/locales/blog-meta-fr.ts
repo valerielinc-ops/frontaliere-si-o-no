@@ -5180,6 +5180,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-cantu-creativity-week-2026.title': 'Como et Cantù unissent leurs forces pour la Lake Como Creativity Week',
     'blog.article.como-cantu-creativity-week-2026.excerpt': 'Les communes de Como et Cantù collaborent pour la Lake Como Creativity Week, avec un accord triennal signé le 7 mai 2026',
     'blog.article.como-cantu-creativity-week-2026.imageAlt': 'Événement Lake Como Creativity Week à Côme, Italie, avec des artisans et des créations artistiques le long du lac',
+    'blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.title': 'Commerce de détail: légère baisse des revenus en mars',
+    'blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.excerpt': 'Mars 2026: stabilité pour les magasins suisses, mais baisse de 0,1% du chiffre d\'affaires par rapport à 2025. Données UST.',
+    'blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.imageAlt': 'Quartier commerçant animé à Lugano, Tessin',
 };
 
 export default blogMetaFr;

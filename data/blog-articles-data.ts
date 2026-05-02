@@ -13098,4 +13098,11 @@ export const ARTICLES = [
  image: '/images/blog/como-cantu-creativity-week-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'commercio-al-dettaglio-mini-flessione-marzo-2026',
+ category: 'novita',
+ date: '2026-05-02T13:22:04.776Z',
+ image: '/images/blog/commercio-al-dettaglio-mini-flessione-marzo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
