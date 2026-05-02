@@ -12629,4 +12629,11 @@ export const ARTICLES = [
  image: '/images/blog/biandronno-incontro-astuti-licata-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gratis-museo-costume-bagno-2026',
+ category: 'novita',
+ date: '2026-05-02T01:26:52.789Z',
+ image: '/images/blog/gratis-museo-costume-bagno-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1709,
+ "numberOfItems": 1710,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6344,7 +6344,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1706, "name": "Energia: la fattura miliardaria del conflitto i...", "url": `${BASE_URL}/articoli-frontaliere/fattura-miliardaria-energia-2026` },
           { "@type": "ListItem", "position": 1707, "name": "{\"@context\": \"https://schema.org\", \"@type\": \"Ar...", "url": `${BASE_URL}/articoli-frontaliere/arco-e-frecce-per-far-centro` },
           { "@type": "ListItem", "position": 1708, "name": "Museo del Paesaggio di Verbania: ingresso gratu...", "url": `${BASE_URL}/articoli-frontaliere/museo-paesaggio-verbania-gratis-2026` },
-          { "@type": "ListItem", "position": 1709, "name": "Biandronno: incontro pubblico con Astuti e Lica...", "url": `${BASE_URL}/articoli-frontaliere/biandronno-incontro-astuti-licata-2026` }
+          { "@type": "ListItem", "position": 1709, "name": "Biandronno: incontro pubblico con Astuti e Lica...", "url": `${BASE_URL}/articoli-frontaliere/biandronno-incontro-astuti-licata-2026` },
+          { "@type": "ListItem", "position": 1710, "name": "Gratis al museo in costume da bagno: l'iniziati...", "url": `${BASE_URL}/articoli-frontaliere/gratis-museo-costume-bagno-2026` }
  ]
  },
  {

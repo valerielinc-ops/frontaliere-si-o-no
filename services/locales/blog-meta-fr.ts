@@ -4979,6 +4979,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.biandronno-incontro-astuti-licata-2026.title': 'Biandronno: santé et transports avec Astuti et Licata',
     'blog.article.biandronno-incontro-astuti-licata-2026.excerpt': 'Biandronno Più organise une réunion publique avec les conseillers régionaux Astuti et Licata pour discuter de la santé et des transports dans le Varesotto.',
     'blog.article.biandronno-incontro-astuti-licata-2026.imageAlt': 'Réunion publique à Biandronno avec les conseillers régionaux Astuti et Licata',
+    'blog.article.gratis-museo-costume-bagno-2026.title': 'Entrée gratuite en maillot de bain au musée Beyeler',
+    'blog.article.gratis-museo-costume-bagno-2026.excerpt': 'La Fondation Beyeler de Riehen offre un accès gratuit en maillot de bain pour une journée dédiée à Paul Cézanne et à ses peintures de baigneurs.',
+    'blog.article.gratis-museo-costume-bagno-2026.imageAlt': 'Musée Fondation Beyeler à Riehen, Suisse',
 };
 
 export default blogMetaFr;
