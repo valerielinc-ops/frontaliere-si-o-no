@@ -17126,6 +17126,8 @@ export const ARTICLES = [
  date: '2026-05-02T17:11:53.296Z',
  image: '/images/blog/patriot-ritardo-svizzera-valuta-alternative.jpg',
  hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
  {
  id: 'bambini-carabinieri-como-2026',
@@ -17133,6 +17135,8 @@ export const ARTICLES = [
  date: '2026-05-02T17:20:15.711Z',
  image: '/images/blog/bambini-carabinieri-como-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
  },
  {
  id: 'incendio-malpensa-terminal-1-2-maggio-2026',
@@ -17140,6 +17144,8 @@ export const ARTICLES = [
  date: '2026-05-02T17:26:20.064Z',
  image: '/images/blog/incendio-malpensa-terminal-1-2-maggio-2026.jpg',
  hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
  {
  id: 'parcheggio-abusivo-como-villa-olmo',
