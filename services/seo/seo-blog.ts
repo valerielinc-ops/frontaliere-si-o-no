@@ -37507,6 +37507,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gordola-santa-maria-ricorso-2026': {
+    title: 'Gordola, nuovo ricorso blocca Santa Maria | Frontaliere Ticino',
+    description: 'Il Municipio di Gordola prepara la difesa contro il ricorso che blocca il piano del comparto Santa Maria, approvato dopo 30 anni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, gordola, nuovo, ricorso, blocca',
+    ogTitle: 'Gordola, nuovo ricorso blocca Santa Maria',
+    ogDescription: 'Il Municipio di Gordola prepara la difesa contro il ricorso che blocca il piano del comparto Santa Maria, approvato dopo 30 anni',
+    canonicalPath: '/articoli-frontaliere/gordola-santa-maria-ricorso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gordola, nuovo ricorso blocca Santa Maria",
+      "description": "Il Municipio di Gordola prepara la difesa contro il ricorso che blocca il piano del comparto Santa Maria, approvato dopo 30 anni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gordola-santa-maria-ricorso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Gordola, Ticino, con l'area di Santa Maria in primo piano"
+      },
+      "datePublished": "2026-05-02T16:09:58+00:00",
+      "dateModified": "2026-05-02T16:09:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gordola-santa-maria-ricorso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

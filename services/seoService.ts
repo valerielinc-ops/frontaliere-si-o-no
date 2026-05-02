@@ -2973,6 +2973,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-a4-milano-brescia-chiusura-notturna-2026': { name: 'Novità', path: '/articoli-frontaliere/a4-milano-brescia-chiusura-notturna-2026', parent: 'blog' },
     'blog-via-giannino-landoni-fagnano-olona-inaugurazione': { name: 'Novità', path: '/articoli-frontaliere/via-giannino-landoni-fagnano-olona-inaugurazione', parent: 'blog' },
     'blog-scontri-lugano-pensilina-2024': { name: 'Scontri Lugano', path: '/articoli-frontaliere/scontri-lugano-pensilina-2024', parent: 'blog' },
+    'blog-gordola-santa-maria-ricorso-2026': { name: 'Novità Gordola', path: '/articoli-frontaliere/gordola-santa-maria-ricorso-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

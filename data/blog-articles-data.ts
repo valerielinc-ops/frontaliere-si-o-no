@@ -13210,4 +13210,11 @@ export const ARTICLES = [
  image: '/images/blog/scontri-lugano-pensilina-2024.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'gordola-santa-maria-ricorso-2026',
+ category: 'novita',
+ date: '2026-05-02T16:09:58.704Z',
+ image: '/images/blog/gordola-santa-maria-ricorso-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

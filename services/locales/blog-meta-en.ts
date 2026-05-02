@@ -5227,6 +5227,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scontri-lugano-pensilina-2024.title': 'Clashes in Lugano Bus Stop: Valenzano Rossi, \'There\'s Much Concern\'',
     'blog.article.scontri-lugano-pensilina-2024.excerpt': 'Two minor injuries, but the political background of the clashes worries Lugano authorities. Karin Valenzano Rossi: \'It has nothing to do with nightlife\'',
     'blog.article.scontri-lugano-pensilina-2024.imageAlt': 'Aerial view of Lugano\'s Pensilina during a peaceful protest',
+    'blog.article.gordola-santa-maria-ricorso-2026.title': 'Gordola: appeal halts Santa Maria project',
+    'blog.article.gordola-santa-maria-ricorso-2026.excerpt': 'The Municipality of Gordola is preparing its defense against the appeal that blocks the Santa Maria area plan, approved after 30 years',
+    'blog.article.gordola-santa-maria-ricorso-2026.imageAlt': 'Aerial view of Gordola, Ticino, with the Santa Maria area in focus',
 };
 
 export default blogMetaEn;

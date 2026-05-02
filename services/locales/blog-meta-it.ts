@@ -5228,6 +5228,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scontri-lugano-pensilina-2024.title': 'Scontri a Lugano in Pensilina: Valenzano Rossi, «C\'è molta preoccupazione»',
     'blog.article.scontri-lugano-pensilina-2024.excerpt': 'Due feriti lievi, ma la matrice politica degli scontri preoccupa le autorità luganesi. Karin Valenzano Rossi: «Non c\'entra la movida»',
     'blog.article.scontri-lugano-pensilina-2024.imageAlt': 'Vista aerea della Pensilina a Lugano durante una manifestazione pacifica',
+    'blog.article.gordola-santa-maria-ricorso-2026.title': 'Gordola, nuovo ricorso blocca Santa Maria',
+    'blog.article.gordola-santa-maria-ricorso-2026.excerpt': 'Il Municipio di Gordola prepara la difesa contro il ricorso che blocca il piano del comparto Santa Maria, approvato dopo 30 anni',
+    'blog.article.gordola-santa-maria-ricorso-2026.imageAlt': 'Vista aerea di Gordola, Ticino, con l\'area di Santa Maria in primo piano',
 };
 
 export default blogMetaIt;

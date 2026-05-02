@@ -5227,6 +5227,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scontri-lugano-pensilina-2024.title': 'Auseinandersetzungen in Lugano: Valenzano Rossi, «Es gibt große Sorge»',
     'blog.article.scontri-lugano-pensilina-2024.excerpt': 'Zwei leicht Verletzte, aber die politische Ursache der Auseinandersetzungen beunruhigt die Luganer Behörden. Karin Valenzano Rossi: «Es geht nicht um das Nachtleben»',
     'blog.article.scontri-lugano-pensilina-2024.imageAlt': 'Luftaufnahme von Luganos Pensilina während einer friedlichen Demonstration',
+    'blog.article.gordola-santa-maria-ricorso-2026.title': 'Gordola: Neuer Rekurs blockiert Santa Maria',
+    'blog.article.gordola-santa-maria-ricorso-2026.excerpt': 'Der Gemeinderat von Gordola bereitet die Verteidigung gegen den Rekurs vor, der den Plan für das Santa Maria-Areal blockiert, der nach 30 Jahren genehmigt wurde.',
+    'blog.article.gordola-santa-maria-ricorso-2026.imageAlt': 'Luftaufnahme von Gordola, Tessin, mit dem Santa Maria-Gebiet im Fokus',
 };
 
 export default blogMetaDe;
