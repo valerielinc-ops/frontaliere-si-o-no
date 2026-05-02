@@ -35187,6 +35187,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-busto-arsizio-carcere-denuncia-strada': {
+    title: 'Carcere di Busto Arsizio: denuncia di Cecilia Strada al Parlamento europeo',
+    description: 'Denuncia di Cecilia Strada al Parlamento europeo sul sovraffollamento del carcere di Busto Arsizio, con tasso oltre il 200% e condizioni disumane.',
+    keywords: 'frontalieri, ticino, svizzera, italia, carcere, busto, arsizio, denuncia',
+    ogTitle: 'Carcere Busto Arsizio: denuncia Strada al Parlamento europeo',
+    ogDescription: 'Denuncia di Cecilia Strada al Parlamento europeo sul sovraffollamento del carcere di Busto Arsizio, con tasso oltre il 200% e condizioni disumane.',
+    canonicalPath: '/articoli-frontaliere/busto-arsizio-carcere-denuncia-strada',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Denuncia di Cecilia Strada al Parlamento europeo sul sovraffollamento del carcere di Busto Arsizio",
+      "description": "Denuncia di Cecilia Strada al Parlamento europeo sul sovraffollamento del carcere di Busto Arsizio, con tasso oltre il 200% e condizioni disumane.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/busto-arsizio-carcere-denuncia-strada.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del carcere di Busto Arsizio, Italia"
+      },
+      "datePublished": "2026-05-02T01:53:54+00:00",
+      "dateModified": "2026-05-02T01:53:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/busto-arsizio-carcere-denuncia-strada`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

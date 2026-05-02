@@ -4987,6 +4987,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.luigi-bignami-insubria-scienza-2026.title': 'Luigi Bignami at Insubria: the art of science communication',
     'blog.article.luigi-bignami-insubria-scienza-2026.excerpt': 'Geologist and science journalist Luigi Bignami met with students at the University of Insubria to discuss science communication.',
     'blog.article.luigi-bignami-insubria-scienza-2026.imageAlt': 'Lecture hall at the University of Insubria in Varese, Italy, with students listening to a science communication lecture.',
+    'blog.article.busto-arsizio-carcere-denuncia-strada.title': 'Busto Arsizio prison: Cecilia Strada\'s EU Parliament complaint',
+    'blog.article.busto-arsizio-carcere-denuncia-strada.excerpt': 'Overcrowding exceeding 200%, inhuman conditions, and suicides: the critical situation of Busto Arsizio prison reported in Europe.',
+    'blog.article.busto-arsizio-carcere-denuncia-strada.imageAlt': 'Aerial view of Busto Arsizio prison, Italy',
 };
 
 export default blogMetaEn;

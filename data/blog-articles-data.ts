@@ -12650,4 +12650,11 @@ export const ARTICLES = [
  image: '/images/blog/luigi-bignami-insubria-scienza-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'busto-arsizio-carcere-denuncia-strada',
+ category: 'novita',
+ date: '2026-05-02T01:53:54.889Z',
+ image: '/images/blog/busto-arsizio-carcere-denuncia-strada.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
