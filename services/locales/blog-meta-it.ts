@@ -5030,6 +5030,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mera-longhi-130-anni-dolcezza-varese.title': 'Mera & Longhi: 130 anni di dolcezza artigianale premiati a Varese',
     'blog.article.mera-longhi-130-anni-dolcezza-varese.excerpt': 'La Famiglia Bosina premia l\'azienda storica varesina Mera & Longhi per 130 anni di eccellenza dolciaria.',
     'blog.article.mera-longhi-130-anni-dolcezza-varese.imageAlt': 'Un negozio di caramelle storico a Varese, Italia, che mostra dolci e caramelle tradizionali italiane.',
+    'blog.article.girometta-doro-andrea-chiodi-varese-2026.title': 'Girometta d\'oro 2026 a Andrea Chiodi: Varese premia il suo regista',
+    'blog.article.girometta-doro-andrea-chiodi-varese-2026.excerpt': 'Il regista varesino riceve il massimo riconoscimento cittadino per aver portato il nome di Varese nel firmamento della cultura e del teatro contemporaneo.',
+    'blog.article.girometta-doro-andrea-chiodi-varese-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido, giornata estiva',
 };
 
 export default blogMetaIt;

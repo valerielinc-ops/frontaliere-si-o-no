@@ -12748,4 +12748,11 @@ export const ARTICLES = [
  image: '/images/blog/mera-longhi-130-anni-dolcezza-varese.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'girometta-doro-andrea-chiodi-varese-2026',
+ category: 'novita',
+ date: '2026-05-02T04:06:44.957Z',
+ image: '/images/blog/girometta-doro-andrea-chiodi-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

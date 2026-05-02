@@ -35593,6 +35593,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-girometta-doro-andrea-chiodi-varese-2026': {
+    title: 'Girometta d\'oro 2026 a Andrea Chiodi: Varese premia il suo regista',
+    description: 'Andrea Chiodi vince la Girometta d\'oro 2026 per aver portato il nome di Varese nel firmamento della cultura e del teatro contemporaneo. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, girometta, andrea, chiodi, varese',
+    ogTitle: 'Girometta d\'oro 2026 a Andrea Chiodi: Varese premia il suo regista',
+    ogDescription: 'Andrea Chiodi vince la Girometta d\'oro 2026 per aver portato il nome di Varese nel firmamento della cultura e del teatro contemporaneo.',
+    canonicalPath: '/articoli-frontaliere/girometta-doro-andrea-chiodi-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Girometta d'oro 2026 a Andrea Chiodi: Varese premia il suo regista",
+      "description": "Andrea Chiodi vince la Girometta d'oro 2026 per aver portato il nome di Varese nel firmamento della cultura e del teatro contemporaneo. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/girometta-doro-andrea-chiodi-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo, cielo azzurro limpido, giornata estiva"
+      },
+      "datePublished": "2026-05-02T04:06:44+00:00",
+      "dateModified": "2026-05-02T04:06:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/girometta-doro-andrea-chiodi-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

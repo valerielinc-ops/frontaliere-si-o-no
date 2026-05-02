@@ -5029,6 +5029,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mera-longhi-130-anni-dolcezza-varese.title': 'Mera & Longhi: 130 years of artisanal sweetness awarded in Varese',
     'blog.article.mera-longhi-130-anni-dolcezza-varese.excerpt': 'The Bosina family awards the historic Varese company Mera & Longhi for 130 years of confectionery excellence.',
     'blog.article.mera-longhi-130-anni-dolcezza-varese.imageAlt': 'A historic candy shop in Varese, Italy, showcasing traditional Italian sweets and candies.',
+    'blog.article.girometta-doro-andrea-chiodi-varese-2026.title': 'Andrea Chiodi wins 2026 Girometta d\'oro',
+    'blog.article.girometta-doro-andrea-chiodi-varese-2026.excerpt': 'The Varese director receives the city\'s highest honor for bringing Varese\'s name to the forefront of contemporary culture and theater.',
+    'blog.article.girometta-doro-andrea-chiodi-varese-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, clear blue sky, summer day',
 };
 
 export default blogMetaEn;
