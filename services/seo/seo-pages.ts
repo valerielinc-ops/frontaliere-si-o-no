@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1784,
+ "numberOfItems": 1785,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6419,7 +6419,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1781, "name": "Golasecca: 140 escursionisti alla scoperta dei ...", "url": `${BASE_URL}/articoli-frontaliere/golasecca-esplorazione-passeggiata-2026` },
           { "@type": "ListItem", "position": 1782, "name": "In marcia dal Ticino a Zurigo: la voce della di...", "url": `${BASE_URL}/articoli-frontaliere/marcia-zurigo-disabilita-uguaglianza` },
           { "@type": "ListItem", "position": 1783, "name": "Nuovi posti moto a Como: sosta vietata durante ...", "url": `${BASE_URL}/articoli-frontaliere/nuovi-posti-moto-lago-como` },
-          { "@type": "ListItem", "position": 1784, "name": "Guardia medica Somma Lombardo si sposta a Lonat...", "url": `${BASE_URL}/articoli-frontaliere/guardia-medica-somma-lombardo-lonate-pozzolo` }
+          { "@type": "ListItem", "position": 1784, "name": "Guardia medica Somma Lombardo si sposta a Lonat...", "url": `${BASE_URL}/articoli-frontaliere/guardia-medica-somma-lombardo-lonate-pozzolo` },
+          { "@type": "ListItem", "position": 1785, "name": "Varese, prima panchina bianca contro abusi minori", "url": `${BASE_URL}/articoli-frontaliere/panchina-bianca-varese-2026` }
  ]
  },
  {

@@ -5203,6 +5203,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.title': 'Somma Lombardo medical service moves to Lonate Pozzolo',
     'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.excerpt': 'The emergency medical service temporarily moves to Lonate Pozzolo until July for renovations.',
     'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.imageAlt': 'View of Lake Lugano with mountains and a boat',
+    'blog.article.panchina-bianca-varese-2026.title': 'Varese, first white bench against child abuse',
+    'blog.article.panchina-bianca-varese-2026.excerpt': 'The first white bench dedicated to the number 114 for the protection of minors was inaugurated in Varese, on the occasion of the National Day against pedophilia and child pornography.',
+    'blog.article.panchina-bianca-varese-2026.imageAlt': 'A white bench in a public garden with a blue telephone nearby, symbolizing support for children in danger',
 };
 
 export default blogMetaEn;

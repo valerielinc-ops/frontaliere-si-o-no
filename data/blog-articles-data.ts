@@ -13154,4 +13154,11 @@ export const ARTICLES = [
  image: '/images/blog/guardia-medica-somma-lombardo-lonate-pozzolo.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'panchina-bianca-varese-2026',
+ category: 'novita',
+ date: '2026-05-02T14:51:52.813Z',
+ image: '/images/blog/panchina-bianca-varese-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

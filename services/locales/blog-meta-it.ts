@@ -5204,6 +5204,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.title': 'Guardia medica Somma Lombardo si sposta a Lonate Pozzolo',
     'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.excerpt': 'Il servizio di continuità assistenziale si trasferisce temporaneamente a Lonate Pozzolo fino a luglio per lavori.',
     'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.imageAlt': 'Vista del Lago di Lugano con montagne e barca',
+    'blog.article.panchina-bianca-varese-2026.title': 'Varese, prima panchina bianca contro abusi minori',
+    'blog.article.panchina-bianca-varese-2026.excerpt': 'Inaugurata a Varese la prima panchina bianca dedicata al numero 114 per la protezione dei minori, in occasione della Giornata nazionale contro la pedofilia e la pedopornografia.',
+    'blog.article.panchina-bianca-varese-2026.imageAlt': 'Una panchina bianca nei giardini pubblici con un telefono azzurro vicino, simbolo di supporto per i minori in pericolo',
 };
 
 export default blogMetaIt;

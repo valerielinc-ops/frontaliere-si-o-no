@@ -37275,6 +37275,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-panchina-bianca-varese-2026': {
+    title: 'Varese, prima panchina bianca contro abusi minori | Frontaliere Ticino',
+    description: 'Inaugurata a Varese la prima panchina bianca dedicata al numero 114 per la protezione dei minori, in occasione della Giornata nazionale contro la pedofilia e la',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, prima, panchina, bianca',
+    ogTitle: 'Varese, prima panchina bianca contro abusi minori',
+    ogDescription: 'Inaugurata a Varese la prima panchina bianca dedicata al numero 114 per la protezione dei minori, in occasione della Giornata nazionale contro la pedofilia e la',
+    canonicalPath: '/articoli-frontaliere/panchina-bianca-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, prima panchina bianca contro abusi minori",
+      "description": "Inaugurata a Varese la prima panchina bianca dedicata al numero 114 per la protezione dei minori, in occasione della Giornata nazionale contro la pedofilia e la",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/panchina-bianca-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una panchina bianca nei giardini pubblici con un telefono azzurro vicino, simbolo di supporto per i minori in pericolo"
+      },
+      "datePublished": "2026-05-02T14:51:52+00:00",
+      "dateModified": "2026-05-02T14:51:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/panchina-bianca-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

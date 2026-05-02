@@ -5203,6 +5203,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.title': 'Notdienst Somma Lombardo zieht nach Lonate Pozzolo um',
     'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.excerpt': 'Der Notfalldienst wird bis Juli vorübergehend nach Lonate Pozzolo verlegt, da Renovierungsarbeiten anstehen.',
     'blog.article.guardia-medica-somma-lombardo-lonate-pozzolo.imageAlt': 'Blick auf den Luganersee mit Bergen und einem Boot',
+    'blog.article.panchina-bianca-varese-2026.title': 'Varese: Erste weiße Bank gegen Kindesmissbrauch',
+    'blog.article.panchina-bianca-varese-2026.excerpt': 'In Varese wurde die erste weiße Bank zu Ehren der Nummer 114 für den Schutz von Kindern eingeweiht, anlässlich des Nationalen Tages gegen Pädophilie und Kinderpornografie.',
+    'blog.article.panchina-bianca-varese-2026.imageAlt': 'Eine weiße Bank in einem öffentlichen Garten mit einem blauen Telefon in der Nähe, die Unterstützung für gefährdete Kinder symbolisiert',
 };
 
 export default blogMetaDe;

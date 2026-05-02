@@ -2965,6 +2965,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-marcia-zurigo-disabilita-uguaglianza': { name: 'Novità', path: '/articoli-frontaliere/marcia-zurigo-disabilita-uguaglianza', parent: 'blog' },
     'blog-nuovi-posti-moto-lago-como': { name: 'Nuovi posti moto', path: '/articoli-frontaliere/nuovi-posti-moto-lago-como', parent: 'blog' },
     'blog-guardia-medica-somma-lombardo-lonate-pozzolo': { name: 'Novità', path: '/articoli-frontaliere/guardia-medica-somma-lombardo-lonate-pozzolo', parent: 'blog' },
+    'blog-panchina-bianca-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/panchina-bianca-varese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
