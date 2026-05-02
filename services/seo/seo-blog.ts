@@ -36956,6 +36956,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-taglio-accise-carburanti-maggio-2026': {
+    title: 'Taglio accise carburanti: diesel a sconto pieno, benzina ridotto',
+    description: 'Il governo proroga il taglio delle accise sui carburanti, con sconto pieno sul diesel e ridotto sulla benzina. Scopri cosa cambia e come ti riguarda.',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglio, accise, carburanti, diesel',
+    ogTitle: 'Taglio accise carburanti: diesel a sconto pieno, benzina ridotto',
+    ogDescription: 'Il governo proroga il taglio delle accise sui carburanti, con sconto pieno sul diesel e ridotto sulla benzina. Scopri cosa cambia e come ti riguarda.',
+    canonicalPath: '/articoli-frontaliere/taglio-accise-carburanti-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Taglio accise carburanti: diesel a sconto pieno, benzina ridotto",
+      "description": "Il governo proroga il taglio delle accise sui carburanti, con sconto pieno sul diesel e ridotto sulla benzina. Scopri cosa cambia e come ti riguarda.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/taglio-accise-carburanti-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con un distributore di carburante in primo piano"
+      },
+      "datePublished": "2026-05-02T12:48:40+00:00",
+      "dateModified": "2026-05-02T12:48:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/taglio-accise-carburanti-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

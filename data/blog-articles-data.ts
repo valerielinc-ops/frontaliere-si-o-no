@@ -13077,4 +13077,11 @@ export const ARTICLES = [
  image: '/images/blog/doppietta-frontalieri-santonino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'taglio-accise-carburanti-maggio-2026',
+ category: 'novita',
+ date: '2026-05-02T12:48:40.923Z',
+ image: '/images/blog/taglio-accise-carburanti-maggio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

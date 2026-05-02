@@ -5170,6 +5170,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.doppietta-frontalieri-santonino-2026.title': 'Cross-border workers in Sant\'Antonino: what changes with the double option',
     'blog.article.doppietta-frontalieri-santonino-2026.excerpt': 'In Sant\'Antonino, more and more cross-border workers are opting for the double option: working in Switzerland and living in Italy. Here\'s what you need to know.',
     'blog.article.doppietta-frontalieri-santonino-2026.imageAlt': 'A bustling street in Mendrisio, Ticino, with people walking and shopping, set in a sunny day with clear blue skies.',
+    'blog.article.taglio-accise-carburanti-maggio-2026.title': 'Fuel duty cut extended: full diesel discount, reduced petrol',
+    'blog.article.taglio-accise-carburanti-maggio-2026.excerpt': 'The government extends the fuel duty cut, but with a distinction between diesel and petrol. Find out what changes and how it affects you.',
+    'blog.article.taglio-accise-carburanti-maggio-2026.imageAlt': 'Lake Lugano with a gas station in the foreground',
 };
 
 export default blogMetaEn;

@@ -5171,6 +5171,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.doppietta-frontalieri-santonino-2026.title': 'Double emploi frontalier à Sant\'Antonino : ce qui change',
     'blog.article.doppietta-frontalieri-santonino-2026.excerpt': 'À Sant\'Antonino, de plus en plus de frontaliers optent pour le double emploi : travail en Suisse et résidence en Italie. Voici ce qu\'il faut savoir.',
     'blog.article.doppietta-frontalieri-santonino-2026.imageAlt': 'Une rue animée à Mendrisio, Tessin, avec des personnes qui marchent et font du shopping, par une journée ensoleillée avec un ciel bleu clair.',
+    'blog.article.taglio-accise-carburanti-maggio-2026.title': 'Réduction des taxes sur le carburant: diesel à prix réduit, essence diminué',
+    'blog.article.taglio-accise-carburanti-maggio-2026.excerpt': 'Le gouvernement prolonge la réduction des taxes sur les carburants, mais avec une distinction entre le diesel et l\'essence. Découvrez ce qui change et comment cela vous concerne.',
+    'blog.article.taglio-accise-carburanti-maggio-2026.imageAlt': 'Lac de Lugano avec une station-service au premier plan',
 };
 
 export default blogMetaFr;

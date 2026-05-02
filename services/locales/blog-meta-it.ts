@@ -5171,6 +5171,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.doppietta-frontalieri-santonino-2026.title': 'Doppietta frontalieri a Sant\'Antonino: cosa cambia',
     'blog.article.doppietta-frontalieri-santonino-2026.excerpt': 'A Sant\'Antonino, sempre più frontalieri scelgono la doppietta: lavoro in Svizzera e residenza in Italia. Ecco cosa sapere.',
     'blog.article.doppietta-frontalieri-santonino-2026.imageAlt': 'Una strada affollata a Mendrisio, Ticino, con persone che camminano e fanno shopping, in una giornata di sole con cieli blu limpidi.',
+    'blog.article.taglio-accise-carburanti-maggio-2026.title': 'Taglio accise carburanti: diesel a sconto pieno, benzina ridotto',
+    'blog.article.taglio-accise-carburanti-maggio-2026.excerpt': 'Il governo proroga il taglio delle accise sui carburanti, ma con una distinzione tra diesel e benzina. Scopri cosa cambia e come ti riguarda.',
+    'blog.article.taglio-accise-carburanti-maggio-2026.imageAlt': 'Lago di Lugano con un distributore di carburante in primo piano',
 };
 
 export default blogMetaIt;
