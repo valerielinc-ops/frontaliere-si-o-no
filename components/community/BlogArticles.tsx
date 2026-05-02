@@ -1843,10 +1843,21 @@ function BlogArticles({
 
  {/* Meta bar */}
  <div className="flex flex-wrap items-center gap-3 px-4 sm:px-6 py-3 bg-surface-alt/50 border-b border-edge text-sm text-subtle">
+ {article.authorSlug && article.authorName ? (
+ <a
+ href={`/autori/${article.authorSlug}/`}
+ rel="author"
+ className="flex items-center gap-1 font-medium text-accent hover:underline"
+ >
+ <PenLine size={14} />
+ {t('blog.bylinePrefix')} {article.authorName}
+ </a>
+ ) : (
  <span className="flex items-center gap-1 font-medium text-accent">
  <PenLine size={14} />
  {t('blog.byline')}
  </span>
+ )}
  <span className="text-edge">|</span>
  <span className="flex items-center gap-1">
  <Calendar size={14} />
@@ -1973,6 +1984,36 @@ function BlogArticles({
  </div>
  </div>
  )}
+
+ {/* AI transparency disclosure (Google News compliance — A3) */}
+ <aside
+ className="mx-4 sm:mx-6 mt-4 rounded-xl border border-edge bg-surface-alt px-4 py-3 text-sm text-subtle"
+ role="note"
+ aria-label="Trasparenza editoriale"
+ >
+ <p className="mb-1">
+ <strong className="text-body">Trasparenza editoriale:</strong>{' '}
+ bozza assistita da intelligenza artificiale, revisionata dalla redazione.
+ Le fonti utilizzate sono linkate nel testo.
+ </p>
+ <p className="text-xs">
+ <a
+ href="/metodologia/"
+ className="text-accent hover:underline"
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('metodologia' as any); }}
+ >
+ Come scriviamo gli articoli
+ </a>
+ {' · '}
+ <a
+ href="/correzioni/"
+ className="text-accent hover:underline"
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('correzioni' as any); }}
+ >
+ Segnala una correzione
+ </a>
+ </p>
+ </aside>
 
  {/* Article body */}
  <div className="px-4 sm:px-6 py-6 space-y-5">
@@ -2333,7 +2374,7 @@ function BlogArticles({
  articleFeedback[article.id] === 'not-useful'
  ? 'bg-danger-subtle text-danger ring-1 ring-danger-border'
  : 'bg-surface-raised text-subtle hover:bg-danger-subtle'
- }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-accent-subtle flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-heading">{t('blog.byline')}</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 min-h-[44px] inline-flex items-center bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
+ }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T (A2: dynamic byline → /autori/{slug}/) */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-accent-subtle flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> {article.authorSlug && article.authorName ? ( <a href={`/autori/${article.authorSlug}/`} rel="author" className="font-bold text-heading hover:text-link hover:underline"> {article.authorName} </a> ) : ( <p className="font-bold text-heading">{t('blog.byline')}</p> )} <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 min-h-[44px] inline-flex items-center bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
  </div>
  </a>
  ) : <div />}

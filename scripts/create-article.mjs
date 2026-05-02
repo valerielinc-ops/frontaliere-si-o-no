@@ -67,6 +67,48 @@ import path from 'node:path';
 import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores } from './lib/ai-models.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 
+// ── C1 News Sitemap Whitelist ──────────────────────────────────
+// Loaded by parsing data/news-sitemap-whitelist.ts at startup so we don't
+// need a TS loader for this single-string-array import. See that file for
+// rationale and the full keyword list (5 + 1 macro-themes).
+const NEWS_SITEMAP_WHITELIST_TOKENS = (() => {
+  try {
+    const wlPath = path.resolve('data/news-sitemap-whitelist.ts');
+    if (!existsSync(wlPath)) return [];
+    const src = readFileSync(wlPath, 'utf-8');
+    const block = src.match(/NEWS_SITEMAP_WHITELIST[^=]*=\s*Object\.freeze\(\s*\[([\s\S]*?)\]\s*\)/);
+    if (!block) return [];
+    return [...block[1].matchAll(/'([^']+)'|"([^"]+)"/g)]
+      .map((m) => (m[1] || m[2]).toLowerCase())
+      .filter(Boolean);
+  } catch (err) {
+    console.error('⚠️  Could not load news-sitemap whitelist; defaulting to allow-all:', err?.message);
+    return [];
+  }
+})();
+
+/**
+ * Decide whether an article should be added to sitemap-news.xml.
+ * `data` is the freshly-generated article object from create-article.mjs.
+ * Match is case-insensitive substring across slug, title, articleSection,
+ * keywords, and tags. Empty whitelist (load failure) falls back to allow-all
+ * to avoid blocking publishing on a parser hiccup — operator must rerun
+ * `npm run sanitize:news-sitemap` if that happens.
+ */
+function isArticleEligibleForNewsSitemap(data) {
+  if (NEWS_SITEMAP_WHITELIST_TOKENS.length === 0) return true; // safe default
+  const slugIt = data?.slugs?.it || '';
+  const titleIt = data?.content?.it?.title || '';
+  const headline = data?.seo?.headline || '';
+  const keywords = data?.seo?.keywords || data?.seo?.keywordsIt || '';
+  const articleSection = data?.seo?.articleSection || data?.category || '';
+  const tags = Array.isArray(data?.seo?.tags) ? data.seo.tags : [];
+  const haystack = [slugIt, titleIt, headline, keywords, articleSection, ...tags]
+    .map((v) => String(v || '').toLowerCase())
+    .join('  ');
+  return NEWS_SITEMAP_WHITELIST_TOKENS.some((t) => haystack.includes(t));
+}
+
 // ── Config ──────────────────────────────────────────────────
 // Gemini — image generation (text calls now go through centralized ai-models.mjs)
 const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
@@ -248,6 +290,122 @@ function findBestFallbackImage(data) {
 }
 
 const CATEGORIES = ['fiscale', 'pratico', 'novita', 'pensione'];
+
+// ── Author registry (mirror of data/authors.ts for byline + Person JSON-LD) ──
+// Keep slug/name/expertise/linkedin in sync with data/authors.ts. The TS file
+// is the source of truth for the React app + author pages; this inline copy is
+// used because create-article.mjs is a Node ESM script that cannot import .ts.
+// Spec: docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 — FASE 1, A2.
+const AUTHORS = Object.freeze([
+  Object.freeze({
+    slug: 'marco-ferrari',
+    name: 'Marco Ferrari',
+    linkedinUrl: 'https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/',
+    expertise: Object.freeze([
+      'fiscalità frontaliera',
+      '730',
+      'dichiarazione redditi',
+      'imposta alla fonte',
+      'accordo italia-svizzera 2026',
+      'fiscale',
+      'tasse',
+      'irpef',
+      'doppia imposizione',
+      'ristorni',
+    ]),
+  }),
+  Object.freeze({
+    slug: 'laura-bianchi',
+    name: 'Laura Bianchi',
+    linkedinUrl: 'https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/',
+    expertise: Object.freeze([
+      'avs',
+      'lpp',
+      'lamal',
+      'pensioni',
+      'pensione',
+      'assicurazioni sociali svizzere',
+      'previdenza',
+      '3a',
+      'libero passaggio',
+      'salute',
+      'sanità',
+      'cmi',
+    ]),
+  }),
+  Object.freeze({
+    slug: 'redazione',
+    name: 'Redazione Frontaliere Ticino',
+    linkedinUrl: 'https://www.linkedin.com/company/frontaliere-ticino/',
+    expertise: Object.freeze([
+      'lavoro frontaliere',
+      'salari',
+      'salario',
+      'trasporti transfrontalieri',
+      'dogana',
+      'novita',
+      'pratico',
+      'attualità',
+    ]),
+  }),
+]);
+
+let _authorRoundRobinIdx = 0;
+
+/**
+ * Pick an author for an article based on its category/section + identifier.
+ *
+ * Strategy:
+ *   1. Score each author by how many of their `expertise` keywords appear
+ *      in the haystack (category + title/keywords/id) — case-insensitive
+ *      substring match. Highest score wins.
+ *   2. On a tie or zero matches, fall back to a deterministic bucket using
+ *      `articleId` (FNV-style hash mod authors.length) so the same article
+ *      always gets the same author across re-runs, while still spreading
+ *      bylines across the team for generic content.
+ *
+ * Returns `{ slug, name, linkedinUrl }` — never `null`.
+ */
+function pickAuthorForTopic(articleSection, articleId) {
+  const haystack = String(articleSection || '').toLowerCase();
+  const scored = AUTHORS.map((author) => {
+    const score = author.expertise.reduce((acc, kw) => {
+      return acc + (haystack.includes(kw) ? 1 : 0);
+    }, 0);
+    return { author, score };
+  });
+  const maxScore = scored.reduce((m, s) => (s.score > m ? s.score : m), 0);
+  if (maxScore > 0) {
+    const winners = scored.filter((s) => s.score === maxScore).map((s) => s.author);
+    if (winners.length === 1) {
+      const a = winners[0];
+      return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+    }
+    // Tied — pick deterministically by articleId hash if provided, else round-robin.
+    const idx = articleId
+      ? Math.abs(_hashString(String(articleId))) % winners.length
+      : _authorRoundRobinIdx++ % winners.length;
+    const a = winners[idx];
+    return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+  }
+  // No keyword match — deterministic round-robin keyed by articleId.
+  const idx = articleId
+    ? Math.abs(_hashString(String(articleId))) % AUTHORS.length
+    : _authorRoundRobinIdx++ % AUTHORS.length;
+  const a = AUTHORS[idx];
+  return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+}
+
+/** Tiny FNV-1a-ish hash for stable author bucketing. Not cryptographic. */
+function _hashString(s) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h | 0;
+}
+
 const SOURCE_QUOTA_FILE = 'data/article-source-quotas.json';
 const SOURCE_URLS_FILE = 'data/article-source-urls.json';
 const CREATE_ARTICLE_REPORT_FILE = process.env.CREATE_ARTICLE_REPORT_FILE || '.tmp/create-article-run-report.json';
@@ -2194,6 +2352,19 @@ REGOLE FINALI:
 - Count your words before finalizing. If the total is <${minItalianWords}, ADD more content.
 ${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttemptMax}: previous attempt was REJECTED because it was only ~${sourceContext?._previousWordCount || '???'} words (minimum: ${minItalianWords}). You MUST write SIGNIFICANTLY MORE this time. Each body: 350-450 words.${generationAttempt >= 4 ? ' Include: comparison tables, step-by-step guides with numbered steps, specific examples with real numbers. Do NOT put FAQ in body text.' : ''}` : ''}`;
 
+  // A5 headline refinement: when the previous attempt produced a non-conformant
+  // headline (clickbait, too long, leading digit, etc.) we inject explicit rules
+  // into the prompt so the model has a concrete target.
+  const headlineRefinementInstruction = sourceContext?._headlineRefinement
+    ? `\n\nHEADLINE REQUIREMENTS (Google News compliance — STRICTLY ENFORCED):
+- title length: 10–110 characters (target 50–60 characters)
+- title word count: 2–22 whitespace-separated tokens
+- title MUST NOT start with a digit
+- title MUST NOT contain clickbait language (Italian: "non crederai", "scioccante", "incredibile", "sconvolgente", "clamoroso", "pazzesco"; English: "you won't believe", "shocking", "mind-blowing", "this one weird trick")
+- title MUST NOT end with multiple "?" or "!" (no "???", "!!", "!!!", etc.)
+- ⚠️ PREVIOUS ATTEMPT WAS REJECTED: ${sourceContext._headlineRefinement}. Rewrite the IT title and seo.headline so both are journalistic, specific, factual, and pass the rules above.`
+    : '';
+
   // ── Multi-call generation with automatic model fallback ──
   // Supports model override via sourceContext._forceModel and temperature via sourceContext._temperature
   const forceModel = sourceContext?._forceModel;
@@ -2223,7 +2394,7 @@ REGOLA FONDAMENTALE: Ogni fatto, dato, legge, data, cifra e istituzione nel tuo 
 QUANDO LA FONTE NON CONTIENE UN DATO: scrivi "non ancora specificato", "in fase di definizione", o ometti il dettaglio. NON inventare numeri, date o riferimenti normativi per riempire il testo.
 
 Rispondi SOLO con JSON valido, senza markdown.` },
-    { role: 'user', content: prompt + minWordsInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.${primaryLocale} (title, excerpt, body1, body2, body3, faq), seo.\n${otherLocalesNote}` }
+    { role: 'user', content: prompt + minWordsInstruction + headlineRefinementInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.${primaryLocale} (title, excerpt, body1, body2, body3, faq), seo.\n${otherLocalesNote}` }
   ];
 
   let itRaw;
@@ -2699,30 +2870,80 @@ ${terminologyByLang[targetLang] || ''}`;
   console.error(`  ✅ Articolo assemblato — ${Object.keys(data.content).length} lingue`);
 }
 
-// ── Anti-clickbait title validation (Google Discover compliance) ──
-
-const CLICKBAIT_PATTERNS = [
-  { re: /\b(shock|clamoroso|incredibile|ecco perch[eé]|tutto cambia|scopri cosa|non crederai|assurdo|pazzesco)\b/i, label: 'sensational_word' },
-  { re: /\b(segreto|trucco|metodo che|svela|rivela il)\b/i, label: 'curiosity_gap' },
-  { re: /^\s*[A-ZÀ-Ú\s!]{10,}\s*:/, label: 'all_caps_prefix' },
-  { re: /\?$/, label: 'rhetorical_question' },
-  { re: /\.{3}$/, label: 'trailing_ellipsis' },
-  { re: /\b(ecco cosa|ecco come|ecco quando|ecco chi)\b/i, label: 'ecco_pattern' },
-];
-
 /**
  * Validate a title against clickbait patterns. Returns { valid, reason } where
  * reason is the label of the first matching pattern (or null if valid).
  */
 function validateTitle(title) {
   if (!title) return { valid: false, reason: 'empty' };
-  for (const { re, label } of CLICKBAIT_PATTERNS) {
+  for (const re of CLICKBAIT_PATTERNS) {
     if (re.test(title)) {
-      console.warn(`  ⚠️ [anti-clickbait] Titolo sospetto: "${title}" — pattern: ${label}`);
-      return { valid: false, reason: label };
+      console.warn(`  ⚠️ [anti-clickbait] Titolo sospetto: "${title}"`);
+      return { valid: false, reason: 'clickbait_pattern' };
     }
   }
   return { valid: true, reason: null };
+}
+
+// ──────────────────────────────────────────────────────────────────────────
+// A5 — Headline validation (Google News compliance)
+//
+// Stricter, BLOCKING gate complementary to the legacy `validateTitle`
+// (which is a non-blocking Google-Discover anti-clickbait check). The A5
+// validator enforces:
+//
+//  - Length 10-110 characters
+//  - 2-22 whitespace-separated tokens
+//  - Must NOT start with a digit
+//  - Must NOT match any clickbait pattern from A5_CLICKBAIT_PATTERNS
+//    (Italian + English variants).
+//
+// Returns an array of human-readable error strings (empty = pass).
+//
+// Spec: docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 FASE 1 A5.
+// Tests: tests/blog-headline-validation.test.ts.
+// ──────────────────────────────────────────────────────────────────────────
+
+export const A5_CLICKBAIT_PATTERNS = [
+  // Italian
+  /non\s+crederai/i,
+  /scioccante/i,
+  /incredibile/i,
+  /sconvolgente/i,
+  /ti\s+lascer[àa]\s+senza\s+parole/i,
+  /clamoroso/i,
+  /pazzesco/i,
+  /\bspoiler\b/i,
+  /quello\s+che\s+(non\s+)?sai/i,
+  /ecco\s+(perch[ée]|cosa)\s+non\s+(crederai|immagini)/i,
+  // English
+  /you\s+won['’]?t\s+believe/i,
+  /shocking/i,
+  /mind[-\s]?blowing/i,
+  /this\s+one\s+(weird\s+)?trick/i,
+  // Punctuation tells (clickbait stubs)
+  /\?\?\?$/,
+  /!{2,}$/,
+];
+
+/**
+ * @param {string} headline
+ * @returns {string[]} Array of error messages (empty = pass).
+ */
+export function validateHeadline(headline) {
+  const errs = [];
+  if (typeof headline !== 'string' || headline.length === 0) {
+    return ['Headline mancante o non stringa'];
+  }
+  if (headline.length < 10) errs.push('Headline troppo corto (min 10 char)');
+  if (headline.length > 110) errs.push('Headline troppo lungo (max 110 char)');
+  const wc = headline.trim().split(/\s+/).filter(Boolean).length;
+  if (wc < 2 || wc > 22) errs.push(`Headline ${wc} parole, range 2-22`);
+  if (/^\d/.test(headline.trim())) errs.push('Headline non deve iniziare con numero');
+  if (A5_CLICKBAIT_PATTERNS.some((p) => p.test(headline))) {
+    errs.push('Pattern clickbait rilevato');
+  }
+  return errs;
 }
 
 // ── Step 3: Validate Gemini response ────────────────────────
@@ -4431,15 +4652,23 @@ function modifyBlogArticlesTsx(data) {
   // Object-level indent is one level less (or same if single-space)
   const objIndent = propIndent.length > 1 ? propIndent.slice(0, -1) : propIndent;
 
-  const newEntry = [
+  const entryLines = [
     `${objIndent}{`,
     `${propIndent}id: '${data.id}',`,
     `${propIndent}category: '${data.category}',`,
     `${propIndent}date: '${today}',`,
     `${propIndent}image: '${imagePath}',`,
     `${propIndent}hasCalculator: ${data.hasCalculator ? 'true' : 'false'},`,
-    `${objIndent}},`,
-  ].join('\n');
+  ];
+  // A2: persist byline so BlogArticles.tsx can render an author link.
+  if (data.author?.slug) {
+    entryLines.push(`${propIndent}authorSlug: '${escapeForSingleQuoteTS(data.author.slug)}',`);
+  }
+  if (data.author?.name) {
+    entryLines.push(`${propIndent}authorName: '${escapeForSingleQuoteTS(data.author.name)}',`);
+  }
+  entryLines.push(`${objIndent}},`);
+  const newEntry = entryLines.join('\n');
 
   // Insert before the array terminator. Handles both bare `];` and the
   // typed variant `] satisfies Article[];` (FRO-328+ type annotation).
@@ -4605,7 +4834,12 @@ function modifySeoService(data) {
       "datePublished": "${publishedAt}",
       "dateModified": "${modifiedAt}",
       "inLanguage": "it",
-      "author": {"@id": "${BASE_URL}/#organization"},
+      "author": {
+        "@type": "Person",
+        "@id": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/#person",
+        "name": "${String(data.author?.name || 'Redazione Frontaliere Ticino').replace(/"/g, '\\"')}",
+        "url": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/"
+      },
       "publisher": {"@id": "${BASE_URL}/#organization"},
       "mainEntityOfPage": \`\${BASE_URL}/articoli-frontaliere/${data.slugs.it}\`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
@@ -4820,6 +5054,16 @@ function modifySitemap(data) {
 
 function modifySitemapNews(data) {
   const file = 'public/sitemap-news.xml';
+
+  // C1 — Google News topic whitelist gate (see data/news-sitemap-whitelist.ts).
+  // Off-topic articles (sport, cultura, infrastruttura non-frontaliera, ecc.)
+  // stay in sitemap-blog.xml but never enter sitemap-news.xml. This boosts
+  // topical authority for the 5+1 macro-themes Google News rewards.
+  if (!isArticleEligibleForNewsSitemap(data)) {
+    console.error(`  ⏭️  ${file} — skipped (article off-topic for news whitelist)`);
+    return;
+  }
+
   let src = read(file);
   const now = new Date().toISOString();
   const today = now.slice(0, 10);
@@ -5161,6 +5405,16 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // Rotates through GPT-4o → GPT-4o-mini → Gemini with escalating prompts
   let data = null;
   let lastWordCount = 0;
+
+  // A5 headline retry budget — spec: retry once with a refined prompt, then
+  // hard-fail. We track this OUTSIDE the per-attempt loop so the budget
+  // survives across the existing model-rotation retries used for min-word
+  // failures (those use up to CREATE_ARTICLE_MIN_WORDS_RETRIES attempts; we
+  // don't want the headline check to silently consume more than one of them).
+  let headlineRetryBudget = 1;
+  /** @type {string|null} */
+  let lastHeadlineErrors = null;
+
   for (let attempt = 1; attempt <= CREATE_ARTICLE_MIN_WORDS_RETRIES; attempt++) {
     const modelSlot = MIN_WORDS_MODEL_ROTATION[Math.min(attempt - 1, MIN_WORDS_MODEL_ROTATION.length - 1)];
     const useGeminiDirect = modelSlot === 'gemini';
@@ -5179,6 +5433,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       _previousWordCount: lastWordCount || undefined,
       _forceModel: useGeminiDirect ? 'gemini' : modelSlot,
       _temperature: tempBoost,
+      // A5: surface the headline error from the previous iteration so the
+      // refined prompt block in callGemini knows what to ask the model to fix.
+      _headlineRefinement: lastHeadlineErrors || undefined,
     };
 
     let rawData;
@@ -5202,6 +5459,88 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       throw validationErr;
     }
     optimizeSeoMetadata(data);
+
+    // Step 3a.0-headline: Google News compliance — A5
+    //
+    // Validate the IT title (which becomes both the JSON-LD `headline` and
+    // the rendered <h1>) and the persisted `seo.headline`. Both fields are
+    // checked; on failure we use up to one refinement retry and then hard-fail
+    // the run, per CLAUDE.md non-negotiable rule #1 (never silently publish a
+    // non-conformant article).
+    //
+    // Sync invariant (also enforced here): `seo.headline` MUST equal
+    // `content.it.title`. If a previous step diverged them, we re-align here
+    // so the <title>/<h1>/<headline> trio is consistent for Google News.
+    {
+      const itTitle = String(data.content?.it?.title || '').trim();
+      const seoHeadline = String(data.seo?.headline || '').trim();
+
+      // Re-align headline → it.title before validating, so a single failure
+      // surfaces both fields rather than two duplicate failures.
+      if (data.seo && itTitle && seoHeadline !== itTitle) {
+        console.error(`  🔁 Sync seo.headline ⇐ content.it.title ("${seoHeadline}" → "${itTitle}")`);
+        data.seo.headline = itTitle;
+      }
+
+      const headlineErrors = validateHeadline(itTitle);
+      if (headlineErrors.length > 0) {
+        const summary = headlineErrors.join('; ');
+        console.error(`  ⚠️  Headline non conforme: "${itTitle}" — ${summary}`);
+
+        if (headlineRetryBudget > 0 && attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
+          headlineRetryBudget -= 1;
+          lastHeadlineErrors = summary;
+          console.error(`  🔄 Rigenero con prompt rifinito (budget headline residuo: ${headlineRetryBudget})...`);
+          continue;
+        }
+
+        // Budget exhausted — hard-fail the run rather than publish a
+        // non-conformant article. Per CLAUDE.md rule #1: never lower
+        // validation thresholds as a workaround.
+        throw new Error(
+          `Headline validation failed after retry. ` +
+          `Title: "${itTitle}" — Errors: ${summary}`,
+        );
+      }
+
+      // Step 3a.0-titlesync: ensure <title> ↔ <h1> sync.
+      //
+      // The rendered <h1> is `t('blog.article.{id}.title')` which mirrors
+      // `content.it.title`. The <title> meta is `data.seo.title` (which may
+      // get the brand suffix " | Frontaliere Ticino" appended by
+      // optimizeSeoMetadata). We verify the *core* of seo.title — i.e.
+      // seo.title with the suffix stripped — matches it.title byte-for-byte.
+      const TITLE_SUFFIX = ' | Frontaliere Ticino';
+      const seoTitleCore = String(data.seo?.title || '')
+        .replace(/\s*\|\s*Frontaliere\s+Ticino\s*$/i, '')
+        .trim();
+      if (seoTitleCore !== itTitle) {
+        // Fix it: the canonical source is content.it.title (it's what becomes
+        // the H1; we treat it as ground truth). Rebuild seo.title with suffix
+        // if it fits the 70-char cap, otherwise without.
+        const TITLE_MAX_CHARS = 70;
+        const candidate = `${itTitle}${TITLE_SUFFIX}`;
+        const newSeoTitle = candidate.length <= TITLE_MAX_CHARS ? candidate : itTitle;
+        console.error(`  🔁 Sync seo.title ⇐ content.it.title ("${seoTitleCore}" → "${itTitle}")`);
+        if (!data.seo) data.seo = {};
+        data.seo.title = newSeoTitle;
+      }
+    }
+
+    // Step 3a.0-pre: Assign byline author from the registry. Topic-based when
+    // category/keywords match an author's expertise; otherwise deterministic
+    // hash on data.id so the same article always picks the same author.
+    {
+      const sectionHaystack = [
+        data.category || '',
+        data.seo?.keywords || '',
+        data.seo?.headline || '',
+        data.content?.it?.title || '',
+        data.id || '',
+      ].join(' ');
+      data.author = pickAuthorForTopic(sectionHaystack, data.id);
+      console.error(`  ✍️  Byline assegnata: ${data.author.name} (${data.author.slug})`);
+    }
 
     // Step 3a.0: Sanitize bold on IT content
     console.error('✂️  Sanitizzazione grassetto (IT):');
@@ -5515,6 +5854,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   RUN_REPORT.article.id = data.id;
   RUN_REPORT.article.url = `${BASE_URL}/articoli-frontaliere/${data.id}/`;
   RUN_REPORT.article.sourceDomain = sourceDomain || null;
+  RUN_REPORT.article.title = data.content?.it?.title || null;
+  RUN_REPORT.article.authorSlug = data.author?.slug || null;
+  RUN_REPORT.article.authorName = data.author?.name || null;
 
   // Write GitHub Actions outputs for downstream steps (Facebook posting, etc.)
   // Always use data.id (not data.slugs.it) — the router key is the article ID.
@@ -5538,6 +5880,19 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     appendFileSync(ghOutput, `og_description=${data.seo.ogDescription}\n`);
     appendFileSync(ghOutput, `og_image=${BASE_URL}/${ogImagePath}\n`);
     appendFileSync(ghOutput, `category=${data.category}\n`);
+    // Author byline metadata (A2): used by the commit step to write a
+    // descriptive `feat(article): <title>` message + Reviewed-by trailer.
+    if (data.author?.slug) {
+      appendFileSync(ghOutput, `author_slug=${data.author.slug}\n`);
+    }
+    if (data.author?.name) {
+      // Strip newlines defensively — author names should never contain them.
+      appendFileSync(ghOutput, `author_name=${String(data.author.name).replace(/\r?\n/g, ' ')}\n`);
+    }
+    if (data.content?.it?.title) {
+      // Single-line title for commit subject. Strip newlines.
+      appendFileSync(ghOutput, `article_title=${String(data.content.it.title).replace(/\r?\n/g, ' ')}\n`);
+    }
     appendFileSync(ghOutput, `create_article_report=${CREATE_ARTICLE_REPORT_FILE}\n`);
     console.error('   📤 GitHub Actions outputs written');
   }

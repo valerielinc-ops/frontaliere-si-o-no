@@ -162,7 +162,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'tassazione-hub';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -619,6 +619,8 @@ export interface AppRoute {
  hash?: string;
  /** Salary Hub slug — pre-computed scenario page loaded from static HTML, routed to calculator tab. */
  salaryHubSlug?: string;
+ /** Author profile slug when activeTab === 'autore' (e.g. /autori/marco-ferrari/). */
+ author?: string;
  /**
   * When true, this route was matched against a build-time static SEO page
   * (fuel-daily, weekly-employers, job-market-snapshot, health-premiums,
@@ -752,6 +754,10 @@ interface SlugTable {
  admin: string;
  // About / Chi Siamo page (E-E-A-T)
  chiSiamo: string;
+ // Public corrections policy + log (Google News compliance B1)
+ correzioni: string;
+ // Editorial methodology page (Google News compliance — A3)
+ metodologia: string;
  // Trade unions guide
  sindacati: string;
  // Definitive guide page (SEO pillar content)
@@ -860,6 +866,8 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  newsletterPreferences: 'preferenze-newsletter',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'chi-siamo',
+ correzioni: 'correzioni',
+ metodologia: 'metodologia',
  costs: 'costi-pendolarismo',
  salarySurvey: 'sondaggio-stipendi',
  comparatori: 'comparatori',
@@ -956,6 +964,8 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  newsletterPreferences: 'newsletter-preferences',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'about-us',
+ correzioni: 'corrections',
+ metodologia: 'methodology',
  sindacati: 'trade-unions-cross-border-workers',
  guidaCompleta: 'complete-guide-cross-border-work-switzerland-2026',
  tassazioneHub: 'cross-border-taxation-guide-2026',
@@ -1055,6 +1065,8 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  newsletterPreferences: 'newsletter-einstellungen',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'ueber-uns',
+ correzioni: 'korrekturen',
+ metodologia: 'methodik',
  sindacati: 'gewerkschaften-grenzgaenger',
  guidaCompleta: 'komplettanleitung-grenzgaenger-arbeit-schweiz-2026',
  tassazioneHub: 'grenzgaenger-besteuerung-leitfaden-2026',
@@ -1154,6 +1166,8 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  newsletterPreferences: 'preferences-newsletter',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'a-propos',
+ correzioni: 'corrections',
+ metodologia: 'methodologie',
  sindacati: 'syndicats-frontaliers',
  guidaCompleta: 'guide-complet-travail-frontalier-suisse-2026',
  tassazioneHub: 'guide-imposition-frontaliers-2026',
@@ -1607,6 +1621,8 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.privacy]: { tab: 'privacy' },
  [table.terms]: { tab: 'terms' },
  [table.chiSiamo]: { tab: 'chi-siamo' },
+ [table.correzioni]: { tab: 'correzioni' },
+ [table.metodologia]: { tab: 'metodologia' },
  [table.dataDeletion]: { tab: 'data-deletion' },
  [table.apiStatus]: { tab: 'api-status' },
  [table.newsletter]: { tab: 'feedback' },
@@ -2521,6 +2537,10 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.terms}${hashSuffix}`);
  case 'chi-siamo':
  return finish(`${prefix}/${table.chiSiamo}${hashSuffix}`);
+ case 'correzioni':
+ return finish(`${prefix}/${table.correzioni}${hashSuffix}`);
+ case 'metodologia':
+ return finish(`${prefix}/${table.metodologia}${hashSuffix}`);
  case 'sindacati':
  return finish(`${prefix}/${table.sindacati}${hashSuffix}`);
  case 'tassazione-hub':

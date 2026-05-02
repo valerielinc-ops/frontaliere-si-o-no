@@ -1,6 +1,7 @@
 import React from 'react';
-import { Users, BookOpen, Shield, Globe, ArrowLeft, CheckCircle2, Newspaper, BarChart3, FileSearch } from 'lucide-react';
+import { Users, BookOpen, Shield, Globe, ArrowLeft, CheckCircle2, Newspaper, BarChart3, FileSearch, UserCircle, DollarSign, Award, Mail, Linkedin, ExternalLink } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
+import { AUTHORS } from '@/data/authors';
 
 /**
  * ChiSiamo — /chi-siamo/ About page.
@@ -142,6 +143,39 @@ export const ChiSiamo: React.FC = () => {
  </div>
  </Section>
 
+ {/* Editorial Team — links to author profile pages (Google News A1 / E-E-A-T) */}
+ <Section icon={UserCircle} title="Redazione e firme">
+ <p>
+ Le firme editoriali di Frontaliere Ticino. Ogni articolo è attribuito a un
+ autore con responsabilità sui contenuti pubblicati.
+ </p>
+ <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+ {AUTHORS.map((author) => (
+ <li key={author.slug}>
+ <a
+ href={`/autori/${author.slug}/`}
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('autore' as any, author.slug); }}
+ className="flex items-center gap-3 p-3 rounded-xl bg-info/10 hover:bg-info/20 transition-colors no-underline"
+ >
+ <img
+ src={author.photoPath}
+ alt={`Foto di ${author.name}`}
+ width={48}
+ height={48}
+ loading="lazy"
+ decoding="async"
+ className="w-12 h-12 rounded-full object-cover border border-edge shrink-0"
+ />
+ <span className="min-w-0">
+ <span className="block text-sm font-semibold text-strong truncate">{author.name}</span>
+ <span className="block text-xs text-muted truncate">{author.role}</span>
+ </span>
+ </a>
+ </li>
+ ))}
+ </ul>
+ </Section>
+
  {/* Privacy & Trust */}
  <Section icon={Shield} title="Privacy e trasparenza">
  <p>
@@ -156,19 +190,211 @@ export const ChiSiamo: React.FC = () => {
  </p>
  </Section>
 
- {/* Contact */}
- <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
- <h2 className="text-lg font-bold font-display text-strong mb-3">Contatti</h2>
- <p className="text-sm text-subtle">
- Per segnalazioni, correzioni o collaborazioni editoriali:
+ {/* B2 — Funding & editorial independence (Google News transparency) */}
+ <section id="finanziamento" className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm scroll-mt-24">
+ <div className="flex items-center gap-3 mb-4">
+ <DollarSign size={20} className="text-accent" />
+ <h2 className="text-lg font-bold font-display text-strong">Finanziamento e Indipendenza Editoriale</h2>
+ </div>
+ <div className="text-sm text-subtle leading-relaxed">
+ <ul className="space-y-2">
+ <BulletItem>
+ Il sito è finanziato tramite pubblicità contestuale (Google AdSense).
+ </BulletItem>
+ <BulletItem>
+ Non riceviamo compensi da banche, casse malati, datori di lavoro o
+ istituzioni citati negli articoli.
+ </BulletItem>
+ <BulletItem>
+ Nessun contenuto sponsorizzato: gli articoli redazionali non sono mai
+ pubblicità mascherata. Se in futuro venissero pubblicati contenuti
+ sponsorizzati, sarebbero chiaramente etichettati.
+ </BulletItem>
+ <BulletItem>
+ La redazione è editorialmente indipendente dagli inserzionisti.
+ </BulletItem>
+ </ul>
+ <p className="mt-4">
+ <a
+ href="https://policies.google.com/technologies/ads"
+ target="_blank"
+ rel="noopener noreferrer"
+ className="inline-flex items-center gap-1 text-accent hover:underline font-medium"
+ >
+ Politica pubblicitaria AdSense
+ <ExternalLink size={12} aria-hidden="true" />
+ </a>
  </p>
- <p className="mt-2 text-sm font-medium text-accent">
+ </div>
+ </section>
+
+ {/* B2 — Editorial standards (Google News transparency) */}
+ <section id="standard-giornalistici" className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm scroll-mt-24">
+ <div className="flex items-center gap-3 mb-4">
+ <Award size={20} className="text-accent" />
+ <h2 className="text-lg font-bold font-display text-strong">I Nostri Standard Giornalistici</h2>
+ </div>
+ <div className="text-sm text-subtle leading-relaxed">
+ <ul className="space-y-2">
+ <BulletItem>
+ <strong>Accuratezza</strong>: ogni affermazione factuale deve essere
+ supportata da fonti verificabili.
+ </BulletItem>
+ <BulletItem>
+ <strong>Fact-checking</strong>: usiamo fonti primarie (AFC, UST, USTAT,
+ Gazzetta Ufficiale, comunicati stampa istituzionali).
+ </BulletItem>
+ <BulletItem>
+ <strong>Separazione fatti/opinioni</strong>: le analisi e i commenti
+ sono chiaramente distinti dai fatti.
+ </BulletItem>
+ <BulletItem>
+ <strong>Attribuzioni</strong>: le dichiarazioni di persone o istituzioni
+ sono sempre attribuite alla fonte originale.
+ </BulletItem>
+ <BulletItem>
+ <strong>Uso dell'IA</strong>: utilizziamo strumenti di IA generativa per
+ bozze iniziali; ogni articolo è revisionato dalla redazione. Vedi la
+ nostra{' '}
+ <a
+ href="/metodologia/"
+ className="text-accent hover:underline font-medium"
+ >
+ Metodologia
+ </a>
+ .
+ </BulletItem>
+ <BulletItem>
+ <strong>Correzioni</strong>: gli errori vengono corretti tempestivamente
+ e tracciati nel{' '}
+ <a
+ href="/correzioni/"
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('correzioni' as any); }}
+ className="text-accent hover:underline font-medium"
+ >
+ registro pubblico delle correzioni
+ </a>
+ .
+ </BulletItem>
+ </ul>
+ </div>
+ </section>
+
+ {/* B2 — Editorial team cards (Google News masthead) */}
+ <section id="team" className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm scroll-mt-24">
+ <div className="flex items-center gap-3 mb-4">
+ <Users size={20} className="text-accent" />
+ <h2 className="text-lg font-bold font-display text-strong">Il Team Editoriale</h2>
+ </div>
+ <div className="text-sm text-subtle leading-relaxed">
+ <p className="mb-4">
+ Le firme responsabili dei contenuti pubblicati su Frontaliere Ticino. Ogni
+ autore ha una pagina dedicata con biografia, area di competenza e
+ cronologia degli articoli firmati.
+ </p>
+ <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+ {AUTHORS.map((author) => (
+ <li
+ key={author.slug}
+ className="flex items-start gap-3 p-3 rounded-xl bg-surface-alt border border-edge"
+ >
+ <a
+ href={`/autori/${author.slug}/`}
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('autore' as any, author.slug); }}
+ className="shrink-0"
+ aria-label={`Pagina autore di ${author.name}`}
+ >
+ <img
+ src={author.photoPath}
+ alt={`Foto di ${author.name}`}
+ width={64}
+ height={64}
+ loading="lazy"
+ decoding="async"
+ className="w-16 h-16 rounded-full object-cover border border-edge"
+ />
+ </a>
+ <div className="min-w-0 flex-1">
+ <a
+ href={`/autori/${author.slug}/`}
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('autore' as any, author.slug); }}
+ className="block text-sm font-semibold text-strong hover:text-accent transition-colors no-underline"
+ >
+ {author.name}
+ </a>
+ <p className="text-xs text-muted mt-0.5">{author.role}</p>
+ {author.social.linkedin && (
+ <a
+ href={author.social.linkedin}
+ target="_blank"
+ rel="noopener noreferrer"
+ className="mt-2 inline-flex items-center gap-1 text-xs text-accent hover:underline"
+ aria-label={`Profilo LinkedIn di ${author.name}`}
+ >
+ <Linkedin size={12} aria-hidden="true" />
+ LinkedIn
+ </a>
+ )}
+ </div>
+ </li>
+ ))}
+ </ul>
+ </div>
+ </section>
+
+ {/* B2 — Contacts & reports (Google News transparency) */}
+ <section id="contatti" className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm scroll-mt-24">
+ <div className="flex items-center gap-3 mb-4">
+ <Mail size={20} className="text-accent" />
+ <h2 className="text-lg font-bold font-display text-strong">Contatti e Segnalazioni</h2>
+ </div>
+ <div className="text-sm text-subtle leading-relaxed">
+ <ul className="space-y-2">
+ <BulletItem>
+ <strong>Per correzioni</strong>:{' '}
+ <a
+ href="mailto:redazione@frontaliereticino.ch"
+ className="text-accent hover:underline font-medium"
+ >
  redazione@frontaliereticino.ch
- </p>
- <p className="mt-1 text-xs text-muted">
+ </a>{' '}
+ o la pagina{' '}
+ <a
+ href="/correzioni/"
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('correzioni' as any); }}
+ className="text-accent hover:underline font-medium"
+ >
+ /correzioni/
+ </a>
+ .
+ </BulletItem>
+ <BulletItem>
+ <strong>Per domande editoriali</strong>:{' '}
+ <a
+ href="mailto:redazione@frontaliereticino.ch"
+ className="text-accent hover:underline font-medium"
+ >
+ redazione@frontaliereticino.ch
+ </a>
+ .
+ </BulletItem>
+ <BulletItem>
+ <strong>Per segnalazioni urgenti</strong>: usiamo il processo descritto
+ nella{' '}
+ <a
+ href="/metodologia/"
+ className="text-accent hover:underline font-medium"
+ >
+ Metodologia
+ </a>
+ .
+ </BulletItem>
+ </ul>
+ <p className="mt-4 text-xs text-muted">
  Frontaliere Ticino · Ticino, Svizzera · Fondata nel 2024
  </p>
  </div>
+ </section>
  </div>
  </div>
  );

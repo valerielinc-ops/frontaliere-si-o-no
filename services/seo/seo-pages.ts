@@ -70,7 +70,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  {
  "@context": "https://schema.org",
- "@type": "Organization",
+ "@type": "NewsMediaOrganization",
  "@id": "https://frontaliereticino.ch/#organization",
  "name": "Frontaliere Ticino",
  "url": BASE_URL,
@@ -104,7 +104,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "CHF EUR exchange rates",
  "Permit G Permit B",
  "Canton Ticino employment"
- ]
+ ],
+ "correctionsPolicy": `${BASE_URL}/correzioni/`,
+ "ethicsPolicy": `${BASE_URL}/chi-siamo/#standard-giornalistici`,
+ "ownershipFundingInfo": `${BASE_URL}/chi-siamo/#finanziamento`,
+ "masthead": `${BASE_URL}/chi-siamo/#team`,
+ "verificationFactCheckingPolicy": `${BASE_URL}/metodologia/#fact-checking`
  },
  {
  "@context": "https://schema.org",
@@ -8153,7 +8158,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  {
  "@context": "https://schema.org",
- "@type": "Organization",
+ "@type": "NewsMediaOrganization",
  "@id": `${BASE_URL}/#organization`,
  "name": "Frontaliere Ticino",
  "url": BASE_URL,
@@ -8170,7 +8175,63 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "Assicurazione malattia LAMal/CMB",
  "Permesso G e permesso B",
  "Mercato del lavoro Ticino"
- ]
+ ],
+ "correctionsPolicy": `${BASE_URL}/correzioni/`,
+ "ethicsPolicy": `${BASE_URL}/chi-siamo/#standard-giornalistici`,
+ "ownershipFundingInfo": `${BASE_URL}/chi-siamo/#finanziamento`,
+ "masthead": `${BASE_URL}/chi-siamo/#team`,
+ "verificationFactCheckingPolicy": `${BASE_URL}/metodologia/#fact-checking`
+ }
+ ],
+ },
+
+ 'correzioni': {
+ title: 'Correzioni — Politica di rettifica e registro pubblico | Frontaliere Ticino',
+ description: 'Politica di correzione di Frontaliere Ticino: SLA 48 ore, tipologie accettate (errore fattuale, refuso, chiarimento) e registro pubblico cronologico delle rettifiche.',
+ keywords: 'correzioni frontaliere ticino, errata corrige, rettifica articolo, policy correzione, trasparenza editoriale',
+ ogTitle: 'Correzioni — Politica di rettifica e registro pubblico',
+ ogDescription: 'Come segnaliamo e registriamo le correzioni: SLA 48 ore, tipologie accettate, registro pubblico cronologico.',
+ canonicalPath: '/correzioni',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Correzioni — Frontaliere Ticino",
+ "url": `${BASE_URL}/correzioni/`,
+ "description": "Politica di correzione pubblica e registro cronologico delle rettifiche pubblicate da Frontaliere Ticino.",
+ "inLanguage": "it",
+ "isPartOf": { "@id": `${BASE_URL}/#website` },
+ "publisher": { "@id": `${BASE_URL}/#organization` },
+ "about": {
+ "@type": "CreativeWork",
+ "name": "Editorial corrections policy"
+ }
+ }
+ ],
+ },
+
+ 'metodologia': {
+ title: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
+ description: "Pipeline editoriale di Frontaliere Ticino: bozze assistite da IA, revisione redazionale, fonti primarie (AFC, UST, Agenzia delle Entrate), politica di aggiornamento e correzioni.",
+ keywords: 'metodologia editoriale, intelligenza artificiale giornalismo, frontaliere ticino, fonti primarie, fact checking, politica correzioni, trasparenza editoriale',
+ ogTitle: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
+ ogDescription: 'Come usiamo IA generativa, fonti primarie e revisione redazionale per garantire accuratezza e trasparenza.',
+ canonicalPath: '/metodologia',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Metodologia editoriale — Come scriviamo gli articoli",
+ "url": `${BASE_URL}/metodologia/`,
+ "description": "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
+ "lastReviewed": BUILD_DATE_ISO.slice(0, 10),
+ "inLanguage": "it",
+ "isPartOf": { "@id": `${BASE_URL}/#website` },
+ "about": {
+ "@type": "CreativeWork",
+ "name": "Editorial methodology and AI-assistance disclosure"
+ },
+ "publisher": { "@id": `${BASE_URL}/#organization` }
  }
  ],
  },
@@ -8982,6 +9043,129 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  }
  ]
  },
+
+  // ─── Author profile pages (Google News A1 — E-E-A-T) ─────────────────────
+  // Each /autori/{slug}/ page renders the AutorePage component, with inline
+  // Person JSON-LD generated at runtime by services/seo/seo-authors.ts. The
+  // duplicate JSON-LD here lets the staticPagesPlugin embed the same schema
+  // into the build-time HTML so crawlers see it without executing JS.
+  // NOTE: blank line above is REQUIRED — see staticPagesPlugin parser regex.
+
+  'autore-marco-ferrari': {
+    title: 'Marco Ferrari — Esperto fiscalità frontaliera | Frontaliere Ticino',
+    description: "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri.",
+    keywords: 'marco ferrari, autore, fiscalità frontaliera, 730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026',
+    ogTitle: 'Marco Ferrari — Esperto fiscalità frontaliera',
+    ogDescription: 'Profilo dell\'autore Marco Ferrari su Frontaliere Ticino: 730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026.',
+    canonicalPath: '/autori/marco-ferrari',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Marco Ferrari — Frontaliere Ticino",
+        "url": `${BASE_URL}/autori/marco-ferrari/`,
+        "mainEntity": { "@id": `${BASE_URL}/autori/marco-ferrari/#person` },
+        "inLanguage": "it"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": `${BASE_URL}/autori/marco-ferrari/#person`,
+        "name": "Marco Ferrari",
+        "image": `${BASE_URL}/images/authors/marco-ferrari.jpg`,
+        "jobTitle": "Esperto fiscalità frontaliera",
+        "description": "Specialista in fiscalità transfrontaliera Italia-Svizzera, dichiarazione 730/Redditi PF, imposta alla fonte ticinese e nuovo accordo 2026.",
+        "url": `${BASE_URL}/autori/marco-ferrari/`,
+        "sameAs": ["https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/"],
+        "knowsAbout": [
+          "fiscalità frontaliera",
+          "730",
+          "dichiarazione redditi",
+          "imposta alla fonte",
+          "accordo Italia-Svizzera 2026"
+        ],
+        "worksFor": { "@id": `${BASE_URL}/#organization` },
+        "knowsLanguage": ["it", "en"]
+      }
+    ],
+  },
+
+  'autore-laura-bianchi': {
+    title: 'Laura Bianchi — Specialista previdenza svizzera | Frontaliere Ticino',
+    description: "Laura Bianchi è specialista in previdenza sociale svizzera (AVS, LPP, LAMal) applicata ai lavoratori frontalieri italiani in Canton Ticino.",
+    keywords: 'laura bianchi, autore, previdenza svizzera, AVS, LPP, LAMal, pensioni frontaliere, terzo pilastro',
+    ogTitle: 'Laura Bianchi — Specialista previdenza svizzera',
+    ogDescription: 'Profilo dell\'autrice Laura Bianchi su Frontaliere Ticino: AVS, LPP, LAMal, pensioni e assicurazioni sociali svizzere.',
+    canonicalPath: '/autori/laura-bianchi',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Laura Bianchi — Frontaliere Ticino",
+        "url": `${BASE_URL}/autori/laura-bianchi/`,
+        "mainEntity": { "@id": `${BASE_URL}/autori/laura-bianchi/#person` },
+        "inLanguage": "it"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": `${BASE_URL}/autori/laura-bianchi/#person`,
+        "name": "Laura Bianchi",
+        "image": `${BASE_URL}/images/authors/laura-bianchi.jpg`,
+        "jobTitle": "Specialista previdenza svizzera",
+        "description": "Specialista in previdenza sociale svizzera applicata ai frontalieri: AVS, LPP, LAMal, terzo pilastro 3a/3b.",
+        "url": `${BASE_URL}/autori/laura-bianchi/`,
+        "sameAs": ["https://www.linkedin.com/in/laura-bianchi-previdenza-svizzera/"],
+        "knowsAbout": [
+          "AVS",
+          "LPP",
+          "LAMal",
+          "pensioni",
+          "assicurazioni sociali svizzere"
+        ],
+        "worksFor": { "@id": `${BASE_URL}/#organization` },
+        "knowsLanguage": ["it", "en"]
+      }
+    ],
+  },
+
+  'autore-redazione': {
+    title: 'Redazione Frontaliere Ticino — Team editoriale | Frontaliere Ticino',
+    description: "La Redazione di Frontaliere Ticino: team editoriale dedicato a lavoro frontaliere, salari, trasporti transfrontalieri e dogana.",
+    keywords: 'redazione frontaliere ticino, team editoriale, lavoro frontaliere, salari ticino, trasporti transfrontalieri, dogana',
+    ogTitle: 'Redazione Frontaliere Ticino — Team editoriale',
+    ogDescription: 'La Redazione editoriale di Frontaliere Ticino: lavoro, salari, trasporti e dogana per i frontalieri italiani in Canton Ticino.',
+    canonicalPath: '/autori/redazione',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Redazione Frontaliere Ticino",
+        "url": `${BASE_URL}/autori/redazione/`,
+        "mainEntity": { "@id": `${BASE_URL}/autori/redazione/#person` },
+        "inLanguage": "it"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": `${BASE_URL}/autori/redazione/#person`,
+        "name": "Redazione Frontaliere Ticino",
+        "image": `${BASE_URL}/images/authors/redazione.jpg`,
+        "jobTitle": "Team editoriale",
+        "description": "Team editoriale di Frontaliere Ticino: copertura quotidiana di lavoro, salari, trasporti transfrontalieri e dogana per i frontalieri italiani in Ticino.",
+        "url": `${BASE_URL}/autori/redazione/`,
+        "sameAs": ["https://www.linkedin.com/company/frontaliere-ticino/"],
+        "knowsAbout": [
+          "lavoro frontaliere",
+          "salari",
+          "trasporti transfrontalieri",
+          "dogana"
+        ],
+        "worksFor": { "@id": `${BASE_URL}/#organization` },
+        "knowsLanguage": ["it", "en"]
+      }
+    ],
+  },
 
 };
 

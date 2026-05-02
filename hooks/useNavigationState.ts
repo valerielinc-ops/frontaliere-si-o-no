@@ -51,6 +51,8 @@ export interface NavigationState {
  glossaryTerm: GlossaryTermId | null;
  borderCrossing: BorderCrossingId | null;
  jobSlug: string | null;
+ /** Author profile slug when activeTab === 'autore' (Google News A1). */
+ author: string | null;
  taxReturnCountry: 'italia' | 'svizzera' | undefined;
  showApiStatus: boolean;
  notFoundPath: string | undefined;
@@ -76,6 +78,7 @@ export interface NavigationState {
  setGlossaryTerm: Dispatch<SetStateAction<GlossaryTermId | null>>;
  setBorderCrossing: Dispatch<SetStateAction<BorderCrossingId | null>>;
  setJobSlug: Dispatch<SetStateAction<string | null>>;
+ setAuthor: Dispatch<SetStateAction<string | null>>;
  setTaxReturnCountry: Dispatch<SetStateAction<'italia' | 'svizzera' | undefined>>;
  setShowApiStatus: Dispatch<SetStateAction<boolean>>;
  setNotFoundPath: Dispatch<SetStateAction<string | undefined>>;
@@ -108,6 +111,7 @@ export function useNavigationState(): NavigationState {
  const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
  const [borderCrossing, setBorderCrossing] = useState<BorderCrossingId | null>(initialRoute.route.borderCrossing || null);
  const [jobSlug, setJobSlug] = useState<string | null>(initialRoute.route.jobSlug || null);
+ const [author, setAuthor] = useState<string | null>(initialRoute.route.author || null);
  const [taxReturnCountry, setTaxReturnCountry] = useState<'italia' | 'svizzera' | undefined>(initialRoute.route.taxReturnCountry);
  const [showApiStatus, setShowApiStatus] = useState(false);
  const [notFoundPath, setNotFoundPath] = useState<string | undefined>(() => parsePath(window.location.pathname).notFoundPath);
@@ -224,6 +228,7 @@ export function useNavigationState(): NavigationState {
  setGlossaryTerm(route.glossaryTerm || null);
  setBorderCrossing(route.borderCrossing || null);
  setJobSlug(route.jobSlug || null);
+ setAuthor(route.author || null);
  setLocale(urlLocale);
  // Update SEO meta tags — use 404-specific noindex for unrecognized routes
  if (parsedNotFoundPath) {
@@ -433,6 +438,7 @@ export function useNavigationState(): NavigationState {
  if (tab !== 'calculator') setSeoLanding(null);
  if (tab !== 'glossario') setGlossaryTerm(null);
  if (tab !== 'job-board') setJobSlug(null);
+ if (tab !== 'autore') setAuthor(null);
  if (tab === 'blog') setBlogArticle(null);
 
  // Build route and push to history
@@ -698,13 +704,13 @@ export function useNavigationState(): NavigationState {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, statsSubTab,
  blogArticle, seoLanding, glossaryTerm, borderCrossing,
- jobSlug, taxReturnCountry, showApiStatus,
+ jobSlug, author, taxReturnCountry, showApiStatus,
  notFoundPath, jobBoardFilterParams, staticOverlay,
 
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
  setBlogArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
- setJobSlug, setTaxReturnCountry, setShowApiStatus,
+ setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams,
 
  suppressNextRouteSyncForTabRef,

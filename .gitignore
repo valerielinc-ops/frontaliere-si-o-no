@@ -38,6 +38,9 @@ google search console/
 # Analytics reports (generated locally via --save flag)
 reports/
 .tmp/
+
+# News sitemap cleanup audit logs (timestamped)
+data/news-sitemap-cleanup-*.json
 lighthouse-report.report.html
 lighthouse-report.report.json
 lighthouse-fresh.json
