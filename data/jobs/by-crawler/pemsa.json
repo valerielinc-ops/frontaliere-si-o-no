@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-05-02T10:17:43.200Z",
+  "assembledAt": "2026-05-02T22:00:59.662Z",
   "jobs": [
     {
       "title": "Intonacatore e Gessatore",
@@ -649,7 +649,8 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-04-27T11:27:21.629Z"
+      "firstSeenAt": "2026-04-27T11:27:21.629Z",
+      "needsRetranslation": true
     },
     {
       "title": "Casseratore",
@@ -2508,7 +2509,8 @@
           "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lattoniere",
@@ -2811,7 +2813,8 @@
           "garten-pemsa-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     }
   ]
 }
