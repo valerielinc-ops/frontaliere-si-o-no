@@ -306,6 +306,44 @@ jobs:
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
         run: cp dist/index.html dist/404.html
 
+      - name: Gate — parallel SEO audit pool
+        if: github.event.inputs.profile_sequential != 'true'
+        run: |
+          npm run audit:hreflang & PID1=$!
+          npm run audit:title-uniqueness & PID2=$!
+          npm run audit:content-duplicates & PID3=$!
+          npm run audit:page-weight & PID4=$!
+          npm run audit:text-html-ratio & PID5=$!
+          npm run audit:h1-title-duplicates & PID6=$!
+          npm run audit:title-length & PID7=$!
+          wait $PID1 || { echo "❌ audit:hreflang failed"; exit 1; }
+          wait $PID2 || { echo "❌ audit:title-uniqueness failed"; exit 1; }
+          wait $PID3 || { echo "❌ audit:content-duplicates failed"; exit 1; }
+          wait $PID4 || { echo "❌ audit:page-weight failed"; exit 1; }
+          wait $PID5 || { echo "❌ audit:text-html-ratio failed"; exit 1; }
+          wait $PID6 || { echo "❌ audit:h1-title-duplicates failed"; exit 1; }
+          wait $PID7 || { echo "❌ audit:title-length failed"; exit 1; }
+
+      - name: Gate — orphan pages in sitemaps
+        if: github.event.inputs.profile_sequential != 'true'
+        run: npm run audit:orphan-sitemap-pages
+
+      - name: Gate — news sitemap (dry-run)
+        if: github.event.inputs.profile_sequential != 'true'
+        run: npm run audit:news-sitemap
+
+      - name: Gate — sitemap canonicals
+        if: github.event.inputs.profile_sequential != 'true'
+        run: npm run audit:sitemap-canonicals
+
+      - name: Gate — SPA bundle injection
+        if: github.event.inputs.profile_sequential != 'true'
+        run: npm run audit:spa-bundle-injection
+
+      - name: Gate — dist multi-locale integrity
+        if: github.event.inputs.profile_sequential != 'true'
+        run: npm run audit:dist-multi
+
       - name: Capture pre-deploy sitemap URLs (for IndexNow diff)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
