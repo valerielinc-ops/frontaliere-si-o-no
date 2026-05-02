@@ -5161,6 +5161,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scontro-polizia-lugano-spray-urticante.title': 'Clash and police intervention with pepper spray in central Lugano',
     'blog.article.scontro-polizia-lugano-spray-urticante.excerpt': 'Two groups of young people clashed in central Lugano, leading to police intervention with pepper spray. Two people injured.',
     'blog.article.scontro-polizia-lugano-spray-urticante.imageAlt': 'Lugano city center at night with lake view',
+    'blog.article.saronno-bar-licenza-sospesa-rissa.title': 'Saronno: bar license suspended after brawl',
+    'blog.article.saronno-bar-licenza-sospesa-rissa.excerpt': 'A bar\'s license in Saronno was suspended after a brawl. Here\'s what happened and the implications for the area.',
+    'blog.article.saronno-bar-licenza-sospesa-rissa.imageAlt': 'Bar in Saronno with police presence after a brawl',
 };
 
 export default blogMetaEn;

@@ -13056,4 +13056,11 @@ export const ARTICLES = [
  image: '/images/blog/scontro-polizia-lugano-spray-urticante.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'saronno-bar-licenza-sospesa-rissa',
+ category: 'novita',
+ date: '2026-05-02T12:17:55.566Z',
+ image: '/images/blog/saronno-bar-licenza-sospesa-rissa.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

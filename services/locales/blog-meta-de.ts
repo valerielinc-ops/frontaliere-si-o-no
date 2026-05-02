@@ -5161,6 +5161,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scontro-polizia-lugano-spray-urticante.title': 'Zusammenstoß und Polizeieinsatz mit Reizgas in Lugano',
     'blog.article.scontro-polizia-lugano-spray-urticante.excerpt': 'Zwei Gruppen von Jugendlichen sind in der Innenstadt von Lugano aneinandergeraten, was den Einsatz der Polizei mit Reizgas zur Folge hatte. Zwei Personen wurden verletzt.',
     'blog.article.scontro-polizia-lugano-spray-urticante.imageAlt': 'Lugano Stadtzentrum bei Nacht mit Seeblick',
+    'blog.article.saronno-bar-licenza-sospesa-rissa.title': 'Saronno: Bar-Lizenz nach Schlägerei ausgesetzt',
+    'blog.article.saronno-bar-licenza-sospesa-rissa.excerpt': 'Die Lizenz eines Bars in Saronno wurde nach einer Schlägerei ausgesetzt. Hier ist, was passiert ist und die Auswirkungen auf die Gegend.',
+    'blog.article.saronno-bar-licenza-sospesa-rissa.imageAlt': 'Bar in Saronno mit Polizeianwesenheit nach einer Schlägerei',
 };
 
 export default blogMetaDe;

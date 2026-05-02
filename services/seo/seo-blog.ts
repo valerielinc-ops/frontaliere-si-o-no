@@ -36869,6 +36869,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-saronno-bar-licenza-sospesa-rissa': {
+    title: 'Saronno: licenza sospesa per bar dopo rissa | Frontaliere Ticino',
+    description: 'La licenza di un bar a Saronno è stata sospesa dopo una rissa. Ecco cosa è successo e le implicazioni per la zona. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, saronno, licenza, sospesa, dopo',
+    ogTitle: 'Saronno: licenza sospesa per bar dopo rissa',
+    ogDescription: 'La licenza di un bar a Saronno è stata sospesa dopo una rissa. Ecco cosa è successo e le implicazioni per la zona.',
+    canonicalPath: '/articoli-frontaliere/saronno-bar-licenza-sospesa-rissa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Saronno: licenza sospesa per bar dopo rissa",
+      "description": "La licenza di un bar a Saronno è stata sospesa dopo una rissa. Ecco cosa è successo e le implicazioni per la zona. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/saronno-bar-licenza-sospesa-rissa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bar a Saronno con presenza di polizia dopo una rissa"
+      },
+      "datePublished": "2026-05-02T12:17:55+00:00",
+      "dateModified": "2026-05-02T12:17:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/saronno-bar-licenza-sospesa-rissa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
