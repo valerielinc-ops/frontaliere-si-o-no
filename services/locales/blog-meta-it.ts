@@ -5186,6 +5186,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rissa-lugano-pensilina-botta-feriti-2026.title': 'Rissa a Lugano: due feriti alla Pensilina Botta',
     'blog.article.rissa-lugano-pensilina-botta-feriti-2026.excerpt': 'Un tumulto sedato dalla polizia ha coinvolto due persone ferite in un incidente alla Pensilina Botta di Lugano.',
     'blog.article.rissa-lugano-pensilina-botta-feriti-2026.imageAlt': 'Vista del lago di Lugano con lo skyline cittadino',
+    'blog.article.rissa-lugano-primo-maggio-2026.title': 'Rissa a Lugano durante il Primo Maggio: spray urticante per calmare i disordini',
+    'blog.article.rissa-lugano-primo-maggio-2026.excerpt': 'Disordini nella serata del Primo Maggio a Lugano, con due feriti lievi e intervento della polizia con spray urticante.',
+    'blog.article.rissa-lugano-primo-maggio-2026.imageAlt': 'Vista aerea di Lugano di notte con le luci della città riflesse sul Lago di Lugano, in Svizzera.',
 };
 
 export default blogMetaIt;

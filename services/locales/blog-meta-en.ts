@@ -5185,6 +5185,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rissa-lugano-pensilina-botta-feriti-2026.title': 'Brawl in Lugano: two injured at Pensilina Botta',
     'blog.article.rissa-lugano-pensilina-botta-feriti-2026.excerpt': 'A riot calmed by the police involved two people injured in an incident at Pensilina Botta in Lugano.',
     'blog.article.rissa-lugano-pensilina-botta-feriti-2026.imageAlt': 'View of Lake Lugano with the city skyline',
+    'blog.article.rissa-lugano-primo-maggio-2026.title': 'Clashes in Lugano on May Day: Police Use Pepper Spray',
+    'blog.article.rissa-lugano-primo-maggio-2026.excerpt': 'Disturbances on May Day evening in Lugano, with two minor injuries and police intervention using pepper spray.',
+    'blog.article.rissa-lugano-primo-maggio-2026.imageAlt': 'Aerial view of Lugano at night with the city lights reflecting on Lake Lugano, Switzerland.',
 };
 
 export default blogMetaEn;

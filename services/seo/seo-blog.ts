@@ -37101,6 +37101,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rissa-lugano-primo-maggio-2026': {
+    title: 'Rissa a Lugano durante il Primo Maggio: spray urticante per calmare i disordini',
+    description: 'Disordini a Lugano durante il Primo Maggio con due feriti lievi e intervento della polizia con spray urticante. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rissa, lugano, durante, primo',
+    ogTitle: 'Rissa a Lugano durante il Primo Maggio: spray urticante per calmare i disordini',
+    ogDescription: 'Disordini a Lugano durante il Primo Maggio con due feriti lievi e intervento della polizia con spray urticante.',
+    canonicalPath: '/articoli-frontaliere/rissa-lugano-primo-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rissa a Lugano durante il Primo Maggio: spray urticante per calmare i disordini",
+      "description": "Disordini a Lugano durante il Primo Maggio con due feriti lievi e intervento della polizia con spray urticante. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rissa-lugano-primo-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano di notte con le luci della città riflesse sul Lago di Lugano, in Svizzera."
+      },
+      "datePublished": "2026-05-02T13:42:10+00:00",
+      "dateModified": "2026-05-02T13:42:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rissa-lugano-primo-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

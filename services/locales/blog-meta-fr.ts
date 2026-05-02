@@ -5186,6 +5186,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rissa-lugano-pensilina-botta-feriti-2026.title': 'Bagarre à Lugano: deux blessés à la Pensilina Botta',
     'blog.article.rissa-lugano-pensilina-botta-feriti-2026.excerpt': 'Un tumulte maîtrisé par la police a impliqué deux personnes blessées dans un incident à la Pensilina Botta de Lugano.',
     'blog.article.rissa-lugano-pensilina-botta-feriti-2026.imageAlt': 'Vue du lac de Lugano avec la skyline de la ville',
+    'blog.article.rissa-lugano-primo-maggio-2026.title': 'Bagarre à Lugano lors du 1er Mai: gaz poivre pour calmer les troubles',
+    'blog.article.rissa-lugano-primo-maggio-2026.excerpt': 'Des troubles ont eu lieu dans la soirée du 1er Mai à Lugano, avec deux blessés légers et l\'intervention de la police avec du gaz poivre.',
+    'blog.article.rissa-lugano-primo-maggio-2026.imageAlt': 'Vue aérienne de Lugano la nuit avec les lumières de la ville se reflétant sur le lac de Lugano, Suisse.',
 };
 
 export default blogMetaFr;

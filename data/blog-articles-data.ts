@@ -13112,4 +13112,11 @@ export const ARTICLES = [
  image: '/images/blog/rissa-lugano-pensilina-botta-feriti-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'rissa-lugano-primo-maggio-2026',
+ category: 'novita',
+ date: '2026-05-02T13:42:10.702Z',
+ image: '/images/blog/rissa-lugano-primo-maggio-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
