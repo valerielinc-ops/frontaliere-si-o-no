@@ -5102,6 +5102,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.meloni-governo-longevo-2026.title': 'Meloni: il mio Governo è il secondo più longevo della Repubblica',
     'blog.article.meloni-governo-longevo-2026.excerpt': 'Il Governo Meloni supera i 1.000 giorni di durata, diventando il secondo più longevo della storia repubblicana.',
     'blog.article.meloni-governo-longevo-2026.imageAlt': 'Vista panoramica del Lago di Lugano con montagne e barche',
+    'blog.article.abbonamento-newsletter-ticino.title': 'Newsletter gratuita: iscriviti per aggiornamenti su Ticino',
+    'blog.article.abbonamento-newsletter-ticino.excerpt': 'Scopri come ricevere notizie quotidiane, settimanali e mensili sulla Svizzera e il Canton Ticino',
+    'blog.article.abbonamento-newsletter-ticino.imageAlt': 'Vista panoramica di Lugano dal lago, cielo azzurro limpido',
 };
 
 export default blogMetaIt;

@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1750,
+ "numberOfItems": 1751,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6385,7 +6385,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1747, "name": "Banche svizzere preparano accoglienza clienti G...", "url": `${BASE_URL}/articoli-frontaliere/banche-golfo-preparano-frontalieri` },
           { "@type": "ListItem", "position": 1748, "name": "La storia di Paperino passa da Cuasso al Monte", "url": `${BASE_URL}/articoli-frontaliere/papa-paperino-cuasso-monte` },
           { "@type": "ListItem", "position": 1749, "name": "Venezia torna in Serie A con un pareggio contro...", "url": `${BASE_URL}/articoli-frontaliere/venezia-serie-a-promozione-2026` },
-          { "@type": "ListItem", "position": 1750, "name": "Meloni: il mio Governo è il secondo più longevo...", "url": `${BASE_URL}/articoli-frontaliere/meloni-governo-longevo-2026` }
+          { "@type": "ListItem", "position": 1750, "name": "Meloni: il mio Governo è il secondo più longevo...", "url": `${BASE_URL}/articoli-frontaliere/meloni-governo-longevo-2026` },
+          { "@type": "ListItem", "position": 1751, "name": "Newsletter gratuita: iscriviti per aggiornament...", "url": `${BASE_URL}/articoli-frontaliere/abbonamento-newsletter-ticino` }
  ]
  },
  {

@@ -12916,4 +12916,11 @@ export const ARTICLES = [
  image: '/images/blog/meloni-governo-longevo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'abbonamento-newsletter-ticino',
+ category: 'novita',
+ date: '2026-05-02T08:46:37.068Z',
+ image: '/images/blog/abbonamento-newsletter-ticino.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

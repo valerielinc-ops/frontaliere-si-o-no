@@ -5101,6 +5101,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.meloni-governo-longevo-2026.title': 'Meloni: Meine Regierung ist die zweitlängste der Republik',
     'blog.article.meloni-governo-longevo-2026.excerpt': 'Die Regierung Meloni übertrifft 1.000 Tage und wird zur zweitlängsten der republikanischen Geschichte.',
     'blog.article.meloni-governo-longevo-2026.imageAlt': 'Panoramablick auf den Luganersee mit Bergen und Booten',
+    'blog.article.abbonamento-newsletter-ticino.title': 'Kostenloser Newsletter: Abonnieren Sie für Updates über den Tessin',
+    'blog.article.abbonamento-newsletter-ticino.excerpt': 'Erfahren Sie, wie Sie täglich, wöchentlich und monatlich Nachrichten über die Schweiz und den Kanton Tessin erhalten',
+    'blog.article.abbonamento-newsletter-ticino.imageAlt': 'Panoramablick auf Lugano vom See, klarer blauer Himmel',
 };
 
 export default blogMetaDe;

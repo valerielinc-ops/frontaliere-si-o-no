@@ -5101,6 +5101,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.meloni-governo-longevo-2026.title': 'Meloni: my Government is the second longest-serving in the Republic',
     'blog.article.meloni-governo-longevo-2026.excerpt': 'The Meloni Government surpasses 1,000 days in office, becoming the second longest-serving in republican history.',
     'blog.article.meloni-governo-longevo-2026.imageAlt': 'Panoramic view of Lake Lugano with mountains and boats',
+    'blog.article.abbonamento-newsletter-ticino.title': 'Free newsletter: subscribe for Ticino updates',
+    'blog.article.abbonamento-newsletter-ticino.excerpt': 'Discover how to receive daily, weekly, and monthly news about Switzerland and the Canton of Ticino',
+    'blog.article.abbonamento-newsletter-ticino.imageAlt': 'Panoramic view of Lugano from the lake, clear blue sky',
 };
 
 export default blogMetaEn;

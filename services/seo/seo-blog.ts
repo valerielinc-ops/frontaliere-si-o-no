@@ -36289,6 +36289,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abbonamento-newsletter-ticino': {
+    title: 'Newsletter gratuita: iscriviti per aggiornamenti su Ticino',
+    description: 'Scopri come ricevere notizie quotidiane, settimanali e mensili sulla Svizzera e il Canton Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, newsletter, gratuita, iscriviti, aggiornamenti',
+    ogTitle: 'Newsletter gratuita: iscriviti per aggiornamenti su Ticino',
+    ogDescription: 'Scopri come ricevere notizie quotidiane, settimanali e mensili sulla Svizzera e il Canton Ticino',
+    canonicalPath: '/articoli-frontaliere/abbonamento-newsletter-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Newsletter gratuita: iscriviti per aggiornamenti su Ticino",
+      "description": "Scopri come ricevere notizie quotidiane, settimanali e mensili sulla Svizzera e il Canton Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/abbonamento-newsletter-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano dal lago, cielo azzurro limpido"
+      },
+      "datePublished": "2026-05-02T08:46:37+00:00",
+      "dateModified": "2026-05-02T08:46:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abbonamento-newsletter-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
