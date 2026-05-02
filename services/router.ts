@@ -1159,6 +1159,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  newsletterPreferences: 'preferences-newsletter',
  admin: 'gestione-contenuti-xk9mp2q',
  chiSiamo: 'a-propos',
+ correzioni: 'corrections',
  sindacati: 'syndicats-frontaliers',
  guidaCompleta: 'guide-complet-travail-frontalier-suisse-2026',
  tassazioneHub: 'guide-imposition-frontaliers-2026',
@@ -1612,6 +1613,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.privacy]: { tab: 'privacy' },
  [table.terms]: { tab: 'terms' },
  [table.chiSiamo]: { tab: 'chi-siamo' },
+ [table.correzioni]: { tab: 'correzioni' },
  [table.dataDeletion]: { tab: 'data-deletion' },
  [table.apiStatus]: { tab: 'api-status' },
  [table.newsletter]: { tab: 'feedback' },
@@ -2526,6 +2528,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.terms}${hashSuffix}`);
  case 'chi-siamo':
  return finish(`${prefix}/${table.chiSiamo}${hashSuffix}`);
+ case 'correzioni':
+ return finish(`${prefix}/${table.correzioni}${hashSuffix}`);
  case 'sindacati':
  return finish(`${prefix}/${table.sindacati}${hashSuffix}`);
  case 'tassazione-hub':
