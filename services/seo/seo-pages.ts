@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1740,
+ "numberOfItems": 1741,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6375,7 +6375,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1737, "name": "Cure a domicilio: chi ha lavorato una vita non ...", "url": `${BASE_URL}/articoli-frontaliere/cure-domicilio-pensionati-ticino-2026` },
           { "@type": "ListItem", "position": 1738, "name": "Oltre mille studenti in gara per il concorso Li...", "url": `${BASE_URL}/articoli-frontaliere/libriamoci-varese-studenti-2026` },
           { "@type": "ListItem", "position": 1739, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/vino-alto-ticino-scudellate-2026` },
-          { "@type": "ListItem", "position": 1740, "name": "Corteo pro Palestina invade il lungolago di Lugano", "url": `${BASE_URL}/articoli-frontaliere/corteo-pro-palestina-lungolago-lugano` }
+          { "@type": "ListItem", "position": 1740, "name": "Corteo pro Palestina invade il lungolago di Lugano", "url": `${BASE_URL}/articoli-frontaliere/corteo-pro-palestina-lungolago-lugano` },
+          { "@type": "ListItem", "position": 1741, "name": "Social media e minori: i divieti non bastano", "url": `${BASE_URL}/articoli-frontaliere/divieti-social-media-minori` }
  ]
  },
  {

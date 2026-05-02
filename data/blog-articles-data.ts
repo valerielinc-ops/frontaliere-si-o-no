@@ -12846,4 +12846,11 @@ export const ARTICLES = [
  image: '/images/blog/corteo-pro-palestina-lungolago-lugano.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'divieti-social-media-minori',
+ category: 'pratico',
+ date: '2026-05-02T07:05:18.780Z',
+ image: '/images/blog/divieti-social-media-minori.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

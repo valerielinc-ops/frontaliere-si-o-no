@@ -5072,6 +5072,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.corteo-pro-palestina-lungolago-lugano.title': 'Corteo pro Palestina invade il lungolago di Lugano',
     'blog.article.corteo-pro-palestina-lungolago-lugano.excerpt': 'Una cinquantina di manifestanti ha sfilato in via Nassa e poi lungo il lungolago, bloccando il traffico e suscitando reazioni contrastanti.',
     'blog.article.corteo-pro-palestina-lungolago-lugano.imageAlt': 'Manifestanti lungo il lungolago di Lugano con bandiere palestinesi',
+    'blog.article.divieti-social-media-minori.title': 'Social media e minori: i divieti non bastano',
+    'blog.article.divieti-social-media-minori.excerpt': 'Riprogettare le piattaforme per evitare la dipendenza è la soluzione, non limitare l\'accesso',
+    'blog.article.divieti-social-media-minori.imageAlt': 'Ragazzi che usano smartphone in una piazza di Locarno',
 };
 
 export default blogMetaIt;

@@ -2921,6 +2921,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-libriamoci-varese-studenti-2026': { name: 'Concorso Libriamoci', path: '/articoli-frontaliere/libriamoci-varese-studenti-2026', parent: 'blog' },
     'blog-vino-alto-ticino-scudellate-2026': { name: 'Novità Ticino', path: '/articoli-frontaliere/vino-alto-ticino-scudellate-2026', parent: 'blog' },
     'blog-corteo-pro-palestina-lungolago-lugano': { name: 'Manifestazione Lugano', path: '/articoli-frontaliere/corteo-pro-palestina-lungolago-lugano', parent: 'blog' },
+    'blog-divieti-social-media-minori': { name: 'Social media e minori', path: '/articoli-frontaliere/divieti-social-media-minori', parent: 'blog' },
  };
 
  const info = sectionNames[section];

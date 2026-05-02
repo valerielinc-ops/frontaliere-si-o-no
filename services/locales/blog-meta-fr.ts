@@ -5072,6 +5072,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.corteo-pro-palestina-lungolago-lugano.title': 'Manifestation pro-Palestine à Lugano',
     'blog.article.corteo-pro-palestina-lungolago-lugano.excerpt': 'Une cinquantaine de manifestants ont défilé via Nassa puis le long du lac, bloquant la circulation et suscitant des réactions contrastées.',
     'blog.article.corteo-pro-palestina-lungolago-lugano.imageAlt': 'Manifestants le long du front de lac à Lugano avec des drapeaux palestiniens',
+    'blog.article.divieti-social-media-minori.title': 'Réseaux sociaux et mineurs: les interdictions ne suffisent pas',
+    'blog.article.divieti-social-media-minori.excerpt': 'Repenser les plateformes pour éviter la dépendance est la solution, pas limiter l\'accès',
+    'blog.article.divieti-social-media-minori.imageAlt': 'Des adolescents utilisent des smartphones sur une place à Locarno',
 };
 
 export default blogMetaFr;

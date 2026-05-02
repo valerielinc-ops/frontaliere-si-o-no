@@ -5071,6 +5071,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.corteo-pro-palestina-lungolago-lugano.title': 'Pro-Palästina-Demonstration blockiert Luganos Seeufer',
     'blog.article.corteo-pro-palestina-lungolago-lugano.excerpt': 'Etwa fünfzig Demonstranten zogen durch die Via Nassa und dann entlang des Seeufers, blockierten den Verkehr und lösten unterschiedliche Reaktionen aus.',
     'blog.article.corteo-pro-palestina-lungolago-lugano.imageAlt': 'Demonstranten am Seeufer in Lugano mit palästinensischen Flaggen',
+    'blog.article.divieti-social-media-minori.title': 'Soziale Medien und Minderjährige: Verbote reichen nicht',
+    'blog.article.divieti-social-media-minori.excerpt': 'Plattformen neu gestalten, um Abhängigkeit zu vermeiden, ist die Lösung, nicht der Zugang zu beschränken',
+    'blog.article.divieti-social-media-minori.imageAlt': 'Jugendliche nutzen Smartphones auf einem Platz in Locarno',
 };
 
 export default blogMetaDe;

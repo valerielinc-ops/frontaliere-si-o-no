@@ -5071,6 +5071,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.corteo-pro-palestina-lungolago-lugano.title': 'Pro-Palestine march takes over Lugano lakeside',
     'blog.article.corteo-pro-palestina-lungolago-lugano.excerpt': 'Around fifty protesters marched down Via Nassa and along the lakeside, blocking traffic and sparking mixed reactions.',
     'blog.article.corteo-pro-palestina-lungolago-lugano.imageAlt': 'Protesters along the lakeside in Lugano with Palestinian flags',
+    'blog.article.divieti-social-media-minori.title': 'Social media and minors: bans aren\'t enough',
+    'blog.article.divieti-social-media-minori.excerpt': 'Redesigning platforms to prevent addiction is the solution, not limiting access',
+    'blog.article.divieti-social-media-minori.imageAlt': 'Teenagers using smartphones in a square in Locarno',
 };
 
 export default blogMetaEn;

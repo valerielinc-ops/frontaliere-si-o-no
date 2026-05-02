@@ -35999,6 +35999,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divieti-social-media-minori': {
+    title: 'Social media e minori: i divieti non bastano | Frontaliere Ticino',
+    description: 'Riprogettare le piattaforme per evitare la dipendenza è la soluzione, non limitare l\'accesso. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, social, media, minori, divieti',
+    ogTitle: 'Social media e minori: i divieti non bastano',
+    ogDescription: 'Riprogettare le piattaforme per evitare la dipendenza è la soluzione, non limitare l\'accesso',
+    canonicalPath: '/articoli-frontaliere/divieti-social-media-minori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Social media e minori: i divieti non bastano",
+      "description": "Riprogettare le piattaforme per evitare la dipendenza è la soluzione, non limitare l'accesso. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/divieti-social-media-minori.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ragazzi che usano smartphone in una piazza di Locarno"
+      },
+      "datePublished": "2026-05-02T07:05:18+00:00",
+      "dateModified": "2026-05-02T07:05:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divieti-social-media-minori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
