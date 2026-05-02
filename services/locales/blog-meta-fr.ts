@@ -5042,6 +5042,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.title': 'Cinq expositions à ne pas manquer en mai dans le Tessin et ses environs',
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.excerpt': 'De Gallarate à Verbania, voici les expositions les plus attendues du mois de mai 2026. Découvrez les dates, les lieux et les détails.',
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.imageAlt': 'Une vue sereine du lac de Lugano avec des montagnes en arrière-plan, capturée avec un appareil photo DSLR. La scène comprend un bateau sur l\'eau et un ciel bleu clair.',
+    'blog.article.mal-dislanda-materia-castronno-2026.title': 'Mal d\'Islande à Materia : histoires du Cercle Polaire Arctique',
+    'blog.article.mal-dislanda-materia-castronno-2026.excerpt': 'Samedi 9 mai à 17h30 à Castronno, rencontre avec Leonardo Piccione sur l\'île de Grímsey et le \'mal d\'Islande\'',
+    'blog.article.mal-dislanda-materia-castronno-2026.imageAlt': 'Vue panoramique du lac de Lugano avec le paysage urbain en arrière-plan',
 };
 
 export default blogMetaFr;

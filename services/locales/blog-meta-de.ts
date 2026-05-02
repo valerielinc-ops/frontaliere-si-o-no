@@ -5041,6 +5041,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.title': 'Fünf Ausstellungen im Mai im Tessin und Umgebung',
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.excerpt': 'Von Gallarate bis Verbania, hier sind die meist erwarteten Ausstellungen des Monats Mai 2026. Entdecken Sie Daten, Orte und Details.',
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.imageAlt': 'Eine ruhige Aussicht auf den Luganersee mit Bergen im Hintergrund, aufgenommen mit einer DSLR-Kamera. Die Szene umfasst ein Boot auf dem Wasser und einen klaren blauen Himmel.',
+    'blog.article.mal-dislanda-materia-castronno-2026.title': 'Island-Fieber in Materia: Geschichten aus dem Polarkreis',
+    'blog.article.mal-dislanda-materia-castronno-2026.excerpt': 'Samstag, 9. Mai, um 17.30 Uhr in Castronno: Treffen mit Leonardo Piccione über die Insel Grímsey und das \'Island-Fieber\'',
+    'blog.article.mal-dislanda-materia-castronno-2026.imageAlt': 'Panoramablick auf den Luganersee mit Stadtpanorama im Hintergrund',
 };
 
 export default blogMetaDe;

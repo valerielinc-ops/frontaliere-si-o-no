@@ -5041,6 +5041,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.title': 'Five must-see exhibitions in May in Ticino and nearby',
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.excerpt': 'From Gallarate to Verbania, here are the most anticipated exhibitions of May 2026. Discover dates, venues, and details.',
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.imageAlt': 'A serene view of Lake Lugano with mountains in the background, captured with a DSLR camera. The scene includes a boat on the water and a clear blue sky.',
+    'blog.article.mal-dislanda-materia-castronno-2026.title': 'Iceland fever in Materia: Arctic Circle stories',
+    'blog.article.mal-dislanda-materia-castronno-2026.excerpt': 'On Saturday, May 9th at 17:30 in Castronno, meet Leonardo Piccione to discuss Grímsey Island and \'Iceland fever\'',
+    'blog.article.mal-dislanda-materia-castronno-2026.imageAlt': 'Panoramic view of Lake Lugano with the cityscape in the background',
 };
 
 export default blogMetaEn;

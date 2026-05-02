@@ -5042,6 +5042,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.title': 'Cinque mostre da non perdere a maggio in Ticino e dintorni',
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.excerpt': 'Da Gallarate a Verbania, ecco le mostre più attese del mese di maggio 2026. Scopri date, luoghi e dettagli.',
     'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.imageAlt': 'Vista serena del Lago di Lugano con montagne sullo sfondo, ripresa con una fotocamera DSLR. La scena include una barca sull\'acqua e un cielo azzurro limpido.',
+    'blog.article.mal-dislanda-materia-castronno-2026.title': 'Mal d’Islanda a Materia: storie dal Circolo Polare Artico',
+    'blog.article.mal-dislanda-materia-castronno-2026.excerpt': 'Sabato 9 maggio alle 17.30 a Castronno, incontro con Leonardo Piccione sull\'isola di Grímsey e il \'mal d\'Islanda\'',
+    'blog.article.mal-dislanda-materia-castronno-2026.imageAlt': 'Vista panoramica del Lago di Lugano con il panorama cittadino sullo sfondo',
 };
 
 export default blogMetaIt;

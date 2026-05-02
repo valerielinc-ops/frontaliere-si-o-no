@@ -35709,6 +35709,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mal-dislanda-materia-castronno-2026': {
+    title: 'Mal d’Islanda a Materia: storie dal Circolo Polare Artico',
+    description: 'Incontro sull\'isola di Grímsey a Castronno il 9 maggio con Leonardo Piccione e Francesca Milano. Scopri di più. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, islanda, materia, storie, circolo',
+    ogTitle: 'Mal d’Islanda a Materia: storie dal Circolo Polare Artico',
+    ogDescription: 'Incontro sull\'isola di Grímsey a Castronno il 9 maggio con Leonardo Piccione e Francesca Milano. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/mal-dislanda-materia-castronno-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mal d’Islanda a Materia: storie dal Circolo Polare Artico",
+      "description": "Incontro sull'isola di Grímsey a Castronno il 9 maggio con Leonardo Piccione e Francesca Milano. Scopri di più. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mal-dislanda-materia-castronno-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con il panorama cittadino sullo sfondo"
+      },
+      "datePublished": "2026-05-02T04:44:58+00:00",
+      "dateModified": "2026-05-02T04:44:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mal-dislanda-materia-castronno-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
