@@ -5249,6 +5249,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-hockey-sconfitta-finlandia.title': 'La Suisse battue par la Finlande dans l\'Euro Hockey Tour',
     'blog.article.svizzera-hockey-sconfitta-finlandia.excerpt': 'L\'équipe nationale helvétique perd 5-3 contre la Finlande. Prochain adversaire, la République tchèque.',
     'blog.article.svizzera-hockey-sconfitta-finlandia.imageAlt': 'Match de hockey sur glace en cours dans une arène professionnelle en Suisse.',
+    'blog.article.pd-como-sfiducia-maccabeo-2026.title': 'Le PD de Côme insiste sur la motion de défiance contre Maccabeo',
+    'blog.article.pd-como-sfiducia-maccabeo-2026.excerpt': 'Le Parti Démocrate de Côme ne lâche pas sur la motion de défiance contre l\'assesseur Maccabeo, rejetée en conseil communal.',
+    'blog.article.pd-como-sfiducia-maccabeo-2026.imageAlt': 'Panorama de Côme avec le lac de Côme en arrière-plan',
 };
 
 export default blogMetaFr;

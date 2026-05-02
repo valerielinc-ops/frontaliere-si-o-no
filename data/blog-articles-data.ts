@@ -13259,4 +13259,11 @@ export const ARTICLES = [
  image: '/images/blog/svizzera-hockey-sconfitta-finlandia.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'pd-como-sfiducia-maccabeo-2026',
+ category: 'novita',
+ date: '2026-05-02T17:04:43.835Z',
+ image: '/images/blog/pd-como-sfiducia-maccabeo-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

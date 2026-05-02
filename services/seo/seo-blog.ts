@@ -37710,6 +37710,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pd-como-sfiducia-maccabeo-2026': {
+    title: 'Pd Como insiste sulla sfiducia a Maccabeo: "Mancanza di responsabilità politica"',
+    description: 'Il Partito Democratico di Como non molla sulla mozione di sfiducia all\'assessore Maccabeo, bocciata in consiglio comunale. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, insiste, sulla, sfiducia',
+    ogTitle: 'Pd Como insiste sulla sfiducia a Maccabeo: "Mancanza di responsabilità politica"',
+    ogDescription: 'Il Partito Democratico di Como non molla sulla mozione di sfiducia all\'assessore Maccabeo, bocciata in consiglio comunale.',
+    canonicalPath: '/articoli-frontaliere/pd-como-sfiducia-maccabeo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pd Como insiste sulla sfiducia a Maccabeo: \"Mancanza di responsabilità politica\"",
+      "description": "Il Partito Democratico di Como non molla sulla mozione di sfiducia all'assessore Maccabeo, bocciata in consiglio comunale. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pd-como-sfiducia-maccabeo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Como con il Lago di Como sullo sfondo"
+      },
+      "datePublished": "2026-05-02T17:04:43+00:00",
+      "dateModified": "2026-05-02T17:04:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pd-como-sfiducia-maccabeo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

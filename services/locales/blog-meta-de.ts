@@ -5248,6 +5248,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-hockey-sconfitta-finlandia.title': 'Schweiz verliert gegen Finnland im Euro Hockey Tour',
     'blog.article.svizzera-hockey-sconfitta-finlandia.excerpt': 'Die Schweizer Nationalmannschaft verliert 5-3 gegen Finnland. Nächster Gegner ist die Tschechische Republik.',
     'blog.article.svizzera-hockey-sconfitta-finlandia.imageAlt': 'Eishockeyspiel im Gange in einer professionellen Arena in der Schweiz.',
+    'blog.article.pd-como-sfiducia-maccabeo-2026.title': 'PD Como will Maccabeo misstrauen: Verantwortungslosigkeit',
+    'blog.article.pd-como-sfiducia-maccabeo-2026.excerpt': 'Die Partito Democratico von Como gibt nicht auf mit dem Misstrauensvotum gegen den Assessor Maccabeo, das im Gemeinderat abgelehnt wurde.',
+    'blog.article.pd-como-sfiducia-maccabeo-2026.imageAlt': 'Panorama von Como mit dem Comer See im Hintergrund',
 };
 
 export default blogMetaDe;

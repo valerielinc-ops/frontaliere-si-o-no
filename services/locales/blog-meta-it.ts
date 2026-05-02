@@ -5249,6 +5249,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-hockey-sconfitta-finlandia.title': 'Svizzera sconfitta dalla Finlandia nell\'Euro Hockey Tour',
     'blog.article.svizzera-hockey-sconfitta-finlandia.excerpt': 'La nazionale elvetica perde 5-3 contro la Finlandia. Prossimo avversario la Repubblica Ceca.',
     'blog.article.svizzera-hockey-sconfitta-finlandia.imageAlt': 'Partita di hockey su ghiaccio in corso in un\'arena professionale in Svizzera.',
+    'blog.article.pd-como-sfiducia-maccabeo-2026.title': 'Pd Como insiste sulla sfiducia a Maccabeo: "Mancanza di responsabilità politica"',
+    'blog.article.pd-como-sfiducia-maccabeo-2026.excerpt': 'Il Partito Democratico di Como non molla sulla mozione di sfiducia all\'assessore Maccabeo, bocciata in consiglio comunale.',
+    'blog.article.pd-como-sfiducia-maccabeo-2026.imageAlt': 'Panorama di Como con il Lago di Como sullo sfondo',
 };
 
 export default blogMetaIt;
