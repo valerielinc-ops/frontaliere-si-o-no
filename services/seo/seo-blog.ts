@@ -37449,6 +37449,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-via-giannino-landoni-fagnano-olona-inaugurazione': {
+    title: 'Via Giannino Landoni a Fagnano Olona: verso l\'inaugurazione',
+    description: 'L\'iter amministrativo per l\'intitolazione della via a Giannino Landoni è concluso. Si attende la data ufficiale della cerimonia. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, giannino, landoni, fagnano, olona',
+    ogTitle: 'Via Giannino Landoni a Fagnano Olona: verso l\'inaugurazione',
+    ogDescription: 'L\'iter amministrativo per l\'intitolazione della via a Giannino Landoni è concluso. Si attende la data ufficiale della cerimonia.',
+    canonicalPath: '/articoli-frontaliere/via-giannino-landoni-fagnano-olona-inaugurazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Via Giannino Landoni a Fagnano Olona: verso l'inaugurazione",
+      "description": "L'iter amministrativo per l'intitolazione della via a Giannino Landoni è concluso. Si attende la data ufficiale della cerimonia. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/via-giannino-landoni-fagnano-olona-inaugurazione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una via intitolata a Giannino Landoni a Fagnano Olona, con negozi locali e persone che camminano."
+      },
+      "datePublished": "2026-05-02T15:49:23+00:00",
+      "dateModified": "2026-05-02T15:49:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/via-giannino-landoni-fagnano-olona-inaugurazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

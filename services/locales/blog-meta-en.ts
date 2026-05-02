@@ -5221,6 +5221,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a4-milano-brescia-chiusura-notturna-2026.title': 'A4 closed between Sesto and Monza: affected nights',
     'blog.article.a4-milano-brescia-chiusura-notturna-2026.excerpt': 'Nighttime closure of the stretch between Sesto San Giovanni and Monza for safety barrier work. Alternative routes indicated.',
     'blog.article.a4-milano-brescia-chiusura-notturna-2026.imageAlt': 'A4 highway at night with ongoing construction and traffic jam',
+    'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.title': 'Giannino Landoni Street in Fagnano Olona: inauguration soon',
+    'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.excerpt': 'The administrative process for naming the street after Giannino Landoni is complete. The official ceremony date is awaited.',
+    'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.imageAlt': 'A street named after Giannino Landoni in Fagnano Olona, with local shops and people walking.',
 };
 
 export default blogMetaEn;

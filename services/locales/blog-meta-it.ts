@@ -5222,6 +5222,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a4-milano-brescia-chiusura-notturna-2026.title': 'A4 chiusa tra Sesto e Monza: notti interessate',
     'blog.article.a4-milano-brescia-chiusura-notturna-2026.excerpt': 'Chiusura notturna del tratto tra Sesto San Giovanni e Monza per lavori alle barriere di sicurezza. Percorsi alternativi segnalati.',
     'blog.article.a4-milano-brescia-chiusura-notturna-2026.imageAlt': 'Autostrada A4 di notte con lavori in corso e veicoli in coda',
+    'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.title': 'Via Giannino Landoni a Fagnano Olona: verso l\'inaugurazione',
+    'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.excerpt': 'L\'iter amministrativo per l\'intitolazione della via a Giannino Landoni è concluso. Si attende la data ufficiale della cerimonia.',
+    'blog.article.via-giannino-landoni-fagnano-olona-inaugurazione.imageAlt': 'Una via intitolata a Giannino Landoni a Fagnano Olona, con negozi locali e persone che camminano.',
 };
 
 export default blogMetaIt;

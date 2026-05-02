@@ -13196,4 +13196,11 @@ export const ARTICLES = [
  image: '/images/blog/a4-milano-brescia-chiusura-notturna-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'via-giannino-landoni-fagnano-olona-inaugurazione',
+ category: 'novita',
+ date: '2026-05-02T15:49:23.031Z',
+ image: '/images/blog/via-giannino-landoni-fagnano-olona-inaugurazione.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
