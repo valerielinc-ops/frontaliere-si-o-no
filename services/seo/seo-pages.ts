@@ -8216,7 +8216,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'metodologia': {
  title: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
- description: "Pipeline editoriale di Frontaliere Ticino: bozze assistite da IA, revisione redazionale, fonti primarie (AFC, UST, Agenzia delle Entrate), politica di aggiornamento e correzioni.",
+ description: "Pipeline editoriale Frontaliere Ticino: bozze IA, revisione redazionale, fonti primarie (AFC, UST, AdE), politica di aggiornamento e correzioni.",
  keywords: 'metodologia editoriale, intelligenza artificiale giornalismo, frontaliere ticino, fonti primarie, fact checking, politica correzioni, trasparenza editoriale',
  ogTitle: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
  ogDescription: 'Come usiamo IA generativa, fonti primarie e revisione redazionale per garantire accuratezza e trasparenza.',

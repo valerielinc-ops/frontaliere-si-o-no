@@ -2876,7 +2876,7 @@ ${terminologyByLang[targetLang] || ''}`;
  */
 function validateTitle(title) {
   if (!title) return { valid: false, reason: 'empty' };
-  for (const re of CLICKBAIT_PATTERNS) {
+  for (const re of A5_CLICKBAIT_PATTERNS) {
     if (re.test(title)) {
       console.warn(`  ⚠️ [anti-clickbait] Titolo sospetto: "${title}"`);
       return { valid: false, reason: 'clickbait_pattern' };
