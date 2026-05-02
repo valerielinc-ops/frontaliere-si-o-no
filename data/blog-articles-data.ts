@@ -12671,4 +12671,11 @@ export const ARTICLES = [
  image: '/images/blog/maggiolone-social-park-cassano-magnago.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'grassi-1925-marchio-storico',
+ category: 'novita',
+ date: '2026-05-02T02:23:24.525Z',
+ image: '/images/blog/grassi-1925-marchio-storico.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

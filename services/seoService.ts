@@ -2896,6 +2896,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-busto-arsizio-carcere-denuncia-strada': { name: 'Denuncia carcere', path: '/articoli-frontaliere/busto-arsizio-carcere-denuncia-strada', parent: 'blog' },
     'blog-bracconaggio-ittico-lago-maggiore-ispra-2026': { name: 'Bracconaggio ittico', path: '/articoli-frontaliere/bracconaggio-ittico-lago-maggiore-ispra-2026', parent: 'blog' },
     'blog-maggiolone-social-park-cassano-magnago': { name: 'Novità', path: '/articoli-frontaliere/maggiolone-social-park-cassano-magnago', parent: 'blog' },
+    'blog-grassi-1925-marchio-storico': { name: 'Novità', path: '/articoli-frontaliere/grassi-1925-marchio-storico', parent: 'blog' },
  };
 
  const info = sectionNames[section];

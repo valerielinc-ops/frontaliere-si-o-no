@@ -4997,6 +4997,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.maggiolone-social-park-cassano-magnago.title': 'Maggiolone Social Park : un mois de fêtes à Cassano Magnago',
     'blog.article.maggiolone-social-park-cassano-magnago.excerpt': 'À partir du 1er mai, Cassano Magnago accueille le nouveau Maggiolone Social Park avec des événements gratuits pour tous les âges.',
     'blog.article.maggiolone-social-park-cassano-magnago.imageAlt': 'Vue aérienne de l\'espace événementiel Maggiolone Social Park à Cassano Magnago',
+    'blog.article.grassi-1925-marchio-storico.title': 'Grassi 1925 rejoint le Registre des Marques Historiques',
+    'blog.article.grassi-1925-marchio-storico.excerpt': 'L\'entreprise varésienne, fondée en 1925, obtient la reconnaissance du Ministère des Entreprises et du Made in Italy pour l\'utilisation continue de la marque.',
+    'blog.article.grassi-1925-marchio-storico.imageAlt': 'Vue aérienne de la zone industrielle de Lonate Pozzolo avec des usines modernes et des champs verts au Tessin',
 };
 
 export default blogMetaFr;

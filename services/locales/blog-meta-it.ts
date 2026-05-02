@@ -4997,6 +4997,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maggiolone-social-park-cassano-magnago.title': 'Maggiolone Social Park: un mese di feste a Cassano Magnago',
     'blog.article.maggiolone-social-park-cassano-magnago.excerpt': 'Dal 1° maggio, Cassano Magnago ospita il nuovo Maggiolone Social Park con eventi gratuiti per tutte le età.',
     'blog.article.maggiolone-social-park-cassano-magnago.imageAlt': 'Vista aerea dello spazio eventi Maggiolone Social Park a Cassano Magnago',
+    'blog.article.grassi-1925-marchio-storico.title': 'Grassi 1925 entra nel Registro Speciale dei Marchi Storici',
+    'blog.article.grassi-1925-marchio-storico.excerpt': 'L\'azienda varesina, fondata nel 1925, ottiene il riconoscimento del Ministero delle Imprese e del Made in Italy per l\'utilizzo continuativo del marchio.',
+    'blog.article.grassi-1925-marchio-storico.imageAlt': 'Vista aerea dell\'area industriale di Lonate Pozzolo con fabbriche moderne e campi verdi in Ticino',
 };
 
 export default blogMetaIt;

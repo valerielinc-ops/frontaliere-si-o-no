@@ -35274,6 +35274,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grassi-1925-marchio-storico': {
+    title: 'Grassi 1925 entra nel Registro Speciale dei Marchi Storici',
+    description: 'Grassi 1925, azienda varesina fondata nel 1925, entra nel Registro Speciale dei Marchi Storici di Interesse Nazionale. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grassi, 1925, entra, registro',
+    ogTitle: 'Grassi 1925 entra nel Registro Speciale dei Marchi Storici',
+    ogDescription: 'Grassi 1925, azienda varesina fondata nel 1925, entra nel Registro Speciale dei Marchi Storici di Interesse Nazionale. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/grassi-1925-marchio-storico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grassi 1925 entra nel Registro Speciale dei Marchi Storici di Interesse Nazionale",
+      "description": "Grassi 1925, azienda varesina fondata nel 1925, entra nel Registro Speciale dei Marchi Storici di Interesse Nazionale. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/grassi-1925-marchio-storico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'area industriale di Lonate Pozzolo con fabbriche moderne e campi verdi in Ticino"
+      },
+      "datePublished": "2026-05-02T02:23:24+00:00",
+      "dateModified": "2026-05-02T02:23:24+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grassi-1925-marchio-storico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
