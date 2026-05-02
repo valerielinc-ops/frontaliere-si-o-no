@@ -724,7 +724,8 @@
     "trivella-san-gottardo-zona-faglia",
     "vergiate-color-run-2026-non-competitiva",
     "violenza-sessuale-conseguenze-ticino",
-    "ritardi-a2-tra-chiasso-lugano"
+    "ritardi-a2-tra-chiasso-lugano",
+    "sindacati-ticino-1-maggio-2026"
   ],
   "failed": [
     {
@@ -6441,8 +6442,23 @@
       "id": "bike-sharing-como-gratis-giugno",
       "error": "Unterminated string in JSON at position 220 (line 4 column 115)",
       "at": "2026-05-01T04:36:50.437Z"
+    },
+    {
+      "id": "bellinzona-2025-consuntivo-risultati",
+      "error": "Unterminated string in JSON at position 1767 (line 16 column 78)",
+      "at": "2026-05-02T03:58:58.639Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 268 (line 4 column 137)",
+      "at": "2026-05-02T03:59:16.719Z"
+    },
+    {
+      "id": "bike-sharing-como-gratis-giugno",
+      "error": "Unterminated string in JSON at position 232 (line 4 column 116)",
+      "at": "2026-05-02T03:59:34.404Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-01T04:37:12.093Z"
+  "updatedAt": "2026-05-02T03:59:43.468Z"
 }
