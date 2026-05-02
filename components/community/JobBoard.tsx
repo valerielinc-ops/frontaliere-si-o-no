@@ -640,6 +640,16 @@ function splitSectionBodiesIntoBullets(text: string): string {
  if (/^#{1,3}\s/m.test(body)) return section; // has sub-headings
  if ((body.match(/\n/g) || []).length >= 3) return section; // already split
 
+ // Try ' - ' as list separator before sentence-boundary splitting
+ // Handles Italian infinitive lists (organizzare, collaborare, etc.)
+ const dashParts = body.split(/ - (?=[a-zA-ZÀ-ÖÙ-Üà-öù-ü])/);
+ if (dashParts.length >= 3) {
+ const cleanedDashParts = dashParts.map((s) => s.trim()).filter((s) => s.length > 8);
+ if (cleanedDashParts.length >= 3) {
+ return `${heading}\n${cleanedDashParts.map((item) => `- ${item}`).join('\n')}`;
+ }
+ }
+
  // Try to split body into bullet items at sentence boundaries
  const items = splitFlatTextIntoItems(body);
  if (items.length >= 2) {
@@ -1134,6 +1144,8 @@ function cleanHighlightChips(value: unknown, max = 6): string[] {
  if (/[:;|]/.test(clean) && words.length > 8) continue;
  if (/[.!?]\s/.test(clean) && words.length > 8) continue;
  if (/^(requisiti|competenze|mansioni|dettagli|cosa offriamo|profilo|contatti)$/i.test(clean)) continue;
+ // Filter section-header fragments that contain ' - ' separator
+ if (/ - /.test(clean) && words.length > 3) continue;
  const key = canonicalItemKey(clean);
  if (!key || seen.has(key)) continue;
  seen.add(key);
@@ -1553,6 +1565,21 @@ function fallbackSplitAtomicChunks(normalized: string): string[] {
  for (const piece of sentenceChunks) {
  const atom = fallbackCleanSpaces(piece);
  if (!atom || fallbackIsUiNoiseChunk(atom)) continue;
+ // Detect enumeration lists: 3+ ' - ' separators → split even on lowercase items
+ // (handles Italian infinitive lists from public-administration job postings)
+ const inlineDashParts = atom.split(/ - (?=[a-zA-ZÀ-ÖÙ-Üà-öù-ü])/);
+ if (inlineDashParts.length >= 3) {
+ const cleanedParts = inlineDashParts.map((x) => fallbackCleanSpaces(x)).filter(Boolean);
+ const longParts = cleanedParts.filter((x) => x.length > 8);
+ if (longParts.length >= 3) {
+ // Emit ALL parts (including short heading words like "Compiti")
+ // so downstream heading detection can categorize the section.
+ for (const part of cleanedParts) {
+ if (!fallbackIsUiNoiseChunk(part)) chunks.push(part);
+ }
+ continue;
+ }
+ }
  const splitByBullets = atom
  .split(/\s*(?:^|\s)(?:-\s+|•\s+|▪\s+|\*\s+)(?=[A-Z0-9À-ÖÙ-Ü])/g)
  .map((x) => fallbackCleanSpaces(x))
@@ -6428,9 +6455,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="animate-pulse bg-surface-raised rounded h-4 w-11/12" />
  <div className="animate-pulse bg-surface-raised rounded h-4 w-4/5" />
  </div>
- ) : canonicalSummary.length > 0 ? (
+ ) : canonicalContent.summary.length > 0 ? (
  <div className="space-y-2">
- {canonicalSummary.map((line, i) => (
+ {canonicalContent.summary.map((line, i) => (
  <p key={i} className="text-sm leading-relaxed text-body">{line}</p>
  ))}
  </div>
