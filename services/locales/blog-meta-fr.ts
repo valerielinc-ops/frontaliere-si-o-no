@@ -5027,6 +5027,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-luna-park-schiranna-2026.title': 'Luna Park Schiranna : vie entre manèges et caravanes',
     'blog.article.varese-luna-park-schiranna-2026.excerpt': 'Découvrez la vie des forains et foraines qui apportent chaque année musique et lumières à la Schiranna de Varèse',
     'blog.article.varese-luna-park-schiranna-2026.imageAlt': 'Vue aérienne du parc d\'attractions de Schiranna à Varese',
+    'blog.article.mera-longhi-130-anni-dolcezza-varese.title': 'Mera & Longhi : 130 ans d\'artisanat sucré primé à Varèse',
+    'blog.article.mera-longhi-130-anni-dolcezza-varese.excerpt': 'La famille Bosina récompense l\'entreprise historique varésine Mera & Longhi pour 130 ans d\'excellence en pâtisserie.',
+    'blog.article.mera-longhi-130-anni-dolcezza-varese.imageAlt': 'Une boutique de bonbons historique à Varese, en Italie, présentant des friandises et des bonbons traditionnels italiens.',
 };
 
 export default blogMetaFr;

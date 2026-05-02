@@ -35564,6 +35564,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mera-longhi-130-anni-dolcezza-varese': {
+    title: 'Mera & Longhi: 130 anni di dolcezza artigianale premiati a Varese',
+    description: 'La Famiglia Bosina premia l\'azienda storica varesina Mera & Longhi per 130 anni di eccellenza dolciaria. Scopri la storia e i prodotti di questa icona della',
+    keywords: 'frontalieri, ticino, svizzera, italia, mera, longhi, anni, dolcezza',
+    ogTitle: 'Mera & Longhi: 130 anni di dolcezza artigianale premiati a Varese',
+    ogDescription: 'La Famiglia Bosina premia l\'azienda storica varesina Mera & Longhi per 130 anni di eccellenza dolciaria. Scopri la storia e i prodotti di questa icona della',
+    canonicalPath: '/articoli-frontaliere/mera-longhi-130-anni-dolcezza-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mera & Longhi: 130 anni di dolcezza artigianale premiati a Varese",
+      "description": "La Famiglia Bosina premia l'azienda storica varesina Mera & Longhi per 130 anni di eccellenza dolciaria. Scopri la storia e i prodotti di questa icona della",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mera-longhi-130-anni-dolcezza-varese.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un negozio di caramelle storico a Varese, Italia, che mostra dolci e caramelle tradizionali italiane."
+      },
+      "datePublished": "2026-05-02T03:55:34+00:00",
+      "dateModified": "2026-05-02T03:55:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mera-longhi-130-anni-dolcezza-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

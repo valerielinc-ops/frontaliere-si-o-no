@@ -12741,4 +12741,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-luna-park-schiranna-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'mera-longhi-130-anni-dolcezza-varese',
+ category: 'novita',
+ date: '2026-05-02T03:55:34.438Z',
+ image: '/images/blog/mera-longhi-130-anni-dolcezza-varese.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

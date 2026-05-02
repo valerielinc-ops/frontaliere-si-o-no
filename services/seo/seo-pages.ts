@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1725,
+ "numberOfItems": 1726,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6360,7 +6360,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1722, "name": "Unitalsi Busto e Varese: sollievo spirituale e ...", "url": `${BASE_URL}/articoli-frontaliere/unitalsi-busto-varese-malati-spiritualita` },
           { "@type": "ListItem", "position": 1723, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/isola-artica-islanda-pugliese` },
           { "@type": "ListItem", "position": 1724, "name": "Chocolat Stella torna a Bellinzona con nuovo ne...", "url": `${BASE_URL}/articoli-frontaliere/cioccolato-illumina-bellinzona-2026` },
-          { "@type": "ListItem", "position": 1725, "name": "Luna Park Schiranna: vita tra giostre e carovane", "url": `${BASE_URL}/articoli-frontaliere/varese-luna-park-schiranna-2026` }
+          { "@type": "ListItem", "position": 1725, "name": "Luna Park Schiranna: vita tra giostre e carovane", "url": `${BASE_URL}/articoli-frontaliere/varese-luna-park-schiranna-2026` },
+          { "@type": "ListItem", "position": 1726, "name": "Mera & Longhi: 130 anni di dolcezza artigianale...", "url": `${BASE_URL}/articoli-frontaliere/mera-longhi-130-anni-dolcezza-varese` }
  ]
  },
  {
