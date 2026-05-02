@@ -1,16 +1,19 @@
 {
   "key": "fart",
   "label": "FART",
-  "generatedAt": "2026-05-01T21:36:03.015Z",
-  "total": 0,
+  "generatedAt": "2026-05-02T09:41:21.351Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 13499,
+  "avgDurationMs": 13499,
+  "durationHistory": [
+    13499
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
