@@ -2916,6 +2916,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-attivisti-flotilla-israele-interrogati': { name: 'Novità', path: '/articoli-frontaliere/attivisti-flotilla-israele-interrogati', parent: 'blog' },
     'blog-massiccio-intervento-polizia-lugano-2026': { name: 'Intervento polizia', path: '/articoli-frontaliere/massiccio-intervento-polizia-lugano-2026', parent: 'blog' },
     'blog-giovani-rematori-ceresio-2026': { name: 'Novità', path: '/articoli-frontaliere/giovani-rematori-ceresio-2026', parent: 'blog' },
+    'blog-permesso-g-b-2026-20km-frontalieri': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/permesso-g-b-2026-20km-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

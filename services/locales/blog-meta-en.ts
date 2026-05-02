@@ -5056,6 +5056,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giovani-rematori-ceresio-2026.title': 'Young rowers shine on Lake Lugano',
     'blog.article.giovani-rematori-ceresio-2026.excerpt': 'The 22nd Youth Regatta organized by Canottieri Ceresio Castagnola took place on Friday, May 1st, 2026',
     'blog.article.giovani-rematori-ceresio-2026.imageAlt': 'Young rowers competing on Lake Lugano, Ticino',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.title': 'G vs B permit for cross-border workers in 2026: when to switch',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.excerpt': 'Technical comparison between G and B permits for Ticino cross-border workers in 2026. Focus on \'within 20 km\' with operational checklist and concrete scenarios.',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.imageAlt': 'Lake Lugano with Swiss-Italian border sign',
 };
 
 export default blogMetaEn;

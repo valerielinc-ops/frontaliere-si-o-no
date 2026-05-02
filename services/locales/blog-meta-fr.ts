@@ -5057,6 +5057,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giovani-rematori-ceresio-2026.title': 'Jeunes rameurs à l\'honneur sur le Ceresio',
     'blog.article.giovani-rematori-ceresio-2026.excerpt': 'La 22ème régate junior organisée par la Canottieri Ceresio Castagnola a eu lieu vendredi 1er mai 2026',
     'blog.article.giovani-rematori-ceresio-2026.imageAlt': 'Jeunes rameurs en compétition sur le lac de Lugano, Tessin',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.title': 'Permis G vs B frontalier 2026: quand changer ?',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.excerpt': 'Comparaison technique entre le permis G et B en 2026 pour les frontaliers du Tessin. Focus sur \'dans un rayon de 20 km\' avec une checklist opérationnelle et des scénarios concrets.',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.imageAlt': 'Lac de Lugano avec panneau frontalier suisse-italien',
 };
 
 export default blogMetaFr;

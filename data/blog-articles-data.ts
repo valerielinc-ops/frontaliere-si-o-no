@@ -12811,4 +12811,11 @@ export const ARTICLES = [
  image: '/images/blog/giovani-rematori-ceresio-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'permesso-g-b-2026-20km-frontalieri',
+ category: 'fiscale',
+ date: '2026-05-02T06:17:12.621Z',
+ image: '/images/blog/permesso-g-b-2026-20km-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

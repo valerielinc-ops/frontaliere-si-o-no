@@ -5056,6 +5056,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giovani-rematori-ceresio-2026.title': 'Junge Ruderer im Rampenlicht am Ceresio',
     'blog.article.giovani-rematori-ceresio-2026.excerpt': 'Die 22. Jugendregatta, organisiert vom Ruderverein Ceresio Castagnola, fand am Freitag, dem 1. Mai 2026, statt',
     'blog.article.giovani-rematori-ceresio-2026.imageAlt': 'Junge Ruderer im Wettkampf auf dem Luganersee, Tessin',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.title': 'G-Bewilligung vs. B für Grenzgänger 2026: Wann lohnt sich der Wechsel?',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.excerpt': 'Technischer Vergleich zwischen G-Bewilligung und B-Bewilligung 2026 für Grenzgänger im Tessin. Fokus auf \'innerhalb 20 km\' mit Checkliste und konkreten Szenarien.',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.imageAlt': 'Luganersee mit schweizerisch-italienischem Grenzschild',
 };
 
 export default blogMetaDe;

@@ -5057,6 +5057,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giovani-rematori-ceresio-2026.title': 'Giovani rematori protagonisti sul Ceresio',
     'blog.article.giovani-rematori-ceresio-2026.excerpt': 'La 22ª Regata giovanile organizzata dalla Canottieri Ceresio Castagnola si è tenuta venerdì 1° maggio 2026',
     'blog.article.giovani-rematori-ceresio-2026.imageAlt': 'Giovani rematori in gara sul Lago di Lugano, Ticino',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.title': 'Permesso G vs B frontalieri 2026 entro 20 km: quando conviene cambiare',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.excerpt': 'Confronto tecnico tra Permesso G e B nel 2026 per frontalieri Ticino. Focus su \'entro 20 km\' con checklist operativa e scenari concreti.',
+    'blog.article.permesso-g-b-2026-20km-frontalieri.imageAlt': 'Lago di Lugano con segnale di confine svizzero-italiano',
 };
 
 export default blogMetaIt;
