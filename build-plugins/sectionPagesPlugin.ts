@@ -43,7 +43,6 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { WriteCollector } from './batchWrite';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -1110,46 +1109,37 @@ export function sectionPagesPlugin(): Plugin {
   return {
     name: 'section-pages',
     apply: 'build',
-    async closeBundle() {
-      try {
-        if (process.env.SKIP_SECTION_PAGES === '1') {
-          console.log('\x1b[33m[section-pages]\x1b[0m Skipped (SKIP_SECTION_PAGES=1)');
-          return;
-        }
-
-        // Resolve dist relative to CWD (Vite always runs `closeBundle` after
-        // emitting the bundle so `process.cwd()` is the project root in every
-        // supported invocation; no separate rootDir argument needed).
-        const distDir = np.resolve(process.cwd(), 'dist');
-        if (!fs.existsSync(distDir)) {
-          console.warn('\x1b[33m[section-pages]\x1b[0m dist/ missing — skipping');
-          return;
-        }
-
-        const collector = new WriteCollector({ distDir, pluginName: 'sectionPagesPlugin' });
-        const dateStamp = new Date().toISOString().slice(0, 10);
-
-        let pagesWritten = 0;
-        const t0 = Date.now();
-
-        for (const sectionId of SECTION_IDS) {
-          const section = SECTIONS[sectionId];
-          for (const locale of LOCALES) {
-            const rendered = renderSectionPage({ section, locale, distDir, dateStamp });
-            const indexPath = np.join(distDir, rendered.urlPath, 'index.html');
-            collector.add(indexPath, rendered.html);
-            pagesWritten++;
-          }
-        }
-
-        const written = await collector.flush();
-        console.log(
-          `\x1b[36m[section-pages]\x1b[0m Generated ${pagesWritten} section pages — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
-        );
-      } catch (err) {
-        console.error('\x1b[31m[section-pages]\x1b[0m Plugin error:', err);
-        throw err;
+    enforce: 'post',
+    closeBundle() {
+      if (process.env.SKIP_SECTION_PAGES === '1') {
+        console.log('\x1b[33m[section-pages]\x1b[0m Skipped (SKIP_SECTION_PAGES=1)');
+        return;
       }
+
+      const distDir = np.resolve(process.cwd(), 'dist');
+      if (!fs.existsSync(distDir)) {
+        console.warn('\x1b[33m[section-pages]\x1b[0m dist/ missing — skipping');
+        return;
+      }
+
+      const dateStamp = new Date().toISOString().slice(0, 10);
+      const t0 = Date.now();
+      let written = 0;
+
+      for (const sectionId of SECTION_IDS) {
+        const section = SECTIONS[sectionId];
+        for (const locale of LOCALES) {
+          const rendered = renderSectionPage({ section, locale, distDir, dateStamp });
+          const outPath = np.join(distDir, rendered.urlPath, 'index.html');
+          fs.mkdirSync(np.dirname(outPath), { recursive: true });
+          fs.writeFileSync(outPath, rendered.html, 'utf-8');
+          written++;
+        }
+      }
+
+      console.log(
+        `\x1b[36m[section-pages]\x1b[0m Generated ${written} section pages in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+      );
     },
   };
 }
