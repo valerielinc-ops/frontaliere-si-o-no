@@ -37739,6 +37739,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patriot-ritardo-svizzera-valuta-alternative': {
+    title: 'Patriot in ritardo, Berna valuta altri sistemi | Frontaliere Ticino',
+    description: 'La Svizzera cerca alternative ai sistemi Patriot in ritardo, interpellando Germania, Francia, Israele e Corea del Sud. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, patriot, ritardo, berna, valuta',
+    ogTitle: 'Patriot in ritardo, Berna valuta altri sistemi',
+    ogDescription: 'La Svizzera cerca alternative ai sistemi Patriot in ritardo, interpellando Germania, Francia, Israele e Corea del Sud.',
+    canonicalPath: '/articoli-frontaliere/patriot-ritardo-svizzera-valuta-alternative',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patriot in ritardo, Berna valuta altri sistemi",
+      "description": "La Svizzera cerca alternative ai sistemi Patriot in ritardo, interpellando Germania, Francia, Israele e Corea del Sud. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/patriot-ritardo-svizzera-valuta-alternative.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sistema di difesa aerea in Ticino"
+      },
+      "datePublished": "2026-05-02T17:11:53+00:00",
+      "dateModified": "2026-05-02T17:11:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/patriot-ritardo-svizzera-valuta-alternative`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

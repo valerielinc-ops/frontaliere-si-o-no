@@ -2981,6 +2981,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-agricoltura-ticino-priorita-2026': { name: 'Agricoltura Ticino', path: '/articoli-frontaliere/agricoltura-ticino-priorita-2026', parent: 'blog' },
     'blog-svizzera-hockey-sconfitta-finlandia': { name: 'Novità', path: '/articoli-frontaliere/svizzera-hockey-sconfitta-finlandia', parent: 'blog' },
     'blog-pd-como-sfiducia-maccabeo-2026': { name: 'Novità', path: '/articoli-frontaliere/pd-como-sfiducia-maccabeo-2026', parent: 'blog' },
+    'blog-patriot-ritardo-svizzera-valuta-alternative': { name: 'Novità', path: '/articoli-frontaliere/patriot-ritardo-svizzera-valuta-alternative', parent: 'blog' },
  };
 
  const info = sectionNames[section];

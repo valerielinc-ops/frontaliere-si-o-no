@@ -5251,6 +5251,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pd-como-sfiducia-maccabeo-2026.title': 'Como PD pushes no-confidence in Maccabeo: \'Lack of political responsibility\'',
     'blog.article.pd-como-sfiducia-maccabeo-2026.excerpt': 'Como\'s Democratic Party won\'t back down on the no-confidence motion against Councillor Maccabeo, which was rejected in the municipal council.',
     'blog.article.pd-como-sfiducia-maccabeo-2026.imageAlt': 'Como cityscape with Lake Como in the background',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.title': 'Patriot delayed, Bern seeks alternatives',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.excerpt': 'Switzerland looks for alternatives to delayed Patriot systems, consulting Germany, France, Israel, and South Korea.',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.imageAlt': 'Air defense system in Ticino',
 };
 
 export default blogMetaEn;

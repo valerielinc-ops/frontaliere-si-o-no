@@ -5251,6 +5251,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pd-como-sfiducia-maccabeo-2026.title': 'PD Como will Maccabeo misstrauen: Verantwortungslosigkeit',
     'blog.article.pd-como-sfiducia-maccabeo-2026.excerpt': 'Die Partito Democratico von Como gibt nicht auf mit dem Misstrauensvotum gegen den Assessor Maccabeo, das im Gemeinderat abgelehnt wurde.',
     'blog.article.pd-como-sfiducia-maccabeo-2026.imageAlt': 'Panorama von Como mit dem Comer See im Hintergrund',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.title': 'Patriot-Systeme: Berna sucht Alternativen',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.excerpt': 'Die Schweiz sucht nach Alternativen zu den verspäteten Patriot-Systemen und konsultiert Deutschland, Frankreich, Israel und Südkorea.',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.imageAlt': 'Luftverteidigungssystem in Ticino',
 };
 
 export default blogMetaDe;

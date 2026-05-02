@@ -5252,6 +5252,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pd-como-sfiducia-maccabeo-2026.title': 'Le PD de Côme insiste sur la motion de défiance contre Maccabeo',
     'blog.article.pd-como-sfiducia-maccabeo-2026.excerpt': 'Le Parti Démocrate de Côme ne lâche pas sur la motion de défiance contre l\'assesseur Maccabeo, rejetée en conseil communal.',
     'blog.article.pd-como-sfiducia-maccabeo-2026.imageAlt': 'Panorama de Côme avec le lac de Côme en arrière-plan',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.title': 'Patriot en retard, Berne évalue d\'autres systèmes',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.excerpt': 'La Suisse cherche des alternatives aux systèmes Patriot en retard, en consultant l\'Allemagne, la France, Israël et la Corée du Sud.',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.imageAlt': 'Système de défense aérienne en Tessin',
 };
 
 export default blogMetaFr;

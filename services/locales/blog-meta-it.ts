@@ -5252,6 +5252,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pd-como-sfiducia-maccabeo-2026.title': 'Pd Como insiste sulla sfiducia a Maccabeo: "Mancanza di responsabilità politica"',
     'blog.article.pd-como-sfiducia-maccabeo-2026.excerpt': 'Il Partito Democratico di Como non molla sulla mozione di sfiducia all\'assessore Maccabeo, bocciata in consiglio comunale.',
     'blog.article.pd-como-sfiducia-maccabeo-2026.imageAlt': 'Panorama di Como con il Lago di Como sullo sfondo',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.title': 'Patriot in ritardo, Berna valuta altri sistemi',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.excerpt': 'La Svizzera cerca alternative ai sistemi Patriot in ritardo, interpellando Germania, Francia, Israele e Corea del Sud.',
+    'blog.article.patriot-ritardo-svizzera-valuta-alternative.imageAlt': 'Sistema di difesa aerea in Ticino',
 };
 
 export default blogMetaIt;

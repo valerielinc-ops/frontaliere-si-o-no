@@ -13266,4 +13266,11 @@ export const ARTICLES = [
  image: '/images/blog/pd-como-sfiducia-maccabeo-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'patriot-ritardo-svizzera-valuta-alternative',
+ category: 'novita',
+ date: '2026-05-02T17:11:53.296Z',
+ image: '/images/blog/patriot-ritardo-svizzera-valuta-alternative.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
