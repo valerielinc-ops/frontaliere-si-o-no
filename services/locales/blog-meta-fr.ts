@@ -4985,6 +4985,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ippodromo-varese-svicc-allenatori.title': 'Expulsion des entraîneurs : la Svicc ferme les écuries de Varèse',
     'blog.article.ippodromo-varese-svicc-allenatori.excerpt': 'La Svicc expulse les entraîneurs des écuries de Varèse dans les 60 jours. Projet de démolition et de restructuration',
     'blog.article.ippodromo-varese-svicc-allenatori.imageAlt': 'Hippodrome de Varese avec des chevaux dans les écuries',
+    'blog.article.luigi-bignami-insubria-scienza-2026.title': 'Luigi Bignami à l\'Insubria: l\'art de communiquer la science',
+    'blog.article.luigi-bignami-insubria-scienza-2026.excerpt': 'Le géologue et journaliste scientifique Luigi Bignami a rencontré les étudiants de l\'Université de l\'Insubria pour parler de vulgarisation scientifique.',
+    'blog.article.luigi-bignami-insubria-scienza-2026.imageAlt': 'Amphithéâtre à l\'Université de l\'Insubria à Varese, en Italie, avec des étudiants écoutant une conférence sur la communication scientifique.',
 };
 
 export default blogMetaFr;

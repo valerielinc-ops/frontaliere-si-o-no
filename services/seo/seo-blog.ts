@@ -35158,6 +35158,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luigi-bignami-insubria-scienza-2026': {
+    title: 'Luigi Bignami all\'Insubria: l\'arte di comunicare la scienza',
+    description: 'Luigi Bignami all\'Università dell\'Insubria per parlare di comunicazione scientifica. Scopri come tradurre la complessità in linguaggio accessibile.',
+    keywords: 'frontalieri, ticino, svizzera, italia, luigi, bignami, insubria, arte',
+    ogTitle: 'Luigi Bignami all\'Insubria: l\'arte di comunicare la scienza',
+    ogDescription: 'Luigi Bignami all\'Università dell\'Insubria per parlare di comunicazione scientifica. Scopri come tradurre la complessità in linguaggio accessibile.',
+    canonicalPath: '/articoli-frontaliere/luigi-bignami-insubria-scienza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luigi Bignami all'Insubria: l'arte di comunicare la scienza",
+      "description": "Luigi Bignami all'Università dell'Insubria per parlare di comunicazione scientifica. Scopri come tradurre la complessità in linguaggio accessibile.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/luigi-bignami-insubria-scienza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula universitaria all'Università dell'Insubria a Varese, con studenti che ascoltano una conferenza su scienza e comunicazione."
+      },
+      "datePublished": "2026-05-02T01:44:31+00:00",
+      "dateModified": "2026-05-02T01:44:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luigi-bignami-insubria-scienza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

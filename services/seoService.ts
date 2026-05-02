@@ -2892,6 +2892,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-biandronno-incontro-astuti-licata-2026': { name: 'Incontro pubblico Biandronno', path: '/articoli-frontaliere/biandronno-incontro-astuti-licata-2026', parent: 'blog' },
     'blog-gratis-museo-costume-bagno-2026': { name: 'Novità', path: '/articoli-frontaliere/gratis-museo-costume-bagno-2026', parent: 'blog' },
     'blog-ippodromo-varese-svicc-allenatori': { name: 'Novità', path: '/articoli-frontaliere/ippodromo-varese-svicc-allenatori', parent: 'blog' },
+    'blog-luigi-bignami-insubria-scienza-2026': { name: 'Novità', path: '/articoli-frontaliere/luigi-bignami-insubria-scienza-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4984,6 +4984,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ippodromo-varese-svicc-allenatori.title': 'Svicc evicts trainers, closes Varese stables',
     'blog.article.ippodromo-varese-svicc-allenatori.excerpt': 'Svicc evicts trainers from Varese stables within 60 days. Demolition and renovation project underway.',
     'blog.article.ippodromo-varese-svicc-allenatori.imageAlt': 'Varese racetrack with horses in stables',
+    'blog.article.luigi-bignami-insubria-scienza-2026.title': 'Luigi Bignami at Insubria: the art of science communication',
+    'blog.article.luigi-bignami-insubria-scienza-2026.excerpt': 'Geologist and science journalist Luigi Bignami met with students at the University of Insubria to discuss science communication.',
+    'blog.article.luigi-bignami-insubria-scienza-2026.imageAlt': 'Lecture hall at the University of Insubria in Varese, Italy, with students listening to a science communication lecture.',
 };
 
 export default blogMetaEn;

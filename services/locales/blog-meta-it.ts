@@ -4985,6 +4985,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ippodromo-varese-svicc-allenatori.title': 'Sfratto agli allenatori: la Svicc chiude le scuderie di Varese',
     'blog.article.ippodromo-varese-svicc-allenatori.excerpt': 'La Svicc sfratta gli allenatori delle scuderie di Varese entro 60 giorni. Progetto di demolizione e ristrutturazione',
     'blog.article.ippodromo-varese-svicc-allenatori.imageAlt': 'Ippodromo di Varese con cavalli nelle scuderie',
+    'blog.article.luigi-bignami-insubria-scienza-2026.title': 'Luigi Bignami all\'Insubria: l\'arte di comunicare la scienza',
+    'blog.article.luigi-bignami-insubria-scienza-2026.excerpt': 'Il geologo e giornalista scientifico Luigi Bignami ha incontrato gli studenti dell\'Università dell\'Insubria per parlare di divulgazione scientifica.',
+    'blog.article.luigi-bignami-insubria-scienza-2026.imageAlt': 'Aula universitaria all\'Università dell\'Insubria a Varese, con studenti che ascoltano una conferenza su scienza e comunicazione.',
 };
 
 export default blogMetaIt;

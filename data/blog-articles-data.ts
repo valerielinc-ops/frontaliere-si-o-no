@@ -12643,4 +12643,11 @@ export const ARTICLES = [
  image: '/images/blog/ippodromo-varese-svicc-allenatori.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'luigi-bignami-insubria-scienza-2026',
+ category: 'novita',
+ date: '2026-05-02T01:44:31.549Z',
+ image: '/images/blog/luigi-bignami-insubria-scienza-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
