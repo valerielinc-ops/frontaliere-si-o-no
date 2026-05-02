@@ -5059,6 +5059,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permesso-g-b-2026-20km-frontalieri.title': 'G-Bewilligung vs. B für Grenzgänger 2026: Wann lohnt sich der Wechsel?',
     'blog.article.permesso-g-b-2026-20km-frontalieri.excerpt': 'Technischer Vergleich zwischen G-Bewilligung und B-Bewilligung 2026 für Grenzgänger im Tessin. Fokus auf \'innerhalb 20 km\' mit Checkliste und konkreten Szenarien.',
     'blog.article.permesso-g-b-2026-20km-frontalieri.imageAlt': 'Luganersee mit schweizerisch-italienischem Grenzschild',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.title': 'Hauspflege: Lebensarbeit darf nicht bestraft werden',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.excerpt': 'Luca Frasa, Municipale von Quinto, hebt die Frage der Hauspflege für Rentner im Tessin hervor und weist auf das Risiko einer Benachteiligung für diejenigen hin, die gespart haben.',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.imageAlt': 'Eine ältere Person erhält häusliche Pflege in einer Wohnung im Tessin, während ein Pfleger sie unterstützt.',
 };
 
 export default blogMetaDe;

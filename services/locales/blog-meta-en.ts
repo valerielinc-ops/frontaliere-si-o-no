@@ -5059,6 +5059,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permesso-g-b-2026-20km-frontalieri.title': 'G vs B permit for cross-border workers in 2026: when to switch',
     'blog.article.permesso-g-b-2026-20km-frontalieri.excerpt': 'Technical comparison between G and B permits for Ticino cross-border workers in 2026. Focus on \'within 20 km\' with operational checklist and concrete scenarios.',
     'blog.article.permesso-g-b-2026-20km-frontalieri.imageAlt': 'Lake Lugano with Swiss-Italian border sign',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.title': 'Home care: those who worked a lifetime should not be penalized',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.excerpt': 'Luca Frasa, Municipal Councilor of Quinto, raises the issue of home care for retirees in Ticino, highlighting the risk of penalization for those who have saved.',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.imageAlt': 'An elderly person receiving home care in a Ticino apartment, with a caregiver assisting them.',
 };
 
 export default blogMetaEn;

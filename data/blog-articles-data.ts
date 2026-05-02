@@ -12818,4 +12818,11 @@ export const ARTICLES = [
  image: '/images/blog/permesso-g-b-2026-20km-frontalieri.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cure-domicilio-pensionati-ticino-2026',
+ category: 'novita',
+ date: '2026-05-02T06:25:49.880Z',
+ image: '/images/blog/cure-domicilio-pensionati-ticino-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

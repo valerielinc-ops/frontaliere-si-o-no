@@ -35883,6 +35883,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cure-domicilio-pensionati-ticino-2026': {
+    title: 'Cure a domicilio: chi ha lavorato una vita non può essere penalizzato',
+    description: 'Luca Frasa, Municipale di Quinto, solleva la questione delle cure a domicilio per i pensionati in Ticino, evidenziando il rischio di penalizzazione per chi ha',
+    keywords: 'frontalieri, ticino, svizzera, italia, cure, domicilio, lavorato, vita',
+    ogTitle: 'Cure a domicilio: chi ha lavorato una vita non può essere penalizzato',
+    ogDescription: 'Luca Frasa, Municipale di Quinto, solleva la questione delle cure a domicilio per i pensionati in Ticino, evidenziando il rischio di penalizzazione per chi ha',
+    canonicalPath: '/articoli-frontaliere/cure-domicilio-pensionati-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cure a domicilio: chi ha lavorato una vita non può essere penalizzato",
+      "description": "Luca Frasa, Municipale di Quinto, solleva la questione delle cure a domicilio per i pensionati in Ticino, evidenziando il rischio di penalizzazione per chi ha",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cure-domicilio-pensionati-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona anziana riceve assistenza domiciliare in un appartamento del Ticino, con un operatore che la assiste."
+      },
+      "datePublished": "2026-05-02T06:25:49+00:00",
+      "dateModified": "2026-05-02T06:25:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-domicilio-pensionati-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

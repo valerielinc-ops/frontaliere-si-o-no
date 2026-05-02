@@ -5060,6 +5060,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-g-b-2026-20km-frontalieri.title': 'Permesso G vs B frontalieri 2026 entro 20 km: quando conviene cambiare',
     'blog.article.permesso-g-b-2026-20km-frontalieri.excerpt': 'Confronto tecnico tra Permesso G e B nel 2026 per frontalieri Ticino. Focus su \'entro 20 km\' con checklist operativa e scenari concreti.',
     'blog.article.permesso-g-b-2026-20km-frontalieri.imageAlt': 'Lago di Lugano con segnale di confine svizzero-italiano',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.title': 'Cure a domicilio: chi ha lavorato una vita non può essere penalizzato',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.excerpt': 'Luca Frasa, Municipale di Quinto, solleva la questione delle cure a domicilio per i pensionati in Ticino, evidenziando il rischio di penalizzazione per chi ha risparmiato.',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.imageAlt': 'Una persona anziana riceve assistenza domiciliare in un appartamento del Ticino, con un operatore che la assiste.',
 };
 
 export default blogMetaIt;

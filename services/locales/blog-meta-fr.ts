@@ -5060,6 +5060,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permesso-g-b-2026-20km-frontalieri.title': 'Permis G vs B frontalier 2026: quand changer ?',
     'blog.article.permesso-g-b-2026-20km-frontalieri.excerpt': 'Comparaison technique entre le permis G et B en 2026 pour les frontaliers du Tessin. Focus sur \'dans un rayon de 20 km\' avec une checklist opérationnelle et des scénarios concrets.',
     'blog.article.permesso-g-b-2026-20km-frontalieri.imageAlt': 'Lac de Lugano avec panneau frontalier suisse-italien',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.title': 'Soins à domicile : les retraités ne doivent pas être pénalisés',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.excerpt': 'Luca Frasa, Municipal de Quinto, soulève la question des soins à domicile pour les retraités en Ticino, mettant en évidence le risque de pénalisation pour ceux qui ont économisé.',
+    'blog.article.cure-domicilio-pensionati-ticino-2026.imageAlt': 'Une personne âgée recevant des soins à domicile dans un appartement du Tessin, avec un soignant qui l\'assiste.',
 };
 
 export default blogMetaFr;
