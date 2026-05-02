@@ -5074,6 +5074,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.divieti-social-media-minori.title': 'Soziale Medien und Minderjährige: Verbote reichen nicht',
     'blog.article.divieti-social-media-minori.excerpt': 'Plattformen neu gestalten, um Abhängigkeit zu vermeiden, ist die Lösung, nicht der Zugang zu beschränken',
     'blog.article.divieti-social-media-minori.imageAlt': 'Jugendliche nutzen Smartphones auf einem Platz in Locarno',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.title': 'Baume-Schneider: Gesundheit, AHV und Einwanderung im Mittelpunkt der 1.-Mai-Rede',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.excerpt': 'Bundesrätin Elisabeth Baume-Schneider sprach über Gesundheitsversorgung, AHV und Beziehungen zu Europa in ihrer 1.-Mai-Rede in Liestal.',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.imageAlt': 'Elisabeth Baume-Schneider spricht in Liestal',
 };
 
 export default blogMetaDe;

@@ -36028,6 +36028,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-primo-maggio-baume-schneider-sanita-avs': {
+    title: 'Baume-Schneider: sanità, AVS e immigrazione al centro del discorso del 1° maggio',
+    description: 'Elisabeth Baume-Schneider ha parlato di cure, AVS e rapporti con l\'Europa nel suo discorso del 1° maggio a Liestal. Implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, baume-schneider, sanità, immigrazione, centro',
+    ogTitle: 'Baume-Schneider: sanità, AVS e immigrazione al centro del discorso del 1° maggio',
+    ogDescription: 'Elisabeth Baume-Schneider ha parlato di cure, AVS e rapporti con l\'Europa nel suo discorso del 1° maggio a Liestal. Implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/primo-maggio-baume-schneider-sanita-avs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Baume-Schneider: sanità, AVS e immigrazione al centro del discorso del 1° maggio",
+      "description": "Elisabeth Baume-Schneider ha parlato di cure, AVS e rapporti con l'Europa nel suo discorso del 1° maggio a Liestal. Implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/primo-maggio-baume-schneider-sanita-avs.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Elisabeth Baume-Schneider parla a Liestal"
+      },
+      "datePublished": "2026-05-02T07:09:44+00:00",
+      "dateModified": "2026-05-02T07:09:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/primo-maggio-baume-schneider-sanita-avs`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

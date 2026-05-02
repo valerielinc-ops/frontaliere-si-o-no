@@ -5075,6 +5075,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.divieti-social-media-minori.title': 'Social media e minori: i divieti non bastano',
     'blog.article.divieti-social-media-minori.excerpt': 'Riprogettare le piattaforme per evitare la dipendenza è la soluzione, non limitare l\'accesso',
     'blog.article.divieti-social-media-minori.imageAlt': 'Ragazzi che usano smartphone in una piazza di Locarno',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.title': 'Baume-Schneider: sanità, AVS e immigrazione al centro del discorso del 1° maggio',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.excerpt': 'La consigliera federale Elisabeth Baume-Schneider ha parlato di cure, AVS e rapporti con l\'Europa nel suo discorso del 1° maggio a Liestal.',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.imageAlt': 'Elisabeth Baume-Schneider parla a Liestal',
 };
 
 export default blogMetaIt;

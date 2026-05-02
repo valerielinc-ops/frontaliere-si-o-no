@@ -5075,6 +5075,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.divieti-social-media-minori.title': 'Réseaux sociaux et mineurs: les interdictions ne suffisent pas',
     'blog.article.divieti-social-media-minori.excerpt': 'Repenser les plateformes pour éviter la dépendance est la solution, pas limiter l\'accès',
     'blog.article.divieti-social-media-minori.imageAlt': 'Des adolescents utilisent des smartphones sur une place à Locarno',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.title': 'Baume-Schneider: santé, AVS et immigration au cœur du discours du 1er mai',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.excerpt': 'La conseillère fédérale Elisabeth Baume-Schneider a parlé des soins, de l\'AVS et des relations avec l\'Europe dans son discours du 1er mai à Liestal.',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.imageAlt': 'Elisabeth Baume-Schneider parle à Liestal',
 };
 
 export default blogMetaFr;

@@ -5074,6 +5074,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.divieti-social-media-minori.title': 'Social media and minors: bans aren\'t enough',
     'blog.article.divieti-social-media-minori.excerpt': 'Redesigning platforms to prevent addiction is the solution, not limiting access',
     'blog.article.divieti-social-media-minori.imageAlt': 'Teenagers using smartphones in a square in Locarno',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.title': 'Baume-Schneider: healthcare, AVS and immigration in 1st May speech',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.excerpt': 'Federal Councillor Elisabeth Baume-Schneider spoke about healthcare, AVS and relations with Europe in her 1st May speech in Liestal.',
+    'blog.article.primo-maggio-baume-schneider-sanita-avs.imageAlt': 'Elisabeth Baume-Schneider speaks in Liestal',
 };
 
 export default blogMetaEn;

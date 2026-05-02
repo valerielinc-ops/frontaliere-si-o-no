@@ -12853,4 +12853,11 @@ export const ARTICLES = [
  image: '/images/blog/divieti-social-media-minori.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'primo-maggio-baume-schneider-sanita-avs',
+ category: 'novita',
+ date: '2026-05-02T07:09:44.786Z',
+ image: '/images/blog/primo-maggio-baume-schneider-sanita-avs.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];
