@@ -35622,6 +35622,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-concerto-luino-vivaldi-bach-2026': {
+    title: 'Concerto a Luino: Vivaldi e Bach al Santuario del Carmine',
+    description: 'Sabato 2 maggio 2026 la Milano Festival Chamber Orchestra si esibisce a Luino con un programma di musica classica. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, concerto, luino, vivaldi, bach',
+    ogTitle: 'Concerto a Luino: Vivaldi e Bach al Santuario del Carmine',
+    ogDescription: 'Sabato 2 maggio 2026 la Milano Festival Chamber Orchestra si esibisce a Luino con un programma di musica classica.',
+    canonicalPath: '/articoli-frontaliere/concerto-luino-vivaldi-bach-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Concerto a Luino: Vivaldi e Bach al Santuario del Carmine",
+      "description": "Sabato 2 maggio 2026 la Milano Festival Chamber Orchestra si esibisce a Luino con un programma di musica classica. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/concerto-luino-vivaldi-bach-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Concerto al Santuario del Carmine a Luino"
+      },
+      "datePublished": "2026-05-02T04:17:50+00:00",
+      "dateModified": "2026-05-02T04:17:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/concerto-luino-vivaldi-bach-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

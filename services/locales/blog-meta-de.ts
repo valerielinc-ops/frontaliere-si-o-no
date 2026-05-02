@@ -5032,6 +5032,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.girometta-doro-andrea-chiodi-varese-2026.title': 'Goldene Girometta 2026 für Andrea Chiodi: Varese ehrt seinen Regisseur',
     'blog.article.girometta-doro-andrea-chiodi-varese-2026.excerpt': 'Der Regisseur aus Varese erhält die höchste städtische Auszeichnung dafür, dass er den Namen Varese in den Himmel der Kultur und des zeitgenössischen Theaters gebracht hat.',
     'blog.article.girometta-doro-andrea-chiodi-varese-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund, klarer blauer Himmel, Sommertag',
+    'blog.article.concerto-luino-vivaldi-bach-2026.title': 'Konzert in Luino: Vivaldi und Bach im Santuario del Carmine',
+    'blog.article.concerto-luino-vivaldi-bach-2026.excerpt': 'Am Samstag, den 2. Mai 2026 tritt die Milano Festival Chamber Orchestra in Luino mit einem Programm klassischer Musik auf.',
+    'blog.article.concerto-luino-vivaldi-bach-2026.imageAlt': 'Konzert im Santuario del Carmine in Luino',
 };
 
 export default blogMetaDe;

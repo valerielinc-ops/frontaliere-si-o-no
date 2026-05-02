@@ -12755,4 +12755,11 @@ export const ARTICLES = [
  image: '/images/blog/girometta-doro-andrea-chiodi-varese-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'concerto-luino-vivaldi-bach-2026',
+ category: 'novita',
+ date: '2026-05-02T04:17:50.723Z',
+ image: '/images/blog/concerto-luino-vivaldi-bach-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

@@ -5032,6 +5032,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.girometta-doro-andrea-chiodi-varese-2026.title': 'Andrea Chiodi wins 2026 Girometta d\'oro',
     'blog.article.girometta-doro-andrea-chiodi-varese-2026.excerpt': 'The Varese director receives the city\'s highest honor for bringing Varese\'s name to the forefront of contemporary culture and theater.',
     'blog.article.girometta-doro-andrea-chiodi-varese-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background, clear blue sky, summer day',
+    'blog.article.concerto-luino-vivaldi-bach-2026.title': 'Concert in Luino: Vivaldi and Bach at Santuario del Carmine',
+    'blog.article.concerto-luino-vivaldi-bach-2026.excerpt': 'On Saturday, May 2, 2026, the Milano Festival Chamber Orchestra performs in Luino with a classical music program.',
+    'blog.article.concerto-luino-vivaldi-bach-2026.imageAlt': 'Concert at Santuario del Carmine in Luino',
 };
 
 export default blogMetaEn;

@@ -2908,6 +2908,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-luna-park-schiranna-2026': { name: 'Luna Park Schiranna', path: '/articoli-frontaliere/varese-luna-park-schiranna-2026', parent: 'blog' },
     'blog-mera-longhi-130-anni-dolcezza-varese': { name: 'Novità', path: '/articoli-frontaliere/mera-longhi-130-anni-dolcezza-varese', parent: 'blog' },
     'blog-girometta-doro-andrea-chiodi-varese-2026': { name: 'Novità', path: '/articoli-frontaliere/girometta-doro-andrea-chiodi-varese-2026', parent: 'blog' },
+    'blog-concerto-luino-vivaldi-bach-2026': { name: 'Concerto Luino', path: '/articoli-frontaliere/concerto-luino-vivaldi-bach-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
