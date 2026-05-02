@@ -2933,6 +2933,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-meloni-governo-longevo-2026': { name: 'Novità', path: '/articoli-frontaliere/meloni-governo-longevo-2026', parent: 'blog' },
     'blog-abbonamento-newsletter-ticino': { name: 'Newsletter Ticino', path: '/articoli-frontaliere/abbonamento-newsletter-ticino', parent: 'blog' },
     'blog-varese-arrampicata-salewa-cube-2026': { name: 'Novità', path: '/articoli-frontaliere/varese-arrampicata-salewa-cube-2026', parent: 'blog' },
+    'blog-migros-immigrazione-necessaria-2026': { name: 'Novità', path: '/articoli-frontaliere/migros-immigrazione-necessaria-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

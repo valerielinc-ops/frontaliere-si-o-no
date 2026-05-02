@@ -36347,6 +36347,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-migros-immigrazione-necessaria-2026': {
+    title: 'Migros: «L\'immigrazione è necessaria per il Ticino»',
+    description: 'Mario Irminger, CEO di Migros, si oppone all\'iniziativa UDC contro l\'immigrazione, sottolineando la sua importanza per il commercio al dettaglio in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, immigrazione, necessaria, mario',
+    ogTitle: 'Migros: «L\'immigrazione è necessaria per il Ticino»',
+    ogDescription: 'Mario Irminger, CEO di Migros, si oppone all\'iniziativa UDC contro l\'immigrazione, sottolineando la sua importanza per il commercio al dettaglio in Ticino.',
+    canonicalPath: '/articoli-frontaliere/migros-immigrazione-necessaria-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros: «L'immigrazione è necessaria per il Ticino»",
+      "description": "Mario Irminger, CEO di Migros, si oppone all'iniziativa UDC contro l'immigrazione, sottolineando la sua importanza per il commercio al dettaglio in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/migros-immigrazione-necessaria-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Supermercato Migros a Lugano con clienti e dipendenti"
+      },
+      "datePublished": "2026-05-02T09:04:35+00:00",
+      "dateModified": "2026-05-02T09:04:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/migros-immigrazione-necessaria-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

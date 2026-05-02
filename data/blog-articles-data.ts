@@ -12930,4 +12930,11 @@ export const ARTICLES = [
  image: '/images/blog/varese-arrampicata-salewa-cube-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'migros-immigrazione-necessaria-2026',
+ category: 'novita',
+ date: '2026-05-02T09:04:35.557Z',
+ image: '/images/blog/migros-immigrazione-necessaria-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

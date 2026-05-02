@@ -5107,6 +5107,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-arrampicata-salewa-cube-2026.title': 'Varese: 109 Athleten bei der Coppa Italia Lead',
     'blog.article.varese-arrampicata-salewa-cube-2026.excerpt': 'Am Samstag, den 2. und Sonntag, den 3. Mai, findet in der Salewa Cube in Varese die zweite Etappe der Coppa Italia Lead mit 109 Athleten, den besten der Nation, statt.',
     'blog.article.varese-arrampicata-salewa-cube-2026.imageAlt': 'Kletterer in der Salewa Cube in Varese',
+    'blog.article.migros-immigrazione-necessaria-2026.title': 'Migros: «Die Einwanderung ist für den Tessin notwendig»',
+    'blog.article.migros-immigrazione-necessaria-2026.excerpt': 'Mario Irminger, CEO von Migros, stellt sich gegen die UDC-Initiative gegen die Einwanderung und betont deren Bedeutung für den Einzelhandel im Tessin.',
+    'blog.article.migros-immigrazione-necessaria-2026.imageAlt': 'Migros-Supermarkt in Lugano mit Kunden und Mitarbeitern',
 };
 
 export default blogMetaDe;

@@ -5107,6 +5107,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-arrampicata-salewa-cube-2026.title': 'Varese: 109 athletes at Salewa Cube for Italian Lead Cup',
     'blog.article.varese-arrampicata-salewa-cube-2026.excerpt': 'On Saturday 2nd and Sunday 3rd May, Salewa Cube in Varese hosts the second stage of the Italian Lead Cup with 109 athletes among the best in the nation.',
     'blog.article.varese-arrampicata-salewa-cube-2026.imageAlt': 'Climbers at the Salewa Cube in Varese',
+    'blog.article.migros-immigrazione-necessaria-2026.title': 'Migros: \'Immigration is vital for Ticino\'',
+    'blog.article.migros-immigrazione-necessaria-2026.excerpt': 'Mario Irminger, CEO of Migros, opposes the UDC initiative against immigration, emphasizing its importance for retail in Ticino.',
+    'blog.article.migros-immigrazione-necessaria-2026.imageAlt': 'Migros supermarket in Lugano with customers and employees',
 };
 
 export default blogMetaEn;

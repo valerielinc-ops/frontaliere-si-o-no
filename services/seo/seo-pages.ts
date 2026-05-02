@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1752,
+ "numberOfItems": 1753,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6387,7 +6387,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1749, "name": "Venezia torna in Serie A con un pareggio contro...", "url": `${BASE_URL}/articoli-frontaliere/venezia-serie-a-promozione-2026` },
           { "@type": "ListItem", "position": 1750, "name": "Meloni: il mio Governo è il secondo più longevo...", "url": `${BASE_URL}/articoli-frontaliere/meloni-governo-longevo-2026` },
           { "@type": "ListItem", "position": 1751, "name": "Newsletter gratuita: iscriviti per aggiornament...", "url": `${BASE_URL}/articoli-frontaliere/abbonamento-newsletter-ticino` },
-          { "@type": "ListItem", "position": 1752, "name": "Varese: 100 atleti alla Salewa Cube per la Copp...", "url": `${BASE_URL}/articoli-frontaliere/varese-arrampicata-salewa-cube-2026` }
+          { "@type": "ListItem", "position": 1752, "name": "Varese: 100 atleti alla Salewa Cube per la Copp...", "url": `${BASE_URL}/articoli-frontaliere/varese-arrampicata-salewa-cube-2026` },
+          { "@type": "ListItem", "position": 1753, "name": "Migros: «L'immigrazione è necessaria per il Tic...", "url": `${BASE_URL}/articoli-frontaliere/migros-immigrazione-necessaria-2026` }
  ]
  },
  {
