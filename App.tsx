@@ -33,6 +33,7 @@ const TermsOfService = lazyRetry(() => import('@/components/pages/TermsOfService
 const ChiSiamo = lazyRetry(() => import('@/components/pages/ChiSiamo').then(m => ({ default: m.ChiSiamo })));
 const AutorePage = lazyRetry(() => import('@/components/pages/AutorePage').then(m => ({ default: m.AutorePage })));
 const Correzioni = lazyRetry(() => import('@/components/pages/Correzioni').then(m => ({ default: m.Correzioni })));
+const Metodologia = lazyRetry(() => import('@/components/pages/Metodologia').then(m => ({ default: m.Metodologia })));
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
 const EmailConfirmed = lazyRetry(() => import('@/components/pages/EmailConfirmed').then(m => ({ default: m.EmailConfirmed })));
 const NewsletterPreferences = lazyRetry(() => import('@/components/pages/NewsletterPreferences').then(m => ({ default: m.NewsletterPreferences })));
@@ -147,7 +148,7 @@ import {
  Home, Timer, Users, Calendar, Shield, Mountain, GraduationCap,
  LifeBuoy, Rocket, Mail, Bug, Sunrise, User as UserIcon, LogIn,
  FileText, Gift, Hammer, BookA, School, Database, Clock, Receipt, Languages, BarChart3,
- Banknote, Fuel, Scale, Loader2, Menu, X, ScrollText
+ Banknote, Fuel, Scale, Loader2, Menu, X, ScrollText, Info
 } from 'lucide-react';
 
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
@@ -2161,6 +2162,10 @@ const App: React.FC = () => {
  <div>
  <Correzioni />
  </div>
+ ) : activeTab === 'metodologia' ? (
+ <div>
+ <Metodologia />
+ </div>
  ) : activeTab === 'data-deletion' ? (
  <div>
  <DataDeletion />
@@ -2643,6 +2648,15 @@ const App: React.FC = () => {
  </a>
  <span className="text-edge">·</span>
  <a
+ href={buildPath({ activeTab: 'metodologia' as any })}
+ onClick={(e) => { e.preventDefault(); navigateTo('metodologia' as any); }}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
+ >
+ <Info className="w-3.5 h-3.5" />
+ Metodologia
+ </a>
+ <span className="text-edge">·</span>
+ <a
  href={buildPath({ activeTab: 'contact' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }}
  className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
@@ -2840,6 +2854,7 @@ const App: React.FC = () => {
  <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
  <a href={buildPath({ activeTab: 'chi-siamo' as any })} onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Users className="w-3.5 h-3.5 shrink-0" />{t('footer.aboutUs')}</a>
  <a href={buildPath({ activeTab: 'correzioni' as any })} onClick={(e) => { e.preventDefault(); navigateTo('correzioni' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><ScrollText className="w-3.5 h-3.5 shrink-0" />Correzioni</a>
+<a href={buildPath({ activeTab: 'metodologia' as any })} onClick={(e) => { e.preventDefault(); navigateTo('metodologia' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Info className="w-3.5 h-3.5 shrink-0" />Metodologia</a>
  <a href={buildPath({ activeTab: 'contact' as any })} onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Mail className="w-3.5 h-3.5 shrink-0" />{t('footer.contactTitle')}</a>
  <a href={buildPath({ activeTab: 'feedback' })} onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Bug className="w-3.5 h-3.5 shrink-0" />{t('footer.improveTitle')}</a>
  <a href={buildPath({ activeTab: 'privacy' })} onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Shield className="w-3.5 h-3.5 shrink-0" />{t('footer.privacy')}</a>

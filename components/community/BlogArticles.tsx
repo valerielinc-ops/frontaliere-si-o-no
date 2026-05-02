@@ -1985,6 +1985,36 @@ function BlogArticles({
  </div>
  )}
 
+ {/* AI transparency disclosure (Google News compliance — A3) */}
+ <aside
+ className="mx-4 sm:mx-6 mt-4 rounded-xl border border-edge bg-surface-alt px-4 py-3 text-sm text-subtle"
+ role="note"
+ aria-label="Trasparenza editoriale"
+ >
+ <p className="mb-1">
+ <strong className="text-body">Trasparenza editoriale:</strong>{' '}
+ bozza assistita da intelligenza artificiale, revisionata dalla redazione.
+ Le fonti utilizzate sono linkate nel testo.
+ </p>
+ <p className="text-xs">
+ <a
+ href="/metodologia/"
+ className="text-accent hover:underline"
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('metodologia' as any); }}
+ >
+ Come scriviamo gli articoli
+ </a>
+ {' · '}
+ <a
+ href="/correzioni/"
+ className="text-accent hover:underline"
+ onClick={(e) => { e.preventDefault(); nav.navigateTo('correzioni' as any); }}
+ >
+ Segnala una correzione
+ </a>
+ </p>
+ </aside>
+
  {/* Article body */}
  <div className="px-4 sm:px-6 py-6 space-y-5">
  <Callout status="accent" variant="plain">
