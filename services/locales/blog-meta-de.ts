@@ -5062,6 +5062,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cure-domicilio-pensionati-ticino-2026.title': 'Hauspflege: Lebensarbeit darf nicht bestraft werden',
     'blog.article.cure-domicilio-pensionati-ticino-2026.excerpt': 'Luca Frasa, Municipale von Quinto, hebt die Frage der Hauspflege für Rentner im Tessin hervor und weist auf das Risiko einer Benachteiligung für diejenigen hin, die gespart haben.',
     'blog.article.cure-domicilio-pensionati-ticino-2026.imageAlt': 'Eine ältere Person erhält häusliche Pflege in einer Wohnung im Tessin, während ein Pfleger sie unterstützt.',
+    'blog.article.libriamoci-varese-studenti-2026.title': 'Über tausend Schüler beim Wettbewerb Libriamoci in Varese',
+    'blog.article.libriamoci-varese-studenti-2026.excerpt': 'Die achtzehnte Ausgabe des Wettbewerbs Libriamoci in Varese sieht die Teilnahme von fast tausend Schülern mit narrativen Texten und grafisch-künstlerischen Arbeiten.',
+    'blog.article.libriamoci-varese-studenti-2026.imageAlt': 'Schüler präsentieren ihre Arbeiten beim Libriamoci-Wettbewerb in Varese',
 };
 
 export default blogMetaDe;

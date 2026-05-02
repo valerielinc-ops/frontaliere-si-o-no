@@ -4657,7 +4657,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1737,
+ "numberOfItems": 1738,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6372,7 +6372,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1734, "name": "Massiccio intervento di polizia a Lugano in Pen...", "url": `${BASE_URL}/articoli-frontaliere/massiccio-intervento-polizia-lugano-2026` },
           { "@type": "ListItem", "position": 1735, "name": "Giovani rematori protagonisti sul Ceresio", "url": `${BASE_URL}/articoli-frontaliere/giovani-rematori-ceresio-2026` },
           { "@type": "ListItem", "position": 1736, "name": "Confronto tecnico tra Permesso G e B per fronta...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-b-2026-20km-frontalieri` },
-          { "@type": "ListItem", "position": 1737, "name": "Cure a domicilio: chi ha lavorato una vita non ...", "url": `${BASE_URL}/articoli-frontaliere/cure-domicilio-pensionati-ticino-2026` }
+          { "@type": "ListItem", "position": 1737, "name": "Cure a domicilio: chi ha lavorato una vita non ...", "url": `${BASE_URL}/articoli-frontaliere/cure-domicilio-pensionati-ticino-2026` },
+          { "@type": "ListItem", "position": 1738, "name": "Oltre mille studenti in gara per il concorso Li...", "url": `${BASE_URL}/articoli-frontaliere/libriamoci-varese-studenti-2026` }
  ]
  },
  {

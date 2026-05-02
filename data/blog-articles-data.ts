@@ -12825,4 +12825,11 @@ export const ARTICLES = [
  image: '/images/blog/cure-domicilio-pensionati-ticino-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'libriamoci-varese-studenti-2026',
+ category: 'novita',
+ date: '2026-05-02T06:38:08.581Z',
+ image: '/images/blog/libriamoci-varese-studenti-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

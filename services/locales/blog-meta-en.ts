@@ -5062,6 +5062,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cure-domicilio-pensionati-ticino-2026.title': 'Home care: those who worked a lifetime should not be penalized',
     'blog.article.cure-domicilio-pensionati-ticino-2026.excerpt': 'Luca Frasa, Municipal Councilor of Quinto, raises the issue of home care for retirees in Ticino, highlighting the risk of penalization for those who have saved.',
     'blog.article.cure-domicilio-pensionati-ticino-2026.imageAlt': 'An elderly person receiving home care in a Ticino apartment, with a caregiver assisting them.',
+    'blog.article.libriamoci-varese-studenti-2026.title': 'Over a thousand students compete in Libriamoci contest in Varese',
+    'blog.article.libriamoci-varese-studenti-2026.excerpt': 'The eighteenth edition of the Libriamoci contest in Varese sees the participation of nearly a thousand students with narrative texts and graphic-pictorial works.',
+    'blog.article.libriamoci-varese-studenti-2026.imageAlt': 'Students presenting their work at the Libriamoci competition in Varese',
 };
 
 export default blogMetaEn;

@@ -5063,6 +5063,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cure-domicilio-pensionati-ticino-2026.title': 'Cure a domicilio: chi ha lavorato una vita non può essere penalizzato',
     'blog.article.cure-domicilio-pensionati-ticino-2026.excerpt': 'Luca Frasa, Municipale di Quinto, solleva la questione delle cure a domicilio per i pensionati in Ticino, evidenziando il rischio di penalizzazione per chi ha risparmiato.',
     'blog.article.cure-domicilio-pensionati-ticino-2026.imageAlt': 'Una persona anziana riceve assistenza domiciliare in un appartamento del Ticino, con un operatore che la assiste.',
+    'blog.article.libriamoci-varese-studenti-2026.title': 'Oltre mille studenti in gara per il concorso Libriamoci a Varese',
+    'blog.article.libriamoci-varese-studenti-2026.excerpt': 'La diciottesima edizione del concorso Libriamoci a Varese vede la partecipazione di quasi mille studenti con testi narrativi ed elaborati grafico-pittorici.',
+    'blog.article.libriamoci-varese-studenti-2026.imageAlt': 'Studenti presentano i loro lavori al concorso Libriamoci a Varese',
 };
 
 export default blogMetaIt;

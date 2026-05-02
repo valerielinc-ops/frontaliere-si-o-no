@@ -35912,6 +35912,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-libriamoci-varese-studenti-2026': {
+    title: 'Oltre mille studenti in gara per il concorso Libriamoci a Varese',
+    description: 'La diciottesima edizione del concorso Libriamoci a Varese vede la partecipazione di quasi mille studenti con testi narrativi ed elaborati grafico-pittorici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, oltre, mille, studenti, gara',
+    ogTitle: 'Oltre mille studenti in gara per il concorso Libriamoci a Varese',
+    ogDescription: 'La diciottesima edizione del concorso Libriamoci a Varese vede la partecipazione di quasi mille studenti con testi narrativi ed elaborati grafico-pittorici.',
+    canonicalPath: '/articoli-frontaliere/libriamoci-varese-studenti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Oltre mille studenti in gara per il concorso Libriamoci a Varese",
+      "description": "La diciottesima edizione del concorso Libriamoci a Varese vede la partecipazione di quasi mille studenti con testi narrativi ed elaborati grafico-pittorici.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/libriamoci-varese-studenti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti presentano i loro lavori al concorso Libriamoci a Varese"
+      },
+      "datePublished": "2026-05-02T06:38:08+00:00",
+      "dateModified": "2026-05-02T06:38:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/libriamoci-varese-studenti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
