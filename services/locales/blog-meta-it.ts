@@ -5039,6 +5039,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.musica-antica-san-cassiano-2026.title': 'Cinque concerti a San Cassiano per riscoprire un gioiello da salvare',
     'blog.article.musica-antica-san-cassiano-2026.excerpt': 'Dal 9 maggio al 6 giugno 2026, cinque concerti di musica antica nella chiesetta di San Cassiano a Varese per sostenere il restauro del luogo',
     'blog.article.musica-antica-san-cassiano-2026.imageAlt': 'Chiesa di San Cassiano a Varese, con vista aerea del luogo immerso nel verde e dettagli dell\'interno con affreschi e palco per concerti',
+    'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.title': 'Cinque mostre da non perdere a maggio in Ticino e dintorni',
+    'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.excerpt': 'Da Gallarate a Verbania, ecco le mostre più attese del mese di maggio 2026. Scopri date, luoghi e dettagli.',
+    'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.imageAlt': 'Vista serena del Lago di Lugano con montagne sullo sfondo, ripresa con una fotocamera DSLR. La scena include una barca sull\'acqua e un cielo azzurro limpido.',
 };
 
 export default blogMetaIt;

@@ -35680,6 +35680,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cinque-mostre-maggio-gallarate-verbania-2026': {
+    title: 'Cinque mostre da non perdere a maggio in Ticino e dintorni',
+    description: 'Scopri le mostre di maggio 2026 in Ticino e dintorni. Date, luoghi e dettagli delle esposizioni più attese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cinque, mostre, perdere, maggio',
+    ogTitle: 'Cinque mostre da non perdere a maggio in Ticino e dintorni',
+    ogDescription: 'Scopri le mostre di maggio 2026 in Ticino e dintorni. Date, luoghi e dettagli delle esposizioni più attese.',
+    canonicalPath: '/articoli-frontaliere/cinque-mostre-maggio-gallarate-verbania-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cinque mostre da non perdere a maggio in Ticino e dintorni",
+      "description": "Scopri le mostre di maggio 2026 in Ticino e dintorni. Date, luoghi e dettagli delle esposizioni più attese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cinque-mostre-maggio-gallarate-verbania-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista serena del Lago di Lugano con montagne sullo sfondo, ripresa con una fotocamera DSLR. La scena include una barca sull'acqua e un cielo azzurro limpido."
+      },
+      "datePublished": "2026-05-02T04:37:35+00:00",
+      "dateModified": "2026-05-02T04:37:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cinque-mostre-maggio-gallarate-verbania-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

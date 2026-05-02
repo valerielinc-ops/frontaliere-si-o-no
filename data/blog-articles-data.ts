@@ -12769,4 +12769,11 @@ export const ARTICLES = [
  image: '/images/blog/musica-antica-san-cassiano-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'cinque-mostre-maggio-gallarate-verbania-2026',
+ category: 'novita',
+ date: '2026-05-02T04:37:35.549Z',
+ image: '/images/blog/cinque-mostre-maggio-gallarate-verbania-2026.jpg',
+ hasCalculator: true,
+ },
 ] satisfies Article[];

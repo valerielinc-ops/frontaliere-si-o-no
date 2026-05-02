@@ -5039,6 +5039,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.musica-antica-san-cassiano-2026.title': 'Cinq concerts à San Cassiano pour découvrir un joyau à sauver',
     'blog.article.musica-antica-san-cassiano-2026.excerpt': 'Du 9 mai au 6 juin 2026, cinq concerts de musique ancienne dans la petite église de San Cassiano à Varese pour soutenir la restauration du lieu',
     'blog.article.musica-antica-san-cassiano-2026.imageAlt': 'Église de San Cassiano à Varese, Italie, avec une vue aérienne des environs verdoyants et des détails intérieurs avec des fresques et une scène de concert',
+    'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.title': 'Cinq expositions à ne pas manquer en mai dans le Tessin et ses environs',
+    'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.excerpt': 'De Gallarate à Verbania, voici les expositions les plus attendues du mois de mai 2026. Découvrez les dates, les lieux et les détails.',
+    'blog.article.cinque-mostre-maggio-gallarate-verbania-2026.imageAlt': 'Une vue sereine du lac de Lugano avec des montagnes en arrière-plan, capturée avec un appareil photo DSLR. La scène comprend un bateau sur l\'eau et un ciel bleu clair.',
 };
 
 export default blogMetaFr;
