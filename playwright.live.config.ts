@@ -24,7 +24,7 @@ export default defineConfig({
   testMatch: /.*-live\.spec\.ts$/,
   timeout: 60_000,
   retries: process.env.CI ? 1 : 0,
-  reporter: [['list']],
+  reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : [['list']],
   use: {
     headless: true,
     trace: 'retain-on-failure',
