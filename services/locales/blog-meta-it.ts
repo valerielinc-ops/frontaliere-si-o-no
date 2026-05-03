@@ -5415,6 +5415,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.usa-petrolio-export-hormuz-impatti-ticino.title': 'Petrolio USA: export record con chiusura Hormuz',
     'blog.article.usa-petrolio-export-hormuz-impatti-ticino.excerpt': 'Le esportazioni di petrolio USA raggiungono livelli record con la chiusura dello Stretto di Hormuz, impattando le scorte globali e i mercati energetici',
     'blog.article.usa-petrolio-export-hormuz-impatti-ticino.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
+    'blog.article.marchirolo-primo-maggio-2026.title': 'Marchirolo celebra il Primo Maggio con corteo, musica e riconoscimenti',
+    'blog.article.marchirolo-primo-maggio-2026.excerpt': 'La Festa del lavoro a Marchirolo con corteo, musica e consegna di benemerenze. Tutti i dettagli dell\'evento.',
+    'blog.article.marchirolo-primo-maggio-2026.imageAlt': 'Piazza Borasio a Marchirolo durante la celebrazione del Primo Maggio 2026',
 };
 
 export default blogMetaIt;

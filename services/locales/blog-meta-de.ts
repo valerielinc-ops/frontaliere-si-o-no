@@ -5414,6 +5414,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.usa-petrolio-export-hormuz-impatti-ticino.title': 'USA-Ölexporte erreichen Rekord bei Schließung von Hormuz',
     'blog.article.usa-petrolio-export-hormuz-impatti-ticino.excerpt': 'Die US-Ölexporte erreichen Rekordniveaus mit der Schließung der Straße von Hormuz, was die globalen Bestände und die Energiemärkte beeinflusst',
     'blog.article.usa-petrolio-export-hormuz-impatti-ticino.imageAlt': 'Luftaufnahme des Luganersees mit dem schweizerisch-italienischen Grenzgebiet im Fokus',
+    'blog.article.marchirolo-primo-maggio-2026.title': 'Marchirolo feiert den 1. Mai mit Umzug, Musik und Auszeichnungen',
+    'blog.article.marchirolo-primo-maggio-2026.excerpt': 'Die Arbeiterfeier in Marchirolo mit Umzug, Musik und Verleihung von Verdienstauszeichnungen. Alle Details des Ereignisses.',
+    'blog.article.marchirolo-primo-maggio-2026.imageAlt': 'Piazza Borasio in Marchirolo während der Maifeier 2026',
 };
 
 export default blogMetaDe;

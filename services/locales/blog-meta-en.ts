@@ -5414,6 +5414,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.usa-petrolio-export-hormuz-impatti-ticino.title': 'US oil exports hit record with Hormuz closure',
     'blog.article.usa-petrolio-export-hormuz-impatti-ticino.excerpt': 'US oil exports reach record levels with the closure of the Strait of Hormuz, impacting global stocks and energy markets',
     'blog.article.usa-petrolio-export-hormuz-impatti-ticino.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
+    'blog.article.marchirolo-primo-maggio-2026.title': 'Marchirolo celebrates May Day with parade, music and awards',
+    'blog.article.marchirolo-primo-maggio-2026.excerpt': 'May Day in Marchirolo with parade, music and awards. All the details of the event.',
+    'blog.article.marchirolo-primo-maggio-2026.imageAlt': 'Piazza Borasio in Marchirolo during the May Day celebration 2026',
 };
 
 export default blogMetaEn;

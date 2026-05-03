@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1857,
+ "numberOfItems": 1858,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6495,7 +6495,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1854, "name": "Scontri in pensilina a Lugano: feriti e tension...", "url": `${BASE_URL}/articoli-frontaliere/scontri-pensilina-lugano-violenza` },
           { "@type": "ListItem", "position": 1855, "name": "Neutalia: bilancio 2025 supera le attese, ricav...", "url": `${BASE_URL}/articoli-frontaliere/neutalia-bilancio-2025-crescita-ricavi` },
           { "@type": "ListItem", "position": 1856, "name": "Life Run 2026: 550 podisti a Gallarate per il b...", "url": `${BASE_URL}/articoli-frontaliere/life-run-gallarate-2026-successo` },
-          { "@type": "ListItem", "position": 1857, "name": "Petrolio USA: export record con chiusura Hormuz", "url": `${BASE_URL}/articoli-frontaliere/usa-petrolio-export-hormuz-impatti-ticino` }
+          { "@type": "ListItem", "position": 1857, "name": "Petrolio USA: export record con chiusura Hormuz", "url": `${BASE_URL}/articoli-frontaliere/usa-petrolio-export-hormuz-impatti-ticino` },
+          { "@type": "ListItem", "position": 1858, "name": "Marchirolo celebra il Primo Maggio con corteo, ...", "url": `${BASE_URL}/articoli-frontaliere/marchirolo-primo-maggio-2026` }
  ]
  },
  {

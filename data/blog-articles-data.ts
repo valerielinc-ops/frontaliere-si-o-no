@@ -17615,4 +17615,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'marchirolo-primo-maggio-2026',
+ category: 'novita',
+ date: '2026-05-03T21:17:30.626Z',
+ image: '/images/blog/marchirolo-primo-maggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
