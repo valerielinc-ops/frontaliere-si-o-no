@@ -3027,6 +3027,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cervelat-salsiccia-nazionale-svizzera': { name: 'Cervelat', path: '/articoli-frontaliere/cervelat-salsiccia-nazionale-svizzera', parent: 'blog' },
     'blog-amare-politica-luino-2026': { name: 'Novità', path: '/articoli-frontaliere/amare-politica-luino-2026', parent: 'blog' },
     'blog-cassis-araghchi-colloquio-2026': { name: 'Novità', path: '/articoli-frontaliere/cassis-araghchi-colloquio-2026', parent: 'blog' },
+    'blog-corsi-vela-adulti-luino-avav-2026': { name: 'Novità', path: '/articoli-frontaliere/corsi-vela-adulti-luino-avav-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

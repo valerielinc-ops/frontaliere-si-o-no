@@ -5355,6 +5355,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cassis-araghchi-colloquio-2026.title': 'Cassis et Araghchi en discussion: diplomatie Suisse-Iran',
     'blog.article.cassis-araghchi-colloquio-2026.excerpt': 'Le conseiller fédéral Ignazio Cassis a eu un entretien téléphonique avec le ministre des affaires étrangères iranien Abbas Araghchi.',
     'blog.article.cassis-araghchi-colloquio-2026.imageAlt': 'Vue du lac de Lugano avec le paysage urbain en arrière-plan',
+    'blog.article.corsi-vela-adulti-luino-avav-2026.title': 'Luino: reprise des cours de voile pour adultes de l\'AVAV',
+    'blog.article.corsi-vela-adulti-luino-avav-2026.excerpt': 'L\'Association Nautique Alto Verbano relance pour 2026 les cours sur cabinotier, ouverts aussi aux débutants sur le Lac Majeur',
+    'blog.article.corsi-vela-adulti-luino-avav-2026.imageAlt': 'Groupe d\'adultes apprenant à naviguer sur le Lac Majeur près de Luino',
 };
 
 export default blogMetaFr;

@@ -5355,6 +5355,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassis-araghchi-colloquio-2026.title': 'Cassis e Araghchi si parlano: colloquio diplomatico Svizzera-Iran',
     'blog.article.cassis-araghchi-colloquio-2026.excerpt': 'Il consigliere federale Ignazio Cassis ha avuto un colloquio telefonico con il ministro degli affari esteri iraniano Abbas Araghchi.',
     'blog.article.cassis-araghchi-colloquio-2026.imageAlt': 'Vista del Lago di Lugano con il panorama urbano sullo sfondo',
+    'blog.article.corsi-vela-adulti-luino-avav-2026.title': 'Luino: tornano i corsi di vela per adulti dell\'AVAV',
+    'blog.article.corsi-vela-adulti-luino-avav-2026.excerpt': 'L\'Associazione Velica Alto Verbano rilancia per il 2026 i corsi su cabinato, aperti anche ai principianti sul Lago Maggiore',
+    'blog.article.corsi-vela-adulti-luino-avav-2026.imageAlt': 'Gruppo di adulti che imparano a navigare sul Lago Maggiore vicino a Luino',
 };
 
 export default blogMetaIt;

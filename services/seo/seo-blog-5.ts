@@ -10403,6 +10403,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-corsi-vela-adulti-luino-avav-2026': {
+    title: 'Luino: tornano i corsi di vela per adulti dell\'AVAV',
+    description: 'L\'Associazione Velica Alto Verbano rilancia per il 2026 i corsi su cabinato, aperti anche ai principianti sul Lago Maggiore. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, luino, tornano, corsi, vela',
+    ogTitle: 'Luino: tornano i corsi di vela per adulti dell\'AVAV',
+    ogDescription: 'L\'Associazione Velica Alto Verbano rilancia per il 2026 i corsi su cabinato, aperti anche ai principianti sul Lago Maggiore',
+    canonicalPath: '/articoli-frontaliere/corsi-vela-adulti-luino-avav-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luino: tornano i corsi di vela per adulti dell'AVAV",
+      "description": "L'Associazione Velica Alto Verbano rilancia per il 2026 i corsi su cabinato, aperti anche ai principianti sul Lago Maggiore. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/corsi-vela-adulti-luino-avav-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di adulti che imparano a navigare sul Lago Maggiore vicino a Luino"
+      },
+      "datePublished": "2026-05-03T18:03:57+00:00",
+      "dateModified": "2026-05-03T18:03:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/corsi-vela-adulti-luino-avav-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
