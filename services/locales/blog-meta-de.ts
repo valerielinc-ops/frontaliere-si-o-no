@@ -5363,6 +5363,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.title': 'Tessiner Bauern fordern mehr lokale Produkte bei Veranstaltungen',
     'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.excerpt': 'Die Delegierten des Tessiner Bauernverbands fordern eine stärkere Präsenz lokaler Produkte bei Veranstaltungen und äußern Bedenken hinsichtlich der Kosten und Konkurrenz.',
     'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.imageAlt': 'Lokale landwirtschaftliche Produkte auf einer Veranstaltung in Tessin',
+    'blog.article.turismo-como-frontalieri-2026.title': 'Tourismus in Como ohne Präzedenz: Quartiere in Not',
+    'blog.article.turismo-como-frontalieri-2026.excerpt': 'Treffen im Yacht Club zu Tourismus und Vororten: beispielloses Wachstum, aber Stadtteile in Not und ohne Vorteile',
+    'blog.article.turismo-como-frontalieri-2026.imageAlt': 'Blick auf den Comer See mit dem Yachtclub und der Skyline der Stadt bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

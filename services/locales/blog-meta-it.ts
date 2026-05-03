@@ -5364,6 +5364,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.title': 'Agricoltura ticinese chiede più prodotti locali agli eventi',
     'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.excerpt': 'I delegati dell\'Unione contadini ticinesi chiedono maggiore presenza di prodotti locali agli eventi, preoccupati da costi e predatori',
     'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.imageAlt': 'Prodotti agricoli locali esposti durante un evento in Ticino',
+    'blog.article.turismo-como-frontalieri-2026.title': 'Turismo a Como senza precedenti: quartieri in difficoltà e frontalieri esclusi',
+    'blog.article.turismo-como-frontalieri-2026.excerpt': 'Incontro allo Yacht Club su turismo e periferie: crescita senza precedenti ma quartieri in difficoltà e senza benefici',
+    'blog.article.turismo-como-frontalieri-2026.imageAlt': 'Veduta del Lago di Como con lo Yacht Club e lo skyline della città al tramonto',
 };
 
 export default blogMetaIt;

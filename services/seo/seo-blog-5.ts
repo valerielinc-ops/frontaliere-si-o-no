@@ -10505,6 +10505,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-turismo-como-frontalieri-2026': {
+    title: 'Turismo a Como senza precedenti: quartieri in difficoltà e frontalieri esclusi',
+    description: 'Incontro allo Yacht Club su turismo e periferie: crescita senza precedenti ma quartieri in difficoltà e senza benefici. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, turismo, como, senza, precedenti',
+    ogTitle: 'Turismo a Como senza precedenti: quartieri in difficoltà e frontalieri esclusi',
+    ogDescription: 'Incontro allo Yacht Club su turismo e periferie: crescita senza precedenti ma quartieri in difficoltà e senza benefici',
+    canonicalPath: '/articoli-frontaliere/turismo-como-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Turismo a Como senza precedenti: quartieri in difficoltà e frontalieri esclusi",
+      "description": "Incontro allo Yacht Club su turismo e periferie: crescita senza precedenti ma quartieri in difficoltà e senza benefici. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/turismo-como-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Lago di Como con lo Yacht Club e lo skyline della città al tramonto"
+      },
+      "datePublished": "2026-05-03T18:27:51+00:00",
+      "dateModified": "2026-05-03T18:27:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turismo-como-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

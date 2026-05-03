@@ -17462,4 +17462,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'turismo-como-frontalieri-2026',
+ category: 'novita',
+ date: '2026-05-03T18:27:51.007Z',
+ image: '/images/blog/turismo-como-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

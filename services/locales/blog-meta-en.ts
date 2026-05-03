@@ -5363,6 +5363,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.title': 'Ticino farmers demand more local products at events',
     'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.excerpt': 'Delegates from the Ticino Farmers\' Union call for more local products at events, concerned about costs and predators',
     'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.imageAlt': 'Local agricultural products displayed at an event in Ticino',
+    'blog.article.turismo-como-frontalieri-2026.title': 'Como\'s tourism boom: struggling areas and excluded cross-border workers',
+    'blog.article.turismo-como-frontalieri-2026.excerpt': 'Meeting at the Yacht Club on tourism and suburbs: unprecedented growth but struggling neighborhoods with no benefits',
+    'blog.article.turismo-como-frontalieri-2026.imageAlt': 'View of Lake Como with the Yacht Club and city skyline at sunset',
 };
 
 export default blogMetaEn;

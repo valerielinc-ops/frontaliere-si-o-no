@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1840,
+ "numberOfItems": 1841,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6478,7 +6478,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1837, "name": "Cassis e Araghchi si parlano: colloquio diploma...", "url": `${BASE_URL}/articoli-frontaliere/cassis-araghchi-colloquio-2026` },
           { "@type": "ListItem", "position": 1838, "name": "Luino: tornano i corsi di vela per adulti dell'...", "url": `${BASE_URL}/articoli-frontaliere/corsi-vela-adulti-luino-avav-2026` },
           { "@type": "ListItem", "position": 1839, "name": "Incendio in palazzina a Bellinzona: evacuati 10...", "url": `${BASE_URL}/articoli-frontaliere/incendio-bellinzona-via-borromini-evacuati-10-persone` },
-          { "@type": "ListItem", "position": 1840, "name": "Agricoltura ticinese chiede più prodotti locali...", "url": `${BASE_URL}/articoli-frontaliere/agricoltura-ticino-prodotti-locali-eventi-2026` }
+          { "@type": "ListItem", "position": 1840, "name": "Agricoltura ticinese chiede più prodotti locali...", "url": `${BASE_URL}/articoli-frontaliere/agricoltura-ticino-prodotti-locali-eventi-2026` },
+          { "@type": "ListItem", "position": 1841, "name": "Turismo a Como senza precedenti: quartieri in d...", "url": `${BASE_URL}/articoli-frontaliere/turismo-como-frontalieri-2026` }
  ]
  },
  {
