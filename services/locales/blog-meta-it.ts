@@ -5319,6 +5319,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.title': 'Albertoni e i Cinelli Brothers in \'Dancing Shoes\'',
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.excerpt': 'Il nuovo singolo di Freddie & The Cannonballs con i Cinelli Brothers, ispirato alle \'Scarpette Ricamate\'',
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.imageAlt': 'Palco del Baden Festival con pubblico',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.title': 'Landsgemeinde Glarona 2026: aliquota fiscale e alloggi al centro dei dibattiti',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.excerpt': 'La Landsgemeinde del canton Glarona ha votato su temi finanziari e abitativi. Aliquota fiscale confermata al 58%, nuove detrazioni per pendolari e sussidi per cassa malati.',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.imageAlt': 'Vista dell\'assemblea della Landsgemeinde a Glarona, Svizzera, con cittadini riuniti in una piazza pubblica, che votano a mano alzata.',
 };
 
 export default blogMetaIt;

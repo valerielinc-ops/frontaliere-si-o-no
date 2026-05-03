@@ -17327,4 +17327,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'landsgemeinde-glarona-2026-finanze-alloggi',
+ category: 'novita',
+ date: '2026-05-03T16:15:24.619Z',
+ image: '/images/blog/landsgemeinde-glarona-2026-finanze-alloggi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

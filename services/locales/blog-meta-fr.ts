@@ -5319,6 +5319,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.title': 'Albertoni et les Cinelli Brothers dans \'Dancing Shoes\'',
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.excerpt': 'Le nouveau single de Freddie & The Cannonballs avec les Cinelli Brothers, inspiré par \'Les Chaussures Broderie\'',
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.imageAlt': 'Scène du Festival de Baden avec public',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.title': 'Landsgemeinde Glaris 2026 : taux d\'imposition et logements au centre des débats',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.excerpt': 'La Landsgemeinde du canton de Glaris a voté sur des thèmes financiers et immobiliers. Taux d\'imposition confirmé à 58 %, nouvelles déductions pour les frontaliers et subventions pour l\'assurance maladie.',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.imageAlt': 'Vue de l\'assemblée de la Landsgemeinde à Glaris, Suisse, avec des citoyens rassemblés sur une place publique, votant à main levée.',
 };
 
 export default blogMetaFr;

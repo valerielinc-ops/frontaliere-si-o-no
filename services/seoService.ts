@@ -3015,6 +3015,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-polizia-bandi-4500-posti-2026': { name: 'Novità', path: '/articoli-frontaliere/polizia-bandi-4500-posti-2026', parent: 'blog' },
     'blog-casse-malati-alloggi-landsgemeinde-2026': { name: 'Novità', path: '/articoli-frontaliere/casse-malati-alloggi-landsgemeinde-2026', parent: 'blog' },
     'blog-dancing-shoes-albertoni-cinelli-collaboration': { name: 'Novità', path: '/articoli-frontaliere/dancing-shoes-albertoni-cinelli-collaboration', parent: 'blog' },
+    'blog-landsgemeinde-glarona-2026-finanze-alloggi': { name: 'Landsgemeinde Glarona', path: '/articoli-frontaliere/landsgemeinde-glarona-2026-finanze-alloggi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

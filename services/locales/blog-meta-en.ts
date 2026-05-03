@@ -5318,6 +5318,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.title': 'Albertoni & Cinelli Brothers in \'Dancing Shoes\'',
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.excerpt': 'Freddie & The Cannonballs\' new single with Cinelli Brothers, inspired by \'Scarpette Ricamate\'',
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.imageAlt': 'Baden Festival stage with audience',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.title': 'Glarus Landsgemeinde 2026: tax rate and housing at heart of debates',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.excerpt': 'The Glarus Landsgemeinde voted on financial and housing issues. Tax rate confirmed at 58%, new deductions for commuters and health insurance subsidies.',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.imageAlt': 'View of the Landsgemeinde assembly in Glarona, Switzerland, with citizens gathered in a public square, voting by show of hands.',
 };
 
 export default blogMetaEn;

@@ -5318,6 +5318,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.title': 'Albertoni und die Cinelli Brothers in \'Dancing Shoes\'',
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.excerpt': 'Die neue Single von Freddie & The Cannonballs mit den Cinelli Brothers, inspiriert von \'Scarpette Ricamate\'',
     'blog.article.dancing-shoes-albertoni-cinelli-collaboration.imageAlt': 'Bühne des Baden Festivals mit Publikum',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.title': 'Landsgemeinde Glarus 2026: Steuersatz und Wohnungen im Fokus',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.excerpt': 'Die Landsgemeinde des Kantons Glarus hat über finanzielle und wohnungsbezogene Themen abgestimmt. Der Steuersatz bleibt bei 58%, es gibt neue Abzüge für Pendler und Subventionen für die Krankenkasse.',
+    'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.imageAlt': 'Ansicht der Landsgemeindeversammlung in Glarus, Schweiz, mit Bürgern, die sich auf einem öffentlichen Platz versammeln und per Handzeichen abstimmen.',
 };
 
 export default blogMetaDe;

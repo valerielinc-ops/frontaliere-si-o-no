@@ -9995,6 +9995,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-landsgemeinde-glarona-2026-finanze-alloggi': {
+    title: 'Landsgemeinde Glarona 2026: aliquota fiscale e alloggi al centro dei dibattiti',
+    description: 'La Landsgemeinde del canton Glarona ha votato su temi finanziari e abitativi. Aliquota fiscale confermata al 58%, nuove detrazioni per pendolari e sussidi per',
+    keywords: 'frontalieri, ticino, svizzera, italia, landsgemeinde, glarona, aliquota, fiscale',
+    ogTitle: 'Landsgemeinde Glarona 2026: aliquota fiscale e alloggi al centro dei dibattiti',
+    ogDescription: 'La Landsgemeinde del canton Glarona ha votato su temi finanziari e abitativi. Aliquota fiscale confermata al 58%, nuove detrazioni per pendolari e sussidi per',
+    canonicalPath: '/articoli-frontaliere/landsgemeinde-glarona-2026-finanze-alloggi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Landsgemeinde Glarona 2026: aliquota fiscale e alloggi al centro dei dibattiti",
+      "description": "La Landsgemeinde del canton Glarona ha votato su temi finanziari e abitativi. Aliquota fiscale confermata al 58%, nuove detrazioni per pendolari e sussidi per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/landsgemeinde-glarona-2026-finanze-alloggi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista dell'assemblea della Landsgemeinde a Glarona, Svizzera, con cittadini riuniti in una piazza pubblica, che votano a mano alzata."
+      },
+      "datePublished": "2026-05-03T16:15:24+00:00",
+      "dateModified": "2026-05-03T16:15:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/landsgemeinde-glarona-2026-finanze-alloggi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
