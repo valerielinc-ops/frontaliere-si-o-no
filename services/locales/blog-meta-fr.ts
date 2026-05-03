@@ -5310,6 +5310,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-bellinzona-via-borromini-evacuati.title': 'Incendie via Borromini : dix personnes évacuées',
     'blog.article.incendio-bellinzona-via-borromini-evacuati.excerpt': 'Un incendie dans un appartement au rez-de-chaussée a provoqué l\'évacuation de dix personnes à Bellinzona. Une personne a été légèrement intoxiquée.',
     'blog.article.incendio-bellinzona-via-borromini-evacuati.imageAlt': 'Urgence à Bellinzone dans la via Borromini avec les pompiers et l\'ambulance',
+    'blog.article.polizia-bandi-4500-posti-2026.title': 'Police: plus de 4.500 postes à pourvoir',
+    'blog.article.polizia-bandi-4500-posti-2026.excerpt': 'La Police d\'État recherche 220 commissaires et 4.400 élèves agents. Dates limites et procédures pour participer.',
+    'blog.article.polizia-bandi-4500-posti-2026.imageAlt': 'Lac de Lugano avec bateau de police',
 };
 
 export default blogMetaFr;

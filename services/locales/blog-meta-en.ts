@@ -5309,6 +5309,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-bellinzona-via-borromini-evacuati.title': 'Fire in via Borromini: ten people evacuated',
     'blog.article.incendio-bellinzona-via-borromini-evacuati.excerpt': 'A fire in a ground-floor apartment caused the evacuation of ten people in Bellinzona. One person suffered slight intoxication.',
     'blog.article.incendio-bellinzona-via-borromini-evacuati.imageAlt': 'Emergency in Bellinzona on via Borromini with firefighters and ambulance',
+    'blog.article.polizia-bandi-4500-posti-2026.title': 'Police, over 4,500 new positions available',
+    'blog.article.polizia-bandi-4500-posti-2026.excerpt': 'The State Police is looking for 220 commissioners and 4,400 trainee agents. Deadlines and procedures to participate.',
+    'blog.article.polizia-bandi-4500-posti-2026.imageAlt': 'Lake Lugano with police boat',
 };
 
 export default blogMetaEn;

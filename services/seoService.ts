@@ -3012,6 +3012,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-bellinzona-appartamento-evacuato': { name: 'Incendio Bellinzona', path: '/articoli-frontaliere/incendio-bellinzona-appartamento-evacuato', parent: 'blog' },
     'blog-permesso-g-vs-b-2026-famiglia-figli': { name: 'Permesso G vs B', path: '/articoli-frontaliere/permesso-g-vs-b-2026-famiglia-figli', parent: 'blog' },
     'blog-incendio-bellinzona-via-borromini-evacuati': { name: 'Incendio Bellinzona', path: '/articoli-frontaliere/incendio-bellinzona-via-borromini-evacuati', parent: 'blog' },
+    'blog-polizia-bandi-4500-posti-2026': { name: 'Novità', path: '/articoli-frontaliere/polizia-bandi-4500-posti-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

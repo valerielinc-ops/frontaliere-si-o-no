@@ -17300,4 +17300,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'polizia-bandi-4500-posti-2026',
+ category: 'novita',
+ date: '2026-05-03T13:59:28.231Z',
+ image: '/images/blog/polizia-bandi-4500-posti-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

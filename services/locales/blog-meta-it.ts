@@ -5310,6 +5310,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-bellinzona-via-borromini-evacuati.title': 'Incendio in via Borromini: evacuate dieci persone',
     'blog.article.incendio-bellinzona-via-borromini-evacuati.excerpt': 'Un incendio in un appartamento al pian terreno ha causato l\'evacuazione di dieci persone a Bellinzona. Una persona è rimasta lievemente intossicata.',
     'blog.article.incendio-bellinzona-via-borromini-evacuati.imageAlt': 'Emergenza a Bellinzona in via Borromini con pompieri e ambulanza',
+    'blog.article.polizia-bandi-4500-posti-2026.title': 'Polizia, due nuovi bandi per oltre 4.500 posti',
+    'blog.article.polizia-bandi-4500-posti-2026.excerpt': 'La Polizia di Stato cerca 220 commissari e 4.400 allievi agenti. Scadenze e procedure per partecipare.',
+    'blog.article.polizia-bandi-4500-posti-2026.imageAlt': 'Lago di Lugano con barca della polizia',
 };
 
 export default blogMetaIt;
