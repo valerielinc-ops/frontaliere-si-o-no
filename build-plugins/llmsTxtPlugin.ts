@@ -66,11 +66,16 @@ function parseSitemapUrls(publicDir: string, fs: typeof import('node:fs'), local
 
 /** Extract SEO titles/descriptions from seoService source files for page index. */
 function parseSeoEntries(rootDir: string, fs: typeof import('node:fs')): Map<string, { title: string; desc: string }> {
+ // Auto-discover all seo-blog-N.ts chunks (seo-blog.ts, seo-blog-2.ts, …, up to seo-blog-20.ts)
+ const blogChunkFiles: string[] = [path.resolve(rootDir, 'services/seo/seo-blog.ts')];
+ for (let n = 2; n <= 20; n++) {
+ const p = path.resolve(rootDir, `services/seo/seo-blog-${n}.ts`);
+ try { fs.accessSync(p); blogChunkFiles.push(p); } catch { break; }
+ }
  const seoFiles = [
  path.resolve(rootDir, 'services/seoService.ts'),
  path.resolve(rootDir, 'services/seo/seo-pages.ts'),
- path.resolve(rootDir, 'services/seo/seo-blog.ts'),
- path.resolve(rootDir, 'services/seo/seo-blog-2.ts'),
+ ...blogChunkFiles,
  path.resolve(rootDir, 'services/seo/seo-landing.ts'),
  ];
  let seoSrc = '';

@@ -4807,8 +4807,10 @@ function modifySeoService(data) {
     ? data._generatedImagePath.replace(/^\//, '')
     : `images/places/${data.image}`;
 
-  // 1. SEO entry → services/seo/seo-blog.ts (lazy-loaded chunk)
-  const blogSeoFile = 'services/seo/seo-blog.ts';
+  // 1. SEO entry → services/seo/seo-blog-5.ts (lazy-loaded chunk, latest split)
+  // New articles always go into the most recently split chunk to keep seo-blog.ts
+  // (and all earlier chunks) below the 500 kB Rollup warning threshold.
+  const blogSeoFile = 'services/seo/seo-blog-5.ts';
   let blogSrc = read(blogSeoFile);
 
   const seoEntry = `
@@ -4846,10 +4848,11 @@ function modifySeoService(data) {
     }
   },`;
 
-  // Insert before the closing }; ... export default BLOG_SEO_METADATA;
-  const blogEndRe = /(\s*\},)\s*(\n};)\s*(\nexport default BLOG_SEO_METADATA;)/;
+  // Insert before the closing }; ... export default BLOG_SEO_METADATA_5;
+  // The regex matches any BLOG_SEO_METADATA variant (BLOG_SEO_METADATA, _2, _3, … _5).
+  const blogEndRe = /(\s*\},)\s*(\n};)\s*(\nexport default BLOG_SEO_METADATA(?:_\d+)?;)/;
   if (!blogEndRe.test(blogSrc)) {
-    throw new Error(`Cannot find end of BLOG_SEO_METADATA in ${blogSeoFile}`);
+    throw new Error(`Cannot find end of BLOG_SEO_METADATA_5 in ${blogSeoFile}`);
   }
   blogSrc = blogSrc.replace(blogEndRe, `$1\n${seoEntry}\n$2\n$3`);
   write(blogSeoFile, blogSrc);
@@ -4899,17 +4902,17 @@ function modifySeoService(data) {
 }
 
 /**
- * Post-write validation: re-reads seo-blog.ts, extracts the new article's
+ * Post-write validation: re-reads seo-blog-5.ts, extracts the new article's
  * SEO entry using the SAME regex ogPagesPlugin uses at build time, then builds and
  * parses the JSON-LD object. This catches escaping issues before they reach production.
  */
 function validateStructuredData(data) {
-  const src = read('services/seo/seo-blog.ts');
+  const src = read('services/seo/seo-blog-5.ts');
   const entryKey = `'blog-${data.id}'`;
 
   // 1. Verify the entry exists
   if (!src.includes(entryKey)) {
-    throw new Error(`[validate-ld] SEO entry ${entryKey} not found in seo-blog.ts`);
+    throw new Error(`[validate-ld] SEO entry ${entryKey} not found in seo-blog-5.ts`);
   }
 
   // 2. Extract using the same regex ogPagesPlugin uses
@@ -5136,7 +5139,7 @@ function gitAddAll(data) {
     `services/locales/blog-body/en/${data.id}.ts`,
     `services/locales/blog-body/de/${data.id}.ts`,
     `services/locales/blog-body/fr/${data.id}.ts`,
-    'services/seo/seo-blog.ts',
+    'services/seo/seo-blog-5.ts',
     'services/seo/seo-pages.ts',
     'services/seoService.ts',
     'public/sitemap-blog.xml',

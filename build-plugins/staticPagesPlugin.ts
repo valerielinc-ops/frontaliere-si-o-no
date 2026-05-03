@@ -918,15 +918,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  /* ── 2. Parse SEO metadata from seoService.ts + chunk files ─ */
  // After code-splitting, SEO entries live across multiple files:
  // - services/seoService.ts (core ~90 entries)
- // - services/seo/seo-blog.ts (blog ~270 entries)
+ // - services/seo/seo-blog.ts + seo-blog-2.ts … (blog entries, auto-discovered)
  // - services/seo/seo-landing.ts (landing ~23 entries)
+ const blogChunkFiles: string[] = [np.resolve(rootDir, 'services/seo/seo-blog.ts')];
+ for (let n = 2; n <= 20; n++) {
+ const p = np.resolve(rootDir, `services/seo/seo-blog-${n}.ts`);
+ try { fs.accessSync(p); blogChunkFiles.push(p); } catch { break; }
+ }
  const seoFiles = [
  np.resolve(rootDir, 'services/seoService.ts'),
  np.resolve(rootDir, 'services/seo/seo-pages.ts'),
- np.resolve(rootDir, 'services/seo/seo-blog.ts'),
- np.resolve(rootDir, 'services/seo/seo-blog-2.ts'),
- np.resolve(rootDir, 'services/seo/seo-blog-3.ts'),
- np.resolve(rootDir, 'services/seo/seo-blog-4.ts'),
+ ...blogChunkFiles,
  np.resolve(rootDir, 'services/seo/seo-landing.ts'),
  ];
  let seoSrc = '';

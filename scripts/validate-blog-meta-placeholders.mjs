@@ -51,8 +51,13 @@ for (const file of readdirSync(localesDir)) {
   }
 }
 
-// Add seo-blog.ts
-FILES_TO_SCAN.push('services/seo/seo-blog.ts');
+// Add all seo-blog-N.ts chunks (auto-discovered so new splits are picked up automatically)
+const seoBlogDir = 'services/seo';
+FILES_TO_SCAN.push(join(seoBlogDir, 'seo-blog.ts'));
+for (let n = 2; n <= 20; n++) {
+  const p = join(seoBlogDir, `seo-blog-${n}.ts`);
+  try { statSync(p); FILES_TO_SCAN.push(p); } catch { break; }
+}
 
 // Add all blog body files
 const blogBodyRoot = 'services/locales/blog-body';

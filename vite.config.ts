@@ -250,6 +250,10 @@ export default defineConfig(({ mode }) => {
  emptyOutDir: false,
  // No error tracking service (Sentry etc.) — sourcemaps not needed
  sourcemap: false,
+ // seo-blog-N.ts chunks are pure data objects (~600kB raw, ~66kB gzip).
+ // They exceed the default 500kB warning but gzip well and load lazily.
+ // This limit acknowledges that data chunks behave differently from code chunks.
+ chunkSizeWarningLimit: 600,
  // Fast build: esbuild (10-100x faster), production: terser (saves ~56KB)
  minify: isFastBuild ? 'esbuild' : 'terser',
  ...(!isFastBuild && {
