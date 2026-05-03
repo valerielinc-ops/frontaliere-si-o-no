@@ -5385,6 +5385,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rischi-petrolio-lugano-3-maggio-2026.title': 'Marche lente à Lugano contre les dangers du pétrole',
     'blog.article.rischi-petrolio-lugano-3-maggio-2026.excerpt': 'Cinq activistes de \'act now!\' ont organisé une marche lente à Lugano pour dénoncer les dangers du pétrole.',
     'blog.article.rischi-petrolio-lugano-3-maggio-2026.imageAlt': 'Des manifestants marchent à Lugano avec des pancartes et des banderoles, sur fond de lac de Lugano et des bâtiments emblématiques de la ville.',
+    'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.title': 'A9 fermée nuit : itinéraire alternatif Lomazzo-Saronno',
+    'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.excerpt': 'Lomazzo Nord-Saronno fermée les 6 et 7 mai pour l\'entretien des espaces verts. Itinéraire alternatif sur la voirie ordinaire.',
+    'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.imageAlt': 'Autoroute A9 au Tessin avec travaux de nuit et trafic détourné',
 };
 
 export default blogMetaFr;

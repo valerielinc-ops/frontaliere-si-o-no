@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1847,
+ "numberOfItems": 1848,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6485,7 +6485,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1844, "name": "Como: degrado e mancanza di sicurezza alla mens...", "url": `${BASE_URL}/articoli-frontaliere/mensa-solidarieta-degrado-sicurezza-2026` },
           { "@type": "ListItem", "position": 1845, "name": "Laboratorio estivo al Museo Moesano: archeologi...", "url": `${BASE_URL}/articoli-frontaliere/laboratorio-estivo-museo-moesano-2026` },
           { "@type": "ListItem", "position": 1846, "name": "Varese: “Il lago perduto”, memoria viva di una ...", "url": `${BASE_URL}/articoli-frontaliere/varese-lago-perduto-memoria-comunita` },
-          { "@type": "ListItem", "position": 1847, "name": "Marcia lenta a Lugano contro i rischi del petrolio", "url": `${BASE_URL}/articoli-frontaliere/rischi-petrolio-lugano-3-maggio-2026` }
+          { "@type": "ListItem", "position": 1847, "name": "Marcia lenta a Lugano contro i rischi del petrolio", "url": `${BASE_URL}/articoli-frontaliere/rischi-petrolio-lugano-3-maggio-2026` },
+          { "@type": "ListItem", "position": 1848, "name": "A9 chiusa notte: percorso alternativo Lomazzo-S...", "url": `${BASE_URL}/articoli-frontaliere/lavori-a9-lomazzo-saronno-chiusura-notte` }
  ]
  },
  {

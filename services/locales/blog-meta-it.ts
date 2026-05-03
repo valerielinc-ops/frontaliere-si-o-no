@@ -5385,6 +5385,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rischi-petrolio-lugano-3-maggio-2026.title': 'Marcia lenta a Lugano contro i rischi del petrolio',
     'blog.article.rischi-petrolio-lugano-3-maggio-2026.excerpt': 'Cinque attivisti di \'act now!\' hanno organizzato una marcia lenta a Lugano per denunciare i pericoli del petrolio.',
     'blog.article.rischi-petrolio-lugano-3-maggio-2026.imageAlt': 'Attivisti in marcia a Lugano con cartelli e striscioni, sullo sfondo del lago e degli edifici iconici della città.',
+    'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.title': 'A9 chiusa notte: percorso alternativo Lomazzo-Saronno',
+    'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.excerpt': 'Lomazzo Nord-Saronno chiusa 6-7 maggio per manutenzione verde. Percorso alternativo su viabilità ordinaria.',
+    'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.imageAlt': 'Autostrada A9 in Ticino con lavori notturni e traffico deviato',
 };
 
 export default blogMetaIt;

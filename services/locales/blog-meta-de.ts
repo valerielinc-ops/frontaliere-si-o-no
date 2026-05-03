@@ -5384,6 +5384,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rischi-petrolio-lugano-3-maggio-2026.title': 'Langsame Demonstration in Lugano gegen die Risiken von Öl',
     'blog.article.rischi-petrolio-lugano-3-maggio-2026.excerpt': 'Fünf Aktivisten von \'act now!\' haben in Lugano eine langsame Demonstration organisiert, um die Gefahren von Öl zu bekämpfen.',
     'blog.article.rischi-petrolio-lugano-3-maggio-2026.imageAlt': 'Demonstranten marschieren in Lugano mit Schildern und Transparenten, vor dem Hintergrund des Luganer Sees und der ikonischen Gebäude der Stadt.',
+    'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.title': 'A9 nachts gesperrt: Umleitung Lomazzo-Saronno',
+    'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.excerpt': 'Lomazzo Nord-Saronno am 6.-7. Mai wegen Grünpflege gesperrt. Umleitung über normale Straßen.',
+    'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.imageAlt': 'Autobahn A9 im Tessin mit Nachtbauarbeiten und umgeleitetem Verkehr',
 };
 
 export default blogMetaDe;

@@ -17525,4 +17525,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavori-a9-lomazzo-saronno-chiusura-notte',
+ category: 'pratico',
+ date: '2026-05-03T19:28:46.521Z',
+ image: '/images/blog/lavori-a9-lomazzo-saronno-chiusura-notte.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
