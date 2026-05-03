@@ -5343,6 +5343,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-malpensa-terminal-1-risolto.title': 'Incendio al Terminal 1 di Malpensa: problema risolto',
     'blog.article.incendio-malpensa-terminal-1-risolto.excerpt': 'Un incendio è divampato al Terminal 1 dell\'Aeroporto di Malpensa, ma il problema è stato rapidamente risolto.',
     'blog.article.incendio-malpensa-terminal-1-risolto.imageAlt': 'Vista aerea del Terminal 1 dell\'Aeroporto di Malpensa con i servizi di emergenza che rispondono a un incendio.',
+    'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.title': 'Maillard (USS) attacca iniziativa UDC: rischi per salari e posti di lavoro',
+    'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.excerpt': 'Il presidente dell\'USS critica l\'iniziativa UDC \'No a una Svizzera da 10 milioni!\' per i rischi su salari, pensioni e occupazione.',
+    'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.imageAlt': 'Panorama di Lugano dal lago in una giornata limpida',
 };
 
 export default blogMetaIt;

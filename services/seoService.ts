@@ -3023,6 +3023,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-brebbia-19enne-grave-incidente-fabbrica': { name: 'Incidente Brebbia', path: '/articoli-frontaliere/brebbia-19enne-grave-incidente-fabbrica', parent: 'blog' },
     'blog-aeroporto-lugano-costi-interpellanza-2025': { name: 'Aeroporto Lugano', path: '/articoli-frontaliere/aeroporto-lugano-costi-interpellanza-2025', parent: 'blog' },
     'blog-incendio-malpensa-terminal-1-risolto': { name: 'Incendio Malpensa', path: '/articoli-frontaliere/incendio-malpensa-terminal-1-risolto', parent: 'blog' },
+    'blog-maillard-uss-udc-iniziativa-1-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/maillard-uss-udc-iniziativa-1-maggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

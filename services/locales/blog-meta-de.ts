@@ -5342,6 +5342,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-malpensa-terminal-1-risolto.title': 'Brand im Terminal 1 von Malpensa: Problem gelöst',
     'blog.article.incendio-malpensa-terminal-1-risolto.excerpt': 'Ein Brand ist im Terminal 1 des Flughafens Malpensa ausgebrochen, aber das Problem wurde schnell gelöst.',
     'blog.article.incendio-malpensa-terminal-1-risolto.imageAlt': 'Luftaufnahme des Terminals 1 des Flughafens Malpensa mit Rettungsdiensten, die auf einen Brand reagieren.',
+    'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.title': 'Maillard (USS) kritisiert UDC-Initiative: Risiken für Löhne und Arbeitsplätze',
+    'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.excerpt': 'Der Präsident des USS kritisiert die UDC-Initiative \'Nein zu einer Schweiz mit 10 Millionen!\' wegen der Risiken für Löhne, Renten und Beschäftigung.',
+    'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.imageAlt': 'Panoramablick auf Lugano vom See an einem klaren Tag',
 };
 
 export default blogMetaDe;

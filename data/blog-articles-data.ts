@@ -17399,4 +17399,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'maillard-uss-udc-iniziativa-1-maggio-2026',
+ category: 'novita',
+ date: '2026-05-03T17:33:30.776Z',
+ image: '/images/blog/maillard-uss-udc-iniziativa-1-maggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
