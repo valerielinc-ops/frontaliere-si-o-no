@@ -38,7 +38,7 @@ jobs:
 
           LAST_MODIFIED=$(node -e "
             const data = JSON.parse(require('fs').readFileSync('$FILE', 'utf8'));
-            const ts = data.lastUpdate || data[Object.keys(data)[0]]?.lastUpdate;
+            const ts = data.updatedAt || data.lastUpdate || data[Object.keys(data)[0]]?.lastUpdate;
             console.log(ts || '');
           ")
 
@@ -77,4 +77,4 @@ jobs:
           gh issue create \
             --title "Traffic data is stale — cron may have failed" \
             --body "The traffic data freshness check detected that \`data/border-wait-current.json\` is more than 4 hours old during peak hours. Reason: ${{ steps.check.outputs.REASON }}. Check the traffic-scheduler workflow for failures." \
-            --label "traffic-stale,bug"
+            --label "traffic-stale" --label "bug"
