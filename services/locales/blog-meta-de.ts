@@ -5327,6 +5327,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.title': 'Bellinzona nach Niederlage vor letztem Aufruf',
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.excerpt': 'Der Stade Nyonnais verliert 0-1 gegen Wil und erschwert Bellinzona den Kampf um den Klassenerhalt in der Dnb.',
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.imageAlt': 'Stadione comunale di Bellinzona durante una partita di calcio',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.title': 'Chaotische Parkplätze in Cernobbio: Ticino-Auto belegt zwei Plätze für Anwohner',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.excerpt': 'Ein Auto mit Ticino-Kennzeichen belegt zwei Parkplätze, die für Anwohner reserviert sind, und verursacht Unannehmlichkeiten sowie Eingriffe der örtlichen Polizei.',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.imageAlt': 'Luftaufnahme von Cernobbio, Comer See, mit einem Auto mit Ticino-Kennzeichen, das zwei Parkplätze für Anwohner belegt.',
 };
 
 export default blogMetaDe;

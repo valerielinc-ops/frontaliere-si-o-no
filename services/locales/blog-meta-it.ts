@@ -5328,6 +5328,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.title': 'Bellinzona verso l\'ultimo appello dopo sconfitta',
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.excerpt': 'Lo StadeNyonnais perde 0-1 contro il Wil, complicando la situazione del Bellinzona nella lotta per la salvezza in Dnb.',
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.imageAlt': 'Stadio comunale di Bellinzona durante una partita di calcio',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.title': 'Parcheggi folli a Cernobbio: auto ticinese occupa due posti per residenti',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.excerpt': 'Un\'auto con targa ticinese occupa due posti auto riservati ai residenti a Cernobbio, causando disagi e interventi della polizia locale.',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.imageAlt': 'Vista aerea di Cernobbio, Lago di Como, con un\'auto con targa ticinese che occupa due posti auto per residenti.',
 };
 
 export default blogMetaIt;

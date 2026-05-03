@@ -3018,6 +3018,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-landsgemeinde-glarona-2026-finanze-alloggi': { name: 'Landsgemeinde Glarona', path: '/articoli-frontaliere/landsgemeinde-glarona-2026-finanze-alloggi', parent: 'blog' },
     'blog-como-vivibile-frontalieri-2026': { name: 'Como vivibile', path: '/articoli-frontaliere/como-vivibile-frontalieri-2026', parent: 'blog' },
     'blog-calcio-dnb-bellinzona-ultimo-appello': { name: 'Calcio Dnb', path: '/articoli-frontaliere/calcio-dnb-bellinzona-ultimo-appello', parent: 'blog' },
+    'blog-parcheggi-cernobbio-ticino-residenti': { name: 'Parcheggi Cernobbio', path: '/articoli-frontaliere/parcheggi-cernobbio-ticino-residenti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

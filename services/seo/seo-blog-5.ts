@@ -10097,6 +10097,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parcheggi-cernobbio-ticino-residenti': {
+    title: 'Parcheggi folli a Cernobbio: auto ticinese occupa due posti per residenti',
+    description: 'Un\'auto con targa ticinese occupa due posti auto riservati ai residenti a Cernobbio, causando disagi e interventi della polizia locale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, parcheggi, folli, cernobbio, auto',
+    ogTitle: 'Parcheggi folli a Cernobbio: auto ticinese occupa due posti per residenti',
+    ogDescription: 'Un\'auto con targa ticinese occupa due posti auto riservati ai residenti a Cernobbio, causando disagi e interventi della polizia locale.',
+    canonicalPath: '/articoli-frontaliere/parcheggi-cernobbio-ticino-residenti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parcheggi folli a Cernobbio: auto ticinese occupa due posti per residenti",
+      "description": "Un'auto con targa ticinese occupa due posti auto riservati ai residenti a Cernobbio, causando disagi e interventi della polizia locale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/parcheggi-cernobbio-ticino-residenti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Cernobbio, Lago di Como, con un'auto con targa ticinese che occupa due posti auto per residenti."
+      },
+      "datePublished": "2026-05-03T16:48:18+00:00",
+      "dateModified": "2026-05-03T16:48:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/parcheggi-cernobbio-ticino-residenti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

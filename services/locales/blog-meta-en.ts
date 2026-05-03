@@ -5327,6 +5327,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.title': 'Bellinzona faces final appeal after defeat',
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.excerpt': 'Stade Nyonnais loses 0-1 to Wil, complicating Bellinzona\'s fight for survival in Dnb.',
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.imageAlt': 'Bellinzona municipal stadium during a football match',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.title': 'Crazy parking in Cernobbio: Ticino car takes two resident spots',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.excerpt': 'A car with a Ticino license plate occupies two parking spots reserved for residents in Cernobbio, causing inconveniences and local police intervention.',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.imageAlt': 'Aerial view of Cernobbio, Lake Como, with a car with Ticino license plates occupying two resident parking spots.',
 };
 
 export default blogMetaEn;

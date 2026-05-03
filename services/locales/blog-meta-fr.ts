@@ -5328,6 +5328,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.title': 'Bellinzone vers un dernier appel après une défaite',
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.excerpt': 'Le Stade Nyonnais perd 0-1 contre le Wil, compliquant la situation du Bellinzone dans la lutte pour le maintien en Dnb.',
     'blog.article.calcio-dnb-bellinzona-ultimo-appello.imageAlt': 'Stade communal de Bellinzona pendant un match de football',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.title': 'Parkings fous à Cernobbio: une voiture tessinoise occupe deux places',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.excerpt': 'Une voiture immatriculée dans le canton du Tessin occupe deux places de parking réservées aux résidents à Cernobbio, causant des désagréments et l\'intervention de la police locale.',
+    'blog.article.parcheggi-cernobbio-ticino-residenti.imageAlt': 'Vue aérienne de Cernobbio, Lac de Côme, avec une voiture immatriculée dans le canton du Tessin occupant deux places de parking pour résidents.',
 };
 
 export default blogMetaFr;
