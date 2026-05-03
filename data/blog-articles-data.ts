@@ -17561,4 +17561,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'crans-montana-fondi-avvocati-vittime',
+ category: 'novita',
+ date: '2026-05-03T20:10:05.470Z',
+ image: '/images/blog/crans-montana-fondi-avvocati-vittime.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

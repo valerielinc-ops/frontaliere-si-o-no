@@ -5396,6 +5396,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pulizia-lago-lemano-2026.title': 'Lake Geneva cleanup: 2.5 tons of waste collected in two days',
     'blog.article.pulizia-lago-lemano-2026.excerpt': 'Over 1,000 volunteers, including 300 divers, took part in the 13th edition of Net\'Léman, collecting 2,592 kg of waste',
     'blog.article.pulizia-lago-lemano-2026.imageAlt': 'Volunteers cleaning the shores of Lake Geneva, with divers and collected trash',
+    'blog.article.crans-montana-fondi-avvocati-vittime.title': 'Crans-Montana may cut funds for victims\' lawyers',
+    'blog.article.crans-montana-fondi-avvocati-vittime.excerpt': 'The Canton of Valais does not have enough resources to cover the legal expenses of the victims of the Crans-Montana tragedy.',
+    'blog.article.crans-montana-fondi-avvocati-vittime.imageAlt': 'Aerial view of Crans-Montana, Switzerland, with its iconic castle and surrounding mountains',
 };
 
 export default blogMetaEn;

@@ -5396,6 +5396,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pulizia-lago-lemano-2026.title': 'Lake Geneva Cleanup: 2,5 Tonnen Müll in zwei Tagen gesammelt',
     'blog.article.pulizia-lago-lemano-2026.excerpt': 'Über 1.000 Freiwillige, darunter 300 Taucher, nahmen an der 13. Ausgabe von Net\'Léman teil und sammelten 2.592 kg Müll.',
     'blog.article.pulizia-lago-lemano-2026.imageAlt': 'Freiwillige reinigen die Ufer des Genfersees, mit Tauchern und gesammeltem Müll',
+    'blog.article.crans-montana-fondi-avvocati-vittime.title': 'Crans-Montana: Kürzung der Gelder für Opferanwälte',
+    'blog.article.crans-montana-fondi-avvocati-vittime.excerpt': 'Die Ressourcen des Kantons Wallis reichen nicht aus, um die Anwaltskosten der Opfer der Tragödie von Crans-Montana zu decken.',
+    'blog.article.crans-montana-fondi-avvocati-vittime.imageAlt': 'Luftaufnahme von Crans-Montana, Schweiz, mit seiner ikonischen Burg und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

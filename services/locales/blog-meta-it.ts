@@ -5397,6 +5397,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pulizia-lago-lemano-2026.title': 'Pulizia del Lago Lemano: 2,5 tonnellate di rifiuti raccolti in due giorni',
     'blog.article.pulizia-lago-lemano-2026.excerpt': 'Oltre 1.000 volontari, tra cui 300 sommozzatori, hanno partecipato alla 13esima edizione di Net\'Léman, raccogliendo 2.592 kg di rifiuti',
     'blog.article.pulizia-lago-lemano-2026.imageAlt': 'Volontari puliscono le rive del Lago Lemano, con sommozzatori e rifiuti raccolti',
+    'blog.article.crans-montana-fondi-avvocati-vittime.title': 'Crans-Montana, verso il taglio dei fondi per gli avvocati delle vittime',
+    'blog.article.crans-montana-fondi-avvocati-vittime.excerpt': 'Le risorse del Cantone Vallese sono insufficienti per coprire le spese legali delle vittime della tragedia di Crans-Montana.',
+    'blog.article.crans-montana-fondi-avvocati-vittime.imageAlt': 'Vista aerea di Crans-Montana, Svizzera, con il suo castello iconico e le montagne circostanti',
 };
 
 export default blogMetaIt;

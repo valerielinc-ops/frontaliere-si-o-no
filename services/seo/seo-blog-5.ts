@@ -10879,6 +10879,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crans-montana-fondi-avvocati-vittime': {
+    title: 'Crans-Montana, verso il taglio dei fondi per gli avvocati delle vittime',
+    description: 'Le risorse del Cantone Vallese per gli avvocati delle vittime della tragedia di Crans-Montana sono insufficienti, con fondi già esauriti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, crans-montana, verso, taglio, fondi',
+    ogTitle: 'Crans-Montana, taglio fondi avvocati vittime',
+    ogDescription: 'Le risorse del Cantone Vallese per gli avvocati delle vittime della tragedia di Crans-Montana sono insufficienti, con fondi già esauriti.',
+    canonicalPath: '/articoli-frontaliere/crans-montana-fondi-avvocati-vittime',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crans-Montana, verso il taglio dei fondi per gli avvocati delle vittime",
+      "description": "Le risorse del Cantone Vallese per gli avvocati delle vittime della tragedia di Crans-Montana sono insufficienti, con fondi già esauriti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crans-montana-fondi-avvocati-vittime.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Crans-Montana, Svizzera, con il suo castello iconico e le montagne circostanti"
+      },
+      "datePublished": "2026-05-03T20:10:05+00:00",
+      "dateModified": "2026-05-03T20:10:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crans-montana-fondi-avvocati-vittime`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

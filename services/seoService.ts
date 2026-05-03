@@ -3041,6 +3041,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-petrolio-uccide-protesta-vezia-2026': { name: 'Protesta Vezia', path: '/articoli-frontaliere/petrolio-uccide-protesta-vezia-2026', parent: 'blog' },
     'blog-sun-valley-festival-malvaglia-2026': { name: 'Sun Valley Festival', path: '/articoli-frontaliere/sun-valley-festival-malvaglia-2026', parent: 'blog' },
     'blog-pulizia-lago-lemano-2026': { name: 'Pulizia Lago Lemano', path: '/articoli-frontaliere/pulizia-lago-lemano-2026', parent: 'blog' },
+    'blog-crans-montana-fondi-avvocati-vittime': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-fondi-avvocati-vittime', parent: 'blog' },
  };
 
  const info = sectionNames[section];

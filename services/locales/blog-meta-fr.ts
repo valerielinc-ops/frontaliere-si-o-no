@@ -5397,6 +5397,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pulizia-lago-lemano-2026.title': 'Nettoyage du Léman : 2,5 tonnes de déchets collectés en deux jours',
     'blog.article.pulizia-lago-lemano-2026.excerpt': 'Plus de 1.000 volontaires, dont 300 plongeurs, ont participé à la 13e édition de Net\'Léman, collectant 2.592 kg de déchets.',
     'blog.article.pulizia-lago-lemano-2026.imageAlt': 'Des bénévoles nettoient les rives du Léman, avec des plongeurs et des déchets collectés',
+    'blog.article.crans-montana-fondi-avvocati-vittime.title': 'Crans-Montana, réduction des fonds pour les avocats des victimes',
+    'blog.article.crans-montana-fondi-avvocati-vittime.excerpt': 'Les ressources du canton du Valais sont insuffisantes pour couvrir les frais juridiques des victimes de la tragédie de Crans-Montana.',
+    'blog.article.crans-montana-fondi-avvocati-vittime.imageAlt': 'Vue aérienne de Crans-Montana, Suisse, avec son château emblématique et les montagnes environnantes',
 };
 
 export default blogMetaFr;
