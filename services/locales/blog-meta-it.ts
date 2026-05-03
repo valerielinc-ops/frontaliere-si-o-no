@@ -5382,6 +5382,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-lago-perduto-memoria-comunita.title': 'Varese: “Il lago perduto”, memoria viva di una comunità',
     'blog.article.varese-lago-perduto-memoria-comunita.excerpt': 'La mostra fotografica di Mario Chiodetti alle Ghiacciaie di Cazzago Brabbia celebra la tradizione dei pescatori del lago di Varese.',
     'blog.article.varese-lago-perduto-memoria-comunita.imageAlt': 'Una serena scena lacustre in Ticino, con barche da pesca tradizionali e il paesaggio circostante, fotografata con una fotocamera DSLR.',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.title': 'Marcia lenta a Lugano contro i rischi del petrolio',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.excerpt': 'Cinque attivisti di \'act now!\' hanno organizzato una marcia lenta a Lugano per denunciare i pericoli del petrolio.',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.imageAlt': 'Attivisti in marcia a Lugano con cartelli e striscioni, sullo sfondo del lago e degli edifici iconici della città.',
 };
 
 export default blogMetaIt;

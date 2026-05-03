@@ -5381,6 +5381,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-lago-perduto-memoria-comunita.title': 'Varese: “The Lost Lake”, a living memory of a community',
     'blog.article.varese-lago-perduto-memoria-comunita.excerpt': 'Mario Chiodetti\'s photographic exhibition at the Ghiacciaie di Cazzago Brabbia celebrates the tradition of Varese lake fishermen.',
     'blog.article.varese-lago-perduto-memoria-comunita.imageAlt': 'A serene lakeside scene in Ticino, featuring traditional fishing boats and the surrounding landscape, photographed with a DSLR camera.',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.title': 'Slow march in Lugano against oil risks',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.excerpt': 'Five \'act now!\' activists organized a slow march in Lugano to denounce the dangers of oil.',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.imageAlt': 'Protesters marching in Lugano with signs and banners, against the backdrop of Lake Lugano and the city\'s iconic buildings.',
 };
 
 export default blogMetaEn;

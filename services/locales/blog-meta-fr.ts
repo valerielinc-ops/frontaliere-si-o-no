@@ -5382,6 +5382,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-lago-perduto-memoria-comunita.title': 'Varèse : « Le lac perdu », mémoire vivante d’une communauté',
     'blog.article.varese-lago-perduto-memoria-comunita.excerpt': 'L’exposition photographique de Mario Chiodetti aux Glacières de Cazzago Brabbia célèbre la tradition des pêcheurs du lac de Varèse.',
     'blog.article.varese-lago-perduto-memoria-comunita.imageAlt': 'Une scène sereine au bord du lac en Suisse, avec des bateaux de pêche traditionnels et le paysage environnant, photographiée avec un appareil photo DSLR.',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.title': 'Marche lente à Lugano contre les dangers du pétrole',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.excerpt': 'Cinq activistes de \'act now!\' ont organisé une marche lente à Lugano pour dénoncer les dangers du pétrole.',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.imageAlt': 'Des manifestants marchent à Lugano avec des pancartes et des banderoles, sur fond de lac de Lugano et des bâtiments emblématiques de la ville.',
 };
 
 export default blogMetaFr;

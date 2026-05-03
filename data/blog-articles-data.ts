@@ -17516,4 +17516,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rischi-petrolio-lugano-3-maggio-2026',
+ category: 'pratico',
+ date: '2026-05-03T19:23:02.480Z',
+ image: '/images/blog/rischi-petrolio-lugano-3-maggio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

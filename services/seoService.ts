@@ -3036,6 +3036,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mensa-solidarieta-degrado-sicurezza-2026': { name: 'Mensa solidarietà', path: '/articoli-frontaliere/mensa-solidarieta-degrado-sicurezza-2026', parent: 'blog' },
     'blog-laboratorio-estivo-museo-moesano-2026': { name: 'Laboratorio estivo', path: '/articoli-frontaliere/laboratorio-estivo-museo-moesano-2026', parent: 'blog' },
     'blog-varese-lago-perduto-memoria-comunita': { name: 'Mostra Fotografica', path: '/articoli-frontaliere/varese-lago-perduto-memoria-comunita', parent: 'blog' },
+    'blog-rischi-petrolio-lugano-3-maggio-2026': { name: 'Marcia lenta a Lugano', path: '/articoli-frontaliere/rischi-petrolio-lugano-3-maggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

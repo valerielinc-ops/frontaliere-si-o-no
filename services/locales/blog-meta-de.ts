@@ -5381,6 +5381,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-lago-perduto-memoria-comunita.title': 'Varese: „Der verlorene See“, lebendige Erinnerung einer Gemeinschaft',
     'blog.article.varese-lago-perduto-memoria-comunita.excerpt': 'Die Fotoausstellung von Mario Chiodetti in den Ghiacciaie di Cazzago Brabbia feiert die Tradition der Fischer des Varese-Sees.',
     'blog.article.varese-lago-perduto-memoria-comunita.imageAlt': 'Eine ruhige Seelandschaft in der Schweiz, mit traditionellen Fischerbooten und der umliegenden Landschaft, aufgenommen mit einer DSLR-Kamera.',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.title': 'Langsame Demonstration in Lugano gegen die Risiken von Öl',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.excerpt': 'Fünf Aktivisten von \'act now!\' haben in Lugano eine langsame Demonstration organisiert, um die Gefahren von Öl zu bekämpfen.',
+    'blog.article.rischi-petrolio-lugano-3-maggio-2026.imageAlt': 'Demonstranten marschieren in Lugano mit Schildern und Transparenten, vor dem Hintergrund des Luganer Sees und der ikonischen Gebäude der Stadt.',
 };
 
 export default blogMetaDe;
