@@ -17570,4 +17570,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'disordini-pensilina-botta-lugano-2026',
+ category: 'novita',
+ date: '2026-05-03T20:21:36.327Z',
+ image: '/images/blog/disordini-pensilina-botta-lugano-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5399,6 +5399,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crans-montana-fondi-avvocati-vittime.title': 'Crans-Montana may cut funds for victims\' lawyers',
     'blog.article.crans-montana-fondi-avvocati-vittime.excerpt': 'The Canton of Valais does not have enough resources to cover the legal expenses of the victims of the Crans-Montana tragedy.',
     'blog.article.crans-montana-fondi-avvocati-vittime.imageAlt': 'Aerial view of Crans-Montana, Switzerland, with its iconic castle and surrounding mountains',
+    'blog.article.disordini-pensilina-botta-lugano-2026.title': 'Clashes at Lugano\'s Botta Shelter: Political Tensions and Rival Fan Groups',
+    'blog.article.disordini-pensilina-botta-lugano-2026.excerpt': 'Authorities and emergency services intervened to quell the fights and identify those responsible. Two minor injuries and obstacles to the agents\' work.',
+    'blog.article.disordini-pensilina-botta-lugano-2026.imageAlt': 'Disturbances at the Botta bus stop in Lugano, with police and emergency services present',
 };
 
 export default blogMetaEn;

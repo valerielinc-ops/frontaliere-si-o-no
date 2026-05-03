@@ -10913,6 +10913,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disordini-pensilina-botta-lugano-2026': {
+    title: 'Disordini alla pensilina Botta a Lugano: pista politica e rivalità tra tifoserie',
+    description: 'Forze dell\'ordine e soccorsi sono intervenuti per sedare gli scontri e identificare i responsabili. Due feriti leggeri e ostacoli all\'operato degli agenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disordini, alla, pensilina, botta',
+    ogTitle: 'Disordini alla pensilina Botta a Lugano: pista politica e rivalità tra tifoserie',
+    ogDescription: 'Forze dell\'ordine e soccorsi sono intervenuti per sedare gli scontri e identificare i responsabili. Due feriti leggeri e ostacoli all\'operato degli agenti.',
+    canonicalPath: '/articoli-frontaliere/disordini-pensilina-botta-lugano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disordini alla pensilina Botta a Lugano: pista politica e rivalità tra tifoserie",
+      "description": "Forze dell'ordine e soccorsi sono intervenuti per sedare gli scontri e identificare i responsabili. Due feriti leggeri e ostacoli all'operato degli agenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disordini-pensilina-botta-lugano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Disordini alla pensilina Botta a Lugano, con forze dell'ordine e soccorsi sul posto"
+      },
+      "datePublished": "2026-05-03T20:21:36+00:00",
+      "dateModified": "2026-05-03T20:21:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disordini-pensilina-botta-lugano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

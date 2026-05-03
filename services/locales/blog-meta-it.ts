@@ -5400,6 +5400,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crans-montana-fondi-avvocati-vittime.title': 'Crans-Montana, verso il taglio dei fondi per gli avvocati delle vittime',
     'blog.article.crans-montana-fondi-avvocati-vittime.excerpt': 'Le risorse del Cantone Vallese sono insufficienti per coprire le spese legali delle vittime della tragedia di Crans-Montana.',
     'blog.article.crans-montana-fondi-avvocati-vittime.imageAlt': 'Vista aerea di Crans-Montana, Svizzera, con il suo castello iconico e le montagne circostanti',
+    'blog.article.disordini-pensilina-botta-lugano-2026.title': 'Disordini alla pensilina Botta a Lugano: pista politica e rivalità tra tifoserie',
+    'blog.article.disordini-pensilina-botta-lugano-2026.excerpt': 'Forze dell\'ordine e soccorsi sono intervenuti per sedare gli scontri e identificare i responsabili. Due feriti leggeri e ostacoli all\'operato degli agenti.',
+    'blog.article.disordini-pensilina-botta-lugano-2026.imageAlt': 'Disordini alla pensilina Botta a Lugano, con forze dell\'ordine e soccorsi sul posto',
 };
 
 export default blogMetaIt;
