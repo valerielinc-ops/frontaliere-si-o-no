@@ -17471,4 +17471,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'omegna-ciclista-precipita-scarpata-ricovero-rosso',
+ category: 'novita',
+ date: '2026-05-03T18:38:10.952Z',
+ image: '/images/blog/omegna-ciclista-precipita-scarpata-ricovero-rosso.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5366,6 +5366,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.turismo-como-frontalieri-2026.title': 'Como\'s tourism boom: struggling areas and excluded cross-border workers',
     'blog.article.turismo-como-frontalieri-2026.excerpt': 'Meeting at the Yacht Club on tourism and suburbs: unprecedented growth but struggling neighborhoods with no benefits',
     'blog.article.turismo-como-frontalieri-2026.imageAlt': 'View of Lake Como with the Yacht Club and city skyline at sunset',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.title': 'Cyclist falls down cliff near Omegna, rushed to hospital',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.excerpt': 'A cyclist is in serious condition after falling off a cliff near Omegna. They were rushed to Novara hospital in a code red emergency.',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.imageAlt': 'Cyclist who fell into a ravine near Omegna, with rescuers and ambulance',
 };
 
 export default blogMetaEn;

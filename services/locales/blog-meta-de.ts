@@ -5366,6 +5366,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.turismo-como-frontalieri-2026.title': 'Tourismus in Como ohne Präzedenz: Quartiere in Not',
     'blog.article.turismo-como-frontalieri-2026.excerpt': 'Treffen im Yacht Club zu Tourismus und Vororten: beispielloses Wachstum, aber Stadtteile in Not und ohne Vorteile',
     'blog.article.turismo-como-frontalieri-2026.imageAlt': 'Blick auf den Comer See mit dem Yachtclub und der Skyline der Stadt bei Sonnenuntergang',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.title': 'Omegna: Radfahrer stürzt in Schlucht, Notaufnahme',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.excerpt': 'Schwer verletzt ist ein Radfahrer, der in der Nähe von Omegna in eine Schlucht gestürzt ist. Er wurde in die Notaufnahme des Krankenhauses von Novara eingeliefert.',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.imageAlt': 'Ein Radfahrer, der in eine Schlucht in der Nähe von Omegna gestürzt ist, mit Rettungskräften und Krankenwagen',
 };
 
 export default blogMetaDe;

@@ -5367,6 +5367,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.turismo-como-frontalieri-2026.title': 'Tourisme à Côme sans précédent: quartiers en difficulté et frontaliers exclus',
     'blog.article.turismo-como-frontalieri-2026.excerpt': 'Rencontre à l\'Yacht Club sur le tourisme et les périphéries: croissance sans précédent mais quartiers en difficulté et sans bénéfices',
     'blog.article.turismo-como-frontalieri-2026.imageAlt': 'Vue du Lac de Côme avec le Yacht Club et la skyline de la ville au coucher du soleil',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.title': 'Omegna : un cycliste chute dans un ravin, hospitalisé en urgence',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.excerpt': 'Graves sont les conditions d\'un cycliste précipité dans un ravin près d\'Omegna. Hospitalisation en urgence à l\'hôpital de Novare.',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.imageAlt': 'Un cycliste qui a fait une chute dans un ravin près d\'Omegna, avec des secours et une ambulance',
 };
 
 export default blogMetaFr;

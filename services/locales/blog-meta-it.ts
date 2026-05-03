@@ -5367,6 +5367,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.turismo-como-frontalieri-2026.title': 'Turismo a Como senza precedenti: quartieri in difficoltà e frontalieri esclusi',
     'blog.article.turismo-como-frontalieri-2026.excerpt': 'Incontro allo Yacht Club su turismo e periferie: crescita senza precedenti ma quartieri in difficoltà e senza benefici',
     'blog.article.turismo-como-frontalieri-2026.imageAlt': 'Veduta del Lago di Como con lo Yacht Club e lo skyline della città al tramonto',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.title': 'Omegna: ciclista precipita in scarpata, ricovero in codice rosso',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.excerpt': 'Gravi le condizioni di un ciclista precipitato in un dirupo vicino a Omegna. Ricovero in codice rosso all\'ospedale di Novara.',
+    'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.imageAlt': 'Ciclista precipitato in una scarpata vicino a Omegna, con soccorritori e ambulanza',
 };
 
 export default blogMetaIt;
