@@ -5306,6 +5306,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.title': 'Area di sosta fantasma sull\'A3: pericolo per i frontalieri',
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.excerpt': 'Edificio abbandonato sull\'autostrada fra Coira e Zurigo mette a rischio la sicurezza del traffico. La Confederazione offre 800\'000 CHF, ma il proprietario ne chiede 1,3 milioni.',
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.imageAlt': 'Area di sosta abbandonata sull\'autostrada A3 vicino al Walensee',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.title': 'Caro carburanti: benzina a 1,9 euro al litro',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.excerpt': 'Prezzi benzina e diesel in aumento, self service sfiora 1,9 euro al litro. Analisi su impatto frontalieri Ticino.',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.imageAlt': 'Vista aerea del Lago di Lugano con il panorama cittadino sullo sfondo',
 };
 
 export default blogMetaIt;

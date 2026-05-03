@@ -5306,6 +5306,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.title': 'Zone de repos fantôme sur l\'A3: danger pour les frontaliers',
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.excerpt': 'Bâtiment abandonné sur l\'autoroute entre Coire et Zurich met en danger la sécurité du trafic. La Confédération offre 800\'000 CHF, mais le propriétaire en demande 1,3 million.',
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.imageAlt': 'Aire de repos abandonnée sur l\'autoroute A3 près du lac de Walen',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.title': 'Carburant cher: essence à 1,9 euro le litre',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.excerpt': 'Prix de l\'essence et du diesel en hausse, le self-service atteint presque 1,9 euro le litre. Analyse sur l\'impact des travailleurs frontaliers du Tessin.',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage urbain en arrière-plan',
 };
 
 export default blogMetaFr;

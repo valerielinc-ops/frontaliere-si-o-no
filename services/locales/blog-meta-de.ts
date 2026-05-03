@@ -5305,6 +5305,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.title': 'Geisterraststätte auf der A3: Gefahr für Grenzgänger',
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.excerpt': 'Verlassenes Gebäude auf der Autobahn zwischen Chur und Zürich gefährdet die Verkehrssicherheit. Der Bund bietet 800\'000 CHF, doch der Eigentümer verlangt 1,3 Millionen.',
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.imageAlt': 'Verlassene Raststätte an der Autobahn A3 in der Nähe des Walensees',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.title': 'Benzinpreise steigen: Fast 1,9 Franken pro Liter',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.excerpt': 'Benzin- und Dieselpreise steigen, Selbstbedienung erreicht fast 1,9 Franken pro Liter. Analyse der Auswirkungen auf Grenzgänger im Tessin.',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

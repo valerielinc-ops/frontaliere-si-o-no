@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1818,
+ "numberOfItems": 1819,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6458,7 +6458,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1815, "name": "Incendio a Langnau: due case e un garage distrutti", "url": `${BASE_URL}/articoli-frontaliere/incendio-langnau-due-case-garage` },
           { "@type": "ListItem", "position": 1816, "name": "Dalla rotta di Piccaluga a lavoro, salari ed ec...", "url": `${BASE_URL}/articoli-frontaliere/domenica-corriere-piccaluga-lavoro-salari-economia` },
           { "@type": "ListItem", "position": 1817, "name": "«Sacrificate la vostra vita»: la campagna irani...", "url": `${BASE_URL}/articoli-frontaliere/campagna-iraniana-allarma-svizzera` },
-          { "@type": "ListItem", "position": 1818, "name": "Area di sosta fantasma sull'A3: pericolo per i ...", "url": `${BASE_URL}/articoli-frontaliere/area-sosta-fantasma-sicurezza-autostrada` }
+          { "@type": "ListItem", "position": 1818, "name": "Area di sosta fantasma sull'A3: pericolo per i ...", "url": `${BASE_URL}/articoli-frontaliere/area-sosta-fantasma-sicurezza-autostrada` },
+          { "@type": "ListItem", "position": 1819, "name": "Caro carburanti: benzina a 1,9 euro al litro", "url": `${BASE_URL}/articoli-frontaliere/aumento-prezzi-carburanti-maggio-2026` }
  ]
  },
  {

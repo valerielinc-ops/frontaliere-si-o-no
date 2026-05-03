@@ -5305,6 +5305,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.title': 'Abandoned rest area on A3 highway endangers cross-border commuters',
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.excerpt': 'An abandoned building on the motorway between Chur and Zurich is putting traffic safety at risk. The Confederation offers 800,000 CHF, but the owner demands 1.3 million.',
     'blog.article.area-sosta-fantasma-sicurezza-autostrada.imageAlt': 'Abandoned rest area on A3 highway near Walensee',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.title': 'Fuel prices rise: petrol nears 1.9 euros per litre',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.excerpt': 'Petrol and diesel prices increasing, self-service close to 1.9 euros per litre. Analysis on impact for Ticino cross-border workers.',
+    'blog.article.aumento-prezzi-carburanti-maggio-2026.imageAlt': 'Aerial view of Lake Lugano with the cityscape in the background',
 };
 
 export default blogMetaEn;
