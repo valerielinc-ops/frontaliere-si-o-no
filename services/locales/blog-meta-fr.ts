@@ -5445,6 +5445,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.league-ticino-border-closure-proposal-2026.title': 'La Lega Ticino propose de fermer les frontières avec l\'Italie pour une semaine',
     'blog.article.league-ticino-border-closure-proposal-2026.excerpt': 'La Lega dei Ticinesi propose de fermer les frontières avec l\'Italie pendant une semaine pour voir l\'effet que cela fait, citant Jannacci.',
     'blog.article.league-ticino-border-closure-proposal-2026.imageAlt': 'Lac de Lugano avec la frontière suisse-italienne en arrière-plan',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.title': 'Pétrole et gaz, approvisionnement sûr au Tessin',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.excerpt': 'L\'attaque contre l\'Iran et les représailles ont fait augmenter les prix de l\'essence et du diesel en Suisse, mais l\'approvisionnement reste stable.',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

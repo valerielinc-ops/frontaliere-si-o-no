@@ -5444,6 +5444,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.league-ticino-border-closure-proposal-2026.title': 'Lega Ticino proposes one-week Italy border closure',
     'blog.article.league-ticino-border-closure-proposal-2026.excerpt': 'The Ticino League proposes closing borders with Italy for a week to see the effect, quoting Jannacci.',
     'blog.article.league-ticino-border-closure-proposal-2026.imageAlt': 'Lake Lugano with the Swiss-Italian border in the background',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.title': 'Secure oil and gas supply in Ticino',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.excerpt': 'The attack on Iran and the retaliations have increased the prices of petrol and diesel even in Switzerland, but the supply remains stable.',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino\'s mountains in the background',
 };
 
 export default blogMetaEn;

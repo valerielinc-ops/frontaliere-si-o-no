@@ -5445,6 +5445,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.league-ticino-border-closure-proposal-2026.title': 'Lega Ticino propone chiusura confini con Italia per una settimana',
     'blog.article.league-ticino-border-closure-proposal-2026.excerpt': 'La Lega dei Ticinesi propone di chiudere i confini con l\'Italia per una settimana per vedere l\'effetto che fa, citando Jannacci.',
     'blog.article.league-ticino-border-closure-proposal-2026.imageAlt': 'Lago di Lugano con il confine svizzero-italiano sullo sfondo',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.title': 'Petrolio e gas, approvvigionamento sicuro in Ticino',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.excerpt': 'L\'attacco all\'Iran e le rappresaglie hanno aumentato i prezzi di benzina e diesel anche in Svizzera, ma l\'approvvigionamento rimane stabile.',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.imageAlt': 'Veduta aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

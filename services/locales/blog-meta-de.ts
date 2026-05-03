@@ -5444,6 +5444,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.league-ticino-border-closure-proposal-2026.title': 'Lega Ticino schlägt eine Woche Grenzsperre vor',
     'blog.article.league-ticino-border-closure-proposal-2026.excerpt': 'Die Lega der Tessiner schlägt vor, die Grenze zu Italien für eine Woche zu schließen, um die Auswirkungen zu sehen, und zitiert Jannacci.',
     'blog.article.league-ticino-border-closure-proposal-2026.imageAlt': 'Luganersee mit der Schweizer-Italienischen Grenze im Hintergrund',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.title': 'Öl und Gas: Sichere Versorgung im Tessin',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.excerpt': 'Der Angriff auf den Iran und die Vergeltung haben auch in der Schweiz die Preise für Benzin und Diesel erhöht, doch die Versorgung bleibt stabil.',
+    'blog.article.petrolio-gas-sicuro-ticino-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;
