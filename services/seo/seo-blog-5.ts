@@ -10845,6 +10845,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pulizia-lago-lemano-2026': {
+    title: 'Pulizia del Lago Lemano: 2,5 tonnellate di rifiuti raccolti in due giorni',
+    description: 'Oltre 1.000 volontari, tra cui 300 sommozzatori, hanno partecipato alla 13esima edizione di Net\'Léman, raccogliendo 2.592 kg di rifiuti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, pulizia, lago, lemano, tonnellate',
+    ogTitle: 'Pulizia Lago Lemano 2026: 2,5 tonnellate di rifiuti raccolti in due giorni',
+    ogDescription: 'Oltre 1.000 volontari, tra cui 300 sommozzatori, hanno partecipato alla 13esima edizione di Net\'Léman, raccogliendo 2.592 kg di rifiuti',
+    canonicalPath: '/articoli-frontaliere/pulizia-lago-lemano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pulizia del Lago Lemano: 2,5 tonnellate di rifiuti raccolti in due giorni",
+      "description": "Oltre 1.000 volontari, tra cui 300 sommozzatori, hanno partecipato alla 13esima edizione di Net'Léman, raccogliendo 2.592 kg di rifiuti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pulizia-lago-lemano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Volontari puliscono le rive del Lago Lemano, con sommozzatori e rifiuti raccolti"
+      },
+      "datePublished": "2026-05-03T19:54:00+00:00",
+      "dateModified": "2026-05-03T19:54:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pulizia-lago-lemano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5393,6 +5393,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sun-valley-festival-malvaglia-2026.title': 'Sun Valley Festival in Malvaglia: three days of music and fun',
     'blog.article.sun-valley-festival-malvaglia-2026.excerpt': 'From May 22 to 24, 2026, Malvaglia hosts the Sun Valley Festival with international artists and activities for all ages.',
     'blog.article.sun-valley-festival-malvaglia-2026.imageAlt': 'Sun Valley Festival in Malvaglia, with artists on stage and people celebrating',
+    'blog.article.pulizia-lago-lemano-2026.title': 'Lake Geneva cleanup: 2.5 tons of waste collected in two days',
+    'blog.article.pulizia-lago-lemano-2026.excerpt': 'Over 1,000 volunteers, including 300 divers, took part in the 13th edition of Net\'Léman, collecting 2,592 kg of waste',
+    'blog.article.pulizia-lago-lemano-2026.imageAlt': 'Volunteers cleaning the shores of Lake Geneva, with divers and collected trash',
 };
 
 export default blogMetaEn;

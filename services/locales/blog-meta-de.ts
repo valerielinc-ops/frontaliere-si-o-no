@@ -5393,6 +5393,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sun-valley-festival-malvaglia-2026.title': 'Sun Valley Festival in Malvaglia: drei Tage Musik und Spaß',
     'blog.article.sun-valley-festival-malvaglia-2026.excerpt': 'Vom 22. bis 24. Mai 2026 findet in Malvaglia das Sun Valley Festival mit internationalen Künstlern und Aktivitäten für alle Altersgruppen statt.',
     'blog.article.sun-valley-festival-malvaglia-2026.imageAlt': 'Sun Valley Festival in Malvaglia, mit Künstlern auf der Bühne und feiernden Menschen',
+    'blog.article.pulizia-lago-lemano-2026.title': 'Lake Geneva Cleanup: 2,5 Tonnen Müll in zwei Tagen gesammelt',
+    'blog.article.pulizia-lago-lemano-2026.excerpt': 'Über 1.000 Freiwillige, darunter 300 Taucher, nahmen an der 13. Ausgabe von Net\'Léman teil und sammelten 2.592 kg Müll.',
+    'blog.article.pulizia-lago-lemano-2026.imageAlt': 'Freiwillige reinigen die Ufer des Genfersees, mit Tauchern und gesammeltem Müll',
 };
 
 export default blogMetaDe;
