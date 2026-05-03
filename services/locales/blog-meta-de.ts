@@ -5266,6 +5266,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-caccia-evasori-fiscali-2026.title': 'Schweiz erweitert Jagd auf Steuerflüchtlinge: 110 Länder beteiligt',
     'blog.article.svizzera-caccia-evasori-fiscali-2026.excerpt': 'Die schweizerischen Behörden überwachen auch Schweizer in Thailand. Fast 7.000 Anfragen um internationale Hilfe im Jahr 2025.',
     'blog.article.svizzera-caccia-evasori-fiscali-2026.imageAlt': 'Luftaufnahme des Luganersees mit modernen Gebäuden und Bergen im Hintergrund',
+    'blog.article.landsgemeinde-glarona-2026.title': 'Glarner Landsgemeinde: Sparmaßnahmen und Umwelt im Fokus',
+    'blog.article.landsgemeinde-glarona-2026.excerpt': 'Die Stimmberechtigten von Glarus entscheiden über Kürzungen der öffentlichen Ausgaben, neue Umweltsteuern und bezahlbaren Wohnraum in der historischen Versammlung.',
+    'blog.article.landsgemeinde-glarona-2026.imageAlt': 'Landsgemeinde-Versammlung in Glarus, Schweiz, mit Bürgern, die auf einem öffentlichen Platz wichtige Fragen abstimmen.',
 };
 
 export default blogMetaDe;

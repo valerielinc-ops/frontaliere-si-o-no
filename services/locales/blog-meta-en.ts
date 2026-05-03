@@ -5266,6 +5266,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-caccia-evasori-fiscali-2026.title': 'Switzerland widens tax evasion hunt: 110 countries involved',
     'blog.article.svizzera-caccia-evasori-fiscali-2026.excerpt': 'Swiss authorities are also monitoring Swiss citizens in Thailand. Nearly 7,000 foreign assistance requests in 2025.',
     'blog.article.svizzera-caccia-evasori-fiscali-2026.imageAlt': 'Aerial view of Lake Lugano with modern buildings and mountains in the background',
+    'blog.article.landsgemeinde-glarona-2026.title': 'Glarus Landsgemeinde: Austerity and Environment on the Ballot',
+    'blog.article.landsgemeinde-glarona-2026.excerpt': 'Glarus voters decide on public spending cuts, new environmental taxes, and affordable housing in the historic assembly.',
+    'blog.article.landsgemeinde-glarona-2026.imageAlt': 'Landsgemeinde assembly in Glarona, Switzerland, with citizens gathered in a public square voting on important issues.',
 };
 
 export default blogMetaEn;

@@ -5267,6 +5267,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-caccia-evasori-fiscali-2026.title': 'Svizzera amplia la caccia agli evasori fiscali: coinvolti 110 Paesi',
     'blog.article.svizzera-caccia-evasori-fiscali-2026.excerpt': 'Le autorità elvetiche monitorano anche gli svizzeri in Thailandia. Quasi 7mila richieste di assistenza dall\'estero nel 2025.',
     'blog.article.svizzera-caccia-evasori-fiscali-2026.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo',
+    'blog.article.landsgemeinde-glarona-2026.title': 'Landsgemeinde di Glarona: austerità e ambiente al voto',
+    'blog.article.landsgemeinde-glarona-2026.excerpt': 'Gli elettori di Glarona decidono su tagli alla spesa pubblica, nuove tasse ambientali e alloggi accessibili nella storica assemblea.',
+    'blog.article.landsgemeinde-glarona-2026.imageAlt': 'Assemblea Landsgemeinde a Glarona, Svizzera, con cittadini riuniti in una piazza pubblica per votare su importanti questioni.',
 };
 
 export default blogMetaIt;

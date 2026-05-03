@@ -5267,6 +5267,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-caccia-evasori-fiscali-2026.title': 'La Suisse élargit la chasse aux fraudeurs fiscaux : 110 pays concernés',
     'blog.article.svizzera-caccia-evasori-fiscali-2026.excerpt': 'Les autorités helvétiques surveillent aussi les Suisses en Thaïlande. Près de 7\'000 demandes d\'assistance de l\'étranger en 2025.',
     'blog.article.svizzera-caccia-evasori-fiscali-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
+    'blog.article.landsgemeinde-glarona-2026.title': 'Landsgemeinde de Glaris : austérité et environnement en vote',
+    'blog.article.landsgemeinde-glarona-2026.excerpt': 'Les électeurs de Glaris décident de réductions des dépenses publiques, de nouvelles taxes environnementales et de logements accessibles lors de l\'historique assemblée.',
+    'blog.article.landsgemeinde-glarona-2026.imageAlt': 'Assemblée Landsgemeinde à Glaris, Suisse, avec des citoyens réunis sur une place publique pour voter sur des questions importantes.',
 };
 
 export default blogMetaFr;
