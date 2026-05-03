@@ -17714,4 +17714,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'negoziati-stallo-iran-usa-2026',
+ category: 'novita',
+ date: '2026-05-03T23:02:42.030Z',
+ image: '/images/blog/negoziati-stallo-iran-usa-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5448,6 +5448,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.petrolio-gas-sicuro-ticino-2026.title': 'Pétrole et gaz, approvisionnement sûr au Tessin',
     'blog.article.petrolio-gas-sicuro-ticino-2026.excerpt': 'L\'attaque contre l\'Iran et les représailles ont fait augmenter les prix de l\'essence et du diesel en Suisse, mais l\'approvisionnement reste stable.',
     'blog.article.petrolio-gas-sicuro-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.negoziati-stallo-iran-usa-2026.title': 'Négociations dans l\'impasse entre les USA et l\'Iran : tensions croissantes',
+    'blog.article.negoziati-stallo-iran-usa-2026.excerpt': 'Les distances entre les États-Unis et l\'Iran s\'accentuent, avec de nouvelles propositions et menaces qui alimentent les tensions internationales.',
+    'blog.article.negoziati-stallo-iran-usa-2026.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et bâtiments',
 };
 
 export default blogMetaFr;

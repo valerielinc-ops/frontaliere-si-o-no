@@ -5448,6 +5448,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.petrolio-gas-sicuro-ticino-2026.title': 'Petrolio e gas, approvvigionamento sicuro in Ticino',
     'blog.article.petrolio-gas-sicuro-ticino-2026.excerpt': 'L\'attacco all\'Iran e le rappresaglie hanno aumentato i prezzi di benzina e diesel anche in Svizzera, ma l\'approvvigionamento rimane stabile.',
     'blog.article.petrolio-gas-sicuro-ticino-2026.imageAlt': 'Veduta aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
+    'blog.article.negoziati-stallo-iran-usa-2026.title': 'Negoziati in stallo tra USA e Iran: tensioni crescenti',
+    'blog.article.negoziati-stallo-iran-usa-2026.excerpt': 'Le distanze tra Stati Uniti e Iran si fanno sempre più marcate, con nuove proposte e minacce che alimentano le tensioni internazionali.',
+    'blog.article.negoziati-stallo-iran-usa-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
 };
 
 export default blogMetaIt;

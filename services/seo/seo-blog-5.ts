@@ -11457,6 +11457,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-negoziati-stallo-iran-usa-2026': {
+    title: 'Negoziati in stallo tra USA e Iran: tensioni crescenti',
+    description: 'Le distanze tra Stati Uniti e Iran si fanno sempre più marcate, con nuove proposte e minacce che alimentano le tensioni internazionali. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, negoziati, stallo, iran, tensioni',
+    ogTitle: 'Negoziati in stallo tra USA e Iran: tensioni crescenti',
+    ogDescription: 'Le distanze tra Stati Uniti e Iran si fanno sempre più marcate, con nuove proposte e minacce che alimentano le tensioni internazionali.',
+    canonicalPath: '/articoli-frontaliere/negoziati-stallo-iran-usa-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Negoziati in stallo tra USA e Iran: tensioni crescenti",
+      "description": "Le distanze tra Stati Uniti e Iran si fanno sempre più marcate, con nuove proposte e minacce che alimentano le tensioni internazionali. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/negoziati-stallo-iran-usa-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne e edifici"
+      },
+      "datePublished": "2026-05-03T23:02:42+00:00",
+      "dateModified": "2026-05-03T23:02:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/negoziati-stallo-iran-usa-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

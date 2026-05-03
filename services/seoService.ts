@@ -3058,6 +3058,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-a2-lodrino-frontalieri': { name: 'Incidente A2 Lodrino', path: '/articoli-frontaliere/incidente-a2-lodrino-frontalieri', parent: 'blog' },
     'blog-league-ticino-border-closure-proposal-2026': { name: 'Novità', path: '/articoli-frontaliere/league-ticino-border-closure-proposal-2026', parent: 'blog' },
     'blog-petrolio-gas-sicuro-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/petrolio-gas-sicuro-ticino-2026', parent: 'blog' },
+    'blog-negoziati-stallo-iran-usa-2026': { name: 'Novità', path: '/articoli-frontaliere/negoziati-stallo-iran-usa-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -5447,6 +5447,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.petrolio-gas-sicuro-ticino-2026.title': 'Öl und Gas: Sichere Versorgung im Tessin',
     'blog.article.petrolio-gas-sicuro-ticino-2026.excerpt': 'Der Angriff auf den Iran und die Vergeltung haben auch in der Schweiz die Preise für Benzin und Diesel erhöht, doch die Versorgung bleibt stabil.',
     'blog.article.petrolio-gas-sicuro-ticino-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.negoziati-stallo-iran-usa-2026.title': 'Verhandlungen zwischen USA und Iran stocken: Spannungen nehmen zu',
+    'blog.article.negoziati-stallo-iran-usa-2026.excerpt': 'Die Distanz zwischen den Vereinigten Staaten und dem Iran wird immer größer, mit neuen Vorschlägen und Drohungen, die die internationalen Spannungen anheizen.',
+    'blog.article.negoziati-stallo-iran-usa-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

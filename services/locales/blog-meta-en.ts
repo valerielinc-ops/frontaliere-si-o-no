@@ -5447,6 +5447,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petrolio-gas-sicuro-ticino-2026.title': 'Secure oil and gas supply in Ticino',
     'blog.article.petrolio-gas-sicuro-ticino-2026.excerpt': 'The attack on Iran and the retaliations have increased the prices of petrol and diesel even in Switzerland, but the supply remains stable.',
     'blog.article.petrolio-gas-sicuro-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino\'s mountains in the background',
+    'blog.article.negoziati-stallo-iran-usa-2026.title': 'US-Iran talks stalled: tensions rise',
+    'blog.article.negoziati-stallo-iran-usa-2026.excerpt': 'The gap between the United States and Iran is widening, with new proposals and threats fueling international tensions.',
+    'blog.article.negoziati-stallo-iran-usa-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
 };
 
 export default blogMetaEn;
