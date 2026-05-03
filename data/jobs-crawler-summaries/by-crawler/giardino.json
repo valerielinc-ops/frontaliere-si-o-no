@@ -1,16 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-05-03T10:04:03.508Z",
-  "total": 4,
+  "generatedAt": "2026-05-03T21:31:20.899Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 5403,
-  "avgDurationMs": 5403,
+  "durationMs": 4464,
+  "avgDurationMs": 4464,
   "durationHistory": [
-    5403
+    4464
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-03T10:04:01.255Z",
+      "crawledAt": "2026-05-03T21:31:18.980Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -51,8 +51,46 @@
       }
     },
     {
+      "id": "giardino-e7f4937bce90",
+      "slug": "assistant-accounting-50-giardino-group-champfer",
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Assistant Accounting 50%",
+      "location": "Champfèr",
+      "canton": "GR",
+      "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-03T21:31:18.982Z",
+      "addressLocality": "Champfèr",
+      "postalCode": "7512",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-14",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
+      "firstSeenAt": "2026-04-14T21:43:42.933Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [
+    {
       "id": "giardino-4c0dd2545c09",
-      "slug": "steward-giardino-group-ascona",
+      "slug": "amministratore-giardino-group-ascona",
       "company": "Giardino Group",
       "companyKey": "giardino",
       "companyDomain": "giardinohotels.ch",
@@ -78,53 +116,19 @@
       "postedDate": "2026-04-18",
       "applyUrl": "https://giardinohotels.ch/en/jobs/ga-steward/",
       "firstSeenAt": "2026-04-18T21:25:17.654Z",
-      "_qualityScore": 92,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "giardino-e7f4937bce90",
-      "slug": "assistant-accounting-50-giardino-group-champfer",
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Assistant Accounting 50%",
-      "location": "Champfèr",
-      "canton": "GR",
-      "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-03T10:04:01.257Z",
-      "addressLocality": "Champfèr",
-      "postalCode": "7512",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
-      "firstSeenAt": "2026-04-14T21:43:42.933Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
       "id": "giardino-43818e6901c7",
-      "slug": "steward-giardino-group-minusio",
+      "slug": "amministratore-giardino-group-minusio",
       "company": "Giardino Group",
       "companyKey": "giardino",
       "companyDomain": "giardinohotels.ch",
@@ -150,15 +154,16 @@
       "postedDate": "2026-02-20",
       "applyUrl": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
       "firstSeenAt": "2026-04-13T10:36:24.233Z",
-      "_qualityScore": 92,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
