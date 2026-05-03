@@ -17642,4 +17642,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tragedia-lago-como-frontalieri',
+ category: 'novita',
+ date: '2026-05-03T21:47:12.500Z',
+ image: '/images/blog/tragedia-lago-como-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5424,6 +5424,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inter-scudetto-chivu-2026.title': 'Inter champion d\'Italie: la course au titre des nerazzurri de Chivu',
     'blog.article.inter-scudetto-chivu-2026.excerpt': 'L\'Inter remporte son vingt-et-unième titre de champion avec trois journées d\'avance, fêté après un 2-0 contre le Parma',
     'blog.article.inter-scudetto-chivu-2026.imageAlt': 'Lac de Lugano avec vue sur le Monte Brè, ciel bleu clair, ambiance estivale',
+    'blog.article.tragedia-lago-como-frontalieri.title': 'Tragédie au lac de Côme : un adolescent de 15 ans meurt',
+    'blog.article.tragedia-lago-como-frontalieri.excerpt': 'Un jeune homme de 15 ans perd la vie dans le lac de Côme. Ses amis donnent l\'alerte, mais les secours ne parviennent pas à le sauver.',
+    'blog.article.tragedia-lago-como-frontalieri.imageAlt': 'Urgence au lac de Côme avec les équipes de secours',
 };
 
 export default blogMetaFr;

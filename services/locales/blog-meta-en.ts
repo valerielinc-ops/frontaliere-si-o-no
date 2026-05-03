@@ -5423,6 +5423,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inter-scudetto-chivu-2026.title': 'Inter crowned Italian champions: Chivu\'s side\'s title run',
     'blog.article.inter-scudetto-chivu-2026.excerpt': 'Inter win their 21st Scudetto with 3 games to spare, celebrated after a 2-0 win against Parma',
     'blog.article.inter-scudetto-chivu-2026.imageAlt': 'Lake Lugano with a view of Monte Brè, clear blue sky, summer atmosphere',
+    'blog.article.tragedia-lago-como-frontalieri.title': 'Tragedy at Lake Como: 15-year-old boy dies',
+    'blog.article.tragedia-lago-como-frontalieri.excerpt': 'A 15-year-old boy loses his life in Lake Como. His friends raise the alarm, but rescuers fail to save him.',
+    'blog.article.tragedia-lago-como-frontalieri.imageAlt': 'Emergency at Lake Como with rescue teams',
 };
 
 export default blogMetaEn;

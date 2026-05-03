@@ -3050,6 +3050,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-marchirolo-primo-maggio-2026': { name: 'Eventi locali', path: '/articoli-frontaliere/marchirolo-primo-maggio-2026', parent: 'blog' },
     'blog-schianto-a9-turate-feriti-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/schianto-a9-turate-feriti-frontalieri', parent: 'blog' },
     'blog-inter-scudetto-chivu-2026': { name: 'Inter campione', path: '/articoli-frontaliere/inter-scudetto-chivu-2026', parent: 'blog' },
+    'blog-tragedia-lago-como-frontalieri': { name: 'Tragedia lago di Como', path: '/articoli-frontaliere/tragedia-lago-como-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

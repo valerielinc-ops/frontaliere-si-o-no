@@ -11185,6 +11185,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tragedia-lago-como-frontalieri': {
+    title: 'Tragedia al lago di Como: morto un 15enne | Frontaliere Ticino',
+    description: 'Un quindicenne perde la vita nel lago di Como. Gli amici danno l\'allarme, ma i soccorsi non riescono a salvarlo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tragedia, lago, como, morto',
+    ogTitle: 'Tragedia al lago di Como: morto un 15enne',
+    ogDescription: 'Un quindicenne perde la vita nel lago di Como. Gli amici danno l\'allarme, ma i soccorsi non riescono a salvarlo.',
+    canonicalPath: '/articoli-frontaliere/tragedia-lago-como-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tragedia al lago di Como: morto un 15enne",
+      "description": "Un quindicenne perde la vita nel lago di Como. Gli amici danno l'allarme, ma i soccorsi non riescono a salvarlo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tragedia-lago-como-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Emergenza al lago di Como con i soccorsi"
+      },
+      "datePublished": "2026-05-03T21:47:12+00:00",
+      "dateModified": "2026-05-03T21:47:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-lago-como-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5424,6 +5424,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inter-scudetto-chivu-2026.title': 'Inter campione d\'Italia: la cavalcata-scudetto dei nerazzurri di Chivu',
     'blog.article.inter-scudetto-chivu-2026.excerpt': 'L\'Inter vince il ventunesimo scudetto con 3 giornate d\'anticipo, festeggiato dopo il 2-0 contro il Parma',
     'blog.article.inter-scudetto-chivu-2026.imageAlt': 'Lago di Lugano con vista sul Monte Brè, cielo azzurro limpido, atmosfera estiva',
+    'blog.article.tragedia-lago-como-frontalieri.title': 'Tragedia al lago di Como: morto un 15enne',
+    'blog.article.tragedia-lago-como-frontalieri.excerpt': 'Un giovane di 15 anni perde la vita nel lago di Como. Gli amici danno l\'allarme, ma i soccorsi non riescono a salvarlo.',
+    'blog.article.tragedia-lago-como-frontalieri.imageAlt': 'Emergenza al lago di Como con i soccorsi',
 };
 
 export default blogMetaIt;

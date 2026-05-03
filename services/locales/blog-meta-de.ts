@@ -5423,6 +5423,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inter-scudetto-chivu-2026.title': 'Inter gewinnt die italienische Meisterschaft: Chivus Nerazzurri triumphieren',
     'blog.article.inter-scudetto-chivu-2026.excerpt': 'Inter gewinnt die 21. Meisterschaft mit drei Spieltagen Vorsprung und feiert nach einem 2-0-Sieg gegen Parma',
     'blog.article.inter-scudetto-chivu-2026.imageAlt': 'Luganersee mit Blick auf den Monte Brè, klarer blauer Himmel, Sommeratmosphäre',
+    'blog.article.tragedia-lago-como-frontalieri.title': 'Tragödie am Comer See: 15-Jähriger stirbt',
+    'blog.article.tragedia-lago-como-frontalieri.excerpt': 'Ein 15-jähriger Junge verliert sein Leben im Comer See. Die Freunde alarmieren die Rettungskräfte, die ihn jedoch nicht mehr retten können.',
+    'blog.article.tragedia-lago-como-frontalieri.imageAlt': 'Notfall am Comer See mit Rettungsteams',
 };
 
 export default blogMetaDe;

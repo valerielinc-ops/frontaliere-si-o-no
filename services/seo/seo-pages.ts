@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1860,
+ "numberOfItems": 1861,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6498,7 +6498,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1857, "name": "Petrolio USA: export record con chiusura Hormuz", "url": `${BASE_URL}/articoli-frontaliere/usa-petrolio-export-hormuz-impatti-ticino` },
           { "@type": "ListItem", "position": 1858, "name": "Marchirolo celebra il Primo Maggio con corteo, ...", "url": `${BASE_URL}/articoli-frontaliere/marchirolo-primo-maggio-2026` },
           { "@type": "ListItem", "position": 1859, "name": "Schianto sulla A9 a Turate: quattro feriti tra ...", "url": `${BASE_URL}/articoli-frontaliere/schianto-a9-turate-feriti-frontalieri` },
-          { "@type": "ListItem", "position": 1860, "name": "Inter campione d'Italia: la cavalcata-scudetto ...", "url": `${BASE_URL}/articoli-frontaliere/inter-scudetto-chivu-2026` }
+          { "@type": "ListItem", "position": 1860, "name": "Inter campione d'Italia: la cavalcata-scudetto ...", "url": `${BASE_URL}/articoli-frontaliere/inter-scudetto-chivu-2026` },
+          { "@type": "ListItem", "position": 1861, "name": "Tragedia al lago di Como: morto un 15enne", "url": `${BASE_URL}/articoli-frontaliere/tragedia-lago-como-frontalieri` }
  ]
  },
  {
