@@ -17426,4 +17426,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cassis-araghchi-colloquio-2026',
+ category: 'novita',
+ date: '2026-05-03T17:55:22.375Z',
+ image: '/images/blog/cassis-araghchi-colloquio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

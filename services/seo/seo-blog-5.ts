@@ -10369,6 +10369,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassis-araghchi-colloquio-2026': {
+    title: 'Cassis e Araghchi si parlano: colloquio diplomatico Svizzera-Iran',
+    description: 'Il consigliere federale Ignazio Cassis ha avuto un colloquio telefonico con il ministro degli affari esteri iraniano Abbas Araghchi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassis, araghchi, parlano, colloquio',
+    ogTitle: 'Cassis e Araghchi si parlano: colloquio diplomatico Svizzera-Iran',
+    ogDescription: 'Il consigliere federale Ignazio Cassis ha avuto un colloquio telefonico con il ministro degli affari esteri iraniano Abbas Araghchi.',
+    canonicalPath: '/articoli-frontaliere/cassis-araghchi-colloquio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassis e Araghchi si parlano: colloquio diplomatico Svizzera-Iran",
+      "description": "Il consigliere federale Ignazio Cassis ha avuto un colloquio telefonico con il ministro degli affari esteri iraniano Abbas Araghchi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cassis-araghchi-colloquio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con il panorama urbano sullo sfondo"
+      },
+      "datePublished": "2026-05-03T17:55:22+00:00",
+      "dateModified": "2026-05-03T17:55:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassis-araghchi-colloquio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

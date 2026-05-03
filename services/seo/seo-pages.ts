@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1836,
+ "numberOfItems": 1837,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6474,7 +6474,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1833, "name": "Incendio al Terminal 1 di Malpensa: problema ri...", "url": `${BASE_URL}/articoli-frontaliere/incendio-malpensa-terminal-1-risolto` },
           { "@type": "ListItem", "position": 1834, "name": "Maillard (USS) attacca iniziativa UDC: rischi p...", "url": `${BASE_URL}/articoli-frontaliere/maillard-uss-udc-iniziativa-1-maggio-2026` },
           { "@type": "ListItem", "position": 1835, "name": "Cervelat, la salsiccia nazionale svizzera", "url": `${BASE_URL}/articoli-frontaliere/cervelat-salsiccia-nazionale-svizzera` },
-          { "@type": "ListItem", "position": 1836, "name": "Luino: incontro su 'Amare la politica' tra giov...", "url": `${BASE_URL}/articoli-frontaliere/amare-politica-luino-2026` }
+          { "@type": "ListItem", "position": 1836, "name": "Luino: incontro su 'Amare la politica' tra giov...", "url": `${BASE_URL}/articoli-frontaliere/amare-politica-luino-2026` },
+          { "@type": "ListItem", "position": 1837, "name": "Cassis e Araghchi si parlano: colloquio diploma...", "url": `${BASE_URL}/articoli-frontaliere/cassis-araghchi-colloquio-2026` }
  ]
  },
  {

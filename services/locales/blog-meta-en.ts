@@ -5351,6 +5351,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.amare-politica-luino-2026.title': 'Luino: young people and institutions discuss \'Loving Politics\'',
     'blog.article.amare-politica-luino-2026.excerpt': 'On Saturday, May 2nd, the book \'Loving Politics\' was presented in Luino with a debate on the role of politics in contemporary society',
     'blog.article.amare-politica-luino-2026.imageAlt': 'Group of people in a conference room in Bellinzona, Ticino, engaged in a political discussion',
+    'blog.article.cassis-araghchi-colloquio-2026.title': 'Cassis and Araghchi discuss: Swiss-Iranian diplomatic talks',
+    'blog.article.cassis-araghchi-colloquio-2026.excerpt': 'Federal Councillor Ignazio Cassis had a phone conversation with Iranian Foreign Minister Abbas Araghchi.',
+    'blog.article.cassis-araghchi-colloquio-2026.imageAlt': 'View of Lake Lugano with the urban landscape in the background',
 };
 
 export default blogMetaEn;

@@ -5351,6 +5351,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.amare-politica-luino-2026.title': 'Luino: Jugendliche und Institutionen diskutieren über \'Politik lieben\'',
     'blog.article.amare-politica-luino-2026.excerpt': 'Am Samstag, 2. Mai, wurde in Luino das Buch \'Amare la Politica\' vorgestellt, mit einer Diskussion über die Rolle der Politik in der heutigen Gesellschaft.',
     'blog.article.amare-politica-luino-2026.imageAlt': 'Gruppe von Menschen in einem Konferenzraum in Bellinzona, Tessin, die in eine politische Diskussion vertieft sind',
+    'blog.article.cassis-araghchi-colloquio-2026.title': 'Cassis und Araghchi im Gespräch: diplomatisches Treffen Schweiz-Iran',
+    'blog.article.cassis-araghchi-colloquio-2026.excerpt': 'Der Bundesrat Ignazio Cassis hat ein Telefonat mit dem iranischen Außenminister Abbas Araghchi geführt.',
+    'blog.article.cassis-araghchi-colloquio-2026.imageAlt': 'Blick auf den Luganersee mit der Stadtlandschaft im Hintergrund',
 };
 
 export default blogMetaDe;
