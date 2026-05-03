@@ -1,0 +1,47 @@
+name: Probe BAZG Waiting-Times API
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Probe BAZG endpoints
+        id: probe
+        run: |
+          if node scripts/probe-bazg-waiting-times.mjs; then
+            echo "BAZG_ONLINE=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "BAZG_ONLINE=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open issue if BAZG is back online
+        if: steps.probe.outputs.BAZG_ONLINE == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "BAZG API is back online — wire as priority-1 traffic source" \
+            --body "The weekly BAZG probe found a working endpoint. Time to wire it as the priority-0 source in \`functions/src/trafficSchedulerCore.js\`, above HERE Maps in the provider waterfall. See the design doc: \`saggesel-main-design-20260503-183137-border-wait-multi-source.md\`." \
+            --label "enhancement"
