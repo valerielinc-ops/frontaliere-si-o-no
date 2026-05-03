@@ -5346,6 +5346,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.title': 'Maillard (USS) attacca iniziativa UDC: rischi per salari e posti di lavoro',
     'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.excerpt': 'Il presidente dell\'USS critica l\'iniziativa UDC \'No a una Svizzera da 10 milioni!\' per i rischi su salari, pensioni e occupazione.',
     'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.imageAlt': 'Panorama di Lugano dal lago in una giornata limpida',
+    'blog.article.cervelat-salsiccia-nazionale-svizzera.title': 'Cervelat, la salsiccia nazionale svizzera',
+    'blog.article.cervelat-salsiccia-nazionale-svizzera.excerpt': 'Scopri la storia e le curiosità del cervelat, la salsiccia nazionale svizzera, amata in tutto il Paese e simbolo di identità nazionale.',
+    'blog.article.cervelat-salsiccia-nazionale-svizzera.imageAlt': 'Cervelat grigliato su un piatto di legno con bandiera svizzera sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -5345,6 +5345,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.title': 'Maillard (USS) criticizes UDC initiative: risks for wages and jobs',
     'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.excerpt': 'The president of the USS criticizes the UDC initiative \'No to a Switzerland of 10 million!\' for the risks to wages, pensions, and employment.',
     'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.imageAlt': 'Panoramic view of Lugano from the lake on a clear day',
+    'blog.article.cervelat-salsiccia-nazionale-svizzera.title': 'Cervelat, Switzerland\'s national sausage',
+    'blog.article.cervelat-salsiccia-nazionale-svizzera.excerpt': 'Discover the history and fun facts about cervelat, Switzerland\'s national sausage, loved across the country and a symbol of national identity.',
+    'blog.article.cervelat-salsiccia-nazionale-svizzera.imageAlt': 'Grilled cervelat sausage on a wooden plate with a Swiss flag in the background',
 };
 
 export default blogMetaEn;

@@ -5345,6 +5345,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.title': 'Maillard (USS) kritisiert UDC-Initiative: Risiken für Löhne und Arbeitsplätze',
     'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.excerpt': 'Der Präsident des USS kritisiert die UDC-Initiative \'Nein zu einer Schweiz mit 10 Millionen!\' wegen der Risiken für Löhne, Renten und Beschäftigung.',
     'blog.article.maillard-uss-udc-iniziativa-1-maggio-2026.imageAlt': 'Panoramablick auf Lugano vom See an einem klaren Tag',
+    'blog.article.cervelat-salsiccia-nazionale-svizzera.title': 'Cervelat, die Schweizer Nationalwurst',
+    'blog.article.cervelat-salsiccia-nazionale-svizzera.excerpt': 'Entdecken Sie die Geschichte und die Besonderheiten des Cervelats, der Schweizer Nationalwurst, die im ganzen Land geliebt wird und ein Symbol der nationalen Identität ist.',
+    'blog.article.cervelat-salsiccia-nazionale-svizzera.imageAlt': 'Gebratene Cervelat-Wurst auf einem Holzteller mit der Schweizer Flagge im Hintergrund',
 };
 
 export default blogMetaDe;

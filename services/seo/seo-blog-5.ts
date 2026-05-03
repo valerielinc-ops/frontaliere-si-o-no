@@ -10301,6 +10301,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cervelat-salsiccia-nazionale-svizzera': {
+    title: 'Cervelat, la salsiccia nazionale svizzera | Frontaliere Ticino',
+    description: 'Scopri la storia e le curiosità del cervelat, la salsiccia nazionale svizzera, amata in tutto il Paese e simbolo di identità nazionale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cervelat, salsiccia, nazionale, scopri',
+    ogTitle: 'Cervelat, la salsiccia nazionale svizzera',
+    ogDescription: 'Scopri la storia e le curiosità del cervelat, la salsiccia nazionale svizzera, amata in tutto il Paese e simbolo di identità nazionale.',
+    canonicalPath: '/articoli-frontaliere/cervelat-salsiccia-nazionale-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cervelat, la salsiccia nazionale svizzera",
+      "description": "Scopri la storia e le curiosità del cervelat, la salsiccia nazionale svizzera, amata in tutto il Paese e simbolo di identità nazionale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cervelat-salsiccia-nazionale-svizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cervelat grigliato su un piatto di legno con bandiera svizzera sullo sfondo"
+      },
+      "datePublished": "2026-05-03T17:40:09+00:00",
+      "dateModified": "2026-05-03T17:40:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cervelat-salsiccia-nazionale-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

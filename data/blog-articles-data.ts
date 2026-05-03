@@ -17408,4 +17408,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cervelat-salsiccia-nazionale-svizzera',
+ category: 'novita',
+ date: '2026-05-03T17:40:09.644Z',
+ image: '/images/blog/cervelat-salsiccia-nazionale-svizzera.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
