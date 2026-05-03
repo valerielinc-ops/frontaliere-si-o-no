@@ -17606,4 +17606,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'usa-petrolio-export-hormuz-impatti-ticino',
+ category: 'novita',
+ date: '2026-05-03T21:04:29.356Z',
+ image: '/images/blog/usa-petrolio-export-hormuz-impatti-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

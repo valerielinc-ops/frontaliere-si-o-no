@@ -5411,6 +5411,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.life-run-gallarate-2026-successo.title': 'Life Run 2026: 550 runners in Gallarate for well-being',
     'blog.article.life-run-gallarate-2026-successo.excerpt': 'Over 550 runners participated in the Life Run 2026 in Gallarate, with Mattia Grifa and Federica Cerruti winning the Fidal race.',
     'blog.article.life-run-gallarate-2026-successo.imageAlt': 'Runners participate in the Life Run in Gallarate, with Lake Lugano in the background',
+    'blog.article.usa-petrolio-export-hormuz-impatti-ticino.title': 'US oil exports hit record with Hormuz closure',
+    'blog.article.usa-petrolio-export-hormuz-impatti-ticino.excerpt': 'US oil exports reach record levels with the closure of the Strait of Hormuz, impacting global stocks and energy markets',
+    'blog.article.usa-petrolio-export-hormuz-impatti-ticino.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border in focus',
 };
 
 export default blogMetaEn;

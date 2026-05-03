@@ -5412,6 +5412,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.life-run-gallarate-2026-successo.title': 'Life Run 2026: 550 podisti a Gallarate per il benessere',
     'blog.article.life-run-gallarate-2026-successo.excerpt': 'Oltre 550 podisti hanno partecipato alla Life Run 2026 a Gallarate, con vittorie di Mattia Grifa e Federica Cerruti nella gara Fidal.',
     'blog.article.life-run-gallarate-2026-successo.imageAlt': 'Podisti partecipano alla Life Run a Gallarate, con il lago di Lugano sullo sfondo',
+    'blog.article.usa-petrolio-export-hormuz-impatti-ticino.title': 'Petrolio USA: export record con chiusura Hormuz',
+    'blog.article.usa-petrolio-export-hormuz-impatti-ticino.excerpt': 'Le esportazioni di petrolio USA raggiungono livelli record con la chiusura dello Stretto di Hormuz, impattando le scorte globali e i mercati energetici',
+    'blog.article.usa-petrolio-export-hormuz-impatti-ticino.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano',
 };
 
 export default blogMetaIt;

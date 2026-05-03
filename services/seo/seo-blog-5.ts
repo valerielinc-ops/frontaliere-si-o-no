@@ -11049,6 +11049,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-usa-petrolio-export-hormuz-impatti-ticino': {
+    title: 'Petrolio USA: export record con chiusura Hormuz | Frontaliere Ticino',
+    description: 'Le esportazioni di petrolio USA raggiungono livelli record con la chiusura dello Stretto di Hormuz, impattando le scorte globali e i mercati energetici',
+    keywords: 'frontalieri, ticino, svizzera, italia, petrolio, export, record, chiusura',
+    ogTitle: 'Petrolio USA: export record con chiusura Hormuz',
+    ogDescription: 'Le esportazioni di petrolio USA raggiungono livelli record con la chiusura dello Stretto di Hormuz, impattando le scorte globali e i mercati energetici',
+    canonicalPath: '/articoli-frontaliere/usa-petrolio-export-hormuz-impatti-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petrolio USA: export record con chiusura Hormuz",
+      "description": "Le esportazioni di petrolio USA raggiungono livelli record con la chiusura dello Stretto di Hormuz, impattando le scorte globali e i mercati energetici",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/usa-petrolio-export-hormuz-impatti-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il confine svizzero-italiano in primo piano"
+      },
+      "datePublished": "2026-05-03T21:04:29+00:00",
+      "dateModified": "2026-05-03T21:04:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/usa-petrolio-export-hormuz-impatti-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
