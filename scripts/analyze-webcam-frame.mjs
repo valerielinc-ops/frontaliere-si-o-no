@@ -21,7 +21,7 @@ import sharp from 'sharp';
 export const WEBCAM_FEEDS = {
   '01.2S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/01.2S.gif',
-    crossings: ['chiasso-centro-ponte-chiasso', 'chiasso-strada'],
+    crossings: ['chiasso-centro', 'chiasso-strada'],
     // Road zone bounding box [left, top, width, height] in pixels.
     // Conservative center crop covering approximately the middle 50% of a typical 352x288 GIF.
     box: [80, 100, 192, 88],
@@ -48,13 +48,13 @@ export const WEBCAM_FEEDS = {
   },
   '02.0N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
-    crossings: ['gaggiolo-cantello-stabio', 'san-pietro-clivio-stabio'],
+    crossings: ['gaggiolo', 'san-pietro'],
     box: [80, 100, 192, 88],
     baselineVariance: 18,
   },
   '06.8S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/06.8S.gif',
-    crossings: ['gaggiolo-cantello-stabio'],
+    crossings: ['gaggiolo'],
     box: [80, 100, 192, 88],
     baselineVariance: 18,
   },
@@ -62,11 +62,11 @@ export const WEBCAM_FEEDS = {
 
 // Map crossing slug → primary feed key for queue detection.
 export const CROSSING_TO_PRIMARY_FEED = {
-  'chiasso-centro-ponte-chiasso': '01.2S',
+  'chiasso-centro': '01.2S',
   'chiasso-strada': '01.2S',
   'chiasso-brogeda': '00.3S',
-  'gaggiolo-cantello-stabio': '02.0N',
-  'san-pietro-clivio-stabio': '02.0N',
+  'gaggiolo': '02.0N',
+  'san-pietro': '02.0N',
 };
 
 /**
