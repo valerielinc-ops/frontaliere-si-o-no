@@ -5390,6 +5390,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petrolio-uccide-protesta-vezia-2026.title': 'Protest in Vezia: \'Oil Kills\'',
     'blog.article.petrolio-uccide-protesta-vezia-2026.excerpt': 'Act Now activists paint a canvas in front of the Eni station in Vezia to raise awareness about the environmental and health impacts of fossil fuels',
     'blog.article.petrolio-uccide-protesta-vezia-2026.imageAlt': 'Protest in front of a gas station in Vezia, Ticino, with activists painting a canvas',
+    'blog.article.sun-valley-festival-malvaglia-2026.title': 'Sun Valley Festival in Malvaglia: three days of music and fun',
+    'blog.article.sun-valley-festival-malvaglia-2026.excerpt': 'From May 22 to 24, 2026, Malvaglia hosts the Sun Valley Festival with international artists and activities for all ages.',
+    'blog.article.sun-valley-festival-malvaglia-2026.imageAlt': 'Sun Valley Festival in Malvaglia, with artists on stage and people celebrating',
 };
 
 export default blogMetaEn;

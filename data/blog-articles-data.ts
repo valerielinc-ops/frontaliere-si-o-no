@@ -17543,4 +17543,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sun-valley-festival-malvaglia-2026',
+ category: 'novita',
+ date: '2026-05-03T19:43:09.226Z',
+ image: '/images/blog/sun-valley-festival-malvaglia-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

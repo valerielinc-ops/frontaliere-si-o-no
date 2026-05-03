@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1849,
+ "numberOfItems": 1850,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6487,7 +6487,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1846, "name": "Varese: “Il lago perduto”, memoria viva di una ...", "url": `${BASE_URL}/articoli-frontaliere/varese-lago-perduto-memoria-comunita` },
           { "@type": "ListItem", "position": 1847, "name": "Marcia lenta a Lugano contro i rischi del petrolio", "url": `${BASE_URL}/articoli-frontaliere/rischi-petrolio-lugano-3-maggio-2026` },
           { "@type": "ListItem", "position": 1848, "name": "A9 chiusa notte: percorso alternativo Lomazzo-S...", "url": `${BASE_URL}/articoli-frontaliere/lavori-a9-lomazzo-saronno-chiusura-notte` },
-          { "@type": "ListItem", "position": 1849, "name": "Protesta a Vezia: «Il petrolio uccide»", "url": `${BASE_URL}/articoli-frontaliere/petrolio-uccide-protesta-vezia-2026` }
+          { "@type": "ListItem", "position": 1849, "name": "Protesta a Vezia: «Il petrolio uccide»", "url": `${BASE_URL}/articoli-frontaliere/petrolio-uccide-protesta-vezia-2026` },
+          { "@type": "ListItem", "position": 1850, "name": "Sun Valley Festival a Malvaglia: tre giorni di ...", "url": `${BASE_URL}/articoli-frontaliere/sun-valley-festival-malvaglia-2026` }
  ]
  },
  {

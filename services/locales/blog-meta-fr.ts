@@ -5391,6 +5391,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.petrolio-uccide-protesta-vezia-2026.title': 'Manifestation à Vezia : « Le pétrole tue »',
     'blog.article.petrolio-uccide-protesta-vezia-2026.excerpt': 'Des militants d\'Act Now peignent une toile devant la station-service Eni de Vezia pour sensibiliser sur l\'impact environnemental et sanitaire des combustibles fossiles',
     'blog.article.petrolio-uccide-protesta-vezia-2026.imageAlt': 'Manifestation devant une station-service à Vezia, Tessin, avec des activistes peignant une toile',
+    'blog.article.sun-valley-festival-malvaglia-2026.title': 'Festival Sun Valley à Malvaglia : trois jours de musique et de divertissement',
+    'blog.article.sun-valley-festival-malvaglia-2026.excerpt': 'Du 22 au 24 mai 2026, Malvaglia accueille le Festival Sun Valley avec des artistes internationaux et des activités pour tous les âges.',
+    'blog.article.sun-valley-festival-malvaglia-2026.imageAlt': 'Festival Sun Valley à Malvaglia, avec des artistes sur scène et des gens en fête',
 };
 
 export default blogMetaFr;

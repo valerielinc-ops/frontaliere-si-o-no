@@ -3039,6 +3039,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rischi-petrolio-lugano-3-maggio-2026': { name: 'Marcia lenta a Lugano', path: '/articoli-frontaliere/rischi-petrolio-lugano-3-maggio-2026', parent: 'blog' },
     'blog-lavori-a9-lomazzo-saronno-chiusura-notte': { name: 'A9 chiusura notturna', path: '/articoli-frontaliere/lavori-a9-lomazzo-saronno-chiusura-notte', parent: 'blog' },
     'blog-petrolio-uccide-protesta-vezia-2026': { name: 'Protesta Vezia', path: '/articoli-frontaliere/petrolio-uccide-protesta-vezia-2026', parent: 'blog' },
+    'blog-sun-valley-festival-malvaglia-2026': { name: 'Sun Valley Festival', path: '/articoli-frontaliere/sun-valley-festival-malvaglia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

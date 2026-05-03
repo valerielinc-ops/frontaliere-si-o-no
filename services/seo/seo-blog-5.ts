@@ -10811,6 +10811,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sun-valley-festival-malvaglia-2026': {
+    title: 'Sun Valley Festival a Malvaglia: tre giorni di musica e divertimento',
+    description: 'Dal 22 al 24 maggio 2026, Malvaglia ospita il Sun Valley Festival con artisti internazionali e attività per tutte le età. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, valley, festival, malvaglia, giorni',
+    ogTitle: 'Sun Valley Festival a Malvaglia: tre giorni di musica e divertimento',
+    ogDescription: 'Dal 22 al 24 maggio 2026, Malvaglia ospita il Sun Valley Festival con artisti internazionali e attività per tutte le età.',
+    canonicalPath: '/articoli-frontaliere/sun-valley-festival-malvaglia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sun Valley Festival a Malvaglia: tre giorni di musica e divertimento",
+      "description": "Dal 22 al 24 maggio 2026, Malvaglia ospita il Sun Valley Festival con artisti internazionali e attività per tutte le età. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sun-valley-festival-malvaglia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sun Valley Festival a Malvaglia, con artisti sul palco e pubblico in festa"
+      },
+      "datePublished": "2026-05-03T19:43:09+00:00",
+      "dateModified": "2026-05-03T19:43:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sun-valley-festival-malvaglia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
