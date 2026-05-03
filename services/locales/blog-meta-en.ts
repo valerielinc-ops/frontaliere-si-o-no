@@ -5441,6 +5441,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-a2-lodrino-frontalieri.title': 'Accident on A2 southbound: closure and rescue',
     'blog.article.incidente-a2-lodrino-frontalieri.excerpt': 'A2 motorway closed southbound near Lodrino. Ambulance and Cantonal Police on site. No word yet on injuries.',
     'blog.article.incidente-a2-lodrino-frontalieri.imageAlt': 'Accident on the A2 highway near Lodrino',
+    'blog.article.league-ticino-border-closure-proposal-2026.title': 'Lega Ticino proposes one-week Italy border closure',
+    'blog.article.league-ticino-border-closure-proposal-2026.excerpt': 'The Ticino League proposes closing borders with Italy for a week to see the effect, quoting Jannacci.',
+    'blog.article.league-ticino-border-closure-proposal-2026.imageAlt': 'Lake Lugano with the Swiss-Italian border in the background',
 };
 
 export default blogMetaEn;

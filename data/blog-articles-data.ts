@@ -17696,4 +17696,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'league-ticino-border-closure-proposal-2026',
+ category: 'novita',
+ date: '2026-05-03T22:49:17.120Z',
+ image: '/images/blog/league-ticino-border-closure-proposal-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

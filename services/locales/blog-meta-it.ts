@@ -5442,6 +5442,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-a2-lodrino-frontalieri.title': 'Incidente sull\'A2 in direzione sud: chiusura e soccorsi',
     'blog.article.incidente-a2-lodrino-frontalieri.excerpt': 'Chiusura autostrada A2 in direzione sud all\'altezza di Lodrino. Sul posto ambulanza e Polizia cantonale. Non ancora specificato se vi siano feriti.',
     'blog.article.incidente-a2-lodrino-frontalieri.imageAlt': 'Incidente sull\'autostrada A2 all\'altezza di Lodrino',
+    'blog.article.league-ticino-border-closure-proposal-2026.title': 'Lega Ticino propone chiusura confini con Italia per una settimana',
+    'blog.article.league-ticino-border-closure-proposal-2026.excerpt': 'La Lega dei Ticinesi propone di chiudere i confini con l\'Italia per una settimana per vedere l\'effetto che fa, citando Jannacci.',
+    'blog.article.league-ticino-border-closure-proposal-2026.imageAlt': 'Lago di Lugano con il confine svizzero-italiano sullo sfondo',
 };
 
 export default blogMetaIt;

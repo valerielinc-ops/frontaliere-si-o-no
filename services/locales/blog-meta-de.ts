@@ -5441,6 +5441,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-a2-lodrino-frontalieri.title': 'Unfall auf der A2 in Richtung Süden: Sperrung und Rettungskräfte',
     'blog.article.incidente-a2-lodrino-frontalieri.excerpt': 'Sperrung der Autobahn A2 in Richtung Süden auf Höhe von Lodrino. Vor Ort ein Ambulanz und Kantonspolizei. Noch nicht bekannt, ob es Verletzte gibt.',
     'blog.article.incidente-a2-lodrino-frontalieri.imageAlt': 'Unfall auf der Autobahn A2 bei Lodrino',
+    'blog.article.league-ticino-border-closure-proposal-2026.title': 'Lega Ticino schlägt eine Woche Grenzsperre vor',
+    'blog.article.league-ticino-border-closure-proposal-2026.excerpt': 'Die Lega der Tessiner schlägt vor, die Grenze zu Italien für eine Woche zu schließen, um die Auswirkungen zu sehen, und zitiert Jannacci.',
+    'blog.article.league-ticino-border-closure-proposal-2026.imageAlt': 'Luganersee mit der Schweizer-Italienischen Grenze im Hintergrund',
 };
 
 export default blogMetaDe;
