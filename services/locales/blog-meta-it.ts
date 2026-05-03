@@ -5370,6 +5370,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.title': 'Omegna: ciclista precipita in scarpata, ricovero in codice rosso',
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.excerpt': 'Gravi le condizioni di un ciclista precipitato in un dirupo vicino a Omegna. Ricovero in codice rosso all\'ospedale di Novara.',
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.imageAlt': 'Ciclista precipitato in una scarpata vicino a Omegna, con soccorritori e ambulanza',
+    'blog.article.usa-missili-germania-2026.title': 'USA ritirano missili a lungo raggio dalla Germania',
+    'blog.article.usa-missili-germania-2026.excerpt': 'Le tensioni tra Berlino e Washington influenzano la strategia NATO e i piani di deterrenza in Europa.',
+    'blog.article.usa-missili-germania-2026.imageAlt': 'Castelgrande di Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

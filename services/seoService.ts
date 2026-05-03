@@ -3032,6 +3032,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-agricoltura-ticino-prodotti-locali-eventi-2026': { name: 'Novità', path: '/articoli-frontaliere/agricoltura-ticino-prodotti-locali-eventi-2026', parent: 'blog' },
     'blog-turismo-como-frontalieri-2026': { name: 'Turismo e Periferie', path: '/articoli-frontaliere/turismo-como-frontalieri-2026', parent: 'blog' },
     'blog-omegna-ciclista-precipita-scarpata-ricovero-rosso': { name: 'Novità', path: '/articoli-frontaliere/omegna-ciclista-precipita-scarpata-ricovero-rosso', parent: 'blog' },
+    'blog-usa-missili-germania-2026': { name: 'Novità', path: '/articoli-frontaliere/usa-missili-germania-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

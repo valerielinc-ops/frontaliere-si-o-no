@@ -5369,6 +5369,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.title': 'Cyclist falls down cliff near Omegna, rushed to hospital',
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.excerpt': 'A cyclist is in serious condition after falling off a cliff near Omegna. They were rushed to Novara hospital in a code red emergency.',
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.imageAlt': 'Cyclist who fell into a ravine near Omegna, with rescuers and ambulance',
+    'blog.article.usa-missili-germania-2026.title': 'US withdraws long-range missiles from Germany',
+    'blog.article.usa-missili-germania-2026.excerpt': 'Tensions between Berlin and Washington influence NATO strategy and Europe\'s deterrence plans.',
+    'blog.article.usa-missili-germania-2026.imageAlt': 'Castelgrande fortress in Bellinzona, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

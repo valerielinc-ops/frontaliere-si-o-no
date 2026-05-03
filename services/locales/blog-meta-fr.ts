@@ -5370,6 +5370,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.title': 'Omegna : un cycliste chute dans un ravin, hospitalisé en urgence',
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.excerpt': 'Graves sont les conditions d\'un cycliste précipité dans un ravin près d\'Omegna. Hospitalisation en urgence à l\'hôpital de Novare.',
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.imageAlt': 'Un cycliste qui a fait une chute dans un ravin près d\'Omegna, avec des secours et une ambulance',
+    'blog.article.usa-missili-germania-2026.title': 'Les USA retirent des missiles à longue portée d\'Allemagne',
+    'blog.article.usa-missili-germania-2026.excerpt': 'Les tensions entre Berlin et Washington influencent la stratégie de l\'OTAN et les plans de dissuasion en Europe.',
+    'blog.article.usa-missili-germania-2026.imageAlt': 'Château de Castelgrande à Bellinzone, Tessin, Suisse',
 };
 
 export default blogMetaFr;

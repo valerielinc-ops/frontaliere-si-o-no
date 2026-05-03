@@ -5369,6 +5369,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.title': 'Omegna: Radfahrer stürzt in Schlucht, Notaufnahme',
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.excerpt': 'Schwer verletzt ist ein Radfahrer, der in der Nähe von Omegna in eine Schlucht gestürzt ist. Er wurde in die Notaufnahme des Krankenhauses von Novara eingeliefert.',
     'blog.article.omegna-ciclista-precipita-scarpata-ricovero-rosso.imageAlt': 'Ein Radfahrer, der in eine Schlucht in der Nähe von Omegna gestürzt ist, mit Rettungskräften und Krankenwagen',
+    'blog.article.usa-missili-germania-2026.title': 'USA ziehen Langstreckenraketen aus Deutschland ab',
+    'blog.article.usa-missili-germania-2026.excerpt': 'Die Spannungen zwischen Berlin und Washington beeinflussen die NATO-Strategie und die Abschreckungspläne in Europa.',
+    'blog.article.usa-missili-germania-2026.imageAlt': 'Castelgrande Festung in Bellinzona, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

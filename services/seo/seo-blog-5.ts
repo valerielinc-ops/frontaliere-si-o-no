@@ -10573,6 +10573,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-usa-missili-germania-2026': {
+    title: 'USA ritirano missili a lungo raggio dalla Germania',
+    description: 'Le tensioni tra Berlino e Washington influenzano la strategia NATO e i piani di deterrenza in Europa. Scopri le implicazioni per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ritirano, missili, lungo, raggio',
+    ogTitle: 'USA ritirano missili a lungo raggio dalla Germania',
+    ogDescription: 'Le tensioni tra Berlino e Washington influenzano la strategia NATO e i piani di deterrenza in Europa. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/usa-missili-germania-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "USA ritirano missili a lungo raggio dalla Germania",
+      "description": "Le tensioni tra Berlino e Washington influenzano la strategia NATO e i piani di deterrenza in Europa. Scopri le implicazioni per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/usa-missili-germania-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande di Bellinzona, Ticino, Svizzera"
+      },
+      "datePublished": "2026-05-03T18:45:47+00:00",
+      "dateModified": "2026-05-03T18:45:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/usa-missili-germania-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
