@@ -5466,6 +5466,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fiaccola-sacconago-speranza-amicizia.title': 'La Fiaccola di Sacconago arriva carica di speranza e amicizia',
     'blog.article.fiaccola-sacconago-speranza-amicizia.excerpt': 'Domenica 3 maggio 2026, la Fiaccola di Sacconago ha illuminato la Madonna in Campagna, portando fede, speranza e amicizia alla comunità.',
     'blog.article.fiaccola-sacconago-speranza-amicizia.imageAlt': 'Processione con fiaccole in un villaggio svizzero di notte, con persone che camminano verso una chiesa illuminata dalle torce.',
+    'blog.article.ingorgo-taxi-boat-como-2026.title': 'Como, caos taxi boat: 600 imbarcazioni in un solo molo',
+    'blog.article.ingorgo-taxi-boat-como-2026.excerpt': 'Il molo di Sant\'Agostino a Como è insostenibile con 600 barche in attesa. Operatori chiedono più pontili per ridurre il caos.',
+    'blog.article.ingorgo-taxi-boat-como-2026.imageAlt': 'Barche affollate al molo di Sant\'Agostino sul Lago di Como',
 };
 
 export default blogMetaIt;

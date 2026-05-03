@@ -5465,6 +5465,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fiaccola-sacconago-speranza-amicizia.title': 'Die Fackel von Sacconago bringt Hoffnung und Freundschaft',
     'blog.article.fiaccola-sacconago-speranza-amicizia.excerpt': 'Am Sonntag, den 3. Mai 2026, hat die Fackel von Sacconago die Madonna in Campagna erleuchtet und der Gemeinschaft Glauben, Hoffnung und Freundschaft gebracht.',
     'blog.article.fiaccola-sacconago-speranza-amicizia.imageAlt': 'Eine Fackelprozession in einem Schweizer Dorf in der Nacht, bei der Menschen mit Fackeln zu einer Kirche gehen.',
+    'blog.article.ingorgo-taxi-boat-como-2026.title': 'Como: Chaos bei Taxibooten - 600 Boote an einem Steg',
+    'blog.article.ingorgo-taxi-boat-como-2026.excerpt': 'Der Steg von Sant\'Agostino in Como ist mit 600 wartenden Booten überlastet. Betreiber fordern mehr Stege, um das Chaos zu reduzieren.',
+    'blog.article.ingorgo-taxi-boat-como-2026.imageAlt': 'Überfüllte Boote am Sant\'Agostino-Steg am Comer See',
 };
 
 export default blogMetaDe;

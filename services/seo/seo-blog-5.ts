@@ -11661,6 +11661,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ingorgo-taxi-boat-como-2026': {
+    title: 'Como, caos taxi boat: 600 imbarcazioni in un solo molo',
+    description: 'Il molo di Sant\'Agostino a Como è insostenibile con 600 barche in attesa. Operatori chiedono più pontili per ridurre il caos. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, caos, taxi, boat',
+    ogTitle: 'Como, caos taxi boat: 600 imbarcazioni in un solo molo',
+    ogDescription: 'Il molo di Sant\'Agostino a Como è insostenibile con 600 barche in attesa. Operatori chiedono più pontili per ridurre il caos.',
+    canonicalPath: '/articoli-frontaliere/ingorgo-taxi-boat-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, caos taxi boat: 600 imbarcazioni in un solo molo",
+      "description": "Il molo di Sant'Agostino a Como è insostenibile con 600 barche in attesa. Operatori chiedono più pontili per ridurre il caos. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ingorgo-taxi-boat-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Barche affollate al molo di Sant'Agostino sul Lago di Como"
+      },
+      "datePublished": "2026-05-03T23:47:42+00:00",
+      "dateModified": "2026-05-03T23:47:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ingorgo-taxi-boat-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

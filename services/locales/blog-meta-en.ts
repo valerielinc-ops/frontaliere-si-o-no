@@ -5465,6 +5465,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fiaccola-sacconago-speranza-amicizia.title': 'Sacconago Torch Arrives with Hope and Friendship',
     'blog.article.fiaccola-sacconago-speranza-amicizia.excerpt': 'On Sunday, May 3, 2026, the Sacconago Torch illuminated Madonna in Campagna, bringing faith, hope, and friendship to the community.',
     'blog.article.fiaccola-sacconago-speranza-amicizia.imageAlt': 'A nighttime torchlight procession in a Swiss village, with people walking towards a church illuminated by torches.',
+    'blog.article.ingorgo-taxi-boat-como-2026.title': 'Como, chaos at taxi boat dock: 600 boats at one pier',
+    'blog.article.ingorgo-taxi-boat-como-2026.excerpt': 'Sant\'Agostino pier in Como is unsustainable with 600 boats waiting. Operators ask for more docks to reduce chaos.',
+    'blog.article.ingorgo-taxi-boat-como-2026.imageAlt': 'Crowded boats at Sant\'Agostino dock on Lake Como',
 };
 
 export default blogMetaEn;

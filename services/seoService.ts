@@ -3064,6 +3064,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-statua-volta-como-2026': { name: 'Novità', path: '/articoli-frontaliere/statua-volta-como-2026', parent: 'blog' },
     'blog-scia-luminosa-ticino-2026': { name: 'Scia luminosa', path: '/articoli-frontaliere/scia-luminosa-ticino-2026', parent: 'blog' },
     'blog-fiaccola-sacconago-speranza-amicizia': { name: 'Novità', path: '/articoli-frontaliere/fiaccola-sacconago-speranza-amicizia', parent: 'blog' },
+    'blog-ingorgo-taxi-boat-como-2026': { name: 'Novità', path: '/articoli-frontaliere/ingorgo-taxi-boat-como-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1874,
+ "numberOfItems": 1875,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6512,7 +6512,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1871, "name": "Due austriaci fuggono da auto in movimento: ins...", "url": `${BASE_URL}/articoli-frontaliere/austriaci-ferma-verifica-2026` },
           { "@type": "ListItem", "position": 1872, "name": "Statua di Volta a Como invasa dalle erbacce", "url": `${BASE_URL}/articoli-frontaliere/statua-volta-como-2026` },
           { "@type": "ListItem", "position": 1873, "name": "Scia luminosa in Ticino: cosa sappiamo", "url": `${BASE_URL}/articoli-frontaliere/scia-luminosa-ticino-2026` },
-          { "@type": "ListItem", "position": 1874, "name": "La Fiaccola di Sacconago arriva carica di spera...", "url": `${BASE_URL}/articoli-frontaliere/fiaccola-sacconago-speranza-amicizia` }
+          { "@type": "ListItem", "position": 1874, "name": "La Fiaccola di Sacconago arriva carica di spera...", "url": `${BASE_URL}/articoli-frontaliere/fiaccola-sacconago-speranza-amicizia` },
+          { "@type": "ListItem", "position": 1875, "name": "Como, caos taxi boat: 600 imbarcazioni in un so...", "url": `${BASE_URL}/articoli-frontaliere/ingorgo-taxi-boat-como-2026` }
  ]
  },
  {
