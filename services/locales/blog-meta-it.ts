@@ -5421,6 +5421,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.schianto-a9-turate-feriti-frontalieri.title': 'Schianto sulla A9 a Turate: quattro feriti tra i frontalieri',
     'blog.article.schianto-a9-turate-feriti-frontalieri.excerpt': 'Incidente sulla A9 direzione Milano, quattro persone tra feriti e contusi. Possibili ripercussioni per i frontalieri in transito.',
     'blog.article.schianto-a9-turate-feriti-frontalieri.imageAlt': 'Autostrada A9 in Ticino con incidente e mezzi di soccorso',
+    'blog.article.inter-scudetto-chivu-2026.title': 'Inter campione d\'Italia: la cavalcata-scudetto dei nerazzurri di Chivu',
+    'blog.article.inter-scudetto-chivu-2026.excerpt': 'L\'Inter vince il ventunesimo scudetto con 3 giornate d\'anticipo, festeggiato dopo il 2-0 contro il Parma',
+    'blog.article.inter-scudetto-chivu-2026.imageAlt': 'Lago di Lugano con vista sul Monte Brè, cielo azzurro limpido, atmosfera estiva',
 };
 
 export default blogMetaIt;

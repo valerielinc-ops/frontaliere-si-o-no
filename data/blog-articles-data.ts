@@ -17633,4 +17633,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'inter-scudetto-chivu-2026',
+ category: 'novita',
+ date: '2026-05-03T21:39:09.912Z',
+ image: '/images/blog/inter-scudetto-chivu-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

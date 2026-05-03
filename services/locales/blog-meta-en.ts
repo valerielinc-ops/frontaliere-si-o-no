@@ -5420,6 +5420,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.schianto-a9-turate-feriti-frontalieri.title': 'Crash on A9 near Turate: four cross-border workers injured',
     'blog.article.schianto-a9-turate-feriti-frontalieri.excerpt': 'Accident on A9 towards Milan, four people injured and bruised. Possible repercussions for cross-border workers in transit.',
     'blog.article.schianto-a9-turate-feriti-frontalieri.imageAlt': 'A9 highway in Ticino with an accident and rescue vehicles',
+    'blog.article.inter-scudetto-chivu-2026.title': 'Inter crowned Italian champions: Chivu\'s side\'s title run',
+    'blog.article.inter-scudetto-chivu-2026.excerpt': 'Inter win their 21st Scudetto with 3 games to spare, celebrated after a 2-0 win against Parma',
+    'blog.article.inter-scudetto-chivu-2026.imageAlt': 'Lake Lugano with a view of Monte Brè, clear blue sky, summer atmosphere',
 };
 
 export default blogMetaEn;

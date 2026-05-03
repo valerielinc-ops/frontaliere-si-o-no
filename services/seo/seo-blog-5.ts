@@ -11151,6 +11151,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inter-scudetto-chivu-2026': {
+    title: 'Inter campione d\'Italia: la cavalcata-scudetto dei nerazzurri di Chivu',
+    description: 'L\'Inter vince il ventunesimo scudetto con 3 giornate d\'anticipo, festeggiato dopo il 2-0 contro il Parma. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inter, campione, cavalcata-scudetto, nerazzurri',
+    ogTitle: 'Inter campione d\'Italia: la cavalcata-scudetto dei nerazzurri di Chivu',
+    ogDescription: 'L\'Inter vince il ventunesimo scudetto con 3 giornate d\'anticipo, festeggiato dopo il 2-0 contro il Parma',
+    canonicalPath: '/articoli-frontaliere/inter-scudetto-chivu-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inter campione d'Italia: la cavalcata-scudetto dei nerazzurri di Chivu",
+      "description": "L'Inter vince il ventunesimo scudetto con 3 giornate d'anticipo, festeggiato dopo il 2-0 contro il Parma. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inter-scudetto-chivu-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sul Monte Brè, cielo azzurro limpido, atmosfera estiva"
+      },
+      "datePublished": "2026-05-03T21:39:09+00:00",
+      "dateModified": "2026-05-03T21:39:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inter-scudetto-chivu-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
