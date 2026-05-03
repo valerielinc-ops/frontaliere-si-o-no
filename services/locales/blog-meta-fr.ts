@@ -5337,6 +5337,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.title': 'Brebbia: un jeune homme tombe d\'un toit d\'usine',
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.excerpt': 'Un jeune homme de 19 ans est tombé du toit d\'une usine à Brebbia, dans la province de Varèse. Grave mais hors de danger.',
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.title': 'Aéroport de Lugano: coûts en hausse, 25 questions au Conseil',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.excerpt': 'Les conseillères communales Sara Beretta-Piccoli et Carola Barchi demandent des éclaircissements sur les coûts et la gestion de l\'aéroport de Lugano-Agno',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.imageAlt': 'Vue aérienne de l\'aéroport de Lugano-Agno, avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

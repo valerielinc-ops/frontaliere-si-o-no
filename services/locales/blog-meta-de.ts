@@ -5336,6 +5336,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.title': '19-Jähriger stürzt von Fabrikdach in Brebbia',
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.excerpt': 'Ein 19-Jähriger ist vom Dach einer Fabrik in Brebbia, Provinz Varese, gestürzt. Er ist schwer verletzt, aber außer Lebensgefahr.',
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.title': 'Flughafen Lugano: Kosten steigen, 25 Fragen an den Stadtrat',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.excerpt': 'Die Gemeinderätinnen Sara Beretta-Piccoli und Carola Barchi fordern Aufklärung über die Kosten und das Management des Flughafens Lugano-Agno.',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.imageAlt': 'Luftaufnahme des Flughafens Lugano-Agno, mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

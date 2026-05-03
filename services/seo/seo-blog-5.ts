@@ -10199,6 +10199,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aeroporto-lugano-costi-interpellanza-2025': {
+    title: 'Aeroporto di Lugano: costi in aumento, 25 domande al Municipio',
+    description: 'Le consigliere comunali Sara Beretta-Piccoli e Carola Barchi chiedono chiarimenti sui costi e la gestione dell\'aeroporto di Lugano-Agno. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporto, lugano, costi, aumento',
+    ogTitle: 'Aeroporto di Lugano: costi in aumento, 25 domande al Municipio',
+    ogDescription: 'Le consigliere comunali Sara Beretta-Piccoli e Carola Barchi chiedono chiarimenti sui costi e la gestione dell\'aeroporto di Lugano-Agno',
+    canonicalPath: '/articoli-frontaliere/aeroporto-lugano-costi-interpellanza-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporto di Lugano: costi in aumento, 25 domande al Municipio",
+      "description": "Le consigliere comunali Sara Beretta-Piccoli e Carola Barchi chiedono chiarimenti sui costi e la gestione dell'aeroporto di Lugano-Agno. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aeroporto-lugano-costi-interpellanza-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'aeroporto di Lugano-Agno, con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-03T17:15:30+00:00",
+      "dateModified": "2026-05-03T17:15:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aeroporto-lugano-costi-interpellanza-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

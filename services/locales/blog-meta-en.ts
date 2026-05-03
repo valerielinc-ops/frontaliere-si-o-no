@@ -5336,6 +5336,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.title': '19-year-old falls from factory roof in Brebbia',
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.excerpt': 'A 19-year-old boy fell from the roof of a factory in Brebbia, in the province of Varese. He is seriously injured but out of danger.',
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.imageAlt': 'Aerial view of Lake Lugano with mountains in the background',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.title': 'Lugano Airport: rising costs, 25 questions to the Municipality',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.excerpt': 'Councillors Sara Beretta-Piccoli and Carola Barchi ask for clarifications on the costs and management of Lugano-Agno Airport',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.imageAlt': 'Aerial view of Lugano-Agno Airport, with mountains in the background',
 };
 
 export default blogMetaEn;

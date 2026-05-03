@@ -5337,6 +5337,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.title': 'Brebbia: 19enne precipita dal tetto di una fabbrica',
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.excerpt': 'Un giovane di 19 anni è caduto dal tetto di una fabbrica a Brebbia, in provincia di Varese. Grave ma fuori pericolo.',
     'blog.article.brebbia-19enne-grave-incidente-fabbrica.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.title': 'Aeroporto di Lugano: costi in aumento, 25 domande al Municipio',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.excerpt': 'Le consigliere comunali Sara Beretta-Piccoli e Carola Barchi chiedono chiarimenti sui costi e la gestione dell\'aeroporto di Lugano-Agno',
+    'blog.article.aeroporto-lugano-costi-interpellanza-2025.imageAlt': 'Vista aerea dell\'aeroporto di Lugano-Agno, con montagne sullo sfondo',
 };
 
 export default blogMetaIt;
