@@ -11627,6 +11627,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fiaccola-sacconago-speranza-amicizia': {
+    title: 'La Fiaccola di Sacconago arriva carica di speranza e amicizia',
+    description: 'Domenica 3 maggio 2026, la Fiaccola di Sacconago ha illuminato la Madonna in Campagna, portando fede, speranza e amicizia alla comunità. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiaccola, sacconago, arriva, carica',
+    ogTitle: 'La Fiaccola di Sacconago arriva carica di speranza e amicizia',
+    ogDescription: 'Domenica 3 maggio 2026, la Fiaccola di Sacconago ha illuminato la Madonna in Campagna, portando fede, speranza e amicizia alla comunità.',
+    canonicalPath: '/articoli-frontaliere/fiaccola-sacconago-speranza-amicizia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Fiaccola di Sacconago arriva carica di speranza e amicizia",
+      "description": "Domenica 3 maggio 2026, la Fiaccola di Sacconago ha illuminato la Madonna in Campagna, portando fede, speranza e amicizia alla comunità. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fiaccola-sacconago-speranza-amicizia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Processione con fiaccole in un villaggio svizzero di notte, con persone che camminano verso una chiesa illuminata dalle torce."
+      },
+      "datePublished": "2026-05-03T23:42:52+00:00",
+      "dateModified": "2026-05-03T23:42:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fiaccola-sacconago-speranza-amicizia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

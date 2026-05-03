@@ -5463,6 +5463,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scia-luminosa-ticino-2026.title': 'Scia luminosa in Ticino: cosa sappiamo',
     'blog.article.scia-luminosa-ticino-2026.excerpt': 'La scia luminosa avvistata in Ticino era attesa e non rappresenta un mistero. Ecco i dettagli',
     'blog.article.scia-luminosa-ticino-2026.imageAlt': 'Lago di Lugano al tramonto con una scia luminosa nel cielo',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.title': 'La Fiaccola di Sacconago arriva carica di speranza e amicizia',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.excerpt': 'Domenica 3 maggio 2026, la Fiaccola di Sacconago ha illuminato la Madonna in Campagna, portando fede, speranza e amicizia alla comunità.',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.imageAlt': 'Processione con fiaccole in un villaggio svizzero di notte, con persone che camminano verso una chiesa illuminata dalle torce.',
 };
 
 export default blogMetaIt;

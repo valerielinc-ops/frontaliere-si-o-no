@@ -5462,6 +5462,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scia-luminosa-ticino-2026.title': 'Luminous trail in Ticino: what we know',
     'blog.article.scia-luminosa-ticino-2026.excerpt': 'The luminous trail spotted in Ticino was expected and does not represent a mystery. Here are the details',
     'blog.article.scia-luminosa-ticino-2026.imageAlt': 'Lake Lugano at sunset with a luminous trail in the sky',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.title': 'Sacconago Torch Arrives with Hope and Friendship',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.excerpt': 'On Sunday, May 3, 2026, the Sacconago Torch illuminated Madonna in Campagna, bringing faith, hope, and friendship to the community.',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.imageAlt': 'A nighttime torchlight procession in a Swiss village, with people walking towards a church illuminated by torches.',
 };
 
 export default blogMetaEn;

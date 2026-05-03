@@ -17759,4 +17759,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fiaccola-sacconago-speranza-amicizia',
+ category: 'novita',
+ date: '2026-05-03T23:42:52.456Z',
+ image: '/images/blog/fiaccola-sacconago-speranza-amicizia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5463,6 +5463,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scia-luminosa-ticino-2026.title': 'Traînée lumineuse au Tessin : ce que l\'on sait',
     'blog.article.scia-luminosa-ticino-2026.excerpt': 'La traînée lumineuse aperçue au Tessin était attendue et ne représente pas un mystère. Voici les détails',
     'blog.article.scia-luminosa-ticino-2026.imageAlt': 'Lac de Lugano au coucher du soleil avec une traînée lumineuse dans le ciel',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.title': 'La torche de Sacconago apporte espoir et amitié',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.excerpt': 'Dimanche 3 mai 2026, la torche de Sacconago a illuminé la Madonna in Campagna, apportant foi, espoir et amitié à la communauté.',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.imageAlt': 'Une procession aux flambeaux dans un village suisse la nuit, avec des personnes marchant vers une église éclairée par des torches.',
 };
 
 export default blogMetaFr;

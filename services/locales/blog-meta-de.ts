@@ -5462,6 +5462,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scia-luminosa-ticino-2026.title': 'Lichtspur im Tessin: Was wir wissen',
     'blog.article.scia-luminosa-ticino-2026.excerpt': 'Die im Tessin gesichtete Lichtspur war erwartet und kein Geheimnis. Hier sind die Details',
     'blog.article.scia-luminosa-ticino-2026.imageAlt': 'Luganersee bei Sonnenuntergang mit einer leuchtenden Spur am Himmel',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.title': 'Die Fackel von Sacconago bringt Hoffnung und Freundschaft',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.excerpt': 'Am Sonntag, den 3. Mai 2026, hat die Fackel von Sacconago die Madonna in Campagna erleuchtet und der Gemeinschaft Glauben, Hoffnung und Freundschaft gebracht.',
+    'blog.article.fiaccola-sacconago-speranza-amicizia.imageAlt': 'Eine Fackelprozession in einem Schweizer Dorf in der Nacht, bei der Menschen mit Fackeln zu einer Kirche gehen.',
 };
 
 export default blogMetaDe;
