@@ -5312,6 +5312,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.polizia-bandi-4500-posti-2026.title': 'Polizei sucht über 4.500 neue Mitarbeiter',
     'blog.article.polizia-bandi-4500-posti-2026.excerpt': 'Die Polizei sucht 220 Kommissare und 4.400 angehende Polizisten. Fristen und Verfahren zur Teilnahme.',
     'blog.article.polizia-bandi-4500-posti-2026.imageAlt': 'Luganersee mit Polizeiboot',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.title': 'Landsgemeinde Glarus: Änderungen für Grenzgänger und Einwohner',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.excerpt': 'Pendlerabzüge auf 6.000 CHF begrenzt, automatische Subventionen für Krankenkassen und einfachere Entschädigungen bei Raubtierangriffen',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.imageAlt': 'Ansicht von Bellinzona mit Burgen und moderner Stadt',
 };
 
 export default blogMetaDe;

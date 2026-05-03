@@ -5312,6 +5312,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.polizia-bandi-4500-posti-2026.title': 'Police, over 4,500 new positions available',
     'blog.article.polizia-bandi-4500-posti-2026.excerpt': 'The State Police is looking for 220 commissioners and 4,400 trainee agents. Deadlines and procedures to participate.',
     'blog.article.polizia-bandi-4500-posti-2026.imageAlt': 'Lake Lugano with police boat',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.title': 'Glarus Landsgemeinde: changes for cross-border workers and residents',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.excerpt': 'Commuter deductions capped at 6,000 CHF, automatic health insurance subsidies and easier compensation for predator attacks',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.imageAlt': 'View of Bellinzona with castles and modern cityscape',
 };
 
 export default blogMetaEn;

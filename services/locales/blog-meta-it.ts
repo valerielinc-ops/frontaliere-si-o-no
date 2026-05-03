@@ -5313,6 +5313,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.polizia-bandi-4500-posti-2026.title': 'Polizia, due nuovi bandi per oltre 4.500 posti',
     'blog.article.polizia-bandi-4500-posti-2026.excerpt': 'La Polizia di Stato cerca 220 commissari e 4.400 allievi agenti. Scadenze e procedure per partecipare.',
     'blog.article.polizia-bandi-4500-posti-2026.imageAlt': 'Lago di Lugano con barca della polizia',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.title': 'Landsgemeinde Glarona: cosa cambia per frontalieri e residenti',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.excerpt': 'Deduzioni pendolari limitate a 6.000 CHF, sussidi automatici per casse malati e risarcimenti più facili per attacchi di predatori',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.imageAlt': 'Veduta di Bellinzona con i castelli e il centro moderno',
 };
 
 export default blogMetaIt;

@@ -17309,4 +17309,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casse-malati-alloggi-landsgemeinde-2026',
+ category: 'novita',
+ date: '2026-05-03T15:58:29.385Z',
+ image: '/images/blog/casse-malati-alloggi-landsgemeinde-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

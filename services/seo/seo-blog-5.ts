@@ -9927,6 +9927,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casse-malati-alloggi-landsgemeinde-2026': {
+    title: 'Landsgemeinde Glarona: cosa cambia per frontalieri e residenti',
+    description: 'Scopri le decisioni prese durante la Landsgemeinde di Glarona e come influenzano frontalieri e residenti. Deduzioni pendolari, sussidi casse malati e politica',
+    keywords: 'frontalieri, ticino, svizzera, italia, landsgemeinde, glarona, cosa, cambia',
+    ogTitle: 'Landsgemeinde Glarona: cosa cambia per frontalieri e residenti',
+    ogDescription: 'Scopri le decisioni prese durante la Landsgemeinde di Glarona e come influenzano frontalieri e residenti. Deduzioni pendolari, sussidi casse malati e politica',
+    canonicalPath: '/articoli-frontaliere/casse-malati-alloggi-landsgemeinde-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Landsgemeinde Glarona: cosa cambia per frontalieri e residenti",
+      "description": "Scopri le decisioni prese durante la Landsgemeinde di Glarona e come influenzano frontalieri e residenti. Deduzioni pendolari, sussidi casse malati e politica",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/casse-malati-alloggi-landsgemeinde-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Bellinzona con i castelli e il centro moderno"
+      },
+      "datePublished": "2026-05-03T15:58:29+00:00",
+      "dateModified": "2026-05-03T15:58:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casse-malati-alloggi-landsgemeinde-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

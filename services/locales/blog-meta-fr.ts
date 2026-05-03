@@ -5313,6 +5313,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.polizia-bandi-4500-posti-2026.title': 'Police: plus de 4.500 postes à pourvoir',
     'blog.article.polizia-bandi-4500-posti-2026.excerpt': 'La Police d\'État recherche 220 commissaires et 4.400 élèves agents. Dates limites et procédures pour participer.',
     'blog.article.polizia-bandi-4500-posti-2026.imageAlt': 'Lac de Lugano avec bateau de police',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.title': 'Landsgemeinde de Glaris : ce qui change pour les frontaliers',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.excerpt': 'Dédommagements de trajets limités à 6.000 CHF, subventions automatiques pour les caisses maladie et indemnisations plus faciles pour les attaques de prédateurs',
+    'blog.article.casse-malati-alloggi-landsgemeinde-2026.imageAlt': 'Vue de Bellinzona avec les châteaux et le centre-ville moderne',
 };
 
 export default blogMetaFr;
