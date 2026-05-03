@@ -5339,6 +5339,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aeroporto-lugano-costi-interpellanza-2025.title': 'Flughafen Lugano: Kosten steigen, 25 Fragen an den Stadtrat',
     'blog.article.aeroporto-lugano-costi-interpellanza-2025.excerpt': 'Die Gemeinderätinnen Sara Beretta-Piccoli und Carola Barchi fordern Aufklärung über die Kosten und das Management des Flughafens Lugano-Agno.',
     'blog.article.aeroporto-lugano-costi-interpellanza-2025.imageAlt': 'Luftaufnahme des Flughafens Lugano-Agno, mit Bergen im Hintergrund',
+    'blog.article.incendio-malpensa-terminal-1-risolto.title': 'Brand im Terminal 1 von Malpensa: Problem gelöst',
+    'blog.article.incendio-malpensa-terminal-1-risolto.excerpt': 'Ein Brand ist im Terminal 1 des Flughafens Malpensa ausgebrochen, aber das Problem wurde schnell gelöst.',
+    'blog.article.incendio-malpensa-terminal-1-risolto.imageAlt': 'Luftaufnahme des Terminals 1 des Flughafens Malpensa mit Rettungsdiensten, die auf einen Brand reagieren.',
 };
 
 export default blogMetaDe;

@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1832,
+ "numberOfItems": 1833,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6470,7 +6470,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1829, "name": "Parcheggi folli a Cernobbio: auto ticinese occu...", "url": `${BASE_URL}/articoli-frontaliere/parcheggi-cernobbio-ticino-residenti` },
           { "@type": "ListItem", "position": 1830, "name": "Vandalismo a Bellinzona: danni al bar Galleria", "url": `${BASE_URL}/articoli-frontaliere/vandalismo-bar-bellinzona-2026` },
           { "@type": "ListItem", "position": 1831, "name": "Brebbia: 19enne precipita dal tetto di una fabb...", "url": `${BASE_URL}/articoli-frontaliere/brebbia-19enne-grave-incidente-fabbrica` },
-          { "@type": "ListItem", "position": 1832, "name": "Aeroporto di Lugano: costi in aumento, 25 doman...", "url": `${BASE_URL}/articoli-frontaliere/aeroporto-lugano-costi-interpellanza-2025` }
+          { "@type": "ListItem", "position": 1832, "name": "Aeroporto di Lugano: costi in aumento, 25 doman...", "url": `${BASE_URL}/articoli-frontaliere/aeroporto-lugano-costi-interpellanza-2025` },
+          { "@type": "ListItem", "position": 1833, "name": "Incendio al Terminal 1 di Malpensa: problema ri...", "url": `${BASE_URL}/articoli-frontaliere/incendio-malpensa-terminal-1-risolto` }
  ]
  },
  {

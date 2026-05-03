@@ -5340,6 +5340,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aeroporto-lugano-costi-interpellanza-2025.title': 'Aeroporto di Lugano: costi in aumento, 25 domande al Municipio',
     'blog.article.aeroporto-lugano-costi-interpellanza-2025.excerpt': 'Le consigliere comunali Sara Beretta-Piccoli e Carola Barchi chiedono chiarimenti sui costi e la gestione dell\'aeroporto di Lugano-Agno',
     'blog.article.aeroporto-lugano-costi-interpellanza-2025.imageAlt': 'Vista aerea dell\'aeroporto di Lugano-Agno, con montagne sullo sfondo',
+    'blog.article.incendio-malpensa-terminal-1-risolto.title': 'Incendio al Terminal 1 di Malpensa: problema risolto',
+    'blog.article.incendio-malpensa-terminal-1-risolto.excerpt': 'Un incendio è divampato al Terminal 1 dell\'Aeroporto di Malpensa, ma il problema è stato rapidamente risolto.',
+    'blog.article.incendio-malpensa-terminal-1-risolto.imageAlt': 'Vista aerea del Terminal 1 dell\'Aeroporto di Malpensa con i servizi di emergenza che rispondono a un incendio.',
 };
 
 export default blogMetaIt;

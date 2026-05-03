@@ -3022,6 +3022,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vandalismo-bar-bellinzona-2026': { name: 'Vandalismo Bellinzona', path: '/articoli-frontaliere/vandalismo-bar-bellinzona-2026', parent: 'blog' },
     'blog-brebbia-19enne-grave-incidente-fabbrica': { name: 'Incidente Brebbia', path: '/articoli-frontaliere/brebbia-19enne-grave-incidente-fabbrica', parent: 'blog' },
     'blog-aeroporto-lugano-costi-interpellanza-2025': { name: 'Aeroporto Lugano', path: '/articoli-frontaliere/aeroporto-lugano-costi-interpellanza-2025', parent: 'blog' },
+    'blog-incendio-malpensa-terminal-1-risolto': { name: 'Incendio Malpensa', path: '/articoli-frontaliere/incendio-malpensa-terminal-1-risolto', parent: 'blog' },
  };
 
  const info = sectionNames[section];

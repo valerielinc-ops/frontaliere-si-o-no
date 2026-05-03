@@ -10233,6 +10233,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-malpensa-terminal-1-risolto': {
+    title: 'Incendio al Terminal 1 di Malpensa: problema risolto',
+    description: 'Un incendio è divampato al Terminal 1 dell\'Aeroporto di Malpensa, ma il problema è stato rapidamente risolto. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, terminal, malpensa, problema',
+    ogTitle: 'Incendio Malpensa Terminal 1 risolto',
+    ogDescription: 'Un incendio è divampato al Terminal 1 dell\'Aeroporto di Malpensa, ma il problema è stato rapidamente risolto. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/incendio-malpensa-terminal-1-risolto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio al Terminal 1 di Malpensa: problema risolto",
+      "description": "Un incendio è divampato al Terminal 1 dell'Aeroporto di Malpensa, ma il problema è stato rapidamente risolto. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendio-malpensa-terminal-1-risolto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Terminal 1 dell'Aeroporto di Malpensa con i servizi di emergenza che rispondono a un incendio."
+      },
+      "datePublished": "2026-05-03T17:22:10+00:00",
+      "dateModified": "2026-05-03T17:22:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-malpensa-terminal-1-risolto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
