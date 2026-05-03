@@ -5433,6 +5433,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-a9-turate-feriti-frontalieri.title': 'Accident sur l\'A9 à Turate: deux blessés à l\'aube',
     'blog.article.incidente-a9-turate-feriti-frontalieri.excerpt': 'Deux personnes blessées dans un accident sur l\'autoroute A9 avant la sortie de Turate. Intervention des pompiers, du 118 et de la police routière.',
     'blog.article.incidente-a9-turate-feriti-frontalieri.imageAlt': 'Accident sur l\'autoroute A9 près de Turate tôt le matin avec des véhicules impliqués et des services d\'urgence',
+    'blog.article.varese-trento-playoff-basket-2026.title': 'Varese-Trente: la bataille pour la huitième place',
+    'blog.article.varese-trento-playoff-basket-2026.excerpt': 'Varese et Trente se disputent l\'accès aux playoffs. Voici ce qui se passe et les implications pour les supporters',
+    'blog.article.varese-trento-playoff-basket-2026.imageAlt': 'Match de basket dans le Tessin avec des joueurs professionnels en action et des supporters',
 };
 
 export default blogMetaFr;

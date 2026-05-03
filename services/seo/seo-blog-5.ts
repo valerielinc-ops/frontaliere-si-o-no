@@ -11287,6 +11287,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-trento-playoff-basket-2026': {
+    title: 'Varese-Trento playoff: la battaglia per l\'ottavo posto',
+    description: 'Varese e Trento si giocano l\'ottavo posto nei playoff. Ecco cosa succede e le implicazioni per i tifosi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese-trento, playoff, battaglia, ottavo',
+    ogTitle: 'Varese-Trento playoff: la battaglia per l\'ottavo posto',
+    ogDescription: 'Varese e Trento si giocano l\'ottavo posto nei playoff. Ecco cosa succede e le implicazioni per i tifosi',
+    canonicalPath: '/articoli-frontaliere/varese-trento-playoff-basket-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese-Trento playoff: la battaglia per l'ottavo posto",
+      "description": "Varese e Trento si giocano l'ottavo posto nei playoff. Ecco cosa succede e le implicazioni per i tifosi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-trento-playoff-basket-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di basket in Ticino con giocatori professionisti in azione e pubblico che tifa"
+      },
+      "datePublished": "2026-05-03T22:24:06+00:00",
+      "dateModified": "2026-05-03T22:24:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-trento-playoff-basket-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

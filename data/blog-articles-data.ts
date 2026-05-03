@@ -17669,4 +17669,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-trento-playoff-basket-2026',
+ category: 'novita',
+ date: '2026-05-03T22:24:06.808Z',
+ image: '/images/blog/varese-trento-playoff-basket-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
