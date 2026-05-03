@@ -5315,6 +5315,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permesso-g-vs-b-2026-famiglia-figli.title': 'Permis G vs B 2026: vaut-il le coup de changer pour une famille?',
     'blog.article.permesso-g-vs-b-2026-famiglia-figli.excerpt': 'Comparaison technique entre le permis G et B en 2026 pour les frontaliers avec famille. Checklist opérationnelle et scénarios pratiques pour le canton du Ticino',
     'blog.article.permesso-g-vs-b-2026-famiglia-figli.imageAlt': 'Famille avec enfants au passage frontalier de Brogeda avec le lac de Lugano en arrière-plan',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati.title': 'Incendie via Borromini : dix personnes évacuées',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati.excerpt': 'Un incendie dans un appartement au rez-de-chaussée a provoqué l\'évacuation de dix personnes à Bellinzona. Une personne a été légèrement intoxiquée.',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati.imageAlt': 'Urgence à Bellinzone dans la via Borromini avec les pompiers et l\'ambulance',
 };
 
 export default blogMetaFr;

@@ -5315,6 +5315,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-g-vs-b-2026-famiglia-figli.title': 'Permesso G vs B 2026: conviene cambiare per una famiglia con figli?',
     'blog.article.permesso-g-vs-b-2026-famiglia-figli.excerpt': 'Confronto tecnico tra Permesso G e B nel 2026 per frontalieri con famiglia. Checklist operativa e scenari pratici per il Canton Ticino',
     'blog.article.permesso-g-vs-b-2026-famiglia-figli.imageAlt': 'Famiglia con figli al valico di Brogeda con lago di Lugano sullo sfondo',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati.title': 'Incendio in via Borromini: evacuate dieci persone',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati.excerpt': 'Un incendio in un appartamento al pian terreno ha causato l\'evacuazione di dieci persone a Bellinzona. Una persona è rimasta lievemente intossicata.',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati.imageAlt': 'Emergenza a Bellinzona in via Borromini con pompieri e ambulanza',
 };
 
 export default blogMetaIt;

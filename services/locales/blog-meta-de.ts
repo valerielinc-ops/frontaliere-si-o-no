@@ -5314,6 +5314,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permesso-g-vs-b-2026-famiglia-figli.title': 'G-Bewilligung vs B 2026: Lohnt sich der Wechsel für Familien?',
     'blog.article.permesso-g-vs-b-2026-famiglia-figli.excerpt': 'Technischer Vergleich zwischen G-Bewilligung und B 2026 für Grenzgänger mit Familie. Checkliste und praktische Szenarien für den Kanton Tessin',
     'blog.article.permesso-g-vs-b-2026-famiglia-figli.imageAlt': 'Familie mit Kindern am Brogeda-Grenzübergang mit Luganersee im Hintergrund',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati.title': 'Feuer in der Via Borromini: Zehn Personen evakuiert',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati.excerpt': 'Ein Feuer in einer Erdgeschosswohnung führte zur Evakuierung von zehn Personen in Bellinzona. Eine Person wurde leicht vergiftet.',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati.imageAlt': 'Notfall in Bellinzona in der Via Borromini mit Feuerwehr und Rettungswagen',
 };
 
 export default blogMetaDe;

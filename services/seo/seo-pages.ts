@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1821,
+ "numberOfItems": 1822,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6461,7 +6461,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1818, "name": "Area di sosta fantasma sull'A3: pericolo per i ...", "url": `${BASE_URL}/articoli-frontaliere/area-sosta-fantasma-sicurezza-autostrada` },
           { "@type": "ListItem", "position": 1819, "name": "Caro carburanti: benzina a 1,9 euro al litro", "url": `${BASE_URL}/articoli-frontaliere/aumento-prezzi-carburanti-maggio-2026` },
           { "@type": "ListItem", "position": 1820, "name": "Incendio a Bellinzona: evacuato lo stabile in v...", "url": `${BASE_URL}/articoli-frontaliere/incendio-bellinzona-appartamento-evacuato` },
-          { "@type": "ListItem", "position": 1821, "name": "Permesso G vs B 2026: conviene cambiare per una...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-vs-b-2026-famiglia-figli` }
+          { "@type": "ListItem", "position": 1821, "name": "Permesso G vs B 2026: conviene cambiare per una...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-vs-b-2026-famiglia-figli` },
+          { "@type": "ListItem", "position": 1822, "name": "Incendio in via Borromini: evacuate dieci persone", "url": `${BASE_URL}/articoli-frontaliere/incendio-bellinzona-via-borromini-evacuati` }
  ]
  },
  {

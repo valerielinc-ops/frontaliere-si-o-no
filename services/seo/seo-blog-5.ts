@@ -9859,6 +9859,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-bellinzona-via-borromini-evacuati': {
+    title: 'Incendio in via Borromini: evacuate dieci persone | Frontaliere Ticino',
+    description: 'Un incendio in un appartamento al pian terreno ha causato l\'evacuazione di dieci persone a Bellinzona. Una persona è rimasta lievemente intossicata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, borromini, evacuate, dieci',
+    ogTitle: 'Incendio in via Borromini: evacuate dieci persone',
+    ogDescription: 'Un incendio in un appartamento al pian terreno ha causato l\'evacuazione di dieci persone a Bellinzona. Una persona è rimasta lievemente intossicata.',
+    canonicalPath: '/articoli-frontaliere/incendio-bellinzona-via-borromini-evacuati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio in via Borromini: evacuate dieci persone",
+      "description": "Un incendio in un appartamento al pian terreno ha causato l'evacuazione di dieci persone a Bellinzona. Una persona è rimasta lievemente intossicata.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendio-bellinzona-via-borromini-evacuati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Emergenza a Bellinzona in via Borromini con pompieri e ambulanza"
+      },
+      "datePublished": "2026-05-03T13:51:25+00:00",
+      "dateModified": "2026-05-03T13:51:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-bellinzona-via-borromini-evacuati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
