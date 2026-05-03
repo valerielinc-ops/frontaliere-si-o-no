@@ -119,6 +119,19 @@ jobs:
             --dir /tmp/github-pages-artifact/
           tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
 
+          # Expose jobs.json to scripts that expect public/data/jobs.json
+          # (the file is gitignored; dist/data/jobs.json is the built copy)
+          mkdir -p public/data
+          cp -f dist/data/jobs.json public/data/jobs.json 2>/dev/null || true
+
+          # Download pre-deploy sitemap snapshot (for IndexNow diff baseline)
+          gh run download "$DEPLOY_RUN_ID" \
+            --name "pre-deploy-snapshot-${DEPLOY_RUN_ID}" \
+            --dir /tmp/pre-deploy-snapshot/ 2>/dev/null || true
+          if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
+            cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
+          fi
+
           # Also download the updated previous-slug winners produced by the build.
           gh run download "$DEPLOY_RUN_ID" \
             --name "winners-${DEPLOY_RUN_ID}" \
@@ -264,9 +277,9 @@ jobs:
           echo "=== Recovered dist size summary ==="
           du -sh dist/
           echo "HTML files (top 10 by size):"
-          find dist -name "*.html" -exec du -sh {} + | sort -rh | head -10
+          find dist -name "*.html" -exec du -sh {} + | sort -rh | head -10 || true
           echo "Sitemaps:"
-          find dist -name "sitemap*.xml" -exec du -sh {} + | sort -rh
+          find dist -name "sitemap*.xml" -exec du -sh {} + | sort -rh || true
 
       - name: Sync previous-slug winners registry
         # The build in deploy.yml may update data/previous-slug-winners.json.
@@ -376,7 +389,7 @@ jobs:
           PID_GOOGLE=$!
           timeout 90 node scripts/submit-indexnow.js &
           PID_INDEXNOW=$!
-          timeout 90 node scripts/submit-google-indexing.js &
+          timeout 180 node scripts/submit-google-indexing.js &
           PID_GSC=$!
           timeout 90 node scripts/verify-post-deploy-seo.mjs &
           PID_SEO=$!

@@ -311,6 +311,15 @@ jobs:
         continue-on-error: true
         run: node scripts/capture-deployed-sitemaps.mjs
 
+      - name: Upload pre-deploy snapshot for post-deploy validation
+        if: github.event.inputs.profile_sequential != 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: pre-deploy-snapshot-${{ github.run_id }}
+          path: /tmp/pre-deploy-sitemap-urls.json
+          retention-days: 1
+          if-no-files-found: ignore
+
       - name: Merge previous CSS/JS assets for Clarity recordings
         # Runs as the LAST mutation of dist/ before upload, on purpose.
         # Earlier in the pipeline this step ran right after the build, but
