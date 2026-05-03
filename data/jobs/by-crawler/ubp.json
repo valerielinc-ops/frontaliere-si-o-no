@@ -801,12 +801,12 @@
     },
     {
       "id": "ubp-967b0831912c",
-      "slug": "tax-specialist-ubp-ch-2",
+      "slug": "specialista-fiscale-union-bancaire-privee-geneva-switzerland-53af7f",
       "slugByLocale": {
         "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "tax-specialist-ubp-ch-2",
-        "de": "tax-specialist-ubp-ch-2",
-        "fr": "tax-specialist-ubp-ch-2"
+        "it": "specialista-fiscale-union-bancaire-privee-geneva-switzerland-53af7f",
+        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland-53af7f",
+        "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -854,29 +854,31 @@
           "tax-specialist-ubp-ch"
         ],
         "it": [
-          "specialista-fiscale-union-bancaire-privee-geneva-switzerland"
+          "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+          "tax-specialist-ubp-ch-2"
         ],
         "de": [
-          "tax-spezialist-union-bancaire-privee-geneva-switzerland"
+          "tax-spezialist-union-bancaire-privee-geneva-switzerland",
+          "tax-specialist-ubp-ch-2"
         ],
         "fr": [
-          "specialiste-fiscal-union-bancaire-privee-geneva-switzerland"
+          "specialiste-fiscal-union-bancaire-privee-geneva-switzerland",
+          "tax-specialist-ubp-ch-2"
         ]
       },
       "previousSlugs": [
         "tax-specialist-ubp-ch",
+        "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
+        "tax-specialist-ubp-ch-2",
+        "tax-spezialist-union-bancaire-privee-geneva-switzerland",
+        "specialiste-fiscal-union-bancaire-privee-geneva-switzerland",
         "tax-specialista-union-bancaire-privee-geneva-switzerland",
-        "tax-specialiste-union-bancaire-privee-geneva-switzerland",
         "tax-specialist-ubp-ch-3",
         "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393r9",
-        "tax-specialist-ubp-ch-2",
         "specialista-fiscale-union-bancaire-privee-geneva-switzerland-k393wd",
         "steuerspezialist-union-bancaire-privee-geneva-switzerland",
         "tax-specialista-union-bancaire-privee-geneva-switzerland-k393wd",
-        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9",
-        "specialista-fiscale-union-bancaire-privee-geneva-switzerland",
-        "tax-spezialist-union-bancaire-privee-geneva-switzerland",
-        "specialiste-fiscal-union-bancaire-privee-geneva-switzerland"
+        "tax-specialista-union-bancaire-privee-geneva-switzerland-k393r9"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
