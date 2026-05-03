@@ -5311,6 +5311,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-bellinzona-appartamento-evacuato.title': 'Brand in Bellinzona: Gebäude in der Borromini-Straße evakuiert',
     'blog.article.incendio-bellinzona-appartamento-evacuato.excerpt': 'Am Sonntagmorgen brach in einer Wohnung im Erdgeschoss der Borromini-Straße in Bellinzona ein Feuer aus, wodurch etwa zehn Personen evakuiert werden mussten.',
     'blog.article.incendio-bellinzona-appartamento-evacuato.imageAlt': 'Brand in einer Wohnung in Bellinzona, mit Feuerwehr im Einsatz und evakuierten Bewohnern',
+    'blog.article.permesso-g-vs-b-2026-famiglia-figli.title': 'G-Bewilligung vs B 2026: Lohnt sich der Wechsel für Familien?',
+    'blog.article.permesso-g-vs-b-2026-famiglia-figli.excerpt': 'Technischer Vergleich zwischen G-Bewilligung und B 2026 für Grenzgänger mit Familie. Checkliste und praktische Szenarien für den Kanton Tessin',
+    'blog.article.permesso-g-vs-b-2026-famiglia-figli.imageAlt': 'Familie mit Kindern am Brogeda-Grenzübergang mit Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -9825,6 +9825,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-g-vs-b-2026-famiglia-figli': {
+    title: 'Permesso G vs B 2026: conviene cambiare per una famiglia con figli?',
+    description: 'Confronto tecnico tra Permesso G e B nel 2026 per frontalieri con famiglia. Checklist operativa e scenari pratici per il Canton Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, conviene, cambiare, famiglia',
+    ogTitle: 'Permesso G vs B 2026: conviene cambiare per una famiglia con figli?',
+    ogDescription: 'Confronto tecnico tra Permesso G e B nel 2026 per frontalieri con famiglia. Checklist operativa e scenari pratici per il Canton Ticino',
+    canonicalPath: '/articoli-frontaliere/permesso-g-vs-b-2026-famiglia-figli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso G vs B 2026: conviene cambiare per una famiglia con figli?",
+      "description": "Confronto tecnico tra Permesso G e B nel 2026 per frontalieri con famiglia. Checklist operativa e scenari pratici per il Canton Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/permesso-g-vs-b-2026-famiglia-figli.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia con figli al valico di Brogeda con lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-03T13:34:55+00:00",
+      "dateModified": "2026-05-03T13:34:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-vs-b-2026-famiglia-figli`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

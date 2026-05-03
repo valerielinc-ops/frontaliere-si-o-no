@@ -17300,4 +17300,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'permesso-g-vs-b-2026-famiglia-figli',
+ category: 'pratico',
+ date: '2026-05-03T13:34:55.619Z',
+ image: '/images/blog/permesso-g-vs-b-2026-famiglia-figli.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

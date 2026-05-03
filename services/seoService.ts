@@ -3012,6 +3012,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-area-sosta-fantasma-sicurezza-autostrada': { name: 'Novità', path: '/articoli-frontaliere/area-sosta-fantasma-sicurezza-autostrada', parent: 'blog' },
     'blog-aumento-prezzi-carburanti-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/aumento-prezzi-carburanti-maggio-2026', parent: 'blog' },
     'blog-incendio-bellinzona-appartamento-evacuato': { name: 'Incendio Bellinzona', path: '/articoli-frontaliere/incendio-bellinzona-appartamento-evacuato', parent: 'blog' },
+    'blog-permesso-g-vs-b-2026-famiglia-figli': { name: 'Permesso G vs B', path: '/articoli-frontaliere/permesso-g-vs-b-2026-famiglia-figli', parent: 'blog' },
  };
 
  const info = sectionNames[section];

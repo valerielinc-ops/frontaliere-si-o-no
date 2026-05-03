@@ -5311,6 +5311,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-bellinzona-appartamento-evacuato.title': 'Fire in Bellinzona: building evacuated on Borromini Street',
     'blog.article.incendio-bellinzona-appartamento-evacuato.excerpt': 'On Sunday morning, a fire broke out in a ground-floor apartment on Borromini Street in Bellinzona, leading to the evacuation of about ten people.',
     'blog.article.incendio-bellinzona-appartamento-evacuato.imageAlt': 'Fire in an apartment in Bellinzona, with firefighters at work and residents evacuated',
+    'blog.article.permesso-g-vs-b-2026-famiglia-figli.title': 'G vs B permit 2026: worth switching for families?',
+    'blog.article.permesso-g-vs-b-2026-famiglia-figli.excerpt': 'Technical comparison between G and B permits in 2026 for cross-border workers with families. Operational checklist and practical scenarios for Canton Ticino',
+    'blog.article.permesso-g-vs-b-2026-famiglia-figli.imageAlt': 'Family with children at the Brogeda border crossing with Lake Lugano in the background',
 };
 
 export default blogMetaEn;
