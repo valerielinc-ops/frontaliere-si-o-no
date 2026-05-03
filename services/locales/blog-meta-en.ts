@@ -5299,6 +5299,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.domenica-corriere-piccaluga-lavoro-salari-economia.title': 'From Piccaluga\'s route to work, wages and economy',
     'blog.article.domenica-corriere-piccaluga-lavoro-salari-economia.excerpt': 'Interview with Daniele Piccaluga and debate on work, wages and economy with Cristina Maderni and Giangiorgio Gargantini',
     'blog.article.domenica-corriere-piccaluga-lavoro-salari-economia.imageAlt': 'Panoramic view of Lake Lugano with cityscape',
+    'blog.article.campagna-iraniana-allarma-svizzera.title': '"Sacrifice your life": Iran\'s campaign alarms Switzerland',
+    'blog.article.campagna-iraniana-allarma-svizzera.excerpt': 'The Iranian embassy in Bern spreads an appeal urging Iranian citizens to sacrifice themselves for the homeland, causing concern in Switzerland.',
+    'blog.article.campagna-iraniana-allarma-svizzera.imageAlt': 'View of Lake Lugano with the city of Lugano in the background',
 };
 
 export default blogMetaEn;

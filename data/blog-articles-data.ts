@@ -17264,4 +17264,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'campagna-iraniana-allarma-svizzera',
+ category: 'novita',
+ date: '2026-05-03T12:26:58.601Z',
+ image: '/images/blog/campagna-iraniana-allarma-svizzera.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

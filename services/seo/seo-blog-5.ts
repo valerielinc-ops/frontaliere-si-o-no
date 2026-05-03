@@ -9689,6 +9689,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-campagna-iraniana-allarma-svizzera': {
+    title: '«Sacrificate la vostra vita»: la campagna iraniana allarma la Svizzera',
+    description: 'L\'ambasciata iraniana a Berna diffonde un appello che invita i cittadini iraniani a sacrificarsi per la patria, generando preoccupazione in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sacrificate, vostra, vita, campagna',
+    ogTitle: '«Sacrificate la vostra vita»: la campagna iraniana allarma la Svizzera',
+    ogDescription: 'L\'ambasciata iraniana a Berna diffonde un appello che invita i cittadini iraniani a sacrificarsi per la patria, generando preoccupazione in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/campagna-iraniana-allarma-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "«Sacrificate la vostra vita»: la campagna iraniana allarma la Svizzera",
+      "description": "L'ambasciata iraniana a Berna diffonde un appello che invita i cittadini iraniani a sacrificarsi per la patria, generando preoccupazione in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/campagna-iraniana-allarma-svizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-03T12:26:58+00:00",
+      "dateModified": "2026-05-03T12:26:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/campagna-iraniana-allarma-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

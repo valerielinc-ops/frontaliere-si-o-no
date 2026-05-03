@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1816,
+ "numberOfItems": 1817,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6456,7 +6456,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1813, "name": "Riforma commissioni federali: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/riforma-commissioni-federali-2026` },
           { "@type": "ListItem", "position": 1814, "name": "Piogge intense sul Ceresio: sfide per la gestio...", "url": `${BASE_URL}/articoli-frontaliere/piogge-intense-ceresio-2026` },
           { "@type": "ListItem", "position": 1815, "name": "Incendio a Langnau: due case e un garage distrutti", "url": `${BASE_URL}/articoli-frontaliere/incendio-langnau-due-case-garage` },
-          { "@type": "ListItem", "position": 1816, "name": "Dalla rotta di Piccaluga a lavoro, salari ed ec...", "url": `${BASE_URL}/articoli-frontaliere/domenica-corriere-piccaluga-lavoro-salari-economia` }
+          { "@type": "ListItem", "position": 1816, "name": "Dalla rotta di Piccaluga a lavoro, salari ed ec...", "url": `${BASE_URL}/articoli-frontaliere/domenica-corriere-piccaluga-lavoro-salari-economia` },
+          { "@type": "ListItem", "position": 1817, "name": "«Sacrificate la vostra vita»: la campagna irani...", "url": `${BASE_URL}/articoli-frontaliere/campagna-iraniana-allarma-svizzera` }
  ]
  },
  {

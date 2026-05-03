@@ -5300,6 +5300,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.domenica-corriere-piccaluga-lavoro-salari-economia.title': 'De la route de Piccaluga au travail, salaires et économie',
     'blog.article.domenica-corriere-piccaluga-lavoro-salari-economia.excerpt': 'Interview de Daniele Piccaluga et débat sur le travail, les salaires et l\'économie avec Cristina Maderni et Giangiorgio Gargantini',
     'blog.article.domenica-corriere-piccaluga-lavoro-salari-economia.imageAlt': 'Vue panoramique du lac de Lugano avec vue sur la ville',
+    'blog.article.campagna-iraniana-allarma-svizzera.title': '«Sacrifiez votre vie»: la campagne iranienne inquiète la Suisse',
+    'blog.article.campagna-iraniana-allarma-svizzera.excerpt': 'L\'ambassade iranienne à Berne diffuse un appel invitant les citoyens iraniens à se sacrifier pour la patrie, suscitant des inquiétudes en Suisse.',
+    'blog.article.campagna-iraniana-allarma-svizzera.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
