@@ -5469,6 +5469,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ingorgo-taxi-boat-como-2026.title': 'Como, chaos des taxis-boats : 600 bateaux dans un seul quai',
     'blog.article.ingorgo-taxi-boat-como-2026.excerpt': 'Le quai de Sant\'Agostino à Como est insoutenable avec 600 bateaux en attente. Les opérateurs demandent plus de pontons pour réduire le chaos.',
     'blog.article.ingorgo-taxi-boat-como-2026.imageAlt': 'Bateaux bondés au quai de Sant\'Agostino sur le lac de Côme',
+    'blog.article.controlli-cantu-movida-nero-2026.title': 'Cantù, contrôle dans les locaux : un travailleur au noir trouvé',
+    'blog.article.controlli-cantu-movida-nero-2026.excerpt': 'Opération conjointe des Carabiniers et de la Police Locale à Cantù, une activité suspendue pour travail irrégulier',
+    'blog.article.controlli-cantu-movida-nero-2026.imageAlt': 'Vue aérienne du lac de Lugano avec la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -5468,6 +5468,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ingorgo-taxi-boat-como-2026.title': 'Como, chaos at taxi boat dock: 600 boats at one pier',
     'blog.article.ingorgo-taxi-boat-como-2026.excerpt': 'Sant\'Agostino pier in Como is unsustainable with 600 boats waiting. Operators ask for more docks to reduce chaos.',
     'blog.article.ingorgo-taxi-boat-como-2026.imageAlt': 'Crowded boats at Sant\'Agostino dock on Lake Como',
+    'blog.article.controlli-cantu-movida-nero-2026.title': 'Cantù, checks in venues: undocumented worker found',
+    'blog.article.controlli-cantu-movida-nero-2026.excerpt': 'Joint operation by Carabinieri and Local Police in Cantù, one activity suspended for irregular work',
+    'blog.article.controlli-cantu-movida-nero-2026.imageAlt': 'Aerial view of Lake Lugano with the city of Lugano in the background',
 };
 
 export default blogMetaEn;

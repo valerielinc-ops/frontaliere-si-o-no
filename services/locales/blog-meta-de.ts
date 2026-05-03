@@ -5468,6 +5468,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ingorgo-taxi-boat-como-2026.title': 'Como: Chaos bei Taxibooten - 600 Boote an einem Steg',
     'blog.article.ingorgo-taxi-boat-como-2026.excerpt': 'Der Steg von Sant\'Agostino in Como ist mit 600 wartenden Booten überlastet. Betreiber fordern mehr Stege, um das Chaos zu reduzieren.',
     'blog.article.ingorgo-taxi-boat-como-2026.imageAlt': 'Überfüllte Boote am Sant\'Agostino-Steg am Comer See',
+    'blog.article.controlli-cantu-movida-nero-2026.title': 'Kontrollen in Cantù: Schwarzarbeiter entdeckt',
+    'blog.article.controlli-cantu-movida-nero-2026.excerpt': 'Gemeinsame Aktion der Carabinieri und der örtlichen Polizei in Cantù, eine Aktivität wegen illegaler Arbeit eingestellt',
+    'blog.article.controlli-cantu-movida-nero-2026.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

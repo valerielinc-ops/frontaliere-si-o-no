@@ -11695,6 +11695,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-cantu-movida-nero-2026': {
+    title: 'Cantù, controlli nei locali: trovato un lavoratore in nero',
+    description: 'Operazione congiunta dei Carabinieri e Polizia Locale a Cantù, sospesa un\'attività per lavoro irregolare. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantù, controlli, locali, trovato',
+    ogTitle: 'Cantù, controlli nei locali: trovato un lavoratore in nero',
+    ogDescription: 'Operazione congiunta dei Carabinieri e Polizia Locale a Cantù, sospesa un\'attività per lavoro irregolare',
+    canonicalPath: '/articoli-frontaliere/controlli-cantu-movida-nero-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantù, controlli nei locali: trovato un lavoratore in nero",
+      "description": "Operazione congiunta dei Carabinieri e Polizia Locale a Cantù, sospesa un'attività per lavoro irregolare. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-cantu-movida-nero-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-03T23:53:58+00:00",
+      "dateModified": "2026-05-03T23:53:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-cantu-movida-nero-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

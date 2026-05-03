@@ -5469,6 +5469,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ingorgo-taxi-boat-como-2026.title': 'Como, caos taxi boat: 600 imbarcazioni in un solo molo',
     'blog.article.ingorgo-taxi-boat-como-2026.excerpt': 'Il molo di Sant\'Agostino a Como è insostenibile con 600 barche in attesa. Operatori chiedono più pontili per ridurre il caos.',
     'blog.article.ingorgo-taxi-boat-como-2026.imageAlt': 'Barche affollate al molo di Sant\'Agostino sul Lago di Como',
+    'blog.article.controlli-cantu-movida-nero-2026.title': 'Cantù, controlli nei locali: trovato un lavoratore in nero',
+    'blog.article.controlli-cantu-movida-nero-2026.excerpt': 'Operazione congiunta dei Carabinieri e Polizia Locale a Cantù, sospesa un\'attività per lavoro irregolare',
+    'blog.article.controlli-cantu-movida-nero-2026.imageAlt': 'Vista aerea del Lago di Lugano con la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
