@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-lz4syo",
-      "slug": "collaboratore-trice-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
+      "slug": "operatore-di-manutenzione-edifici-thusis-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mitarbeiter/-in Gebäudebetrieb Thusis",
       "location": "Bern",
@@ -41,7 +41,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "collaboratore-trice-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
+        "it": "operatore-di-manutenzione-edifici-thusis-swiss-armed-forces-vtg-bern",
         "en": "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
         "de": "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
         "fr": "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
@@ -49,11 +49,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern"
+          "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern",
+          "collaboratore-trice-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern"
+        "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern",
+        "collaboratore-trice-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

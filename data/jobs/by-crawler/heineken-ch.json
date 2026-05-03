@@ -88,7 +88,7 @@
       "slugByLocale": {
         "it": "consulente-commerciale-f-m-d-riviera-chablais-heineken-switzerland-denges",
         "en": "sales-advisor-f-m-d-riviera-chablais-heineken-switzerland-denges",
-        "de": "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-e-responsabilite-entrepre",
+        "de": "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-e-responsabilite-entrepreneuriale",
         "fr": "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-switzerland-e-responsabilite-entrepreneuriale"
       },
       "company": "Heineken Switzerland",
@@ -134,7 +134,8 @@
           "verkaufsberater-in-riviera-chablais-f-m-d-heineken-switzerland-content-width-device-width",
           "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
           "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-denges",
-          "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-denges"
+          "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-denges",
+          "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-e-responsabilite-entrepre"
         ],
         "it": [
           "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
@@ -150,6 +151,7 @@
         "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
         "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-denges",
         "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-denges",
+        "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-e-responsabilite-entrepre",
         "consulente-ore-f-m-d-di-vendita-riviera-chablais-heineken-switzerland-content-width-device-width",
         "conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-switzerland-denges",
         "titolo-consulente-commerciale-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
@@ -390,12 +392,12 @@
     },
     {
       "id": "heineken-ch-1cdd4bfa05de",
-      "slug": "autista-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+      "slug": "autista-c-e-heineken-switzerland-warum-zu-uns",
       "slugByLocale": {
-        "it": "autista-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-        "en": "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+        "it": "autista-c-e-heineken-switzerland-warum-zu-uns",
+        "en": "driver-c-e-heineken-switzerland-warum-zu-uns",
         "de": "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
-        "fr": "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen"
+        "fr": "chauffeur-c-e-heineken-switzerland-warum-zu-uns"
       },
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
@@ -442,15 +444,18 @@
         ],
         "it": [
           "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
-          "autista-c-e-heineken-switzerland-luzern"
+          "autista-c-e-heineken-switzerland-luzern",
+          "autista-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen"
         ],
         "en": [
           "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
-          "driver-c-e-heineken-switzerland-luzern"
+          "driver-c-e-heineken-switzerland-luzern",
+          "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen"
         ],
         "fr": [
           "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
-          "chauffeur-c-e-heineken-switzerland-luzern"
+          "chauffeur-c-e-heineken-switzerland-luzern",
+          "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen"
         ]
       },
       "previousSlugs": [
@@ -459,8 +464,11 @@
         "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
         "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
         "autista-c-e-heineken-switzerland-luzern",
+        "autista-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
         "driver-c-e-heineken-switzerland-luzern",
+        "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
         "chauffeur-c-e-heineken-switzerland-luzern",
+        "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
         "autista-di-camion-heineken-switzerland-content-width-device-width",
         "title-truck-driver-heineken-ch-content-width-device-width",
         "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
@@ -791,7 +799,7 @@
       "slug": "title-logistician-heineken-switzerland-warum-zu-uns",
       "slugByLocale": {
         "it": "title-logistician-heineken-switzerland-warum-zu-uns",
-        "en": "logistician-heineken-ch-denges",
+        "en": "logistician-heineken-switzerland-warum-zu-uns",
         "de": "title-logistician-heineken-ch-warum-zu-uns",
         "fr": "logistician-heineken-switzerland-denges"
       },
@@ -841,6 +849,9 @@
           "logistician-heineken-ch-denges",
           "title-logistician-heineken-ch-content-width-device-width",
           "title-logistician-heineken-switzerland-denges"
+        ],
+        "en": [
+          "logistician-heineken-ch-denges"
         ]
       },
       "previousSlugs": [
