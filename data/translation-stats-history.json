@@ -1,65 +1,5 @@
 [
   {
-    "timestamp": "2026-04-18T13:20:54.401Z",
-    "label": "before",
-    "total": 2940,
-    "needsRetranslation": 91,
-    "incomplete": 24,
-    "complete": 2916,
-    "missingByLocale": {
-      "it": 20,
-      "en": 3,
-      "de": 22,
-      "fr": 24
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-18T13:57:16.673Z",
-    "label": "after",
-    "total": 2940,
-    "needsRetranslation": 75,
-    "incomplete": 21,
-    "complete": 2919,
-    "missingByLocale": {
-      "it": 20,
-      "en": 1,
-      "de": 20,
-      "fr": 21
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-18T22:22:30.149Z",
     "label": "before",
     "total": 2936,
@@ -8396,6 +8336,78 @@
       {
         "company": "Ferrovia Retica (RhB)",
         "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-03T02:58:46.927Z",
+    "label": "before",
+    "total": 2584,
+    "needsRetranslation": 60,
+    "incomplete": 20,
+    "complete": 2564,
+    "missingByLocale": {
+      "it": 18,
+      "en": 2,
+      "de": 17,
+      "fr": 19
+    },
+    "topPending": [
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 10
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 2
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-03T03:20:26.778Z",
+    "label": "after",
+    "total": 2584,
+    "needsRetranslation": 49,
+    "incomplete": 19,
+    "complete": 2565,
+    "missingByLocale": {
+      "it": 18,
+      "en": 1,
+      "de": 17,
+      "fr": 19
+    },
+    "topPending": [
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 10
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
       },
       {
         "company": "Hôpital du Valais",
