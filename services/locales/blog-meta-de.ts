@@ -5315,6 +5315,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casse-malati-alloggi-landsgemeinde-2026.title': 'Landsgemeinde Glarus: Änderungen für Grenzgänger und Einwohner',
     'blog.article.casse-malati-alloggi-landsgemeinde-2026.excerpt': 'Pendlerabzüge auf 6.000 CHF begrenzt, automatische Subventionen für Krankenkassen und einfachere Entschädigungen bei Raubtierangriffen',
     'blog.article.casse-malati-alloggi-landsgemeinde-2026.imageAlt': 'Ansicht von Bellinzona mit Burgen und moderner Stadt',
+    'blog.article.dancing-shoes-albertoni-cinelli-collaboration.title': 'Albertoni und die Cinelli Brothers in \'Dancing Shoes\'',
+    'blog.article.dancing-shoes-albertoni-cinelli-collaboration.excerpt': 'Die neue Single von Freddie & The Cannonballs mit den Cinelli Brothers, inspiriert von \'Scarpette Ricamate\'',
+    'blog.article.dancing-shoes-albertoni-cinelli-collaboration.imageAlt': 'Bühne des Baden Festivals mit Publikum',
 };
 
 export default blogMetaDe;

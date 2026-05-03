@@ -5315,6 +5315,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casse-malati-alloggi-landsgemeinde-2026.title': 'Glarus Landsgemeinde: changes for cross-border workers and residents',
     'blog.article.casse-malati-alloggi-landsgemeinde-2026.excerpt': 'Commuter deductions capped at 6,000 CHF, automatic health insurance subsidies and easier compensation for predator attacks',
     'blog.article.casse-malati-alloggi-landsgemeinde-2026.imageAlt': 'View of Bellinzona with castles and modern cityscape',
+    'blog.article.dancing-shoes-albertoni-cinelli-collaboration.title': 'Albertoni & Cinelli Brothers in \'Dancing Shoes\'',
+    'blog.article.dancing-shoes-albertoni-cinelli-collaboration.excerpt': 'Freddie & The Cannonballs\' new single with Cinelli Brothers, inspired by \'Scarpette Ricamate\'',
+    'blog.article.dancing-shoes-albertoni-cinelli-collaboration.imageAlt': 'Baden Festival stage with audience',
 };
 
 export default blogMetaEn;

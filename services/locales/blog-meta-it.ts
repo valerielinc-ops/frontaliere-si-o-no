@@ -5316,6 +5316,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casse-malati-alloggi-landsgemeinde-2026.title': 'Landsgemeinde Glarona: cosa cambia per frontalieri e residenti',
     'blog.article.casse-malati-alloggi-landsgemeinde-2026.excerpt': 'Deduzioni pendolari limitate a 6.000 CHF, sussidi automatici per casse malati e risarcimenti più facili per attacchi di predatori',
     'blog.article.casse-malati-alloggi-landsgemeinde-2026.imageAlt': 'Veduta di Bellinzona con i castelli e il centro moderno',
+    'blog.article.dancing-shoes-albertoni-cinelli-collaboration.title': 'Albertoni e i Cinelli Brothers in \'Dancing Shoes\'',
+    'blog.article.dancing-shoes-albertoni-cinelli-collaboration.excerpt': 'Il nuovo singolo di Freddie & The Cannonballs con i Cinelli Brothers, ispirato alle \'Scarpette Ricamate\'',
+    'blog.article.dancing-shoes-albertoni-cinelli-collaboration.imageAlt': 'Palco del Baden Festival con pubblico',
 };
 
 export default blogMetaIt;

@@ -17318,4 +17318,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dancing-shoes-albertoni-cinelli-collaboration',
+ category: 'novita',
+ date: '2026-05-03T16:07:49.076Z',
+ image: '/images/blog/dancing-shoes-albertoni-cinelli-collaboration.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
