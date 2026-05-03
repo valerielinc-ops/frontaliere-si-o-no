@@ -5387,6 +5387,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.title': 'A9 closed at night: alternative route Lomazzo-Saronno',
     'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.excerpt': 'Lomazzo Nord-Saronno closed 6-7 May for green maintenance. Alternative route on regular traffic.',
     'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.imageAlt': 'A9 highway in Ticino with nighttime construction and diverted traffic',
+    'blog.article.petrolio-uccide-protesta-vezia-2026.title': 'Protest in Vezia: \'Oil Kills\'',
+    'blog.article.petrolio-uccide-protesta-vezia-2026.excerpt': 'Act Now activists paint a canvas in front of the Eni station in Vezia to raise awareness about the environmental and health impacts of fossil fuels',
+    'blog.article.petrolio-uccide-protesta-vezia-2026.imageAlt': 'Protest in front of a gas station in Vezia, Ticino, with activists painting a canvas',
 };
 
 export default blogMetaEn;

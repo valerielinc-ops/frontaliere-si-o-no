@@ -5388,6 +5388,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.title': 'A9 chiusa notte: percorso alternativo Lomazzo-Saronno',
     'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.excerpt': 'Lomazzo Nord-Saronno chiusa 6-7 maggio per manutenzione verde. Percorso alternativo su viabilità ordinaria.',
     'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.imageAlt': 'Autostrada A9 in Ticino con lavori notturni e traffico deviato',
+    'blog.article.petrolio-uccide-protesta-vezia-2026.title': 'Protesta a Vezia: «Il petrolio uccide»',
+    'blog.article.petrolio-uccide-protesta-vezia-2026.excerpt': 'Attivisti di Act Now dipingono una tela davanti al distributore Eni di Vezia per sensibilizzare sull\'impatto ambientale e sanitario dei combustibili fossili',
+    'blog.article.petrolio-uccide-protesta-vezia-2026.imageAlt': 'Protesta davanti a un distributore di benzina a Vezia, Ticino, con attivisti che dipingono una tela',
 };
 
 export default blogMetaIt;

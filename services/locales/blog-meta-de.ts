@@ -5387,6 +5387,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.title': 'A9 nachts gesperrt: Umleitung Lomazzo-Saronno',
     'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.excerpt': 'Lomazzo Nord-Saronno am 6.-7. Mai wegen Grünpflege gesperrt. Umleitung über normale Straßen.',
     'blog.article.lavori-a9-lomazzo-saronno-chiusura-notte.imageAlt': 'Autobahn A9 im Tessin mit Nachtbauarbeiten und umgeleitetem Verkehr',
+    'blog.article.petrolio-uccide-protesta-vezia-2026.title': 'Protest in Vezia: «Öl tötet»',
+    'blog.article.petrolio-uccide-protesta-vezia-2026.excerpt': 'Aktivisten von Act Now malen ein Bild vor der Eni-Tankstelle in Vezia, um auf die Umwelt- und Gesundheitsauswirkungen fossiler Brennstoffe aufmerksam zu machen',
+    'blog.article.petrolio-uccide-protesta-vezia-2026.imageAlt': 'Protest vor einer Tankstelle in Vezia, Tessin, mit Aktivisten, die ein Leinwand malen',
 };
 
 export default blogMetaDe;

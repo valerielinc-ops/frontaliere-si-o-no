@@ -3038,6 +3038,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-lago-perduto-memoria-comunita': { name: 'Mostra Fotografica', path: '/articoli-frontaliere/varese-lago-perduto-memoria-comunita', parent: 'blog' },
     'blog-rischi-petrolio-lugano-3-maggio-2026': { name: 'Marcia lenta a Lugano', path: '/articoli-frontaliere/rischi-petrolio-lugano-3-maggio-2026', parent: 'blog' },
     'blog-lavori-a9-lomazzo-saronno-chiusura-notte': { name: 'A9 chiusura notturna', path: '/articoli-frontaliere/lavori-a9-lomazzo-saronno-chiusura-notte', parent: 'blog' },
+    'blog-petrolio-uccide-protesta-vezia-2026': { name: 'Protesta Vezia', path: '/articoli-frontaliere/petrolio-uccide-protesta-vezia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

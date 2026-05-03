@@ -17534,4 +17534,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'petrolio-uccide-protesta-vezia-2026',
+ category: 'novita',
+ date: '2026-05-03T19:35:46.642Z',
+ image: '/images/blog/petrolio-uccide-protesta-vezia-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

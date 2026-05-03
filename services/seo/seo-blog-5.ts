@@ -10777,6 +10777,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-petrolio-uccide-protesta-vezia-2026': {
+    title: 'Protesta a Vezia: «Il petrolio uccide» | Frontaliere Ticino',
+    description: 'Attivisti di Act Now dipingono una tela davanti al distributore Eni di Vezia per sensibilizzare sull\'impatto ambientale e sanitario dei combustibili fossili',
+    keywords: 'frontalieri, ticino, svizzera, italia, protesta, vezia, petrolio, uccide',
+    ogTitle: 'Protesta a Vezia: «Il petrolio uccide»',
+    ogDescription: 'Attivisti di Act Now dipingono una tela davanti al distributore Eni di Vezia per sensibilizzare sull\'impatto ambientale e sanitario dei combustibili fossili',
+    canonicalPath: '/articoli-frontaliere/petrolio-uccide-protesta-vezia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protesta a Vezia: «Il petrolio uccide»",
+      "description": "Attivisti di Act Now dipingono una tela davanti al distributore Eni di Vezia per sensibilizzare sull'impatto ambientale e sanitario dei combustibili fossili",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/petrolio-uccide-protesta-vezia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Protesta davanti a un distributore di benzina a Vezia, Ticino, con attivisti che dipingono una tela"
+      },
+      "datePublished": "2026-05-03T19:35:46+00:00",
+      "dateModified": "2026-05-03T19:35:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/petrolio-uccide-protesta-vezia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
