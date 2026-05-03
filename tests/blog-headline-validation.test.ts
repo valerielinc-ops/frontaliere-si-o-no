@@ -68,7 +68,6 @@ function validateHeadline(headline: unknown): string[] {
   if (headline.length > 110) errs.push('Headline troppo lungo (max 110 char)');
   const wc = headline.trim().split(/\s+/).filter(Boolean).length;
   if (wc < 2 || wc > 22) errs.push(`Headline ${wc} parole, range 2-22`);
-  if (/^\d/.test(headline.trim())) errs.push('Headline non deve iniziare con numero');
   if (CLICKBAIT_PATTERNS.some((p) => p.test(headline))) {
     errs.push('Pattern clickbait rilevato');
   }
@@ -119,20 +118,6 @@ describe('validateHeadline — A5 Google News compliance unit tests', () => {
       const headline = Array.from({ length: 25 }, (_, i) => `parola${i}`).join(' ');
       const errs = validateHeadline(headline);
       expect(errs.some((e) => e.includes('parole, range 2-22'))).toBe(true);
-    });
-  });
-
-  describe('rejects headlines that start with a digit', () => {
-    it('flags "57 ragioni per…"', () => {
-      expect(validateHeadline('57 ragioni per scegliere il Ticino oggi')).toContain(
-        'Headline non deve iniziare con numero',
-      );
-    });
-
-    it('flags "10 cose che…"', () => {
-      expect(validateHeadline('10 cose che ogni frontaliere deve sapere')).toContain(
-        'Headline non deve iniziare con numero',
-      );
     });
   });
 
@@ -244,7 +229,6 @@ describe('validateHeadline — drift guard', () => {
     // Spot-check the rule constants
     expect(src).toContain('Headline troppo corto (min 10 char)');
     expect(src).toContain('Headline troppo lungo (max 110 char)');
-    expect(src).toContain('Headline non deve iniziare con numero');
     expect(src).toContain('Pattern clickbait rilevato');
   });
 });

@@ -37639,35 +37639,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-agricoltura-ticino-priorita-2026': {
-    title: 'Agricoltura ticinese: priorità a prodotti locali, superfici e formazione',
-    description: 'La Camera cantonale dell’agricoltura del Ticino approva risoluzioni per valorizzare i prodotti locali e gestire le superfici agricole. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, agricoltura, ticinese, priorità, prodotti',
-    ogTitle: 'Agricoltura ticinese: priorità a prodotti locali, superfici e formazione',
-    ogDescription: 'La Camera cantonale dell’agricoltura del Ticino approva risoluzioni per valorizzare i prodotti locali e gestire le superfici agricole.',
-    canonicalPath: '/articoli-frontaliere/agricoltura-ticino-priorita-2026',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Agricoltura ticinese: priorità a prodotti locali, superfici e formazione",
-      "description": "La Camera cantonale dell’agricoltura del Ticino approva risoluzioni per valorizzare i prodotti locali e gestire le superfici agricole. Dati aggiornati 2026 per",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/agricoltura-ticino-priorita-2026.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Paesaggio agricolo del Ticino con campi e vigneti"
-      },
-      "datePublished": "2026-05-02T16:48:27+00:00",
-      "dateModified": "2026-05-02T16:48:27+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agricoltura-ticino-priorita-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
   'blog-svizzera-hockey-sconfitta-finlandia': {
     title: 'Svizzera sconfitta dalla Finlandia nell\'Euro Hockey Tour',
     description: 'La nazionale svizzera di hockey su ghiaccio perde 5-3 contro la Finlandia. Prossimo avversario la Repubblica Ceca. Dati aggiornati 2026 per frontalieri in',
@@ -38008,40 +37979,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/seco-dazi-segreti-washington`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-2025-2000-tonnellate-detriti-lago-ceresio': {
-    title: '2000 tonnellate di detriti raccolte nel 2025 | Frontaliere Ticino',
-    description: 'Nel 2025 raccolte 2000 tonnellate di detriti nel Lago Ceresio, tra legname flottante e rifiuti antropici. Ecco i dettagli. Dati aggiornati 2026 per frontalieri',
-    keywords: 'frontalieri, ticino, svizzera, italia, 2000, tonnellate, detriti, raccolte',
-    ogTitle: '2000 tonnellate di detriti raccolte nel 2025',
-    ogDescription: 'Nel 2025 raccolte 2000 tonnellate di detriti nel Lago Ceresio, tra legname flottante e rifiuti antropici. Ecco i dettagli.',
-    canonicalPath: '/articoli-frontaliere/2025-2000-tonnellate-detriti-lago-ceresio',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "2000 tonnellate di detriti raccolte nel 2025",
-      "description": "Nel 2025 raccolte 2000 tonnellate di detriti nel Lago Ceresio, tra legname flottante e rifiuti antropici. Ecco i dettagli. Dati aggiornati 2026 per frontalieri",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/2025-2000-tonnellate-detriti-lago-ceresio.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Vista aerea del Lago di Lugano con operazioni di raccolta detriti"
-      },
-      "datePublished": "2026-05-03T11:07:15+00:00",
-      "dateModified": "2026-05-03T11:07:15+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/2025-2000-tonnellate-detriti-lago-ceresio`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

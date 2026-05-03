@@ -5242,7 +5242,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lago-segrino-camper-2026.imageAlt': 'Vue sereine du lac de Segrino dans la province de Côme, en Italie, avec un accent sur les environs naturels et les eaux claires du lac.',
     'blog.article.cavalli-esercito-svizzero-costi.title': 'L\'armée suisse et ses chevaux: des coûts en hausse',
     'blog.article.cavalli-esercito-svizzero-costi.excerpt': 'L\'armée suisse dépensera 3,8 millions de francs pour les chevaux de 2026 à 2028, sous les critiques de la gestion des ressources.',
-    'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Chevaux militaires suisses en entraînement au Centre Équestre National de Berne',agriculture du Tessin approuve des résolutions pour valoriser les produits locaux et gérer les surfaces agricoles.',    'blog.article.svizzera-hockey-sconfitta-finlandia.title': 'La Suisse battue par la Finlande dans l\'Euro Hockey Tour',
+    'blog.article.cavalli-esercito-svizzero-costi.imageAlt': 'Chevaux militaires suisses en entraînement au Centre Équestre National de Berne','blog.article.svizzera-hockey-sconfitta-finlandia.title': 'La Suisse battue par la Finlande dans l\'Euro Hockey Tour',
     'blog.article.svizzera-hockey-sconfitta-finlandia.excerpt': 'L\'équipe nationale helvétique perd 5-3 contre la Finlande. Prochain adversaire, la République tchèque.',
     'blog.article.svizzera-hockey-sconfitta-finlandia.imageAlt': 'Match de hockey sur glace en cours dans une arène professionnelle en Suisse.',
     'blog.article.pd-como-sfiducia-maccabeo-2026.title': 'Le PD de Côme insiste sur la motion de défiance contre Maccabeo',

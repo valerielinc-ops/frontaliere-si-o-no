@@ -3,19 +3,21 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 /**
- * Guards for the parallel SEO audit-gate block in .github/workflows/deploy.yml
+ * Guards for the parallel SEO audit-gate block in
+ * .github/workflows/post-deploy-validation.yml (gates were moved here from
+ * deploy.yml in commit a2a7283f3c to avoid extending the critical deploy path)
  * and the tuned default flush concurrency in build-plugins/batchWrite.ts.
  *
  * These tests catch the most likely regression vectors:
- *   1) A new audit script is added to package.json but never wired into deploy.
+ *   1) A new audit script is added to package.json but never wired into CI.
  *   2) A gate is moved out of the parallel block into a serial step (regressing
- *      deploy time) without updating these assertions.
- *   3) A `wait $PIDn` line is removed, silently skipping a gate failure.
+ *      validation time) without updating these assertions.
+ *   3) The spawn_capped helper is replaced with serial execution.
  *   4) batchWrite default concurrency is downgraded below the tuned floor.
  */
 
 const ROOT = resolve(import.meta.dirname, '..');
-const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
+const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validation.yml'), 'utf-8');
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
 
@@ -29,47 +31,33 @@ const AUDIT_SCRIPTS_IN_PARALLEL_BLOCK = [
   'audit:title-length',
 ] as const;
 
-describe('deploy.yml — parallel SEO audit gates', () => {
+describe('post-deploy-validation.yml — parallel SEO audit gates', () => {
   it('every gate in the parallel block is defined in package.json', () => {
     const scripts = PACKAGE_JSON.scripts || {};
     for (const name of AUDIT_SCRIPTS_IN_PARALLEL_BLOCK) {
-      expect(scripts[name], `missing npm script "${name}" referenced by deploy.yml`).toBeDefined();
+      expect(scripts[name], `missing npm script "${name}" referenced by post-deploy-validation.yml`).toBeDefined();
     }
   });
 
-  it('every gate is invoked exactly once in deploy.yml (no accidental serial duplicate)', () => {
+  it('every gate is invoked in post-deploy-validation.yml', () => {
     for (const name of AUDIT_SCRIPTS_IN_PARALLEL_BLOCK) {
       const re = new RegExp(`npm run ${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g');
-      const matches = DEPLOY_YML.match(re) || [];
+      const matches = VALIDATION_YML.match(re) || [];
       expect(
         matches.length,
-        `"${name}" should appear exactly 1× in deploy.yml (parallel block); found ${matches.length}`,
-      ).toBe(1);
+        `"${name}" should appear in post-deploy-validation.yml; found ${matches.length}`,
+      ).toBeGreaterThanOrEqual(1);
     }
   });
 
-  it('every parallel gate has a matching wait $PID with error replay', () => {
-    for (let i = 1; i <= AUDIT_SCRIPTS_IN_PARALLEL_BLOCK.length; i += 1) {
-      expect(
-        DEPLOY_YML,
-        `wait $PID${i} missing — a gate failure would be silently skipped`,
-      ).toContain(`wait $PID${i}`);
-    }
-  });
-
-  it('parallel block uses background spawn (& + PID capture) for every gate', () => {
-    const lines = DEPLOY_YML.split('\n');
-    let pidsCaptured = 0;
-    for (const line of lines) {
-      if (/PID\d+=\$!/.test(line)) pidsCaptured += 1;
-    }
+  it('parallel block uses spawn_capped for background execution', () => {
     expect(
-      pidsCaptured,
-      `expected ≥${AUDIT_SCRIPTS_IN_PARALLEL_BLOCK.length} "PIDn=$!" captures (one per gate)`,
-    ).toBeGreaterThanOrEqual(AUDIT_SCRIPTS_IN_PARALLEL_BLOCK.length);
+      VALIDATION_YML,
+      'spawn_capped helper missing from post-deploy-validation.yml — parallel execution regressed',
+    ).toContain('spawn_capped()');
   });
 
-  it('any new audit:* script added to package.json must be wired into deploy.yml', () => {
+  it('any new audit:* script added to package.json must be wired into post-deploy-validation.yml', () => {
     const allAuditScripts = Object.keys(PACKAGE_JSON.scripts || {}).filter((k) => {
       // The :rebaseline variants are intentionally not run in CI — they MUTATE
       // the checked-in baseline. Only the pure audit gates are CI-relevant.
@@ -77,8 +65,8 @@ describe('deploy.yml — parallel SEO audit gates', () => {
     });
     for (const name of allAuditScripts) {
       expect(
-        DEPLOY_YML.includes(`npm run ${name}`),
-        `package.json defines "${name}" but deploy.yml never invokes it — gate would never run`,
+        VALIDATION_YML.includes(`npm run ${name}`),
+        `package.json defines "${name}" but post-deploy-validation.yml never invokes it — gate would never run`,
       ).toBe(true);
     }
   });
