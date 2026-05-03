@@ -3029,6 +3029,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cassis-araghchi-colloquio-2026': { name: 'Novità', path: '/articoli-frontaliere/cassis-araghchi-colloquio-2026', parent: 'blog' },
     'blog-corsi-vela-adulti-luino-avav-2026': { name: 'Novità', path: '/articoli-frontaliere/corsi-vela-adulti-luino-avav-2026', parent: 'blog' },
     'blog-incendio-bellinzona-via-borromini-evacuati-10-persone': { name: 'Incendio Bellinzona', path: '/articoli-frontaliere/incendio-bellinzona-via-borromini-evacuati-10-persone', parent: 'blog' },
+    'blog-agricoltura-ticino-prodotti-locali-eventi-2026': { name: 'Novità', path: '/articoli-frontaliere/agricoltura-ticino-prodotti-locali-eventi-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

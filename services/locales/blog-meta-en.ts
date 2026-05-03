@@ -5360,6 +5360,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.title': 'Fire in Bellinzona building: 10 residents evacuated',
     'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.excerpt': 'A fire broke out this morning in a building in Bellinzona, causing the evacuation of 10 people and a mild intoxication.',
     'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.imageAlt': 'Panoramic view of Bellinzona with castles and city center',
+    'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.title': 'Ticino farmers demand more local products at events',
+    'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.excerpt': 'Delegates from the Ticino Farmers\' Union call for more local products at events, concerned about costs and predators',
+    'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.imageAlt': 'Local agricultural products displayed at an event in Ticino',
 };
 
 export default blogMetaEn;

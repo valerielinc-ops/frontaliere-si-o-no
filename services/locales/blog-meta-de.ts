@@ -5360,6 +5360,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.title': 'Brand in einem Mehrfamilienhaus in Bellinzona: 10 Mieter evakuiert',
     'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.excerpt': 'Dieses Morgen ist in einem Mehrfamilienhaus in Bellinzona ein Brand ausgebrochen, der zur Evakuierung von 10 Personen und einer leichten Vergiftung führte.',
     'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.imageAlt': 'Panoramablick auf Bellinzona mit Burgen und Stadtzentrum',
+    'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.title': 'Tessiner Bauern fordern mehr lokale Produkte bei Veranstaltungen',
+    'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.excerpt': 'Die Delegierten des Tessiner Bauernverbands fordern eine stärkere Präsenz lokaler Produkte bei Veranstaltungen und äußern Bedenken hinsichtlich der Kosten und Konkurrenz.',
+    'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.imageAlt': 'Lokale landwirtschaftliche Produkte auf einer Veranstaltung in Tessin',
 };
 
 export default blogMetaDe;

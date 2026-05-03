@@ -5361,6 +5361,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.title': 'Incendio in palazzina a Bellinzona: evacuati 10 inquilini',
     'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.excerpt': 'Un incendio è divampato questa mattina in una palazzina di Bellinzona, causando l\'evacuazione di 10 persone e un\'intossicazione lieve.',
     'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.imageAlt': 'Veduta panoramica di Bellinzona con i castelli e il centro città',
+    'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.title': 'Agricoltura ticinese chiede più prodotti locali agli eventi',
+    'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.excerpt': 'I delegati dell\'Unione contadini ticinesi chiedono maggiore presenza di prodotti locali agli eventi, preoccupati da costi e predatori',
+    'blog.article.agricoltura-ticino-prodotti-locali-eventi-2026.imageAlt': 'Prodotti agricoli locali esposti durante un evento in Ticino',
 };
 
 export default blogMetaIt;
