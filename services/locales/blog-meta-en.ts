@@ -5269,6 +5269,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.landsgemeinde-glarona-2026.title': 'Glarus Landsgemeinde: Austerity and Environment on the Ballot',
     'blog.article.landsgemeinde-glarona-2026.excerpt': 'Glarus voters decide on public spending cuts, new environmental taxes, and affordable housing in the historic assembly.',
     'blog.article.landsgemeinde-glarona-2026.imageAlt': 'Landsgemeinde assembly in Glarona, Switzerland, with citizens gathered in a public square voting on important issues.',
+    'blog.article.aeroporto-lugano-costi-interpellanza.title': 'Municipality questioned over Lugano-Agno airport costs',
+    'blog.article.aeroporto-lugano-costi-interpellanza.excerpt': 'City councillors criticise financial management and delays in development plans for the Ticino airport',
+    'blog.article.aeroporto-lugano-costi-interpellanza.imageAlt': 'Aerial view of Lugano-Agno Airport with mountains in the background and planes on the tarmac',
 };
 
 export default blogMetaEn;

@@ -2987,6 +2987,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-parcheggio-abusivo-como-villa-olmo': { name: 'Novità', path: '/articoli-frontaliere/parcheggio-abusivo-como-villa-olmo', parent: 'blog' },
     'blog-svizzera-caccia-evasori-fiscali-2026': { name: 'Fiscale', path: '/articoli-frontaliere/svizzera-caccia-evasori-fiscali-2026', parent: 'blog' },
     'blog-landsgemeinde-glarona-2026': { name: 'Landsgemeinde Glarona', path: '/articoli-frontaliere/landsgemeinde-glarona-2026', parent: 'blog' },
+    'blog-aeroporto-lugano-costi-interpellanza': { name: 'Interpellanza Municipio', path: '/articoli-frontaliere/aeroporto-lugano-costi-interpellanza', parent: 'blog' },
  };
 
  const info = sectionNames[section];

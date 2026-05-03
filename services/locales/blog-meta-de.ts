@@ -5269,6 +5269,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.landsgemeinde-glarona-2026.title': 'Glarner Landsgemeinde: Sparmaßnahmen und Umwelt im Fokus',
     'blog.article.landsgemeinde-glarona-2026.excerpt': 'Die Stimmberechtigten von Glarus entscheiden über Kürzungen der öffentlichen Ausgaben, neue Umweltsteuern und bezahlbaren Wohnraum in der historischen Versammlung.',
     'blog.article.landsgemeinde-glarona-2026.imageAlt': 'Landsgemeinde-Versammlung in Glarus, Schweiz, mit Bürgern, die auf einem öffentlichen Platz wichtige Fragen abstimmen.',
+    'blog.article.aeroporto-lugano-costi-interpellanza.title': 'Interpellation zum Gemeinderat: Kosten Flughafen Lugano-Agno',
+    'blog.article.aeroporto-lugano-costi-interpellanza.excerpt': 'Die Gemeinderätinnen kritisieren die finanzielle Verwaltung und die Verzögerungen bei den Entwicklungsplänen des Tessin-Flughafens',
+    'blog.article.aeroporto-lugano-costi-interpellanza.imageAlt': 'Luftaufnahme des Flughafens Lugano-Agno mit Bergen im Hintergrund und Flugzeugen auf der Startbahn',
 };
 
 export default blogMetaDe;

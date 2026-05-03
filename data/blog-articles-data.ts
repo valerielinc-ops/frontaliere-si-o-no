@@ -17174,4 +17174,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aeroporto-lugano-costi-interpellanza',
+ category: 'novita',
+ date: '2026-05-03T08:49:59.762Z',
+ image: '/images/blog/aeroporto-lugano-costi-interpellanza.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

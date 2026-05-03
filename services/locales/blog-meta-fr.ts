@@ -5270,6 +5270,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.landsgemeinde-glarona-2026.title': 'Landsgemeinde de Glaris : austérité et environnement en vote',
     'blog.article.landsgemeinde-glarona-2026.excerpt': 'Les électeurs de Glaris décident de réductions des dépenses publiques, de nouvelles taxes environnementales et de logements accessibles lors de l\'historique assemblée.',
     'blog.article.landsgemeinde-glarona-2026.imageAlt': 'Assemblée Landsgemeinde à Glaris, Suisse, avec des citoyens réunis sur une place publique pour voter sur des questions importantes.',
+    'blog.article.aeroporto-lugano-costi-interpellanza.title': 'Interpellation au Conseil: coûts aéroport Lugano-Agno',
+    'blog.article.aeroporto-lugano-costi-interpellanza.excerpt': 'Les conseillères communales critiquent la gestion financière et les retards dans les plans de développement de l\'aéroport tessinois',
+    'blog.article.aeroporto-lugano-costi-interpellanza.imageAlt': 'Vue aérienne de l\'aéroport de Lugano-Agno avec des montagnes en arrière-plan et des avions sur la piste',
 };
 
 export default blogMetaFr;

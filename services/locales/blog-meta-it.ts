@@ -5270,6 +5270,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.landsgemeinde-glarona-2026.title': 'Landsgemeinde di Glarona: austerità e ambiente al voto',
     'blog.article.landsgemeinde-glarona-2026.excerpt': 'Gli elettori di Glarona decidono su tagli alla spesa pubblica, nuove tasse ambientali e alloggi accessibili nella storica assemblea.',
     'blog.article.landsgemeinde-glarona-2026.imageAlt': 'Assemblea Landsgemeinde a Glarona, Svizzera, con cittadini riuniti in una piazza pubblica per votare su importanti questioni.',
+    'blog.article.aeroporto-lugano-costi-interpellanza.title': 'Interpellanza al Municipio: costi aeroporto Lugano-Agno',
+    'blog.article.aeroporto-lugano-costi-interpellanza.excerpt': 'Le consigliere comunali criticano la gestione finanziaria e i ritardi nei piani di sviluppo dello scalo ticinese',
+    'blog.article.aeroporto-lugano-costi-interpellanza.imageAlt': 'Vista aerea dell\'aeroporto di Lugano-Agno con montagne sullo sfondo e aerei sulla pista',
 };
 
 export default blogMetaIt;

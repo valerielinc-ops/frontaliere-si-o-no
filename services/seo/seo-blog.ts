@@ -37923,6 +37923,40 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aeroporto-lugano-costi-interpellanza': {
+    title: 'Interpellanza al Municipio: costi aeroporto Lugano-Agno',
+    description: 'Le consigliere comunali criticano la gestione finanziaria e i ritardi nei piani di sviluppo dello scalo ticinese di Lugano-Agno. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, interpellanza, municipio, costi, aeroporto',
+    ogTitle: 'Interpellanza al Municipio: costi aeroporto Lugano-Agno',
+    ogDescription: 'Le consigliere comunali criticano la gestione finanziaria e i ritardi nei piani di sviluppo dello scalo ticinese di Lugano-Agno',
+    canonicalPath: '/articoli-frontaliere/aeroporto-lugano-costi-interpellanza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Interpellanza al Municipio: costi aeroporto Lugano-Agno",
+      "description": "Le consigliere comunali criticano la gestione finanziaria e i ritardi nei piani di sviluppo dello scalo ticinese di Lugano-Agno. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aeroporto-lugano-costi-interpellanza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dell'aeroporto di Lugano-Agno con montagne sullo sfondo e aerei sulla pista"
+      },
+      "datePublished": "2026-05-03T08:49:59+00:00",
+      "dateModified": "2026-05-03T08:49:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aeroporto-lugano-costi-interpellanza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
