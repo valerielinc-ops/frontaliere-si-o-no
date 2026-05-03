@@ -17444,4 +17444,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incendio-bellinzona-via-borromini-evacuati-10-persone',
+ category: 'novita',
+ date: '2026-05-03T18:11:46.234Z',
+ image: '/images/blog/incendio-bellinzona-via-borromini-evacuati-10-persone.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

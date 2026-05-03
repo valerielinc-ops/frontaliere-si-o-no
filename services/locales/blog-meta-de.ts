@@ -5357,6 +5357,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.corsi-vela-adulti-luino-avav-2026.title': 'Luino: Segelkurse für Erwachsene des AVAV wieder da',
     'blog.article.corsi-vela-adulti-luino-avav-2026.excerpt': 'Der Segelverein Alto Verbano bietet 2026 wieder Kurse auf Kabinenbooten an, auch für Anfänger am Lago Maggiore',
     'blog.article.corsi-vela-adulti-luino-avav-2026.imageAlt': 'Gruppe von Erwachsenen, die das Segeln auf dem Lago Maggiore in der Nähe von Luino lernen',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.title': 'Brand in einem Mehrfamilienhaus in Bellinzona: 10 Mieter evakuiert',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.excerpt': 'Dieses Morgen ist in einem Mehrfamilienhaus in Bellinzona ein Brand ausgebrochen, der zur Evakuierung von 10 Personen und einer leichten Vergiftung führte.',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.imageAlt': 'Panoramablick auf Bellinzona mit Burgen und Stadtzentrum',
 };
 
 export default blogMetaDe;

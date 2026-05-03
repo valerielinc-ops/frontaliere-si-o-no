@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1838,
+ "numberOfItems": 1839,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6476,7 +6476,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1835, "name": "Cervelat, la salsiccia nazionale svizzera", "url": `${BASE_URL}/articoli-frontaliere/cervelat-salsiccia-nazionale-svizzera` },
           { "@type": "ListItem", "position": 1836, "name": "Luino: incontro su 'Amare la politica' tra giov...", "url": `${BASE_URL}/articoli-frontaliere/amare-politica-luino-2026` },
           { "@type": "ListItem", "position": 1837, "name": "Cassis e Araghchi si parlano: colloquio diploma...", "url": `${BASE_URL}/articoli-frontaliere/cassis-araghchi-colloquio-2026` },
-          { "@type": "ListItem", "position": 1838, "name": "Luino: tornano i corsi di vela per adulti dell'...", "url": `${BASE_URL}/articoli-frontaliere/corsi-vela-adulti-luino-avav-2026` }
+          { "@type": "ListItem", "position": 1838, "name": "Luino: tornano i corsi di vela per adulti dell'...", "url": `${BASE_URL}/articoli-frontaliere/corsi-vela-adulti-luino-avav-2026` },
+          { "@type": "ListItem", "position": 1839, "name": "Incendio in palazzina a Bellinzona: evacuati 10...", "url": `${BASE_URL}/articoli-frontaliere/incendio-bellinzona-via-borromini-evacuati-10-persone` }
  ]
  },
  {

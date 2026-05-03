@@ -5358,6 +5358,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.corsi-vela-adulti-luino-avav-2026.title': 'Luino: tornano i corsi di vela per adulti dell\'AVAV',
     'blog.article.corsi-vela-adulti-luino-avav-2026.excerpt': 'L\'Associazione Velica Alto Verbano rilancia per il 2026 i corsi su cabinato, aperti anche ai principianti sul Lago Maggiore',
     'blog.article.corsi-vela-adulti-luino-avav-2026.imageAlt': 'Gruppo di adulti che imparano a navigare sul Lago Maggiore vicino a Luino',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.title': 'Incendio in palazzina a Bellinzona: evacuati 10 inquilini',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.excerpt': 'Un incendio è divampato questa mattina in una palazzina di Bellinzona, causando l\'evacuazione di 10 persone e un\'intossicazione lieve.',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.imageAlt': 'Veduta panoramica di Bellinzona con i castelli e il centro città',
 };
 
 export default blogMetaIt;

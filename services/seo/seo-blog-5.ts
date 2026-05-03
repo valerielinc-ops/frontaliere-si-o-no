@@ -10437,6 +10437,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-bellinzona-via-borromini-evacuati-10-persone': {
+    title: 'Incendio in palazzina a Bellinzona: evacuati 10 inquilini',
+    description: 'Un incendio è divampato questa mattina in una palazzina di Bellinzona, causando l\'evacuazione di 10 persone e un\'intossicazione lieve. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, palazzina, bellinzona, evacuati',
+    ogTitle: 'Incendio Bellinzona: evacuati 10 inquilini',
+    ogDescription: 'Un incendio è divampato questa mattina in una palazzina di Bellinzona, causando l\'evacuazione di 10 persone e un\'intossicazione lieve.',
+    canonicalPath: '/articoli-frontaliere/incendio-bellinzona-via-borromini-evacuati-10-persone',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio in palazzina a Bellinzona: evacuati 10 inquilini",
+      "description": "Un incendio è divampato questa mattina in una palazzina di Bellinzona, causando l'evacuazione di 10 persone e un'intossicazione lieve. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendio-bellinzona-via-borromini-evacuati-10-persone.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Bellinzona con i castelli e il centro città"
+      },
+      "datePublished": "2026-05-03T18:11:46+00:00",
+      "dateModified": "2026-05-03T18:11:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-bellinzona-via-borromini-evacuati-10-persone`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

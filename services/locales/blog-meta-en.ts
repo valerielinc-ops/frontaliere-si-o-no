@@ -5357,6 +5357,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.corsi-vela-adulti-luino-avav-2026.title': 'Luino: AVAV\'s adult sailing courses return',
     'blog.article.corsi-vela-adulti-luino-avav-2026.excerpt': 'The Alto Verbano Sailing Association is relaunching cabin courses for 2026, open to beginners on Lake Maggiore',
     'blog.article.corsi-vela-adulti-luino-avav-2026.imageAlt': 'Group of adults learning to sail on Lake Maggiore near Luino',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.title': 'Fire in Bellinzona building: 10 residents evacuated',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.excerpt': 'A fire broke out this morning in a building in Bellinzona, causing the evacuation of 10 people and a mild intoxication.',
+    'blog.article.incendio-bellinzona-via-borromini-evacuati-10-persone.imageAlt': 'Panoramic view of Bellinzona with castles and city center',
 };
 
 export default blogMetaEn;
