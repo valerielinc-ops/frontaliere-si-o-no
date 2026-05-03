@@ -17417,4 +17417,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'amare-politica-luino-2026',
+ category: 'novita',
+ date: '2026-05-03T17:46:37.616Z',
+ image: '/images/blog/amare-politica-luino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -10335,6 +10335,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-amare-politica-luino-2026': {
+    title: 'Luino: incontro su \'Amare la politica\' tra giovani e istituzioni',
+    description: 'Sabato 2 maggio a Luino presentato il libro \'Amare la Politica\' con dibattito su ruolo della politica nella società contemporanea. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, luino, incontro, amare, politica',
+    ogTitle: 'Luino: incontro su \'Amare la politica\' tra giovani e istituzioni',
+    ogDescription: 'Sabato 2 maggio a Luino presentato il libro \'Amare la Politica\' con dibattito su ruolo della politica nella società contemporanea',
+    canonicalPath: '/articoli-frontaliere/amare-politica-luino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luino: incontro su 'Amare la politica' tra giovani e istituzioni",
+      "description": "Sabato 2 maggio a Luino presentato il libro 'Amare la Politica' con dibattito su ruolo della politica nella società contemporanea. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/amare-politica-luino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di persone in una sala conferenze a Bellinzona, Ticino, impegnate in una discussione politica"
+      },
+      "datePublished": "2026-05-03T17:46:37+00:00",
+      "dateModified": "2026-05-03T17:46:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/amare-politica-luino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

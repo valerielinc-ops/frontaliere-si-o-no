@@ -5348,6 +5348,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cervelat-salsiccia-nazionale-svizzera.title': 'Cervelat, Switzerland\'s national sausage',
     'blog.article.cervelat-salsiccia-nazionale-svizzera.excerpt': 'Discover the history and fun facts about cervelat, Switzerland\'s national sausage, loved across the country and a symbol of national identity.',
     'blog.article.cervelat-salsiccia-nazionale-svizzera.imageAlt': 'Grilled cervelat sausage on a wooden plate with a Swiss flag in the background',
+    'blog.article.amare-politica-luino-2026.title': 'Luino: young people and institutions discuss \'Loving Politics\'',
+    'blog.article.amare-politica-luino-2026.excerpt': 'On Saturday, May 2nd, the book \'Loving Politics\' was presented in Luino with a debate on the role of politics in contemporary society',
+    'blog.article.amare-politica-luino-2026.imageAlt': 'Group of people in a conference room in Bellinzona, Ticino, engaged in a political discussion',
 };
 
 export default blogMetaEn;

@@ -5349,6 +5349,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cervelat-salsiccia-nazionale-svizzera.title': 'Le cervelat, la saucisse nationale suisse',
     'blog.article.cervelat-salsiccia-nazionale-svizzera.excerpt': 'Découvrez l\'histoire et les curiosités du cervelat, la saucisse nationale suisse, aimée dans tout le pays et symbole d\'identité nationale.',
     'blog.article.cervelat-salsiccia-nazionale-svizzera.imageAlt': 'Cervelas grillé sur une assiette en bois avec le drapeau suisse en arrière-plan',
+    'blog.article.amare-politica-luino-2026.title': 'Luino: rencontre sur \'Aimer la politique\' entre jeunes et institutions',
+    'blog.article.amare-politica-luino-2026.excerpt': 'Samedi 2 mai à Luino, présentation du livre \'Aimer la Politique\' avec débat sur le rôle de la politique dans la société contemporaine',
+    'blog.article.amare-politica-luino-2026.imageAlt': 'Groupe de personnes dans une salle de conférence à Bellinzone, Tessin, engagées dans une discussion politique',
 };
 
 export default blogMetaFr;

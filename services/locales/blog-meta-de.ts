@@ -5348,6 +5348,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cervelat-salsiccia-nazionale-svizzera.title': 'Cervelat, die Schweizer Nationalwurst',
     'blog.article.cervelat-salsiccia-nazionale-svizzera.excerpt': 'Entdecken Sie die Geschichte und die Besonderheiten des Cervelats, der Schweizer Nationalwurst, die im ganzen Land geliebt wird und ein Symbol der nationalen Identität ist.',
     'blog.article.cervelat-salsiccia-nazionale-svizzera.imageAlt': 'Gebratene Cervelat-Wurst auf einem Holzteller mit der Schweizer Flagge im Hintergrund',
+    'blog.article.amare-politica-luino-2026.title': 'Luino: Jugendliche und Institutionen diskutieren über \'Politik lieben\'',
+    'blog.article.amare-politica-luino-2026.excerpt': 'Am Samstag, 2. Mai, wurde in Luino das Buch \'Amare la Politica\' vorgestellt, mit einer Diskussion über die Rolle der Politik in der heutigen Gesellschaft.',
+    'blog.article.amare-politica-luino-2026.imageAlt': 'Gruppe von Menschen in einem Konferenzraum in Bellinzona, Tessin, die in eine politische Diskussion vertieft sind',
 };
 
 export default blogMetaDe;

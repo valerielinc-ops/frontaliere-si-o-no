@@ -3025,6 +3025,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-malpensa-terminal-1-risolto': { name: 'Incendio Malpensa', path: '/articoli-frontaliere/incendio-malpensa-terminal-1-risolto', parent: 'blog' },
     'blog-maillard-uss-udc-iniziativa-1-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/maillard-uss-udc-iniziativa-1-maggio-2026', parent: 'blog' },
     'blog-cervelat-salsiccia-nazionale-svizzera': { name: 'Cervelat', path: '/articoli-frontaliere/cervelat-salsiccia-nazionale-svizzera', parent: 'blog' },
+    'blog-amare-politica-luino-2026': { name: 'Novità', path: '/articoli-frontaliere/amare-politica-luino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
