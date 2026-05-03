@@ -56,6 +56,8 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Collect traffic data
+        env:
+          ENABLE_WEBCAM_ANALYSIS: '1'
         run: node scripts/collect-traffic.mjs
 
       - name: Commit + push (with rebase-retry)
