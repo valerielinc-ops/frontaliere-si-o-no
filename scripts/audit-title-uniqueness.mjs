@@ -91,25 +91,40 @@ function* walkHtmlFiles(dir) {
 }
 
 /**
- * Extract the first <title>...</title> from an HTML document body.
- * Returns null if no title is present. Only matches a HEAD title — skips
- * inline SVG <title> nodes (which appear inside <svg>, never in <head>).
+ * Extract <head> content using indexOf/slice — avoids [\s\S]*? regex captures
+ * that pin large string slices in V8 memory when processing 200k+ HTML files.
+ * Returns the content between <head> and </head>, or empty string if absent.
  */
-function extractHeadTitle(html) {
-  // Limit to the first <head>...</head> block so SVG <title> tags that appear
-  // inside the body (e.g. chart tooltips) never register as page titles.
-  const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(html);
-  const scope = headMatch ? headMatch[1] : html;
-  const titleMatch = /<title\b[^>]*>([\s\S]*?)<\/title>/i.exec(scope);
-  if (!titleMatch) return null;
-  return titleMatch[1]
-    .replace(/\s+/g, ' ')
-    .trim();
+function extractHead(html) {
+  const lo = html.toLowerCase();
+  const hStart = lo.indexOf('<head');
+  if (hStart === -1) return '';
+  const hOpenEnd = html.indexOf('>', hStart);
+  if (hOpenEnd === -1) return '';
+  const hClose = lo.indexOf('</head>', hOpenEnd + 1);
+  return hClose === -1 ? html.slice(hOpenEnd + 1) : html.slice(hOpenEnd + 1, hClose);
+}
+
+/**
+ * Extract the first <title>...</title> from a HEAD section string.
+ * Returns null if no title is present. Caller must pass extractHead() output
+ * so SVG <title> nodes inside <body> are never matched.
+ */
+function extractHeadTitle(head) {
+  const lo = head.toLowerCase();
+  const tStart = lo.indexOf('<title');
+  if (tStart === -1) return null;
+  const tOpenEnd = head.indexOf('>', tStart);
+  if (tOpenEnd === -1) return null;
+  const tClose = lo.indexOf('</title>', tOpenEnd + 1);
+  const content = tClose === -1 ? head.slice(tOpenEnd + 1) : head.slice(tOpenEnd + 1, tClose);
+  const trimmed = content.replace(/\s+/g, ' ').trim();
+  return trimmed || null;
 }
 
 /**
  * Extract the absolute canonical URL from `<link rel="canonical">`.
- * Returns null if absent.
+ * Returns null if absent. Caller must pass extractHead() output.
  *
  * Bridge/alias pages (multi-locale slug variants, expired-job soft landings)
  * all legitimately share the same `<title>` because they all resolve — via
@@ -117,13 +132,11 @@ function extractHeadTitle(html) {
  * into one indexed page via the canonical signal, so counting them as
  * duplicate <title> collisions is a false positive.
  */
-function extractCanonical(html) {
-  const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(html);
-  const scope = headMatch ? headMatch[1] : html;
-  const m = /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(scope);
+function extractCanonical(head) {
+  const m = /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(head);
   if (m) return m[1].trim();
   // Alternate attribute order: href before rel.
-  const m2 = /<link[^>]+href=["']([^"']+)["'][^>]*rel=["']canonical["']/i.exec(scope);
+  const m2 = /<link[^>]+href=["']([^"']+)["'][^>]*rel=["']canonical["']/i.exec(head);
   return m2 ? m2[1].trim() : null;
 }
 
@@ -132,11 +145,10 @@ function extractCanonical(html) {
  * These pages are intentionally hidden from Google indexing (legacy-redirect
  * bridges, archival stubs, brand-alias bridges). Unique-<title> policy does
  * not apply to them — Google ignores them during SERP cluster selection.
+ * Caller must pass extractHead() output.
  */
-function hasNoindex(html) {
-  const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(html);
-  const scope = headMatch ? headMatch[1] : html;
-  const m = /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i.exec(scope);
+function hasNoindex(head) {
+  const m = /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i.exec(head);
   if (!m) return false;
   return /\bnoindex\b/i.test(m[1]);
 }
@@ -159,6 +171,11 @@ function main() {
   let missingTitles = 0;
 
   for (const abs of walkHtmlFiles(DIST_DIR)) {
+    // Skip 0-byte files — these are OOM crash artifacts, not real pages.
+    let fileStat;
+    try { fileStat = fs.statSync(abs); } catch { continue; }
+    if (fileStat.size === 0) continue;
+
     const rel = path.relative(DIST_DIR, abs);
     const locale = inferLocale(rel);
     const fsCanonical = canonicalizePath(rel);
@@ -170,7 +187,10 @@ function main() {
       continue;
     }
 
-    const title = extractHeadTitle(html);
+    // Extract <head> once; pass to all helpers to avoid repeated large-string regex captures.
+    const head = extractHead(html);
+
+    const title = extractHeadTitle(head);
     totalPages += 1;
     if (!title) {
       missingTitles += 1;
@@ -180,9 +200,9 @@ function main() {
     // Skip noindex pages — they are intentionally hidden from Google and
     // therefore outside the unique-<title> policy (legacy-redirect bridges,
     // archival stubs, brand-alias bridges all ship with noindex,follow).
-    if (hasNoindex(html)) continue;
+    if (hasNoindex(head)) continue;
 
-    const canonicalUrl = extractCanonical(html);
+    const canonicalUrl = extractCanonical(head);
     const canonicalKey = canonicalUrl ?? fsCanonical;
 
     if (!titlesByLocale.has(locale)) {
