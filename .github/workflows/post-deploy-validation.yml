@@ -183,23 +183,41 @@ jobs:
           }
 
           # LPT order: slowest tasks first so the tail is shorter.
-          spawn_capped audit:dist-multi-ratio     /tmp/g5.log \
+          spawn_capped audit:dist-multi-ratio        /tmp/g5.log \
             env AUDIT_DIST_MULTI_GROUP=ratio npm run audit:dist-multi
-          spawn_capped audit:dist-multi-heavy     /tmp/g6.log \
+          spawn_capped audit:dist-multi-heavy        /tmp/g6.log \
             env AUDIT_DIST_MULTI_GROUP=heavy npm run audit:dist-multi
-          spawn_capped audit:dist-multi-light     /tmp/g7.log \
+          spawn_capped audit:dist-multi-light        /tmp/g7.log \
             env AUDIT_DIST_MULTI_GROUP=light npm run audit:dist-multi
-          spawn_capped audit:orphan-sitemap-pages /tmp/g9.log \
+          spawn_capped audit:content-duplicates      /tmp/g8.log \
+            npm run audit:content-duplicates
+          spawn_capped audit:orphan-sitemap-pages    /tmp/g9.log \
             npm run audit:orphan-sitemap-pages -- --gate=baseline
-          spawn_capped validate:sitemap-pages     /tmp/spm.log \
+          spawn_capped audit:text-html-ratio         /tmp/g10.log \
+            npm run audit:text-html-ratio
+          spawn_capped audit:h1-title-duplicates     /tmp/g11.log \
+            npm run audit:h1-title-duplicates
+          spawn_capped audit:page-weight             /tmp/g12.log \
+            npm run audit:page-weight
+          spawn_capped audit:title-uniqueness        /tmp/g13.log \
+            npm run audit:title-uniqueness
+          spawn_capped validate:sitemap-pages        /tmp/spm.log \
             npm run validate:sitemap-pages
-          spawn_capped validate:jobs-quality      /tmp/v2.log \
+          spawn_capped validate:jobs-quality         /tmp/v2.log \
             npm run validate:jobs-quality
-          spawn_capped validate:sitemap-links     /tmp/v3.log \
+          spawn_capped validate:sitemap-links        /tmp/v3.log \
             npm run validate:sitemap-links
-          spawn_capped audit:spa-bundle-injection /tmp/spa-bundle.log \
+          spawn_capped audit:spa-bundle-injection    /tmp/spa-bundle.log \
             npm run audit:spa-bundle-injection
-          spawn_capped live:post-deploy-smoke     /tmp/live-smoke.log \
+          spawn_capped audit:hreflang                /tmp/g14.log \
+            npm run audit:hreflang
+          spawn_capped audit:sitemap-canonicals      /tmp/g15.log \
+            npm run audit:sitemap-canonicals
+          spawn_capped audit:news-sitemap            /tmp/g16.log \
+            npm run audit:news-sitemap
+          spawn_capped audit:title-length            /tmp/g17.log \
+            npm run audit:title-length
+          spawn_capped live:post-deploy-smoke        /tmp/live-smoke.log \
             bash -lc 'node scripts/wait-for-pages-propagation.mjs && npm run probe:5xx && LIVE_BASE_URL=https://frontaliereticino.ch npm run test:e2e:live'
 
           wait
