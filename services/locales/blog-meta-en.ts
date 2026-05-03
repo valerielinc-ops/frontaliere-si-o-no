@@ -5302,6 +5302,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.campagna-iraniana-allarma-svizzera.title': '"Sacrifice your life": Iran\'s campaign alarms Switzerland',
     'blog.article.campagna-iraniana-allarma-svizzera.excerpt': 'The Iranian embassy in Bern spreads an appeal urging Iranian citizens to sacrifice themselves for the homeland, causing concern in Switzerland.',
     'blog.article.campagna-iraniana-allarma-svizzera.imageAlt': 'View of Lake Lugano with the city of Lugano in the background',
+    'blog.article.area-sosta-fantasma-sicurezza-autostrada.title': 'Abandoned rest area on A3 highway endangers cross-border commuters',
+    'blog.article.area-sosta-fantasma-sicurezza-autostrada.excerpt': 'An abandoned building on the motorway between Chur and Zurich is putting traffic safety at risk. The Confederation offers 800,000 CHF, but the owner demands 1.3 million.',
+    'blog.article.area-sosta-fantasma-sicurezza-autostrada.imageAlt': 'Abandoned rest area on A3 highway near Walensee',
 };
 
 export default blogMetaEn;

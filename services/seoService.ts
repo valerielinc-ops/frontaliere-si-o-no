@@ -3009,6 +3009,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-langnau-due-case-garage': { name: 'Incendio Langnau', path: '/articoli-frontaliere/incendio-langnau-due-case-garage', parent: 'blog' },
     'blog-domenica-corriere-piccaluga-lavoro-salari-economia': { name: 'Novità', path: '/articoli-frontaliere/domenica-corriere-piccaluga-lavoro-salari-economia', parent: 'blog' },
     'blog-campagna-iraniana-allarma-svizzera': { name: 'Novità', path: '/articoli-frontaliere/campagna-iraniana-allarma-svizzera', parent: 'blog' },
+    'blog-area-sosta-fantasma-sicurezza-autostrada': { name: 'Novità', path: '/articoli-frontaliere/area-sosta-fantasma-sicurezza-autostrada', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -9723,6 +9723,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-area-sosta-fantasma-sicurezza-autostrada': {
+    title: 'Area di sosta fantasma sull\'A3: pericolo per i frontalieri',
+    description: 'Edificio abbandonato sull\'autostrada fra Coira e Zurigo mette a rischio la sicurezza del traffico. La Confederazione offre 800\'000 CHF, ma il proprietario ne',
+    keywords: 'frontalieri, ticino, svizzera, italia, area, sosta, fantasma, sull',
+    ogTitle: 'Area di sosta fantasma sull\'A3: pericolo per i frontalieri',
+    ogDescription: 'Edificio abbandonato sull\'autostrada fra Coira e Zurigo mette a rischio la sicurezza del traffico. La Confederazione offre 800\'000 CHF, ma il proprietario ne',
+    canonicalPath: '/articoli-frontaliere/area-sosta-fantasma-sicurezza-autostrada',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Area di sosta fantasma sull'A3: pericolo per i frontalieri",
+      "description": "Edificio abbandonato sull'autostrada fra Coira e Zurigo mette a rischio la sicurezza del traffico. La Confederazione offre 800'000 CHF, ma il proprietario ne",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/area-sosta-fantasma-sicurezza-autostrada.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area di sosta abbandonata sull'autostrada A3 vicino al Walensee"
+      },
+      "datePublished": "2026-05-03T12:40:14+00:00",
+      "dateModified": "2026-05-03T12:40:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/area-sosta-fantasma-sicurezza-autostrada`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

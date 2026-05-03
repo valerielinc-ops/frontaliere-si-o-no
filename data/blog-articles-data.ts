@@ -17273,4 +17273,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'area-sosta-fantasma-sicurezza-autostrada',
+ category: 'novita',
+ date: '2026-05-03T12:40:14.810Z',
+ image: '/images/blog/area-sosta-fantasma-sicurezza-autostrada.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

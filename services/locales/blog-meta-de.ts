@@ -5302,6 +5302,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.campagna-iraniana-allarma-svizzera.title': '«Opfert euer Leben»: Iranische Kampagne beunruhigt die Schweiz',
     'blog.article.campagna-iraniana-allarma-svizzera.excerpt': 'Die iranische Botschaft in Bern verbreitet einen Aufruf, in dem iranische Staatsbürger aufgefordert werden, sich für das Vaterland zu opfern, was in der Schweiz Besorgnis auslöst.',
     'blog.article.campagna-iraniana-allarma-svizzera.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano im Hintergrund',
+    'blog.article.area-sosta-fantasma-sicurezza-autostrada.title': 'Geisterraststätte auf der A3: Gefahr für Grenzgänger',
+    'blog.article.area-sosta-fantasma-sicurezza-autostrada.excerpt': 'Verlassenes Gebäude auf der Autobahn zwischen Chur und Zürich gefährdet die Verkehrssicherheit. Der Bund bietet 800\'000 CHF, doch der Eigentümer verlangt 1,3 Millionen.',
+    'blog.article.area-sosta-fantasma-sicurezza-autostrada.imageAlt': 'Verlassene Raststätte an der Autobahn A3 in der Nähe des Walensees',
 };
 
 export default blogMetaDe;

@@ -5303,6 +5303,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.campagna-iraniana-allarma-svizzera.title': '«Sacrifiez votre vie»: la campagne iranienne inquiète la Suisse',
     'blog.article.campagna-iraniana-allarma-svizzera.excerpt': 'L\'ambassade iranienne à Berne diffuse un appel invitant les citoyens iraniens à se sacrifier pour la patrie, suscitant des inquiétudes en Suisse.',
     'blog.article.campagna-iraniana-allarma-svizzera.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan',
+    'blog.article.area-sosta-fantasma-sicurezza-autostrada.title': 'Zone de repos fantôme sur l\'A3: danger pour les frontaliers',
+    'blog.article.area-sosta-fantasma-sicurezza-autostrada.excerpt': 'Bâtiment abandonné sur l\'autoroute entre Coire et Zurich met en danger la sécurité du trafic. La Confédération offre 800\'000 CHF, mais le propriétaire en demande 1,3 million.',
+    'blog.article.area-sosta-fantasma-sicurezza-autostrada.imageAlt': 'Aire de repos abandonnée sur l\'autoroute A3 près du lac de Walen',
 };
 
 export default blogMetaFr;
