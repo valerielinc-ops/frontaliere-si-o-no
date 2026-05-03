@@ -5276,6 +5276,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agricoltura-ticino-allarme-2024.title': 'Agricoltura in crisi: il grido d\'allarme degli agricoltori ticinesi',
     'blog.article.agricoltura-ticino-allarme-2024.excerpt': 'Cambiamenti climatici, lupi e costi crescenti mettono in ginocchio il settore agricolo ticinese. Ecco cosa sta succedendo',
     'blog.article.agricoltura-ticino-allarme-2024.imageAlt': 'Paesaggio agricolo in Ticino con contadini al lavoro e le Alpi sullo sfondo',
+    'blog.article.seco-dazi-segreti-washington.title': 'SECO blocca accesso atti trattative con Washington',
+    'blog.article.seco-dazi-segreti-washington.excerpt': 'La SECO mantiene segreti i documenti sulle trattative con gli USA sui dazi, rischiando una causa in tribunale.',
+    'blog.article.seco-dazi-segreti-washington.imageAlt': 'Vista del Lago di Lugano con il panorama cittadino sullo sfondo',
 };
 
 export default blogMetaIt;

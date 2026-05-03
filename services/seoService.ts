@@ -2989,6 +2989,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-landsgemeinde-glarona-2026': { name: 'Landsgemeinde Glarona', path: '/articoli-frontaliere/landsgemeinde-glarona-2026', parent: 'blog' },
     'blog-aeroporto-lugano-costi-interpellanza': { name: 'Interpellanza Municipio', path: '/articoli-frontaliere/aeroporto-lugano-costi-interpellanza', parent: 'blog' },
     'blog-agricoltura-ticino-allarme-2024': { name: 'Novità', path: '/articoli-frontaliere/agricoltura-ticino-allarme-2024', parent: 'blog' },
+    'blog-seco-dazi-segreti-washington': { name: 'Novità', path: '/articoli-frontaliere/seco-dazi-segreti-washington', parent: 'blog' },
  };
 
  const info = sectionNames[section];

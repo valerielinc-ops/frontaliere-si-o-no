@@ -17192,4 +17192,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'seco-dazi-segreti-washington',
+ category: 'novita',
+ date: '2026-05-03T10:19:42.261Z',
+ image: '/images/blog/seco-dazi-segreti-washington.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

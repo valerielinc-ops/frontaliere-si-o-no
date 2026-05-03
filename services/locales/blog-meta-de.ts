@@ -5275,6 +5275,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agricoltura-ticino-allarme-2024.title': 'Landwirtschaft in der Krise: Ticino-Bauern schlagen Alarm',
     'blog.article.agricoltura-ticino-allarme-2024.excerpt': 'Klimawandel, Wölfe und steigende Kosten setzen der Landwirtschaft im Tessin zu. Hier ist, was passiert',
     'blog.article.agricoltura-ticino-allarme-2024.imageAlt': 'Landwirtschaftliche Landschaft in Ticino mit Bauern, die auf einem Feld arbeiten und den Alpen im Hintergrund',
+    'blog.article.seco-dazi-segreti-washington.title': 'SECO blockiert Zugang zu Verhandlungsdokumenten mit Washington',
+    'blog.article.seco-dazi-segreti-washington.excerpt': 'Die SECO hält die Dokumente zu den Verhandlungen mit den USA über Zölle geheim und riskiert eine Klage vor Gericht.',
+    'blog.article.seco-dazi-segreti-washington.imageAlt': 'Blick auf den Luganersee mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -5276,6 +5276,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.agricoltura-ticino-allarme-2024.title': 'Agriculture en crise: l\'alerte des agriculteurs tessinois',
     'blog.article.agricoltura-ticino-allarme-2024.excerpt': 'Changements climatiques, loups et coûts croissants mettent à genoux le secteur agricole tessinois. Voici ce qui se passe',
     'blog.article.agricoltura-ticino-allarme-2024.imageAlt': 'Paysage agricole dans le Tessin avec des agriculteurs travaillant dans un champ et les Alpes en arrière-plan',
+    'blog.article.seco-dazi-segreti-washington.title': 'La SECO bloque l\'accès aux documents des négociations avec Washington',
+    'blog.article.seco-dazi-segreti-washington.excerpt': 'La SECO maintient secrets les documents sur les négociations avec les USA sur les droits de douane, risquant un procès en justice.',
+    'blog.article.seco-dazi-segreti-washington.imageAlt': 'Vue du lac de Lugano avec le paysage urbain en arrière-plan',
 };
 
 export default blogMetaFr;

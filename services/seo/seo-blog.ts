@@ -37991,6 +37991,40 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-seco-dazi-segreti-washington': {
+    title: 'SECO blocca accesso atti trattative con Washington',
+    description: 'La SECO mantiene segreti i documenti sulle trattative con gli USA sui dazi, rischiando una causa in tribunale. Scopri le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, seco, blocca, accesso, atti',
+    ogTitle: 'SECO blocca accesso atti trattative con Washington',
+    ogDescription: 'La SECO mantiene segreti i documenti sulle trattative con gli USA sui dazi, rischiando una causa in tribunale. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/seco-dazi-segreti-washington',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SECO blocca accesso atti trattative con Washington",
+      "description": "La SECO mantiene segreti i documenti sulle trattative con gli USA sui dazi, rischiando una causa in tribunale. Scopri le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/seco-dazi-segreti-washington.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con il panorama cittadino sullo sfondo"
+      },
+      "datePublished": "2026-05-03T10:19:42+00:00",
+      "dateModified": "2026-05-03T10:19:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/seco-dazi-segreti-washington`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
