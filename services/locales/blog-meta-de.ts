@@ -5426,6 +5426,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tragedia-lago-como-frontalieri.title': 'Tragödie am Comer See: 15-Jähriger stirbt',
     'blog.article.tragedia-lago-como-frontalieri.excerpt': 'Ein 15-jähriger Junge verliert sein Leben im Comer See. Die Freunde alarmieren die Rettungskräfte, die ihn jedoch nicht mehr retten können.',
     'blog.article.tragedia-lago-como-frontalieri.imageAlt': 'Notfall am Comer See mit Rettungsteams',
+    'blog.article.incidente-autolaghi-donna-ferita.title': 'Unfall auf der Autolaghi: 77-Jährige verletzt',
+    'blog.article.incidente-autolaghi-donna-ferita.excerpt': 'Eine 77-Jährige verlor die Kontrolle über ihr Auto und touchierte die Leitplanke. Sie wurde ins Krankenhaus gebracht, aber nicht in lebensbedrohlichem Zustand.',
+    'blog.article.incidente-autolaghi-donna-ferita.imageAlt': 'Nachtunfall auf der A8 zwischen Gazzada und Azzate/Buguggiate',
 };
 
 export default blogMetaDe;

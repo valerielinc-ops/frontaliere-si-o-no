@@ -11219,6 +11219,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-autolaghi-donna-ferita': {
+    title: 'Incidente sull\'Autolaghi: donna ferita in codice giallo',
+    description: 'Una 77enne ha perso il controllo dell\'auto e ha urtato il guardrail. Trasportata in ospedale, non in gravi condizioni. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, sull, autolaghi, donna',
+    ogTitle: 'Incidente Autolaghi: donna ferita in codice giallo',
+    ogDescription: 'Una 77enne ha perso il controllo dell\'auto e ha urtato il guardrail. Trasportata in ospedale, non in gravi condizioni.',
+    canonicalPath: '/articoli-frontaliere/incidente-autolaghi-donna-ferita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente sull'Autolaghi: donna ferita in codice giallo",
+      "description": "Una 77enne ha perso il controllo dell'auto e ha urtato il guardrail. Trasportata in ospedale, non in gravi condizioni. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-autolaghi-donna-ferita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente notturno sull'Autolaghi tra Gazzada e Azzate/Buguggiate"
+      },
+      "datePublished": "2026-05-03T21:56:02+00:00",
+      "dateModified": "2026-05-03T21:56:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-autolaghi-donna-ferita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

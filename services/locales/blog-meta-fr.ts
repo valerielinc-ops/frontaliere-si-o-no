@@ -5427,6 +5427,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tragedia-lago-como-frontalieri.title': 'Tragédie au lac de Côme : un adolescent de 15 ans meurt',
     'blog.article.tragedia-lago-como-frontalieri.excerpt': 'Un jeune homme de 15 ans perd la vie dans le lac de Côme. Ses amis donnent l\'alerte, mais les secours ne parviennent pas à le sauver.',
     'blog.article.tragedia-lago-como-frontalieri.imageAlt': 'Urgence au lac de Côme avec les équipes de secours',
+    'blog.article.incidente-autolaghi-donna-ferita.title': 'Accident sur l\'Autolaghi: une femme blessée en code jaune',
+    'blog.article.incidente-autolaghi-donna-ferita.excerpt': 'Une septuagénaire a perdu le contrôle de sa voiture et a heurté la glissière de sécurité. Transportée à l\'hôpital, elle n\'est pas dans un état grave.',
+    'blog.article.incidente-autolaghi-donna-ferita.imageAlt': 'Accident nocturne sur l\'A8 entre Gazzada et Azzate/Buguggiate',
 };
 
 export default blogMetaFr;

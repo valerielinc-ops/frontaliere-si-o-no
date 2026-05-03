@@ -5426,6 +5426,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tragedia-lago-como-frontalieri.title': 'Tragedy at Lake Como: 15-year-old boy dies',
     'blog.article.tragedia-lago-como-frontalieri.excerpt': 'A 15-year-old boy loses his life in Lake Como. His friends raise the alarm, but rescuers fail to save him.',
     'blog.article.tragedia-lago-como-frontalieri.imageAlt': 'Emergency at Lake Como with rescue teams',
+    'blog.article.incidente-autolaghi-donna-ferita.title': 'Accident on Autolaghi: woman injured in yellow code',
+    'blog.article.incidente-autolaghi-donna-ferita.excerpt': 'A 77-year-old lost control of her car and hit the guardrail. Taken to hospital, she is not in serious condition.',
+    'blog.article.incidente-autolaghi-donna-ferita.imageAlt': 'Nighttime accident on the A8 between Gazzada and Azzate/Buguggiate',
 };
 
 export default blogMetaEn;

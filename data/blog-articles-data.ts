@@ -17651,4 +17651,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-autolaghi-donna-ferita',
+ category: 'novita',
+ date: '2026-05-03T21:56:02.086Z',
+ image: '/images/blog/incidente-autolaghi-donna-ferita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

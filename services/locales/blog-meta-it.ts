@@ -5427,6 +5427,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tragedia-lago-como-frontalieri.title': 'Tragedia al lago di Como: morto un 15enne',
     'blog.article.tragedia-lago-como-frontalieri.excerpt': 'Un giovane di 15 anni perde la vita nel lago di Como. Gli amici danno l\'allarme, ma i soccorsi non riescono a salvarlo.',
     'blog.article.tragedia-lago-como-frontalieri.imageAlt': 'Emergenza al lago di Como con i soccorsi',
+    'blog.article.incidente-autolaghi-donna-ferita.title': 'Incidente sull\'Autolaghi: donna ferita in codice giallo',
+    'blog.article.incidente-autolaghi-donna-ferita.excerpt': 'Una 77enne ha perso il controllo dell\'auto e ha urtato il guardrail. Trasportata in ospedale, non in gravi condizioni.',
+    'blog.article.incidente-autolaghi-donna-ferita.imageAlt': 'Incidente notturno sull\'Autolaghi tra Gazzada e Azzate/Buguggiate',
 };
 
 export default blogMetaIt;
