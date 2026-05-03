@@ -3044,6 +3044,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crans-montana-fondi-avvocati-vittime': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-fondi-avvocati-vittime', parent: 'blog' },
     'blog-disordini-pensilina-botta-lugano-2026': { name: 'Disordini Lugano', path: '/articoli-frontaliere/disordini-pensilina-botta-lugano-2026', parent: 'blog' },
     'blog-scontri-pensilina-lugano-violenza': { name: 'Scontri Lugano', path: '/articoli-frontaliere/scontri-pensilina-lugano-violenza', parent: 'blog' },
+    'blog-neutalia-bilancio-2025-crescita-ricavi': { name: 'Novità', path: '/articoli-frontaliere/neutalia-bilancio-2025-crescita-ricavi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

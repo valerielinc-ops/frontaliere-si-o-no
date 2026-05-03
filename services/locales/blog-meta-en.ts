@@ -5405,6 +5405,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scontri-pensilina-lugano-violenza.title': 'Clashes in Lugano bus stop: injuries and rising tensions',
     'blog.article.scontri-pensilina-lugano-violenza.excerpt': 'Lugano municipality comments on the May 1st clashes that left two people injured. The situation remains critical.',
     'blog.article.scontri-pensilina-lugano-violenza.imageAlt': 'Lugano train station platform with people waiting',
+    'blog.article.neutalia-bilancio-2025-crescita-ricavi.title': 'Neutalia: 2025 results exceed expectations, revenue and profit up',
+    'blog.article.neutalia-bilancio-2025-crescita-ricavi.excerpt': 'Neutalia closes 2025 with a turnover of 22.5 million euros and a net profit of 3.17 million, with 12.2 million invested in the plant\'s revamping.',
+    'blog.article.neutalia-bilancio-2025-crescita-ricavi.imageAlt': 'Neutalia waste-to-energy plant in Busto Arsizio',
 };
 
 export default blogMetaEn;

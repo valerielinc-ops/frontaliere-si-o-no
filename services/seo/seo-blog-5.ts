@@ -10981,6 +10981,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neutalia-bilancio-2025-crescita-ricavi': {
+    title: 'Neutalia: bilancio 2025 supera le attese, ricavi e utile in crescita',
+    description: 'Neutalia chiude il 2025 con un fatturato di 22,5 milioni di euro e un utile netto di 3,17 milioni, con investimenti per 12,2 milioni nel revamping d',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutalia, bilancio, 2025, supera',
+    ogTitle: 'Neutalia: bilancio 2025 supera le attese, ricavi e utile in crescita',
+    ogDescription: 'Neutalia chiude il 2025 con un fatturato di 22,5 milioni di euro e un utile netto di 3,17 milioni, con investimenti per 12,2 milioni nel revamping d',
+    canonicalPath: '/articoli-frontaliere/neutalia-bilancio-2025-crescita-ricavi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutalia: bilancio 2025 supera le attese, ricavi e utile in crescita",
+      "description": "Neutalia chiude il 2025 con un fatturato di 22,5 milioni di euro e un utile netto di 3,17 milioni, con investimenti per 12,2 milioni nel revamping d",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/neutalia-bilancio-2025-crescita-ricavi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto di termovalorizzazione Neutalia a Busto Arsizio"
+      },
+      "datePublished": "2026-05-03T20:40:39+00:00",
+      "dateModified": "2026-05-03T20:40:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/neutalia-bilancio-2025-crescita-ricavi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

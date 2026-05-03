@@ -17588,4 +17588,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'neutalia-bilancio-2025-crescita-ricavi',
+ category: 'novita',
+ date: '2026-05-03T20:40:39.845Z',
+ image: '/images/blog/neutalia-bilancio-2025-crescita-ricavi.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

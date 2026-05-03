@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1854,
+ "numberOfItems": 1855,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6492,7 +6492,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1851, "name": "Pulizia del Lago Lemano: 2,5 tonnellate di rifi...", "url": `${BASE_URL}/articoli-frontaliere/pulizia-lago-lemano-2026` },
           { "@type": "ListItem", "position": 1852, "name": "Crans-Montana, verso il taglio dei fondi per gl...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-fondi-avvocati-vittime` },
           { "@type": "ListItem", "position": 1853, "name": "Disordini alla pensilina Botta a Lugano: pista ...", "url": `${BASE_URL}/articoli-frontaliere/disordini-pensilina-botta-lugano-2026` },
-          { "@type": "ListItem", "position": 1854, "name": "Scontri in pensilina a Lugano: feriti e tension...", "url": `${BASE_URL}/articoli-frontaliere/scontri-pensilina-lugano-violenza` }
+          { "@type": "ListItem", "position": 1854, "name": "Scontri in pensilina a Lugano: feriti e tension...", "url": `${BASE_URL}/articoli-frontaliere/scontri-pensilina-lugano-violenza` },
+          { "@type": "ListItem", "position": 1855, "name": "Neutalia: bilancio 2025 supera le attese, ricav...", "url": `${BASE_URL}/articoli-frontaliere/neutalia-bilancio-2025-crescita-ricavi` }
  ]
  },
  {

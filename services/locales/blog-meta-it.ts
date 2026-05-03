@@ -5406,6 +5406,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scontri-pensilina-lugano-violenza.title': 'Scontri in pensilina a Lugano: feriti e tensioni crescenti',
     'blog.article.scontri-pensilina-lugano-violenza.excerpt': 'La municipale di Lugano commenta gli scontri del 1° maggio che hanno portato al ferimento di due persone. La situazione resta critica.',
     'blog.article.scontri-pensilina-lugano-violenza.imageAlt': 'Pensilina della stazione di Lugano con persone in attesa',
+    'blog.article.neutalia-bilancio-2025-crescita-ricavi.title': 'Neutalia: bilancio 2025 supera le attese, ricavi e utile in crescita',
+    'blog.article.neutalia-bilancio-2025-crescita-ricavi.excerpt': 'Neutalia chiude il 2025 con un fatturato di 22,5 milioni di euro e un utile netto di 3,17 milioni, con investimenti per 12,2 milioni nel revamping dell\'impianto.',
+    'blog.article.neutalia-bilancio-2025-crescita-ricavi.imageAlt': 'Impianto di termovalorizzazione Neutalia a Busto Arsizio',
 };
 
 export default blogMetaIt;

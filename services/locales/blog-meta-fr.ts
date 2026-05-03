@@ -5406,6 +5406,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scontri-pensilina-lugano-violenza.title': 'Affrontements à Lugano: blessés et tensions croissantes',
     'blog.article.scontri-pensilina-lugano-violenza.excerpt': 'La municipalité de Lugano commente les affrontements du 1er mai qui ont fait deux blessés. La situation reste critique.',
     'blog.article.scontri-pensilina-lugano-violenza.imageAlt': 'Quai de la gare de Lugano avec des personnes en attente',
+    'blog.article.neutalia-bilancio-2025-crescita-ricavi.title': 'Neutalia: bilan 2025 dépasse les attentes',
+    'blog.article.neutalia-bilancio-2025-crescita-ricavi.excerpt': 'Neutalia clôture l\'année 2025 avec un chiffre d\'affaires de 22,5 millions d\'euros et un bénéfice net de 3,17 millions, avec des investissements de 12,2 millions dans la modernisation de l\'usine.',
+    'blog.article.neutalia-bilancio-2025-crescita-ricavi.imageAlt': 'Usine d\'incinération des déchets Neutalia à Busto Arsizio',
 };
 
 export default blogMetaFr;
