@@ -5309,6 +5309,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-prezzi-carburanti-maggio-2026.title': 'Caro carburanti: benzina a 1,9 euro al litro',
     'blog.article.aumento-prezzi-carburanti-maggio-2026.excerpt': 'Prezzi benzina e diesel in aumento, self service sfiora 1,9 euro al litro. Analisi su impatto frontalieri Ticino.',
     'blog.article.aumento-prezzi-carburanti-maggio-2026.imageAlt': 'Vista aerea del Lago di Lugano con il panorama cittadino sullo sfondo',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.title': 'Incendio a Bellinzona: evacuato lo stabile in via Borromini',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.excerpt': 'Domenica mattina un incendio è divampato in un appartamento al pian terreno di via Borromini a Bellinzona, causando l\'evacuazione di una decina di persone.',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.imageAlt': 'Incendio in un appartamento a Bellinzona, con pompieri al lavoro e abitanti evacuati',
 };
 
 export default blogMetaIt;

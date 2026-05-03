@@ -5308,6 +5308,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-prezzi-carburanti-maggio-2026.title': 'Fuel prices rise: petrol nears 1.9 euros per litre',
     'blog.article.aumento-prezzi-carburanti-maggio-2026.excerpt': 'Petrol and diesel prices increasing, self-service close to 1.9 euros per litre. Analysis on impact for Ticino cross-border workers.',
     'blog.article.aumento-prezzi-carburanti-maggio-2026.imageAlt': 'Aerial view of Lake Lugano with the cityscape in the background',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.title': 'Fire in Bellinzona: building evacuated on Borromini Street',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.excerpt': 'On Sunday morning, a fire broke out in a ground-floor apartment on Borromini Street in Bellinzona, leading to the evacuation of about ten people.',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.imageAlt': 'Fire in an apartment in Bellinzona, with firefighters at work and residents evacuated',
 };
 
 export default blogMetaEn;

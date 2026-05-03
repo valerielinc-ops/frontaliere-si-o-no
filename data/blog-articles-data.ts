@@ -17291,4 +17291,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incendio-bellinzona-appartamento-evacuato',
+ category: 'novita',
+ date: '2026-05-03T13:04:00.420Z',
+ image: '/images/blog/incendio-bellinzona-appartamento-evacuato.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

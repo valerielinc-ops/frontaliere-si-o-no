@@ -5309,6 +5309,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-prezzi-carburanti-maggio-2026.title': 'Carburant cher: essence à 1,9 euro le litre',
     'blog.article.aumento-prezzi-carburanti-maggio-2026.excerpt': 'Prix de l\'essence et du diesel en hausse, le self-service atteint presque 1,9 euro le litre. Analyse sur l\'impact des travailleurs frontaliers du Tessin.',
     'blog.article.aumento-prezzi-carburanti-maggio-2026.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage urbain en arrière-plan',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.title': 'Incendie à Bellinzone: évacuation d\'un immeuble',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.excerpt': 'Dimanche matin, un incendie s\'est déclaré dans un appartement au rez-de-chaussée de la rue Borromini à Bellinzone, entraînant l\'évacuation d\'une dizaine de personnes.',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.imageAlt': 'Incendie dans un appartement à Bellinzone, avec les pompiers en action et les résidents évacués',
 };
 
 export default blogMetaFr;

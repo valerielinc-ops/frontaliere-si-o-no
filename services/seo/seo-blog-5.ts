@@ -9791,6 +9791,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-bellinzona-appartamento-evacuato': {
+    title: 'Incendio a Bellinzona: evacuato lo stabile in via Borromini',
+    description: 'Domenica mattina un incendio è divampato in un appartamento al pian terreno di via Borromini a Bellinzona, causando l\'evacuazione di una decina di persone.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, bellinzona, evacuato, stabile',
+    ogTitle: 'Incendio a Bellinzona: evacuato lo stabile in via Borromini',
+    ogDescription: 'Domenica mattina un incendio è divampato in un appartamento al pian terreno di via Borromini a Bellinzona, causando l\'evacuazione di una decina di persone.',
+    canonicalPath: '/articoli-frontaliere/incendio-bellinzona-appartamento-evacuato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio a Bellinzona: evacuato lo stabile in via Borromini",
+      "description": "Domenica mattina un incendio è divampato in un appartamento al pian terreno di via Borromini a Bellinzona, causando l'evacuazione di una decina di persone.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendio-bellinzona-appartamento-evacuato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incendio in un appartamento a Bellinzona, con pompieri al lavoro e abitanti evacuati"
+      },
+      "datePublished": "2026-05-03T13:04:00+00:00",
+      "dateModified": "2026-05-03T13:04:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-bellinzona-appartamento-evacuato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

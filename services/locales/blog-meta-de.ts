@@ -5308,6 +5308,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-prezzi-carburanti-maggio-2026.title': 'Benzinpreise steigen: Fast 1,9 Franken pro Liter',
     'blog.article.aumento-prezzi-carburanti-maggio-2026.excerpt': 'Benzin- und Dieselpreise steigen, Selbstbedienung erreicht fast 1,9 Franken pro Liter. Analyse der Auswirkungen auf Grenzgänger im Tessin.',
     'blog.article.aumento-prezzi-carburanti-maggio-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit der Stadt im Hintergrund',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.title': 'Brand in Bellinzona: Gebäude in der Borromini-Straße evakuiert',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.excerpt': 'Am Sonntagmorgen brach in einer Wohnung im Erdgeschoss der Borromini-Straße in Bellinzona ein Feuer aus, wodurch etwa zehn Personen evakuiert werden mussten.',
+    'blog.article.incendio-bellinzona-appartamento-evacuato.imageAlt': 'Brand in einer Wohnung in Bellinzona, mit Feuerwehr im Einsatz und evakuierten Bewohnern',
 };
 
 export default blogMetaDe;
