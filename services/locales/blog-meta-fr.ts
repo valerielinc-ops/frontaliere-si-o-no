@@ -5288,6 +5288,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.laghi-lombardi-sicurezza-estate-2026.title': 'Lacs lombards : tragique début d\'été',
     'blog.article.laghi-lombardi-sicurezza-estate-2026.excerpt': 'Un mort dans le Comasco et un jeune dans un état gravissime à Desenzano relancent l\'alerte sécurité sur les lacs lombards.',
     'blog.article.laghi-lombardi-sicurezza-estate-2026.imageAlt': 'Lac de Lugano avec montagnes et voiliers',
+    'blog.article.riforma-commissioni-federali-2026.title': 'Réforme des commissions fédérales: ce qui change pour les frontaliers',
+    'blog.article.riforma-commissioni-federali-2026.excerpt': 'Le Conseil fédéral suisse a approuvé une réforme qui réduit le nombre de commissions extraparlementaires et limite les contacts avec le Parlement.',
+    'blog.article.riforma-commissioni-federali-2026.imageAlt': 'Castelgrande à Bellinzone, Tessin, Suisse',
 };
 
 export default blogMetaFr;

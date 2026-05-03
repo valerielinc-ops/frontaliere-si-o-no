@@ -5288,6 +5288,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.laghi-lombardi-sicurezza-estate-2026.title': 'Laghi lombardi, inizio estate tragico: “Non è il mare, serve più consapevolezza”',
     'blog.article.laghi-lombardi-sicurezza-estate-2026.excerpt': 'Un morto nel Comasco e un giovane in condizioni gravissime a Desenzano riaccendono l’allarme sicurezza sui laghi lombardi.',
     'blog.article.laghi-lombardi-sicurezza-estate-2026.imageAlt': 'Lago di Lugano con montagne e barche a vela',
+    'blog.article.riforma-commissioni-federali-2026.title': 'Riforma commissioni federali: cosa cambia per i frontalieri',
+    'blog.article.riforma-commissioni-federali-2026.excerpt': 'Il Consiglio federale svizzero ha approvato una riforma che riduce il numero di commissioni extraparlamentari e limita i contatti con il Parlamento.',
+    'blog.article.riforma-commissioni-federali-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

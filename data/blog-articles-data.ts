@@ -17228,4 +17228,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'riforma-commissioni-federali-2026',
+ category: 'novita',
+ date: '2026-05-03T11:48:54.958Z',
+ image: '/images/blog/riforma-commissioni-federali-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

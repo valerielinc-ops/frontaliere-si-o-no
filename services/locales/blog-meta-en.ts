@@ -5287,6 +5287,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.laghi-lombardi-sicurezza-estate-2026.title': 'Lombard lakes, tragic start to summer: \'Not the sea, more awareness needed\'',
     'blog.article.laghi-lombardi-sicurezza-estate-2026.excerpt': 'A death in Como and a young man in critical condition in Desenzano reignite the safety alarm on Lombard lakes.',
     'blog.article.laghi-lombardi-sicurezza-estate-2026.imageAlt': 'Lake Lugano with mountains and sailboats',
+    'blog.article.riforma-commissioni-federali-2026.title': 'Federal commission reform: changes for cross-border workers',
+    'blog.article.riforma-commissioni-federali-2026.excerpt': 'The Swiss Federal Council has approved a reform that reduces the number of extra-parliamentary commissions and limits contacts with Parliament.',
+    'blog.article.riforma-commissioni-federali-2026.imageAlt': 'Castelgrande in Bellinzona, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

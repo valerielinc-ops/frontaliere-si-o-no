@@ -5287,6 +5287,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.laghi-lombardi-sicurezza-estate-2026.title': 'Tragischer Sommerbeginn an den lombardischen Seen: Mehr Bewusstsein nötig',
     'blog.article.laghi-lombardi-sicurezza-estate-2026.excerpt': 'Ein Toter im Comer See und ein junger Mann in lebensgefährlichem Zustand in Desenzano lösen erneut die Sicherheitswarnung an den lombardischen Seen aus.',
     'blog.article.laghi-lombardi-sicurezza-estate-2026.imageAlt': 'Luganersee mit Bergen und Segelbooten',
+    'blog.article.riforma-commissioni-federali-2026.title': 'Reform der Bundeskommissionen: Was ändert sich für Grenzgänger?',
+    'blog.article.riforma-commissioni-federali-2026.excerpt': 'Der Schweizer Bundesrat hat eine Reform beschlossen, die die Anzahl der aussparlamentarischen Kommissionen reduziert und die Kontakte mit dem Parlament einschränkt.',
+    'blog.article.riforma-commissioni-federali-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin, Schweiz',
 };
 
 export default blogMetaDe;
