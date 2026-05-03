@@ -5264,6 +5264,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parcheggio-abusivo-como-villa-olmo.title': 'Como, stationnement illégal dans le parc de Villa Olmo',
     'blog.article.parcheggio-abusivo-como-villa-olmo.excerpt': 'Plusieurs voitures, dont une tessinoise, garées illégalement dans le parc de Villa Olmo et sur les trottoirs de Côme.',
     'blog.article.parcheggio-abusivo-como-villa-olmo.imageAlt': 'Villa Olmo à Côme avec des voitures garées illégalement dans le parc et sur le trottoir',
+    'blog.article.svizzera-caccia-evasori-fiscali-2026.title': 'La Suisse élargit la chasse aux fraudeurs fiscaux : 110 pays concernés',
+    'blog.article.svizzera-caccia-evasori-fiscali-2026.excerpt': 'Les autorités helvétiques surveillent aussi les Suisses en Thaïlande. Près de 7\'000 demandes d\'assistance de l\'étranger en 2025.',
+    'blog.article.svizzera-caccia-evasori-fiscali-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des bâtiments modernes et des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -5264,6 +5264,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parcheggio-abusivo-como-villa-olmo.title': 'Como, parcheggio abusivo nel parco di Villa Olmo',
     'blog.article.parcheggio-abusivo-como-villa-olmo.excerpt': 'Numerose auto, tra cui una ticinese, parcheggiate illegalmente nel parco di Villa Olmo e sui marciapiedi di Como.',
     'blog.article.parcheggio-abusivo-como-villa-olmo.imageAlt': 'Villa Olmo a Como con auto parcheggiate illegalmente nel parco e sul marciapiede',
+    'blog.article.svizzera-caccia-evasori-fiscali-2026.title': 'Svizzera amplia la caccia agli evasori fiscali: coinvolti 110 Paesi',
+    'blog.article.svizzera-caccia-evasori-fiscali-2026.excerpt': 'Le autorità elvetiche monitorano anche gli svizzeri in Thailandia. Quasi 7mila richieste di assistenza dall\'estero nel 2025.',
+    'blog.article.svizzera-caccia-evasori-fiscali-2026.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

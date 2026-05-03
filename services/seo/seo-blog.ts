@@ -37855,6 +37855,40 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-caccia-evasori-fiscali-2026': {
+    title: 'Svizzera amplia la caccia agli evasori fiscali: coinvolti 110 Paesi',
+    description: 'Le autorità elvetiche monitorano anche gli svizzeri in Thailandia. Quasi 7mila richieste di assistenza dall\'estero nel 2025. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, amplia, caccia, agli, evasori',
+    ogTitle: 'Svizzera amplia la caccia agli evasori fiscali: coinvolti 110 Paesi',
+    ogDescription: 'Le autorità elvetiche monitorano anche gli svizzeri in Thailandia. Quasi 7mila richieste di assistenza dall\'estero nel 2025.',
+    canonicalPath: '/articoli-frontaliere/svizzera-caccia-evasori-fiscali-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera amplia la caccia agli evasori fiscali: coinvolti 110 Paesi",
+      "description": "Le autorità elvetiche monitorano anche gli svizzeri in Thailandia. Quasi 7mila richieste di assistenza dall'estero nel 2025. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-caccia-evasori-fiscali-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con edifici moderni e montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-03T08:26:20+00:00",
+      "dateModified": "2026-05-03T08:26:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-caccia-evasori-fiscali-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

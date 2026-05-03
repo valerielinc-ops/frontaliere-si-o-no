@@ -17156,4 +17156,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-caccia-evasori-fiscali-2026',
+ category: 'fiscale',
+ date: '2026-05-03T08:26:20.420Z',
+ image: '/images/blog/svizzera-caccia-evasori-fiscali-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
