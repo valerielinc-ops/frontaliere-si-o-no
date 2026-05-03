@@ -5296,6 +5296,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-langnau-due-case-garage.title': 'Brand in Langnau: zwei Häuser und eine Garage zerstört',
     'blog.article.incendio-langnau-due-case-garage.excerpt': 'Ein Brand hat zwei Häuser und eine Garage in Bärau, Gemeinde Langnau (BE), zerstört. Keine Verletzten, aber große Rettungsaktion.',
     'blog.article.incendio-langnau-due-case-garage.imageAlt': 'Ein Feuer zerstört zwei Häuser und eine Garage in Langnau, Schweiz',
+    'blog.article.domenica-corriere-piccaluga-lavoro-salari-economia.title': 'Von der Route von Piccaluga zu Arbeit, Löhnen und Wirtschaft',
+    'blog.article.domenica-corriere-piccaluga-lavoro-salari-economia.excerpt': 'Interview mit Daniele Piccaluga und Diskussion über Arbeit, Löhne und Wirtschaft mit Cristina Maderni und Giangiorgio Gargantini',
+    'blog.article.domenica-corriere-piccaluga-lavoro-salari-economia.imageAlt': 'Panoramablick auf den Luganersee mit Stadtansicht',
 };
 
 export default blogMetaDe;

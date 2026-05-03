@@ -17255,4 +17255,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'domenica-corriere-piccaluga-lavoro-salari-economia',
+ category: 'novita',
+ date: '2026-05-03T12:19:13.667Z',
+ image: '/images/blog/domenica-corriere-piccaluga-lavoro-salari-economia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

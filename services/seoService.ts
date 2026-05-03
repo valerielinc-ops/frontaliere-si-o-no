@@ -3007,6 +3007,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-riforma-commissioni-federali-2026': { name: 'Riforma commissioni', path: '/articoli-frontaliere/riforma-commissioni-federali-2026', parent: 'blog' },
     'blog-piogge-intense-ceresio-2026': { name: 'Novità', path: '/articoli-frontaliere/piogge-intense-ceresio-2026', parent: 'blog' },
     'blog-incendio-langnau-due-case-garage': { name: 'Incendio Langnau', path: '/articoli-frontaliere/incendio-langnau-due-case-garage', parent: 'blog' },
+    'blog-domenica-corriere-piccaluga-lavoro-salari-economia': { name: 'Novità', path: '/articoli-frontaliere/domenica-corriere-piccaluga-lavoro-salari-economia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

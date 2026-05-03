@@ -9655,6 +9655,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-domenica-corriere-piccaluga-lavoro-salari-economia': {
+    title: 'Dalla rotta di Piccaluga a lavoro, salari ed economia',
+    description: 'Intervista a Daniele Piccaluga e dibattito su lavoro, salari ed economia con Cristina Maderni e Giangiorgio Gargantini. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, dalla, rotta, piccaluga, lavoro',
+    ogTitle: 'Dalla rotta di Piccaluga a lavoro, salari ed economia',
+    ogDescription: 'Intervista a Daniele Piccaluga e dibattito su lavoro, salari ed economia con Cristina Maderni e Giangiorgio Gargantini',
+    canonicalPath: '/articoli-frontaliere/domenica-corriere-piccaluga-lavoro-salari-economia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dalla rotta di Piccaluga a lavoro, salari ed economia",
+      "description": "Intervista a Daniele Piccaluga e dibattito su lavoro, salari ed economia con Cristina Maderni e Giangiorgio Gargantini. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/domenica-corriere-piccaluga-lavoro-salari-economia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Lago di Lugano con vista sulla città"
+      },
+      "datePublished": "2026-05-03T12:19:13+00:00",
+      "dateModified": "2026-05-03T12:19:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/domenica-corriere-piccaluga-lavoro-salari-economia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
