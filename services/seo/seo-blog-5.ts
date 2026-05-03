@@ -11321,6 +11321,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-caduta-canale-frontaliere': {
+    title: 'Varese, si perde in zona boschiva e cade in un canale: ferita e recuperata',
+    description: 'Una persona si è persa in una zona boschiva vicino a Varese ed è caduta in un canale, rimanendo ferita. È stata recuperata dai soccorritori. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, perde, zona, boschiva',
+    ogTitle: 'Varese, si perde in zona boschiva e cade in un canale: ferita e recuperata',
+    ogDescription: 'Una persona si è persa in una zona boschiva vicino a Varese ed è caduta in un canale, rimanendo ferita. È stata recuperata dai soccorritori.',
+    canonicalPath: '/articoli-frontaliere/varese-caduta-canale-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, si perde in zona boschiva e cade in un canale: ferita e recuperata",
+      "description": "Una persona si è persa in una zona boschiva vicino a Varese ed è caduta in un canale, rimanendo ferita. È stata recuperata dai soccorritori. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-caduta-canale-frontaliere.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona ferita recuperata da un canale in una zona boschiva vicino a Varese"
+      },
+      "datePublished": "2026-05-03T22:33:55+00:00",
+      "dateModified": "2026-05-03T22:33:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-caduta-canale-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

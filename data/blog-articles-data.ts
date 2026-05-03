@@ -17678,4 +17678,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-caduta-canale-frontaliere',
+ category: 'novita',
+ date: '2026-05-03T22:33:55.113Z',
+ image: '/images/blog/varese-caduta-canale-frontaliere.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

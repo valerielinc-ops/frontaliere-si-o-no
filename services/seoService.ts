@@ -3054,6 +3054,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-autolaghi-donna-ferita': { name: 'Incidente Autolaghi', path: '/articoli-frontaliere/incidente-autolaghi-donna-ferita', parent: 'blog' },
     'blog-incidente-a9-turate-feriti-frontalieri': { name: 'Incidente A9 Turate', path: '/articoli-frontaliere/incidente-a9-turate-feriti-frontalieri', parent: 'blog' },
     'blog-varese-trento-playoff-basket-2026': { name: 'Basket playoff', path: '/articoli-frontaliere/varese-trento-playoff-basket-2026', parent: 'blog' },
+    'blog-varese-caduta-canale-frontaliere': { name: 'Novità', path: '/articoli-frontaliere/varese-caduta-canale-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];

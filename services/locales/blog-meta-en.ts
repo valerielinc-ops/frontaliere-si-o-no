@@ -5435,6 +5435,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-trento-playoff-basket-2026.title': 'Varese-Trento playoff: battle for eighth place',
     'blog.article.varese-trento-playoff-basket-2026.excerpt': 'Varese and Trento are competing for a playoff spot. Here\'s what\'s happening and the implications for fans',
     'blog.article.varese-trento-playoff-basket-2026.imageAlt': 'Basket game in Ticino with professional players in action and cheering crowd',
+    'blog.article.varese-caduta-canale-frontaliere.title': 'Lost in woodland, injured and rescued near Varese',
+    'blog.article.varese-caduta-canale-frontaliere.excerpt': 'Someone got lost in a wooded area near Varese and fell into a canal, injuring themselves. They were rescued by emergency services.',
+    'blog.article.varese-caduta-canale-frontaliere.imageAlt': 'Injured person rescued from a canal in a forested area near Varese',
 };
 
 export default blogMetaEn;

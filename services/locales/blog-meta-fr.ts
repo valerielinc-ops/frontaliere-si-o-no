@@ -5436,6 +5436,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-trento-playoff-basket-2026.title': 'Varese-Trente: la bataille pour la huitième place',
     'blog.article.varese-trento-playoff-basket-2026.excerpt': 'Varese et Trente se disputent l\'accès aux playoffs. Voici ce qui se passe et les implications pour les supporters',
     'blog.article.varese-trento-playoff-basket-2026.imageAlt': 'Match de basket dans le Tessin avec des joueurs professionnels en action et des supporters',
+    'blog.article.varese-caduta-canale-frontaliere.title': 'Varese, une personne blessée et sauvée après une chute dans un canal',
+    'blog.article.varese-caduta-canale-frontaliere.excerpt': 'Une personne s\'est perdue dans une zone boisée près de Varese et est tombée dans un canal, blessée. Elle a été secourue par les secours.',
+    'blog.article.varese-caduta-canale-frontaliere.imageAlt': 'Personne blessée secourue d\'un canal dans une zone boisée près de Varese',
 };
 
 export default blogMetaFr;
