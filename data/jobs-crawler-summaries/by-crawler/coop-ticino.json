@@ -1,18 +1,21 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-03T09:54:34.953Z",
+  "generatedAt": "2026-05-03T21:20:30.394Z",
   "total": 156,
-  "newCount": 2,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 154,
-  "durationMs": 396452,
-  "avgDurationMs": 396452,
+  "unchangedCount": 156,
+  "durationMs": 327061,
+  "avgDurationMs": 327061,
   "durationHistory": [
-    396452
+    327061
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-g6dub0",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -36,15 +39,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-03T09:51:43.060Z",
       "firstSeenAt": "2026-05-03T09:51:43.060Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -70,21 +75,19 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-03T09:51:43.060Z",
       "firstSeenAt": "2026-05-03T09:51:43.060Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-hy7w7d",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -1081,78 +1084,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-z320lg",
-      "slug": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Rayonleiter:in Nonfood",
-      "location": "Klosters-Serneus",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-nonfood/9bba6b6b-991b-4959-81b6-c5e4f11514f7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-13T10:21:33.226Z",
-      "addressLocality": "Klosters-Serneus",
-      "sourceLang": "de",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "firstSeenAt": "2026-04-13T21:31:42.381Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-86y4zp",
-      "slug": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/8a422763-3e5f-476b-96b5-1b9ad6f10754",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-09T21:20:49.553Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-04-09T21:20:49.553Z",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
