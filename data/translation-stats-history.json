@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-04-19T07:54:54.841Z",
-    "label": "before",
-    "total": 2883,
-    "needsRetranslation": 54,
-    "incomplete": 21,
-    "complete": 2862,
-    "missingByLocale": {
-      "it": 20,
-      "en": 1,
-      "de": 20,
-      "fr": 21
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-19T08:15:22.424Z",
-    "label": "after",
-    "total": 2883,
-    "needsRetranslation": 57,
-    "incomplete": 21,
-    "complete": 2862,
-    "missingByLocale": {
-      "it": 20,
-      "en": 1,
-      "de": 20,
-      "fr": 21
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-19T10:28:40.208Z",
     "label": "before",
     "total": 2935,
@@ -8487,6 +8439,78 @@
       },
       {
         "company": "International School of Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-03T13:42:28.227Z",
+    "label": "before",
+    "total": 2582,
+    "needsRetranslation": 72,
+    "incomplete": 14,
+    "complete": 2568,
+    "missingByLocale": {
+      "it": 8,
+      "en": 5,
+      "de": 12,
+      "fr": 14
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 1
+      },
+      {
+        "company": "International School of Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-03T14:09:27.841Z",
+    "label": "after",
+    "total": 2582,
+    "needsRetranslation": 64,
+    "incomplete": 9,
+    "complete": 2573,
+    "missingByLocale": {
+      "it": 8,
+      "en": 1,
+      "de": 7,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "EFG International AG",
+        "pending": 6
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 1
+      },
+      {
+        "company": "Hôpital du Valais",
         "pending": 1
       },
       {
