@@ -1,0 +1,80 @@
+name: Traffic Data Freshness Check
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'  # Every 3 hours
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  freshness-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check data freshness
+        id: check
+        run: |
+          CURRENT_HOUR=$(date -u +%H)
+          # Only alert during peak hours (06:00-20:00 UTC)
+          if [ "$CURRENT_HOUR" -lt 6 ] || [ "$CURRENT_HOUR" -ge 20 ]; then
+            echo "Outside peak hours, skipping freshness check"
+            echo "STALE=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          FILE="data/border-wait-current.json"
+          if [ ! -f "$FILE" ]; then
+            echo "STALE=true" >> "$GITHUB_OUTPUT"
+            echo "REASON=File missing" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          LAST_MODIFIED=$(node -e "
+            const data = JSON.parse(require('fs').readFileSync('$FILE', 'utf8'));
+            const ts = data.lastUpdate || data[Object.keys(data)[0]]?.lastUpdate;
+            console.log(ts || '');
+          ")
+
+          if [ -z "$LAST_MODIFIED" ]; then
+            echo "STALE=true" >> "$GITHUB_OUTPUT"
+            echo "REASON=No lastUpdate field found" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          AGE_MINUTES=$(node -e "
+            const ts = '$LAST_MODIFIED';
+            const age = (Date.now() - new Date(ts).getTime()) / 60000;
+            console.log(Math.round(age));
+          ")
+
+          echo "Data age: ${AGE_MINUTES} minutes"
+
+          if [ "$AGE_MINUTES" -gt 240 ]; then
+            echo "STALE=true" >> "$GITHUB_OUTPUT"
+            echo "REASON=Data is ${AGE_MINUTES} minutes old (threshold: 240 min)" >> "$GITHUB_OUTPUT"
+          else
+            echo "STALE=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open issue if data is stale
+        if: steps.check.outputs.STALE == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Check if a stale-data issue is already open to avoid duplicates
+          EXISTING=$(gh issue list --label "traffic-stale" --state open --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            echo "Stale data issue #$EXISTING already open — skipping"
+            exit 0
+          fi
+          gh issue create \
+            --title "Traffic data is stale — cron may have failed" \
+            --body "The traffic data freshness check detected that \`data/border-wait-current.json\` is more than 4 hours old during peak hours. Reason: ${{ steps.check.outputs.REASON }}. Check the traffic-scheduler workflow for failures." \
+            --label "traffic-stale,bug"
