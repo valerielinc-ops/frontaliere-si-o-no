@@ -2939,7 +2939,6 @@ export function validateHeadline(headline) {
   if (headline.length > 110) errs.push('Headline troppo lungo (max 110 char)');
   const wc = headline.trim().split(/\s+/).filter(Boolean).length;
   if (wc < 2 || wc > 22) errs.push(`Headline ${wc} parole, range 2-22`);
-  if (/^\d/.test(headline.trim())) errs.push('Headline non deve iniziare con numero');
   if (A5_CLICKBAIT_PATTERNS.some((p) => p.test(headline))) {
     errs.push('Pattern clickbait rilevato');
   }
