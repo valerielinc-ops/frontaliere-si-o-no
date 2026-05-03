@@ -1,10 +1,12 @@
-name: Cleanup Stale Job Listings (Manual Only)
+name: Cleanup Stale Job Listings
 
-# Cron disabled — housekeeping is now Phase 1 of the translate-pending pipeline.
-# Keep this workflow for manual emergency cleanup via workflow_dispatch.
+# Phase 1 (per-slice expired-job pruning) runs daily at 06:00 UTC inside
+# translate-pending.yml.  This workflow adds Phase 2 (cross-crawler dedup
+# writeback) on a weekly cadence so persistent duplicates are removed from
+# the slice files and not re-detected on every deploy.
 on:
-  # schedule:
-  #   - cron: '0 6 * * *'  # DISABLED: now part of translate-pending.yml Phase 1
+  schedule:
+    - cron: '0 5 * * 0'  # Weekly: Sunday 05:00 UTC (before translate-pending daily run)
   workflow_dispatch:
     inputs:
       stale_days:
@@ -64,6 +66,21 @@ jobs:
           done
           echo "✅ Per-slice cleanup complete"
 
-      - name: Commit and push
-        id: changes
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Daily cleanup — remove expired job listings"
+      - name: Commit Phase 1 (per-slice expired jobs)
+        id: phase1_commit
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired job listings"
+
+      - name: "Phase 2: Assemble dataset for cross-crawler dedup"
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: "Phase 2: Monolithic cross-crawler dedup pass"
+        env:
+          JOBS_SKIP_URL_VALIDATION: '1'
+        run: node scripts/cleanup-jobs.mjs
+
+      - name: "Phase 2: Prune duplicate jobs from slice files"
+        run: node scripts/prune-dedup-from-slices.mjs
+
+      - name: Commit Phase 2 (cross-crawler duplicates)
+        id: phase2_commit
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔁 Housekeeping — remove cross-crawler duplicate jobs"
