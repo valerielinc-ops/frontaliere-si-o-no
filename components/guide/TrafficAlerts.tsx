@@ -8,6 +8,7 @@ import { trafficService, hasLiveTrafficData, type TrafficData } from '../../serv
 import { Analytics } from '../../services/analytics';
 import { borderCrossings as centralizedCrossings } from '../../data/borderCrossings';
 import { useTranslation } from '@/services/i18n';
+import { buildOggiPath, type BorderWaitLocale, type BorderCrossingSlug } from '@/build-plugins/borderWaitData';
 import { reportCaughtError } from '@/services/errorReporter';
 import { MAP_COLORS } from '@/services/mapColors';
 
@@ -109,7 +110,7 @@ interface TrafficAlertsProps {
 }
 
 const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const [trafficData, setTrafficData] = useState<TrafficData[]>([]);
  const [loading, setLoading] = useState(false);
  const [lastRefresh, setLastRefresh] = useState<Date>(new Date());
@@ -283,7 +284,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <div className="flex items-center gap-2 shrink-0">
  <span className="text-xs text-muted">{traffic.direction}</span>
  <a
- href={`/guida-frontaliere/tempi-attesa-dogana/${crossingId}/`}
+ href={buildOggiPath(locale as BorderWaitLocale, crossingId as BorderCrossingSlug)}
  className="flex items-center gap-1 text-xs text-link hover:underline font-medium no-underline"
  onClick={(e) => e.stopPropagation()}
  aria-label={`${t('traffic.viewCrossingPage')} ${crossing.name}`}
