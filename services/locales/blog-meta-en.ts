@@ -5417,6 +5417,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.marchirolo-primo-maggio-2026.title': 'Marchirolo celebrates May Day with parade, music and awards',
     'blog.article.marchirolo-primo-maggio-2026.excerpt': 'May Day in Marchirolo with parade, music and awards. All the details of the event.',
     'blog.article.marchirolo-primo-maggio-2026.imageAlt': 'Piazza Borasio in Marchirolo during the May Day celebration 2026',
+    'blog.article.schianto-a9-turate-feriti-frontalieri.title': 'Crash on A9 near Turate: four cross-border workers injured',
+    'blog.article.schianto-a9-turate-feriti-frontalieri.excerpt': 'Accident on A9 towards Milan, four people injured and bruised. Possible repercussions for cross-border workers in transit.',
+    'blog.article.schianto-a9-turate-feriti-frontalieri.imageAlt': 'A9 highway in Ticino with an accident and rescue vehicles',
 };
 
 export default blogMetaEn;

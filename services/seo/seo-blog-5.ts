@@ -11117,6 +11117,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-schianto-a9-turate-feriti-frontalieri': {
+    title: 'Schianto sulla A9 a Turate: quattro feriti tra i frontalieri',
+    description: 'Incidente sulla A9 direzione Milano a Turate, quattro persone tra feriti e contusi. Implicazioni per i frontalieri in transito. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, schianto, sulla, turate, quattro',
+    ogTitle: 'Schianto A9 Turate: 4 feriti tra frontalieri',
+    ogDescription: 'Incidente sulla A9 direzione Milano a Turate, quattro persone tra feriti e contusi. Implicazioni per i frontalieri in transito.',
+    canonicalPath: '/articoli-frontaliere/schianto-a9-turate-feriti-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Schianto sulla A9 a Turate: quattro feriti tra i frontalieri",
+      "description": "Incidente sulla A9 direzione Milano a Turate, quattro persone tra feriti e contusi. Implicazioni per i frontalieri in transito. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/schianto-a9-turate-feriti-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A9 in Ticino con incidente e mezzi di soccorso"
+      },
+      "datePublished": "2026-05-03T21:29:14+00:00",
+      "dateModified": "2026-05-03T21:29:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/schianto-a9-turate-feriti-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

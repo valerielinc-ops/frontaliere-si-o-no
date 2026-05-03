@@ -5418,6 +5418,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.marchirolo-primo-maggio-2026.title': 'Marchirolo celebra il Primo Maggio con corteo, musica e riconoscimenti',
     'blog.article.marchirolo-primo-maggio-2026.excerpt': 'La Festa del lavoro a Marchirolo con corteo, musica e consegna di benemerenze. Tutti i dettagli dell\'evento.',
     'blog.article.marchirolo-primo-maggio-2026.imageAlt': 'Piazza Borasio a Marchirolo durante la celebrazione del Primo Maggio 2026',
+    'blog.article.schianto-a9-turate-feriti-frontalieri.title': 'Schianto sulla A9 a Turate: quattro feriti tra i frontalieri',
+    'blog.article.schianto-a9-turate-feriti-frontalieri.excerpt': 'Incidente sulla A9 direzione Milano, quattro persone tra feriti e contusi. Possibili ripercussioni per i frontalieri in transito.',
+    'blog.article.schianto-a9-turate-feriti-frontalieri.imageAlt': 'Autostrada A9 in Ticino con incidente e mezzi di soccorso',
 };
 
 export default blogMetaIt;

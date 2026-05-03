@@ -5417,6 +5417,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.marchirolo-primo-maggio-2026.title': 'Marchirolo feiert den 1. Mai mit Umzug, Musik und Auszeichnungen',
     'blog.article.marchirolo-primo-maggio-2026.excerpt': 'Die Arbeiterfeier in Marchirolo mit Umzug, Musik und Verleihung von Verdienstauszeichnungen. Alle Details des Ereignisses.',
     'blog.article.marchirolo-primo-maggio-2026.imageAlt': 'Piazza Borasio in Marchirolo während der Maifeier 2026',
+    'blog.article.schianto-a9-turate-feriti-frontalieri.title': 'Zusammenstoß auf der A9 bei Turate: vier verletzte Grenzgänger',
+    'blog.article.schianto-a9-turate-feriti-frontalieri.excerpt': 'Unfall auf der A9 in Richtung Mailand, vier Personen zwischen Verletzten und Prellungen. Mögliche Auswirkungen für die Grenzgänger in Transit.',
+    'blog.article.schianto-a9-turate-feriti-frontalieri.imageAlt': 'Autobahn A9 im Tessin mit einem Unfall und Rettungsfahrzeugen',
 };
 
 export default blogMetaDe;

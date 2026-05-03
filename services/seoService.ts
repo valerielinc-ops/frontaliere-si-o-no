@@ -3048,6 +3048,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-life-run-gallarate-2026-successo': { name: 'Life Run 2026', path: '/articoli-frontaliere/life-run-gallarate-2026-successo', parent: 'blog' },
     'blog-usa-petrolio-export-hormuz-impatti-ticino': { name: 'Novità', path: '/articoli-frontaliere/usa-petrolio-export-hormuz-impatti-ticino', parent: 'blog' },
     'blog-marchirolo-primo-maggio-2026': { name: 'Eventi locali', path: '/articoli-frontaliere/marchirolo-primo-maggio-2026', parent: 'blog' },
+    'blog-schianto-a9-turate-feriti-frontalieri': { name: 'Novità', path: '/articoli-frontaliere/schianto-a9-turate-feriti-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];
