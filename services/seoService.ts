@@ -3016,6 +3016,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-casse-malati-alloggi-landsgemeinde-2026': { name: 'Novità', path: '/articoli-frontaliere/casse-malati-alloggi-landsgemeinde-2026', parent: 'blog' },
     'blog-dancing-shoes-albertoni-cinelli-collaboration': { name: 'Novità', path: '/articoli-frontaliere/dancing-shoes-albertoni-cinelli-collaboration', parent: 'blog' },
     'blog-landsgemeinde-glarona-2026-finanze-alloggi': { name: 'Landsgemeinde Glarona', path: '/articoli-frontaliere/landsgemeinde-glarona-2026-finanze-alloggi', parent: 'blog' },
+    'blog-como-vivibile-frontalieri-2026': { name: 'Como vivibile', path: '/articoli-frontaliere/como-vivibile-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

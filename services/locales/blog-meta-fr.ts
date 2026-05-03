@@ -5322,6 +5322,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.title': 'Landsgemeinde Glaris 2026 : taux d\'imposition et logements au centre des débats',
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.excerpt': 'La Landsgemeinde du canton de Glaris a voté sur des thèmes financiers et immobiliers. Taux d\'imposition confirmé à 58 %, nouvelles déductions pour les frontaliers et subventions pour l\'assurance maladie.',
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.imageAlt': 'Vue de l\'assemblée de la Landsgemeinde à Glaris, Suisse, avec des citoyens rassemblés sur une place publique, votant à main levée.',
+    'blog.article.como-vivibile-frontalieri-2026.title': 'Vivre à Côme : un frontalier menace d\'être expulsé',
+    'blog.article.como-vivibile-frontalieri-2026.excerpt': 'Un résident comasque dénonce la pression immobilière et demande des politiques pour les habitants',
+    'blog.article.como-vivibile-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Côme avec des montagnes et des bâtiments historiques',
 };
 
 export default blogMetaFr;

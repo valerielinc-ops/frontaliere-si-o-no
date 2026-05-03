@@ -5321,6 +5321,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.title': 'Glarus Landsgemeinde 2026: tax rate and housing at heart of debates',
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.excerpt': 'The Glarus Landsgemeinde voted on financial and housing issues. Tax rate confirmed at 58%, new deductions for commuters and health insurance subsidies.',
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.imageAlt': 'View of the Landsgemeinde assembly in Glarona, Switzerland, with citizens gathered in a public square, voting by show of hands.',
+    'blog.article.como-vivibile-frontalieri-2026.title': 'A cross-border worker\'s plea: Don\'t expel me',
+    'blog.article.como-vivibile-frontalieri-2026.excerpt': 'An adopted Comasco denounces housing pressure and calls for resident-focused policies',
+    'blog.article.como-vivibile-frontalieri-2026.imageAlt': 'Aerial view of Lake Como with mountains and historic buildings',
 };
 
 export default blogMetaEn;

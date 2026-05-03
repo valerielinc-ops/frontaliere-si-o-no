@@ -5321,6 +5321,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.title': 'Landsgemeinde Glarus 2026: Steuersatz und Wohnungen im Fokus',
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.excerpt': 'Die Landsgemeinde des Kantons Glarus hat über finanzielle und wohnungsbezogene Themen abgestimmt. Der Steuersatz bleibt bei 58%, es gibt neue Abzüge für Pendler und Subventionen für die Krankenkasse.',
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.imageAlt': 'Ansicht der Landsgemeindeversammlung in Glarus, Schweiz, mit Bürgern, die sich auf einem öffentlichen Platz versammeln und per Handzeichen abstimmen.',
+    'blog.article.como-vivibile-frontalieri-2026.title': 'Lebenswertes Como: Ein Grenzgänger will nicht ausgewiesen werden',
+    'blog.article.como-vivibile-frontalieri-2026.excerpt': 'Ein adoptierter Komer klagt über Immobilien-Druck und fordert Politik für Einwohner',
+    'blog.article.como-vivibile-frontalieri-2026.imageAlt': 'Luftaufnahme des Comer Sees mit Bergen und historischen Gebäuden',
 };
 
 export default blogMetaDe;

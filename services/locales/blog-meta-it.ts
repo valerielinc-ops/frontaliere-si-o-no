@@ -5322,6 +5322,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.title': 'Landsgemeinde Glarona 2026: aliquota fiscale e alloggi al centro dei dibattiti',
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.excerpt': 'La Landsgemeinde del canton Glarona ha votato su temi finanziari e abitativi. Aliquota fiscale confermata al 58%, nuove detrazioni per pendolari e sussidi per cassa malati.',
     'blog.article.landsgemeinde-glarona-2026-finanze-alloggi.imageAlt': 'Vista dell\'assemblea della Landsgemeinde a Glarona, Svizzera, con cittadini riuniti in una piazza pubblica, che votano a mano alzata.',
+    'blog.article.como-vivibile-frontalieri-2026.title': 'Como vivibile: la lettera di un frontaliere che non vuole essere espulso',
+    'blog.article.como-vivibile-frontalieri-2026.excerpt': 'Un comasco d\'adozione denuncia la pressione immobiliare e chiede politiche per i residenti',
+    'blog.article.como-vivibile-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Como con montagne e edifici storici',
 };
 
 export default blogMetaIt;
