@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1845,
+ "numberOfItems": 1846,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6483,7 +6483,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1842, "name": "Omegna: ciclista precipita in scarpata, ricover...", "url": `${BASE_URL}/articoli-frontaliere/omegna-ciclista-precipita-scarpata-ricovero-rosso` },
           { "@type": "ListItem", "position": 1843, "name": "USA ritirano missili a lungo raggio dalla Germania", "url": `${BASE_URL}/articoli-frontaliere/usa-missili-germania-2026` },
           { "@type": "ListItem", "position": 1844, "name": "Como: degrado e mancanza di sicurezza alla mens...", "url": `${BASE_URL}/articoli-frontaliere/mensa-solidarieta-degrado-sicurezza-2026` },
-          { "@type": "ListItem", "position": 1845, "name": "Laboratorio estivo al Museo Moesano: archeologi...", "url": `${BASE_URL}/articoli-frontaliere/laboratorio-estivo-museo-moesano-2026` }
+          { "@type": "ListItem", "position": 1845, "name": "Laboratorio estivo al Museo Moesano: archeologi...", "url": `${BASE_URL}/articoli-frontaliere/laboratorio-estivo-museo-moesano-2026` },
+          { "@type": "ListItem", "position": 1846, "name": "Varese: “Il lago perduto”, memoria viva di una ...", "url": `${BASE_URL}/articoli-frontaliere/varese-lago-perduto-memoria-comunita` }
  ]
  },
  {

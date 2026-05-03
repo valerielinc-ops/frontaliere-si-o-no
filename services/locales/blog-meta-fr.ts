@@ -5379,6 +5379,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.laboratorio-estivo-museo-moesano-2026.title': 'Atelier estival au Musée Moesano: archéologie pour enfants',
     'blog.article.laboratorio-estivo-museo-moesano-2026.excerpt': 'Du 3 au 7 août 2026, les enfants de 7 à 12 ans découvrent les pierres cupellaires avec un atelier théâtral au Musée Moesano de San Vittore',
     'blog.article.laboratorio-estivo-museo-moesano-2026.imageAlt': 'Des enfants participent à un atelier d\'archéologie au Musée Moesano à San Vittore, Grisons',
+    'blog.article.varese-lago-perduto-memoria-comunita.title': 'Varèse : « Le lac perdu », mémoire vivante d’une communauté',
+    'blog.article.varese-lago-perduto-memoria-comunita.excerpt': 'L’exposition photographique de Mario Chiodetti aux Glacières de Cazzago Brabbia célèbre la tradition des pêcheurs du lac de Varèse.',
+    'blog.article.varese-lago-perduto-memoria-comunita.imageAlt': 'Une scène sereine au bord du lac en Suisse, avec des bateaux de pêche traditionnels et le paysage environnant, photographiée avec un appareil photo DSLR.',
 };
 
 export default blogMetaFr;

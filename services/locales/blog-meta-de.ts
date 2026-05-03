@@ -5378,6 +5378,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.laboratorio-estivo-museo-moesano-2026.title': 'Sommerlabor im Moesano-Museum: Archäologie für Kinder',
     'blog.article.laboratorio-estivo-museo-moesano-2026.excerpt': 'Vom 3. bis 7. August 2026 entdecken Kinder und Jugendliche im Alter von 7 bis 12 Jahren die Cupellari-Steine mit einem Theaterlabor im Moesano-Museum in San Vittore.',
     'blog.article.laboratorio-estivo-museo-moesano-2026.imageAlt': 'Kinder nehmen an einem Archäologie-Workshop im Moesano-Museum in San Vittore, Graubünden teil',
+    'blog.article.varese-lago-perduto-memoria-comunita.title': 'Varese: „Der verlorene See“, lebendige Erinnerung einer Gemeinschaft',
+    'blog.article.varese-lago-perduto-memoria-comunita.excerpt': 'Die Fotoausstellung von Mario Chiodetti in den Ghiacciaie di Cazzago Brabbia feiert die Tradition der Fischer des Varese-Sees.',
+    'blog.article.varese-lago-perduto-memoria-comunita.imageAlt': 'Eine ruhige Seelandschaft in der Schweiz, mit traditionellen Fischerbooten und der umliegenden Landschaft, aufgenommen mit einer DSLR-Kamera.',
 };
 
 export default blogMetaDe;

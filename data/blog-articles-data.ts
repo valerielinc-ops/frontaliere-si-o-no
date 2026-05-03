@@ -17507,4 +17507,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-lago-perduto-memoria-comunita',
+ category: 'novita',
+ date: '2026-05-03T19:12:43.686Z',
+ image: '/images/blog/varese-lago-perduto-memoria-comunita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

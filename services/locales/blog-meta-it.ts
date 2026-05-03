@@ -5379,6 +5379,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.laboratorio-estivo-museo-moesano-2026.title': 'Laboratorio estivo al Museo Moesano: archeologia per ragazzi',
     'blog.article.laboratorio-estivo-museo-moesano-2026.excerpt': 'Dal 3 al 7 agosto 2026, bambini e ragazzi di 7-12 anni scoprono i massi cuppellari con un laboratorio teatrale al Museo Moesano di San Vittore',
     'blog.article.laboratorio-estivo-museo-moesano-2026.imageAlt': 'Ragazzi partecipano a un laboratorio di archeologia al Museo Moesano a San Vittore, Grigioni',
+    'blog.article.varese-lago-perduto-memoria-comunita.title': 'Varese: “Il lago perduto”, memoria viva di una comunità',
+    'blog.article.varese-lago-perduto-memoria-comunita.excerpt': 'La mostra fotografica di Mario Chiodetti alle Ghiacciaie di Cazzago Brabbia celebra la tradizione dei pescatori del lago di Varese.',
+    'blog.article.varese-lago-perduto-memoria-comunita.imageAlt': 'Una serena scena lacustre in Ticino, con barche da pesca tradizionali e il paesaggio circostante, fotografata con una fotocamera DSLR.',
 };
 
 export default blogMetaIt;
