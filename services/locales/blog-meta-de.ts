@@ -5290,6 +5290,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-commissioni-federali-2026.title': 'Reform der Bundeskommissionen: Was ändert sich für Grenzgänger?',
     'blog.article.riforma-commissioni-federali-2026.excerpt': 'Der Schweizer Bundesrat hat eine Reform beschlossen, die die Anzahl der aussparlamentarischen Kommissionen reduziert und die Kontakte mit dem Parlament einschränkt.',
     'blog.article.riforma-commissioni-federali-2026.imageAlt': 'Castelgrande in Bellinzona, Tessin, Schweiz',
+    'blog.article.piogge-intense-ceresio-2026.title': 'Starke Regenfälle am Luganersee: Herausforderungen für das Seeufer',
+    'blog.article.piogge-intense-ceresio-2026.excerpt': 'Der Konsortium Reinigung Ufer und Luganersee steht vor neuen Herausforderungen mit selteneren, aber intensiveren Regenfällen. 2.000 Tonnen Material wurden 2025 entfernt.',
+    'blog.article.piogge-intense-ceresio-2026.imageAlt': 'Luganersee mit starkem Regen und treibendem Abfall',
 };
 
 export default blogMetaDe;

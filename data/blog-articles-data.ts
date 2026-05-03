@@ -17237,4 +17237,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'piogge-intense-ceresio-2026',
+ category: 'novita',
+ date: '2026-05-03T11:59:32.388Z',
+ image: '/images/blog/piogge-intense-ceresio-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

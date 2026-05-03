@@ -5290,6 +5290,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-commissioni-federali-2026.title': 'Federal commission reform: changes for cross-border workers',
     'blog.article.riforma-commissioni-federali-2026.excerpt': 'The Swiss Federal Council has approved a reform that reduces the number of extra-parliamentary commissions and limits contacts with Parliament.',
     'blog.article.riforma-commissioni-federali-2026.imageAlt': 'Castelgrande in Bellinzona, Ticino, Switzerland',
+    'blog.article.piogge-intense-ceresio-2026.title': 'Heavy rains challenge Lake Ceresio management',
+    'blog.article.piogge-intense-ceresio-2026.excerpt': 'The Lake Ceresio Shore and Lake Cleanup Consortium faces new challenges with less frequent but more intense rains. 2,000 tonnes of material removed in 2025.',
+    'blog.article.piogge-intense-ceresio-2026.imageAlt': 'Lake Lugano with intense rain and floating debris',
 };
 
 export default blogMetaEn;

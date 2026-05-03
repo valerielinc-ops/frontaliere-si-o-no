@@ -9587,6 +9587,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-piogge-intense-ceresio-2026': {
+    title: 'Piogge intense sul Ceresio: sfide per la gestione del lago',
+    description: 'Il Consorzio pulizia rive e Lago Ceresio affronta nuove sfide con piogge meno frequenti ma più intense. Rimossi 2.000 tonnellate di materiale nel 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, piogge, intense, ceresio, sfide',
+    ogTitle: 'Piogge intense sul Ceresio: sfide per la gestione del lago',
+    ogDescription: 'Il Consorzio pulizia rive e Lago Ceresio affronta nuove sfide con piogge meno frequenti ma più intense. Rimossi 2.000 tonnellate di materiale nel 2025.',
+    canonicalPath: '/articoli-frontaliere/piogge-intense-ceresio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Piogge intense sul Ceresio: sfide per la gestione del lago",
+      "description": "Il Consorzio pulizia rive e Lago Ceresio affronta nuove sfide con piogge meno frequenti ma più intense. Rimossi 2.000 tonnellate di materiale nel 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/piogge-intense-ceresio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con pioggia intensa e detriti galleggianti"
+      },
+      "datePublished": "2026-05-03T11:59:32+00:00",
+      "dateModified": "2026-05-03T11:59:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piogge-intense-ceresio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

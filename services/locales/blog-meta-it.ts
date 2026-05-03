@@ -5291,6 +5291,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riforma-commissioni-federali-2026.title': 'Riforma commissioni federali: cosa cambia per i frontalieri',
     'blog.article.riforma-commissioni-federali-2026.excerpt': 'Il Consiglio federale svizzero ha approvato una riforma che riduce il numero di commissioni extraparlamentari e limita i contatti con il Parlamento.',
     'blog.article.riforma-commissioni-federali-2026.imageAlt': 'Castelgrande a Bellinzona, Ticino, Svizzera',
+    'blog.article.piogge-intense-ceresio-2026.title': 'Piogge intense sul Ceresio: sfide per la gestione del lago',
+    'blog.article.piogge-intense-ceresio-2026.excerpt': 'Il Consorzio pulizia rive e Lago Ceresio affronta nuove sfide con piogge meno frequenti ma più intense. Rimossi 2.000 tonnellate di materiale nel 2025.',
+    'blog.article.piogge-intense-ceresio-2026.imageAlt': 'Lago di Lugano con pioggia intensa e detriti galleggianti',
 };
 
 export default blogMetaIt;

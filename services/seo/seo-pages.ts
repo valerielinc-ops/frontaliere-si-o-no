@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1813,
+ "numberOfItems": 1814,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6453,7 +6453,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1810, "name": "2000 tonnellate di detriti raccolte nel 2025", "url": `${BASE_URL}/articoli-frontaliere/2025-2000-tonnellate-detriti-lago-ceresio` },
           { "@type": "ListItem", "position": 1811, "name": "Frontalieri: strategia cambio CHF-EUR 2026", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica` },
           { "@type": "ListItem", "position": 1812, "name": "Laghi lombardi, inizio estate tragico: “Non è i...", "url": `${BASE_URL}/articoli-frontaliere/laghi-lombardi-sicurezza-estate-2026` },
-          { "@type": "ListItem", "position": 1813, "name": "Riforma commissioni federali: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/riforma-commissioni-federali-2026` }
+          { "@type": "ListItem", "position": 1813, "name": "Riforma commissioni federali: cosa cambia per i...", "url": `${BASE_URL}/articoli-frontaliere/riforma-commissioni-federali-2026` },
+          { "@type": "ListItem", "position": 1814, "name": "Piogge intense sul Ceresio: sfide per la gestio...", "url": `${BASE_URL}/articoli-frontaliere/piogge-intense-ceresio-2026` }
  ]
  },
  {
