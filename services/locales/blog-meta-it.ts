@@ -5279,6 +5279,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.seco-dazi-segreti-washington.title': 'SECO blocca accesso atti trattative con Washington',
     'blog.article.seco-dazi-segreti-washington.excerpt': 'La SECO mantiene segreti i documenti sulle trattative con gli USA sui dazi, rischiando una causa in tribunale.',
     'blog.article.seco-dazi-segreti-washington.imageAlt': 'Vista del Lago di Lugano con il panorama cittadino sullo sfondo',
+    'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.title': '2000 tonnellate di detriti raccolte nel 2025',
+    'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.excerpt': 'Nel 2025 raccolte 2000 tonnellate di detriti nel Lago Ceresio, tra legname flottante e rifiuti antropici. Ecco i dettagli.',
+    'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.imageAlt': 'Vista aerea del Lago di Lugano con operazioni di raccolta detriti',
 };
 
 export default blogMetaIt;

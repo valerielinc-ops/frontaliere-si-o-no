@@ -5279,6 +5279,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.seco-dazi-segreti-washington.title': 'La SECO bloque l\'accès aux documents des négociations avec Washington',
     'blog.article.seco-dazi-segreti-washington.excerpt': 'La SECO maintient secrets les documents sur les négociations avec les USA sur les droits de douane, risquant un procès en justice.',
     'blog.article.seco-dazi-segreti-washington.imageAlt': 'Vue du lac de Lugano avec le paysage urbain en arrière-plan',
+    'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.title': '2000 tonnes de déchets collectés en 2025',
+    'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.excerpt': 'En 2025, 2000 tonnes de déchets ont été collectées dans le lac de Lugano, entre bois flottant et déchets anthropiques. Voici les détails.',
+    'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.imageAlt': 'Vue aérienne du lac de Lugano avec des opérations de collecte de déchets',
 };
 
 export default blogMetaFr;

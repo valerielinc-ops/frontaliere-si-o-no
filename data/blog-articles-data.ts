@@ -17201,4 +17201,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: '2025-2000-tonnellate-detriti-lago-ceresio',
+ category: 'novita',
+ date: '2026-05-03T11:07:15.079Z',
+ image: '/images/blog/2025-2000-tonnellate-detriti-lago-ceresio.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

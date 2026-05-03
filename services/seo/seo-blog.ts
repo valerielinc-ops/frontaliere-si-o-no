@@ -38025,6 +38025,40 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-2025-2000-tonnellate-detriti-lago-ceresio': {
+    title: '2000 tonnellate di detriti raccolte nel 2025 | Frontaliere Ticino',
+    description: 'Nel 2025 raccolte 2000 tonnellate di detriti nel Lago Ceresio, tra legname flottante e rifiuti antropici. Ecco i dettagli. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, 2000, tonnellate, detriti, raccolte',
+    ogTitle: '2000 tonnellate di detriti raccolte nel 2025',
+    ogDescription: 'Nel 2025 raccolte 2000 tonnellate di detriti nel Lago Ceresio, tra legname flottante e rifiuti antropici. Ecco i dettagli.',
+    canonicalPath: '/articoli-frontaliere/2025-2000-tonnellate-detriti-lago-ceresio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "2000 tonnellate di detriti raccolte nel 2025",
+      "description": "Nel 2025 raccolte 2000 tonnellate di detriti nel Lago Ceresio, tra legname flottante e rifiuti antropici. Ecco i dettagli. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/2025-2000-tonnellate-detriti-lago-ceresio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con operazioni di raccolta detriti"
+      },
+      "datePublished": "2026-05-03T11:07:15+00:00",
+      "dateModified": "2026-05-03T11:07:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/2025-2000-tonnellate-detriti-lago-ceresio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -5278,6 +5278,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.seco-dazi-segreti-washington.title': 'SECO blocks access to Washington trade talks documents',
     'blog.article.seco-dazi-segreti-washington.excerpt': 'SECO keeps documents on trade talks with the USA on tariffs secret, risking a court case.',
     'blog.article.seco-dazi-segreti-washington.imageAlt': 'View of Lake Lugano with the cityscape in the background',
+    'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.title': '2000 tonnes of debris collected in 2025',
+    'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.excerpt': 'In 2025, 2000 tonnes of debris were collected in Lake Lugano, including floating wood and anthropogenic waste. Here are the details.',
+    'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.imageAlt': 'Aerial view of Lake Lugano with debris collection operations',
 };
 
 export default blogMetaEn;
