@@ -5438,6 +5438,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-caduta-canale-frontaliere.title': 'Lost in woodland, injured and rescued near Varese',
     'blog.article.varese-caduta-canale-frontaliere.excerpt': 'Someone got lost in a wooded area near Varese and fell into a canal, injuring themselves. They were rescued by emergency services.',
     'blog.article.varese-caduta-canale-frontaliere.imageAlt': 'Injured person rescued from a canal in a forested area near Varese',
+    'blog.article.incidente-a2-lodrino-frontalieri.title': 'Accident on A2 southbound: closure and rescue',
+    'blog.article.incidente-a2-lodrino-frontalieri.excerpt': 'A2 motorway closed southbound near Lodrino. Ambulance and Cantonal Police on site. No word yet on injuries.',
+    'blog.article.incidente-a2-lodrino-frontalieri.imageAlt': 'Accident on the A2 highway near Lodrino',
 };
 
 export default blogMetaEn;

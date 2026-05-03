@@ -5438,6 +5438,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-caduta-canale-frontaliere.title': 'Verletzt in Waldgebiet bei Varese geborgen',
     'blog.article.varese-caduta-canale-frontaliere.excerpt': 'Eine Person hat sich in einem Waldgebiet in der Nähe von Varese verlaufen und ist in einen Kanal gestürzt, wobei sie verletzt wurde. Sie wurde von Rettungskräften geborgen.',
     'blog.article.varese-caduta-canale-frontaliere.imageAlt': 'Verletzte Person wird aus einem Kanal in einem Waldgebiet nahe Varese gerettet',
+    'blog.article.incidente-a2-lodrino-frontalieri.title': 'Unfall auf der A2 in Richtung Süden: Sperrung und Rettungskräfte',
+    'blog.article.incidente-a2-lodrino-frontalieri.excerpt': 'Sperrung der Autobahn A2 in Richtung Süden auf Höhe von Lodrino. Vor Ort ein Ambulanz und Kantonspolizei. Noch nicht bekannt, ob es Verletzte gibt.',
+    'blog.article.incidente-a2-lodrino-frontalieri.imageAlt': 'Unfall auf der Autobahn A2 bei Lodrino',
 };
 
 export default blogMetaDe;

@@ -5439,6 +5439,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-caduta-canale-frontaliere.title': 'Varese, si perde in zona boschiva e cade in un canale: ferita e recuperata',
     'blog.article.varese-caduta-canale-frontaliere.excerpt': 'Una persona si è persa in una zona boschiva vicino a Varese ed è caduta in un canale, rimanendo ferita. È stata recuperata dai soccorritori.',
     'blog.article.varese-caduta-canale-frontaliere.imageAlt': 'Persona ferita recuperata da un canale in una zona boschiva vicino a Varese',
+    'blog.article.incidente-a2-lodrino-frontalieri.title': 'Incidente sull\'A2 in direzione sud: chiusura e soccorsi',
+    'blog.article.incidente-a2-lodrino-frontalieri.excerpt': 'Chiusura autostrada A2 in direzione sud all\'altezza di Lodrino. Sul posto ambulanza e Polizia cantonale. Non ancora specificato se vi siano feriti.',
+    'blog.article.incidente-a2-lodrino-frontalieri.imageAlt': 'Incidente sull\'autostrada A2 all\'altezza di Lodrino',
 };
 
 export default blogMetaIt;

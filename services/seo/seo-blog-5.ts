@@ -11355,6 +11355,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-a2-lodrino-frontalieri': {
+    title: 'Incidente sull\'A2 in direzione sud: chiusura e soccorsi',
+    description: 'Incidente sull\'autostrada A2 in direzione sud all\'altezza di Lodrino. Chiusura autostrada e soccorsi in corso. Aggiornamenti per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, sull, direzione, chiusura',
+    ogTitle: 'Incidente A2 Lodrino: chiusura e soccorsi',
+    ogDescription: 'Incidente sull\'autostrada A2 in direzione sud all\'altezza di Lodrino. Chiusura autostrada e soccorsi in corso. Aggiornamenti per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/incidente-a2-lodrino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente sull'A2 in direzione sud: chiusura e soccorsi",
+      "description": "Incidente sull'autostrada A2 in direzione sud all'altezza di Lodrino. Chiusura autostrada e soccorsi in corso. Aggiornamenti per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-a2-lodrino-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente sull'autostrada A2 all'altezza di Lodrino"
+      },
+      "datePublished": "2026-05-03T22:43:06+00:00",
+      "dateModified": "2026-05-03T22:43:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-a2-lodrino-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

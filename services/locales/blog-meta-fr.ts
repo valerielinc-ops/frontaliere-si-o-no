@@ -5439,6 +5439,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-caduta-canale-frontaliere.title': 'Varese, une personne blessée et sauvée après une chute dans un canal',
     'blog.article.varese-caduta-canale-frontaliere.excerpt': 'Une personne s\'est perdue dans une zone boisée près de Varese et est tombée dans un canal, blessée. Elle a été secourue par les secours.',
     'blog.article.varese-caduta-canale-frontaliere.imageAlt': 'Personne blessée secourue d\'un canal dans une zone boisée près de Varese',
+    'blog.article.incidente-a2-lodrino-frontalieri.title': 'Accident sur l\'A2 en direction sud: fermeture et secours',
+    'blog.article.incidente-a2-lodrino-frontalieri.excerpt': 'Fermeture de l\'autoroute A2 en direction sud à la hauteur de Lodrino. Sur place, ambulance et Police cantonale. Pas encore précisé s\'il y a des blessés.',
+    'blog.article.incidente-a2-lodrino-frontalieri.imageAlt': 'Accident sur l\'autoroute A2 près de Lodrino',
 };
 
 export default blogMetaFr;
