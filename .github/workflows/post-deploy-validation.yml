@@ -245,7 +245,7 @@ jobs:
 
       - name: Upload Playwright report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-report
           path: playwright-report/
@@ -253,7 +253,7 @@ jobs:
 
       - name: Upload visual diffs on failure
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: visual-diffs
           path: test-results/
@@ -491,6 +491,9 @@ jobs:
 
       - name: Re-upload last known good artifact for Pages
         uses: actions/upload-pages-artifact@v5
+        # Note: rollback path — compression-level 9 would be ideal here too
+        # but upload-pages-artifact does not expose that parameter. The rollback
+        # path is rare enough that the default level-6 zip is acceptable.
         with:
           path: ./rollback-dist
 

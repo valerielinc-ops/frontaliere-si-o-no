@@ -339,14 +339,40 @@ jobs:
         # text-html-ratio, title-length) which also walk dist/. Net
         # post-build wall went 230s → 328s (+98s), exceeding the 38s
         # saved on upload. Back to standard sequential upload.
+        #
+        # upload-pages-artifact@v5 does not expose compression-level — it
+        # internally calls upload-artifact@v7 without passing the parameter,
+        # so it defaults to level 6. With ~118k job HTML pages the compressed
+        # artifact hits ~1.21 GB, exceeding the GitHub Pages 1 GB warning
+        # threshold. We replicate what upload-pages-artifact does (plain tar
+        # without compression flags, exclude .git/.github) and then call
+        # upload-artifact@v7 directly with compression-level: 9 to bring the
+        # zip size down by an additional ~15-20% (~150-200 MB) without any
+        # content change.
         if: github.event.inputs.profile_sequential != 'true'
-        uses: actions/upload-pages-artifact@v5
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            --directory dist \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=.git \
+            --exclude=.github \
+            .
+
+      - name: Upload GitHub Pages artifact (compression-level 9)
+        if: github.event.inputs.profile_sequential != 'true'
+        id: upload-pages-artifact
+        uses: actions/upload-artifact@v7
         with:
-          path: dist
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+          compression-level: 9
 
       - name: Upload write-collisions analysis
         if: always() && github.event.inputs.profile_sequential != 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: write-collisions-analysis-${{ github.run_id }}
           path: |
@@ -368,7 +394,7 @@ jobs:
 
       - name: Upload previous-slug winners for post-deploy validation
         if: github.event.inputs.profile_sequential != 'true' && steps.winners_changed.outputs.changed == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: winners-${{ github.run_id }}
           path: data/previous-slug-winners.json

@@ -55,7 +55,7 @@ jobs:
         run: cp dist/index.html dist/404.html
 
       - name: Upload build output for shards
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: build-output
           # dist/ is the primary input; assembled data/* files are needed by
@@ -93,7 +93,7 @@ jobs:
       - run: npm ci
 
       - name: Download build output
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: build-output
 
@@ -178,7 +178,7 @@ jobs:
 
       - name: Upload shard timings
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: shard-${{ matrix.shard }}-timings
           path: |
@@ -191,7 +191,7 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           path: shard-timings/
           pattern: shard-*-timings
