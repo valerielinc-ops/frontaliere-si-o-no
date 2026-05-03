@@ -10641,6 +10641,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-laboratorio-estivo-museo-moesano-2026': {
+    title: 'Laboratorio estivo al Museo Moesano: archeologia per ragazzi',
+    description: 'Dal 3 al 7 agosto 2026, bambini e ragazzi di 7-12 anni scoprono i massi cuppellari con un laboratorio teatrale al Museo Moesano di San Vittore. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, laboratorio, estivo, museo, moesano',
+    ogTitle: 'Laboratorio estivo al Museo Moesano: archeologia per ragazzi',
+    ogDescription: 'Dal 3 al 7 agosto 2026, bambini e ragazzi di 7-12 anni scoprono i massi cuppellari con un laboratorio teatrale al Museo Moesano di San Vittore',
+    canonicalPath: '/articoli-frontaliere/laboratorio-estivo-museo-moesano-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Laboratorio estivo al Museo Moesano: archeologia per ragazzi",
+      "description": "Dal 3 al 7 agosto 2026, bambini e ragazzi di 7-12 anni scoprono i massi cuppellari con un laboratorio teatrale al Museo Moesano di San Vittore. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/laboratorio-estivo-museo-moesano-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ragazzi partecipano a un laboratorio di archeologia al Museo Moesano a San Vittore, Grigioni"
+      },
+      "datePublished": "2026-05-03T19:00:09+00:00",
+      "dateModified": "2026-05-03T19:00:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/laboratorio-estivo-museo-moesano-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5375,6 +5375,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mensa-solidarieta-degrado-sicurezza-2026.title': 'Como: Verwahrlosung und Unsicherheit in der Solidaritätsmensa',
     'blog.article.mensa-solidarieta-degrado-sicurezza-2026.excerpt': 'Eine Leserin meldet starken Verfall und mangelnde Sicherheit in der Mensa in der Via Don Guanella in Como, trotz des sozialen Wertes der Initiative.',
     'blog.article.mensa-solidarieta-degrado-sicurezza-2026.imageAlt': 'Eine belebte Straße in Como in der Nähe einer Solidaritätskantine, die Anzeichen von Verfall und mangelnder Sicherheit zeigt.',
+    'blog.article.laboratorio-estivo-museo-moesano-2026.title': 'Sommerlabor im Moesano-Museum: Archäologie für Kinder',
+    'blog.article.laboratorio-estivo-museo-moesano-2026.excerpt': 'Vom 3. bis 7. August 2026 entdecken Kinder und Jugendliche im Alter von 7 bis 12 Jahren die Cupellari-Steine mit einem Theaterlabor im Moesano-Museum in San Vittore.',
+    'blog.article.laboratorio-estivo-museo-moesano-2026.imageAlt': 'Kinder nehmen an einem Archäologie-Workshop im Moesano-Museum in San Vittore, Graubünden teil',
 };
 
 export default blogMetaDe;

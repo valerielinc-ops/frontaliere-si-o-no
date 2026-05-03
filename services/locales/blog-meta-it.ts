@@ -5376,6 +5376,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mensa-solidarieta-degrado-sicurezza-2026.title': 'Como: degrado e mancanza di sicurezza alla mensa di solidarietà',
     'blog.article.mensa-solidarieta-degrado-sicurezza-2026.excerpt': 'Una lettrice segnala forte degrado e mancanza di sicurezza presso la mensa di via Don Guanella a Como, nonostante il valore sociale dell\'iniziativa.',
     'blog.article.mensa-solidarieta-degrado-sicurezza-2026.imageAlt': 'Una strada affollata a Como vicino a una mensa di solidarietà, con segni di degrado e mancanza di sicurezza.',
+    'blog.article.laboratorio-estivo-museo-moesano-2026.title': 'Laboratorio estivo al Museo Moesano: archeologia per ragazzi',
+    'blog.article.laboratorio-estivo-museo-moesano-2026.excerpt': 'Dal 3 al 7 agosto 2026, bambini e ragazzi di 7-12 anni scoprono i massi cuppellari con un laboratorio teatrale al Museo Moesano di San Vittore',
+    'blog.article.laboratorio-estivo-museo-moesano-2026.imageAlt': 'Ragazzi partecipano a un laboratorio di archeologia al Museo Moesano a San Vittore, Grigioni',
 };
 
 export default blogMetaIt;

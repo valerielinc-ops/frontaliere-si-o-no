@@ -17498,4 +17498,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'laboratorio-estivo-museo-moesano-2026',
+ category: 'novita',
+ date: '2026-05-03T19:00:09.428Z',
+ image: '/images/blog/laboratorio-estivo-museo-moesano-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
