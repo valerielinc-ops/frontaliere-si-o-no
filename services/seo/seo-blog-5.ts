@@ -11525,6 +11525,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-austriaci-ferma-verifica-2026': {
+    title: 'Due austriaci fuggono da auto in movimento: inseguimento finisce contro un muro',
+    description: 'Un inseguimento della polizia in Ticino si conclude con due austriaci che saltano da un\'auto in movimento e si schiantano contro un muro di sostegno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, austriaci, fuggono, auto, movimento',
+    ogTitle: 'Due austriaci fuggono da auto in movimento: inseguimento finisce contro un muro',
+    ogDescription: 'Un inseguimento della polizia in Ticino si conclude con due austriaci che saltano da un\'auto in movimento e si schiantano contro un muro di sostegno.',
+    canonicalPath: '/articoli-frontaliere/austriaci-ferma-verifica-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Due austriaci fuggono da auto in movimento: inseguimento finisce contro un muro",
+      "description": "Un inseguimento della polizia in Ticino si conclude con due austriaci che saltano da un'auto in movimento e si schiantano contro un muro di sostegno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/austriaci-ferma-verifica-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con auto della polizia e luci lampeggianti, stile fotogiornalistico"
+      },
+      "datePublished": "2026-05-03T23:17:41+00:00",
+      "dateModified": "2026-05-03T23:17:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/austriaci-ferma-verifica-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

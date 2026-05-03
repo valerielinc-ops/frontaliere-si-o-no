@@ -5454,6 +5454,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inter-scudetto-2026-frontalieri.title': 'Inter campione d\'Italia: cosa cambia per i frontalieri',
     'blog.article.inter-scudetto-2026-frontalieri.excerpt': 'L\'Inter vince lo scudetto numero 21. Impatti per i frontalieri che lavorano in Ticino e vivono in Italia.',
     'blog.article.inter-scudetto-2026-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con la città sullo sfondo',
+    'blog.article.austriaci-ferma-verifica-2026.title': 'Due austriaci fuggono da auto in movimento: inseguimento finisce contro un muro',
+    'blog.article.austriaci-ferma-verifica-2026.excerpt': 'Un inseguimento della polizia in Ticino si conclude con due austriaci che saltano da un\'auto in movimento e si schiantano contro un muro di sostegno.',
+    'blog.article.austriaci-ferma-verifica-2026.imageAlt': 'Lago di Lugano con auto della polizia e luci lampeggianti, stile fotogiornalistico',
 };
 
 export default blogMetaIt;

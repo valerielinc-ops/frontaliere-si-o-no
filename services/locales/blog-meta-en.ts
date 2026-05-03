@@ -5453,6 +5453,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inter-scudetto-2026-frontalieri.title': 'Inter wins Serie A: what changes for cross-border workers',
     'blog.article.inter-scudetto-2026-frontalieri.excerpt': 'Inter wins its 21st scudetto. Impacts for cross-border workers employed in Ticino and living in Italy.',
     'blog.article.inter-scudetto-2026-frontalieri.imageAlt': 'Aerial view of Lake Lugano with the city in the background',
+    'blog.article.austriaci-ferma-verifica-2026.title': 'Two Austrians flee moving car: chase ends against a wall',
+    'blog.article.austriaci-ferma-verifica-2026.excerpt': 'A police chase in Ticino ends with two Austrians jumping from a moving car and crashing into a retaining wall.',
+    'blog.article.austriaci-ferma-verifica-2026.imageAlt': 'Lake Lugano with police car and flashing lights, photojournalistic style',
 };
 
 export default blogMetaEn;

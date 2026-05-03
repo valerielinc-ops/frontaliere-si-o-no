@@ -5453,6 +5453,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.inter-scudetto-2026-frontalieri.title': 'Inter ist italienischer Meister: Was ändert sich für Grenzgänger?',
     'blog.article.inter-scudetto-2026-frontalieri.excerpt': 'Inter gewinnt die 21. Meisterschaft. Auswirkungen für Grenzgänger, die in der Schweiz arbeiten und in Italien leben.',
     'blog.article.inter-scudetto-2026-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt im Hintergrund',
+    'blog.article.austriaci-ferma-verifica-2026.title': 'Zwei Österreicher fliehen aus fahrendem Auto: Verfolgung endet an einer Mauer',
+    'blog.article.austriaci-ferma-verifica-2026.excerpt': 'Eine Polizeiverfolgung im Tessin endet damit, dass zwei Österreicher aus einem fahrenden Auto springen und gegen eine Stützmauer prallen.',
+    'blog.article.austriaci-ferma-verifica-2026.imageAlt': 'Luganersee mit Polizeiauto und blinkenden Lichtern, fotojournalistischer Stil',
 };
 
 export default blogMetaDe;

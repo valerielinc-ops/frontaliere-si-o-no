@@ -5454,6 +5454,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inter-scudetto-2026-frontalieri.title': 'Inter champion d\'Italie : ce qui change pour les frontaliers',
     'blog.article.inter-scudetto-2026-frontalieri.excerpt': 'L\'Inter remporte le 21e scudetto. Impacts pour les frontaliers travaillant au Tessin et vivant en Italie.',
     'blog.article.inter-scudetto-2026-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec la ville en arrière-plan',
+    'blog.article.austriaci-ferma-verifica-2026.title': 'Deux Autrichiens fuient une voiture : fin contre un mur',
+    'blog.article.austriaci-ferma-verifica-2026.excerpt': 'Une poursuite de la police en Ticino se termine avec deux Autrichiens sautant d\'une voiture en mouvement et s\'écrasant contre un mur de soutien.',
+    'blog.article.austriaci-ferma-verifica-2026.imageAlt': 'Lac de Lugano avec voiture de police et lumières clignotantes, style photojournalistique',
 };
 
 export default blogMetaFr;
