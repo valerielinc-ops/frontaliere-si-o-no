@@ -5285,6 +5285,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.title': 'Frontalieri: strategia cambio CHF-EUR 2026',
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.excerpt': 'Simulazione pratica per gestire al meglio il cambio CHF-EUR nel 2026 con checklist operativa e confronto scenari',
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.imageAlt': 'Lago di Lugano con grafico del tasso di cambio CHF-EUR in primo piano',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.title': 'Laghi lombardi, inizio estate tragico: “Non è il mare, serve più consapevolezza”',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.excerpt': 'Un morto nel Comasco e un giovane in condizioni gravissime a Desenzano riaccendono l’allarme sicurezza sui laghi lombardi.',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.imageAlt': 'Lago di Lugano con montagne e barche a vela',
 };
 
 export default blogMetaIt;

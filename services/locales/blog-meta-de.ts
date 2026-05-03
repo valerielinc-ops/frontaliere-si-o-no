@@ -5284,6 +5284,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.title': 'Grenzgänger: Wechselkurs CHF-EUR 2026 Strategie',
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.excerpt': 'Praktische Simulation zur optimalen Verwaltung des CHF-EUR-Wechselkurses 2026 mit operativer Checkliste und Szenarienvergleich',
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.imageAlt': 'Luganersee mit einem CHF-EUR-Wechselkursdiagramm im Vordergrund',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.title': 'Tragischer Sommerbeginn an den lombardischen Seen: Mehr Bewusstsein nötig',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.excerpt': 'Ein Toter im Comer See und ein junger Mann in lebensgefährlichem Zustand in Desenzano lösen erneut die Sicherheitswarnung an den lombardischen Seen aus.',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.imageAlt': 'Luganersee mit Bergen und Segelbooten',
 };
 
 export default blogMetaDe;

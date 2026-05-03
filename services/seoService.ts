@@ -2992,6 +2992,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-seco-dazi-segreti-washington': { name: 'Novità', path: '/articoli-frontaliere/seco-dazi-segreti-washington', parent: 'blog' },
     'blog-2025-2000-tonnellate-detriti-lago-ceresio': { name: 'Novità', path: '/articoli-frontaliere/2025-2000-tonnellate-detriti-lago-ceresio', parent: 'blog' },
     'blog-frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica': { name: 'Strategia cambio CHF-EUR', path: '/articoli-frontaliere/frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica', parent: 'blog' },
+    'blog-laghi-lombardi-sicurezza-estate-2026': { name: 'Novità', path: '/articoli-frontaliere/laghi-lombardi-sicurezza-estate-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

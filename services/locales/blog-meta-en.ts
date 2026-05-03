@@ -5284,6 +5284,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.title': 'Cross-border workers: CHF-EUR exchange strategy for 2026',
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.excerpt': 'Practical simulation to manage the CHF-EUR exchange rate in 2026 with an operational checklist and scenario comparison',
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.imageAlt': 'Lake Lugano with a CHF-EUR exchange rate chart in the foreground',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.title': 'Lombard lakes, tragic start to summer: \'Not the sea, more awareness needed\'',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.excerpt': 'A death in Como and a young man in critical condition in Desenzano reignite the safety alarm on Lombard lakes.',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.imageAlt': 'Lake Lugano with mountains and sailboats',
 };
 
 export default blogMetaEn;

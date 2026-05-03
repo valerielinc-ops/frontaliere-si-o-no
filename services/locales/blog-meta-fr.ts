@@ -5285,6 +5285,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.title': 'Frontaliers : stratégie de change CHF-EUR 2026',
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.excerpt': 'Simulation pratique pour gérer au mieux le change CHF-EUR en 2026 avec une checklist opérationnelle et une comparaison de scénarios',
     'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.imageAlt': 'Lac de Lugano avec un graphique du taux de change CHF-EUR en premier plan',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.title': 'Lacs lombards : tragique début d\'été',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.excerpt': 'Un mort dans le Comasco et un jeune dans un état gravissime à Desenzano relancent l\'alerte sécurité sur les lacs lombards.',
+    'blog.article.laghi-lombardi-sicurezza-estate-2026.imageAlt': 'Lac de Lugano avec montagnes et voiliers',
 };
 
 export default blogMetaFr;
