@@ -31,6 +31,7 @@ import {
   type HubLocale,
 } from './seoHubsData';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
+import { resolveBrandLogoUrl, renderEntityCard, ICON_BUILDING_SVG } from './shared/seoContentTokens';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_IT',
@@ -121,6 +122,40 @@ function humanizeSlug(slug: string): string {
 
 function withSlash(s: string): string {
   return s.endsWith('/') ? s : `${s}/`;
+}
+
+function readJobCountsBySlug(fs: typeof fsT, np: typeof npT, rootDir: string): Map<string, number> {
+  const counts = new Map<string, number>();
+  const historyDir = np.resolve(rootDir, 'data', 'jobs-snapshots-history');
+  try {
+    if (!fs.existsSync(historyDir)) return counts;
+    const files = fs.readdirSync(historyDir)
+      .filter((f) => f.endsWith('.json'))
+      .sort()
+      .reverse();
+    if (files.length === 0) return counts;
+    const raw = JSON.parse(fs.readFileSync(np.join(historyDir, files[0]), 'utf-8'));
+    for (const job of Array.isArray(raw?.jobs) ? raw.jobs : []) {
+      if (typeof job?.employerKey === 'string' && job.employerKey) {
+        counts.set(job.employerKey, (counts.get(job.employerKey) ?? 0) + 1);
+      }
+    }
+  } catch (err) {
+    console.warn('[seo-hubs] failed to read job snapshot for company counts', err);
+  }
+  return counts;
+}
+
+function jobsActiveLabel(locale: HubLocale, n: number): string {
+  if (n === 1) {
+    return { it: '1 offerta attiva', en: '1 active opening', de: '1 aktive Stelle', fr: '1 offre active' }[locale];
+  }
+  return {
+    it: `${n.toLocaleString('it')} offerte attive`,
+    en: `${n.toLocaleString('en')} active openings`,
+    de: `${n.toLocaleString('de')} aktive Stellen`,
+    fr: `${n.toLocaleString('fr')} offres actives`,
+  }[locale];
 }
 
 /**
@@ -487,7 +522,7 @@ interface BuildHtmlArgs {
   basePath: string;
   page: number;
   totalPages: number;
-  pageItems: ReadonlyArray<{ href: string; label: string }>;
+  pageItems: ReadonlyArray<{ href: string; label: string; logo?: string | null; jobCount?: number }>;
   totalItems: number;
   hasSpaBundle: boolean;
   entryJs: string;
@@ -575,14 +610,24 @@ function buildHtml(args: BuildHtmlArgs): string {
   // Pagination chrome: prev / page-numbers / next
   const pagination = totalPages > 1 ? renderPagination(locale, basePath, page, totalPages) : '';
 
-  // Items list
+  // Items list — company items (logo !== undefined) use entity-card layout;
+  // jobs / sectors / articles keep the compact plain-link style.
   const itemsHtml = pageItems.length === 0
     ? `<p style="color:var(--color-subtle);padding:16px 0">${esc(emptyLabel(locale))}</p>`
     : `<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${pageItems
-        .map(
-          (it) =>
-            `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}</a></li>`,
-        )
+        .map((it) => {
+          if (it.logo !== undefined) {
+            const card = renderEntityCard({
+              href: it.href,
+              logoUrl: it.logo ?? undefined,
+              iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
+              title: it.label,
+              subtitle: it.jobCount ? jobsActiveLabel(locale, it.jobCount) : undefined,
+            });
+            return `<li>${card}</li>`;
+          }
+          return `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}</a></li>`;
+        })
         .join('')}</ul>`;
 
   return `<!doctype html>
@@ -704,6 +749,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
 
   const { slugs: jobSlugs, perLocale: jobPerLocale } = readJobSlugsMap(fs, np, rootDir);
   const companySlugs = readCompanySlugs(fs, np, rootDir);
+  const jobCountBySlug = readJobCountsBySlug(fs, np, rootDir);
 
   const ensuredDirs = new Set<string>();
   function writeFile(canonicalPath: string, html: string): void {
@@ -720,7 +766,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       : HUB_SLUGS[locale].articlesAll
     );
 
-    let items: Array<{ href: string; label: string }> = [];
+    let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number }> = [];
     let pageSize = 100;
 
     if (hubKey === 'jobs') {
@@ -761,6 +807,8 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         items.push({
           href: `${sectionRoot}/azienda-${slug}/`,
           label: humanizeSlug(slug),
+          logo: resolveBrandLogoUrl(rootDir, slug),
+          jobCount: jobCountBySlug.get(slug),
         });
       }
     } else {
