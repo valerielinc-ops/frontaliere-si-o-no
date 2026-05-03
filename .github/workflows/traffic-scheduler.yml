@@ -12,8 +12,8 @@ on:
     - cron: '0 8-13 * * 1-5'
     # Evening return peak ≈ CET 15:00–20:00 → every 15 min
     - cron: '*/15 13-17 * * 1-5'
-    # ── Weekends (Sat–Sun) → every hour all day ──
-    # weekend disabled — no scheduled runs on Saturday/Sunday
+    # ── Weekends (Sat–Sun) → every 2h to conserve HERE quota ──
+    - cron: '0 4,6,8,10,12,14,16,18 * * 0,6'
   workflow_dispatch: {}
 
 concurrency:
