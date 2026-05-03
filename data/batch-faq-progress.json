@@ -725,7 +725,9 @@
     "vergiate-color-run-2026-non-competitiva",
     "violenza-sessuale-conseguenze-ticino",
     "ritardi-a2-tra-chiasso-lugano",
-    "sindacati-ticino-1-maggio-2026"
+    "sindacati-ticino-1-maggio-2026",
+    "bike-sharing-como-gratis-giugno",
+    "furti-chiese-bellinzonese-arresti-2026"
   ],
   "failed": [
     {
@@ -6457,8 +6459,33 @@
       "id": "bike-sharing-como-gratis-giugno",
       "error": "Unterminated string in JSON at position 232 (line 4 column 116)",
       "at": "2026-05-02T03:59:34.404Z"
+    },
+    {
+      "id": "a4-milano-brescia-chiusura-notturna-2026",
+      "error": "Unterminated string in JSON at position 1886 (line 20 column 36)",
+      "at": "2026-05-03T04:27:43.439Z"
+    },
+    {
+      "id": "bellinzona-2025-consuntivo-risultati",
+      "error": "Unterminated string in JSON at position 196 (line 4 column 98)",
+      "at": "2026-05-03T04:28:00.717Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 280 (line 4 column 153)",
+      "at": "2026-05-03T04:28:17.668Z"
+    },
+    {
+      "id": "concerto-luino-vivaldi-bach-2026",
+      "error": "Unterminated string in JSON at position 764 (line 8 column 216)",
+      "at": "2026-05-03T04:28:50.868Z"
+    },
+    {
+      "id": "parcheggio-abusivo-como-villa-olmo",
+      "error": "Unterminated string in JSON at position 1341 (line 12 column 349)",
+      "at": "2026-05-03T04:29:20.203Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-02T03:59:43.468Z"
+  "updatedAt": "2026-05-03T04:29:20.203Z"
 }
