@@ -72,6 +72,24 @@ function getSeededExpiredJob(): ExpiredJob | null {
 }
 
 /**
+ * Returns true when the build-seeded expired job data matches the given slug.
+ * Used to distinguish job slugs that start with a company prefix
+ * (e.g. "azienda-multiservizi-bellinzona-amb") from company filter slugs
+ * (e.g. "azienda-migros") — the seeded data is slug-specific so stale window
+ * globals from a previous SPA page load cannot produce a false match.
+ */
+export function seededJobMatchesSlug(slug: string): boolean {
+  try {
+    const raw = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+    if (!raw || typeof raw !== 'object') return false;
+    const job = raw as { slug?: string; slugByLocale?: Record<string, string> };
+    if (job.slug === slug) return true;
+    if (job.slugByLocale) return Object.values(job.slugByLocale).some((s) => s === slug);
+    return false;
+  } catch { return false; }
+}
+
+/**
  * Returns true when the build plugin injected expired job data into this page.
  * Callable from outside the hook (e.g. to short-circuit a loading spinner).
  */
