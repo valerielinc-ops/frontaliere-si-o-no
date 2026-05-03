@@ -10607,6 +10607,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mensa-solidarieta-degrado-sicurezza-2026': {
+    title: 'Como: degrado e mancanza di sicurezza alla mensa di solidarietà',
+    description: 'Una lettrice segnala forte degrado e mancanza di sicurezza presso la mensa di via Don Guanella a Como, nonostante il valore sociale dell\'iniziativa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, degrado, mancanza, sicurezza',
+    ogTitle: 'Como: degrado e mancanza di sicurezza alla mensa di solidarietà',
+    ogDescription: 'Una lettrice segnala forte degrado e mancanza di sicurezza presso la mensa di via Don Guanella a Como, nonostante il valore sociale dell\'iniziativa.',
+    canonicalPath: '/articoli-frontaliere/mensa-solidarieta-degrado-sicurezza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como: degrado e mancanza di sicurezza alla mensa di solidarietà",
+      "description": "Una lettrice segnala forte degrado e mancanza di sicurezza presso la mensa di via Don Guanella a Como, nonostante il valore sociale dell'iniziativa.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mensa-solidarieta-degrado-sicurezza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una strada affollata a Como vicino a una mensa di solidarietà, con segni di degrado e mancanza di sicurezza."
+      },
+      "datePublished": "2026-05-03T18:53:26+00:00",
+      "dateModified": "2026-05-03T18:53:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mensa-solidarieta-degrado-sicurezza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

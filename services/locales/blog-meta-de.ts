@@ -5372,6 +5372,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.usa-missili-germania-2026.title': 'USA ziehen Langstreckenraketen aus Deutschland ab',
     'blog.article.usa-missili-germania-2026.excerpt': 'Die Spannungen zwischen Berlin und Washington beeinflussen die NATO-Strategie und die Abschreckungspläne in Europa.',
     'blog.article.usa-missili-germania-2026.imageAlt': 'Castelgrande Festung in Bellinzona, Tessin, Schweiz',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.title': 'Como: Verwahrlosung und Unsicherheit in der Solidaritätsmensa',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.excerpt': 'Eine Leserin meldet starken Verfall und mangelnde Sicherheit in der Mensa in der Via Don Guanella in Como, trotz des sozialen Wertes der Initiative.',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.imageAlt': 'Eine belebte Straße in Como in der Nähe einer Solidaritätskantine, die Anzeichen von Verfall und mangelnder Sicherheit zeigt.',
 };
 
 export default blogMetaDe;

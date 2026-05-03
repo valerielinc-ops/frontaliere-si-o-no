@@ -17489,4 +17489,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mensa-solidarieta-degrado-sicurezza-2026',
+ category: 'pratico',
+ date: '2026-05-03T18:53:26.664Z',
+ image: '/images/blog/mensa-solidarieta-degrado-sicurezza-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

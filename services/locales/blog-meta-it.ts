@@ -5373,6 +5373,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.usa-missili-germania-2026.title': 'USA ritirano missili a lungo raggio dalla Germania',
     'blog.article.usa-missili-germania-2026.excerpt': 'Le tensioni tra Berlino e Washington influenzano la strategia NATO e i piani di deterrenza in Europa.',
     'blog.article.usa-missili-germania-2026.imageAlt': 'Castelgrande di Bellinzona, Ticino, Svizzera',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.title': 'Como: degrado e mancanza di sicurezza alla mensa di solidarietà',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.excerpt': 'Una lettrice segnala forte degrado e mancanza di sicurezza presso la mensa di via Don Guanella a Como, nonostante il valore sociale dell\'iniziativa.',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.imageAlt': 'Una strada affollata a Como vicino a una mensa di solidarietà, con segni di degrado e mancanza di sicurezza.',
 };
 
 export default blogMetaIt;

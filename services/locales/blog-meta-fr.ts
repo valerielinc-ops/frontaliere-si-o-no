@@ -5373,6 +5373,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.usa-missili-germania-2026.title': 'Les USA retirent des missiles à longue portée d\'Allemagne',
     'blog.article.usa-missili-germania-2026.excerpt': 'Les tensions entre Berlin et Washington influencent la stratégie de l\'OTAN et les plans de dissuasion en Europe.',
     'blog.article.usa-missili-germania-2026.imageAlt': 'Château de Castelgrande à Bellinzone, Tessin, Suisse',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.title': 'Como: insalubrité et insécurité à la cantine de solidarité',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.excerpt': 'Une lectrice signale un fort état d\'insalubrité et un manque de sécurité à la cantine de la rue Don Guanella à Como, malgré la valeur sociale de l\'initiative.',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.imageAlt': 'Une rue bondée à Côme près d\'une cantine de solidarité, montrant des signes de dégradation et de manque de sécurité.',
 };
 
 export default blogMetaFr;

@@ -5372,6 +5372,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.usa-missili-germania-2026.title': 'US withdraws long-range missiles from Germany',
     'blog.article.usa-missili-germania-2026.excerpt': 'Tensions between Berlin and Washington influence NATO strategy and Europe\'s deterrence plans.',
     'blog.article.usa-missili-germania-2026.imageAlt': 'Castelgrande fortress in Bellinzona, Ticino, Switzerland',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.title': 'Como: neglect and insecurity at solidarity canteen',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.excerpt': 'A reader reports severe neglect and lack of security at the solidarity canteen in via Don Guanella, Como, despite the social value of the initiative.',
+    'blog.article.mensa-solidarieta-degrado-sicurezza-2026.imageAlt': 'A crowded street in Como near a solidarity canteen, showing signs of degradation and lack of security.',
 };
 
 export default blogMetaEn;
