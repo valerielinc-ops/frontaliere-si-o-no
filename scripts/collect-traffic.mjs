@@ -24,13 +24,14 @@ import { snapshotBorderWaitFiles } from './snapshot-border-wait-history.mjs';
 const hereApiKey = process.env.HERE_API_KEY;
 const tomtomApiKey = process.env.TOMTOM_API_KEY;
 const googleApiKey = process.env.GOOGLE_MAPS_API_KEY;
+const enableWebcam = process.env.ENABLE_WEBCAM_ANALYSIS === '1';
 
 if (!hereApiKey && !tomtomApiKey && !googleApiKey) {
   console.error('❌ No routing API key set (HERE_API_KEY, TOMTOM_API_KEY, or GOOGLE_MAPS_API_KEY)');
   process.exit(1);
 }
 
-const { collected, errors } = await runTrafficCollection({ hereApiKey, tomtomApiKey, googleApiKey });
+const { collected, errors } = await runTrafficCollection({ hereApiKey, tomtomApiKey, googleApiKey, enableWebcam });
 
 if (collected === 0 && errors > 0) {
   console.error(`❌ All ${errors} crossings failed — traffic data NOT collected`);

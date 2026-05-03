@@ -242,6 +242,21 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  }
  }
 
+ // Webcam override: if camera sees a queue but routing says <5 min, use conservative estimate.
+ // Only active if webcam analysis is enabled (options.enableWebcam) and crossing has a camera.
+ if (options.enableWebcam) {
+  try {
+   const { analyzeWebcamForCrossing } = await import('../../scripts/analyze-webcam-frame.mjs');
+   const webcam = await analyzeWebcamForCrossing(slugifyCrossingName(crossing.name));
+   if (webcam?.visibility === 'good' && webcam.queueDetected && waitTimeMinutes < 5) {
+    waitTimeMinutes = 8;
+    console.log(`📷 Webcam override for ${crossing.name}: queueDetected=true → ${waitTimeMinutes} min`);
+   }
+  } catch (webcamErr) {
+   console.warn(`⚠️ Webcam analysis skipped for ${crossing.name}: ${webcamErr.message}`);
+  }
+ }
+
  if (approachResult.status === 'fulfilled') {
  const { durationNormalSec, durationTrafficSec } = approachResult.value;
  approachMinutes = Math.max(0, Math.round((durationTrafficSec - durationNormalSec) / 60));
@@ -351,6 +366,8 @@ export async function saveTrafficToFirestore(crossingResults) {
  */
 export async function runTrafficCollection(options = {}) {
  const { hereApiKey, tomtomApiKey, googleApiKey } = options;
+ const enableWebcam = !!options.enableWebcam;
+ console.log(`📷 Webcam analysis: ${enableWebcam ? 'enabled' : 'disabled'}`);
  const provider = resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey });
  if (!provider) {
  console.warn('⚠️ No routing API key set (HERE_API_KEY, TOMTOM_API_KEY, or GOOGLE_MAPS_API_KEY) – skipping traffic collection');
