@@ -5430,6 +5430,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-autolaghi-donna-ferita.title': 'Accident sur l\'Autolaghi: une femme blessée en code jaune',
     'blog.article.incidente-autolaghi-donna-ferita.excerpt': 'Une septuagénaire a perdu le contrôle de sa voiture et a heurté la glissière de sécurité. Transportée à l\'hôpital, elle n\'est pas dans un état grave.',
     'blog.article.incidente-autolaghi-donna-ferita.imageAlt': 'Accident nocturne sur l\'A8 entre Gazzada et Azzate/Buguggiate',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.title': 'Accident sur l\'A9 à Turate: deux blessés à l\'aube',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.excerpt': 'Deux personnes blessées dans un accident sur l\'autoroute A9 avant la sortie de Turate. Intervention des pompiers, du 118 et de la police routière.',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.imageAlt': 'Accident sur l\'autoroute A9 près de Turate tôt le matin avec des véhicules impliqués et des services d\'urgence',
 };
 
 export default blogMetaFr;

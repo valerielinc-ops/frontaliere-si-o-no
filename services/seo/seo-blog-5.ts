@@ -11253,6 +11253,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-a9-turate-feriti-frontalieri': {
+    title: 'Incidente sull\'A9 a Turate: due feriti all\'alba | Frontaliere Ticino',
+    description: 'Incidente sull\'autostrada A9 prima dell\'uscita di Turate con due feriti. Intervento vigili del fuoco, 118 e polizia stradale. Implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, sull, turate, feriti',
+    ogTitle: 'Incidente A9 Turate: due feriti all\'alba',
+    ogDescription: 'Incidente sull\'autostrada A9 prima dell\'uscita di Turate con due feriti. Intervento vigili del fuoco, 118 e polizia stradale. Implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/incidente-a9-turate-feriti-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente sull'A9 a Turate: due feriti all'alba",
+      "description": "Incidente sull'autostrada A9 prima dell'uscita di Turate con due feriti. Intervento vigili del fuoco, 118 e polizia stradale. Implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-a9-turate-feriti-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incidente sull'autostrada A9 vicino a Turate all'alba con veicoli coinvolti e mezzi di soccorso"
+      },
+      "datePublished": "2026-05-03T22:16:52+00:00",
+      "dateModified": "2026-05-03T22:16:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-a9-turate-feriti-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

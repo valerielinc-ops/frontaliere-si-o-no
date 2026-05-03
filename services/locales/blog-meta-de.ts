@@ -5429,6 +5429,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-autolaghi-donna-ferita.title': 'Unfall auf der Autolaghi: 77-Jährige verletzt',
     'blog.article.incidente-autolaghi-donna-ferita.excerpt': 'Eine 77-Jährige verlor die Kontrolle über ihr Auto und touchierte die Leitplanke. Sie wurde ins Krankenhaus gebracht, aber nicht in lebensbedrohlichem Zustand.',
     'blog.article.incidente-autolaghi-donna-ferita.imageAlt': 'Nachtunfall auf der A8 zwischen Gazzada und Azzate/Buguggiate',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.title': 'Unfall auf der A9 bei Turate: Zwei Verletzte in der Früh',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.excerpt': 'Zwei Personen wurden bei einem Unfall auf der Autobahn A9 vor der Ausfahrt Turate verletzt. Einsatz von Feuerwehr, Rettungsdienst und Polizei.',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.imageAlt': 'Unfall auf der Autobahn A9 in der Nähe von Turate am frühen Morgen mit beteiligten Fahrzeugen und Rettungsdiensten',
 };
 
 export default blogMetaDe;

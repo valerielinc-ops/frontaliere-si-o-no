@@ -5430,6 +5430,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-autolaghi-donna-ferita.title': 'Incidente sull\'Autolaghi: donna ferita in codice giallo',
     'blog.article.incidente-autolaghi-donna-ferita.excerpt': 'Una 77enne ha perso il controllo dell\'auto e ha urtato il guardrail. Trasportata in ospedale, non in gravi condizioni.',
     'blog.article.incidente-autolaghi-donna-ferita.imageAlt': 'Incidente notturno sull\'Autolaghi tra Gazzada e Azzate/Buguggiate',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.title': 'Incidente sull\'A9 a Turate: due feriti all\'alba',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.excerpt': 'Due persone ferite in un incidente sull\'autostrada A9 prima dell\'uscita di Turate. Intervento dei vigili del fuoco, 118 e polizia stradale.',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.imageAlt': 'Incidente sull\'autostrada A9 vicino a Turate all\'alba con veicoli coinvolti e mezzi di soccorso',
 };
 
 export default blogMetaIt;

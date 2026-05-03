@@ -5429,6 +5429,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-autolaghi-donna-ferita.title': 'Accident on Autolaghi: woman injured in yellow code',
     'blog.article.incidente-autolaghi-donna-ferita.excerpt': 'A 77-year-old lost control of her car and hit the guardrail. Taken to hospital, she is not in serious condition.',
     'blog.article.incidente-autolaghi-donna-ferita.imageAlt': 'Nighttime accident on the A8 between Gazzada and Azzate/Buguggiate',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.title': 'Accident on A9 near Turate: two injured at dawn',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.excerpt': 'Two people injured in an accident on the A9 motorway before the Turate exit. Firefighters, 118, and highway police intervened.',
+    'blog.article.incidente-a9-turate-feriti-frontalieri.imageAlt': 'Early morning accident on the A9 highway near Turate with involved vehicles and emergency services',
 };
 
 export default blogMetaEn;
