@@ -5324,6 +5324,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-vivibile-frontalieri-2026.title': 'A cross-border worker\'s plea: Don\'t expel me',
     'blog.article.como-vivibile-frontalieri-2026.excerpt': 'An adopted Comasco denounces housing pressure and calls for resident-focused policies',
     'blog.article.como-vivibile-frontalieri-2026.imageAlt': 'Aerial view of Lake Como with mountains and historic buildings',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.title': 'Bellinzona faces final appeal after defeat',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.excerpt': 'Stade Nyonnais loses 0-1 to Wil, complicating Bellinzona\'s fight for survival in Dnb.',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.imageAlt': 'Bellinzona municipal stadium during a football match',
 };
 
 export default blogMetaEn;

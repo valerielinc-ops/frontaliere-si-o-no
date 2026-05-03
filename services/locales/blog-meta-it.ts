@@ -5325,6 +5325,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-vivibile-frontalieri-2026.title': 'Como vivibile: la lettera di un frontaliere che non vuole essere espulso',
     'blog.article.como-vivibile-frontalieri-2026.excerpt': 'Un comasco d\'adozione denuncia la pressione immobiliare e chiede politiche per i residenti',
     'blog.article.como-vivibile-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Como con montagne e edifici storici',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.title': 'Bellinzona verso l\'ultimo appello dopo sconfitta',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.excerpt': 'Lo StadeNyonnais perde 0-1 contro il Wil, complicando la situazione del Bellinzona nella lotta per la salvezza in Dnb.',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.imageAlt': 'Stadio comunale di Bellinzona durante una partita di calcio',
 };
 
 export default blogMetaIt;

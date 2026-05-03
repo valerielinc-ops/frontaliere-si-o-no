@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1827,
+ "numberOfItems": 1828,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6465,7 +6465,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1824, "name": "Landsgemeinde Glarona: cosa cambia per frontali...", "url": `${BASE_URL}/articoli-frontaliere/casse-malati-alloggi-landsgemeinde-2026` },
           { "@type": "ListItem", "position": 1825, "name": "Albertoni e i Cinelli Brothers in 'Dancing Shoes'", "url": `${BASE_URL}/articoli-frontaliere/dancing-shoes-albertoni-cinelli-collaboration` },
           { "@type": "ListItem", "position": 1826, "name": "Landsgemeinde Glarona 2026: aliquota fiscale e ...", "url": `${BASE_URL}/articoli-frontaliere/landsgemeinde-glarona-2026-finanze-alloggi` },
-          { "@type": "ListItem", "position": 1827, "name": "Como vivibile: la lettera di un frontaliere che...", "url": `${BASE_URL}/articoli-frontaliere/como-vivibile-frontalieri-2026` }
+          { "@type": "ListItem", "position": 1827, "name": "Como vivibile: la lettera di un frontaliere che...", "url": `${BASE_URL}/articoli-frontaliere/como-vivibile-frontalieri-2026` },
+          { "@type": "ListItem", "position": 1828, "name": "Bellinzona verso l'ultimo appello dopo sconfitta", "url": `${BASE_URL}/articoli-frontaliere/calcio-dnb-bellinzona-ultimo-appello` }
  ]
  },
  {

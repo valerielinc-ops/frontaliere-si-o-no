@@ -10063,6 +10063,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calcio-dnb-bellinzona-ultimo-appello': {
+    title: 'Bellinzona verso l\'ultimo appello dopo sconfitta | Frontaliere Ticino',
+    description: 'Lo StadeNyonnais perde 0-1 contro il Wil, complicando la situazione del Bellinzona nella lotta per la salvezza in Dnb. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, verso, ultimo, appello',
+    ogTitle: 'Calcio Dnb: Bellinzona verso l\'ultimo appello dopo la sconfitta dello StadeNyonnais',
+    ogDescription: 'Lo StadeNyonnais perde 0-1 contro il Wil, complicando la situazione del Bellinzona nella lotta per la salvezza in Dnb.',
+    canonicalPath: '/articoli-frontaliere/calcio-dnb-bellinzona-ultimo-appello',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona verso l'ultimo appello dopo sconfitta",
+      "description": "Lo StadeNyonnais perde 0-1 contro il Wil, complicando la situazione del Bellinzona nella lotta per la salvezza in Dnb. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/calcio-dnb-bellinzona-ultimo-appello.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio comunale di Bellinzona durante una partita di calcio"
+      },
+      "datePublished": "2026-05-03T16:36:35+00:00",
+      "dateModified": "2026-05-03T16:36:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calcio-dnb-bellinzona-ultimo-appello`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

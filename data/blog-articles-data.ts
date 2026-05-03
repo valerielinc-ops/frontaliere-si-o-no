@@ -17345,4 +17345,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'calcio-dnb-bellinzona-ultimo-appello',
+ category: 'novita',
+ date: '2026-05-03T16:36:35.002Z',
+ image: '/images/blog/calcio-dnb-bellinzona-ultimo-appello.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

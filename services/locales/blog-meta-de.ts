@@ -5324,6 +5324,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-vivibile-frontalieri-2026.title': 'Lebenswertes Como: Ein Grenzgänger will nicht ausgewiesen werden',
     'blog.article.como-vivibile-frontalieri-2026.excerpt': 'Ein adoptierter Komer klagt über Immobilien-Druck und fordert Politik für Einwohner',
     'blog.article.como-vivibile-frontalieri-2026.imageAlt': 'Luftaufnahme des Comer Sees mit Bergen und historischen Gebäuden',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.title': 'Bellinzona nach Niederlage vor letztem Aufruf',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.excerpt': 'Der Stade Nyonnais verliert 0-1 gegen Wil und erschwert Bellinzona den Kampf um den Klassenerhalt in der Dnb.',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.imageAlt': 'Stadione comunale di Bellinzona durante una partita di calcio',
 };
 
 export default blogMetaDe;

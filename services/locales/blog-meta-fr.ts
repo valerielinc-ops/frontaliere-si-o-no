@@ -5325,6 +5325,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-vivibile-frontalieri-2026.title': 'Vivre à Côme : un frontalier menace d\'être expulsé',
     'blog.article.como-vivibile-frontalieri-2026.excerpt': 'Un résident comasque dénonce la pression immobilière et demande des politiques pour les habitants',
     'blog.article.como-vivibile-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Côme avec des montagnes et des bâtiments historiques',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.title': 'Bellinzone vers un dernier appel après une défaite',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.excerpt': 'Le Stade Nyonnais perd 0-1 contre le Wil, compliquant la situation du Bellinzone dans la lutte pour le maintien en Dnb.',
+    'blog.article.calcio-dnb-bellinzona-ultimo-appello.imageAlt': 'Stade communal de Bellinzona pendant un match de football',
 };
 
 export default blogMetaFr;
