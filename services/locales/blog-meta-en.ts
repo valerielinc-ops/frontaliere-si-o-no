@@ -5408,6 +5408,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.neutalia-bilancio-2025-crescita-ricavi.title': 'Neutalia: 2025 results exceed expectations, revenue and profit up',
     'blog.article.neutalia-bilancio-2025-crescita-ricavi.excerpt': 'Neutalia closes 2025 with a turnover of 22.5 million euros and a net profit of 3.17 million, with 12.2 million invested in the plant\'s revamping.',
     'blog.article.neutalia-bilancio-2025-crescita-ricavi.imageAlt': 'Neutalia waste-to-energy plant in Busto Arsizio',
+    'blog.article.life-run-gallarate-2026-successo.title': 'Life Run 2026: 550 runners in Gallarate for well-being',
+    'blog.article.life-run-gallarate-2026-successo.excerpt': 'Over 550 runners participated in the Life Run 2026 in Gallarate, with Mattia Grifa and Federica Cerruti winning the Fidal race.',
+    'blog.article.life-run-gallarate-2026-successo.imageAlt': 'Runners participate in the Life Run in Gallarate, with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

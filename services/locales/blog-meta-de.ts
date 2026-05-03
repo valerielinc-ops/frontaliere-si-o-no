@@ -5408,6 +5408,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.neutalia-bilancio-2025-crescita-ricavi.title': 'Neutalia: 2025-Jahresabschluss übertrifft Erwartungen, Umsatz und Gewinn steigen',
     'blog.article.neutalia-bilancio-2025-crescita-ricavi.excerpt': 'Neutalia schließt das Jahr 2025 mit einem Umsatz von 22,5 Millionen Euro und einem Nettogewinn von 3,17 Millionen ab, bei Investitionen von 12,2 Millionen in die Modernisierung der Anlage.',
     'blog.article.neutalia-bilancio-2025-crescita-ricavi.imageAlt': 'Neutalia Müllverbrennungsanlage in Busto Arsizio',
+    'blog.article.life-run-gallarate-2026-successo.title': 'Life Run 2026: 550 Läufer für das Wohlbefinden',
+    'blog.article.life-run-gallarate-2026-successo.excerpt': 'Über 550 Läufer nahmen am Life Run 2026 in Gallarate teil, mit Siegen von Mattia Grifa und Federica Cerruti im Fidal-Rennen.',
+    'blog.article.life-run-gallarate-2026-successo.imageAlt': 'Läufer nehmen am Life Run in Gallarate teil, mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

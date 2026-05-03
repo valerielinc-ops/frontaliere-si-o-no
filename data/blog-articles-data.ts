@@ -17597,4 +17597,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'life-run-gallarate-2026-successo',
+ category: 'novita',
+ date: '2026-05-03T20:53:25.862Z',
+ image: '/images/blog/life-run-gallarate-2026-successo.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

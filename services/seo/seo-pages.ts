@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1855,
+ "numberOfItems": 1856,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6493,7 +6493,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1852, "name": "Crans-Montana, verso il taglio dei fondi per gl...", "url": `${BASE_URL}/articoli-frontaliere/crans-montana-fondi-avvocati-vittime` },
           { "@type": "ListItem", "position": 1853, "name": "Disordini alla pensilina Botta a Lugano: pista ...", "url": `${BASE_URL}/articoli-frontaliere/disordini-pensilina-botta-lugano-2026` },
           { "@type": "ListItem", "position": 1854, "name": "Scontri in pensilina a Lugano: feriti e tension...", "url": `${BASE_URL}/articoli-frontaliere/scontri-pensilina-lugano-violenza` },
-          { "@type": "ListItem", "position": 1855, "name": "Neutalia: bilancio 2025 supera le attese, ricav...", "url": `${BASE_URL}/articoli-frontaliere/neutalia-bilancio-2025-crescita-ricavi` }
+          { "@type": "ListItem", "position": 1855, "name": "Neutalia: bilancio 2025 supera le attese, ricav...", "url": `${BASE_URL}/articoli-frontaliere/neutalia-bilancio-2025-crescita-ricavi` },
+          { "@type": "ListItem", "position": 1856, "name": "Life Run 2026: 550 podisti a Gallarate per il b...", "url": `${BASE_URL}/articoli-frontaliere/life-run-gallarate-2026-successo` }
  ]
  },
  {
