@@ -1,18 +1,77 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-05-03T10:52:04.133Z",
-  "total": 18,
-  "newCount": 0,
+  "generatedAt": "2026-05-03T22:19:39.688Z",
+  "total": 20,
+  "newCount": 2,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 18010,
-  "avgDurationMs": 18010,
+  "durationMs": 19619,
+  "avgDurationMs": 19619,
   "durationHistory": [
-    18010
+    19619
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213ibq",
+      "slug": "orientatore-trice-scolastica-e-professionale-a-tempo-parziale-80-presso-l-ufficio-dell-orientamento-scolastico-e-professionale-locarno-orari",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Orientatore/trice scolastica e professionale a tempo parziale (80%), presso l’Ufficio dell'orientamento scolastico e professionale, Locarno",
+      "location": "Locarno",
+      "canton": "TI",
+      "category": "other",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-03",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4170",
+      "source": "Company Careers Crawler",
+      "salaryMin": 83633,
+      "salaryMax": 133310,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-05-03T22:19:33.604Z",
+      "firstSeenAt": "2026-05-03T22:19:33.604Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-213ibm",
+      "slug": "1-apprendista-giardiniera-e-afc-indirizzo-produzione-di-piante-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso-il-centro-professi",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "1 Apprendista giardiniera/e AFC, indirizzo produzione di piante, per il periodo dal 31 agosto 2026 al 30 agosto 2029, presso il Centro professionale del verde di Mezzana",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-03",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4174",
+      "source": "Company Careers Crawler",
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-05-03T22:19:33.604Z",
+      "firstSeenAt": "2026-05-03T22:19:33.604Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213j3w",
