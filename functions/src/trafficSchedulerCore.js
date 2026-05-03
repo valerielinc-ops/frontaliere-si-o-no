@@ -139,10 +139,13 @@ export async function getHereMapsRouteTravelTimes(originLat, originLng, destLat,
  destination: `${destLat},${destLng}`,
  transportMode: 'car',
  return: 'summary',
- departureTime: 'now',
+ departureTime: new Date().toISOString(),
  });
  const res = await fetch(`${HERE_ROUTER_URL}?${params}`);
- if (!res.ok) throw new Error(`HERE HTTP ${res.status}`);
+ if (!res.ok) {
+ const body = await res.text().catch(() => '');
+ throw new Error(`HERE HTTP ${res.status}: ${body.slice(0, 200)}`);
+ }
  const data = await res.json();
  const summary = data?.routes?.[0]?.sections?.[0]?.summary;
  if (!summary) throw new Error('HERE: NO_ROUTE_SUMMARY');
