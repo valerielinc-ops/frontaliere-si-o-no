@@ -17723,4 +17723,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'inter-scudetto-2026-frontalieri',
+ category: 'novita',
+ date: '2026-05-03T23:10:17.184Z',
+ image: '/images/blog/inter-scudetto-2026-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

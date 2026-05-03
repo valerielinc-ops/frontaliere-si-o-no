@@ -5451,6 +5451,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.negoziati-stallo-iran-usa-2026.title': 'Negoziati in stallo tra USA e Iran: tensioni crescenti',
     'blog.article.negoziati-stallo-iran-usa-2026.excerpt': 'Le distanze tra Stati Uniti e Iran si fanno sempre più marcate, con nuove proposte e minacce che alimentano le tensioni internazionali.',
     'blog.article.negoziati-stallo-iran-usa-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e edifici',
+    'blog.article.inter-scudetto-2026-frontalieri.title': 'Inter campione d\'Italia: cosa cambia per i frontalieri',
+    'blog.article.inter-scudetto-2026-frontalieri.excerpt': 'L\'Inter vince lo scudetto numero 21. Impatti per i frontalieri che lavorano in Ticino e vivono in Italia.',
+    'blog.article.inter-scudetto-2026-frontalieri.imageAlt': 'Vista aerea del Lago di Lugano con la città sullo sfondo',
 };
 
 export default blogMetaIt;

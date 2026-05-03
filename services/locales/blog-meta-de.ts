@@ -5450,6 +5450,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.negoziati-stallo-iran-usa-2026.title': 'Verhandlungen zwischen USA und Iran stocken: Spannungen nehmen zu',
     'blog.article.negoziati-stallo-iran-usa-2026.excerpt': 'Die Distanz zwischen den Vereinigten Staaten und dem Iran wird immer größer, mit neuen Vorschlägen und Drohungen, die die internationalen Spannungen anheizen.',
     'blog.article.negoziati-stallo-iran-usa-2026.imageAlt': 'Luftaufnahme des Luganersees mit Bergen und Gebäuden',
+    'blog.article.inter-scudetto-2026-frontalieri.title': 'Inter ist italienischer Meister: Was ändert sich für Grenzgänger?',
+    'blog.article.inter-scudetto-2026-frontalieri.excerpt': 'Inter gewinnt die 21. Meisterschaft. Auswirkungen für Grenzgänger, die in der Schweiz arbeiten und in Italien leben.',
+    'blog.article.inter-scudetto-2026-frontalieri.imageAlt': 'Luftaufnahme des Luganersees mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

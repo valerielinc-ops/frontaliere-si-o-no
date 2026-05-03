@@ -3059,6 +3059,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-league-ticino-border-closure-proposal-2026': { name: 'Novità', path: '/articoli-frontaliere/league-ticino-border-closure-proposal-2026', parent: 'blog' },
     'blog-petrolio-gas-sicuro-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/petrolio-gas-sicuro-ticino-2026', parent: 'blog' },
     'blog-negoziati-stallo-iran-usa-2026': { name: 'Novità', path: '/articoli-frontaliere/negoziati-stallo-iran-usa-2026', parent: 'blog' },
+    'blog-inter-scudetto-2026-frontalieri': { name: 'Inter campione', path: '/articoli-frontaliere/inter-scudetto-2026-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

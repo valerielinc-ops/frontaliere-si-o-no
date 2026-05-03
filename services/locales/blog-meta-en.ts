@@ -5450,6 +5450,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.negoziati-stallo-iran-usa-2026.title': 'US-Iran talks stalled: tensions rise',
     'blog.article.negoziati-stallo-iran-usa-2026.excerpt': 'The gap between the United States and Iran is widening, with new proposals and threats fueling international tensions.',
     'blog.article.negoziati-stallo-iran-usa-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and buildings',
+    'blog.article.inter-scudetto-2026-frontalieri.title': 'Inter wins Serie A: what changes for cross-border workers',
+    'blog.article.inter-scudetto-2026-frontalieri.excerpt': 'Inter wins its 21st scudetto. Impacts for cross-border workers employed in Ticino and living in Italy.',
+    'blog.article.inter-scudetto-2026-frontalieri.imageAlt': 'Aerial view of Lake Lugano with the city in the background',
 };
 
 export default blogMetaEn;

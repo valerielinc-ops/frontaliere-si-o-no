@@ -5451,6 +5451,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.negoziati-stallo-iran-usa-2026.title': 'Négociations dans l\'impasse entre les USA et l\'Iran : tensions croissantes',
     'blog.article.negoziati-stallo-iran-usa-2026.excerpt': 'Les distances entre les États-Unis et l\'Iran s\'accentuent, avec de nouvelles propositions et menaces qui alimentent les tensions internationales.',
     'blog.article.negoziati-stallo-iran-usa-2026.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes et bâtiments',
+    'blog.article.inter-scudetto-2026-frontalieri.title': 'Inter champion d\'Italie : ce qui change pour les frontaliers',
+    'blog.article.inter-scudetto-2026-frontalieri.excerpt': 'L\'Inter remporte le 21e scudetto. Impacts pour les frontaliers travaillant au Tessin et vivant en Italie.',
+    'blog.article.inter-scudetto-2026-frontalieri.imageAlt': 'Vue aérienne du lac de Lugano avec la ville en arrière-plan',
 };
 
 export default blogMetaFr;

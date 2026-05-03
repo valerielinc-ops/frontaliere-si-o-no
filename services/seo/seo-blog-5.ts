@@ -11491,6 +11491,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inter-scudetto-2026-frontalieri': {
+    title: 'Inter campione d\'Italia: cosa cambia per i frontalieri',
+    description: 'L\'Inter vince lo scudetto numero 21. Impatti per i frontalieri che lavorano in Ticino e vivono in Italia. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inter, campione, cosa, cambia',
+    ogTitle: 'Inter campione d\'Italia: impatti per i frontalieri',
+    ogDescription: 'L\'Inter vince lo scudetto numero 21. Impatti per i frontalieri che lavorano in Ticino e vivono in Italia.',
+    canonicalPath: '/articoli-frontaliere/inter-scudetto-2026-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inter campione d'Italia: cosa cambia per i frontalieri",
+      "description": "L'Inter vince lo scudetto numero 21. Impatti per i frontalieri che lavorano in Ticino e vivono in Italia. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/inter-scudetto-2026-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con la città sullo sfondo"
+      },
+      "datePublished": "2026-05-03T23:10:17+00:00",
+      "dateModified": "2026-05-03T23:10:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inter-scudetto-2026-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
