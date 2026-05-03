@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1807,
+ "numberOfItems": 1808,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6447,7 +6447,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1804, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/parcheggio-abusivo-como-villa-olmo` },
           { "@type": "ListItem", "position": 1805, "name": "Svizzera amplia la caccia agli evasori fiscali:...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-caccia-evasori-fiscali-2026` },
           { "@type": "ListItem", "position": 1806, "name": "Landsgemeinde di Glarona: austerità e ambiente ...", "url": `${BASE_URL}/articoli-frontaliere/landsgemeinde-glarona-2026` },
-          { "@type": "ListItem", "position": 1807, "name": "Interpellanza al Municipio: costi aeroporto Lug...", "url": `${BASE_URL}/articoli-frontaliere/aeroporto-lugano-costi-interpellanza` }
+          { "@type": "ListItem", "position": 1807, "name": "Interpellanza al Municipio: costi aeroporto Lug...", "url": `${BASE_URL}/articoli-frontaliere/aeroporto-lugano-costi-interpellanza` },
+          { "@type": "ListItem", "position": 1808, "name": "Agricoltura in crisi: il grido d'allarme degli ...", "url": `${BASE_URL}/articoli-frontaliere/agricoltura-ticino-allarme-2024` }
  ]
  },
  {

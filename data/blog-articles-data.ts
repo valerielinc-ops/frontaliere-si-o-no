@@ -17183,4 +17183,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'agricoltura-ticino-allarme-2024',
+ category: 'novita',
+ date: '2026-05-03T10:11:48.627Z',
+ image: '/images/blog/agricoltura-ticino-allarme-2024.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

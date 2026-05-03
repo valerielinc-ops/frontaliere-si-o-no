@@ -5272,6 +5272,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aeroporto-lugano-costi-interpellanza.title': 'Municipality questioned over Lugano-Agno airport costs',
     'blog.article.aeroporto-lugano-costi-interpellanza.excerpt': 'City councillors criticise financial management and delays in development plans for the Ticino airport',
     'blog.article.aeroporto-lugano-costi-interpellanza.imageAlt': 'Aerial view of Lugano-Agno Airport with mountains in the background and planes on the tarmac',
+    'blog.article.agricoltura-ticino-allarme-2024.title': 'Ticino farmers sound the alarm over agricultural crisis',
+    'blog.article.agricoltura-ticino-allarme-2024.excerpt': 'Climate change, wolves and rising costs are crippling Ticino\'s agricultural sector. Here\'s what\'s happening',
+    'blog.article.agricoltura-ticino-allarme-2024.imageAlt': 'Agricultural landscape in Ticino with farmers working in a field and the Alps in the background',
 };
 
 export default blogMetaEn;

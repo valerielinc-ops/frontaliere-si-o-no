@@ -5273,6 +5273,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aeroporto-lugano-costi-interpellanza.title': 'Interpellanza al Municipio: costi aeroporto Lugano-Agno',
     'blog.article.aeroporto-lugano-costi-interpellanza.excerpt': 'Le consigliere comunali criticano la gestione finanziaria e i ritardi nei piani di sviluppo dello scalo ticinese',
     'blog.article.aeroporto-lugano-costi-interpellanza.imageAlt': 'Vista aerea dell\'aeroporto di Lugano-Agno con montagne sullo sfondo e aerei sulla pista',
+    'blog.article.agricoltura-ticino-allarme-2024.title': 'Agricoltura in crisi: il grido d\'allarme degli agricoltori ticinesi',
+    'blog.article.agricoltura-ticino-allarme-2024.excerpt': 'Cambiamenti climatici, lupi e costi crescenti mettono in ginocchio il settore agricolo ticinese. Ecco cosa sta succedendo',
+    'blog.article.agricoltura-ticino-allarme-2024.imageAlt': 'Paesaggio agricolo in Ticino con contadini al lavoro e le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;

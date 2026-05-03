@@ -5272,6 +5272,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aeroporto-lugano-costi-interpellanza.title': 'Interpellation zum Gemeinderat: Kosten Flughafen Lugano-Agno',
     'blog.article.aeroporto-lugano-costi-interpellanza.excerpt': 'Die Gemeinderätinnen kritisieren die finanzielle Verwaltung und die Verzögerungen bei den Entwicklungsplänen des Tessin-Flughafens',
     'blog.article.aeroporto-lugano-costi-interpellanza.imageAlt': 'Luftaufnahme des Flughafens Lugano-Agno mit Bergen im Hintergrund und Flugzeugen auf der Startbahn',
+    'blog.article.agricoltura-ticino-allarme-2024.title': 'Landwirtschaft in der Krise: Ticino-Bauern schlagen Alarm',
+    'blog.article.agricoltura-ticino-allarme-2024.excerpt': 'Klimawandel, Wölfe und steigende Kosten setzen der Landwirtschaft im Tessin zu. Hier ist, was passiert',
+    'blog.article.agricoltura-ticino-allarme-2024.imageAlt': 'Landwirtschaftliche Landschaft in Ticino mit Bauern, die auf einem Feld arbeiten und den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

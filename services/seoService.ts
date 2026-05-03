@@ -2988,6 +2988,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-caccia-evasori-fiscali-2026': { name: 'Fiscale', path: '/articoli-frontaliere/svizzera-caccia-evasori-fiscali-2026', parent: 'blog' },
     'blog-landsgemeinde-glarona-2026': { name: 'Landsgemeinde Glarona', path: '/articoli-frontaliere/landsgemeinde-glarona-2026', parent: 'blog' },
     'blog-aeroporto-lugano-costi-interpellanza': { name: 'Interpellanza Municipio', path: '/articoli-frontaliere/aeroporto-lugano-costi-interpellanza', parent: 'blog' },
+    'blog-agricoltura-ticino-allarme-2024': { name: 'Novità', path: '/articoli-frontaliere/agricoltura-ticino-allarme-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];
