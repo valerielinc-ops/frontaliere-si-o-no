@@ -21,15 +21,16 @@ import admin from 'firebase-admin';
 import { runTrafficCollection } from '../functions/src/trafficSchedulerCore.js';
 import { snapshotBorderWaitFiles } from './snapshot-border-wait-history.mjs';
 
+const hereApiKey = process.env.HERE_API_KEY;
 const tomtomApiKey = process.env.TOMTOM_API_KEY;
 const googleApiKey = process.env.GOOGLE_MAPS_API_KEY;
 
-if (!tomtomApiKey && !googleApiKey) {
-  console.error('❌ Neither TOMTOM_API_KEY nor GOOGLE_MAPS_API_KEY is set');
+if (!hereApiKey && !tomtomApiKey && !googleApiKey) {
+  console.error('❌ No routing API key set (HERE_API_KEY, TOMTOM_API_KEY, or GOOGLE_MAPS_API_KEY)');
   process.exit(1);
 }
 
-const { collected, errors } = await runTrafficCollection({ tomtomApiKey, googleApiKey });
+const { collected, errors } = await runTrafficCollection({ hereApiKey, tomtomApiKey, googleApiKey });
 
 if (collected === 0 && errors > 0) {
   console.error(`❌ All ${errors} crossings failed — traffic data NOT collected`);

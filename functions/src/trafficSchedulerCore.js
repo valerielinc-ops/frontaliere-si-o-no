@@ -20,8 +20,12 @@ export { slugifyCrossingName, BORDER_CROSSINGS };
 
 const GOOGLE_DISTANCE_MATRIX_URL = 'https://maps.googleapis.com/maps/api/distancematrix/json';
 const TOMTOM_CALCULATE_ROUTE_URL = 'https://api.tomtom.com/routing/1/calculateRoute';
+const HERE_ROUTER_URL = 'https://router.hereapi.com/v8/routes';
+const TT_FLOW_URL = 'https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0';
+const MAX_FLOW_DELAY_MIN = 45;
 
-function resolveTrafficProvider({ tomtomApiKey, googleApiKey }) {
+function resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey }) {
+ if (hereApiKey) return 'here';
  if (tomtomApiKey) return 'tomtom';
  if (googleApiKey) return 'google-maps';
  return null;
@@ -117,8 +121,67 @@ export async function getTomTomRouteTravelTimes(originLat, originLng, destLat, d
  return { durationNormalSec, durationTrafficSec };
 }
 
+/**
+ * Calls HERE Maps Routing API v8 for one origin→destination pair.
+ * Returns baseDuration (free-flow) and duration (with traffic) in seconds.
+ *
+ * @param {number} originLat
+ * @param {number} originLng
+ * @param {number} destLat
+ * @param {number} destLng
+ * @param {string} apiKey
+ * @returns {Promise<{durationNormalSec: number, durationTrafficSec: number}>}
+ */
+export async function getHereMapsRouteTravelTimes(originLat, originLng, destLat, destLng, apiKey) {
+ const params = new URLSearchParams({
+ apikey: apiKey,
+ origin: `${originLat},${originLng}`,
+ destination: `${destLat},${destLng}`,
+ transportMode: 'car',
+ return: 'summary',
+ departureTime: 'now',
+ });
+ const res = await fetch(`${HERE_ROUTER_URL}?${params}`);
+ if (!res.ok) throw new Error(`HERE HTTP ${res.status}`);
+ const data = await res.json();
+ const summary = data?.routes?.[0]?.sections?.[0]?.summary;
+ if (!summary) throw new Error('HERE: NO_ROUTE_SUMMARY');
+ return {
+ durationNormalSec: summary.baseDuration,
+ durationTrafficSec: summary.duration,
+ };
+}
+
+/**
+ * Calls TomTom Traffic Flow API for a given point.
+ * Returns speed ratio (currentSpeed/freeFlowSpeed): 1.0 = free, 0.0 = standstill.
+ * Uses tile-based endpoint (50k/day free quota).
+ *
+ * @param {number} lat
+ * @param {number} lng
+ * @param {string} apiKey
+ * @returns {Promise<{ratio: number, confidence: number, currentSpeed: number, freeFlowSpeed: number}>}
+ */
+export async function getTomTomFlowSegmentData(lat, lng, apiKey) {
+ const url = `${TT_FLOW_URL}/16/json?key=${apiKey}&point=${lat},${lng}&unit=KMPH`;
+ const res = await fetch(url);
+ if (!res.ok) throw new Error(`TomTom Flow HTTP ${res.status}`);
+ const d = await res.json();
+ const seg = d?.flowSegmentData;
+ if (!seg) throw new Error('TomTom Flow: NO_SEGMENT');
+ return {
+ ratio: seg.currentSpeed / seg.freeFlowSpeed,
+ confidence: seg.confidence,
+ currentSpeed: seg.currentSpeed,
+ freeFlowSpeed: seg.freeFlowSpeed,
+ };
+}
+
 async function getSegmentTravelTimes(originLat, originLng, destLat, destLng, options) {
  const provider = resolveTrafficProvider(options);
+ if (provider === 'here') {
+ return getHereMapsRouteTravelTimes(originLat, originLng, destLat, destLng, options.hereApiKey);
+ }
  if (provider === 'tomtom') {
  return getTomTomRouteTravelTimes(originLat, originLng, destLat, destLng, options.tomtomApiKey);
  }
@@ -134,7 +197,7 @@ async function getSegmentTravelTimes(originLat, originLng, destLat, destLng, opt
  * 2. Crossing segment: crossing → Swiss checkpoint (≈1 km north)
  *
  * @param {{ name: string, lat: number, lng: number }} crossing
- * @param {{ tomtomApiKey?: string, googleApiKey?: string }} options
+ * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string }} options
  */
 export async function fetchCrossingTraffic(crossing, options = {}) {
  const { lat, lng } = crossing;
@@ -162,6 +225,21 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  waitTimeMinutes = Math.max(0, Math.round((durationTrafficSec - durationNormalSec) / 60));
  } else {
  console.warn(`⚠️ Crossing segment failed for ${crossing.name}: ${crossingResult.reason?.message}`);
+ }
+
+ // TomTom Flow sanity check: if road speed is <30% of free flow but routing says 0 min,
+ // there's likely a queue the routing API missed. Override conservatively.
+ if (options.tomtomApiKey && waitTimeMinutes < 5) {
+ try {
+ const flow = await getTomTomFlowSegmentData(crossing.lat, crossing.lng, options.tomtomApiKey);
+ if (flow.ratio < 0.3 && flow.confidence > 0.5) {
+ waitTimeMinutes = Math.round((1 - flow.ratio) * MAX_FLOW_DELAY_MIN);
+ console.log(`🚦 Flow override for ${crossing.name}: ratio=${flow.ratio.toFixed(2)} → ${waitTimeMinutes} min`);
+ }
+ } catch (flowErr) {
+ // Flow check is best-effort — never block on it
+ console.warn(`⚠️ TomTom Flow check failed for ${crossing.name}: ${flowErr.message}`);
+ }
  }
 
  if (approachResult.status === 'fulfilled') {
@@ -268,13 +346,14 @@ export async function saveTrafficToFirestore(crossingResults) {
  * Collects traffic data for all active border crossings and persists it to Firestore.
  * This is the single entry point called by all three onSchedule functions.
  *
- * @param {{ tomtomApiKey?: string, googleApiKey?: string }} options
+ * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string }} options
  * @returns {Promise<{collected: number, errors: number}>}
  */
 export async function runTrafficCollection(options = {}) {
- const provider = resolveTrafficProvider(options);
+ const { hereApiKey, tomtomApiKey, googleApiKey } = options;
+ const provider = resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey });
  if (!provider) {
- console.warn('⚠️ Neither TOMTOM_API_KEY nor GOOGLE_MAPS_API_KEY is set – skipping traffic collection');
+ console.warn('⚠️ No routing API key set (HERE_API_KEY, TOMTOM_API_KEY, or GOOGLE_MAPS_API_KEY) – skipping traffic collection');
  return { collected: 0, errors: 0 };
  }
 
