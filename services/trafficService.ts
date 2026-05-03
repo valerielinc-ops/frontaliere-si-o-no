@@ -19,7 +19,7 @@ export interface TrafficData {
  status: 'green' | 'yellow' | 'red';
  direction: string;
  lastUpdate: Date;
- source: 'tomtom' | 'google-maps' | 'mock' | 'firestore';
+ source: 'tomtom' | 'google-maps' | 'here' | 'mock' | 'firestore';
  /** Traffic delay on the ≈500 m approach road on the Italian side (set by scheduled function) */
  approachMinutes?: number;
  /** Total estimated crossing time: approach delay + border queue (set by scheduled function) */
@@ -31,7 +31,7 @@ const BORDER_CROSSINGS: BorderCrossingCoordinates[] = centralizedCrossings
  .map(c => ({ name: c.name }));
 
 export function hasLiveTrafficData(data: TrafficData[]): boolean {
- return data.some(item => item.source === 'firestore' || item.source === 'tomtom' || item.source === 'google-maps');
+ return data.some(item => item.source === 'firestore' || item.source === 'tomtom' || item.source === 'google-maps' || item.source === 'here');
 }
 
 class TrafficService {
