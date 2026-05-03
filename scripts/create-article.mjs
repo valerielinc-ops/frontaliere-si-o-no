@@ -4670,11 +4670,12 @@ function modifyBlogArticlesTsx(data) {
   entryLines.push(`${objIndent}},`);
   const newEntry = entryLines.join('\n');
 
-  // Insert before the array terminator. Handles both bare `];` and the
-  // typed variant `] satisfies Article[];` (FRO-328+ type annotation).
+  // Insert before the array terminator. Anchors to the closing `},` that
+  // immediately precedes `] satisfies Article[];` or `];` — robust to any
+  // set of trailing properties (authorSlug, authorName, etc.) on the last entry.
   const before = src;
   src = src.replace(
-    /(\s*hasCalculator: (?:true|false),\n\s*},\n)(\](?:\s+satisfies\s+Article\[\])?;)/,
+    /([ \t]*},\n)(\](?:[ \t]+satisfies[ \t]+Article\[\])?;)/,
     `$1${newEntry}\n$2`
   );
   if (src === before) {
