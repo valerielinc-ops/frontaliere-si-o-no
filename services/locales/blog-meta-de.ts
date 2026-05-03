@@ -5281,6 +5281,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.title': '2000 Tonnen Abfall im Jahr 2025 gesammelt',
     'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.excerpt': 'Im Jahr 2025 wurden 2000 Tonnen Abfall im Lago Ceresio gesammelt, darunter schwimmendes Holz und anthropogene Abfälle. Hier sind die Details.',
     'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.imageAlt': 'Luftaufnahme des Luganersees mit Abfallsammeloperationen',
+    'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.title': 'Grenzgänger: Wechselkurs CHF-EUR 2026 Strategie',
+    'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.excerpt': 'Praktische Simulation zur optimalen Verwaltung des CHF-EUR-Wechselkurses 2026 mit operativer Checkliste und Szenarienvergleich',
+    'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.imageAlt': 'Luganersee mit einem CHF-EUR-Wechselkursdiagramm im Vordergrund',
 };
 
 export default blogMetaDe;

@@ -5281,6 +5281,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.title': '2000 tonnes of debris collected in 2025',
     'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.excerpt': 'In 2025, 2000 tonnes of debris were collected in Lake Lugano, including floating wood and anthropogenic waste. Here are the details.',
     'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.imageAlt': 'Aerial view of Lake Lugano with debris collection operations',
+    'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.title': 'Cross-border workers: CHF-EUR exchange strategy for 2026',
+    'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.excerpt': 'Practical simulation to manage the CHF-EUR exchange rate in 2026 with an operational checklist and scenario comparison',
+    'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.imageAlt': 'Lake Lugano with a CHF-EUR exchange rate chart in the foreground',
 };
 
 export default blogMetaEn;

@@ -5282,6 +5282,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.title': '2000 tonnellate di detriti raccolte nel 2025',
     'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.excerpt': 'Nel 2025 raccolte 2000 tonnellate di detriti nel Lago Ceresio, tra legname flottante e rifiuti antropici. Ecco i dettagli.',
     'blog.article.2025-2000-tonnellate-detriti-lago-ceresio.imageAlt': 'Vista aerea del Lago di Lugano con operazioni di raccolta detriti',
+    'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.title': 'Frontalieri: strategia cambio CHF-EUR 2026',
+    'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.excerpt': 'Simulazione pratica per gestire al meglio il cambio CHF-EUR nel 2026 con checklist operativa e confronto scenari',
+    'blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.imageAlt': 'Lago di Lugano con grafico del tasso di cambio CHF-EUR in primo piano',
 };
 
 export default blogMetaIt;

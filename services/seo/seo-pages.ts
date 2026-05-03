@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1810,
+ "numberOfItems": 1811,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6450,7 +6450,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1807, "name": "Interpellanza al Municipio: costi aeroporto Lug...", "url": `${BASE_URL}/articoli-frontaliere/aeroporto-lugano-costi-interpellanza` },
           { "@type": "ListItem", "position": 1808, "name": "Agricoltura in crisi: il grido d'allarme degli ...", "url": `${BASE_URL}/articoli-frontaliere/agricoltura-ticino-allarme-2024` },
           { "@type": "ListItem", "position": 1809, "name": "SECO blocca accesso atti trattative con Washington", "url": `${BASE_URL}/articoli-frontaliere/seco-dazi-segreti-washington` },
-          { "@type": "ListItem", "position": 1810, "name": "2000 tonnellate di detriti raccolte nel 2025", "url": `${BASE_URL}/articoli-frontaliere/2025-2000-tonnellate-detriti-lago-ceresio` }
+          { "@type": "ListItem", "position": 1810, "name": "2000 tonnellate di detriti raccolte nel 2025", "url": `${BASE_URL}/articoli-frontaliere/2025-2000-tonnellate-detriti-lago-ceresio` },
+          { "@type": "ListItem", "position": 1811, "name": "Frontalieri: strategia cambio CHF-EUR 2026", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica` }
  ]
  },
  {

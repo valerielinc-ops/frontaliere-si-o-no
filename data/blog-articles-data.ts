@@ -17210,4 +17210,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica',
+ category: 'pratico',
+ date: '2026-05-03T11:29:02.388Z',
+ image: '/images/blog/frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
