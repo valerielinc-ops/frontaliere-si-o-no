@@ -2224,11 +2224,15 @@ function matchesRouteSlug(job: JobListing, routeSlug: string): boolean {
  return false;
 }
 
-function parseCompanySlugFilter(initialJobSlug?: string): string | null {
+function parseCompanySlugFilter(initialJobSlug?: string, activeJobs?: JobListing[]): string | null {
  if (!initialJobSlug) return null;
  const prefixes = ['azienda-', 'company-', 'unternehmen-', 'entreprise-'];
  const hit = prefixes.find((p) => initialJobSlug.startsWith(p));
  if (!hit) return null;
+ // If this slug directly matches an active job, the company name in the slug is a
+ // coincidence (e.g. company "Azienda Multiservizi Bellinzona AMB" whose slug starts
+ // with "azienda-"). Don't treat it as a company filter in that case.
+ if (activeJobs?.some(j => matchesRouteSlug(j, initialJobSlug))) return null;
  const slug = initialJobSlug.slice(hit.length).trim();
  return slug || null;
 }
@@ -2793,7 +2797,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const authResolved = !authLoading;
  const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;
- const companySlugFilter = useMemo(() => parseCompanySlugFilter(initialJobSlug), [initialJobSlug]);
+ const companySlugFilter = useMemo(() => parseCompanySlugFilter(initialJobSlug, jobs), [initialJobSlug, jobs]);
  const locationSlugFilter = useMemo(() => parseLocationSlugFilter(initialJobSlug), [initialJobSlug]);
  const searchSlugFilter = useMemo(() => parseSearchSlugFilter(initialJobSlug), [initialJobSlug]);
 
@@ -3250,6 +3254,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, [employerBrand, companySlugFilter, sortedJobs]);
 
+ // If a companySlugFilter was computed but yields zero results and no curated employer
+ // brand exists, the slug is most likely a job slug whose company name starts with the
+ // filter prefix (e.g. "Azienda Multiservizi Bellinzona AMB" → slug starts with "azienda-").
+ // In that case fall through to the expired/orphan cascade instead of showing an empty list.
+ const isFalsePositiveCompanyFilter = useMemo(
+ () => Boolean(!jobsLoading && companySlugFilter && filteredJobs.length === 0 && !employerBrand),
+ [jobsLoading, companySlugFilter, filteredJobs, employerBrand],
+ );
+
  // Resolve the display name of the location when a location slug filter is active
  const locationDisplayName = useMemo(() => {
  if (!locationSlugFilter) return null;
@@ -3569,7 +3582,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // eagerly — even while jobs.json is still loading — so the hook can return the
  // seeded data synchronously and we render JobExpiredView instead of a spinner.
  const seeded = useMemo(() => hasSeededExpiredData(), []);
- const notFoundSlug = initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !bridgeTargetSlug
+ const notFoundSlug = initialJobSlug && (!companySlugFilter || isFalsePositiveCompanyFilter) && !locationSlugFilter && !searchSlugFilter && !bridgeTargetSlug
  && (seeded || (!jobsLoading && !selectedJob))
  ? initialJobSlug
  : undefined;
@@ -3947,7 +3960,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // matched yet), preserve the static HTML metadata that the build plugin
  // already injected. Without this guard the canonical/title/OG tags would
  // momentarily revert to the generic listing-page values.
- if (initialJobSlug && !selectedJob && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !editorialLandingDescriptor) {
+ if (initialJobSlug && !selectedJob && (!companySlugFilter || isFalsePositiveCompanyFilter) && !locationSlugFilter && !searchSlugFilter && !editorialLandingDescriptor) {
  return;
  }
 
@@ -4867,7 +4880,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Expired job pages with seeded data: render the expired view immediately
  // instead of a spinner. Google's WRS executes JS and would otherwise see
  // a blank loading state, making all 4k+ soft-landing pages useless for SEO.
- if (expiredJob && initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter) {
+ if (expiredJob && initialJobSlug && (!companySlugFilter || isFalsePositiveCompanyFilter) && !locationSlugFilter && !searchSlugFilter) {
  return (
  <JobExpiredView
  job={expiredJob}
@@ -5748,7 +5761,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Bridge pages (previousSlugs) now serve full content — selectedJob resolves
  // via bridgeTargetSlug above. No redirect or interstitial needed.
 
- if (initialJobSlug && !selectedJob && !companySlugFilter && !locationSlugFilter && !searchSlugFilter) {
+ if (initialJobSlug && !selectedJob && (!companySlugFilter || isFalsePositiveCompanyFilter) && !locationSlugFilter && !searchSlugFilter) {
  // Ensure expired/orphan job pages are indexable — remove any stale noindex
  // that may have been set by a previous navigation or SPA hydration race.
  const robotsMeta = document.querySelector('meta[name="robots"]');
