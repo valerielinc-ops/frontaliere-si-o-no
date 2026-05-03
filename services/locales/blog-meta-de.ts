@@ -5402,6 +5402,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disordini-pensilina-botta-lugano-2026.title': 'Ausschreitungen in Lugano: politische Spur',
     'blog.article.disordini-pensilina-botta-lugano-2026.excerpt': 'Sicherheitskräfte und Rettungsdienste sind eingeschritten, um die Auseinandersetzungen zu beruhigen und die Verantwortlichen zu identifizieren. Zwei leicht Verletzte und Hindernisse für die Arbeit der Beamten.',
     'blog.article.disordini-pensilina-botta-lugano-2026.imageAlt': 'Unruhen am Botta-Busbahnhof in Lugano, mit Polizei und Rettungskräften vor Ort',
+    'blog.article.scontri-pensilina-lugano-violenza.title': 'Auseinandersetzungen in Lugano: Verletzte und wachsende Spannungen',
+    'blog.article.scontri-pensilina-lugano-violenza.excerpt': 'Die Stadtverwaltung von Lugano kommentiert die Auseinandersetzungen vom 1. Mai, die zu Verletzungen von zwei Personen führten. Die Lage bleibt kritisch.',
+    'blog.article.scontri-pensilina-lugano-violenza.imageAlt': 'Bahnsteig des Bahnhofs Lugano mit wartenden Menschen',
 };
 
 export default blogMetaDe;

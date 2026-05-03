@@ -5402,6 +5402,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disordini-pensilina-botta-lugano-2026.title': 'Clashes at Lugano\'s Botta Shelter: Political Tensions and Rival Fan Groups',
     'blog.article.disordini-pensilina-botta-lugano-2026.excerpt': 'Authorities and emergency services intervened to quell the fights and identify those responsible. Two minor injuries and obstacles to the agents\' work.',
     'blog.article.disordini-pensilina-botta-lugano-2026.imageAlt': 'Disturbances at the Botta bus stop in Lugano, with police and emergency services present',
+    'blog.article.scontri-pensilina-lugano-violenza.title': 'Clashes in Lugano bus stop: injuries and rising tensions',
+    'blog.article.scontri-pensilina-lugano-violenza.excerpt': 'Lugano municipality comments on the May 1st clashes that left two people injured. The situation remains critical.',
+    'blog.article.scontri-pensilina-lugano-violenza.imageAlt': 'Lugano train station platform with people waiting',
 };
 
 export default blogMetaEn;

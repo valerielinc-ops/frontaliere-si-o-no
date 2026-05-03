@@ -5403,6 +5403,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disordini-pensilina-botta-lugano-2026.title': 'Disordini alla pensilina Botta a Lugano: pista politica e rivalità tra tifoserie',
     'blog.article.disordini-pensilina-botta-lugano-2026.excerpt': 'Forze dell\'ordine e soccorsi sono intervenuti per sedare gli scontri e identificare i responsabili. Due feriti leggeri e ostacoli all\'operato degli agenti.',
     'blog.article.disordini-pensilina-botta-lugano-2026.imageAlt': 'Disordini alla pensilina Botta a Lugano, con forze dell\'ordine e soccorsi sul posto',
+    'blog.article.scontri-pensilina-lugano-violenza.title': 'Scontri in pensilina a Lugano: feriti e tensioni crescenti',
+    'blog.article.scontri-pensilina-lugano-violenza.excerpt': 'La municipale di Lugano commenta gli scontri del 1° maggio che hanno portato al ferimento di due persone. La situazione resta critica.',
+    'blog.article.scontri-pensilina-lugano-violenza.imageAlt': 'Pensilina della stazione di Lugano con persone in attesa',
 };
 
 export default blogMetaIt;

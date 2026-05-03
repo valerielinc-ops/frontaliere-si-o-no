@@ -3043,6 +3043,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pulizia-lago-lemano-2026': { name: 'Pulizia Lago Lemano', path: '/articoli-frontaliere/pulizia-lago-lemano-2026', parent: 'blog' },
     'blog-crans-montana-fondi-avvocati-vittime': { name: 'Novità', path: '/articoli-frontaliere/crans-montana-fondi-avvocati-vittime', parent: 'blog' },
     'blog-disordini-pensilina-botta-lugano-2026': { name: 'Disordini Lugano', path: '/articoli-frontaliere/disordini-pensilina-botta-lugano-2026', parent: 'blog' },
+    'blog-scontri-pensilina-lugano-violenza': { name: 'Scontri Lugano', path: '/articoli-frontaliere/scontri-pensilina-lugano-violenza', parent: 'blog' },
  };
 
  const info = sectionNames[section];

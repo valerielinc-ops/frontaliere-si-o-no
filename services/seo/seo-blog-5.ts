@@ -10947,6 +10947,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scontri-pensilina-lugano-violenza': {
+    title: 'Scontri in pensilina a Lugano: feriti e tensioni crescenti',
+    description: 'La municipale di Lugano commenta gli scontri del 1° maggio che hanno portato al ferimento di due persone. La situazione resta critica. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, scontri, pensilina, lugano, feriti',
+    ogTitle: 'Scontri in pensilina a Lugano: feriti e tensioni crescenti',
+    ogDescription: 'La municipale di Lugano commenta gli scontri del 1° maggio che hanno portato al ferimento di due persone. La situazione resta critica.',
+    canonicalPath: '/articoli-frontaliere/scontri-pensilina-lugano-violenza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scontri in pensilina a Lugano: feriti e tensioni crescenti",
+      "description": "La municipale di Lugano commenta gli scontri del 1° maggio che hanno portato al ferimento di due persone. La situazione resta critica. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scontri-pensilina-lugano-violenza.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pensilina della stazione di Lugano con persone in attesa"
+      },
+      "datePublished": "2026-05-03T20:34:17+00:00",
+      "dateModified": "2026-05-03T20:34:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontri-pensilina-lugano-violenza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

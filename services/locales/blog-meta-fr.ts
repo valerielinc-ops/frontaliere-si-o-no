@@ -5403,6 +5403,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disordini-pensilina-botta-lugano-2026.title': 'Troubles à la halte Botta: piste politique et rivalités',
     'blog.article.disordini-pensilina-botta-lugano-2026.excerpt': 'Les forces de l\'ordre et les secours sont intervenus pour calmer les affrontements et identifier les responsables. Deux blessés légers et des obstacles à l\'action des agents.',
     'blog.article.disordini-pensilina-botta-lugano-2026.imageAlt': 'Des troubles à l\'arrêt Botta à Lugano, avec la police et les services d\'urgence sur place',
+    'blog.article.scontri-pensilina-lugano-violenza.title': 'Affrontements à Lugano: blessés et tensions croissantes',
+    'blog.article.scontri-pensilina-lugano-violenza.excerpt': 'La municipalité de Lugano commente les affrontements du 1er mai qui ont fait deux blessés. La situation reste critique.',
+    'blog.article.scontri-pensilina-lugano-violenza.imageAlt': 'Quai de la gare de Lugano avec des personnes en attente',
 };
 
 export default blogMetaFr;

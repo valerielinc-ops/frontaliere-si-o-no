@@ -17579,4 +17579,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scontri-pensilina-lugano-violenza',
+ category: 'pratico',
+ date: '2026-05-03T20:34:17.069Z',
+ image: '/images/blog/scontri-pensilina-lugano-violenza.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
