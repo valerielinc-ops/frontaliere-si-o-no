@@ -213,10 +213,10 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  const statusCallout = (
  <Callout
- status={liveTrafficAvailable ? 'success' : 'accent'}
+ status={liveTrafficAvailable ? 'success' : 'warning'}
  icon={liveTrafficAvailable ? <CheckCircle2 size={16} /> : <AlertTriangle size={16} />}
  >
- <span className={`text-sm ${liveTrafficAvailable ? 'text-success' : 'text-accent'}`}>
+ <span className={`text-sm ${liveTrafficAvailable ? 'text-success' : 'text-warning'}`}>
  {liveTrafficAvailable ? t('traffic.dataReal') : t('traffic.dataSimulated')}
  </span>
  </Callout>
