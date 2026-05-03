@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1830,
+ "numberOfItems": 1831,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6468,7 +6468,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1827, "name": "Como vivibile: la lettera di un frontaliere che...", "url": `${BASE_URL}/articoli-frontaliere/como-vivibile-frontalieri-2026` },
           { "@type": "ListItem", "position": 1828, "name": "Bellinzona verso l'ultimo appello dopo sconfitta", "url": `${BASE_URL}/articoli-frontaliere/calcio-dnb-bellinzona-ultimo-appello` },
           { "@type": "ListItem", "position": 1829, "name": "Parcheggi folli a Cernobbio: auto ticinese occu...", "url": `${BASE_URL}/articoli-frontaliere/parcheggi-cernobbio-ticino-residenti` },
-          { "@type": "ListItem", "position": 1830, "name": "Vandalismo a Bellinzona: danni al bar Galleria", "url": `${BASE_URL}/articoli-frontaliere/vandalismo-bar-bellinzona-2026` }
+          { "@type": "ListItem", "position": 1830, "name": "Vandalismo a Bellinzona: danni al bar Galleria", "url": `${BASE_URL}/articoli-frontaliere/vandalismo-bar-bellinzona-2026` },
+          { "@type": "ListItem", "position": 1831, "name": "Brebbia: 19enne precipita dal tetto di una fabb...", "url": `${BASE_URL}/articoli-frontaliere/brebbia-19enne-grave-incidente-fabbrica` }
  ]
  },
  {

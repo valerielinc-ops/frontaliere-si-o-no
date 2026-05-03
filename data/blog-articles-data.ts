@@ -17372,4 +17372,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'brebbia-19enne-grave-incidente-fabbrica',
+ category: 'novita',
+ date: '2026-05-03T17:06:12.666Z',
+ image: '/images/blog/brebbia-19enne-grave-incidente-fabbrica.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5333,6 +5333,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vandalismo-bar-bellinzona-2026.title': 'Vandalismus in Bellinzona: Schäden am Bar Galleria',
     'blog.article.vandalismo-bar-bellinzona-2026.excerpt': 'Nachts wurden die Außenbereiche des Bar Galleria in Bellinzona verwüstet. Die Schäden werden noch bewertet, Ermittlungen laufen dank Überwachungskameras.',
     'blog.article.vandalismo-bar-bellinzona-2026.imageAlt': 'Vandalisierte Außenbereich eines Bars in Bellinzona nachts, mit beschädigten Tischen und Installationen, aufgenommen von einer Überwachungskamera.',
+    'blog.article.brebbia-19enne-grave-incidente-fabbrica.title': '19-Jähriger stürzt von Fabrikdach in Brebbia',
+    'blog.article.brebbia-19enne-grave-incidente-fabbrica.excerpt': 'Ein 19-Jähriger ist vom Dach einer Fabrik in Brebbia, Provinz Varese, gestürzt. Er ist schwer verletzt, aber außer Lebensgefahr.',
+    'blog.article.brebbia-19enne-grave-incidente-fabbrica.imageAlt': 'Luftaufnahme des Luganersees mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

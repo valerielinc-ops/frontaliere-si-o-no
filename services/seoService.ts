@@ -3020,6 +3020,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-calcio-dnb-bellinzona-ultimo-appello': { name: 'Calcio Dnb', path: '/articoli-frontaliere/calcio-dnb-bellinzona-ultimo-appello', parent: 'blog' },
     'blog-parcheggi-cernobbio-ticino-residenti': { name: 'Parcheggi Cernobbio', path: '/articoli-frontaliere/parcheggi-cernobbio-ticino-residenti', parent: 'blog' },
     'blog-vandalismo-bar-bellinzona-2026': { name: 'Vandalismo Bellinzona', path: '/articoli-frontaliere/vandalismo-bar-bellinzona-2026', parent: 'blog' },
+    'blog-brebbia-19enne-grave-incidente-fabbrica': { name: 'Incidente Brebbia', path: '/articoli-frontaliere/brebbia-19enne-grave-incidente-fabbrica', parent: 'blog' },
  };
 
  const info = sectionNames[section];

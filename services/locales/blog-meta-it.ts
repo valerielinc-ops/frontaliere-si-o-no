@@ -5334,6 +5334,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vandalismo-bar-bellinzona-2026.title': 'Vandalismo a Bellinzona: danni al bar Galleria',
     'blog.article.vandalismo-bar-bellinzona-2026.excerpt': 'Atti vandalici notturni all\'esterno del bar Galleria Bellinzona. Danni in corso di valutazione, indagini in corso grazie alle telecamere di sorveglianza.',
     'blog.article.vandalismo-bar-bellinzona-2026.imageAlt': 'Area vandalizzata all\'esterno di un bar a Bellinzona di notte, con tavolini e installazioni danneggiate, ripresa da una telecamera di sorveglianza.',
+    'blog.article.brebbia-19enne-grave-incidente-fabbrica.title': 'Brebbia: 19enne precipita dal tetto di una fabbrica',
+    'blog.article.brebbia-19enne-grave-incidente-fabbrica.excerpt': 'Un giovane di 19 anni è caduto dal tetto di una fabbrica a Brebbia, in provincia di Varese. Grave ma fuori pericolo.',
+    'blog.article.brebbia-19enne-grave-incidente-fabbrica.imageAlt': 'Vista aerea del Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;
