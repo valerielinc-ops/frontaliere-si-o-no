@@ -5331,6 +5331,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parcheggi-cernobbio-ticino-residenti.title': 'Parcheggi folli a Cernobbio: auto ticinese occupa due posti per residenti',
     'blog.article.parcheggi-cernobbio-ticino-residenti.excerpt': 'Un\'auto con targa ticinese occupa due posti auto riservati ai residenti a Cernobbio, causando disagi e interventi della polizia locale.',
     'blog.article.parcheggi-cernobbio-ticino-residenti.imageAlt': 'Vista aerea di Cernobbio, Lago di Como, con un\'auto con targa ticinese che occupa due posti auto per residenti.',
+    'blog.article.vandalismo-bar-bellinzona-2026.title': 'Vandalismo a Bellinzona: danni al bar Galleria',
+    'blog.article.vandalismo-bar-bellinzona-2026.excerpt': 'Atti vandalici notturni all\'esterno del bar Galleria Bellinzona. Danni in corso di valutazione, indagini in corso grazie alle telecamere di sorveglianza.',
+    'blog.article.vandalismo-bar-bellinzona-2026.imageAlt': 'Area vandalizzata all\'esterno di un bar a Bellinzona di notte, con tavolini e installazioni danneggiate, ripresa da una telecamera di sorveglianza.',
 };
 
 export default blogMetaIt;

@@ -5330,6 +5330,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parcheggi-cernobbio-ticino-residenti.title': 'Chaotische Parkplätze in Cernobbio: Ticino-Auto belegt zwei Plätze für Anwohner',
     'blog.article.parcheggi-cernobbio-ticino-residenti.excerpt': 'Ein Auto mit Ticino-Kennzeichen belegt zwei Parkplätze, die für Anwohner reserviert sind, und verursacht Unannehmlichkeiten sowie Eingriffe der örtlichen Polizei.',
     'blog.article.parcheggi-cernobbio-ticino-residenti.imageAlt': 'Luftaufnahme von Cernobbio, Comer See, mit einem Auto mit Ticino-Kennzeichen, das zwei Parkplätze für Anwohner belegt.',
+    'blog.article.vandalismo-bar-bellinzona-2026.title': 'Vandalismus in Bellinzona: Schäden am Bar Galleria',
+    'blog.article.vandalismo-bar-bellinzona-2026.excerpt': 'Nachts wurden die Außenbereiche des Bar Galleria in Bellinzona verwüstet. Die Schäden werden noch bewertet, Ermittlungen laufen dank Überwachungskameras.',
+    'blog.article.vandalismo-bar-bellinzona-2026.imageAlt': 'Vandalisierte Außenbereich eines Bars in Bellinzona nachts, mit beschädigten Tischen und Installationen, aufgenommen von einer Überwachungskamera.',
 };
 
 export default blogMetaDe;

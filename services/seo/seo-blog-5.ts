@@ -10131,6 +10131,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vandalismo-bar-bellinzona-2026': {
+    title: 'Vandalismo a Bellinzona: danni al bar Galleria | Frontaliere Ticino',
+    description: 'Atti vandalici notturni all\'esterno del bar Galleria Bellinzona. Danni in corso di valutazione, indagini in corso grazie alle telecamere di sorveglianza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vandalismo, bellinzona, danni, galleria',
+    ogTitle: 'Vandalismo a Bellinzona: danni al bar Galleria',
+    ogDescription: 'Atti vandalici notturni all\'esterno del bar Galleria Bellinzona. Danni in corso di valutazione, indagini in corso grazie alle telecamere di sorveglianza.',
+    canonicalPath: '/articoli-frontaliere/vandalismo-bar-bellinzona-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vandalismo a Bellinzona: danni al bar Galleria",
+      "description": "Atti vandalici notturni all'esterno del bar Galleria Bellinzona. Danni in corso di valutazione, indagini in corso grazie alle telecamere di sorveglianza.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vandalismo-bar-bellinzona-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area vandalizzata all'esterno di un bar a Bellinzona di notte, con tavolini e installazioni danneggiate, ripresa da una telecamera di sorveglianza."
+      },
+      "datePublished": "2026-05-03T16:55:08+00:00",
+      "dateModified": "2026-05-03T16:55:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vandalismo-bar-bellinzona-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

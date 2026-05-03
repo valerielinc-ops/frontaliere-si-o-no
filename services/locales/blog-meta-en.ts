@@ -5330,6 +5330,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parcheggi-cernobbio-ticino-residenti.title': 'Crazy parking in Cernobbio: Ticino car takes two resident spots',
     'blog.article.parcheggi-cernobbio-ticino-residenti.excerpt': 'A car with a Ticino license plate occupies two parking spots reserved for residents in Cernobbio, causing inconveniences and local police intervention.',
     'blog.article.parcheggi-cernobbio-ticino-residenti.imageAlt': 'Aerial view of Cernobbio, Lake Como, with a car with Ticino license plates occupying two resident parking spots.',
+    'blog.article.vandalismo-bar-bellinzona-2026.title': 'Vandalism in Bellinzona: damage to Galleria bar',
+    'blog.article.vandalismo-bar-bellinzona-2026.excerpt': 'Nighttime vandalism outside Bellinzona\'s Galleria bar. Damage being assessed, investigations ongoing thanks to surveillance cameras.',
+    'blog.article.vandalismo-bar-bellinzona-2026.imageAlt': 'Vandalized outdoor area of a bar in Bellinzona at night, with damaged tables and installations, captured by a security camera.',
 };
 
 export default blogMetaEn;

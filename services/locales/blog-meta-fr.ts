@@ -5331,6 +5331,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.parcheggi-cernobbio-ticino-residenti.title': 'Parkings fous à Cernobbio: une voiture tessinoise occupe deux places',
     'blog.article.parcheggi-cernobbio-ticino-residenti.excerpt': 'Une voiture immatriculée dans le canton du Tessin occupe deux places de parking réservées aux résidents à Cernobbio, causant des désagréments et l\'intervention de la police locale.',
     'blog.article.parcheggi-cernobbio-ticino-residenti.imageAlt': 'Vue aérienne de Cernobbio, Lac de Côme, avec une voiture immatriculée dans le canton du Tessin occupant deux places de parking pour résidents.',
+    'blog.article.vandalismo-bar-bellinzona-2026.title': 'Vandalisme à Bellinzona: dégâts au bar Galleria',
+    'blog.article.vandalismo-bar-bellinzona-2026.excerpt': 'Actes de vandalisme nocturnes à l\'extérieur du bar Galleria Bellinzona. Les dégâts sont en cours d\'évaluation, des enquêtes sont en cours grâce aux caméras de surveillance.',
+    'blog.article.vandalismo-bar-bellinzona-2026.imageAlt': 'Zone extérieure vandalisée d\'un bar à Bellinzone la nuit, avec des tables et des installations endommagées, capturées par une caméra de surveillance.',
 };
 
 export default blogMetaFr;
