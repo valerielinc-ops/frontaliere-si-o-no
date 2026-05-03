@@ -109,6 +109,30 @@ function isArticleEligibleForNewsSitemap(data) {
   return NEWS_SITEMAP_WHITELIST_TOKENS.some((t) => haystack.includes(t));
 }
 
+// ── Frontaliere content density check ──────────────────────
+// After generating an article, verify the body text actually discusses
+// frontalieri in depth. Counts keyword hits across all 3 body sections.
+const FRONTALIERE_DENSITY_TERMS = [
+  'frontalier', 'permesso g', 'permesso b', 'pendolar', 'transfrontalier',
+  'imposta alla fonte', 'ristorn', 'lamal', 'cassa malati', 'avs', 'lpp',
+  'secondo pilastro', 'stipendio svizzer', 'busta paga', 'netto svizzer',
+  'dogana', 'valico', 'accordo fiscale', 'doppia imposizione',
+];
+
+function checkFrontaliereDensity(itBody) {
+  const text = (itBody || '').toLowerCase();
+  const hits = FRONTALIERE_DENSITY_TERMS.reduce((acc, term) => {
+    return acc + (text.split(term).length - 1);
+  }, 0);
+  const wordCount = text.split(/\s+/).filter(Boolean).length;
+  return {
+    hits,
+    wordCount,
+    // passes if at least 8 keyword hits OR density ≥ 1.2% of word count
+    passes: hits >= 8 || (wordCount > 0 && hits / wordCount >= 0.012),
+  };
+}
+
 // ── Config ──────────────────────────────────────────────────
 // Gemini — image generation (text calls now go through centralized ai-models.mjs)
 const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
@@ -121,7 +145,7 @@ const GH_MODEL_HEAVY = AI_MODELS.GPT4O;
 const GH_MODEL_LIGHT = AI_MODELS.GPT4O_MINI;
 const BLOG_IMAGE_TARGET_MAX_BYTES = 220 * 1024; // target ~220KB
 const BLOG_IMAGE_HARD_MAX_BYTES = 320 * 1024;   // hard cap ~320KB
-const MIN_BODY_CHARS = 800;                      // minimum article body length (plain text chars)
+const MIN_BODY_CHARS = 2500;  // ~400 words minimum; 800 chars was too permissive
 
 // Static places catalog
 const PLACES_IMAGES = [
@@ -531,6 +555,27 @@ const CATEGORY_MAP = {
   notizie: 'novita',
   attualita: 'novita',
   previdenza: 'pensione',
+  // NEW entries:
+  sport: 'novita',
+  sportivo: 'novita',
+  cronaca: 'novita',
+  politica: 'novita',
+  ambiente: 'pratico',
+  natura: 'novita',
+  turismo: 'novita',
+  cultura: 'novita',
+  difesa: 'novita',
+  militare: 'novita',
+  sicurezza: 'novita',
+  immigrazione: 'pratico',
+  permesso: 'pratico',
+  assicurazione: 'pratico',
+  valuta: 'fiscale',
+  cambio: 'fiscale',
+  tasse: 'fiscale',
+  fiscale_cat: 'fiscale',
+  pensione: 'pensione',
+  previdenziale: 'pensione',
 };
 
 // ── Long-tail SEO: evergreen keyword topics ─────────────────
@@ -2302,6 +2347,15 @@ ANTI-RIPETITIVITÀ (CRITICO): I tre body DEVONO avere contenuti DIVERSI. Mai rip
 - body2 = ANALISI PRATICA: implicazioni per i frontalieri, confronti prima/dopo, scenari concreti. Informazione che NON era nel body1.
 - body3 = AZIONE: cosa fare concretamente, scadenze, procedura step-by-step, strumenti del sito. NON riassumere body1 o body2.
 
+REGOLA EDITORIALE FONDAMENTALE — FRONTALIERI AL CENTRO:
+Il frontaliere deve essere il PROTAGONISTA dell'articolo dall'inizio alla fine.
+NON è accettabile aggiungere una sezione "Impatto sui frontalieri" solo in fondo.
+ALMENO il 50% del testo dei campi body1, body2, body3 deve essere direttamente indirizzato al lettore frontaliere, con:
+- Dati pratici (importi CHF/EUR, scadenze, procedure, permessi)
+- Guide operative (checklist, step-by-step numerati, confronto scenari A vs B)
+- Informazioni azionabili (cosa fare, dove andare, quali documenti portare)
+Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni PRATICHE per chi vive in Italia e lavora in Svizzera.
+
 Genera JSON (no markdown, no code fences):
 {
   "id": "kebab-case-3-5-words-max-40-chars",
@@ -3053,6 +3107,17 @@ function validate(data) {
   const itPlainCharsEarly = itBodyEarly.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
   if (itPlainCharsEarly < MIN_BODY_CHARS) {
     console.warn(`  ⚠️  [thin-content] Articolo corto: ${itPlainCharsEarly} chars (min: ${MIN_BODY_CHARS}) — il retry loop tenterà di espandere`);
+  }
+
+  // ── Frontaliere density check ──────────────────────────────
+  const itBodyForDensity = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
+  const densityResult = checkFrontaliereDensity(itBodyForDensity);
+  if (!densityResult.passes) {
+    console.warn(`  ⚠️  [frontaliere-density] Solo ${densityResult.hits} keyword frontalieri su ${densityResult.wordCount} parole (min: 8 hits). Il contenuto potrebbe non essere rilevante per i frontalieri.`);
+    // Non-blocking at generation time: log warning for monitoring.
+    // The selection prompt already enforces relevance; this is a final safety net.
+  } else {
+    console.error(`  ✅ [frontaliere-density] ${densityResult.hits} keyword frontalieri su ${densityResult.wordCount} parole`);
   }
 
   // Slug validation for translated locales (slugs come from IT generation call)
