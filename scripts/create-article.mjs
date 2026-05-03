@@ -4678,23 +4678,23 @@ function modifyRouterTs(data) {
   write(routerFile, routerSrc);
   console.error(`  ✅ ${routerFile}`);
 
-  // Steps 2-3: ALL_BLOG_ARTICLE_IDS and BLOG_SLUGS in routerBlogData.ts
+  // Steps 2-3: BLOG_SLUGS and ALL_BLOG_ARTICLE_IDS in routerBlogData.ts
   const blogDataFile = 'services/routerBlogData.ts';
   let blogSrc = read(blogDataFile);
 
-  // 2. ALL_BLOG_ARTICLE_IDS array — append before ]
-  blogSrc = checkedReplace(blogSrc,
-    new RegExp(`('${escapeRegex(lastId)}'\\])`),
-    `'${lastId}', '${data.id}']`,
-    'ALL_BLOG_ARTICLE_IDS array'
-  );
-
-  // 3. BLOG_SLUGS map — add new entry after last article entry
+  // 2. BLOG_SLUGS map — add new entry after last article entry
   const newSlugEntry = `  '${data.id}': { it: '${data.slugs.it}', en: '${data.slugs.en}', de: '${data.slugs.de}', fr: '${data.slugs.fr}' },`;
   blogSrc = checkedReplace(blogSrc,
     new RegExp(`('${escapeRegex(lastId)}':\\s*\\{[^}]+\\},)`),
     `$1\n${newSlugEntry}`,
     'BLOG_SLUGS map'
+  );
+
+  // 3. Regenerate ALL_BLOG_ARTICLE_IDS from BLOG_SLUGS keys (keeps them in sync)
+  const allIds = [...blogSrc.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)].map(m => `'${m[1]}'`);
+  blogSrc = blogSrc.replace(
+    /export const ALL_BLOG_ARTICLE_IDS: BlogArticleId\[\] = \[[^\]]*\];/,
+    `export const ALL_BLOG_ARTICLE_IDS: BlogArticleId[] = [${allIds.join(', ')}];`
   );
 
   write(blogDataFile, blogSrc);
