@@ -5459,6 +5459,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.statua-volta-como-2026.title': 'Volta statue in Como overrun with weeds',
     'blog.article.statua-volta-como-2026.excerpt': 'The monument dedicated to Alessandro Volta in Como is once again in a state of neglect, just a few months after the bicentennial of his birth.',
     'blog.article.statua-volta-como-2026.imageAlt': 'Alessandro Volta statue in Como overgrown with weeds',
+    'blog.article.scia-luminosa-ticino-2026.title': 'Luminous trail in Ticino: what we know',
+    'blog.article.scia-luminosa-ticino-2026.excerpt': 'The luminous trail spotted in Ticino was expected and does not represent a mystery. Here are the details',
+    'blog.article.scia-luminosa-ticino-2026.imageAlt': 'Lake Lugano at sunset with a luminous trail in the sky',
 };
 
 export default blogMetaEn;

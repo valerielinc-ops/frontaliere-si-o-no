@@ -5460,6 +5460,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.statua-volta-como-2026.title': 'Statua di Volta a Como invasa dalle erbacce',
     'blog.article.statua-volta-como-2026.excerpt': 'Il monumento dedicato ad Alessandro Volta a Como è di nuovo in stato di abbandono, a pochi mesi dal bicentenario della sua nascita.',
     'blog.article.statua-volta-como-2026.imageAlt': 'Statua di Alessandro Volta a Como invasa dalle erbacce',
+    'blog.article.scia-luminosa-ticino-2026.title': 'Scia luminosa in Ticino: cosa sappiamo',
+    'blog.article.scia-luminosa-ticino-2026.excerpt': 'La scia luminosa avvistata in Ticino era attesa e non rappresenta un mistero. Ecco i dettagli',
+    'blog.article.scia-luminosa-ticino-2026.imageAlt': 'Lago di Lugano al tramonto con una scia luminosa nel cielo',
 };
 
 export default blogMetaIt;

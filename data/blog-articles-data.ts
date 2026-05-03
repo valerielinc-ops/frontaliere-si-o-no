@@ -17750,4 +17750,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scia-luminosa-ticino-2026',
+ category: 'novita',
+ date: '2026-05-03T23:34:41.866Z',
+ image: '/images/blog/scia-luminosa-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5459,6 +5459,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.statua-volta-como-2026.title': 'Volta-Denkmal in Como von Unkraut überwuchert',
     'blog.article.statua-volta-como-2026.excerpt': 'Das Denkmal für Alessandro Volta in Como ist wieder in einem verwahrlosten Zustand, nur wenige Monate nach dem zweihundertsten Geburtstag des Wissenschaftlers.',
     'blog.article.statua-volta-como-2026.imageAlt': 'Statue von Alessandro Volta in Como überwuchert von Unkraut',
+    'blog.article.scia-luminosa-ticino-2026.title': 'Lichtspur im Tessin: Was wir wissen',
+    'blog.article.scia-luminosa-ticino-2026.excerpt': 'Die im Tessin gesichtete Lichtspur war erwartet und kein Geheimnis. Hier sind die Details',
+    'blog.article.scia-luminosa-ticino-2026.imageAlt': 'Luganersee bei Sonnenuntergang mit einer leuchtenden Spur am Himmel',
 };
 
 export default blogMetaDe;

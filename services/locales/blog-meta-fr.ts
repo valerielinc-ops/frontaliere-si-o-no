@@ -5460,6 +5460,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.statua-volta-como-2026.title': 'Statue de Volta à Côme envahie par les mauvaises herbes',
     'blog.article.statua-volta-como-2026.excerpt': 'Le monument dédié à Alessandro Volta à Côme est de nouveau à l\'abandon, à quelques mois du bicentenaire de sa naissance.',
     'blog.article.statua-volta-como-2026.imageAlt': 'Statue d\'Alessandro Volta à Côme envahie par les mauvaises herbes',
+    'blog.article.scia-luminosa-ticino-2026.title': 'Traînée lumineuse au Tessin : ce que l\'on sait',
+    'blog.article.scia-luminosa-ticino-2026.excerpt': 'La traînée lumineuse aperçue au Tessin était attendue et ne représente pas un mystère. Voici les détails',
+    'blog.article.scia-luminosa-ticino-2026.imageAlt': 'Lac de Lugano au coucher du soleil avec une traînée lumineuse dans le ciel',
 };
 
 export default blogMetaFr;

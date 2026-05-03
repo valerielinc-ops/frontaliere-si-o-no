@@ -3062,6 +3062,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-inter-scudetto-2026-frontalieri': { name: 'Inter campione', path: '/articoli-frontaliere/inter-scudetto-2026-frontalieri', parent: 'blog' },
     'blog-austriaci-ferma-verifica-2026': { name: 'Novità', path: '/articoli-frontaliere/austriaci-ferma-verifica-2026', parent: 'blog' },
     'blog-statua-volta-como-2026': { name: 'Novità', path: '/articoli-frontaliere/statua-volta-como-2026', parent: 'blog' },
+    'blog-scia-luminosa-ticino-2026': { name: 'Scia luminosa', path: '/articoli-frontaliere/scia-luminosa-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
