@@ -5456,6 +5456,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.austriaci-ferma-verifica-2026.title': 'Two Austrians flee moving car: chase ends against a wall',
     'blog.article.austriaci-ferma-verifica-2026.excerpt': 'A police chase in Ticino ends with two Austrians jumping from a moving car and crashing into a retaining wall.',
     'blog.article.austriaci-ferma-verifica-2026.imageAlt': 'Lake Lugano with police car and flashing lights, photojournalistic style',
+    'blog.article.statua-volta-como-2026.title': 'Volta statue in Como overrun with weeds',
+    'blog.article.statua-volta-como-2026.excerpt': 'The monument dedicated to Alessandro Volta in Como is once again in a state of neglect, just a few months after the bicentennial of his birth.',
+    'blog.article.statua-volta-como-2026.imageAlt': 'Alessandro Volta statue in Como overgrown with weeds',
 };
 
 export default blogMetaEn;

@@ -5457,6 +5457,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.austriaci-ferma-verifica-2026.title': 'Due austriaci fuggono da auto in movimento: inseguimento finisce contro un muro',
     'blog.article.austriaci-ferma-verifica-2026.excerpt': 'Un inseguimento della polizia in Ticino si conclude con due austriaci che saltano da un\'auto in movimento e si schiantano contro un muro di sostegno.',
     'blog.article.austriaci-ferma-verifica-2026.imageAlt': 'Lago di Lugano con auto della polizia e luci lampeggianti, stile fotogiornalistico',
+    'blog.article.statua-volta-como-2026.title': 'Statua di Volta a Como invasa dalle erbacce',
+    'blog.article.statua-volta-como-2026.excerpt': 'Il monumento dedicato ad Alessandro Volta a Como è di nuovo in stato di abbandono, a pochi mesi dal bicentenario della sua nascita.',
+    'blog.article.statua-volta-como-2026.imageAlt': 'Statua di Alessandro Volta a Como invasa dalle erbacce',
 };
 
 export default blogMetaIt;

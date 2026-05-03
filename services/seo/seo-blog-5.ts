@@ -11559,6 +11559,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-statua-volta-como-2026': {
+    title: 'Statua di Volta a Como invasa dalle erbacce | Frontaliere Ticino',
+    description: 'La statua di Alessandro Volta a Como è di nuovo invasa dalle erbacce, a pochi mesi dal bicentenario della sua nascita. Scopri cosa fare. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, statua, volta, como, invasa',
+    ogTitle: 'Statua di Volta a Como invasa dalle erbacce',
+    ogDescription: 'La statua di Alessandro Volta a Como è di nuovo invasa dalle erbacce, a pochi mesi dal bicentenario della sua nascita. Scopri cosa fare.',
+    canonicalPath: '/articoli-frontaliere/statua-volta-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Statua di Volta a Como invasa dalle erbacce",
+      "description": "La statua di Alessandro Volta a Como è di nuovo invasa dalle erbacce, a pochi mesi dal bicentenario della sua nascita. Scopri cosa fare. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/statua-volta-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Statua di Alessandro Volta a Como invasa dalle erbacce"
+      },
+      "datePublished": "2026-05-03T23:28:13+00:00",
+      "dateModified": "2026-05-03T23:28:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/statua-volta-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5456,6 +5456,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.austriaci-ferma-verifica-2026.title': 'Zwei Österreicher fliehen aus fahrendem Auto: Verfolgung endet an einer Mauer',
     'blog.article.austriaci-ferma-verifica-2026.excerpt': 'Eine Polizeiverfolgung im Tessin endet damit, dass zwei Österreicher aus einem fahrenden Auto springen und gegen eine Stützmauer prallen.',
     'blog.article.austriaci-ferma-verifica-2026.imageAlt': 'Luganersee mit Polizeiauto und blinkenden Lichtern, fotojournalistischer Stil',
+    'blog.article.statua-volta-como-2026.title': 'Volta-Denkmal in Como von Unkraut überwuchert',
+    'blog.article.statua-volta-como-2026.excerpt': 'Das Denkmal für Alessandro Volta in Como ist wieder in einem verwahrlosten Zustand, nur wenige Monate nach dem zweihundertsten Geburtstag des Wissenschaftlers.',
+    'blog.article.statua-volta-como-2026.imageAlt': 'Statue von Alessandro Volta in Como überwuchert von Unkraut',
 };
 
 export default blogMetaDe;

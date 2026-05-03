@@ -17741,4 +17741,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'statua-volta-como-2026',
+ category: 'novita',
+ date: '2026-05-03T23:28:13.113Z',
+ image: '/images/blog/statua-volta-como-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5457,6 +5457,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.austriaci-ferma-verifica-2026.title': 'Deux Autrichiens fuient une voiture : fin contre un mur',
     'blog.article.austriaci-ferma-verifica-2026.excerpt': 'Une poursuite de la police en Ticino se termine avec deux Autrichiens sautant d\'une voiture en mouvement et s\'écrasant contre un mur de soutien.',
     'blog.article.austriaci-ferma-verifica-2026.imageAlt': 'Lac de Lugano avec voiture de police et lumières clignotantes, style photojournalistique',
+    'blog.article.statua-volta-como-2026.title': 'Statue de Volta à Côme envahie par les mauvaises herbes',
+    'blog.article.statua-volta-como-2026.excerpt': 'Le monument dédié à Alessandro Volta à Côme est de nouveau à l\'abandon, à quelques mois du bicentenaire de sa naissance.',
+    'blog.article.statua-volta-como-2026.imageAlt': 'Statue d\'Alessandro Volta à Côme envahie par les mauvaises herbes',
 };
 
 export default blogMetaFr;
