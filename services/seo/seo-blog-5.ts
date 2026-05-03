@@ -9621,6 +9621,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-langnau-due-case-garage': {
+    title: 'Incendio a Langnau: due case e un garage distrutti',
+    description: 'Un incendio ha distrutto due case e un garage a Bärau, nel comune di Langnau (BE). Nessun ferito, ma vasta operazione di soccorso. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, langnau, case, garage',
+    ogTitle: 'Incendio a Langnau: due case e un garage distrutti',
+    ogDescription: 'Un incendio ha distrutto due case e un garage a Bärau, nel comune di Langnau (BE). Nessun ferito, ma vasta operazione di soccorso.',
+    canonicalPath: '/articoli-frontaliere/incendio-langnau-due-case-garage',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio a Langnau: due case e un garage distrutti",
+      "description": "Un incendio ha distrutto due case e un garage a Bärau, nel comune di Langnau (BE). Nessun ferito, ma vasta operazione di soccorso. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendio-langnau-due-case-garage.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incendio distrugge due case e un garage a Langnau, Svizzera"
+      },
+      "datePublished": "2026-05-03T12:13:18+00:00",
+      "dateModified": "2026-05-03T12:13:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-langnau-due-case-garage`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

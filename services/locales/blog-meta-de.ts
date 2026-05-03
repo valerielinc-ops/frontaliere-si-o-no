@@ -5293,6 +5293,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.piogge-intense-ceresio-2026.title': 'Starke Regenfälle am Luganersee: Herausforderungen für das Seeufer',
     'blog.article.piogge-intense-ceresio-2026.excerpt': 'Der Konsortium Reinigung Ufer und Luganersee steht vor neuen Herausforderungen mit selteneren, aber intensiveren Regenfällen. 2.000 Tonnen Material wurden 2025 entfernt.',
     'blog.article.piogge-intense-ceresio-2026.imageAlt': 'Luganersee mit starkem Regen und treibendem Abfall',
+    'blog.article.incendio-langnau-due-case-garage.title': 'Brand in Langnau: zwei Häuser und eine Garage zerstört',
+    'blog.article.incendio-langnau-due-case-garage.excerpt': 'Ein Brand hat zwei Häuser und eine Garage in Bärau, Gemeinde Langnau (BE), zerstört. Keine Verletzten, aber große Rettungsaktion.',
+    'blog.article.incendio-langnau-due-case-garage.imageAlt': 'Ein Feuer zerstört zwei Häuser und eine Garage in Langnau, Schweiz',
 };
 
 export default blogMetaDe;

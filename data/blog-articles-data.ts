@@ -17246,4 +17246,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incendio-langnau-due-case-garage',
+ category: 'novita',
+ date: '2026-05-03T12:13:18.108Z',
+ image: '/images/blog/incendio-langnau-due-case-garage.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -5294,6 +5294,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.piogge-intense-ceresio-2026.title': 'Pluies intenses sur le Ceresio : défis pour la gestion du lac',
     'blog.article.piogge-intense-ceresio-2026.excerpt': 'Le Consortium nettoyage des rives et Lac Ceresio relève de nouveaux défis avec des pluies moins fréquentes mais plus intenses. 2.000 tonnes de matériel retirées en 2025.',
     'blog.article.piogge-intense-ceresio-2026.imageAlt': 'Lac de Lugano avec pluie intense et débris flottants',
+    'blog.article.incendio-langnau-due-case-garage.title': 'Incendie à Langnau : deux maisons et un garage détruits',
+    'blog.article.incendio-langnau-due-case-garage.excerpt': 'Un incendie a détruit deux maisons et un garage à Bärau, dans la commune de Langnau (BE). Aucun blessé, mais une vaste opération de secours.',
+    'blog.article.incendio-langnau-due-case-garage.imageAlt': 'Un incendie détruit deux maisons et un garage à Langnau, Suisse',
 };
 
 export default blogMetaFr;

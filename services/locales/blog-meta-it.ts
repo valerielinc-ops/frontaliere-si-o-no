@@ -5294,6 +5294,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.piogge-intense-ceresio-2026.title': 'Piogge intense sul Ceresio: sfide per la gestione del lago',
     'blog.article.piogge-intense-ceresio-2026.excerpt': 'Il Consorzio pulizia rive e Lago Ceresio affronta nuove sfide con piogge meno frequenti ma più intense. Rimossi 2.000 tonnellate di materiale nel 2025.',
     'blog.article.piogge-intense-ceresio-2026.imageAlt': 'Lago di Lugano con pioggia intensa e detriti galleggianti',
+    'blog.article.incendio-langnau-due-case-garage.title': 'Incendio a Langnau: due case e un garage distrutti',
+    'blog.article.incendio-langnau-due-case-garage.excerpt': 'Un incendio ha distrutto due case e un garage a Bärau, nel comune di Langnau (BE). Nessun ferito, ma vasta operazione di soccorso.',
+    'blog.article.incendio-langnau-due-case-garage.imageAlt': 'Incendio distrugge due case e un garage a Langnau, Svizzera',
 };
 
 export default blogMetaIt;

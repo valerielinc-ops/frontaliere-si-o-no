@@ -3006,6 +3006,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-laghi-lombardi-sicurezza-estate-2026': { name: 'Novità', path: '/articoli-frontaliere/laghi-lombardi-sicurezza-estate-2026', parent: 'blog' },
     'blog-riforma-commissioni-federali-2026': { name: 'Riforma commissioni', path: '/articoli-frontaliere/riforma-commissioni-federali-2026', parent: 'blog' },
     'blog-piogge-intense-ceresio-2026': { name: 'Novità', path: '/articoli-frontaliere/piogge-intense-ceresio-2026', parent: 'blog' },
+    'blog-incendio-langnau-due-case-garage': { name: 'Incendio Langnau', path: '/articoli-frontaliere/incendio-langnau-due-case-garage', parent: 'blog' },
  };
 
  const info = sectionNames[section];
