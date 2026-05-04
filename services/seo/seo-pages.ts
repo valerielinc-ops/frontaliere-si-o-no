@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1952,
+ "numberOfItems": 1953,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6590,7 +6590,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1949, "name": "Lidl Svizzera avrà un CEO elvetico: è la prima ...", "url": `${BASE_URL}/articoli-frontaliere/lidl-svizzera-ceo-elvetico` },
           { "@type": "ListItem", "position": 1950, "name": "Torneo Alge Alp Sport: calcio alpino in Ticino ...", "url": `${BASE_URL}/articoli-frontaliere/calcio-alpino-ticino-2026` },
           { "@type": "ListItem", "position": 1951, "name": "Ponti primaverili: più traffico su strada e rotaia", "url": `${BASE_URL}/articoli-frontaliere/ponti-primaverili-traffico-2026` },
-          { "@type": "ListItem", "position": 1952, "name": "PerBacco! che Bianchi! a Bellinzona: tre giorni...", "url": `${BASE_URL}/articoli-frontaliere/perbacco-bianchi-bellinzona-2026` }
+          { "@type": "ListItem", "position": 1952, "name": "PerBacco! che Bianchi! a Bellinzona: tre giorni...", "url": `${BASE_URL}/articoli-frontaliere/perbacco-bianchi-bellinzona-2026` },
+          { "@type": "ListItem", "position": 1953, "name": "I bianconeri amano il corto muso: quattro vitto...", "url": `${BASE_URL}/articoli-frontaliere/bianconeri-corto-muso-2026` }
  ]
  },
  {

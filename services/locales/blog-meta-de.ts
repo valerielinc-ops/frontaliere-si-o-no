@@ -5699,6 +5699,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.perbacco-bianchi-bellinzona-2026.title': 'PerBacco! Weisse Weine in Bellinzona: Drei Tage Genuss und Musik',
     'blog.article.perbacco-bianchi-bellinzona-2026.excerpt': 'Vom 8. bis 10. Mai 2026 feiert Bellinzona die Weißweine des Tessin mit Verkostungen, Musik und Touren durch die Weinberge',
     'blog.article.perbacco-bianchi-bellinzona-2026.imageAlt': 'Weinverkostung in Bellinzona mit Musik und lokalen Speisen',
+    'blog.article.bianconeri-corto-muso-2026.title': 'Die Bianconeri lieben den Kurzschnauzer: vier Siege in Folge',
+    'blog.article.bianconeri-corto-muso-2026.excerpt': 'Die Bianconeri gewinnen das vierte 1-0-Spiel in Folge und erreichen damit den zweiten Platz mit dem FC St. Gallen.',
+    'blog.article.bianconeri-corto-muso-2026.imageAlt': 'Ein Fussballspiel in Lugano, mit Fans, die in den Tribünen feiern und Spielern, die auf dem Feld in Aktion sind.',
 };
 
 export default blogMetaDe;

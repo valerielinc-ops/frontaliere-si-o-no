@@ -5700,6 +5700,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.perbacco-bianchi-bellinzona-2026.title': 'PerBacco! che Bianchi! a Bellinzona: tre giorni di degustazioni e musica',
     'blog.article.perbacco-bianchi-bellinzona-2026.excerpt': 'Dal 8 al 10 maggio 2026, Bellinzona celebra i vini bianchi ticinesi con degustazioni, musica e tour tra i vigneti',
     'blog.article.perbacco-bianchi-bellinzona-2026.imageAlt': 'Evento di degustazione di vini bianchi a Bellinzona, con musica e cibo locale',
+    'blog.article.bianconeri-corto-muso-2026.title': 'I bianconeri amano il corto muso: quattro vittorie consecutive',
+    'blog.article.bianconeri-corto-muso-2026.excerpt': 'I bianconeri vincono il quarto 1-0 consecutivo, agganciando il San Gallo in seconda posizione.',
+    'blog.article.bianconeri-corto-muso-2026.imageAlt': 'Una partita di calcio a Lugano, con tifosi che festeggiano nelle tribune e i giocatori in azione sul campo.',
 };
 
 export default blogMetaIt;

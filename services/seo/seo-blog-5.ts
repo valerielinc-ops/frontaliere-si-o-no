@@ -14313,6 +14313,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bianconeri-corto-muso-2026': {
+    title: 'I bianconeri amano il corto muso: quattro vittorie consecutive',
+    description: 'I bianconeri del FC Lugano vincono il quarto 1-0 consecutivo, agganciando il San Gallo in seconda posizione nella Super League. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, bianconeri, amano, corto, muso',
+    ogTitle: 'I bianconeri amano il corto muso: quattro vittorie consecutive',
+    ogDescription: 'I bianconeri del FC Lugano vincono il quarto 1-0 consecutivo, agganciando il San Gallo in seconda posizione nella Super League.',
+    canonicalPath: '/articoli-frontaliere/bianconeri-corto-muso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "I bianconeri amano il corto muso: quattro vittorie consecutive",
+      "description": "I bianconeri del FC Lugano vincono il quarto 1-0 consecutivo, agganciando il San Gallo in seconda posizione nella Super League. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bianconeri-corto-muso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una partita di calcio a Lugano, con tifosi che festeggiano nelle tribune e i giocatori in azione sul campo."
+      },
+      "datePublished": "2026-05-04T10:13:02+00:00",
+      "dateModified": "2026-05-04T10:13:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bianconeri-corto-muso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

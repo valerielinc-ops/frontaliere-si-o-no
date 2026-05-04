@@ -3142,6 +3142,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-calcio-alpino-ticino-2026': { name: 'Torneo Alge Alp Sport', path: '/articoli-frontaliere/calcio-alpino-ticino-2026', parent: 'blog' },
     'blog-ponti-primaverili-traffico-2026': { name: 'Ponti primaverili', path: '/articoli-frontaliere/ponti-primaverili-traffico-2026', parent: 'blog' },
     'blog-perbacco-bianchi-bellinzona-2026': { name: 'Eventi Ticino', path: '/articoli-frontaliere/perbacco-bianchi-bellinzona-2026', parent: 'blog' },
+    'blog-bianconeri-corto-muso-2026': { name: 'Novità', path: '/articoli-frontaliere/bianconeri-corto-muso-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
