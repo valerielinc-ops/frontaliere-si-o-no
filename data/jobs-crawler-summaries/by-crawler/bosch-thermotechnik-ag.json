@@ -1,22 +1,23 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-04T10:27:03.883Z",
-  "total": 1,
+  "generatedAt": "2026-05-04T21:29:15.431Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 8489,
-  "avgDurationMs": 8489,
+  "durationMs": 7165,
+  "avgDurationMs": 7165,
   "durationHistory": [
-    8489
+    7165
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "Mechaniker (w/m/div.)",
-      "slug": "mechaniker-w-m-div-bosch-st-niklaus",
+      "slug": "ingegnere-m-div-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF284760B-mechaniker-w-m-div",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123354209-mechaniker-w-m-div-?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -46,44 +47,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "title": "Produktionsmitarbeiter 100% (m/w/div) - REF282794R",
-      "slug": "product-manager-m-w-div-ref282794r-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF282794R-produktionsmitarbeiter-100-m-w-div-ref282794r",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000119063447-produktionsmitarbeiter-100-m-w-div-ref282794r?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-07",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-4bcd4c5b844f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-03T09:36:16.144Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
