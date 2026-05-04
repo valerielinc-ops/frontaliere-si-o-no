@@ -5519,6 +5519,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.anguria-pannelli-incendio-ticino-2026.title': 'Fire-resistant panels made from watermelon seeds',
     'blog.article.anguria-pannelli-incendio-ticino-2026.excerpt': 'Discovery by ETH Zurich: fire-resistant panels made from watermelon seeds. Possible applications in Ticino.',
     'blog.article.anguria-pannelli-incendio-ticino-2026.imageAlt': 'Aerial view of Lugano, Ticino, Switzerland, with Lake Lugano in the foreground and the cityscape in the background.',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.title': 'Ilvo Junghi wins 50m Veteran shooting category',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.excerpt': 'Ilvo Junghi wins the 50m sporting shooting in the Veteran category. Discover the competition details.',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.imageAlt': 'A sports shooting range in the Canton of Ticino, with the target at 50 meters.',
 };
 
 export default blogMetaEn;

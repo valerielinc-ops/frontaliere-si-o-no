@@ -5519,6 +5519,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.anguria-pannelli-incendio-ticino-2026.title': 'Feuerfeste Platten aus Wassermelonenkernen: Revolution für den Brandschutz',
     'blog.article.anguria-pannelli-incendio-ticino-2026.excerpt': 'Entdeckung der ETH Zürich: feuerfeste Platten aus Wassermelonenkernen. Mögliche Anwendungen im Tessin.',
     'blog.article.anguria-pannelli-incendio-ticino-2026.imageAlt': 'Luftaufnahme von Lugano, Tessin, Schweiz, mit dem Luganersee im Vordergrund und der Stadtlandschaft im Hintergrund.',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.title': 'Ilvo Junghi gewinnt die 50-Meter-Schießdisziplin bei den Veteranen',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.excerpt': 'Ilvo Junghi gewinnt die 50-Meter-Schießdisziplin bei den Veteranen. Erfahren Sie mehr über den Wettbewerb.',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.imageAlt': 'Ein Sportschießstand im Kanton Tessin, mit dem Ziel auf 50 Meter.',
 };
 
 export default blogMetaDe;

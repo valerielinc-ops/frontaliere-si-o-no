@@ -17930,4 +17930,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tiro-sportivo-veterani-junghi-2026',
+ category: 'novita',
+ date: '2026-05-04T02:53:30.399Z',
+ image: '/images/blog/tiro-sportivo-veterani-junghi-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

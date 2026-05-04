@@ -12273,6 +12273,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tiro-sportivo-veterani-junghi-2026': {
+    title: 'Ilvo Junghi vince il tiro a 50 metri categoria Veterani',
+    description: 'Ilvo Junghi si aggiudica la vittoria nel tiro sportivo a 50 metri categoria Veterani. Scopri i dettagli della competizione e le implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ilvo, junghi, vince, tiro',
+    ogTitle: 'Ilvo Junghi vince il tiro a 50 metri categoria Veterani',
+    ogDescription: 'Ilvo Junghi si aggiudica la vittoria nel tiro sportivo a 50 metri categoria Veterani. Scopri i dettagli della competizione e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/tiro-sportivo-veterani-junghi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ilvo Junghi vince il tiro a 50 metri categoria Veterani",
+      "description": "Ilvo Junghi si aggiudica la vittoria nel tiro sportivo a 50 metri categoria Veterani. Scopri i dettagli della competizione e le implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tiro-sportivo-veterani-junghi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un campo di tiro sportivo nel Canton Ticino, con il bersaglio a 50 metri."
+      },
+      "datePublished": "2026-05-04T02:53:30+00:00",
+      "dateModified": "2026-05-04T02:53:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tiro-sportivo-veterani-junghi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

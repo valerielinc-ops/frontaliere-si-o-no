@@ -5520,6 +5520,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.anguria-pannelli-incendio-ticino-2026.title': 'Panneaux ignifuges à base de graines de pastèque',
     'blog.article.anguria-pannelli-incendio-ticino-2026.excerpt': 'Découverte du Polytechnique de Zurich : des panneaux résistants au feu réalisés avec des graines de pastèque. Des applications possibles en Ticino.',
     'blog.article.anguria-pannelli-incendio-ticino-2026.imageAlt': 'Vue aérienne de Lugano, Tessin, Suisse, avec le lac de Lugano au premier plan et le paysage urbain à l\'arrière-plan.',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.title': 'Ilvo Junghi remporte le tir à 50 mètres catégorie Vétérans',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.excerpt': 'Ilvo Junghi s\'adjuge la victoire dans le tir sportif à 50 mètres catégorie Vétérans. Découvrez les détails de la compétition.',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.imageAlt': 'Un stand de tir sportif dans le canton du Tessin, avec la cible à 50 mètres.',
 };
 
 export default blogMetaFr;

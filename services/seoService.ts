@@ -3082,6 +3082,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-thun-campionato-calcio-2026': { name: 'Novità', path: '/articoli-frontaliere/thun-campionato-calcio-2026', parent: 'blog' },
     'blog-scudetto-varese-frontalieri-2026': { name: 'Scudetto Inter', path: '/articoli-frontaliere/scudetto-varese-frontalieri-2026', parent: 'blog' },
     'blog-anguria-pannelli-incendio-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/anguria-pannelli-incendio-ticino-2026', parent: 'blog' },
+    'blog-tiro-sportivo-veterani-junghi-2026': { name: 'Tiro Sportivo', path: '/articoli-frontaliere/tiro-sportivo-veterani-junghi-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

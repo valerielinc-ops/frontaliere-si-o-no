@@ -5520,6 +5520,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.anguria-pannelli-incendio-ticino-2026.title': 'Pannelli ignifughi con semi di anguria: rivoluzione per la sicurezza antincendio',
     'blog.article.anguria-pannelli-incendio-ticino-2026.excerpt': 'Scoperta del Politecnico di Zurigo: pannelli resistenti al fuoco realizzati con semi di anguria. Possibili applicazioni in Ticino.',
     'blog.article.anguria-pannelli-incendio-ticino-2026.imageAlt': 'Vista aerea di Lugano, Ticino, Svizzera, con il Lago di Lugano in primo piano e il paesaggio urbano sullo sfondo.',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.title': 'Ilvo Junghi vince il tiro a 50 metri categoria Veterani',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.excerpt': 'Ilvo Junghi si aggiudica la vittoria nel tiro sportivo a 50 metri categoria Veterani. Scopri i dettagli della competizione.',
+    'blog.article.tiro-sportivo-veterani-junghi-2026.imageAlt': 'Un campo di tiro sportivo nel Canton Ticino, con il bersaglio a 50 metri.',
 };
 
 export default blogMetaIt;
