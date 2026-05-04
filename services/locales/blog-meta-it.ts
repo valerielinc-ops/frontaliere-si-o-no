@@ -5490,6 +5490,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.verbania-clandestino-espulsione-2026.title': 'Clandestino tenta la fuga a Verbania, fermato e poi espulso',
     'blog.article.verbania-clandestino-espulsione-2026.excerpt': 'Un clandestino è stato fermato mentre tentava la fuga a Verbania e successivamente espulso. Ecco i dettagli dell\'accaduto.',
     'blog.article.verbania-clandestino-espulsione-2026.imageAlt': 'Controllo di frontiera tra Italia e Svizzera nella zona di Verbania',
+    'blog.article.cof-lanzo-igiene-mani-2026.title': 'COF Lanzo aderisce alla Campagna mondiale per l’igiene delle mani',
+    'blog.article.cof-lanzo-igiene-mani-2026.excerpt': 'Il COF Lanzo Hospital conferma il suo sostegno alla Campagna mondiale per l’igiene delle mani, promossa dall’OMS e dal Ministero della Salute.',
+    'blog.article.cof-lanzo-igiene-mani-2026.imageAlt': 'Un professionista sanitario lava le mani in un ospedale svizzero, con attenzione all\'igiene e alla pulizia.',
 };
 
 export default blogMetaIt;

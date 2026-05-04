@@ -5490,6 +5490,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.verbania-clandestino-espulsione-2026.title': 'Un clandestin tente de fuir à Verbania, arrêté puis expulsé',
     'blog.article.verbania-clandestino-espulsione-2026.excerpt': 'Un clandestin a été arrêté alors qu\'il tentait de fuir à Verbania et a ensuite été expulsé. Voici les détails de l\'incident.',
     'blog.article.verbania-clandestino-espulsione-2026.imageAlt': 'Point de contrôle frontalier entre l\'Italie et la Suisse dans la région de Verbania',
+    'blog.article.cof-lanzo-igiene-mani-2026.title': 'Hôpital de Lanzo rejoint la campagne mondiale pour l\'hygiène des mains',
+    'blog.article.cof-lanzo-igiene-mani-2026.excerpt': 'L\'hôpital de Lanzo confirme son soutien à la campagne mondiale pour l\'hygiène des mains, promue par l\'OMS et le Ministère de la Santé.',
+    'blog.article.cof-lanzo-igiene-mani-2026.imageAlt': 'Un professionnel de la santé se lave les mains dans un hôpital suisse, en se concentrant sur l\'hygiène et la propreté.',
 };
 
 export default blogMetaFr;

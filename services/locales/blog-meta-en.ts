@@ -5489,6 +5489,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.verbania-clandestino-espulsione-2026.title': 'Illegal immigrant attempts escape in Verbania, stopped and deported',
     'blog.article.verbania-clandestino-espulsione-2026.excerpt': 'An illegal immigrant was stopped while attempting to escape in Verbania and subsequently deported. Here are the details of the incident.',
     'blog.article.verbania-clandestino-espulsione-2026.imageAlt': 'Border checkpoint between Italy and Switzerland in the Verbania area',
+    'blog.article.cof-lanzo-igiene-mani-2026.title': 'COF Lanzo joins the Global Hand Hygiene Campaign',
+    'blog.article.cof-lanzo-igiene-mani-2026.excerpt': 'COF Lanzo Hospital confirms its support for the Global Hand Hygiene Campaign, promoted by the WHO and the Ministry of Health.',
+    'blog.article.cof-lanzo-igiene-mani-2026.imageAlt': 'A healthcare professional washing hands in a Swiss hospital, focusing on hygiene and cleanliness.',
 };
 
 export default blogMetaEn;

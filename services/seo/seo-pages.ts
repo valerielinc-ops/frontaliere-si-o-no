@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1882,
+ "numberOfItems": 1883,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6520,7 +6520,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1879, "name": "Automobilisti stranieri rischiano a Faido-Chigg...", "url": `${BASE_URL}/articoli-frontaliere/retromarcia-contromano-faido-chiggiogna-2026` },
           { "@type": "ListItem", "position": 1880, "name": "Lugano-YB a Cornaredo: la terzultima sfida prim...", "url": `${BASE_URL}/articoli-frontaliere/lugano-young-boys-cornaredo-2026` },
           { "@type": "ListItem", "position": 1881, "name": "Tragedia alla Fallätsche: 69enne precipita mort...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-falleatsche-frontalieri` },
-          { "@type": "ListItem", "position": 1882, "name": "Clandestino tenta la fuga a Verbania, fermato e...", "url": `${BASE_URL}/articoli-frontaliere/verbania-clandestino-espulsione-2026` }
+          { "@type": "ListItem", "position": 1882, "name": "Clandestino tenta la fuga a Verbania, fermato e...", "url": `${BASE_URL}/articoli-frontaliere/verbania-clandestino-espulsione-2026` },
+          { "@type": "ListItem", "position": 1883, "name": "COF Lanzo aderisce alla Campagna mondiale per l...", "url": `${BASE_URL}/articoli-frontaliere/cof-lanzo-igiene-mani-2026` }
  ]
  },
  {

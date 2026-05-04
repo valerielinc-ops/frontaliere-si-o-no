@@ -5489,6 +5489,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.verbania-clandestino-espulsione-2026.title': 'Illegale flieht nach Verbania, wird festgenommen und abgeschoben',
     'blog.article.verbania-clandestino-espulsione-2026.excerpt': 'Ein illegaler Einwanderer wurde festgenommen, als er in Verbania zu fliehen versuchte und anschließend abgeschoben. Hier sind die Details des Vorfalls.',
     'blog.article.verbania-clandestino-espulsione-2026.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz im Bereich von Verbania',
+    'blog.article.cof-lanzo-igiene-mani-2026.title': 'COF Lanzo unterstützt die globale Handhygienekampagne',
+    'blog.article.cof-lanzo-igiene-mani-2026.excerpt': 'Das COF Lanzo Hospital bestätigt seine Unterstützung für die globale Handhygienekampagne, die von der WHO und dem Gesundheitsministerium gefördert wird.',
+    'blog.article.cof-lanzo-igiene-mani-2026.imageAlt': 'Ein Gesundheitsdienstleister wäscht sich die Hände in einem Schweizer Krankenhaus, mit Fokus auf Hygiene und Sauberkeit.',
 };
 
 export default blogMetaDe;
