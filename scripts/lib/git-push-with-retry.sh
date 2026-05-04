@@ -61,6 +61,13 @@ until git push origin "HEAD:${BRANCH}"; do
   fi
   echo "Push rejected (attempt $attempt/$MAX_ATTEMPTS); rebasing onto origin/${BRANCH}..."
   git fetch origin "$BRANCH"
+  # Defensive: drop any unstaged changes left behind by pre-commit scripts
+  # (assemble-jobs-dataset.mjs and similar produce untracked/working-tree
+  # state). The commit we want to push is already in HEAD, so working-tree
+  # state is garbage. Without this, `git rebase` aborts BEFORE starting with
+  # "cannot rebase: You have unstaged changes" — and then `git rebase --abort`
+  # in the regen branch errors with "no rebase in progress" (run 25308928460).
+  git reset --hard HEAD
   if ! git rebase "origin/${BRANCH}"; then
     if [ -n "$IN_PLACE_RESOLVER_CMD" ]; then
       echo "Rebase conflict; resolving in place via: $IN_PLACE_RESOLVER_CMD"
@@ -79,7 +86,9 @@ until git push origin "HEAD:${BRANCH}"; do
       fi
     elif [ -n "$REGENERATE_CMD" ]; then
       echo "Rebase conflict; regenerating data on top of new base via: $REGENERATE_CMD"
-      git rebase --abort
+      # Tolerate "no rebase in progress" (when rebase failed to start at all,
+      # e.g. due to unstaged changes that the defensive reset above missed).
+      git rebase --abort 2>/dev/null || true
       git reset --hard "origin/${BRANCH}"
       eval "$REGENERATE_CMD"
       # Commit only if the regen command produced staged changes; otherwise
