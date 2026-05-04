@@ -5552,6 +5552,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.juve-verona-1-1-frontalieri-2026.title': 'Juve gleicht gegen bereits abgestiegenen Verona aus',
     'blog.article.juve-verona-1-1-frontalieri-2026.excerpt': 'Juventus spielt gegen den bereits abgestiegenen Verona 1-1 unentschieden und verpasst damit den Anschluss an den AC Mailand im Kampf um die Champions League.',
     'blog.article.juve-verona-1-1-frontalieri-2026.imageAlt': 'Ein realistisches Foto eines Fußballspiels im Juventus-Stadion in Turin, Italien. Das Bild fängt die Intensität des Spiels mit Spielern in Aktion und einer lebhaften Menge im Hintergrund ein.',
+    'blog.article.immigrazione-modello-svizzera-2026.title': 'Einwanderung: Warum die Schweiz ein demografisches Modell ist',
+    'blog.article.immigrazione-modello-svizzera-2026.excerpt': 'Professor Philippe Wanner erklärt die entscheidende Rolle der Einwanderung beim demografischen Erfolg der Schweiz. Fokus auf den Tessin und Grenzgänger.',
+    'blog.article.immigrazione-modello-svizzera-2026.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

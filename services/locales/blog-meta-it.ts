@@ -5553,6 +5553,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.juve-verona-1-1-frontalieri-2026.title': 'Juve pareggia 1-1 con il Verona già retrocesso',
     'blog.article.juve-verona-1-1-frontalieri-2026.excerpt': 'La Juventus pareggia 1-1 contro il Verona già retrocesso, fallendo l\'aggancio al Milan nella corsa alla Champions.',
     'blog.article.juve-verona-1-1-frontalieri-2026.imageAlt': 'Un\'immagine realistica di una partita di calcio allo Juventus Stadium a Torino, Italia. L\'immagine cattura l\'intensità della partita con i giocatori in azione e una folla vivace sullo sfondo.',
+    'blog.article.immigrazione-modello-svizzera-2026.title': 'Immigrazione: perché la Svizzera è un modello demografico',
+    'blog.article.immigrazione-modello-svizzera-2026.excerpt': 'Il professor Philippe Wanner spiega il ruolo cruciale dell\'immigrazione nel successo demografico svizzero. Focus su Ticino e frontalieri.',
+    'blog.article.immigrazione-modello-svizzera-2026.imageAlt': 'Vista aerea del Castello Grande a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

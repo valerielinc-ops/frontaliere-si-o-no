@@ -5552,6 +5552,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.juve-verona-1-1-frontalieri-2026.title': 'Juventus draws 1-1 with already-relegated Verona',
     'blog.article.juve-verona-1-1-frontalieri-2026.excerpt': 'Juventus draws 1-1 against already-relegated Verona, missing the chance to catch up with Milan in the Champions race.',
     'blog.article.juve-verona-1-1-frontalieri-2026.imageAlt': 'A realistic photograph of a football match at the Juventus Stadium in Turin, Italy. The image captures the intensity of the game with players in action and a vibrant crowd in the background.',
+    'blog.article.immigrazione-modello-svizzera-2026.title': 'Immigration: why Switzerland is a demographic model',
+    'blog.article.immigrazione-modello-svizzera-2026.excerpt': 'Professor Philippe Wanner explains the crucial role of immigration in Switzerland\'s demographic success. Focus on Ticino and cross-border workers.',
+    'blog.article.immigrazione-modello-svizzera-2026.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;

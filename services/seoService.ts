@@ -3093,6 +3093,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-antonelli-vince-gp-miami-2026': { name: 'Formula 1', path: '/articoli-frontaliere/antonelli-vince-gp-miami-2026', parent: 'blog' },
     'blog-tre-morti-hantavirus-nave-atlantico': { name: 'Novità', path: '/articoli-frontaliere/tre-morti-hantavirus-nave-atlantico', parent: 'blog' },
     'blog-juve-verona-1-1-frontalieri-2026': { name: 'Calcio e Frontalieri', path: '/articoli-frontaliere/juve-verona-1-1-frontalieri-2026', parent: 'blog' },
+    'blog-immigrazione-modello-svizzera-2026': { name: 'Novità', path: '/articoli-frontaliere/immigrazione-modello-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

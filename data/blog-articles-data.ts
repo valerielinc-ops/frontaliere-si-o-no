@@ -18029,4 +18029,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'immigrazione-modello-svizzera-2026',
+ category: 'novita',
+ date: '2026-05-04T04:02:58.235Z',
+ image: '/images/blog/immigrazione-modello-svizzera-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

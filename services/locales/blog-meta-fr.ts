@@ -5553,6 +5553,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.juve-verona-1-1-frontalieri-2026.title': 'La Juventus fait match nul 1-1 contre Vérone',
     'blog.article.juve-verona-1-1-frontalieri-2026.excerpt': 'La Juventus fait match nul 1-1 contre Vérone déjà relégué, ratant le rattrapage avec le Milan dans la course à la Champions.',
     'blog.article.juve-verona-1-1-frontalieri-2026.imageAlt': 'Une photographie réaliste d\'un match de football au Juventus Stadium à Turin, en Italie. L\'image capture l\'intensité du jeu avec des joueurs en action et une foule vibrante en arrière-plan.',
+    'blog.article.immigrazione-modello-svizzera-2026.title': 'Immigration : pourquoi la Suisse est un modèle démographique',
+    'blog.article.immigrazione-modello-svizzera-2026.excerpt': 'Le professeur Philippe Wanner explique le rôle crucial de l\'immigration dans le succès démographique suisse. Focus sur le Tessin et les frontaliers.',
+    'blog.article.immigrazione-modello-svizzera-2026.imageAlt': 'Vue aérienne du Château Grande à Bellinzone, Tessin',
 };
 
 export default blogMetaFr;
