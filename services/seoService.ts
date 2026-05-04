@@ -3173,6 +3173,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-distributori-carburante-ticino-2026': { name: 'Pratico', path: '/articoli-frontaliere/distributori-carburante-ticino-2026', parent: 'blog' },
     'blog-dona-spesa-nova-coop-2026': { name: 'Solidarietà', path: '/articoli-frontaliere/dona-spesa-nova-coop-2026', parent: 'blog' },
     'blog-littizzetto-critica-svizzera-crans-montana': { name: 'Novità', path: '/articoli-frontaliere/littizzetto-critica-svizzera-crans-montana', parent: 'blog' },
+    'blog-fondazione-cariplo-varese-5-milioni-2025': { name: 'Novità', path: '/articoli-frontaliere/fondazione-cariplo-varese-5-milioni-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

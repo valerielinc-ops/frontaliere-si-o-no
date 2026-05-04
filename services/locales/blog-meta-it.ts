@@ -5793,6 +5793,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.littizzetto-critica-svizzera-crans-montana.title': 'Littizzetto critica fatture Svizzera a feriti',
     'blog.article.littizzetto-critica-svizzera-crans-montana.excerpt': 'La comica italiana critica la Svizzera per le fatture ospedaliere ai feriti dell\'incendio di Crans Montana, sollevando polemiche e luoghi comuni.',
     'blog.article.littizzetto-critica-svizzera-crans-montana.imageAlt': 'Crans Montana dopo l\'incendio con i soccorsi e le persone radunate intorno',
+    'blog.article.fondazione-cariplo-varese-5-milioni-2025.title': 'Fondazione Cariplo: 5 milioni a Varese per 48 progetti nel 2025',
+    'blog.article.fondazione-cariplo-varese-5-milioni-2025.excerpt': 'La Fondazione Cariplo ha approvato il bilancio 2025, assegnando quasi 5 milioni di euro a 48 progetti nella provincia di Varese.',
+    'blog.article.fondazione-cariplo-varese-5-milioni-2025.imageAlt': 'Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici, in una giornata di sole',
 };
 
 export default blogMetaIt;

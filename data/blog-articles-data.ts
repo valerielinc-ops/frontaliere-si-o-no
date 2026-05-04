@@ -18749,4 +18749,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'fondazione-cariplo-varese-5-milioni-2025',
+ category: 'novita',
+ date: '2026-05-04T15:48:24.093Z',
+ image: '/images/blog/fondazione-cariplo-varese-5-milioni-2025.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -15367,6 +15367,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondazione-cariplo-varese-5-milioni-2025': {
+    title: 'Fondazione Cariplo: 5 milioni a Varese per 48 progetti nel 2025',
+    description: 'La Fondazione Cariplo ha approvato il bilancio 2025, assegnando quasi 5 milioni di euro a 48 progetti nella provincia di Varese. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondazione, cariplo, milioni, varese',
+    ogTitle: 'Fondazione Cariplo: 5 milioni a Varese per 48 progetti nel 2025',
+    ogDescription: 'La Fondazione Cariplo ha approvato il bilancio 2025, assegnando quasi 5 milioni di euro a 48 progetti nella provincia di Varese.',
+    canonicalPath: '/articoli-frontaliere/fondazione-cariplo-varese-5-milioni-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fondazione Cariplo: 5 milioni a Varese per 48 progetti nel 2025",
+      "description": "La Fondazione Cariplo ha approvato il bilancio 2025, assegnando quasi 5 milioni di euro a 48 progetti nella provincia di Varese. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fondazione-cariplo-varese-5-milioni-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con acqua blu cristallina, circondato da montagne e edifici, in una giornata di sole"
+      },
+      "datePublished": "2026-05-04T15:48:24+00:00",
+      "dateModified": "2026-05-04T15:48:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fondazione-cariplo-varese-5-milioni-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
