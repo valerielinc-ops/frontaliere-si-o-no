@@ -1,21 +1,19 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-05-03T20:44:35.686Z",
+  "generatedAt": "2026-05-04T10:08:28.867Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1584,
-  "avgDurationMs": 1584,
+  "unchangedCount": 0,
+  "durationMs": 1962,
+  "avgDurationMs": 1962,
   "durationHistory": [
-    1584
+    1962
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Consulente Legal Jr.",
       "slug": "consulente-legal-jr-a-plus-plus-group-massagno",
@@ -36,7 +34,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-03",
+      "postedDate": "2026-05-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -53,5 +51,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
