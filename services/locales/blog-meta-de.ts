@@ -5684,6 +5684,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuove-accise-carburanti-2026.title': 'Neue Kraftstoffsteuern: Preise im Tessin ändern sich',
     'blog.article.nuove-accise-carburanti-2026.excerpt': 'Ab dem 2. Mai 2026 steigen die Steuern auf Benzin und LPG, während Diesel leicht sinkt. So ändern sich die Kraftstoffkosten für Grenzgänger.',
     'blog.article.nuove-accise-carburanti-2026.imageAlt': 'Eine Tankstelle im Tessin mit der Kraftstoffpreis-Anzeige',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.title': 'Brückentage: Starker Verkehr auf Autobahnen und Grenzübergängen',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.excerpt': 'Das Bundesamt für Strassen erwartet Behinderungen auf der A2, A13 und an den Grenzübergängen während der Brückentage von Christi Himmelfahrt, Pfingsten und Fronleichnam.',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit umliegenden Bergen und Städten',
 };
 
 export default blogMetaDe;

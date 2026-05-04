@@ -3137,6 +3137,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disastri-museo-leventina-gioco-oca': { name: 'Novità', path: '/articoli-frontaliere/disastri-museo-leventina-gioco-oca', parent: 'blog' },
     'blog-ndrangheta-ticino-antimafia-italiana': { name: 'Novità', path: '/articoli-frontaliere/ndrangheta-ticino-antimafia-italiana', parent: 'blog' },
     'blog-nuove-accise-carburanti-2026': { name: 'Nuove accise carburanti', path: '/articoli-frontaliere/nuove-accise-carburanti-2026', parent: 'blog' },
+    'blog-ponti-primaverili-traffico-ticino-2026': { name: 'Novità', path: '/articoli-frontaliere/ponti-primaverili-traffico-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

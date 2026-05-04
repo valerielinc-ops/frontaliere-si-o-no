@@ -5684,6 +5684,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuove-accise-carburanti-2026.title': 'New fuel excise duties: price changes in Ticino',
     'blog.article.nuove-accise-carburanti-2026.excerpt': 'As of May 2, 2026, excise duties on gasoline and LPG have increased, while diesel has slightly decreased. Here\'s how fuel costs change for cross-border workers',
     'blog.article.nuove-accise-carburanti-2026.imageAlt': 'A gas station in Ticino with the fuel price display',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.title': 'Spring bank holidays: heavy traffic on highways and border crossings',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.excerpt': 'The Federal Roads Office expects disruptions on A2, A13 and border crossings during the Ascension, Pentecost and Corpus Christi long weekends.',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with surrounding mountains and cities',
 };
 
 export default blogMetaEn;

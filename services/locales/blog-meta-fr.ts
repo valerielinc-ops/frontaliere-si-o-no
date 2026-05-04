@@ -5685,6 +5685,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuove-accise-carburanti-2026.title': 'Nouvelles taxes sur les carburants: les prix changent en Ticino',
     'blog.article.nuove-accise-carburanti-2026.excerpt': 'Depuis le 2 mai 2026, les taxes sur l\'essence et le GPL ont augmenté, tandis que le diesel baisse légèrement. Voici comment change le coût du carburant pour les frontaliers.',
     'blog.article.nuove-accise-carburanti-2026.imageAlt': 'Une station-service dans le Tessin avec l\'affichage des prix du carburant',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.title': 'Ponts de printemps: trafic intense sur les autoroutes et les cols frontaliers',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.excerpt': 'L\'Office fédéral des routes prévoit des perturbations sur l\'A2, l\'A13 et les cols frontaliers pendant les ponts de l\'Ascension, de la Pentecôte et du Corpus Domini.',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes environnantes et les villes',
 };
 
 export default blogMetaFr;

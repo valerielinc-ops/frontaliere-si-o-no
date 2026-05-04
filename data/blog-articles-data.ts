@@ -18425,4 +18425,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ponti-primaverili-traffico-ticino-2026',
+ category: 'novita',
+ date: '2026-05-04T09:19:35.370Z',
+ image: '/images/blog/ponti-primaverili-traffico-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

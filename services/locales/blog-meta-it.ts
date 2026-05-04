@@ -5685,6 +5685,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuove-accise-carburanti-2026.title': 'Nuove accise sui carburanti: come cambiano i prezzi in Ticino',
     'blog.article.nuove-accise-carburanti-2026.excerpt': 'Dai 2 maggio 2026 le accise sulla benzina e sul GPL sono aumentate, mentre il diesel è in lieve calo. Ecco come cambia il costo del carburante per i frontalieri',
     'blog.article.nuove-accise-carburanti-2026.imageAlt': 'Una stazione di servizio in Ticino con il display dei prezzi dei carburanti',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.title': 'Ponti primaverili: traffico intenso su autostrade e valichi',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.excerpt': 'L\'Ufficio federale delle strade prevede disagi su A2, A13 e valichi di frontiera durante i ponti di Ascensione, Pentecoste e Corpus Domini.',
+    'blog.article.ponti-primaverili-traffico-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne circostanti e città',
 };
 
 export default blogMetaIt;
