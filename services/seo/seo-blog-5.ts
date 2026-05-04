@@ -13259,6 +13259,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bonifici-ritardo-frontalieri-ticino': {
+    title: 'Bonifici in ritardo: cosa fare prima di allarmarsi',
+    description: 'Scopri cosa fare se il tuo bonifico tra Svizzera e Italia è in ritardo. Guida pratica per i frontalieri con tempi e regole specifiche. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, bonifici, ritardo, cosa, fare',
+    ogTitle: 'Bonifici in ritardo: guida pratica per i frontalieri',
+    ogDescription: 'Scopri cosa fare se il tuo bonifico tra Svizzera e Italia è in ritardo. Guida pratica per i frontalieri con tempi e regole specifiche.',
+    canonicalPath: '/articoli-frontaliere/bonifici-ritardo-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bonifici in ritardo: cosa fare prima di allarmarsi",
+      "description": "Scopri cosa fare se il tuo bonifico tra Svizzera e Italia è in ritardo. Guida pratica per i frontalieri con tempi e regole specifiche. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bonifici-ritardo-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che controlla il conto bancario sul laptop vicino al Lago di Lugano"
+      },
+      "datePublished": "2026-05-04T06:16:48+00:00",
+      "dateModified": "2026-05-04T06:16:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bonifici-ritardo-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

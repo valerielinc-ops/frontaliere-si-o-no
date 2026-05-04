@@ -3111,6 +3111,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varese-celebra-san-vittore-girometta-oro-2026': { name: 'Varese celebra San Vittore', path: '/articoli-frontaliere/varese-celebra-san-vittore-girometta-oro-2026', parent: 'blog' },
     'blog-iran-invita-sacrificio-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/iran-invita-sacrificio-frontalieri-2026', parent: 'blog' },
     'blog-piccaluga-udc-dialogo-apertura': { name: 'Novità', path: '/articoli-frontaliere/piccaluga-udc-dialogo-apertura', parent: 'blog' },
+    'blog-bonifici-ritardo-frontalieri-ticino': { name: 'Guida pratica', path: '/articoli-frontaliere/bonifici-ritardo-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

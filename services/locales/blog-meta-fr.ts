@@ -5607,6 +5607,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.piccaluga-udc-dialogo-apertura.title': 'Piccaluga: «Dialogue ouvert avec l\'UDC, Norman et Claudio deux âmes différentes»',
     'blog.article.piccaluga-udc-dialogo-apertura.excerpt': 'Le coordinateur de la Lega dei Ticinesi, Daniele Piccaluga, parle du mouvement en croissance et des différences entre Norman Gobbi et Claudio Zali.',
     'blog.article.piccaluga-udc-dialogo-apertura.imageAlt': 'Castelgrande à Bellinzone, Tessin',
+    'blog.article.bonifici-ritardo-frontalieri-ticino.title': 'Virements en retard : que faire avant de s\'inquiéter',
+    'blog.article.bonifici-ritardo-frontalieri-ticino.excerpt': 'Guide pratique pour les frontaliers sur la gestion des retards de virements entre la Suisse et l\'Italie, avec des délais et des règles spécifiques',
+    'blog.article.bonifici-ritardo-frontalieri-ticino.imageAlt': 'Personne vérifiant son compte bancaire sur un ordinateur portable près du lac de Lugano',
 };
 
 export default blogMetaFr;

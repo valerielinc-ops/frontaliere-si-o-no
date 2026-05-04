@@ -18191,4 +18191,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bonifici-ritardo-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-05-04T06:16:48.757Z',
+ image: '/images/blog/bonifici-ritardo-frontalieri-ticino.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

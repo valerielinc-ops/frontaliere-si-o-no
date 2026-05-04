@@ -5607,6 +5607,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.piccaluga-udc-dialogo-apertura.title': 'Piccaluga: «Con l\'UDC dialogo aperto, Norman e Claudio due anime diverse»',
     'blog.article.piccaluga-udc-dialogo-apertura.excerpt': 'Il coordinatore della Lega dei Ticinesi, Daniele Piccaluga, parla del movimento in crescita e delle differenze tra Norman Gobbi e Claudio Zali.',
     'blog.article.piccaluga-udc-dialogo-apertura.imageAlt': 'Castelgrande a Bellinzona, Ticino',
+    'blog.article.bonifici-ritardo-frontalieri-ticino.title': 'Bonifici in ritardo: cosa fare prima di allarmarsi',
+    'blog.article.bonifici-ritardo-frontalieri-ticino.excerpt': 'Guida pratica per i frontalieri su come gestire i ritardi nei bonifici tra Svizzera e Italia, con tempi e regole specifiche',
+    'blog.article.bonifici-ritardo-frontalieri-ticino.imageAlt': 'Persona che controlla il conto bancario sul laptop vicino al Lago di Lugano',
 };
 
 export default blogMetaIt;
