@@ -18803,4 +18803,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'autolaghi-chiusura-barriere-antirumore-2026',
+ category: 'novita',
+ date: '2026-05-04T16:59:14.774Z',
+ image: '/images/blog/autolaghi-chiusura-barriere-antirumore-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

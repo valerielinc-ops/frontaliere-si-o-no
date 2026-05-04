@@ -15571,6 +15571,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-autolaghi-chiusura-barriere-antirumore-2026': {
+    title: 'Autolaghi: chiusura notturna per lavori alle barriere antirumore',
+    description: 'L\'autostrada A8 Milano-Varese sarà chiusa per due notti tra Busto Arsizio e Gallarate verso Varese per lavori alle barriere antirumore. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, autolaghi, chiusura, notturna, lavori',
+    ogTitle: 'Autolaghi chiusura barriere antirumore',
+    ogDescription: 'L\'autostrada A8 Milano-Varese sarà chiusa per due notti tra Busto Arsizio e Gallarate verso Varese per lavori alle barriere antirumore.',
+    canonicalPath: '/articoli-frontaliere/autolaghi-chiusura-barriere-antirumore-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autolaghi: chiusura notturna per lavori alle barriere antirumore",
+      "description": "L'autostrada A8 Milano-Varese sarà chiusa per due notti tra Busto Arsizio e Gallarate verso Varese per lavori alle barriere antirumore. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/autolaghi-chiusura-barriere-antirumore-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A8 dei Laghi con lavori in corso e barriere antirumore"
+      },
+      "datePublished": "2026-05-04T16:59:14+00:00",
+      "dateModified": "2026-05-04T16:59:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autolaghi-chiusura-barriere-antirumore-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

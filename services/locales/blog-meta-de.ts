@@ -5810,6 +5810,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comco-keyword-bidding-inchieste.title': 'COMCO untersucht Keyword-Bidding: Reise- und Online-Casinos im Visier',
     'blog.article.comco-keyword-bidding-inchieste.excerpt': 'Die Wettbewerbscommission ermittelt zu illegalen Absprachen zwischen Reiseunternehmen und Online-Casinos beim Keyword-Bidding',
     'blog.article.comco-keyword-bidding-inchieste.imageAlt': 'COMCO-Büro mit Blick auf Lugano',
+    'blog.article.autolaghi-chiusura-barriere-antirumore-2026.title': 'Autobahn A8: Nachtschließung für Lärmschutzarbeiten',
+    'blog.article.autolaghi-chiusura-barriere-antirumore-2026.excerpt': 'Die Autobahn A8 von Mailand nach Varese wird in zwei Nächten zwischen Busto Arsizio und Gallarate in Richtung Varese für Lärmschutzarbeiten gesperrt.',
+    'blog.article.autolaghi-chiusura-barriere-antirumore-2026.imageAlt': 'Autobahn A8 der Seen mit laufenden Arbeiten und Lärmschutzwänden',
 };
 
 export default blogMetaDe;

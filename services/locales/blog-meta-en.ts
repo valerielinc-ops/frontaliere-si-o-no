@@ -5810,6 +5810,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comco-keyword-bidding-inchieste.title': 'COMCO investigates illegal keyword bidding deals',
     'blog.article.comco-keyword-bidding-inchieste.excerpt': 'The Competition Commission is probing into illicit agreements between travel companies and online casinos for keyword bidding',
     'blog.article.comco-keyword-bidding-inchieste.imageAlt': 'COMCO office with view of Lugano',
+    'blog.article.autolaghi-chiusura-barriere-antirumore-2026.title': 'Autostrada A8: nighttime closure for noise barrier work',
+    'blog.article.autolaghi-chiusura-barriere-antirumore-2026.excerpt': 'The A8 Milan-Varese motorway will be closed for two nights between Busto Arsizio and Gallarate towards Varese for noise barrier work.',
+    'blog.article.autolaghi-chiusura-barriere-antirumore-2026.imageAlt': 'A8 Highway of the Lakes with ongoing work and noise barriers',
 };
 
 export default blogMetaEn;
