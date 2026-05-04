@@ -3120,6 +3120,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-russotto-bellinzona-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/russotto-bellinzona-frontalieri-2026', parent: 'blog' },
     'blog-democrazia-finisce-quando-ticino': { name: 'Novità', path: '/articoli-frontaliere/democrazia-finisce-quando-ticino', parent: 'blog' },
     'blog-belotti-sport-test-scarpe-trail-running-2026': { name: 'Eventi sportivi', path: '/articoli-frontaliere/belotti-sport-test-scarpe-trail-running-2026', parent: 'blog' },
+    'blog-pericoli-minori-iniziativa-10-milioni': { name: 'Novità', path: '/articoli-frontaliere/pericoli-minori-iniziativa-10-milioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -5634,6 +5634,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.belotti-sport-test-scarpe-trail-running-2026.title': 'Test gratuito di scarpe da trail-running a Monte Verità',
     'blog.article.belotti-sport-test-scarpe-trail-running-2026.excerpt': 'Belotti Sport organizza un evento gratuito per provare scarpe da trail-running al Monte Verità di Ascona il 9 maggio 2026.',
     'blog.article.belotti-sport-test-scarpe-trail-running-2026.imageAlt': 'Gruppo di trail runner durante un test di scarpe al Monte Verità di Ascona, Ticino',
+    'blog.article.pericoli-minori-iniziativa-10-milioni.title': 'Iniziativa 10 milioni: i pericoli per i minori',
+    'blog.article.pericoli-minori-iniziativa-10-milioni.excerpt': 'Un\'alleanza di organizzazioni avverte sui rischi per i diritti dei bambini se l\'iniziativa verrà approvata il 14 giugno',
+    'blog.article.pericoli-minori-iniziativa-10-milioni.imageAlt': 'Bambini che giocano vicino al Lago di Lugano con lo skyline della città sullo sfondo',
 };
 
 export default blogMetaIt;

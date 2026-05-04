@@ -18272,4 +18272,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pericoli-minori-iniziativa-10-milioni',
+ category: 'novita',
+ date: '2026-05-04T07:15:29.307Z',
+ image: '/images/blog/pericoli-minori-iniziativa-10-milioni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
