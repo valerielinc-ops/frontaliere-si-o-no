@@ -124,26 +124,50 @@ function withSlash(s: string): string {
   return s.endsWith('/') ? s : `${s}/`;
 }
 
-function readJobCountsBySlug(fs: typeof fsT, np: typeof npT, rootDir: string): Map<string, number> {
+function slugifyEmployer(value: string): string {
+  return String(value || '').toLowerCase().normalize('NFD')
+    .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Reads the latest jobs snapshot and returns:
+ * - `counts`: employerKey → active job count (for "N offerte attive" labels)
+ * - `urlToKey`: company URL slug → employerKey (for logo lookup)
+ *
+ * The company URL slug is derived by slugifying `job.employer` (full name),
+ * which mirrors how `jobsSeoPagesPlugin` builds `companyMap` keys. The reverse
+ * map lets us resolve logos from `company-logos-manifest.json` (keyed by short
+ * `employerKey`) when given the long URL slug from `known-company-slugs.json`.
+ */
+function readJobsData(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+): { counts: Map<string, number>; urlToKey: Map<string, string> } {
   const counts = new Map<string, number>();
+  const urlToKey = new Map<string, string>();
   const historyDir = np.resolve(rootDir, 'data', 'jobs-snapshots-history');
   try {
-    if (!fs.existsSync(historyDir)) return counts;
+    if (!fs.existsSync(historyDir)) return { counts, urlToKey };
     const files = fs.readdirSync(historyDir)
       .filter((f) => f.endsWith('.json'))
       .sort()
       .reverse();
-    if (files.length === 0) return counts;
+    if (files.length === 0) return { counts, urlToKey };
     const raw = JSON.parse(fs.readFileSync(np.join(historyDir, files[0]), 'utf-8'));
     for (const job of Array.isArray(raw?.jobs) ? raw.jobs : []) {
       if (typeof job?.employerKey === 'string' && job.employerKey) {
         counts.set(job.employerKey, (counts.get(job.employerKey) ?? 0) + 1);
+        if (typeof job.employer === 'string' && job.employer) {
+          const urlSlug = slugifyEmployer(job.employer);
+          if (urlSlug && !urlToKey.has(urlSlug)) urlToKey.set(urlSlug, job.employerKey);
+        }
       }
     }
   } catch (err) {
-    console.warn('[seo-hubs] failed to read job snapshot for company counts', err);
+    console.warn('[seo-hubs] failed to read job snapshot', err);
   }
-  return counts;
+  return { counts, urlToKey };
 }
 
 function jobsActiveLabel(locale: HubLocale, n: number): string {
@@ -786,7 +810,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
 
   const { slugs: jobSlugs, perLocale: jobPerLocale } = readJobSlugsMap(fs, np, rootDir);
   const companySlugs = readCompanySlugs(fs, np, rootDir);
-  const jobCountBySlug = readJobCountsBySlug(fs, np, rootDir);
+  const { counts: jobCountBySlug, urlToKey: companyUrlToKey } = readJobsData(fs, np, rootDir);
   const crawledLogos = readCrawledCompanyLogos(fs, np, rootDir);
 
   const ensuredDirs = new Set<string>();
@@ -842,12 +866,22 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : 'trouver-emploi-tessin'
       }`;
       for (const slug of companySlugs) {
-        const logoUrl = resolveBrandLogoUrl(rootDir, slug) ?? crawledLogos[slug] ?? null;
+        // Resolve the short employer key for this URL slug, then look up logos.
+        // Manifest and CRAWLED_COMPANY_LOGOS are keyed by short employerKey
+        // (e.g. "bps-suisse"), while company URL slugs use the full name
+        // (e.g. "bps-banca-popolare-di-sondrio-suisse"). The urlToKey reverse
+        // map bridges this gap.
+        const key = companyUrlToKey.get(slug) ?? slug;
+        const logoUrl = resolveBrandLogoUrl(rootDir, key)
+          ?? resolveBrandLogoUrl(rootDir, slug)
+          ?? crawledLogos[key]
+          ?? crawledLogos[slug]
+          ?? null;
         items.push({
           href: `${sectionRoot}/azienda-${slug}/`,
           label: humanizeSlug(slug),
           logo: logoUrl,
-          jobCount: jobCountBySlug.get(slug),
+          jobCount: jobCountBySlug.get(key) ?? jobCountBySlug.get(slug),
         });
       }
     } else {
