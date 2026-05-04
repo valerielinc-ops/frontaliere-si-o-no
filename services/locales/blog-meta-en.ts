@@ -5585,6 +5585,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stresa-espulsione-egiziano-2026.title': 'Egyptian citizen expelled from Stresa, no political asylum',
     'blog.article.stresa-espulsione-egiziano-2026.excerpt': 'An Egyptian citizen was expelled from Stresa after the refusal of the political asylum request. Here\'s what changes for cross-border workers.',
     'blog.article.stresa-espulsione-egiziano-2026.imageAlt': 'Lake Lugano landscape with Swiss-Italian border details',
+    'blog.article.stati-canaglia-2026-aggiornamento-lista.title': 'Rogue states 2026: the list updates',
+    'blog.article.stati-canaglia-2026-aggiornamento-lista.excerpt': 'The United States and Israel among \'unfriendly\' countries according to an analysis that redefines contemporary geopolitics',
+    'blog.article.stati-canaglia-2026-aggiornamento-lista.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

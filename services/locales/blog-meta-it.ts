@@ -5586,6 +5586,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stresa-espulsione-egiziano-2026.title': 'Stresa: espulso cittadino egiziano, nessun diritto all\'asilo politico',
     'blog.article.stresa-espulsione-egiziano-2026.excerpt': 'Un cittadino egiziano è stato espulso da Stresa dopo il rifiuto della richiesta di asilo politico. Ecco cosa cambia per i frontalieri.',
     'blog.article.stresa-espulsione-egiziano-2026.imageAlt': 'Panorama del Lago di Lugano con dettagli del confine svizzero-italiano',
+    'blog.article.stati-canaglia-2026-aggiornamento-lista.title': 'Stati canaglia 2026: la lista si aggiorna',
+    'blog.article.stati-canaglia-2026-aggiornamento-lista.excerpt': 'Gli Stati Uniti e Israele tra i paesi \'infrequentabili\' secondo un\'analisi che ridefinisce la geopolitica contemporanea',
+    'blog.article.stati-canaglia-2026-aggiornamento-lista.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

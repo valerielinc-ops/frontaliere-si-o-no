@@ -5585,6 +5585,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stresa-espulsione-egiziano-2026.title': 'Stresa: Ägypter abgeschoben, kein Asylrecht',
     'blog.article.stresa-espulsione-egiziano-2026.excerpt': 'Ein ägyptischer Staatsbürger wurde aus Stresa abgeschoben, nachdem sein Asylantrag abgelehnt wurde. Was sich für Grenzgänger ändert.',
     'blog.article.stresa-espulsione-egiziano-2026.imageAlt': 'Panorama des Luganersees mit Details der Schweizer-Italienischen Grenze',
+    'blog.article.stati-canaglia-2026-aggiornamento-lista.title': 'Schurkenstaaten 2026: Die Liste wird aktualisiert',
+    'blog.article.stati-canaglia-2026-aggiornamento-lista.excerpt': 'Die USA und Israel gehören laut einer Analyse, die die zeitgenössische Geopolitik neu definiert, zu den \'unangenehmen\' Ländern',
+    'blog.article.stati-canaglia-2026-aggiornamento-lista.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

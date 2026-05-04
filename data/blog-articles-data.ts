@@ -18128,4 +18128,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'stati-canaglia-2026-aggiornamento-lista',
+ category: 'novita',
+ date: '2026-05-04T05:31:56.273Z',
+ image: '/images/blog/stati-canaglia-2026-aggiornamento-lista.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

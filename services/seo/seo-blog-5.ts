@@ -13021,6 +13021,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stati-canaglia-2026-aggiornamento-lista': {
+    title: 'Stati canaglia 2026: la lista si aggiorna | Frontaliere Ticino',
+    description: 'Gli Stati Uniti e Israele tra i paesi \'infrequentabili\' secondo un\'analisi che ridefinisce la geopolitica contemporanea. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, stati, canaglia, lista, aggiorna',
+    ogTitle: 'Stati canaglia 2026: la lista si aggiorna',
+    ogDescription: 'Gli Stati Uniti e Israele tra i paesi \'infrequentabili\' secondo un\'analisi che ridefinisce la geopolitica contemporanea',
+    canonicalPath: '/articoli-frontaliere/stati-canaglia-2026-aggiornamento-lista',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stati canaglia 2026: la lista si aggiorna",
+      "description": "Gli Stati Uniti e Israele tra i paesi 'infrequentabili' secondo un'analisi che ridefinisce la geopolitica contemporanea. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stati-canaglia-2026-aggiornamento-lista.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-04T05:31:56+00:00",
+      "dateModified": "2026-05-04T05:31:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stati-canaglia-2026-aggiornamento-lista`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
