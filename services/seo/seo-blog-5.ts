@@ -12409,6 +12409,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-playoff-lavagnese-2026': {
+    title: 'Varese ai playoff: vittoria sofferta contro la Lavagnese',
+    description: 'Il Varese batte 3-2 la Lavagnese e accede ai playoff, con un rigore decisivo nel recupero. La squadra di mister Ciceri affronterà la Biellese nel primo turno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, playoff, vittoria, sofferta',
+    ogTitle: 'Varese ai playoff: vittoria sofferta contro la Lavagnese',
+    ogDescription: 'Il Varese batte 3-2 la Lavagnese e accede ai playoff, con un rigore decisivo nel recupero. La squadra di mister Ciceri affronterà la Biellese nel primo turno.',
+    canonicalPath: '/articoli-frontaliere/varese-playoff-lavagnese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese ai playoff: vittoria sofferta contro la Lavagnese",
+      "description": "Il Varese batte 3-2 la Lavagnese e accede ai playoff, con un rigore decisivo nel recupero. La squadra di mister Ciceri affronterà la Biellese nel primo turno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-playoff-lavagnese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Partita di calcio in Ticino con giocatori in azione e il confine svizzero-italiano sullo sfondo"
+      },
+      "datePublished": "2026-05-04T03:25:40+00:00",
+      "dateModified": "2026-05-04T03:25:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-playoff-lavagnese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

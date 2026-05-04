@@ -5532,6 +5532,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.thun-campionato-calcio-2026-festa-thun.title': 'FC Thun campione di Super League: festa a Thun dopo la vittoria storica',
     'blog.article.thun-campionato-calcio-2026-festa-thun.excerpt': 'La neopromossa FC Thun conquista il primo titolo della sua storia. Festa alla Stockhorn Arena dopo il ko del San Gallo contro il Sion.',
     'blog.article.thun-campionato-calcio-2026-festa-thun.imageAlt': 'Folla festante allo Stockhorn Arena di Thun dopo la vittoria storica del FC Thun',
+    'blog.article.varese-playoff-lavagnese-2026.title': 'Varese ai playoff: vittoria sofferta contro la Lavagnese',
+    'blog.article.varese-playoff-lavagnese-2026.excerpt': 'Il Varese batte 3-2 la Lavagnese e accede ai playoff, con un rigore decisivo nel recupero. La squadra di mister Ciceri affronterà la Biellese nel primo turno.',
+    'blog.article.varese-playoff-lavagnese-2026.imageAlt': 'Partita di calcio in Ticino con giocatori in azione e il confine svizzero-italiano sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -3086,6 +3086,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fc-thun-campionato-2026-ticino': { name: 'Novità', path: '/articoli-frontaliere/fc-thun-campionato-2026-ticino', parent: 'blog' },
     'blog-incidente-maloja-frontaliere-2026': { name: 'Novità', path: '/articoli-frontaliere/incidente-maloja-frontaliere-2026', parent: 'blog' },
     'blog-thun-campionato-calcio-2026-festa-thun': { name: 'Novità', path: '/articoli-frontaliere/thun-campionato-calcio-2026-festa-thun', parent: 'blog' },
+    'blog-varese-playoff-lavagnese-2026': { name: 'Varese playoff', path: '/articoli-frontaliere/varese-playoff-lavagnese-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

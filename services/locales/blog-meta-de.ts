@@ -5531,6 +5531,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.thun-campionato-calcio-2026-festa-thun.title': 'FC Thun wird Super-League-Meister: Historischer Triumph gefeiert',
     'blog.article.thun-campionato-calcio-2026-festa-thun.excerpt': 'Der Aufsteiger FC Thun holt den ersten Titel der Vereinsgeschichte. Nach der Niederlage des FC St. Gallen gegen Sion wird in der Stockhorn Arena gefeiert.',
     'blog.article.thun-campionato-calcio-2026-festa-thun.imageAlt': 'Jubelnde Menge im Stockhorn Arena in Thun nach dem historischen Sieg des FC Thun',
+    'blog.article.varese-playoff-lavagnese-2026.title': 'Varese erreicht die Play-offs: knapper Sieg gegen Lavagnese',
+    'blog.article.varese-playoff-lavagnese-2026.excerpt': 'Varese besiegt die Lavagnese mit 3-2 und erreicht die Play-offs, dank eines entscheidenden Elfmeters in der Nachspielzeit. Das Team von Mister Ciceri trifft in der ersten Runde auf die Biellese.',
+    'blog.article.varese-playoff-lavagnese-2026.imageAlt': 'Fußballspiel in Tessin mit Spielern in Aktion und der Schweizer-Italienischen Grenze im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -17966,4 +17966,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-playoff-lavagnese-2026',
+ category: 'novita',
+ date: '2026-05-04T03:25:40.463Z',
+ image: '/images/blog/varese-playoff-lavagnese-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

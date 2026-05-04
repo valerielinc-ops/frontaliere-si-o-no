@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1896,
+ "numberOfItems": 1897,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6534,7 +6534,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1893, "name": "Ilvo Junghi vince il tiro a 50 metri categoria ...", "url": `${BASE_URL}/articoli-frontaliere/tiro-sportivo-veterani-junghi-2026` },
           { "@type": "ListItem", "position": 1894, "name": "FC Thun campione svizzero: festa a Thun", "url": `${BASE_URL}/articoli-frontaliere/fc-thun-campionato-2026-ticino` },
           { "@type": "ListItem", "position": 1895, "name": "Motociclista ferito sulla strada del Maloja", "url": `${BASE_URL}/articoli-frontaliere/incidente-maloja-frontaliere-2026` },
-          { "@type": "ListItem", "position": 1896, "name": "FC Thun campione di Super League: festa a Thun ...", "url": `${BASE_URL}/articoli-frontaliere/thun-campionato-calcio-2026-festa-thun` }
+          { "@type": "ListItem", "position": 1896, "name": "FC Thun campione di Super League: festa a Thun ...", "url": `${BASE_URL}/articoli-frontaliere/thun-campionato-calcio-2026-festa-thun` },
+          { "@type": "ListItem", "position": 1897, "name": "Varese ai playoff: vittoria sofferta contro la ...", "url": `${BASE_URL}/articoli-frontaliere/varese-playoff-lavagnese-2026` }
  ]
  },
  {
