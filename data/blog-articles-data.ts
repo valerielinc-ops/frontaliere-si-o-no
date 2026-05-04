@@ -18308,4 +18308,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'moleno-piazza-green-chiesa-migliorata',
+ category: 'novita',
+ date: '2026-05-04T07:43:18.228Z',
+ image: '/images/blog/moleno-piazza-green-chiesa-migliorata.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

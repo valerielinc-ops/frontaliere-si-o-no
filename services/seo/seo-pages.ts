@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1934,
+ "numberOfItems": 1935,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6572,7 +6572,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1931, "name": "Iniziativa 10 milioni: i pericoli per i minori", "url": `${BASE_URL}/articoli-frontaliere/pericoli-minori-iniziativa-10-milioni` },
           { "@type": "ListItem", "position": 1932, "name": "Agrinatura sold out: degustazioni, show cooking...", "url": `${BASE_URL}/articoli-frontaliere/agrinatura-sold-out-2026` },
           { "@type": "ListItem", "position": 1933, "name": "Mezzo milione per lo sviluppo del Luganese nel ...", "url": `${BASE_URL}/articoli-frontaliere/mezzo-milione-luganese-sviluppo-2026` },
-          { "@type": "ListItem", "position": 1934, "name": "Raccolti quasi 2000 euro per il parco giochi in...", "url": `${BASE_URL}/articoli-frontaliere/raccolti-2000-euro-parco-matteo` }
+          { "@type": "ListItem", "position": 1934, "name": "Raccolti quasi 2000 euro per il parco giochi in...", "url": `${BASE_URL}/articoli-frontaliere/raccolti-2000-euro-parco-matteo` },
+          { "@type": "ListItem", "position": 1935, "name": "Moleno: arriva la piazza green e migliora la ch...", "url": `${BASE_URL}/articoli-frontaliere/moleno-piazza-green-chiesa-migliorata` }
  ]
  },
  {

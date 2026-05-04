@@ -5646,6 +5646,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.raccolti-2000-euro-parco-matteo.title': 'Presque 2000 euros récoltés pour un parc en mémoire de Matteo',
     'blog.article.raccolti-2000-euro-parco-matteo.excerpt': 'Presque 2000 euros récoltés pour un nouveau parc en mémoire du petit Matteo à Busto Arsizio.',
     'blog.article.raccolti-2000-euro-parco-matteo.imageAlt': 'Vue du lac de Lugano avec une aire de jeux au premier plan',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.title': 'Moleno: place verte et église rénovée',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.excerpt': 'La municipalité de Bellinzone présente les projets pour la nouvelle place verte et la rénovation de l\'église à Moleno. Voici les détails',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.imageAlt': 'Place du village de Moleno avec église et école rénovée',
 };
 
 export default blogMetaFr;

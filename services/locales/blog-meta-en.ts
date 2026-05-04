@@ -5645,6 +5645,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.raccolti-2000-euro-parco-matteo.title': 'Nearly 2000 euros raised for Matteo\'s memorial playground',
     'blog.article.raccolti-2000-euro-parco-matteo.excerpt': 'Almost 2000 euros raised for a new playground in memory of little Matteo in Busto Arsizio.',
     'blog.article.raccolti-2000-euro-parco-matteo.imageAlt': 'Lake Lugano view with a playground in the foreground',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.title': 'Moleno: new green square and church restoration',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.excerpt': 'The Municipality of Bellinzona presents the projects for the new green square and the restoration of the church in Moleno. Here are the details',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.imageAlt': 'Village square of Moleno with church and renovated school',
 };
 
 export default blogMetaEn;

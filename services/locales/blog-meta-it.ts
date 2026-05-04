@@ -5646,6 +5646,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.raccolti-2000-euro-parco-matteo.title': 'Raccolti quasi 2000 euro per il parco giochi in memoria di Matteo',
     'blog.article.raccolti-2000-euro-parco-matteo.excerpt': 'Quasi 2000 euro raccolti per un nuovo parco giochi in memoria del piccolo Matteo a Busto Arsizio.',
     'blog.article.raccolti-2000-euro-parco-matteo.imageAlt': 'Panorama del Lago di Lugano con un parco giochi in primo piano',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.title': 'Moleno: arriva la piazza green e migliora la chiesa',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.excerpt': 'Il Municipio di Bellinzona presenta i progetti per la nuova piazza verde e il restauro della chiesa a Moleno. Ecco i dettagli',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.imageAlt': 'Piazza del paese di Moleno con chiesa e scuola ristrutturata',
 };
 
 export default blogMetaIt;

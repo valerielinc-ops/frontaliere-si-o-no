@@ -5645,6 +5645,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.raccolti-2000-euro-parco-matteo.title': 'Fast 2000 Franken für Spielplatz in Erinnerung an Matteo gesammelt',
     'blog.article.raccolti-2000-euro-parco-matteo.excerpt': 'Fast 2000 Franken wurden für einen neuen Spielplatz in Erinnerung an den kleinen Matteo in Busto Arsizio gesammelt.',
     'blog.article.raccolti-2000-euro-parco-matteo.imageAlt': 'Seeblick von Lugano mit einem Spielplatz im Vordergrund',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.title': 'Moleno: Grünfläche und Kirche werden saniert',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.excerpt': 'Der Gemeinderat von Bellinzona stellt die Projekte für den neuen grünen Platz und die Restaurierung der Kirche in Moleno vor. Hier sind die Details',
+    'blog.article.moleno-piazza-green-chiesa-migliorata.imageAlt': 'Dorfplatz von Moleno mit Kirche und renovierter Schule',
 };
 
 export default blogMetaDe;

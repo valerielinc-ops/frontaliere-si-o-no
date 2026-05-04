@@ -3124,6 +3124,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-agrinatura-sold-out-2026': { name: 'Agrinatura 2026', path: '/articoli-frontaliere/agrinatura-sold-out-2026', parent: 'blog' },
     'blog-mezzo-milione-luganese-sviluppo-2026': { name: 'Novità', path: '/articoli-frontaliere/mezzo-milione-luganese-sviluppo-2026', parent: 'blog' },
     'blog-raccolti-2000-euro-parco-matteo': { name: 'Raccolta fondi', path: '/articoli-frontaliere/raccolti-2000-euro-parco-matteo', parent: 'blog' },
+    'blog-moleno-piazza-green-chiesa-migliorata': { name: 'Novità', path: '/articoli-frontaliere/moleno-piazza-green-chiesa-migliorata', parent: 'blog' },
  };
 
  const info = sectionNames[section];

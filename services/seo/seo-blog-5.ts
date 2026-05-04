@@ -13701,6 +13701,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-moleno-piazza-green-chiesa-migliorata': {
+    title: 'Moleno: arriva la piazza green e migliora la chiesa',
+    description: 'Il Municipio di Bellinzona presenta i progetti per la nuova piazza verde e il restauro della chiesa a Moleno. Ecco i dettagli e l\'impatto sui frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, moleno, arriva, piazza, green',
+    ogTitle: 'Moleno: piazza green e chiesa migliorata',
+    ogDescription: 'Il Municipio di Bellinzona presenta i progetti per la nuova piazza verde e il restauro della chiesa a Moleno. Ecco i dettagli e l\'impatto sui frontalieri.',
+    canonicalPath: '/articoli-frontaliere/moleno-piazza-green-chiesa-migliorata',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Moleno: arriva la piazza green e migliora la chiesa",
+      "description": "Il Municipio di Bellinzona presenta i progetti per la nuova piazza verde e il restauro della chiesa a Moleno. Ecco i dettagli e l'impatto sui frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/moleno-piazza-green-chiesa-migliorata.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza del paese di Moleno con chiesa e scuola ristrutturata"
+      },
+      "datePublished": "2026-05-04T07:43:18+00:00",
+      "dateModified": "2026-05-04T07:43:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/moleno-piazza-green-chiesa-migliorata`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
