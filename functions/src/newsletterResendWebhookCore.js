@@ -79,10 +79,21 @@ function mapWebhookType(type) {
 
 function extractTagMap(tags) {
  const map = {};
- for (const tag of Array.isArray(tags) ? tags : []) {
+ if (Array.isArray(tags)) {
+ for (const tag of tags) {
  const name = sanitizeString(tag?.name);
  const value = sanitizeString(tag?.value);
  if (name && value) map[name] = value;
+ }
+ return map;
+ }
+ if (tags && typeof tags === 'object') {
+ for (const [key, rawValue] of Object.entries(tags)) {
+ const name = sanitizeString(key);
+ const value = sanitizeString(rawValue);
+ if (name && value) map[name] = value;
+ }
+ return map;
  }
  return map;
 }
@@ -220,6 +231,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  section_id: sectionId,
  }, currentStatus);
 
+ subscriberUpdate.provider = 'resend';
  await db.collection('newsletter_subscribers').doc(email).set(subscriberUpdate, { merge: true });
 
  // Update engagement score after metrics change (FRO-17)
@@ -232,6 +244,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  await db.collection('newsletter_subscribers').doc(email).collection('campaign_deliveries').doc(buildDeliveryDocId(email, campaignId)).set({
  email,
+ provider: 'resend',
  campaign_id: campaignId,
  message_id: messageId,
  variant,
@@ -260,6 +273,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  await db.collection('newsletter_subscribers').doc(email).collection('events').add({
  email,
+ provider: 'resend',
  event_type: type,
  campaign_id: campaignId,
  message_id: messageId,
