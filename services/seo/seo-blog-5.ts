@@ -13871,6 +13871,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-campo-talenti-tenero-25-anni': {
+    title: 'Tenero festeggia 25 anni con il campo 3T per giovani atleti',
+    description: 'Dal 10 al 15 maggio, il Centro Sportivo di Tenero ospita 500 giovani talenti per il campo 3T, organizzato da Swiss Olympic. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, tenero, festeggia, anni, campo',
+    ogTitle: 'Tenero festeggia 25 anni con il campo 3T per giovani atleti',
+    ogDescription: 'Dal 10 al 15 maggio, il Centro Sportivo di Tenero ospita 500 giovani talenti per il campo 3T, organizzato da Swiss Olympic',
+    canonicalPath: '/articoli-frontaliere/campo-talenti-tenero-25-anni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tenero festeggia 25 anni con il campo 3T per giovani atleti",
+      "description": "Dal 10 al 15 maggio, il Centro Sportivo di Tenero ospita 500 giovani talenti per il campo 3T, organizzato da Swiss Olympic. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/campo-talenti-tenero-25-anni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con edifici moderni e montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-04T08:18:56+00:00",
+      "dateModified": "2026-05-04T08:18:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/campo-talenti-tenero-25-anni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

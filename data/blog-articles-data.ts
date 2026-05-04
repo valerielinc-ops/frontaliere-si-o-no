@@ -18353,4 +18353,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'campo-talenti-tenero-25-anni',
+ category: 'novita',
+ date: '2026-05-04T08:18:56.666Z',
+ image: '/images/blog/campo-talenti-tenero-25-anni.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

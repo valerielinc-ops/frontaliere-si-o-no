@@ -5660,6 +5660,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.indice-pmi-svizzera-ottimismo-2026.title': 'Swiss PMI index: optimism beats forecasts',
     'blog.article.indice-pmi-svizzera-ottimismo-2026.excerpt': 'Swiss PMI index rises to 54.5 points for manufacturing and 54.8 for services, exceeding analysts\' predictions',
     'blog.article.indice-pmi-svizzera-ottimismo-2026.imageAlt': 'Panoramic view of Lugano with the financial district',
+    'blog.article.campo-talenti-tenero-25-anni.title': 'Tenero celebrates 25 years with 3T camp for young athletes',
+    'blog.article.campo-talenti-tenero-25-anni.excerpt': 'From May 10 to 15, the Tenero Sports Centre hosts 500 young talents for the 3T camp, organized by Swiss Olympic',
+    'blog.article.campo-talenti-tenero-25-anni.imageAlt': 'View of Lake Lugano with modern buildings and mountains in the background',
 };
 
 export default blogMetaEn;

@@ -5661,6 +5661,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.indice-pmi-svizzera-ottimismo-2026.title': 'Indice PMI svizzero: ottimismo oltre le stime',
     'blog.article.indice-pmi-svizzera-ottimismo-2026.excerpt': 'L\'indice PMI svizzero sale a 54,5 punti per il manifatturiero e 54,8 per i servizi, superando le previsioni degli analisti',
     'blog.article.indice-pmi-svizzera-ottimismo-2026.imageAlt': 'Veduta panoramica di Lugano con il centro finanziario',
+    'blog.article.campo-talenti-tenero-25-anni.title': 'Tenero festeggia 25 anni con il campo 3T per giovani atleti',
+    'blog.article.campo-talenti-tenero-25-anni.excerpt': 'Dal 10 al 15 maggio, il Centro Sportivo di Tenero ospita 500 giovani talenti per il campo 3T, organizzato da Swiss Olympic',
+    'blog.article.campo-talenti-tenero-25-anni.imageAlt': 'Vista del Lago di Lugano con edifici moderni e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

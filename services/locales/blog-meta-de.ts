@@ -5660,6 +5660,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.indice-pmi-svizzera-ottimismo-2026.title': 'Schweizer PMI-Index: Optimismus über den Erwartungen',
     'blog.article.indice-pmi-svizzera-ottimismo-2026.excerpt': 'Der Schweizer PMI-Index steigt auf 54,5 Punkte für die Industrie und 54,8 für die Dienstleistungen und übertrifft die Prognosen der Analysten.',
     'blog.article.indice-pmi-svizzera-ottimismo-2026.imageAlt': 'Panoramablick auf Lugano mit dem Finanzzentrum',
+    'blog.article.campo-talenti-tenero-25-anni.title': 'Tenero feiert 25 Jahre mit dem 3T-Camp für junge Athleten',
+    'blog.article.campo-talenti-tenero-25-anni.excerpt': 'Vom 10. bis 15. Mai beherbergt das Sportzentrum Tenero 500 junge Talente für das 3T-Camp, organisiert von Swiss Olympic',
+    'blog.article.campo-talenti-tenero-25-anni.imageAlt': 'Blick auf den Luganersee mit modernen Gebäuden und Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

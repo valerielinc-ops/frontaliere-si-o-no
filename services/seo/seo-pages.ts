@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1939,
+ "numberOfItems": 1940,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6577,7 +6577,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1936, "name": "Armato si barrica in casa: arrestato 30enne a F...", "url": `${BASE_URL}/articoli-frontaliere/arresto-frauenfeld-30enne-barricato` },
           { "@type": "ListItem", "position": 1937, "name": "Mercato del lavoro svizzero: KOF conferma la ri...", "url": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-kof-ripresa-2026` },
           { "@type": "ListItem", "position": 1938, "name": "Vendite auto stabili in Ticino, cresce l'elettrico", "url": `${BASE_URL}/articoli-frontaliere/vendite-auto-ticino-2026-stabili-elettrico` },
-          { "@type": "ListItem", "position": 1939, "name": "Indice PMI svizzero: ottimismo oltre le stime", "url": `${BASE_URL}/articoli-frontaliere/indice-pmi-svizzera-ottimismo-2026` }
+          { "@type": "ListItem", "position": 1939, "name": "Indice PMI svizzero: ottimismo oltre le stime", "url": `${BASE_URL}/articoli-frontaliere/indice-pmi-svizzera-ottimismo-2026` },
+          { "@type": "ListItem", "position": 1940, "name": "Tenero festeggia 25 anni con il campo 3T per gi...", "url": `${BASE_URL}/articoli-frontaliere/campo-talenti-tenero-25-anni` }
  ]
  },
  {
