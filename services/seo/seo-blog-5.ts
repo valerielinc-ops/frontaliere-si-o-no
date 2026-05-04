@@ -15877,6 +15877,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hodler-dipinto-eredita-frontalieri': {
+    title: 'Hodler restituito: storia di un dipinto e di una frontaliere',
+    description: 'Un dipinto di Hodler, venduto sotto coercizione durante il regime nazista, torna agli eredi. La storia di Martha Nathan, cittadina svizzera e frontaliere',
+    keywords: 'frontalieri, ticino, svizzera, italia, hodler, restituito, storia, dipinto',
+    ogTitle: 'Hodler restituito: storia di un dipinto e di una frontaliere',
+    ogDescription: 'Un dipinto di Hodler, venduto sotto coercizione durante il regime nazista, torna agli eredi. La storia di Martha Nathan, cittadina svizzera e frontaliere',
+    canonicalPath: '/articoli-frontaliere/hodler-dipinto-eredita-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hodler restituito: storia di un dipinto e di una frontaliere",
+      "description": "Un dipinto di Hodler, venduto sotto coercizione durante il regime nazista, torna agli eredi. La storia di Martha Nathan, cittadina svizzera e frontaliere",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/hodler-dipinto-eredita-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dipinto di Ferdinand Hodler esposto in un museo in Svizzera"
+      },
+      "datePublished": "2026-05-04T18:41:51+00:00",
+      "dateModified": "2026-05-04T18:41:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hodler-dipinto-eredita-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

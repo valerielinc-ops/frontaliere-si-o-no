@@ -5838,6 +5838,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-chiasso-operai-ricoverati.title': 'Incendio a Chiasso: due operai ricoverati dopo un rogo su un tetto',
     'blog.article.incendio-chiasso-operai-ricoverati.excerpt': 'Un incendio causato da fiamme libere ha coinvolto un tetto a Chiasso, con due operai ricoverati in ospedale. Ecco cosa è successo.',
     'blog.article.incendio-chiasso-operai-ricoverati.imageAlt': 'Incendio su un tetto a Chiasso, con i vigili del fuoco in azione',
+    'blog.article.hodler-dipinto-eredita-frontalieri.title': 'Hodler restituito: storia di un dipinto e di una frontaliere',
+    'blog.article.hodler-dipinto-eredita-frontalieri.excerpt': 'Un dipinto di Hodler, venduto sotto coercizione durante il regime nazista, torna agli eredi. La storia di Martha Nathan, cittadina svizzera e frontaliere',
+    'blog.article.hodler-dipinto-eredita-frontalieri.imageAlt': 'Dipinto di Ferdinand Hodler esposto in un museo in Svizzera',
 };
 
 export default blogMetaIt;

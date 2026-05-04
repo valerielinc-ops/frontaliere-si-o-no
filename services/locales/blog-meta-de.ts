@@ -5837,6 +5837,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-chiasso-operai-ricoverati.title': 'Brand in Chiasso: Zwei Arbeiter nach Dachbrand im Krankenhaus',
     'blog.article.incendio-chiasso-operai-ricoverati.excerpt': 'Ein durch freies Feuer verursachter Brand hat ein Dach in Chiasso erfasst, wobei zwei Arbeiter ins Krankenhaus eingeliefert wurden. Hier ist, was passiert ist.',
     'blog.article.incendio-chiasso-operai-ricoverati.imageAlt': 'Brand auf einem Dach in Chiasso, mit Feuerwehr im Einsatz',
+    'blog.article.hodler-dipinto-eredita-frontalieri.title': 'Hodler-Gemälde: Geschichte eines Grenzgängers',
+    'blog.article.hodler-dipinto-eredita-frontalieri.excerpt': 'Ein Gemälde von Hodler, das während des NS-Regimes unter Zwang verkauft wurde, kehrt zu den Erben zurück. Die Geschichte von Martha Nathan, Schweizer Bürgerin und Grenzgängerin',
+    'blog.article.hodler-dipinto-eredita-frontalieri.imageAlt': 'Gemälde von Ferdinand Hodler in einem Schweizer Museum',
 };
 
 export default blogMetaDe;

@@ -18884,4 +18884,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'hodler-dipinto-eredita-frontalieri',
+ category: 'novita',
+ date: '2026-05-04T18:41:51.577Z',
+ image: '/images/blog/hodler-dipinto-eredita-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
