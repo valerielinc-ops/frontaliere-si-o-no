@@ -5709,6 +5709,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.caro-benzina-varese-accise-2026.title': 'Prix essence : Varèse face aux taxes',
     'blog.article.caro-benzina-varese-accise-2026.excerpt': 'Après le pont du 1er mai, les distributeurs de carburant de la province de Varèse se sont retrouvés à sec. Voici comment les taxes compliquent la vie des gestionnaires.',
     'blog.article.caro-benzina-varese-accise-2026.imageAlt': 'Une station-service à Varese avec l\'affichage des prix de l\'essence',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.title': 'Meloni: coopération méditerranéenne pour gérer l\'immigration',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.excerpt': 'La Première ministre italienne souligne l\'importance de la coopération internationale pour relever les défis migratoires et leurs implications économiques et sociales.',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.imageAlt': 'Lac de Lugano avec travailleurs transfrontaliers à l\'arrière-plan',
 };
 
 export default blogMetaFr;

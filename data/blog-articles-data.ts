@@ -18497,4 +18497,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'meloni-cooperazione-mediterraneo-immigrazione',
+ category: 'novita',
+ date: '2026-05-04T10:42:36.599Z',
+ image: '/images/blog/meloni-cooperazione-mediterraneo-immigrazione.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

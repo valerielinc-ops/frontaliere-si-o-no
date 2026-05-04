@@ -5708,6 +5708,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caro-benzina-varese-accise-2026.title': 'Fuel price hike: Varesi petrol stations face tax and uncertainty',
     'blog.article.caro-benzina-varese-accise-2026.excerpt': 'After the 1st May bank holiday, fuel distributors in the province of Varese found themselves out of stock. Here\'s how taxes are complicating life for managers',
     'blog.article.caro-benzina-varese-accise-2026.imageAlt': 'A gas station in Varese with the fuel price display',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.title': 'Meloni: Mediterranean cooperation to manage immigration',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.excerpt': 'The Italian prime minister stresses the importance of international cooperation to address migration challenges and their economic and social implications.',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.imageAlt': 'Lake Lugano with cross-border workers in the background',
 };
 
 export default blogMetaEn;

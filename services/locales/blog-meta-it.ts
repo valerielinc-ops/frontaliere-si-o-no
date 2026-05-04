@@ -5709,6 +5709,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caro-benzina-varese-accise-2026.title': 'Caro benzina: benzinai varesini tra accise e incertezze',
     'blog.article.caro-benzina-varese-accise-2026.excerpt': 'Dopo il ponte del 1° maggio, i distributori di carburante della provincia di Varese si sono trovati a secco. Ecco come le accise stanno complicando la vita ai gestori',
     'blog.article.caro-benzina-varese-accise-2026.imageAlt': 'Una stazione di servizio a Varese con il display dei prezzi della benzina',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.title': 'Meloni: cooperazione con Mediterraneo per gestire l\'immigrazione',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.excerpt': 'La premier italiana sottolinea l\'importanza della cooperazione internazionale per affrontare le sfide migratorie e le loro implicazioni economiche e sociali.',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.imageAlt': 'Lago di Lugano con frontalieri sullo sfondo',
 };
 
 export default blogMetaIt;

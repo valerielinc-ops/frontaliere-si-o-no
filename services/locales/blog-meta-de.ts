@@ -5708,6 +5708,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caro-benzina-varese-accise-2026.title': 'Hohe Benzinpreise: Tankstellen in Varese zwischen Steuern und Unsicherheiten',
     'blog.article.caro-benzina-varese-accise-2026.excerpt': 'Nach dem 1. Mai-Feiertag waren die Tankstellen in der Provinz Varese leer. So erschweren die Steuern den Betreibern das Leben',
     'blog.article.caro-benzina-varese-accise-2026.imageAlt': 'Eine Tankstelle in Varese mit der Kraftstoffpreis-Anzeige',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.title': 'Meloni: Zusammenarbeit im Mittelmeer für Migrationsmanagement',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.excerpt': 'Die italienische Ministerpräsidentin betont die Bedeutung internationaler Zusammenarbeit, um die Migrationsherausforderungen und deren wirtschaftliche sowie soziale Auswirkungen zu bewältigen.',
+    'blog.article.meloni-cooperazione-mediterraneo-immigrazione.imageAlt': 'Luganersee mit Grenzgängern im Hintergrund',
 };
 
 export default blogMetaDe;
