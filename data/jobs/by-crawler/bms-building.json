@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-05-04T10:24:55.189Z",
+  "assembledAt": "2026-05-04T21:26:52.907Z",
   "jobs": [
     {
       "id": "bms-building-10d1e8489926",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/154-conseillerere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T10:24:52.774Z",
+      "crawledAt": "2026-05-04T21:26:50.581Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -91,6 +91,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T21:25:00.257Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -135,7 +136,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/151-conseiller-de-vente-shop-sanitaire-a-50-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T10:24:51.686Z",
+      "crawledAt": "2026-05-04T21:26:49.451Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -194,6 +195,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:08:51.535Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -238,7 +240,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/137-conseiller-de-vente-expo-cuisines-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-04T10:24:50.529Z",
+      "crawledAt": "2026-05-04T21:26:48.267Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
