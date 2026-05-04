@@ -82,12 +82,13 @@ const NOINDEX_BRIDGE = (slashUrl: string, title: string, ogTags: string): string
 <html lang="it">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${title}</title>
 <link rel="canonical" href="${slashUrl}">
 <meta name="robots" content="noindex,follow">${ogTags ? `\n${ogTags}` : ''}
 <script>location.replace(${JSON.stringify(slashUrl)} + window.location.search + window.location.hash)</script>
 </head>
-<body><a href="${slashUrl}">Continua su ${slashUrl}</a></body>
+<body><h1>${title}</h1><a href="${slashUrl}">Continua su ${slashUrl}</a></body>
 </html>`;
 
 interface FlatRedirectOptions {
