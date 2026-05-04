@@ -5534,6 +5534,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-playoff-lavagnese-2026.title': 'Varese erreicht die Play-offs: knapper Sieg gegen Lavagnese',
     'blog.article.varese-playoff-lavagnese-2026.excerpt': 'Varese besiegt die Lavagnese mit 3-2 und erreicht die Play-offs, dank eines entscheidenden Elfmeters in der Nachspielzeit. Das Team von Mister Ciceri trifft in der ersten Runde auf die Biellese.',
     'blog.article.varese-playoff-lavagnese-2026.imageAlt': 'Fußballspiel in Tessin mit Spielern in Aktion und der Schweizer-Italienischen Grenze im Hintergrund',
+    'blog.article.casa-hockey-ticino-novita.title': 'Das Eishockeyhaus: Neuigkeiten aus dem Schweizer Eishockey',
+    'blog.article.casa-hockey-ticino-novita.excerpt': 'Entdecken Sie die neuesten Entwicklungen im Schweizer Eishockey, mit Fokus auf aktuelle Ereignisse und Auswirkungen auf Grenzgänger.',
+    'blog.article.casa-hockey-ticino-novita.imageAlt': 'Ein Eishockeyspiel in der Cornèr Arena in Lugano, Tessin',
 };
 
 export default blogMetaDe;

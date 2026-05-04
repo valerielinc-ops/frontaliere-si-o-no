@@ -17975,4 +17975,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'casa-hockey-ticino-novita',
+ category: 'novita',
+ date: '2026-05-04T03:30:24.055Z',
+ image: '/images/blog/casa-hockey-ticino-novita.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

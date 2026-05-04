@@ -5534,6 +5534,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-playoff-lavagnese-2026.title': 'Varese reach playoffs with narrow win over Lavagnese',
     'blog.article.varese-playoff-lavagnese-2026.excerpt': 'Varese beat Lavagnese 3-2 and qualify for the playoffs, with a decisive penalty in stoppage time. Mister Ciceri\'s team will face Biellese in the first round.',
     'blog.article.varese-playoff-lavagnese-2026.imageAlt': 'Soccer match in Ticino with players in action and the Swiss-Italian border in the background',
+    'blog.article.casa-hockey-ticino-novita.title': 'The Hockey House: news and developments in Ticino hockey',
+    'blog.article.casa-hockey-ticino-novita.excerpt': 'Discover the latest news and developments in Ticino hockey, with a focus on recent events and implications for cross-border workers.',
+    'blog.article.casa-hockey-ticino-novita.imageAlt': 'A hockey game at the Cornèr Arena in Lugano, Ticino',
 };
 
 export default blogMetaEn;

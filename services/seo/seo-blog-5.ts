@@ -12443,6 +12443,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casa-hockey-ticino-novita': {
+    title: 'La Casa dell\'Hockey: novità e sviluppi nel mondo dell\'hockey ticinese',
+    description: 'Scopri le ultime novità e gli sviluppi nel mondo dell\'hockey ticinese, con focus sugli eventi recenti e le implicazioni per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, dell, hockey, novità',
+    ogTitle: 'La Casa dell\'Hockey: novità e sviluppi nel mondo dell\'hockey ticinese',
+    ogDescription: 'Scopri le ultime novità e gli sviluppi nel mondo dell\'hockey ticinese, con focus sugli eventi recenti e le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/casa-hockey-ticino-novita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Casa dell'Hockey: novità e sviluppi nel mondo dell'hockey ticinese",
+      "description": "Scopri le ultime novità e gli sviluppi nel mondo dell'hockey ticinese, con focus sugli eventi recenti e le implicazioni per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/casa-hockey-ticino-novita.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una partita di hockey alla Cornèr Arena di Lugano, Ticino"
+      },
+      "datePublished": "2026-05-04T03:30:24+00:00",
+      "dateModified": "2026-05-04T03:30:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casa-hockey-ticino-novita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
