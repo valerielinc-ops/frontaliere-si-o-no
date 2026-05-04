@@ -5477,6 +5477,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.title': 'Varese: event on psychological abuse and eating disorders',
     'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.excerpt': 'On Friday, May 8 in Varese, an event to reflect on the link between psychological mistreatment and eating difficulties.',
     'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.imageAlt': 'A group of people attending a public meeting in Varese, Italy, discussing mental health and eating disorders.',
+    'blog.article.retromarcia-contromano-faido-chiggiogna-2026.title': 'Foreign drivers risk fines on Faido-Chiggiogna',
+    'blog.article.retromarcia-contromano-faido-chiggiogna-2026.excerpt': 'Drivers with foreign plates risk fines and accidents to avoid A2 queues in Ticino.',
+    'blog.article.retromarcia-contromano-faido-chiggiogna-2026.imageAlt': 'Busy highway entrance at Faido-Chiggiogna with heavy traffic',
 };
 
 export default blogMetaEn;

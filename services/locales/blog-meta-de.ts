@@ -5477,6 +5477,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.title': 'Varese: Treffen zu psychischer Gewalt und Essstörungen',
     'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.excerpt': 'Am Freitag, den 8. Mai, findet in Varese eine Veranstaltung statt, um den Zusammenhang zwischen psychischer Misshandlung und Essstörungen zu reflektieren.',
     'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.imageAlt': 'Eine Gruppe von Menschen nimmt an einer öffentlichen Veranstaltung in Varese, Italien, teil, um über psychische Gesundheit und Essstörungen zu diskutieren.',
+    'blog.article.retromarcia-contromano-faido-chiggiogna-2026.title': 'Ausländer riskieren bei Faido-Chiggiogna',
+    'blog.article.retromarcia-contromano-faido-chiggiogna-2026.excerpt': 'Autofahrer mit ausländischem Kennzeichen riskieren Bußgelder und Unfälle, um Staus auf der A2 im Tessin zu vermeiden.',
+    'blog.article.retromarcia-contromano-faido-chiggiogna-2026.imageAlt': 'Belebter Autobahnzubringer in Faido-Chiggiogna mit starkem Verkehr',
 };
 
 export default blogMetaDe;

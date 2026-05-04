@@ -17804,4 +17804,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'retromarcia-contromano-faido-chiggiogna-2026',
+ category: 'pratico',
+ date: '2026-05-04T00:40:00.627Z',
+ image: '/images/blog/retromarcia-contromano-faido-chiggiogna-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

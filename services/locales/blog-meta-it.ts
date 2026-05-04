@@ -5478,6 +5478,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.title': 'Varese: incontro su violenza psicologica e disturbi alimentari',
     'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.excerpt': 'Venerdì 8 maggio a Varese un evento per riflettere sul legame tra maltrattamento psicologico e disagio alimentare.',
     'blog.article.varese-incontro-violenza-psicologica-disturbi-alimentari.imageAlt': 'Un gruppo di persone partecipa a un incontro pubblico a Varese, Italia, per discutere di salute mentale e disturbi alimentari.',
+    'blog.article.retromarcia-contromano-faido-chiggiogna-2026.title': 'Automobilisti stranieri rischiano a Faido-Chiggiogna',
+    'blog.article.retromarcia-contromano-faido-chiggiogna-2026.excerpt': 'Automobilisti con targa straniera rischiano multe e incidenti per evitare code sull\'A2 in Ticino.',
+    'blog.article.retromarcia-contromano-faido-chiggiogna-2026.imageAlt': 'Ingresso autostradale di Faido-Chiggiogna con traffico intenso',
 };
 
 export default blogMetaIt;

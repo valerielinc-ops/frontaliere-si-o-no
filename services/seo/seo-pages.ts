@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1878,
+ "numberOfItems": 1879,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6516,7 +6516,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1875, "name": "Como, caos taxi boat: 600 imbarcazioni in un so...", "url": `${BASE_URL}/articoli-frontaliere/ingorgo-taxi-boat-como-2026` },
           { "@type": "ListItem", "position": 1876, "name": "Cantù, controlli nei locali: trovato un lavorat...", "url": `${BASE_URL}/articoli-frontaliere/controlli-cantu-movida-nero-2026` },
           { "@type": "ListItem", "position": 1877, "name": "Como-Napoli 0-0: Nico Paz brilla, ma Douvikas e...", "url": `${BASE_URL}/articoli-frontaliere/como-napoli-pareggio-2026` },
-          { "@type": "ListItem", "position": 1878, "name": "Varese: incontro su violenza psicologica e dist...", "url": `${BASE_URL}/articoli-frontaliere/varese-incontro-violenza-psicologica-disturbi-alimentari` }
+          { "@type": "ListItem", "position": 1878, "name": "Varese: incontro su violenza psicologica e dist...", "url": `${BASE_URL}/articoli-frontaliere/varese-incontro-violenza-psicologica-disturbi-alimentari` },
+          { "@type": "ListItem", "position": 1879, "name": "Automobilisti stranieri rischiano a Faido-Chigg...", "url": `${BASE_URL}/articoli-frontaliere/retromarcia-contromano-faido-chiggiogna-2026` }
  ]
  },
  {
