@@ -5595,6 +5595,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lugano-renato-steffen-goal-staffa.title': 'Lugano trionfa con il goal di Renato Steffen',
     'blog.article.lugano-renato-steffen-goal-staffa.excerpt': 'Renato Steffen segna il goal decisivo per il Lugano contro il Thun, assicurando la vittoria finale.',
     'blog.article.lugano-renato-steffen-goal-staffa.imageAlt': 'Stadio Cornaredo a Lugano durante una partita di calcio',
+    'blog.article.tribunale-federale-giudici-conviventi-2026.title': 'Giudici del Tribunale federale conviventi: la Corte dovrà chiarire',
+    'blog.article.tribunale-federale-giudici-conviventi-2026.excerpt': 'Due giudici del Tribunale federale potrebbero aver violato la legge sulla composizione della suprema corte',
+    'blog.article.tribunale-federale-giudici-conviventi-2026.imageAlt': 'Interno del Palazzo federale di Bellinzona, con dettagli architettonici e marmo',
 };
 
 export default blogMetaIt;

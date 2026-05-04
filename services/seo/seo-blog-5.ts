@@ -13123,6 +13123,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tribunale-federale-giudici-conviventi-2026': {
+    title: 'Giudici del Tribunale federale conviventi: la Corte dovrà chiarire',
+    description: 'Due giudici del Tribunale federale potrebbero aver violato la legge sulla composizione della suprema corte. La Corte dovrà decidere se riaprire le sentenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giudici, tribunale, federale, conviventi',
+    ogTitle: 'Giudici del Tribunale federale conviventi: la Corte dovrà chiarire',
+    ogDescription: 'Due giudici del Tribunale federale potrebbero aver violato la legge sulla composizione della suprema corte. La Corte dovrà decidere se riaprire le sentenze.',
+    canonicalPath: '/articoli-frontaliere/tribunale-federale-giudici-conviventi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giudici del Tribunale federale conviventi: la Corte dovrà chiarire",
+      "description": "Due giudici del Tribunale federale potrebbero aver violato la legge sulla composizione della suprema corte. La Corte dovrà decidere se riaprire le sentenze.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tribunale-federale-giudici-conviventi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno del Palazzo federale di Bellinzona, con dettagli architettonici e marmo"
+      },
+      "datePublished": "2026-05-04T05:51:33+00:00",
+      "dateModified": "2026-05-04T05:51:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tribunale-federale-giudici-conviventi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

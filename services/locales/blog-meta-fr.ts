@@ -5595,6 +5595,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lugano-renato-steffen-goal-staffa.title': 'Lugano triomphe grâce au but de Renato Steffen',
     'blog.article.lugano-renato-steffen-goal-staffa.excerpt': 'Renato Steffen marque le but décisif pour Lugano contre Thun, assurant la victoire finale.',
     'blog.article.lugano-renato-steffen-goal-staffa.imageAlt': 'Stade Cornaredo à Lugano lors d\'un match de football',
+    'blog.article.tribunale-federale-giudici-conviventi-2026.title': 'Juges du Tribunal fédéral cohabitants : la Cour devra éclaircir',
+    'blog.article.tribunale-federale-giudici-conviventi-2026.excerpt': 'Deux juges du Tribunal fédéral auraient pu violer la loi sur la composition de la cour suprême',
+    'blog.article.tribunale-federale-giudici-conviventi-2026.imageAlt': 'Intérieur du Palais fédéral de Bellinzona, avec des détails architecturaux et du marbre',
 };
 
 export default blogMetaFr;

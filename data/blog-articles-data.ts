@@ -18155,4 +18155,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tribunale-federale-giudici-conviventi-2026',
+ category: 'novita',
+ date: '2026-05-04T05:51:33.305Z',
+ image: '/images/blog/tribunale-federale-giudici-conviventi-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
