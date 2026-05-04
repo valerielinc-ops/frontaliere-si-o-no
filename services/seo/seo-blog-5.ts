@@ -14959,6 +14959,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendio-chiasso-palazzina-evacuati-30': {
+    title: 'Incendio a Chiasso: evacuati 30 residenti da una palazzina',
+    description: 'Un incendio sul tetto di una palazzina a Chiasso ha portato all\'evacuazione di 30 persone. Due operai sono rimasti leggermente feriti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendio, chiasso, evacuati, residenti',
+    ogTitle: 'Incendio a Chiasso: evacuati 30 residenti',
+    ogDescription: 'Un incendio sul tetto di una palazzina a Chiasso ha portato all\'evacuazione di 30 persone. Due operai sono rimasti leggermente feriti.',
+    canonicalPath: '/articoli-frontaliere/incendio-chiasso-palazzina-evacuati-30',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendio a Chiasso: evacuati 30 residenti da una palazzina",
+      "description": "Un incendio sul tetto di una palazzina a Chiasso ha portato all'evacuazione di 30 persone. Due operai sono rimasti leggermente feriti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendio-chiasso-palazzina-evacuati-30.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incendio sul tetto di una palazzina a Chiasso, con pompieri al lavoro e residenti evacuati"
+      },
+      "datePublished": "2026-05-04T13:27:17+00:00",
+      "dateModified": "2026-05-04T13:27:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendio-chiasso-palazzina-evacuati-30`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

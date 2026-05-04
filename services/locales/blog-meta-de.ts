@@ -5756,6 +5756,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gallarate-fs-security-2027.title': 'Ab 2027 Sicherheitspräsenz am Bahnhof Gallarate',
     'blog.article.gallarate-fs-security-2027.excerpt': 'Neue Sicherheitspräsenz am Bahnhof Gallarate ab 2027, mit rund um die Uhr aktiven Mitarbeitern.',
     'blog.article.gallarate-fs-security-2027.imageAlt': 'Bahnhof Gallarate mit Fs Security Präsenz',
+    'blog.article.incendio-chiasso-palazzina-evacuati-30.title': 'Brand in Chiasso: 30 Bewohner evakuiert',
+    'blog.article.incendio-chiasso-palazzina-evacuati-30.excerpt': 'Ein Brand auf dem Dach eines Mehrfamilienhauses in Chiasso hat zur Evakuierung von 30 Personen geführt. Zwei Arbeiter wurden leicht verletzt.',
+    'blog.article.incendio-chiasso-palazzina-evacuati-30.imageAlt': 'Brand auf dem Dach eines Gebäudes in Chiasso, mit Feuerwehrleuten im Einsatz und evakuierten Bewohnern',
 };
 
 export default blogMetaDe;

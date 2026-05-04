@@ -5757,6 +5757,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gallarate-fs-security-2027.title': 'Poste de sécurité Fs à Gallarate dès 2027',
     'blog.article.gallarate-fs-security-2027.excerpt': 'Nouveau poste de sécurité à la gare de Gallarate dès 2027, avec des opérateurs actifs 24 heures sur 24.',
     'blog.article.gallarate-fs-security-2027.imageAlt': 'Gare de Gallarate avec présence de Fs Security',
+    'blog.article.incendio-chiasso-palazzina-evacuati-30.title': 'Incendie à Chiasso: 30 résidents évacués d\'un immeuble',
+    'blog.article.incendio-chiasso-palazzina-evacuati-30.excerpt': 'Un incendie sur le toit d\'un immeuble à Chiasso a conduit à l\'évacuation de 30 personnes. Deux ouvriers ont été légèrement blessés.',
+    'blog.article.incendio-chiasso-palazzina-evacuati-30.imageAlt': 'Incendie sur le toit d\'un immeuble à Chiasso, avec des pompiers en action et des résidents évacués',
 };
 
 export default blogMetaFr;

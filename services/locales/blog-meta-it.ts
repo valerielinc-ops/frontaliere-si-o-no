@@ -5757,6 +5757,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gallarate-fs-security-2027.title': 'Dal 2027 presidio Fs Security alla stazione di Gallarate',
     'blog.article.gallarate-fs-security-2027.excerpt': 'Nuovo presidio di sicurezza alla stazione di Gallarate dal 2027, con operatori attivi 24 ore su 24.',
     'blog.article.gallarate-fs-security-2027.imageAlt': 'Stazione di Gallarate con presenza di sicurezza Fs Security',
+    'blog.article.incendio-chiasso-palazzina-evacuati-30.title': 'Incendio a Chiasso: evacuati 30 residenti da una palazzina',
+    'blog.article.incendio-chiasso-palazzina-evacuati-30.excerpt': 'Un incendio sul tetto di una palazzina a Chiasso ha portato all\'evacuazione di 30 persone. Due operai sono rimasti leggermente feriti.',
+    'blog.article.incendio-chiasso-palazzina-evacuati-30.imageAlt': 'Incendio sul tetto di una palazzina a Chiasso, con pompieri al lavoro e residenti evacuati',
 };
 
 export default blogMetaIt;

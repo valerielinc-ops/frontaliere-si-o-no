@@ -18641,4 +18641,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incendio-chiasso-palazzina-evacuati-30',
+ category: 'novita',
+ date: '2026-05-04T13:27:17.959Z',
+ image: '/images/blog/incendio-chiasso-palazzina-evacuati-30.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
