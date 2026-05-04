@@ -12477,6 +12477,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tessile-arte-giovani-generazioni-como': {
+    title: 'Tessile diventa arte: evento a Como con oltre 150 partecipanti',
+    description: 'Scopri come il tessile diventa arte nell\'evento \'Trame in Trasformazione\' a Como, con la partecipazione di giovani talenti e professionisti del settore.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tessile, diventa, arte, evento',
+    ogTitle: 'Tessile diventa arte: evento a Como con oltre 150 partecipanti',
+    ogDescription: 'Scopri come il tessile diventa arte nell\'evento \'Trame in Trasformazione\' a Como, con la partecipazione di giovani talenti e professionisti del settore.',
+    canonicalPath: '/articoli-frontaliere/tessile-arte-giovani-generazioni-como',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tessile diventa arte: evento a Como con oltre 150 partecipanti",
+      "description": "Scopri come il tessile diventa arte nell'evento 'Trame in Trasformazione' a Como, con la partecipazione di giovani talenti e professionisti del settore.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tessile-arte-giovani-generazioni-como.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani artisti creano disegni tessili in una storica azienda comasca"
+      },
+      "datePublished": "2026-05-04T03:36:46+00:00",
+      "dateModified": "2026-05-04T03:36:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tessile-arte-giovani-generazioni-como`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5537,6 +5537,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casa-hockey-ticino-novita.title': 'Das Eishockeyhaus: Neuigkeiten aus dem Schweizer Eishockey',
     'blog.article.casa-hockey-ticino-novita.excerpt': 'Entdecken Sie die neuesten Entwicklungen im Schweizer Eishockey, mit Fokus auf aktuelle Ereignisse und Auswirkungen auf Grenzgänger.',
     'blog.article.casa-hockey-ticino-novita.imageAlt': 'Ein Eishockeyspiel in der Cornèr Arena in Lugano, Tessin',
+    'blog.article.tessile-arte-giovani-generazioni-como.title': 'Textil wird Kunst: Event in Como mit über 150 Teilnehmern',
+    'blog.article.tessile-arte-giovani-generazioni-como.excerpt': 'Das Event \'Trame in Trasformazione\' bei Seterie Argenti sah die Teilnahme junger Talente und Fachleute der Textilbranche.',
+    'blog.article.tessile-arte-giovani-generazioni-como.imageAlt': 'Junge Künstler erstellen Textildesigns in einer historischen Fabrik in Como',
 };
 
 export default blogMetaDe;

@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1898,
+ "numberOfItems": 1899,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6536,7 +6536,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1895, "name": "Motociclista ferito sulla strada del Maloja", "url": `${BASE_URL}/articoli-frontaliere/incidente-maloja-frontaliere-2026` },
           { "@type": "ListItem", "position": 1896, "name": "FC Thun campione di Super League: festa a Thun ...", "url": `${BASE_URL}/articoli-frontaliere/thun-campionato-calcio-2026-festa-thun` },
           { "@type": "ListItem", "position": 1897, "name": "Varese ai playoff: vittoria sofferta contro la ...", "url": `${BASE_URL}/articoli-frontaliere/varese-playoff-lavagnese-2026` },
-          { "@type": "ListItem", "position": 1898, "name": "La Casa dell'Hockey: novità e sviluppi nel mond...", "url": `${BASE_URL}/articoli-frontaliere/casa-hockey-ticino-novita` }
+          { "@type": "ListItem", "position": 1898, "name": "La Casa dell'Hockey: novità e sviluppi nel mond...", "url": `${BASE_URL}/articoli-frontaliere/casa-hockey-ticino-novita` },
+          { "@type": "ListItem", "position": 1899, "name": "Tessile diventa arte: evento a Como con oltre 1...", "url": `${BASE_URL}/articoli-frontaliere/tessile-arte-giovani-generazioni-como` }
  ]
  },
  {

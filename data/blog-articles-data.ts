@@ -17984,4 +17984,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tessile-arte-giovani-generazioni-como',
+ category: 'novita',
+ date: '2026-05-04T03:36:46.753Z',
+ image: '/images/blog/tessile-arte-giovani-generazioni-como.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

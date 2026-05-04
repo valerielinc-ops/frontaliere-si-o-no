@@ -5538,6 +5538,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casa-hockey-ticino-novita.title': 'La Casa dell\'Hockey: novità e sviluppi nel mondo dell\'hockey ticinese',
     'blog.article.casa-hockey-ticino-novita.excerpt': 'Scopri le ultime novità e gli sviluppi nel mondo dell\'hockey ticinese, con focus sugli eventi recenti e le implicazioni per i frontalieri.',
     'blog.article.casa-hockey-ticino-novita.imageAlt': 'Una partita di hockey alla Cornèr Arena di Lugano, Ticino',
+    'blog.article.tessile-arte-giovani-generazioni-como.title': 'Tessile diventa arte: evento a Como con oltre 150 partecipanti',
+    'blog.article.tessile-arte-giovani-generazioni-como.excerpt': 'L\'evento \'Trame in Trasformazione\' presso Seterie Argenti ha visto la partecipazione di giovani talenti e professionisti del settore tessile.',
+    'blog.article.tessile-arte-giovani-generazioni-como.imageAlt': 'Giovani artisti creano disegni tessili in una storica azienda comasca',
 };
 
 export default blogMetaIt;
