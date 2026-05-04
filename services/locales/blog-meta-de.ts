@@ -5909,6 +5909,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bando-restauro-beni-culturali-lombardia.title': '21,5 Millionen für den Erhalt lombardischer Kulturgüter',
     'blog.article.bando-restauro-beni-culturali-lombardia.excerpt': 'Die Region Lombardei und die Fondazione Cariplo finanzieren Projekte zur Umwandlung öffentlicher Immobilien in kulturelle Zentren. Bewerbungen bis zum 24. Juni 2026.',
     'blog.article.bando-restauro-beni-culturali-lombardia.imageAlt': 'Historisches Gebäude in der Lombardei im Wiederaufbau mit Arbeitern',
+    'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.title': 'Andrea und der Kampf gegen Kinderleukämien',
+    'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.excerpt': 'Die Geschichte von Andrea, einem Kind, das gegen Leukämie kämpfte, inspirierte die Gründung eines Vereins, der die Forschung gegen Kinderleukämien unterstützt.',
+    'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.imageAlt': 'Eine Gemeinschaftsveranstaltung in Lugano zur Unterstützung der Forschung gegen Kinderleukämie',
 };
 
 export default blogMetaDe;

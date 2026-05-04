@@ -19100,4 +19100,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'insieme-ad-andrea-si-puo-ricerca-leucemie-infantili',
+ category: 'novita',
+ date: '2026-05-04T22:19:19.286Z',
+ image: '/images/blog/insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

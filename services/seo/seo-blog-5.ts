@@ -16693,6 +16693,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-insieme-ad-andrea-si-puo-ricerca-leucemie-infantili': {
+    title: 'Andrea e la lotta contro le leucemie infantili | Frontaliere Ticino',
+    description: 'La storia di Andrea ha ispirato la nascita di un\'associazione che sostiene la ricerca contro le leucemie infantili. Scopri come sostenere la causa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, andrea, lotta, contro, leucemie',
+    ogTitle: 'Insieme ad Andrea si può: ricerca contro leucemie infantili',
+    ogDescription: 'La storia di Andrea ha ispirato la nascita di un\'associazione che sostiene la ricerca contro le leucemie infantili. Scopri come sostenere la causa.',
+    canonicalPath: '/articoli-frontaliere/insieme-ad-andrea-si-puo-ricerca-leucemie-infantili',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Andrea e la lotta contro le leucemie infantili",
+      "description": "La storia di Andrea ha ispirato la nascita di un'associazione che sostiene la ricerca contro le leucemie infantili. Scopri come sostenere la causa.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un evento comunitario a Lugano per sostenere la ricerca contro le leucemie infantili"
+      },
+      "datePublished": "2026-05-04T22:19:19+00:00",
+      "dateModified": "2026-05-04T22:19:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/insieme-ad-andrea-si-puo-ricerca-leucemie-infantili`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

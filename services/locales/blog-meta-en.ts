@@ -5909,6 +5909,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bando-restauro-beni-culturali-lombardia.title': '21.5 million for restoring Lombardy\'s cultural heritage',
     'blog.article.bando-restauro-beni-culturali-lombardia.excerpt': 'Lombardy Region and Fondazione Cariplo fund projects to transform public properties into cultural hubs. Applications due by June 24, 2026.',
     'blog.article.bando-restauro-beni-culturali-lombardia.imageAlt': 'Historic building under restoration in Lombardy with workers at work',
+    'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.title': 'Andrea\'s fight against childhood leukaemia',
+    'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.excerpt': 'The story of Andrea, a child who fought leukaemia, inspired the creation of an association supporting research against childhood leukaemia.',
+    'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.imageAlt': 'A community event in Lugano supporting research against childhood leukemia',
 };
 
 export default blogMetaEn;

@@ -5910,6 +5910,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bando-restauro-beni-culturali-lombardia.title': '21,5 milioni per il restauro dei beni culturali lombardi',
     'blog.article.bando-restauro-beni-culturali-lombardia.excerpt': 'Regione Lombardia e Fondazione Cariplo finanziano progetti per trasformare immobili pubblici in hub culturali. Domande entro il 24 giugno 2026.',
     'blog.article.bando-restauro-beni-culturali-lombardia.imageAlt': 'Edificio storico in restauro in Lombardia con operai al lavoro',
+    'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.title': 'Andrea e la lotta contro le leucemie infantili',
+    'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.excerpt': 'La storia di Andrea, un bambino che ha lottato contro la leucemia, ha ispirato la nascita di un\'associazione che sostiene la ricerca contro le leucemie infantili.',
+    'blog.article.insieme-ad-andrea-si-puo-ricerca-leucemie-infantili.imageAlt': 'Un evento comunitario a Lugano per sostenere la ricerca contro le leucemie infantili',
 };
 
 export default blogMetaIt;
