@@ -5738,6 +5738,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mezzo-milione-franchi-progetti-luganese-2026.title': '500\'000 Franken für Projekte in Lugano: So bewerben Sie sich',
     'blog.article.mezzo-milione-franchi-progetti-luganese-2026.excerpt': 'Die Ersl stellt 500\'000 Franken für Projekte im Luganertal zur Verfügung. Erfahren Sie, wie Sie die Beiträge beantragen und welche Auswahlkriterien gelten.',
     'blog.article.mezzo-milione-franchi-progetti-luganese-2026.imageAlt': 'Luftaufnahme von Lugano, Tessin, Schweiz, mit See und Bergen',
+    'blog.article.tragedia-bellinzona-folgorazione-2026.title': 'Tragödie am Bahnhof Bellinzona: Mann durch Bahnstrom getötet',
+    'blog.article.tragedia-bellinzona-folgorazione-2026.excerpt': 'Ein Mann wurde durch Bahnstrom am Bahnhof Bellinzona getötet. Die Ermittlungen laufen.',
+    'blog.article.tragedia-bellinzona-folgorazione-2026.imageAlt': 'Bellinzona Bahnhof bei Nacht mit Notbeleuchtung und Polizeifahrzeugen',
 };
 
 export default blogMetaDe;

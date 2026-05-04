@@ -14755,6 +14755,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tragedia-bellinzona-folgorazione-2026': {
+    title: 'Tragedia alla stazione di Bellinzona: muore folgorato dalla linea ferroviaria',
+    description: 'Un uomo è morto folgorato dalla linea ferroviaria alla stazione di Bellinzona. Le indagini sono in corso. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tragedia, alla, stazione, bellinzona',
+    ogTitle: 'Tragedia alla stazione di Bellinzona: muore folgorato dalla linea ferroviaria',
+    ogDescription: 'Un uomo è morto folgorato dalla linea ferroviaria alla stazione di Bellinzona. Le indagini sono in corso.',
+    canonicalPath: '/articoli-frontaliere/tragedia-bellinzona-folgorazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tragedia alla stazione di Bellinzona: muore folgorato dalla linea ferroviaria",
+      "description": "Un uomo è morto folgorato dalla linea ferroviaria alla stazione di Bellinzona. Le indagini sono in corso. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tragedia-bellinzona-folgorazione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Bellinzona di notte con luci di emergenza e veicoli della polizia"
+      },
+      "datePublished": "2026-05-04T12:14:13+00:00",
+      "dateModified": "2026-05-04T12:14:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-bellinzona-folgorazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

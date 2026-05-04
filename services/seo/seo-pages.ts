@@ -4662,7 +4662,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 1965,
+ "numberOfItems": 1966,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -6603,7 +6603,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 1962, "name": "Proposte 2026 a Cernobbio: mercato tessile da 1...", "url": `${BASE_URL}/articoli-frontaliere/proposte-cernobbio-2026-tessile` },
           { "@type": "ListItem", "position": 1963, "name": "Confisca preventiva: Cappa propone modello ital...", "url": `${BASE_URL}/articoli-frontaliere/confisca-preventiva-mafie-svizzera` },
           { "@type": "ListItem", "position": 1964, "name": "Ospedale Erba: massaggi e make-up per pazienti ...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-erba-cura-oncologiche-2026` },
-          { "@type": "ListItem", "position": 1965, "name": "Mezzo milione per progetti nel Luganese: come p...", "url": `${BASE_URL}/articoli-frontaliere/mezzo-milione-franchi-progetti-luganese-2026` }
+          { "@type": "ListItem", "position": 1965, "name": "Mezzo milione per progetti nel Luganese: come p...", "url": `${BASE_URL}/articoli-frontaliere/mezzo-milione-franchi-progetti-luganese-2026` },
+          { "@type": "ListItem", "position": 1966, "name": "Tragedia alla stazione di Bellinzona: muore fol...", "url": `${BASE_URL}/articoli-frontaliere/tragedia-bellinzona-folgorazione-2026` }
  ]
  },
  {

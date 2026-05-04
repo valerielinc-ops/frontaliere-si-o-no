@@ -5738,6 +5738,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mezzo-milione-franchi-progetti-luganese-2026.title': '500,000 francs for Lugano projects: how to apply',
     'blog.article.mezzo-milione-franchi-progetti-luganese-2026.excerpt': 'Ersl offers 500,000 francs for projects in Lugano. Learn how to request contributions and selection criteria.',
     'blog.article.mezzo-milione-franchi-progetti-luganese-2026.imageAlt': 'Aerial view of Lugano, Ticino, Switzerland, with lake and mountains',
+    'blog.article.tragedia-bellinzona-folgorazione-2026.title': 'Tragedy at Bellinzona station: man electrocuted on railway line',
+    'blog.article.tragedia-bellinzona-folgorazione-2026.excerpt': 'A man has died after being electrocuted by the railway line at Bellinzona station. Investigations are ongoing.',
+    'blog.article.tragedia-bellinzona-folgorazione-2026.imageAlt': 'Bellinzona train station at night with emergency lights and police vehicles',
 };
 
 export default blogMetaEn;
