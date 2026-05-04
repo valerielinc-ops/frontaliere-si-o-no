@@ -3167,6 +3167,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendio-chiasso-evacuati-trentina-persone': { name: 'Incendio Chiasso', path: '/articoli-frontaliere/incendio-chiasso-evacuati-trentina-persone', parent: 'blog' },
     'blog-lotta-zanzara-tigre-mendrisio': { name: 'Lotta zanzara tigre', path: '/articoli-frontaliere/lotta-zanzara-tigre-mendrisio', parent: 'blog' },
     'blog-inaugurato-nuovo-cardiocentro-ticino': { name: 'Novità', path: '/articoli-frontaliere/inaugurato-nuovo-cardiocentro-ticino', parent: 'blog' },
+    'blog-guardia-finanza-carburanti-como-2026': { name: 'Novità', path: '/articoli-frontaliere/guardia-finanza-carburanti-como-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

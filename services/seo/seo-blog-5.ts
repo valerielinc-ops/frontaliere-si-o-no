@@ -15163,6 +15163,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guardia-finanza-carburanti-como-2026': {
+    title: 'Guardia di Finanza: controlli sui carburanti a Como',
+    description: 'Quattro distributori multati per violazioni sui prezzi della benzina. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, guardia, finanza, controlli, carburanti',
+    ogTitle: 'Guardia di Finanza: controlli sui carburanti a Como',
+    ogDescription: 'Quattro distributori multati per violazioni sui prezzi della benzina. Ecco cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/guardia-finanza-carburanti-como-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guardia di Finanza: controlli sui carburanti a Como",
+      "description": "Quattro distributori multati per violazioni sui prezzi della benzina. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/guardia-finanza-carburanti-como-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con Como sullo sfondo"
+      },
+      "datePublished": "2026-05-04T14:47:45+00:00",
+      "dateModified": "2026-05-04T14:47:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guardia-finanza-carburanti-como-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -5775,6 +5775,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inaugurato-nuovo-cardiocentro-ticino.title': 'Inaugurato il nuovo Cardiocentro Ticino',
     'blog.article.inaugurato-nuovo-cardiocentro-ticino.excerpt': 'Il nuovo Cardiocentro Ticino offre servizi integrati e migliorata assistenza specialistica per il territorio. Inaugurato a Lugano il 4 maggio 2026.',
     'blog.article.inaugurato-nuovo-cardiocentro-ticino.imageAlt': 'Vista aerea del nuovo Cardiocentro a Lugano, Svizzera, con architettura moderna e paesaggio urbano circostante.',
+    'blog.article.guardia-finanza-carburanti-como-2026.title': 'Guardia di Finanza: controlli sui carburanti a Como',
+    'blog.article.guardia-finanza-carburanti-como-2026.excerpt': 'Quattro distributori multati per violazioni sui prezzi della benzina. Ecco cosa cambia per i frontalieri.',
+    'blog.article.guardia-finanza-carburanti-como-2026.imageAlt': 'Vista aerea del Lago di Lugano con Como sullo sfondo',
 };
 
 export default blogMetaIt;

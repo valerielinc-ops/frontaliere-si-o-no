@@ -18695,4 +18695,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'guardia-finanza-carburanti-como-2026',
+ category: 'novita',
+ date: '2026-05-04T14:47:45.652Z',
+ image: '/images/blog/guardia-finanza-carburanti-como-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
