@@ -5493,6 +5493,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cof-lanzo-igiene-mani-2026.title': 'COF Lanzo aderisce alla Campagna mondiale per l’igiene delle mani',
     'blog.article.cof-lanzo-igiene-mani-2026.excerpt': 'Il COF Lanzo Hospital conferma il suo sostegno alla Campagna mondiale per l’igiene delle mani, promossa dall’OMS e dal Ministero della Salute.',
     'blog.article.cof-lanzo-igiene-mani-2026.imageAlt': 'Un professionista sanitario lava le mani in un ospedale svizzero, con attenzione all\'igiene e alla pulizia.',
+    'blog.article.grasshopper-zeidler-allenatore-2026.title': 'Peter Zeidler nuovo tecnico del Grasshopper',
+    'blog.article.grasshopper-zeidler-allenatore-2026.excerpt': 'Peter Zeidler è stato nominato nuovo allenatore del Grasshopper, con l\'obiettivo di mantenere la squadra in Super League.',
+    'blog.article.grasshopper-zeidler-allenatore-2026.imageAlt': 'Stadio Cornaredo a Lugano, partita di calcio Grasshopper contro Servette',
 };
 
 export default blogMetaIt;

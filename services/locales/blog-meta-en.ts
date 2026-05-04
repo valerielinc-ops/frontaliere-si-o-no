@@ -5492,6 +5492,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cof-lanzo-igiene-mani-2026.title': 'COF Lanzo joins the Global Hand Hygiene Campaign',
     'blog.article.cof-lanzo-igiene-mani-2026.excerpt': 'COF Lanzo Hospital confirms its support for the Global Hand Hygiene Campaign, promoted by the WHO and the Ministry of Health.',
     'blog.article.cof-lanzo-igiene-mani-2026.imageAlt': 'A healthcare professional washing hands in a Swiss hospital, focusing on hygiene and cleanliness.',
+    'blog.article.grasshopper-zeidler-allenatore-2026.title': 'Peter Zeidler new Grasshopper coach',
+    'blog.article.grasshopper-zeidler-allenatore-2026.excerpt': 'Peter Zeidler has been appointed as the new coach of Grasshopper, aiming to keep the team in Super League.',
+    'blog.article.grasshopper-zeidler-allenatore-2026.imageAlt': 'Cornaredo Stadium in Lugano, Grasshopper vs Servette soccer match',
 };
 
 export default blogMetaEn;

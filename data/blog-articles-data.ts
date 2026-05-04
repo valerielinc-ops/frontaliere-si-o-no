@@ -17849,4 +17849,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'grasshopper-zeidler-allenatore-2026',
+ category: 'novita',
+ date: '2026-05-04T01:20:31.746Z',
+ image: '/images/blog/grasshopper-zeidler-allenatore-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

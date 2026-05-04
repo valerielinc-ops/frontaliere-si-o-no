@@ -3073,6 +3073,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tragedia-falleatsche-frontalieri': { name: 'Tragedia Fallätsche', path: '/articoli-frontaliere/tragedia-falleatsche-frontalieri', parent: 'blog' },
     'blog-verbania-clandestino-espulsione-2026': { name: 'Novità', path: '/articoli-frontaliere/verbania-clandestino-espulsione-2026', parent: 'blog' },
     'blog-cof-lanzo-igiene-mani-2026': { name: 'Novità', path: '/articoli-frontaliere/cof-lanzo-igiene-mani-2026', parent: 'blog' },
+    'blog-grasshopper-zeidler-allenatore-2026': { name: 'Novità', path: '/articoli-frontaliere/grasshopper-zeidler-allenatore-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
