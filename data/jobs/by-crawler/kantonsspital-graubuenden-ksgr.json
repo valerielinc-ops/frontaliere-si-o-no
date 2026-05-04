@@ -313,13 +313,11 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-04T11:09:50.180Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur"
@@ -445,13 +443,11 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-04T11:09:50.180Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "berufslehre-medizinische-r-praxisassistent-in-kantonsspital-graubunden-chur"
@@ -714,7 +710,8 @@
       "firstSeenAt": "2026-05-04T11:09:50.180Z",
       "previousSlugs": [
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
-        "diet-chef-kantonsspital-graubunden-chur"
+        "diet-chef-kantonsspital-graubunden-chur",
+        "berufslehre-kochin-koch-kantonsspital-graubunden-chur"
       ]
     },
     {
@@ -1357,12 +1354,13 @@
           "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-20T21:51:49.023Z"
+      "firstSeenAt": "2026-04-20T21:51:49.023Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "10002111",
@@ -5725,7 +5723,8 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
